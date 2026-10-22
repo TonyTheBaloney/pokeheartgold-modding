@@ -4,20 +4,20 @@
 #include "macros/script.inc"
 
 
-	ScrDef scr_seq_T21_000
-	ScrDef scr_seq_T21_001
-	ScrDef scr_seq_T21_002
-	ScrDef scr_seq_T21_003
-	ScrDef scr_seq_T21_004
-	ScrDef scr_seq_T21_005
-	ScrDef scr_seq_T21_006
-	ScrDef scr_seq_T21_007
-	ScrDef scr_seq_T21_008
-	ScrDef scr_seq_T21_009
-	ScrDef scr_seq_T21_010
+	ScrDef Cherrygrove_EventScript_GuideGent
+	ScrDef Cherrygrove_EventScript_GuideGentTour
+	ScrDef Cherrygrove_EventScript_GuideGentMapCard
+	ScrDef Cherrygrove_EventScript_RivalBattle
+	ScrDef Cherrygrove_EventScript_MysticWaterMan
+	ScrDef Cherrygrove_EventScript_GuideGentsHouseSign
+	ScrDef Cherrygrove_EventScript_CitySign
+	ScrDef Cherrygrove_EventScript_Boy
+	ScrDef Cherrygrove_EventScript_Woman
+	ScrDef Cherrygrove_EventScript_Cameron
+	ScrDef Cherrygrove_OnTransition
 	ScrDefEnd
 
-scr_seq_T21_010:
+Cherrygrove_OnTransition:
 	GoToIfUnset FLAG_UNK_189, _003F
 	ClearFlag FLAG_UNK_189
 	End
@@ -41,10 +41,10 @@ _0083:
 	ClearFlag FLAG_HIDE_CAMERON
 	End
 
-scr_seq_T21_000:
+Cherrygrove_EventScript_GuideGent:
 	End
 
-scr_seq_T21_001:
+Cherrygrove_EventScript_GuideGentTour:
 	Lock obj_T21_gsoldman1
 	ApplyMovement obj_T21_gsoldman1, _0350
 	WaitMovement
@@ -446,7 +446,7 @@ _0588:
 	WalkNormalNorth
 	EndMovement
 
-scr_seq_T21_002:
+Cherrygrove_EventScript_GuideGentMapCard:
 	FollowMonResetMovement
 	LockAll
 	ApplyMovement obj_player, _0680
@@ -531,7 +531,7 @@ _06AC:
 	WalkFastSouth 9
 	EndMovement
 
-scr_seq_T21_003:
+Cherrygrove_EventScript_RivalBattle:
 	FollowMonResetMovement
 	LockAll
 	FadeOutBGM 0, 3
@@ -687,7 +687,7 @@ _08B8:
 	WalkOnSpotNormalWest
 	EndMovement
 
-scr_seq_T21_004:
+Cherrygrove_EventScript_MysticWaterMan:
 	PlaySE SEQ_SE_DP_SELECT
 	LockAll
 	FacePlayer
@@ -710,7 +710,7 @@ _090E:
 	ReleaseAll
 	End
 
-scr_seq_T21_009:
+Cherrygrove_EventScript_Cameron:
 	PlaySE SEQ_SE_DP_SELECT
 	LockAll
 	FacePlayer
@@ -841,19 +841,19 @@ _0ACC:
 	FaceSouth
 	EndMovement
 
-scr_seq_T21_005:
+Cherrygrove_EventScript_GuideGentsHouseSign:
 	TrainerTipsEx 2, msg_0550_T21_00024
 	End
 
-scr_seq_T21_006:
+Cherrygrove_EventScript_CitySign:
 	DirectionSignpostEx 0, 12, msg_0550_T21_00023
 	End
 
-scr_seq_T21_007:
+Cherrygrove_EventScript_Boy:
 	SimpleNPCMsg msg_0550_T21_00019
 	End
 
-scr_seq_T21_008:
+Cherrygrove_EventScript_Woman:
 	SimpleNPCMsg msg_0550_T21_00017
 	End
 	.balign 4, 0

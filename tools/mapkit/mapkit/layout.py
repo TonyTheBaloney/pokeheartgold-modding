@@ -176,12 +176,24 @@ def header_from_map_json(d, entry):
     return h
 
 
+def script_ref(v):
+    """A map.json "script" value as the zone_event template needs it.
+
+    pokeemerald style: a bare label (Cherrygrove_EventScript_MysticWaterMan) means
+    that map script; it becomes `_EV_<label> + 1` (ids.h defines _EV_<label> as its
+    ScrDef index). Numbers, std_* constants and expressions pass through."""
+    if isinstance(v, str) and re.fullmatch(r"[A-Za-z_]\w*", v) and not v.startswith(("std_", "_EV_")):
+        return "_EV_%s + 1" % v
+    return v
+
+
 def zone_event_from_map_json(d, ids_include):
     """map.json -> zone_event JSON dict in template key order."""
     out = {"header": ids_include}
     for tkey, ekey, keys in [("bgs", "bg_events", BG_KEYS), ("objects", "object_events", OBJECT_KEYS),
                              ("warps", "warp_events", WARP_KEYS), ("coords", "coord_events", COORD_KEYS)]:
-        out[tkey] = [{t: ev[e] for t, e in keys} for ev in d.get(ekey, [])]
+        out[tkey] = [{t: (script_ref(ev[e]) if e == "script" else ev[e]) for t, e in keys}
+                     for ev in d.get(ekey, [])]
     return out
 
 

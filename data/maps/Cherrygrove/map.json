@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T21_000 + 1",
+            "script": "Cherrygrove_EventScript_GuideGent",
             "flag": "FLAG_HIDE_CHERRYGROVE_GUIDE_GENT"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T21_007 + 1",
+            "script": "Cherrygrove_EventScript_Boy",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T21_008 + 1",
+            "script": "Cherrygrove_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T21_004 + 1",
+            "script": "Cherrygrove_EventScript_MysticWaterMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T21_009 + 1",
+            "script": "Cherrygrove_EventScript_Cameron",
             "flag": "FLAG_HIDE_CAMERON"
         }
     ],
@@ -176,7 +176,7 @@
             "height": 4,
             "var": "VAR_SCENE_CHERRYGROVE_CITY_OW",
             "var_value": 0,
-            "script": "_EV_scr_seq_T21_001 + 1"
+            "script": "Cherrygrove_EventScript_GuideGentTour"
         },
         {
             "x": 575,
@@ -186,7 +186,7 @@
             "height": 4,
             "var": "VAR_SCENE_CHERRYGROVE_CITY_OW",
             "var_value": 3,
-            "script": "_EV_scr_seq_T21_003 + 1"
+            "script": "Cherrygrove_EventScript_RivalBattle"
         },
         {
             "x": 547,
@@ -196,7 +196,7 @@
             "height": 1,
             "var": "VAR_SCENE_CHERRYGROVE_CITY_OW",
             "var_value": 1,
-            "script": "_EV_scr_seq_T21_002 + 1"
+            "script": "Cherrygrove_EventScript_GuideGentMapCard"
         }
     ],
     "bg_events": [
@@ -206,7 +206,7 @@
             "y": 401,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T21_005 + 1"
+            "script": "Cherrygrove_EventScript_GuideGentsHouseSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -214,7 +214,7 @@
             "y": 396,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T21_006 + 1"
+            "script": "Cherrygrove_EventScript_CitySign"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

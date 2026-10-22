@@ -2,12 +2,13 @@
 """Command line: mapkit {list,show,validate,refs}."""
 
 import argparse
+import json
 import os
 import re
 import sys
 
 from . import events as ev_mod
-from . import layout, scripts, wild
+from . import edit, layout, scripts, wild
 from .matrix import CELL_SIZE
 from .repo import Repo, VERSIONS
 from .validate import ERROR, INFO, WARNING, Validator
@@ -208,6 +209,76 @@ def cmd_migrate(repo, args):
     return 0
 
 
+def _value(v):
+    return int(v, 0) if re.fullmatch(r"-?(0x[0-9a-fA-F]+|\d+)", v) else v
+
+
+def _map(repo, q):
+    m = repo.find_map(q)
+    if m is None:
+        raise edit.EditError("no map matches %r (try `mapkit list`)" % q)
+    return m
+
+
+def _map_warp(repo, spec):
+    name, _, idx = spec.rpartition(":")
+    if not name or not idx.isdigit():
+        raise edit.EditError("expected MAP:WARP_INDEX, got %r" % spec)
+    return _map(repo, name), int(idx)
+
+
+def cmd_edit(repo, args):
+    try:
+        if args.cmd == "npc":
+            m = _map(repo, args.map)
+            if args.action == "move":
+                fields = {"x": args.x, "y": args.y}
+                if args.elevation is not None:
+                    fields["elevation"] = args.elevation
+                if args.facing:
+                    fields["facing_dir"] = args.facing
+                rec = edit.npc_set(repo, m, args.npc, **fields)
+            elif args.action == "set":
+                fields = {}
+                for kv in args.fields:
+                    k, _, v = kv.partition("=")
+                    fields[k] = _value(v)
+                rec = edit.npc_set(repo, m, args.npc, **fields)
+            else:
+                rec = edit.npc_add(repo, m, args.name, args.graphics, args.x, args.y, movement=args.movement,
+                                   facing=args.facing or "DIR_SOUTH", script=_value(args.script), flag=args.flag,
+                                   trainer_type=args.trainer_type, sight=args.sight)
+            print(json.dumps(rec, ensure_ascii=False))
+        elif args.cmd == "warp":
+            if args.action == "link":
+                a, ai = _map_warp(repo, args.a)
+                b, bi = _map_warp(repo, args.b)
+                edit.warp_link(repo, a, ai, b, bi)
+                print("%s warp %d <-> %s warp %d" % (a.name, ai, b.name, bi))
+            else:
+                m = _map(repo, args.map)
+                dest, di = _map_warp(repo, args.to)
+                i = edit.warp_add(repo, m, args.x, args.y, dest.name, di)
+                print("%s warp %d -> %s warp %d" % (m.name, i, dest.name, di))
+        elif args.cmd == "wild":
+            m = _map(repo, args.map)
+            print(json.dumps(edit.wild_set(repo, m, args.method, args.slot, args.species, args.level, args.time)))
+        elif args.cmd == "text":
+            print(edit.text_add(repo, _map(repo, args.map), args.text))
+        elif args.cmd == "script":
+            m = _map(repo, args.map)
+            if args.action == "add":
+                sid = edit.script_add(repo, m, args.label, args.msg)
+                print("%s is script %d; use \"script\": \"%s\"" % (args.label, sid, args.label))
+            else:
+                edit.script_rename(repo, m, args.old, args.new)
+                print("renamed %s -> %s" % (args.old, args.new))
+    except edit.EditError as e:
+        print("error: %s" % e, file=sys.stderr)
+        return 1
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="mapkit", description="Read and check pokeheartgold map data.")
     ap.add_argument("--root", help="repo root (default: search upward from the current directory)")
@@ -238,9 +309,59 @@ def main(argv=None):
     p.add_argument("--dry-run", action="store_true", help="only show what would move")
     p.set_defaults(func=cmd_migrate)
 
+    # --- editing (phase 3) ---
+    npc = sub.add_parser("npc", help="move, change or add an NPC (object event)")
+    npcs = npc.add_subparsers(dest="action", required=True)
+    p = npcs.add_parser("move", help="set an NPC's position")
+    p.add_argument("map"); p.add_argument("npc", help="local id (obj_T21_gsboy1), its suffix (gsboy1) or index")
+    p.add_argument("x", type=int); p.add_argument("y", type=int)
+    p.add_argument("--elevation", type=int); p.add_argument("--facing", help="DIR_NORTH/SOUTH/WEST/EAST")
+    p = npcs.add_parser("set", help="set fields: movement_type=MOVEMENT_TYPE_WANDER_AROUND flag=FLAG_X ...")
+    p.add_argument("map"); p.add_argument("npc"); p.add_argument("fields", nargs="+")
+    p = npcs.add_parser("add", help="add an NPC (and its #define in ids.h)")
+    p.add_argument("map"); p.add_argument("name", help="local id or suffix, e.g. fisher -> obj_T21_fisher")
+    p.add_argument("graphics", help="SPRITE_*"); p.add_argument("x", type=int); p.add_argument("y", type=int)
+    p.add_argument("--movement", default="MOVEMENT_TYPE_LOOK_AROUND"); p.add_argument("--facing")
+    p.add_argument("--script", default="0", help="script label, std_* or number")
+    p.add_argument("--flag", default="FLAG_NOTHING"); p.add_argument("--trainer-type", default="OBJECT_TYPE_NORMAL")
+    p.add_argument("--sight", type=int, default=0)
+    for p in npcs.choices.values():
+        p.set_defaults(func=cmd_edit)
+
+    warp = sub.add_parser("warp", help="link or add warps")
+    warps = warp.add_subparsers(dest="action", required=True)
+    p = warps.add_parser("link", help="make two warps lead to each other: Cherrygrove:0 Cherrygrove_Pokecenter_1F:0")
+    p.add_argument("a"); p.add_argument("b")
+    p = warps.add_parser("add", help="add a warp tile leading to MAP:WARP")
+    p.add_argument("map"); p.add_argument("x", type=int); p.add_argument("y", type=int)
+    p.add_argument("--to", required=True, help="MAP:WARP_INDEX")
+    for p in warps.choices.values():
+        p.set_defaults(func=cmd_edit)
+
+    p = sub.add_parser("wild", help="set a wild encounter slot: wild Route29 land 0 SPECIES_PIDGEY --level 3")
+    p.add_argument("action", choices=["set"]); p.add_argument("map")
+    p.add_argument("method", choices=["land", "surf", "rock_smash", "old_rod", "good_rod", "super_rod"])
+    p.add_argument("slot", type=int); p.add_argument("species", nargs="?")
+    p.add_argument("--level", help="5, or 5-8 for surf/rock smash/fishing")
+    p.add_argument("--time", choices=["morn", "day", "nite"], help="grass only; default all three")
+    p.set_defaults(func=cmd_edit)
+
+    p = sub.add_parser("text", help='append a message to the map\'s text bank (use \\n for new lines)')
+    p.add_argument("action", choices=["add"]); p.add_argument("map"); p.add_argument("text")
+    p.set_defaults(func=cmd_edit)
+
+    script = sub.add_parser("script", help="add or rename event scripts")
+    scs = script.add_subparsers(dest="action", required=True)
+    p = scs.add_parser("add", help="append a script (talk-to-NPC stub with --msg)")
+    p.add_argument("map"); p.add_argument("label"); p.add_argument("--msg", help="msg id to show")
+    p = scs.add_parser("rename", help="rename a script label everywhere in the map")
+    p.add_argument("map"); p.add_argument("old"); p.add_argument("new")
+    for p in scs.choices.values():
+        p.set_defaults(func=cmd_edit)
+
     # build-time generators (called from data/maps/meson.build)
     for name, fn in (("gen-header", layout.gen_header), ("gen-events", layout.gen_events)):
-        p = sub.add_parser(name, help=argparse.SUPPRESS)
+        p = sub.add_parser(name, help="(used by the build)")
         p.add_argument("map_json")
         p.add_argument("out")
         p.set_defaults(func=lambda repo, a, fn=fn: fn(repo.root, a.map_json, a.out) or 0)

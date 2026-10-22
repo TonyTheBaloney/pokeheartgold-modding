@@ -5,7 +5,7 @@
 
 
 
-	InitScriptEntry_OnTransition _EV_scr_seq_T21_010 + 1
+	InitScriptEntry_OnTransition _EV_Cherrygrove_OnTransition + 1
 	InitScriptEntryEnd
 
 	InitScriptEnd
