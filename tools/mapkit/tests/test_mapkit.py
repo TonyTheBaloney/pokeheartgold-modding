@@ -67,9 +67,9 @@ class TestRepoData(unittest.TestCase):
         r = self.repo
         m = r.find_map("T21")
         d = r.event_defines(m)
-        self.assertEqual(d.eval("_EV_scr_seq_T21_004 + 1"), 5)
+        self.assertEqual(d.eval("_EV_Cherrygrove_EventScript_MysticWaterMan + 1"), 5)
         self.assertEqual(d.eval("std_trainer(TRAINER_BUG_CATCHER_DON)"), 3000 + 249 - 1)
-        self.assertEqual(r.script_file(m).script_label(5), "scr_seq_T21_004")
+        self.assertEqual(r.script_file(m).script_label(5), "Cherrygrove_EventScript_MysticWaterMan")
 
     def test_macros(self):
         mt = self.repo.macros
@@ -106,7 +106,7 @@ class TestValidatorCatches(unittest.TestCase):
         self.assertTrue(self.errors("movement"))
 
     def test_script_id_out_of_range(self):
-        self.ev.objects[0]["scriptId"] = "_EV_scr_seq_T21_010 + 2"
+        self.ev.objects[0]["scriptId"] = "_EV_Cherrygrove_OnTransition + 2"
         self.assertTrue(self.errors("script-id"))
 
     def test_unresolved_flag(self):
@@ -119,9 +119,9 @@ class TestValidatorCatches(unittest.TestCase):
 
     def test_script_problems(self):
         sf = self.repo.script_file(self.m)
-        sf.statements.append(scripts.Statement(9999, "GoTo", ["_NOWHERE"], "scr_seq_T21_000"))
-        sf.statements.append(scripts.Statement(10000, "NPCMsg", ["msg_0550_T21_99999"], "scr_seq_T21_000"))
-        sf.statements.append(scripts.Statement(10001, "SetFlag", ["FLAG_DOES_NOT_EXIST"], "scr_seq_T21_000"))
+        sf.statements.append(scripts.Statement(9999, "GoTo", ["_NOWHERE"], "Cherrygrove_EventScript_GuideGent"))
+        sf.statements.append(scripts.Statement(10000, "NPCMsg", ["msg_0550_T21_99999"], "Cherrygrove_EventScript_GuideGent"))
+        sf.statements.append(scripts.Statement(10001, "SetFlag", ["FLAG_DOES_NOT_EXIST"], "Cherrygrove_EventScript_GuideGent"))
         self.assertTrue(self.errors("missing-label"))
         self.assertTrue(self.errors("missing-text"))
         self.assertTrue(self.errors("unresolved"))
