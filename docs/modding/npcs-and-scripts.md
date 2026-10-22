@@ -261,8 +261,10 @@ the text of messages that aren't in a script.
 
 ## Flags and vars
 
-`include/constants/flags.h` (2250 flags; 1137 still `FLAG_UNK_*`) and
-`include/constants/vars.h` (386 vars; 251 still `VAR_UNK_*`).
+`include/constants/flags.h` (2250 names; 1133 still `FLAG_UNK_*`) and
+`include/constants/vars.h` (386 names; 249 still `VAR_UNK_*`).
+[unknown-flags-vars.md](unknown-flags-vars.md) says what each `UNK` one does and
+lists the free ones (844 flags, 76 vars never referenced).
 
 - Temporary vars `VAR_TEMP_x4000`.. are cleared on every warp
   (`ClearTempFieldEventData`, `src/script_manager.c`); `VAR_SPECIAL_x8000`..

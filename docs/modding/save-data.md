@@ -117,16 +117,20 @@ save region.
 
 | Flag range | Use (`include/constants/flags.h`) |
 |---|---|
-| `0x001`-`0x040` | map-temporary flags (`MAPTEMP_FLAG_BASE`, 64) |
-| `0x041`-`0x31F` | story and event flags |
+| `0x000`-`0x03F` | map-temporary flags, cleared on every warp (the 8 bytes holding `MAPTEMP_FLAG_BASE`..+63) |
+| `0x040`-`0x31F` | story, event and hide flags |
 | `0x320`-`0x406` | hidden items (`HIDDEN_ITEMS_FLAG_BASE` = 800, 231) |
-| `0x407`-`0x54F` | more event flags |
-| `0x550`-`0xA9F` | trainers defeated (`TRAINER_FLAG_BASE`, by trainer id) |
+| `0x407`-`0x54F` | item balls and more event flags |
+| `0x550`-`0x821` | trainers defeated (`TRAINER_FLAG_BASE` + trainer id, 738 trainers) |
+| `0x822`-`0x95F` | past the last trainer; `0x82E`-`0x95F` are free `FLAG_UNK_*`, `0x822`-`0x82D` have no name |
+| `0x960`-`0xA9F` | system flags (fly points at `0x9B0`-`0x9D5`) |
 | `0xAA0`-`0xB5F` | daily flags (`DAILY_FLAG_BASE`, 192, reset each day) |
 
-1,137 flags are still named `FLAG_UNK_*` and 251 vars `VAR_UNK_*`. Many are
-used by scripts or code under that name; which ones are truly free hasn't been
-checked yet. Reusing a free one costs nothing; adding more grows the chunk.
+Of the 1,133 `FLAG_UNK_*` flags, 844 are never referenced and 19 more are
+written but never read; of the 249 `VAR_UNK_*` vars, 76 are never referenced
+and 6 are write-only. [unknown-flags-vars.md](unknown-flags-vars.md) lists them
+and says what the rest do. Reusing a free one costs nothing; adding more grows
+the chunk.
 
 **Pokédex** (`SAVE_POKEDEX`, 832 bytes, `include/pokedex.h`): bit arrays sized by
 `NUM_DEX_FLAG_WORDS` = ceil((493 + 8) / 32) = 16 words each for caught, seen and
