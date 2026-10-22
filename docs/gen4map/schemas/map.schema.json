@@ -1,0 +1,651 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gen4map/map.schema.json",
+  "title": "Gen 4 map (map.json), format 1",
+  "description": "A map's header and events. Keys follow pret/pokeemerald where one exists; HGSS MapHeader fields in descriptions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "code",
+    "layout",
+    "music_day",
+    "music_night",
+    "region_map_section",
+    "weather",
+    "map_type",
+    "battle_scene",
+    "allow_cycling",
+    "allow_escaping",
+    "allow_running",
+    "allow_fly",
+    "allow_outgoing_calls",
+    "allow_incoming_calls",
+    "radio_signal",
+    "wild_encounters",
+    "camera_type",
+    "follow_mode",
+    "region",
+    "area_icon",
+    "mom_call_intro",
+    "world_map_x",
+    "world_map_y",
+    "area_data",
+    "move_model_bank"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^MAP_[A-Z0-9_]+$",
+      "description": "MAP_* constant (include/constants/maps.h)"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_]*$",
+      "description": "folder name"
+    },
+    "code": {
+      "type": "string",
+      "description": "Game Freak's map code (T21); may be empty"
+    },
+    "layout": {
+      "$ref": "#/$defs/identifier",
+      "description": "folder in data/layouts (MapHeader.matrixId)"
+    },
+    "music_day": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "SEQ_* (u16 dayMusicId)"
+    },
+    "music_night": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "SEQ_* (u16 nightMusicId)"
+    },
+    "region_map_section": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "MAPSEC_* (8 bits mapsec)"
+    },
+    "weather": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "weather id (7 bits)"
+    },
+    "map_type": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "MAP_TYPE_* (4 bits)"
+    },
+    "battle_scene": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 31
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "BATTLE_BG_* (5 bits battleBg)"
+    },
+    "allow_cycling": {
+      "type": "boolean",
+      "description": "bikeAllowed"
+    },
+    "allow_escaping": {
+      "type": "boolean",
+      "description": "escapeRopeAllowed"
+    },
+    "allow_running": {
+      "type": "boolean",
+      "description": "runningAllowed_Unused (unused)"
+    },
+    "allow_fly": {
+      "type": "boolean",
+      "description": "flyAllowed"
+    },
+    "allow_outgoing_calls": {
+      "type": "boolean",
+      "description": "outgoingCalls"
+    },
+    "allow_incoming_calls": {
+      "type": "boolean",
+      "description": "incomingCalls"
+    },
+    "radio_signal": {
+      "type": "boolean",
+      "description": "radioSignal"
+    },
+    "wild_encounters": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "ENCDATA_* or ENCDATA_NA (u8 wildEncounterBank)"
+    },
+    "camera_type": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 63
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "camera preset (6 bits)"
+    },
+    "follow_mode": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "MAP_FOLLOWMODE_* (2 bits)"
+    },
+    "region": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "MAP_REGION_* (1 bit regionNo)"
+    },
+    "area_icon": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "4 bits"
+    },
+    "mom_call_intro": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        }
+      ],
+      "description": "4 bits momCallIntroParam"
+    },
+    "world_map_x": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 63,
+      "description": "6 bits"
+    },
+    "world_map_y": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 63,
+      "description": "6 bits"
+    },
+    "area_data": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "description": "area header number (u8 areaDataBank): textures and props"
+    },
+    "move_model_bank": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 15,
+      "description": "4 bits moveModelBank"
+    },
+    "object_events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/object_event"
+      }
+    },
+    "warp_events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/warp_event"
+      }
+    },
+    "coord_events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/coord_event"
+      }
+    },
+    "bg_events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/bg_event"
+      }
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_]*$",
+      "description": "a C constant or label name"
+    },
+    "object_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "local_id",
+        "graphics_id",
+        "x",
+        "y",
+        "elevation",
+        "movement_type",
+        "movement_range_x",
+        "movement_range_y",
+        "facing_dir",
+        "trainer_type",
+        "trainer_sight_or_param0",
+        "param1",
+        "param2",
+        "script",
+        "flag"
+      ],
+      "properties": {
+        "local_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "object id, defined in the map's ids.h (binary: u16 id)"
+        },
+        "graphics_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "SPRITE_* (u16 spriteId)"
+        },
+        "x": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "global tile x (u16)"
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "global tile y, north to south (u16 z)"
+        },
+        "elevation": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "description": "height (u32 y)"
+        },
+        "movement_type": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "MOVEMENT_TYPE_* (u16)"
+        },
+        "movement_range_x": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767,
+          "description": "wander range (s16 xRange)"
+        },
+        "movement_range_y": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767,
+          "description": "wander range (s16 yRange)"
+        },
+        "facing_dir": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "DIR_* (u16 facingDirection)"
+        },
+        "trainer_type": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "OBJECT_TYPE_* (u16 type)"
+        },
+        "trainer_sight_or_param0": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 65535,
+          "description": "sight range for trainers, else param0 (u16)"
+        },
+        "param1": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 65535,
+          "description": "u16"
+        },
+        "param2": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 65535,
+          "description": "u16"
+        },
+        "script": {
+          "$ref": "#/$defs/script_ref"
+        },
+        "flag": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "FLAG_* that hides the object while set (u16 eventFlag)"
+        }
+      }
+    },
+    "warp_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "elevation",
+        "dest_map",
+        "dest_warp_id"
+      ],
+      "properties": {
+        "x": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "u16"
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "u16 z"
+        },
+        "elevation": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "description": "u32 y"
+        },
+        "dest_map": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "MAP_* (u16 header; 0xFFF = dynamic warp)"
+        },
+        "dest_warp_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "index of the destination map's warp (u16 anchor; 0x100 = dynamic)"
+        }
+      }
+    },
+    "coord_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "elevation",
+        "width",
+        "height",
+        "var",
+        "var_value",
+        "script"
+      ],
+      "properties": {
+        "x": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "u16"
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "u16 z"
+        },
+        "elevation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "u16 y"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "tiles (u16 w)"
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535,
+          "description": "tiles (u16 h)"
+        },
+        "var": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "VAR_* compared (u16 var)"
+        },
+        "var_value": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "runs while var == this (u16 val)"
+        },
+        "script": {
+          "$ref": "#/$defs/script_ref"
+        }
+      }
+    },
+    "bg_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "x",
+        "y",
+        "elevation",
+        "player_facing_dir",
+        "script"
+      ],
+      "properties": {
+        "type": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "BG_TYPE_* (u16)"
+        },
+        "x": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "description": "u32"
+        },
+        "y": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "description": "u32 z"
+        },
+        "elevation": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "description": "u32 y"
+        },
+        "player_facing_dir": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ],
+          "description": "BG_DIR_* (u32 dir)"
+        },
+        "script": {
+          "$ref": "#/$defs/script_ref"
+        }
+      }
+    },
+    "script_ref": {
+      "description": "a map script label (its ScrDef index + 1), a std_* constant, a one-argument macro such as std_trainer(TRAINER_X), or a number (u16 scriptId)",
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        {
+          "$ref": "#/$defs/identifier"
+        },
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*\\(\\s*[A-Za-z_][A-Za-z0-9_]*\\s*\\)$"
+        }
+      ]
+    }
+  }
+}

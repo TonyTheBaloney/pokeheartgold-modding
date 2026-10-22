@@ -256,7 +256,11 @@ layout (`NUM_DEX_FLAG_WORDS`), in many file-index-based archives and in about
    2026-10-22): terrain and props drawn top-down in the map view and in a 3D tab.
    Next: move props, edit layouts (resize, reassign cells), sprites for objects,
    texture animations.
-6. **Later.** New species.
+6. **Format.** gen4map 1.0 (2026-10-22): the map files specified and versioned in
+   [docs/gen4map](../gen4map/README.md) with JSON Schemas, a manifest
+   (`data/gen4map.json`) and `mapkit format check`, as the base for a standalone
+   Gen 4 map tool ([ROADMAP](../gen4map/ROADMAP.md)).
+7. **Later.** New species.
 
 ## Building a modified ROM
 

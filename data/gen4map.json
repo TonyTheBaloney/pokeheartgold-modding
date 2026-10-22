@@ -1,0 +1,42 @@
+{
+    "format": "gen4map",
+    "version": "1.0",
+    "game": {
+        "family": "HGSS",
+        "versions": [
+            "HEARTGOLD",
+            "SOULSILVER"
+        ],
+        "language": "en_US"
+    },
+    "paths": {
+        "maps": "data/maps",
+        "map_index": "data/maps/maps.txt",
+        "layouts": "data/layouts",
+        "layout_index": "data/layouts/layouts.txt",
+        "landdata": "data/landdata",
+        "constants": "include/constants",
+        "map_ids": "include/constants/maps.h",
+        "tile_behaviors": "include/constants/metatile_behavior.h"
+    },
+    "binaries": {
+        "note": "paths in the ROM's file system (NitroFS); this repo builds them from the text files",
+        "map_matrix": "a/0/4/1",
+        "zone_event": "a/0/3/2",
+        "land_data": "a/0/6/5",
+        "area_headers": "a/0/4/2",
+        "area_prop_lists": "a/0/4/3",
+        "map_textures": "a/0/4/4",
+        "prop_textures": "a/0/7/0",
+        "prop_models": {
+            "room": "a/1/4/8",
+            "field": "a/0/4/0"
+        }
+    },
+    "features": {
+        "land_data_soundplates": true,
+        "layout_cell_maps": true,
+        "layout_altitudes": true,
+        "map_header_in_arm9": true
+    }
+}

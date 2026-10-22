@@ -282,6 +282,16 @@ def cmd_edit(repo, args):
     return 0
 
 
+def cmd_format_check(repo, args):
+    from . import formats
+    counts, problems = formats.check(repo.root)
+    for pr in problems:
+        print(pr)
+    print("%s; %d problem%s (gen4map %s)" % (", ".join("%d %s" % (n, k) for k, n in counts.items()),
+                                          len(problems), "" if len(problems) == 1 else "s", formats.SUPPORTED_MAJOR))
+    return 1 if problems else 0
+
+
 def cmd_pory(repo, args):
     from . import pory
     try:
@@ -490,6 +500,11 @@ def main(argv=None):
     p = ls_.add_parser("pack", help="(used by the build)")
     p.add_argument("out"); p.add_argument("--nitroarc", required=True); p.add_argument("--work", required=True)
     p.set_defaults(func=lambda repo, a: layouts.pack(repo.root, a.out, a.nitroarc, a.work) or 0)
+
+    fmt = sub.add_parser("format", help="the gen4map file format (docs/gen4map)")
+    fs_ = fmt.add_subparsers(dest="action", required=True)
+    p = fs_.add_parser("check", help="check every map, layout and land data file against the format")
+    p.set_defaults(func=cmd_format_check)
 
     land = sub.add_parser("landdata", help="terrain cells in data/landdata")
     lds = land.add_subparsers(dest="action", required=True)

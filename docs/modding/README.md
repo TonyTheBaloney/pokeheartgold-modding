@@ -19,6 +19,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [npcs-and-scripts.md](npcs-and-scripts.md) | Moving/adding NPCs, trainers, event scripts, text, flags |
 | [wild-encounters.md](wild-encounters.md) | Grass/surf/fishing tables, headbutt, Safari, Bug Contest, roamers |
 | [DESIGN.md](DESIGN.md) | Plan for per-map folders and the `mapkit` tool |
+| [../gen4map/](../gen4map/README.md) | The map file format spec (gen4map 1.0), ROM binaries, rendering, change record, roadmap to a standalone Gen 4 tool |
 | [SCRIPTING.md](SCRIPTING.md) | Writing map scripts in `scripts.pory` (poryscript-style) |
 
 ## Building a modified ROM

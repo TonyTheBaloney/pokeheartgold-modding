@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gen4map/layout.schema.json",
+  "title": "Gen 4 layout (layout.json), format 1",
+  "description": "A map matrix: grid of 32x32-tile cells. Grids are rows north to south, each the same length as width.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "width",
+    "height",
+    "land_data"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "name stored in the matrix (unused by the game)"
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 255,
+      "description": "cells (u8)"
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 255,
+      "description": "cells (u8)"
+    },
+    "land_data": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65534
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "description": "land data number per cell (data/landdata/NNNN); null = no cell (0xFFFF)"
+    },
+    "maps": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "$ref": "#/$defs/identifier"
+            }
+          ]
+        }
+      },
+      "description": "MAP_* owning each cell (optional; outdoor layouts)"
+    },
+    "altitudes": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      "description": "per-cell terrain height, x8 model units (optional)"
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_]*$",
+      "description": "a C constant or label name"
+    }
+  }
+}

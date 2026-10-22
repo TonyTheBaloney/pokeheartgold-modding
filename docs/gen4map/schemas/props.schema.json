@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gen4map/props.schema.json",
+  "title": "Gen 4 cell props (props.json), format 1",
+  "description": "Props placed in one land data cell (MapPropArcData, 0x30 bytes each). Numbers are fx32 / 4096, multiples of 1/4096.",
+  "type": "array",
+  "maxItems": 32,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "model",
+      "position",
+      "rotation",
+      "scale"
+    ],
+    "properties": {
+      "model": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 2147483647,
+        "description": "prop model number in the area's prop model archive"
+      },
+      "position": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "number"
+        },
+        "description": "model units from the cell centre (x east, y height, z south); 16 per tile"
+      },
+      "rotation": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "number"
+        },
+        "description": "x, y, z (all retail props 0)"
+      },
+      "scale": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "number"
+        },
+        "description": "x, y, z (all retail props 1)"
+      }
+    }
+  }
+}
