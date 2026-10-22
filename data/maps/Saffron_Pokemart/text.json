@@ -3,18 +3,11 @@
   "messages": [
     {
       "id": "msg_0530_T11FS0101_00000",
-      "en_US": [
-        "There’s a big Radio Tower in\n",
-        "Lavender Town."
-      ]
+      "from": "scr_seq_T11FS0101_002#0"
     },
     {
       "id": "msg_0530_T11FS0101_00001",
-      "en_US": [
-        "I want to become stronger, but I’m\n",
-        "not good yet...\r",
-        "Could you show me how sometime?"
-      ]
+      "from": "scr_seq_T11FS0101_003#0"
     }
   ]
 }

@@ -55,13 +55,25 @@ script scr_seq_R31R0101_000 {
     }
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0379_R31R0101_00002, msg_0379_R31R0101_00003)
+    gendermsgbox("Lyra: I knew it was you, {STRVAR_1 3, 0, 0}!\r"
+                 "How did you get past me?\n"
+                 "Here is something neat for\f"
+                 "surprising me, {STRVAR_1 3, 0, 0}!\r", "Ethan: I knew it was you, {STRVAR_1 3, 0, 0}!\r"
+                                                         "How did you get past me?\n"
+                                                         "Here is something neat for\f"
+                                                         "surprising me, {STRVAR_1 3, 0, 0}!\r")
     giveitemnocheck(ITEM_VS__RECORDER, 1)
-    gendermsgbox(msg_0379_R31R0101_00004, msg_0379_R31R0101_00005)
+    gendermsgbox("The Vs. Recorder can record\n"
+                 "your Pokémon battles.\r"
+                 "I have to go now!\f"
+                 "I won’t let you pass me again!\r", "The Vs. Recorder can record\n"
+                                                     "your Pokémon battles.\r"
+                                                     "I have to go now!\f"
+                                                     "I won’t let you pass me again!\r")
     closemessage
     applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_0294)
     waitmovement
-    gendermsgbox(msg_0379_R31R0101_00006, msg_0379_R31R0101_00007)
+    gendermsgbox("Let’s go, MARILL!\r", "Come on, MARILL!\r")
     closemessage
     applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_02A4)
     waitmovement
@@ -291,7 +303,8 @@ movement Route31_VioletGatehouse_Movement_0474 {
 }
 
 script scr_seq_R31R0101_002 {
-    simplenpcmsg(msg_0379_R31R0101_00000)
+    simplenpcmsg("You must be an adventuring Trainer.\n"
+                 "Did you challenge the Pokémon Gym yet?")
     end
 }
 

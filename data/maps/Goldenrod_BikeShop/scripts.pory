@@ -6,27 +6,39 @@ script scr_seq_T25R0201_000 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_089)) {
-        npcmsg(msg_0584_T25R0201_00003)
+        npcmsg("The main shop is at Cerulean\n"
+               "back in Kanto.\r"
+               "Say hello to the shop manager\n"
+               "if you happen to go there!\r"
+               "Our Bicycles are first-rate!\n"
+               "You can ride them in Kanto, too!")
         waitbuttonpress
         closemessage
         releaseall
         end
     _008C:
-        npcmsg(msg_0584_T25R0201_00004)
+        npcmsg("Sigh... Oh, for the kindness\n"
+               "of people...")
         waitbuttonpress
         closemessage
         touchscreenmenushow
         releaseall
         end
     }
-    npcmsg(msg_0584_T25R0201_00000)
+    npcmsg("Sigh... I opened a branch here,\n"
+           "but I can’t sell my Bicycles.\f"
+           "Why is that?\r"
+           "Could you ride a Bicycle and\n"
+           "advertise for me? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0042) }
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_008C) }
     end
 _0042:
-    npcmsg(msg_0584_T25R0201_00001)
+    npcmsg("Really? Great!\r"
+           "Give me your name and phone number,\n"
+           "and I’ll loan you a Bicycle. {YESNO 0}")
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0065) }
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_008C) }
@@ -41,7 +53,7 @@ _0065:
 }
 
 script scr_seq_T25R0201_001 {
-    simplenpcmsg(msg_0584_T25R0201_00005)
+    simplenpcmsg("It’s a shiny new Bicycle!")
     end
 }
 

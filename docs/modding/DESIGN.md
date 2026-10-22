@@ -153,8 +153,11 @@ file; `mapkit pory sync <map>` regenerates it.
 
 ### Text
 
-`text.json` keeps the msgenc JSON format. Possible later: map-scoped message
-names (`Cherrygrove_Text_GuideGentIntro`) instead of `msg_0550_T21_00020`.
+`text.json` keeps the msgenc JSON format and every message's position. Dialog
+used by scripts lives inline in `scripts.pory`; its `text.json` entry is a slot,
+`{"id": ..., "from": "<Script>#<n>"}`, that the build fills. Possible later:
+map-scoped message names (`Cherrygrove_Text_GuideGentIntro`) instead of
+`msg_0550_T21_00020`.
 
 ### Script parser
 

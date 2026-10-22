@@ -6,7 +6,10 @@ script scr_seq_R05R0401_000 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_CLEANSE_TAG_FROM_ROUTE_5_GRANDMA)) {
-        npcmsg(msg_0333_R05R0401_00000)
+        npcmsg("Eeyaaaah!\r"
+               "I sense a sinister shadow hovering\n"
+               "over you.\f"
+               "Take this to ward it off!\r")
         if (!itemspace(ITEM_CLEANSE_TAG, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -16,7 +19,8 @@ script scr_seq_R05R0401_000 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_CLEANSE_TAG_FROM_ROUTE_5_GRANDMA)
     }
-    npcmsg(msg_0333_R05R0401_00001)
+    npcmsg("You were in mortal danger, but you’re\n"
+           "protected now.")
     waitbuttonpress
     closemessage
     releaseall
@@ -24,7 +28,9 @@ script scr_seq_R05R0401_000 {
 }
 
 script scr_seq_R05R0401_001 {
-    simplenpcmsg(msg_0333_R05R0401_00002)
+    simplenpcmsg("My grandma is into warding off what she\n"
+                 "believes to be evil spirits.\f"
+                 "I’m sorry that she startled you.")
     end
 }
 

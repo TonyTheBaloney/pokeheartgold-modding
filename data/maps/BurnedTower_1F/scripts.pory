@@ -16,7 +16,17 @@ script scr_seq_D18R0101_003 {
     applymovement(obj_D18R0101_gsrivel, BurnedTower_1F_Movement_00D0)
     waitmovement
     bufferrivalsname(0)
-    npcmsg(msg_0060_D18R0101_00000)
+    npcmsg("{STRVAR_1 3, 0, 0}: ..................\r"
+           "......Oh, it’s you.\r"
+           "You must be here to catch the\n"
+           "legendary Pokémon to make yourself\f"
+           "look strong.\r"
+           "That is only a dream.\r"
+           "You see, the legendary Pokémon suits a\n"
+           "Trainer like me who has sworn to become\f"
+           "the strongest Trainer.\r"
+           "A battle with Team Rocket Grunts\n"
+           "is just right for you!\r")
     closemessage
     getstarterchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 152) {
@@ -34,7 +44,9 @@ script scr_seq_D18R0101_003 {
     }
     callstd(std_play_rival_outro_music)
     bufferrivalsname(0)
-    npcmsg(msg_0060_D18R0101_00001)
+    npcmsg("{STRVAR_1 3, 0, 0}: ...Aw, whatever.\r"
+           "You would never be able to catch a\n"
+           "legendary Pokémon anyway.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -84,7 +96,20 @@ script scr_seq_D18R0101_000 {
     applymovement(obj_D18R0101_minaki, BurnedTower_1F_Movement_0158)
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0060_D18R0101_00002)
+    npcmsg("Eusine: My name is Eusine.\r"
+           "I’m on the trail of a Pokémon named\n"
+           "SUICUNE.\r"
+           "And you are...?\n"
+           "{STRVAR_1 3, 0, 0}? Glad to meet you.\r"
+           "I heard rumors that SUICUNE is here,\n"
+           "so I came to look.\r"
+           "Take a look at the basement through\n"
+           "the hole in the floor.\r"
+           "There. SUICUNE is down there.\r"
+           "I could go downstairs, but I know it\n"
+           "would run away in no time.\r"
+           "I know.\n"
+           "I have tried it many times...")
     waitbuttonpress
     closemessage
     callstd(std_fade_end_eusine_music)
@@ -94,7 +119,8 @@ script scr_seq_D18R0101_000 {
 }
 
 script scr_seq_D18R0101_001 {
-    simplenpcmsg(msg_0060_D18R0101_00003)
+    simplenpcmsg("Eusine: There seems to be more than\n"
+                 "meets the eye with you...")
     end
 }
 
@@ -105,7 +131,16 @@ movement BurnedTower_1F_Movement_0158 {
 }
 
 script scr_seq_D18R0101_002 {
-    simplenpcmsg(msg_0060_D18R0101_00004)
+    simplenpcmsg("Morty: My name is Morty.\n"
+                 "I am Ecruteak’s Gym Leader.\r"
+                 "Because my old friend Eusine is here\n"
+                 "on the trail of SUICUNE, I decided to\f"
+                 "investigate the Burned Tower.\r"
+                 "Ecruteak has a legend about these\n"
+                 "legendary Pokémon:\f"
+                 "SUICUNE, ENTEI, and RAIKOU.\r"
+                 "As the Gym Leader of Ecruteak, I must\n"
+                 "have a proper understanding of it.")
     end
 }
 

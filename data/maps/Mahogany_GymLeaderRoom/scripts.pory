@@ -45,12 +45,15 @@ script scr_seq_T28GYM0101_000 {
     checkbadge(BADGE_GLACIER, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         if (flag(FLAG_GAME_CLEAR)) {
-            npcmsg(msg_0622_T28GYM0101_00006)
+            npcmsg("Pryce: It is you...\r"
+                   "Since you are here, why don’t we\n"
+                   "take a picture together? {YESNO 0}")
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             touchscreenmenushow
             if (var(VAR_SPECIAL_RESULT) == 1) {
-                npcmsg(msg_0622_T28GYM0101_00009)
+                npcmsg("Pryce: That’s OK, too.\n"
+                       "Suit yourself.")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -58,13 +61,19 @@ script scr_seq_T28GYM0101_000 {
             }
             photoalbumisfull(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 1) {
-                npcmsg(msg_0622_T28GYM0101_00010)
+                npcmsg("Your Photo Album is full.\r"
+                       "Access your PC to delete\n"
+                       "some pictures.")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             }
-            npcmsg(msg_0622_T28GYM0101_00007)
+            npcmsg("Pryce: I have advice to give you before\n"
+                   "we take the picture.\r"
+                   "Breathe in and relax first.\n"
+                   "Then slowly begin to smile.\f"
+                   "Are you ready?\r")
             closemessage
             setflag(FLAG_UNK_189)
             fadescreen(6, 1, 0, RGB_BLACK)
@@ -75,19 +84,34 @@ script scr_seq_T28GYM0101_000 {
             fadescreen(6, 1, 1, RGB_BLACK)
             waitfade
             clearflag(FLAG_UNK_189)
-            npcmsg(msg_0622_T28GYM0101_00008)
+            npcmsg("Pryce: Let’s see...\n"
+                   "Did we get a good one?")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0622_T28GYM0101_00005)
+        npcmsg("Pryce: When the ice and snow melt,\n"
+               "spring arrives.\r"
+               "You and your Pokémon will be together\n"
+               "for many years to come.\f"
+               "Cherish your time together!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0622_T28GYM0101_00000)
+    npcmsg("Pryce: Pokémon have many experiences\n"
+           "in their lives, just like we do.\r"
+           "I, too, have seen and suffered much in\n"
+           "my life.\r"
+           "Since I am your elder, let me show you\n"
+           "what I mean.\r"
+           "I have been training Pokémon since\n"
+           "before you were born.\r"
+           "I do not lose easily.\n"
+           "I, Pryce--the Winter Trainer--\f"
+           "shall demonstrate my power!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_PRYCE_PRYCE, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -97,7 +121,10 @@ script scr_seq_T28GYM0101_000 {
     settrainerflag(TRAINER_SKIER_JILL)
     settrainerflag(TRAINER_SKIER_DIANA)
     settrainerflag(TRAINER_BOARDER_PATTON)
-    npcmsg(msg_0622_T28GYM0101_00001)
+    npcmsg("Pryce: I am impressed by your prowess.\r"
+           "With your strong will, I know you\n"
+           "will overcome all life’s obstacles.\f"
+           "You are worthy of this Badge!\r")
     givebadge(BADGE_GLACIER)
     addvar(VAR_MIDGAME_BADGES, 1)
     addspecialgamestat(SCORE_EVENT_BADGE_GET)
@@ -105,10 +132,16 @@ script scr_seq_T28GYM0101_000 {
         setvar(VAR_SCENE_ROCKET_TAKEOVER, 1)
     }
     bufferplayersname(0)
-    npcmsg(msg_0622_T28GYM0101_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Glacier Badge from Pryce!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
-    npcmsg(msg_0622_T28GYM0101_00003)
+    npcmsg("Pryce: That Badge will raise the Special\n"
+           "stats of Pokémon.\r"
+           "It also lets your Pokémon use\n"
+           "Whirlpool to get across\f"
+           "real whirlpools.\r"
+           "And this... This is a gift from me!\r")
     if (!itemspace(ITEM_TM07, 1)) {
         callstd(std_bag_is_full)
         closemessage
@@ -117,7 +150,10 @@ script scr_seq_T28GYM0101_000 {
     }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_TM07_FROM_PRYCE)
-    npcmsg(msg_0622_T28GYM0101_00004)
+    npcmsg("Pryce: That TM contains Hail.\r"
+           "It summons a hailstorm that lasts for\n"
+           "five turns. The hailstorm damages\f"
+           "all types except Ice.")
     waitbuttonpress
     closemessage
     releaseall

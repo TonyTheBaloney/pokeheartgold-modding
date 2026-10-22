@@ -38,10 +38,18 @@ script scr_seq_T11R0802_000 {
     if (var(VAR_SPECIAL_RESULT) != 0) {
         call(_014D)
         bufferplayersname(0)
-        gendermsgbox(msg_0541_T11R0802_00009, msg_0541_T11R0802_00010)
+        gendermsgbox("{STRVAR_1 3, 0, 0}: Hi!\n"
+                     "Thanks a lot for the Magnet Train Pass!\r"
+                     "{STRVAR_1 3, 0, 0}: Pardon?\r"
+                     "{STRVAR_1 3, 0, 0}: Is it that fun to mimic\n"
+                     "my every move?\r", "{STRVAR_1 3, 0, 0}: Hi!\n"
+                                         "Thanks a lot for the Magnet Train Pass!\r"
+                                         "{STRVAR_1 3, 0, 0}: Pardon?\r"
+                                         "{STRVAR_1 3, 0, 0}: Is it that fun to mimic\n"
+                                         "my every move?\r")
         closemessage
         call(_01DB)
-        npcmsg(msg_0541_T11R0802_00011)
+        npcmsg("Copycat: You bet! It’s a scream!\r")
         closemessage
         applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_026C)
         waitmovement
@@ -95,10 +103,16 @@ script scr_seq_T11R0802_000 {
     if (flag(FLAG_RESTORED_POWER)) { goto(_00BD) }
     call(_014D)
     bufferplayersname(0)
-    gendermsgbox(msg_0541_T11R0802_00000, msg_0541_T11R0802_00001)
+    gendermsgbox("{STRVAR_1 3, 0, 0}: Hi! Do you like Pokémon?\r"
+                 "{STRVAR_1 3, 0, 0}: Uh, no, I just asked you.\r"
+                 "{STRVAR_1 3, 0, 0}: Huh? You’re strange!\r", "{STRVAR_1 3, 0, 0}: Hi. You must like\n"
+                                                               "Pokémon.\r"
+                                                               "{STRVAR_1 3, 0, 0}: No, not me. I asked you.\r"
+                                                               "{STRVAR_1 3, 0, 0}: Pardon? You’re weird!\r")
     closemessage
     call(_01DB)
-    npcmsg(msg_0541_T11R0802_00002)
+    npcmsg("Copycat: Hmm? Quit mimicking?\n"
+           "But that’s my main hobby!\r")
     closemessage
     applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_026C)
     waitmovement
@@ -108,10 +122,25 @@ _00BD:
     setflag(FLAG_UNK_119)
     call(_014D)
     bufferplayersname(0)
-    gendermsgbox(msg_0541_T11R0802_00003, msg_0541_T11R0802_00004)
+    gendermsgbox("{STRVAR_1 3, 0, 0}: Hi! I heard that you\n"
+                 "lost your cherished Poké Doll.\r"
+                 "{STRVAR_1 3, 0, 0}: If I find it, you’ll give\n"
+                 "me a Magnet Train Pass?\r"
+                 "{STRVAR_1 3, 0, 0}: I’ll go find it for you.\r"
+                 "{STRVAR_1 3, 0, 0}: You think you lost it\n"
+                 "when you went to Vermilion City?\r", "{STRVAR_1 3, 0, 0}: Hi! I heard that you\n"
+                                                       "lost your cherished Poké Doll.\r"
+                                                       "{STRVAR_1 3, 0, 0}: If I find it, you’ll give\n"
+                                                       "me a Magnet Train Pass?\r"
+                                                       "{STRVAR_1 3, 0, 0}: I’ll go find it for you.\r"
+                                                       "{STRVAR_1 3, 0, 0}: You think you lost it\n"
+                                                       "when you went to Vermilion City?\r")
     closemessage
     call(_01DB)
-    npcmsg(msg_0541_T11R0802_00005)
+    npcmsg("Copycat: Pardon?\r"
+           "I shouldn’t decide what you should do?\r"
+           "But I’m really worried...\n"
+           "What if someone finds it?\r")
     closemessage
     applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_026C)
     waitmovement
@@ -119,11 +148,20 @@ _00BD:
     end
 _00E9:
     takeitem(ITEM_LOST_ITEM, 1, VAR_SPECIAL_RESULT)
-    npcmsg(msg_0541_T11R0802_00006)
+    npcmsg("Copycat: Yay! That’s my CLEFAIRY\n"
+           "Poké Doll!\r"
+           "See the tear where the right arm is\n"
+           "sewn on? That’s proof!\r"
+           "OK. I’ll give you this Magnet Train Pass\n"
+           "as I promised!\r")
     clearflag(FLAG_HIDE_SAFFRON_CITY_COPYCAT_HOUSE_CLEFAIRY_DOLL)
     addobject(obj_T11R0802_mono_pip)
     giveitemnocheck(ITEM_PASS, 1)
-    npcmsg(msg_0541_T11R0802_00008)
+    npcmsg("Copycat: You show it at the ticket\n"
+           "gate to get on the Magnet Train.\r"
+           "The rail-company man gave me that\n"
+           "when they tore down our old house\f"
+           "for the station.")
     waitbuttonpress
     closemessage
     releaseall
@@ -198,7 +236,7 @@ script scr_seq_T11R0802_003 {
         lockall
         faceplayer
         playcry(SPECIES_BANETTE, 0)
-        npcmsg(msg_0541_T11R0802_00013)
+        npcmsg("BANETTE: Giggle!")
         waitcry
         waitbuttonpress
         closemessage
@@ -207,7 +245,10 @@ script scr_seq_T11R0802_003 {
     }
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0541_T11R0802_00012)
+    npcmsg("This Poké Doll looks just like the\n"
+           "real thing...\r"
+           "Aw! It moved!\n"
+           "It’s a real BANETTE!")
     waitbuttonpress
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
@@ -243,12 +284,14 @@ movement Saffron_CopycatHouse_2F_Movement_03D8 {
 }
 
 script scr_seq_T11R0802_001 {
-    simplenpcmsg(msg_0541_T11R0802_00015)
+    simplenpcmsg("This is a nose-like Poké Doll...\n"
+                 "It is a NOSEPASS Poké Doll!")
     end
 }
 
 script scr_seq_T11R0802_002 {
-    simplenpcmsg(msg_0541_T11R0802_00014)
+    simplenpcmsg("This is a flowerlike Poké Doll...\n"
+                 "It is a CHERRIM Poké Doll!")
     end
 }
 
@@ -257,10 +300,14 @@ script scr_seq_T11R0802_006 {
         end
     }
     if (var(VAR_UNK_40FF) == 2) {
-        simplenpcmsg(msg_0541_T11R0802_00017)
+        simplenpcmsg("It’s a CLEFAIRY Poké Doll.\r"
+                     "It has a tear where the right arm\n"
+                     "was sewn on.")
         end
     }
-    simplenpcmsg(msg_0541_T11R0802_00016)
+    simplenpcmsg("It’s a CLEFAIRY!\n"
+                 "Huh?\r"
+                 "Oh, right. It’s a CLEFAIRY Poké Doll.")
     end
 }
 

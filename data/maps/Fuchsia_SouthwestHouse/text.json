@@ -3,17 +3,11 @@
   "messages": [
     {
       "id": "msg_0517_T08R0401_00000",
-      "en_US": [
-        "My grandpa is at my brother Bill’s\n",
-        "on Cerulean Cape."
-      ]
+      "from": "scr_seq_T08R0401_000#0"
     },
     {
       "id": "msg_0517_T08R0401_00001",
-      "en_US": [
-        "I saw these weird, slow Pokémon on\n",
-        "Cycling Road."
-      ]
+      "from": "scr_seq_T08R0401_001#0"
     }
   ]
 }

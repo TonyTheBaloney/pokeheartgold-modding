@@ -3,22 +3,11 @@
   "messages": [
     {
       "id": "msg_0336_R07_00000",
-      "en_US": [
-        "There is a notice!\r",
-        "...Uncouth Trainers have been holding\n",
-        "battles in the Underground Path.\r",
-        "Because of rising complaints by local\n",
-        "residents, the Underground Path has\f",
-        "been sealed indefinitely.\f",
-        "           Signed, the Celadon Police"
-      ]
+      "from": "scr_seq_R07_000#0"
     },
     {
       "id": "msg_0336_R07_00001",
-      "en_US": [
-        "It won’t open!\r",
-        "It’s locked..."
-      ]
+      "from": "scr_seq_R07_001#0"
     }
   ]
 }

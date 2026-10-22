@@ -8,12 +8,17 @@ script scr_seq_D47PC0101_000 {
 }
 
 script scr_seq_D47PC0101_001 {
-    simplenpcmsg(msg_0134_D47PC0101_00000)
+    simplenpcmsg("Those who come to a Pokémon Center\n"
+                 "often take good care of their Pokémon.\f"
+                 "Wouldn’t you agree?")
     end
 }
 
 script scr_seq_D47PC0101_002 {
-    simplenpcmsg(msg_0134_D47PC0101_00001)
+    simplenpcmsg("After a long walk in the mountains to\n"
+                 "find a Pokémon Center, when you’re\f"
+                 "just about to fall flat...\r"
+                 "Then it feels like you are in paradise!")
     end
 }
 

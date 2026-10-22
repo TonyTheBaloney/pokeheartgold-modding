@@ -6,7 +6,8 @@ script scr_seq_D17R0101_000 {
     lockall
     faceplayer
     if (flag(FLAG_CAUGHT_HO_OH)) {
-        npcmsg(msg_0057_D17R0101_00006)
+        npcmsg("You are quite a remarkable Trainer\n"
+               "for your age...")
         waitbuttonpress
         closemessage
         releaseall
@@ -15,14 +16,20 @@ script scr_seq_D17R0101_000 {
     getgameversion(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 8) {
         if (flag(FLAG_UNK_108)) {
-            npcmsg(msg_0057_D17R0101_00005)
+            npcmsg("Hmmm.\r"
+                   "So it was you and the Bell!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
         if (flag(FLAG_UNK_105)) {
-            npcmsg(msg_0057_D17R0101_00004)
+            npcmsg("That Rainbow Wing will merely permit you\n"
+                   "to go up the tower.\r"
+                   "If you are not the kind of person who\n"
+                   "would restore the trust between people\f"
+                   "and Pokémon, HO-OH will never show\f"
+                   "itself to you...")
             waitbuttonpress
             closemessage
             releaseall
@@ -34,6 +41,11 @@ script scr_seq_D17R0101_000 {
     closemessage
     releaseall
     end
+}
+
+text msg_0057_D17R0101_00003 {
+    "You have done it...\n"
+    "Please come through."
 }
 
 script scr_seq_D17R0101_001 {
@@ -52,7 +64,7 @@ script scr_seq_D17R0101_001 {
     compare(VAR_TEMP_x400A, 2)
     callifeq(_0192)
     if (flag(FLAG_UNK_093)) {
-        npcmsg(msg_0057_D17R0101_00002)
+        npcmsg("That thing you have...!\r")
         closemessage
         showlegendarywing(0)
         releaseall
@@ -74,9 +86,29 @@ script scr_seq_D17R0101_001 {
     followingpokemonmovement(48)
     getgameversion(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 7) {
-        npcmsg(msg_0057_D17R0101_00000)
+        npcmsg("So many people have gone up\n"
+               "the tower with a Rainbow Wing\f"
+               "to try and bring back HO-OH.\r"
+               "But none succeeded in making\n"
+               "HO-OH appear...\r"
+               "The Rainbow Wing is merely to permit you\n"
+               "to go up this tower.\r"
+               "What HO-OH has longed for is the\n"
+               "invisible trust between people and\f"
+               "Pokémon...\r"
+               "Or the person who can restore such\n"
+               "a relationship...\r")
     } else {
-        npcmsg(msg_0057_D17R0101_00001)
+        npcmsg("A long time ago, there used to be a\n"
+               "Pokémon at the top of this tower,\f"
+               "namely HO-OH.\r"
+               "But it flew away, and no one has seen it\n"
+               "since...\r"
+               "If anyone who could restore deep trust\n"
+               "between people and Pokémon were to\f"
+               "come here with something linked to\f"
+               "HO-OH... It may come down for such\f"
+               "a person...\r")
     }
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)

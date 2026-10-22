@@ -38,9 +38,11 @@ script scr_seq_T21FS0101_002 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ELMS_LAB) >= 4) {
-        npcmsg(msg_0551_T21FS0101_00001)
+        npcmsg("Poké Balls are in stock!\n"
+               "Now I can catch Pokémon!")
     } else {
-        npcmsg(msg_0551_T21FS0101_00000)
+        npcmsg("They’re fresh out of Poké Balls!\n"
+               "When will they get more of them?")
     }
     waitbuttonpress
     closemessage
@@ -49,7 +51,12 @@ script scr_seq_T21FS0101_002 {
 }
 
 script scr_seq_T21FS0101_001 {
-    simplenpcmsg(msg_0551_T21FS0101_00002)
+    simplenpcmsg("When I was walking in the tall grass,\n"
+                 "a Bug-type Pokémon poisoned\f"
+                 "my Pokémon!\r"
+                 "I just kept going, but my Pokémon\n"
+                 "nearly fainted.\r"
+                 "You should keep an Antidote with you.")
     end
 }
 

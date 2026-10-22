@@ -2,7 +2,9 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T11R0801_000 {
-    simplenpcmsg(msg_0540_T11R0801_00000)
+    simplenpcmsg("My daughter likes to mimic people.\n"
+                 "Her mimicry has earned her the\f"
+                 "nickname Copycat around here.")
     end
 }
 
@@ -11,13 +13,19 @@ script scr_seq_T11R0801_001 {
     lockall
     faceplayer
     if (flag(FLAG_RESTORED_POWER)) {
-        npcmsg(msg_0540_T11R0801_00002)
+        npcmsg("She recently lost the Poké Doll that\n"
+               "a boy gave her three years ago.\r"
+               "Ever since then, she’s gotten even\n"
+               "better at mimicry...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0540_T11R0801_00001)
+    npcmsg("My daughter is unique...\r"
+           "She would make friends, then her mimicry\n"
+           "would scare them away...\f"
+           "She only has a few friends.")
     waitbuttonpress
     closemessage
     releaseall
@@ -29,7 +37,7 @@ script scr_seq_T11R0801_002 {
     lockall
     faceplayer
     playcry(SPECIES_BLISSEY, 0)
-    npcmsg(msg_0540_T11R0801_00003)
+    npcmsg("BLISSEY: Bliisii!")
     waitcry
     waitbuttonpress
     closemessage

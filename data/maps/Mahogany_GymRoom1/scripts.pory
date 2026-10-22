@@ -7,13 +7,22 @@ script scr_seq_T28GYM0103_000 {
     faceplayer
     checkbadge(BADGE_GLACIER, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0623_T28GYM0103_00001)
+        npcmsg("Pryce is something, but you’re\n"
+               "something else!\r"
+               "That was a hot battle that\n"
+               "spanned the generations!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0623_T28GYM0103_00000)
+    npcmsg("Pryce is a veteran who has trained\n"
+           "Pokémon for some 50 years.\r"
+           "As you’ll find, his attacks will make\n"
+           "you shiver in this freezing Gym.\r"
+           "Are you ready to be frozen solid?\r"
+           "I mean--keep up a hot fighting spirit\n"
+           "against ice!")
     waitbuttonpress
     closemessage
     releaseall
@@ -27,9 +36,12 @@ script scr_seq_T28GYM0103_001 {
     checkbadge(BADGE_GLACIER, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0623_T28GYM0103_00002)
+        npcmsg("Mahogany Town Pokémon Gym")
     } else {
-        npcmsg(msg_0623_T28GYM0103_00003)
+        npcmsg("Mahogany Town Pokémon Gym\r"
+               "Leader: Pryce\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

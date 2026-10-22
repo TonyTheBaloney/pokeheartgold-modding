@@ -3,183 +3,95 @@
   "messages": [
     {
       "id": "msg_0130_D44R0103_00000",
-      "en_US": [
-        "Hm... Good to see you here.\f",
-        "No need to explain why you came.\r",
-        "Clair sent you here, didn’t she?\f",
-        "That girl is a handful...\r",
-        "I am sorry, but I must test you.\r",
-        "Not to worry, you are to answer only\n",
-        "a few questions.\f",
-        "Ready?\r"
-      ]
+      "from": "scr_seq_D44R0103_003#0"
     },
     {
       "id": "msg_0130_D44R0103_00001",
-      "en_US": "What are Pokémon to you? {YESNO 0}"
+      "from": "scr_seq_D44R0103_003#1"
     },
     {
       "id": "msg_0130_D44R0103_00002",
-      "en_US": "What helps you to win battles? {YESNO 0}"
+      "from": "scr_seq_D44R0103_003#2"
     },
     {
       "id": "msg_0130_D44R0103_00003",
-      "en_US": [
-        "What kind of Trainer do you\n",
-        "wish to battle? {YESNO 0}"
-      ]
+      "from": "scr_seq_D44R0103_003#3"
     },
     {
       "id": "msg_0130_D44R0103_00004",
-      "en_US": [
-        "What is most important for\n",
-        "raising Pokémon? {YESNO 0}"
-      ]
+      "from": "scr_seq_D44R0103_003#4"
     },
     {
       "id": "msg_0130_D44R0103_00005",
-      "en_US": [
-        "Strong Pokémon. Weak Pokémon.\n",
-        "Which is more important? {YESNO 0}"
-      ]
+      "from": "scr_seq_D44R0103_003#5"
     },
     {
       "id": "msg_0130_D44R0103_00006",
-      "en_US": [
-        "Hm... I see...\n",
-        "You care deeply for Pokémon.\r",
-        "Very commendable.\f",
-        "That conviction is what is important!\r",
-        "{STRVAR_1 3, 0, 0}, don’t lose that belief.\r",
-        "It will see you through at the\n",
-        "Pokémon League.\r"
-      ]
+      "from": "scr_seq_D44R0103_003#6"
     },
     {
       "id": "msg_0130_D44R0103_00007",
-      "en_US": "Hah? I didn’t quite catch that...\r"
+      "from": "scr_seq_D44R0103_003#18"
     },
     {
       "id": "msg_0130_D44R0103_00008",
-      "en_US": "What was it you said?"
+      "from": "scr_seq_D44R0103_003#19"
     },
     {
       "id": "msg_0130_D44R0103_00009",
-      "en_US": "Oh, I understand...\r"
+      "from": "text"
     },
     {
       "id": "msg_0130_D44R0103_00010",
-      "en_US": [
-        "So how did it go?\r",
-        "I guess there’s no point in asking.\n",
-        "You did fail?\f",
-        "...\f",
-        "...What? You passed?\r"
-      ]
+      "from": "scr_seq_D44R0103_003#7"
     },
     {
       "id": "msg_0130_D44R0103_00011",
-      "en_US": "{SIZE 200}That can’t be!{SIZE 100}\r"
+      "from": "scr_seq_D44R0103_003#8"
     },
     {
       "id": "msg_0130_D44R0103_00012",
-      "en_US": [
-        "You’re lying!\n",
-        "Even I haven’t been approved!\r"
-      ]
+      "from": "scr_seq_D44R0103_003#9"
     },
     {
       "id": "msg_0130_D44R0103_00013",
-      "en_US": [
-        "Clair!\r",
-        "This child is impeccable,\n",
-        "in skill and spirit!\r",
-        "Admit defeat and confer the\n",
-        "Rising Badge!\r",
-        "...Or must I inform Lance of this?\r"
-      ]
+      "from": "scr_seq_D44R0103_003#10"
     },
     {
       "id": "msg_0130_D44R0103_00014",
-      "en_US": "I... I understand...\r"
+      "from": "scr_seq_D44R0103_003#11"
     },
     {
       "id": "msg_0130_D44R0103_00015",
-      "en_US": [
-        "Here, this is the Rising Badge...\n",
-        "Hurry up! Take it!\r"
-      ]
+      "from": "scr_seq_D44R0103_003#12"
     },
     {
       "id": "msg_0130_D44R0103_00016",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} received\n",
-        "the Rising Badge from Clair!"
-      ]
+      "from": "scr_seq_D44R0103_003#13"
     },
     {
       "id": "msg_0130_D44R0103_00017",
-      "en_US": [
-        "The Rising Badge will enable your\n",
-        "Pokémon to use the move for\f",
-        "climbing waterfalls.\r",
-        "Also, all Pokémon will know you as\n",
-        "a Trainer and obey your every\f",
-        "command without question.\r"
-      ]
+      "from": "scr_seq_D44R0103_003#14"
     },
     {
       "id": "msg_0130_D44R0103_00018",
-      "en_US": [
-        "Clair...\r",
-        "Reflect upon what it is that you\n",
-        "lack and this child has.\r"
-      ]
+      "from": "scr_seq_D44R0103_003#15"
     },
     {
       "id": "msg_0130_D44R0103_00019",
-      "en_US": [
-        "...\n",
-        "...\r"
-      ]
+      "from": "scr_seq_D44R0103_003#16"
     },
     {
       "id": "msg_0130_D44R0103_00020",
-      "en_US": [
-        "By the way...\n",
-        "Have you heard of LUGIA?\r",
-        "It is a Pokémon said to have lived\n",
-        "around Whirl Islands once...\f",
-        "...Never mind.\r",
-        "Just mad words of the old.\n"
-      ]
+      "from": "text"
     },
     {
       "id": "msg_0130_D44R0103_00021",
-      "en_US": [
-        "By the way...\n",
-        "Have you heard of LUGIA?\f",
-        "Er...\r",
-        "Between Olivine and Cianwood are\n",
-        "islands called Whirl Islands.\r",
-        "There is a huge waterfall deep in the\n",
-        "cave there. It is said that LUGIA\r",
-        "rests in the deep end of the\n",
-        "waterfall basin...\r",
-        "You need a Silver Wing to reach the\n",
-        "waterfall basin, I’ve heard..."
-      ]
+      "from": "scr_seq_D44R0103_003#17"
     },
     {
       "id": "msg_0130_D44R0103_00022",
-      "en_US": [
-        "There is a huge waterfall deep in the\n",
-        "cave there. It is said that LUGIA\r",
-        "rests in the deep end of the\n",
-        "waterfall basin...\r",
-        "You need a Silver Wing to reach the\n",
-        "waterfall basin, I’ve heard..."
-      ]
+      "from": "scr_seq_D44R0103_000#0"
     },
     {
       "id": "msg_0130_D44R0103_00023",
@@ -187,59 +99,31 @@
     },
     {
       "id": "msg_0130_D44R0103_00024",
-      "en_US": [
-        "It’s been quite some time since a\n",
-        "Trainer has gained our Master’s\f",
-        "rare approval.\r",
-        "In fact, not since Master Lance."
-      ]
+      "from": "scr_seq_D44R0103_001#0"
     },
     {
       "id": "msg_0130_D44R0103_00025",
-      "en_US": [
-        "You know young Master Lance?\r",
-        "He looks so much like our Master\n",
-        "did in his youth.\f",
-        "It’s in their blood."
-      ]
+      "from": "scr_seq_D44R0103_002#0"
     },
     {
       "id": "msg_0130_D44R0103_00026",
-      "en_US": [
-        "Hm... Good to see you here.\r",
-        "Your arrival is most fortunate.\n",
-        "I have something for you.\r",
-        "Take this DRATINI as proof that I\n",
-        "now know your worth.\r"
-      ]
+      "from": "scr_seq_D44R0103_000#1"
     },
     {
       "id": "msg_0130_D44R0103_00027",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} received\n",
-        "DRATINI from the Master!"
-      ]
+      "from": "scr_seq_D44R0103_000#3"
     },
     {
       "id": "msg_0130_D44R0103_00028",
-      "en_US": "Hm? Your party is full."
+      "from": "scr_seq_D44R0103_000#2"
     },
     {
       "id": "msg_0130_D44R0103_00029",
-      "en_US": [
-        "Dragon Pokémon are symbolic of\n",
-        "our clan.\r",
-        "You have shown that you can be\n",
-        "entrusted with one."
-      ]
+      "from": "scr_seq_D44R0103_000#5"
     },
     {
       "id": "msg_0130_D44R0103_00030",
-      "en_US": [
-        "Clair appears to have learned an\n",
-        "invaluable lesson from you.\r",
-        "I thank you as her grandfather."
-      ]
+      "from": "scr_seq_D44R0103_000#6"
     },
     {
       "id": "msg_0130_D44R0103_00031",
@@ -252,10 +136,7 @@
     },
     {
       "id": "msg_0130_D44R0103_00032",
-      "en_US": [
-        "Give a nickname to the\n",
-        "DRATINI you received? {YESNO 0}"
-      ]
+      "from": "scr_seq_D44R0103_000#4"
     }
   ]
 }

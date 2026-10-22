@@ -83,7 +83,11 @@ script scr_seq_D37R0102_000 {
     lockall
     faceplayer
     setflag(FLAG_SPECIAL_MART_BITTER)
-    npcmsg(msg_0117_D37R0102_00000)
+    npcmsg("Hello, dear.\r"
+           "I sell inexpensive herbal medicine.\n"
+           "They’re good, but a trifle bitter.\r"
+           "Your Pokémon may not like them.\n"
+           "Hehehehe... {YESNO 0}")
     holdmsg
     setvar(VAR_SPECIAL_x8004, 8)
     callstd(std_special_mart)
@@ -97,14 +101,24 @@ script scr_seq_D37R0102_001 {
     lockall
     faceplayer
     if (flag(FLAG_DAILY_GOT_HAIRCUT)) {
-        npcmsg(msg_0117_D37R0102_00016)
+        npcmsg("I do only one haircut a day, sorry.\n"
+               "I’m done for today.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     showmoneybox(20, 2)
-    npcmsg(msg_0117_D37R0102_00010)
+    npcmsg("Welcome!\r"
+           "I run the Pokémon Salon!\r"
+           "I’m the older and better of the two\n"
+           "Haircut Brothers.\r"
+           "I can make your Pokémon beautiful for\n"
+           "just $500.\r"
+           "Grooming gives a better look.\n"
+           "Your Pokémon will become friendlier and\f"
+           "more beautiful.\r"
+           "Would you like me to do that? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -114,7 +128,7 @@ script scr_seq_D37R0102_001 {
 _01F5:
     hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 500)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0324) }
-    npcmsg(msg_0117_D37R0102_00011)
+    npcmsg("Which Pokémon should I work on?")
     waitabpress
     closemessage
     hidemoneybox
@@ -132,7 +146,7 @@ _01F5:
     showmoneybox(20, 2)
     submoneyimmediate(500)
     updatemoneybox
-    npcmsg(msg_0117_D37R0102_00012)
+    npcmsg("OK! Watch it become beautiful!")
     waitabpress
     closemessage
     fadescreen(6, 1, 0, RGB_WHITE)
@@ -142,7 +156,7 @@ _01F5:
     hidemoneybox
     fadescreen(6, 1, 1, RGB_WHITE)
     waitfade
-    npcmsg(msg_0117_D37R0102_00013)
+    npcmsg("There! All done!")
     waitabpress
     setflag(FLAG_DAILY_GOT_HAIRCUT)
     call(_04C8)
@@ -188,7 +202,7 @@ _0319:
     releaseall
     end
 _0324:
-    npcmsg(msg_0117_D37R0102_00015)
+    npcmsg("You’ll need more money than that.")
     waitbuttonpress
     closemessage
     hidemoneybox
@@ -196,12 +210,29 @@ _0324:
     end
 }
 
+text msg_0117_D37R0102_00024 {
+    "{STRVAR_1 0, 0, 0} looks a little happier."
+}
+
+text msg_0117_D37R0102_00025 {
+    "{STRVAR_1 0, 0, 0} looks happy."
+}
+
+text msg_0117_D37R0102_00026 {
+    "{STRVAR_1 0, 0, 0} looks delighted!"
+}
+
+text msg_0117_D37R0102_00014 {
+    "Is that right? That’s a shame!"
+}
+
 script scr_seq_D37R0102_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     if (flag(FLAG_DAILY_GOT_HAIRCUT)) {
-        npcmsg(msg_0117_D37R0102_00023)
+        npcmsg("I have a feeling that it won’t go well\n"
+               "next time. Let me close for the day!")
         waitbuttonpress
         closemessage
         releaseall
@@ -216,7 +247,15 @@ script scr_seq_D37R0102_002 {
         return
     }
     showmoneybox(20, 2)
-    npcmsg(msg_0117_D37R0102_00017)
+    npcmsg("Welcome to the Pokémon Salon!\r"
+           "I’m the younger and less expensive of\n"
+           "the two Haircut Brothers.\r"
+           "I’ll spruce up your Pokémon for\n"
+           "just $300.\r"
+           "Grooming gives a better look.\n"
+           "Your Pokémon will become friendlier and\f"
+           "more beautiful.\r"
+           "So? How about it?")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -226,7 +265,7 @@ script scr_seq_D37R0102_002 {
 _0375:
     hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 300)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04B0) }
-    npcmsg(msg_0117_D37R0102_00018)
+    npcmsg("OK, which Pokémon should I spruce up?")
     waitabpress
     closemessage
     hidemoneybox
@@ -244,7 +283,7 @@ _0375:
     showmoneybox(20, 2)
     submoneyimmediate(300)
     updatemoneybox
-    npcmsg(msg_0117_D37R0102_00019)
+    npcmsg("OK! I hope I do a good job!")
     waitabpress
     closemessage
     fadescreen(6, 1, 0, RGB_WHITE)
@@ -254,7 +293,7 @@ _0375:
     hidemoneybox
     fadescreen(6, 1, 1, RGB_WHITE)
     waitfade
-    npcmsg(msg_0117_D37R0102_00020)
+    npcmsg("There we go! All done!")
     waitabpress
     setflag(FLAG_DAILY_GOT_HAIRCUT)
     random(VAR_SPECIAL_RESULT, 100)
@@ -302,7 +341,7 @@ _04A5:
     releaseall
     end
 _04B0:
-    npcmsg(msg_0117_D37R0102_00022)
+    npcmsg("You’re a little short on funds.")
     waitbuttonpress
     closemessage
     hidemoneybox
@@ -310,19 +349,26 @@ _04B0:
     end
 }
 
+text msg_0117_D37R0102_00021 {
+    "No? How disappointing!"
+}
+
 script scr_seq_D37R0102_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     if (flag(FLAG_UNK_AB7)) {
-        npcmsg(msg_0117_D37R0102_00008)
+        npcmsg("We’re closed for the day.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     showmoneybox(20, 2)
-    npcmsg(msg_0117_D37R0102_00001)
+    npcmsg("Hiya! Care to see some bargains?\r"
+           "I sell rare items that nobody else\n"
+           "carries--but only one of\f"
+           "each item. {YESNO 0}")
     setvar(VAR_TEMP_x4003, 0)
     setvar(VAR_TEMP_x4004, 0)
     setvar(VAR_TEMP_x4005, 0)
@@ -378,7 +424,8 @@ _063F:
 _0664:
     bufferitemname(0, VAR_SPECIAL_x8004)
     bufferint(1, VAR_SPECIAL_x8006)
-    npcmsg(msg_0117_D37R0102_00002)
+    npcmsg("{STRVAR_1 8, 0, 0} costs\n"
+           "${STRVAR_1 53, 1, 0}. Want it?")
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_068A) }
     closemessage
@@ -420,8 +467,9 @@ _068A:
     bufferitemname(0, VAR_SPECIAL_x8004)
     getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
     bufferpocketname(1, VAR_SPECIAL_RESULT)
-    npcmsg(msg_0117_D37R0102_00003)
-    npcmsg(msg_0117_D37R0102_00004)
+    npcmsg("Thanks.\r")
+    npcmsg("You put the {STRVAR_1 8, 0, 0} in\n"
+           "the {STRVAR_1 18, 1, 0} Pocket. {YESNO 0}")
     giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_x8004) == 92) {
         setvar(VAR_TEMP_x4003, 1)
@@ -437,18 +485,19 @@ _068A:
     setflag(FLAG_UNK_AB7)
     goto(_0522)
 _086B:
-    npcmsg(msg_0117_D37R0102_00005)
+    npcmsg("You bought that already. I’m all\n"
+           "sold out of it. {YESNO 0}")
     goto(_0522)
 _0874:
-    npcmsg(msg_0117_D37R0102_00006)
+    npcmsg("Uh-oh, you’re short on funds. {YESNO 0}")
     goto(_0522)
 _087D:
-    npcmsg(msg_0117_D37R0102_00007)
+    npcmsg("Uh-oh, your Bag is chock-full. {YESNO 0}")
     goto(_0522)
 _0886:
     touchscreenmenushow
     hidemoneybox
-    npcmsg(msg_0117_D37R0102_00009)
+    npcmsg("Come by again sometime.")
     waitbuttonpress
     closemessage
     releaseall
@@ -477,7 +526,15 @@ script scr_seq_D37R0102_004 {
         applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0AFC)
     }
     waitmovement
-    npcmsg(msg_0117_D37R0102_00036)
+    npcmsg("Huh?\n"
+           "Are you a newcomer, too?\r"
+           "We had to recruit new members for the\n"
+           "Radio Tower mission.\f"
+           "Then we ran out of uniforms.\r"
+           "I heard this studio has some, so I\n"
+           "decided to “borrow” one.\r"
+           "Since you are here, why don’t you\n"
+           "change as well?\r")
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     togglefollowingpokemonmovement(0)
@@ -526,6 +583,13 @@ script scr_seq_D37R0102_004 {
     closemessage
     releaseall
     end
+}
+
+text msg_0117_D37R0102_00037 {
+    "Look at you! Pretty good!\r"
+    "Oh, but you shouldn’t try to scare\n"
+    "people walking around looking\f"
+    "like that, OK?"
 }
 
 movement Goldenrod_Tunnel_B1F_Movement_0AC4 {
@@ -648,19 +712,40 @@ script scr_seq_D37R0102_005 {
     setvar(VAR_SPECIAL_x8007, 0)
     callifunset(FLAG_UNK_08C, _0C0E)
     if (var(VAR_TEMP_x400A) == 0) {
-        npcmsg(msg_0117_D37R0102_00039)
+        npcmsg("Ooh, your Pokémon are so very\n"
+               "charming! How enchanting!\r"
+               "If you dress up your Pokémon here,\n"
+               "make it a sight to behold!\r"
+               "Then I will even hang a picture of one\n"
+               "in the other room!\r"
+               "You will do this, won’t you? {YESNO 0}")
         goto(_0C58)
     }
     if (var(VAR_TEMP_x400A) >= 1) {
-        npcmsg(msg_0117_D37R0102_00049)
+        npcmsg("If you dress up any Pokémon again,\n"
+               "the photo here will be changed.\r"
+               "Would you like to dress up\n"
+               "a Pokémon, dearie? {YESNO 0}")
         goto(_0C58)
     _0C28:
-        npcmsg(msg_0117_D37R0102_00041)
+        npcmsg("Ooh, ooh, yes! How nice!\n"
+               "Let’s not delay!\r"
+               "Should I explain to you how\n"
+               "to dress up your Pokémon? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            npcmsg(msg_0117_D37R0102_00044)
+            npcmsg("You have a Fashion Case, don’t you?\n"
+                   "Ah, oui, wonderful!\r"
+                   "Just choose the Accessories and put\n"
+                   "them on your Pokémon.\r"
+                   "When you’re done, I will snap a photo\n"
+                   "and put it up beside me!\r"
+                   "If you mix your records with others,\n"
+                   "you can get their photos, too!\r"
+                   "I think it will be much easier if \n"
+                   "you will just try! {YESNO 0}")
             goto(_0C7C)
         _0C58:
             touchscreenmenuhide
@@ -682,7 +767,8 @@ script scr_seq_D37R0102_005 {
                 setvar(VAR_TEMP_x4002, 0)
                 goto(_0D17)
             _0CCC:
-                npcmsg(msg_0117_D37R0102_00042)
+                npcmsg("Ooh, I wonder which Pokémon you’ll\n"
+                       "dress up?\r")
                 closemessage
                 fadescreen(6, 1, 0, RGB_BLACK)
                 waitfade
@@ -694,7 +780,8 @@ script scr_seq_D37R0102_005 {
                 if (var(VAR_TEMP_x4002) == 255) { goto(_0DDA) }
                 getpartymonspecies(VAR_TEMP_x4002, VAR_SPECIAL_RESULT)
                 if (var(VAR_SPECIAL_RESULT) == 0) {
-                    npcmsg(msg_0117_D37R0102_00051)
+                    npcmsg("Ooh, non, non, non! That’s an Egg!\n"
+                           "It’s too young to be dressing up!\r")
                     goto(_0CCC)
                 _0DEE:
                     fadescreen(6, 1, 0, RGB_BLACK)
@@ -706,20 +793,25 @@ script scr_seq_D37R0102_005 {
                     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0E35) }
                     fashionentrysetmailword(VAR_SPECIAL_x8004)
                     buffereasychatword(0, VAR_SPECIAL_x8004)
-                    npcmsg(msg_0117_D37R0102_00046)
-                    npcmsg(msg_0117_D37R0102_00052)
+                    npcmsg("{STRVAR_1 28, 0, 0}...\r"
+                           "Ooh, yes, yes! I get it now!\n"
+                           "Your aesthetics shine through!\r")
+                    npcmsg("I put your photo up right here.\n"
+                           "It just looks so perfect there!")
                     waitbuttonpress
                     closemessage
                     releaseall
                     end
                 _0E35:
-                    npcmsg(msg_0117_D37R0102_00047)
+                    npcmsg("Oh, non, non, non!\n"
+                           "It will be forlorn without a title.\r")
                     closemessage
                     goto(_0DEE)
                 }
                 goto(_0D17)
             _0D17:
-                npcmsg(msg_0117_D37R0102_00043)
+                npcmsg("Teeheehee...\n"
+                       "I hope you will dress it up adorably!\r")
                 closemessage
                 getplayerfacing(VAR_SPECIAL_x8006)
                 if (var(VAR_SPECIAL_x8006) == 0) { goto(_0D49) }
@@ -752,18 +844,22 @@ script scr_seq_D37R0102_005 {
                 goto(_0DBC)
             _0DBC:
                 if (var(VAR_SPECIAL_x8005) == 0) {
-                    npcmsg(msg_0117_D37R0102_00048)
+                    npcmsg("Oh... You came out without doing\n"
+                           "anything... How disappointing.")
                     waitbuttonpress
                     closemessage
                     releaseall
                     end
                 }
                 setvar(VAR_TEMP_x400A, 1)
-                npcmsg(msg_0117_D37R0102_00045)
+                npcmsg("Ooh, nice work!\n"
+                       "Let’s display the photo right away!\f"
+                       "Oh, but it needs to have a title!\r")
                 closemessage
                 goto(_0DEE)
             _0DDA:
-                npcmsg(msg_0117_D37R0102_00040)
+                npcmsg("Oh, you silly thing...\n"
+                       "Where’s your sense of adventure?")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -851,20 +947,27 @@ script scr_seq_D37R0102_006 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0117_D37R0102_00029)
+    npcmsg("Welcome to the Memorial Photo Studio.\n"
+           "We are no ordinary studio!\r"
+           "You can wear a Team Rocket uniform\n"
+           "to take a picture!\r"
+           "Would you like to try it? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
         photoalbumisfull(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0117_D37R0102_00035)
+            npcmsg("Hmm. Your Photo Album is full.\r"
+                   "Access your PC and delete\n"
+                   "some pictures.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0117_D37R0102_00030)
+        npcmsg("Please stand in front of the camera\n"
+               "once you have changed.\r")
         closemessage
         fadescreen(6, 1, 0, RGB_BLACK)
         waitfade
@@ -889,7 +992,9 @@ script scr_seq_D37R0102_006 {
         }
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
-        npcmsg(msg_0117_D37R0102_00031)
+        npcmsg("Are you ready?\r"
+               "Come on!\n"
+               "Look cool as if you own the world!\r")
         closemessage
         fadescreen(6, 1, 0, RGB_BLACK)
         waitfade
@@ -908,13 +1013,15 @@ script scr_seq_D37R0102_006 {
         followingpokemonmovement(48)
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
-        npcmsg(msg_0117_D37R0102_00032)
+        npcmsg("Good job.\r"
+               "You can check the picture using the PC.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0117_D37R0102_00034)
+    npcmsg("...Fair enough.\r"
+           "No one should look up to Team Rocket.")
     waitbuttonpress
     closemessage
     releaseall
@@ -959,11 +1066,18 @@ script scr_seq_D37R0102_011 {
         applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_10C8)
     }
     waitmovement
-    npcmsg(msg_0117_D37R0102_00055)
+    npcmsg("Team Rocket members in black suits\n"
+           "have been running around...\r"
+           "I was wondering what was going on.\n"
+           "So, you took on Team Rocket?\f"
+           "You are impressive!\r"
+           "You may be able to face the\n"
+           "legendary Poké...\r")
     closemessage
     applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_10E4)
     waitmovement
-    npcmsg(msg_0117_D37R0102_00056)
+    npcmsg("Hahaha! Never mind.\r"
+           "I must go now.\r")
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 31) {
@@ -1034,6 +1148,10 @@ script scr_seq_D37R0102_007 {
     end
 }
 
+text msg_0117_D37R0102_00027 {
+    "NO ENTRY BEYOND THIS POINT"
+}
+
 script scr_seq_D37R0102_010 {
     playse(SEQ_SE_DP_SELECT)
     lockall
@@ -1041,7 +1159,8 @@ script scr_seq_D37R0102_010 {
     getitemquantity(ITEM_BASEMENT_KEY, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
         bufferplayersname(0)
-        npcmsg(msg_0117_D37R0102_00028)
+        npcmsg("{STRVAR_1 3, 0, 0} inserted the\n"
+               "Basement Key.\r")
         closemessage
         applymovement(obj_D37R0102_babyboy1_8, Goldenrod_Tunnel_B1F_Movement_11A4)
         waitmovement
@@ -1224,7 +1343,8 @@ script scr_seq_D37R0102_022 {
     releaseall
     end
 _144B:
-    npcmsg(msg_0117_D37R0102_00053)
+    npcmsg("It’s a frame for holding a\n"
+           "portrait photo.")
     waitbuttonpress
     closemessage
     releaseall
@@ -1239,27 +1359,33 @@ script scr_seq_D37R0102_023 {
     if (var(VAR_SPECIAL_RESULT) == 1) {
         checkhasallbackdrops(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0117_D37R0102_00058)
+            npcmsg("Wow, you are great!\n"
+                   "So many Accessories and wallpapers!\r"
+                   "Go ahead and dress up your Pokémon!")
             waitbuttonpress
             closemessage
             goto(_1568)
             end
         _1530:
-            npcmsg(msg_0117_D37R0102_00059)
+            npcmsg("Please come again!")
             waitbuttonpress
             closemessage
             goto(_1568)
             end
         }
     }
-    npcmsg(msg_0117_D37R0102_00057)
+    npcmsg("Take a look!\r"
+           "This is a drawing for Accessories.\n"
+           "You never know what you’re gonna get.\r"
+           "Would you like to try for $100? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_1530) }
     hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 100)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0117_D37R0102_00060)
+        npcmsg("Oh, no!\n"
+               "You’re short on funds.")
         waitbuttonpress
         closemessage
         goto(_1568)
@@ -1284,7 +1410,11 @@ script scr_seq_D37R0102_023 {
         releaseall
         end
     }
-    npcmsg(msg_0117_D37R0102_00061)
+    npcmsg("Here we go!\r"
+           "..................\n"
+           "..................\f"
+           "......\f"
+           "You win!\r")
     setvar(VAR_SPECIAL_x8005, 1)
     callstd(std_receive_accessory)
 _14EB:
@@ -1293,10 +1423,14 @@ _14EB:
     randomchance(95, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_1530) }
     getrandommissingbackdrop(VAR_SPECIAL_x8004)
-    npcmsg(msg_0117_D37R0102_00062)
+    npcmsg("How about a wallpaper?\r")
     callstd(std_receive_background)
     goto(_1530)
     end
+}
+
+text msg_0117_D37R0102_00064 {
+    "Oh, you didn’t win. Sorry.\r"
 }
 
 mapscripts Goldenrod_Tunnel_B1F_MapScripts {

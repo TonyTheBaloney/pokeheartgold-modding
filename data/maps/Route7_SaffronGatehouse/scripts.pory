@@ -6,13 +6,18 @@ script scr_seq_R07R0101_000 {
     lockall
     faceplayer
     if (flag(FLAG_RESTORED_POWER)) {
-        npcmsg(msg_0337_R07R0101_00001)
+        npcmsg("I take my guard job seriously.\n"
+               "Hey! You have a Pokédex.\f"
+               "OK. You can go through.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0337_R07R0101_00000)
+    npcmsg("Did you hear about the accident at\n"
+           "the Power Plant?\r"
+           "It’s located in the east, close to\n"
+           "Lavender Town.")
     waitbuttonpress
     closemessage
     releaseall

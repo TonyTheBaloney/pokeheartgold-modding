@@ -3,81 +3,43 @@
   "messages": [
     {
       "id": "msg_0059_D17R1101_00000",
-      "en_US": [
-        "Morty: The legendary Pokémon did not\n",
-        "choose me...\r",
-        "But that does not mean that I have\n",
-        "lost out on my future.\r",
-        "I will continue my training until I\n",
-        "discover a new future for me.\r",
-        "Say, do you want to be part of my\n",
-        "training? {YESNO 0}"
-      ]
+      "from": "scr_seq_D17R1101_001#5"
     },
     {
       "id": "msg_0059_D17R1101_00001",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} registered Morty\n",
-        "in the Pokégear!"
-      ]
+      "from": "scr_seq_D17R1101_001#6"
     },
     {
       "id": "msg_0059_D17R1101_00002",
-      "en_US": [
-        "Morty: Give me a call on Tuesday night if\n",
-        "you want a battle!"
-      ]
+      "from": "scr_seq_D17R1101_001#7"
     },
     {
       "id": "msg_0059_D17R1101_00003",
-      "en_US": [
-        "Morty: Oh...\n",
-        "That’s a shame..."
-      ]
+      "from": "scr_seq_D17R1101_001#8"
     },
     {
       "id": "msg_0059_D17R1101_00004",
-      "en_US": [
-        "Morty: So, will you be part of my\n",
-        "training? {YESNO 0}"
-      ]
+      "from": "scr_seq_D17R1101_001#9"
     },
     {
       "id": "msg_0059_D17R1101_00005",
-      "en_US": [
-        "Morty: Hi, it’s you!\r",
-        "How about taking a picture\n",
-        "here with me as a memento? {YESNO 0}"
-      ]
+      "from": "scr_seq_D17R1101_001#0"
     },
     {
       "id": "msg_0059_D17R1101_00006",
-      "en_US": [
-        "Morty: All right!\n",
-        "Come and stand next to me.\r"
-      ]
+      "from": "scr_seq_D17R1101_001#3"
     },
     {
       "id": "msg_0059_D17R1101_00007",
-      "en_US": [
-        "Morty: Mmmm...\n",
-        "This is a pretty good picture!"
-      ]
+      "from": "scr_seq_D17R1101_001#4"
     },
     {
       "id": "msg_0059_D17R1101_00008",
-      "en_US": [
-        "Morty: I understand...\n",
-        "you must be busy with things."
-      ]
+      "from": "scr_seq_D17R1101_001#1"
     },
     {
       "id": "msg_0059_D17R1101_00009",
-      "en_US": [
-        "Your Photo Album is full.\r",
-        "Access your PC and delete\n",
-        "some pictures."
-      ]
+      "from": "scr_seq_D17R1101_001#2"
     }
   ]
 }

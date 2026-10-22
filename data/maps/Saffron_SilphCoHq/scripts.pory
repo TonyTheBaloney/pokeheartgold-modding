@@ -61,7 +61,8 @@ script scr_seq_T11R0701_005 {
 }
 
 script scr_seq_T11R0701_000 {
-    simplenpcmsg(msg_0537_T11R0701_00000)
+    simplenpcmsg("Welcome. This is Silph Co.’s\n"
+                 "head office building.")
     end
 }
 
@@ -70,7 +71,12 @@ script scr_seq_T11R0701_001 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_UPGRADE_FROM_SAFFRON_CITY_GUARD)) {
-        npcmsg(msg_0537_T11R0701_00001)
+        npcmsg("Hey, you! The elevator there is out of\n"
+               "order now.\r"
+               "Something is wrong with the electricity,\n"
+               "and it won’t work right.\r"
+               "I feel sorry that you wasted a trip,\n"
+               "so here is a gift for you!\r")
         if (!itemspace(ITEM_UPGRADE, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -80,7 +86,8 @@ script scr_seq_T11R0701_001 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_UPGRADE_FROM_SAFFRON_CITY_GUARD)
     }
-    npcmsg(msg_0537_T11R0701_00002)
+    npcmsg("It’s Silph Co.’s latest product.\n"
+           "It’s not for sale anywhere yet.")
     waitbuttonpress
     closemessage
     releaseall
@@ -93,13 +100,18 @@ script scr_seq_T11R0701_004 {
         playse(SEQ_SE_DP_SELECT)
         lockall
         faceplayer
-        npcmsg(msg_0537_T11R0701_00024)
+        npcmsg("Steven: I will ask again.\n"
+               "Which color do you choose? {YESNO 0}")
         goto(_022C)
     }
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_UNK_4130, 3)
-    npcmsg(msg_0537_T11R0701_00014)
+    npcmsg("Hello...\n"
+           "You’re breaking up...\f"
+           "I think it depends on how my dad feels.\r"
+           "I see...\n"
+           "I’ll be on my way. See you soon.\r")
     closemessage
     getplayerfacing(VAR_TEMP_x4002)
     if (var(VAR_TEMP_x4002) == 0) {
@@ -112,7 +124,10 @@ script scr_seq_T11R0701_004 {
     waitmovement
     applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03C4)
     waitmovement
-    npcmsg(msg_0537_T11R0701_00015)
+    npcmsg("Steven: You are...\n"
+           "I remember your eyes.\r"
+           "When I see a Trainer whose eyes\n"
+           "twinkle, I always remember.\r")
     if (var(VAR_TEMP_x4002) == 0) {
         applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03AC)
     } elif (var(VAR_TEMP_x4002) == 2) {
@@ -121,7 +136,13 @@ script scr_seq_T11R0701_004 {
         applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03B4)
     }
     waitmovement
-    npcmsg(msg_0537_T11R0701_00016)
+    npcmsg("Steven: You have a Pokédex!\n"
+           "So you are also in search of Pokémon.\f"
+           "Let me see...\r"
+           "I think I can help you with that.\r"
+           "Let’s say that you have stones in\n"
+           "front of you.\f"
+           "Which color would you pick? {YESNO 0}")
 _022C:
     touchscreenmenuhide
     menuinit(1, 1, 0, 1, VAR_SPECIAL_x8004)
@@ -144,18 +165,23 @@ _022C:
     }
     bufferspeciesname(1, VAR_SPECIAL_x8004, 0, 0)
     bufferplayersname(0)
-    npcmsg(msg_0537_T11R0701_00020)
+    npcmsg("Steven: You chose correctly!\n"
+           "I will give you {STRVAR_1 0, 1, 0}!\r")
     playfanfare(SEQ_ME_POKEGET)
-    npcmsg(msg_0537_T11R0701_00021)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the {STRVAR_1 0, 1, 0} from Steven!")
     waitfanfare
     givemon(VAR_SPECIAL_x8004, 5, 0, 0, 0, VAR_SPECIAL_RESULT)
     touchscreenmenuhide
-    npcmsg(msg_0537_T11R0701_00025)
+    npcmsg("Would you like to give a nickname\n"
+           "to {STRVAR_1 0, 1, 0}? {YESNO 0}")
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0351) }
     touchscreenmenushow
 _02F3:
-    npcmsg(msg_0537_T11R0701_00022)
+    npcmsg("Steven: Take good care of it.\n"
+           "Your caring for it will make me\f"
+           "very happy.\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 3) {
@@ -172,13 +198,21 @@ _02F3:
     releaseall
     end
 _033B:
-    npcmsg(msg_0537_T11R0701_00023)
+    npcmsg("Steven: I see...\n"
+           "For the choice you’ve made,\f"
+           "I’d like to give you this Pokémon.\r"
+           "Except your party is full.\r"
+           "Why don’t you go to the PC to make\n"
+           "some room? I’ll be waiting here.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0346:
-    npcmsg(msg_0537_T11R0701_00028)
+    npcmsg("Steven: You seem to be quite cautious.\r"
+           "Are you avoiding any chance when a\n"
+           "person might trick you?\f"
+           "You really are better than I thought.")
     waitbuttonpress
     closemessage
     releaseall
@@ -195,7 +229,7 @@ _0351:
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     if (var(VAR_TEMP_x4000) == 1) { goto(_02F3) }
-    npcmsg(msg_0537_T11R0701_00026)
+    npcmsg("Steven: You did a great job naming it!\r")
     goto(_02F3)
 }
 
@@ -232,16 +266,25 @@ script(local) _03E8 {
     faceplayer
     setvar(VAR_UNK_4130, 6)
     if (var(VAR_TEMP_x400A) == 77) {
-        npcmsg(msg_0537_T11R0701_00008)
+        npcmsg("Steven: Will you trade FORRETRESS\n"
+               "for my BELDUM? {YESNO 0}")
     } else {
-        npcmsg(msg_0537_T11R0701_00007)
+        npcmsg("Steven: We meet again!\n"
+               "Have you been to Hoenn before?\r"
+               "It’s such a beautiful place, with the\n"
+               "clearest ocean you can imagine.\r"
+               "You should visit sometime.\f"
+               "Hey!\r"
+               "Why don’t we trade Pokémon?\r"
+               "I’ve been looking for FORRETRESS.\n"
+               "I can trade my BELDUM for it. {YESNO 0}")
         setvar(VAR_TEMP_x400A, 77)
     }
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_04EA) }
-    npcmsg(msg_0537_T11R0701_00009)
+    npcmsg("Steven: OK, let’s trade!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -258,7 +301,8 @@ script(local) _03E8 {
     npctradegetreqspecies(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_x8005) != VAR_SPECIAL_RESULT) {
         npctradeend
-        npcmsg(msg_0537_T11R0701_00011)
+        npcmsg("Steven: Are you telling me that\n"
+               "you think that’s a FORRETRESS?")
         waitbuttonpress
         closemessage
         releaseall
@@ -268,9 +312,31 @@ script(local) _03E8 {
     npctradeend
     setflag(FLAG_TRADE_STEVEN_FORRETRESS_BELDUM)
     if (var(VAR_TEMP_x4002) >= 200) {
-        npcmsg(msg_0537_T11R0701_00013)
+        npcmsg("Steven: This Pokémon seems to like\n"
+               "you a lot. Do you happen to like\f"
+               "Steel-type Pokémon?\r"
+               "I had a feeling.\n"
+               "That particular texture!\r"
+               "The cool and glowing bodies!\n"
+               "Such uniquenesses are only for\f"
+               "Steel-type Pokémon!\r"
+               "When it comes to the solitariness and\n"
+               "nobleness you sense through the \f"
+               "rugged body, which is almost rebuffing\f"
+               "when you hug, nothing comes close to\f"
+               "BELDUM, I must say...\r"
+               "In short, my METAGROSS is\n"
+               "truly strong and cool!\r"
+               "...\n"
+               "Oh, it seems that I got carried away.\r"
+               "It was a pleasure talking to you.\n"
+               "Bye!\r")
     } else {
-        npcmsg(msg_0537_T11R0701_00012)
+        npcmsg("Steven: You don’t see FORRETRESS in\n"
+               "the Hoenn region.\r"
+               "It’s my first time to actually see one.\n"
+               "Thank you so much!\r"
+               "Oh, look at the time. I really must go.\r")
     }
     closemessage
     getplayerfacing(VAR_TEMP_x4000)
@@ -288,7 +354,7 @@ script(local) _03E8 {
     releaseall
     end
 _04EA:
-    npcmsg(msg_0537_T11R0701_00010)
+    npcmsg("Steven: That’s too bad.")
     waitbuttonpress
     closemessage
     releaseall
@@ -313,7 +379,8 @@ movement Saffron_SilphCoHq_Movement_051C {
 script scr_seq_T11R0701_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0537_T11R0701_00003)
+    npcmsg("This elevator is out of order.\r"
+           "It may electrocute you. Stay away.")
     waitbuttonpress
     closemessage
     releaseall

@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0465_T03R0201_00000",
-      "en_US": "NIDORAN♂, shake hands!"
+      "from": "scr_seq_T03R0201_000#0"
     },
     {
       "id": "msg_0465_T03R0201_00001",
-      "en_US": "NIDORAN㊚: Gau gau!"
+      "from": "scr_seq_T03R0201_001#0"
     }
   ]
 }

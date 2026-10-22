@@ -8,15 +8,16 @@ import unittest
 sys.path[:0] = [os.path.join(os.path.dirname(__file__), ".."), os.path.dirname(__file__)]
 
 from mapkit import Repo  # noqa: E402
-from mapkit.pory import compiler, decompile, PoryError  # noqa: E402
+from mapkit import pory  # noqa: E402
+from mapkit.pory import compiler, decompile, inline_text, PoryError  # noqa: E402
 from pory_roundtrip import roundtrip  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 REPO = Repo(ROOT)
 
 
-def compile_(src, switches=None):
-    ctx = compiler.Context(REPO.macros, compiler.load_config(), None, None, "test.pory")
+def compile_(src, switches=None, slots=None):
+    ctx = compiler.Context(REPO.macros, compiler.load_config(), None, None, "test.pory", slots)
     return compiler.compile_source(src, ctx, switches)
 
 
@@ -147,6 +148,47 @@ def decompiled(inc):
 
 
 HEAD = "\tScrDef A\n\tScrDefEnd\n\nA:\n"
+
+
+class InlineText(unittest.TestCase):
+    SRC = 'script S { npcmsg("a") if (flag(F)) { npcmsg("b") end } npcmsg("c") }'
+
+    def test_strings_fill_slots_in_source_order(self):
+        # "b" is emitted last (after End) but is still the script's string 1
+        r = compile_(self.SRC, slots={"S#1": "msg_X_00001"})
+        self.assertEqual(r.texts, [("S_Text_0", "a"), ("S_Text_2", "c"), ("msg_X_00001", "b")])
+        self.assertIn("NPCMsg msg_X_00001", r.scripts_inc)
+
+    def test_merged_bank_keeps_numbers(self):
+        r = compile_(self.SRC, slots={"S#1": "msg_X_00001"})
+        bank = {"key": 1, "messages": [{"id": "msg_X_00000", "en_US": "kept"},
+                                       {"id": "msg_X_00001", "from": "S#1"},
+                                       {"id": "msg_X_00002", "from": "Gone#0"}]}
+        unfilled = []
+        out = pory.merged_text(REPO, {"dir": "X"}, r, unfilled, bank)["messages"]
+        self.assertEqual([(m["id"], m["en_US"]) for m in out], [
+            ("msg_X_00000", "kept"), ("msg_X_00001", "b"), ("msg_X_00002", ""),
+            ("S_Text_0", "a"), ("S_Text_2", "c")])
+        self.assertEqual(unfilled, [("msg_X_00002", "Gone#0")])
+
+    def test_literals(self):
+        self.assertEqual(inline_text.literal_parts('Say "hi"\\\rNext {STRVAR_1 3, 0, 0}\n'),
+                         ['"Say \\"hi\\"\\\\\\r"', '"Next {STRVAR_1 3, 0, 0}\\n"'])
+        self.assertEqual(compile_('script S { npcmsg(%s) }' % " ".join(
+            inline_text.literal_parts('Say "hi"\\\rNext\n'))).texts, [("S_Text_0", 'Say "hi"\\\rNext\n')])
+
+    def test_every_dialog_matches_text_json_order(self):
+        # every slot is filled and every map's bank has its messages in the original order
+        for m in REPO.maps:
+            e = REPO.migrated[m.name]
+            if e["text"].startswith("@") or REPO.pory_entry(m) is None or REPO.pory_entry(m)["dir"] != e["dir"]:
+                continue
+            unfilled = []
+            out = pory.merged_text(REPO, e, REPO.pory_result(m), unfilled)["messages"]
+            self.assertEqual(unfilled, [], e["dir"])
+            for i, msg in enumerate(out[:len(REPO.text_bank(m).messages)]):
+                if msg["id"].startswith("msg_"):
+                    self.assertTrue(msg["id"].endswith("_%05d" % i), (e["dir"], msg["id"], i))
 
 
 class Decompile(unittest.TestCase):

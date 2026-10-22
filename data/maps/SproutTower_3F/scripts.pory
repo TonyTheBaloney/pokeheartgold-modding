@@ -22,18 +22,37 @@ script scr_seq_D15R0103_001 {
     waitmovement
     applymovement(obj_D15R0103_chourou, SproutTower_3F_Movement_00D0)
     waitmovement
-    npcmsg(msg_0056_D15R0103_00000)
+    npcmsg("Elder: You showed us what you’ve got,\n"
+           "and it is indeed good...\r"
+           "Take this Technical Machine.\r"
+           "However, you should care more about\n"
+           "your Pokémon.\r"
+           "The way you treat your Pokémon can\n"
+           "be too harsh...\r"
+           "Remember, Pokémon are not tools\n"
+           "of war...\r")
     closemessage
     wait(15, VAR_SPECIAL_RESULT)
     callstd(std_play_rival_outro_music)
     bufferrivalsname(0)
     applymovement(obj_D15R0103_gsrivel, SproutTower_3F_Movement_00D8)
     waitmovement
-    npcmsg(msg_0056_D15R0103_00001)
+    npcmsg("{STRVAR_1 3, 0, 0}: ...\r"
+           "...Humph!\n"
+           "He calls himself the Elder, but he was\f"
+           "no match for me.\r"
+           "Sure enough, those who lecture how\n"
+           "you should be “nice” to Pokémon...\f"
+           "They cannot defeat me.\r"
+           "All I care about are strong Pokémon\n"
+           "that win every time.\r"
+           "The rest of them don’t mean anything\n"
+           "to me.\r")
     closemessage
     wait(15, VAR_SPECIAL_RESULT)
     bufferrivalsname(0)
-    npcmsg(msg_0056_D15R0103_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} used\n"
+           "an Escape Rope!")
     waitabpress
     closemessage
     playse(SEQ_SE_DP_KAIDAN2)
@@ -100,13 +119,20 @@ script scr_seq_D15R0103_002 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_076)) {
-        npcmsg(msg_0056_D15R0103_00006)
+        npcmsg("I hope you learn and grow from\n"
+               "your journey.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0056_D15R0103_00003)
+    npcmsg("So good of you to come here!\r"
+           "Sprout Tower is a place of training.\n"
+           "People and Pokémon test their bonds\f"
+           "to build a bright future together.\f"
+           "I am the final test.\r"
+           "Allow me to check the ties between\n"
+           "you and your Pokémon!\r")
     closemessage
     trainerbattle(TRAINER_ELDER_LI, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -115,12 +141,23 @@ script scr_seq_D15R0103_002 {
         releaseall
         end
     }
-    npcmsg(msg_0056_D15R0103_00004)
+    npcmsg("Hmmm...\n"
+           "The way you battle is quite elegant.\r"
+           "You should be able to stand up\n"
+           "to Falkner.\r"
+           "And you should be able to make good use\n"
+           "of this...\r"
+           "It is a Technical Machine called Flash.\n"
+           "Take it with you!\r")
     giveitemnocheck(ITEM_TM70, 1)
     setflag(FLAG_UNK_076)
     setflag(FLAG_HIDE_VIOLET_GYM_GYM_GUY_AFTER_SPROUT)
     clearflag(FLAG_HIDE_VIOLET_GYM_GYM_GUY_BEFORE_SPROUT)
-    npcmsg(msg_0056_D15R0103_00005)
+    npcmsg("When a Pokémon learns Flash, you can\n"
+           "illuminate caves no matter how dark\f"
+           "they may be.\r"
+           "You can try it on BELLSPROUT,\n"
+           "for example...")
     waitbuttonpress
     closemessage
     releaseall

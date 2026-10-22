@@ -3,274 +3,147 @@
   "messages": [
     {
       "id": "msg_0533_T11R0101_00000",
-      "en_US": [
-        "Hello!\r",
-        "Karate King, the Fighting Dojo’s\n",
-        "master, is in a cave in Johto for\f",
-        "further training."
-      ]
+      "from": "scr_seq_T11R0101_000#1"
     },
     {
       "id": "msg_0533_T11R0101_00001",
-      "en_US": [
-        "Hello!\r",
-        "We are letting the Gym Leaders use the\n",
-        "Dojo while the Karate King is away.\r",
-        "You can give them a call when you\n",
-        "register their numbers.\r",
-        "They say they are happy to accept\n",
-        "your challenge as long as they are\f",
-        "not busy."
-      ]
+      "from": "scr_seq_T11R0101_000#0"
     },
     {
       "id": "msg_0533_T11R0101_00002",
-      "en_US": "“Struggle for vengeance”"
+      "from": "scr_seq_T11R0101_001#0"
     },
     {
       "id": "msg_0533_T11R0101_00003",
-      "en_US": "“A complicated fracture”"
+      "from": "scr_seq_T11R0101_002#0"
     },
     {
       "id": "msg_0533_T11R0101_00004",
-      "en_US": [
-        "Falkner: Hi! I’ve been waiting for you!\r",
-        "It’s a pleasure to be able to battle\n",
-        "you again!\r"
-      ]
+      "from": "scr_seq_T11R0101_015#0"
     },
     {
       "id": "msg_0533_T11R0101_00005",
-      "en_US": [
-        "Falkner: Mmm...\n",
-        "It’s still a long way to become\f",
-        "the best Trainer..."
-      ]
+      "from": "scr_seq_T11R0101_015#1"
     },
     {
       "id": "msg_0533_T11R0101_00006",
-      "en_US": [
-        "Bugsy: Good to see you again!\r",
-        "Behold my bug research!\r"
-      ]
+      "from": "scr_seq_T11R0101_013#0"
     },
     {
       "id": "msg_0533_T11R0101_00007",
-      "en_US": [
-        "Bugsy: You must have studied\n",
-        "a lot about Pokémon!"
-      ]
+      "from": "scr_seq_T11R0101_013#1"
     },
     {
       "id": "msg_0533_T11R0101_00008",
-      "en_US": [
-        "Whitney: I never break my promises!\n",
-        "Are you ready?\r"
-      ]
+      "from": "scr_seq_T11R0101_004#0"
     },
     {
       "id": "msg_0533_T11R0101_00009",
-      "en_US": [
-        "Whitney: You really are strong!\n",
-        "But I won’t lose next time!"
-      ]
+      "from": "scr_seq_T11R0101_004#1"
     },
     {
       "id": "msg_0533_T11R0101_00010",
-      "en_US": [
-        "Chuck: There you are!\r",
-        "Taste my 24-hour training!\r"
-      ]
+      "from": "scr_seq_T11R0101_011#0"
     },
     {
       "id": "msg_0533_T11R0101_00011",
-      "en_US": [
-        "Chuck: Wahaha!\n",
-        "A battle with you is never boring!"
-      ]
+      "from": "scr_seq_T11R0101_011#1"
     },
     {
       "id": "msg_0533_T11R0101_00012",
-      "en_US": [
-        "Jasmine: We’re here as we promised...\n",
-        "Are you prepared?\r"
-      ]
+      "from": "scr_seq_T11R0101_018#0"
     },
     {
       "id": "msg_0533_T11R0101_00013",
-      "en_US": "Jasmine: True to your reputation..."
+      "from": "scr_seq_T11R0101_018#1"
     },
     {
       "id": "msg_0533_T11R0101_00014",
-      "en_US": [
-        "Morty: I was just talking about you...\n",
-        "Let’s battle!\r"
-      ]
+      "from": "scr_seq_T11R0101_017#0"
     },
     {
       "id": "msg_0533_T11R0101_00015",
-      "en_US": [
-        "Morty: I’ve lost again...\r",
-        "You may have something more than\n",
-        "just strength."
-      ]
+      "from": "scr_seq_T11R0101_017#1"
     },
     {
       "id": "msg_0533_T11R0101_00016",
-      "en_US": [
-        "Pryce: Finally.\r",
-        "No need for words.\n",
-        "A Pokémon battle is the way for us\f",
-        "to communicate.\r"
-      ]
+      "from": "scr_seq_T11R0101_019#0"
     },
     {
       "id": "msg_0533_T11R0101_00017",
-      "en_US": [
-        "Pryce: Mmm...\n",
-        "Impressive!"
-      ]
+      "from": "scr_seq_T11R0101_019#1"
     },
     {
       "id": "msg_0533_T11R0101_00018",
-      "en_US": [
-        "Clair: ...You are here.\n",
-        "Now let’s battle!\r"
-      ]
+      "from": "scr_seq_T11R0101_006#0"
     },
     {
       "id": "msg_0533_T11R0101_00019",
-      "en_US": [
-        "Clair: Way to go.\n",
-        "...\f",
-        "Now give it your all!"
-      ]
+      "from": "scr_seq_T11R0101_006#1"
     },
     {
       "id": "msg_0533_T11R0101_00020",
-      "en_US": [
-        "Lt. Surge: Hey!\n",
-        "The promise we made!\f",
-        "Let’s battle again!\r"
-      ]
+      "from": "scr_seq_T11R0101_016#0"
     },
     {
       "id": "msg_0533_T11R0101_00021",
-      "en_US": [
-        "Lt. Surge: Oh no!\n",
-        "You are very strong!\f",
-        "But I will repay my debt someday."
-      ]
+      "from": "scr_seq_T11R0101_016#1"
     },
     {
       "id": "msg_0533_T11R0101_00022",
-      "en_US": [
-        "Sabrina: I knew you’d come!\n",
-        "I had a feeling.\r",
-        "What? We promised each other,\n",
-        "so it’s no surprise?\r",
-        "...Well, you may be right.\r"
-      ]
+      "from": "scr_seq_T11R0101_014#0"
     },
     {
       "id": "msg_0533_T11R0101_00023",
-      "en_US": [
-        "Sabrina: I know...you will give me a call\n",
-        "again sometime."
-      ]
+      "from": "scr_seq_T11R0101_014#1"
     },
     {
       "id": "msg_0533_T11R0101_00024",
-      "en_US": [
-        "Erika: How are you?\n",
-        "Good to see you again!\r",
-        "This place really doesn’t suit me,\f",
-        "but...let’s ignore that and battle!\r"
-      ]
+      "from": "scr_seq_T11R0101_007#0"
     },
     {
       "id": "msg_0533_T11R0101_00025",
-      "en_US": "Erika: You have grown even stronger..."
+      "from": "scr_seq_T11R0101_007#1"
     },
     {
       "id": "msg_0533_T11R0101_00026",
-      "en_US": [
-        "Misty: So here you are...\n",
-        "Don’t make me wait!\r",
-        "I’ve heard a lot of good things\n",
-        "about you since our last battle.\r",
-        "Let me test how good you are!\r"
-      ]
+      "from": "scr_seq_T11R0101_008#0"
     },
     {
       "id": "msg_0533_T11R0101_00027",
-      "en_US": [
-        "Misty: Wow!\n",
-        "You are getting stronger by\f",
-        "the battle!"
-      ]
+      "from": "scr_seq_T11R0101_008#1"
     },
     {
       "id": "msg_0533_T11R0101_00028",
-      "en_US": [
-        "Brock: All right!\n",
-        "Time to fulfill our promise!\f",
-        "Let’s have a Pokémon battle!\r"
-      ]
+      "from": "scr_seq_T11R0101_012#0"
     },
     {
       "id": "msg_0533_T11R0101_00029",
-      "en_US": [
-        "Brock: I’ve lost again...\n",
-        "You aren’t adventuring around\f",
-        "for nothing!"
-      ]
+      "from": "scr_seq_T11R0101_012#1"
     },
     {
       "id": "msg_0533_T11R0101_00030",
-      "en_US": [
-        "Janine: I can’t use my ninja technique,\n",
-        "but I won’t let you win!\r"
-      ]
+      "from": "scr_seq_T11R0101_005#0"
     },
     {
       "id": "msg_0533_T11R0101_00031",
-      "en_US": [
-        "Janine: I lost today,\n",
-        "but I’ll win next time!"
-      ]
+      "from": "scr_seq_T11R0101_005#1"
     },
     {
       "id": "msg_0533_T11R0101_00032",
-      "en_US": [
-        "Blaine: You keep your word.\n",
-        "That’s a good thing, kiddo!\r"
-      ]
+      "from": "scr_seq_T11R0101_009#0"
     },
     {
       "id": "msg_0533_T11R0101_00033",
-      "en_US": [
-        "Blaine: Waaah!\r",
-        "If I had known this Dojo was going to be\n",
-        "available, I wouldn’t have needed to\f",
-        "rebuild my Gym.\r",
-        "Wait! I still did, didn’t I?"
-      ]
+      "from": "scr_seq_T11R0101_009#1"
     },
     {
       "id": "msg_0533_T11R0101_00034",
-      "en_US": [
-        "Blue: Good!\n",
-        "Thanks for coming to lose to me!\r"
-      ]
+      "from": "scr_seq_T11R0101_010#0"
     },
     {
       "id": "msg_0533_T11R0101_00035",
-      "en_US": [
-        "Blue: Hahaha!\n",
-        "My scare tactic doesn’t scare you\f",
-        "at all!"
-      ]
+      "from": "scr_seq_T11R0101_010#1"
     }
   ]
 }

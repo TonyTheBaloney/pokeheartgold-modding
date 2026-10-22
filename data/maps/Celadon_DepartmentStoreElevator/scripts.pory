@@ -34,7 +34,8 @@ _009A:
     goto(_00A4)
 _00A4:
     elevatorcurfloorbox(20, 1, VAR_ELEVATOR_LAST_FLOOR, VAR_ELEVATOR_LAST_FLOOR)
-    npcmsg(msg_0500_T07R0107_00000)
+    npcmsg("Hello.\r"
+           "To which floor may I take you? {YESNO 0}")
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(121, 255, 6)
@@ -193,11 +194,13 @@ _052D:
     setvar(VAR_ELEVATOR_LAST_FLOOR, 5)
     goto(_0627)
 _05F3:
-    npcmsg(msg_0500_T07R0107_00002)
+    npcmsg("Certainly.\n"
+           "Elevator going up!\r")
     setvar(VAR_SPECIAL_x8004, 0)
     return
 _05FE:
-    npcmsg(msg_0500_T07R0107_00003)
+    npcmsg("Certainly.\n"
+           "Elevator going down!\r")
     setvar(VAR_SPECIAL_x8004, 1)
     return
 _0609:
@@ -218,27 +221,33 @@ _0627:
     Case(0, _06B4)
     end
 _067D:
-    npcmsg(msg_0500_T07R0107_00010)
+    npcmsg("Sixth floor has the Rooftop Atrium\n"
+           "for a nice break.")
     goto(_06BF)
     end
 _0688:
-    npcmsg(msg_0500_T07R0107_00009)
+    npcmsg("Fifth floor has the Battle Collection\n"
+           "to raise stats.")
     goto(_06BF)
     end
 _0693:
-    npcmsg(msg_0500_T07R0107_00008)
+    npcmsg("Fourth floor has the Wiseman Gifts,\n"
+           "which has the perfect gifts.")
     goto(_06BF)
     end
 _069E:
-    npcmsg(msg_0500_T07R0107_00007)
+    npcmsg("Third floor has the TM Shop\n"
+           "to power up your Pokémon.")
     goto(_06BF)
     end
 _06A9:
-    npcmsg(msg_0500_T07R0107_00006)
+    npcmsg("Second floor has the Trainer’s Market\n"
+           "where you can buy everything you need.")
     goto(_06BF)
     end
 _06B4:
-    npcmsg(msg_0500_T07R0107_00005)
+    npcmsg("First floor has the Service Counter\n"
+           "and the main entrance.")
     goto(_06BF)
     end
 _06BF:
@@ -249,7 +258,7 @@ _06BF:
 _06C7:
     setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
     wait(1, VAR_SPECIAL_RESULT)
-    npcmsg(msg_0500_T07R0107_00004)
+    npcmsg("Uh... We are already on that floor?")
     waitbuttonpress
     closemessage
     releaseall
@@ -257,7 +266,7 @@ _06C7:
 _06DE:
     setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
     wait(1, VAR_SPECIAL_RESULT)
-    npcmsg(msg_0500_T07R0107_00001)
+    npcmsg("I look forward to serving you again.")
     waitbuttonpress
     closemessage
     releaseall

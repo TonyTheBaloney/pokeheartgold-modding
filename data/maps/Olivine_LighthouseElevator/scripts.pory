@@ -15,13 +15,15 @@ script scr_seq_D27R0108_000 {
         Case(1, _00A5)
         end
     _0088:
-        npcmsg(msg_0095_D27R0108_00000)
+        npcmsg("Lighthouse elevator.\n"
+               "Going up to the light room.\r")
         closemessage
         setdynamicwarp(MAP_OLIVINE_LIGHTHOUSE_LIGHT_ROOM, 1, 5, 3, 1)
         setvar(VAR_SPECIAL_x8004, 0)
         goto(_00C2)
     _00A5:
-        npcmsg(msg_0095_D27R0108_00001)
+        npcmsg("Lighthouse elevator.\n"
+               "Going down to the first floor.\r")
         closemessage
         setdynamicwarp(MAP_OLIVINE_LIGHTHOUSE_1F, 1, 5, 3, 1)
         setvar(VAR_SPECIAL_x8004, 1)
@@ -30,9 +32,9 @@ script scr_seq_D27R0108_000 {
         waitse(SEQ_SE_DP_SELECT)
         elevatoranim(VAR_SPECIAL_x8004, 5)
         if (var(VAR_ELEVATOR_LAST_FLOOR) == 0) {
-            npcmsg(msg_0095_D27R0108_00002)
+            npcmsg("You’ve arrived at the light room.")
         } else {
-            npcmsg(msg_0095_D27R0108_00003)
+            npcmsg("You’ve arrived at the first floor.")
         }
         waitbuttonpress
         closemessage

@@ -12,7 +12,8 @@ script scr_seq_D02FS0101_001 {
     lockall
     faceplayer
     setflag(FLAG_SPECIAL_MART_MT_MOON)
-    npcmsg(msg_0048_D02FS0101_00001)
+    npcmsg("You must be tired from climbing.\n"
+           "How about stocking up on supplies? {YESNO 0}")
     holdmsg
     setvar(VAR_SPECIAL_x8004, 27)
     callstd(std_special_mart)
@@ -22,7 +23,8 @@ script scr_seq_D02FS0101_001 {
 }
 
 script scr_seq_D02FS0101_000 {
-    simplenpcmsg(msg_0048_D02FS0101_00000)
+    simplenpcmsg("When the sun goes down, CLEFAIRY come\n"
+                 "out to play.")
     end
 }
 

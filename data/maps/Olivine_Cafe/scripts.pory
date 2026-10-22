@@ -49,14 +49,27 @@ script scr_seq_T26R0701_004 {
 }
 
 script scr_seq_T26R0701_006 {
-    simplenpcmsg(msg_0611_T26R0701_00000)
+    simplenpcmsg("You!\n"
+                 "How is your Pokémon training\f"
+                 "coming along?\r"
+                 "Have you ever noticed that in the\n"
+                 "mountains, sometimes there are round\f"
+                 "boulders right in your way...?\r"
+                 "You can move them with the\n"
+                 "hidden move Strength!\r"
+                 "Hikers at Mt. Mortar sometimes have\n"
+                 "extra, or so I’ve heard...")
     end
 }
 
 script scr_seq_T26R0701_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0611_T26R0701_00001)
+    npcmsg("Gobble...gobble...\r"
+           "...Choke!\n"
+           "Ack... I’m choking!\r"
+           "Whew! That was close.\n"
+           "I should chew before I swallow my food.")
     waitbuttonpress
     closemessage
     releaseall
@@ -64,12 +77,16 @@ script scr_seq_T26R0701_000 {
 }
 
 script scr_seq_T26R0701_001 {
-    simplenpcmsg(msg_0611_T26R0701_00002)
+    simplenpcmsg("Whenever I roll into Olivine, I always\n"
+                 "visit the Olivine Café.\r"
+                 "Everything on the menu makes me feel\n"
+                 "stronger. I can’t stop eating!")
     end
 }
 
 script scr_seq_T26R0701_002 {
-    simplenpcmsg(msg_0611_T26R0701_00003)
+    simplenpcmsg("Olivine Café’s menu is chock-full\n"
+                 "of hearty fare for beefy Sailors!")
     end
 }
 
@@ -192,12 +209,15 @@ script scr_seq_T26R0701_005 {
     faceplayer
     checkregisteredphonenumber(PHONE_CONTACT_JASMINE, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 1) {
-        npcmsg(msg_0611_T26R0701_00009)
+        npcmsg("Jasmine: We seem to...bump into each\n"
+               "other often.\r"
+               "Why don’t we take a picture\n"
+               "to make this a memory? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0611_T26R0701_00012)
+            npcmsg("Jasmine: I see...")
             waitbuttonpress
             closemessage
             releaseall
@@ -205,13 +225,15 @@ script scr_seq_T26R0701_005 {
         }
         photoalbumisfull(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0611_T26R0701_00013)
+            npcmsg("Your Photo Album is full.\r"
+                   "Access your PC to delete\n"
+                   "some pictures.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0611_T26R0701_00010)
+        npcmsg("Jasmine: Are you ready?\r")
         closemessage
         setflag(FLAG_UNK_189)
         fadescreen(6, 1, 0, RGB_BLACK)
@@ -222,14 +244,23 @@ script scr_seq_T26R0701_005 {
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
         clearflag(FLAG_UNK_189)
-        npcmsg(msg_0611_T26R0701_00011)
+        npcmsg("Jasmine: You did a fine job.\n"
+               "We look good.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (var(VAR_TEMP_x4004) >= 1) { goto(_037F) }
-    npcmsg(msg_0611_T26R0701_00004)
+    npcmsg("Jasmine: Hi!\n"
+           "...!\r"
+           "These empty dishes in front of me\n"
+           "are not all mine...\r"
+           "Er...\r"
+           "Actually, the person who sat here\n"
+           "ahead of me ate a lot...\r"
+           "Anyway, do you want to exchange\n"
+           "phone numbers? {YESNO 0}")
 _0307:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -239,11 +270,16 @@ _0307:
     end
 _032B:
     bufferplayersname(0)
-    npcmsg(msg_0611_T26R0701_00005)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Jasmine\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     registergearnumber(PHONE_CONTACT_JASMINE)
-    npcmsg(msg_0611_T26R0701_00006)
+    npcmsg("Jasmine: Now we can contact each\n"
+           "other anytime.\r"
+           "I should be able to battle you around\n"
+           "noon on Wednesdays.\f"
+           "I’ll be waiting for your call!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -258,13 +294,14 @@ _032B:
     end
 _036E:
     setvar(VAR_TEMP_x4004, 1)
-    npcmsg(msg_0611_T26R0701_00007)
+    npcmsg("Jasmine: Oh... I understand...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _037F:
-    npcmsg(msg_0611_T26R0701_00008)
+    npcmsg("Jasmine: Did you change your mind?\n"
+           "Will you exchange numbers? {YESNO 0}")
     goto(_0307)
     end
 }

@@ -71,7 +71,12 @@ script scr_seq_T09_000 {
     if (var(VAR_UNK_40FD) != 0) { goto(_0304) }
     if (!flag(FLAG_UNK_128)) {
         setflag(FLAG_UNK_128)
-        npcmsg(msg_0519_T09_00000)
+        npcmsg("Who are you?\r"
+               "My name’s Blue.\n"
+               "I was once the Kanto Champion.\r"
+               "Although it was short-lived thanks\n"
+               "to Red...\f"
+               "Anyway, take a good look around you...\r")
         closemessage
         getplayerfacing(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 0) {
@@ -80,10 +85,20 @@ script scr_seq_T09_000 {
             applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_0280)
         }
         waitmovement
-        npcmsg(msg_0519_T09_00001)
+        npcmsg("Blue: A volcano erupts, and just\n"
+               "like that, a whole town disappears.\r"
+               "We can go on winning and losing in\n"
+               "Pokémon, but if nature so much as\f"
+               "twitches, we can be overwhelmed\f"
+               "in a second...\r"
+               "That’s the way it is...\n"
+               "But, anyway, I’m still a Trainer.\r"
+               "If I see a strong opponent, it makes me\n"
+               "want to battle.\r")
     }
     if (var(VAR_UNK_4135) >= 7) {
-        npcmsg(msg_0519_T09_00002)
+        npcmsg("If you want to battle me...for real,\n"
+               "come to the Viridian Gym.\r")
         closemessage
         getplayerfacing(VAR_TEMP_x4000)
         getpersoncoords(253, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
@@ -102,7 +117,7 @@ script scr_seq_T09_000 {
             applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_02A4)
         }
         waitmovement
-        npcmsg(msg_0519_T09_00003)
+        npcmsg("I’ll be waiting for you!\r")
         closemessage
         if (var(VAR_TEMP_x4000) == 0) {
             applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_02B0)
@@ -123,7 +138,12 @@ script scr_seq_T09_000 {
         end
     }
     bufferint(0, VAR_UNK_4135)
-    npcmsg(msg_0519_T09_00004)
+    npcmsg("If you want to battle me...for real,\n"
+           "show me how many Kanto Badges\f"
+           "you’ve got.\r"
+           "...\n"
+           "{STRVAR_1 50, 0, 0}...\r"
+           "You’re not ready to battle me...")
     waitbuttonpress
     closemessage
     releaseall
@@ -190,12 +210,15 @@ movement CinnabarIsland_Movement_02FC {
 }
 
 script(local) _0304 {
-    npcmsg(msg_0519_T09_00005)
+    npcmsg("Blue: You are quite something!\n"
+           "You defeated Red!?\f"
+           "That’s great!\r"
+           "Let’s take a picture together! {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0519_T09_00008)
+        npcmsg("Blue: Oh, well...")
         waitbuttonpress
         closemessage
         releaseall
@@ -203,13 +226,15 @@ script(local) _0304 {
     }
     photoalbumisfull(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0519_T09_00009)
+        npcmsg("Your Photo Album is full.\r"
+               "Access your PC and delete\n"
+               "some pictures.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0519_T09_00006)
+    npcmsg("Blue: All right!\r")
     closemessage
     setflag(FLAG_UNK_189)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -220,7 +245,7 @@ script(local) _0304 {
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     clearflag(FLAG_UNK_189)
-    npcmsg(msg_0519_T09_00007)
+    npcmsg("Blue: Thanks for the nice picture!")
     waitbuttonpress
     closemessage
     releaseall
@@ -233,12 +258,14 @@ script scr_seq_T09_004 {
     faceplayer
     checkregisteredphonenumber(PHONE_CONTACT_BLAINE, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 1) {
-        npcmsg(msg_0519_T09_00015)
+        npcmsg("Blaine: Oh, it is you!\n"
+               "Say, do you want to take a picture\f"
+               "with me right here? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0519_T09_00018)
+            npcmsg("Blaine: Noooo!")
             waitbuttonpress
             closemessage
             releaseall
@@ -246,13 +273,15 @@ script scr_seq_T09_004 {
         }
         photoalbumisfull(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0519_T09_00019)
+            npcmsg("Your Photo Album is full.\r"
+                   "Access your PC to delete\n"
+                   "some pictures.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0519_T09_00016)
+        npcmsg("Blaine: There, stand next to me!\r")
         closemessage
         setflag(FLAG_UNK_189)
         fadescreen(6, 1, 0, RGB_BLACK)
@@ -263,14 +292,16 @@ script scr_seq_T09_004 {
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
         clearflag(FLAG_UNK_189)
-        npcmsg(msg_0519_T09_00017)
+        npcmsg("Blaine: Oh, this is a good picture!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (var(VAR_TEMP_x4004) >= 1) { goto(_041E) }
-    npcmsg(msg_0519_T09_00010)
+    npcmsg("Blaine: I’ll never give up until the \n"
+           "day I’ve rebuilt the Cinnabar Gym!\r"
+           "Why not exchange numbers! {YESNO 0}")
 _03A6:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -280,11 +311,14 @@ _03A6:
     end
 _03CA:
     bufferplayersname(0)
-    npcmsg(msg_0519_T09_00011)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Blaine\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     registergearnumber(PHONE_CONTACT_BLAINE)
-    npcmsg(msg_0519_T09_00012)
+    npcmsg("Blaine: Hmmm...\n"
+           "We should be able to battle\f"
+           "on Tuesday evenings!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -299,24 +333,29 @@ _03CA:
     end
 _040D:
     setvar(VAR_TEMP_x4004, 1)
-    npcmsg(msg_0519_T09_00013)
+    npcmsg("Blaine: Oh...how disappointing!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _041E:
-    npcmsg(msg_0519_T09_00014)
+    npcmsg("Blaine: Do we want to exchange\n"
+           "numbers? {YESNO 0}")
     goto(_03A6)
     end
 }
 
 script scr_seq_T09_001 {
-    trainertipsex(2, msg_0519_T09_00020)
+    trainertipsex(2, "There is a notice here...\r"
+                     "The Cinnabar Gym has relocated\n"
+                     "to Seafoam Islands.\f"
+                     "           Blaine")
     end
 }
 
 script scr_seq_T09_002 {
-    directionsignpostex(0, 9, msg_0519_T09_00021)
+    directionsignpostex(0, 9, "Cinnabar Island\n"
+                              "The Ravaged Town of the Past")
     end
 }
 

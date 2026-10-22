@@ -75,7 +75,11 @@ script scr_seq_D49R0101_000 {
     }
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0138_D49R0101_00080)
+    npcmsg("Whitney: Hi, {STRVAR_1 3, 0, 0}! Are you here\n"
+           "for the Pokéathlon? Me, too!\r"
+           "I have been so excited since its\n"
+           "construction. It is close to Goldenrod\f"
+           "City, you know?\r")
     closemessage
     wait(30, VAR_SPECIAL_RESULT)
     if (var(VAR_TEMP_x400A) == 0) {
@@ -84,7 +88,19 @@ script scr_seq_D49R0101_000 {
         applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0218)
     }
     waitmovement
-    npcmsg(msg_0138_D49R0101_00081)
+    npcmsg("Huh?\r"
+           "Were you going to participate in\n"
+           "the Pokéathlon looking like that?\r"
+           "You’re not prepared at all, are you?\r"
+           "So...\n"
+           "Are you a medium or a small?\f"
+           "You look more like a medium...\r"
+           "OK!\n"
+           "I’ll get you a jersey that suits you!\r"
+           "You want to look your best if you’re\n"
+           "going to participate in the Pokéathlon,\f"
+           "don’t you?\r"
+           "Wait right there!\r")
     closemessage
     if (var(VAR_TEMP_x400A) == 0) {
         applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0270)
@@ -99,12 +115,17 @@ script scr_seq_D49R0101_000 {
         applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0078)
     }
     waitmovement
-    npcmsg(msg_0138_D49R0101_00082)
+    npcmsg("This is just right for you!\r")
     closemessage
-    npcmsg(msg_0138_D49R0101_00083)
+    npcmsg("{STRVAR_1 3, 0, 0} received a jersey!")
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
-    npcmsg(msg_0138_D49R0101_00084)
+    npcmsg("You look perfect.\n"
+           "Now that you are ready, I will...\r"
+           "Oh, no!\n"
+           "Where are my Pokémon?\r"
+           "I have to go back.\n"
+           "See ya!\r")
     closemessage
     if (var(VAR_TEMP_x400A) == 0) {
         applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0328)
@@ -237,20 +258,33 @@ script scr_seq_D49R0101_001 {
     lockall
     faceplayer
     if (!flag(FLAG_UNK_114)) {
-        npcmsg(msg_0138_D49R0101_00048)
+        npcmsg("Hello. Oh, you must be new here.\n"
+               "Welcome to the Athlete Shop!\r"
+               "Have you and your Pokémon\n"
+               "been exercising?\r"
+               "Flying sweat!\n"
+               "Breathing in unison!\f"
+               "Newborn friendship!\r"
+               "We support your Pokéathlete lifestyle.\n"
+               "The Athlete Points you have earned\f"
+               "can be used here for prizes.\r"
+               "Let me say this again.\n"
+               "Welcome to the Athlete Shop! {YESNO 0}")
         setflag(FLAG_UNK_114)
         goto(_0377)
         end
     }
     checkpokeathlondailymarthasstock(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0138_D49R0101_00050)
+        npcmsg("We are closed for the day.\n"
+               "Please come back tomorrow for\f"
+               "a whole new set of prizes!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0138_D49R0101_00049)
+    npcmsg("Welcome to the Athlete Shop! {YESNO 0}")
 _0377:
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
@@ -273,7 +307,16 @@ _03C7:
     end
 _03D7:
     touchscreenmenushow
-    npcmsg(msg_0138_D49R0101_00052)
+    npcmsg("The scores in the Pokéathlon...\n"
+           "The proof of your friendship with your\f"
+           "Pokémon, so to speak, give you\f"
+           "Athlete Points.\r"
+           "You can trade them here for\n"
+           "various prizes.\r"
+           "Score as much as possible and come back\n"
+           "here for prizes!\r"
+           "Is there anything else I can do\n"
+           "for you? {YESNO 0}")
     goto(_0377)
     end
 _03E4:
@@ -283,6 +326,10 @@ _03E4:
     closemessage
     releaseall
     end
+}
+
+text msg_0138_D49R0101_00051 {
+    "Thank you, please come again."
 }
 
 script scr_seq_D49R0101_002 {
@@ -296,7 +343,10 @@ script scr_seq_D49R0101_002 {
     countpokeathlondatacardsbought(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 27) { goto(_05A9) }
     if (!flag(FLAG_UNK_115)) { goto(_0529) }
-    npcmsg(msg_0138_D49R0101_00054)
+    npcmsg("Welcome!\r"
+           "The Data Card, which contains\n"
+           "Pokéathlon records, is sold here.\r"
+           "Would you like to buy a Data Card? {YESNO 0}")
 _0443:
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
@@ -325,15 +375,31 @@ _0493:
     end
 _04E8:
     touchscreenmenushow
-    npcmsg(msg_0138_D49R0101_00055)
+    npcmsg("Giggle!\n"
+           "The truth is, I know a lot about you!\f"
+           "Let me see...\r")
     getpokeathlonstat(12, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) >= 100) {
-        npcmsg(msg_0138_D49R0101_00057)
+        npcmsg("You’ve participated in\n"
+               "the Pokéathlon...\f"
+               "Wow, over 100 times!\r"
+               "Bravo!\r")
     } else {
         bufferint(0, VAR_SPECIAL_RESULT)
-        npcmsg(msg_0138_D49R0101_00056)
+        npcmsg("You’ve participated in\n"
+               "the Pokéathlon...\f"
+               "{STRVAR_1 51, 0, 0} times!\f"
+               "Giggle!\r")
     }
-    npcmsg(msg_0138_D49R0101_00058)
+    npcmsg("As I just demonstrated, the Pokéathlon\n"
+           "database seems to know everything.\f"
+           "Doesn’t that interest you?\r"
+           "You can exchange your Athlete Points\n"
+           "for a Data Card and check your\f"
+           "records using the monitor next to me.\r"
+           "Please make good use of it.\n"
+           "Is there anything else I can\f"
+           "do for you? {YESNO 0}")
     goto(_0443)
     end
 _051C:
@@ -344,7 +410,18 @@ _051C:
     releaseall
     end
 _0529:
-    npcmsg(msg_0138_D49R0101_00053)
+    npcmsg("Welcome!\r"
+           "This is the place we keep the Pokéathlon\n"
+           "database.\r"
+           "Using the Data Card at the monitor\n"
+           "next to me will allow you to check your\f"
+           "records.\r"
+           "Some are cool, and some are...\n"
+           "embarrassing!\r"
+           "Please make good use of it.\r"
+           "Would you like to buy a Data Card\n"
+           "that contains Pokéathlon\f"
+           "records? {YESNO 0}")
     setflag(FLAG_UNK_115)
     goto(_0443)
     end
@@ -361,7 +438,11 @@ _0571:
     if (var(VAR_UNK_4139) == 3) { goto(_0584) }
     goto(_051C)
 _0584:
-    npcmsg(msg_0138_D49R0101_00061)
+    npcmsg("We have run out of Data Cards.\n"
+           "But don’t be disappointed.\r"
+           "There are more Data Cards to come!\n"
+           "I will make sure to get them for you.\f"
+           "Please come back later.")
     waitbuttonpress
     closemessage
     releaseall
@@ -369,7 +450,17 @@ _0584:
     end
 _0595:
     bufferplayersname(0)
-    npcmsg(msg_0138_D49R0101_00062)
+    npcmsg("We have run out of Data Cards.\n"
+           "But don’t be disappointed.\r"
+           "There are more Data Cards to come...\n"
+           "Or not!\r"
+           "You have collected all the Data Cards!\n"
+           "Wonderful!\r"
+           "You are a true Pokéathlete,\n"
+           "{STRVAR_1 3, 0, 0}!\r"
+           "Please continue to work on breaking\n"
+           "your own records!\r"
+           "Thank you for coming!")
     waitbuttonpress
     closemessage
     releaseall
@@ -377,7 +468,11 @@ _0595:
     end
 _05A9:
     bufferplayersname(0)
-    npcmsg(msg_0138_D49R0101_00060)
+    npcmsg("Hello, Pokéathlete {STRVAR_1 3, 0, 0}!\r"
+           "Are you working on breaking your own\n"
+           "records? You can check your records\f"
+           "at the monitor next to me.\r"
+           "Check it out from time to time!")
     waitbuttonpress
     closemessage
     releaseall
@@ -389,77 +484,124 @@ script scr_seq_D49R0101_003 {
 }
 
 script scr_seq_D49R0101_004 {
-    simplenpcmsg(msg_0138_D49R0101_00068)
+    simplenpcmsg("“Hurdle Dash”\r"
+                 "Many Hurdles await your Pokémon!\n"
+                 "Be faster and more precise than\f"
+                 "everyone else! Jump over the Hurdles\f"
+                 "and aim for number one!")
     end
 }
 
 script scr_seq_D49R0101_005 {
-    simplenpcmsg(msg_0138_D49R0101_00069)
+    simplenpcmsg("“Pennant Capture”\r"
+                 "Pennants are hidden on the beach.\n"
+                 "Fight over them and come back with as\f"
+                 "many Pennants as you can!")
     end
 }
 
 script scr_seq_D49R0101_006 {
-    simplenpcmsg(msg_0138_D49R0101_00070)
+    simplenpcmsg("“Circle Push”\r"
+                 "The time has come to show off your\n"
+                 "Pokémon’s Power!\f"
+                 "Push them away and stay in the Circle!")
     end
 }
 
 script scr_seq_D49R0101_007 {
-    simplenpcmsg(msg_0138_D49R0101_00071)
+    simplenpcmsg("“Block Smash”\r"
+                 "A mountain of Blocks awaits\n"
+                 "your Pokémon!\f"
+                 "Use its Power to smash them all!")
     end
 }
 
 script scr_seq_D49R0101_008 {
-    simplenpcmsg(msg_0138_D49R0101_00072)
+    simplenpcmsg("“Disc Catch”\r"
+                 "Discs are thrown at you. Jump and\n"
+                 "catch them in the air!\r"
+                 "Don’t get cornered by others.\n"
+                 "Catch as many as you can!")
     end
 }
 
 script scr_seq_D49R0101_009 {
-    simplenpcmsg(msg_0138_D49R0101_00073)
+    simplenpcmsg("“Lamp Jump”\r"
+                 "You never know how high you’re going\n"
+                 "to bounce! Use your Pokémon’s Jump\f"
+                 "and Skill to score!")
     end
 }
 
 script scr_seq_D49R0101_010 {
-    simplenpcmsg(msg_0138_D49R0101_00074)
+    simplenpcmsg("“Relay Run”\r"
+                 "Keep running until you can’t run\n"
+                 "any more! Three Pokémon work together\f"
+                 "to achieve victory!")
     end
 }
 
 script scr_seq_D49R0101_011 {
-    simplenpcmsg(msg_0138_D49R0101_00075)
+    simplenpcmsg("“Ring Drop”\r"
+                 "Pokémon tackle! Go beyond your Stamina\n"
+                 "limit and stay in the Ring!")
     end
 }
 
 script scr_seq_D49R0101_012 {
-    simplenpcmsg(msg_0138_D49R0101_00076)
+    simplenpcmsg("“Snow Throw”\r"
+                 "On an incredibly cold playfield,\n"
+                 "millions of balls of Snow await!\r"
+                 "Aim and throw!\n"
+                 "Time it right to show your skill!")
     end
 }
 
 script scr_seq_D49R0101_013 {
-    simplenpcmsg(msg_0138_D49R0101_00077)
+    simplenpcmsg("“Goal Roll”\r"
+                 "Put your heart into hitting the ball!\n"
+                 "Attack! Defend your Goal!\r"
+                 "Aim for the other Goals!\n"
+                 "Who gets the victory?")
     end
 }
 
 script scr_seq_D49R0101_015 {
-    simplenpcmsg(msg_0138_D49R0101_00063)
+    simplenpcmsg("So they have ten events?\n"
+                 "...Which Pokémon should I choose?")
     end
 }
 
 script scr_seq_D49R0101_016 {
-    simplenpcmsg(msg_0138_D49R0101_00064)
+    simplenpcmsg("There are five Pokéathlon courses!\r"
+                 "They are divided into Speed, Power,\n"
+                 "Stamina, Jump, and Skill.\r"
+                 "You have to choose your Pokémon\n"
+                 "carefully according to the course.")
     end
 }
 
 script scr_seq_D49R0101_017 {
-    simplenpcmsg(msg_0138_D49R0101_00065)
+    simplenpcmsg("Some Pokémon are good at Speed events.\n"
+                 "Some are not. You need to form a team\f"
+                 "whose members can help one another.")
     end
 }
 
 script scr_seq_D49R0101_018 {
-    simplenpcmsg(msg_0138_D49R0101_00066)
+    simplenpcmsg("If you go on, you’ll see the\n"
+                 "Museum of Pokéathlete Records.\r"
+                 "I will someday be a Pokéathlete holding\n"
+                 "a record there!")
     end
 }
 
 script scr_seq_D49R0101_019 {
-    simplenpcmsg(msg_0138_D49R0101_00067)
+    simplenpcmsg("The score you achieve in the Pokéathlon\n"
+                 "will become Athlete Points, and you can\f"
+                 "exchange them for prizes.\r"
+                 "You may be the last team to finish, but\n"
+                 "your score will still count!")
     end
 }
 
@@ -467,7 +609,9 @@ script scr_seq_D49R0101_014 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     scriptoverlaycmd(3, 0)
-    npcmsg(msg_0138_D49R0101_00085)
+    npcmsg("The vending machine is for participants!\n"
+           "You can even use your\f"
+           "Athlete Points. {YESNO 0}")
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_x8000)
     menuitemadd(337, 255, 0)
@@ -564,9 +708,9 @@ script scr_seq_D49R0101_014 {
         if (var(VAR_SPECIAL_RESULT) == 0) {
             touchscreenmenushow
             if (var(VAR_TEMP_x4005) == 0) {
-                npcmsg(msg_0138_D49R0101_00089)
+                npcmsg("Not enough money...")
             } elif (var(VAR_TEMP_x4005) == 1) {
-                npcmsg(msg_0138_D49R0101_00090)
+                npcmsg("Not enough points...")
             }
             goto(_0A5C)
         _0A35:
@@ -626,13 +770,16 @@ script scr_seq_D49R0101_014 {
         bufferitemname(0, VAR_SPECIAL_x8001)
         playse(SEQ_SE_DP_JIHANKI)
         bufferitemname(0, VAR_SPECIAL_x8001)
-        npcmsg(msg_0138_D49R0101_00087)
+        npcmsg("Clang!\r"
+               "A can of {STRVAR_1 8, 0, 0} dropped down.\r")
         giveitemnocheck(VAR_SPECIAL_x8001, 1)
         random(VAR_SPECIAL_RESULT, 64)
         if (var(VAR_SPECIAL_RESULT) == 0) {
             playse(SEQ_SE_DP_JIHANKI)
             bufferitemname(0, VAR_SPECIAL_x8001)
-            npcmsg(msg_0138_D49R0101_00088)
+            npcmsg("Clang!\r"
+                   "Bonus! Another can of {STRVAR_1 8, 0, 0}\n"
+                   "dropped down.\r")
             hasspaceforitem(VAR_SPECIAL_x8001, 1, VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0A35) }
             callstd(std_give_item_verbose)
@@ -650,13 +797,21 @@ script scr_seq_D49R0101_014 {
     goto(_0748)
 }
 
+text msg_0138_D49R0101_00091 {
+    "Decided not to buy a drink."
+}
+
+text msg_0138_D49R0101_00086 {
+    "Which drink would you like? {YESNO 0}"
+}
+
 script scr_seq_D49R0101_020 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0138_D49R0101_00092)
+    npcmsg("Opening the Pokéathlon Data...\r")
 _0AF3:
-    npcmsg(msg_0138_D49R0101_00093)
+    npcmsg("Which data would you like to see? {YESNO 0}")
     touchscreenmenuhide
     menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(94, 255, 0)
@@ -683,9 +838,9 @@ _0B73:
     goto(_0B81)
     end
 _0B81:
-    npcmsg(msg_0138_D49R0101_00098)
+    npcmsg("Accessing......")
     wait(4, VAR_SPECIAL_RESULT)
-    npcmsg(msg_0138_D49R0101_00099)
+    npcmsg("Accessing............")
     wait(4, VAR_SPECIAL_RESULT)
     closemessage
     playse(SEQ_SE_DP_DECIDE)
@@ -694,7 +849,7 @@ _0B81:
     end
 _0BA5:
     touchscreenmenushow
-    npcmsg(msg_0138_D49R0101_00101)
+    npcmsg("Thank you for accessing!")
     waitbuttonpress
     closemessage
     releaseall
@@ -706,21 +861,34 @@ script scr_seq_D49R0101_021 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_152)) { goto(_0C4C) }
-    npcmsg(msg_0138_D49R0101_00103)
+    npcmsg("Wow, you have such good eyes! Can\n"
+           "I tell you about my last dream? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0138_D49R0101_00104)
+        npcmsg("Hmmm... My discerning eyes must have\n"
+               "become weak...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0138_D49R0101_00105)
+    npcmsg("I used to love Jump events.\r"
+           "The record I have from when I was fully\n"
+           "active as a Pokéathlete is 998 jumps!\r"
+           "Just two more!\n"
+           "All I had to make was two more!\r"
+           "I had to retire due to my age...\n"
+           "Could I ask you to jump 1,000 times\f"
+           "for me?\r")
     getpokeathlonstat(14, VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) >= 1000) {
-        npcmsg(msg_0138_D49R0101_00107)
+        npcmsg("Oh! You!\n"
+               "It is so wonderful of you!\f"
+               "You have jumped 1,000 times.\r"
+               "Thank you so much!\n"
+               "This is just a token of my appreciation.\r")
         if (!itemspace(ITEM_RARE_CANDY, 1)) { goto(_0C42) }
         callstd(std_give_item_verbose)
         adjustpokeathlonstat11(0, 100)
@@ -733,13 +901,17 @@ script scr_seq_D49R0101_021 {
         releaseall
         end
     _0C4C:
-        npcmsg(msg_0138_D49R0101_00108)
+        npcmsg("I’m now your fan. I’m old as you see,\n"
+               "but I will support you no matter what.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0138_D49R0101_00106)
+    npcmsg("Well, the record may make you dizzy.\n"
+           "But you’re still young.\f"
+           "You can do it!\r"
+           "I’ll just sit and wait.")
     waitbuttonpress
     closemessage
     releaseall
@@ -753,14 +925,25 @@ script scr_seq_D49R0101_022 {
     if (flag(FLAG_UNK_153)) { goto(_0CF0) }
     getpokeathlonstat(15, VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) < 500) {
-        npcmsg(msg_0138_D49R0101_00109)
+        npcmsg("You know what?\n"
+               "I have tackled over 500 times finally!\r")
     } elif (var(VAR_TEMP_x4000) < 1000) {
-        npcmsg(msg_0138_D49R0101_00111)
+        npcmsg("You know what?\n"
+               "I have tackled over 1,000 times!\f"
+               "Finally!\r")
     } else {
-        npcmsg(msg_0138_D49R0101_00112)
+        npcmsg("You know what? I’ve finally tackled\n"
+               "over 2,000 times! I bet no one can\f"
+               "break this record easily!\r")
     }
     if (var(VAR_TEMP_x4000) >= 2001) {
-        npcmsg(msg_0138_D49R0101_00113)
+        npcmsg("......!\n"
+               "No! That’s not right!\f"
+               "Your record beats mine?\r"
+               "Nooooo!\n"
+               "...OK. You win.\r"
+               "I admit complete defeat.\n"
+               "Please take this.\r")
         if (!itemspace(ITEM_RARE_CANDY, 1)) { goto(_0C42) }
         callstd(std_give_item_verbose)
         adjustpokeathlonstat11(0, 100)
@@ -768,13 +951,24 @@ script scr_seq_D49R0101_022 {
         goto(_0CF0)
         end
     _0CF0:
-        npcmsg(msg_0138_D49R0101_00114)
+        npcmsg("Whew!\n"
+               "It’s strange, but I feel great.\r"
+               "I do regret that I lost, but it made\n"
+               "me know where I am.\r"
+               "I understand that there are many\n"
+               "Pokéathletes better than me.\r"
+               "This is where I begin to grow again!\n"
+               "Keep up the good work!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0138_D49R0101_00110)
+    npcmsg("Haha!\n"
+           "You’re doing fine, but not as good\f"
+           "as me. I wonder if any Pokéathlete\f"
+           "could be better at tackling than me.\f"
+           "Sigh...")
     waitbuttonpress
     closemessage
     releaseall

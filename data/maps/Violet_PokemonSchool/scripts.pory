@@ -28,12 +28,21 @@ script scr_seq_T22R0301_000 {
         applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_01D0)
     }
     waitmovement
-    npcmsg(msg_0560_T22R0301_00000)
+    npcmsg("Earl, I am!\n"
+           "Wonderful are Pokémon, yes!\r"
+           "Teach you I will to be a better Trainer!\r"
+           "What you want to know?\n"
+           "Want to be a winner is you? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0560_T22R0301_00001)
+        npcmsg("Good! Teach you, I will!\n"
+               "In battle, Pokémon top on list,\f"
+               "the walking one, jump out first!\r"
+               "Change order in list, make battle\n"
+               "easy, maybe!\r"
+               "More from me you want to hear? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -41,12 +50,20 @@ script scr_seq_T22R0301_000 {
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0157) }
         end
     _00D7:
-        npcmsg(msg_0560_T22R0301_00002)
+        npcmsg("So, want to know how to raise\n"
+               "Pokémon well? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            npcmsg(msg_0560_T22R0301_00003)
+            npcmsg("Fine! Teach you, I will!\n"
+                   "If Pokémon come out in battle even\f"
+                   "briefly, some Exp. Points it gets.\r"
+                   "Keep out weak Pokémon,\n"
+                   "switch in battle quick!\r"
+                   "This way, weak Pokémon very\n"
+                   "strong become!\f"
+                   "More from me you want to hear? {YESNO 0}")
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             touchscreenmenushow
@@ -54,18 +71,28 @@ script scr_seq_T22R0301_000 {
             if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0157) }
             end
         _0125:
-            npcmsg(msg_0560_T22R0301_00004)
+            npcmsg("So, want to know how to\n"
+                   "battle well? {YESNO 0}")
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             touchscreenmenushow
             if (var(VAR_SPECIAL_RESULT) == 0) {
-                npcmsg(msg_0560_T22R0301_00005)
+                npcmsg("Fine! Teach you, I will!\n"
+                       "Pokémon have goods and bads\f"
+                       "because many types.\r"
+                       "High-level Pokémon not win always\n"
+                       "if bad types.\r"
+                       "Pokémon with good types\n"
+                       "for the foe, you choose.\f"
+                       "Smart battle, it is!")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             _0157:
-                npcmsg(msg_0560_T22R0301_00006)
+                npcmsg("Oh! Smart student you are!\n"
+                       "Nothing more do I teach!\r"
+                       "Good to Pokémon you must be!")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -129,11 +156,12 @@ script scr_seq_T22R0301_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0560_T22R0301_00012)
+    npcmsg("The blackboard explains Pokémon\n"
+           "status changes in battle.\r")
     goto(_0207)
     end
 _0207:
-    npcmsg(msg_0560_T22R0301_00013)
+    npcmsg("Read which topic? {YESNO 0}")
     touchscreenmenuhide
     menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(24, 255, 1)
@@ -154,29 +182,52 @@ _0207:
                     _02D8:
                         end
                     }
-                    npcmsg(msg_0560_T22R0301_00018)
+                    npcmsg("If your Pokémon is frozen,\n"
+                           "it can’t do a thing.\r"
+                           "It remains frozen after battle.\n"
+                           "Thaw it out with an Ice Heal.\r")
                     goto(_0207)
                     goto(_02D8)
                 }
-                npcmsg(msg_0560_T22R0301_00017)
+                npcmsg("A burn consumes HP, little by little,\n"
+                       "and also reduces the Attack stat.\r"
+                       "A burn lingers after battle.\n"
+                       "Use a Burn Heal as the cure.\r")
                 goto(_0207)
                 goto(_02D8)
             }
-            npcmsg(msg_0560_T22R0301_00016)
+            npcmsg("If asleep, your Pokémon can use only\n"
+                   "certain moves, such as Sleep Talk and\f"
+                   "Snore.\r"
+                   "A sleeping Pokémon doesn’t wake up\n"
+                   "after battle.\f"
+                   "Wake it up with an Awakening.\r")
             goto(_0207)
             goto(_02D8)
         }
-        npcmsg(msg_0560_T22R0301_00015)
+        npcmsg("Paralysis reduces speed and may\n"
+               "prevent movement.\r"
+               "It remains after battle, so use\n"
+               "a Parlyz Heal.\r")
         goto(_0207)
         goto(_02D8)
     }
-    npcmsg(msg_0560_T22R0301_00014)
+    npcmsg("If poisoned, a Pokémon steadily\n"
+           "loses HP.\r"
+           "The poison lingers after the battle,\n"
+           "and HP is lost as you walk.\f"
+           "To cure it, use an Antidote.\r")
     goto(_0207)
     goto(_02D8)
 }
 
 script scr_seq_T22R0301_003 {
-    simplenpcmsg(msg_0560_T22R0301_00011)
+    simplenpcmsg("Pokémon have what are called\n"
+                 "abilities!\r"
+                 "It seems that each kind of Pokémon has\n"
+                 "distinct abilities.\r"
+                 "They say these abilities come in handy\n"
+                 "in battle!")
     end
 }
 
@@ -184,24 +235,41 @@ script scr_seq_T22R0301_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0560_T22R0301_00019)
+    npcmsg("It’s this kid’s notebook...\r"
+           "“Catch Pokémon using Poké Balls.\n"
+           "Up to six can be in your party.”\r"
+           "Keep reading? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0353) }
-    npcmsg(msg_0560_T22R0301_00020)
+    npcmsg("“Before throwing a Poké Ball, weaken\n"
+           "the target first.”\r"
+           "“A poisoned or burned Pokémon is\n"
+           "easier to catch.”\r"
+           "Keep reading? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0353) }
-    npcmsg(msg_0560_T22R0301_00021)
+    npcmsg("“Some moves may cause confusion.\n"
+           "Confusion may make a Pokémon attack\f"
+           "itself.”\r"
+           "“Leaving battle clears up any\n"
+           "confusion.”\r"
+           "Keep reading? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0353) }
-    npcmsg(msg_0560_T22R0301_00022)
+    npcmsg("“People who catch and use Pokémon\n"
+           "in battle are called Pokémon Trainers.”\r"
+           "“They are expected to visit Pokémon\n"
+           "Gyms and defeat other Trainers.”\r"
+           "The next page is... Blank!\r")
     closemessage
     touchscreenmenushow
     applymovement(obj_T22R0301_gsboy1, Violet_PokemonSchool_Movement_035C)
     waitmovement
-    npcmsg(msg_0560_T22R0301_00023)
+    npcmsg("Boy: E-he-he...\n"
+           "I haven’t written any more...")
     waitbuttonpress
     closemessage
     releaseall
@@ -218,22 +286,31 @@ movement Violet_PokemonSchool_Movement_035C {
 }
 
 script scr_seq_T22R0301_004 {
-    simplenpcmsg(msg_0560_T22R0301_00007)
+    simplenpcmsg("I’m taking notes of the teacher’s\n"
+                 "lecture.\r"
+                 "I’d better copy the stuff on the\n"
+                 "blackboard, too.")
     end
 }
 
 script scr_seq_T22R0301_005 {
-    simplenpcmsg(msg_0560_T22R0301_00010)
+    simplenpcmsg("...Some Berries can restore a\n"
+                 "Pokémon’s health.\r"
+                 "Many other items can be held\n"
+                 "by Pokémon...\r"
+                 "It sure is tough taking notes...")
     end
 }
 
 script scr_seq_T22R0301_006 {
-    simplenpcmsg(msg_0560_T22R0301_00009)
+    simplenpcmsg("Huh? The Pokémon I just got is\n"
+                 "holding something!")
     end
 }
 
 script scr_seq_T22R0301_007 {
-    simplenpcmsg(msg_0560_T22R0301_00008)
+    simplenpcmsg("I traded my best Pokémon to the\n"
+                 "guy beside me.")
     end
 }
 

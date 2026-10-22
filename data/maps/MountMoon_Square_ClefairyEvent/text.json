@@ -7,37 +7,23 @@
     },
     {
       "id": "msg_0051_D02R0104_00001",
-      "en_US": [
-        "This is Mt. Moon Square.\r",
-        "Please don’t litter. Put trash\n",
-        "where it belongs!"
-      ]
+      "from": "scr_seq_D02R0104_001#0"
     },
     {
       "id": "msg_0051_D02R0104_00002",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} found\n",
-        "{STRVAR_1 8, 1, 0}!"
-      ]
+      "from": "scr_seq_D02R0104_003#0"
     },
     {
       "id": "msg_0051_D02R0104_00003",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} put the {STRVAR_1 8, 1, 0}\n",
-        "in the {COLOR 2}{STRVAR_1 31, 2, 0}{COLOR 0} Pocket."
-      ]
+      "from": "scr_seq_D02R0104_003#1"
     },
     {
       "id": "msg_0051_D02R0104_00004",
-      "en_US": [
-        "Obtained the {STRVAR_1 8, 0, 0}!\r",
-        "Too bad!\n",
-        "The Bag is full..."
-      ]
+      "from": "scr_seq_D02R0104_003#2"
     },
     {
       "id": "msg_0051_D02R0104_00005",
-      "en_US": "We are closed for the day."
+      "from": "scr_seq_D02R0104_004#0"
     }
   ]
 }

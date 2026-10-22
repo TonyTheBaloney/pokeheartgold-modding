@@ -3,13 +3,7 @@
   "messages": [
     {
       "id": "msg_0389_R35R0201_00000",
-      "en_US": [
-        "I heard about the Bug-Catching Contest\n",
-        "where Bug-type lovers gather from all\f",
-        "over the region.\r",
-        "...Me?\n",
-        "I cannot take Bug types..."
-      ]
+      "from": "scr_seq_R35R0201_005#0"
     },
     {
       "id": "msg_0389_R35R0201_00001",
@@ -36,11 +30,7 @@
     },
     {
       "id": "msg_0389_R35R0201_00003",
-      "en_US": [
-        "The Pokéathlon Dome is this way.\r",
-        "Please go through the entrance gate,\n",
-        "and do participate in the games!"
-      ]
+      "from": "scr_seq_R35R0201_002#0"
     },
     {
       "id": "msg_0389_R35R0201_00004",
@@ -54,55 +44,27 @@
     },
     {
       "id": "msg_0389_R35R0201_00005",
-      "en_US": [
-        "I’ve been waiting for this moment!\r",
-        "Behold my friendship with my Pokémon!"
-      ]
+      "from": "scr_seq_R35R0201_003#0"
     },
     {
       "id": "msg_0389_R35R0201_00006",
-      "en_US": [
-        "I wonder if I can participate, too.\n",
-        "It’s only running with Pokémon, right?"
-      ]
+      "from": "scr_seq_R35R0201_004#0"
     },
     {
       "id": "msg_0389_R35R0201_00007",
-      "en_US": [
-        "Play collectively with your Pokémon,\n",
-        "trust your Pokémon, and believe in your\f",
-        "Pokémon’s potential!\r",
-        "Your friendship with Pokémon\n",
-        "will make your dream come true!\r",
-        "Pokéathlon for you!"
-      ]
+      "from": "scr_seq_R35R0201_006#0"
     },
     {
       "id": "msg_0389_R35R0201_00008",
-      "en_US": [
-        "Charge your energy with friendship!\n",
-        "Give Aprijuice to your Pokémon!"
-      ]
+      "from": "scr_seq_R35R0201_007#0"
     },
     {
       "id": "msg_0389_R35R0201_00009",
-      "en_US": [
-        "Tap tap ding ding!\r",
-        "We are in a big hurry!\n",
-        "Just a little more work before you\f",
-        "can come through.\r",
-        "I hope you are looking forward to it!"
-      ]
+      "from": "scr_seq_R35R0201_000#0"
     },
     {
       "id": "msg_0389_R35R0201_00010",
-      "en_US": [
-        "Hey, hey!\n",
-        "Watch yourself! The construction\f",
-        "makes it dangerous around here.\r",
-        "Just wait a little longer for the\n",
-        "exciting reveal!\r"
-      ]
+      "from": "scr_seq_R35R0201_008#0"
     }
   ]
 }

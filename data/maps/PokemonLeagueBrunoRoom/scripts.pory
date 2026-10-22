@@ -45,14 +45,26 @@ script scr_seq_T10R0401_001 {
     lockall
     faceplayer
     if (flag(FLAG_DEFEATED_BRUNO)) {
-        npcmsg(msg_0525_T10R0401_00002)
+        npcmsg("Having lost, I have no right to\n"
+               "say anything...\f"
+               "Go face your next challenge!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     bufferplayersname(0)
-    npcmsg(msg_0525_T10R0401_00000)
+    npcmsg("I am Bruno of the Elite Four.\r"
+           "I always train to the extreme because\n"
+           "I believe in our potential.\r"
+           "That is how we became strong.\n"
+           "Can you withstand our power?\r"
+           "Hm? I see no fear in you. You look\n"
+           "determined. Perfect for battle!\r"
+           "Ready, {STRVAR_1 3, 0, 0}?\r"
+           "You will bow down to our\n"
+           "overwhelming power!\r"
+           "Hoo hah!\r")
     closemessage
     if (var(VAR_UNK_4135) >= 8) {
         trainerbattle(TRAINER_ELITE_FOUR_BRUNO_BRUNO_2, 0, 0, 0)
@@ -66,7 +78,9 @@ script scr_seq_T10R0401_001 {
         end
     }
     setflag(FLAG_DEFEATED_BRUNO)
-    npcmsg(msg_0525_T10R0401_00001)
+    npcmsg("Having lost, I have no right to\n"
+           "say anything...\f"
+           "Go face your next challenge!\r")
     closemessage
     playse(SEQ_SE_DP_KI_GASYAN)
     removeobject(obj_T10R0401_leag_door2)

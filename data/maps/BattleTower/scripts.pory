@@ -105,7 +105,10 @@ _01AC:
         goto(_0860)
         end
     _01CF:
-        npcmsg(msg_0096_D31R0201_00089)
+        npcmsg("...Uh-oh... You’ve run out of room\n"
+               "for decoration goods.\r"
+               "Please make room, and come back\n"
+               "for your prize.")
         goto(_01AC)
         end
     _01DA:
@@ -124,7 +127,11 @@ _01AC:
         goto(_0213)
         end
     _0213:
-        npcmsg(msg_0096_D31R0201_00088)
+        npcmsg("Congratulations on achieving your\n"
+               "{STRVAR_1 52, 0, 0}-win streak!\r"
+               "Please accept this trophy for your\n"
+               "fantastic achievement!\f"
+               "We’ll send it to your home.\r")
         playfanfare(SEQ_ME_ITEM)
         waitfanfare
         if (var(VAR_SPECIAL_x8004) == 85) {
@@ -143,16 +150,23 @@ _01AC:
     end
 }
 
+text msg_0096_D31R0201_00015 {
+    "We hope to see you again."
+}
+
 script scr_seq_D31R0201_000 {
     followmonresetmovement
     lockall
     playse(SEQ_SE_DP_SELECT)
     frontierassertcleared
-    npcmsg(msg_0096_D31R0201_00000)
+    npcmsg("Welcome to the Battle Tower!\r"
+           "I am your guide to the Single\n"
+           "and Double Battle Rooms.\r")
     goto(_026E)
     end
 _026E:
-    npcmsg(msg_0096_D31R0201_00001)
+    npcmsg("Would you like to take the\n"
+           "Battle Room challenge? {YESNO 0}")
     call(_02AC)
     Switch(VAR_SPECIAL_RESULT)
     Case(0, _02D2)
@@ -161,7 +175,25 @@ _026E:
     goto(_085B)
     end
 _02A1:
-    npcmsg(msg_0096_D31R0201_00003)
+    npcmsg("The Battle Tower is a facility for Single\n"
+           "or Double Battle challenges.\r"
+           "Once entered, your challenge lasts\n"
+           "until you lose.\r"
+           "In Single Battle format, you enter with\n"
+           "three Pokémon.\r"
+           "In Double Battle format, you enter with\n"
+           "four Pokémon.\r"
+           "The battles are held in Battle Rooms,\n"
+           "of which there are many in the tower.\r"
+           "In each of the Battle Rooms, seven\n"
+           "Trainers await your challenge.\r"
+           "If you manage to defeat all seven,\n"
+           "you will earn Battle Points (BP).\r"
+           "If you want to interrupt your\n"
+           "challenge, please save the game.\r"
+           "If you don’t save, you will be\n"
+           "disqualified from your challenge.\r"
+           "Please be aware of that!\r")
     goto(_026E)
     end
 _02AC:
@@ -173,7 +205,8 @@ _02AC:
     menuexec
     return
 _02D2:
-    npcmsg(msg_0096_D31R0201_00004)
+    npcmsg("Which Battle Room would you like?\n"
+           "Single or Double? {YESNO 0}")
     menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(475, 255, 0)
     menuitemadd(476, 255, 1)
@@ -262,12 +295,12 @@ _0356:
         copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
         return
     _0546:
-        npcmsg(msg_0096_D31R0201_00009)
+        npcmsg("Your Pokémon must all be different.\r")
         touchscreenmenushow
         goto(_085B)
         end
     _0553:
-        npcmsg(msg_0096_D31R0201_00010)
+        npcmsg("Held items must all be different.\r")
         touchscreenmenushow
         goto(_085B)
         end
@@ -291,13 +324,24 @@ _0356:
     end
 }
 
+text msg_0096_D31R0201_00008 {
+    "Please select the Pokémon you wish\n"
+    "to enter.\r"
+}
+
+text msg_0096_D31R0201_00011 {
+    "I will now show you to the Battle Room."
+}
+
 script scr_seq_D31R0201_004 {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_414B, 0)
     battletoweraction(4, 0, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(scr_seq_D31R0201_005) }
-    npcmsg(msg_0096_D31R0201_00016)
+    npcmsg("We’ve been waiting for you!\r"
+           "Before entering a Battle Room, your\n"
+           "progress will be saved. Please wait.")
     frontierfieldsysteminit(1, 65535)
     battletoweraction(43, 0, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 2) {
@@ -327,10 +371,19 @@ script scr_seq_D31R0201_004 {
     end
 }
 
+text msg_0096_D31R0201_00032 {
+    "I’ll direct you to your Multi Battle\n"
+    "Room now."
+}
+
 script scr_seq_D31R0201_005 {
     followmonresetmovement
     lockall
-    npcmsg(msg_0096_D31R0201_00019)
+    npcmsg("Excuse me!\r"
+           "You didn’t save before you quit your\n"
+           "challenge last time.\r"
+           "Because of that, you have been\n"
+           "disqualified from your challenge!\r")
     battletoweraction(14, 0, VAR_SPECIAL_RESULT)
     compare(VAR_BATTLE_TOWER_PRINT_PROGRESS, 1)
     callifeq(_068A)
@@ -411,6 +464,11 @@ _0692:
     return
 }
 
+text msg_0096_D31R0201_00065 {
+    "Unfortunately, you have been\n"
+    "demoted to Rank {STRVAR_1 51, 0, 0}...\r"
+}
+
 script scr_seq_D31R0201_007 {
     followmonresetmovement
     lockall
@@ -444,7 +502,7 @@ _0829:
 _0855:
     call(_0872)
 _085B:
-    npcmsg(msg_0096_D31R0201_00002)
+    npcmsg("We hope to see you again!")
 _085E:
     waitbuttonpress
 _0860:
@@ -474,6 +532,11 @@ _0890:
     return
 }
 
+text msg_0096_D31R0201_00056 {
+    "Saving...\n"
+    "Don’t turn off the power."
+}
+
 script scr_seq_D31R0201_002 {
     followmonresetmovement
     lockall
@@ -481,7 +544,10 @@ script scr_seq_D31R0201_002 {
     frontierassertcleared
     battletoweraction(12, 0, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0096_D31R0201_00061)
+        npcmsg("It’s good to see you back.\r"
+               "Your previous results were not sent\n"
+               "out using Nintendo WFC.\r"
+               "Would you like to send them now? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_08E6) }
@@ -526,12 +592,15 @@ script scr_seq_D31R0201_002 {
         goto(_0ADF)
         end
     _0ADF:
-        npcmsg(msg_0096_D31R0201_00047)
+        npcmsg("OK. I’ll direct you to your Battle Room\n"
+               "now.\r"
+               "Are you ready? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_06CD) }
-        npcmsg(msg_0096_D31R0201_00048)
+        npcmsg("Would you like to save and interrupt\n"
+               "your challenge? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -559,7 +628,10 @@ script scr_seq_D31R0201_002 {
         getbattleroomleadersroom(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
         bufferint(0, VAR_SPECIAL_x8004)
         bufferintex(1, VAR_SPECIAL_x8005, 2, 3)
-        npcmsg(msg_0096_D31R0201_00052)
+        npcmsg("I’ve downloaded the Rank {STRVAR_1 51, 0, 0} Battle\n"
+               "Room {STRVAR_1 52, 1, 0}’s past leader history.\r"
+               "Please confirm it on the Performance\n"
+               "Monitor next to me.")
         waitabpress
         goto(_0860)
         end
@@ -576,7 +648,9 @@ script scr_seq_D31R0201_002 {
         waitmovement
         return
     }
-    npcmsg(msg_0096_D31R0201_00036)
+    npcmsg("Welcome to the Battle Tower!\r"
+           "I am your guide to the Wi-Fi Battle\n"
+           "Rooms.\r")
     goto(_08E6)
     end
 _08E6:
@@ -601,7 +675,31 @@ _0903:
     goto(_085B)
     end
 _0969:
-    npcmsg(msg_0096_D31R0201_00038)
+    npcmsg("The Battle Tower’s Wi-Fi Battle Rooms\n"
+           "are places to conduct battles over\f"
+           "Nintendo Wi-Fi Connection.\r"
+           "As a result, you will be battling\n"
+           "Trainers from around the world.\r"
+           "Inside the Battle Tower, there are\n"
+           "many Battle Rooms.\r"
+           "In each of the Battle Rooms, seven\n"
+           "Trainers await your challenge.\r"
+           "If you manage to defeat all seven,\n"
+           "you will earn Battle Points.\r"
+           "Depending on how you do, you may\n"
+           "even become the room’s leader!\r"
+           "Also, the Wi-Fi Battle Rooms are\n"
+           "operated on a ranking system.\r"
+           "Trainers will go up in rank if they\n"
+           "keep winning Wi-Fi Battles.\r"
+           "Contrarily, their rankings could go\n"
+           "down if they lose consistently.\r"
+           "To raise your rank, keep winning,\n"
+           "especially against tougher Trainers.\r"
+           "If you want to interrupt your\n"
+           "challenge, please save the game.\r"
+           "If you don’t save, you will be\n"
+           "disqualified from your challenge.\r")
     goto(_08E6)
     end
 _0974:
@@ -627,16 +725,29 @@ _09C1:
     return
 }
 
+text msg_0096_D31R0201_00060 {
+    "Your results were sent out using\n"
+    "Nintendo WFC!\r"
+}
+
+text msg_0096_D31R0201_00037 {
+    "Would you like to take the Wi-Fi\n"
+    "Battle Room challenge? {YESNO 0}"
+}
+
 script scr_seq_D31R0201_001 {
     followmonresetmovement
     lockall
     playse(SEQ_SE_DP_SELECT)
     frontierassertcleared
-    npcmsg(msg_0096_D31R0201_00020)
+    npcmsg("Welcome to the Battle Tower!\r"
+           "I am your guide to the Multi\n"
+           "Battle Rooms.\r")
     goto(_0BD4)
     end
 _0BD4:
-    npcmsg(msg_0096_D31R0201_00021)
+    npcmsg("Would you like to take the Multi\n"
+           "Battle Room challenge? {YESNO 0}")
     call(_02AC)
     Switch(VAR_SPECIAL_RESULT)
     Case(0, _0C12)
@@ -645,13 +756,37 @@ _0BD4:
     goto(_085B)
     end
 _0C07:
-    npcmsg(msg_0096_D31R0201_00023)
+    npcmsg("The Battle Tower’s Multi Battle Rooms\n"
+           "are for Multi Battles with a partner.\r"
+           "To enter, join another Trainer and\n"
+           "compete with two Pokémon each.\r"
+           "Inside the tower is a room named the\n"
+           "Battle Salon where you can meet\f"
+           "other Trainers.\r"
+           "There, you can find a Trainer to act\n"
+           "as your partner in the Multi Battles.\r"
+           "You can also partner up with a friend\n"
+           "over wireless communications.\r"
+           "Once you have partnered up, you will\n"
+           "be shown to a Multi Battle Room.\r"
+           "In the Multi Battle Room, seven\n"
+           "tag teams await your challenge.\r"
+           "If you manage to defeat all seven\n"
+           "teams, you will earn Battle Points.\r"
+           "If you want to interrupt your\n"
+           "challenge, please save the game.\r"
+           "If you don’t save, you will be\n"
+           "disqualified from your challenge.\r"
+           "Also, if you are on a tag team with\n"
+           "a friend, you may not interrupt\f"
+           "your challenge.\r")
     goto(_0BD4)
     end
 _0C12:
     battletoweraction(1, 2, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0096_D31R0201_00026)
+        npcmsg("Would you like to communicate with\n"
+               "a friend and form a tag team? {YESNO 0}")
         getmenuchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
             frontierfieldsysteminit(0, 3)
@@ -677,7 +812,10 @@ _0C12:
                 call(_053A)
                 if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0855) }
             _0D55:
-                npcmsg(msg_0096_D31R0201_00027)
+                npcmsg("One Trainer should select\n"
+                       "“BECOME LEADER.”\r"
+                       "The other Trainer must select\n"
+                       "“JOIN GROUP.” {YESNO 0}")
                 touchscreenmenuhide
                 menuinitstdgmm(18, 1, 0, 1, VAR_SPECIAL_RESULT)
                 menuitemadd(14, 255, 0)
@@ -774,7 +912,10 @@ _0C12:
                         buffermonspeciesname(0, VAR_SPECIAL_RESULT)
                         battletoweraction(53, 1, VAR_SPECIAL_RESULT)
                         buffermonspeciesname(1, VAR_SPECIAL_RESULT)
-                        npcmsg(msg_0096_D31R0201_00034)
+                        npcmsg("Both Trainers have chosen the Pokémon\n"
+                               "{STRVAR_1 0, 0, 0} and {STRVAR_1 0, 1, 0}.\r"
+                               "Please confer with the other Trainer\n"
+                               "and choose different Pokémon.\r")
                         goto(_0855)
                         end
                     _0F48:
@@ -786,7 +927,8 @@ _0C12:
                         call(_0113)
                         battletoweraction(5, 0, 0)
                         healparty
-                        npcmsg(msg_0096_D31R0201_00069)
+                        npcmsg("Your record will be saved.\n"
+                               "Please wait.")
                         call(_0817)
                         battletowersetupmultibattle
                         npcmsg(msg_0096_D31R0201_00032)
@@ -810,7 +952,7 @@ _0C12:
             setsavedbottomscreenapp(0)
             battletoweraction(57, 0, VAR_SPECIAL_RESULT)
             battletoweraction(52, 0, 0)
-            npcmsg(msg_0096_D31R0201_00035)
+            npcmsg("I will now show you to the Battle Salon.\r")
             goto(_06CD)
             end
         }
@@ -828,6 +970,18 @@ _0C12:
     end
 }
 
+text msg_0096_D31R0201_00112 {
+    "DS Wireless Communications will\n"
+    "be launched. {YESNO 0}"
+}
+
+text msg_0096_D31R0201_00033 {
+    "Both Trainers have chosen the\n"
+    "Pokémon {STRVAR_1 0, 0, 0}.\r"
+    "Please confer with the other Trainer\n"
+    "and choose different Pokémon.\r"
+}
+
 script scr_seq_D31R0201_003 {
     followmonresetmovement
     lockall
@@ -841,7 +995,7 @@ script scr_seq_D31R0201_003 {
     goto(_1001)
     end
 _1001:
-    npcmsg(msg_0096_D31R0201_00053)
+    npcmsg("Thank you for playing!\r")
     battletoweraction(43, 0, VAR_SPECIAL_RESULT)
     copyvar(VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
     Switch(VAR_TEMP_x4000)
@@ -893,7 +1047,8 @@ _1106:
     copyvar(VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     bufferint(1, VAR_TEMP_x4000)
-    npcmsg(msg_0096_D31R0201_00055)
+    npcmsg("{STRVAR_1 3, 0, 0}, you have also been\n"
+           "promoted to Rank {STRVAR_1 51, 1, 0}!\r")
     goto(_1127)
     end
 _1127:
@@ -903,7 +1058,9 @@ _1127:
     end
 _1144:
     bufferint(0, VAR_TEMP_x4000)
-    npcmsg(msg_0096_D31R0201_00070)
+    npcmsg("Congratulations on achieving Rank {STRVAR_1 51, 0, 0}.\n"
+           "Your winning Pokémon team has won\f"
+           "special Ribbons for this feat!")
     playfanfare(SEQ_ME_LVUP)
     waitfanfare
     goto(_12F1)
@@ -915,7 +1072,8 @@ _115A:
     end
 _1177:
     bufferint(0, VAR_TEMP_x4000)
-    npcmsg(msg_0096_D31R0201_00132)
+    npcmsg("A Ribbon will be awarded to the\n"
+           "participating Pokémon!")
     playfanfare(SEQ_ME_LVUP)
     waitfanfare
     goto(_12F1)
@@ -948,7 +1106,10 @@ _11F1:
     callifeq(_1248)
     battletoweraction(48, 0, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11B8) }
-    npcmsg(msg_0096_D31R0201_00084)
+    npcmsg("Congratulations on defeating\n"
+           "the Tower Tycoon!\f"
+           "The Pokémon on your team will be\f"
+           "provided with commemorative Ribbons.")
     playfanfare(SEQ_ME_LVUP)
     waitfanfare
     goto(_11B8)
@@ -956,7 +1117,8 @@ _11F1:
 _1231:
     npcmsg(msg_0096_D31R0201_00085)
     bufferplayersname(0)
-    npcmsg(msg_0096_D31R0201_00087)
+    npcmsg("The Silver Print was added to\n"
+           "{STRVAR_1 3, 0, 0}’s Vs. Recorder!\r")
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
     setvar(VAR_BATTLE_TOWER_PRINT_PROGRESS, 2)
@@ -964,7 +1126,8 @@ _1231:
 _1248:
     npcmsg(msg_0096_D31R0201_00085)
     bufferplayersname(0)
-    npcmsg(msg_0096_D31R0201_00086)
+    npcmsg("The Gold Print was added to\n"
+           "{STRVAR_1 3, 0, 0}’s Vs. Recorder!\r")
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
     setvar(VAR_BATTLE_TOWER_PRINT_PROGRESS, 4)
@@ -974,7 +1137,8 @@ _1263:
     npcmsg(msg_0096_D31R0201_00012)
     return
 _1268:
-    npcmsg(msg_0096_D31R0201_00054)
+    npcmsg("Congratulations!\n"
+           "You’ve beaten all seven Trainers!\r")
     goto(_1273)
     end
 _1273:
@@ -1013,7 +1177,8 @@ _1301:
     call(_0872)
     npcmsg(msg_0096_D31R0201_00056)
     call(_0817)
-    npcmsg(msg_0096_D31R0201_00057)
+    npcmsg("Would you like to send these\n"
+           "results using Nintendo WFC? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -1023,6 +1188,33 @@ _1301:
     npcmsg(msg_0096_D31R0201_00060)
     goto(_085B)
     end
+}
+
+text msg_0096_D31R0201_00073 {
+    "Congratulations on achieving your\n"
+    "50-win streak.\f"
+    "Your winning Pokémon team has won\f"
+    "special Ribbons for this feat!"
+}
+
+text msg_0096_D31R0201_00012 {
+    "Congratulations!\n"
+    "You’ve beaten all seven Trainers!\r"
+}
+
+text msg_0096_D31R0201_00014 {
+    "Saving...\n"
+    "Don’t turn off the power."
+}
+
+text msg_0096_D31R0201_00113 {
+    "We look forward to your next visit.\r"
+}
+
+text msg_0096_D31R0201_00085 {
+    "Congratulations!\r"
+    "In honor of your victory, we present\n"
+    "you this commemorative print!\r"
 }
 
 movement BattleTower_Movement_1348 {
@@ -1081,7 +1273,8 @@ script scr_seq_D31R0201_012 {
     lockall
     battleroomhasleaders(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0096_D31R0201_00111)
+        npcmsg("There doesn’t appear to be any\n"
+               "data yet...")
         waitbuttonpress
         closemessage
         releaseall
@@ -1103,37 +1296,64 @@ script scr_seq_D31R0201_012 {
 }
 
 script scr_seq_D31R0201_013 {
-    simplenpcmsg(msg_0096_D31R0201_00074)
+    simplenpcmsg("As you can see, Battle Frontier is a\n"
+                 "great facility.\r"
+                 "You know what?\r"
+                 "Apparently, similar facilities are\n"
+                 "available outside of Johto.")
     end
 }
 
 script scr_seq_D31R0201_014 {
-    simplenpcmsg(msg_0096_D31R0201_00075)
+    simplenpcmsg("Thank you for playing!\r"
+                 "Your Pokémon will be restored to\n"
+                 "full...\f"
+                 "Oh my!\r"
+                 "I’m not on duty today.\n"
+                 "I’m just here to enjoy myself.")
     end
 }
 
 script scr_seq_D31R0201_015 {
-    simplenpcmsg(msg_0096_D31R0201_00076)
+    simplenpcmsg("Me?\r"
+                 "I just made a debut as an Idol!\f"
+                 "I haven’t gotten much work yet.\r"
+                 "So whenever I have time, I come here\n"
+                 "to battle Pokémon.")
     end
 }
 
 script scr_seq_D31R0201_016 {
-    simplenpcmsg(msg_0096_D31R0201_00077)
+    simplenpcmsg("I trained my little guy till we\n"
+                 "couldn’t take any more.\r"
+                 "He’s going to do a 50-win streak\n"
+                 "for sure...\r"
+                 "Right, PIKACHU?")
     end
 }
 
 script scr_seq_D31R0201_017 {
-    simplenpcmsg(msg_0096_D31R0201_00078)
+    simplenpcmsg("PIKACHU: ...")
     end
 }
 
 script scr_seq_D31R0201_018 {
-    simplenpcmsg(msg_0096_D31R0201_00079)
+    simplenpcmsg("I’ve always loved this kind of\n"
+                 "see-through elevator since I\f"
+                 "was young.\r"
+                 "Or not!\r"
+                 "When I was young, this kind of\n"
+                 "elevator was unheard of!")
     end
 }
 
 script scr_seq_D31R0201_019 {
-    simplenpcmsg(msg_0096_D31R0201_00080)
+    simplenpcmsg("Tee hee!\n"
+                 "All the Trainers around us look\f"
+                 "so pathetic!\r"
+                 "...Actually, that’s the kind of mind-set\n"
+                 "that makes you lose with one hit!\r"
+                 "Don’t let your guard down, PIKACHU!")
     end
 }
 
@@ -1143,7 +1363,7 @@ script scr_seq_D31R0201_008 {
 
 script scr_seq_D31R0201_020 {
     playcry(SPECIES_PIKACHU, 0)
-    simplenpcmsg(msg_0096_D31R0201_00081)
+    simplenpcmsg("PIKACHU: Pichuu! Pichuu!")
     end
 _14C8:
     touchscreenmenushow
@@ -1173,7 +1393,8 @@ _1506:
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     if (var(VAR_SPECIAL_x8000) == 255) {
-        npcmsg(msg_0096_D31R0201_00116)
+        npcmsg("...Oh.\n"
+               "You don’t need me to judge. I get it.")
         waitbuttonpress
         closemessage
         releaseall
@@ -1188,13 +1409,23 @@ _1506:
     if (var(VAR_SPECIAL_x8001) >= 151) { goto(_1606) }
     end
 _158E:
-    npcmsg(msg_0096_D31R0201_00114)
+    npcmsg("You can call me the Judge.\r"
+           "Heheh, it’s actually not my real name,\n"
+           "but that’s what everyone calls me.\r"
+           "It’s because of this weird power I\n"
+           "have. It’s a gift, really.\r"
+           "I can discern--judge you can say--the\n"
+           "overall potential of individual Pokémon.\r"
+           "If you’d like, I could judge the\n"
+           "intriguing potential of your Pokémon.\r")
     return
 _1593:
-    npcmsg(msg_0096_D31R0201_00115)
+    npcmsg("If you’d like, I could judge the\n"
+           "intriguing potential of your Pokémon.\r")
     return
 _1598:
-    npcmsg(msg_0096_D31R0201_00117)
+    npcmsg("Judge an Egg?!\n"
+           "That’s a tall order even for me.\r")
     goto(_1506)
     end
 _15A3:
@@ -1208,35 +1439,51 @@ _15AF:
     if (var(VAR_SPECIAL_x8003) >= 31) { goto(_1632) }
     end
 _15E5:
-    npcmsg(msg_0096_D31R0201_00118)
+    npcmsg("I see, I see...\r"
+           "This Pokémon’s potential is decent all\n"
+           "around.\r"
+           "That’s my determination, and it’s final.\r")
     goto(_15A3)
     end
 _15F0:
-    npcmsg(msg_0096_D31R0201_00119)
+    npcmsg("I see, I see...\r"
+           "This Pokémon’s potential is above\n"
+           "average overall.\r"
+           "That’s my determination, and it’s final.\r")
     goto(_15A3)
     end
 _15FB:
-    npcmsg(msg_0096_D31R0201_00120)
+    npcmsg("I see, I see...\r"
+           "This Pokémon has relatively superior\n"
+           "potential overall.\r"
+           "That’s my determination, and it’s final.\r")
     goto(_15A3)
     end
 _1606:
-    npcmsg(msg_0096_D31R0201_00121)
+    npcmsg("I see, I see...\r"
+           "This Pokémon has outstanding potential\n"
+           "overall.\r"
+           "That’s my determination, and it’s final.\r")
     goto(_15A3)
     end
 _1611:
-    npcmsg(msg_0096_D31R0201_00128)
+    npcmsg("It’s rather decent in that regard.\n"
+           "That’s how I judged it.")
     goto(_163D)
     end
 _161C:
-    npcmsg(msg_0096_D31R0201_00129)
+    npcmsg("It’s very good in that regard.\n"
+           "That’s how I judged it.")
     goto(_163D)
     end
 _1627:
-    npcmsg(msg_0096_D31R0201_00130)
+    npcmsg("It’s fantastic in that regard.\n"
+           "That’s how I judged it.")
     goto(_163D)
     end
 _1632:
-    npcmsg(msg_0096_D31R0201_00131)
+    npcmsg("It can’t be better in that regard.\n"
+           "That’s how I judged it.")
     goto(_163D)
     end
 _163D:

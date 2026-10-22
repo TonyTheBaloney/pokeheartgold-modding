@@ -6,13 +6,25 @@ script scr_seq_R43R0101_000 {
     lockall
     faceplayer
     if (flag(FLAG_ROCKET_HIDEOUT_CLEARED)) {
-        npcmsg(msg_0402_R43R0101_00001)
+        npcmsg("I heard that you can find a\n"
+               "Red Scale occasionally.\r"
+               "Speaking of which, I know a person\n"
+               "who’d appreciate a Red Scale.\f"
+               "Who?\r"
+               "I think he’s called Mr. something\n"
+               "or other...\r"
+               "What was his name...?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0402_R43R0101_00000)
+    npcmsg("I heard that you can find a\n"
+           "Red Scale occasionally.\r"
+           "Speaking of which, I know a person\n"
+           "who’d appreciate a Red Scale.\f"
+           "Who?\r"
+           "I can’t remember...")
     waitbuttonpress
     closemessage
     releaseall

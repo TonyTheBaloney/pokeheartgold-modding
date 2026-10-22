@@ -3,103 +3,51 @@
   "messages": [
     {
       "id": "msg_0452_T02_00000",
-      "en_US": [
-        "Hey, kid! I just had a double shot\n",
-        "of espresso, and I am wired!\r",
-        "I need to talk to someone, so you’ll\n",
-        "have to do!\r",
-        "I might not look like much now, but\n",
-        "I was an expert at catching Pokémon.\r",
-        "Do you believe me? {YESNO 0}"
-      ]
+      "from": "scr_seq_T02_000#0"
     },
     {
       "id": "msg_0452_T02_00001",
-      "en_US": [
-        "Good, good. Yes, I was something out\n",
-        "of the ordinary, let me tell you!"
-      ]
+      "from": "scr_seq_T02_000#1"
     },
     {
       "id": "msg_0452_T02_00002",
-      "en_US": [
-        "What? You little whelp!\r",
-        "If I were just a bit younger, I’d\n",
-        "show you a thing or two. Humph!"
-      ]
+      "from": "scr_seq_T02_000#2"
     },
     {
       "id": "msg_0452_T02_00003",
-      "en_US": [
-        "This Gym didn’t have a Leader...\r",
-        "A young man from Pallet Town became the\n",
-        "Leader, but he’s often away."
-      ]
+      "from": "scr_seq_T02_001#0"
     },
     {
       "id": "msg_0452_T02_00004",
-      "en_US": [
-        "How was it?\n",
-        "Were you able to battle the Leader?"
-      ]
+      "from": "scr_seq_T02_010#0"
     },
     {
       "id": "msg_0452_T02_00005",
-      "en_US": [
-        "Yawn!\n",
-        "I must have dozed off in the sun.\r",
-        "...I had this dream about a DROWZEE\n",
-        "eating my dream.\r",
-        "Weird, huh?\f",
-        "Huh?\f",
-        "What’s this?\r",
-        "Where did this TM come from?\n",
-        "This is spooky!\f",
-        "Here, you can have this TM.\r"
-      ]
+      "from": "scr_seq_T02_002#0"
     },
     {
       "id": "msg_0452_T02_00006",
-      "en_US": [
-        "TM85 contains Dream Eater...\n",
-        "...Zzzzz..."
-      ]
+      "from": "scr_seq_T02_002#1"
     },
     {
       "id": "msg_0452_T02_00007",
-      "en_US": [
-        "I heard that there are many items on\n",
-        "the ground in Viridian Forest."
-      ]
+      "from": "scr_seq_T02_003#0"
     },
     {
       "id": "msg_0452_T02_00008",
-      "en_US": [
-        "Viridian City\n",
-        "The City of Evergreen"
-      ]
+      "from": "scr_seq_T02_004#0"
     },
     {
       "id": "msg_0452_T02_00009",
-      "en_US": [
-        "Viridian City Pokémon Gym\n",
-        "Leader: ...\f",
-        "The rest of the text is illegible..."
-      ]
+      "from": "scr_seq_T02_005#0"
     },
     {
       "id": "msg_0452_T02_00010",
-      "en_US": [
-        "Welcome to Viridian City,\n",
-        "the Gateway to Indigo Plateau!"
-      ]
+      "from": "scr_seq_T02_006#0"
     },
     {
       "id": "msg_0452_T02_00011",
-      "en_US": [
-        "Trainer House\n",
-        "The Club for Top Trainer Battles"
-      ]
+      "from": "scr_seq_T02_007#0"
     }
   ]
 }

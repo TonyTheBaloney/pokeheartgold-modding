@@ -26,12 +26,20 @@ script scr_seq_D32FS0101_001 {
 }
 
 script scr_seq_D32FS0101_002 {
-    simplenpcmsg(msg_0101_D32FS0101_00000)
+    simplenpcmsg("Some Trainers rely on a Pokémon’s\n"
+                 "potential alone. But you can use items\f"
+                 "and medicines to help improve a\f"
+                 "Pokémon’s capabilities.")
     end
 }
 
 script scr_seq_D32FS0101_003 {
-    simplenpcmsg(msg_0101_D32FS0101_00001)
+    simplenpcmsg("Mountain climbing and Pokémon are\n"
+                 "similar in a sense.\r"
+                 "They both come down to potential!\r"
+                 "I do not rely on items or medicines\n"
+                 "but rather potential and training\f"
+                 "for battle!")
     end
 }
 

@@ -26,12 +26,17 @@ script scr_seq_T03FS0101_001 {
 }
 
 script scr_seq_T03FS0101_002 {
-    simplenpcmsg(msg_0461_T03FS0101_00000)
+    simplenpcmsg("Look! I have a GYARADOS!\r"
+                 "I raised it from a MAGIKARP slowly.\n"
+                 "It finally evolved!")
     end
 }
 
 script scr_seq_T03FS0101_003 {
-    simplenpcmsg(msg_0461_T03FS0101_00001)
+    simplenpcmsg("There once was a weird old man who\n"
+                 "sold MAGIKARP.\r"
+                 "That boy got one and kept it for\n"
+                 "a long time!")
     end
 }
 

@@ -26,7 +26,8 @@ script scr_seq_R30_001 {
 script scr_seq_R30_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0375_R30_00000)
+    npcmsg("Go, RATTATA!\r"
+           "Tackle!\r")
     closemessage
     applymovement(obj_R30_tsure_poke_static_rattata, Route30_Movement_0088)
     waitmovement
@@ -34,7 +35,8 @@ script scr_seq_R30_000 {
     waitmovement
     playse(SEQ_SE_DP_SELECT)
     faceplayer
-    npcmsg(msg_0375_R30_00001)
+    npcmsg("What? This is a big battle!\f"
+           "Leave me alone!\r")
     closemessage
     applymovement(obj_R30_gsboy2_3, Route30_Movement_0098)
     waitmovement
@@ -69,7 +71,10 @@ script scr_seq_R30_002 {
     dooranimationunload(77)
     applymovement(obj_R30_gsmiddleman1, Route30_Movement_01C4)
     waitmovement
-    npcmsg(msg_0375_R30_00005)
+    npcmsg("Hey, kiddo!\r"
+           "How in the world can you be so\n"
+           "oblivious to my eye-catching house?\f"
+           "Hold it right there!\r")
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     togglefollowingpokemonmovement(0)
@@ -88,9 +93,23 @@ script scr_seq_R30_002 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0375_R30_00006)
+    npcmsg("When you follow that path up north,\n"
+           "you will see Mr. Pokémon’s house.\r"
+           "But before you go, let me finish what\n"
+           "I have to say.\r"
+           "Do you...have any Apricorns?\f"
+           "Apricorn trees bear fruit once a day.\f"
+           "I have one of those trees, too!\r"
+           "Apricorns are really something.\n"
+           "You can make Poké Balls and\f"
+           "other things.\r"
+           "They are quite useful.\r"
+           "I have a feeling this is meant to be,\n"
+           "because I have something for you!\r")
     giveitemnocheck(ITEM_APRICORN_BOX, 1)
-    npcmsg(msg_0375_R30_00008)
+    npcmsg("With that Apricorn Box, you can carry\n"
+           "so many Apricorns.\r"
+           "You’ll be a decent Apricorn collector!\r")
     closemessage
     applymovement(obj_R30_gsmiddleman1, Route30_Movement_01CC)
     waitmovement
@@ -156,7 +175,13 @@ movement Route30_Movement_0210 {
 }
 
 script scr_seq_R30_003 {
-    simplenpcmsg(msg_0375_R30_00013)
+    simplenpcmsg("Oh! You’re wearing the Running Shoes.\r"
+                 "They make you feel like you are flying,\n"
+                 "don’t they?\r"
+                 "But beware of wild Pokémon and\n"
+                 "Trainers!\r"
+                 "When you run, the noise will\n"
+                 "attract them.")
     end
 }
 
@@ -171,36 +196,53 @@ script scr_seq_R30_004 {
 }
 
 script scr_seq_R30_005 {
-    directionsignpostex(1, 6, msg_0375_R30_00009)
+    directionsignpostex(1, 6, "Rt. 30\n"
+                              "South to Cherrygrove City")
     end
 }
 
 script scr_seq_R30_006 {
-    directionsignpostex(1, 3, msg_0375_R30_00010)
+    directionsignpostex(1, 3, "Mr. Pokémon’s House\n"
+                              "Straight Ahead!")
     end
 }
 
 script scr_seq_R30_007 {
-    trainertipsex(3, msg_0375_R30_00012)
+    trainertipsex(3, "Trainer Tips\r"
+                     "No stealing other people’s Pokémon!\r"
+                     "Poké Balls are to be thrown only at\n"
+                     "wild Pokémon!")
     end
 }
 
 script scr_seq_R30_008 {
-    trainertipsex(2, msg_0375_R30_00011)
+    trainertipsex(2, "Mr. Pokémon’s House")
     end
 }
 
 script scr_seq_R30_009 {
     if (flag(FLAG_GOT_POKEDEX)) {
-        simplenpcmsg(msg_0375_R30_00003)
+        simplenpcmsg("A Pokémon can use its moves as long\n"
+                     "as the moves still have PP.\r"
+                     "When a move has no PP remaining, that\n"
+                     "Pokémon cannot use that move.\r"
+                     "Then you should take your Pokémon to\n"
+                     "the Pokémon Center.")
         end
     }
-    simplenpcmsg(msg_0375_R30_00002)
+    simplenpcmsg("A Pokémon can use its moves as long\n"
+                 "as the moves still have PP.\r"
+                 "When a move has no PP remaining, that\n"
+                 "Pokémon cannot use that move.\r"
+                 "Then you should take your Pokémon to\n"
+                 "the Pokémon Center.")
     end
 }
 
 script scr_seq_R30_010 {
-    simplenpcmsg(msg_0375_R30_00004)
+    simplenpcmsg("I’m not a Trainer.\r"
+                 "But if you look one in the eyes,\n"
+                 "prepare to battle.")
     end
 }
 

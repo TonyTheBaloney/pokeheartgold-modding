@@ -75,29 +75,15 @@
     },
     {
       "id": "msg_0401_R43_00018",
-      "en_US": [
-        "Rt. 43\n",
-        "North to Lake of Rage"
-      ]
+      "from": "scr_seq_R43_001#0"
     },
     {
       "id": "msg_0401_R43_00019",
-      "en_US": [
-        "Trainer Tips\r",
-        "All Pokémon have pros and cons\n",
-        "depending on their types.\r",
-        "If their types differ, even a higher-\n",
-        "level Pokémon may lose in battle.\r",
-        "Learn which types are strong or\n",
-        "weak against your Pokémon’s type."
-      ]
+      "from": "scr_seq_R43_002#0"
     },
     {
       "id": "msg_0401_R43_00020",
-      "en_US": [
-        "North to Lake of Rage\n",
-        "South to Mahogany Town"
-      ]
+      "from": "scr_seq_R43_003#0"
     }
   ]
 }

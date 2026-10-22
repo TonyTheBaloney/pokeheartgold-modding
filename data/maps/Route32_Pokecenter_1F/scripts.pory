@@ -12,7 +12,15 @@ script scr_seq_R32PC0101_001 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_OLD_ROD)) {
-        npcmsg(msg_0381_R32PC0101_00005)
+        npcmsg("When you want to go fishing,\n"
+               "face the water and use the Rod first.\r"
+               "Then concentrate and look closely\n"
+               "at the water!\r"
+               "An “!” appears when a Pokémon\n"
+               "has taken a bite!\r"
+               "Press the A Button quickly to pull back\n"
+               "on the line.\r"
+               "You’ll see what happens next.\n")
         waitbuttonpress
         closemessage
         releaseall
@@ -23,13 +31,17 @@ script scr_seq_R32PC0101_001 {
         releaseall
         end
     }
-    npcmsg(msg_0381_R32PC0101_00000)
+    npcmsg("This area is great for fishing.\n"
+           "Looking at all those people fishing,\f"
+           "did you feel like you wanted to try\f"
+           "fishing, too?\r"
+           "Would you like one of my Rods? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0058) }
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0381_R32PC0101_00004)
+        npcmsg("Oh. That’s rather disappointing...")
         waitbuttonpress
         closemessage
         releaseall
@@ -40,7 +52,17 @@ _0058:
     if (!itemspace(ITEM_OLD_ROD, 1)) { goto(_0097) }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_OLD_ROD)
-    npcmsg(msg_0381_R32PC0101_00003)
+    npcmsg("When you want to go fishing,\n"
+           "face the water and use the Rod first.\r"
+           "Then concentrate and look closely\n"
+           "at the water!\r"
+           "An “!” appears when a Pokémon\n"
+           "has taken a bite!\r"
+           "Press the A Button quickly to pull back\n"
+           "on the line.\r"
+           "You’ll see what happens next.\r"
+           "If there’s water, be it the sea or\n"
+           "a stream, try out your Rod.")
     waitbuttonpress
     closemessage
     releaseall
@@ -52,24 +74,45 @@ script scr_seq_R32PC0101_002 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_LURE_BALL_FROM_ROUTE_32_KURT_FAN)) {
-        npcmsg(msg_0381_R32PC0101_00011)
+        npcmsg("Kurt is the hero of every Apricorn\n"
+               "collector out there.\r"
+               "If you are to go to Azalea Town,\n"
+               "be sure to visit him.\r"
+               "Apricorn, Apricornier, Apricorniest!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0381_R32PC0101_00007)
+    npcmsg("Bonjour.\n"
+           "How are you?\f"
+           "Are you picking Apricorns? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0381_R32PC0101_00008)
+        npcmsg("Way to go, little Apricorn collector!\r"
+               "I feel so great, I want to give\n"
+               "you this!\r")
     } else {
-        npcmsg(msg_0381_R32PC0101_00009)
+        npcmsg("How come? What a waste!\r"
+               "I will show you how great\n"
+               "Apricorns are!\r"
+               "Take this first.\r")
     }
     if (!itemspace(ITEM_LURE_BALL, 2)) { goto(_0117) }
     callstd(std_give_item_verbose)
-    npcmsg(msg_0381_R32PC0101_00010)
+    npcmsg("Lure Ball!\n"
+           "This Poké Ball makes it easy to catch\f"
+           "the Pokémon that appear when you\f"
+           "go fishing!\r"
+           "Actually, this is made from Apricorns.\n"
+           "Consider those two as small gifts\f"
+           "from me.\r"
+           "If you want more, go to Azalea Town.\n"
+           "A man called Kurt can make special\f"
+           "Poké Balls out of Apricorns.\r"
+           "Apricorns rule!")
     waitbuttonpress
     closemessage
     releaseall
@@ -83,7 +126,9 @@ _0117:
 }
 
 script scr_seq_R32PC0101_003 {
-    simplenpcmsg(msg_0381_R32PC0101_00006)
+    simplenpcmsg("What should I make my Pokémon hold?\r"
+                 "Maybe an item that increases\n"
+                 "its Attack power...")
     end
 }
 

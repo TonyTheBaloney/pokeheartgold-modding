@@ -12,7 +12,8 @@ script scr_seq_R16R0101_001 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_ABA)) {
-        npcmsg(msg_0355_R16R0101_00004)
+        npcmsg("I hope you’ll use trendy sayings\n"
+               "in trendy ways.")
         waitbuttonpress
         closemessage
         releaseall
@@ -20,18 +21,21 @@ script scr_seq_R16R0101_001 {
     }
     checkalltrendysayingsunlocked(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_007E) }
-    npcmsg(msg_0355_R16R0101_00001)
+    npcmsg("Hello, hello. Would you like to hear\n"
+           "a trendy saying? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0355_R16R0101_00003)
+        npcmsg("Oh, come on now! With an attitude\n"
+               "like that, you’ll fall behind the times!")
         waitbuttonpress
         closemessage
         releaseall
         end
     _007E:
-        npcmsg(msg_0355_R16R0101_00005)
+        npcmsg("Hello, hello. Are you using\n"
+               "trendy sayings?")
         waitbuttonpress
         closemessage
         releaseall
@@ -40,7 +44,12 @@ script scr_seq_R16R0101_001 {
     unlockrandomtrendysaying(VAR_SPECIAL_RESULT, 0)
     if (var(VAR_SPECIAL_RESULT) == 65535) { goto(_007E) }
     setflag(FLAG_UNK_ABA)
-    npcmsg(msg_0355_R16R0101_00002)
+    npcmsg("Very well...\r"
+           "The trendy thing for you to say\n"
+           "would be...\r"
+           "{STRVAR_1 28, 0, 0}!\r"
+           "That’s a trendy sort of thing\n"
+           "to say.")
     waitbuttonpress
     closemessage
     releaseall
@@ -48,7 +57,8 @@ script scr_seq_R16R0101_001 {
 }
 
 script scr_seq_R16R0101_000 {
-    simplenpcmsg(msg_0355_R16R0101_00000)
+    simplenpcmsg("If you cruise down the Cycling Road,\n"
+                 "you will end up in Fuchsia City.")
     end
 }
 

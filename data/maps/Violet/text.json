@@ -13,222 +13,111 @@
     },
     {
       "id": "msg_0556_T22_00001",
-      "en_US": [
-        "Bonjour!\n",
-        "You are Trainer?\r",
-        "Battle Gym Leader, win you did? {YESNO 0}"
-      ]
+      "from": "scr_seq_T22_001#0"
     },
     {
       "id": "msg_0556_T22_00002",
-      "en_US": [
-        "Ooh, la la!\n",
-        "Very indeed nice!"
-      ]
+      "from": "scr_seq_T22_001#1"
     },
     {
       "id": "msg_0556_T22_00003",
-      "en_US": [
-        "Is that so? Then study shall you!\f",
-        "Follow me!\r"
-      ]
+      "from": "scr_seq_T22_001#2"
     },
     {
       "id": "msg_0556_T22_00004",
-      "en_US": [
-        "Here, teacher I am.\n",
-        "Good it is you study here!\r"
-      ]
+      "from": "scr_seq_T22_001#3"
     },
     {
       "id": "msg_0556_T22_00005",
-      "en_US": [
-        "There have been reports of Ghost-type\n",
-        "Pokémon appearing in Sprout Tower.\r",
-        "They say Normal-type Pokémon moves\n",
-        "have no effect on them."
-      ]
+      "from": "scr_seq_T22_011#0"
     },
     {
       "id": "msg_0556_T22_00006",
-      "en_US": [
-        "Hey, you’re a Pokémon Trainer?\r",
-        "If you beat the Gym Leader here,\n",
-        "you’ll be ready for prime time!"
-      ]
+      "from": "scr_seq_T22_012#0"
     },
     {
       "id": "msg_0556_T22_00007",
-      "en_US": [
-        "Falkner, from the Violet City Pokémon\n",
-        "Gym, is a fine Trainer!\r",
-        "He inherited his father’s Gym and\n",
-        "has done a great job with it."
-      ]
+      "from": "scr_seq_T22_013#0"
     },
     {
       "id": "msg_0556_T22_00008",
-      "en_US": [
-        "You cannot have your Pokémon out\n",
-        "walking with you in some places.\r",
-        "Places like buildings, caves, and\n",
-        "where there are huge crowds.\r",
-        "But all you have to do is to put it in\n",
-        "a Poké Ball!"
-      ]
+      "from": "scr_seq_T22_014#0"
     },
     {
       "id": "msg_0556_T22_00009",
-      "en_US": [
-        "Violet City\n",
-        "The City of Nostalgic Scents"
-      ]
+      "from": "scr_seq_T22_008#0"
     },
     {
       "id": "msg_0556_T22_00010",
-      "en_US": [
-        "Violet City Pokémon Gym\n",
-        "Leader: Falkner\f",
-        "The Elegant Master of Flying Pokémon"
-      ]
+      "from": "scr_seq_T22_009#0"
     },
     {
       "id": "msg_0556_T22_00011",
-      "en_US": [
-        "Sprout Tower\r",
-        "Experience the Way of Pokémon\n",
-        "to Cast Aside Your Doubts."
-      ]
+      "from": "scr_seq_T22_010#0"
     },
     {
       "id": "msg_0556_T22_00012",
-      "en_US": [
-        "Pokémon School\r",
-        "Earl will show you all\n",
-        "there is to Pokémon!"
-      ]
+      "from": "scr_seq_T22_007#0"
     },
     {
       "id": "msg_0556_T22_00013",
-      "en_US": [
-        "Me oh my...\n",
-        "That Egg must be...!\r"
-      ]
+      "from": "scr_seq_T22_004#0"
     },
     {
       "id": "msg_0556_T22_00014",
-      "en_US": [
-        "I see...\n",
-        "So it was handed from Mr. Pokémon to\f",
-        "Professor Elm, then from Professor Elm\f",
-        "to you.\r",
-        "Now I get it...\r"
-      ]
+      "from": "scr_seq_T22_004#1"
     },
     {
       "id": "msg_0556_T22_00015",
-      "en_US": [
-        "That Egg is truly an important Egg.\n",
-        "Please do take good care of it for me.\r",
-        "Is that understood?\r"
-      ]
+      "from": "scr_seq_T22_004#2"
     },
     {
       "id": "msg_0556_T22_00016",
-      "en_US": "I am counting on you.\r"
+      "from": "scr_seq_T22_004#3"
     },
     {
       "id": "msg_0556_T22_00017",
-      "en_US": [
-        "Shard de Berry!\n",
-        "Shard de Berry!\r",
-        "Yah, yah!\n",
-        "I trade Berry for a Shard.\r",
-        "If ya bring me some Shards,\n",
-        "I will give ya three Berries, yah.\r"
-      ]
+      "from": "scr_seq_T22_003#8"
     },
     {
       "id": "msg_0556_T22_00018",
-      "en_US": [
-        "Shard de Berry!\n",
-        "Shard de Berry!\r",
-        "Yah, yah!\n",
-        "I trade Berry for Shard.\r",
-        "If ya bring me some Shards,\n",
-        "I will give ya three Berries, yah.\r",
-        "Which Shard will ya trade for\n",
-        "de Berry? {YESNO 0}"
-      ]
+      "from": "scr_seq_T22_003#0"
     },
     {
       "id": "msg_0556_T22_00019",
-      "en_US": [
-        "More Shards to trade for\n",
-        "de Berries? {YESNO 0}"
-      ]
+      "from": "scr_seq_T22_003#7"
     },
     {
       "id": "msg_0556_T22_00020",
-      "en_US": [
-        "Yah, yah!\n",
-        "Come back when ya’ve changed\f",
-        "ya mind, yah.\r"
-      ]
+      "from": "scr_seq_T22_003#5"
     },
     {
       "id": "msg_0556_T22_00021",
-      "en_US": [
-        "I’ll give ya de Berry set A\n",
-        "for de Red Shard, yah.\r"
-      ]
+      "from": "scr_seq_T22_003#1"
     },
     {
       "id": "msg_0556_T22_00022",
-      "en_US": [
-        "I’ll give ya de Berry set B\n",
-        "for de Blue Shard, yah.\r"
-      ]
+      "from": "scr_seq_T22_003#2"
     },
     {
       "id": "msg_0556_T22_00023",
-      "en_US": [
-        "I’ll give ya de Berry set C\n",
-        "for de Yellow Shard, yah.\r"
-      ]
+      "from": "scr_seq_T22_003#3"
     },
     {
       "id": "msg_0556_T22_00024",
-      "en_US": [
-        "I’ll give ya de Berry set D\n",
-        "for de Green Shard, yah.\r"
-      ]
+      "from": "scr_seq_T22_003#4"
     },
     {
       "id": "msg_0556_T22_00025",
-      "en_US": [
-        "Ya already have many Berries\n",
-        "of dis set.\r",
-        "Come back when ya need more, yah.\r"
-      ]
+      "from": "scr_seq_T22_003#6"
     },
     {
       "id": "msg_0556_T22_00026",
-      "en_US": [
-        "We care about the traditional buildings\n",
-        "around here. That’s why even the\f",
-        "Poké Mart and Pokémon Center are\f",
-        "painted a bit somberly to blend in."
-      ]
+      "from": "scr_seq_T22_005#0"
     },
     {
       "id": "msg_0556_T22_00027",
-      "en_US": [
-        "Did you know that Pokégear allows you\n",
-        "to put marks and memos on its Map?\r",
-        "I’d love to have one of those\n",
-        "Pokégears, but my mom won’t let me."
-      ]
+      "from": "scr_seq_T22_006#0"
     }
   ]
 }

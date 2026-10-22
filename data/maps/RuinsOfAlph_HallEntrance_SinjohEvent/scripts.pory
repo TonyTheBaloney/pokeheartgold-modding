@@ -31,7 +31,7 @@ script scr_seq_D24R0217_002 {
 script scr_seq_D24R0217_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0085_D24R0217_00000)
+    npcmsg("It’s a replica of an ancient Pokémon.")
     waitbuttonpress
     closemessage
     releaseall

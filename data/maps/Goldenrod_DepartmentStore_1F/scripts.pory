@@ -2,7 +2,8 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T25R1001_000 {
-    simplenpcmsg(msg_0592_T25R1001_00000)
+    simplenpcmsg("Welcome to the Goldenrod\n"
+                 "Department Store.")
     end
 }
 
@@ -11,9 +12,14 @@ script scr_seq_T25R1001_001 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0592_T25R1001_00002)
+        npcmsg("What kind of business would a\n"
+               "Team Rocket member have here?\r"
+               "We aren’t selling sanity here.")
     } else {
-        npcmsg(msg_0592_T25R1001_00001)
+        npcmsg("The department store has a\n"
+               "decent selection.\r"
+               "But some items are only available\n"
+               "as Game Corner prizes.")
     }
     waitbuttonpress
     closemessage
@@ -26,9 +32,12 @@ script scr_seq_T25R1001_002 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0592_T25R1001_00004)
+        npcmsg("Be it Team Rocket, “Team Pocket,” or\n"
+               "whatever...leave me alone!\r"
+               "I’m busy shopping and have no time\n"
+               "to waste!")
     } else {
-        npcmsg(msg_0592_T25R1001_00003)
+        npcmsg("I’m raring to shop again today!")
     }
     waitbuttonpress
     closemessage
@@ -41,9 +50,11 @@ script scr_seq_T25R1001_003 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0592_T25R1001_00006)
+        npcmsg("Mom told me to stay away from\n"
+               "people in black suits.")
     } else {
-        npcmsg(msg_0592_T25R1001_00005)
+        npcmsg("Mom’s good at bargain hunting.\r"
+               "She always buys stuff at lower prices.")
     }
     waitbuttonpress
     closemessage
@@ -54,7 +65,12 @@ script scr_seq_T25R1001_003 {
 script scr_seq_T25R1001_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0592_T25R1001_00007)
+    npcmsg("1F Service Counter\n"
+           "2F Trainer’s Market\f"
+           "3F Battle Collection\f"
+           "4F Medicine Box\f"
+           "5F TM Corner\f"
+           "6F Rooftop Atrium")
     waitbuttonpress
     closemessage
     releaseall

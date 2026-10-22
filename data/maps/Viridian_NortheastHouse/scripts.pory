@@ -2,12 +2,16 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T02R0201_000 {
-    simplenpcmsg(msg_0456_T02R0201_00000)
+    simplenpcmsg("Do you put a lot of thought into naming\n"
+                 "your Pokémon?\r"
+                 "Giving them good nicknames adds to the\n"
+                 "fun of trading with others.")
     end
 }
 
 script scr_seq_T02R0201_001 {
-    simplenpcmsg(msg_0456_T02R0201_00001)
+    simplenpcmsg("They’re Speary--a SPEAROW--and\n"
+                 "Rattey--a RATTATA.")
     end
 }
 
@@ -16,7 +20,7 @@ script scr_seq_T02R0201_002 {
     lockall
     faceplayer
     playcry(SPECIES_SPEAROW, 0)
-    npcmsg(msg_0456_T02R0201_00002)
+    npcmsg("Speary: Ch-chun!")
     waitcry
     waitbuttonpress
     closemessage
@@ -29,7 +33,7 @@ script scr_seq_T02R0201_003 {
     lockall
     faceplayer
     playcry(SPECIES_RATTATA, 0)
-    npcmsg(msg_0456_T02R0201_00003)
+    npcmsg("Rattey: Kikiii!")
     waitcry
     waitbuttonpress
     closemessage

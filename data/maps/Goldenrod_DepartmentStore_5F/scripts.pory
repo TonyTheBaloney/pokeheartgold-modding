@@ -42,9 +42,15 @@ script scr_seq_T25R1005_001 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0596_T25R1005_00018)
+        npcmsg("You shouldn’t wear a black suit like\n"
+               "that. People will think you are a part\f"
+               "of Team Rocket.\r"
+               "What? You are one of them?")
     } else {
-        npcmsg(msg_0596_T25R1005_00017)
+        npcmsg("You can’t rename a Pokémon you get in\n"
+               "a trade.\r"
+               "The name is a reflection of the original\n"
+               "Trainer’s feelings for it.")
     }
     waitbuttonpress
     closemessage
@@ -57,9 +63,12 @@ script scr_seq_T25R1005_002 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0596_T25R1005_00016)
+        npcmsg("Team Rocket...\n"
+               "Why are they here?")
     } else {
-        npcmsg(msg_0596_T25R1005_00015)
+        npcmsg("On Sundays, a lady comes to check\n"
+               "out Pokémon.\r"
+               "She even gives away TMs!")
     }
     waitbuttonpress
     closemessage
@@ -72,14 +81,17 @@ script scr_seq_T25R1005_003 {
     lockall
     faceplayer
     if (flag(FLAG_SYS_ROCKET_COSTUME)) {
-        npcmsg(msg_0596_T25R1005_00014)
+        npcmsg("Huh? You...are part of Team Rocket?\n"
+               "Since when?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (flag(FLAG_TRADE_GOLDENROD_CITY_DROWZEE_MACHOP)) { goto(_0172) }
-    npcmsg(msg_0596_T25R1005_00009)
+    npcmsg("I collect Pokémon.\n"
+           "Do you have a DROWZEE?\r"
+           "Want to trade it for my MACHOP? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -103,26 +115,28 @@ _00F6:
     npctradeexec(VAR_SPECIAL_x8004)
     npctradeend
     setflag(FLAG_TRADE_GOLDENROD_CITY_DROWZEE_MACHOP)
-    npcmsg(msg_0596_T25R1005_00010)
+    npcmsg("Yay! I got myself a DROWZEE!\f"
+           "Thanks!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _015A:
     npctradeend
-    npcmsg(msg_0596_T25R1005_00011)
+    npcmsg("Huh? That’s not DROWZEE.\n"
+           "What a letdown...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0167:
-    npcmsg(msg_0596_T25R1005_00012)
+    npcmsg("You don’t want to trade? Aww...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0172:
-    npcmsg(msg_0596_T25R1005_00013)
+    npcmsg("Hi, how’s my old MACHOP doing?")
     waitbuttonpress
     closemessage
     releaseall
@@ -132,7 +146,8 @@ _0172:
 script scr_seq_T25R1005_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0596_T25R1005_00019)
+    npcmsg("Modify Your Pokémon\n"
+           "5F TM Corner")
     waitbuttonpress
     closemessage
     releaseall
@@ -146,10 +161,12 @@ script scr_seq_T25R1005_006 {
     if (flag(FLAG_UNK_08E)) { goto(_0219) }
     getpartyleadalive(VAR_SPECIAL_x8000)
     buffermonspeciesname(0, VAR_SPECIAL_x8000)
-    npcmsg(msg_0596_T25R1005_00000)
+    npcmsg("Hello. Oh, your Pokémon...\r")
     mongetfriendship(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000)
     if (var(VAR_SPECIAL_RESULT) >= 149) {
-        npcmsg(msg_0596_T25R1005_00001)
+        npcmsg("It’s very attached to you.\r"
+               "This move should be perfect for a\n"
+               "pair like you.\r")
         setvar(VAR_SPECIAL_x8004, 354)
         setvar(VAR_SPECIAL_x8005, 1)
         callstd(std_obtain_item_verbose)
@@ -157,21 +174,24 @@ script scr_seq_T25R1005_006 {
         goto(_0219)
     }
     if (var(VAR_SPECIAL_RESULT) <= 50) {
-        npcmsg(msg_0596_T25R1005_00004)
+        npcmsg("It looks a little bit evil.\n"
+               "How about this TM for it?\r")
         setvar(VAR_SPECIAL_x8004, 348)
         setvar(VAR_SPECIAL_x8005, 1)
         callstd(std_obtain_item_verbose)
         closemessage
         goto(_0219)
     _0219:
-        npcmsg(msg_0596_T25R1005_00006)
+        npcmsg("There are sure to be TMs that are\n"
+               "just perfect for your Pokémon.")
         setflag(FLAG_UNK_08E)
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0596_T25R1005_00003)
+    npcmsg("It’s adorable!\r"
+           "You should teach it good TM moves.")
     waitbuttonpress
     closemessage
     releaseall

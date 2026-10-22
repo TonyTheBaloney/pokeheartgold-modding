@@ -3,15 +3,7 @@
   "messages": [
     {
       "id": "msg_0577_T24R0501_00000",
-      "en_US": [
-        "Huh? You need medicine?\n",
-        "Your Pokémon appear to be fine.\f",
-        "Is something worrying you?\r",
-        "...\r",
-        "The Lighthouse Pokémon is in trouble?\r",
-        "I got it!\f",
-        "This ought to do the trick."
-      ]
+      "from": "scr_seq_T24R0501_000#0"
     },
     {
       "id": "msg_0577_T24R0501_00001",
@@ -19,17 +11,11 @@
     },
     {
       "id": "msg_0577_T24R0501_00002",
-      "en_US": [
-        "My SecretPotion is a tad too strong.\f",
-        "I only offer it in an emergency."
-      ]
+      "from": "scr_seq_T24R0501_000#1"
     },
     {
       "id": "msg_0577_T24R0501_00003",
-      "en_US": [
-        "What’s up?\n",
-        "Need some medicine? {YESNO 0}"
-      ]
+      "from": "scr_seq_T24R0501_000#2"
     },
     {
       "id": "msg_0577_T24R0501_00004",

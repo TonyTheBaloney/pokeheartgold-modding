@@ -5,7 +5,12 @@ script scr_seq_R26R0101_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0366_R26R0101_00000)
+    npcmsg("Did you think you were lucky to find\n"
+           "a place to rest right where you\f"
+           "needed it?\r"
+           "Don’t be reserved!\n"
+           "I look forward to people’s smiles.\f"
+           "Let your Pokémon rest here!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -16,7 +21,9 @@ script scr_seq_R26R0101_000 {
     restoreoverworld
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
-    npcmsg(msg_0366_R26R0101_00001)
+    npcmsg("There!\n"
+           "Your Pokémon are looking good!\f"
+           "Keep at it!")
     waitbuttonpress
     closemessage
     releaseall
@@ -24,7 +31,7 @@ script scr_seq_R26R0101_000 {
 }
 
 script scr_seq_R26R0101_001 {
-    simplenpcmsg(msg_0366_R26R0101_00002)
+    simplenpcmsg("CHANSEY: Ch-Chansey!")
     end
 }
 

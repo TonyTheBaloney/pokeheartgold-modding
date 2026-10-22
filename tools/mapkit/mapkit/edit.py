@@ -252,6 +252,13 @@ def script_rename(repo, m, old, new):
     pat = re.compile(r"\b(_EV_)?%s\b" % re.escape(old))
     for p in files:
         _write_text(p, pat.sub(lambda mm: (mm.group(1) or "") + new, _read_text(p)))
+    # text.json slots filled by the script's inline strings: "from": "<script>#<n>"
+    tp = repo.bank_path(m, "msgBank")
+    if tp and os.path.exists(tp):
+        slot = re.compile(r'("from":\s*")%s(#\d+")' % re.escape(old))
+        t = _read_text(tp)
+        if slot.search(t):
+            _write_text(tp, slot.sub(lambda mm: mm.group(1) + new + mm.group(2), t))
     doc = EventsDoc(repo, m)
     for ekey in ("object_events", "bg_events", "coord_events"):
         recs = doc.section(ekey)

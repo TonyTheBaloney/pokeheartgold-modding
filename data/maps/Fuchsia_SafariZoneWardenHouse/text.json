@@ -3,25 +3,19 @@
   "messages": [
     {
       "id": "msg_0518_T08R0601_00000",
-      "en_US": [
-        "My grandpa closed the Safari Zone\n",
-        "and now that we have an empty lot,\f",
-        "my dad decided to run the Pal Park!\r",
-        "It seems that catching and releasing\n",
-        "Pokémon runs in my family."
-      ]
+      "from": "scr_seq_T08R0601_000#0"
     },
     {
       "id": "msg_0518_T08R0601_00001",
-      "en_US": "AIPOM: Pom Pom...?"
+      "from": "scr_seq_T08R0601_001#0"
     },
     {
       "id": "msg_0518_T08R0601_00002",
-      "en_US": "AIPOM: Pom Pom!"
+      "from": "scr_seq_T08R0601_002#0"
     },
     {
       "id": "msg_0518_T08R0601_00003",
-      "en_US": "AIPOM: Pommm..."
+      "from": "scr_seq_T08R0601_003#0"
     }
   ]
 }

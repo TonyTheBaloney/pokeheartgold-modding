@@ -74,7 +74,8 @@ script scr_seq_D51R0201_001 {
     lockall
     faceplayer
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 8) {
-        npcmsg(msg_0146_D51R0201_00012)
+        npcmsg("Cynthia: Once you are ready, choose a\n"
+               "circle and stand in the middle of it.")
         waitbuttonpress
         closemessage
         releaseall
@@ -91,7 +92,13 @@ script scr_seq_D51R0201_001 {
             applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02C4)
         }
         waitmovement
-        npcmsg(msg_0146_D51R0201_00004)
+        npcmsg("Cynthia: This is where one might say,\n"
+               "“The lead enters the {COLOR 1}Mystri Stage{COLOR 0}\f"
+               "at last.”\r"
+               "All my study of ruins and Pokémon\n"
+               "mythology in Sinnoh may have been\f"
+               "to bring you up on this stage\f"
+               "here today...\r")
         closemessage
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
@@ -116,28 +123,48 @@ script scr_seq_D51R0201_001 {
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
         followingpokemonmovement(48)
-        npcmsg(msg_0146_D51R0201_00005)
+        npcmsg("Cynthia: Depicted on the {COLOR 1}Mystri Stage{COLOR 0}\n"
+               "are the Pokémon that shaped\f"
+               "this world.\r"
+               "The circle in the middle is ARCEUS,\n"
+               "the origin of it all...\r")
         closemessage
         applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0324)
         waitmovement
-        npcmsg(msg_0146_D51R0201_00007)
+        npcmsg("Cynthia: This is the pattern that\n"
+               "represents PALKIA, the master of\f"
+               "space and dimensions...\r")
         closemessage
         applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0334)
         waitmovement
-        npcmsg(msg_0146_D51R0201_00008)
+        npcmsg("Cynthia: This is the pattern that\n"
+               "represents DIALGA, the guardian\f"
+               "of time...\r")
         closemessage
         applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0348)
         waitmovement
-        npcmsg(msg_0146_D51R0201_00009)
+        npcmsg("Cynthia: This is the pattern that\n"
+               "represents GIRATINA, the ruler of\f"
+               "the world that is on the opposite side\f"
+               "of ours, the world of antimatter...\r")
         closemessage
         applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0364)
         waitmovement
-        npcmsg(msg_0146_D51R0201_00010)
+        npcmsg("Cynthia: ARCEUS has accepted you as\n"
+               "a Trainer.\r"
+               "ARCEUS, having shaped the world,\n"
+               "is said to show you a glimpse of\f"
+               "its true power.\r"
+               "The power of possibly making life\n"
+               "appear out of nothing...\r")
         closemessage
         applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0370)
         applymovement(obj_player, SinjohRuinsMystriStage_Movement_03C8)
         waitmovement
-        npcmsg(msg_0146_D51R0201_00011)
+        npcmsg("Cynthia: It seems that something\n"
+               "will happen when you choose one\f"
+               "of the circles...\r"
+               "You’ll want to be well prepared.")
         waitbuttonpress
         closemessage
         releaseall
@@ -148,25 +175,43 @@ script scr_seq_D51R0201_001 {
     if (var(VAR_TEMP_x4006) == 1) { goto(_011A) }
     followerpokeiseventtrigger(EVENT_ARCEUS_HALL_OF_ORIGIN, VAR_TEMP_x4005, VAR_TEMP_x4007)
     if (var(VAR_TEMP_x4007) == 1) { goto(_011A) }
-    npcmsg(msg_0146_D51R0201_00024)
+    npcmsg("Cynthia: The {COLOR 1}Sinjoh Ruins{COLOR 0} are what\n"
+           "remains of a temple built to show\f"
+           "respect for ARCEUS.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _011A:
     if (var(VAR_TEMP_x4004) == 1) { goto(_0154) }
-    npcmsg(msg_0146_D51R0201_00000)
+    npcmsg("Cynthia: This is the {COLOR 1}Mystri Stage{COLOR 0}. The\n"
+           "mythical stage built to show respect\f"
+           "for ARCEUS.\r"
+           "It is said that people used to\n"
+           "celebrate its magnificent might with\f"
+           "music and dance.\r"
+           "Some people in Johto still pass down\n"
+           "this tradition.\r")
     closemessage
     getpartycount(VAR_SPECIAL_x8004)
     if (var(VAR_SPECIAL_x8004) >= 2) { goto(_0154) }
     applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02CC)
     waitmovement
-    npcmsg(msg_0146_D51R0201_00006)
+    npcmsg("Cynthia: According to an ancient\n"
+           "document, time, space, and antimatter,\f"
+           "or what combined we call the world,\f"
+           "shall be born when ARCEUS stands\f"
+           "on the {COLOR 1}Mystri Stage{COLOR 0}.\r")
     closemessage
     goto(_0170)
     end
 _0154:
-    npcmsg(msg_0146_D51R0201_00002)
+    npcmsg("Cynthia: The {COLOR 1}Mystri Stage{COLOR 0} allows a\n"
+           "single ARCEUS and nothing else to\f"
+           "get on the stage...\r"
+           "If you wish to go up there, you have\n"
+           "to deposit your other Pokémon in\f"
+           "a PC Box at the cabin.")
     waitbuttonpress
     closemessage
     setvar(VAR_TEMP_x4004, 1)
@@ -293,9 +338,10 @@ script scr_seq_D51R0201_004 {
         if (var(VAR_TEMP_x400A) == 0) { goto(_0633) }
         if (var(VAR_TEMP_x400A) == 2) { goto(_061D) }
         if (var(VAR_TEMP_x400A) == 3) { goto(_0628) }
-        npcmsg(msg_0146_D51R0201_00027)
+        npcmsg("Will you choose DIALGA? {YESNO 0}")
     } else {
-        npcmsg(msg_0146_D51R0201_00013)
+        npcmsg("Cynthia: So you choose DIALGA,\n"
+               "the guardian of time? {YESNO 0}")
     }
     sinjohsetchosenlegend(1)
     setvar(VAR_TEMP_x4009, SPECIES_DIALGA)
@@ -312,9 +358,10 @@ script scr_seq_D51R0201_003 {
         if (var(VAR_TEMP_x400A) == 0) { goto(_0633) }
         if (var(VAR_TEMP_x400A) == 2) { goto(_061D) }
         if (var(VAR_TEMP_x400A) == 3) { goto(_0628) }
-        npcmsg(msg_0146_D51R0201_00028)
+        npcmsg("Will you choose PALKIA? {YESNO 0}")
     } else {
-        npcmsg(msg_0146_D51R0201_00014)
+        npcmsg("Cynthia: So you choose PALKIA, the\n"
+               "master of space and dimensions? {YESNO 0}")
     }
     sinjohsetchosenlegend(2)
     setvar(VAR_TEMP_x4009, SPECIES_PALKIA)
@@ -331,9 +378,10 @@ script scr_seq_D51R0201_005 {
         if (var(VAR_TEMP_x400A) == 0) { goto(_0633) }
         if (var(VAR_TEMP_x400A) == 2) { goto(_061D) }
         if (var(VAR_TEMP_x400A) == 3) { goto(_0628) }
-        npcmsg(msg_0146_D51R0201_00029)
+        npcmsg("Will you choose GIRATINA? {YESNO 0}")
     } else {
-        npcmsg(msg_0146_D51R0201_00015)
+        npcmsg("Cynthia: So you choose GIRATINA,\n"
+               "the ruler of the Distortion World? {YESNO 0}")
     }
     sinjohsetchosenlegend(3)
     setvar(VAR_TEMP_x4009, 487)
@@ -448,12 +496,14 @@ _0514:
                 waitmovement
                 sinjohfreezeallmodels
                 wait(2, VAR_SPECIAL_RESULT)
-                npcmsg(msg_0146_D51R0201_00025)
+                npcmsg("The mysterious round object\n"
+                       "took the shape of a Pokémon!\r")
                 nopvar490(VAR_TEMP_x4009)
                 bufferplayersname(0)
                 bufferspeciesname(1, VAR_TEMP_x4009, 0, 0)
                 playfanfare(SEQ_ME_SHINKAOME)
-                npcmsg(msg_0146_D51R0201_00026)
+                npcmsg("{STRVAR_1 3, 0, 0} obtained\n"
+                       "the {STRVAR_1 0, 1, 0}!")
                 waitfanfare
                 closemessage
                 applymovement(241, SinjohRuinsMystriStage_Movement_0CF8)
@@ -472,7 +522,8 @@ _0514:
                     setvar(VAR_UNK_4103, 3)
                 }
                 touchscreenmenuhide
-                npcmsg(msg_0146_D51R0201_00032)
+                npcmsg("Would you like to give a nickname\n"
+                       "to the {STRVAR_1 0, 1, 0}? {YESNO 0}")
                 getmenuchoice(VAR_SPECIAL_RESULT)
                 closemessage
                 setsavedbottomscreenapp(0)
@@ -483,11 +534,23 @@ _0514:
                     applymovement(obj_player, SinjohRuinsMystriStage_Movement_0D00)
                     applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0D1C)
                     waitmovement
-                    npcmsg(msg_0146_D51R0201_00016)
+                    npcmsg("Cynthia: That shining sphere...\n"
+                           "Could it be...an Egg?\r"
+                           "Did we just witness the very moment\n"
+                           "an Egg was brought to this world?\f"
+                           "A moment no one has ever seen?\r")
                     closemessage
                     applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D4C)
                     waitmovement
-                    npcmsg(msg_0146_D51R0201_00017)
+                    npcmsg("Cynthia: An Egg is the cradle of every\n"
+                           "being. This planet itself is an Egg\f"
+                           "in a sense...\r"
+                           "Life that comes from an Egg will\n"
+                           "come to an end in due course...\f"
+                           "to begin anew...\r"
+                           "That may be what ARCEUS\n"
+                           "wanted to show us.\r"
+                           "\n")
                     closemessage
                     playse(SEQ_SE_GS_ZENIGAME_JOURO)
                     fadescreen(6, 6, 0, RGB_BLACK)
@@ -497,11 +560,12 @@ _0514:
                     waitfade
                     applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D30)
                     waitmovement
-                    npcmsg(msg_0146_D51R0201_00018)
+                    npcmsg("Cynthia: That was...?\r")
                     closemessage
                     applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D44)
                     waitmovement
-                    npcmsg(msg_0146_D51R0201_00019)
+                    npcmsg("Cynthia: We seem to be surrounded by\n"
+                           "that strong power again...!\r")
                     closemessage
                 }
                 playse(SEQ_SE_GS_ZENIGAME_JOURO)
@@ -624,13 +688,15 @@ _0615:
     setvar(VAR_TEMP_x400A, 0)
     return
 _061D:
-    npcmsg(msg_0146_D51R0201_00031)
+    npcmsg("It seems that only a single ARCEUS\n"
+           "can stand here...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0628:
-    npcmsg(msg_0146_D51R0201_00033)
+    npcmsg("It seems it no longer responds\n"
+           "to this ARCEUS...")
     waitbuttonpress
     closemessage
     releaseall
@@ -641,6 +707,10 @@ _0633:
     closemessage
     releaseall
     end
+}
+
+text msg_0146_D51R0201_00030 {
+    "This place does not seem to respond..."
 }
 
 movement SinjohRuinsMystriStage_Movement_0BE4 {

@@ -3,42 +3,15 @@
   "messages": [
     {
       "id": "msg_0604_T26_00000",
-      "en_US": [
-        "...\r",
-        "You again?\r",
-        "There’s no need to be alert.\n",
-        "I don’t bother with wimps like you.\r",
-        "Speaking of weaklings, the city’s\n",
-        "Gym Leader isn’t here, and\f",
-        "is supposedly taking care of a\f",
-        "sick Pokémon at the Lighthouse.\r",
-        "Humph! Boo-hoo!\n",
-        "Just let sick Pokémon go!\r",
-        "A Pokémon that can’t battle\n",
-        "is worthless!\r",
-        "Why don’t you go train at\n",
-        "the Lighthouse?\r",
-        "Who knows? It may make you a bit\n",
-        "of a better Trainer!\r"
-      ]
+      "from": "scr_seq_T26_001#0"
     },
     {
       "id": "msg_0604_T26_00001",
-      "en_US": [
-        "Dark roads are dangerous at night.\r",
-        "But, in the pitch-black night,\n",
-        "the sea is even more treacherous!\r",
-        "Without the beacon of the Lighthouse\n",
-        "to guide her, no ship can sail."
-      ]
+      "from": "scr_seq_T26_008#0"
     },
     {
       "id": "msg_0604_T26_00002",
-      "en_US": [
-        "That thing you have--\n",
-        "it’s a Pokégear, right?\f",
-        "Wow, that’s cool."
-      ]
+      "from": "scr_seq_T26_009#0"
     },
     {
       "id": "msg_0604_T26_00003",
@@ -49,43 +22,23 @@
     },
     {
       "id": "msg_0604_T26_00004",
-      "en_US": [
-        "You, young Trainer!\n",
-        "The sea is sweet!\r",
-        "Sing with me!\f",
-        "The sea is blue!\n",
-        "The sea is salty!"
-      ]
+      "from": "scr_seq_T26_010#0"
     },
     {
       "id": "msg_0604_T26_00005",
-      "en_US": [
-        "Olivine City\n",
-        "The Port with Sea Breezes"
-      ]
+      "from": "scr_seq_T26_005#0"
     },
     {
       "id": "msg_0604_T26_00006",
-      "en_US": [
-        "Olivine Port\n",
-        "Fast-Ship Pier"
-      ]
+      "from": "scr_seq_T26_006#0"
     },
     {
       "id": "msg_0604_T26_00007",
-      "en_US": [
-        "Olivine City Pokémon Gym\n",
-        "Leader: Jasmine\f",
-        "The Steel-Clad Defense Girl"
-      ]
+      "from": "scr_seq_T26_004#0"
     },
     {
       "id": "msg_0604_T26_00008",
-      "en_US": [
-        "Olivine’s Lighthouse\r",
-        "It is also known as\n",
-        "the Glitter Lighthouse."
-      ]
+      "from": "scr_seq_T26_007#0"
     }
   ]
 }

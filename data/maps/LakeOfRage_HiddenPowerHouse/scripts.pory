@@ -5,7 +5,7 @@ script scr_seq_T29R0101_000 {
     if (flag(FLAG_GOT_TM10_FROM_LAKE_OF_RAGE_MAN)) {
         playse(SEQ_SE_DP_SELECT)
         lockall
-        npcmsg(msg_0627_T29R0101_00004)
+        npcmsg("I am meditating...")
         waitbuttonpress
         closemessage
         releaseall
@@ -14,7 +14,11 @@ script scr_seq_T29R0101_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0627_T29R0101_00000)
+    npcmsg("...You have strayed far...\n"
+           "Here I have meditated. Inside me,\f"
+           "a new power has been awakened.\r"
+           "Let me share my power with your\n"
+           "Pokémon. Take this, child.\r")
     if (!itemspace(ITEM_TM10, 1)) {
         callstd(std_bag_is_full)
         closemessage
@@ -23,7 +27,11 @@ script scr_seq_T29R0101_000 {
     }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_TM10_FROM_LAKE_OF_RAGE_MAN)
-    npcmsg(msg_0627_T29R0101_00002)
+    npcmsg("Do you see it? It is Hidden Power!\r"
+           "It draws out the power of Pokémon\n"
+           "for attacking.\r"
+           "Remember this: its type and power\n"
+           "depend on the Pokémon using it.")
     waitbuttonpress
     closemessage
     applymovement(obj_T29R0101_gsbigman, LakeOfRage_HiddenPowerHouse_Movement_0078)

@@ -3,17 +3,11 @@
   "messages": [
     {
       "id": "msg_0258_P01R0104_00000",
-      "en_US": [
-        "OK!\n",
-        "You must be the last passenger.\r"
-      ]
+      "from": "scr_seq_P01R0104_000#1"
     },
     {
       "id": "msg_0258_P01R0104_00001",
-      "en_US": [
-        "Huh?\n",
-        "The ship won’t go anywhere today."
-      ]
+      "from": "scr_seq_P01R0104_000#0"
     }
   ]
 }

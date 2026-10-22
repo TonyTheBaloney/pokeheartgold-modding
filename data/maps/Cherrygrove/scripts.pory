@@ -56,7 +56,13 @@ script Cherrygrove_EventScript_GuideGentTour {
     }
     applymovement(obj_player, Cherrygrove_Movement_0378)
     waitmovement
-    npcmsg(msg_0550_T21_00000)
+    npcmsg("You’re a rookie Trainer, aren’t you?\n"
+           "I can tell!\r"
+           "That’s OK! Everyone is a rookie\n"
+           "at some point!\r"
+           "If you’d like, I can teach you a\n"
+           "few things.\f"
+           "OK, then! Follow me!\r")
     closemessage
     bufferplayersname(0)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
@@ -72,7 +78,11 @@ script Cherrygrove_EventScript_GuideGentTour {
     waitmovement
     applymovement(obj_player, Cherrygrove_Movement_0380)
     waitmovement
-    npcmsg(msg_0550_T21_00001)
+    npcmsg("Ohh... I’m sorry.\n"
+           "I forgot that you weren’t wearing the\f"
+           "Running Shoes!\r"
+           "I’ll try to go as slow as possible, so\n"
+           "try keeping up!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -94,7 +104,10 @@ script Cherrygrove_EventScript_GuideGentTour {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0550_T21_00002)
+    npcmsg("This is a Pokémon Center. They heal\n"
+           "your Pokémon in no time at all.\r"
+           "You’ll be relying on them a lot, so\n"
+           "you better learn about them.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -105,7 +118,9 @@ script Cherrygrove_EventScript_GuideGentTour {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0550_T21_00003)
+    npcmsg("This is a Pokémon Mart.\n"
+           "They sell Poké Balls for catching wild\f"
+           "Pokémon and other useful items.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -116,7 +131,11 @@ script Cherrygrove_EventScript_GuideGentTour {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0550_T21_00004)
+    npcmsg("Route 30 is out this way.\r"
+           "Trainers will be battling their\n"
+           "Pokémon there.\r"
+           "If you go a little farther,\n"
+           "you’ll see Mr. Pokémon’s House.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -128,7 +147,8 @@ script Cherrygrove_EventScript_GuideGentTour {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0550_T21_00005)
+    npcmsg("This is the sea, as you can see.\r"
+           "Some Pokémon are found only in water.\r")
     closemessage
     stopse(SEQ_SE_GS_N_UMIBE)
     togglefollowingpokemonmovement(0)
@@ -140,13 +160,26 @@ script Cherrygrove_EventScript_GuideGentTour {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0550_T21_00006)
+    npcmsg("Here...\n"
+           "It’s my house!\r"
+           "For your effort keeping up with me,\n"
+           "I’ll give you my Running Shoes!\f"
+           "They’re still warm!\r"
+           "...\n"
+           "...\r"
+           "Got you, didn’t I?\n"
+           "Don’t worry, these are brand new!\r")
     giverunningshoes
     bufferplayersname(0)
-    npcmsg(msg_0550_T21_00007)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Running Shoes from the Guide Gent!")
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
-    npcmsg(msg_0550_T21_00008)
+    npcmsg("The instructions read,\n"
+           "“Touch the Sprint Button on the\f"
+           "Touch Screen to sprint.”\r"
+           "It also says,\n"
+           "“Hold the B Button down to sprint.”\r")
     closemessage
     applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0580)
     waitmovement
@@ -400,13 +433,26 @@ script Cherrygrove_EventScript_GuideGentMapCard {
         applymovement(obj_player, Cherrygrove_Movement_0388)
     }
     waitmovement
-    npcmsg(msg_0550_T21_00009)
+    npcmsg("...Hffp... Hffp...\n"
+           "I made it...\r"
+           "I forgot about one thing.\n"
+           "This is another token from me!\r"
+           "Take it.\r")
     bufferplayersname(0)
-    npcmsg(msg_0550_T21_00010)
+    npcmsg("The Guide Gent loaded the Map Card\n"
+           "on {STRVAR_1 3, 0, 0}’s Pokégear!")
     playfanfare(SEQ_ME_KEYITEM)
     waitfanfare
-    npcmsg(msg_0550_T21_00011)
-    npcmsg(msg_0550_T21_00012)
+    npcmsg("{STRVAR_1 3, 0, 0}’s Pokégear\n"
+           "can now show the Town Map!\r")
+    npcmsg("Select the Pokégear on the\n"
+           "Touch Screen and then select\f"
+           "the Town Map icon.\r"
+           "You’ll see the map of the region\n"
+           "you’re currently in!\r"
+           "The Pokégear becomes more useful as\n"
+           "you add Cards.\r"
+           "I wish you luck on your journey!\r")
     closemessage
     applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_06AC)
     waitmovement
@@ -452,7 +498,15 @@ script Cherrygrove_EventScript_RivalBattle {
     movepersonfacing(obj_T21_gsrivel, 583, 0, VAR_TEMP_x4001, DIR_WEST)
     applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0808)
     waitmovement
-    npcmsg(msg_0550_T21_00013)
+    npcmsg("...\r"
+           "You got a Pokémon at the Lab.\n"
+           "What a waste.\r"
+           "That’s a Pokémon that’s too good for\n"
+           "a wimp like you.\r"
+           "...\n"
+           "Don’t you get what I’m saying?\r"
+           "Well, I too have a good Pokémon.\n"
+           "I’ll show you what I mean!\r")
     closemessage
     getstarterchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 152) {
@@ -464,7 +518,11 @@ script Cherrygrove_EventScript_RivalBattle {
     }
     checkbattlewon(VAR_SPECIAL_RESULT)
     callstd(std_play_rival_outro_music)
-    npcmsg(msg_0550_T21_00014)
+    npcmsg("...\r"
+           "Do you want to know who I am?\n"
+           "...\r"
+           "I’m going to be the world’s greatest\n"
+           "Pokémon Trainer.\r")
     closemessage
     playse(SEQ_SE_DP_WALL_HIT2)
     togglefollowingpokemonmovement(0)
@@ -486,7 +544,10 @@ script Cherrygrove_EventScript_RivalBattle {
         applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0844)
     }
     waitmovement
-    npcmsg(msg_0550_T21_00015)
+    npcmsg("Give it back!\n"
+           "That’s my Trainer Card!\r"
+           "Oh no!\n"
+           "You saw my name...\r")
     closemessage
     getpersoncoords(4, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 401) {
@@ -577,9 +638,11 @@ script Cherrygrove_EventScript_MysticWaterMan {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)) {
-        npcmsg(msg_0550_T21_00020)
+        npcmsg("A Pokémon I caught had an item.\n"
+               "I think it’s Mystic Water.\r"
+               "I don’t need it, so do you want it?\r")
         if (!itemspace(ITEM_MYSTIC_WATER, 1)) {
-            npcmsg(msg_0550_T21_00022)
+            npcmsg("You don’t have room for this.")
             waitbuttonpress
             closemessage
             releaseall
@@ -588,7 +651,7 @@ script Cherrygrove_EventScript_MysticWaterMan {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)
     }
-    npcmsg(msg_0550_T21_00021)
+    npcmsg("Back to fishing for me, then.")
     waitbuttonpress
     closemessage
     releaseall
@@ -706,22 +769,28 @@ movement Cherrygrove_Movement_0ACC {
 }
 
 script Cherrygrove_EventScript_GuideGentsHouseSign {
-    trainertipsex(2, msg_0550_T21_00024)
+    trainertipsex(2, "Guide Gent’s House\n"
+                     "Full-of-Energy, High-Speed Old Man")
     end
 }
 
 script Cherrygrove_EventScript_CitySign {
-    directionsignpostex(0, 12, msg_0550_T21_00023)
+    directionsignpostex(0, 12, "Cherrygrove City\n"
+                               "The City of Fragrant Flowers")
     end
 }
 
 script Cherrygrove_EventScript_Boy {
-    simplenpcmsg(msg_0550_T21_00019)
+    simplenpcmsg("I battled the Trainers on the road.\n"
+                 "My Pokémon lost.\r"
+                 "They’re a mess! I must take them to\n"
+                 "a Pokémon Center.")
     end
 }
 
 script Cherrygrove_EventScript_Woman {
-    simplenpcmsg(msg_0550_T21_00017)
+    simplenpcmsg("When you’re with Pokémon,\n"
+                 "going anywhere is fun.")
     end
 }
 

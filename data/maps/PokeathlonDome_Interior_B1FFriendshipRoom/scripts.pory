@@ -45,17 +45,26 @@ script scr_seq_D49R0107_005 {
     lockall
     applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_015C)
     waitmovement
-    npcmsg(msg_0143_D49R0107_00000)
+    npcmsg("Magnus: Oh, gosh!\r")
     closemessage
     applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0164)
     waitmovement
     wait(15, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
-    npcmsg(msg_0143_D49R0107_00001)
+    npcmsg("You are...!\n"
+           "It is indeed you, {STRVAR_1 3, 0, 0}!\r"
+           "Outstanding!\n"
+           "Quite an achievement for you\f"
+           "to come up here, bud!\r")
     closemessage
     applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_016C)
     waitmovement
-    npcmsg(msg_0143_D49R0107_00002)
+    npcmsg("This is the “Friendship” room.\r"
+           "It was built to commemorate the\n"
+           "solidarity, trust, and potential\f"
+           "of Pokémon and people and\f"
+           "to hope for the eternal friendship\f"
+           "between Pokémon and people.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -67,15 +76,28 @@ script scr_seq_D49R0107_005 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     bufferplayersname(0)
-    npcmsg(msg_0143_D49R0107_00003)
+    npcmsg("Congratulations!\r"
+           "This room is only for those true\n"
+           "Pokéathletes who have earned\f"
+           "real friendships with Pokémon!\r"
+           "{STRVAR_1 3, 0, 0}!\n"
+           "You are a true Pokéathlete, bud!\r")
     closemessage
     applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0188)
     waitmovement
-    npcmsg(msg_0143_D49R0107_00004)
+    npcmsg("Having said that...\n"
+           "this is also the moment\f"
+           "of a new beginning...\r")
     closemessage
     applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0164)
     waitmovement
-    npcmsg(msg_0143_D49R0107_00005)
+    npcmsg("That’s right, bud!\n"
+           "You have just heard a new starting\f"
+           "signal. Your challenge continues\f"
+           "for a whole new height and to become\f"
+           "the legendary Pokéathlete!\r"
+           "Take a look at this statue.\n"
+           "You may be looking at your goal...\r")
     closemessage
     applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0190)
     waitmovement
@@ -127,7 +149,21 @@ script scr_seq_D49R0107_000 {
     lockall
     faceplayer
     bufferplayersname(0)
-    npcmsg(msg_0143_D49R0107_00006)
+    npcmsg("Magnus: This is the “Friendship” room.\n"
+           "It is the last of all. It’s the room\f"
+           "where eternal friendship between\f"
+           "people and Pokémon is pledged.\r"
+           "...But this is not your goal, bud.\r"
+           "Each room has Trophies to earn,\n"
+           "but you can aim for any new height.\r"
+           "It is entirely up to you whether\n"
+           "you get there or not...\r"
+           "That’s right!\r"
+           "Your true goal is not something\n"
+           "anyone else can decide for you, bud.\r"
+           "{STRVAR_1 3, 0, 0}!\n"
+           "You can overcome any difficulties\f"
+           "with your friendship with your Pokémon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -138,7 +174,7 @@ script scr_seq_D49R0107_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0143_D49R0107_00007)
+    npcmsg("It’s your statue!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -153,6 +189,13 @@ script scr_seq_D49R0107_001 {
 script scr_seq_D49R0107_002 {
     simplenpcmsg(msg_0143_D49R0107_00008)
     end
+}
+
+text msg_0143_D49R0107_00008 {
+    "The statue of the Pokémon\n"
+    "you’ve shared your journey\f"
+    "with, helping each other and\f"
+    "cultivating your friendship!"
 }
 
 script scr_seq_D49R0107_003 {

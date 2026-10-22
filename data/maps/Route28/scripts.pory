@@ -7,7 +7,8 @@ script scr_seq_R28_000 {
 }
 
 script scr_seq_R28_001 {
-    directionsignpostex(1, 2, msg_0371_R28_00000)
+    directionsignpostex(1, 2, "Rt. 28\n"
+                              "West to Mt. Silver")
     end
 }
 

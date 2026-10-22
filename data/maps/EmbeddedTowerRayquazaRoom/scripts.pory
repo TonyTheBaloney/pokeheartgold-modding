@@ -59,6 +59,10 @@ script scr_seq_D52R0103_001 {
     end
 }
 
+text msg_0150_D52R0103_00000 {
+    "RAYQUAZA: Kiyuryursheeah!\r"
+}
+
 movement EmbeddedTowerRayquazaRoom_Movement_00B4 {
     walk_up * 8
     delay_8 * 2
@@ -87,7 +91,7 @@ script scr_seq_D52R0103_000 {
     if (var(VAR_TEMP_x4002) != 3) {
         if (var(VAR_TEMP_x4002) == 4) { goto(_0134) }
     }
-    npcmsg(msg_0150_D52R0103_00001)
+    npcmsg("RAYQUAZA disappeared...")
     waitbuttonpress
     closemessage
     setvar(VAR_SCENE_EMBEDDED_TOWER, 9)

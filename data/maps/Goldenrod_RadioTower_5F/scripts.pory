@@ -19,12 +19,12 @@ script scr_seq_D23R0105_000 {
 }
 
 script scr_seq_D23R0105_001 {
-    simplenpcmsg(msg_0069_D23R0105_00007)
+    simplenpcmsg("5F Director’s Office")
     end
 }
 
 script scr_seq_D23R0105_003 {
-    simplenpcmsg(msg_0069_D23R0105_00008)
+    simplenpcmsg("Go up for Observation Deck")
     end
 }
 
@@ -32,12 +32,22 @@ script scr_seq_D23R0105_002 {
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
         getitemquantity(ITEM_BASEMENT_KEY, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) != 0) {
-            simplenpcmsg(msg_0069_D23R0105_00005)
+            simplenpcmsg("Petrel: We stashed the Director in the\n"
+                         "underground warehouse.\r"
+                         "It’s at the far end of the\n"
+                         "Goldenrod Tunnel.\r"
+                         "Hahaha...\n"
+                         "I doubt a child like you’ll get that far.")
             end
         }
         playse(SEQ_SE_DP_SELECT)
         lockall
-        npcmsg(msg_0069_D23R0105_00000)
+        npcmsg("Ahem, do you hear me?\r"
+               "...I am the Director.\r"
+               "We have decided to broadcast wonderful\n"
+               "shows to praise Team Rocket!\r"
+               "Everyone, I don’t want to hear you\n"
+               "complain. Just do a good job to...\r")
         closemessage
         wait(16, VAR_SPECIAL_RESULT)
         getplayerfacing(VAR_TEMP_x4000)
@@ -55,7 +65,9 @@ script scr_seq_D23R0105_002 {
             applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_0274)
         }
         waitmovement
-        npcmsg(msg_0069_D23R0105_00001)
+        npcmsg("Yikes!\n"
+               "I am busy impersonating the...\f"
+               "Who are you?\r")
         closemessage
         if (var(VAR_TEMP_x4000) == 3) {
             applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_0284)
@@ -64,7 +76,7 @@ script scr_seq_D23R0105_002 {
         }
         waitmovement
         bufferplayersname(0)
-        npcmsg(msg_0069_D23R0105_00002)
+        npcmsg("...Oh no, it’s you again, {STRVAR_1 3, 0, 0}?\r")
         if (var(VAR_TEMP_x4000) == 0) {
             applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_02B0)
         } elif (var(VAR_TEMP_x4000) == 2) {
@@ -85,12 +97,24 @@ script scr_seq_D23R0105_002 {
             applymovement(obj_D23R0105_rkanbum2, Goldenrod_RadioTower_5F_Movement_0344)
         }
         waitmovement
-        npcmsg(msg_0069_D23R0105_00003)
+        npcmsg("Petrel: No, no, no! I was pretending to\n"
+               "be the Director to influence the entire\f"
+               "region to support Team Rocket!\r"
+               "This time I won’t hold back!\n"
+               "Give me all you’ve got!\r")
         closemessage
         trainerbattle(TRAINER_EXECUTIVE_PETREL_PETREL, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_021D) }
-        npcmsg(msg_0069_D23R0105_00004)
+        npcmsg("Petrel: Listen carefully.\r"
+               "We stashed the real Director in the\n"
+               "underground warehouse.\r"
+               "It’s at the far end of the\n"
+               "Goldenrod Tunnel.\r"
+               "I am a nice guy. I will give you the\n"
+               "Basement Key to get to the\f"
+               "underground warehouse.\f"
+               "Take it with gratitude!\r")
         setvar(VAR_SPECIAL_x8004, ITEM_BASEMENT_KEY)
         setvar(VAR_SPECIAL_x8005, 1)
         callstd(std_obtain_item_verbose)
@@ -106,7 +130,12 @@ script scr_seq_D23R0105_002 {
         releaseall
         end
     }
-    simplenpcmsg(msg_0069_D23R0105_00006)
+    simplenpcmsg("Director: Hello, it is you! You know,\n"
+                 "I really love Pokémon.\r"
+                 "I built this Radio Tower just so I could\n"
+                 "express my love of Pokémon.\r"
+                 "It would be nice if people enjoyed our\n"
+                 "programs.")
     end
 }
 

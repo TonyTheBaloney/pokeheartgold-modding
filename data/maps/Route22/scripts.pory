@@ -49,26 +49,54 @@ script scr_seq_R22_003 {
     waitmovement
     applymovement(obj_R22_var_1, Route22_Movement_02CC)
     waitmovement
-    gendermsgbox(msg_0360_R22_00012, msg_0360_R22_00011)
+    gendermsgbox("Lyra: Where are we...?\r", "Ethan: Where are we...?\r")
     closemessage
     applymovement(obj_R22_var_1, Route22_Movement_02E0)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0360_R22_00014, msg_0360_R22_00013)
+    gendermsgbox("Lyra: Ilex Forest has disappeared!\r"
+                 "...That’s not it.\n"
+                 "It’s more like we have been\f"
+                 "transported somewhere else...?\r", "Ethan: Ilex Forest has disappeared!\r"
+                                                     "...That’s not it.\n"
+                                                     "It’s more like we have been\f"
+                                                     "transported somewhere else...?\r")
     closemessage
     applymovement(obj_R22_var_1, Route22_Movement_02FC)
     waitmovement
-    gendermsgbox(msg_0360_R22_00016, msg_0360_R22_00015)
+    gendermsgbox("{STRVAR_1 3, 0, 0}, something is strange!\r"
+                 "I heard the radio mentioning\n"
+                 "the date from three years ago!\r", "{STRVAR_1 3, 0, 0}, something is strange!\r"
+                                                     "I heard the radio mentioning\n"
+                                                     "the date from three years ago!\r")
     closemessage
     applymovement(obj_R22_var_1, Route22_Movement_0304)
     applymovement(obj_player, Route22_Movement_03D0)
     waitmovement
-    gendermsgbox(msg_0360_R22_00018, msg_0360_R22_00017)
+    gendermsgbox("Is that...am I looking at...\n"
+                 "CELEBI?\r"
+                 "That explains it!\n"
+                 "CELEBI must have caused all this!\r"
+                 "My grandpa once told me that\n"
+                 "CELEBI can travel through time using\f"
+                 "its mystic power called {COLOR 1}Time Travel{COLOR 0}!\r"
+                 "CELEBI must have taken us back in time!\n"
+                 "Literally!\r", "Is that...am I looking at...\n"
+                                 "CELEBI?\r"
+                                 "That explains it!\n"
+                                 "CELEBI must have caused all this!\r"
+                                 "My grandpa once told me that\n"
+                                 "CELEBI can travel through time using\f"
+                                 "its mystic power called {COLOR 1}Time Travel{COLOR 0}!\r"
+                                 "CELEBI must have taken us back in time!\n"
+                                 "Literally!\r")
     closemessage
     applymovement(obj_R22_var_1, Route22_Movement_0338)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0360_R22_00020, msg_0360_R22_00019)
+    gendermsgbox("{STRVAR_1 3, 0, 0}, there is someone else\n"
+                 "here besides us! Let’s go find out who!\r", "{STRVAR_1 3, 0, 0}, there is someone else\n"
+                                                              "here besides us! Let’s go find out who!\r")
     closemessage
     applymovement(obj_player, Route22_Movement_03A0)
     applymovement(obj_R22_var_1, Route22_Movement_0310)
@@ -84,40 +112,69 @@ script scr_seq_R22_003 {
     applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
     waitmovement
     bufferrivalsname(0)
-    npcmsg(msg_0360_R22_00002)
+    npcmsg("{STRVAR_1 3, 0, 0}: You told me...\n"
+           "you were the number one in the world!\r"
+           "Are you gonna quit?\r"
+           "What are you going to do now?\r")
     closemessage
     applymovement(obj_R22_sakaki, Route22_Movement_0438)
     waitmovement
-    npcmsg(msg_0360_R22_00008)
+    npcmsg("..................\r"
+           "One must acknowledge one’s defeat\n"
+           "before he can move on...\r"
+           "I will go solo...for now...\r"
+           "So that one day I will form\n"
+           "a stronger organization!\r")
     closemessage
     applymovement(obj_R22_gsrivel, Route22_Movement_03FC)
     waitmovement
     bufferrivalsname(0)
-    npcmsg(msg_0360_R22_00003)
+    npcmsg("{STRVAR_1 3, 0, 0}: What aspect of you was\n"
+           "number one?\r"
+           "Gathering so many only to be defeated\n"
+           "by a mere child!\r")
     closemessage
     applymovement(obj_R22_sakaki, Route22_Movement_0444)
     waitmovement
-    npcmsg(msg_0360_R22_00009)
+    npcmsg("Putting together the potential of many\n"
+           "is how you produce a huge power...\f"
+           "That’s what an organization is...\r"
+           "That’s the strength of\n"
+           "an organization!\r"
+           "I failed...to make the best use of\n"
+           "my subordinates’ potential...!\r"
+           "But you shall witness one day\n"
+           "the revival of me and my {COLOR 1}Team Rocket{COLOR 0}!\r")
     closemessage
     applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
     waitmovement
     bufferrivalsname(0)
-    npcmsg(msg_0360_R22_00004)
+    npcmsg("{STRVAR_1 3, 0, 0}: I don’t understand you!\r"
+           "You don’t make any sense!\r")
     closemessage
     applymovement(obj_R22_sakaki, Route22_Movement_044C)
     waitmovement
-    npcmsg(msg_0360_R22_00010)
+    npcmsg("..................\n"
+           "One day, you will understand.\r")
     closemessage
     applymovement(obj_R22_sakaki, Route22_Movement_0454)
     waitmovement
     applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
     waitmovement
     bufferrivalsname(0)
-    npcmsg(msg_0360_R22_00005)
+    npcmsg("{STRVAR_1 3, 0, 0}: I don’t want to\n"
+           "understand you!\r"
+           "I will never become someone like you.\r"
+           "A coward when you’re alone and\n"
+           "acting like a tyrant when you’re in\f"
+           "front of other cowards!\r"
+           "I will become strong!\r"
+           "I will become a stronger man all\n"
+           "by myself!\r")
     closemessage
     applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
     waitmovement
-    npcmsg(msg_0360_R22_00006)
+    npcmsg("{SIZE 200}All by myself!{SIZE 100}\r")
     closemessage
     callstd(std_play_rival_intro_music)
     applymovement(241, Route22_Movement_03E8)
@@ -125,7 +182,8 @@ script scr_seq_R22_003 {
     waitmovement
     removecameratarget
     bufferrivalsname(0)
-    npcmsg(msg_0360_R22_00007)
+    npcmsg("{STRVAR_1 3, 0, 0}: ...What are you\n"
+           "staring at?\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -145,7 +203,21 @@ script scr_seq_R22_003 {
     removeobject(obj_R22_gsrivel)
     setflag(FLAG_HIDE_ROUTE_22_GIOVANNI_RIVAL)
     callstd(std_fade_end_rival_intro_music)
-    gendermsgbox(msg_0360_R22_00022, msg_0360_R22_00021)
+    gendermsgbox("Lyra: Who does he think he is?\n"
+                 "That was unnecessary!\r"
+                 "But what were they talking about?\n"
+                 "The revival of {COLOR 1}Team Rocket{COLOR 0}...?\r"
+                 "They say that Team Rocket was\n"
+                 "removed from the Kanto region\f"
+                 "by a child three years ago.\r"
+                 "So this really is three years ago!\r", "Ethan: Who does he think he is?\n"
+                                                         "That was unnecessary!\r"
+                                                         "But what were they talking about?\n"
+                                                         "The revival of {COLOR 1}Team Rocket{COLOR 0}...?\r"
+                                                         "They say that Team Rocket was\n"
+                                                         "removed from the Kanto region\f"
+                                                         "by a child three years ago.\r"
+                                                         "So this really is three years ago!\r")
     closemessage
     fadeoutbgm(20, 30)
     applymovement(obj_partner_poke, Route22_Movement_0350)
@@ -159,7 +231,9 @@ script scr_seq_R22_003 {
     applymovement(obj_player, Route22_Movement_03C4)
     applymovement(obj_R22_var_1, Route22_Movement_0320)
     waitmovement
-    gendermsgbox(msg_0360_R22_00024, msg_0360_R22_00023)
+    gendermsgbox("Oh no! It’s happening again...!\r"
+                 "It’s CELEBI’s {COLOR 1}Time Travel{COLOR 0}!\r", "Oh no! It’s happening again...!\r"
+                                                                   "It’s CELEBI’s {COLOR 1}Time Travel{COLOR 0}!\r")
     closemessage
     playse(SEQ_SE_GS_TIMESLIP)
     celebitimetravel
@@ -432,7 +506,8 @@ movement Route22_Movement_0604 {
 }
 
 script scr_seq_R22_002 {
-    trainertipsex(2, msg_0360_R22_00000)
+    trainertipsex(2, "Pokémon League\n"
+                     "Victory Road Entrance")
     end
 }
 

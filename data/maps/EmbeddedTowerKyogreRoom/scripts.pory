@@ -51,7 +51,7 @@ script scr_seq_D52R0102_000 {
     lockall
     faceplayer
     playcry(SPECIES_KYOGRE, 0)
-    npcmsg(msg_0149_D52R0102_00000)
+    npcmsg("KYOGRE: Gyararoooah!\r")
     waitcry
     closemessage
     setflag(FLAG_ENGAGING_STATIC_POKEMON)
@@ -67,7 +67,7 @@ script scr_seq_D52R0102_000 {
     if (var(VAR_TEMP_x4002) != 3) {
         if (var(VAR_TEMP_x4002) == 4) { goto(_00FB) }
     }
-    npcmsg(msg_0149_D52R0102_00001)
+    npcmsg("KYOGRE disappeared...")
     waitbuttonpress
     closemessage
     setflag(FLAG_BEAT_OR_ESCAPED_FROM_GROUDON_OR_KYOGRE)
@@ -96,15 +96,35 @@ _00FB:
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0149_D52R0102_00002)
+    npcmsg("Well, hello!\n"
+           "That was something you don’t see\f"
+           "every day!\r"
+           "That Pokémon is KYOGRE,\n"
+           "a legendary Pokémon in the Hoenn myth\f"
+           "about the shaping of that region.\r"
+           "I see...\f"
+           "I see.\r"
+           "The Embedded Tower was built\n"
+           "by the people from Hoenn.\r")
     closemessage
     applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_01D0)
     waitmovement
-    npcmsg(msg_0149_D52R0102_00003)
+    npcmsg("The Tower that binds together\n"
+           "the sea, the land, and the sky...\r"
+           "KYOGRE was not the only Pokémon\n"
+           "described in the Hoenn myth...\r"
+           "This place may still be hiding\n"
+           "its secrets.\r")
     closemessage
     applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_01E0)
     waitmovement
-    npcmsg(msg_0149_D52R0102_00004)
+    npcmsg("The knowledgeable Pokémon Professor\n"
+           "may be able to tell you more when you\f"
+           "show him KYOGRE.\r"
+           "Phew!\r"
+           "There are so many connections between\n"
+           "Pokémon and myths.\r"
+           "See you around.\r")
     closemessage
     applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_01EC)
     waitmovement

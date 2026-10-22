@@ -142,32 +142,37 @@ movement Pallet_Movement_022C {
 }
 
 script scr_seq_T01_000 {
-    simplenpcmsg(msg_0446_T01_00000)
+    simplenpcmsg("I’m raising Pokémon, too.\n"
+                 "They serve as my private guards.")
     end
 }
 
 script scr_seq_T01_001 {
-    simplenpcmsg(msg_0446_T01_00001)
+    simplenpcmsg("Technology is incredible!\r"
+                 "You can now trade Pokémon\n"
+                 "overseas like email.")
     end
 }
 
 script scr_seq_T01_002 {
-    directionsignpostex(0, 1, msg_0446_T01_00002)
+    directionsignpostex(0, 1, "Pallet Town\n"
+                              "A Pure White Beginning")
     end
 }
 
 script scr_seq_T01_003 {
-    trainertipsex(2, msg_0446_T01_00003)
+    trainertipsex(2, "Red’s House")
     end
 }
 
 script scr_seq_T01_004 {
-    trainertipsex(2, msg_0446_T01_00004)
+    trainertipsex(2, "Oak Pokémon\n"
+                     "Research Lab")
     end
 }
 
 script scr_seq_T01_005 {
-    trainertipsex(2, msg_0446_T01_00005)
+    trainertipsex(2, "Blue’s House")
     end
 }
 

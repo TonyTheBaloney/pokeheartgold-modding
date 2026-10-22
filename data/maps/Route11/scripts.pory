@@ -31,7 +31,8 @@ script scr_seq_R11_000 {
     radiomusicisplaying(5, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         playcry(SPECIES_SNORLAX, 0)
-        npcmsg(msg_0346_R11_00003)
+        npcmsg("...!\r"
+               "The SNORLAX opened its eyes wide!\r")
         waitcry
         closemessage
         setflag(FLAG_ENGAGING_STATIC_POKEMON)
@@ -54,7 +55,9 @@ script scr_seq_R11_000 {
         releaseall
         end
     }
-    npcmsg(msg_0346_R11_00002)
+    npcmsg("There is a large Pokémon\n"
+           "sleeping peacefully.\f"
+           "It looks so content!")
     waitbuttonpress
     closemessage
     releaseall
@@ -62,12 +65,13 @@ script scr_seq_R11_000 {
 }
 
 script scr_seq_R11_002 {
-    directionsignpostex(1, 2, msg_0346_R11_00000)
+    directionsignpostex(1, 2, "Rt. 11\n"
+                              "West to DIGLETT’s Cave")
     end
 }
 
 script scr_seq_R11_003 {
-    trainertipsex(2, msg_0346_R11_00001)
+    trainertipsex(2, "DIGLETT’s Cave")
     end
 }
 

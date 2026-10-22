@@ -68,7 +68,8 @@ script scr_seq_D11R0106_000 {
     checkbadge(BADGE_VOLCANO, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         if (!flag(FLAG_GOT_TM50_FROM_BLAINE)) { goto(_0175) }
-        npcmsg(msg_0053_D11R0106_00005)
+        npcmsg("Blaine: My Fire-type Pokémon will be\n"
+               "even stronger! Just you watch!")
         waitbuttonpress
         closemessage
         releaseall
@@ -78,7 +79,16 @@ script scr_seq_D11R0106_000 {
         releaseall
         end
     }
-    npcmsg(msg_0053_D11R0106_00000)
+    npcmsg("Blaine: Hey, you!\r"
+           "My Gym on Cinnabar Island was burned\n"
+           "down by the eruption!\r"
+           "But I will not give up!\n"
+           "Take a look at this cave.\r"
+           "We have turned it into a Gym, and I am\n"
+           "still acting as a Gym Leader!\r"
+           "I will give you the Gym Badge\n"
+           "if you manage to defeat me!\r"
+           "Are you ready? Here we go!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_BLAINE_BLAINE, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -92,19 +102,27 @@ script scr_seq_D11R0106_000 {
     setflag(FLAG_UNK_13F)
     setflag(FLAG_UNK_140)
     setflag(FLAG_UNK_13C)
-    npcmsg(msg_0053_D11R0106_00001)
+    npcmsg("Blaine: Awesome. I have burned out...\f"
+           "Take this Volcano Badge!\r")
     bufferplayersname(0)
-    npcmsg(msg_0053_D11R0106_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Volcano Badge from Blaine!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
-    npcmsg(msg_0053_D11R0106_00003)
+    npcmsg("Blaine: Here, I will give you this, too.\n"
+           "It’s called Overheat!\r"
+           "It has a slight drawback, but it’s\n"
+           "powerful and well worth it!\r")
     goto(_0175)
 _0175:
     if (!itemspace(ITEM_TM50, 1)) { goto(_01AC) }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_TM50_FROM_BLAINE)
     bufferplayersname(0)
-    npcmsg(msg_0053_D11R0106_00004)
+    npcmsg("Blaine: I did lose this time, but I’m\n"
+           "going to win next time.\r"
+           "When I rebuild my Cinnabar Gym,\n"
+           "we have to hold a rematch.")
     waitbuttonpress
     closemessage
     releaseall
@@ -121,18 +139,21 @@ script scr_seq_D11R0106_002 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_13B)) {
-        npcmsg(msg_0053_D11R0106_00007)
+        npcmsg("Bitterness leads to improvement\n"
+               "tomorrow.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0053_D11R0106_00006)
+    npcmsg("Wow, to see a Gym in a cave like this?\n"
+           "I’d love to explore it.\r")
     closemessage
     trainerbattle(TRAINER_SUPER_NERD_CARY, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01CC) }
-    npcmsg(msg_0053_D11R0106_00008)
+    npcmsg("Bitterness leads to improvement\n"
+           "tomorrow.\r")
     closemessage
     applymovement(obj_D11R0106_gsassistantm, SeafoamIslandsCinnabarGym_Movement_0424)
     waitmovement
@@ -146,18 +167,22 @@ script scr_seq_D11R0106_003 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_13C)) {
-        npcmsg(msg_0053_D11R0106_00010)
+        npcmsg("I didn’t expect you to be so good!\n"
+               "Who in the world are you?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0053_D11R0106_00009)
+    npcmsg("I am in the middle of collecting\n"
+           "battle records.\r"
+           "Can you help me?\r")
     closemessage
     trainerbattle(TRAINER_SUPER_NERD_WALDO, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01CC) }
-    npcmsg(msg_0053_D11R0106_00011)
+    npcmsg("I didn’t expect you to be so good!\n"
+           "Who in the world are you?\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -176,18 +201,21 @@ script scr_seq_D11R0106_004 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_13D)) {
-        npcmsg(msg_0053_D11R0106_00013)
+        npcmsg("Pardon me!\n"
+               "I failed to sense how strong you are.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0053_D11R0106_00012)
+    npcmsg("Ooh!\n"
+           "You look easily defeated!\r")
     closemessage
     trainerbattle(TRAINER_SUPER_NERD_MERLE, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01CC) }
-    npcmsg(msg_0053_D11R0106_00014)
+    npcmsg("Pardon me!\n"
+           "I failed to sense how strong you are.\r")
     closemessage
     applymovement(obj_D11R0106_gsassistantm_3, SeafoamIslandsCinnabarGym_Movement_0448)
     waitmovement
@@ -201,18 +229,22 @@ script scr_seq_D11R0106_005 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_13E)) {
-        npcmsg(msg_0053_D11R0106_00016)
+        npcmsg("This white lab coat makes me feel like I\n"
+               "have become smarter for some reason.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0053_D11R0106_00015)
+    npcmsg("A white lab coat is a researcher’s life.\n"
+           "We may be living in a cave like this, but\f"
+           "we never forget to do the laundry.\r")
     closemessage
     trainerbattle(TRAINER_SCIENTIST_GS_LOWELL, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01CC) }
-    npcmsg(msg_0053_D11R0106_00017)
+    npcmsg("This white lab coat makes me feel like I\n"
+           "have become smarter for some reason.\r")
     closemessage
     applymovement(obj_D11R0106_assistantm, SeafoamIslandsCinnabarGym_Movement_0454)
     waitmovement
@@ -226,18 +258,22 @@ script scr_seq_D11R0106_006 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_13F)) {
-        npcmsg(msg_0053_D11R0106_00019)
+        npcmsg("Together with Blaine, we will rebuild\n"
+               "our Gym!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0053_D11R0106_00018)
+    npcmsg("Blaine may have lost his Gym, but he\n"
+           "never gives up. His perseverance\f"
+           "is what motivates me!\r")
     closemessage
     trainerbattle(TRAINER_SCIENTIST_GS_LINDEN, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01CC) }
-    npcmsg(msg_0053_D11R0106_00020)
+    npcmsg("Together with Blaine, we will rebuild\n"
+           "our Gym!\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 3) {
@@ -256,18 +292,29 @@ script scr_seq_D11R0106_007 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_140)) {
-        npcmsg(msg_0053_D11R0106_00022)
+        npcmsg("We take a step back when we are\n"
+               "defeated...\r"
+               "Don’t you think we are downright\n"
+               "honest?\r"
+               "Never put us in the same category as\n"
+               "Scientists who help bad guys.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0053_D11R0106_00021)
+    npcmsg("We lost the Gym on Cinnabar Island and\n"
+           "felt lost before we came here.\r")
     closemessage
     trainerbattle(TRAINER_SCIENTIST_GS_DANIEL, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01CC) }
-    npcmsg(msg_0053_D11R0106_00023)
+    npcmsg("We take a step back when we are\n"
+           "defeated...\r"
+           "Don’t you think we are downright\n"
+           "honest?\r"
+           "Never put us in the same category as\n"
+           "Scientists who help bad guys.\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 2) {
@@ -332,13 +379,22 @@ script scr_seq_D11R0106_001 {
     faceplayer
     checkbadge(BADGE_VOLCANO, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0053_D11R0106_00025)
+        npcmsg("The Gym Leader rebuilding his Gym and\n"
+               "the Trainer from Johto who has come to\f"
+               "challenge that Gym Leader...\r"
+               "I have witnessed a hot battle!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0053_D11R0106_00024)
+    npcmsg("Yo! Legend in the making!\r"
+           "This Gym has many Trainers and rocks\n"
+           "in the way from the rebuilding.\f"
+           "It sure won’t be easy to get to Blaine!\r"
+           "But keep your cool and defeat the\n"
+           "Trainers one by one, and you will surely\f"
+           "find the path!")
     waitbuttonpress
     closemessage
     releaseall

@@ -17,12 +17,25 @@ script scr_seq_D37R0105_001 {
     faceplayer
     getitemquantity(ITEM_CARD_KEY, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0120_D37R0105_00000)
+        npcmsg("Director: Who? What? You came to\n"
+               "rescue me? Thank you!\r"
+               "The Radio Tower!\n"
+               "What’s happening there?\r"
+               "Taken over by Team Rocket?\n"
+               "Here. Take this Card Key.\r")
         setflag(FLAG_UNK_1C1)
         giveitemnocheck(ITEM_CARD_KEY, 1)
     }
-    npcmsg(msg_0120_D37R0105_00002)
-    npcmsg(msg_0120_D37R0105_00003)
+    npcmsg("Director: Use that to open the\n"
+           "shutters on 3F.\r")
+    npcmsg("I’m begging you to help.\r"
+           "There’s no telling what they’ll do if\n"
+           "they control the transmitter.\r"
+           "They may even be able to control\n"
+           "Pokémon using a special signal!\r"
+           "You’re the only one I can call on.\n"
+           "Please save the Radio Tower...\f"
+           "and all the Pokémon nationwide!")
     waitbuttonpress
     closemessage
     releaseall

@@ -9,7 +9,8 @@ script scr_seq_T29R0201_000 {
         scriptoverlaycmd(0, 0)
         playerhasspecies(VAR_SPECIAL_RESULT, SPECIES_MAGIKARP)
         if (var(VAR_SPECIAL_RESULT) != 0) {
-            npcmsg(msg_0628_T29R0201_00003)
+            npcmsg("Ah, you have a MAGIKARP!\n"
+                   "Let’s see how big that baby is.\r")
             closemessage
             fadescreen(6, 1, 0, RGB_BLACK)
             waitfade
@@ -25,11 +26,19 @@ script scr_seq_T29R0201_000 {
                     if (var(VAR_SPECIAL_RESULT) != 0) {
                         if (var(VAR_SPECIAL_RESULT) != 1) { goto(_0101) }
                         bufferrecordsize(0, 1, SPECIES_MAGIKARP)
-                        npcmsg(msg_0628_T29R0201_00006)
+                        npcmsg("{STRVAR_1 52, 0, 0}.{STRVAR_1 50, 1, 0} inches!\r"
+                               "That’s wonderful!\n"
+                               "...Or not.\f"
+                               "I’ve seen a MAGIKARP\f"
+                               "of the same size before.")
                         goto(_0146)
                     _0101:
                         buffermonsize(0, 1, VAR_SPECIAL_x8002)
-                        npcmsg(msg_0628_T29R0201_00004)
+                        npcmsg("{STRVAR_1 52, 0, 0}.{STRVAR_1 50, 1, 0} inches!\n"
+                               "A MAGIKARP of {STRVAR_1 52, 0, 0}.{STRVAR_1 50, 1, 0} inches!\r"
+                               "Wow! This one is outstanding!\n"
+                               "I tip my hat to you!\r"
+                               "Take this as a memento!\r")
                         setvar(VAR_SPECIAL_x8004, 38)
                         setvar(VAR_SPECIAL_x8005, 1)
                         hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
@@ -39,7 +48,8 @@ script scr_seq_T29R0201_000 {
                             callstd(std_give_item_verbose)
                             sizerecordupdate(VAR_SPECIAL_x8002)
                             setflag(FLAG_UNK_139)
-                            npcmsg(msg_0628_T29R0201_00005)
+                            npcmsg("The record is the important thing.\n"
+                                   "Think of that as a bonus!")
                         _0146:
                             waitbuttonpress
                         }
@@ -50,27 +60,45 @@ script scr_seq_T29R0201_000 {
                     }
                     buffermonsize(0, 1, VAR_SPECIAL_x8002)
                     bufferrecordsize(2, 3, SPECIES_MAGIKARP)
-                    npcmsg(msg_0628_T29R0201_00007)
+                    npcmsg("This MAGIKARP is {STRVAR_1 52, 0, 0}.{STRVAR_1 50, 1, 0} inches.\r"
+                           "But I’ve already seen a MAGIKARP that\n"
+                           "was {STRVAR_1 52, 2, 0}.{STRVAR_1 50, 3, 0} inches.")
                     goto(_0146)
                     goto(_0101)
                 }
-                npcmsg(msg_0628_T29R0201_00008)
+                npcmsg("What? That’s not a MAGIKARP!")
                 goto(_0146)
             }
-            npcmsg(msg_0628_T29R0201_00010)
+            npcmsg("Oh... So you didn’t get one good\n"
+                   "enough to show me?\f"
+                   "Maybe next time.")
             goto(_0146)
         }
-        npcmsg(msg_0628_T29R0201_00002)
+        npcmsg("The Lake of Rage is back to normal.\n"
+               "The MAGIKARP have returned.\r"
+               "I may yet achieve my dream of seeing\n"
+               "the world’s largest MAGIKARP.\r"
+               "Do you have a Rod?\n"
+               "Please help me if you do.")
         goto(_0146)
     }
     if (flag(FLAG_UNK_0C8)) { goto(_002F) }
-    npcmsg(msg_0628_T29R0201_00000)
+    npcmsg("The Lake of Rage is actually a crater\n"
+           "made by rampaging GYARADOS.\r"
+           "The crater filled up with rainwater,\n"
+           "and the lake was formed.\r"
+           "That’s the story passed on from my\n"
+           "grandpa’s great-great-grandpa.\r"
+           "It used to be that you could catch\n"
+           "lively MAGIKARP there, but...\r"
+           "I don’t understand what’s happening.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _002F:
-    npcmsg(msg_0628_T29R0201_00001)
+    npcmsg("The Lake of Rage hasn’t been normal\n"
+           "since those men wearing black arrived.")
     waitbuttonpress
     closemessage
     releaseall

@@ -2,13 +2,17 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T30R0201_000 {
-    simplenpcmsg(msg_0633_T30R0201_00000)
+    simplenpcmsg("A clan of Trainers who can freely\n"
+                 "command Dragon-type Pokémon lives\f"
+                 "right here in Blackthorn.\r"
+                 "As a result, there are many legends\n"
+                 "about dragons in this town.")
     end
 }
 
 script scr_seq_T30R0201_001 {
     playcry(SPECIES_DRATINI, 0)
-    simplenpcmsg(msg_0633_T30R0201_00002)
+    simplenpcmsg("DRATINI: Draa!")
     waitcry
     end
 }

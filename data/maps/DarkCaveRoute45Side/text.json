@@ -3,15 +3,7 @@
   "messages": [
     {
       "id": "msg_0127_D42R0101_00000",
-      "en_US": [
-        "Whoa! You startled me there!\r",
-        "I had my BlackGlasses on, so I didn’t\n",
-        "notice you at all.\r",
-        "What am I doing here?\r",
-        "Hey, don’t you worry about it.\n",
-        "I’ll give you a pair of BlackGlasses, so\f",
-        "forget you saw me, OK?\r"
-      ]
+      "from": "scr_seq_D42R0101_000#0"
     },
     {
       "id": "msg_0127_D42R0101_00001",
@@ -19,14 +11,11 @@
     },
     {
       "id": "msg_0127_D42R0101_00002",
-      "en_US": [
-        "BlackGlasses up the power of\n",
-        "Dark-type moves."
-      ]
+      "from": "scr_seq_D42R0101_000#2"
     },
     {
       "id": "msg_0127_D42R0101_00003",
-      "en_US": "You don’t have room for this..."
+      "from": "scr_seq_D42R0101_000#1"
     }
   ]
 }

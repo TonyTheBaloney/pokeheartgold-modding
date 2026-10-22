@@ -3,68 +3,39 @@
   "messages": [
     {
       "id": "msg_0397_R39R0101_00000",
-      "en_US": [
-        "My MILTANK ain’t givin’ me milk\n",
-        "n’more.\r",
-        "This here farm’s got famous milk.\r",
-        "Most everyone wants a drink.\n",
-        "It’ll give me lots o’ milk if’n I feed it\f",
-        "lots o’ Berries, I reckon."
-      ]
+      "from": "scr_seq_R39R0101_000#6"
     },
     {
       "id": "msg_0397_R39R0101_00001",
-      "en_US": [
-        "How’d you like my Moomoo Milk?\r",
-        "It’s my pride and joy, there.\f",
-        "Give it to Pokémon to restore HP!\r",
-        "I’ll give it to ya fer just $500. {YESNO 0}"
-      ]
+      "from": "scr_seq_R39R0101_000#0"
     },
     {
       "id": "msg_0397_R39R0101_00002",
-      "en_US": [
-        "Here ya go!\n",
-        "Drink up’n enjoy!\r"
-      ]
+      "from": "scr_seq_R39R0101_000#2"
     },
     {
       "id": "msg_0397_R39R0101_00003",
-      "en_US": [
-        "Sorry, there.\n",
-        "No cash, no sale!"
-      ]
+      "from": "scr_seq_R39R0101_000#3"
     },
     {
       "id": "msg_0397_R39R0101_00004",
-      "en_US": "I reckon yer Bag’s full."
+      "from": "scr_seq_R39R0101_000#4"
     },
     {
       "id": "msg_0397_R39R0101_00005",
-      "en_US": [
-        "You don’t want it?\n",
-        "Come again, hear?"
-      ]
+      "from": "scr_seq_R39R0101_000#1"
     },
     {
       "id": "msg_0397_R39R0101_00006",
-      "en_US": "I best go do my milkin’."
+      "from": "scr_seq_R39R0101_000#5"
     },
     {
       "id": "msg_0397_R39R0101_00007",
-      "en_US": [
-        "Our milk even goes out to Kanto.\r",
-        "So if our own MILTANK won’t give\n",
-        "us any milk, we’re in trouble."
-      ]
+      "from": "scr_seq_R39R0101_001#3"
     },
     {
       "id": "msg_0397_R39R0101_00008",
-      "en_US": [
-        "You fixed our MILTANK, hon.\n",
-        "Now it gives Moomoo Milk again.\r",
-        "Here’s somethin’ fer your trouble."
-      ]
+      "from": "scr_seq_R39R0101_001#0"
     },
     {
       "id": "msg_0397_R39R0101_00009",
@@ -72,18 +43,11 @@
     },
     {
       "id": "msg_0397_R39R0101_00010",
-      "en_US": [
-        "That there’s Natural Gift.\r",
-        "Its move type and Power will depend\n",
-        "on the Berry yer Pokémon holds.\r",
-        "When you use it once, the Berry’s gone.\n",
-        "You best think how you ought to\f",
-        "use it, hon."
-      ]
+      "from": "scr_seq_R39R0101_001#2"
     },
     {
       "id": "msg_0397_R39R0101_00011",
-      "en_US": "I reckon yer Bag’s full."
+      "from": "scr_seq_R39R0101_001#1"
     },
     {
       "id": "msg_0397_R39R0101_00012",

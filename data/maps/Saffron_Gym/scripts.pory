@@ -43,13 +43,24 @@ script scr_seq_T11GYM0101_000 {
     checkbadge(BADGE_MARSH, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         if (!flag(FLAG_GOT_TM48_FROM_SABRINA)) { goto(_0102) }
-        npcmsg(msg_0531_T11GYM0101_00005)
+        npcmsg("Sabrina: Your love for your Pokémon\n"
+               "smashed my psychic abilities...\r"
+               "The ability to love, I think, is some\n"
+               "kind of psychic ability...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0531_T11GYM0101_00000)
+    npcmsg("Sabrina: I knew you were coming...\r"
+           "Three years ago I had a vision of\n"
+           "your arrival. You’re after my Badge.\r"
+           "I don’t enjoy battling, but it’s my\n"
+           "duty as a Gym Leader to confer\f"
+           "Badges on anyone who has proven\f"
+           "him- or herself worthy.\r"
+           "Since you wish it, I will show you my\n"
+           "psychic powers!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_SABRINA_SABRINA, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -66,18 +77,32 @@ script scr_seq_T11GYM0101_000 {
     settrainerflag(TRAINER_PSYCHIC_M_JARED)
     settrainerflag(TRAINER_MEDIUM_REBECCA)
     settrainerflag(TRAINER_MEDIUM_DARCY)
-    npcmsg(msg_0531_T11GYM0101_00001)
+    npcmsg("Sabrina: Your power...\n"
+           "It far exceeds what I foresaw...\r"
+           "Maybe it isn’t possible to fully\n"
+           "predict what the future holds...\r"
+           "OK, you win. You earned yourself\n"
+           "the Marsh Badge.\r")
     bufferplayersname(0)
-    npcmsg(msg_0531_T11GYM0101_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Marsh Badge!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
-    npcmsg(msg_0531_T11GYM0101_00003)
+    npcmsg("Sabrina: I failed to accurately predict\n"
+           "your power. That means that your\f"
+           "power is beyond my psychic ability.\r"
+           "You deserve this.\n"
+           "Please take this TM, too!\r")
     goto(_0102)
 _0102:
     if (!itemspace(ITEM_TM48, 1)) { goto(_0136) }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_TM48_FROM_SABRINA)
-    npcmsg(msg_0531_T11GYM0101_00004)
+    npcmsg("Sabrina: It contains Skill Swap!\n"
+           "It swaps Abilities between the user\f"
+           "and the target.\r"
+           "You will become a celebrated and\n"
+           "beloved Champion!")
     waitbuttonpress
     closemessage
     releaseall
@@ -95,13 +120,18 @@ script scr_seq_T11GYM0101_001 {
     faceplayer
     checkbadge(BADGE_MARSH, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0531_T11GYM0101_00007)
+        npcmsg("That was another fantastic battle!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0531_T11GYM0101_00006)
+    npcmsg("Yo, legend in the making!\r"
+           "A Trainer as skilled as you doesn’t\n"
+           "need to be told how to deal\f"
+           "with Psychic-type Pokémon, right?\r"
+           "I expect great things from you!\r"
+           "Good luck!")
     waitbuttonpress
     closemessage
     releaseall
@@ -115,9 +145,12 @@ script scr_seq_T11GYM0101_002 {
     checkbadge(BADGE_MARSH, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0531_T11GYM0101_00008)
+        npcmsg("Saffron City Pokémon Gym")
     } else {
-        npcmsg(msg_0531_T11GYM0101_00009)
+        npcmsg("Saffron City Pokémon Gym\r"
+               "Leader: Sabrina\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

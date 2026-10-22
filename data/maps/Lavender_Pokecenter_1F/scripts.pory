@@ -8,17 +8,26 @@ script scr_seq_T05PC0101_000 {
 }
 
 script scr_seq_T05PC0101_001 {
-    simplenpcmsg(msg_0477_T05PC0101_00000)
+    simplenpcmsg("To the north of Lavender is\n"
+                 "the Rock Tunnel.\r"
+                 "Go through it to get to the\n"
+                 "Power Plant.")
     end
 }
 
 script scr_seq_T05PC0101_002 {
-    simplenpcmsg(msg_0477_T05PC0101_00001)
+    simplenpcmsg("There’s a radio show that plays\n"
+                 "Poké Flute music.\r"
+                 "Oh? Ah, your radio needs an EXPN Card\n"
+                 "to tune in to it.")
     end
 }
 
 script scr_seq_T05PC0101_003 {
-    simplenpcmsg(msg_0477_T05PC0101_00002)
+    simplenpcmsg("If the Power Plant isn’t running, the\n"
+                 "Magnet Train won’t run either...\r"
+                 "It also means the Radio Station\n"
+                 "can’t broadcast...")
     end
 }
 

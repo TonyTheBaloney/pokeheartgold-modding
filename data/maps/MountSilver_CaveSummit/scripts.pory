@@ -5,7 +5,8 @@ script scr_seq_D41R0108_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0126_D41R0108_00000)
+    npcmsg("..................\n"
+           "..................\r")
     closemessage
     trainerbattle(TRAINER_PKMN_TRAINER_RED_RED, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -31,7 +32,8 @@ script scr_seq_D41R0108_000 {
         if (var(VAR_SPECIAL_x8005) < VAR_SPECIAL_x8004) { goto(_00BC) }
         return
     }
-    npcmsg(msg_0126_D41R0108_00001)
+    npcmsg("..................\n"
+           "..................")
     wait(30, VAR_SPECIAL_RESULT)
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade

@@ -76,7 +76,8 @@ script scr_seq_P01R0301_000 {
     _00EB:
         if (flag(FLAG_BOAT_ARRIVED)) {
             if (var(VAR_TEMP_x4000) == 1) {
-                npcmsg(msg_0259_P01R0301_00003)
+                npcmsg("Fast Ship S.S. Aqua\n"
+                       "has arrived in Vermilion City.")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -84,13 +85,15 @@ script scr_seq_P01R0301_000 {
             _0138:
                 if (flag(FLAG_BOAT_ARRIVED)) {
                     if (var(VAR_TEMP_x4000) == 1) {
-                        npcmsg(msg_0259_P01R0301_00006)
+                        npcmsg("Fast Ship S.S. Aqua\n"
+                               "has arrived in Olivine City.")
                         waitbuttonpress
                         closemessage
                         releaseall
                         end
                     }
-                    npcmsg(msg_0259_P01R0301_00005)
+                    npcmsg("Fast Ship S.S. Aqua\n"
+                           "has arrived in Olivine City.\r")
                     closemessage
                     applymovement(obj_P01R0301_seaman_2_2, SsAqua_1F_Movement_0180)
                     waitmovement
@@ -98,13 +101,17 @@ script scr_seq_P01R0301_000 {
                     releaseall
                     end
                 }
-                npcmsg(msg_0259_P01R0301_00001)
+                npcmsg("Fast Ship S.S. Aqua\n"
+                       "is en route to Olivine City.\r"
+                       "We will make an announcement when\n"
+                       "we arrive.")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             }
-            npcmsg(msg_0259_P01R0301_00002)
+            npcmsg("Fast Ship S.S. Aqua\n"
+                   "has arrived in Vermilion City.\r")
             closemessage
             applymovement(obj_P01R0301_seaman_2_2, SsAqua_1F_Movement_0180)
             waitmovement
@@ -113,7 +120,10 @@ script scr_seq_P01R0301_000 {
             releaseall
             end
         }
-        npcmsg(msg_0259_P01R0301_00000)
+        npcmsg("Fast Ship S.S. Aqua is en route to\n"
+               "Vermilion City.\r"
+               "We will make an announcement when\n"
+               "we arrive.")
         waitbuttonpress
         closemessage
         releaseall
@@ -155,7 +165,10 @@ script scr_seq_P01R0301_004 {
     waitmovement
     applymovement(obj_P01R0301_gsgentleman, SsAqua_1F_Movement_02B8)
     waitmovement
-    npcmsg(msg_0259_P01R0301_00007)
+    npcmsg("Whoa! Excuse me. I was in a hurry!\r"
+           "My granddaughter is missing!\r"
+           "She’s just a wee girl. If you see\n"
+           "her, please let me know!\r")
     closemessage
     applymovement(obj_P01R0301_gsgentleman, SsAqua_1F_Movement_02C0)
     waitmovement
@@ -205,9 +218,16 @@ script scr_seq_P01R0301_001 {
     faceplayer
     nopvar490(VAR_SCENE_SS_AQUA)
     if (var(VAR_SCENE_SS_AQUA) >= 7) {
-        npcmsg(msg_0259_P01R0301_00009)
+        npcmsg("Here’s your cabin.\r"
+               "You can heal your Pokémon\n"
+               "by taking a nap in the bed.\r"
+               "The ship will arrive while\n"
+               "you’re sleeping.")
     } else {
-        npcmsg(msg_0259_P01R0301_00008)
+        npcmsg("Here’s your cabin.\r"
+               "If your Pokémon are hurt, take a\n"
+               "nap in the bed.\f"
+               "That will heal them.")
     }
     waitbuttonpress
     closemessage
@@ -216,7 +236,9 @@ script scr_seq_P01R0301_001 {
 }
 
 script scr_seq_P01R0301_002 {
-    simplenpcmsg(msg_0259_P01R0301_00010)
+    simplenpcmsg("Most passengers are Trainers.\r"
+                 "They’re all itching to battle in\n"
+                 "their cabins.")
     end
 }
 

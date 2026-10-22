@@ -27,13 +27,15 @@ script scr_seq_R39R0201_000 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_100)) {
-        npcmsg(msg_0398_R39R0201_00008)
+        npcmsg("We sell Moomoo Milk at home.\f"
+               "Don’t forget to drop by!\r")
         closemessage
         goto(_0070)
         end
     }
     if (flag(FLAG_UNK_0AA)) { goto(_007E) }
-    npcmsg(msg_0398_R39R0201_00005)
+    npcmsg("Moomoo is sick...\f"
+           "She needs lots of Oran Berries.\r")
     closemessage
 _0070:
     applymovement(obj_R39R0201_gsbabygirl1, Route39_MoomooFarmStable_Movement_021C)
@@ -41,9 +43,18 @@ _0070:
     releaseall
     end
 _007E:
-    npcmsg(msg_0398_R39R0201_00006)
+    npcmsg("Thank you!\n"
+           "Moomoo is totally healthy again!\r"
+           "I’ll give you this Seal Case for\n"
+           "your trouble.\r")
     giveitemnocheck(ITEM_SEAL_CASE, 1)
-    npcmsg(msg_0398_R39R0201_00007)
+    npcmsg("You can customize your Poké Balls.\r"
+           "Select “BALL CAPSULES” from\n"
+           "your PC, and stick your Seals any way\f"
+           "you like on a Capsule, then put the\f"
+           "Capsule on any of your Poké Balls.\r"
+           "Try different things, and you’ll see.\n"
+           "My sister can give you Seals!\r")
     closemessage
     setflag(FLAG_UNK_100)
     goto(_0070)
@@ -55,19 +66,27 @@ script scr_seq_R39R0201_001 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_101)) {
-        npcmsg(msg_0398_R39R0201_00004)
+        npcmsg("Moomoo is totally healthy again!\r")
         closemessage
         goto(_00D2)
         end
     _00ED:
-        npcmsg(msg_0398_R39R0201_00002)
+        npcmsg("Shocking!\n"
+               "I really want to give you some\f"
+               "Seals, but you don’t have a\f"
+               "Seal Case...\r"
+               "But don’t you worry.\n"
+               "My sister can give you a Seal Case!\r")
         closemessage
         goto(_00D2)
         end
     }
     if (flag(FLAG_UNK_0AA)) {
         if (!flag(FLAG_UNK_100)) { goto(_00ED) }
-        npcmsg(msg_0398_R39R0201_00001)
+        npcmsg("Thank you!\n"
+               "Moomoo is totally healthy again!\r"
+               "I’ll give you these Seals for\n"
+               "your trouble.\r")
         setvar(VAR_SPECIAL_x8004, 29)
         setvar(VAR_SPECIAL_x8005, 34)
         setvar(VAR_SPECIAL_x8006, 39)
@@ -115,18 +134,25 @@ script scr_seq_R39R0201_001 {
         goto(_00D2)
         end
     _020C:
-        npcmsg(msg_0398_R39R0201_00003)
+        npcmsg("Ha!\n"
+               "Your Seal Case is full!\r")
         closemessage
         goto(_00D2)
         end
     }
-    npcmsg(msg_0398_R39R0201_00000)
+    npcmsg("Moomoo is sick...\f"
+           "She needs lots of Oran Berries.\r")
     closemessage
 _00D2:
     applymovement(obj_R39R0201_gsbabygirl1_2, Route39_MoomooFarmStable_Movement_0224)
     waitmovement
     releaseall
     end
+}
+
+text msg_0398_R39R0201_00020 {
+    "The {STRVAR_1 10, 0, 0} were\n"
+    "put away in the Seal Case!"
 }
 
 movement Route39_MoomooFarmStable_Movement_021C {
@@ -152,14 +178,14 @@ script scr_seq_R39R0201_002 {
         end
     _036A:
         bufferplayersname(0)
-        npcmsg(msg_0398_R39R0201_00018)
+        npcmsg("{STRVAR_1 3, 0, 0} has no Oran Berries...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     playcry(SPECIES_MILTANK, 11)
-    npcmsg(msg_0398_R39R0201_00009)
+    npcmsg("MILTANK: ...Moo...\r")
     waitcry
     if (flag(FLAG_UNK_0A8)) { goto(_0260) }
     npcmsg(msg_0398_R39R0201_00010)
@@ -170,14 +196,16 @@ script scr_seq_R39R0201_002 {
 _0260:
     npcmsg(msg_0398_R39R0201_00010)
     waitabpress
-    npcmsg(msg_0398_R39R0201_00013)
+    npcmsg("Give an Oran Berry to MILTANK? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_028C) }
     if (var(VAR_SPECIAL_RESULT) == 1) {
         bufferplayersname(0)
-        npcmsg(msg_0398_R39R0201_00019)
+        npcmsg("{STRVAR_1 3, 0, 0} wouldn’t give\n"
+               "an Oran Berry.\r"
+               "MILTANK looks sad.")
         waitbuttonpress
         closemessage
         releaseall
@@ -191,7 +219,8 @@ _028C:
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_036A) }
     takeitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
-    npcmsg(msg_0398_R39R0201_00014)
+    npcmsg("{STRVAR_1 3, 0, 0} gave an Oran Berry\n"
+           "to MILTANK.")
     waitbuttonpress
     closemessage
     if (flag(FLAG_UNK_0B0)) { goto(_033F) }
@@ -209,7 +238,7 @@ _0309:
     end
 _0311:
     setflag(FLAG_UNK_0AD)
-    npcmsg(msg_0398_R39R0201_00015)
+    npcmsg("MILTANK became a little healthier!")
     waitbuttonpress
     closemessage
     releaseall
@@ -220,7 +249,7 @@ _0320:
     end
 _0328:
     setflag(FLAG_UNK_0AF)
-    npcmsg(msg_0398_R39R0201_00016)
+    npcmsg("MILTANK is getting healthier!")
     waitbuttonpress
     closemessage
     releaseall
@@ -232,12 +261,24 @@ _0337:
 _033F:
     playfanfare(SEQ_ME_ASA)
     waitfanfare
-    npcmsg(msg_0398_R39R0201_00017)
+    npcmsg("MILTANK became totally healthy!")
     waitbuttonpress
     closemessage
     setflag(FLAG_UNK_0AA)
     releaseall
     end
+}
+
+text msg_0398_R39R0201_00011 {
+    "MILTANK: Mooo!\r"
+}
+
+text msg_0398_R39R0201_00012 {
+    "It’s brimming with energy."
+}
+
+text msg_0398_R39R0201_00010 {
+    "Its cry is weak..."
 }
 
 script scr_seq_R39R0201_003 {

@@ -3,32 +3,15 @@
   "messages": [
     {
       "id": "msg_0062_D22R0101_00000",
-      "en_US": [
-        "Only one Pokémon can Stroll with you\n",
-        "in a Pokéwalker...\r",
-        "I can’t decide which one!"
-      ]
+      "from": "scr_seq_D22R0101_004#0"
     },
     {
       "id": "msg_0062_D22R0101_00001",
-      "en_US": [
-        "I may not look like it, but I have\n",
-        "many Pokéwalkers on me!\f",
-        "They make loud noises as I walk.\r",
-        "Maybe taking a Stroll isn’t as easy as\n",
-        "I thought..."
-      ]
+      "from": "scr_seq_D22R0101_005#0"
     },
     {
       "id": "msg_0062_D22R0101_00002",
-      "en_US": [
-        "Pay attention, please!\r",
-        "...Oops, I have to quit thinking like\n",
-        "a teacher all the time.\r",
-        "You must be a Pokémon Trainer.\r",
-        "Since you’re working so hard,\n",
-        "I want you to have this.\r"
-      ]
+      "from": "scr_seq_D22R0101_000#0"
     },
     {
       "id": "msg_0062_D22R0101_00003",
@@ -36,51 +19,27 @@
     },
     {
       "id": "msg_0062_D22R0101_00004",
-      "en_US": [
-        "Let a Pokémon hold that Quick Claw.\r",
-        "Sometimes it will strike first\n",
-        "during battle."
-      ]
+      "from": "scr_seq_D22R0101_000#1"
     },
     {
       "id": "msg_0062_D22R0101_00005",
-      "en_US": [
-        "It’s fun having a Pokémon out of its\n",
-        "Poké Ball to walk with it,\f",
-        "but the Pokéwalker is a whole\f",
-        "new dimension."
-      ]
+      "from": "scr_seq_D22R0101_006#0"
     },
     {
       "id": "msg_0062_D22R0101_00006",
-      "en_US": [
-        "My mom can’t take my Pokémon and tells\n",
-        "me not to play with it indoors.\f",
-        "But, hey!\r",
-        "I can keep it in my Pokéwalker.\n",
-        "That way, I’m always with it!"
-      ]
+      "from": "scr_seq_D22R0101_007#0"
     },
     {
       "id": "msg_0062_D22R0101_00007",
-      "en_US": [
-        "I take walks in the park, but I\n",
-        "never go into the grass.\r",
-        "Trainers always want to battle..."
-      ]
+      "from": "scr_seq_D22R0101_009#0"
     },
     {
       "id": "msg_0062_D22R0101_00008",
-      "en_US": "PERSIAN: Fufushaa!"
+      "from": "scr_seq_D22R0101_010#0"
     },
     {
       "id": "msg_0062_D22R0101_00009",
-      "en_US": [
-        "Huff, puff, huff...\r",
-        "I am...out of...breath!\n",
-        "I’ve been running to try\f",
-        "and charge the Pokéwalker!"
-      ]
+      "from": "scr_seq_D22R0101_008#0"
     },
     {
       "id": "msg_0062_D22R0101_00010",
@@ -132,29 +91,15 @@
     },
     {
       "id": "msg_0062_D22R0101_00022",
-      "en_US": [
-        "Relaxation Square for Everyone\n",
-        "National Park"
-      ]
+      "from": "scr_seq_D22R0101_001#0"
     },
     {
       "id": "msg_0062_D22R0101_00023",
-      "en_US": [
-        "What is this notice?\r",
-        "Please battle only in the park grass.\r",
-        "           National Park\n",
-        "           Warden’s Office"
-      ]
+      "from": "scr_seq_D22R0101_002#0"
     },
     {
       "id": "msg_0062_D22R0101_00024",
-      "en_US": [
-        "What is this notice?\r",
-        "No ball playing allowed\n",
-        "other than Poké Balls.\r",
-        "           National Park\n",
-        "           Warden’s Office"
-      ]
+      "from": "scr_seq_D22R0101_003#0"
     },
     {
       "id": "msg_0062_D22R0101_00025",
@@ -226,10 +171,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00042",
-      "en_US": [
-        "Please join us in the next\n",
-        "Bug-Catching Contest, too!"
-      ]
+      "from": "scr_seq_D22R0101_022#0"
     },
     {
       "id": "msg_0062_D22R0101_00043",
@@ -241,10 +183,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00045",
-      "en_US": [
-        "Don: Whether you get the right Pokémon\n",
-        "or not is half luck."
-      ]
+      "from": "scr_seq_D22R0101_012#0"
     },
     {
       "id": "msg_0062_D22R0101_00046",
@@ -256,11 +195,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00048",
-      "en_US": [
-        "Ed: The size of the Pokémon is not the\n",
-        "only thing to compare when trying to\f",
-        "decide the winner."
-      ]
+      "from": "scr_seq_D22R0101_013#0"
     },
     {
       "id": "msg_0062_D22R0101_00049",
@@ -272,11 +207,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00051",
-      "en_US": [
-        "Abby: Somebody told me that colorful\n",
-        "Pokémon are more likely to win.\f",
-        "I wonder if it’s true..."
-      ]
+      "from": "scr_seq_D22R0101_014#0"
     },
     {
       "id": "msg_0062_D22R0101_00052",
@@ -288,10 +219,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00054",
-      "en_US": [
-        "William: I got the Pokémon I wanted,\n",
-        "so I’m very happy."
-      ]
+      "from": "scr_seq_D22R0101_015#0"
     },
     {
       "id": "msg_0062_D22R0101_00055",
@@ -303,11 +231,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00057",
-      "en_US": [
-        "Benny: You know what?\n",
-        "I caught a SCYTHER the other day,\f",
-        "and I still didn’t win..."
-      ]
+      "from": "scr_seq_D22R0101_016#0"
     },
     {
       "id": "msg_0062_D22R0101_00058",
@@ -319,12 +243,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00060",
-      "en_US": [
-        "Barry: You have a better chance to win\n",
-        "when your Pokémon is at a high level.\f",
-        "But it seems that there is more\f",
-        "to winning."
-      ]
+      "from": "scr_seq_D22R0101_017#0"
     },
     {
       "id": "msg_0062_D22R0101_00061",
@@ -336,10 +255,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00063",
-      "en_US": [
-        "Cindy: I love Bug-type Pokémon.\r",
-        "Am I repeating myself?"
-      ]
+      "from": "scr_seq_D22R0101_018#0"
     },
     {
       "id": "msg_0062_D22R0101_00064",
@@ -351,10 +267,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00066",
-      "en_US": [
-        "Josh: Somebody won the Contest\n",
-        "with a CATERPIE!"
-      ]
+      "from": "scr_seq_D22R0101_019#0"
     },
     {
       "id": "msg_0062_D22R0101_00067",
@@ -366,10 +279,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00069",
-      "en_US": [
-        "Samuel: Arrgh! I though it would\n",
-        "score higher."
-      ]
+      "from": "scr_seq_D22R0101_020#0"
     },
     {
       "id": "msg_0062_D22R0101_00070",
@@ -381,10 +291,7 @@
     },
     {
       "id": "msg_0062_D22R0101_00072",
-      "en_US": [
-        "Kipp: Studying hard on Bug-type\n",
-        "Pokémon doesn’t ensure you’ll win here."
-      ]
+      "from": "scr_seq_D22R0101_021#0"
     },
     {
       "id": "msg_0062_D22R0101_00073",
@@ -432,55 +339,27 @@
     },
     {
       "id": "msg_0062_D22R0101_00084",
-      "en_US": [
-        "Bugsy: Hi, {STRVAR_1 3, 0, 0}!\n",
-        "We have a Bug-Catching Contest\f",
-        "tomorrow!\r",
-        "I have won the Contest many\n",
-        "times, so I won’t participate.\r",
-        "But you should try it.\f",
-        "I’m sure you can win!"
-      ]
+      "from": "scr_seq_D22R0101_026#5"
     },
     {
       "id": "msg_0062_D22R0101_00085",
-      "en_US": [
-        "Bugsy: Hi, {STRVAR_1 3, 0, 0}!\n",
-        "We have a Bug-Catching Contest\f",
-        "tomorrow!\r",
-        "I have won the Contest many\n",
-        "times, so I won’t participate.\r",
-        "But you should try it.\n",
-        "I’m sure you can win!\r",
-        "By the way, will you take a\n",
-        "picture with me? {YESNO 0}"
-      ]
+      "from": "scr_seq_D22R0101_026#0"
     },
     {
       "id": "msg_0062_D22R0101_00086",
-      "en_US": [
-        "Bugsy: OK! Let’s take one.\n",
-        "Smile!\r"
-      ]
+      "from": "scr_seq_D22R0101_026#3"
     },
     {
       "id": "msg_0062_D22R0101_00087",
-      "en_US": "Bugsy: Yay! This is a good one!"
+      "from": "scr_seq_D22R0101_026#4"
     },
     {
       "id": "msg_0062_D22R0101_00088",
-      "en_US": [
-        "Bugsy: Oh, I see...\n",
-        "That’s OK. I’m not sad."
-      ]
+      "from": "scr_seq_D22R0101_026#1"
     },
     {
       "id": "msg_0062_D22R0101_00089",
-      "en_US": [
-        "Your Photo Album is full.\r",
-        "Access your PC and delete\n",
-        "some pictures."
-      ]
+      "from": "scr_seq_D22R0101_026#2"
     }
   ]
 }

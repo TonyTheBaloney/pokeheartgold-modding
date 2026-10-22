@@ -45,13 +45,27 @@ script scr_seq_T10R0201_001 {
     lockall
     faceplayer
     if (flag(FLAG_DEFEATED_WILL)) {
-        npcmsg(msg_0523_T10R0201_00002)
+        npcmsg("Even though I was defeated, I won’t\n"
+               "change my course.\r"
+               "I will continue battling until I stand\n"
+               "above all Trainers!\r"
+               "Now move on and experience\n"
+               "the true ferocity of the Elite Four.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0523_T10R0201_00000)
+    npcmsg("Welcome to the Pokémon League!\r"
+           "Allow me to introduce myself.\n"
+           "I am Will.\r"
+           "I have trained all around the world,\r"
+           "making my Psychic-type Pokémon\n"
+           "powerful.\r"
+           "And, at last, I’ve been accepted into\n"
+           "the Elite Four.\f"
+           "I can only keep getting better!\f"
+           "Losing is not an option!\r")
     closemessage
     if (var(VAR_UNK_4135) >= 8) {
         trainerbattle(TRAINER_ELITE_FOUR_WILL_WILL_2, 0, 0, 0)
@@ -65,7 +79,12 @@ script scr_seq_T10R0201_001 {
         end
     }
     setflag(FLAG_DEFEATED_WILL)
-    npcmsg(msg_0523_T10R0201_00001)
+    npcmsg("Even though I was defeated, I won’t\n"
+           "change my course.\r"
+           "I will continue battling until I stand\n"
+           "above all Trainers!\r"
+           "Now move on and experience\n"
+           "the true ferocity of the Elite Four.\r")
     closemessage
     playse(SEQ_SE_DP_KI_GASYAN)
     removeobject(obj_T10R0201_leag_door2)

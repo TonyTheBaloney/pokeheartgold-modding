@@ -26,7 +26,20 @@ script scr_seq_D43R0103_000 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     bufferplayersname(0)
-    npcmsg(msg_0128_D43R0103_00000)
+    npcmsg("Hold it.\r"
+           "...Are you going to challenge the\n"
+           "Pokémon League?\r"
+           "Victory Road is at its end, for sure.\r"
+           "But did you notice...?\n"
+           "You didn’t see any real Trainers on the\f"
+           "way, did you?\r"
+           "Man, they were all spineless!\r"
+           "Well, the fact that you have come this\n"
+           "far means you’re not one of them.\r"
+           "But!\r"
+           "Your journey ends here!\r"
+           "Because...right here, right now...\n"
+           "I will crush you!\r")
     closemessage
     getstarterchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 152) {
@@ -45,7 +58,14 @@ script scr_seq_D43R0103_000 {
         end
     }
     callstd(std_play_rival_outro_music)
-    npcmsg(msg_0128_D43R0103_00001)
+    npcmsg("..................\r"
+           "I haven’t given up on becoming the\n"
+           "greatest Trainer...\r"
+           "I’m going to find out why I can’t win and\n"
+           "become stronger...\r"
+           "When I do, I will challenge you.\r"
+           "I’ll beat you down with all my power.\n"
+           "...Humph! You keep at it until then.\r")
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 37) {

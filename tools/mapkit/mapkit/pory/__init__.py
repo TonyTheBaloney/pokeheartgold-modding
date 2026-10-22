@@ -33,7 +33,19 @@ def context(repo, entry, macros=None):
         macros.load(os.path.join(repo.root, "asm/macros/script.inc"), "script")
         macros.load(os.path.join(repo.root, "asm/macros/movement.inc"), "movement")
     return compiler.Context(macros, compiler.load_config(), layout.ids_include(entry["dir"]) if os.path.exists(ids) else None,
-                            "msgdata/msg/%s.h" % text_base, pory_path(repo.root, entry))
+                            "msgdata/msg/%s.h" % text_base, pory_path(repo.root, entry),
+                            text_slots(repo.root, entry))
+
+
+def text_slots(root, entry):
+    """{"<Script>#<n>": message id} from the map's text.json (only if the map owns it)."""
+    if entry["text"].startswith("@"):
+        return {}
+    path = os.path.join(root, layout.MAPS_DIR, entry["dir"], "text.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        return {m["from"]: m["id"] for m in json.load(f)["messages"] if "#" in m.get("from", "")}
 
 
 def compile_map(repo, entry, switches=None, macros=None):
@@ -43,16 +55,35 @@ def compile_map(repo, entry, switches=None, macros=None):
     return compile_source(src, context(repo, entry, macros), switches)
 
 
-def merged_text(repo, entry, result):
-    """The map's text.json with the .pory text appended (existing numbers unchanged).
-    Only for maps that own their text bank."""
-    with open(os.path.join(repo.root, layout.MAPS_DIR, entry["dir"], "text.json"), encoding="utf-8") as f:
-        bank = json.load(f)
-    have = {m.get("id") for m in bank["messages"]}
+def merged_text(repo, entry, result, unfilled=None, bank=None):
+    """The map's text bank: text.json, with the slots marked "from" filled by the .pory
+    text of that id (inline strings or text blocks), then new .pory text appended.
+    Existing message numbers never change; a slot with no text left becomes an empty
+    message (listed in `unfilled`). Only for maps that own their text bank."""
+    if bank is None:
+        with open(os.path.join(repo.root, layout.MAPS_DIR, entry["dir"], "text.json"), encoding="utf-8") as f:
+            bank = json.load(f)
+    bank = dict(bank)
+    texts = dict(result.texts)
+    used = set()
+    messages = []
+    for m in bank["messages"]:
+        if "from" not in m:
+            if m.get("id") in texts:
+                raise CompileError("text %s is already in text.json" % m["id"], pory_path(repo.root, entry))
+            messages.append(m)
+            continue
+        if m["id"] in texts:
+            used.add(m["id"])
+            messages.append(text_entry(m["id"], texts[m["id"]]))
+        else:
+            if unfilled is not None:
+                unfilled.append((m["id"], m["from"]))
+            messages.append(text_entry(m["id"], ""))
     for tid, value in result.texts:
-        if tid in have:
-            raise CompileError("text %s is already in text.json" % tid, pory_path(repo.root, entry))
-        bank["messages"].append(text_entry(tid, value))
+        if tid not in used:
+            messages.append(text_entry(tid, value))
+    bank["messages"] = messages
     return bank
 
 

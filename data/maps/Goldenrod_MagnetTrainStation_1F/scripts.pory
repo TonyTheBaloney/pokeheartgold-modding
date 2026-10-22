@@ -37,11 +37,13 @@ script scr_seq_T25R0501_000 {
     if (flag(FLAG_RESTORED_POWER)) {
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 2) {
-            npcmsg(msg_0587_T25R0501_00005)
+            npcmsg("Enjoy the attractive and magnetic\n"
+                   "journey!")
             waitbuttonpress
             closemessage
         } else {
-            npcmsg(msg_0587_T25R0501_00007)
+            npcmsg("Enjoy the attractive and magnetic\n"
+                   "journey!\r")
             closemessage
             applymovement(obj_T25R0501_policeman, Goldenrod_MagnetTrainStation_1F_Movement_00AC)
             waitmovement
@@ -49,7 +51,10 @@ script scr_seq_T25R0501_000 {
         releaseall
         end
     }
-    npcmsg(msg_0587_T25R0501_00000)
+    npcmsg("The train hasn’t come in...\r"
+           "I know! I’ll carry the passengers on\n"
+           "my back!\r"
+           "That won’t work.")
     waitbuttonpress
     closemessage
     releaseall
@@ -66,18 +71,24 @@ script scr_seq_T25R0501_001 {
     applymovement(obj_player, Goldenrod_MagnetTrainStation_1F_Movement_013C)
     waitmovement
     if (flag(FLAG_UNK_123)) {
-        npcmsg(msg_0587_T25R0501_00003)
+        npcmsg("Passengers need to go through the\n"
+               "gate for the automatic ticket check...\r")
         closemessage
         goto(_00D6)
     }
-    npcmsg(msg_0587_T25R0501_00001)
+    npcmsg("The Magnet Train is back in service!\r"
+           "Passengers need to go through the\n"
+           "gate for the automatic ticket check...\r")
     closemessage
     setflag(FLAG_UNK_123)
 _00D6:
     wait(50, VAR_SPECIAL_x8004)
     hasitem(ITEM_PASS, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) >= 1) {
-        npcmsg(msg_0587_T25R0501_00004)
+        npcmsg("Ping...fwip!\n"
+               "Here is your Pass back.\r"
+               "This train is about to leave\n"
+               "for Saffron City.")
         waitbuttonpress
         closemessage
         setvar(VAR_UNK_410B, 1)
@@ -85,7 +96,10 @@ _00D6:
         releaseall
         end
     }
-    npcmsg(msg_0587_T25R0501_00002)
+    npcmsg("...Beep!\r"
+           "I am so sorry, but you need a\n"
+           "Magnet Train Pass to get on\f"
+           "the Magnet Train...\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -110,7 +124,9 @@ movement Goldenrod_MagnetTrainStation_1F_Movement_0144 {
 script scr_seq_T25R0501_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0587_T25R0501_00009)
+    npcmsg("We request that you make sure you\n"
+           "refrain from keeping large Pokémon out\f"
+           "at the station.")
     waitbuttonpress
     closemessage
     releaseall

@@ -3,95 +3,55 @@
   "messages": [
     {
       "id": "msg_0094_D27R0107_00000",
-      "en_US": [
-        "Jasmine: ...This Pokémon always kept\n",
-        "the sea lit at night.\r",
-        "...But it suddenly got sick...\n",
-        "It’s gasping for air...\r",
-        "...I understand that there is a\n",
-        "wonderful Pharmacy in Cianwood...\r",
-        "But that’s across the sea...\n",
-        "And I can’t leave Amphy unattended...\r"
-      ]
+      "from": "scr_seq_D27R0107_000#9"
     },
     {
       "id": "msg_0094_D27R0107_00001",
-      "en_US": [
-        "...May I ask you to get some medicine\n",
-        "for me? Please?\r"
-      ]
+      "from": "scr_seq_D27R0107_000#8"
     },
     {
       "id": "msg_0094_D27R0107_00002",
-      "en_US": [
-        "Jasmine: ...Will that medicine cure\n",
-        "Amphy? {YESNO 0}"
-      ]
+      "from": "scr_seq_D27R0107_000#0"
     },
     {
       "id": "msg_0094_D27R0107_00003",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} handed the SecretPotion\n",
-        "to Jasmine."
-      ]
+      "from": "scr_seq_D27R0107_000#3"
     },
     {
       "id": "msg_0094_D27R0107_00004",
-      "en_US": [
-        "Jasmine: ...Um, please don’t be\n",
-        "offended...\r",
-        "Amphy will not take anything from\n",
-        "anyone but me...\r"
-      ]
+      "from": "scr_seq_D27R0107_000#4"
     },
     {
       "id": "msg_0094_D27R0107_00005",
-      "en_US": [
-        "Jasmine: ...\r",
-        "Amphy, how are you feeling?\r"
-      ]
+      "from": "scr_seq_D27R0107_000#5"
     },
     {
       "id": "msg_0094_D27R0107_00006",
-      "en_US": [
-        "Amphy: Palu!\n",
-        "Palulu!\r"
-      ]
+      "from": "scr_seq_D27R0107_000#6"
     },
     {
       "id": "msg_0094_D27R0107_00007",
-      "en_US": [
-        "Jasmine: ...Oh, I’m so relieved...\n",
-        "This is just so wonderful...\r",
-        "Thank you so very, very much.\n",
-        "...I will return to the Gym...\r"
-      ]
+      "from": "scr_seq_D27R0107_000#7"
     },
     {
       "id": "msg_0094_D27R0107_00008",
-      "en_US": "Jasmine: ...I see...\r"
+      "from": "scr_seq_D27R0107_000#1"
     },
     {
       "id": "msg_0094_D27R0107_00009",
-      "en_US": "...Amphy, hang on!\r"
+      "from": "scr_seq_D27R0107_000#2"
     },
     {
       "id": "msg_0094_D27R0107_00010",
-      "en_US": [
-        "Amphy: ...\n",
-        "...Pa...paloo...\r"
-      ]
+      "from": "scr_seq_D27R0107_001#1"
     },
     {
       "id": "msg_0094_D27R0107_00011",
-      "en_US": "Its breathing is slight..."
+      "from": "scr_seq_D27R0107_001#2"
     },
     {
       "id": "msg_0094_D27R0107_00012",
-      "en_US": [
-        "Amphy: Palu!\n",
-        "Palulu!"
-      ]
+      "from": "scr_seq_D27R0107_001#0"
     }
   ]
 }

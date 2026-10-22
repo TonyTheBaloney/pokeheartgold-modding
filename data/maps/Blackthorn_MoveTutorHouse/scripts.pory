@@ -6,11 +6,17 @@ script scr_seq_T30R0601_000 {
     lockall
     faceplayer
     if (flag(FLAG_MAPTEMP_001)) { goto(_0036) }
-    npcmsg(msg_0635_T30R0601_00000)
+    npcmsg("Um...\n"
+           "Who did you say I was again?\r"
+           "...\n"
+           "...\r"
+           "Oh, yes, I remember now!\n"
+           "I’m the Move Deleter!\r")
     setflag(FLAG_MAPTEMP_001)
     goto(_0036)
 _0036:
-    npcmsg(msg_0635_T30R0601_00001)
+    npcmsg("You’ve come to make me force your\n"
+           "Pokémon to forget some moves? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -18,7 +24,7 @@ _0036:
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_014A) }
     end
 _005D:
-    npcmsg(msg_0635_T30R0601_00002)
+    npcmsg("Which Pokémon should forget a move?\r")
     closemessage
     goto(_0068)
 _0068:
@@ -32,23 +38,27 @@ _0068:
     if (var(VAR_SPECIAL_x8002) == 255) { goto(_014A) }
     getpartymonspecies(VAR_SPECIAL_x8002, VAR_SPECIAL_x8001)
     if (var(VAR_SPECIAL_x8001) == 0) {
-        npcmsg(msg_0635_T30R0601_00005)
+        npcmsg("What? That’s an Egg.\n"
+               "No Egg should know any moves.\r")
         closemessage
         goto(_0068)
     }
     countmonmoves(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0635_T30R0601_00004)
+        npcmsg("That Pokémon knows only one move,\n"
+               "so it can’t be forgotten...\r")
         closemessage
         goto(_0068)
     _014A:
-        npcmsg(msg_0635_T30R0601_00003)
+        npcmsg("Remember me if there are moves that\n"
+               "need to be forgotten.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0635_T30R0601_00006)
+    npcmsg("OK, then.\n"
+           "Which move should be forgotten?\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -59,7 +69,8 @@ _0068:
     waitfade
     if (var(VAR_SPECIAL_x8001) == 255) { goto(_005D) }
     bufferpartymonmovename(0, VAR_SPECIAL_x8002, VAR_SPECIAL_x8001)
-    npcmsg(msg_0635_T30R0601_00007)
+    npcmsg("Hm! The move {STRVAR_1 6, 0, 0}?\n"
+           "Should that move be forgotten? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -70,7 +81,9 @@ _011D:
     monforgetmove(VAR_SPECIAL_x8002, VAR_SPECIAL_x8001)
     playfanfare(SEQ_ME_WASURE)
     waitfanfare
-    npcmsg(msg_0635_T30R0601_00008)
+    npcmsg("It worked perfectly!\r"
+           "Your Pokémon has forgotten the move\n"
+           "{STRVAR_1 6, 0, 0} completely.")
     waitbuttonpress
     closemessage
     releaseall
@@ -82,7 +95,16 @@ script scr_seq_T30R0601_001 {
     lockall
     faceplayer
     if (!flag(FLAG_MET_MOVE_MANIAC)) {
-        npcmsg(msg_0635_T30R0601_00009)
+        npcmsg("Me?\n"
+               "I’m the Pokémon Move Maniac.\r"
+               "I know every move that Pokémon learn\n"
+               "while they’re leveling up, and I can\f"
+               "make Pokémon remember those moves.\r"
+               "I can make a Pokémon of yours remember\n"
+               "a move if you’d like.\r"
+               "But...ahem! It’ll cost you.\r"
+               "I’ll make a Pokémon remember a move\n"
+               "if you’ll trade me a Heart Scale.")
         waitbuttonpress
         closemessage
         releaseall
@@ -91,8 +113,11 @@ script scr_seq_T30R0601_001 {
     }
     hasitem(ITEM_HEART_SCALE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_022D) }
-    npcmsg(msg_0635_T30R0601_00010)
-    npcmsg(msg_0635_T30R0601_00012)
+    npcmsg("Ha! That’s it! That’s an honest-to-\n"
+           "goodness Heart Scale!\r"
+           "Let me guess, you want me to teach\n"
+           "one of your Pokémon a move?\r")
+    npcmsg("Which Pokémon needs tutoring?\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -104,7 +129,10 @@ script scr_seq_T30R0601_001 {
     if (var(VAR_SPECIAL_x8005) == 255) { goto(_022D) }
     getpartymonspecies(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0635_T30R0601_00015)
+        npcmsg("Hunh?\r"
+               "Don’t you think it’d be tough for\n"
+               "an Egg to remember a move?\r"
+               "It’s not even hatched.")
         waitbuttonpress
         closemessage
         releaseall
@@ -112,7 +140,7 @@ script scr_seq_T30R0601_001 {
     }
     monhasrelearnablemoves(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0222) }
-    npcmsg(msg_0635_T30R0601_00013)
+    npcmsg("Which move should I make it remember?\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -124,19 +152,23 @@ script scr_seq_T30R0601_001 {
     if (var(VAR_SPECIAL_RESULT) == 255) { goto(_022D) }
     takeitem(ITEM_HEART_SCALE, 1, VAR_SPECIAL_RESULT)
     bufferplayersname(3)
-    npcmsg(msg_0635_T30R0601_00025)
+    npcmsg("{STRVAR_1 3, 3, 0} handed over one\n"
+           "Heart Scale in exchange.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0222:
-    npcmsg(msg_0635_T30R0601_00014)
+    npcmsg("Sorry...\r"
+           "There isn’t any move I can make\n"
+           "that Pokémon remember.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _022D:
-    npcmsg(msg_0635_T30R0601_00011)
+    npcmsg("If any of your Pokémon needs to learn a\n"
+           "move, come back with a Heart Scale.")
     waitbuttonpress
     closemessage
     releaseall
@@ -148,45 +180,61 @@ script scr_seq_T30R0601_002 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_186)) {
-        npcmsg(msg_0635_T30R0601_00027)
+        npcmsg("Ah, it is you again...\r"
+               "Would you like me to teach the best\n"
+               "Dragon-type move I know to one of\f"
+               "your Pokémon? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02A5) }
         goto(_02EC)
     _02A5:
-        npcmsg(msg_0635_T30R0601_00028)
+        npcmsg("Well, perhaps if you change your\n"
+               "mind, do come back.")
         waitbuttonpress
         closemessage
         releaseall
         end
     _02B0:
-        npcmsg(msg_0635_T30R0601_00029)
+        npcmsg("I see...\n"
+               "I like your sense of adventure.\r"
+               "However, none of the Pokémon with\n"
+               "you now can learn the move.")
         waitbuttonpress
         closemessage
         releaseall
         end
     _02BB:
-        npcmsg(msg_0635_T30R0601_00032)
+        npcmsg("Sorry to disappoint you...\n"
+               "That Pokémon can’t learn this move.")
         waitbuttonpress
         closemessage
         releaseall
         end
     _02C6:
-        npcmsg(msg_0635_T30R0601_00033)
+        npcmsg("Hmm...\r"
+               "Teaching a move to an Egg is\n"
+               "a challenge that’s beyond me.")
         waitbuttonpress
         closemessage
         releaseall
         end
     _02D1:
         buffermovename(0, MOVE_DRACO_METEOR)
-        npcmsg(msg_0635_T30R0601_00034)
+        npcmsg("Oh? That Pokémon already\n"
+               "knows {STRVAR_1 6, 0, 0}.")
         waitbuttonpress
         closemessage
         releaseall
         end
     _02E1:
-        npcmsg(msg_0635_T30R0601_00031)
+        npcmsg("Sorry to disappoint you...\r"
+               "That Pokémon you have can learn this\n"
+               "move, but it hasn’t come to trust\f"
+               "you fully yet...\r"
+               "Until then, I can’t make it learn\n"
+               "this move.")
         waitbuttonpress
         closemessage
         releaseall
@@ -204,7 +252,8 @@ script scr_seq_T30R0601_002 {
             _0331:
                 monhasmove(VAR_SPECIAL_RESULT, MOVE_DRACO_METEOR, VAR_TEMP_x4000)
                 if (var(VAR_SPECIAL_RESULT) == 0) {
-                    npcmsg(msg_0635_T30R0601_00030)
+                    npcmsg("Fine, fine, now pick the Pokémon\n"
+                           "I should teach the move to.\r")
                     closemessage
                     fadescreen(6, 1, 0, RGB_BLACK)
                     waitfade
@@ -223,7 +272,8 @@ script scr_seq_T30R0601_002 {
                     mongetfriendship(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000)
                     if (var(VAR_SPECIAL_RESULT) < 255) { goto(_02E1) }
                     buffermonspeciesname(0, VAR_SPECIAL_x8000)
-                    npcmsg(msg_0635_T30R0601_00062)
+                    npcmsg("Well then, I will teach {STRVAR_1 0, 0, 0}\n"
+                           "a move...\r")
                     closemessage
                     setvar(VAR_SPECIAL_x8003, 434)
                     goto(_03EF)
@@ -236,7 +286,10 @@ script scr_seq_T30R0601_002 {
                     fadescreen(6, 1, 1, RGB_BLACK)
                     waitfade
                     if (var(VAR_SPECIAL_RESULT) == 255) { goto(_02A5) }
-                    npcmsg(msg_0635_T30R0601_00042)
+                    npcmsg("Draco Meteor’s destructive power\n"
+                           "is awe inspiring.\r"
+                           "However, using it will also lower\n"
+                           "the user’s Special Attack.")
                     waitbuttonpress
                     closemessage
                     releaseall
@@ -257,7 +310,12 @@ script scr_seq_T30R0601_002 {
         goto(_02B0)
     }
     setflag(FLAG_UNK_186)
-    npcmsg(msg_0635_T30R0601_00026)
+    npcmsg("Hohoho...\n"
+           "They call me Grandma Wilma.\r"
+           "I sense a slight talent as a\n"
+           "Dragon Tamer in you.\r"
+           "Would you like me to teach a move\n"
+           "to one of your Pokémon? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -270,13 +328,16 @@ script scr_seq_T30R0601_003 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_187)) {
-        npcmsg(msg_0635_T30R0601_00044)
+        npcmsg("The ultimate moves!\r"
+               "Shall I teach them to\n"
+               "your Pokémon? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04AC) }
         goto(_06EE)
     _04AC:
-        npcmsg(msg_0635_T30R0601_00045)
+        npcmsg("To which Pokémon should I teach\n"
+               "a move?\r")
         closemessage
         fadescreen(6, 1, 0, RGB_BLACK)
         waitfade
@@ -288,14 +349,16 @@ script scr_seq_T30R0601_003 {
         if (var(VAR_SPECIAL_x8000) == 255) { goto(_06EE) }
         getpartymonspecies(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
         if (var(VAR_SPECIAL_x8001) == 0) {
-            npcmsg(msg_0635_T30R0601_00049)
+            npcmsg("Teach a move to an Egg?\n"
+                   "Impossible even for me! Keh!")
             waitbuttonpress
             closemessage
             touchscreenmenushow
             releaseall
             end
         _0715:
-            npcmsg(msg_0635_T30R0601_00050)
+            npcmsg("You’ve not bonded strongly enough\n"
+                   "with your Pokémon! Keh!")
             waitbuttonpress
             closemessage
             touchscreenmenushow
@@ -307,7 +370,8 @@ script scr_seq_T30R0601_003 {
         copyvar(VAR_SPECIAL_x8002, VAR_SPECIAL_RESULT)
         call(_06B0)
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0635_T30R0601_00051)
+            npcmsg("That Pokémon already knows the move\n"
+                   "I’ve offered to teach! Keh!")
             waitbuttonpress
             closemessage
             touchscreenmenushow
@@ -321,21 +385,24 @@ script scr_seq_T30R0601_003 {
         if (var(VAR_SPECIAL_x8002) == 2) { goto(_0577) }
         goto(_0599)
     _0555:
-        npcmsg(msg_0635_T30R0601_00052)
+        npcmsg("I should teach Blast Burn to\n"
+               "your {STRVAR_1 0, 0, 0}? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_06EE) }
         setvar(VAR_SPECIAL_x8003, 307)
         goto(_05BB)
     _0577:
-        npcmsg(msg_0635_T30R0601_00053)
+        npcmsg("I should teach Hydro Cannon to\n"
+               "your {STRVAR_1 0, 0, 0}? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_06EE) }
         setvar(VAR_SPECIAL_x8003, 308)
         goto(_05BB)
     _0599:
-        npcmsg(msg_0635_T30R0601_00054)
+        npcmsg("I should teach Frenzy Plant to\n"
+               "your {STRVAR_1 0, 0, 0}? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_06EE) }
@@ -392,14 +459,16 @@ script scr_seq_T30R0601_003 {
         monhasmove(VAR_SPECIAL_RESULT, MOVE_FRENZY_PLANT, VAR_SPECIAL_x8000)
         return
     _06EE:
-        npcmsg(msg_0635_T30R0601_00046)
+        npcmsg("Hmm... Well, that is fine, as well.\n"
+               "Visit if you have a change of heart.")
         waitbuttonpress
         closemessage
         touchscreenmenushow
         releaseall
         end
     _06FB:
-        npcmsg(msg_0635_T30R0601_00048)
+        npcmsg("That Pokémon can’t learn a move!\n"
+               "Read the memo there! Keh!")
         waitbuttonpress
         closemessage
         touchscreenmenushow
@@ -407,7 +476,14 @@ script scr_seq_T30R0601_003 {
         end
     }
     setflag(FLAG_UNK_187)
-    npcmsg(msg_0635_T30R0601_00043)
+    npcmsg("Your quest for power has brought\n"
+           "you here...\r"
+           "Very well.\r"
+           "Let me reward your passion with some\n"
+           "absolutely astounding moves.\r"
+           "They’re the ultimate moves!\r"
+           "Shall I teach them to\n"
+           "your Pokémon? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04AC) }
@@ -417,7 +493,17 @@ script scr_seq_T30R0601_003 {
 script scr_seq_T30R0601_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0635_T30R0601_00061)
+    npcmsg("To the Pokémon listed here,\n"
+           "the ultimate moves may be taught!\r"
+           "The blazing Fire-type Pokémon\n"
+           "{CURSOR_X 7}CHARIZARD TYPHLOSION\f"
+           "{CURSOR_X 7}BLAZIKEN INFERNAPE\r"
+           "The restless Water-type Pokémon\n"
+           "{CURSOR_X 7}BLASTOISE FERALIGATR\f"
+           "{CURSOR_X 7}SWAMPERT EMPOLEON\r"
+           "The quiet Grass-type Pokémon\n"
+           "{CURSOR_X 7}VENUSAUR MEGANIUM\f"
+           "{CURSOR_X 7}SCEPTILE TORTERRA")
     waitbuttonpress
     closemessage
     releaseall

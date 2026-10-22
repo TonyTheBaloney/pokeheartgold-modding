@@ -87,7 +87,9 @@ script scr_seq_T26GYM0101_000 {
                 if (var(VAR_TEMP_x4000) == 55) {
                     npcmsg(msg_0606_T26GYM0101_00011)
                 } else {
-                    npcmsg(msg_0606_T26GYM0101_00012)
+                    npcmsg("Jasmine: Don’t you sometimes feel like\n"
+                           "scrubbing Steel-type Pokémon?\f"
+                           "Don’t you?")
                 }
                 waitbuttonpress
                 closemessage
@@ -96,18 +98,24 @@ script scr_seq_T26GYM0101_000 {
             }
             if (var(VAR_TEMP_x4000) == 77) { goto(_0264) }
             setvar(VAR_TEMP_x4000, 77)
-            npcmsg(msg_0606_T26GYM0101_00007)
+            npcmsg("Jasmine: Long time, no see.\r"
+                   "Um... I’m fine, thank you.\r"
+                   "I don’t know how to say this,\n"
+                   "but...nothing...")
             waitbuttonpress
             closemessage
             releaseall
             end
         _0264:
-            npcmsg(msg_0606_T26GYM0101_00008)
+            npcmsg("Jasmine: Um... Er...\r"
+                   "Will you trade your Pokémon\n"
+                   "for mine? {YESNO 0}")
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             touchscreenmenushow
             if (var(VAR_SPECIAL_RESULT) == 1) { goto(_034B) }
-            npcmsg(msg_0606_T26GYM0101_00009)
+            npcmsg("Jasmine: Really? Thank you very much!\r"
+                   "I’ll be happy with any Pokémon!\r")
             closemessage
             fadescreen(6, 1, 0, RGB_BLACK)
             waitfade
@@ -128,7 +136,7 @@ script scr_seq_T26GYM0101_000 {
                 if (var(VAR_TEMP_x4003) == 479) { goto(_0364) }
             }
             bufferpartymonnick(1, VAR_SPECIAL_x8004)
-            npcmsg(msg_0606_T26GYM0101_00013)
+            npcmsg("Will you trade {STRVAR_1 1, 1, 0}? {YESNO 0}")
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             touchscreenmenushow
@@ -145,32 +153,49 @@ script scr_seq_T26GYM0101_000 {
             releaseall
             end
         _034B:
-            npcmsg(msg_0606_T26GYM0101_00010)
+            npcmsg("Jasmine: Oh, uh-huh, I see.\n"
+                   "That’s disappointing, but I understand.")
             waitbuttonpress
             closemessage
             releaseall
             end
         _0356:
             bufferplayersname(0)
-            npcmsg(msg_0606_T26GYM0101_00014)
+            npcmsg("Jasmine: I like Eggs, too, but\n"
+                   "I’d like a Pokémon, {STRVAR_1 3, 0, 0}.\f"
+                   "One that might have a little training...")
             waitbuttonpress
             closemessage
             releaseall
             end
         _0364:
-            npcmsg(msg_0606_T26GYM0101_00015)
+            npcmsg("Jasmine: I’d appreciate it so much...\n"
+                   "Except that I cannot accept such\f"
+                   "a precious Pokémon.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0606_T26GYM0101_00006)
+        npcmsg("Jasmine: Um...\r"
+               "I don’t know how to say this, but\n"
+               "good luck...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0606_T26GYM0101_00000)
+    npcmsg("Jasmine: Thank you for your help\n"
+           "at the Lighthouse...\r"
+           "But this is different. Please allow me to\n"
+           "introduce myself.\r"
+           "I am Jasmine, a Gym Leader.\n"
+           "I use the...clang!\f"
+           "Steel type!\r"
+           "...Do you know about the Steel type?\r"
+           "They are very hard, cold, sharp,\n"
+           "and really strong!\f"
+           "Um... I’m not lying.\r")
     closemessage
     trainerbattle(TRAINER_LEADER_JASMINE_JASMINE, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -179,9 +204,13 @@ script scr_seq_T26GYM0101_000 {
         releaseall
         end
     }
-    npcmsg(msg_0606_T26GYM0101_00001)
+    npcmsg("Jasmine: ...You are a better Trainer\n"
+           "than me, in both skill and kindness.\r"
+           "In accordance with League rules,\n"
+           "I confer upon you this Badge.\r")
     bufferplayersname(0)
-    npcmsg(msg_0606_T26GYM0101_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Mineral Badge from Jasmine!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
     givebadge(BADGE_MINERAL)
@@ -190,11 +219,18 @@ script scr_seq_T26GYM0101_000 {
     if (var(VAR_MIDGAME_BADGES) == 3) {
         setvar(VAR_SCENE_ROCKET_TAKEOVER, 1)
     }
-    npcmsg(msg_0606_T26GYM0101_00003)
+    npcmsg("Jasmine: With that Badge,\n"
+           "all Pokémon, including traded\f"
+           "Pokémon up to Lv. 70, will obey\f"
+           "you without question.\f"
+           "Um... Please take this, too...\r")
 _01CE:
     if (!itemspace(ITEM_TM23, 1)) { goto(_0202) }
     callstd(std_give_item_verbose)
-    npcmsg(msg_0606_T26GYM0101_00005)
+    npcmsg("Jasmine: It is called Iron Tail...\r"
+           "Your Pokémon will hit the target\n"
+           "with its hard tail, occasionally\f"
+           "lowering the target’s Defense...")
     waitbuttonpress
     closemessage
     releaseall
@@ -205,6 +241,11 @@ _0202:
     closemessage
     releaseall
     end
+}
+
+text msg_0606_T26GYM0101_00011 {
+    "Jasmine: Thank you so much.\n"
+    "I’ll take good care of it."
 }
 
 script scr_seq_T26GYM0101_001 {
@@ -230,6 +271,13 @@ script scr_seq_T26GYM0101_001 {
         setvar(VAR_UNK_410E, 2)
     }
     end
+}
+
+text msg_0606_T26GYM0101_00019 {
+    "I knew you’d come here.\r"
+    "Thank you for helping the Gym Leader,\n"
+    "but battle is a separate matter.\r"
+    "Go for it!"
 }
 
 movement Olivine_Gym_Movement_040C {
@@ -281,6 +329,14 @@ script scr_seq_T26GYM0101_002 {
     end
 }
 
+text msg_0606_T26GYM0101_00021 {
+    "Giggle...\r"
+    "I know how capable you are\n"
+    "from the Lighthouse.\r"
+    "It’s time you showed that side of\n"
+    "yourself to Jasmine! Good luck!"
+}
+
 movement Olivine_Gym_Movement_04B8 {
     walk_left * 3
 }
@@ -299,7 +355,11 @@ script scr_seq_T26GYM0101_003 {
     faceplayer
     checkbadge(BADGE_MINERAL, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0606_T26GYM0101_00020)
+        npcmsg("Impressive!\r"
+               "You should continue your journey to\n"
+               "different places.\r"
+               "Since you can use Surf, why don’t you\n"
+               "try it on the Lake of Rage?")
     } else {
         npcmsg(msg_0606_T26GYM0101_00019)
     }
@@ -318,7 +378,10 @@ script scr_seq_T26GYM0101_004 {
     faceplayer
     checkbadge(BADGE_MINERAL, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0606_T26GYM0101_00022)
+        npcmsg("You are amazing...\r"
+               "You should aim even higher, since\n"
+               "you have such potential.\r"
+               "Have you been to Mahogany Town?")
     } else {
         npcmsg(msg_0606_T26GYM0101_00021)
     }
@@ -337,16 +400,24 @@ script scr_seq_T26GYM0101_005 {
     faceplayer
     checkbadge(BADGE_MINERAL, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0606_T26GYM0101_00018)
+        npcmsg("That was awesome.\f"
+               "The Steel type, huh?\f"
+               "That was one heated battle you had!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (var(VAR_UNK_410E) == 0) {
-        npcmsg(msg_0606_T26GYM0101_00016)
+        npcmsg("Jasmine, the Gym Leader?\n"
+               "She’s at the Lighthouse.\r"
+               "She’s been tending to a sick Pokémon.\r"
+               "A strong Trainer is compassionate\n"
+               "at the same time...")
     } else {
-        npcmsg(msg_0606_T26GYM0101_00017)
+        npcmsg("Jasmine uses Steel-type Pokémon.\r"
+               "She’s trying to hide her tenderness\n"
+               "behind her steely coldness.")
     }
     waitbuttonpress
     closemessage
@@ -361,9 +432,12 @@ script scr_seq_T26GYM0101_006 {
     checkbadge(BADGE_MINERAL, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0606_T26GYM0101_00023)
+        npcmsg("Olivine City Pokémon Gym")
     } else {
-        npcmsg(msg_0606_T26GYM0101_00024)
+        npcmsg("Olivine City Pokémon Gym\r"
+               "Leader: Jasmine\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

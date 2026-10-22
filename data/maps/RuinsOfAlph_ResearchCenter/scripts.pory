@@ -22,12 +22,18 @@ script scr_seq_D24R0102_000 {
     faceplayer
     countunownlettersregistered(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 28) {
-        npcmsg(msg_0073_D24R0102_00003)
+        npcmsg("I managed to unravel quite a lot of the\n"
+               "mystery of UNOWN with your help!\r"
+               "Thank you, thank you.\n"
+               "Thank you, again!")
         goto(_0366)
     }
     if (var(VAR_UNK_40EC) >= 1) { goto(_008A) }
     if (!flag(FLAG_UNK_10F)) {
-        npcmsg(msg_0073_D24R0102_00000)
+        npcmsg("Bravo!\r"
+               "A promising youth who is about to start\n"
+               "the journey of archaeology has\f"
+               "just arrived!\r")
         setflag(FLAG_UNK_10F)
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -37,10 +43,17 @@ script scr_seq_D24R0102_000 {
         }
         waitmovement
     }
-    npcmsg(msg_0073_D24R0102_00001)
+    npcmsg("What? Just a visitor?\n"
+           "Oh, I see...\f"
+           "You got me excited for nothing.")
     goto(_0366)
 _008A:
-    npcmsg(msg_0073_D24R0102_00002)
+    npcmsg("My staff here at the Ruins Research\n"
+           "Center is excellent, and the research\f"
+           "makes good progress with absolutely\f"
+           "no effort on my part.\r"
+           "If you have any questions, feel free to\n"
+           "talk to my staff!")
     goto(_0366)
 }
 
@@ -89,17 +102,24 @@ script scr_seq_D24R0102_001 {
     lockall
     faceplayer
     if (var(VAR_UNOWN_REPORT_LEVEL) == 8) {
-        npcmsg(msg_0073_D24R0102_00017)
+        npcmsg("Thanks to our research and your\n"
+               "help, we have unraveled so much about\f"
+               "their mystery!\r"
+               "We have so many things we don’t know\n"
+               "left, of course.\r"
+               "Archaeology never ends.")
         goto(_0366)
     _0345:
         bufferplayersname(0)
-        npcmsg(msg_0073_D24R0102_00016)
+        npcmsg("{STRVAR_1 3, 0, 0} opened the UNOWN Report\n"
+               "and made notes!")
         playfanfare(SEQ_ME_LVUP)
         waitfanfare
         addvar(VAR_UNOWN_REPORT_LEVEL, 1)
         goto(_0366)
     _035D:
-        npcmsg(msg_0073_D24R0102_00015)
+        npcmsg("I will let you know if I find out\n"
+               "anything else.")
         goto(_0366)
     _0366:
         waitbuttonpress
@@ -121,7 +141,10 @@ _01B1:
     npcmsg(msg_0073_D24R0102_00004)
     goto(_0366)
 _01BA:
-    npcmsg(msg_0073_D24R0102_00005)
+    npcmsg("Wow, did you catch an UNOWN?\n"
+           "That’s wonderful!\r"
+           "Come to think of it... How come we’ve\n"
+           "suddenly started to see UNOWN?")
     goto(_0366)
 _01C3:
     if (var(VAR_UNOWN_REPORT_LEVEL) == 1) { goto(_035D) }
@@ -161,30 +184,89 @@ _02DB:
     npcmsg(msg_0073_D24R0102_00004)
     goto(_0366)
 _02F1:
-    npcmsg(msg_0073_D24R0102_00009)
+    npcmsg("How do you like the UNOWN Report\n"
+           "I gave you?\r"
+           "UNOWN are recorded as you catch them.\n"
+           "It is quite useful!")
     goto(_0366)
 _02FA:
-    npcmsg(msg_0073_D24R0102_00006)
+    npcmsg("You have to hear this!\n"
+           "This is a big discovery!\r"
+           "It was you who solved the stone-panel\n"
+           "puzzle that allowed UNOWN to appear.\r"
+           "Those tablets are the key to waking\n"
+           "up UNOWN!\r"
+           "Still... Why would anyone make such\n"
+           "a key?\r")
     goto(_0345)
 _0303:
-    npcmsg(msg_0073_D24R0102_00007)
+    npcmsg("You have to hear this!\n"
+           "This is a big discovery!\r"
+           "If you turn on the radio in the ruins,\n"
+           "you can receive mysterious radio waves!\r"
+           "It’s proof that UNOWN communicate\n"
+           "with each other using radio waves!\r")
     goto(_0345)
 _030C:
-    npcmsg(msg_0073_D24R0102_00008)
+    npcmsg("You have to hear this!\n"
+           "This is a big discovery!\r"
+           "There are as many UNOWN as there are\n"
+           "letters in the alphabet!\r"
+           "There have been 26 types confirmed.\n"
+           "Why don’t you collect them all?\r")
     goto(_0345)
 _0315:
-    npcmsg(msg_0073_D24R0102_00010)
-    npcmsg(msg_0073_D24R0102_00011)
+    npcmsg("You have to hear this!\n"
+           "This is a big discovery!\r"
+           "We have figured out that UNOWN are in a\n"
+           "certain order!\f"
+           "Let me see your report.\r")
+    npcmsg("There!\n"
+           "I put the UNOWN in the correct order!\f"
+           "We may be able to tell more about them.\r")
     goto(_0345)
 _0321:
-    npcmsg(msg_0073_D24R0102_00012)
+    npcmsg("What?\n"
+           "You found a room with UNOWN symbols?\f"
+           "That is a big discovery!\r"
+           "We will study them right away.\r")
     goto(_0345)
 _032A:
-    npcmsg(msg_0073_D24R0102_00013)
+    npcmsg("You have to hear this!\n"
+           "This is a big discovery!\r"
+           "We have found two new UNOWN symbols!\r"
+           "It means that...\n"
+           "There must be two more kinds of UNOWN\f"
+           "somewhere...\r")
     goto(_0345)
 _0333:
-    npcmsg(msg_0073_D24R0102_00014)
+    npcmsg("You have to hear this!\n"
+           "We are learning more and more about the\f"
+           "symbols on the floor!\r"
+           "...It seems that UNOWN were living at\n"
+           "the ruins with a human clan.\r"
+           "It is thought that this clan made the\n"
+           "Pokémon statues underground.\r"
+           "The UNOWN were easily scared and\n"
+           "wouldn’t go outside.\r"
+           "When more and more people started to\n"
+           "appear around the ruins, the clan that\f"
+           "wished to live in harmony with the UNOWN\f"
+           "eventually left...\r"
+           "Thanks to our research and your\n"
+           "help, we have unraveled so much about\f"
+           "their mystery!\r"
+           "We have so many things we don’t know\n"
+           "left, of course.\r"
+           "Archaeology never ends.\r")
     goto(_0345)
+}
+
+text msg_0073_D24R0102_00004 {
+    "The ruins are about 1,500 years old.\n"
+    "That’s all we know about them.\r"
+    "But it’s not known why they were\n"
+    "built...or by whom."
 }
 
 script scr_seq_D24R0102_002 {
@@ -193,15 +275,28 @@ script scr_seq_D24R0102_002 {
     faceplayer
     checkseenallletterunown(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0073_D24R0102_00020)
+        npcmsg("Huh?\n"
+               "I seem to be doing nothing?\r"
+               "Come on!\n"
+               "I may not look it, but I’m the one who\f"
+               "developed the UNOWN Report!")
         goto(_0366)
     }
     countunownlettersregistered(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_03A1) }
-    npcmsg(msg_0073_D24R0102_00019)
+    npcmsg("The strange Pokémon you saw in\n"
+           "the ruins?\r"
+           "They appear to be very much like the\n"
+           "drawings on the walls there.\r"
+           "Hmm...\r"
+           "That must mean there are many\n"
+           "different kinds of them...")
     goto(_0366)
 _03A1:
-    npcmsg(msg_0073_D24R0102_00018)
+    npcmsg("There are odd patterns drawn on the\n"
+           "walls of the ruins.\r"
+           "They must be the keys for unraveling\n"
+           "the mystery of the ruins.")
     goto(_0366)
 }
 
@@ -210,15 +305,21 @@ script scr_seq_D24R0102_003 {
     lockall
     faceplayer
     if (var(VAR_UNOWN_REPORT_LEVEL) >= 7) {
-        npcmsg(msg_0073_D24R0102_00023)
+        npcmsg("Ruins of Alph Research Report\r"
+               "I dedicate this report to the\n"
+               "Research Center’s founder,\f"
+               "Professor Silktree...")
         goto(_0366)
     }
     checkseenallletterunown(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_03E2) }
-    npcmsg(msg_0073_D24R0102_00021)
+    npcmsg("Ruins of Alph\n"
+           "Exploration Year 10")
     goto(_0366)
 _03E2:
-    npcmsg(msg_0073_D24R0102_00022)
+    npcmsg("Mystery Pokémon\n"
+           "Name: UNOWN\f"
+           "A total of 26 kinds found.")
     goto(_0366)
 }
 
@@ -226,7 +327,10 @@ script scr_seq_D24R0102_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0073_D24R0102_00024)
+    npcmsg("There are many academic books.\r"
+           "“Mysteries of the Ancients”\n"
+           "“Code-Breaking Guidebook”\f"
+           "“Weathering Ruins”")
     goto(_0366)
 }
 

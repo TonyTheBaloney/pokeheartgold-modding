@@ -57,9 +57,10 @@ script scr_seq_T30GYM0101_000 {
     faceplayer
     if (flag(FLAG_UNK_0EA)) {
         if (!flag(FLAG_GOT_TM59_FROM_CLAIR)) {
-            npcmsg(msg_0631_T30GYM0101_00006)
+            npcmsg("Clair: You’ve kept me waiting!\r"
+                   "Here! Take this!\r")
             if (!itemspace(ITEM_TM59, 1)) {
-                npcmsg(msg_0631_T30GYM0101_00008)
+                npcmsg("What is this? You don’t have room?")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -67,16 +68,45 @@ script scr_seq_T30GYM0101_000 {
             }
             callstd(std_give_item_verbose)
             setflag(FLAG_GOT_TM59_FROM_CLAIR)
-            npcmsg(msg_0631_T30GYM0101_00007)
+            npcmsg("Clair: That contains Dragon Pulse.\r"
+                   "Well, Dragon Pulse is a kind of...umm...\n"
+                   "Never mind!\r"
+                   "It’s a huge energy of some kind.\n"
+                   "If you don’t want it, you don’t\f"
+                   "have to take it.\r")
         }
-        npcmsg(msg_0631_T30GYM0101_00009)
+        npcmsg("Clair: What’s the matter?\r"
+               "Aren’t you headed to the\n"
+               "Pokémon League?\r"
+               "Your face...it tells me you have some\n"
+               "unfinished business...\r"
+               "Wait a sec!\n"
+               "You came from New Bark Town\f"
+               "where Professor Elm’s Lab is, right?\r"
+               "You may want to go back to\n"
+               "New Bark Town.\r"
+               "Whatever you have to face from now,\n"
+               "it’ll be more difficult.\r"
+               "But don’t you dare give up!\r"
+               "If you do, I’ll feel even worse\n"
+               "about having lost to you!\r"
+               "...\n"
+               "Give it your all.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (flag(FLAG_UNK_0D1)) { goto(_017D) }
-    npcmsg(msg_0631_T30GYM0101_00003)
+    npcmsg("Clair: I am Clair.\r"
+           "The world’s best Dragon-type master.\r"
+           "I can hold my own against even the\n"
+           "Pokémon League’s Elite Four.\r"
+           "Do you still want to take me on?\r"
+           "...Fine.\n"
+           "Let’s do this!\r"
+           "As a Gym Leader, I will use my full\n"
+           "power against any opponent!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_CLAIR_CLAIR, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -90,13 +120,25 @@ script scr_seq_T30GYM0101_000 {
     setflag(FLAG_UNK_0D1)
     setflag(FLAG_HIDE_BLACKTHORN_DEN_GUARD_INFRONT)
     clearflag(FLAG_HIDE_BLACKTHRON_DEN_GUARD_ASIDE)
-    npcmsg(msg_0631_T30GYM0101_00004)
+    npcmsg("Clair: I won’t concede this.\r"
+           "I might have lost, but you’re still\n"
+           "not ready for the Pokémon League.\r"
+           "I know. You should take the\n"
+           "Dragon-master challenge.\r"
+           "Behind this Gym is a place called\n"
+           "Dragon’s Den. There is a small shrine\f"
+           "at its heart.\f"
+           "Go there.\r"
+           "If you can prove that you’ve lost\n"
+           "your lazy ideals, I will admit you\f"
+           "are a Trainer worthy of a Gym Badge!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _017D:
-    npcmsg(msg_0631_T30GYM0101_00005)
+    npcmsg("Clair: What’s the matter?\r"
+           "Is it too much to expect of you?")
     waitbuttonpress
     closemessage
     releaseall
@@ -147,13 +189,25 @@ script scr_seq_T30GYM0101_003 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_0D1)) {
-        npcmsg(msg_0631_T30GYM0101_00001)
+        npcmsg("Hey!\n"
+               "You were great to beat Clair!\r"
+               "What she says is one thing, but you are\n"
+               "already quite the Trainer. I think...\r"
+               "I’d still do what Clair wants you to\n"
+               "do, though.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0631_T30GYM0101_00000)
+    npcmsg("Yo! Champ in the making!\r"
+           "The Gym has unstable footing.\n"
+           "Keep your Pokémon in their Poké Balls.\r"
+           "Now, Clair uses the mythical and sacred\n"
+           "Dragon-type Pokémon.\r"
+           "You can’t damage them very easily.\r"
+           "But you know, they’re supposed\n"
+           "to be weak against Ice-type moves.")
     followmonrecall
     setfollowmoninhibitstate(1)
     followmonmovetoplayer
@@ -181,7 +235,14 @@ script scr_seq_T30GYM0101_004 {
             applymovement(obj_player, Blackthorn_Gym_Movement_03B4)
         }
         waitmovement
-        npcmsg(msg_0631_T30GYM0101_00002)
+        npcmsg("Yo! Champ in the making!\r"
+               "The Gym has unstable footing.\n"
+               "Keep your Pokémon in their Poké Balls.\r"
+               "Now, Clair uses the mythical and sacred\n"
+               "Dragon-type Pokémon.\r"
+               "You can’t damage them very easily.\r"
+               "But you know, they’re supposed\n"
+               "to be weak against Ice-type moves.\r")
         closemessage
         setflag(FLAG_UNK_138)
         if (var(VAR_TEMP_x4000) == 12) {
@@ -256,9 +317,12 @@ script scr_seq_T30GYM0101_005 {
     checkbadge(BADGE_RISING, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0631_T30GYM0101_00010)
+        npcmsg("Blackthorn City Pokémon Gym")
     } else {
-        npcmsg(msg_0631_T30GYM0101_00011)
+        npcmsg("Blackthorn City Pokémon Gym\r"
+               "Leader: Clair\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

@@ -51,7 +51,31 @@ script scr_seq_D35R0104_001 {
     applymovement(obj_D35R0104_tsure_poke_static_dragonite, TeamRocketHeadquarters_B3F_Movement_010C)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0114_D35R0104_00000, msg_0114_D35R0104_00001)
+    gendermsgbox("Lance: {STRVAR_1 3, 0, 0}!\n"
+                 "In order to unlock the door to the\f"
+                 "radio transmitter, you need the voice\f"
+                 "of a certain person.\r"
+                 "The name of the person is Petrel,\n"
+                 "the Team Rocket Executive!\r"
+                 "I have found out he is hiding in their\n"
+                 "leader’s office!\r"
+                 "Unfortunately though, that room is\n"
+                 "also protected with a password...\r"
+                 "{STRVAR_1 3, 0, 0}!\n"
+                 "We need the password to their leader’s\f"
+                 "office first!\r", "Lance: {STRVAR_1 3, 0, 0}!\n"
+                                    "In order to unlock the door to the\f"
+                                    "radio transmitter, you need the voice\f"
+                                    "of a certain person.\r"
+                                    "The name of the person is Petrel,\n"
+                                    "the Team Rocket Executive!\r"
+                                    "I have found out he is hiding in their\n"
+                                    "leader’s office!\r"
+                                    "Unfortunately though, that room is\n"
+                                    "also protected with a password...\r"
+                                    "{STRVAR_1 3, 0, 0}!\n"
+                                    "We need the password to their leader’s\f"
+                                    "office first!\r")
     closemessage
     applymovement(obj_D35R0104_wataru, TeamRocketHeadquarters_B3F_Movement_0124)
     applymovement(obj_D35R0104_tsure_poke_static_dragonite, TeamRocketHeadquarters_B3F_Movement_012C)
@@ -101,7 +125,7 @@ script scr_seq_D35R0104_007 {
     lockall
     applymovement(obj_D35R0104_tsure_poke_static_murkrow_2, TeamRocketHeadquarters_B3F_Movement_018C)
     waitmovement
-    npcmsg(msg_0114_D35R0104_00010)
+    npcmsg("MURKROW: Hail Giovanni.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -136,7 +160,13 @@ movement TeamRocketHeadquarters_B3F_Movement_01A4 {
 }
 
 script scr_seq_D35R0104_000 {
-    simplenpcmsg(msg_0114_D35R0104_00002)
+    simplenpcmsg("Urrggh...\n"
+                 "The guy in the cape is incredibly\f"
+                 "tough...and I had no choice\f"
+                 "but to tell him all the secrets about\f"
+                 "this hideout...\r"
+                 "Except that our leader’s office is\n"
+                 "protected with two passwords!\n")
     end
 }
 
@@ -165,7 +195,22 @@ script scr_seq_D35R0104_002 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     bufferrivalsname(0)
-    npcmsg(msg_0114_D35R0104_00003)
+    npcmsg("{STRVAR_1 3, 0, 0}: ...\r"
+           "So you are messing with them again.\r"
+           "Humph, you must really like Team Rocket\n"
+           "so much.\r"
+           "...Tell me, who was the guy in the cape\n"
+           "who used Dragon-type Pokémon?\r"
+           "My Pokémon were no match at all.\r"
+           "I don’t care that I lost. I can beat\n"
+           "him by getting stronger Pokémon.\r"
+           "It’s what he said that bothers me...\n"
+           "He told me that I don’t love and\f"
+           "trust my Pokémon enough.\r"
+           "I’m furious that I lost to a bleeding\n"
+           "heart like him.\r"
+           "...Humph! I don’t have the time for the\n"
+           "likes of you!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -244,11 +289,21 @@ script scr_seq_D35R0104_003 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     bufferplayersname(0)
-    npcmsg(msg_0114_D35R0104_00004)
+    npcmsg("Muhahaha, we’ve been waiting for you.\n"
+           "So, you are {STRVAR_1 3, 0, 0}...\r"
+           "Me?\n"
+           "You don’t know who I am?\r"
+           "It is me, Giovanni.\n"
+           "The majestic Giovanni himself!\f"
+           "Wahahaha!\r")
     closemessage
     applymovement(obj_D35R0104_sakaki, TeamRocketHeadquarters_B3F_Movement_044C)
     waitmovement
-    npcmsg(msg_0114_D35R0104_00005)
+    npcmsg("...Huh?\n"
+           "I don’t sound anything like Giovanni?\r"
+           "I don’t even look like Giovanni?\n"
+           "How come? I’ve worked so hard\f"
+           "to mimic him!\r")
     closemessage
     applymovement(obj_D35R0104_sakaki, TeamRocketHeadquarters_B3F_Movement_0458)
     waitmovement
@@ -258,7 +313,18 @@ script scr_seq_D35R0104_003 {
     removeobject(obj_D35R0104_sakaki)
     applymovement(obj_D35R0104_rkanbum2, TeamRocketHeadquarters_B3F_Movement_047C)
     waitmovement
-    npcmsg(msg_0114_D35R0104_00006)
+    npcmsg("Petrel: I am a Team Rocket Executive!\r"
+           "You must be trying to sneak into the\n"
+           "radio-transmitter room.\f"
+           "Well, that’s not going to happen.\r"
+           "That room is protected with a special\n"
+           "password. The password is\f"
+           "“Hail Giovanni.”\f"
+           "Surprised to hear it from me?\r"
+           "Knowing the password won’t help\n"
+           "you though.\r"
+           "The door won’t open unless I say the\n"
+           "password. It only reacts to my voice.\r")
     closemessage
     trainerbattle(TRAINER_EXECUTIVE_PETREL_PETREL_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -267,7 +333,16 @@ script scr_seq_D35R0104_003 {
         releaseall
         end
     }
-    npcmsg(msg_0114_D35R0104_00007)
+    npcmsg("Petrel: Since disbanding Team Rocket\n"
+           "three years ago, our Giovanni has\f"
+           "been missing.\r"
+           "But we’re certain he’s been waiting\n"
+           "for the right time for our revival...\r"
+           "Wahahaha!\r"
+           "Losing to you won’t change the fact\n"
+           "that you are unable to get in the\f"
+           "radio-transmitter room!\r"
+           "You need my voice to unlock it!\r")
     closemessage
     applymovement(obj_D35R0104_rkanbum2, TeamRocketHeadquarters_B3F_Movement_04A8)
     waitmovement
@@ -277,7 +352,9 @@ script scr_seq_D35R0104_003 {
     waitmovement
     npcmsg(msg_0114_D35R0104_00008)
     closemessage
-    npcmsg(msg_0114_D35R0104_00009)
+    npcmsg("MURKROW is mimicking\n"
+           "the voice of Petrel!\r"
+           "You may be able to...!?\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -294,6 +371,10 @@ script scr_seq_D35R0104_003 {
     clearflag(FLAG_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_1)
     releaseall
     end
+}
+
+text msg_0114_D35R0104_00008 {
+    "MURKROW: Hail Giovanni.\r"
 }
 
 movement TeamRocketHeadquarters_B3F_Movement_040C {
@@ -392,7 +473,10 @@ script scr_seq_D35R0104_004 {
         if (!defeated(TRAINER_TEAM_ROCKET_F_GRUNT_5)) { goto(_0561) }
         if (!defeated(TRAINER_TEAM_ROCKET_GRUNT_19)) { goto(_0561) }
         bufferplayersname(0)
-        npcmsg(msg_0114_D35R0104_00012)
+        npcmsg("The door’s closed...\r"
+               "{STRVAR_1 3, 0, 0} entered the\n"
+               "two passwords.\r"
+               "The door opened!\r")
         closemessage
         playse(SEQ_SE_DP_DOOR10)
         applymovement(obj_D35R0104_babyboy1_9, TeamRocketHeadquarters_B3F_Movement_056C)
@@ -402,7 +486,9 @@ script scr_seq_D35R0104_004 {
     }
     end
 _0561:
-    npcmsg(msg_0114_D35R0104_00011)
+    npcmsg("The door’s closed...\r"
+           "It needs two passwords\n"
+           "to open it.")
     waitbuttonpress
     closemessage
     releaseall

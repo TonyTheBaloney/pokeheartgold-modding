@@ -3,42 +3,35 @@
   "messages": [
     {
       "id": "msg_0506_T07R0206_00000",
-      "en_US": [
-        "This elevator is for Game Freak only.\r",
-        "Please select the floor you’d like\n",
-        "to go to. {YESNO 0}"
-      ]
+      "from": "scr_seq_T07R0206_000#0"
     },
     {
       "id": "msg_0506_T07R0206_00001",
-      "en_US": "Please come again."
+      "from": "scr_seq_T07R0206_000#7"
     },
     {
       "id": "msg_0506_T07R0206_00002",
-      "en_US": "Going up.\r"
+      "from": "scr_seq_T07R0206_000#1"
     },
     {
       "id": "msg_0506_T07R0206_00003",
-      "en_US": "Going down.\r"
+      "from": "scr_seq_T07R0206_000#2"
     },
     {
       "id": "msg_0506_T07R0206_00004",
-      "en_US": "We are already there."
+      "from": "scr_seq_T07R0206_000#6"
     },
     {
       "id": "msg_0506_T07R0206_00005",
-      "en_US": "You’ve arrived at the first floor.\r"
+      "from": "scr_seq_T07R0206_000#5"
     },
     {
       "id": "msg_0506_T07R0206_00006",
-      "en_US": [
-        "You’ve arrived at the third floor--\n",
-        "Game Freak.\r"
-      ]
+      "from": "scr_seq_T07R0206_000#4"
     },
     {
       "id": "msg_0506_T07R0206_00007",
-      "en_US": "You’ve arrived at the roof.\r"
+      "from": "scr_seq_T07R0206_000#3"
     }
   ]
 }

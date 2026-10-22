@@ -301,12 +301,48 @@ def cmd_pory(repo, args):
             else:
                 raise edit.EditError("name the maps to convert, or pass --all")
             stats = {}
+            outside = None
             for m in maps:
                 print("wrote %s" % repo.rel(pory.init(repo, m, args.raw, stats)))
                 repo = type(repo)(repo.root, repo.version)
+                e = repo.migrated[m.name]
+                if not args.raw and not e["text"].startswith("@"):
+                    from .pory import inline_text
+                    outside = outside if outside is not None else inline_text.outside_refs(repo.root)
+                    n_in, n_blk = inline_text.convert(repo, e, outside)
+                    stats["inline text"] = stats.get("inline text", 0) + n_in
+                    stats["text blocks"] = stats.get("text blocks", 0) + n_blk
+                    repo = type(repo)(repo.root, repo.version)
             if stats:
                 print("scripts: " + ", ".join("%d %s" % (v, k) for k, v in sorted(stats.items(), key=lambda kv: -kv[1])))
             return 0
+        if args.action == "inline-text":
+            from .pory import inline_text
+            if args.all:
+                maps = [m for m in repo.maps if m.name in repo.migrated]
+            elif args.maps:
+                maps = [_map(repo, q) for q in args.maps]
+            else:
+                raise edit.EditError("name the maps to convert, or pass --all")
+            outside = inline_text.outside_refs(repo.root)
+            total = [0, 0, 0]
+            for m in maps:
+                e = repo.migrated[m.name]
+                if e["scripts"].startswith("@") or e["text"].startswith("@") or repo.pory_entry(m) is None:
+                    continue
+                try:
+                    n_in, n_blk = inline_text.convert(repo, e, outside)
+                except pory.CompileError as ex:
+                    print("skipped: %s" % ex, file=sys.stderr)
+                    total[2] += 1
+                    continue
+                if n_in or n_blk:
+                    print("%s: %d inline, %d text blocks" % (e["dir"], n_in, n_blk))
+                total[0] += n_in
+                total[1] += n_blk
+                repo._cache.clear()
+            print("messages: %d inline, %d text blocks; %d maps skipped" % tuple(total))
+            return 1 if total[2] else 0
         m = _map(repo, args.map)
         res = repo.pory_result(m)
         if res is None:
@@ -411,6 +447,9 @@ def main(argv=None):
     p.add_argument("maps", nargs="*")
     p.add_argument("--all", action="store_true", help="every map that has its own scripts and no scripts.pory yet")
     p.add_argument("--raw", action="store_true", help="keep scripts.inc as one raw block instead of decompiling it")
+    p = ps.add_parser("inline-text", help="move dialog from text.json into scripts.pory (ROM unchanged)")
+    p.add_argument("maps", nargs="*")
+    p.add_argument("--all", action="store_true")
     p = ps.add_parser("show", help="print what a map's scripts.pory compiles to")
     p.add_argument("map")
     p = ps.add_parser("sync", help="update the _EV_ defines in ids.h to the compiled script order")

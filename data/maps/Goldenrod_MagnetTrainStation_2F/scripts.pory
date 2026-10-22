@@ -23,7 +23,8 @@ script scr_seq_T25R0502_000 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0588_T25R0502_00000)
+    npcmsg("We have arrived at Goldenrod!\n"
+           "Goldenrod! The accent is on the “o”!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement

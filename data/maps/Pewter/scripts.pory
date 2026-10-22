@@ -46,7 +46,15 @@ script scr_seq_T03_000 {
     } else {
         if (flag(FLAG_UNK_093)) { goto(_0108) }
     }
-    npcmsg(msg_0460_T03_00002)
+    npcmsg("Ah, you came all the way out here\n"
+           "from Johto?\r"
+           "That brings back memories.\r"
+           "When I was young, I went to Johto\n"
+           "to train.\r"
+           "You remind me so much of what I was\n"
+           "like as a young man.\r"
+           "Here. I want you to have this item\n"
+           "I found in Johto.\r")
     getgameversion(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 7) {
         setvar(VAR_SPECIAL_x8004, ITEM_SILVER_WING)
@@ -67,7 +75,9 @@ script scr_seq_T03_000 {
     releaseall
     end
 _0108:
-    npcmsg(msg_0460_T03_00005)
+    npcmsg("Going to new, unknown places and\n"
+           "seeing new people...\f"
+           "Those are the joys of travel.")
     waitbuttonpress
     closemessage
     releaseall
@@ -172,32 +182,39 @@ movement Pewter_Movement_0280 {
 }
 
 script scr_seq_T03_001 {
-    simplenpcmsg(msg_0460_T03_00000)
+    simplenpcmsg("Have you visited Pewter Gym?\r"
+                 "The Gym Leader uses\n"
+                 "Rock-type Pokémon.")
     end
 }
 
 script scr_seq_T03_002 {
-    simplenpcmsg(msg_0460_T03_00001)
+    simplenpcmsg("At night, CLEFAIRY come out to play\n"
+                 "at Mt. Moon.\r"
+                 "But not every night.")
     end
 }
 
 script scr_seq_T03_003 {
-    directionsignpostex(0, 3, msg_0460_T03_00020)
+    directionsignpostex(0, 3, "Pewter City\n"
+                              "Between Rugged Mountains")
     end
 }
 
 script scr_seq_T03_004 {
-    trainertipsex(2, msg_0460_T03_00021)
+    trainertipsex(2, "Pewter City Pokémon Gym\n"
+                     "Leader: Brock\f"
+                     "The Rock-Solid Pokémon Trainer")
     end
 }
 
 script scr_seq_T03_005 {
-    trainertipsex(2, msg_0460_T03_00022)
+    trainertipsex(2, "Pewter Museum of Science")
     end
 }
 
 script scr_seq_T03_006 {
-    directionsignpostex(2, 0, msg_0460_T03_00023)
+    directionsignpostex(2, 0, "Welcome to Pewter City!")
     end
 _030E:
     if (var(VAR_UNK_4083) == 4) { goto(_0341) }
@@ -252,9 +269,11 @@ script scr_seq_T03_012 {
     waitmovement
     getgameversion(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 7) {
-        npcmsg(msg_0460_T03_00006)
+        npcmsg("Steven: It seems that LATIOS became\n"
+               "attracted to it in no time!\r")
     } else {
-        npcmsg(msg_0460_T03_00007)
+        npcmsg("Steven: It seems that LATIAS became\n"
+               "attracted to it in no time!\r")
     }
     closemessage
     applymovement(obj_T03_daigo, Pewter_Movement_0464)
@@ -265,9 +284,15 @@ script scr_seq_T03_012 {
     followingpokemonmovement(48)
     getgameversion(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 7) {
-        npcmsg(msg_0460_T03_00008)
+        npcmsg("I can feel that LATIOS is full of\n"
+               "fighting spirit!\r"
+               "I would love to challenge it,\n"
+               "but I will let you go for it!")
     } else {
-        npcmsg(msg_0460_T03_00009)
+        npcmsg("I can feel that LATIAS is full of\n"
+               "fighting spirit!\r"
+               "I would love to challenge it,\n"
+               "but I will let you go for it!")
     }
     waitbuttonpress
     closemessage
@@ -318,11 +343,11 @@ script scr_seq_T03_010 {
     if (var(VAR_SPECIAL_RESULT) == 7) {
         setvar(VAR_TEMP_x400A, SPECIES_LATIOS)
         playcry(VAR_TEMP_x400A, 0)
-        npcmsg(msg_0460_T03_00010)
+        npcmsg("LATIOS: Shuaaaann!\r")
     } else {
         setvar(VAR_TEMP_x400A, SPECIES_LATIAS)
         playcry(VAR_TEMP_x400A, 0)
-        npcmsg(msg_0460_T03_00011)
+        npcmsg("LATIAS: Huaaaaann!\r")
     }
     waitcry
     closemessage
@@ -355,7 +380,10 @@ script scr_seq_T03_010 {
             togglefollowingpokemonmovement(1)
             followingpokemonmovement(48)
             if (var(VAR_TEMP_x4000) == 5) {
-                npcmsg(msg_0460_T03_00018)
+                npcmsg("Steven: I see.\n"
+                       "You’d rather hide your true strength\f"
+                       "from me. You have room to breathe,\f"
+                       "and that scares me.\r")
                 closemessage
                 setvar(VAR_UNK_4083, 4)
                 goto(_061F)
@@ -363,7 +391,14 @@ script scr_seq_T03_010 {
             _061F:
                 applymovement(obj_T03_daigo, Pewter_Movement_0478)
                 waitmovement
-                npcmsg(msg_0460_T03_00015)
+                npcmsg("I’ve been away from the Hoenn\n"
+                       "Pokémon League for too long.\r"
+                       "I’ll have to excuse myself.\r"
+                       "..................\r"
+                       "Oh, I never got your name.\f"
+                       "...But I won’t ask for it this time.\r"
+                       "Our fun will have to wait for the\n"
+                       "right time.\r")
                 closemessage
                 applymovement(obj_T03_daigo, Pewter_Movement_0480)
                 waitmovement
@@ -382,16 +417,26 @@ script scr_seq_T03_010 {
             }
             getgameversion(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 7) {
-                npcmsg(msg_0460_T03_00016)
+                npcmsg("Steven: Impressive!\n"
+                       "It was a great battle!\r"
+                       "LATIOS will be back once it recovers\n"
+                       "to make amends for the defeat.\r")
             } else {
-                npcmsg(msg_0460_T03_00017)
+                npcmsg("Steven: Impressive!\n"
+                       "It was a great battle!\r"
+                       "LATIAS will be back once it recovers\n"
+                       "to make amends for the defeat.\r")
             }
             closemessage
             setvar(VAR_UNK_4083, 4)
             goto(_061F)
             end
         _05FF:
-            npcmsg(msg_0460_T03_00014)
+            npcmsg("Steven: Impressive!\n"
+                   "It was a great battle!\r"
+                   "I don’t think you had to give\n"
+                   "everything you’ve got,\f"
+                   "and that scares me...\r")
             closemessage
             goto(_061F)
             end
@@ -399,9 +444,9 @@ script scr_seq_T03_010 {
     }
     getgameversion(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 7) {
-        npcmsg(msg_0460_T03_00012)
+        npcmsg("LATIOS flew away to the distant sky...\r")
     } else {
-        npcmsg(msg_0460_T03_00013)
+        npcmsg("LATIAS flew away to the distant sky...\r")
     }
     closemessage
     if (var(VAR_UNK_4083) == 4) { goto(_0649) }
@@ -410,7 +455,8 @@ script scr_seq_T03_010 {
 }
 
 script scr_seq_T03_009 {
-    simplenpcmsg(msg_0460_T03_00019)
+    simplenpcmsg("Steven: What? You are not scared,\n"
+                 "are you? Don’t be reserved. Go for it.")
     end
 }
 

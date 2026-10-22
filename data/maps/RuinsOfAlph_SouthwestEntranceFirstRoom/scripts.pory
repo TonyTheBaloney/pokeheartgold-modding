@@ -140,7 +140,7 @@ script scr_seq_D24R0206_002 {
     lockall
     if (flag(FLAG_OPENED_ALPH_WATER_STONE_SECRET_ROOM)) {
         wait(10, VAR_SPECIAL_x8004)
-        npcmsg(msg_0077_D24R0206_00001)
+        npcmsg("Nothing happened...")
         waitbuttonpress
         closemessage
         releaseall

@@ -31,7 +31,10 @@ script scr_seq_R18R0101_002 {
     }
     applymovement(obj_player, Route18_Gatehouse_Movement_0084)
     waitmovement
-    npcmsg(msg_0359_R18R0101_00001)
+    npcmsg("Hey, you!\r"
+           "Cycling Road is for cyclists only.\n"
+           "You have to be on a Bicycle if you want\f"
+           "to proceed!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -62,7 +65,10 @@ script scr_seq_R18R0101_003 {
 }
 
 script scr_seq_R18R0101_000 {
-    simplenpcmsg(msg_0359_R18R0101_00000)
+    simplenpcmsg("Cycling Road is all uphill from this end.\n"
+                 "It’s really challenging.\r"
+                 "Although, it may be interesting to go up\n"
+                 "once pushing really hard on the pedals.")
     end
 }
 

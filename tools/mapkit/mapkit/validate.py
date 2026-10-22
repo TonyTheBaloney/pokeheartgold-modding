@@ -62,6 +62,26 @@ class Validator:
                 self._done_files.add(sf.path)
                 self.check_script_file(m, sf)
         self.check_wild(m)
+        self.check_text_slots(m)
+
+    def check_text_slots(self, m):
+        """text.json slots ("from") that scripts.pory no longer fills build as empty messages."""
+        r = self.repo
+        e = r.migrated.get(m.name)
+        pe = r.pory_entry(m)
+        if not e or e["text"].startswith("@") or pe is None or pe["dir"] != e["dir"]:
+            return
+        from . import pory
+        unfilled = []
+        pory.merged_text(r, e, r.pory_result(m), unfilled)
+        for mid, src in unfilled:
+            where = "%s/text.json" % e["dir"]
+            if "#" in src:
+                self.add(WARNING, "empty-text", where, "%s: %s has no string %s (renamed or removed?); "
+                         "it builds as an empty message" % (mid, src.split("#")[0], src.split("#")[1]))
+            else:
+                self.add(WARNING, "empty-text", where, "%s: no `text %s` block in scripts.pory; "
+                         "it builds as an empty message" % (mid, mid))
 
     def _eval(self, defs, value, where, what):
         v = defs.eval(value)

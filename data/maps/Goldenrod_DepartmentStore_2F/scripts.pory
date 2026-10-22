@@ -30,9 +30,15 @@ script scr_seq_T25R1002_002 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0593_T25R1002_00001)
+        npcmsg("The ladies at this department store\n"
+               "never change their attitude.\r"
+               "Be it in front of a regular customer\n"
+               "or a Team Rocket member.\r"
+               "That’s what I call professional!")
     } else {
-        npcmsg(msg_0593_T25R1002_00000)
+        npcmsg("The ladies at this department store\n"
+               "even greet kids like me with respect.\r"
+               "That’s what I call professional!")
     }
     waitbuttonpress
     closemessage
@@ -45,9 +51,11 @@ script scr_seq_T25R1002_003 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0593_T25R1002_00005)
+        npcmsg("Oh, Team Rocket!\n"
+               "Please don’t take my ABRA away!")
     } else {
-        npcmsg(msg_0593_T25R1002_00004)
+        npcmsg("I got my ABRA at the Game Corner.\f"
+               "Now it’s my best partner.")
     }
     waitbuttonpress
     closemessage
@@ -60,9 +68,14 @@ script scr_seq_T25R1002_004 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0593_T25R1002_00003)
+        npcmsg("You better listen to me.\r"
+               "Quit being a Team Rocket member\n"
+               "already!")
     } else {
-        npcmsg(msg_0593_T25R1002_00002)
+        npcmsg("The existence of this department store\n"
+               "tells me that Goldenrod is a big city.\r"
+               "The selection here is unmatched\n"
+               "anywhere else.")
     }
     waitbuttonpress
     closemessage
@@ -73,7 +86,8 @@ script scr_seq_T25R1002_004 {
 script scr_seq_T25R1002_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0593_T25R1002_00006)
+    npcmsg("Your Travel Companion\n"
+           "2F Trainer’s Market")
     waitbuttonpress
     closemessage
     releaseall

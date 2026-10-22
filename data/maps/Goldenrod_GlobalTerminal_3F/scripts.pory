@@ -2,54 +2,86 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T25R1203_000 {
-    simplenpcmsg(msg_0602_T25R1203_00000)
+    simplenpcmsg("What you see here is how much people\n"
+                 "around the world love Pokémon.\r"
+                 "Watching Battle Videos lets you share\n"
+                 "the fun these people had.")
     end
 }
 
 script scr_seq_T25R1203_001 {
-    simplenpcmsg(msg_0602_T25R1203_00001)
+    simplenpcmsg("This is a great idea.\n"
+                 "Anyone and everyone can participate.\r"
+                 "Even if you lose, that battle could still\n"
+                 "become an outstanding Battle Video.")
     end
 }
 
 script scr_seq_T25R1203_002 {
-    simplenpcmsg(msg_0602_T25R1203_00002)
+    simplenpcmsg("What stunning, gripping Battle Videos!\n"
+                 "Should I go home and retrain\f"
+                 "my Pokémon?")
     end
 }
 
 script scr_seq_T25R1203_003 {
-    simplenpcmsg(msg_0602_T25R1203_00003)
+    simplenpcmsg("My Battle Videos starring only cute\n"
+                 "little MARILL are the ones I like best.")
     end
 }
 
 script scr_seq_T25R1203_004 {
-    simplenpcmsg(msg_0602_T25R1203_00004)
+    simplenpcmsg("What an amazing collection!\n"
+                 "I can see why this is so popular.\r"
+                 "Just seeing some of these Battle Videos\n"
+                 "makes me feel tougher!")
     end
 }
 
 script scr_seq_T25R1203_005 {
-    simplenpcmsg(msg_0602_T25R1203_00005)
+    simplenpcmsg("To treat one’s self to Battle Videos\n"
+                 "every day...\r"
+                 "I would consider that a hobby worthy\n"
+                 "of a true gentleman.")
     end
 }
 
 script scr_seq_T25R1203_006 {
-    simplenpcmsg(msg_0602_T25R1203_00006)
+    simplenpcmsg("My mysterious Battle Video.\n"
+                 "My mysterious Battle Video.\r"
+                 "What’s on it?\n"
+                 "What’s on it?\r"
+                 "It’s a mystery!\n"
+                 "It’s a mystery! And I mean it!")
     end
 }
 
 script scr_seq_T25R1203_007 {
-    simplenpcmsg(msg_0602_T25R1203_00007)
+    simplenpcmsg("Let me attempt the alphabet rap using\n"
+                 "Goldenrod, dig?\r"
+                 "G... Go south from here for the\n"
+                 "Ilex Forest.\r"
+                 "O... Over land is not where you’ll find\n"
+                 "the Goldenrod Tunnel.\r"
+                 "L... Looking like criminals in their black\n"
+                 "pajamas is Team Rocket.\r"
+                 "D... Um... D... is...\n"
+                 "Yeah, I know, lame-o.\f"
+                 "You give it a try!")
     end
 }
 
 script scr_seq_T25R1203_008 {
-    simplenpcmsg(msg_0602_T25R1203_00008)
+    simplenpcmsg("The Hiker enjoying the Box Data down\n"
+                 "on 2F is my little brother.")
     end
 }
 
 script scr_seq_T25R1203_009 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0602_T25R1203_00009)
+    npcmsg("Warps to the GTS and the Trainer\n"
+           "Rankings on 1F.")
     waitbuttonpress
     closemessage
     releaseall
@@ -59,7 +91,8 @@ script scr_seq_T25R1203_009 {
 script scr_seq_T25R1203_010 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0602_T25R1203_00010)
+    npcmsg("Warps to the studios for Box Data and\n"
+           "Dress-Up Data on 2F.")
     waitbuttonpress
     closemessage
     releaseall
@@ -73,7 +106,8 @@ script scr_seq_T25R1203_011 {
     goto(_0113)
     end
 _0113:
-    npcmsg(msg_0602_T25R1203_00011)
+    npcmsg("Connect to Nintendo Wi-Fi\n"
+           "Connection for Battle Videos? {YESNO 0}")
     touchscreenmenuhide
     menuinit(21, 11, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(13, 255, 0)
@@ -101,7 +135,16 @@ _016A:
     releaseall
     end
 _018F:
-    npcmsg(msg_0602_T25R1203_00012)
+    npcmsg("Here, you may post a Battle Video of\n"
+           "your Pokémon.\r"
+           "You may also view Battle Videos posted\n"
+           "by other Trainers.\r"
+           "The Battle Videos may be sorted by\n"
+           "Pokémon, battle facility, and so on.\r"
+           "The Battle Video you post will be\n"
+           "assigned a 12-digit number.\r"
+           "Your friends may view your Battle Video\n"
+           "by entering this 12-digit code here.\r")
     goto(_0113)
     end
 }

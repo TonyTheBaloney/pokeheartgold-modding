@@ -56,7 +56,7 @@ script scr_seq_R39_000 {
     lockall
     faceplayer
     playcry(SPECIES_MILTANK, 0)
-    npcmsg(msg_0396_R39_00003)
+    npcmsg("MILTANK: Mooo!")
     waitcry
     waitbuttonpress
     closemessage
@@ -78,20 +78,40 @@ script scr_seq_R39_002 {
         applymovement(obj_R39_gsgentleman, Route39_Movement_0228)
     }
     waitmovement
-    npcmsg(msg_0396_R39_00004)
+    npcmsg("Baoba: ...Ohh!\n"
+           "What you are holding is...\f"
+           "what they call...a Pokédex!\f"
+           "Haven’t seen one of those in ages.\r"
+           "My name is Baoba!\r"
+           "I used to run a Safari Zone in\n"
+           "Fuchsia City, but it was becoming\f"
+           "out of date with new entertainment\f"
+           "options coming out.\r"
+           "I decided to go overseas to learn\n"
+           "the newest technology and open a\f"
+           "state-of-the-art Safari Zone\f"
+           "in Cianwood.\r"
+           "It may be more than a coincidence\n"
+           "that we are chatting.\r"
+           "Why don’t we register each other’s\n"
+           "numbers in the Pokégear?\r"
+           "I can give you a call once the Safari\n"
+           "Zone is open before I call anyone else!\r")
     npcmsg(msg_0396_R39_00005)
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01E3) }
 _0173:
-    npcmsg(msg_0396_R39_00006)
+    npcmsg("That’s the way!\r")
     registergearnumber(PHONE_CONTACT_BAOBA)
     bufferplayersname(0)
-    npcmsg(msg_0396_R39_00008)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Baoba\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
-    npcmsg(msg_0396_R39_00009)
+    npcmsg("Baoba: I’ll let you know over the\n"
+           "Pokégear once it’s ready!\r")
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 171) {
@@ -108,7 +128,10 @@ _0173:
     setvar(VAR_UNK_408F, 1)
     end
 _01E3:
-    npcmsg(msg_0396_R39_00007)
+    npcmsg("Huh, I didn’t expect you to say no.\n"
+           "You can get hard-to-find Pokémon, too.\r"
+           "You’ll be able to make good progress\n"
+           "with your Pokédex, too...\r")
     npcmsg(msg_0396_R39_00005)
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -116,6 +139,10 @@ _01E3:
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01E3) }
     goto(_0173)
     end
+}
+
+text msg_0396_R39_00005 {
+    "Do you want to register? {YESNO 0}"
 }
 
 movement Route39_Movement_0208 {
@@ -267,12 +294,16 @@ script scr_seq_R39_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0396_R39_00010)
+    npcmsg("Lt. Surge: Hey, you!\r"
+           "Don’t you want a good memory of us\n"
+           "together? How about taking a\f"
+           "picture with me? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0396_R39_00013)
+        npcmsg("Lt. Surge: That’s OK...\r"
+               "Let me know if you change your mind.")
         waitbuttonpress
         closemessage
         releaseall
@@ -280,13 +311,16 @@ script scr_seq_R39_007 {
     }
     photoalbumisfull(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0396_R39_00014)
+        npcmsg("Your Photo Album is full.\r"
+               "Access your PC to delete some pictures\n"
+               "before you come back.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0396_R39_00011)
+    npcmsg("Lt. Surge: OK! OK!\r"
+           "Show me a very good smile!\r")
     closemessage
     setflag(FLAG_UNK_189)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -297,7 +331,10 @@ script scr_seq_R39_007 {
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     clearflag(FLAG_UNK_189)
-    npcmsg(msg_0396_R39_00012)
+    npcmsg("Lt. Surge: Wow!\n"
+           "This turned out to be a really\f"
+           "good one!\r"
+           "We root for Route 39!")
     waitbuttonpress
     closemessage
     releaseall
@@ -305,17 +342,24 @@ script scr_seq_R39_007 {
 }
 
 script scr_seq_R39_003 {
-    directionsignpostex(1, 21, msg_0396_R39_00000)
+    directionsignpostex(1, 21, "Rt. 39\n"
+                               "South to Olivine City")
     end
 }
 
 script scr_seq_R39_004 {
-    trainertipsex(2, msg_0396_R39_00001)
+    trainertipsex(2, "Moomoo Farm\n"
+                     "Enjoy Our Fresh and Tasty Milk")
     end
 }
 
 script scr_seq_R39_005 {
-    trainertipsex(3, msg_0396_R39_00002)
+    trainertipsex(3, "Trainer Tips\r"
+                     "Use Headbutt on trees to shake\n"
+                     "Pokémon out.\r"
+                     "Different kinds of Pokémon drop out\n"
+                     "of trees.\r"
+                     "Use Headbutt on any tree you see!")
     end
 }
 

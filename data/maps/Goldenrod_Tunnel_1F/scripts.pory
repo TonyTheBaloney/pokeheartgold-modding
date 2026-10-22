@@ -84,6 +84,54 @@ script scr_seq_D37R0101_002 {
     end
 }
 
+text msg_0116_D37R0101_00006 {
+    "Lyra: Hi, {STRVAR_1 3, 0, 0}.\n"
+    "You are just in time!\r"
+}
+
+text msg_0116_D37R0101_00009 {
+    "Ethan: Hi, {STRVAR_1 3, 0, 0}.\n"
+    "You are just in time!\r"
+}
+
+text msg_0116_D37R0101_00007 {
+    "Lyra: When you follow this tunnel,\n"
+    "you’ll see a Dress-Up Shop.\r"
+    "That’s where your Pokémon can put on\n"
+    "Accessories to dress up and\f"
+    "take pictures!\r"
+    "By the way, here is the Fashion Case!\r"
+    "Did you say you want it?\n"
+    "I knew it!\r"
+    "This is a present from me!\r"
+}
+
+text msg_0116_D37R0101_00010 {
+    "Ethan: When you follow this tunnel,\n"
+    "you’ll see a Dress-Up Shop.\r"
+    "That’s where your Pokémon can put on\n"
+    "Accessories to dress up and\f"
+    "take pictures!\r"
+    "By the way, here is the Fashion Case!\r"
+    "Did you say you want it?\n"
+    "I knew it!\r"
+    "This is a present from me!\r"
+}
+
+text msg_0116_D37R0101_00008 {
+    "Lyra: Keep Accessories in the\n"
+    "Fashion Case, OK?\r"
+    "I should get going.\n"
+    "See you!\r"
+}
+
+text msg_0116_D37R0101_00011 {
+    "Ethan: Keep Accessories in the\n"
+    "Fashion Case, OK?\r"
+    "I should get going.\n"
+    "See you!\r"
+}
+
 movement Goldenrod_Tunnel_1F_Movement_0174 {
     walk_slightly_fast_left
     walk_in_place_fast_right
@@ -272,14 +320,24 @@ script scr_seq_D37R0101_000 {
     } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
         npcmsg(msg_0116_D37R0101_00002)
     } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0116_D37R0101_00001)
+        npcmsg("You look like an earnest youth.\n"
+               "How come you ended up in\f"
+               "Team Rocket...?")
     } else {
-        npcmsg(msg_0116_D37R0101_00000)
+        npcmsg("I was challenged to a battle\n"
+               "downstairs.\r"
+               "It’s rough down there. You’d better\n"
+               "be careful.")
     }
     waitbuttonpress
     closemessage
     releaseall
     end
+}
+
+text msg_0116_D37R0101_00002 {
+    "Team Rocket never stops bothering\n"
+    "people, do they?"
 }
 
 script scr_seq_D37R0101_001 {
@@ -291,14 +349,23 @@ script scr_seq_D37R0101_001 {
     } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
         npcmsg(msg_0116_D37R0101_00005)
     } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0116_D37R0101_00004)
+        npcmsg("Yes...\n"
+               "Team Rocket can use the tunnel, too.")
     } else {
-        npcmsg(msg_0116_D37R0101_00003)
+        npcmsg("There are some shops downstairs...\r"
+               "But there are also Trainers.\n"
+               "I’m scared to go down there.")
     }
     waitbuttonpress
     closemessage
     releaseall
     end
+}
+
+text msg_0116_D37R0101_00005 {
+    "All the people working at the tunnel\n"
+    "left. No one wants Team Rocket to\f"
+    "give them a hard time."
 }
 
 mapscripts Goldenrod_Tunnel_1F_MapScripts {

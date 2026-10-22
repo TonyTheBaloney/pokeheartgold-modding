@@ -3,29 +3,15 @@
   "messages": [
     {
       "id": "msg_0624_T28PC0101_00000",
-      "en_US": [
-        "What’s this? Team Rocket has\n",
-        "come back?\r",
-        "I saw some men in black at the\n",
-        "Lake of Rage."
-      ]
+      "from": "scr_seq_T28PC0101_001#0"
     },
     {
       "id": "msg_0624_T28PC0101_00001",
-      "en_US": [
-        "I stop my Pokémon from evolving too\n",
-        "early.\r",
-        "I make them learn certain moves before\n",
-        "I let them evolve."
-      ]
+      "from": "scr_seq_T28PC0101_002#0"
     },
     {
       "id": "msg_0624_T28PC0101_00002",
-      "en_US": [
-        "Pokémon do become stronger when they\n",
-        "evolve, but they also learn moves\f",
-        "more slowly."
-      ]
+      "from": "scr_seq_T28PC0101_003#0"
     }
   ]
 }

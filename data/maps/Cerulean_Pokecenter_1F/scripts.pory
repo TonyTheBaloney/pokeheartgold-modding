@@ -8,12 +8,18 @@ script scr_seq_T04PC0101_000 {
 }
 
 script scr_seq_T04PC0101_001 {
-    simplenpcmsg(msg_0470_T04PC0101_00000)
+    simplenpcmsg("For battles, I’d much rather use\n"
+                 "Pokémon I’ve been raising, even if\r"
+                 "they’re weaker than some newly\n"
+                 "caught Pokémon.")
     end
 }
 
 script scr_seq_T04PC0101_002 {
-    simplenpcmsg(msg_0470_T04PC0101_00001)
+    simplenpcmsg("The Magnet Train travels at over\n"
+                 "340 mph. It goes between Kanto and\f"
+                 "Johto in almost no time at all.\r"
+                 "It really makes Johto accessible.")
     end
 }
 

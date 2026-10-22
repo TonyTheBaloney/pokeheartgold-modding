@@ -3,29 +3,15 @@
   "messages": [
     {
       "id": "msg_0632_T30PC0101_00000",
-      "en_US": [
-        "Deep inside far-off Indigo Plateau is\n",
-        "the Pokémon League.\r",
-        "I hear the best Trainers gather there\n",
-        "from around the country."
-      ]
+      "from": "scr_seq_T30PC0101_001#0"
     },
     {
       "id": "msg_0632_T30PC0101_00001",
-      "en_US": [
-        "There was this move I just had\n",
-        "to teach my Pokémon.\r",
-        "So I got the Move Deleter to make it\n",
-        "forget an HM move."
-      ]
+      "from": "scr_seq_T30PC0101_002#0"
     },
     {
       "id": "msg_0632_T30PC0101_00002",
-      "en_US": [
-        "They say that behind the Pokémon Gym is\n",
-        "a special cave for Gym Leaders to train\f",
-        "themselves."
-      ]
+      "from": "scr_seq_T30PC0101_003#0"
     }
   ]
 }

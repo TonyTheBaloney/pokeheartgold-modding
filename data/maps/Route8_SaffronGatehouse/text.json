@@ -3,10 +3,7 @@
   "messages": [
     {
       "id": "msg_0339_R08R0201_00000",
-      "en_US": [
-        "Have you been to Lavender Town?\n",
-        "There’s a tall Radio Tower there."
-      ]
+      "from": "scr_seq_R08R0201_000#0"
     }
   ]
 }

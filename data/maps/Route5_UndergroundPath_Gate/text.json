@@ -3,10 +3,7 @@
   "messages": [
     {
       "id": "msg_0330_R05R0201_00000",
-      "en_US": [
-        "Many cities in Johto have long\n",
-        "histories. I’d love to visit!"
-      ]
+      "from": "scr_seq_R05R0201_000#0"
     }
   ]
 }

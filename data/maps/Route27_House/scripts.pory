@@ -6,11 +6,18 @@ script scr_seq_R27R0101_000 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_TM37_FROM_ROUTE_27_WOMAN)) { goto(_006A) }
-    npcmsg(msg_0370_R27R0101_00000)
+    npcmsg("Where are you off to with Pokémon?\r"
+           "The Pokémon League?\r"
+           "Are your Pokémon loyal enough for\n"
+           "you to win?\r"
+           "Let me see...\r")
     getpartyleadalive(VAR_TEMP_x4000)
     mongetfriendship(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
     if (var(VAR_SPECIAL_RESULT) >= 150) {
-        npcmsg(msg_0370_R27R0101_00001)
+        npcmsg("Ah! Your Pokémon trusts you\n"
+               "very much.\r"
+               "It’s nice to see a good Trainer.\r"
+               "Here. A gift for your journey.\r")
         if (!itemspace(ITEM_TM37, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -20,13 +27,23 @@ script scr_seq_R27R0101_000 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_TM37_FROM_ROUTE_27_WOMAN)
     _006A:
-        npcmsg(msg_0370_R27R0101_00002)
+        npcmsg("TM37 happens to be Sandstorm.\r"
+               "It’s a move that inflicts damage on\n"
+               "both your and your foe’s Pokémon.\r"
+               "However, some Pokémon, such as Rock-\n"
+               "and Ground- and Steel-type\f"
+               "Pokémon, take no damage.\r"
+               "There are other ways to avoid taking\n"
+               "damage. I’ll let you figure it out.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0370_R27R0101_00003)
+    npcmsg("If it doesn’t come to trust you some\n"
+           "more, it could be tough going.\r"
+           "Trust is the tie that binds Pokémon\n"
+           "and Trainers.")
     waitbuttonpress
     closemessage
     releaseall

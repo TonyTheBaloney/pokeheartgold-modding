@@ -6,12 +6,18 @@ script scr_seq_R36R0101_000 {
 }
 
 script scr_seq_R36R0101_001 {
-    simplenpcmsg(msg_0391_R36R0101_00001)
+    simplenpcmsg("Did you see that strange tree in\n"
+                 "the road?\r"
+                 "That may explain why fewer people\n"
+                 "are visiting the Ruins of Alph.")
     end
 }
 
 script scr_seq_R36R0101_002 {
-    simplenpcmsg(msg_0391_R36R0101_00000)
+    simplenpcmsg("This is the Ruins of Alph.\n"
+                 "An ancient tradition made of stones.\r"
+                 "Don’t you wonder who’d make\n"
+                 "something like this? And why?")
     end
 }
 

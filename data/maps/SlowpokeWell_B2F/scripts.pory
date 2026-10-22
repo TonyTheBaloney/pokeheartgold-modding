@@ -6,7 +6,12 @@ script scr_seq_D26R0103_000 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_KINGS_ROCK_FROM_SLOWPOKE_WELL_MAN)) { goto(_004F) }
-    npcmsg(msg_0092_D26R0103_00000)
+    npcmsg("I’m waiting to see SLOWPOKE’s moment\n"
+           "of evolution. Through observation,\f"
+           "I made a new discovery.\r"
+           "A SLOWPOKE with a King’s Rock often\n"
+           "gets bitten by a SHELLDER.\r"
+           "Here, I’ll share a King’s Rock with you.")
     waitabpress
     closemessage
     if (!itemspace(ITEM_KINGS_ROCK, 1)) {
@@ -20,7 +25,9 @@ script scr_seq_D26R0103_000 {
     setflag(FLAG_GOT_KINGS_ROCK_FROM_SLOWPOKE_WELL_MAN)
     goto(_004F)
 _004F:
-    npcmsg(msg_0092_D26R0103_00002)
+    npcmsg("I’m going to be like SLOWPOKE.\r"
+           "I’ll wait patiently so I can see\n"
+           "one evolve.")
     waitbuttonpress
     closemessage
     releaseall

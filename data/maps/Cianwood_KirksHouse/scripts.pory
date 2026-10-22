@@ -6,7 +6,8 @@ script scr_seq_T24R0201_000 {
     lockall
     faceplayer
     if (flag(FLAG_RETURNED_OR_INHERITED_LOAN_SHUCKLE)) {
-        npcmsg(msg_0576_T24R0201_00011)
+        npcmsg("For Pokémon, happiness is being\n"
+               "with a person who treats them well.")
     _003A:
         waitbuttonpress
         closemessage
@@ -14,23 +15,34 @@ script scr_seq_T24R0201_000 {
         end
     }
     if (!flag(FLAG_GOT_LOAN_SHUCKLE)) {
-        npcmsg(msg_0576_T24R0201_00000)
+        npcmsg("I... I’m in shock!\r"
+               "A guy about your age with piercing\n"
+               "eyes and long hair came in.\r"
+               "He scared me into giving him my\n"
+               "prized Pokémon!\r"
+               "I still have one left, but what if\n"
+               "he comes back?\r"
+               "You look strong.\n"
+               "Could you look after my Pokémon\f"
+               "for a while? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) != 1) { goto(_0063) }
-        npcmsg(msg_0576_T24R0201_00004)
+        npcmsg("Oh, no... What’ll I do if he comes back?")
         goto(_003A)
     _0063:
         getpartycount(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) != 6) { goto(_007D) }
-        npcmsg(msg_0576_T24R0201_00003)
+        npcmsg("Your Pokémon party is full.")
         goto(_003A)
     _007D:
         giveloanmon(6, 20, 75)
-        npcmsg(msg_0576_T24R0201_00001)
+        npcmsg("Oh, thank you!\n"
+               "Take good care of it, please!\r")
         bufferplayersname(0)
-        npcmsg(msg_0576_T24R0201_00002)
+        npcmsg("{STRVAR_1 3, 0, 0} received\n"
+               "a Pokémon!")
         playfanfare(SEQ_ME_PT_SPECIAL)
         waitfanfare
         setflag(FLAG_GOT_LOAN_SHUCKLE)
@@ -39,11 +51,13 @@ script scr_seq_T24R0201_000 {
         end
     }
     if (flag(FLAG_DAILY_GOT_LOAN_SHUCKLE_TODAY)) {
-        npcmsg(msg_0576_T24R0201_00006)
+        npcmsg("Hi! How’s my Pokémon?")
         goto(_003A)
         end
     _00AD:
-        npcmsg(msg_0576_T24R0201_00005)
+        npcmsg("Hi! How’s my Pokémon?\r"
+               "I think I’m safe now, so may I have\n"
+               "it back? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -66,7 +80,7 @@ script scr_seq_T24R0201_000 {
                             if (var(VAR_SPECIAL_RESULT) <= 149) {
                                 returnloanmon(VAR_TEMP_x4000)
                                 call(_019A)
-                                npcmsg(msg_0576_T24R0201_00007)
+                                npcmsg("Thank you!")
                                 setflag(FLAG_RETURNED_OR_INHERITED_LOAN_SHUCKLE)
                             _0192:
                                 goto(_003A)
@@ -77,11 +91,14 @@ script scr_seq_T24R0201_000 {
                                 waitfade
                                 return
                             _01AA:
-                                npcmsg(msg_0576_T24R0201_00010)
+                                npcmsg("Oh, no, no...\n"
+                                       "That’s the same as being robbed.")
                                 goto(_003A)
                                 end
                             _01B5:
-                                npcmsg(msg_0576_T24R0201_00009)
+                                npcmsg("My Pokémon has come to like you.\r"
+                                       "All right, you should keep it.\n"
+                                       "But promise to be good to it!")
                                 setflag(FLAG_RETURNED_OR_INHERITED_LOAN_SHUCKLE)
                                 goto(_003A)
                                 end
@@ -89,16 +106,22 @@ script scr_seq_T24R0201_000 {
                             call(_019A)
                             goto(_01B5)
                         }
-                        npcmsg(msg_0576_T24R0201_00014)
+                        npcmsg("Huh?\n"
+                               "You...only have one Pokémon!\f"
+                               "You can’t give it back to me then.")
                         goto(_0192)
                     }
-                    npcmsg(msg_0576_T24R0201_00013)
+                    npcmsg("Huh?\n"
+                           "Its Poké Ball has a Ball Capsule on it!\f"
+                           "Please remove it.")
                     goto(_0192)
                 }
-                npcmsg(msg_0576_T24R0201_00012)
+                npcmsg("Huh?\n"
+                       "It’s holding an item.\f"
+                       "You should keep that.")
                 goto(_0192)
             }
-            npcmsg(msg_0576_T24R0201_00008)
+            npcmsg("Hey, that’s not my Pokémon.")
             goto(_0192)
         }
         call(_019A)

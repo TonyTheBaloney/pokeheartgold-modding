@@ -2,7 +2,7 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_R02R0101_000 {
-    trainertipsex(2, msg_0321_R02R0101_00000)
+    trainertipsex(2, "This is DIGLETT’s Cave.")
     end
 }
 

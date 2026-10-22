@@ -18,9 +18,13 @@ script scr_seq_T25R1004_001 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0595_T25R1004_00001)
+        npcmsg("I consider myself a bad guy,\n"
+               "but I never liked hanging around\f"
+               "other bad ones like Team Rocket.")
     } else {
-        npcmsg(msg_0595_T25R1004_00000)
+        npcmsg("Hey. I love strong Pokémon.\r"
+               "I feed them Protein to crank up\n"
+               "their Attack.")
     }
     waitbuttonpress
     closemessage
@@ -33,9 +37,11 @@ script scr_seq_T25R1004_002 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0595_T25R1004_00003)
+        npcmsg("Team Rocket...\n"
+               "What are you doing here?")
     } else {
-        npcmsg(msg_0595_T25R1004_00002)
+        npcmsg("Iron adds to your\n"
+               "Pokémon’s Defense.")
     }
     waitbuttonpress
     closemessage
@@ -48,9 +54,14 @@ script scr_seq_T25R1004_003 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0595_T25R1004_00005)
+        npcmsg("Even Team Rocket wouldn’t steal their\n"
+               "own members’ Pokémon, would they?")
     } else {
-        npcmsg(msg_0595_T25R1004_00004)
+        npcmsg("Some Pokémon evolve only\n"
+               "through trading.\r"
+               "I know of four: MACHOKE, KADABRA,\n"
+               "HAUNTER, and, um, GRAVELER.\f"
+               "I heard there are others, too.")
     }
     waitbuttonpress
     closemessage
@@ -61,7 +72,8 @@ script scr_seq_T25R1004_003 {
 script scr_seq_T25R1004_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0595_T25R1004_00006)
+    npcmsg("Let Us Pump Up Your Pokémon!\n"
+           "4F Medicine Box")
     waitbuttonpress
     closemessage
     releaseall

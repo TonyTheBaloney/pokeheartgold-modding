@@ -3,74 +3,47 @@
   "messages": [
     {
       "id": "msg_0500_T07R0107_00000",
-      "en_US": [
-        "Hello.\r",
-        "To which floor may I take you? {YESNO 0}"
-      ]
+      "from": "scr_seq_T07R0107_000#0"
     },
     {
       "id": "msg_0500_T07R0107_00001",
-      "en_US": "I look forward to serving you again."
+      "from": "scr_seq_T07R0107_000#10"
     },
     {
       "id": "msg_0500_T07R0107_00002",
-      "en_US": [
-        "Certainly.\n",
-        "Elevator going up!\r"
-      ]
+      "from": "scr_seq_T07R0107_000#1"
     },
     {
       "id": "msg_0500_T07R0107_00003",
-      "en_US": [
-        "Certainly.\n",
-        "Elevator going down!\r"
-      ]
+      "from": "scr_seq_T07R0107_000#2"
     },
     {
       "id": "msg_0500_T07R0107_00004",
-      "en_US": "Uh... We are already on that floor?"
+      "from": "scr_seq_T07R0107_000#9"
     },
     {
       "id": "msg_0500_T07R0107_00005",
-      "en_US": [
-        "First floor has the Service Counter\n",
-        "and the main entrance."
-      ]
+      "from": "scr_seq_T07R0107_000#8"
     },
     {
       "id": "msg_0500_T07R0107_00006",
-      "en_US": [
-        "Second floor has the Trainer’s Market\n",
-        "where you can buy everything you need."
-      ]
+      "from": "scr_seq_T07R0107_000#7"
     },
     {
       "id": "msg_0500_T07R0107_00007",
-      "en_US": [
-        "Third floor has the TM Shop\n",
-        "to power up your Pokémon."
-      ]
+      "from": "scr_seq_T07R0107_000#6"
     },
     {
       "id": "msg_0500_T07R0107_00008",
-      "en_US": [
-        "Fourth floor has the Wiseman Gifts,\n",
-        "which has the perfect gifts."
-      ]
+      "from": "scr_seq_T07R0107_000#5"
     },
     {
       "id": "msg_0500_T07R0107_00009",
-      "en_US": [
-        "Fifth floor has the Battle Collection\n",
-        "to raise stats."
-      ]
+      "from": "scr_seq_T07R0107_000#4"
     },
     {
       "id": "msg_0500_T07R0107_00010",
-      "en_US": [
-        "Sixth floor has the Rooftop Atrium\n",
-        "for a nice break."
-      ]
+      "from": "scr_seq_T07R0107_000#3"
     }
   ]
 }

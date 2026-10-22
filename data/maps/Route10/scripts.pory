@@ -57,17 +57,28 @@ script scr_seq_R10_002 {
     getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 25) { goto(_0197) }
     if (var(VAR_TEMP_x4002) >= 1) {
-        npcmsg(msg_0341_R10_00004)
+        npcmsg("Lt. Surge: Aha!\n"
+               "Now you want to know my telephone\f"
+               "number, don’t you? {YESNO 0}")
         goto(_0114)
         end
     _0197:
-        npcmsg(msg_0341_R10_00005)
+        npcmsg("Lt. Surge: Oh! What are the chances\n"
+               "of seeing you at a place like this?\r"
+               "I can feel electric power around\n"
+               "the Power Plant.\r"
+               "You may want to catch a PIKACHU in\n"
+               "the Viridian Forest and bring it here!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0341_R10_00000)
+    npcmsg("Lt. Surge: Oh, yay!\n"
+           "You have the Pokémon I love best:\f"
+           "PIKACHU!\r"
+           "Excellent!\n"
+           "I’ll give you my telephone number! {YESNO 0}")
 _0114:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -77,12 +88,15 @@ _0114:
     end
 _0138:
     bufferplayersname(0)
-    npcmsg(msg_0341_R10_00001)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Lt. Surge\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     registergearnumber(PHONE_CONTACT_LT__SURGE)
 _0148:
-    npcmsg(msg_0341_R10_00002)
+    npcmsg("Lt. Surge: Give me a call on Friday\n"
+           "morning!\r"
+           "We can have an electrifying battle!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -97,7 +111,8 @@ _0148:
     end
 _017B:
     setvar(VAR_TEMP_x4002, 1)
-    npcmsg(msg_0341_R10_00003)
+    npcmsg("Lt. Surge: Oh no!\n"
+           "How disappointing!")
     waitbuttonpress
     closemessage
     releaseall
@@ -171,12 +186,12 @@ script scr_seq_R10_003 {
 }
 
 script scr_seq_R10_005 {
-    trainertipsex(2, msg_0341_R10_00008)
+    trainertipsex(2, "Kanto Power Plant")
     end
 }
 
 script scr_seq_R10_006 {
-    trainertipsex(2, msg_0341_R10_00009)
+    trainertipsex(2, "Rock Tunnel")
     end
 }
 

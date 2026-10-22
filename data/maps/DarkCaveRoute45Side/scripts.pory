@@ -6,9 +6,15 @@ script scr_seq_D42R0101_000 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_BLACKGLASSES_FROM_DARK_CAVE_MAN)) {
-        npcmsg(msg_0127_D42R0101_00000)
+        npcmsg("Whoa! You startled me there!\r"
+               "I had my BlackGlasses on, so I didn’t\n"
+               "notice you at all.\r"
+               "What am I doing here?\r"
+               "Hey, don’t you worry about it.\n"
+               "I’ll give you a pair of BlackGlasses, so\f"
+               "forget you saw me, OK?\r")
         if (!itemspace(ITEM_BLACKGLASSES, 1)) {
-            npcmsg(msg_0127_D42R0101_00003)
+            npcmsg("You don’t have room for this...")
             waitbuttonpress
             closemessage
             releaseall
@@ -17,7 +23,8 @@ script scr_seq_D42R0101_000 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_BLACKGLASSES_FROM_DARK_CAVE_MAN)
     }
-    npcmsg(msg_0127_D42R0101_00002)
+    npcmsg("BlackGlasses up the power of\n"
+           "Dark-type moves.")
     waitbuttonpress
     closemessage
     releaseall

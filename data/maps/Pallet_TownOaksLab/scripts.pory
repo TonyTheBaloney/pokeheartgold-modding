@@ -38,11 +38,26 @@ script scr_seq_T01R0301_006 {
     applymovement(obj_player, Pallet_TownOaksLab_Movement_00C8)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0451_T01R0301_00039, msg_0451_T01R0301_00040)
+    gendermsgbox("Professor Oak: Hello, {STRVAR_1 3, 0, 0}.\n"
+                 "Good to see you.\f"
+                 "I heard a lot about you.\r"
+                 "Your Pokédex must be close\n"
+                 "to complete?\r"
+                 "For all your hard work,\n"
+                 "I would like to give you something.\r", "Professor Oak: Hello, {STRVAR_1 3, 0, 0}.\n"
+                                                          "Good to see you.\f"
+                                                          "I heard a lot about you.\r"
+                                                          "Your Pokédex must be close\n"
+                                                          "to complete?\r"
+                                                          "For all your hard work,\n"
+                                                          "I would like to give you something.\r")
     closemessage
     applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_00E0)
     waitmovement
-    npcmsg(msg_0451_T01R0301_00041)
+    npcmsg("Professor Oak: Haha!\r"
+           "What’s behind me...\n"
+           "You must have figured it out right away.\r"
+           "Yes, it is a Pokémon!\r")
     closemessage
     applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_00F4)
     applymovement(obj_player, Pallet_TownOaksLab_Movement_00D0)
@@ -56,6 +71,13 @@ script scr_seq_T01R0301_006 {
     setvar(VAR_UNK_4131, 2)
     releaseall
     end
+}
+
+text msg_0451_T01R0301_00042 {
+    "Professor Oak: You don’t see them\n"
+    "very often in Kanto.\f"
+    "Choose one and it’ll be yours!\r"
+    "...Go ahead!"
 }
 
 movement Pallet_TownOaksLab_Movement_00C8 {
@@ -87,11 +109,51 @@ script scr_seq_T01R0301_000 {
     faceplayer
     if (var(VAR_UNK_4096) == 2) {
         if (flag(FLAG_GOT_HM08)) { goto(_02C0) }
-        npcmsg(msg_0451_T01R0301_00055)
+        npcmsg("Professor Oak: Good to see you!\n"
+               "This is what I’ve wanted to\f"
+               "give to you!\r")
         giveitemnocheck(ITEM_HM08, 1)
-        npcmsg(msg_0451_T01R0301_00056)
+        npcmsg("Professor Oak: That Hidden Machine\n"
+               "contains the move Rock Climb!\r"
+               "When you teach it to a Pokémon,\n"
+               "you can go up rock walls that have\f"
+               "steps carved in them.\r")
         bufferplayersname(0)
-        gendermsgbox(msg_0451_T01R0301_00006, msg_0451_T01R0301_00007)
+        gendermsgbox("Professor Oak: Those Badges are...\r"
+                     "Wow! You have not only become the\n"
+                     "Johto Champion, but you’ve collected\f"
+                     "all the Kanto Badges! Well done!\r"
+                     "Hmm... No wonder I sensed something\n"
+                     "in you when we met.\r"
+                     "Tell you what, {STRVAR_1 3, 0, 0}.\r"
+                     "I’ll make arrangements so that you can\n"
+                     "go to Mt. Silver.\r"
+                     "Mt. Silver is a big mountain that is\n"
+                     "home to many wild Pokémon.\r"
+                     "It’s too dangerous for your average\n"
+                     "Trainer, so it’s off limits.\r"
+                     "But we can make an exception in your\n"
+                     "case, {STRVAR_1 3, 0, 0}.\r"
+                     "Go to the Pokémon League\n"
+                     "Reception Gate.\r"
+                     "You can reach Mt. Silver from there.", "Professor Oak: Those Badges are...\r"
+                                                             "Wow! You have not only become the\n"
+                                                             "Johto Champion, but you’ve collected\f"
+                                                             "all the Kanto Badges! Well done!\r"
+                                                             "Hmm... No wonder I sensed something\n"
+                                                             "in you when we met.\r"
+                                                             "Tell you what, {STRVAR_1 3, 0, 0}.\r"
+                                                             "I’ll make arrangements so that you can\n"
+                                                             "go to Mt. Silver.\r"
+                                                             "Mt. Silver is a big mountain that is\n"
+                                                             "home to many wild Pokémon.\r"
+                                                             "It’s too dangerous for your average\n"
+                                                             "Trainer, so it’s off limits.\r"
+                                                             "But we can make an exception in your\n"
+                                                             "case, {STRVAR_1 3, 0, 0}.\r"
+                                                             "Go to the Pokémon League\n"
+                                                             "Reception Gate.\r"
+                                                             "You can reach Mt. Silver from there.")
         setvar(VAR_UNK_4110, 2)
         setflag(FLAG_UNLOCKED_MT_SILVER)
         waitbuttonpress
@@ -100,7 +162,11 @@ script scr_seq_T01R0301_000 {
         releaseall
         end
     _02C0:
-        npcmsg(msg_0451_T01R0301_00057)
+        npcmsg("When you use Rock Climb,\n"
+               "you can go up rock walls that have\f"
+               "steps carved in them.\r"
+               "You will discover all sorts\n"
+               "of new things!")
         waitbuttonpress
         closemessage
         releaseall
@@ -110,12 +176,17 @@ script scr_seq_T01R0301_000 {
         if (var(VAR_SPECIAL_x8005) == 1) { goto(_040D) }
         if (flag(FLAG_UNK_0BC)) { goto(_03DE) }
         bufferplayersname(0)
-        gendermsgbox(msg_0451_T01R0301_00011, msg_0451_T01R0301_00012)
+        gendermsgbox("Professor Oak: Oh, {STRVAR_1 3, 0, 0}!\n"
+                     "What brought you here?\r", "Professor Oak: Oh, {STRVAR_1 3, 0, 0}!\n"
+                                                 "What brought you here?\r")
         closemessage
         applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_04D4)
         waitmovement
         setflag(FLAG_UNK_0BC)
-        npcmsg(msg_0451_T01R0301_00013)
+        npcmsg("Professor Oak: The legendary Pokémon\n"
+               "that appear in the Hoenn myth?\r"
+               "You must be talking about KYOGRE\n"
+               "and GROUDON!\r")
         closemessage
         getplayerfacing(VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) != 0) { goto(_0320) }
@@ -173,23 +244,115 @@ script scr_seq_T01R0301_000 {
         getgameversion(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 8) { goto(_03FE) }
         bufferplayersname(0)
-        gendermsgbox(msg_0451_T01R0301_00015, msg_0451_T01R0301_00016)
+        gendermsgbox("Professor Oak: It’s not hard to imagine\n"
+                     "that the Red Orb will make GROUDON\f"
+                     "appear at the Embedded Tower...\r"
+                     "However, according to Mr. Pokémon,\n"
+                     "GROUDON does not show itself to\f"
+                     "Trainers with golden hearts, but only\f"
+                     "to those with shining-silver spirits.\r"
+                     "It may be difficult for you alone to\n"
+                     "accomplish this, {STRVAR_1 3, 0, 0}.\r"
+                     "But if you manage to obtain a GROUDON\n"
+                     "that came from the Embedded Tower,\r"
+                     "please do come and show me both\n"
+                     "legendary Pokémon!\r"
+                     "I will then share with you the rest of\n"
+                     "the Hoenn myth!\r", "Professor Oak: It’s not hard to imagine\n"
+                                          "that the Red Orb will make GROUDON\f"
+                                          "appear at the Embedded Tower...\r"
+                                          "However, according to Mr. Pokémon,\n"
+                                          "GROUDON does not show itself to\f"
+                                          "Trainers with golden hearts, but only\f"
+                                          "to those with shining-silver spirits.\r"
+                                          "It may be difficult for you alone to\n"
+                                          "accomplish this, {STRVAR_1 3, 0, 0}.\r"
+                                          "But if you manage to obtain a GROUDON\n"
+                                          "that came from the Embedded Tower,\r"
+                                          "please do come and show me both\n"
+                                          "legendary Pokémon!\r"
+                                          "I will then share with you the rest of\n"
+                                          "the Hoenn myth!\r")
         closemessage
         goto(_01B2)
     _03FE:
         bufferplayersname(0)
-        gendermsgbox(msg_0451_T01R0301_00017, msg_0451_T01R0301_00018)
+        gendermsgbox("Professor Oak: It’s not hard to imagine\n"
+                     "that the Blue Orb will make KYOGRE\f"
+                     "appear at the Embedded Tower...\r"
+                     "However, according to Mr. Pokémon,\n"
+                     "KYOGRE does not show itself to\f"
+                     "Trainers with shining-silver spirits,\f"
+                     "but only to those with golden hearts.\r"
+                     "It may be difficult for you alone to\n"
+                     "accomplish this, {STRVAR_1 3, 0, 0}.\r"
+                     "But if you manage to obtain a KYOGRE\n"
+                     "that came from the Embedded Tower,\r"
+                     "please do come and show me both\n"
+                     "legendary Pokémon!\r"
+                     "I will then share with you the rest\n"
+                     "of the Hoenn myth!\r", "Professor Oak: It’s not hard to imagine\n"
+                                             "that the Blue Orb will make KYOGRE\f"
+                                             "appear at the Embedded Tower...\r"
+                                             "However, according to Mr. Pokémon,\n"
+                                             "KYOGRE does not show itself to\f"
+                                             "Trainers with shining-silver spirits,\f"
+                                             "but only to those with golden hearts.\r"
+                                             "It may be difficult for you alone to\n"
+                                             "accomplish this, {STRVAR_1 3, 0, 0}.\r"
+                                             "But if you manage to obtain a KYOGRE\n"
+                                             "that came from the Embedded Tower,\r"
+                                             "please do come and show me both\n"
+                                             "legendary Pokémon!\r"
+                                             "I will then share with you the rest\n"
+                                             "of the Hoenn myth!\r")
         closemessage
         goto(_01B2)
     _040D:
         if (!flag(FLAG_UNK_0BC)) {
             bufferplayersname(0)
-            gendermsgbox(msg_0451_T01R0301_00024, msg_0451_T01R0301_00025)
+            gendermsgbox("Professor Oak: Hello, {STRVAR_1 3, 0, 0}!\n"
+                         "The study of Pokémon never ends.\r"
+                         "It is such pure joy to work toward\n"
+                         "perfection!\r"
+                         "By the way...\r"
+                         "Hmm? Those Pokémon!\f"
+                         "They were at the Embedded Tower?\r"
+                         "They are KYOGRE and GROUDON--\n"
+                         "the Pokémon from the Hoenn myth!\r"
+                         "I never dreamed you would catch\n"
+                         "such Pokémon...\r"
+                         "You have proven yourself worthy!\n"
+                         "Congratulations!\r"
+                         "I would like to entrust this to you,\n"
+                         "{STRVAR_1 3, 0, 0}!\r", "Professor Oak: Hello, {STRVAR_1 3, 0, 0}!\n"
+                                                  "The study of Pokémon never ends.\r"
+                                                  "It is such pure joy to work toward\n"
+                                                  "perfection!\r"
+                                                  "By the way...\r"
+                                                  "Hmm? Those Pokémon!\f"
+                                                  "They were at the Embedded Tower?\r"
+                                                  "They are KYOGRE and GROUDON--\n"
+                                                  "the Pokémon from the Hoenn myth!\r"
+                                                  "I never dreamed you would catch\n"
+                                                  "such Pokémon...\r"
+                                                  "You have proven yourself worthy!\n"
+                                                  "Congratulations!\r"
+                                                  "I would like to entrust this to you,\n"
+                                                  "{STRVAR_1 3, 0, 0}!\r")
             closemessage
             goto(_0421)
         }
         bufferplayersname(0)
-        gendermsgbox(msg_0451_T01R0301_00019, msg_0451_T01R0301_00020)
+        gendermsgbox("Professor Oak: You did it,\n"
+                     "{STRVAR_1 3, 0, 0}!\f"
+                     "You caught both KYOGRE and GROUDON!\f"
+                     "OK!\f"
+                     "I would like to entrust this to you!\r", "Professor Oak: You did it,\n"
+                                                               "{STRVAR_1 3, 0, 0}!\f"
+                                                               "You caught both KYOGRE and GROUDON!\f"
+                                                               "OK!\f"
+                                                               "I would like to entrust this to you!\r")
         closemessage
     _0421:
         getplayerfacing(VAR_TEMP_x4001)
@@ -206,12 +369,30 @@ script scr_seq_T01R0301_000 {
         bufferplayersname(0)
         giveitemnocheck(ITEM_JADE_ORB, 1)
         closemessage
-        npcmsg(msg_0451_T01R0301_00021)
+        npcmsg("Professor Oak: It resembles the Orb\n"
+               "you received from Mr. Pokémon,\f"
+               "doesn’t it?\r"
+               "It is called the Jade Orb.\n"
+               "It has something to do with RAYQUAZA.\r"
+               "Legend has it that the battle\n"
+               "between GROUDON and KYOGRE\f"
+               "shaped the lands and seas of Hoenn.\r"
+               "Volcanic eruptions and giant waves are\n"
+               "said to have completely changed the\f"
+               "shape of the land there.\r"
+               "But then RAYQUAZA came down to\n"
+               "halt the battle.\r"
+               "It is a Pokémon that rules the skies!\r"
+               "If the Embedded Tower is related to\n"
+               "KYOGRE and GROUDON,\r"
+               "then going there with that Jade Orb\n"
+               "will surely make something happen.\r")
         closemessage
         setvar(VAR_SCENE_EMBEDDED_TOWER, 5)
         goto(_01B2)
     _04A6:
-        npcmsg(msg_0451_T01R0301_00022)
+        npcmsg("Professor Oak: Go to the Embedded\n"
+               "Tower with the Jade Orb!\r")
         closemessage
         goto(_01B2)
     }
@@ -220,7 +401,17 @@ script scr_seq_T01R0301_000 {
     if (var(VAR_UNK_4131) == 5) { goto(_0277) }
     if (var(VAR_UNK_4131) == 2) { goto(_026C) }
     if (var(VAR_SCENE_EMBEDDED_TOWER) == 7) {
-        npcmsg(msg_0451_T01R0301_00023)
+        npcmsg("Professor Oak: You have successfully\n"
+               "caught RAYQUAZA!\r"
+               "The strong power of the Jade Orb\n"
+               "must have attracted RAYQUAZA there!\r"
+               "Pokémon are sometimes greatly\n"
+               "attracted by certain Orbs and Stones.\f"
+               "No one knows why.\r"
+               "Perhaps memories from ancient times...\f"
+               "when this planet was born...\f"
+               "and Pokémon, also...\f"
+               "are making Pokémon behave that way.\r")
         closemessage
         setvar(VAR_SCENE_EMBEDDED_TOWER, 8)
         goto(_01B2)
@@ -230,14 +421,40 @@ script scr_seq_T01R0301_000 {
     if (!flag(FLAG_GOT_HM08)) {
         if (!flag(FLAG_UNK_12A)) {
             bufferplayersname(0)
-            gendermsgbox(msg_0451_T01R0301_00000, msg_0451_T01R0301_00001)
+            gendermsgbox("Professor Oak: Ah, {STRVAR_1 3, 0, 0}!\n"
+                         "It’s good of you to come all this way\f"
+                         "to Kanto.\r"
+                         "What do you think of the Trainers\n"
+                         "out here?\f"
+                         "Pretty tough, huh?\r", "Professor Oak: Ah, {STRVAR_1 3, 0, 0}!\n"
+                                                 "It’s good of you to come all this way\f"
+                                                 "to Kanto.\r"
+                                                 "What do you think of the Trainers\n"
+                                                 "out here?\f"
+                                                 "Pretty tough, huh?\r")
             setflag(FLAG_UNK_12A)
         }
         if (var(VAR_UNK_4135) == 0) {
-            npcmsg(msg_0451_T01R0301_00008)
+            npcmsg("Professor Oak: Hmm? You’re not\n"
+                   "collecting Kanto Gym Badges?\r"
+                   "The Gym Leaders in Kanto are as tough\n"
+                   "as any you battled in Johto.\f"
+                   "I recommend that you challenge them.\r")
         } else {
             bufferplayersname(0)
-            gendermsgbox(msg_0451_T01R0301_00009, msg_0451_T01R0301_00010)
+            gendermsgbox("Professor Oak: Ah, you’re collecting\n"
+                         "Kanto Gym Badges.\r"
+                         "I imagine that it’s hard, but the\n"
+                         "experience will surely help you.\r"
+                         "Come see me when you get them all.\n"
+                         "I’ll have a gift for you.\f"
+                         "Keep it up, {STRVAR_1 3, 0, 0}!\r", "Professor Oak: Ah, you’re collecting\n"
+                                                              "Kanto Gym Badges.\r"
+                                                              "I imagine that it’s hard, but the\n"
+                                                              "experience will surely help you.\r"
+                                                              "Come see me when you get them all.\n"
+                                                              "I’ll have a gift for you.\f"
+                                                              "Keep it up, {STRVAR_1 3, 0, 0}!\r")
         }
     }
 _01B2:
@@ -256,15 +473,26 @@ _01F0:
 _01F2:
     setflag(FLAG_SYS_OAK_ACKNOWLEDGED_NATIONAL_DEX_COMPLETION)
     bufferplayersname(0)
-    gendermsgbox(msg_0451_T01R0301_00004, msg_0451_T01R0301_00005)
-    npcmsg(msg_0451_T01R0301_00028)
+    gendermsgbox("You never cease to amaze me!\r"
+                 "Your having completed the National\n"
+                 "Pokédex far exceeded my expectations!\r"
+                 "Meeting you is something l will cherish\n"
+                 "all my life long!\r", "You never cease to amaze me!\r"
+                                        "Your having completed the National\n"
+                                        "Pokédex far exceeded my expectations!\r"
+                                        "Meeting you is something l will cherish\n"
+                                        "all my life long!\r")
+    npcmsg("Professor Oak: Say!\n"
+           "Don’t you want to take a picture\f"
+           "with me for a change? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0256) }
     photoalbumisfull(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0261) }
-    npcmsg(msg_0451_T01R0301_00029)
+    npcmsg("Professor Oak: You will? Good!\n"
+           "Are you ready?\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -273,19 +501,23 @@ _01F2:
     lockall
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
-    npcmsg(msg_0451_T01R0301_00030)
+    npcmsg("Professor Oak: Yes!\n"
+           "It’s a good memento!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0256:
-    npcmsg(msg_0451_T01R0301_00031)
+    npcmsg("Professor Oak: Really?\n"
+           "There is no need to be reserved...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0261:
-    npcmsg(msg_0451_T01R0301_00032)
+    npcmsg("Your Photo Album is full.\r"
+           "Access your PC and delete\n"
+           "some pictures.\n")
     waitbuttonpress
     closemessage
     releaseall
@@ -297,11 +529,26 @@ _026C:
     releaseall
     end
 _0277:
-    npcmsg(msg_0451_T01R0301_00053)
+    npcmsg("Professor Oak: There is nothing more\n"
+           "that I can do for you.\r"
+           "Enjoy the rest of your journey\n"
+           "with that new Pokémon!")
     waitbuttonpress
     closemessage
     releaseall
     end
+}
+
+text msg_0451_T01R0301_00014 {
+    "Professor Oak: The Embedded Tower is\n"
+    "probably the ruins that has something\f"
+    "to do with the Hoenn myth.\f"
+    "If so, the other one must be around.\r"
+    "KYOGRE and GROUDON are said to have\n"
+    "shaped the seas and lands!\r"
+    "Where those two are, the other Pokémon\n"
+    "is said to appear as well...\f"
+    "All this is quite possible!\r"
 }
 
 movement Pallet_TownOaksLab_Movement_04D4 {
@@ -370,7 +617,10 @@ movement Pallet_TownOaksLab_Movement_0584 {
 }
 
 script scr_seq_T01R0301_001 {
-    simplenpcmsg(msg_0451_T01R0301_00033)
+    simplenpcmsg("The Professor’s Pokémon Talk\n"
+                 "radio show is aired here and\f"
+                 "in Johto as well.\r"
+                 "Professor Oak is so...cool!")
     end
 }
 
@@ -379,7 +629,9 @@ script scr_seq_T01R0301_002 {
     lockall
     faceplayer
     bufferplayersname(0)
-    npcmsg(msg_0451_T01R0301_00034)
+    npcmsg("{STRVAR_1 3, 0, 0}, thanks to your work on\n"
+           "the Pokédex, the Professor’s\f"
+           "research is coming along well.")
     waitbuttonpress
     closemessage
     releaseall
@@ -391,7 +643,10 @@ script scr_seq_T01R0301_003 {
     lockall
     faceplayer
     bufferplayersname(0)
-    npcmsg(msg_0451_T01R0301_00035)
+    npcmsg("So you are {STRVAR_1 3, 0, 0}?\r"
+           "...Just between you and me,\n"
+           "The Professor’s show, Pokémon Talk,\f"
+           "is not live radio!")
     waitbuttonpress
     closemessage
     releaseall
@@ -401,7 +656,8 @@ script scr_seq_T01R0301_003 {
 script scr_seq_T01R0301_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0451_T01R0301_00036)
+    npcmsg("There are many books.\n"
+           "Most of the covers are worn out.")
     waitbuttonpress
     closemessage
     releaseall
@@ -413,7 +669,25 @@ script scr_seq_T01R0301_005 {
     lockall
     faceplayer
     bufferplayersname(0)
-    gendermsgbox(msg_0451_T01R0301_00037, msg_0451_T01R0301_00038)
+    gendermsgbox("There’s an email message on the PC.\r"
+                 "...\r"
+                 "Hi, Professor Oak!\n"
+                 "How is your research coming along?\r"
+                 "I’m...doing fine.\r"
+                 "I heard that {STRVAR_1 3, 0, 0} is getting\n"
+                 "quite a reputation.\r"
+                 "That’s what we hear on the grapevine.\n"
+                 "I’m delighted to hear that.\f"
+                 "           Elm in New Bark Town 8-)", "There’s an email message on the PC.\r"
+                                                        "...\r"
+                                                        "Hi, Professor Oak!\n"
+                                                        "How is your research coming along?\r"
+                                                        "I’m...doing fine.\r"
+                                                        "I heard that {STRVAR_1 3, 0, 0} is getting\n"
+                                                        "quite a reputation.\r"
+                                                        "That’s what we hear on the grapevine.\n"
+                                                        "I’m delighted to hear that.\f"
+                                                        "           Elm in New Bark Town 8-)")
     waitbuttonpress
     closemessage
     releaseall
@@ -438,7 +712,8 @@ script scr_seq_T01R0301_007 {
     waitmovement
     showpokemonpicwindow(SPECIES_BULBASAUR, 0)
     playcry(SPECIES_BULBASAUR, 0)
-    npcmsg(msg_0451_T01R0301_00045)
+    npcmsg("So, you want to go with\n"
+           "the Grass Pokémon BULBASAUR? {YESNO 0}")
     waitcry
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -467,7 +742,8 @@ script scr_seq_T01R0301_008 {
     waitmovement
     showpokemonpicwindow(SPECIES_SQUIRTLE, 0)
     playcry(SPECIES_SQUIRTLE, 0)
-    npcmsg(msg_0451_T01R0301_00044)
+    npcmsg("So, you’ve decided on the\n"
+           "Water Pokémon SQUIRTLE? {YESNO 0}")
     waitcry
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -496,7 +772,8 @@ script scr_seq_T01R0301_009 {
     waitmovement
     showpokemonpicwindow(SPECIES_CHARMANDER, 0)
     playcry(SPECIES_CHARMANDER, 0)
-    npcmsg(msg_0451_T01R0301_00043)
+    npcmsg("So, you’re claiming the\n"
+           "Fire Pokémon CHARMANDER? {YESNO 0}")
     waitcry
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -510,7 +787,9 @@ _0801:
     getpartycount(VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 6) {
         touchscreenmenushow
-        npcmsg(msg_0451_T01R0301_00051)
+        npcmsg("Huh?\n"
+               "You have no room for it right now.\r"
+               "Come back when you’ve made room.")
         waitbuttonpress
         closemessage
         releaseall
@@ -528,13 +807,15 @@ _0801:
     }
     bufferplayersname(0)
     bufferspeciesname(1, VAR_SPECIAL_x8004, 0, 0)
-    npcmsg(msg_0451_T01R0301_00046)
-    npcmsg(msg_0451_T01R0301_00048)
+    npcmsg("This Pokémon is really quite energetic!\r")
+    npcmsg("{STRVAR_1 3, 0, 0} received the\n"
+           "{STRVAR_1 0, 1, 0} from Professor Oak!")
     playfanfare(SEQ_ME_POKEGET)
     waitfanfare
     givemon(VAR_SPECIAL_x8004, 5, 0, 0, 0, VAR_SPECIAL_RESULT)
     bufferspeciesname(1, VAR_SPECIAL_x8004, 0, 0)
-    npcmsg(msg_0451_T01R0301_00049)
+    npcmsg("Would you like to give a nickname to\n"
+           "the {STRVAR_1 0, 1, 0} you received? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     closemessage
@@ -561,7 +842,13 @@ _0801:
         applymovement(obj_player, Pallet_TownOaksLab_Movement_09CC)
         waitmovement
     }
-    npcmsg(msg_0451_T01R0301_00052)
+    npcmsg("Professor Oak: If a wild Pokémon\n"
+           "appears, your Pokémon can battle it.\r"
+           "With it at your side, you should be able\n"
+           "to reach the next town...\r"
+           "What am I saying?\n"
+           "You already know all this!\f"
+           "Hahaha!")
     waitbuttonpress
     closemessage
     releaseall
@@ -577,14 +864,16 @@ _0929:
     waitfade
     touchscreenmenuhide
     bufferpartymonnick(1, VAR_SPECIAL_x8005)
-    npcmsg(msg_0451_T01R0301_00050)
+    npcmsg("Is {STRVAR_1 1, 1, 0} the nickname\n"
+           "you want to give? {YESNO 0}")
     getmenuchoice(VAR_SPECIAL_RESULT)
     closemessage
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0929) }
     return
 _096C:
     closepokemonpicwindow
-    npcmsg(msg_0451_T01R0301_00047)
+    npcmsg("No need to hurry.\n"
+           "Take your time.")
     waitbuttonpress
     closemessage
     touchscreenmenushow
@@ -595,7 +884,9 @@ _097B:
     end
 _097D:
     bufferrivalsname(1)
-    npcmsg(msg_0451_T01R0301_00054)
+    npcmsg("This is Professor Oak’s Pokémon.\n"
+           "{STRVAR_1 3, 1, 0} will probably not\f"
+           "steal it like before...")
     waitbuttonpress
     closemessage
     releaseall

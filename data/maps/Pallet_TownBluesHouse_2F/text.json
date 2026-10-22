@@ -3,14 +3,11 @@
   "messages": [
     {
       "id": "msg_0450_T01R0202_00000",
-      "en_US": [
-        "It’s a Wii!\n",
-        "Wii is huge in Kanto, too!"
-      ]
+      "from": "scr_seq_T01R0202_000#0"
     },
     {
       "id": "msg_0450_T01R0202_00001",
-      "en_US": "...The power is turned off."
+      "from": "scr_seq_T01R0202_001#0"
     }
   ]
 }

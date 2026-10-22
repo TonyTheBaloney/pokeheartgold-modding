@@ -547,7 +547,9 @@ movement MountMoon_Square_ClefairyEvent_Movement_07B8 {
 }
 
 script scr_seq_D02R0104_001 {
-    trainertipsex(2, msg_0051_D02R0104_00001)
+    trainertipsex(2, "This is Mt. Moon Square.\r"
+                     "Please don’t litter. Put trash\n"
+                     "where it belongs!")
     end
 }
 
@@ -570,13 +572,15 @@ _07E9:
         giveitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
         bufferplayersname(0)
         bufferitemname(1, VAR_SPECIAL_x8004)
-        npcmsg(msg_0051_D02R0104_00002)
+        npcmsg("{STRVAR_1 3, 0, 0} found\n"
+               "{STRVAR_1 8, 1, 0}!")
         waitfanfare
         bufferplayersname(0)
         bufferitemname(1, VAR_SPECIAL_x8004)
         getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
         bufferpocketname(2, VAR_SPECIAL_RESULT)
-        npcmsg(msg_0051_D02R0104_00003)
+        npcmsg("{STRVAR_1 3, 0, 0} put the {STRVAR_1 8, 1, 0}\n"
+               "in the {COLOR 2}{STRVAR_1 31, 2, 0}{COLOR 0} Pocket.")
         waitbuttonpress
         setvar(VAR_SPECIAL_RESULT, 1)
     _0860:
@@ -586,7 +590,9 @@ _07E9:
     }
     if (var(VAR_SPECIAL_RESULT) == 0) {
         bufferitemname(0, VAR_SPECIAL_x8004)
-        npcmsg(msg_0051_D02R0104_00004)
+        npcmsg("Obtained the {STRVAR_1 8, 0, 0}!\r"
+               "Too bad!\n"
+               "The Bag is full...")
         waitbuttonpress
         setvar(VAR_SPECIAL_RESULT, 0)
         goto(_0860)
@@ -598,7 +604,7 @@ _07E9:
 script scr_seq_D02R0104_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0051_D02R0104_00005)
+    npcmsg("We are closed for the day.")
     waitbuttonpress
     closemessage
     releaseall

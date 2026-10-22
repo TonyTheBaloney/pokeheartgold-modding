@@ -21,7 +21,9 @@ scrdefs {
 script scr_seq_D22R0102_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00003)
+    npcmsg("Don: I’m going to\n"
+           "win! Don’t bother\f"
+           "me.")
     waitbuttonpress
     closemessage
     releaseall
@@ -31,7 +33,9 @@ script scr_seq_D22R0102_003 {
 script scr_seq_D22R0102_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00006)
+    npcmsg("Ed: My PARASECT\n"
+           "puts Pokémon to\f"
+           "sleep with Spore.")
     waitbuttonpress
     closemessage
     releaseall
@@ -41,7 +45,8 @@ script scr_seq_D22R0102_004 {
 script scr_seq_D22R0102_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00009)
+    npcmsg("Abby: I am training my Pokémon to raise\n"
+           "its Speed to prepare for the Contest.")
     waitbuttonpress
     closemessage
     releaseall
@@ -51,7 +56,11 @@ script scr_seq_D22R0102_005 {
 script scr_seq_D22R0102_006 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00012)
+    npcmsg("William: I’m not\n"
+           "concerned about\f"
+           "winning.\r"
+           "I’m just looking\n"
+           "for rare Pokémon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -61,7 +70,10 @@ script scr_seq_D22R0102_006 {
 script scr_seq_D22R0102_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00015)
+    npcmsg("Benny: Ssh! You’ll\n"
+           "scare off Pokémon.\r"
+           "I’ll talk to you\n"
+           "later.")
     waitbuttonpress
     closemessage
     releaseall
@@ -71,7 +83,10 @@ script scr_seq_D22R0102_007 {
 script scr_seq_D22R0102_008 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00018)
+    npcmsg("Barry: You should\n"
+           "weaken bug Pokémon\f"
+           "first, then throw\f"
+           "a Ball.")
     waitbuttonpress
     closemessage
     releaseall
@@ -81,7 +96,8 @@ script scr_seq_D22R0102_008 {
 script scr_seq_D22R0102_009 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00021)
+    npcmsg("Cindy: I really love Bug-type\n"
+           "Pokémon!")
     waitbuttonpress
     closemessage
     releaseall
@@ -91,7 +107,9 @@ script scr_seq_D22R0102_009 {
 script scr_seq_D22R0102_010 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00024)
+    npcmsg("Josh: I’ve been collecting Bug-type\n"
+           "Pokémon since I was just a baby.\r"
+           "There’s no way I’m going to lose!")
     waitbuttonpress
     closemessage
     releaseall
@@ -101,7 +119,8 @@ script scr_seq_D22R0102_010 {
 script scr_seq_D22R0102_011 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00027)
+    npcmsg("Samuel: If you’ve got the time to\n"
+           "chat, go find some bug Pokémon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -111,7 +130,8 @@ script scr_seq_D22R0102_011 {
 script scr_seq_D22R0102_012 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0063_D22R0102_00030)
+    npcmsg("Kipp: I’ve studied about bug Pokémon\n"
+           "a lot. I’m going to win for sure.")
     waitbuttonpress
     closemessage
     releaseall
@@ -119,17 +139,25 @@ script scr_seq_D22R0102_012 {
 }
 
 script scr_seq_D22R0102_000 {
-    trainertipsex(2, msg_0063_D22R0102_00000)
+    trainertipsex(2, "Relaxation Square for Everyone\n"
+                     "National Park")
     end
 }
 
 script scr_seq_D22R0102_001 {
-    trainertipsex(3, msg_0063_D22R0102_00001)
+    trainertipsex(3, "What is this notice?\r"
+                     "Please battle only in the park grass.\r"
+                     "National Park\n"
+                     "Warden’s Office")
     end
 }
 
 script scr_seq_D22R0102_002 {
-    trainertipsex(3, msg_0063_D22R0102_00002)
+    trainertipsex(3, "What is this notice?\r"
+                     "No ball playing allowed\n"
+                     "other than Poké Balls.\r"
+                     "National Park\n"
+                     "Warden’s Office")
     end
 }
 

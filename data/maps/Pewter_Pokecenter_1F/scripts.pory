@@ -12,13 +12,20 @@ script scr_seq_T03PC0101_001 {
     lockall
     faceplayer
     if (flag(FLAG_TRADE_PEWTER_CITY_HAUNTER_XATU)) {
-        npcmsg(msg_0463_T03PC0101_00007)
+        npcmsg("How do you like the cool XATU\n"
+               "I traded you?\r"
+               "It’s so cool, because it used to be\n"
+               "with cool me!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0463_T03PC0101_00003)
+    npcmsg("Aw...\n"
+           "If only I had a HAUNTER...\r"
+           "If you have a HAUNTER,\n"
+           "you will trade it for my XATU,\f"
+           "won’t you? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -40,20 +47,27 @@ script scr_seq_T03PC0101_001 {
     npctradeexec(VAR_SPECIAL_x8004)
     npctradeend
     setflag(FLAG_TRADE_PEWTER_CITY_HAUNTER_XATU)
-    npcmsg(msg_0463_T03PC0101_00004)
+    npcmsg("How wonderful! You made my day!\r"
+           "Thanks to you, I have finally got the\n"
+           "Pokémon I’ve been looking for...\f"
+           "since forever!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00B1:
     npctradeend
-    npcmsg(msg_0463_T03PC0101_00005)
+    npcmsg("It has to be a HAUNTER!\r"
+           "HAUNTER!!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00BE:
-    npcmsg(msg_0463_T03PC0101_00006)
+    npcmsg("You’d never turn down a trade\n"
+           "if you had a HAUNTER.\r"
+           "That means you just don’t have one.\n"
+           "That must be it...")
     waitbuttonpress
     closemessage
     releaseall
@@ -61,7 +75,10 @@ _00BE:
 }
 
 script scr_seq_T03PC0101_002 {
-    simplenpcmsg(msg_0463_T03PC0101_00000)
+    simplenpcmsg("...Yeah, and the Gym in Cinnabar’s\n"
+                 "gone. I was really amazed.\r"
+                 "...Yes? I’m on the phone.\n"
+                 "Go away!")
     end
 }
 
@@ -70,7 +87,7 @@ script scr_seq_T03PC0101_003 {
     lockall
     faceplayer
     playcry(SPECIES_JIGGLYPUFF, 0)
-    npcmsg(msg_0463_T03PC0101_00001)
+    npcmsg("JIGGLYPUFF: Puu pupuu.")
     waitcry
     waitbuttonpress
     closemessage
@@ -79,7 +96,10 @@ script scr_seq_T03PC0101_003 {
 }
 
 script scr_seq_T03PC0101_004 {
-    simplenpcmsg(msg_0463_T03PC0101_00002)
+    simplenpcmsg("Most Pokémon get drowsy if they\n"
+                 "hear a JIGGLYPUFF singing.\r"
+                 "There are several moves that can be\n"
+                 "used only while a Pokémon is asleep.")
     end
 }
 

@@ -18,9 +18,12 @@ script scr_seq_T25R1003_001 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0594_T25R1003_00001)
+        npcmsg("Oh my...\n"
+               "Team Rocket has reached here already!")
     } else {
-        npcmsg(msg_0594_T25R1003_00000)
+        npcmsg("I-I-I’m really impatient!\r"
+               "I use X Speed in battle to speed up\n"
+               "my Pokémon.")
     }
     waitbuttonpress
     closemessage
@@ -33,9 +36,13 @@ script scr_seq_T25R1003_002 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0594_T25R1003_00003)
+        npcmsg("I never thought about it, but\n"
+               "Team Rocket does go shopping...")
     } else {
-        npcmsg(msg_0594_T25R1003_00002)
+        npcmsg("Hey! When you battle, do you use\n"
+               "X Special?\r"
+               "It’s awesome. It really jacks up\n"
+               "Special Attack!")
     }
     waitbuttonpress
     closemessage
@@ -46,7 +53,8 @@ script scr_seq_T25R1003_002 {
 script scr_seq_T25R1003_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0594_T25R1003_00004)
+    npcmsg("For Victory Seekers\n"
+           "3F Battle Collection")
     waitbuttonpress
     closemessage
     releaseall

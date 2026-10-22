@@ -3,67 +3,47 @@
   "messages": [
     {
       "id": "msg_0052_D10R0101_00000",
-      "en_US": [
-        "You haven’t caught all your\n",
-        "Pokémon yet, but...\r",
-        "Would you like to retire from your\n",
-        "Catching Show?"
-      ]
+      "from": "_0180#0"
     },
     {
       "id": "msg_0052_D10R0101_00001",
-      "en_US": [
-        "I see...\r",
-        "I’m disappointed that you dropped\n",
-        "out. Make up for it next time!\r"
-      ]
+      "from": "_0180#1"
     },
     {
       "id": "msg_0052_D10R0101_00002",
-      "en_US": [
-        "That’s the spirit, {STRVAR_1 3, 0, 0}!\n",
-        "I like how you don’t give up!"
-      ]
+      "from": "_0180#2"
     },
     {
       "id": "msg_0052_D10R0101_00003",
-      "en_US": [
-        "That’s the spirit, {STRVAR_1 3, 0, 0}!\n",
-        "I like how you don’t give up!"
-      ]
+      "from": "_0180#3"
     },
     {
       "id": "msg_0052_D10R0101_00004",
-      "en_US": [
-        "Ding-dong!\n",
-        "Congratulations!\r",
-        "{STRVAR_1 3, 0, 0} has successfully\n",
-        "caught the stocked Pokémon!\r"
-      ]
+      "from": "scr_seq_D10R0101_002#0"
     },
     {
       "id": "msg_0052_D10R0101_00005",
-      "en_US": "Would you like to retire?"
+      "from": "scr_seq_D10R0101_003#0"
     },
     {
       "id": "msg_0052_D10R0101_00006",
-      "en_US": "Let the countdown begin!"
+      "from": "scr_seq_D10R0101_001#0"
     },
     {
       "id": "msg_0052_D10R0101_00007",
-      "en_US": "Three..."
+      "from": "scr_seq_D10R0101_001#1"
     },
     {
       "id": "msg_0052_D10R0101_00008",
-      "en_US": "Two..."
+      "from": "scr_seq_D10R0101_001#2"
     },
     {
       "id": "msg_0052_D10R0101_00009",
-      "en_US": "One..."
+      "from": "scr_seq_D10R0101_001#3"
     },
     {
       "id": "msg_0052_D10R0101_00010",
-      "en_US": "Start!"
+      "from": "scr_seq_D10R0101_001#4"
     }
   ]
 }

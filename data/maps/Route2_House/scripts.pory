@@ -6,7 +6,12 @@ script scr_seq_R02R0201_000 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_NUGGET_FROM_ROUTE_2_MAN)) {
-        npcmsg(msg_0322_R02R0201_00000)
+        npcmsg("Oh my good nuggets!\n"
+               "You’re the first visitor I’ve had in a\f"
+               "long time.\r"
+               "I’m going crazy with joy!\n"
+               "Since you look as bright as a Nugget,\f"
+               "let me give you a little present.\r")
         if (!itemspace(ITEM_NUGGET, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -16,7 +21,9 @@ script scr_seq_R02R0201_000 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_NUGGET_FROM_ROUTE_2_MAN)
     }
-    npcmsg(msg_0322_R02R0201_00002)
+    npcmsg("That’s a Nugget.\r"
+           "I can’t give you any nuggets of wisdom,\n"
+           "so that’ll have to do!")
     waitbuttonpress
     closemessage
     releaseall

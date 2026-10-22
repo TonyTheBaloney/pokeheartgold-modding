@@ -10,13 +10,15 @@ script scr_seq_T22R0601_001 {
     lockall
     faceplayer
     if (flag(FLAG_TRADE_VIOLET_CITY_BELLSPROUT_ONIX)) {
-        npcmsg(msg_0562_T22R0601_00005)
+        npcmsg("Hi, how’s my old ONIX doing?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0562_T22R0601_00001)
+    npcmsg("I collect Pokémon.\n"
+           "Do you have BELLSPROUT?\r"
+           "Want to trade it for my ONIX? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -40,20 +42,22 @@ _0041:
     npctradeexec(VAR_SPECIAL_x8004)
     npctradeend
     setflag(FLAG_TRADE_VIOLET_CITY_BELLSPROUT_ONIX)
-    npcmsg(msg_0562_T22R0601_00002)
+    npcmsg("Yay! I got myself BELLSPROUT!\n"
+           "Thanks!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00A5:
     npctradeend
-    npcmsg(msg_0562_T22R0601_00003)
+    npcmsg("Huh? That’s not BELLSPROUT.\f"
+           "What a letdown...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00B2:
-    npcmsg(msg_0562_T22R0601_00004)
+    npcmsg("You don’t want to trade? Aww...")
     waitbuttonpress
     closemessage
     releaseall
@@ -61,7 +65,10 @@ _00B2:
 }
 
 script scr_seq_T22R0601_002 {
-    simplenpcmsg(msg_0562_T22R0601_00000)
+    simplenpcmsg("A Pokémon you get in a trade\n"
+                 "grows quickly.\r"
+                 "But if you don’t have the right Gym\n"
+                 "Badge, they may disobey you.")
     end
 }
 

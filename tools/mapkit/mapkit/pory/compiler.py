@@ -55,6 +55,7 @@ class Context:
     ids_include: str = None             # "maps/<Map>/ids.h"
     msg_header: str = None              # "msgdata/msg/msg_0550_T21.h"
     path: str = None
+    text_slots: dict = None             # "<Script>#<n>" -> message id it fills (from text.json)
 
     def __post_init__(self):
         self.command_lower = {n.lower(): n for n, m in self.macros.macros.items() if m.kind == "script"}
@@ -82,7 +83,6 @@ class ScriptEmitter:
         self.deferred = []          # [(label, stmts)]
         self.loops = []             # [(break_label, continue_label)]
         self.n = 0
-        self.text_n = 0
         self.move_n = 0
 
     def label(self, kind):
@@ -149,8 +149,9 @@ class ScriptEmitter:
         args = []
         for a in c.args:
             if isinstance(a, P.Text):
-                tid = "%s_Text_%d" % (self.name, self.text_n)
-                self.text_n += 1
+                # the n-th string of the script (source order) fills the text.json slot that
+                # names it; a string with no slot becomes a new message
+                tid = (self.comp.ctx.text_slots or {}).get(a.slot) or a.slot.replace("#", "_Text_")
                 self.comp.add_text(tid, a.value, c.line)
                 args.append(tid)
             elif isinstance(a, P.Moves):
@@ -465,6 +466,7 @@ class Compiler:
             if isinstance(it, P.Raw):
                 body.append(self._raw_text(it))
             elif isinstance(it, P.Script):
+                number_texts(it.name, it.body)
                 body.append("%s:" % it.name)
                 body += ScriptEmitter(self, it.name).run(it.body)
                 body.append("")
@@ -474,6 +476,7 @@ class Compiler:
                 body += self.movement_lines(it)  # in place, like the original files
             elif isinstance(it, P.MapScripts):
                 for name, stmts in self._inline_init_scripts(it):
+                    number_texts(name, stmts)
                     body.append("%s:" % name)
                     body += ScriptEmitter(self, name).run(stmts)
                     body.append("")
@@ -533,6 +536,30 @@ class Compiler:
             lines.append("")
         lines.append("\tInitScriptEnd")
         return "\n".join(lines) + "\n"
+
+
+def number_texts(name, body):
+    """Give each inline string of a script its slot name, "<Script>#<n>", in source order."""
+    n = 0
+
+    def walk(stmts):
+        nonlocal n
+        for s in stmts:
+            if isinstance(s, P.Command):
+                for a in s.args:
+                    if isinstance(a, P.Text):
+                        a.slot = "%s#%d" % (name, n)
+                        n += 1
+            elif isinstance(s, P.If):
+                for _, b in s.branches:
+                    walk(b)
+                walk(s.else_body or [])
+            elif isinstance(s, P.While):
+                walk(s.body)
+            elif isinstance(s, P.Switch):
+                for _, b in s.cases:
+                    walk(b)
+    walk(body)
 
 
 def compile_source(src, ctx, switches=None):

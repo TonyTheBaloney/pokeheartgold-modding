@@ -8,17 +8,25 @@ script scr_seq_T30PC0101_000 {
 }
 
 script scr_seq_T30PC0101_001 {
-    simplenpcmsg(msg_0632_T30PC0101_00000)
+    simplenpcmsg("Deep inside far-off Indigo Plateau is\n"
+                 "the Pokémon League.\r"
+                 "I hear the best Trainers gather there\n"
+                 "from around the country.")
     end
 }
 
 script scr_seq_T30PC0101_002 {
-    simplenpcmsg(msg_0632_T30PC0101_00001)
+    simplenpcmsg("There was this move I just had\n"
+                 "to teach my Pokémon.\r"
+                 "So I got the Move Deleter to make it\n"
+                 "forget an HM move.")
     end
 }
 
 script scr_seq_T30PC0101_003 {
-    simplenpcmsg(msg_0632_T30PC0101_00002)
+    simplenpcmsg("They say that behind the Pokémon Gym is\n"
+                 "a special cave for Gym Leaders to train\f"
+                 "themselves.")
     end
 }
 

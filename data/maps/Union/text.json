@@ -39,27 +39,19 @@
     },
     {
       "id": "msg_0738_UNION_00008",
-      "en_US": "The chat has been dropped."
+      "from": "scr_seq_UNION_004#20"
     },
     {
       "id": "msg_0738_UNION_00009",
-      "en_US": [
-        "Awaiting a response from\n",
-        "{STRVAR_1 3, 0, 0}..."
-      ]
+      "from": "scr_seq_UNION_004#0"
     },
     {
       "id": "msg_0738_UNION_00010",
-      "en_US": "The chat was ended."
+      "from": "scr_seq_UNION_004#21"
     },
     {
       "id": "msg_0738_UNION_00011",
-      "en_US": [
-        "You have an offer to see\n",
-        "{STRVAR_1 3, 0, 0}’s Trainer Card.\r",
-        "Would you like to show your\n",
-        "Trainer Card? {YESNO 0}"
-      ]
+      "from": "scr_seq_UNION_004#1"
     },
     {
       "id": "msg_0738_UNION_00012",
@@ -95,92 +87,67 @@
     },
     {
       "id": "msg_0738_UNION_00016",
-      "en_US": "Waiting for the other player to finish."
+      "from": "scr_seq_UNION_003#1"
     },
     {
       "id": "msg_0738_UNION_00017",
-      "en_US": "You declined the offer."
+      "from": "scr_seq_UNION_004#2"
     },
     {
       "id": "msg_0738_UNION_00018",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} has invited you to draw\n",
-        "something.\r",
-        "Would you like to join the other\n",
-        "player and draw? {YESNO 0}"
-      ]
+      "from": "scr_seq_UNION_004#15"
     },
     {
       "id": "msg_0738_UNION_00019",
-      "en_US": "Let’s get drawing!"
+      "from": "scr_seq_UNION_004#16"
     },
     {
       "id": "msg_0738_UNION_00020",
-      "en_US": "You declined the invitation."
+      "from": "scr_seq_UNION_004#5"
     },
     {
       "id": "msg_0738_UNION_00021",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} challenges you to\n",
-        "a battle.\r",
-        "Will you accept the battle\n",
-        "challenge? {YESNO 0}"
-      ]
+      "from": "scr_seq_UNION_004#7"
     },
     {
       "id": "msg_0738_UNION_00022",
-      "en_US": "The battle will be started."
+      "from": "scr_seq_UNION_004#8"
     },
     {
       "id": "msg_0738_UNION_00023",
-      "en_US": "You declined to take part."
+      "from": "scr_seq_UNION_004#9"
     },
     {
       "id": "msg_0738_UNION_00024",
-      "en_US": [
-        "For a battle, you need two\n",
-        "Pokémon that are Lv. 30 or below."
-      ]
+      "from": "scr_seq_UNION_004#10"
     },
     {
       "id": "msg_0738_UNION_00025",
-      "en_US": "The battle has been canceled."
+      "from": "scr_seq_UNION_004#19"
     },
     {
       "id": "msg_0738_UNION_00026",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} has offered to\n",
-        "make a trade.\r",
-        "Will you accept this trade offer? {YESNO 0}"
-      ]
+      "from": "scr_seq_UNION_004#3"
     },
     {
       "id": "msg_0738_UNION_00027",
-      "en_US": "The trade will be started."
+      "from": "scr_seq_UNION_004#4"
     },
     {
       "id": "msg_0738_UNION_00028",
-      "en_US": "You declined the offer."
+      "from": "scr_seq_UNION_004#17"
     },
     {
       "id": "msg_0738_UNION_00029",
-      "en_US": [
-        "For trading, you must have at\n",
-        "least two Pokémon with you."
-      ]
+      "from": "scr_seq_UNION_004#6"
     },
     {
       "id": "msg_0738_UNION_00030",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} invites you to mix\n",
-        "records.\r",
-        "Would you like to mix records with\n",
-        "the other player? {YESNO 0}"
-      ]
+      "from": "scr_seq_UNION_004#11"
     },
     {
       "id": "msg_0738_UNION_00031",
-      "en_US": "Record mixing will be started."
+      "from": "scr_seq_UNION_004#12"
     },
     {
       "id": "msg_0738_UNION_00032",
@@ -188,27 +155,19 @@
     },
     {
       "id": "msg_0738_UNION_00033",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} has invited you to join\n",
-        "a Spin Trade session.\r",
-        "Would you like to take part in the\n",
-        "Spin Trade? {YESNO 0}"
-      ]
+      "from": "scr_seq_UNION_004#13"
     },
     {
       "id": "msg_0738_UNION_00034",
-      "en_US": "Starting the Spin Trade!"
+      "from": "scr_seq_UNION_004#14"
     },
     {
       "id": "msg_0738_UNION_00035",
-      "en_US": "You declined the invitation."
+      "from": "scr_seq_UNION_004#18"
     },
     {
       "id": "msg_0738_UNION_00036",
-      "en_US": [
-        "You don’t have an Egg.\n",
-        "The invitation was turned down."
-      ]
+      "from": "scr_seq_UNION_003#2"
     },
     {
       "id": "msg_0738_UNION_00037",
@@ -1000,93 +959,39 @@
     },
     {
       "id": "msg_0738_UNION_00157",
-      "en_US": [
-        "Welcome to the Union Room.\r",
-        "If there is anything you need help\n",
-        "with, please let me know! {YESNO 0}"
-      ]
+      "from": "scr_seq_UNION_007#1"
     },
     {
       "id": "msg_0738_UNION_00158",
-      "en_US": "How may I help you? {YESNO 0}"
+      "from": "scr_seq_UNION_007#0"
     },
     {
       "id": "msg_0738_UNION_00159",
-      "en_US": [
-        "Which topic would you\n",
-        "like me to explain? {YESNO 0}"
-      ]
+      "from": "scr_seq_UNION_007#2"
     },
     {
       "id": "msg_0738_UNION_00160",
-      "en_US": [
-        "In the Union Room, you may battle\n",
-        "with two Pokémon of your choice\f",
-        "that are Lv. 30 or lower.\r",
-        "When you visit here, we recommend\n",
-        "that you bring Pokémon that\f",
-        "meet this requirement.\r"
-      ]
+      "from": "scr_seq_UNION_007#3"
     },
     {
       "id": "msg_0738_UNION_00161",
-      "en_US": [
-        "You may trade your Pokémon with\n",
-        "other players.\r",
-        "Meeting new people could be a\n",
-        "shortcut to meeting rare Pokémon!\r"
-      ]
+      "from": "scr_seq_UNION_007#4"
     },
     {
       "id": "msg_0738_UNION_00162",
-      "en_US": [
-        "You may communicate with other\n",
-        "players and mix your records.\r",
-        "What will happen if you mix records,\n",
-        "you ask?\r",
-        "We recommend that you try it and\n",
-        "see!\r",
-        "Up to five players can take part,\n",
-        "so try it with your friends!\r"
-      ]
+      "from": "scr_seq_UNION_007#5"
     },
     {
       "id": "msg_0738_UNION_00163",
-      "en_US": [
-        "In a Spin Trade, participants each bring\n",
-        "an Egg for trading with others.\r",
-        "Which Egg will you end up with?\n",
-        "What kind of Pokémon is in that Egg?\f",
-        "It’s quite exciting and fun!\r",
-        "Up to five players can take part, so\n",
-        "try it with your friends!\r"
-      ]
+      "from": "scr_seq_UNION_007#8"
     },
     {
       "id": "msg_0738_UNION_00164",
-      "en_US": [
-        "You may get together with others\n",
-        "and draw.\r",
-        "You all get to work on one sheet\n",
-        "of paper at the same time.\r",
-        "I’m sure a drawing made by friends\n",
-        "will be a memorable masterpiece!\r",
-        "Up to five players can take part,\n",
-        "so try it with your friends!\r"
-      ]
+      "from": "scr_seq_UNION_007#6"
     },
     {
       "id": "msg_0738_UNION_00165",
-      "en_US": [
-        "You can chat with other people\n",
-        "by selecting “CHAT” in the menu.\r",
-        "Go out and meet other players in\n",
-        "the Union Room!\r",
-        "Let people know what you’re like\n",
-        "and what you’d like to do.\r",
-        "Mingle, chat, and add to your\n",
-        "circle of friends!\r"
-      ]
+      "from": "scr_seq_UNION_007#7"
     },
     {
       "id": "msg_0738_UNION_00166",
@@ -1370,7 +1275,7 @@
     },
     {
       "id": "msg_0738_UNION_00199",
-      "en_US": "Talking to {STRVAR_1 3, 0, 0}..."
+      "from": "scr_seq_UNION_003#0"
     },
     {
       "id": "msg_0738_UNION_00200",
@@ -1386,7 +1291,7 @@
     },
     {
       "id": "msg_0738_UNION_00202",
-      "en_US": "Waiting for the other player’s choice."
+      "from": "text"
     },
     {
       "id": "msg_0738_UNION_00203",
@@ -1450,10 +1355,7 @@
     },
     {
       "id": "msg_0738_UNION_00218",
-      "en_US": [
-        "Sorry, you can’t do a Spin Trade with\n",
-        "Pokémon Diamond or Pearl.\r"
-      ]
+      "from": "scr_seq_UNION_003#3"
     },
     {
       "id": "msg_0738_UNION_00219",

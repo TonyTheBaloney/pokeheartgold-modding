@@ -2,7 +2,10 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T28R0201_000 {
-    simplenpcmsg(msg_0625_T28R0201_00000)
+    simplenpcmsg("I heard that a red GYARADOS appeared\n"
+                 "at the Lake of Rage.\r"
+                 "That’s odd, since even ordinary\n"
+                 "GYARADOS are rare in that lake...")
     end
 }
 
@@ -12,14 +15,17 @@ script scr_seq_T28R0201_001 {
     faceplayer
     if (!flag(FLAG_BEAT_RADIO_TOWER_ROCKETS)) {
         if (flag(FLAG_UNK_0C5)) {
-            npcmsg(msg_0625_T28R0201_00002)
+            npcmsg("I’ve been hearing laughter on\n"
+                   "the radio...\f"
+                   "It’s creepy.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
     }
-    npcmsg(msg_0625_T28R0201_00001)
+    npcmsg("My top radio show?\n"
+           "I’d say Pokémon Music.")
     waitbuttonpress
     closemessage
     releaseall

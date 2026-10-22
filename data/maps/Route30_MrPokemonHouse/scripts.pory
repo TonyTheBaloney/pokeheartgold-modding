@@ -26,7 +26,11 @@ script scr_seq_R30R0201_001 {
     applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03B4)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0377_R30R0201_00000, msg_0377_R30R0201_00001)
+    gendermsgbox("You must be {STRVAR_1 3, 0, 0}.\r"
+                 "It was I who sent an email\n"
+                 "to Professor Elm earlier.\r", "You must be {STRVAR_1 3, 0, 0}.\r"
+                                                "It was I who sent an email\n"
+                                                "to Professor Elm earlier.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -39,10 +43,22 @@ script scr_seq_R30R0201_001 {
     followingpokemonmovement(48)
     applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03E4)
     waitmovement
-    npcmsg(msg_0377_R30R0201_00002)
+    npcmsg("This is what I want Professor Elm\n"
+           "to examine.\r")
     giveitemnocheck(ITEM_MYSTERY_EGG, 1)
-    npcmsg(msg_0377_R30R0201_00003)
-    npcmsg(msg_0377_R30R0201_00004)
+    npcmsg("A friend of mine from Ecruteak gave\n"
+           "it to me.\r"
+           "I bet you can’t find this kind of\n"
+           "Egg in Johto.\r"
+           "I thought Professor Elm might be able\n"
+           "to tell what this is.\r"
+           "“He’s the best when it comes to the\n"
+           "research of Pokémon evolution.”\r"
+           "That’s a quote from the famous\n"
+           "Professor Oak.\r")
+    npcmsg("You are returning to Professor Elm?\r"
+           "Here. Your Pokémon should have\n"
+           "some rest.\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -65,7 +81,9 @@ script scr_seq_R30R0201_000 {
     }
     if (flag(FLAG_EXCHANGED_RED_SCALE)) {
         if (!flag(FLAG_UNK_107)) { goto(_011F) }
-        npcmsg(msg_0377_R30R0201_00007)
+        npcmsg("Kimono Girls? What’re you talking\n"
+               "about? I don’t know such people.\f"
+               "Hee hee...\r")
         closemessage
         getplayerfacing(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 2) {
@@ -81,20 +99,36 @@ script scr_seq_R30R0201_000 {
     }
     if (flag(FLAG_GOT_RED_SCALE)) { goto(_012A) }
     if (var(VAR_SCENE_MR_POKEMONS_HOUSE) >= 2) { goto(_011F) }
-    npcmsg(msg_0377_R30R0201_00005)
+    npcmsg("Sorry to trouble you, having you go\n"
+           "back and forth.\r"
+           "But please make sure to hand it to\n"
+           "Professor Elm!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _011F:
-    npcmsg(msg_0377_R30R0201_00006)
+    npcmsg("Life is delightful!\n"
+           "Always, new discoveries to be made!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _012A:
     bufferplayersname(0)
-    gendermsgbox(msg_0377_R30R0201_00016, msg_0377_R30R0201_00017)
+    gendermsgbox("Hm? That Red Scale! What’s that?\n"
+                 "A red GYARADOS?\f"
+                 "That’s rare! I... I want it...\r"
+                 "{STRVAR_1 3, 0, 0}, would you\n"
+                 "care to trade it?\r"
+                 "I can offer this Exp. Share I got\n"
+                 "from Professor Oak. {YESNO 0}", "Hm? That Red Scale! What’s that?\n"
+                                                  "A red GYARADOS?\f"
+                                                  "That’s rare! I... I want it...\r"
+                                                  "{STRVAR_1 3, 0, 0}, would you\n"
+                                                  "care to trade it?\r"
+                                                  "I can offer this Exp. Share I got\n"
+                                                  "from Professor Oak. {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -107,13 +141,14 @@ _012A:
     releaseall
     end
 _0189:
-    npcmsg(msg_0377_R30R0201_00020)
+    npcmsg("That’s disappointing.\n"
+           "That happens to be very rare.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0194:
-    npcmsg(msg_0377_R30R0201_00019)
+    npcmsg("Arrgh, I reckon yer Bag’s full.")
     waitbuttonpress
     closemessage
     releaseall
@@ -150,7 +185,13 @@ script scr_seq_R30R0201_002 {
     applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_02D8)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0377_R30R0201_00021, msg_0377_R30R0201_00022)
+    gendermsgbox("Hi, {STRVAR_1 3, 0, 0}!\r"
+                 "I have something I want you to have\n"
+                 "and was just about to send an email\f"
+                 "to Professor Oak.\r", "Hi, {STRVAR_1 3, 0, 0}!\r"
+                                        "I have something I want you to have\n"
+                                        "and was just about to send an email\f"
+                                        "to Professor Oak.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -161,7 +202,9 @@ script scr_seq_R30R0201_002 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0377_R30R0201_00023)
+    npcmsg("The thing is...\n"
+           "A friend of mine from Hoenn\f"
+           "came over to give this to me.\r")
     closemessage
     applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03E4)
     waitmovement
@@ -175,13 +218,28 @@ script scr_seq_R30R0201_002 {
     setvar(VAR_SPECIAL_x8005, 1)
     callstd(std_give_item_verbose)
     closemessage
-    npcmsg(msg_0377_R30R0201_00026)
+    npcmsg("That Orb has something to do with\n"
+           "the ancient ruins located past\f"
+           "Cianwood City, called the\f"
+           "Embedded Tower.\r"
+           "But only a handful of Trainers can\n"
+           "reach there...\r"
+           "That’s where you come in.\r"
+           "Professor Oak thinks highly of you,\n"
+           "and you are the proud Champion\f"
+           "after all.\r"
+           "I’m sure you can solve the mystery\n"
+           "of the Orb and the secret of the ruins.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _02CD:
-    npcmsg(msg_0377_R30R0201_00027)
+    npcmsg("The Embedded Tower is past Cianwood,\n"
+           "somewhere in the Cliff Cave.\r"
+           "Or so I heard.\r"
+           "Or so I remember.\r"
+           "Or so I believe!")
     waitbuttonpress
     closemessage
     releaseall
@@ -201,26 +259,73 @@ script(local) _02E8 {
     applymovement(obj_player, Route30_MrPokemonHouse_Movement_0414)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0377_R30R0201_00008, msg_0377_R30R0201_00009)
+    gendermsgbox("Professor Oak: And with that...\r"
+                 "I’m Professor Oak, a Pokémon\n"
+                 "researcher!\r"
+                 "So you’re {STRVAR_1 3, 0, 0}!\r"
+                 "I was just visiting my friend\n"
+                 "Mr. Pokémon.\r"
+                 "I heard you were running an errand\n"
+                 "for Professor Elm, so I waited here.\r", "Professor Oak: And with that...\r"
+                                                           "I’m Professor Oak, a Pokémon\n"
+                                                           "researcher!\r"
+                                                           "So you’re {STRVAR_1 3, 0, 0}!\r"
+                                                           "I was just visiting my friend\n"
+                                                           "Mr. Pokémon.\r"
+                                                           "I heard you were running an errand\n"
+                                                           "for Professor Elm, so I waited here.\r")
     closemessage
     applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0438)
     waitmovement
-    npcmsg(msg_0377_R30R0201_00010)
+    npcmsg("Professor Oak: Oh! What’s this?\n"
+           "A rare Pokémon!\r"
+           "I see!\n"
+           "You must be helping Professor Elm’s\f"
+           "research! I think I understand why\f"
+           "Professor Elm gave you that Pokémon.\r"
+           "You will treat your Pokémon with love\n"
+           "and care, it seems.\r")
     closemessage
     applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0444)
     waitmovement
-    npcmsg(msg_0377_R30R0201_00011)
+    npcmsg("Professor Oak: ...Ah!\r"
+           "You seem to be dependable.\n"
+           "How would you like to help me out?\r"
+           "See? This is the latest version of\n"
+           "the Pokédex.\r"
+           "It automatically records data on\n"
+           "Pokémon you’ve seen or caught.\r"
+           "It’s a high-tech encyclopedia!\n"
+           "I’d like you to have it.\r")
     bufferplayersname(0)
-    npcmsg(msg_0377_R30R0201_00012)
+    npcmsg("{STRVAR_1 3, 0, 0} received the Pokédex\n"
+           "from Professor Oak!")
     givepokedex
     setflag(FLAG_GOT_POKEDEX)
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
     setmysterygiftactive
-    gendermsgbox(msg_0377_R30R0201_00013, msg_0377_R30R0201_00014)
+    gendermsgbox("Go meet many kinds of Pokémon and\n"
+                 "complete that Pokédex!\f"
+                 "But I’ve stayed too long.\r"
+                 "I have to get to Goldenrod for my\n"
+                 "usual radio show.\r"
+                 "{STRVAR_1 3, 0, 0}, I have a feeling that\n"
+                 "this is not the last time we’ll meet...\r"
+                 "Let’s exchange numbers\n"
+                 "just to be on the safe side.\r", "Go meet many kinds of Pokémon and\n"
+                                                   "complete that Pokédex!\f"
+                                                   "But I’ve stayed too long.\r"
+                                                   "I have to get to Goldenrod for my\n"
+                                                   "usual radio show.\r"
+                                                   "{STRVAR_1 3, 0, 0}, I have a feeling that\n"
+                                                   "this is not the last time we’ll meet...\r"
+                                                   "Let’s exchange numbers\n"
+                                                   "just to be on the safe side.\r")
     closemessage
     bufferplayersname(0)
-    npcmsg(msg_0377_R30R0201_00015)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Professor Oak\n"
+           "in the Pokégear!\r")
     registergearnumber(PHONE_CONTACT_PROF__OAK)
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare

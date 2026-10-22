@@ -63,21 +63,11 @@
     },
     {
       "id": "msg_0394_R38_00015",
-      "en_US": [
-        "Rt. 38\n",
-        "South to Olivine City"
-      ]
+      "from": "scr_seq_R38_001#0"
     },
     {
       "id": "msg_0394_R38_00016",
-      "en_US": [
-        "Trainer Tips\r",
-        "If a Pokémon is trying to evolve,\n",
-        "you can stop it.\r",
-        "Press the B Button during evolution.\r",
-        "That startles the Pokémon and stops\n",
-        "its evolution."
-      ]
+      "from": "scr_seq_R38_002#0"
     }
   ]
 }

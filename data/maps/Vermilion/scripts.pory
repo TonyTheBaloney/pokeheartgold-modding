@@ -48,31 +48,53 @@ script scr_seq_T06_013 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0483_T06_00016)
+    npcmsg("Hi!\n"
+           "My name is Steven.\f"
+           "The Champion from the Hoenn region.\r"
+           "Have we met...before?\r"
+           "That’s not possible.\n"
+           "All the Trainers I have battled\f"
+           "seem to have the same look, anyway.\r"
+           "Especially the ones who gave me\n"
+           "tough battles...\r")
     closemessage
     applymovement(obj_T06_daigo, Vermilion_Movement_0180)
     waitmovement
     getgameversion(VAR_TEMP_x4004)
     if (var(VAR_TEMP_x4004) == 8) {
         showpokemonpicwindow(SPECIES_LATIOS, 0)
-        npcmsg(msg_0483_T06_00018)
+        npcmsg("Steven: By the way, have you heard of\n"
+               "a Pokémon called LATIOS?\r"
+               "I am investigating why LATIOS,\n"
+               "a Pokémon from Hoenn, decided to\f"
+               "leave Hoenn to come here.\r")
         closemessage
         createroamer(3)
         closepokemonpicwindow
         applymovement(obj_T06_daigo, Vermilion_Movement_0180)
         waitmovement
-        npcmsg(msg_0483_T06_00020)
+        npcmsg("LATIOS is a Pokémon that has a lot\n"
+               "to do with Soul Dew, a gemlike Orb.\r"
+               "Considering the fact that LATIOS is now\n"
+               "in Kanto, it is possible to assume that\f"
+               "this has to do with Soul Dew.\r")
         closemessage
         applymovement(obj_T06_daigo, Vermilion_Movement_0180)
         waitmovement
-        npcmsg(msg_0483_T06_00022)
+        npcmsg("LATIOS is a Pokémon that travels\n"
+               "a great distance.\r"
+               "It’ll be difficult to find without any\n"
+               "machine to track it with.\r"
+               "But any Trainer will be drawn to it,\n"
+               "won’t they?\r")
         closemessage
         goto(_013F)
         end
     _013F:
         applymovement(obj_T06_daigo, Vermilion_Movement_0180)
         waitmovement
-        npcmsg(msg_0483_T06_00023)
+        npcmsg("Steven: I must go.\n"
+               "May our journeys cross again.\r")
         closemessage
         applymovement(obj_T06_daigo, Vermilion_Movement_0188)
         waitmovement
@@ -83,17 +105,30 @@ script scr_seq_T06_013 {
         end
     }
     showpokemonpicwindow(SPECIES_LATIAS, 1)
-    npcmsg(msg_0483_T06_00017)
+    npcmsg("Steven: By the way, have you heard of\n"
+           "a Pokémon called LATIAS?\r"
+           "I am investigating why LATIAS,\n"
+           "a Pokémon from Hoenn, decided to\f"
+           "leave Hoenn to come here.\r")
     closemessage
     createroamer(2)
     closepokemonpicwindow
     applymovement(obj_T06_daigo, Vermilion_Movement_0180)
     waitmovement
-    npcmsg(msg_0483_T06_00019)
+    npcmsg("LATIAS is a Pokémon that has a lot\n"
+           "to do with Soul Dew, a gemlike Orb.\r"
+           "Considering the fact that LATIAS is now\n"
+           "in Kanto, it is possible to assume that\f"
+           "this has to do with the Soul Dew.\r")
     closemessage
     applymovement(obj_T06_daigo, Vermilion_Movement_0180)
     waitmovement
-    npcmsg(msg_0483_T06_00021)
+    npcmsg("LATIAS is a Pokémon that travels\n"
+           "a great distance.\r"
+           "It’ll be difficult to find without any\n"
+           "machine to track it with.\r"
+           "But any Trainer will be drawn to it,\n"
+           "won’t they?\r")
     closemessage
     goto(_013F)
     end
@@ -126,14 +161,18 @@ script scr_seq_T06_000 {
     faceplayer
     dummy491(247)
     if (flag(FLAG_GOT_PP_MAX_FROM_VERMILLION_CITY_MAN)) {
-        npcmsg(msg_0483_T06_00009)
+        npcmsg("PP Max is a powerful item that\n"
+               "raises a move’s top PP to its maximum.\f"
+               "It can change the way you battle!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (var(VAR_UNK_4135) >= 8) {
-        npcmsg(msg_0483_T06_00007)
+        npcmsg("Congratulations!\n"
+               "You got all the Kanto Gym Badges.\r"
+               "I’ve got a reward for your efforts.\r")
         if (!itemspace(ITEM_PP_MAX, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -142,7 +181,9 @@ script scr_seq_T06_000 {
         }
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_PP_MAX_FROM_VERMILLION_CITY_MAN)
-        npcmsg(msg_0483_T06_00008)
+        npcmsg("PP Max is a powerful item that\n"
+               "raises a move’s top PP to its maximum.\f"
+               "It can change the way you battle!")
         waitbuttonpress
         closemessage
         releaseall
@@ -150,19 +191,27 @@ script scr_seq_T06_000 {
     }
     if (var(VAR_UNK_4135) >= 5) { goto(_01F4) }
     if (var(VAR_UNK_4135) >= 1) { goto(_01E9) }
-    npcmsg(msg_0483_T06_00004)
+    npcmsg("Skilled Trainers gather in Kanto.\n"
+           "Gym Leaders are especially strong.\r"
+           "They won’t be easy to defeat.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _01E9:
-    npcmsg(msg_0483_T06_00005)
+    npcmsg("You’ve started to collect Kanto\n"
+           "Gym Badges?\r"
+           "Don’t you agree that the Trainers\n"
+           "here are tough?")
     waitbuttonpress
     closemessage
     releaseall
     end
 _01F4:
-    npcmsg(msg_0483_T06_00006)
+    npcmsg("I guess you’ll be finished with your\n"
+           "conquest of Kanto Gyms soon.\r"
+           "Let me know if you get all\n"
+           "eight Badges.")
     waitbuttonpress
     closemessage
     releaseall
@@ -256,6 +305,22 @@ script scr_seq_T06_011 {
     applymovement(obj_player, Vermilion_Movement_04F0)
     waitmovement
     goto(_034D)
+}
+
+text msg_0483_T06_00014 {
+    "Eusine: That was so close!\n"
+    "I thought I could corner it by\f"
+    "ambushing it here...\r"
+    "But running on the water...\n"
+    "is beyond me.\r"
+    "Still, I am starting to see a pattern.\f"
+    "SUICUNE prefers water!\f"
+    "That means...\r"
+}
+
+text msg_0483_T06_00015 {
+    "Sorry, {STRVAR_1 3, 0, 0}!\n"
+    "I’ve got to go!\r"
 }
 
 movement Vermilion_Movement_040C {
@@ -478,17 +543,25 @@ movement Vermilion_Movement_06AC {
 }
 
 script scr_seq_T06_001 {
-    simplenpcmsg(msg_0483_T06_00000)
+    simplenpcmsg("Vermilion Port is Kanto’s\n"
+                 "seaside gateway.\r"
+                 "Luxury liners from around the world\n"
+                 "dock here.")
     end
 }
 
 script scr_seq_T06_002 {
-    simplenpcmsg(msg_0483_T06_00003)
+    simplenpcmsg("There are eight Gyms in Kanto.\r"
+                 "That big building is Vermilion’s\n"
+                 "Pokémon Gym.")
     end
 }
 
 script scr_seq_T06_003 {
-    simplenpcmsg(msg_0483_T06_00001)
+    simplenpcmsg("My Pokémon is preparing the land\n"
+                 "for construction.\r"
+                 "But I have no money to start\n"
+                 "the project.")
     end
 }
 
@@ -497,7 +570,7 @@ script scr_seq_T06_004 {
     lockall
     faceplayer
     playcry(SPECIES_MACHOP, 0)
-    npcmsg(msg_0483_T06_00002)
+    npcmsg("MACHOP: Guooh gogogoh!")
     waitcry
     waitbuttonpress
     closemessage
@@ -506,22 +579,26 @@ script scr_seq_T06_004 {
 }
 
 script scr_seq_T06_005 {
-    directionsignpostex(0, 6, msg_0483_T06_00010)
+    directionsignpostex(0, 6, "Vermilion City\n"
+                              "The Port of Exquisite Sunsets")
     end
 }
 
 script scr_seq_T06_006 {
-    trainertipsex(2, msg_0483_T06_00011)
+    trainertipsex(2, "Vermilion City Pokémon Gym\n"
+                     "Leader: Lt. Surge\f"
+                     "The Lightning American")
     end
 }
 
 script scr_seq_T06_007 {
-    trainertipsex(2, msg_0483_T06_00012)
+    trainertipsex(2, "Pokémon Fan Club\n"
+                     "All Pokémon Fans Welcome!")
     end
 }
 
 script scr_seq_T06_008 {
-    trainertipsex(2, msg_0483_T06_00013)
+    trainertipsex(2, "Vermilion Port Entrance")
     end
 }
 

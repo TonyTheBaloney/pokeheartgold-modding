@@ -115,11 +115,18 @@ script scr_seq_T29_017 {
     lockall
     faceplayer
     if (var(VAR_TEMP_x4004) >= 1) {
-        npcmsg(msg_0626_T29_00017)
+        npcmsg("Pryce: So? Will you exchange\n"
+               "numbers with me? {YESNO 0}")
         goto(_01F2)
         end
     }
-    npcmsg(msg_0626_T29_00013)
+    npcmsg("Pryce: The strong rain falling on the\n"
+           "surface seems to be agitating the\f"
+           "raging lake.\r"
+           "This must have some purpose that we\n"
+           "meet again.\r"
+           "Why don’t we exchange our phone\n"
+           "numbers? {YESNO 0}\n")
 _01F2:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -129,11 +136,16 @@ _01F2:
     end
 _0216:
     bufferplayersname(0)
-    npcmsg(msg_0626_T29_00014)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Pryce\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     registergearnumber(PHONE_CONTACT_PRYCE)
-    npcmsg(msg_0626_T29_00015)
+    npcmsg("Pryce: I make it a habit to train myself\n"
+           "on Monday mornings to give this lazy\f"
+           "body a spine.\r"
+           "You could be a good training partner.\n"
+           "I’ll be waiting for your call!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -148,7 +160,9 @@ _0216:
     end
 _0259:
     setvar(VAR_TEMP_x4004, 1)
-    npcmsg(msg_0626_T29_00016)
+    npcmsg("Pryce: That’s OK, too.\n"
+           "People ought to have their own ideas.\f"
+           "That’s the way it is.")
     waitbuttonpress
     closemessage
     releaseall
@@ -278,12 +292,17 @@ script scr_seq_T29_001 {
     end
 }
 
+text msg_0626_T29_00000 {
+    "GYARADOS: Gyashaa!"
+}
+
 script scr_seq_T29_003 {
     if (flag(FLAG_UNK_0C3)) {
         playse(SEQ_SE_DP_SELECT)
         lockall
         faceplayer
-        npcmsg(msg_0626_T29_00008)
+        npcmsg("Lance: What do you think?\n"
+               "Are you going to help me? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -293,10 +312,34 @@ script scr_seq_T29_003 {
     }
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0626_T29_00002)
+    npcmsg("That red GYARADOS wasn’t acting right.\n"
+           "As I feared, somebody must have forced\f"
+           "it to evolve...\r")
     faceplayer
     bufferplayersname(0)
-    gendermsgbox(msg_0626_T29_00003, msg_0626_T29_00004)
+    gendermsgbox("Did you come here because of the\n"
+                 "wild tales?\r"
+                 "You’re {STRVAR_1 3, 0, 0}?\n"
+                 "I’m Lance, a Trainer like you.\r"
+                 "I heard some rumblings, so I came to\n"
+                 "investigate...\r"
+                 "I saw the way you battled earlier,\n"
+                 "{STRVAR_1 3, 0, 0}.\r"
+                 "I can tell that you’re a Trainer\n"
+                 "with considerable skill.\r"
+                 "If you don’t mind, could you help me\n"
+                 "investigate? {YESNO 0}", "Did you come here because of the\n"
+                                           "wild tales?\r"
+                                           "You’re {STRVAR_1 3, 0, 0}?\n"
+                                           "I’m Lance, a Trainer like you.\r"
+                                           "I heard some rumblings, so I came to\n"
+                                           "investigate...\r"
+                                           "I saw the way you battled earlier,\n"
+                                           "{STRVAR_1 3, 0, 0}.\r"
+                                           "I can tell that you’re a Trainer\n"
+                                           "with considerable skill.\r"
+                                           "If you don’t mind, could you help me\n"
+                                           "investigate? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -305,7 +348,20 @@ script scr_seq_T29_003 {
     }
 _04BB:
     bufferplayersname(0)
-    gendermsgbox(msg_0626_T29_00005, msg_0626_T29_00006)
+    gendermsgbox("Lance: Excellent!\r"
+                 "It seems that the Lake of Rage’s\n"
+                 "MAGIKARP are being forced to evolve.\r"
+                 "A mysterious radio broadcast coming\n"
+                 "from Mahogany is probably the cause.\r"
+                 "And that suspicious souvenir shop...\r"
+                 "I’ll be waiting for you in Mahogany,\n"
+                 "{STRVAR_1 3, 0, 0}.", "Lance: Excellent!\r"
+                                        "It seems that the Lake of Rage’s\n"
+                                        "MAGIKARP are being forced\f"
+                                        "to evolve.\r"
+                                        "A mysterious radio broadcast coming\n"
+                                        "from Mahogany is the cause.\r"
+                                        "I’ll be waiting for you, {STRVAR_1 3, 0, 0}.")
     waitbuttonpress
     closemessage
     applymovement(obj_T29_tsure_poke_static_dragonite, LakeOfRage_Movement_0538)
@@ -322,7 +378,8 @@ _04BB:
     end
 _04FA:
     setflag(FLAG_UNK_0C3)
-    npcmsg(msg_0626_T29_00007)
+    npcmsg("Oh... Well, if you change your mind,\n"
+           "please help me.")
     waitbuttonpress
     closemessage
     releaseall
@@ -343,7 +400,7 @@ script scr_seq_T29_004 {
     lockall
     faceplayer
     if (flag(FLAG_ROCKET_HIDEOUT_CLEARED)) {
-        npcmsg(msg_0626_T29_00010)
+        npcmsg("Hahah! The MAGIKARP are biting!")
         waitbuttonpress
         closemessage
         releaseall
@@ -357,6 +414,11 @@ script scr_seq_T29_004 {
     end
 }
 
+text msg_0626_T29_00009 {
+    "The GYARADOS are angry!\n"
+    "It’s a bad omen!"
+}
+
 script scr_seq_T29_006 {
     if (flag(FLAG_UNK_139)) {
         playse(SEQ_SE_DP_SELECT)
@@ -366,13 +428,15 @@ script scr_seq_T29_006 {
         bufferrecordsize(0, 1, SPECIES_MAGIKARP)
         scriptoverlaycmd(0, 1)
         bufferplayersname(2)
-        trainertipsex(2, msg_0626_T29_00032)
+        trainertipsex(2, "Fishing Guru’s House\r"
+                         "Current Record\n"
+                         "{STRVAR_1 52, 0, 0}.{STRVAR_1 50, 1, 0} in. {STRVAR_1 3, 2, 0}")
         dummy486
         dummy486
         releaseall
         end
     }
-    trainertipsex(2, msg_0626_T29_00031)
+    trainertipsex(2, "Fishing Guru’s House")
     end
 }
 
@@ -419,13 +483,15 @@ _061B:
         giveitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
         bufferplayersname(0)
         bufferitemname(1, VAR_SPECIAL_x8004)
-        npcmsg(msg_0626_T29_00033)
+        npcmsg("{STRVAR_1 3, 0, 0} found\n"
+               "{STRVAR_1 8, 1, 0}!")
         waitfanfare
         bufferplayersname(0)
         bufferitemname(1, VAR_SPECIAL_x8004)
         getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
         bufferpocketname(2, VAR_SPECIAL_RESULT)
-        npcmsg(msg_0626_T29_00034)
+        npcmsg("{STRVAR_1 3, 0, 0} put the {STRVAR_1 8, 1, 0}\n"
+               "in the {COLOR 2}{STRVAR_1 31, 2, 0}{COLOR 0} Pocket.")
         waitbuttonpress
         setvar(VAR_SPECIAL_RESULT, 1)
     _06C4:
@@ -435,7 +501,9 @@ _061B:
     }
     if (var(VAR_SPECIAL_RESULT) == 0) {
         bufferitemname(0, VAR_SPECIAL_x8004)
-        npcmsg(msg_0626_T29_00035)
+        npcmsg("Obtained the {STRVAR_1 8, 0, 0}!\r"
+               "Too bad!\n"
+               "The Bag is full...")
         waitbuttonpress
         setvar(VAR_SPECIAL_RESULT, 0)
         goto(_06C4)
@@ -449,7 +517,7 @@ script scr_seq_T29_018 {
     lockall
     faceplayer
     playcry(SPECIES_DRAGONITE, 0)
-    npcmsg(msg_0626_T29_00001)
+    npcmsg("DRAGONITE: Gyafooha!")
     waitbuttonpress
     closemessage
     releaseall
@@ -457,41 +525,55 @@ script scr_seq_T29_018 {
 }
 
 script scr_seq_T29_007 {
-    trainertipsex(2, msg_0626_T29_00030)
+    trainertipsex(2, "Lake of Rage\n"
+                     "Also Known As GYARADOS Lake")
     end
     simplenpcmsg(msg_0626_T29_00009)
     end
 }
 
 script scr_seq_T29_008 {
-    simplenpcmsg(msg_0626_T29_00012)
+    simplenpcmsg("Did my eyes deceive me? I saw a \n"
+                 "red GYARADOS in the Lake of Rage...\r"
+                 "But I thought GYARADOS were\n"
+                 "usually blue?")
     end
 }
 
 script scr_seq_T29_009 {
-    simplenpcmsg(msg_0626_T29_00011)
+    simplenpcmsg("I heard this lake was made by rampaging\n"
+                 "GYARADOS.\r"
+                 "I wonder if there is any connection\n"
+                 "to their mass outbreak now?")
     end
     simplenpcmsg(msg_0626_T29_00000)
     end
 }
 
 script scr_seq_T29_010 {
-    simplenpcmsg(msg_0626_T29_00018)
+    simplenpcmsg("Battle with the great catch\n"
+                 "I just got!")
     end
 }
 
 script scr_seq_T29_011 {
-    simplenpcmsg(msg_0626_T29_00021)
+    simplenpcmsg("I can only land the same kind of\n"
+                 "Pokémon. No matter how long I fish!")
     end
 }
 
 script scr_seq_T29_012 {
-    simplenpcmsg(msg_0626_T29_00024)
+    simplenpcmsg("When you spot a Trainer, it’s time for\n"
+                 "a challenge!\f"
+                 "That’s the way of Trainers!")
     end
 }
 
 script scr_seq_T29_013 {
-    simplenpcmsg(msg_0626_T29_00027)
+    simplenpcmsg("What happened to the red GYARADOS?\r"
+                 "It’s gone?\n"
+                 "I came all the way for it...\r"
+                 "OK, I challenge you!")
     end
 }
 

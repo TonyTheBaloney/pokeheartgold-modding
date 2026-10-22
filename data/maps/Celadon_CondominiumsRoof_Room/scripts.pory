@@ -6,17 +6,41 @@ script scr_seq_T07R0205_000 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_SPELL_TAG_FROM_CELADON_CITY_MAN)) { goto(_0071) }
-    npcmsg(msg_0505_T07R0205_00000)
+    npcmsg("Let me recount a terrifying tale...\r")
     getcurrenttimeofday(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 3) { goto(_0045) }
     if (var(VAR_TEMP_x4000) == 4) { goto(_0045) }
-    npcmsg(msg_0505_T07R0205_00001)
+    npcmsg("Then again, it’s not as scary while\n"
+           "it’s still light outside.\r"
+           "Come back after sunset, OK?")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0045:
-    npcmsg(msg_0505_T07R0205_00002)
+    npcmsg("Once upon a time, there was a little\n"
+           "boy who was given a new Bicycle...\f"
+           "He wanted to try it right away...\r"
+           "He was having so much fun that he\n"
+           "didn’t notice that it was\f"
+           "already dark...\r"
+           "While riding home in the pitch-black\n"
+           "night, the Bike suddenly slowed!\r"
+           "The pedals became heavy!\r"
+           "The Bike began slipping\n"
+           "backward as if it was dragged\f"
+           "by someone!\r"
+           "It was as if the Bike were cursed and\n"
+           "trying to drag him into oblivion!\r"
+           "...\r"
+           "...\r"
+           "Shrieeeek!\r"
+           "The boy had been riding uphill on\n"
+           "Cycling Road!\r"
+           "...\n"
+           "Ba-dum, ba-dum!\r"
+           "For listening so patiently, you may\n"
+           "take this item--Spell Tag!\r")
     if (!itemspace(ITEM_SPELL_TAG, 1)) {
         callstd(std_bag_is_full)
         closemessage
@@ -26,7 +50,10 @@ _0045:
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_SPELL_TAG_FROM_CELADON_CITY_MAN)
 _0071:
-    npcmsg(msg_0505_T07R0205_00003)
+    npcmsg("Spell Tag boosts the power of\n"
+           "Ghost-type moves.\r"
+           "It won’t slow your Bicycle, so\n"
+           "don’t worry!")
     waitbuttonpress
     closemessage
     releaseall

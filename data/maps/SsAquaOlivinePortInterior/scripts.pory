@@ -36,21 +36,44 @@ script scr_seq_P01R0101_002 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     bufferplayersname(0)
-    gendermsgbox(msg_0255_P01R0101_00009, msg_0255_P01R0101_00010)
+    gendermsgbox("Professor Oak: Hello!\n"
+                 "You are starting to have the\f"
+                 "attitude of a Champion, {STRVAR_1 3, 0, 0}!\r"
+                 "It’s time for your Pokédex to match\n"
+                 "who you are.\f"
+                 "Let me see your Pokédex for a second.\r"
+                 "I’ll upgrade your Pokédex with\n"
+                 "the National Mode.\r", "Professor Oak: Hello!\n"
+                                         "You are starting to have the...\f"
+                                         "attitude of a Champion, {STRVAR_1 3, 0, 0}!\r"
+                                         "It’s time for your Pokédex to match\n"
+                                         "who you are.\f"
+                                         "Let me see your Pokédex for a second.\r"
+                                         "I’ll upgrade your Pokédex with\n"
+                                         "the National Mode.\r")
     closemessage
     applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_0110)
     waitmovement
     natdexflagaction(1, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     playfanfare(SEQ_ME_ITEM)
-    npcmsg(msg_0255_P01R0101_00011)
+    npcmsg("{STRVAR_1 3, 0, 0}’s Pokédex was upgraded\n"
+           "with the National Mode!")
     waitfanfare
     enablemassoutbreaks
-    npcmsg(msg_0255_P01R0101_00012)
+    npcmsg("Professor Oak: It won’t be easy to\n"
+           "complete the National Pokédex...\r"
+           "However, I’m sure you will make an\n"
+           "honest attempt on our behalf!\r")
     closemessage
     applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_0120)
     waitmovement
-    npcmsg(msg_0255_P01R0101_00013)
+    npcmsg("Oh, time flies!\r"
+           "I have a radio show to record\n"
+           "at Goldenrod Radio Tower.\r"
+           "You must be heading for Kanto.\r"
+           "If you come near Pallet Town, do drop\n"
+           "by my Pokémon Research Lab!\r")
     closemessage
     applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_0128)
     waitmovement
@@ -108,7 +131,10 @@ script scr_seq_P01R0101_000 {
     lockall
     faceplayer
     if (!flag(FLAG_GAME_CLEAR)) {
-        npcmsg(msg_0255_P01R0101_00000)
+        npcmsg("Welcome to Fast Ship S.S. Aqua.\r"
+               "...Except that the engine-maintenance\n"
+               "team is taking some time off, and we\f"
+               "don’t know when we can depart...")
         waitbuttonpress
         closemessage
         releaseall
@@ -118,18 +144,21 @@ script scr_seq_P01R0101_000 {
     getplayerfacing(VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 0) { goto(_0320) }
     if (var(VAR_SCENE_SS_AQUA) >= 7) { goto(_01FB) }
-    npcmsg(msg_0255_P01R0101_00001)
+    npcmsg("Welcome to Fast Ship S.S. Aqua.\n"
+           "May I see your S.S. Ticket?\r")
     closemessage
     hasitem(ITEM_S_S__TICKET, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02F9) }
     applymovement(obj_player, SsAquaOlivinePortInterior_Movement_036C)
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0255_P01R0101_00004)
+    npcmsg("{STRVAR_1 3, 0, 0} flashed the S.S. Ticket.\r")
     closemessage
     applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03F4)
     waitmovement
-    npcmsg(msg_0255_P01R0101_00005)
+    npcmsg("OK, you have a Ticket!\r"
+           "We’re departing soon.\n"
+           "Get on board quick!\r")
     closemessage
     applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_038C)
     waitmovement
@@ -177,7 +206,9 @@ _027C:
 _0295:
     goto(_02EE)
 _029B:
-    npcmsg(msg_0255_P01R0101_00007)
+    npcmsg("Welcome to the S.S. Aqua!\r"
+           "Your Ticket is...right there.\n"
+           "Please come through.\r")
     closemessage
     applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_038C)
     waitmovement
@@ -199,7 +230,11 @@ _029B:
     releaseall
     end
 _02EE:
-    npcmsg(msg_0255_P01R0101_00008)
+    npcmsg("Operating a ship every day can wear\n"
+           "you out!\f"
+           "It’s not running today.\r"
+           "It leaves for Vermilion City on Mondays\n"
+           "and Fridays!")
     waitbuttonpress
     closemessage
     releaseall
@@ -208,11 +243,18 @@ _02F9:
     applymovement(obj_player, SsAquaOlivinePortInterior_Movement_0378)
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0255_P01R0101_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} tried to show the\n"
+           "S.S. Ticket...\r"
+           "...But no Ticket here!\r")
     closemessage
     applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03F4)
     waitmovement
-    npcmsg(msg_0255_P01R0101_00003)
+    npcmsg("I’m sorry...\r"
+           "Another person without a Ticket\n"
+           "wouldn’t make much of a difference,\f"
+           "I think.\r"
+           "But a rule is a rule.\n"
+           "Sorry, kiddo.")
     waitbuttonpress
     closemessage
     releaseall
@@ -233,7 +275,8 @@ _0320:
     releaseall
     end
 _0356:
-    npcmsg(msg_0255_P01R0101_00006)
+    npcmsg("What?\n"
+           "You already showed me the Ticket.")
     waitbuttonpress
     closemessage
     releaseall
@@ -293,12 +336,17 @@ movement SsAquaOlivinePortInterior_Movement_03F4 {
 }
 
 script scr_seq_P01R0101_003 {
-    simplenpcmsg(msg_0255_P01R0101_00014)
+    simplenpcmsg("The S.S. Aqua uses jets to travel.\n"
+                 "It skims over water!")
     end
 }
 
 script scr_seq_P01R0101_004 {
-    simplenpcmsg(msg_0255_P01R0101_00015)
+    simplenpcmsg("You’ve been to Kanto already?\r"
+                 "I hear many rare Pokémon live\n"
+                 "over there.\r"
+                 "Sounds exciting.\n"
+                 "I’d love to visit!")
     end
 }
 

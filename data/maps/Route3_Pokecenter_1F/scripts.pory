@@ -8,12 +8,21 @@ script scr_seq_R03PC0101_000 {
 }
 
 script scr_seq_R03PC0101_001 {
-    simplenpcmsg(msg_0327_R03PC0101_00000)
+    simplenpcmsg("Oh my!\n"
+                 "I remember there was nothing built here\f"
+                 "when I climbed the mountain.\r"
+                 "Things change, and it’s getting more\n"
+                 "and more convenient.\n")
     end
 }
 
 script scr_seq_R03PC0101_002 {
-    simplenpcmsg(msg_0327_R03PC0101_00001)
+    simplenpcmsg("Many Trainers are visiting the mountain.\n"
+                 "You never know what wild Pokémon you’ll\f"
+                 "encounter. It is very important to\f"
+                 "recover your Pokémon at a place like\f"
+                 "this. Don’t forget to make a record\f"
+                 "of your progress, either!\n")
     end
 }
 

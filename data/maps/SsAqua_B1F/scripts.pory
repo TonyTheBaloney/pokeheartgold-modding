@@ -52,6 +52,15 @@ script scr_seq_P01R0307_001 {
     end
 }
 
+text msg_0263_P01R0307_00000 {
+    "Hey, kid. Could I get you to look\n"
+    "for my buddy?\r"
+    "He’s taking it easy somewhere, that\n"
+    "good for nothing!\r"
+    "I want to go find him, but I’m on guard\n"
+    "duty and have to stay right here.\r"
+}
+
 movement SsAqua_B1F_Movement_00C4 {
     face_up * 2
     walk_up
@@ -93,13 +102,20 @@ script scr_seq_P01R0307_000 {
     lockall
     faceplayer
     if (var(VAR_SCENE_SS_AQUA) >= 3) {
-        npcmsg(msg_0263_P01R0307_00002)
+        npcmsg("Thanks, kid!\n"
+               "I yelled at him good so he’ll quit\f"
+               "slacking off!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0263_P01R0307_00001)
+    npcmsg("Hey, kid. Could I get you to look\n"
+           "for my buddy?\r"
+           "He’s taking it easy somewhere, that\n"
+           "good for nothing!\f"
+           "I want to go find him, but I’m on guard\f"
+           "duty and have to stay right here.")
     waitbuttonpress
     closemessage
     setflag(FLAG_UNK_0ED)
@@ -133,7 +149,8 @@ script scr_seq_P01R0307_003 {
         togglefollowingpokemonmovement(1)
         followingpokemonmovement(48)
     }
-    npcmsg(msg_0263_P01R0307_00006)
+    npcmsg("Oh, you found me!\r"
+           "I better go back to my grandpa!\r")
     closemessage
     playse(SEQ_SE_DP_KAIDAN2)
     waitse(SEQ_SE_DP_KAIDAN2)

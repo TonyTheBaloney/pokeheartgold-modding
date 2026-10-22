@@ -8,7 +8,9 @@ script scr_seq_R16_000 {
 }
 
 script scr_seq_R16_001 {
-    trainertipsex(2, msg_0354_R16_00000)
+    trainertipsex(2, "The Cycling Road starts here!\r"
+                     "Enjoy coasting downhill on\n"
+                     "your Bicycle!")
     end
 }
 

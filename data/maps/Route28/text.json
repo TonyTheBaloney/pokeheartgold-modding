@@ -3,10 +3,7 @@
   "messages": [
     {
       "id": "msg_0371_R28_00000",
-      "en_US": [
-        "Rt. 28\n",
-        "West to Mt. Silver"
-      ]
+      "from": "scr_seq_R28_001#0"
     }
   ]
 }

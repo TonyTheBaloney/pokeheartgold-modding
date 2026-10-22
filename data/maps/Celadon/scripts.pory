@@ -89,7 +89,9 @@ script scr_seq_T07_015 {
 }
 
 script scr_seq_T07_000 {
-    simplenpcmsg(msg_0491_T07_00000)
+    simplenpcmsg("This is my trusted pal, POLIWRATH.\r"
+                 "I wonder if it will become a Frog\n"
+                 "Pokémon someday.")
     end
 }
 
@@ -98,7 +100,7 @@ script scr_seq_T07_001 {
     lockall
     faceplayer
     playcry(SPECIES_POLIWRATH, 0)
-    npcmsg(msg_0491_T07_00001)
+    npcmsg("POLIWRATH: Poli poli!")
     waitcry
     waitbuttonpress
     closemessage
@@ -107,67 +109,103 @@ script scr_seq_T07_001 {
 }
 
 script scr_seq_T07_002 {
-    simplenpcmsg(msg_0491_T07_00002)
+    simplenpcmsg("Oh, my!\n"
+                 "Were you staring at me?\r"
+                 "Seeing me come out of the Game Corner\n"
+                 "with a whole pile of Coins...\f"
+                 "And grinning to myself?\f"
+                 "You were, weren’t you?")
     end
 }
 
 script scr_seq_T07_003 {
-    simplenpcmsg(msg_0491_T07_00003)
+    simplenpcmsg("GRIMER started to appear recently.\n"
+                 "You see the pond in front of the house?\r"
+                 "It has GRIMER, too.\n"
+                 "I wonder where they came from.\r"
+                 "Sigh...")
     end
 }
 
 script scr_seq_T07_004 {
-    simplenpcmsg(msg_0491_T07_00004)
+    simplenpcmsg("Ha ha! This Gym is great!\n"
+                 "It’s full of strong Trainers!")
     end
 }
 
 script scr_seq_T07_005 {
-    simplenpcmsg(msg_0491_T07_00005)
+    simplenpcmsg("I’ll tell you a secret!\r"
+                 "The Celadon Condominiums have some\n"
+                 "places you can only reach by taking the\f"
+                 "elevator on the second floor!")
     end
 }
 
 script scr_seq_T07_006 {
-    simplenpcmsg(msg_0491_T07_00006)
+    simplenpcmsg("The restaurant there is having an\n"
+                 "eating contest.\r"
+                 "I heard that we have a great\n"
+                 "contestant from the Sinnoh region\f"
+                 "this year.")
     end
 }
 
 script scr_seq_T07_007 {
-    simplenpcmsg(msg_0491_T07_00007)
+    simplenpcmsg("The Celadon Department Store offers\n"
+                 "the widest range of items!\f"
+                 "You can buy anything you want!\r"
+                 "...Do I sound like their\n"
+                 "sales representative?")
     end
 }
 
 script scr_seq_T07_008 {
-    simplenpcmsg(msg_0491_T07_00008)
+    simplenpcmsg("I love this kind of place where\n"
+                 "there are many buildings!\r"
+                 "I heard Johto also has a city called\n"
+                 "Goldenrod that has many\f"
+                 "tall buildings.\f"
+                 "I would love to visit there sometime.")
     end
 }
 
 script scr_seq_T07_009 {
-    directionsignpostex(0, 7, msg_0491_T07_00030)
+    directionsignpostex(0, 7, "Celadon City\n"
+                              "City of the Rainbow’s Colors")
     end
 }
 
 script scr_seq_T07_010 {
-    trainertipsex(2, msg_0491_T07_00031)
+    trainertipsex(2, "Celadon City Pokémon Gym\n"
+                     "Leader: Erika\f"
+                     "The Nature-Loving Princess!")
     end
 }
 
 script scr_seq_T07_011 {
-    trainertipsex(2, msg_0491_T07_00032)
+    trainertipsex(2, "Find what you need at the\n"
+                     "Celadon Dept. Store!")
     end
 }
 
 script scr_seq_T07_012 {
-    trainertipsex(2, msg_0491_T07_00033)
+    trainertipsex(2, "Celadon Condominiums")
     end
 }
 
 script scr_seq_T07_013 {
-    trainertipsex(2, msg_0491_T07_00034)
+    trainertipsex(2, "Celadon Game Corner\n"
+                     "A Fun Place for Everyone")
     end
 }
 
 script scr_seq_T07_014 {
-    trainertipsex(3, msg_0491_T07_00035)
+    trainertipsex(3, "Trainer Tips\r"
+                     "Guard Spec. protects Pokémon\n"
+                     "from status-reduction moves\f"
+                     "during battle.\r"
+                     "Get your items at the\n"
+                     "Celadon Dept. Store!")
     end
 }
 
@@ -178,7 +216,8 @@ script scr_seq_T07_016 {
         playse(SEQ_SE_DP_SELECT)
         lockall
         faceplayer
-        npcmsg(msg_0491_T07_00023)
+        npcmsg("Erika: Would you like to\n"
+               "exchange numbers? {YESNO 0}")
         goto(_03BE)
         end
         simplenpcmsg(msg_0491_T07_00021)
@@ -191,43 +230,60 @@ _0302:
     setvar(VAR_TEMP_x4005, 1)
     applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
     waitmovement
-    npcmsg(msg_0491_T07_00009)
+    npcmsg("Erika: Hi, Jasmine. I heard Whitney from\n"
+           "Goldenrod Gym said you were too\f"
+           "plain and should look more fancy.\f"
+           "Is that true?\r")
     closemessage
     applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
     waitmovement
-    npcmsg(msg_0491_T07_00010)
+    npcmsg("Jasmine: Yes...\r"
+           "I’m thinking maybe I should\n"
+           "participate in this Contest in Sinnoh\f"
+           "to try and be more vibrant...\r")
     closemessage
     applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
     waitmovement
-    npcmsg(msg_0491_T07_00011)
+    npcmsg("Erika: How did it go?\r")
     closemessage
     applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
     waitmovement
-    npcmsg(msg_0491_T07_00012)
+    npcmsg("Jasmine: I couldn’t bring myself to\n"
+           "go to the Contest.\r")
     closemessage
     applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
     waitmovement
-    npcmsg(msg_0491_T07_00013)
+    npcmsg("Erika: Oh, I see...\r"
+           "Then why don’t you try putting on\n"
+           "something especially gorgeous?\r")
     closemessage
     applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
     waitmovement
-    npcmsg(msg_0491_T07_00014)
+    npcmsg("Jasmine: Ah, yes!\n"
+           "Maybe I can bring myself to\f"
+           "enter the Contest!\r")
     closemessage
     applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
     waitmovement
-    npcmsg(msg_0491_T07_00015)
+    npcmsg("Erika: How about a fancy, light blue\n"
+           "outfit with a cape over it?\r")
     closemessage
     applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
     waitmovement
-    npcmsg(msg_0491_T07_00016)
+    npcmsg("Jasmine: What?\n"
+           "That’s too embarrassing!\r")
     closemessage
     applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
     waitmovement
-    npcmsg(msg_0491_T07_00017)
+    npcmsg("Erika: I see.\n"
+           "You think Clair from Blackthorn is a\f"
+           "little embarrassing...\f"
+           "I’m just taking notes.\r")
     closemessage
     applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
     waitmovement
-    npcmsg(msg_0491_T07_00018)
+    npcmsg("Jasmine: Oh, no!\n"
+           "Erika, that’s not what I meant!")
     waitbuttonpress
     closemessage
     releaseall
@@ -238,7 +294,9 @@ _03AA:
     faceplayer
     setvar(VAR_TEMP_x4005, 2)
     bufferplayersname(0)
-    npcmsg(msg_0491_T07_00019)
+    npcmsg("Erika: Hi, {STRVAR_1 3, 0, 0}.\r"
+           "Would you like to\n"
+           "exchange numbers? {YESNO 0}")
 _03BE:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -248,7 +306,8 @@ _03BE:
     end
 _03E2:
     bufferplayersname(0)
-    npcmsg(msg_0491_T07_00020)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Erika\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     registergearnumber(PHONE_CONTACT_ERIKA)
@@ -267,11 +326,17 @@ _03E2:
     releaseall
     end
 _0429:
-    npcmsg(msg_0491_T07_00022)
+    npcmsg("Erika: Oh, that’s too bad...")
     waitbuttonpress
     closemessage
     releaseall
     end
+}
+
+text msg_0491_T07_00021 {
+    "Erika: I am often free in the morning\n"
+    "on Sunday.\r"
+    "Call me around then."
 }
 
 movement Celadon_Movement_045C {
@@ -286,12 +351,15 @@ script(local) _046C {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0491_T07_00024)
+    npcmsg("Erika: Hi!\n"
+           "Good to see you here.\r"
+           "How would you like to take a picture\n"
+           "with me? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0491_T07_00027)
+        npcmsg("Erika: Oh, that’s too bad...")
         waitbuttonpress
         closemessage
         releaseall
@@ -299,13 +367,15 @@ script(local) _046C {
     }
     photoalbumisfull(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0491_T07_00028)
+        npcmsg("Your Photo Album is full.\r"
+               "Access your PC and delete\n"
+               "some pictures.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0491_T07_00025)
+    npcmsg("Erika: Try and look cool now.\r")
     closemessage
     setflag(FLAG_UNK_189)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -316,7 +386,8 @@ script(local) _046C {
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     clearflag(FLAG_UNK_189)
-    npcmsg(msg_0491_T07_00026)
+    npcmsg("Erika: Good job.\n"
+           "It looks good!")
     waitbuttonpress
     closemessage
     releaseall
@@ -325,7 +396,7 @@ script(local) _046C {
 
 script scr_seq_T07_017 {
     if (var(VAR_TEMP_x4002) >= 1) {
-        simplenpcmsg(msg_0491_T07_00029)
+        simplenpcmsg("Jasmine: Amphy is well thanks to you.")
         end
     }
     goto(_0302)

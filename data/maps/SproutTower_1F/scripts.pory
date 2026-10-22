@@ -6,22 +6,27 @@ script scr_seq_D15R0101_000 {
 }
 
 script scr_seq_D15R0101_001 {
-    simplenpcmsg(msg_0054_D15R0101_00002)
+    simplenpcmsg("A BELLSPROUT over 100 feet tall...\r"
+                 "People say that it became the middle\n"
+                 "pillar here.")
     end
 }
 
 script scr_seq_D15R0101_002 {
-    simplenpcmsg(msg_0054_D15R0101_00003)
+    simplenpcmsg("See the pillar shaking?\r"
+                 "People are training upstairs.")
     end
 }
 
 script scr_seq_D15R0101_003 {
-    simplenpcmsg(msg_0054_D15R0101_00001)
+    simplenpcmsg("Sprout Tower was built long ago\n"
+                 "as a place for Pokémon training.")
     end
 }
 
 script scr_seq_D15R0101_004 {
-    simplenpcmsg(msg_0054_D15R0101_00000)
+    simplenpcmsg("Only those who reach the top will\n"
+                 "receive a wonderful move.")
     end
 }
 

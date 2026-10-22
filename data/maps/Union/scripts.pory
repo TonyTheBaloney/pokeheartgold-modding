@@ -29,7 +29,7 @@ script scr_seq_UNION_003 {
     unionroomrequestjoinplayer(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
     getunionroomplayeractivity(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 5) { goto(_0499) }
-    npcmsg(msg_0738_UNION_00199)
+    npcmsg("Talking to {STRVAR_1 3, 0, 0}...")
     unionroomwaitjoinstatus(VAR_SPECIAL_RESULT)
     Switch(VAR_SPECIAL_RESULT)
     Case(3, _07CC)
@@ -90,7 +90,7 @@ _0184:
     openlinktrainercard
     restoreoverworld
     call(_0BDA)
-    nonnpcmsg(msg_0738_UNION_00016)
+    nonnpcmsg("Waiting for the other player to finish.")
     goto(_00D2)
     end
 _01ED:
@@ -392,7 +392,8 @@ _0726:
     end
 _073E:
     unionroomsendtalkresponse(1, 1)
-    npcmsg(msg_0738_UNION_00036)
+    npcmsg("You don’t have an Egg.\n"
+           "The invitation was turned down.")
     goto(_0BC2)
     end
 _074F:
@@ -401,7 +402,8 @@ _074F:
     goto(_00D2)
     end
 _0761:
-    npcmsg(msg_0738_UNION_00218)
+    npcmsg("Sorry, you can’t do a Spin Trade with\n"
+           "Pokémon Diamond or Pearl.\r")
     goto(_00D2)
     end
 _076C:
@@ -436,6 +438,10 @@ _07BC:
     end
 }
 
+text msg_0738_UNION_00202 {
+    "Waiting for the other player’s choice."
+}
+
 script scr_seq_UNION_004 {
     followmonresetmovement
     lockall
@@ -447,7 +453,8 @@ _07CC:
     goto(_07E4)
     end
 _07E4:
-    npcmsg(msg_0738_UNION_00009)
+    npcmsg("Awaiting a response from\n"
+           "{STRVAR_1 3, 0, 0}...")
     linksyncandwait(100)
     unionroomsetactivity(11)
     unionroomwaittalkreply(VAR_SPECIAL_RESULT)
@@ -462,17 +469,22 @@ _07E4:
     Case(8, _0BB1)
     end
 _0863:
-    npcmsg(msg_0738_UNION_00011)
+    npcmsg("You have an offer to see\n"
+           "{STRVAR_1 3, 0, 0}’s Trainer Card.\r"
+           "Would you like to show your\n"
+           "Trainer Card? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) {
         unionroomsendtalkresponse(1, 1)
-        npcmsg(msg_0738_UNION_00017)
+        npcmsg("You declined the offer.")
         goto(_0BC2)
         end
     _08DB:
-        npcmsg(msg_0738_UNION_00026)
+        npcmsg("{STRVAR_1 3, 0, 0} has offered to\n"
+               "make a trade.\r"
+               "Will you accept this trade offer? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -483,7 +495,7 @@ _0863:
         closemessage
         unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
-        npcmsg(msg_0738_UNION_00027)
+        npcmsg("The trade will be started.")
         wait(30, VAR_SPECIAL_RESULT)
         linksyncandwait(3)
         closemessage
@@ -498,16 +510,20 @@ _0863:
         end
     _0952:
         unionroomsendtalkresponse(1, 1)
-        npcmsg(msg_0738_UNION_00020)
+        npcmsg("You declined the invitation.")
         goto(_0BC2)
         end
     _0963:
         unionroomsendtalkresponse(1, 1)
-        npcmsg(msg_0738_UNION_00029)
+        npcmsg("For trading, you must have at\n"
+               "least two Pokémon with you.")
         goto(_0BC2)
         end
     _0974:
-        npcmsg(msg_0738_UNION_00021)
+        npcmsg("{STRVAR_1 3, 0, 0} challenges you to\n"
+               "a battle.\r"
+               "Will you accept the battle\n"
+               "challenge? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -518,7 +534,7 @@ _0863:
         closemessage
         unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
-        npcmsg(msg_0738_UNION_00022)
+        npcmsg("The battle will be started.")
         wait(30, VAR_SPECIAL_RESULT)
         linksyncandwait(2)
         closemessage
@@ -542,16 +558,20 @@ _0863:
         end
     _0A22:
         unionroomsendtalkresponse(1, 1)
-        npcmsg(msg_0738_UNION_00023)
+        npcmsg("You declined to take part.")
         goto(_0BC2)
         end
     _0A33:
         unionroomsendtalkresponse(1, 1)
-        npcmsg(msg_0738_UNION_00024)
+        npcmsg("For a battle, you need two\n"
+               "Pokémon that are Lv. 30 or below.")
         goto(_0BC2)
         end
     _0A44:
-        npcmsg(msg_0738_UNION_00030)
+        npcmsg("{STRVAR_1 3, 0, 0} invites you to mix\n"
+               "records.\r"
+               "Would you like to mix records with\n"
+               "the other player? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -560,7 +580,7 @@ _0863:
         closemessage
         unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
-        npcmsg(msg_0738_UNION_00031)
+        npcmsg("Record mixing will be started.")
         wait(30, VAR_SPECIAL_RESULT)
         linksyncandwait(5)
         closemessage
@@ -573,7 +593,10 @@ _0863:
         releaseall
         end
     _0AA2:
-        npcmsg(msg_0738_UNION_00033)
+        npcmsg("{STRVAR_1 3, 0, 0} has invited you to join\n"
+               "a Spin Trade session.\r"
+               "Would you like to take part in the\n"
+               "Spin Trade? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -584,7 +607,7 @@ _0863:
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_073E) }
         unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
-        npcmsg(msg_0738_UNION_00034)
+        npcmsg("Starting the Spin Trade!")
         wait(30, VAR_SPECIAL_RESULT)
         linksyncandwait(6)
         closemessage
@@ -597,7 +620,10 @@ _0863:
         releaseall
         end
     _0B11:
-        npcmsg(msg_0738_UNION_00018)
+        npcmsg("{STRVAR_1 3, 0, 0} has invited you to draw\n"
+               "something.\r"
+               "Would you like to join the other\n"
+               "player and draw? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -606,7 +632,7 @@ _0863:
         closemessage
         unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
-        npcmsg(msg_0738_UNION_00019)
+        npcmsg("Let’s get drawing!")
         wait(30, VAR_SPECIAL_RESULT)
         linksyncandwait(4)
         closemessage
@@ -620,7 +646,7 @@ _0863:
         end
     _0B6F:
         unionroomsendtalkresponse(1, 1)
-        npcmsg(msg_0738_UNION_00028)
+        npcmsg("You declined the offer.")
         goto(_0BC2)
         end
     }
@@ -628,22 +654,22 @@ _0863:
     closemessage
     unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 7) {
-        npcmsg(msg_0738_UNION_00035)
+        npcmsg("You declined the invitation.")
         goto(_0BC2)
         end
     _0B8B:
         unionroomsetactivity(11)
-        npcmsg(msg_0738_UNION_00025)
+        npcmsg("The battle has been canceled.")
         wait(30, VAR_SPECIAL_RESULT)
         goto(_0BC2)
         end
     _0BA0:
-        npcmsg(msg_0738_UNION_00008)
+        npcmsg("The chat has been dropped.")
         wait(30, VAR_SPECIAL_RESULT)
         goto(_0BC2)
         end
     _0BB1:
-        npcmsg(msg_0738_UNION_00010)
+        npcmsg("The chat was ended.")
         wait(30, VAR_SPECIAL_RESULT)
         goto(_0BC2)
         end
@@ -716,10 +742,12 @@ _0C2E:
     goto(_0CA5)
     end
 _0C87:
-    npcmsg(msg_0738_UNION_00158)
+    npcmsg("How may I help you? {YESNO 0}")
     return
 _0C8C:
-    npcmsg(msg_0738_UNION_00157)
+    npcmsg("Welcome to the Union Room.\r"
+           "If there is anything you need help\n"
+           "with, please let me know! {YESNO 0}")
     return
 _0C91:
     touchscreenmenushow
@@ -735,7 +763,8 @@ _0CA5:
     releaseall
     end
 _0CAF:
-    npcmsg(msg_0738_UNION_00159)
+    npcmsg("Which topic would you\n"
+           "like me to explain? {YESNO 0}")
     menuinitstdgmm(24, 3, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(52, 255, 0)
     menuitemadd(23, 255, 1)
@@ -756,37 +785,72 @@ _0CAF:
     end
 _0D50:
     touchscreenmenushow
-    npcmsg(msg_0738_UNION_00160)
+    npcmsg("In the Union Room, you may battle\n"
+           "with two Pokémon of your choice\f"
+           "that are Lv. 30 or lower.\r"
+           "When you visit here, we recommend\n"
+           "that you bring Pokémon that\f"
+           "meet this requirement.\r")
     touchscreenmenuhide
     goto(_0CAF)
     end
 _0D5F:
     touchscreenmenushow
-    npcmsg(msg_0738_UNION_00161)
+    npcmsg("You may trade your Pokémon with\n"
+           "other players.\r"
+           "Meeting new people could be a\n"
+           "shortcut to meeting rare Pokémon!\r")
     touchscreenmenuhide
     goto(_0CAF)
     end
 _0D6E:
     touchscreenmenushow
-    npcmsg(msg_0738_UNION_00162)
+    npcmsg("You may communicate with other\n"
+           "players and mix your records.\r"
+           "What will happen if you mix records,\n"
+           "you ask?\r"
+           "We recommend that you try it and\n"
+           "see!\r"
+           "Up to five players can take part,\n"
+           "so try it with your friends!\r")
     touchscreenmenuhide
     goto(_0CAF)
     end
 _0D7D:
     touchscreenmenushow
-    npcmsg(msg_0738_UNION_00164)
+    npcmsg("You may get together with others\n"
+           "and draw.\r"
+           "You all get to work on one sheet\n"
+           "of paper at the same time.\r"
+           "I’m sure a drawing made by friends\n"
+           "will be a memorable masterpiece!\r"
+           "Up to five players can take part,\n"
+           "so try it with your friends!\r")
     touchscreenmenuhide
     goto(_0CAF)
     end
 _0D8C:
     touchscreenmenushow
-    npcmsg(msg_0738_UNION_00165)
+    npcmsg("You can chat with other people\n"
+           "by selecting “CHAT” in the menu.\r"
+           "Go out and meet other players in\n"
+           "the Union Room!\r"
+           "Let people know what you’re like\n"
+           "and what you’d like to do.\r"
+           "Mingle, chat, and add to your\n"
+           "circle of friends!\r")
     touchscreenmenuhide
     goto(_0CAF)
     end
 _0D9B:
     touchscreenmenushow
-    npcmsg(msg_0738_UNION_00163)
+    npcmsg("In a Spin Trade, participants each bring\n"
+           "an Egg for trading with others.\r"
+           "Which Egg will you end up with?\n"
+           "What kind of Pokémon is in that Egg?\f"
+           "It’s quite exciting and fun!\r"
+           "Up to five players can take part, so\n"
+           "try it with your friends!\r")
     touchscreenmenuhide
     goto(_0CAF)
     end

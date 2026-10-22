@@ -3,106 +3,63 @@
   "messages": [
     {
       "id": "msg_0576_T24R0201_00000",
-      "en_US": [
-        "I... I’m in shock!\r",
-        "A guy about your age with piercing\n",
-        "eyes and long hair came in.\r",
-        "He scared me into giving him my\n",
-        "prized Pokémon!\r",
-        "I still have one left, but what if\n",
-        "he comes back?\r",
-        "You look strong.\n",
-        "Could you look after my Pokémon\f",
-        "for a while? {YESNO 0}"
-      ]
+      "from": "scr_seq_T24R0201_000#1"
     },
     {
       "id": "msg_0576_T24R0201_00001",
-      "en_US": [
-        "Oh, thank you!\n",
-        "Take good care of it, please!\r"
-      ]
+      "from": "scr_seq_T24R0201_000#4"
     },
     {
       "id": "msg_0576_T24R0201_00002",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0} received\n",
-        "a Pokémon!"
-      ]
+      "from": "scr_seq_T24R0201_000#5"
     },
     {
       "id": "msg_0576_T24R0201_00003",
-      "en_US": "Your Pokémon party is full."
+      "from": "scr_seq_T24R0201_000#3"
     },
     {
       "id": "msg_0576_T24R0201_00004",
-      "en_US": "Oh, no... What’ll I do if he comes back?"
+      "from": "scr_seq_T24R0201_000#2"
     },
     {
       "id": "msg_0576_T24R0201_00005",
-      "en_US": [
-        "Hi! How’s my Pokémon?\r",
-        "I think I’m safe now, so may I have\n",
-        "it back? {YESNO 0}"
-      ]
+      "from": "scr_seq_T24R0201_000#7"
     },
     {
       "id": "msg_0576_T24R0201_00006",
-      "en_US": "Hi! How’s my Pokémon?"
+      "from": "scr_seq_T24R0201_000#6"
     },
     {
       "id": "msg_0576_T24R0201_00007",
-      "en_US": "Thank you!"
+      "from": "scr_seq_T24R0201_000#8"
     },
     {
       "id": "msg_0576_T24R0201_00008",
-      "en_US": "Hey, that’s not my Pokémon."
+      "from": "scr_seq_T24R0201_000#14"
     },
     {
       "id": "msg_0576_T24R0201_00009",
-      "en_US": [
-        "My Pokémon has come to like you.\r",
-        "All right, you should keep it.\n",
-        "But promise to be good to it!"
-      ]
+      "from": "scr_seq_T24R0201_000#10"
     },
     {
       "id": "msg_0576_T24R0201_00010",
-      "en_US": [
-        "Oh, no, no...\n",
-        "That’s the same as being robbed."
-      ]
+      "from": "scr_seq_T24R0201_000#9"
     },
     {
       "id": "msg_0576_T24R0201_00011",
-      "en_US": [
-        "For Pokémon, happiness is being\n",
-        "with a person who treats them well."
-      ]
+      "from": "scr_seq_T24R0201_000#0"
     },
     {
       "id": "msg_0576_T24R0201_00012",
-      "en_US": [
-        "Huh?\n",
-        "It’s holding an item.\f",
-        "You should keep that."
-      ]
+      "from": "scr_seq_T24R0201_000#13"
     },
     {
       "id": "msg_0576_T24R0201_00013",
-      "en_US": [
-        "Huh?\n",
-        "Its Poké Ball has a Ball Capsule on it!\f",
-        "Please remove it."
-      ]
+      "from": "scr_seq_T24R0201_000#12"
     },
     {
       "id": "msg_0576_T24R0201_00014",
-      "en_US": [
-        "Huh?\n",
-        "You...only have one Pokémon!\f",
-        "You can’t give it back to me then."
-      ]
+      "from": "scr_seq_T24R0201_000#11"
     }
   ]
 }

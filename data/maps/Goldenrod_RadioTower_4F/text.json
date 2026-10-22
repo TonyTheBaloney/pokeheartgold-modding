@@ -3,26 +3,15 @@
   "messages": [
     {
       "id": "msg_0068_D23R0104_00000",
-      "en_US": [
-        "I listened to the radio while I was at\n",
-        "the ruins.\r",
-        "I heard a strange broadcast there."
-      ]
+      "from": "scr_seq_D23R0104_003#0"
     },
     {
       "id": "msg_0068_D23R0104_00001",
-      "en_US": [
-        "Mary: Why? Why do I have to suffer\n",
-        "through this?\r",
-        "MEOWTH, help me!"
-      ]
+      "from": "scr_seq_D23R0104_004#0"
     },
     {
       "id": "msg_0068_D23R0104_00002",
-      "en_US": [
-        "Mary: Oh! You’re my little savior! Will\n",
-        "you take this as my thanks?\r"
-      ]
+      "from": "scr_seq_D23R0104_004#2"
     },
     {
       "id": "msg_0068_D23R0104_00003",
@@ -33,70 +22,47 @@
     },
     {
       "id": "msg_0068_D23R0104_00004",
-      "en_US": [
-        "Mary: When a Pokémon holds it, it\n",
-        "lowers the opponent’s accuracy."
-      ]
+      "from": "scr_seq_D23R0104_004#3"
     },
     {
       "id": "msg_0068_D23R0104_00005",
-      "en_US": "Nooo! Your Bag is full!"
+      "from": "scr_seq_D23R0104_004#4"
     },
     {
       "id": "msg_0068_D23R0104_00006",
-      "en_US": [
-        "Mary: Please tune in to me on\n",
-        "Professor Oak’s Pokémon Talk show."
-      ]
+      "from": "scr_seq_D23R0104_004#1"
     },
     {
       "id": "msg_0068_D23R0104_00007",
-      "en_US": "MEOWTH: Meowth..."
+      "from": "scr_seq_D23R0104_005#0"
     },
     {
       "id": "msg_0068_D23R0104_00008",
-      "en_US": "4F Production"
+      "from": "scr_seq_D23R0104_001#0"
     },
     {
       "id": "msg_0068_D23R0104_00009",
-      "en_US": "4F Studio 1"
+      "from": "scr_seq_D23R0104_002#0"
     },
     {
       "id": "msg_0068_D23R0104_00010",
-      "en_US": [
-        "Ben: Team Rocket... There is something\n",
-        "they lack. It is music!\r",
-        "Music enriches people’s heart and soul.\r",
-        "Music lovers would never do such\n",
-        "horrible things at a place like the\f",
-        "Radio Tower!"
-      ]
+      "from": "scr_seq_D23R0104_006#0"
     },
     {
       "id": "msg_0068_D23R0104_00011",
-      "en_US": "Ben: Do you listen to our music?"
+      "from": "scr_seq_D23R0104_006#1"
     },
     {
       "id": "msg_0068_D23R0104_00012",
-      "en_US": [
-        "Proton, the leader of this Radio Tower\n",
-        "mission... He is so cool.\r"
-      ]
+      "from": "scr_seq_D23R0104_007#0"
     },
     {
       "id": "msg_0068_D23R0104_00013",
-      "en_US": [
-        "Who are you?\r",
-        "If you are in the way of Proton...\n",
-        "I mean Team Rocket. I won’t allow that!\r"
-      ]
+      "from": "scr_seq_D23R0104_007#1"
     },
     {
       "id": "msg_0068_D23R0104_00014",
-      "en_US": [
-        "Team Rocket and Proton are all I need!\r",
-        "Who cares about Pokémon?"
-      ]
+      "from": "text"
     }
   ]
 }

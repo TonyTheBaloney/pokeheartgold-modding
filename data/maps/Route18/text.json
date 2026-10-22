@@ -3,10 +3,7 @@
   "messages": [
     {
       "id": "msg_0358_R18_00000",
-      "en_US": [
-        "Rt. 18\n",
-        "East to Fuchsia City"
-      ]
+      "from": "scr_seq_R18_001#0"
     }
   ]
 }

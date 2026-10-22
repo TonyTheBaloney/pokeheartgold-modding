@@ -15,7 +15,8 @@ script scr_seq_T07SP0101_000 {
     faceplayer
     hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0511_T07SP0101_00010)
+        npcmsg("It seems you need a Coin Case\n"
+               "to play...\r")
         applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_007C)
         waitmovement
         npcmsg(msg_0511_T07SP0101_00011)
@@ -23,7 +24,8 @@ script scr_seq_T07SP0101_000 {
     }
     applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_007C)
     waitmovement
-    npcmsg(msg_0511_T07SP0101_00012)
+    npcmsg("Mr. Game: Show me how you play and\n"
+           "make my heart pound with excitement!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -34,6 +36,12 @@ script scr_seq_T07SP0101_000 {
     setvar(VAR_TEMP_x4001, 2)
     releaseall
     end
+}
+
+text msg_0511_T07SP0101_00011 {
+    "Mr. Game: Aha!\n"
+    "You must be here to play my Coin game!\r"
+    "Come here and I’ll give you a Coin Case!"
 }
 
 movement Celadon_GameCorner_Movement_007C {
@@ -61,7 +69,9 @@ script scr_seq_T07SP0101_002 {
     waitmovement
     hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
-        npcmsg(msg_0511_T07SP0101_00013)
+        npcmsg("Mr. Game: Huh?\r"
+               "Why don’t you sit across from me\n"
+               "and show me how you play?")
     } else {
         npcmsg(msg_0511_T07SP0101_00011)
     }
@@ -88,31 +98,53 @@ script scr_seq_T07SP0101_003 {
     hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
         if (var(VAR_TEMP_x4001) == 0) {
-            npcmsg(msg_0511_T07SP0101_00000)
+            npcmsg("My name is Mr. Game!\r"
+                   "My heart pounds with excitement when\n"
+                   "people enjoy my Coin game!\r"
+                   "In fact, that’s what I live for!\n"
+                   "You look like quite a challenger!\r"
+                   "Why don’t you play my Coin game?\f"
+                   "You can get fabulous prizes if you\n"
+                   "manage to collect a lot of Coins. {YESNO 0}")
         } else {
-            npcmsg(msg_0511_T07SP0101_00009)
+            npcmsg("Did you come back to play\n"
+                   "my Coin game?")
         }
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
             setvar(VAR_TEMP_x4001, 1)
-            npcmsg(msg_0511_T07SP0101_00005)
+            npcmsg("Playing my Coin game will make your\n"
+                   "heart and my heart both pound with\f"
+                   "excitement, you know?")
             goto(_00E4)
         }
-        npcmsg(msg_0511_T07SP0101_00003)
+        npcmsg("All right!\n"
+               "Here is your Coin Case!\r")
         setvar(VAR_TEMP_x4001, 1)
         giveitemnocheck(ITEM_COIN_CASE, 1)
-        npcmsg(msg_0511_T07SP0101_00004)
+        npcmsg("Show me how you play and make\n"
+               "my heart pound with excitement!\r")
         goto(_00E4)
     }
     if (var(VAR_TEMP_x4001) == 0) {
-        npcmsg(msg_0511_T07SP0101_00006)
+        npcmsg("My name is Mr. Game!\r"
+               "My heart pounds with excitement when\n"
+               "people enjoy my Coin game!\r"
+               "In fact, that’s what I live for!\n"
+               "Go ahead and play it!\f"
+               "Make my heart pound with excitement!")
         setvar(VAR_TEMP_x4001, 1)
     } elif (var(VAR_TEMP_x4001) == 1) {
-        npcmsg(msg_0511_T07SP0101_00007)
+        npcmsg("Go ahead and play my Coin game!\n"
+               "Make my heart pound with excitement!")
     } else {
-        npcmsg(msg_0511_T07SP0101_00008)
+        npcmsg("What a feeling!\n"
+               "Nothing beats Coin-game spectatorship!\r"
+               "Oh! I almost forgot!\r"
+               "You can go to the building next door\n"
+               "and exchange your Coins for prizes.")
     }
     waitbuttonpress
     closemessage
@@ -121,7 +153,10 @@ script scr_seq_T07SP0101_003 {
 }
 
 script scr_seq_T07SP0101_001 {
-    simplenpcmsg(msg_0511_T07SP0101_00014)
+    simplenpcmsg("Yo, legend in the making!\n"
+                 "Do you play this Coin game, too?\r"
+                 "I’ve been trying for the prize Pokémon,\n"
+                 "but that’s a tough game to beat!")
     end
 }
 

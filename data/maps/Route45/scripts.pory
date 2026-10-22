@@ -113,17 +113,26 @@ movement Route45_Movement_0188 {
 }
 
 script scr_seq_R45_003 {
-    simplenpcmsg(msg_0405_R45_00000)
+    simplenpcmsg("Have you heard of a place called\n"
+                 "the Battle Frontier?\r"
+                 "It’s a huge place with many battle\n"
+                 "facilities, and it’s located west of\f"
+                 "Olivine City!\r"
+                 "Let’s see...\r"
+                 "If you manage to win all the way up\n"
+                 "through the Pokémon League,\f"
+                 "you might want to try it.")
     end
 }
 
 script scr_seq_R45_000 {
-    directionsignpostex(1, 4, msg_0405_R45_00001)
+    directionsignpostex(1, 4, "Rt. 45\n"
+                              "Mountain Road ahead")
     end
 }
 
 script scr_seq_R45_004 {
-    trainertipsex(2, msg_0405_R45_00002)
+    trainertipsex(2, "Dark Cave")
     end
 }
 

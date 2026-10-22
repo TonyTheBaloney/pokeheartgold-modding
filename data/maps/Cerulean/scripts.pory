@@ -39,13 +39,20 @@ script scr_seq_T04_000 {
     lockall
     faceplayer
     if (flag(FLAG_RESTORED_POWER)) {
-        npcmsg(msg_0467_T04_00001)
+        npcmsg("You’re collecting every single kind\n"
+               "of Pokémon?\r"
+               "That must be quite a challenge, but\n"
+               "it sounds fun, too.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0467_T04_00000)
+    npcmsg("Kanto’s Power Plant?\r"
+           "It’s near the end of Route 9, the road\n"
+           "that heads east from here.\r"
+           "I think there was an accident of\n"
+           "some sort there.")
     waitbuttonpress
     closemessage
     releaseall
@@ -53,12 +60,22 @@ script scr_seq_T04_000 {
 }
 
 script scr_seq_T04_001 {
-    simplenpcmsg(msg_0467_T04_00002)
+    simplenpcmsg("The cape in the north is a good\n"
+                 "place for dates.\r"
+                 "Girls like it!\r"
+                 "Just between you and me...\n"
+                 "Misty, the Gym Leader, is sometimes\f"
+                 "there at the cape.\r"
+                 "Guess I don’t stand a chance!")
     end
 }
 
 script scr_seq_T04_002 {
-    simplenpcmsg(msg_0467_T04_00005)
+    simplenpcmsg("My SLOWBRO and I make an\n"
+                 "awesome combination!\r"
+                 "SLOWBRO, show me your Psychic!\r"
+                 "...!\n"
+                 "SLOWBRO’s Psychic hits hard!")
     end
 }
 
@@ -66,10 +83,10 @@ script scr_seq_T04_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0467_T04_00003)
+    npcmsg("SLOWBRO: Yarah?")
     playcry(SPECIES_SLOWBRO, 0)
     waitcry
-    npcmsg(msg_0467_T04_00004)
+    npcmsg("SLOWBRO is full of the fighting spirit!")
     waitbuttonpress
     closemessage
     releaseall
@@ -81,7 +98,7 @@ script scr_seq_T04_004 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROUTE_24_ROCKET) >= 3) {
-        npcmsg(msg_0467_T04_00009)
+        npcmsg("I’m a huge fan of Cerulean Gym’s Misty.")
     _012F:
         waitbuttonpress
         closemessage
@@ -90,13 +107,20 @@ script scr_seq_T04_004 {
     }
     if (var(VAR_UNK_411C) == 2) { goto(_0123) }
     if (var(VAR_UNK_411C) == 1) { goto(_011A) }
-    npcmsg(msg_0467_T04_00006)
+    npcmsg("This shady character asked me just now\n"
+           "how to get to the Power Plant.\r"
+           "He said it must be kept\n"
+           "“...confidential.”\r"
+           "What does that mean?")
     goto(_012F)
 _011A:
-    npcmsg(msg_0467_T04_00007)
+    npcmsg("A shady character sneaked into\n"
+           "the Gym! What business does\f"
+           "he have with Misty?")
     goto(_012F)
 _0123:
-    npcmsg(msg_0467_T04_00008)
+    npcmsg("I saw this shady guy in black go\n"
+           "off toward the Cape.")
     goto(_012F)
 }
 
@@ -104,8 +128,11 @@ script scr_seq_T04_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0467_T04_00010)
-    npcmsg(msg_0467_T04_00011)
+    npcmsg("I heard of a cave here that had\n"
+           "horribly powerful Pokémon in it.\f"
+           "That’s why I came here.\r")
+    npcmsg("Ayuh?\r"
+           "My Dowsing Machine is responding...")
     waitbuttonpress
     closemessage
     releaseall
@@ -113,32 +140,45 @@ script scr_seq_T04_005 {
 }
 
 script scr_seq_T04_013 {
-    simplenpcmsg(msg_0467_T04_00012)
+    simplenpcmsg("This is...\n"
+                 "The notorious Cerulean Cave!\r"
+                 "Horribly powerful Pokémon live here.\n"
+                 "Only those who have defeated all eight\f"
+                 "Kanto Gym Leaders are allowed to\f"
+                 "challenge it.")
     end
 }
 
 script scr_seq_T04_006 {
-    directionsignpostex(0, 4, msg_0467_T04_00013)
+    directionsignpostex(0, 4, "Cerulean City\n"
+                              "The Floral Lagoon City")
     end
 }
 
 script scr_seq_T04_007 {
-    trainertipsex(2, msg_0467_T04_00014)
+    trainertipsex(2, "Cerulean City Pokémon Gym\n"
+                     "Leader: Misty\f"
+                     "The Tomboyish Mermaid")
     end
 }
 
 script scr_seq_T04_008 {
-    trainertipsex(2, msg_0467_T04_00015)
+    trainertipsex(2, "Trendsetter of the Bicycle Boom\r"
+                     "Cerulean Bike Main Shop")
     end
 }
 
 script scr_seq_T04_009 {
-    trainertipsex(3, msg_0467_T04_00016)
+    trainertipsex(3, "There’s a notice here...\r"
+                     "Stamp out thievery and make the city\n"
+                     "a friendlier, more cheerful place!\f"
+                     "Cerulean Police")
     end
 }
 
 script scr_seq_T04_010 {
-    directionsignpostex(1, 14, msg_0467_T04_00017)
+    directionsignpostex(1, 14, "Rt. 24 Ahead\n"
+                               "East to Cerulean Cape")
     end
 }
 

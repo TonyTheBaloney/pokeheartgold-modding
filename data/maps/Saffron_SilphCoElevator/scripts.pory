@@ -19,7 +19,8 @@ script scr_seq_T11R0703_000 {
     waitmovement
     playcry(SPECIES_ROTOM, 0)
     waitcry
-    npcmsg(msg_0539_T11R0703_00000)
+    npcmsg("ROTOM’s electricity affected the\n"
+           "elevator, and now it’s working!\r")
     closemessage
     goto(_0066)
     applymovement(obj_player, Saffron_SilphCoElevator_Movement_0154)
@@ -112,7 +113,10 @@ script(local) _018C {
         applymovement(obj_partner_poke, Saffron_SilphCoElevator_Movement_0160)
         waitmovement
     }
-    npcmsg(msg_0539_T11R0703_00001)
+    npcmsg("...\n"
+           "The elevator doesn’t seem to\f"
+           "be working.\f"
+           "Better move on...\r")
     closemessage
     getdynamicwarpfloorno(VAR_ELEVATOR_LAST_FLOOR)
     Switch(VAR_ELEVATOR_LAST_FLOOR)

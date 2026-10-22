@@ -16,7 +16,14 @@ script scr_seq_T07R0701_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0510_T07R0701_00006)
+    npcmsg("Maylene: Munch munch munch...\n"
+           "The eatathon contest!\r"
+           "I never dreamed of such a\n"
+           "wonderful thing.\r"
+           "After a strict diet during training,\n"
+           "I can eat like a HIPPOWDON.\r"
+           "The winner eats for free, too.\n"
+           "That’s just a dream come true!\r")
     closemessage
     applymovement(obj_T07R0701_leader4, Celadon_Restaurant_Movement_003C)
     waitmovement
@@ -34,14 +41,18 @@ script scr_seq_T07R0701_004 {
     faceplayer
     hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0510_T07R0701_00005)
+        npcmsg("Crunch... Crunch...\r"
+               "I can keep eating!\n"
+               "More, chef!\r")
         closemessage
         applymovement(obj_T07R0701_gswoman1, Celadon_Restaurant_Movement_00D8)
         waitmovement
         releaseall
         end
     }
-    npcmsg(msg_0510_T07R0701_00004)
+    npcmsg("Crunch... Crunch...\r"
+           "I can keep eating!\n"
+           "More, chef!\r")
     closemessage
     applymovement(obj_T07R0701_gswoman1, Celadon_Restaurant_Movement_00D8)
     waitmovement
@@ -53,7 +64,13 @@ script scr_seq_T07R0701_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0510_T07R0701_00001)
+    npcmsg("Huff... Huff... Munch... Munch...\n"
+           "Huff... Huff... Munch... Munch...\r"
+           "When it comes to eating contests,\n"
+           "I’m quite confident.\r"
+           "But I can’t handle hot food.\f"
+           "If I have to hurry eating, my mouth...\f"
+           "Hot, hot, hot!\r")
     closemessage
     applymovement(obj_T07R0701_gsbigman_3, Celadon_Restaurant_Movement_00E0)
     waitmovement
@@ -65,7 +82,10 @@ script scr_seq_T07R0701_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0510_T07R0701_00002)
+    npcmsg("Chomp, chew, munch...\n"
+           "(Please don’t talk to me now!)\r"
+           "Chomp, chew, cough...\n"
+           "(Food is gonna come out of my mouth...)\r")
     closemessage
     applymovement(obj_T07R0701_gsbigman_2, Celadon_Restaurant_Movement_00E0)
     waitmovement
@@ -77,7 +97,11 @@ script scr_seq_T07R0701_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0510_T07R0701_00003)
+    npcmsg("Munch munch munch...\n"
+           "...What? This is the eatathon contest?\r"
+           "Ouch!\r"
+           "I thought it was the speed-eating\n"
+           "contest...\r")
     closemessage
     applymovement(obj_T07R0701_gsbigman, Celadon_Restaurant_Movement_00D8)
     waitmovement
@@ -94,14 +118,20 @@ movement Celadon_Restaurant_Movement_00E0 {
 }
 
 script scr_seq_T07R0701_000 {
-    simplenpcmsg(msg_0510_T07R0701_00000)
+    simplenpcmsg("Hi!\r"
+                 "We’re holding an eatathon contest.\n"
+                 "We can’t serve you right now. Sorry.")
     end
 }
 
 script scr_seq_T07R0701_006 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0510_T07R0701_00007)
+    npcmsg("Eatathon Contest!\n"
+           "No time limit!\f"
+           "A battle without end!\r"
+           "The biggest eater gets it\n"
+           "all for free!")
     waitbuttonpress
     closemessage
     releaseall

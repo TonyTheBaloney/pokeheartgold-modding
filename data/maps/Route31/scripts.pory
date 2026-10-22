@@ -21,7 +21,13 @@ script scr_seq_R31_001 {
                     }
                 }
             _008D:
-                npcmsg(msg_0378_R31_00000)
+                npcmsg("...Hnuurg ...Huh?\r"
+                       "I walked too far today looking\n"
+                       "for Pokémon.\r"
+                       "My feet hurt and I’m sleepy...\r"
+                       "If I were a wild Pokémon, I’d be\n"
+                       "easy to catch...\r"
+                       "...Zzzz...")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -59,11 +65,22 @@ script scr_seq_R31_001 {
                 }
                 waitmovement
                 bufferplayersname(0)
-                npcmsg(msg_0378_R31_00005)
+                npcmsg("{STRVAR_1 3, 0, 0} handed over the Pokémon\n"
+                       "holding the Mail.")
                 playfanfare(SEQ_ME_ITEM)
                 waitfanfare
             _0195:
-                npcmsg(msg_0378_R31_00007)
+                npcmsg("Let’s see...\r"
+                       "“Thank you for your Mail.\n"
+                       "It was such an exciting adventure.\r"
+                       "I did not like ZUBAT, though...”\n"
+                       "That’s what it says.\r"
+                       "I went to a dark cave the other day\n"
+                       "with a friend.\r"
+                       "That cave leads to another route.\n"
+                       "By the way, I must thank you for\f"
+                       "being so kind.\r"
+                       "I’d like to do something good in return.\r")
                 setvar(VAR_LOAN_SPEAROW, 2)
                 if (var(VAR_TEMP_x4000) == VAR_TEMP_x4001) {
                     followmonreleasenexttoplayer
@@ -76,7 +93,13 @@ script scr_seq_R31_001 {
                 } else {
                     setvar(VAR_LOAN_SPEAROW, 5)
                 }
-                npcmsg(msg_0378_R31_00008)
+                npcmsg("TM44 is...\n"
+                       "...Zzz...\f"
+                       "...\r"
+                       "...Umm... Rest!\r"
+                       "The phrase “recover fast” became\n"
+                       "shortened to “Rest,” you see?\f"
+                       "This is a move to sleep and recover HP.")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -90,7 +113,8 @@ script scr_seq_R31_001 {
                 restoreoverworld
                 fadescreen(6, 1, 1, RGB_BLACK)
                 waitfade
-                npcmsg(msg_0378_R31_00009)
+                npcmsg("...I’m\n"
+                       "sleepy...")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -99,7 +123,10 @@ script scr_seq_R31_001 {
                 restoreoverworld
                 fadescreen(6, 1, 1, RGB_BLACK)
                 waitfade
-                npcmsg(msg_0378_R31_00015)
+                npcmsg("Huh? What is it?\n"
+                       "Is that a Pokémon Egg?\f"
+                       "I’ve never seen one.\r"
+                       "...Zzz...")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -108,7 +135,10 @@ script scr_seq_R31_001 {
                 restoreoverworld
                 fadescreen(6, 1, 1, RGB_BLACK)
                 waitfade
-                npcmsg(msg_0378_R31_00002)
+                npcmsg("Huh? What?\n"
+                       "What about that Pokémon?\f"
+                       "I don’t have any mail.\r"
+                       "Zzz...")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -117,7 +147,7 @@ script scr_seq_R31_001 {
                 restoreoverworld
                 fadescreen(6, 1, 1, RGB_BLACK)
                 waitfade
-                npcmsg(msg_0378_R31_00003)
+                npcmsg("This Mail isn’t for me.")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -126,10 +156,14 @@ script scr_seq_R31_001 {
                 restoreoverworld
                 fadescreen(6, 1, 1, RGB_BLACK)
                 waitfade
-                npcmsg(msg_0378_R31_00004)
+                npcmsg("Oh, hey! I got an email!\r"
+                       "...\n"
+                       "Huh?\f"
+                       "I don’t know this Pokémon.\f"
+                       "I’ll just let you take care of it.\r")
                 closemessage
                 bufferplayersname(0)
-                npcmsg(msg_0378_R31_00006)
+                npcmsg("{STRVAR_1 3, 0, 0} handed over the Mail.")
                 playfanfare(SEQ_ME_ITEM)
                 waitfanfare
                 mongivemail(VAR_TEMP_x4000)
@@ -139,7 +173,9 @@ script scr_seq_R31_001 {
                 restoreoverworld
                 fadescreen(6, 1, 1, RGB_BLACK)
                 waitfade
-                npcmsg(msg_0378_R31_00010)
+                npcmsg("...Wait!\n"
+                       "That would make you not have\f"
+                       "any Pokémon!")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -153,6 +189,14 @@ script scr_seq_R31_001 {
     }
     goto(_0098)
     goto(_008D)
+}
+
+text msg_0378_R31_00001 {
+    "...Hnuurg! ...Huh?\r"
+    "I feel like reading some words\n"
+    "on a piece of paper or something...\r"
+    "...Zzz...\n"
+    "...!!\r"
 }
 
 movement Route31_Movement_02BC {
@@ -172,24 +216,30 @@ movement Route31_Movement_02D4 {
 }
 
 script scr_seq_R31_002 {
-    directionsignpostex(1, 2, msg_0378_R31_00013)
+    directionsignpostex(1, 2, "Rt. 31\n"
+                              "West to Violet City")
     end
 }
 
 script scr_seq_R31_003 {
-    trainertipsex(2, msg_0378_R31_00014)
+    trainertipsex(2, "Dark Cave")
     end
 }
 
 script scr_seq_R31_004 {
-    simplenpcmsg(msg_0378_R31_00012)
+    simplenpcmsg("Dark Cave...\r"
+                 "If a Pokémon could light it up,\n"
+                 "I’d explore it.")
     end
     simplenpcmsg(msg_0378_R31_00001)
     end
 }
 
 script scr_seq_R31_005 {
-    simplenpcmsg(msg_0378_R31_00011)
+    simplenpcmsg("I found a good Pokémon in Dark Cave.\n"
+                 "I’m going to raise it to take on\f"
+                 "Falkner.\r"
+                 "He’s the leader of Violet City’s Gym.")
     end
 }
 

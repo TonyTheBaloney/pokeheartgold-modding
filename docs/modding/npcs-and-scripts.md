@@ -136,9 +136,11 @@ script Cherrygrove_EventScript_MysticWaterMan {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)) {
-        npcmsg(msg_0550_T21_00020)
+        npcmsg("A Pokémon I caught had an item.\n"
+               "I think it’s Mystic Water.\r"
+               "I don’t need it, so do you want it?\r")
         if (!itemspace(ITEM_MYSTIC_WATER, 1)) {
-            npcmsg(msg_0550_T21_00022)
+            npcmsg("You don’t have room for this.")
             waitbuttonpress
             closemessage
             releaseall
@@ -147,7 +149,7 @@ script Cherrygrove_EventScript_MysticWaterMan {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)
     }
-    npcmsg(msg_0550_T21_00021)
+    npcmsg("Back to fishing for me, then.")
     waitbuttonpress
     closemessage
     releaseall
@@ -244,11 +246,16 @@ Run with `applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0390)` then
   { "id": "msg_0550_T21_00020", "en_US": ["first line\n", "second line"] } ] }
 ```
 
+Most dialog is written inline in `scripts.pory` (see
+[SCRIPTING.md](SCRIPTING.md#text)); `text.json` keeps every message's number and
+the text of messages that aren't in a script.
+
 - `\n` ends a line; the files also use `\r` and `\f` for scrolling/new boxes
   (copy an existing message that behaves the way you want). Inline codes like
   `{STRVAR_1 3, 0, 0}` insert names/numbers; `{YESNO 0}` for prompts.
 - A message's number is its position. **Append** new messages at the end
-  (`mapkit text add` does); inserting renumbers every later message.
+  (`mapkit text add` does, and new strings in scripts are appended for you);
+  inserting renumbers every later message.
 - The build (msgenc) writes `msg_NNNN_CODE.h` defining each `id` as its number.
   The `id` can be any name, e.g. `Cherrygrove_Text_Fisher`.
 

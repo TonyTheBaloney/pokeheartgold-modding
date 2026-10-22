@@ -8,7 +8,9 @@ script scr_seq_T24PC0101_000 {
 }
 
 script scr_seq_T24PC0101_001 {
-    simplenpcmsg(msg_0575_T24PC0101_00000)
+    simplenpcmsg("Have you met the maniac in this city?\r"
+                 "He’s always bragging about his\n"
+                 "rare Pokémon.")
     end
 }
 
@@ -24,13 +26,23 @@ script scr_seq_T24PC0101_002 {
         if (var(VAR_SPECIAL_RESULT) != 1) {
             goto(_00E4)
         _007F:
-            npcmsg(msg_0575_T24PC0101_00004)
+            npcmsg("Huh? Do you happen to...\n"
+                   "have only one Pokémon?\r"
+                   "That must be hard on you.\n"
+                   "...\r"
+                   "That’s right!\n"
+                   "I’ll give you a TENTACOOL!\r"
+                   "I just caught a little too many.\n"
+                   "I was going to release it,\f"
+                   "so take it. Go ahead!\r")
             bufferplayersname(0)
-            npcmsg(msg_0575_T24PC0101_00005)
+            npcmsg("{STRVAR_1 3, 0, 0} received\n"
+                   "the TENTACOOL!")
             playfanfare(SEQ_ME_POKEGET)
             waitfanfare
             givemon(SPECIES_TENTACOOL, 15, 0, 0, 0, VAR_SPECIAL_RESULT)
-            npcmsg(msg_0575_T24PC0101_00006)
+            npcmsg("Want to give a nickname to\n"
+                   "the TENTACOOL? {YESNO 0}")
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 1) {
@@ -48,7 +60,10 @@ script scr_seq_T24PC0101_002 {
             releaseall
             end
         _00E4:
-            npcmsg(msg_0575_T24PC0101_00001)
+            npcmsg("You can’t help showing off the Pokémon\n"
+                   "you have, don’t you agree?\r"
+                   "I’d love to show mine to a friend of mine\n"
+                   "who lives in Violet...")
             waitbuttonpress
             closemessage
             releaseall
@@ -68,13 +83,27 @@ script scr_seq_T24PC0101_003 {
     checkbadge(BADGE_STORM, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         bufferplayersname(0)
-        npcmsg(msg_0575_T24PC0101_00003)
+        npcmsg("{STRVAR_1 3, 0, 0}! You won, didn’t you?\n"
+               "Your face tells me you did.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0575_T24PC0101_00002)
+    npcmsg("The Pokémon at this Gym are all rough\n"
+           "and tough.\r"
+           "They could blow me away in a second.\f"
+           "Let me give you a piece of advice.\r"
+           "The Gym Leader uses Fighting-type\n"
+           "Pokémon.\r"
+           "You can try to fool them with\n"
+           "Psychic-type Pokémon.\r"
+           "Or simply defeat them before they\n"
+           "can demonstrate their power.\r"
+           "By the way, Chuck, the Gym Leader,\n"
+           "is into his waterfall training.\r"
+           "He won’t be able to hear you unless\n"
+           "you somehow stop the pounding water.")
     waitbuttonpress
     closemessage
     releaseall

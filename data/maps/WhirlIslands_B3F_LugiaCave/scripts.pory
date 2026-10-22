@@ -66,7 +66,7 @@ script scr_seq_D40R0107_000 {
     faceplayer
     setvar(VAR_TEMP_x400A, 249)
     playcry(VAR_TEMP_x400A, 0)
-    npcmsg(msg_0125_D40R0107_00004)
+    npcmsg("LUGIA: Gyaaas!\r")
     waitcry
     closemessage
     getgameversion(VAR_SPECIAL_RESULT)
@@ -112,7 +112,13 @@ script scr_seq_D40R0107_005 {
     loadeventsoundeffects
     applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09A8)
     waitmovement
-    npcmsg(msg_0125_D40R0107_00000)
+    npcmsg("Zuki: That’s right.\n"
+           "This is where we welcome LUGIA.\r"
+           "When the dance we practiced many days\n"
+           "becomes one with the sound of the\f"
+           "Tidal Bell we entrusted with you, then\f"
+           "LUGIA shall come out from deep within\f"
+           "the waterfall basin once again!\r")
     closemessage
     stopse(SEQ_SE_GS_N_TAKI)
     fadescreen(4, 4, 0, RGB_WHITE)
@@ -424,12 +430,22 @@ script scr_seq_D40R0107_005 {
     applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B3C)
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0125_D40R0107_00002)
+    npcmsg("That is indeed LUGIA...\n"
+           "The guardian of these islands from\f"
+           "ancient times...\r"
+           "So many have tried again and again,\n"
+           "only to fail...\r"
+           "{STRVAR_1 3, 0, 0}, your heart in complete\n"
+           "harmony with the Tidal Bell has finally\f"
+           "allowed it to appear...\r")
     closemessage
     applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09A8)
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0125_D40R0107_00003)
+    npcmsg("{STRVAR_1 3, 0, 0}, don’t you see?\r"
+           "LUGIA... It must have been waiting for\n"
+           "someone like you all this time.\f"
+           "Wouldn’t you agree...?")
     waitbuttonpress
     closemessage
     releaseall
@@ -612,9 +628,18 @@ script scr_seq_D40R0107_001 {
         } elif (var(VAR_TEMP_x4005) == 6) {
             npcmsg(msg_0125_D40R0107_00008)
         } elif (var(VAR_TEMP_x4005) == 4) {
-            npcmsg(msg_0125_D40R0107_00006)
+            npcmsg("You have not only made LUGIA appear,\n"
+                   "but you also caught it...\r"
+                   "You are so wonderful.\n"
+                   "There is nothing more for us to say.\r"
+                   "Take good care of yourself in\n"
+                   "your journey...")
         } else {
-            npcmsg(msg_0125_D40R0107_00007)
+            npcmsg("If that is what you believe, we will not\n"
+                   "try to convince you otherwise.\r"
+                   "Still, if you wish to see LUGIA once\n"
+                   "more, perhaps you can come back here\f"
+                   "after all has been settled...")
         }
         waitbuttonpress
         closemessage
@@ -628,12 +653,27 @@ script scr_seq_D40R0107_001 {
     end
 }
 
+text msg_0125_D40R0107_00008 {
+    "I think once you turn your back to it,\n"
+    "LUGIA will not come back for\f"
+    "some time...\r"
+    "If you want to see LUGIA, perhaps you\n"
+    "can come back here after all\f"
+    "has been settled..."
+}
+
+text msg_0125_D40R0107_00001 {
+    "This is all we can do for you...\n"
+    "What you do now is entirely up to you..."
+}
+
 script scr_seq_D40R0107_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     if (flag(FLAG_UNK_109)) {
-        npcmsg(msg_0125_D40R0107_00005)
+        npcmsg("You’ve done a great job. Say hello to\n"
+               "Professor Elm for us.")
         waitbuttonpress
         closemessage
         releaseall

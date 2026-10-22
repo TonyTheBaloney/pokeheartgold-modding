@@ -19,8 +19,19 @@ script scr_seq_T05R0701_003 {
     if (flag(FLAG_GOT_EXPN_CARD)) { goto(_0069) }
     if (flag(FLAG_RESTORED_POWER)) {
         bufferplayersname(0)
-        gendermsgbox(msg_0482_T05R0701_00004, msg_0482_T05R0701_00005)
-        npcmsg(msg_0482_T05R0701_00006)
+        gendermsgbox("Ah! So you’re the {STRVAR_1 3, 0, 0} who\n"
+                     "solved the Power Plant’s problem?\r"
+                     "Thanks to you, I never lost my job.\n"
+                     "I tell you, you’re a real lifesaver!\f"
+                     "Please take this as my thanks.\r", "Ah! So you’re the {STRVAR_1 3, 0, 0} who\n"
+                                                         "solved the Power Plant’s problem?\r"
+                                                         "Thanks to you, I never lost my job.\n"
+                                                         "I tell you, you’re a real lifesaver!\f"
+                                                         "Please take this as my thanks.\r")
+        npcmsg("The Director loaded the EXPN Card\n"
+               "on {STRVAR_1 3, 0, 0}’s Pokégear!\r"
+               "{STRVAR_1 3, 0, 0}’s Pokégear has been\n"
+               "upgraded!")
         playfanfare(SEQ_ME_KEYITEM)
         waitfanfare
         setflag(FLAG_GOT_EXPN_CARD)
@@ -28,13 +39,21 @@ script scr_seq_T05R0701_003 {
             registerpokegearcard(2)
         }
     _0069:
-        npcmsg(msg_0482_T05R0701_00007)
+        npcmsg("With that thing, you can tune in to\n"
+               "even more radio programs here in\f"
+               "Kanto.\f"
+               "Gahahahaha!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0482_T05R0701_00003)
+    npcmsg("Oh, no, no, no!\r"
+           "We’ve been off the air ever since the\n"
+           "Power Plant shut down.\r"
+           "All my efforts to start this station\n"
+           "would be wasted if I can’t broadcast.\f"
+           "I’ll be ruined!")
     waitbuttonpress
     closemessage
     releaseall
@@ -46,13 +65,25 @@ script scr_seq_T05R0701_004 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_EXPN_CARD)) {
-        npcmsg(msg_0482_T05R0701_00009)
+        npcmsg("Hey there!\n"
+               "I am the super Music Director!\r"
+               "I’m responsible for the gorgeous\n"
+               "melodies that go out over the air.\r"
+               "Don’t be square. Grab your music\n"
+               "off the air!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0482_T05R0701_00008)
+    npcmsg("Hey there!\n"
+           "I am the super Music Director!\r"
+           "Huh? Your Pokégear can’t tune in to my\n"
+           "music shows.\r"
+           "How unfortunate!\r"
+           "If you upgrade it with the EXPN Card,\n"
+           "you can tune in.\f"
+           "You’d better get one!")
     waitbuttonpress
     closemessage
     releaseall
@@ -60,24 +91,37 @@ script scr_seq_T05R0701_004 {
 }
 
 script scr_seq_T05R0701_000 {
-    simplenpcmsg(msg_0482_T05R0701_00000)
+    simplenpcmsg("Welcome!\r"
+                 "Feel free to look around anywhere\n"
+                 "on this floor.")
     end
 }
 
 script scr_seq_T05R0701_001 {
-    simplenpcmsg(msg_0482_T05R0701_00001)
+    simplenpcmsg("Sorry, but you can only tour the\n"
+                 "ground floor.\r"
+                 "Ever since Johto’s Radio Tower was\n"
+                 "taken over by a criminal gang,\f"
+                 "we have had to step up our security.")
     end
 }
 
 script scr_seq_T05R0701_002 {
-    simplenpcmsg(msg_0482_T05R0701_00002)
+    simplenpcmsg("Many people are hard at work here\n"
+                 "in the Radio Tower.\r"
+                 "They must be doing their best to put\n"
+                 "on good shows.")
     end
 }
 
 script scr_seq_T05R0701_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0482_T05R0701_00010)
+    npcmsg("1F Reception\n"
+           "2F Sales\f"
+           "3F Personnel\f"
+           "4F Production\f"
+           "5F Director’s Office\n")
     waitbuttonpress
     closemessage
     releaseall
@@ -87,7 +131,12 @@ script scr_seq_T05R0701_005 {
 script scr_seq_T05R0701_006 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0482_T05R0701_00011)
+    npcmsg("Perk Up Pokémon with Mellow Sounds\n"
+           "of the Poké Flute.\r"
+           "The Poké Flute broadcast is only\n"
+           "available around the Kanto region.\r"
+           "Try to tune in around the upper area\n"
+           "of the radio!")
     waitbuttonpress
     closemessage
     releaseall

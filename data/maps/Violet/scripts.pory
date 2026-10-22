@@ -35,19 +35,26 @@ script scr_seq_T22_004 {
     callstd(std_play_kimono_girl_music)
     applymovement(obj_T22_dancer, Violet_Movement_00CC)
     waitmovement
-    npcmsg(msg_0556_T22_00013)
+    npcmsg("Me oh my...\n"
+           "That Egg must be...!\r")
     closemessage
     applymovement(obj_T22_dancer, Violet_Movement_00DC)
     waitmovement
-    npcmsg(msg_0556_T22_00014)
+    npcmsg("I see...\n"
+           "So it was handed from Mr. Pokémon to\f"
+           "Professor Elm, then from Professor Elm\f"
+           "to you.\r"
+           "Now I get it...\r")
     closemessage
     applymovement(obj_T22_dancer, Violet_Movement_00E4)
     waitmovement
-    npcmsg(msg_0556_T22_00015)
+    npcmsg("That Egg is truly an important Egg.\n"
+           "Please do take good care of it for me.\r"
+           "Is that understood?\r")
     closemessage
     applymovement(obj_T22_dancer, Violet_Movement_0104)
     waitmovement
-    npcmsg(msg_0556_T22_00016)
+    npcmsg("I am counting on you.\r")
     closemessage
     applymovement(obj_T22_dancer, Violet_Movement_00F4)
     waitmovement
@@ -101,7 +108,10 @@ movement Violet_Movement_0104 {
 }
 
 script scr_seq_T22_005 {
-    simplenpcmsg(msg_0556_T22_00026)
+    simplenpcmsg("We care about the traditional buildings\n"
+                 "around here. That’s why even the\f"
+                 "Poké Mart and Pokémon Center are\f"
+                 "painted a bit somberly to blend in.")
     end
 }
 
@@ -120,19 +130,23 @@ script scr_seq_T22_001 {
         applymovement(obj_T22_gsbigman, Violet_Movement_03F4)
     }
     waitmovement
-    npcmsg(msg_0556_T22_00001)
+    npcmsg("Bonjour!\n"
+           "You are Trainer?\r"
+           "Battle Gym Leader, win you did? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0556_T22_00002)
+        npcmsg("Ooh, la la!\n"
+               "Very indeed nice!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0556_T22_00003)
+        npcmsg("Is that so? Then study shall you!\f"
+               "Follow me!\r")
         closemessage
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 2) {
@@ -197,7 +211,8 @@ script scr_seq_T22_001 {
             goto(_0343)
             end
         _0343:
-            npcmsg(msg_0556_T22_00004)
+            npcmsg("Here, teacher I am.\n"
+                   "Good it is you study here!\r")
             closemessage
             applymovement(obj_T22_gsbigman, Violet_Movement_05EC)
             waitmovement
@@ -453,7 +468,14 @@ script scr_seq_T22_003 {
     call(_0ADD)
     call(_0A57)
     if (var(VAR_SPECIAL_x8006) == 1) {
-        npcmsg(msg_0556_T22_00018)
+        npcmsg("Shard de Berry!\n"
+               "Shard de Berry!\r"
+               "Yah, yah!\n"
+               "I trade Berry for Shard.\r"
+               "If ya bring me some Shards,\n"
+               "I will give ya three Berries, yah.\r"
+               "Which Shard will ya trade for\n"
+               "de Berry? {YESNO 0}")
     _06BF:
         touchscreenmenuhide
         menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
@@ -479,7 +501,8 @@ script scr_seq_T22_003 {
         Case(3, _0955)
         goto(_09F9)
     _0769:
-        npcmsg(msg_0556_T22_00021)
+        npcmsg("I’ll give ya de Berry set A\n"
+               "for de Red Shard, yah.\r")
         if (!itemspace(ITEM_CHERI_BERRY, 1)) { goto(_0A08) }
         if (!itemspace(ITEM_PECHA_BERRY, 1)) { goto(_0A08) }
         if (!itemspace(ITEM_LEPPA_BERRY, 1)) { goto(_0A08) }
@@ -489,7 +512,8 @@ script scr_seq_T22_003 {
         takeitem(ITEM_RED_SHARD, 1, VAR_SPECIAL_RESULT)
         goto(_0A17)
     _080D:
-        npcmsg(msg_0556_T22_00022)
+        npcmsg("I’ll give ya de Berry set B\n"
+               "for de Blue Shard, yah.\r")
         if (!itemspace(ITEM_ORAN_BERRY, 1)) { goto(_0A08) }
         if (!itemspace(ITEM_CHESTO_BERRY, 1)) { goto(_0A08) }
         if (!itemspace(ITEM_WIKI_BERRY, 1)) { goto(_0A08) }
@@ -499,7 +523,8 @@ script scr_seq_T22_003 {
         takeitem(ITEM_BLUE_SHARD, 1, VAR_SPECIAL_RESULT)
         goto(_0A17)
     _08B1:
-        npcmsg(msg_0556_T22_00023)
+        npcmsg("I’ll give ya de Berry set C\n"
+               "for de Yellow Shard, yah.\r")
         if (!itemspace(ITEM_ASPEAR_BERRY, 1)) { goto(_0A08) }
         if (!itemspace(ITEM_SITRUS_BERRY, 1)) { goto(_0A08) }
         if (!itemspace(ITEM_IAPAPA_BERRY, 1)) { goto(_0A08) }
@@ -509,7 +534,8 @@ script scr_seq_T22_003 {
         takeitem(ITEM_YELLOW_SHARD, 1, VAR_SPECIAL_RESULT)
         goto(_0A17)
     _0955:
-        npcmsg(msg_0556_T22_00024)
+        npcmsg("I’ll give ya de Berry set D\n"
+               "for de Green Shard, yah.\r")
         if (!itemspace(ITEM_RAWST_BERRY, 1)) { goto(_0A08) }
         if (!itemspace(ITEM_LUM_BERRY, 1)) { goto(_0A08) }
         if (!itemspace(ITEM_AGUAV_BERRY, 1)) { goto(_0A08) }
@@ -519,13 +545,17 @@ script scr_seq_T22_003 {
         takeitem(ITEM_GREEN_SHARD, 1, VAR_SPECIAL_RESULT)
         goto(_0A17)
     _09F9:
-        npcmsg(msg_0556_T22_00020)
+        npcmsg("Yah, yah!\n"
+               "Come back when ya’ve changed\f"
+               "ya mind, yah.\r")
         closemessage
         call(_0ADD)
         releaseall
         end
     _0A08:
-        npcmsg(msg_0556_T22_00025)
+        npcmsg("Ya already have many Berries\n"
+               "of dis set.\r"
+               "Come back when ya need more, yah.\r")
         closemessage
         call(_0ADD)
         releaseall
@@ -575,10 +605,16 @@ script scr_seq_T22_003 {
             }
             return
         }
-        npcmsg(msg_0556_T22_00019)
+        npcmsg("More Shards to trade for\n"
+               "de Berries? {YESNO 0}")
         goto(_06BF)
     }
-    npcmsg(msg_0556_T22_00017)
+    npcmsg("Shard de Berry!\n"
+           "Shard de Berry!\r"
+           "Yah, yah!\n"
+           "I trade Berry for a Shard.\r"
+           "If ya bring me some Shards,\n"
+           "I will give ya three Berries, yah.\r")
     closemessage
     call(_0ADD)
     releaseall
@@ -647,47 +683,70 @@ script scr_seq_T22_002 {
 }
 
 script scr_seq_T22_006 {
-    simplenpcmsg(msg_0556_T22_00027)
+    simplenpcmsg("Did you know that Pokégear allows you\n"
+                 "to put marks and memos on its Map?\r"
+                 "I’d love to have one of those\n"
+                 "Pokégears, but my mom won’t let me.")
     end
 }
 
 script scr_seq_T22_007 {
-    trainertipsex(2, msg_0556_T22_00012)
+    trainertipsex(2, "Pokémon School\r"
+                     "Earl will show you all\n"
+                     "there is to Pokémon!")
     end
 }
 
 script scr_seq_T22_008 {
-    directionsignpostex(0, 13, msg_0556_T22_00009)
+    directionsignpostex(0, 13, "Violet City\n"
+                               "The City of Nostalgic Scents")
     end
 }
 
 script scr_seq_T22_009 {
-    trainertipsex(2, msg_0556_T22_00010)
+    trainertipsex(2, "Violet City Pokémon Gym\n"
+                     "Leader: Falkner\f"
+                     "The Elegant Master of Flying Pokémon")
     end
 }
 
 script scr_seq_T22_010 {
-    trainertipsex(2, msg_0556_T22_00011)
+    trainertipsex(2, "Sprout Tower\r"
+                     "Experience the Way of Pokémon\n"
+                     "to Cast Aside Your Doubts.")
     end
 }
 
 script scr_seq_T22_011 {
-    simplenpcmsg(msg_0556_T22_00005)
+    simplenpcmsg("There have been reports of Ghost-type\n"
+                 "Pokémon appearing in Sprout Tower.\r"
+                 "They say Normal-type Pokémon moves\n"
+                 "have no effect on them.")
     end
 }
 
 script scr_seq_T22_012 {
-    simplenpcmsg(msg_0556_T22_00006)
+    simplenpcmsg("Hey, you’re a Pokémon Trainer?\r"
+                 "If you beat the Gym Leader here,\n"
+                 "you’ll be ready for prime time!")
     end
 }
 
 script scr_seq_T22_013 {
-    simplenpcmsg(msg_0556_T22_00007)
+    simplenpcmsg("Falkner, from the Violet City Pokémon\n"
+                 "Gym, is a fine Trainer!\r"
+                 "He inherited his father’s Gym and\n"
+                 "has done a great job with it.")
     end
 }
 
 script scr_seq_T22_014 {
-    simplenpcmsg(msg_0556_T22_00008)
+    simplenpcmsg("You cannot have your Pokémon out\n"
+                 "walking with you in some places.\r"
+                 "Places like buildings, caves, and\n"
+                 "where there are huge crowds.\r"
+                 "But all you have to do is to put it in\n"
+                 "a Poké Ball!")
     end
 }
 

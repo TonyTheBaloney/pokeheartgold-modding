@@ -18,7 +18,13 @@ script scr_seq_R05R0202_000 {
     faceplayer
     if (var(VAR_TEMP_x4001) == 1) { goto(_00BE) }
     if (flag(FLAG_UNK_164)) {
-        npcmsg(msg_0331_R05R0202_00007)
+        npcmsg("A place like this...\n"
+               "attracts mean people.\r"
+               "They would eventually cause trouble...\r"
+               "That’s why Uncle Rage is watching for\n"
+               "such things...\r"
+               "The echo at the Underground Path is...\n"
+               "amazing...")
         waitbuttonpress
         closemessage
         releaseall
@@ -27,23 +33,39 @@ script scr_seq_R05R0202_000 {
     if (var(VAR_TEMP_x4000) == 1) { goto(_006E) }
     hasitem(ITEM_RAGECANDYBAR, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_005F) }
-    npcmsg(msg_0331_R05R0202_00000)
+    npcmsg("Don’t be afraid. I’m not a bad person.\r"
+           "A place like this...\n"
+           "attracts mean people.\r"
+           "They would eventually cause trouble...\r"
+           "That’s why Uncle Rage is watching for\n"
+           "such things...\r"
+           "The echo at the Underground Path is...\n"
+           "amazing...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _005F:
-    npcmsg(msg_0331_R05R0202_00001)
+    npcmsg("Don’t be afraid. I’m not a bad person.\r"
+           "A place like this...\n"
+           "attracts mean people.\r"
+           "They would eventually cause trouble...\r"
+           "It makes me mad just thinking\n"
+           "about it...\r")
     closemessage
     applymovement(obj_R05R0202_gsmiddleman1, Route5_UndergroundPath_Movement_0100)
     waitmovement
 _006E:
-    npcmsg(msg_0331_R05R0202_00002)
+    npcmsg("Aha!\n"
+           "That’s a RageCandyBar!\r"
+           "Can I have it?\n"
+           "Please! {YESNO 0}\n")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0331_R05R0202_00008)
+        npcmsg("Are you going to eat it all\n"
+               "by yourself?!")
         waitbuttonpress
         closemessage
         releaseall
@@ -52,24 +74,48 @@ _006E:
     }
     hasspaceforitem(ITEM_TM64, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0331_R05R0202_00009)
+        npcmsg("Aha! Thank you!\r"
+               "...But your Bag is full...\n"
+               "Make some room, and come back later...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     bufferplayersname(0)
-    npcmsg(msg_0331_R05R0202_00003)
+    npcmsg("{STRVAR_1 3, 0, 0} gave the RageCandyBar\n"
+           "to the guy at the Underground Path.\r")
     takeitem(ITEM_RAGECANDYBAR, 1, VAR_SPECIAL_RESULT)
-    npcmsg(msg_0331_R05R0202_00004)
+    npcmsg("Munch!\r"
+           "How upsetting!\r"
+           "But this is so good!\r"
+           "Munch munch!\r"
+           "Aargh! Makes me mad!\r"
+           "Munch munch!\r"
+           "Aargh...\r"
+           "..................Phew!\r"
+           "I am feeling much better.\n"
+           "Thank you for your candy!\f"
+           "I want you to have this!\r")
     closemessage
     setvar(VAR_SPECIAL_x8004, TM_EXPLOSION)
     setvar(VAR_SPECIAL_x8005, 1)
     callstd(std_obtain_item_verbose)
 _00BE:
-    npcmsg(msg_0331_R05R0202_00005)
+    npcmsg("TM64 contains......\r"
+           "tick-\n"
+           "    tock\f"
+           "tick-\f"
+           "    tock\f"
+           "tick-\f"
+           "    tock\f"
+           "tick-\f"
+           "    tock\f"
+           "tick...\f"
+           "..................\f"
+           "..................\r")
     closemessage
-    npcmsg(msg_0331_R05R0202_00006)
+    npcmsg("{SIZE 200}Ka-Boom!!")
     waitbuttonpress
     closemessage
     setvar(VAR_TEMP_x4001, 1)

@@ -238,12 +238,23 @@ class Repo:
         if not p or not os.path.exists(p):
             return None
         bank = self._cached(("text", p), lambda: text.load(p))
-        res = self.pory_result(m)
-        if res is not None and res.texts:
+        owner = self.text_owner(m)
+        pe = self.pory_entry(owner) if owner is not None else None
+        res = self.pory_result(owner) if pe is not None and pe["dir"] == self.migrated[owner.name]["dir"] else None
+        if res is not None:  # the bank as built: "from" slots filled from scripts.pory
             from . import pory
-            extra = [pory.text_entry(tid, v) for tid, v in res.texts]
-            return text.TextBank(p, bank.key, bank.messages + extra)
+            e = self.migrated[owner.name]
+            merged = self._cached(("merged-text", p), lambda: pory.merged_text(self, e, res))
+            return text.TextBank(p, bank.key, merged["messages"])
         return bank
+
+    def text_owner(self, m):
+        """The map whose folder holds this map's text bank (itself unless it's @Owner)."""
+        e = self.migrated.get(m.name)
+        if e is None:
+            return None
+        d = layout.resolve(list(self.migrated.values()), e, "msgBank")[0]
+        return next((o for o in self.maps if self.migrated.get(o.name, {}).get("dir") == d), None)
 
     def text_ids(self, base):
         """Message ids in bank `base`, including text from a scripts.pory."""

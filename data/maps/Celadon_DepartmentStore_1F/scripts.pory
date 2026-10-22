@@ -2,24 +2,37 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T07R0101_000 {
-    simplenpcmsg(msg_0494_T07R0101_00000)
+    simplenpcmsg("Hello! Welcome to the Celadon\n"
+                 "Department Store!\r"
+                 "The directory is on the wall next to\n"
+                 "the elevator.")
     end
 }
 
 script scr_seq_T07R0101_001 {
-    simplenpcmsg(msg_0494_T07R0101_00001)
+    simplenpcmsg("This department store is part of the\n"
+                 "same chain as the one in Goldenrod City.\r"
+                 "They were both renovated at the\n"
+                 "same time.")
     end
 }
 
 script scr_seq_T07R0101_002 {
-    simplenpcmsg(msg_0494_T07R0101_00002)
+    simplenpcmsg("This is my first time here.\n"
+                 "It’s so big...\f"
+                 "I’m afraid I’ll get lost.")
     end
 }
 
 script scr_seq_T07R0101_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0494_T07R0101_00003)
+    npcmsg("1F: Service Counter\n"
+           "2F: Trainer’s Market\f"
+           "3F: TM Shop\f"
+           "4F: Wiseman Gifts\f"
+           "5F: Battle Collection\f"
+           "6F: Rooftop Atrium")
     waitbuttonpress
     closemessage
     releaseall

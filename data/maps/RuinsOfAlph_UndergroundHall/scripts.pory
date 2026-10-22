@@ -65,7 +65,15 @@ script scr_seq_D24R0205_000 {
             applymovement(obj_D24R0205_gsassistantm_3, RuinsOfAlph_UndergroundHall_Movement_01B8)
             applymovement(obj_D24R0205_gsassistantm_4, RuinsOfAlph_UndergroundHall_Movement_01B8)
             waitmovement
-            npcmsg(msg_0076_D24R0205_00000)
+            npcmsg("Did you just come down from above...?\r"
+                   "So! You must have solved the\n"
+                   "stone-panel puzzle!\r"
+                   "That is wonderful!\r"
+                   "You seem to have some talent with\n"
+                   "archaeology.\f"
+                   "I will give you this UNOWN Report.\r"
+                   "It records UNOWN as you capture them.\n"
+                   "I am sure it’ll come in handy!\r")
             giveitemnocheck(ITEM_UNOWN_REPORT, 1)
             closemessage
             applymovement(obj_D24R0205_gsassistantm, RuinsOfAlph_UndergroundHall_Movement_01A8)
@@ -83,7 +91,7 @@ script scr_seq_D24R0205_000 {
             setflag(FLAG_HIDE_RUINS_OF_ALPH_ASSISTANTS)
             setflag(FLAG_HIDE_RUINS_OF_ALPH_TOURISTS)
             setflag(FLAG_GOT_UNOWN_REPORT)
-            npcmsg(msg_0076_D24R0205_00001)
+            npcmsg("There is a strange presence here...")
             waitbuttonpress
             closemessage
         }
@@ -142,11 +150,16 @@ script scr_seq_D24R0205_006 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0076_D24R0205_00006)
+    npcmsg("Hmm.\r"
+           "I have been studying the ruins for many\n"
+           "years, but something feels...\f"
+           "different.\r")
     closemessage
     applymovement(obj_D24R0205_suit, RuinsOfAlph_UndergroundHall_Movement_02BC)
     waitmovement
-    npcmsg(msg_0076_D24R0205_00007)
+    npcmsg("Wow!\r"
+           "The UNOWN pictures on the wall...\r"
+           "It feels like they’re staring at me!\r")
     closemessage
     fadeoutbgm(0, 30)
     playse(SEQ_SE_GS_ZENIGAME_JOURO)
@@ -158,7 +171,10 @@ script scr_seq_D24R0205_006 {
     stopse(SEQ_SE_GS_ZENIGAME_JOURO)
     applymovement(obj_D24R0205_suit, RuinsOfAlph_UndergroundHall_Movement_02E4)
     waitmovement
-    npcmsg(msg_0076_D24R0205_00008)
+    npcmsg("What is this?\n"
+           "There is something eerie that is making\f"
+           "my legs shiver.\f"
+           "I can’t stop them!\r")
     closemessage
     playse(SEQ_SE_GS_ZENIGAME_JOURO)
     fadescreen(6, 6, 0, RGB_BLACK)
@@ -223,11 +239,20 @@ script scr_seq_D24R0205_007 {
     followingpokemonmovement(48)
     applymovement(obj_player, RuinsOfAlph_UndergroundHall_Movement_0390)
     waitmovement
-    npcmsg(msg_0076_D24R0205_00009)
+    npcmsg("Oh, are you all right?\n"
+           "You disappeared right in front of me.\f"
+           "I was so surprised!\r")
     closemessage
     applymovement(obj_D24R0205_suit, RuinsOfAlph_UndergroundHall_Movement_0380)
     waitmovement
-    npcmsg(msg_0076_D24R0205_00010)
+    npcmsg("I see.\r"
+           "The power of ARCEUS and UNOWN affected\n"
+           "each other to create a huge energy,\f"
+           "which sent you to the Sinjoh Ruins...?\r"
+           "UNOWN, the Ruins of Alph, and ARCEUS...\f"
+           "The mystery deepens...\r"
+           "It has made me even more inquisitive!\r"
+           "I will one day solve all the mysteries!\r")
     closemessage
     applymovement(obj_D24R0205_suit, RuinsOfAlph_UndergroundHall_Movement_0388)
     waitmovement
@@ -320,7 +345,7 @@ movement RuinsOfAlph_UndergroundHall_Movement_0468 {
 script scr_seq_D24R0205_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0076_D24R0205_00005)
+    npcmsg("It’s a replica of an ancient Pokémon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -328,17 +353,28 @@ script scr_seq_D24R0205_002 {
 }
 
 script scr_seq_D24R0205_003 {
-    simplenpcmsg(msg_0076_D24R0205_00002)
+    simplenpcmsg("This is a big room, but there’s\n"
+                 "nothing here.")
     end
 }
 
 script scr_seq_D24R0205_004 {
-    simplenpcmsg(msg_0076_D24R0205_00003)
+    simplenpcmsg("This place has a mystical quality to it.\r"
+                 "...Or a historic quality...\f"
+                 "...Or an eerie quality...\f"
+                 "...Or an ancient quality...\f"
+                 "...Or a solemn quality...\f"
+                 "...Or a frosty quality...\f"
+                 "In essence, it feels sort of ethereal.")
     end
 }
 
 script scr_seq_D24R0205_005 {
-    simplenpcmsg(msg_0076_D24R0205_00004)
+    simplenpcmsg("The ruins have not been robbed, nor\n"
+                 "tampered with. No graffiti, either.\r"
+                 "Things are well preserved.\n"
+                 "Something here must make people\f"
+                 "feel they should preserve it.")
     end
 }
 

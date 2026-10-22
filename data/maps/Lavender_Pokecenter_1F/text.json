@@ -3,30 +3,15 @@
   "messages": [
     {
       "id": "msg_0477_T05PC0101_00000",
-      "en_US": [
-        "To the north of Lavender is\n",
-        "the Rock Tunnel.\r",
-        "Go through it to get to the\n",
-        "Power Plant."
-      ]
+      "from": "scr_seq_T05PC0101_001#0"
     },
     {
       "id": "msg_0477_T05PC0101_00001",
-      "en_US": [
-        "There’s a radio show that plays\n",
-        "Poké Flute music.\r",
-        "Oh? Ah, your radio needs an EXPN Card\n",
-        "to tune in to it."
-      ]
+      "from": "scr_seq_T05PC0101_002#0"
     },
     {
       "id": "msg_0477_T05PC0101_00002",
-      "en_US": [
-        "If the Power Plant isn’t running, the\n",
-        "Magnet Train won’t run either...\r",
-        "It also means the Radio Station\n",
-        "can’t broadcast..."
-      ]
+      "from": "scr_seq_T05PC0101_003#0"
     },
     {
       "id": "msg_0477_T05PC0101_00003",

@@ -45,14 +45,28 @@ script scr_seq_T10R0501_001 {
     lockall
     faceplayer
     if (flag(FLAG_DEFEATED_KAREN)) {
-        npcmsg(msg_0526_T10R0501_00002)
+        npcmsg("Strong Pokémon.\r"
+               "Weak Pokémon.\r"
+               "That is only the selfish perception\n"
+               "of people.\r"
+               "Truly skilled Trainers should try to\n"
+               "win with the Pokémon they love best.\r"
+               "I like your style.\n"
+               "You understand what’s important.\r"
+               "Go on--the Champion is waiting.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     bufferplayersname(0)
-    npcmsg(msg_0526_T10R0501_00000)
+    npcmsg("I am Karen of the Elite Four.\r"
+           "You’re {STRVAR_1 3, 0, 0}? How amusing.\n"
+           "I love Dark-type Pokémon.\r"
+           "I’m known for my overpowering tactics.\r"
+           "Think you can take them?\n"
+           "Just try to entertain me.\r"
+           "Let’s go.\r")
     closemessage
     if (var(VAR_UNK_4135) >= 8) {
         trainerbattle(TRAINER_ELITE_FOUR_KAREN_KAREN_2, 0, 0, 0)
@@ -66,7 +80,15 @@ script scr_seq_T10R0501_001 {
         end
     }
     setflag(FLAG_DEFEATED_KAREN)
-    npcmsg(msg_0526_T10R0501_00001)
+    npcmsg("Strong Pokémon.\r"
+           "Weak Pokémon.\r"
+           "That is only the selfish perception\n"
+           "of people.\r"
+           "Truly skilled Trainers should try to\n"
+           "win with the Pokémon they love best.\r"
+           "I like your style.\n"
+           "You understand what’s important.\r"
+           "Go on--the Champion is waiting.\r")
     closemessage
     playse(SEQ_SE_DP_KI_GASYAN)
     removeobject(obj_T10R0501_leag_door2)

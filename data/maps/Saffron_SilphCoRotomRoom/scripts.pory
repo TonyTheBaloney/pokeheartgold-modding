@@ -120,7 +120,7 @@ _0107:
         end
     _0252:
         bufferpartymonnick(0, VAR_SPECIAL_x8000)
-        npcmsg(msg_0538_T11R0702_00011)
+        npcmsg("{STRVAR_1 0, 0, 0} emerged from the motor.\r")
         updaterotomform(VAR_SPECIAL_x8000, 0, 0, 0)
         fadescreen(6, 1, 0, RGB_BLACK)
         waitfade
@@ -189,7 +189,7 @@ _0107:
         goto(_0252)
         end
     _039F:
-        npcmsg(msg_0538_T11R0702_00017)
+        npcmsg("That ROTOM hasn’t entered a motor.")
         waitbuttonpress
         goto(_089C)
         end
@@ -236,12 +236,12 @@ _0189:
         goto(_0434)
         end
     _041A:
-        npcmsg(msg_0538_T11R0702_00008)
+        npcmsg("An Egg can’t enter a motor.")
         waitbuttonpress
         goto(_089C)
         end
     _0427:
-        npcmsg(msg_0538_T11R0702_00009)
+        npcmsg("That Pokémon can’t enter a motor.")
         waitbuttonpress
         goto(_089C)
         end
@@ -275,7 +275,13 @@ _0189:
             }
             bufferpartymonnick(0, VAR_SPECIAL_x8000)
             buffermovename(1, VAR_SPECIAL_x8001)
-            npcmsg(msg_0538_T11R0702_00000)
+            npcmsg("{STRVAR_1 0, 0, 0} entered the motor.\r"
+                   "{STRVAR_1 0, 0, 0} is trying to\n"
+                   "learn {STRVAR_1 6, 1, 0}.\r"
+                   "But {STRVAR_1 0, 0, 0} can’t learn\n"
+                   "more than four moves.\r"
+                   "Delete a move to make\n"
+                   "room for {STRVAR_1 6, 1, 0}? {YESNO 0}")
             getmenuchoice(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0649) }
             goto(_058A)
@@ -291,7 +297,8 @@ _0189:
             waitfade
             if (var(VAR_SPECIAL_x8002) == 4) {
                 buffermovename(1, VAR_SPECIAL_x8001)
-                npcmsg(msg_0538_T11R0702_00001)
+                npcmsg("Give up on learning the move\n"
+                       "{STRVAR_1 6, 1, 0}? {YESNO 0}")
                 getmenuchoice(VAR_SPECIAL_RESULT)
                 if (var(VAR_SPECIAL_RESULT) == 1) { goto(_058A) }
                 goto(_0649)
@@ -299,7 +306,9 @@ _0189:
             _0649:
                 bufferpartymonnick(0, VAR_SPECIAL_x8000)
                 buffermovename(1, VAR_SPECIAL_x8001)
-                npcmsg(msg_0538_T11R0702_00002)
+                npcmsg("{STRVAR_1 0, 0, 0} did not learn\n"
+                       "{STRVAR_1 6, 1, 0}.\r"
+                       "{STRVAR_1 0, 0, 0} emerged from the motor.")
                 waitbuttonpress
                 compare(VAR_TEMP_x400A, 1)
                 callifeq(_07BA)
@@ -341,20 +350,24 @@ _0189:
             }
             mongetmove(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000, VAR_SPECIAL_x8002)
             buffermovename(1, VAR_SPECIAL_RESULT)
-            npcmsg(msg_0538_T11R0702_00003)
+            npcmsg("The move {STRVAR_1 6, 1, 0} will be\n"
+                   "forgotten. Is that OK? {YESNO 0}")
             getmenuchoice(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0649) }
             bufferpartymonnick(0, VAR_SPECIAL_x8000)
             mongetmove(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000, VAR_SPECIAL_x8002)
             buffermovename(1, VAR_SPECIAL_RESULT)
-            npcmsg(msg_0538_T11R0702_00004)
+            npcmsg("1,{PAUSE 20} 2,{PAUSE 20} and...{PAUSE 20} ...{PAUSE 20} Poof!")
             playse(SEQ_SE_DP_KON)
             waitse(SEQ_SE_DP_KON)
             wait(30, VAR_SPECIAL_RESULT)
-            npcmsg(msg_0538_T11R0702_00005)
+            npcmsg("{STRVAR_1 1, 0, 0} forgot how to\n"
+                   "use {STRVAR_1 6, 1, 0}.\r"
+                   "And...")
             wait(32, VAR_SPECIAL_RESULT)
             buffermovename(1, VAR_SPECIAL_x8001)
-            npcmsg(msg_0538_T11R0702_00006)
+            npcmsg("{STRVAR_1 1, 0, 0} learned\n"
+                   "{STRVAR_1 6, 1, 0}!")
             playfanfare(SEQ_ME_LVUP)
             waitfanfare
             wait(16, VAR_SPECIAL_RESULT)
@@ -381,12 +394,16 @@ _0189:
             setvar(VAR_TEMP_x400A, 1)
         }
         bufferpartymonnick(0, VAR_SPECIAL_x8000)
-        npcmsg(msg_0538_T11R0702_00010)
+        npcmsg("{STRVAR_1 0, 0, 0} entered the motor.\r")
         goto(_0671)
         end
     }
     goto(_03C0)
     end
+}
+
+text msg_0538_T11R0702_00007 {
+    "Which ROTOM are you choosing?\r"
 }
 
 movement Saffron_SilphCoRotomRoom_Movement_06F0 {
@@ -410,19 +427,39 @@ _071C:
     setvar(VAR_SPECIAL_x8001, 437)
     return
 _0724:
-    npcmsg(msg_0538_T11R0702_00021)
+    npcmsg("It’s a microwave oven.\n"
+           "It has an odd-shaped motor on it.\r"
+           "Oh? ROTOM appears as if it wants\n"
+           "to go into the motor.\r"
+           "Allow it to enter the motor? {YESNO 0}")
     return
 _0729:
-    npcmsg(msg_0538_T11R0702_00024)
+    npcmsg("It’s a refrigerator.\n"
+           "It has an odd-shaped motor on it.\r"
+           "Oh? ROTOM appears as if it wants\n"
+           "to go into the motor.\r"
+           "Allow it to enter the motor? {YESNO 0}")
     return
 _072E:
-    npcmsg(msg_0538_T11R0702_00027)
+    npcmsg("It’s a washing machine.\n"
+           "It has an odd-shaped motor on it.\r"
+           "Oh? ROTOM appears as if it wants\n"
+           "to go into the motor.\r"
+           "Allow it to enter the motor? {YESNO 0}")
     return
 _0733:
-    npcmsg(msg_0538_T11R0702_00030)
+    npcmsg("It’s a rotary fan.\n"
+           "It has an odd-shaped motor on it.\r"
+           "Oh? ROTOM appears as if it wants\n"
+           "to go into the motor.\r"
+           "Allow it to enter the motor? {YESNO 0}")
     return
 _0738:
-    npcmsg(msg_0538_T11R0702_00033)
+    npcmsg("It’s a lawn mower.\n"
+           "It has an odd-shaped motor on it.\r"
+           "Oh? ROTOM appears as if it wants\n"
+           "to go into the motor.\r"
+           "Allow it to enter the motor? {YESNO 0}")
     return
 _073D:
     compare(VAR_SPECIAL_x8004, 1)
@@ -441,23 +478,28 @@ _073D:
     goto(_089C)
     end
 _0797:
-    npcmsg(msg_0538_T11R0702_00022)
+    npcmsg("ROTOM reluctantly gave up on entering\n"
+           "the microwave oven’s motor...")
     waitbuttonpress
     return
 _079E:
-    npcmsg(msg_0538_T11R0702_00025)
+    npcmsg("ROTOM reluctantly gave up on entering\n"
+           "the refrigerator’s motor...")
     waitbuttonpress
     return
 _07A5:
-    npcmsg(msg_0538_T11R0702_00028)
+    npcmsg("ROTOM reluctantly gave up on entering\n"
+           "the washing machine’s motor...")
     waitbuttonpress
     return
 _07AC:
-    npcmsg(msg_0538_T11R0702_00031)
+    npcmsg("ROTOM reluctantly gave up on entering\n"
+           "the rotary fan’s motor...")
     waitbuttonpress
     return
 _07B3:
-    npcmsg(msg_0538_T11R0702_00034)
+    npcmsg("ROTOM reluctantly gave up on entering\n"
+           "the lawn mower’s motor...")
     waitbuttonpress
     return
 _07BA:
@@ -486,19 +528,24 @@ script(local) _07D8 {
     goto(_089C)
     end
 _0821:
-    npcmsg(msg_0538_T11R0702_00020)
+    npcmsg("It’s a microwave oven.\n"
+           "It has an odd-shaped motor on it.\r")
     return
 _0826:
-    npcmsg(msg_0538_T11R0702_00023)
+    npcmsg("It’s a refrigerator.\n"
+           "It has an odd-shaped motor on it.\r")
     return
 _082B:
-    npcmsg(msg_0538_T11R0702_00026)
+    npcmsg("It’s a washing machine.\n"
+           "It has an odd-shaped motor on it.\r")
     return
 _0830:
-    npcmsg(msg_0538_T11R0702_00029)
+    npcmsg("It’s a rotary fan.\n"
+           "It has an odd-shaped motor on it.\r")
     return
 _0835:
-    npcmsg(msg_0538_T11R0702_00032)
+    npcmsg("It’s a lawn mower.\n"
+           "It has an odd-shaped motor on it.\r")
     return
 }
 
@@ -507,7 +554,8 @@ script scr_seq_T11R0702_007 {
     lockall
     counttranformedrotomsinparty(VAR_SPECIAL_x8003, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_x8003) == 0) {
-        npcmsg(msg_0538_T11R0702_00018)
+        npcmsg("There was an appliance here.\n"
+               "The one with the oddly shaped motor.")
         waitbuttonpress
         closemessage
         goto(_08A4)
@@ -521,7 +569,10 @@ script scr_seq_T11R0702_007 {
         releaseall
         end
     }
-    npcmsg(msg_0538_T11R0702_00013)
+    npcmsg("Oh? ROTOM appears as if it wants to\n"
+           "revert to its original form.\r"
+           "Would you like to recall it from\n"
+           "the motor? {YESNO 0}")
     touchscreenmenuhide
     menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(14, 255, 0)
@@ -534,7 +585,27 @@ script scr_seq_T11R0702_007 {
 }
 
 script scr_seq_T11R0702_000 {
-    simplenpcmsg(msg_0538_T11R0702_00035)
+    simplenpcmsg("There is a mysterious notebook here.\n"
+                 "Its age is impossible to tell.\r"
+                 "“It was by pure chance that I obtained\n"
+                 "information about the Pokémon ROTOM.\r"
+                 "“Remarkably, ROTOM has the ability to\n"
+                 "enter and merge with special motors.\r"
+                 "“It’s now known that ROTOM can stay\n"
+                 "inside a motor almost indefinitely.\r"
+                 "“However, it will emerge if it enters a\n"
+                 "Union Room or a Wi-Fi Club.\r"
+                 "“ROTOM will also emerge from the motor\n"
+                 "if it is left at the Day Care.\r"
+                 "“ROTOM may also forget certain moves\n"
+                 "when it leaves a motor.\r"
+                 "“This Pokémon requires\n"
+                 "exhaustive observation and analysis.\r"
+                 "“To ensure I get all the credit,\n"
+                 "my ROTOM research must be kept secret.\r"
+                 "“They will come to revere me as the\n"
+                 "scientific genius Char...”\r"
+                 "The rest of the notebook is blank.")
     end
 }
 

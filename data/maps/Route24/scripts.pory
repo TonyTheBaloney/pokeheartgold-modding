@@ -65,7 +65,21 @@ script scr_seq_R24_002 {
     faceplayer
     stopbgm(SEQ_GS_R_12_24)
     playbgm(SEQ_GS_EYE_ROCKET)
-    npcmsg(msg_0362_R24_00000)
+    npcmsg("Oh no!\r"
+           "Hiding I was, but you did\n"
+           "me found in no time!\r"
+           "...\n"
+           "Me only one from another country.\r"
+           "Yet! No big business, OK?\r"
+           "Think I did, if stop the energy,\n"
+           "be big panic and unlucky\f"
+           "for here people!\r"
+           "Secret it is my mission,\n"
+           "so tell you I not!\r"
+           "But! If win you do versus me,\n"
+           "a man I be and mine secret\f"
+           "to you tell. You understand?\f"
+           "Battle begin we do!\r")
     closemessage
     trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_24, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -74,10 +88,26 @@ script scr_seq_R24_002 {
         releaseall
         end
     }
-    npcmsg(msg_0362_R24_00002)
+    npcmsg("OK. Tell you mine secret will I.\r"
+           "Machine Part steal by me. Hide it\n"
+           "I did in Gym of the Cerulean.\r"
+           "Near inflatable tube put it I did.\n"
+           "Look for Gym at.\r"
+           "But you forget me not!\n"
+           "Beat you for sure will Team Rocket.\r"
+           "Come from Johto will they, mine\n"
+           "allies, yes. Will revenge they are.\r")
     closemessage
     fadeoutbgm(0, 30)
-    npcmsg(msg_0362_R24_00003)
+    npcmsg("...\r"
+           "You say what? Team Rocket bye-bye\n"
+           "a go-go? Broken up it is says you?\r"
+           "Oh, no! Should I do what now on\n"
+           "from, me?\r"
+           "...OK.\r"
+           "I my country go home.\r"
+           "Make Team Rocket I will.\n"
+           "Good-bye! So long!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -130,10 +160,13 @@ script scr_seq_R24_000 {
     if (var(VAR_SCENE_ROUTE_24_ROCKET) != 2) {
         if (var(VAR_SCENE_ROUTE_24_ROCKET) != 3) {
             faceplayer
-            npcmsg(msg_0362_R24_00006)
+            npcmsg("Can you leave us alone?\r"
+                   "I am building a chemistry between us,\n"
+                   "and it’s finally working.")
             goto(_01DF)
         _01DC:
-            npcmsg(msg_0362_R24_00004)
+            npcmsg("Who is this guy in black?\n"
+                   "Coming between me and my girlfriend...!")
         _01DF:
             waitbuttonpress
             closemessage
@@ -141,7 +174,8 @@ script scr_seq_R24_000 {
             end
         }
         faceplayer
-        npcmsg(msg_0362_R24_00005)
+        npcmsg("We are finally alone.\n"
+               "You will not bother us, right?")
         goto(_01DF)
         goto(_01DC)
     }
@@ -155,10 +189,11 @@ script scr_seq_R24_001 {
     if (var(VAR_SCENE_ROUTE_24_ROCKET) != 2) {
         if (var(VAR_SCENE_ROUTE_24_ROCKET) != 3) {
             faceplayer
-            npcmsg(msg_0362_R24_00009)
+            npcmsg("Just keep on going. Thank you.\n"
+                   "No need to spoil this chemistry.")
             goto(_0232)
         _022F:
-            npcmsg(msg_0362_R24_00007)
+            npcmsg("Wh...who are you?")
         _0232:
             waitbuttonpress
             closemessage
@@ -166,7 +201,10 @@ script scr_seq_R24_001 {
             end
         }
         faceplayer
-        npcmsg(msg_0362_R24_00008)
+        npcmsg("What’s wrong with that guy?\n"
+               "“Cerulean...near inflatable tube”\f"
+               "is the “Machine Part”?\f"
+               "What was he talking about?")
         goto(_0232)
         goto(_022F)
     }

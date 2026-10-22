@@ -3,25 +3,15 @@
   "messages": [
     {
       "id": "msg_0350_R13_00000",
-      "en_US": [
-        "Trainer Tips\r",
-        "Look! Right there, at the east side of\n",
-        "the post."
-      ]
+      "from": "scr_seq_R13_000#0"
     },
     {
       "id": "msg_0350_R13_00001",
-      "en_US": [
-        "Rt. 13\n",
-        "North to Silence Bridge"
-      ]
+      "from": "scr_seq_R13_001#0"
     },
     {
       "id": "msg_0350_R13_00002",
-      "en_US": [
-        "North to Lavender Town\n",
-        "West to Fuchsia City"
-      ]
+      "from": "scr_seq_R13_002#0"
     }
   ]
 }

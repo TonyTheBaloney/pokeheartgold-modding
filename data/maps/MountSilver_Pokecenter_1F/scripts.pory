@@ -8,7 +8,10 @@ script scr_seq_T31PC0101_000 {
 }
 
 script scr_seq_T31PC0101_001 {
-    simplenpcmsg(msg_0637_T31PC0101_00000)
+    simplenpcmsg("Trainers who seek power climb\n"
+                 "Mt. Silver despite its many dangers...\r"
+                 "With their trusted Pokémon, they must\n"
+                 "feel they can go anywhere...")
     end
 }
 

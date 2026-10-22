@@ -67,6 +67,30 @@ script scr_seq_T25R0601_003 {
     end
 }
 
+text msg_0589_T25R0601_00005 {
+    "How...\n"
+    "...\f"
+    "...\f"
+    "...\f"
+    "cute!\r"
+    "Where did you get that...\n"
+    "oh-so-cute Pokémon?\r"
+}
+
+text msg_0589_T25R0601_00006 {
+    "SHAYMIN, is it?\n"
+    "It’s so cute!\r"
+    "I know!\r"
+    "Let me give it a flower!\n"
+    "I have just the one for it!\r"
+}
+
+text msg_0589_T25R0601_00007 {
+    "The Gracidea will look perfect on\n"
+    "SHAYMIN!\f"
+    "Put it on SHAYMIN in the daylight."
+}
+
 movement Goldenrod_FlowerShop_Movement_00FC {
     walk_up
     delay_8
@@ -112,8 +136,12 @@ script scr_seq_T25R0601_000 {
         playse(SEQ_SE_DP_SELECT)
         lockall
         faceplayer
-        npcmsg(msg_0589_T25R0601_00003)
-        npcmsg(msg_0589_T25R0601_00008)
+        npcmsg("Lalala lalalala.\n"
+               "Have plenty of water, my lovely!\r")
+        npcmsg("Mulch!\n"
+               "Anyone want Mulch?\r"
+               "Berries love Mulch.\n"
+               "It makes Berries grow faster!\r")
         touchscreenmenuhide
         showmoneybox(20, 2)
         menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
@@ -129,7 +157,8 @@ script scr_seq_T25R0601_000 {
         Case(1, _0349)
         Case(2, _0355)
         Case(3, _0361)
-        npcmsg(msg_0589_T25R0601_00010)
+        npcmsg("Thank you.\n"
+               "Please come again!")
         goto(_031F)
     _0276:
         compare(VAR_SPECIAL_x8000, 0)
@@ -141,7 +170,8 @@ script scr_seq_T25R0601_000 {
         compare(VAR_SPECIAL_x8000, 3)
         callifeq(_038B)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            npcmsg(msg_0589_T25R0601_00013)
+            npcmsg("Well... Excuse me, but\n"
+                   "you’re short of money.")
             goto(_031F)
         _033D:
             setvar(VAR_SPECIAL_x8001, 95)
@@ -194,8 +224,12 @@ script scr_seq_T25R0601_000 {
         playse(SEQ_SE_DP_REGI)
         giveitem(VAR_SPECIAL_x8001, 1, VAR_SPECIAL_RESULT)
         bufferitemname(0, VAR_SPECIAL_x8001)
-        npcmsg(msg_0589_T25R0601_00011)
-        npcmsg(msg_0589_T25R0601_00009)
+        npcmsg("You bought the {STRVAR_1 8, 0, 0}.\r")
+        npcmsg("That {STRVAR_1 8, 0, 0} is a mix of\n"
+               "high-quality soil and Pokémon’s...\f"
+               "er...you know...\r"
+               "It’s full of nutrients!\n"
+               "Berries will surely benefit from it.")
         goto(_031F)
     _031F:
         waitbuttonpress
@@ -205,12 +239,25 @@ script scr_seq_T25R0601_000 {
         releaseall
         end
     _032B:
-        npcmsg(msg_0589_T25R0601_00012)
+        npcmsg("Ouch!\n"
+               "Your Bag is full!")
         goto(_031F)
     }
     checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 1) { goto(_0185) }
-    simplenpcmsg(msg_0589_T25R0601_00000)
+    simplenpcmsg("Apparently, there is an odd tree\n"
+                 "on Route 36.\r"
+                 "They say it dances when you\n"
+                 "water it...\r"
+                 "Oh, of course not!\r"
+                 "This is a Flower Shop, so we do have\n"
+                 "watering cans and things like that...\r"
+                 "But I cannot let you have one!\n"
+                 "It’s too dangerous!\f"
+                 "Hmmm...\r"
+                 "Well, maybe if you manage to defeat\n"
+                 "the Goldenrod Gym Leader, it might\f"
+                 "be OK...")
     end
 _0185:
     playse(SEQ_SE_DP_SELECT)
@@ -218,14 +265,25 @@ _0185:
     faceplayer
     hasitem(ITEM_SQUIRTBOTTLE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01D0) }
-    npcmsg(msg_0589_T25R0601_00001)
+    npcmsg("Apparently, there is an odd tree\n"
+           "on Route 36.\r"
+           "They say it dances when you water it...\r"
+           "Oh, that’s a Plain Badge from\n"
+           "Goldenrod Gym!\r"
+           "Did you defeat Whitney?!\n"
+           "Well, then there’s nothing to worry\f"
+           "about, is there?\r"
+           "I’ll let you use this SquirtBottle for\n"
+           "a while then... Oh, never mind.\f"
+           "Keep it!\r")
     if (!itemspace(ITEM_SQUIRTBOTTLE, 1)) { goto(_01DB) }
     callstd(std_give_item_verbose)
     closemessage
     releaseall
     end
 _01D0:
-    npcmsg(msg_0589_T25R0601_00002)
+    npcmsg("The odd tree is on Route 36.\n"
+           "Please be careful!")
     waitbuttonpress
     closemessage
     releaseall
@@ -296,7 +354,10 @@ script scr_seq_T25R0601_001 {
         }
     }
 _03F2:
-    npcmsg(msg_0589_T25R0601_00004)
+    npcmsg("Are you using the Berry Pots?\r"
+           "You can pick any of the Berries you\n"
+           "have planted.\r"
+           "Don’t forget to water them!")
     waitbuttonpress
     closemessage
     releaseall

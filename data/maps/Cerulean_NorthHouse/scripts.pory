@@ -2,7 +2,8 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T04R0101_000 {
-    simplenpcmsg(msg_0471_T04R0101_00000)
+    simplenpcmsg("Are you collecting\n"
+                 "Kanto Gym Badges?")
     end
 }
 

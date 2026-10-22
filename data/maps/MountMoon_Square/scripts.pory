@@ -22,12 +22,14 @@ script scr_seq_D02R0103_002 {
 }
 
 script scr_seq_D02R0103_000 {
-    trainertipsex(2, msg_0050_D02R0103_00000)
+    trainertipsex(2, "This is Mt. Moon Square.\r"
+                     "Please don’t litter. Put trash\n"
+                     "where it belongs!")
     end
 }
 
 script scr_seq_D02R0103_001 {
-    simplenpcmsg(msg_0050_D02R0103_00001)
+    simplenpcmsg("We are closed for the day.")
     end
 }
 

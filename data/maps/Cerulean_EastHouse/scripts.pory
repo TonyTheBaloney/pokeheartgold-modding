@@ -2,12 +2,15 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T04R0201_000 {
-    simplenpcmsg(msg_0472_T04R0201_00000)
+    simplenpcmsg("I heard that some shady character is\n"
+                 "skulking about.\r"
+                 "I won’t stand for it if he turns out\n"
+                 "to be a thief.")
     end
 }
 
 script scr_seq_T04R0201_001 {
-    simplenpcmsg(msg_0472_T04R0201_00001)
+    simplenpcmsg("We were held up by robbers before.")
     end
 }
 
@@ -16,7 +19,7 @@ script scr_seq_T04R0201_002 {
     lockall
     faceplayer
     playcry(SPECIES_DIGLETT, 0)
-    npcmsg(msg_0472_T04R0201_00002)
+    npcmsg("DIGLETT: Dug dug.")
     waitcry
     waitbuttonpress
     closemessage

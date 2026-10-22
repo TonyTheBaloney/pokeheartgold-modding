@@ -45,10 +45,17 @@ script scr_seq_D44R0103_003 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0130_D44R0103_00000)
+    npcmsg("Hm... Good to see you here.\f"
+           "No need to explain why you came.\r"
+           "Clair sent you here, didn’t she?\f"
+           "That girl is a handful...\r"
+           "I am sorry, but I must test you.\r"
+           "Not to worry, you are to answer only\n"
+           "a few questions.\f"
+           "Ready?\r")
 _00A0:
     setvar(VAR_SPECIAL_x8004, 0)
-    npcmsg(msg_0130_D44R0103_00001)
+    npcmsg("What are Pokémon to you? {YESNO 0}")
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 0, VAR_SPECIAL_RESULT)
     menuitemadd(280, 255, 0)
@@ -60,7 +67,7 @@ _00A0:
     npcmsg(msg_0130_D44R0103_00009)
 _00DF:
     setvar(VAR_SPECIAL_x8004, 1)
-    npcmsg(msg_0130_D44R0103_00002)
+    npcmsg("What helps you to win battles? {YESNO 0}")
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 0, VAR_SPECIAL_RESULT)
     menuitemadd(283, 255, 0)
@@ -72,7 +79,8 @@ _00DF:
     npcmsg(msg_0130_D44R0103_00009)
 _011E:
     setvar(VAR_SPECIAL_x8004, 2)
-    npcmsg(msg_0130_D44R0103_00003)
+    npcmsg("What kind of Trainer do you\n"
+           "wish to battle? {YESNO 0}")
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 0, VAR_SPECIAL_RESULT)
     menuitemadd(286, 255, 1)
@@ -84,7 +92,8 @@ _011E:
     npcmsg(msg_0130_D44R0103_00009)
 _015D:
     setvar(VAR_SPECIAL_x8004, 3)
-    npcmsg(msg_0130_D44R0103_00004)
+    npcmsg("What is most important for\n"
+           "raising Pokémon? {YESNO 0}")
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 0, VAR_SPECIAL_RESULT)
     menuitemadd(289, 255, 0)
@@ -96,7 +105,8 @@ _015D:
     npcmsg(msg_0130_D44R0103_00009)
 _019C:
     setvar(VAR_SPECIAL_x8004, 4)
-    npcmsg(msg_0130_D44R0103_00005)
+    npcmsg("Strong Pokémon. Weak Pokémon.\n"
+           "Which is more important? {YESNO 0}")
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 0, VAR_SPECIAL_RESULT)
     menuitemadd(292, 255, 1)
@@ -106,7 +116,13 @@ _019C:
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0310) }
     bufferplayersname(0)
-    npcmsg(msg_0130_D44R0103_00006)
+    npcmsg("Hm... I see...\n"
+           "You care deeply for Pokémon.\r"
+           "Very commendable.\f"
+           "That conviction is what is important!\r"
+           "{STRVAR_1 3, 0, 0}, don’t lose that belief.\r"
+           "It will see you through at the\n"
+           "Pokémon League.\r")
     closemessage
     movepersonfacing(obj_D44R0103_gsleader8, 6, 0, 21, DIR_NORTH)
     wait(10, VAR_SPECIAL_x8004)
@@ -116,37 +132,57 @@ _019C:
     applymovement(obj_player, DragonsDen_Shrine_Movement_0390)
     applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03A8)
     waitmovement
-    npcmsg(msg_0130_D44R0103_00010)
+    npcmsg("So how did it go?\r"
+           "I guess there’s no point in asking.\n"
+           "You did fail?\f"
+           "...\f"
+           "...What? You passed?\r")
     applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03C0)
     waitmovement
-    npcmsg(msg_0130_D44R0103_00011)
+    npcmsg("{SIZE 200}That can’t be!{SIZE 100}\r")
     applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03D0)
     waitmovement
-    npcmsg(msg_0130_D44R0103_00012)
+    npcmsg("You’re lying!\n"
+           "Even I haven’t been approved!\r")
     applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_03DC)
     waitmovement
-    npcmsg(msg_0130_D44R0103_00013)
+    npcmsg("Clair!\r"
+           "This child is impeccable,\n"
+           "in skill and spirit!\r"
+           "Admit defeat and confer the\n"
+           "Rising Badge!\r"
+           "...Or must I inform Lance of this?\r")
     applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03EC)
     waitmovement
-    npcmsg(msg_0130_D44R0103_00014)
+    npcmsg("I... I understand...\r")
     applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03F4)
     applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_03FC)
     waitmovement
-    npcmsg(msg_0130_D44R0103_00015)
+    npcmsg("Here, this is the Rising Badge...\n"
+           "Hurry up! Take it!\r")
     bufferplayersname(0)
-    npcmsg(msg_0130_D44R0103_00016)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Rising Badge from Clair!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
     givebadge(BADGE_RISING)
-    npcmsg(msg_0130_D44R0103_00017)
+    npcmsg("The Rising Badge will enable your\n"
+           "Pokémon to use the move for\f"
+           "climbing waterfalls.\r"
+           "Also, all Pokémon will know you as\n"
+           "a Trainer and obey your every\f"
+           "command without question.\r")
     applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_0408)
     applymovement(obj_player, DragonsDen_Shrine_Movement_0418)
     applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_0424)
     waitmovement
-    npcmsg(msg_0130_D44R0103_00018)
+    npcmsg("Clair...\r"
+           "Reflect upon what it is that you\n"
+           "lack and this child has.\r")
     closemessage
     wait(15, VAR_SPECIAL_x8005)
-    npcmsg(msg_0130_D44R0103_00019)
+    npcmsg("...\n"
+           "...\r")
     closemessage
     applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_0434)
     waitmovement
@@ -159,7 +195,17 @@ _019C:
     if (var(VAR_SPECIAL_RESULT) == 7) {
         npcmsg(msg_0130_D44R0103_00020)
     } else {
-        npcmsg(msg_0130_D44R0103_00021)
+        npcmsg("By the way...\n"
+               "Have you heard of LUGIA?\f"
+               "Er...\r"
+               "Between Olivine and Cianwood are\n"
+               "islands called Whirl Islands.\r"
+               "There is a huge waterfall deep in the\n"
+               "cave there. It is said that LUGIA\r"
+               "rests in the deep end of the\n"
+               "waterfall basin...\r"
+               "You need a Silver Wing to reach the\n"
+               "waterfall basin, I’ve heard...")
     }
     waitbuttonpress
     closemessage
@@ -179,10 +225,10 @@ _0310:
     setflag(FLAG_FAILED_DRAGONS_DEN_QUIZ)
     applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_0378)
     waitmovement
-    npcmsg(msg_0130_D44R0103_00007)
+    npcmsg("Hah? I didn’t quite catch that...\r")
     applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_0388)
     waitmovement
-    npcmsg(msg_0130_D44R0103_00008)
+    npcmsg("What was it you said?")
     waitabpress
     Switch(VAR_SPECIAL_x8004)
     Case(0, _00A0)
@@ -190,6 +236,19 @@ _0310:
     Case(2, _011E)
     Case(3, _015D)
     goto(_019C)
+}
+
+text msg_0130_D44R0103_00009 {
+    "Oh, I understand...\r"
+}
+
+text msg_0130_D44R0103_00020 {
+    "By the way...\n"
+    "Have you heard of LUGIA?\r"
+    "It is a Pokémon said to have lived\n"
+    "around Whirl Islands once...\f"
+    "...Never mind.\r"
+    "Just mad words of the old.\n"
 }
 
 movement DragonsDen_Shrine_Movement_0370 {
@@ -293,28 +352,39 @@ script scr_seq_D44R0103_000 {
     if (var(VAR_SPECIAL_RESULT) == 7) {
         npcmsg(msg_0130_D44R0103_00020)
     } else {
-        npcmsg(msg_0130_D44R0103_00022)
+        npcmsg("There is a huge waterfall deep in the\n"
+               "cave there. It is said that LUGIA\r"
+               "rests in the deep end of the\n"
+               "waterfall basin...\r"
+               "You need a Silver Wing to reach the\n"
+               "waterfall basin, I’ve heard...")
     }
     waitbuttonpress
     closemessage
     releaseall
     end
 _04A6:
-    npcmsg(msg_0130_D44R0103_00026)
+    npcmsg("Hm... Good to see you here.\r"
+           "Your arrival is most fortunate.\n"
+           "I have something for you.\r"
+           "Take this DRATINI as proof that I\n"
+           "now know your worth.\r")
     getpartycount(VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) != 6) { goto(_04C3) }
-    npcmsg(msg_0130_D44R0103_00028)
+    npcmsg("Hm? Your party is full.")
     goto(_0548)
 _04C3:
     bufferplayersname(0)
-    npcmsg(msg_0130_D44R0103_00027)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "DRATINI from the Master!")
     playfanfare(SEQ_ME_SHINKAOME)
     waitfanfare
     givemon(SPECIES_DRATINI, 15, 0, 0, 0, VAR_SPECIAL_RESULT)
     if (!flag(FLAG_FAILED_DRAGONS_DEN_QUIZ)) {
         setmonmove(VAR_SPECIAL_x8005, 0, MOVE_EXTREME_SPEED)
     }
-    npcmsg(msg_0130_D44R0103_00032)
+    npcmsg("Give a nickname to the\n"
+           "DRATINI you received? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -329,13 +399,18 @@ _04C3:
     }
 _052E:
     setflag(FLAG_GOT_DRATINI_FROM_MASTER_JUST_NOW)
-    npcmsg(msg_0130_D44R0103_00029)
+    npcmsg("Dragon Pokémon are symbolic of\n"
+           "our clan.\r"
+           "You have shown that you can be\n"
+           "entrusted with one.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _053D:
-    npcmsg(msg_0130_D44R0103_00030)
+    npcmsg("Clair appears to have learned an\n"
+           "invaluable lesson from you.\r"
+           "I thank you as her grandfather.")
     waitbuttonpress
     closemessage
     releaseall
@@ -348,12 +423,18 @@ _0548:
 }
 
 script scr_seq_D44R0103_001 {
-    simplenpcmsg(msg_0130_D44R0103_00024)
+    simplenpcmsg("It’s been quite some time since a\n"
+                 "Trainer has gained our Master’s\f"
+                 "rare approval.\r"
+                 "In fact, not since Master Lance.")
     end
 }
 
 script scr_seq_D44R0103_002 {
-    simplenpcmsg(msg_0130_D44R0103_00025)
+    simplenpcmsg("You know young Master Lance?\r"
+                 "He looks so much like our Master\n"
+                 "did in his youth.\f"
+                 "It’s in their blood.")
     end
 }
 

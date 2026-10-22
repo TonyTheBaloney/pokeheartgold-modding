@@ -251,6 +251,30 @@ script scr_seq_D36R0101_farfetchd1 {
     goto(_farfetchd1_left)
 }
 
+text msg_0115_D36R0101_00036 {
+    "You need to catch it from behind."
+}
+
+text msg_0115_D36R0101_00003 {
+    "FARFETCH’D: Kwaa!\r"
+}
+
+text msg_0115_D36R0101_00037 {
+    "You snuck up and caught it from\n"
+    "behind before it noticed you!"
+}
+
+text msg_0115_D36R0101_00001 {
+    "Wow! You found a FARFETCH’D!\n"
+    "Thank you!\r"
+    "But...\n"
+    "There is one more missing.\r"
+    "If you step on a branch, it will face\n"
+    "that way, remember?\r"
+    "That’s your chance to catch it.\n"
+    "Sneak up on it slowly from behind."
+}
+
 script scr_seq_D36R0101_farfetchd1_sticks1 {
     followmonresetmovement
     lockall
@@ -281,7 +305,9 @@ script scr_seq_D36R0101_farfetchd1_sticks1 {
                 applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_down)
                 waitmovement
                 if (!flag(FLAG_FARFETCHD_NOTICED_YOU)) {
-                    npcmsg(msg_0115_D36R0101_00035)
+                    npcmsg("FARFETCH’D noticed you!\n"
+                           "It seems to face the direction of the\f"
+                           "noise when you step on a branch.")
                     waitbuttonpress
                     closemessage
                     setflag(FLAG_FARFETCHD_NOTICED_YOU)
@@ -850,11 +876,14 @@ script scr_seq_D36R0101_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0115_D36R0101_00011)
+    npcmsg("What am I doing?\r"
+           "I’m shaking trees using Headbutt.\r"
+           "It’s fun. Here, you try it with your\n"
+           "Pokémon, too! {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_1086) }
-    npcmsg(msg_0115_D36R0101_00014)
+    npcmsg("Which Pokémon should learn it?\r")
     closemessage
 _0F0B:
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -875,7 +904,8 @@ _0F0B:
     getpartymonspecies(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005)
     setorcopyvar(VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_x8005) == 0) {
-        npcmsg(msg_0115_D36R0101_00015)
+        npcmsg("Hmmm...\n"
+               "Even I couldn’t teach an Egg a move.\r")
         closemessage
         goto(_0F0B)
     _10AB:
@@ -893,14 +923,16 @@ _0F0B:
     monhasmove(VAR_SPECIAL_RESULT, MOVE_HEADBUTT, VAR_SPECIAL_x8006)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         buffermonspeciesname(0, VAR_SPECIAL_x8006)
-        npcmsg(msg_0115_D36R0101_00023)
+        npcmsg("Your {STRVAR_1 0, 0, 0}\n"
+               "has already learned Headbutt.\r")
         closemessage
         goto(_0F0B)
         end
     }
     moncanlearnheadbuttfromtutor(VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0F84) }
-    npcmsg(msg_0115_D36R0101_00016)
+    npcmsg("Sorry...\n"
+           "That Pokémon cannot learn Headbutt.\r")
     closemessage
     goto(_0F0B)
 _0F84:
@@ -909,7 +941,12 @@ _0F84:
         touchscreenmenuhide
     _0F99:
         bufferpartymonnick(0, VAR_SPECIAL_x8006)
-        npcmsg(msg_0115_D36R0101_00017)
+        npcmsg("{STRVAR_1 1, 0, 0} is trying to learn\n"
+               "Headbutt.\r"
+               "But {STRVAR_1 1, 0, 0} can’t learn more\n"
+               "than four moves.\r"
+               "Delete an older move to make\n"
+               "room for Headbutt? {YESNO 0}")
         getmenuchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_10C7) }
         closemessage
@@ -922,18 +959,21 @@ _0F84:
         waitfade
         if (var(VAR_SPECIAL_x8001) == 4) { goto(_10AB) }
         bufferpartymonmovename(1, VAR_SPECIAL_x8006, VAR_SPECIAL_x8001)
-        npcmsg(msg_0115_D36R0101_00018)
+        npcmsg("Is it OK to forget the\n"
+               "move {STRVAR_1 6, 1, 0}? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_10C7) }
         setmonmove(VAR_SPECIAL_x8006, VAR_SPECIAL_x8001, MOVE_HEADBUTT)
-        npcmsg(msg_0115_D36R0101_00020)
+        npcmsg("1,{PAUSE 20} 2,{PAUSE 20} and...{PAUSE 20} ...{PAUSE 20} Poof!")
         playse(SEQ_SE_DP_KON)
         waitse(SEQ_SE_DP_KON)
         wait(30, VAR_SPECIAL_RESULT)
-        npcmsg(msg_0115_D36R0101_00024)
+        npcmsg("{STRVAR_1 1, 0, 0} forgot how to\n"
+               "use {STRVAR_1 6, 1, 0}.\r"
+               "And...")
         wait(32, VAR_SPECIAL_RESULT)
-        npcmsg(msg_0115_D36R0101_00025)
+        npcmsg("{STRVAR_1 1, 0, 0} learned Headbutt.")
         playfanfare(SEQ_ME_LVUP)
         waitfanfare
         wait(16, VAR_SPECIAL_RESULT)
@@ -941,9 +981,9 @@ _0F84:
     } else {
         bufferpartymonnick(0, VAR_SPECIAL_x8006)
         setmonmove(VAR_SPECIAL_x8006, VAR_SPECIAL_x8002, MOVE_HEADBUTT)
-        npcmsg(msg_0115_D36R0101_00021)
+        npcmsg("1,{PAUSE 20} 2,{PAUSE 20} and...{PAUSE 20} ...{PAUSE 20} Poof!")
         wait(30, VAR_SPECIAL_RESULT)
-        npcmsg(msg_0115_D36R0101_00026)
+        npcmsg("{STRVAR_1 1, 0, 0} learned Headbutt!")
         playfanfare(SEQ_ME_LVUP)
         waitfanfare
         wait(32, VAR_SPECIAL_RESULT)
@@ -970,6 +1010,20 @@ _1086:
     end
 }
 
+text msg_0115_D36R0101_00013 {
+    "I see...\n"
+    "Take care of its head."
+}
+
+text msg_0115_D36R0101_00019 {
+    "Stop trying to teach Headbutt? {YESNO 0}"
+}
+
+text msg_0115_D36R0101_00022 {
+    "There. How do you like it?\n"
+    "Your {STRVAR_1 0, 0, 0} looks stronger!"
+}
+
 script scr_seq_D36R0101_010 {
     if (!flag(FLAG_FOUND_FIRST_FARFETCHD)) {
     } else {
@@ -994,6 +1048,28 @@ script scr_seq_D36R0101_010 {
     }
     if (flag(FLAG_FOUND_SECOND_FARFETCHD)) { goto(_1139) }
     goto(_114C)
+}
+
+text msg_0115_D36R0101_00002 {
+    "Wow!\n"
+    "You got me both of them.\f"
+    "Thank you so much!\r"
+    "My boss’s Pokémon won’t obey me,\n"
+    "because I don’t have a Badge.\r"
+    "Phew. You saved me."
+}
+
+text msg_0115_D36R0101_00000 {
+    "Oh, man... My boss is going to be\n"
+    "angry...\r"
+    "The FARFETCH’D that cut trees for\n"
+    "charcoal took off in the forest.\r"
+    "Can you catch them for me?\n"
+    "FARFETCH’D have sensitive ears.\r"
+    "If you step on a branch, they will face\n"
+    "toward you. That’s your chance.\r"
+    "Sneak up from behind and catch them...\n"
+    "Do you think you can do that?"
 }
 
 script scr_seq_D36R0101_017 {
@@ -1094,9 +1170,33 @@ script scr_seq_D36R0101_011 {
     end
 }
 
+text msg_0115_D36R0101_00010 {
+    "Do you want to apprentice as a charcoal\n"
+    "maker with me?\r"
+    "You’ll be first-rate in ten years!"
+}
+
+text msg_0115_D36R0101_00006 {
+    "Ah!\n"
+    "My Far and Fetch’d!\r"
+    "You found them for us, kid?\n"
+    "Without them, we wouldn’t be able to\f"
+    "cut trees for charcoal.\r"
+    "Thanks, kid!\r"
+    "Now, how can I thank you...?\n"
+    "I know! Here, take this.\r"
+}
+
+text msg_0115_D36R0101_00008 {
+    "That’s the HM Cut. Teach that to a\n"
+    "Pokémon to clear small trees.\r"
+    "Of course, you have to have the Gym\n"
+    "Badge from Azalea to use it."
+}
+
 script scr_seq_D36R0101_014 {
     playcry(SPECIES_FARFETCHD, 0)
-    simplenpcmsg(msg_0115_D36R0101_00004)
+    simplenpcmsg("FARFETCH’D: Kwaa!")
     end
 }
 
@@ -1123,18 +1223,27 @@ script scr_seq_D36R0101_015 {
         applymovement(obj_D36R0101_dancer, IlexForest_Movement_1494)
     }
     waitmovement
-    npcmsg(msg_0115_D36R0101_00029)
+    npcmsg("Kimono Girl, Kimono Girl, lost and all\n"
+           "alone. Poor girl lost in the dark\f"
+           "Ilex Forest.\r")
     closemessage
     applymovement(obj_D36R0101_dancer, IlexForest_Movement_14A4)
     waitmovement
-    npcmsg(msg_0115_D36R0101_00030)
+    npcmsg("What?\n"
+           "You remember me from Violet City?\f"
+           "You must be imagining.\r"
+           "Anyway, will you show me\n"
+           "how to get out of this forest? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0115_D36R0101_00031)
+        npcmsg("You will...?\n"
+               "Aren’t you lost in the forest as well?\f"
+               "How do you know how to get out of here?\r")
     } else {
-        npcmsg(msg_0115_D36R0101_00032)
+        npcmsg("Me oh my...\n"
+               "You are lost yourself, aren’t you?\r")
     }
     closemessage
     getpartyleadalive(VAR_TEMP_x4000)
@@ -1168,11 +1277,13 @@ script scr_seq_D36R0101_015 {
         applymovement(obj_D36R0101_dancer, IlexForest_Movement_1574)
     }
     waitmovement
-    npcmsg(msg_0115_D36R0101_00033)
+    npcmsg("Wow! Are you going to\n"
+           "show me how to get out?\f"
+           "You are such a smart Pokémon!\r")
     closemessage
     applymovement(obj_D36R0101_dancer, IlexForest_Movement_157C)
     waitmovement
-    npcmsg(msg_0115_D36R0101_00034)
+    npcmsg("See you.\r")
     closemessage
     applymovement(obj_D36R0101_dancer, IlexForest_Movement_159C)
     waitmovement
@@ -1420,7 +1531,9 @@ script scr_seq_D36R0101_012 {
         if (var(VAR_TEMP_x4007) != 0) {
             goto(_1F48)
         _1803:
-            simplenpcmsg(msg_0115_D36R0101_00028)
+            simplenpcmsg("Ilex Forest Shrine...\r"
+                         "It’s a tribute to the forest’s\n"
+                         "protector...")
             end
         _1816:
             followmonresetmovement
@@ -1444,7 +1557,8 @@ script scr_seq_D36R0101_012 {
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
             followingpokemonmovement(48)
-            npcmsg(msg_0115_D36R0101_00038)
+            npcmsg("It’s a PICHU...!\n"
+                   "One of its ears is spiky!\r")
             closemessage
             applymovement(obj_partner_poke, IlexForest_Movement_1CB4)
             waitmovement
@@ -1463,22 +1577,34 @@ script scr_seq_D36R0101_012 {
             waitmovement
             applymovement(obj_player, IlexForest_Movement_1E88)
             waitmovement
-            npcmsg(msg_0115_D36R0101_00046)
+            npcmsg("Hey, hey!\n"
+                   "You should not tamper with that shrine!\f"
+                   "People are said to disappear.\r")
             closemessage
             applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1DF4)
             waitmovement
-            npcmsg(msg_0115_D36R0101_00047)
+            npcmsg("Kids and Pokémon sometimes disappear\n"
+                   "around this shrine.\r"
+                   "It is believed that a Pokémon which\n"
+                   "wanders across time does that.\r"
+                   "It is truly a strange thing...\r")
             closemessage
             applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E00)
             applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1E10)
             applymovement(obj_player, IlexForest_Movement_1ED0)
             waitmovement
-            npcmsg(msg_0115_D36R0101_00048)
+            npcmsg("Well, well, this must be...\r"
+                   "This must be the PICHU that has lived in\n"
+                   "this forest for some time.\r"
+                   "When I saw it the first time, it looked\n"
+                   "lonely. It is full of energy today.\r")
             closemessage
             applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1E20)
             applymovement(obj_partner_poke, IlexForest_Movement_1E2C)
             waitmovement
-            npcmsg(msg_0115_D36R0101_00049)
+            npcmsg("I see.\n"
+                   "It seems that these old friends\f"
+                   "finally meet again after a long time.\r")
             closemessage
             applymovement(obj_partner_poke, IlexForest_Movement_1E38)
             waitmovement
@@ -1494,7 +1620,8 @@ script scr_seq_D36R0101_012 {
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
             followingpokemonmovement(48)
-            npcmsg(msg_0115_D36R0101_00039)
+            npcmsg("It wants to join your party.\n"
+                   "Let it join you!\r")
             playcry(SPECIES_PICHU, 0)
             npcmsg(msg_0115_D36R0101_00043)
             waitcry
@@ -1535,9 +1662,10 @@ script scr_seq_D36R0101_012 {
             waitmovement
             playfanfare(SEQ_ME_ITEM)
             bufferplayersname(0)
-            npcmsg(msg_0115_D36R0101_00044)
+            npcmsg("{STRVAR_1 3, 0, 0} received the Poké Ball!")
             waitfanfare
-            npcmsg(msg_0115_D36R0101_00053)
+            npcmsg("It seems that Spiky-eared PICHU\n"
+                   "wants to stay in your Poké Ball.\r")
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
@@ -1557,10 +1685,12 @@ script scr_seq_D36R0101_012 {
             removeobject(obj_D36R0101_tsure_poke_static_pichu_spiky)
             setvar(VAR_UNK_412B, 2)
             playfanfare(SEQ_ME_SHINKAOME)
-            npcmsg(msg_0115_D36R0101_00040)
+            npcmsg("Spiky-eared PICHU has joined\n"
+                   "your party!")
             waitfanfare
             touchscreenmenuhide
-            npcmsg(msg_0115_D36R0101_00045)
+            npcmsg("Would you like to give a nickname\n"
+                   "to the Spiky-eared PICHU? {YESNO 0}")
             getmenuchoice(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) != 1) {
                 closemessage
@@ -1575,10 +1705,12 @@ script scr_seq_D36R0101_012 {
                 waitfade
                 if (var(VAR_TEMP_x400A) != 1) {
                     bufferpartymonnick(0, VAR_TEMP_x4009)
-                    npcmsg(msg_0115_D36R0101_00054)
+                    npcmsg("You named it {STRVAR_1 1, 0, 0}?\n"
+                           "Such a cute name!\r")
                 }
             }
-            npcmsg(msg_0115_D36R0101_00051)
+            npcmsg("Being with friends should make it happy.\n"
+                   "Take good care of it.\r")
             closemessage
             touchscreenmenushow
             if (var(VAR_TEMP_x4005) == 3) {
@@ -1591,7 +1723,10 @@ script scr_seq_D36R0101_012 {
             setflag(FLAG_HIDE_ILEX_FOREST_OLD_MAN)
             return
         _1AFB:
-            npcmsg(msg_0115_D36R0101_00050)
+            npcmsg("You are carrying a lot of Pokémon.\r"
+                   "Why don’t you store one of them\n"
+                   "at the Pokémon Center?\f"
+                   "I will take care of it in the mean time.")
             waitbuttonpress
             closemessage
             if (var(VAR_TEMP_x4008) == 0) {
@@ -1605,6 +1740,19 @@ script scr_seq_D36R0101_012 {
     }
     goto(_17C1)
     goto(_17C1)
+}
+
+text msg_0115_D36R0101_00043 {
+    "Spiky-eared PICHU: Zapzap chu!\r"
+}
+
+text msg_0115_D36R0101_00052 {
+    "Oh, here it is!\n"
+    "Young Pokémon Trainer,\f"
+    "I will give you this Poké Ball.\r"
+    "I used to use them when I was younger.\r"
+    "Don’t worry.\n"
+    "It’s still in good condition.\r"
 }
 
 script scr_seq_D36R0101_019 {
@@ -1654,7 +1802,8 @@ script scr_seq_D36R0101_019 {
         followingpokemonmovement(48)
         call(_19CF)
     } else {
-        npcmsg(msg_0115_D36R0101_00042)
+        npcmsg("...Your party is full!\r"
+               "First go store a Pokémon in a PC Box.")
         waitbuttonpress
         closemessage
     }
@@ -1925,7 +2074,9 @@ script scr_seq_D36R0101_020 {
     releaseall
     end
 _1F3F:
-    npcmsg(msg_0115_D36R0101_00055)
+    npcmsg("It’s been waiting for you\n"
+           "all this time.\r"
+           "Talk to it. That’ll make it happy.")
     waitbuttonpress
     closemessage
     return
@@ -1947,7 +2098,15 @@ _1F48:
     applymovement(obj_player, IlexForest_Movement_200C)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0115_D36R0101_00057, msg_0115_D36R0101_00056)
+    gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}.\n"
+                 "Have you heard of the legend of\f"
+                 "the shrine?\r"
+                 "They say that people disappear when\n"
+                 "they tamper with it.\r", "Ethan: Hi, {STRVAR_1 3, 0, 0}.\n"
+                                           "Have you heard of the legend of\f"
+                                           "the shrine?\r"
+                                           "They say that people disappear when\n"
+                                           "they tamper with it.\r")
     closemessage
     callstd(std_fade_end_friend_music)
     playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
@@ -1959,7 +2118,9 @@ _1F48:
     applymovement(obj_player, IlexForest_Movement_2014)
     applymovement(obj_D36R0101_var_1, IlexForest_Movement_208C)
     waitmovement
-    gendermsgbox(msg_0115_D36R0101_00059, msg_0115_D36R0101_00058)
+    gendermsgbox("Lyra: ...\n"
+                 "What was that?\r", "Ethan: ...\n"
+                                     "What was that?\r")
     closemessage
     playse(SEQ_SE_GS_TIMESLIP)
     celebitimetravel
@@ -2035,24 +2196,48 @@ script scr_seq_D36R0101_022 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    gendermsgbox(msg_0115_D36R0101_00061, msg_0115_D36R0101_00060)
+    gendermsgbox("Lyra: Traveling through time\n"
+                 "sure doesn’t feel good.\r", "Ethan: Traveling through time\n"
+                                              "sure doesn’t feel good.\r")
     closemessage
     applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_2170)
     waitmovement
     callstd(std_play_friend_music)
     applymovement(obj_D36R0101_var_1, IlexForest_Movement_215C)
     waitmovement
-    gendermsgbox(msg_0115_D36R0101_00063, msg_0115_D36R0101_00062)
+    gendermsgbox("Hey, my MARILL!\r", "Hey, my MARILL!\r")
     closemessage
     applymovement(obj_D36R0101_var_1, IlexForest_Movement_218C)
     waitmovement
-    gendermsgbox(msg_0115_D36R0101_00065, msg_0115_D36R0101_00064)
+    gendermsgbox("I missed you so much!\r"
+                 "Wait a sec...\n"
+                 "So we must be back to our time!\r", "I thought I would never see you again!\r"
+                                                      "Wait a sec...\n"
+                                                      "So we must be back to our time!\r")
     closemessage
     applymovement(obj_D36R0101_var_1, IlexForest_Movement_219C)
     applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_21A4)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0115_D36R0101_00067, msg_0115_D36R0101_00066)
+    gendermsgbox("It was all so bizarre.\n"
+                 "But now that we are safely back to our\f"
+                 "time and Team Rocket’s terrible design\f"
+                 "fell through, we can say...\f"
+                 "all’s well that ends well, right?\r"
+                 "{STRVAR_1 3, 0, 0}, you never cease to\n"
+                 "inspire great adventures!\r"
+                 "It sure was an exhausting day, though.\n"
+                 "I better get going.\r"
+                 "See you!\r", "It was all so bizarre.\n"
+                               "But now that we are safely back to our\f"
+                               "time and Team Rocket’s terrible design\f"
+                               "fell through, we can say...\f"
+                               "all’s well that ends well, right?\r"
+                               "{STRVAR_1 3, 0, 0}, you never cease to\n"
+                               "inspire great adventures!\r"
+                               "It sure was an exhausting day, though.\n"
+                               "I better get going.\r"
+                               "See you!\r")
     closemessage
     applymovement(obj_D36R0101_var_1, IlexForest_Movement_21AC)
     applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_21C4)
@@ -2132,7 +2317,11 @@ movement IlexForest_Movement_21F4 {
 }
 
 script scr_seq_D36R0101_013 {
-    trainertipsex(3, msg_0115_D36R0101_00027)
+    trainertipsex(3, "Trainer Tips!\r"
+                     "Ilex Forest is so overgrown with trees\n"
+                     "that you can’t see the sky.\r"
+                     "Please watch out for items that may\n"
+                     "have been dropped.")
     end
 }
 

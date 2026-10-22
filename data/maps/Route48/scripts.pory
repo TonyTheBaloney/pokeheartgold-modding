@@ -122,7 +122,8 @@ movement Route48_Movement_01BC {
 }
 
 script scr_seq_R48_002 {
-    directionsignpostex(1, 13, msg_0408_R48_00000)
+    directionsignpostex(1, 13, "Rt. 48\n"
+                               "North to Safari Zone")
     end
 }
 

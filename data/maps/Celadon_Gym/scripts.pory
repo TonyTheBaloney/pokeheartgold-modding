@@ -64,7 +64,21 @@ script scr_seq_T07GYM0101_000 {
     faceplayer
     checkbadge(BADGE_RAINBOW, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01A5) }
-    npcmsg(msg_0492_T07GYM0101_00000)
+    npcmsg("Erika: Hello...\n"
+           "Lovely weather, isn’t it?\r"
+           "It’s so pleasant...\n"
+           "I’m afraid I might doze off...\r"
+           "My name is Erika.\n"
+           "I am the Leader of Celadon Gym.\r"
+           "...Oh? You are from Johto, you say?\f"
+           "How nice...\r"
+           "Oh. I’m sorry, I didn’t realize that\n"
+           "you wished to challenge me.\r"
+           "I know.\r"
+           "I have been training myself on\n"
+           "not only flower arrangement\f"
+           "but also Pokémon battle.\r"
+           "I shall not lose.\r")
     closemessage
     trainerbattle(TRAINER_LEADER_ERIKA_ERIKA, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -80,12 +94,24 @@ script scr_seq_T07GYM0101_000 {
     settrainerflag(TRAINER_LASS_MICHELLE)
     settrainerflag(TRAINER_PICNICKER_TANYA)
     settrainerflag(TRAINER_BEAUTY_JULIA)
-    npcmsg(msg_0492_T07GYM0101_00001)
+    npcmsg("Erika: Oh!\n"
+           "I concede defeat...\r"
+           "You are remarkably strong...\n"
+           "I shall give you the Rainbow Badge...\r")
     bufferplayersname(0)
-    npcmsg(msg_0492_T07GYM0101_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Rainbow Badge.")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
-    npcmsg(msg_0492_T07GYM0101_00003)
+    npcmsg("Erika: That was a delightful match.\n"
+           "I felt inspired.\r"
+           "Please, I wish you to have this TM19\n"
+           "as a special token.\r"
+           "It is Giga Drain.\n"
+           "It is a wonderful move that drains\f"
+           "half the damage it inflicts to heal\f"
+           "your Pokémon.\r"
+           "It is indeed a horrifying move.\r")
     goto(_017C)
 _017C:
     if (!itemspace(ITEM_TM19, 1)) {
@@ -98,7 +124,10 @@ _017C:
     setflag(FLAG_GOT_TM19_FROM_ERIKA)
 _01A5:
     if (!flag(FLAG_GOT_TM19_FROM_ERIKA)) { goto(_017C) }
-    npcmsg(msg_0492_T07GYM0101_00004)
+    npcmsg("Erika: Losing leaves a\n"
+           "bitter aftertaste...\r"
+           "But knowing that there are strong\n"
+           "Trainers spurs me to do better...")
     waitbuttonpress
     closemessage
     releaseall
@@ -112,9 +141,12 @@ script scr_seq_T07GYM0101_001 {
     checkbadge(BADGE_RAINBOW, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0492_T07GYM0101_00005)
+        npcmsg("Celadon City Pokémon Gym")
     } else {
-        npcmsg(msg_0492_T07GYM0101_00006)
+        npcmsg("Celadon City Pokémon Gym\r"
+               "Gym Leader: Erika\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

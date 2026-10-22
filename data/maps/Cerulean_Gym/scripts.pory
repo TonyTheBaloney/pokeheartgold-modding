@@ -59,16 +59,24 @@ script scr_seq_T04GYM0101_004 {
     applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01C8)
     waitmovement
     playse(SEQ_SE_DP_WALL_HIT2)
-    npcmsg(msg_0469_T04GYM0101_00000)
+    npcmsg("{SIZE 200}Bump!{SIZE 100}\r")
     applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01D0)
     waitmovement
-    npcmsg(msg_0469_T04GYM0101_00001)
+    npcmsg("Oops! I so sorry!\n"
+           "You not hurt, OK?\f"
+           "I very busy.\f"
+           "No time for talking with you.\f"
+           "Not good for me if seen by somebody.\r")
     applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01E4)
     waitmovement
-    npcmsg(msg_0469_T04GYM0101_00002)
+    npcmsg("Oh no! You seen me already!\f"
+           "I make big mistake!\r")
     applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01F4)
     waitmovement
-    npcmsg(msg_0469_T04GYM0101_00003)
+    npcmsg("Hey, you! Forget you see me, OK?\n"
+           "You seen, heard, known nothing, OK?\f"
+           "Bye!\f"
+           "Bye-bye a go-go!\r")
     closemessage
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -150,7 +158,10 @@ script scr_seq_T04GYM0101_005 {
     lockall
     faceplayer
     bufferplayersname(0)
-    npcmsg(msg_0469_T04GYM0101_00016)
+    npcmsg("...!\r"
+           "{STRVAR_1 3, 0, 0} picked up the black item\n"
+           "that was by the pool.\r"
+           "It’s a Part from a machine!\r")
     if (!itemspace(ITEM_MACHINE_PART, 1)) {
         callstd(std_bag_is_full)
         closemessage
@@ -174,13 +185,21 @@ script scr_seq_T04GYM0101_000 {
     checkbadge(BADGE_CASCADE, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         if (!flag(FLAG_GOT_TM03_FROM_MISTY)) { goto(_0307) }
-        npcmsg(msg_0469_T04GYM0101_00013)
+        npcmsg("Misty: Does Johto have a lot of\n"
+               "powerful Trainers?\r"
+               "I will someday go on my journey\n"
+               "to battle with powerful Trainers!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0469_T04GYM0101_00008)
+    npcmsg("Misty: I was expecting you,\n"
+           "you pest!\r"
+           "You may have a lot of Johto Gym Badges,\n"
+           "but you’d better not take me\f"
+           "too lightly.\r"
+           "My Water-type Pokémon are tough!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_MISTY_MISTY, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -201,21 +220,31 @@ script scr_seq_T04GYM0101_000 {
     settrainerflag(TRAINER_SWIMMER_F_JOY)
     settrainerflag(TRAINER_SAILOR_PARKER)
     settrainerflag(TRAINER_SAILOR_EDDIE)
-    npcmsg(msg_0469_T04GYM0101_00009)
+    npcmsg("Misty: You really are good...\r"
+           "I’ll admit that you are skilled...\r"
+           "Here you go.\n"
+           "It’s the Cascade Badge.\r")
     bufferplayersname(0)
-    npcmsg(msg_0469_T04GYM0101_00010)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Cascade Badge from Misty!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
     callifset(FLAG_UNK_14D, _0364)
     bufferplayersname(0)
-    npcmsg(msg_0469_T04GYM0101_00011)
+    npcmsg("Misty: Here is another memento\n"
+           "from this battle. Take it!\r")
     goto(_0307)
 _0307:
     if (!itemspace(ITEM_TM03, 1)) { goto(_033E) }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_TM03_FROM_MISTY)
     bufferplayersname(0)
-    npcmsg(msg_0469_T04GYM0101_00012)
+    npcmsg("Misty: It contains the move\n"
+           "Water Pulse.\r"
+           "It can sometimes confuse your foe.\r"
+           "You’ve managed to defeat Trainers\n"
+           "all the way from Johto.\f"
+           "I’m sure you have a good use for it.")
     waitbuttonpress
     closemessage
     releaseall
@@ -232,7 +261,8 @@ script scr_seq_T04GYM0101_002 {
     lockall
     faceplayer
     if (var(VAR_UNK_4088) != 2) {
-        npcmsg(msg_0469_T04GYM0101_00004)
+        npcmsg("Sorry, I’ll be out for a while.\n"
+               "Misty, Gym Leader")
         goto(_03F6)
     }
     checkbadge(BADGE_CASCADE, VAR_SPECIAL_RESULT)
@@ -243,6 +273,17 @@ script scr_seq_T04GYM0101_002 {
         npcmsg(msg_0469_T04GYM0101_00007)
     }
     goto(_03F6)
+}
+
+text msg_0469_T04GYM0101_00006 {
+    "Cerulean City Pokémon Gym"
+}
+
+text msg_0469_T04GYM0101_00007 {
+    "Cerulean City Pokémon Gym\r"
+    "Leader: Misty\n"
+    "Certified Trainer!\f"
+    "{STRVAR_1 3, 0, 0}"
 }
 
 script scr_seq_T04GYM0101_003 {
@@ -258,7 +299,8 @@ script scr_seq_T04GYM0101_003 {
             npcmsg(msg_0469_T04GYM0101_00007)
         }
     } else {
-        npcmsg(msg_0469_T04GYM0101_00005)
+        npcmsg("Since Misty’s out, we’ll be away, too.\n"
+               "Gym Trainers")
     }
 _03F6:
     waitbuttonpress
@@ -273,13 +315,17 @@ script scr_seq_T04GYM0101_001 {
     faceplayer
     checkbadge(BADGE_CASCADE, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0469_T04GYM0101_00015)
+        npcmsg("Hoo, you showed me how tough you are.\r"
+               "As always, that was one great battle!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0469_T04GYM0101_00014)
+    npcmsg("Yo! Legend in the making!\r"
+           "Since Misty was away, I went out\n"
+           "for some fun, too.\f"
+           "He-he-he.")
     waitbuttonpress
     closemessage
     releaseall

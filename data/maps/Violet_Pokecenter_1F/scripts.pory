@@ -26,17 +26,40 @@ script scr_seq_T22PC0101_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0559_T22PC0101_00012)
+    npcmsg("Primo: Hello!\n"
+           "I should be a familiar face to every\f"
+           "Pokémon fan. I’m from the TV show,\f"
+           "“The Show Me Show!”\r"
+           "I am Primo, the big brother!\r"
+           "Today, would you, one of my fans,\n"
+           "tell me what you think of me? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
         touchscreenmenushow
     _021F:
-        npcmsg(msg_0559_T22PC0101_00015)
+        npcmsg("You cannot possibly mean that you are\n"
+               "not interested in the big brother...?\r"
+               "Arrgh, that cannot be true!\n"
+               "You are just busy right now,\f"
+               "aren’t you? That must be it!\r"
+               "Why don’t you answer my questions\n"
+               "when you’ve got time for me?\r"
+               "See you!")
         waitbuttonpress
         goto(_0235)
     _022A:
-        npcmsg(msg_0559_T22PC0101_00016)
+        npcmsg("Primo: ...!\r"
+               "You are no ordinary fan, knowing such\n"
+               "a thing!\r"
+               "You’re a Trainer, right?\n"
+               "I’ll pull some strings for you.\r"
+               "I think I can swing a deal to get you\n"
+               "a new wallpaper for your PC Boxes.\r"
+               "Make sure you keep your channel\n"
+               "tuned to “The Show Me Show!”\r"
+               "And don’t forget about me, the\n"
+               "big brother!")
         waitbuttonpress
         goto(_0235)
     _0235:
@@ -53,7 +76,11 @@ script scr_seq_T22PC0101_004 {
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_021F) }
-    npcmsg(msg_0559_T22PC0101_00013)
+    npcmsg("Primo: Oh my...!\n"
+           "Is that how you feel about me?!\r"
+           "I never thought of it that way before.\n"
+           "By the way, how do you like the\f"
+           "way I am so exciting and fun?\r")
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
     closemessage
@@ -113,18 +140,44 @@ _01CB:
     }
     waitmovement
     playfanfare(SEQ_ME_TAMAGO_GET)
-    npcmsg(msg_0559_T22PC0101_00019)
+    npcmsg("{STRVAR_1 3, 0, 0} received the\n"
+           "{STRVAR_1 0, 1, 0} Egg from Primo!")
     waitfanfare
     waitbuttonpress
     goto(_0235)
 _0207:
-    npcmsg(msg_0559_T22PC0101_00020)
+    npcmsg("Primo: ...!\r"
+           "You are no ordinary fan, knowing such\n"
+           "a thing!\r"
+           "You are a Trainer, right?\n"
+           "I’ll pull some strings for you.\r"
+           "I think I can swing a deal and\n"
+           "give you this Egg.\f"
+           "You take good care of it!\r"
+           "...\r"
+           "Your party is full, and I can’t\n"
+           "give it to you!")
     waitbuttonpress
     goto(_0235)
 _0212:
-    npcmsg(msg_0559_T22PC0101_00014)
+    npcmsg("Primo: Truly?\r"
+           "That gives me all-new energy so\n"
+           "I can work even harder!\r"
+           "Great feedback! It’ll help me a lot.\n"
+           "Thank you for your continued support!")
     waitbuttonpress
     goto(_0235)
+}
+
+text msg_0559_T22PC0101_00018 {
+    "Primo: ...!\r"
+    "You are no ordinary fan, knowing such\n"
+    "a thing!\r"
+    "You are a Trainer, right?\n"
+    "I’ll pull some strings for you.\r"
+    "I think I can swing a deal and\n"
+    "give you this Egg.\f"
+    "You take good care of it!\r"
 }
 
 movement Violet_Pokecenter_1F_Movement_023C {
@@ -146,14 +199,22 @@ script scr_seq_T22PC0101_005 {
     lockall
     faceplayer
     if (!flag(FLAG_UNK_2C5)) {
-        npcmsg(msg_0559_T22PC0101_00021)
+        npcmsg("Hmm...\r"
+               "Can you tell me what kind of Trainer\n"
+               "you like best?\r")
     } else {
         bufferplayerunionavatarclassname(0)
-        npcmsg(msg_0559_T22PC0101_00026)
+        npcmsg("Hello! You’ve been mistaken for\n"
+               "{STRVAR_1 14, 0, 0}, haven’t you?\r"
+               "But I think you can also pass for\n"
+               "a different kind of Trainer.\r"
+               "So, how about telling me what kind of\n"
+               "Trainer you like?\r")
         goto(_028C)
     }
 _028C:
-    npcmsg(msg_0559_T22PC0101_00022)
+    npcmsg("Which kind of Trainer would you like\n"
+           "to be? {YESNO 0}")
     touchscreenmenuhide
     bufferunionroomavatarchoices
     menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
@@ -170,12 +231,16 @@ _028C:
     unionroomavataridxtotrainerclass(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     buffertrainerclassnameindef(0, VAR_SPECIAL_x8005)
     capitalize(0)
-    npcmsg(msg_0559_T22PC0101_00023)
+    npcmsg("{STRVAR_1 14, 0, 0} is the kind of Trainer\n"
+           "you want to be? {YESNO 0}")
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
         touchscreenmenushow
         buffertrainerclassnameindef(0, VAR_SPECIAL_x8005)
-        npcmsg(msg_0559_T22PC0101_00024)
+        npcmsg("I see! So {STRVAR_1 14, 0, 0} is the kind\n"
+               "of Trainer you like.\r"
+               "If that’s the case, others may\n"
+               "come to see you in the same way.\r")
         setflag(FLAG_UNK_2C5)
         unionroomavataridxtosprite(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
         setplayerprofileavatar(VAR_SPECIAL_x8005)
@@ -183,7 +248,9 @@ _028C:
     _0331:
         touchscreenmenushow
     _0333:
-        npcmsg(msg_0559_T22PC0101_00025)
+        npcmsg("Talk to me again if you want to\n"
+               "let me know what kind of Trainer\f"
+               "you like best.")
         waitbuttonpress
         closemessage
         releaseall
@@ -193,17 +260,33 @@ _028C:
 }
 
 script scr_seq_T22PC0101_001 {
-    simplenpcmsg(msg_0559_T22PC0101_00009)
+    simplenpcmsg("A guy named Bill made the Pokémon\n"
+                 "PC storage system.\r"
+                 "You can access the Pokémon storage\n"
+                 "system using the PC at the reception\f"
+                 "there. Why don’t you try it once?")
     end
 }
 
 script scr_seq_T22PC0101_002 {
-    simplenpcmsg(msg_0559_T22PC0101_00010)
+    simplenpcmsg("It was about three years ago.\n"
+                 "This group of thugs called Team Rocket\f"
+                 "was involved in wrongdoing. They were\f"
+                 "abusing Pokémon.\r"
+                 "But!\n"
+                 "Bad things never last!\r"
+                 "A boy did a wonderful job and\n"
+                 "Team Rocket was disbanded!\n"
+                 "\n")
     end
 }
 
 script scr_seq_T22PC0101_003 {
-    simplenpcmsg(msg_0559_T22PC0101_00011)
+    simplenpcmsg("Pokémon are really smart.\n"
+                 "Traded Pokémon might not listen to you\f"
+                 "right away. For example, high-level\f"
+                 "Pokémon sometimes refuse to obey\f"
+                 "when you don’t have enough Gym Badges.")
     end
 }
 

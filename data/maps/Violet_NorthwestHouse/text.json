@@ -3,20 +3,15 @@
   "messages": [
     {
       "id": "msg_0561_T22R0401_00000",
-      "en_US": [
-        "She uses the names of all the foods\n",
-        "she really enjoys eating.\r",
-        "For the nicknames she gives to her\n",
-        "Pokémon, I mean."
-      ]
+      "from": "scr_seq_T22R0401_001#0"
     },
     {
       "id": "msg_0561_T22R0401_00001",
-      "en_US": "I call my PIDGEY Strawberry!"
+      "from": "scr_seq_T22R0401_002#0"
     },
     {
       "id": "msg_0561_T22R0401_00002",
-      "en_US": "Strawberry: Pijji!"
+      "from": "scr_seq_T22R0401_003#0"
     }
   ]
 }

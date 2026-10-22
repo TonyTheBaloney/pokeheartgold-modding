@@ -3,39 +3,15 @@
   "messages": [
     {
       "id": "msg_0145_D51R0101_00000",
-      "en_US": [
-        "Well, hello!\r",
-        "It’s so freezing, isn’t it?\r",
-        "For a youngster like you to be\n",
-        "interested in the Sinjoh Ruins is\f",
-        "not something we see every day.\r",
-        "Take a look at them.\r",
-        "From the design of the pillars at the\n",
-        "Sinjoh Ruins, you can see that the\f",
-        "cultures of Sinnoh and Johto\f",
-        "have blended.\r"
-      ]
+      "from": "scr_seq_D51R0101_000#0"
     },
     {
       "id": "msg_0145_D51R0101_00001",
-      "en_US": [
-        "What was I thinking?\r",
-        "We don’t need to be standing here.\n",
-        "Why don’t you come to the cabin\f",
-        "around the corner for more discussion?\r"
-      ]
+      "from": "scr_seq_D51R0101_000#1"
     },
     {
       "id": "msg_0145_D51R0101_00002",
-      "en_US": [
-        "By the way, we happen to have a person\n",
-        "at the cabin.\r",
-        "Any Trainer should know who she is.\n",
-        "The famous Trainer from Sinnoh!\r",
-        "She is traveling around to study\n",
-        "myths and ancient ruins.\f",
-        "Isn’t that something?\r"
-      ]
+      "from": "scr_seq_D51R0101_001#0"
     },
     {
       "id": "msg_0145_D51R0101_00003",
@@ -69,7 +45,7 @@
     },
     {
       "id": "msg_0145_D51R0101_00007",
-      "en_US": "The Sinjoh Ruins"
+      "from": "scr_seq_D51R0101_003#0"
     }
   ]
 }

@@ -6,13 +6,20 @@ script scr_seq_R06R0201_000 {
     lockall
     faceplayer
     if (flag(FLAG_RESTORED_POWER)) {
-        npcmsg(msg_0335_R06R0201_00001)
+        npcmsg("The Magnet Train is the most famous\n"
+               "thing about Saffron.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0335_R06R0201_00000)
+    npcmsg("Welcome to Saffron City, home of the\n"
+           "Magnet Train!\r"
+           "...That’s what I’d normally say, but\n"
+           "the Magnet Train isn’t running now.\r"
+           "It’s not getting any electricity\n"
+           "because there’s something wrong\f"
+           "with the Power Plant.")
     waitbuttonpress
     closemessage
     releaseall

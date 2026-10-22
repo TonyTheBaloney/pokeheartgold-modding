@@ -60,7 +60,7 @@ script scr_seq_D49_000 {
     release(obj_D49_gsboy2)
     applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0414)
     waitmovement
-    npcmsg(msg_0137_D49_00000)
+    npcmsg("Muhaha!\r")
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 40) {
@@ -86,18 +86,36 @@ script scr_seq_D49_000 {
         applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_0504)
     }
     waitmovement
-    npcmsg(msg_0137_D49_00006)
+    npcmsg("Hmmm...\r")
     closemessage
     applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0424)
     applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_0424)
     waitmovement
     playeronbikecheck(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0137_D49_00005)
+        npcmsg("I feel it!\r"
+               "The twinkle in your eyes!\n"
+               "The twinkle of friendship!\r"
+               "You’re ready to participate in the\n"
+               "Pokéathlon, bud!\r"
+               "Most of all, your mutual trust and\n"
+               "teamwork with Pokémon makes me\f"
+               "believe anything is possible!\r"
+               "All right. Follow me, bud!\r")
     } else {
         getpartyleadalive(VAR_SPECIAL_x8000)
         buffermonspeciesname(1, VAR_SPECIAL_x8000)
-        npcmsg(msg_0137_D49_00001)
+        npcmsg("I feel it!\r"
+               "The twinkle in your eyes!\n"
+               "The twinkle of friendship!\r"
+               "You’re quite something.\n"
+               "Your {STRVAR_1 0, 1, 0} is quite a Pokémon!\r"
+               "It’s ready to participate in the\n"
+               "Pokéathlon, bud!\r"
+               "Most of all, your solidarity with and\n"
+               "trust of Pokémon makes me\f"
+               "believe in infinite potential!\r"
+               "All right. Follow me!\r")
     }
     closemessage
     togglefollowingpokemonmovement(0)
@@ -136,18 +154,31 @@ script scr_seq_D49_000 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0137_D49_00002)
+    npcmsg("What do you think?\n"
+           "This is the Pokéathlon Dome!\r")
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     applymovement(241, PokeathlonDome_Movement_0400)
     waitmovement
-    npcmsg(msg_0137_D49_00003)
+    npcmsg("Pokéathlon is a sports festival for\n"
+           "Trainers and Pokémon!\r"
+           "Inside the Dome are various challenges\n"
+           "awaiting Trainers and Pokémon to test\f"
+           "their friendship.\f"
+           "Why don’t you try it?\r")
     closemessage
     applymovement(241, PokeathlonDome_Movement_0408)
     waitmovement
     removecameratarget
-    npcmsg(msg_0137_D49_00004)
+    npcmsg("You’re amazing, bud!\n"
+           "This is a pleasant surprise!\r"
+           "To see a Pokéathlete with strong\n"
+           "potential is such a pleasure! I’m glad\f"
+           "I held the Pokéathlon here in Johto.\r"
+           "...My name is Magnus.\n"
+           "We shall meet again, bud.\r"
+           "Magnus: See you, young Pokéathlete!\r")
     closemessage
     applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_06C8)
     applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_06D0)
@@ -456,7 +487,9 @@ movement PokeathlonDome_Movement_06E4 {
 }
 
 script scr_seq_D49_001 {
-    simplenpcmsg(msg_0137_D49_00007)
+    simplenpcmsg("Running and jumping and...\n"
+                 "There are so many events for Pokémon\f"
+                 "to choose from. Which one should I try?")
     end
 }
 
@@ -465,7 +498,7 @@ script scr_seq_D49_007 {
     lockall
     faceplayer
     playcry(SPECIES_ODDISH, 0)
-    npcmsg(msg_0137_D49_00008)
+    npcmsg("ODDISH: Odd! Odd!")
     waitcry
     waitbuttonpress
     closemessage
@@ -474,7 +507,7 @@ script scr_seq_D49_007 {
 }
 
 script scr_seq_D49_002 {
-    simplenpcmsg(msg_0137_D49_00009)
+    simplenpcmsg("There is more to Pokémon than battling!")
     end
 }
 
@@ -483,7 +516,7 @@ script scr_seq_D49_008 {
     lockall
     faceplayer
     playcry(SPECIES_MEOWTH, 0)
-    npcmsg(msg_0137_D49_00010)
+    npcmsg("MEOWTH: Nyaah!")
     waitcry
     waitbuttonpress
     closemessage
@@ -498,10 +531,19 @@ script scr_seq_D49_003 {
     getpokeathlonstat(12, VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) >= 1) {
         if (flag(FLAG_UNK_154)) { goto(_07CB) }
-        npcmsg(msg_0137_D49_00012)
+        npcmsg("Huff huff!\n"
+               "Everyday training is the sure way\f"
+               "to glory!\r"
+               "Dashing 1,000 times!\n"
+               "That’s my goal for now.\r")
         getpokeathlonstat(16, VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) >= 1000) {
-            npcmsg(msg_0137_D49_00014)
+            npcmsg("............\n"
+                   "Oh, you have done the dash 1,000 times?\r"
+                   "I thought it was basically impossible,\n"
+                   "but you make me feel courageous.\r"
+                   "Thank you!\n"
+                   "Please take this!\r")
             if (!itemspace(ITEM_RARE_CANDY, 1)) {
                 callstd(std_bag_is_full)
                 closemessage
@@ -512,19 +554,24 @@ script scr_seq_D49_003 {
             adjustpokeathlonstat11(0, 100)
             setflag(FLAG_UNK_154)
         _07CB:
-            npcmsg(msg_0137_D49_00015)
+            npcmsg("I’ve become your fan! I would run\n"
+                   "anywhere for you!\f"
+                   "I’ll be supporting you!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0137_D49_00013)
+        npcmsg("What’s your goal?\n"
+               "Having a goal lets you enjoy life more.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0137_D49_00011)
+    npcmsg("It’s not good at battles...but no\n"
+           "Pokémon can beat it at running, thanks\f"
+           "to the walk we take every morning!")
     waitbuttonpress
     closemessage
     releaseall
@@ -536,7 +583,7 @@ script scr_seq_D49_009 {
     lockall
     faceplayer
     playcry(SPECIES_PIDGEY, 0)
-    npcmsg(msg_0137_D49_00016)
+    npcmsg("PIDGEY: Po po!")
     waitcry
     waitbuttonpress
     closemessage
@@ -545,7 +592,15 @@ script scr_seq_D49_009 {
 }
 
 script scr_seq_D49_004 {
-    simplenpcmsg(msg_0137_D49_00017)
+    simplenpcmsg("Have you heard of Aprijuice?\r"
+                 "Pokémon can increase their Performance\n"
+                 "with food and drink.\r"
+                 "Aprijuice is a drink developed from\n"
+                 "nutrition research to improve\f"
+                 "Performance.\r"
+                 "If you let your Pokémon drink it before\n"
+                 "a Pokéathlon event, it will show its\f"
+                 "true potential!")
     end
 }
 
@@ -554,7 +609,7 @@ script scr_seq_D49_010 {
     lockall
     faceplayer
     playcry(SPECIES_SLOWBRO, 0)
-    npcmsg(msg_0137_D49_00018)
+    npcmsg("SLOWBRO: Whick!")
     waitcry
     waitbuttonpress
     closemessage
@@ -563,7 +618,10 @@ script scr_seq_D49_010 {
 }
 
 script scr_seq_D49_005 {
-    simplenpcmsg(msg_0137_D49_00019)
+    simplenpcmsg("Each Pokémon has its unique traits.\r"
+                 "A true Pokéathlete knows them and lets\n"
+                 "the true Performance of his or her\f"
+                 "Pokémon emerge!")
     end
 }
 
@@ -572,7 +630,7 @@ script scr_seq_D49_011 {
     lockall
     faceplayer
     playcry(SPECIES_MACHOP, 0)
-    npcmsg(msg_0137_D49_00020)
+    npcmsg("MACHOP: Machao!")
     waitcry
     waitbuttonpress
     closemessage
@@ -581,7 +639,10 @@ script scr_seq_D49_011 {
 }
 
 script scr_seq_D49_006 {
-    simplenpcmsg(msg_0137_D49_00021)
+    simplenpcmsg("Oh!\n"
+                 "They look good today!\r"
+                 "They weren’t so well yesterday, but\n"
+                 "we’ll win today for sure!")
     end
 }
 
@@ -590,7 +651,7 @@ script scr_seq_D49_012 {
     lockall
     faceplayer
     playcry(SPECIES_SLOWPOKE, 0)
-    npcmsg(msg_0137_D49_00022)
+    npcmsg("SLOWPOKE: Moah!")
     waitcry
     waitbuttonpress
     closemessage
@@ -603,7 +664,7 @@ script scr_seq_D49_013 {
     lockall
     faceplayer
     playcry(SPECIES_FARFETCHD, 0)
-    npcmsg(msg_0137_D49_00023)
+    npcmsg("FARFETCH’D: Teree!")
     waitcry
     waitbuttonpress
     closemessage
@@ -616,7 +677,7 @@ script scr_seq_D49_014 {
     lockall
     faceplayer
     playcry(SPECIES_PSYDUCK, 0)
-    npcmsg(msg_0137_D49_00024)
+    npcmsg("PSYDUCK: Guack!")
     waitcry
     waitbuttonpress
     closemessage
@@ -629,7 +690,11 @@ script scr_seq_D49_015 {
     lockall
     faceplayer
     if (!flag(FLAG_UNK_997)) { goto(_093E) }
-    npcmsg(msg_0137_D49_00025)
+    npcmsg("Energy drink!\n"
+           "Welcome to the Aprijuice stand!\r"
+           "Are you giving your Pokémon Aprijuice?\n"
+           "I can explain anything you\f"
+           "need to know about it! {YESNO 0}")
 _08D1:
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
@@ -639,35 +704,77 @@ _08D1:
     menuexec
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0137_D49_00030)
+        npcmsg("Aprijuice improves a Pokémon’s\n"
+               "Performance! Pokémon have strengths\f"
+               "and weaknesses.\r"
+               "But there is no need to worry. Give it\n"
+               "Aprijuice, and you can max out its\f"
+               "Performance!\r"
+               "You will need it!\r"
+               "Do you have any more questions? {YESNO 0}")
         goto(_08D1)
         end
     }
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0137_D49_00031)
+        npcmsg("Choose from the three Apriblenders.\r"
+               "The labels tell you what kind of drink\n"
+               "it is. Different drinks have\f"
+               "different effects.\r"
+               "You should use them to suit the event\n"
+               "you want to participate in. That’s how\f"
+               "to make a top Pokéathlete.\r"
+               "But remember this!\n"
+               "If your Pokémon’s Performance is maxed\f"
+               "out, you cannot make it higher.\r"
+               "You should check your Pokémon’s\n"
+               "Performance before you\f"
+               "give it Aprijuice.\r"
+               "Do you have any more questions? {YESNO 0}")
         goto(_08D1)
         end
     _0933:
-        npcmsg(msg_0137_D49_00032)
+        npcmsg("Charge yourself with friendship!\n"
+               "Get in the know about Aprijuice!\f"
+               "Pick one from the shelf!")
         waitbuttonpress
         closemessage
         releaseall
         end
     _093E:
-        npcmsg(msg_0137_D49_00026)
+        npcmsg("Energy drink!\n"
+               "Welcome to the Aprijuice stand!\r"
+               "Huh? What’s that confused look about?\n"
+               "You don’t know about Aprijuice?\f"
+               "There, take this!\r")
         bufferplayersname(0)
-        npcmsg(msg_0137_D49_00027)
+        npcmsg("{STRVAR_1 3, 0, 0} received\n"
+               "the Apriblender!")
         playfanfare(SEQ_ME_KEYITEM)
         waitfanfare
-        npcmsg(msg_0137_D49_00028)
+        npcmsg("You put away the Apriblender\n"
+               "in the Apricorn Box.\r")
         setflag(FLAG_UNK_997)
-        npcmsg(msg_0137_D49_00029)
+        npcmsg("When you have the Apriblender, you can\n"
+               "make Aprijuice to let your Pokémon show\f"
+               "their true potential!\r"
+               "It’s so easy to make! All you have to\n"
+               "do is to put Apricorns in the\f"
+               "Apriblender. Put in as many as you can!\r"
+               "The more, the merrier!\n"
+               "Then you walk!\r"
+               "You can run if you want...\n"
+               "98...99...100 steps!\r"
+               "Here! Then you open it, give it to your\n"
+               "Pokémon, or drink it yourself.\r"
+               "You can buy Aprijuice here.\n"
+               "Why don’t you try and see how it works?\r"
+               "Do you have any more questions? {YESNO 0}")
         goto(_08D1)
         end
     _095F:
         applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_09D4)
         waitmovement
-        npcmsg(msg_0137_D49_00039)
+        npcmsg("Hi! What can I do for you?\r")
         closemessage
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
@@ -725,7 +832,9 @@ _0A1D:
     getapricornjuiceoffer(VAR_TEMP_x4007, VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_x8002)
     applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_0BEC)
     waitmovement
-    npcmsg(msg_0137_D49_00033)
+    npcmsg("So discerning of you!\n"
+           "{STRVAR_1 3, 0, 0}’s {STRVAR_1 8, 1, 0}!\f"
+           "Only ${STRVAR_1 53, 2, 0}! Quite a bargain! {YESNO 0}")
 _0A3A:
     touchscreenmenuhide
     menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
@@ -737,11 +846,18 @@ _0A3A:
     if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0AD6) }
     if (var(VAR_SPECIAL_RESULT) == 1) {
         if (var(VAR_SPECIAL_x8002) >= 2000) {
-            npcmsg(msg_0137_D49_00047)
+            npcmsg("Owner’s Comment\n"
+                   "{STRVAR_1 8, 1, 0} of the legendary\f"
+                   "Pokéathlete!\r"
+                   "It grew side by side with {STRVAR_1 3, 0, 0}!\r"
+                   "The road to victory is shown when you\n"
+                   "drink it! This will make you a legend!\r")
             goto(_0B89)
         _0B89:
-            npcmsg(msg_0137_D49_00040)
-            npcmsg(msg_0137_D49_00038)
+            npcmsg("Its richness is {STRVAR_1 52, 3, 0}!\n"
+                   "Its smoothness is {STRVAR_1 52, 4, 0}!\r")
+            npcmsg("{STRVAR_1 3, 0, 0}’s {STRVAR_1 8, 1, 0}!\n"
+                   "Only ${STRVAR_1 53, 2, 0}! Quite a bargain! {YESNO 0}")
             goto(_0A3A)
             end
         }
@@ -752,27 +868,60 @@ _0A3A:
         if (var(VAR_SPECIAL_x8002) >= 100) { goto(_0B53) }
         goto(_0B4A)
     _0B4A:
-        npcmsg(msg_0137_D49_00041)
+        npcmsg("Owner’s Comment\n"
+               "Somebody, somewhere put it together!\f"
+               "The mysterious {STRVAR_1 8, 1, 0}!\r"
+               "It may go up.\n"
+               "It may go down.\f"
+               "May your luck be with this juice!\r")
         goto(_0B89)
     _0B53:
-        npcmsg(msg_0137_D49_00042)
+        npcmsg("Owner’s Comment\n"
+               "Not many people know about it!\r"
+               "It’s the newcomer Pokéathlete\n"
+               "{STRVAR_1 3, 0, 0}’s {STRVAR_1 8, 1, 0}!\r"
+               "It’s a long way to perfection!\n"
+               "But it’s irresistible to some!\f"
+               "It’s a gleam of {STRVAR_1 8, 1, 0}!\r")
         goto(_0B89)
     _0B5C:
-        npcmsg(msg_0137_D49_00043)
+        npcmsg("Owner’s Comment\n"
+               "You know who’s around here!\r"
+               "This {STRVAR_1 8, 1, 0} is what has helped\n"
+               "make you-know-who who they\f"
+               "are today!\f"
+               "Try it if you feel sluggish!\r")
         goto(_0B89)
     _0B65:
-        npcmsg(msg_0137_D49_00044)
+        npcmsg("Owner’s Comment\n"
+               "You don’t know it?\f"
+               "That’s the last thing you want to hear!\r"
+               "It is time you try {STRVAR_1 3, 0, 0}’s\n"
+               "{STRVAR_1 8, 1, 0}, the sign of a new era!\r")
         goto(_0B89)
     _0B6E:
-        npcmsg(msg_0137_D49_00045)
+        npcmsg("Owner’s Comment\n"
+               "{STRVAR_1 8, 1, 0} was developed by\f"
+               "that popular Pokéathlete!\r"
+               "You may never be able to shake hands,\n"
+               "but you can still drink the same juice!\r"
+               "This is a must-buy juice for every\n"
+               "Pokéathlete!\r")
         goto(_0B89)
     _0B77:
-        npcmsg(msg_0137_D49_00046)
+        npcmsg("Owner’s Comment\n"
+               "{STRVAR_1 8, 1, 0}!\f"
+               "Developed by that elite Pokéathlete!\r"
+               "You may never see it again.\n"
+               "If you won’t win today, when will you?\r"
+               "For those who want to win today, here\n"
+               "is the juice of victory!\r")
         goto(_0B89)
     }
     hasenoughmoneyvar(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8001)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0AEB) }
-    npcmsg(msg_0137_D49_00034)
+    npcmsg("Thank you!\n"
+           "Which Pokémon do you want to give it to?\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -783,12 +932,14 @@ _0A3A:
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     if (var(VAR_SPECIAL_x8003) == 0) {
-        npcmsg(msg_0137_D49_00036)
+        npcmsg("That’s a pity!\n"
+               "Come back when you want to win!\r")
     } else {
         submoneyvar(VAR_SPECIAL_x8001)
         updatemoneybox
     _0AD6:
-        npcmsg(msg_0137_D49_00035)
+        npcmsg("Charge yourself with friendship!\n"
+               "Come back again when you want more!\r")
     }
 _0AD9:
     closemessage
@@ -798,7 +949,7 @@ _0AD9:
     releaseall
     end
 _0AEB:
-    npcmsg(msg_0137_D49_00037)
+    npcmsg("Oh, you don’t have enough money!\r")
     goto(_0AD9)
     end
 }
@@ -824,7 +975,9 @@ script scr_seq_D49_021 {
 }
 
 script scr_seq_D49_022 {
-    simplenpcmsg(msg_0137_D49_00048)
+    simplenpcmsg("It improves your Pokémon’s\n"
+                 "Performance!\r"
+                 "Let it shine its best with Aprijuice!")
     end
 }
 
@@ -999,7 +1152,8 @@ movement PokeathlonDome_Movement_0EC4 {
 }
 
 script scr_seq_D49_023 {
-    trainertipsex(2, msg_0137_D49_00049)
+    trainertipsex(2, "The Pokéathlon Dome\n"
+                     "The Place for True Pokéathletes!")
     end
 }
 

@@ -2,7 +2,10 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_R02R0501_000 {
-    simplenpcmsg(msg_0325_R02R0501_00000)
+    simplenpcmsg("Viridian Forest not only has trees\n"
+                 "standing like a maze but also has many\f"
+                 "ups and downs.\r"
+                 "That’s why people get lost easily here.")
     end
 }
 

@@ -6,7 +6,19 @@ script scr_seq_D51R0301_000 {
     lockall
     faceplayer
     if (!flag(FLAG_UNK_09E)) {
-        npcmsg(msg_0147_D51R0301_00000)
+        npcmsg("Cynthia: My name is Cynthia.\n"
+               "I am a Pokémon Trainer.\r"
+               "The {COLOR 1}Sinjoh Ruins{COLOR 0} remind me of Sinnoh,\n"
+               "where I come from.\r"
+               "Initially, I thought it was because\n"
+               "it snows a lot here as well.\r"
+               "But that was not it.\r"
+               "A long time ago...people came from\n"
+               "Sinnoh to live here.\r"
+               "They must have built a temple here\n"
+               "while longing for home.\r"
+               "That’s why we call these the\n"
+               "{COLOR 1}Sinjoh Ruins{COLOR 0}...\r")
         closemessage
         setflag(FLAG_UNK_09E)
     }
@@ -14,7 +26,10 @@ script scr_seq_D51R0301_000 {
     if (var(VAR_SPECIAL_RESULT) == 1) {
         applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_0188)
         waitmovement
-        npcmsg(msg_0147_D51R0301_00001)
+        npcmsg("Cynthia: You are...\f"
+               "a Pokémon Trainer?\r"
+               "I can sense strong power coming\n"
+               "from your Poké Ball...\r")
         closemessage
         getplayerfacing(VAR_TEMP_x4002)
         if (var(VAR_TEMP_x4002) != 0) {
@@ -88,11 +103,35 @@ script scr_seq_D51R0301_000 {
         goto(_0107)
         goto(_0097)
     }
-    npcmsg(msg_0147_D51R0301_00002)
+    npcmsg("Cynthia: I wouldn’t assume you managed\n"
+           "to get here by yourself.\r"
+           "This is a heavy-snowfall area where\n"
+           "the snowbound land freezes you\f"
+           "to the core...\r"
+           "Talk to the old man if you wish to go\n"
+           "back. ABRA should be able to take you\f"
+           "where you come from.")
     waitbuttonpress
     closemessage
     releaseall
     end
+}
+
+text msg_0147_D51R0301_00003 {
+    "Cynthia: I feel a familiar presence...\n"
+    "The power of DIALGA...\f"
+    "PALKIA...\f"
+    "or could it be GIRATINA?\r"
+    "It’s similar, but not quite the same...\r"
+}
+
+text msg_0147_D51R0301_00004 {
+    "Cynthia: Have you got time?\r"
+    "Can you come to the {COLOR 1}Sinjoh Ruins{COLOR 0}\n"
+    "with me?\r"
+    "Call it a Trainer’s intuition.\r"
+    "When you and your Pokémon step onto\n"
+    "that stage, something will happen.\r"
 }
 
 movement SinjohRuinsCabin_Movement_0188 {
@@ -173,21 +212,51 @@ script scr_seq_D51R0301_001 {
     lockall
     faceplayer
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) >= 13) {
-        npcmsg(msg_0147_D51R0301_00009)
+        npcmsg("Well, hello!\n"
+               "We meet again!\r"
+               "Cynthia has gone back to Sinnoh.\f"
+               "She is the Sinnoh League Champion.\r"
+               "She studies various ruins despite her\n"
+               "tight schedule.\r"
+               "How wonderful she is!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (flag(FLAG_UNK_09D)) { goto(_0263) }
-    npcmsg(msg_0147_D51R0301_00007)
+    npcmsg("A long time ago, people used to draw\n"
+           "life from Pokémon and also give their\f"
+           "lives to those Pokémon...\r"
+           "That shows that people and Pokémon\n"
+           "used to be more closely bonded with\f"
+           "each other.\r"
+           "When people moved from place to place,\n"
+           "the myths and legends of Pokémon\f"
+           "and their power would also be carried\f"
+           "with those people.\r"
+           "That’s how myths and legends from each\n"
+           "region are blended with each other.\r"
+           "The ancient ruins here have inherited\n"
+           "the legends from both the {COLOR 1}Ruins of Alph{COLOR 0}\f"
+           "in Johto and the {COLOR 1}Spear Pillar{COLOR 0} in Sinnoh.\r"
+           "That is proof that people from Johto\n"
+           "and Sinnoh blended together\f"
+           "as a group.")
     waitbuttonpress
     closemessage
     setflag(FLAG_UNK_09D)
     releaseall
     end
 _0263:
-    npcmsg(msg_0147_D51R0301_00008)
+    npcmsg("ARCEUS is said to have come out of\n"
+           "an Egg.\r"
+           "Johto people believe that Pokémon Eggs\n"
+           "are the vessels of life, and thus\f"
+           "something astounding.\r"
+           "Places far from each other can share\n"
+           "similar myths and legends...\r"
+           "That’s quite interesting, isn’t it?")
     waitbuttonpress
     closemessage
     releaseall
@@ -198,20 +267,25 @@ script scr_seq_D51R0301_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0147_D51R0301_00010)
+    npcmsg("You seem so out of place, not even\n"
+           "knowing why you are here.\r"
+           "Do you want my ABRA to use a\n"
+           "special power to take you home? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) != 0) {
         if (var(VAR_SPECIAL_RESULT) >= 1) {
-            npcmsg(msg_0147_D51R0301_00012)
+            npcmsg("OK... OK...\n"
+                   "The best of luck to you!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
     }
-    npcmsg(msg_0147_D51R0301_00011)
+    npcmsg("OK. OK.\n"
+           "Picture your house in your mind...\r")
     closemessage
     playse(SEQ_SE_DP_TELE)
     applymovement(obj_player, SinjohRuinsCabin_Movement_0318)
@@ -269,7 +343,7 @@ script scr_seq_D51R0301_003 {
     lockall
     faceplayer
     playcry(SPECIES_ABRA, 0)
-    npcmsg(msg_0147_D51R0301_00013)
+    npcmsg("ABRA: Aabra...")
     waitcry
     waitbuttonpress
     closemessage

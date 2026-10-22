@@ -3,25 +3,19 @@
   "messages": [
     {
       "id": "msg_0095_D27R0108_00000",
-      "en_US": [
-        "Lighthouse elevator.\n",
-        "Going up to the light room.\r"
-      ]
+      "from": "scr_seq_D27R0108_000#0"
     },
     {
       "id": "msg_0095_D27R0108_00001",
-      "en_US": [
-        "Lighthouse elevator.\n",
-        "Going down to the first floor.\r"
-      ]
+      "from": "scr_seq_D27R0108_000#1"
     },
     {
       "id": "msg_0095_D27R0108_00002",
-      "en_US": "You’ve arrived at the light room."
+      "from": "scr_seq_D27R0108_000#2"
     },
     {
       "id": "msg_0095_D27R0108_00003",
-      "en_US": "You’ve arrived at the first floor."
+      "from": "scr_seq_D27R0108_000#3"
     }
   ]
 }

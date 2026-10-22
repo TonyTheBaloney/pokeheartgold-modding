@@ -54,7 +54,7 @@ script scr_seq_D17R0110_000 {
     faceplayer
     setvar(VAR_TEMP_x400A, 250)
     playcry(VAR_TEMP_x400A, 0)
-    npcmsg(msg_0058_D17R0110_00004)
+    npcmsg("HO-OH: Shaoooh!\r")
     waitcry
     closemessage
     getgameversion(VAR_SPECIAL_RESULT)
@@ -98,7 +98,13 @@ script scr_seq_D17R0110_006 {
     loadeventsoundeffects
     applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0790)
     waitmovement
-    npcmsg(msg_0058_D17R0110_00000)
+    npcmsg("Zuki: Yes, this is where we welcome\n"
+           "HO-OH.\r"
+           "When the dance we practiced for many\n"
+           "days becomes one with the sound of the\f"
+           "Clear Bell we entrusted to you,\r"
+           "then HO-OH shall come down from the\n"
+           "great arch of the sky once again!\r")
     closemessage
     stopse(SEQ_SE_GS_KYOUHUU)
     fadescreen(4, 4, 0, RGB_WHITE)
@@ -319,12 +325,22 @@ script scr_seq_D17R0110_006 {
     waitmovement
     processsoundplate
     bufferplayersname(0)
-    npcmsg(msg_0058_D17R0110_00002)
+    npcmsg("That IS indeed HO-OH...\n"
+           "The guardian of the sky around here\f"
+           "from ancient times...\r"
+           "So many have tried and tried, only\n"
+           "to fail...\r"
+           "{STRVAR_1 3, 0, 0}, your heart and the Clear\n"
+           "Bell in harmony have finally made\f"
+           "it appear...\r")
     closemessage
     applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0790)
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0058_D17R0110_00003)
+    npcmsg("{STRVAR_1 3, 0, 0}, don’t you see?\r"
+           "HO-OH must have been waiting for\n"
+           "someone like you all this time.\f"
+           "Wouldn’t you agree...?\r")
     closemessage
     applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_092C)
     waitmovement
@@ -344,9 +360,18 @@ script scr_seq_D17R0110_001 {
         } elif (var(VAR_TEMP_x4005) == 6) {
             npcmsg(msg_0058_D17R0110_00008)
         } elif (var(VAR_TEMP_x4005) == 4) {
-            npcmsg(msg_0058_D17R0110_00006)
+            npcmsg("You have not only made HO-OH appear,\n"
+                   "but you have also caught it...\r"
+                   "You are so wonderful.\n"
+                   "There is nothing more for us to say.\r"
+                   "Take good care of yourself in\n"
+                   "your journey...")
         } else {
-            npcmsg(msg_0058_D17R0110_00007)
+            npcmsg("If that is what you believe, we will not\n"
+                   "try to convince you otherwise.\r"
+                   "Still, if you want to see HO-OH once\n"
+                   "more, perhaps you can come back here\f"
+                   "after everything has been settled...")
         }
         waitbuttonpress
         closemessage
@@ -358,6 +383,20 @@ script scr_seq_D17R0110_001 {
     closemessage
     releaseall
     end
+}
+
+text msg_0058_D17R0110_00008 {
+    "I think when you turn your back to it,\n"
+    "HO-OH will not come back for\f"
+    "some time...\r"
+    "If you want to see HO-OH, perhaps you\n"
+    "can come back here after everything\f"
+    "has been settled..."
+}
+
+text msg_0058_D17R0110_00001 {
+    "This is all we can do for you...\n"
+    "What you do now is entirely up to you..."
 }
 
 movement BellTowerRoof_Movement_0754 {
@@ -532,7 +571,8 @@ script scr_seq_D17R0110_004 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_108)) {
-        npcmsg(msg_0058_D17R0110_00005)
+        npcmsg("You have done a great job.\n"
+               "Say hello to Professor Elm for us.")
         waitbuttonpress
         closemessage
         releaseall

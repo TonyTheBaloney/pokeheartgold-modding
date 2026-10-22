@@ -22,7 +22,9 @@ script scr_seq_P01R0103_000 {
     lockall
     faceplayer
     if (var(VAR_TEMP_x4002) >= 1) {
-        npcmsg(msg_0257_P01R0103_00002)
+        npcmsg("Welcome to the S.S. Aqua!\r"
+               "Your Ticket is...right there.\n"
+               "Please come through.")
         waitbuttonpress
         closemessage
         releaseall
@@ -72,7 +74,9 @@ _00D0:
 _00E9:
     goto(_0142)
 _00EF:
-    npcmsg(msg_0257_P01R0103_00000)
+    npcmsg("Welcome to the S.S. Aqua!\r"
+           "Your Ticket is...right there.\n"
+           "Please come through.\r")
     closemessage
     applymovement(obj_P01R0103_seaman_2, SsAquaVermilionPortInterior_Movement_0190)
     waitmovement
@@ -94,7 +98,10 @@ _00EF:
     releaseall
     end
 _0142:
-    npcmsg(msg_0257_P01R0103_00001)
+    npcmsg("Operating a ship every day can wear\n"
+           "you out! It’s not running today.\r"
+           "It leaves for Olivine City on Wednesdays\n"
+           "and Sundays!")
     waitbuttonpress
     closemessage
     releaseall
@@ -138,7 +145,10 @@ movement SsAquaVermilionPortInterior_Movement_01E4 {
 }
 
 script scr_seq_P01R0103_002 {
-    simplenpcmsg(msg_0257_P01R0103_00003)
+    simplenpcmsg("You came from Johto?\r"
+                 "I envy you!\n"
+                 "I hear many rare Pokémon live\f"
+                 "over there.")
     end
 }
 

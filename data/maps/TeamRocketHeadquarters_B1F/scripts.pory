@@ -187,6 +187,16 @@ script scr_seq_D35R0102_000 {
     goto(_02D0)
 }
 
+text msg_0112_D35R0102_00000 {
+    "Hey!\n"
+    "Intruder alert!\r"
+}
+
+text msg_0112_D35R0102_00001 {
+    "It’s my turn!\n"
+    "There’s no escape!\r"
+}
+
 movement TeamRocketHeadquarters_B1F_Movement_0428 {
     emote_exclamation_mark
     delay_8 * 2
@@ -661,6 +671,24 @@ script scr_seq_D35R0102_001 {
     goto(_0C4A)
 }
 
+text msg_0112_D35R0102_00004 {
+    "The eyes of the PERSIAN statue\n"
+    "are no longer glowing..."
+}
+
+text msg_0112_D35R0102_00003 {
+    "It’s a PERSIAN statue...\n"
+    "Its eyes are glowing blue...\r"
+    "You don’t feel anyone watching you..."
+}
+
+text msg_0112_D35R0102_00002 {
+    "It’s a PERSIAN statue...\n"
+    "Its eyes are glowing red...\r"
+    "You feel that somebody may be\n"
+    "watching..."
+}
+
 script scr_seq_D35R0102_009 {
     playse(SEQ_SE_DP_SELECT)
     lockall
@@ -746,14 +774,17 @@ script scr_seq_D35R0102_004 {
     lockall
     faceplayer
     if (var(VAR_UNK_40AC) >= 9) {
-        npcmsg(msg_0112_D35R0102_00008)
+        npcmsg("The secret switch is not lit anymore...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (flag(FLAG_UNK_0D6)) { goto(_0E58) }
-    npcmsg(msg_0112_D35R0102_00005)
+    npcmsg("A secret switch!\r"
+           "The red switch is flashing in a\n"
+           "suspicious manner.\f"
+           "Will you press it? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -785,13 +816,15 @@ script scr_seq_D35R0102_004 {
         applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_04A4)
         waitmovement
     }
-    npcmsg(msg_0112_D35R0102_00009)
+    npcmsg("The surveillance system is off!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0E58:
-    npcmsg(msg_0112_D35R0102_00006)
+    npcmsg("A secret switch!\r"
+           "The blue switch is lit.\f"
+           "Will you press it? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -823,7 +856,7 @@ _0E58:
         applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_04AC)
         waitmovement
     }
-    npcmsg(msg_0112_D35R0102_00010)
+    npcmsg("The surveillance system is on!")
     waitbuttonpress
     closemessage
     releaseall
@@ -832,6 +865,10 @@ _0F1E:
     closemessage
     releaseall
     end
+}
+
+text msg_0112_D35R0102_00007 {
+    "Better press it.\r"
 }
 
 script scr_seq_D35R0102_013 {

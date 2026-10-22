@@ -2,22 +2,36 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T05R0601_000 {
-    simplenpcmsg(msg_0481_T05R0601_00000)
+    simplenpcmsg("Mr. Fuji: Welcome.\r"
+                 "Hmm... You appear to be raising your\n"
+                 "Pokémon in a kind and loving manner.\r"
+                 "Those who love Pokémon come here to\n"
+                 "pay their respects to Pokémon.\r"
+                 "Please pay homage to the spirits\n"
+                 "of Pokémon.\r"
+                 "I’m sure that will make them happy.")
     end
 }
 
 script scr_seq_T05R0601_001 {
-    simplenpcmsg(msg_0481_T05R0601_00001)
+    simplenpcmsg("There are other resting places of\n"
+                 "Pokémon here, I think.\r"
+                 "There are many chambers that only\n"
+                 "Mr. Fuji may enter.")
     end
 }
 
 script scr_seq_T05R0601_002 {
-    simplenpcmsg(msg_0481_T05R0601_00002)
+    simplenpcmsg("I came with my mom to visit\n"
+                 "Pokémon resting places...")
     end
 }
 
 script scr_seq_T05R0601_003 {
-    simplenpcmsg(msg_0481_T05R0601_00003)
+    simplenpcmsg("The Pokémon that lived with me a\n"
+                 "long time...\r"
+                 "I didn’t treat them as Pokémon!\f"
+                 "I loved them like my grandchildren...")
     end
 }
 

@@ -129,11 +129,18 @@ script scr_seq_W40_008 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0744_W40_00015)
+    npcmsg("Hey!\n"
+           "Great waves here!\r"
+           "No one can resist such\n"
+           "good waves!\r")
     closemessage
     applymovement(obj_W40_gsmiddleman1, Route40_Movement_02C8)
     waitmovement
-    npcmsg(msg_0744_W40_00016)
+    npcmsg("I see... You don’t have Surf yet...\n"
+           "This is just between you and me...\r"
+           "I got Surf from a man at Ecruteak,\n"
+           "and I think he’s still there.\r"
+           "Why don’t you try going there?\r")
     closemessage
     getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
     if (var(VAR_SPECIAL_x8000) == 252) {
@@ -218,37 +225,46 @@ movement Route40_Movement_0358 {
 }
 
 script scr_seq_W40_007 {
-    simplenpcmsg(msg_0744_W40_00018)
+    simplenpcmsg("Hey!\n"
+                 "Great waves here!\r"
+                 "No one can resist such\n"
+                 "good waves!")
     end
 }
 
 script scr_seq_W40_002 {
-    directionsignpostex(1, 4, msg_0744_W40_00019)
+    directionsignpostex(1, 4, "Rt. 40\n"
+                              "South to Cianwood City")
     end
 }
 
 script scr_seq_W40_009 {
-    trainertipsex(2, msg_0744_W40_00020)
+    trainertipsex(2, "Battle Frontier Ahead")
     end
 }
 
 script scr_seq_W40_003 {
-    simplenpcmsg(msg_0744_W40_00000)
+    simplenpcmsg("You have to warm up before going into\n"
+                 "the water.\r"
+                 "That’s basic.\n")
     end
 }
 
 script scr_seq_W40_004 {
-    simplenpcmsg(msg_0744_W40_00006)
+    simplenpcmsg("Are you going to Cianwood?\r"
+                 "How about a quick battle first?\n")
     end
 }
 
 script scr_seq_W40_005 {
-    simplenpcmsg(msg_0744_W40_00003)
+    simplenpcmsg("Hey, you’re young and fit!\n"
+                 "Don’t ride your Pokémon! Swim!\n")
     end
 }
 
 script scr_seq_W40_006 {
-    simplenpcmsg(msg_0744_W40_00009)
+    simplenpcmsg("No inflatable tube for me.\n"
+                 "I’m hanging on to a sea Pokémon!\n")
     end
 }
 

@@ -79,13 +79,33 @@ script scr_seq_R47_001 {
     lockall
     faceplayer
     if (flag(FLAG_MET_ROUTE_47_EMBEDDED_TOWER_HIKER)) {
-        npcmsg(msg_0407_R47_00001)
+        npcmsg("I think this building may have been\n"
+               "built to enshrine Pokémon with\f"
+               "a strong connection to the sea,\f"
+               "the land, and the sky.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0407_R47_00000)
+    npcmsg("Well, hello!\r"
+           "It’s said that past this hole used to be\n"
+           "a huge tower reaching far into the sky.\r"
+           "They say that it was a rather strange\n"
+           "tower with half of it embedded\f"
+           "in the cliff.\r"
+           "It was not just a tall tower reaching\n"
+           "up to the sky, but also reaching deep\f"
+           "down underground!\r"
+           "It is rumored that it even reached the\n"
+           "bottom of the ocean!\r"
+           "In short, the ruins used to connect\n"
+           "the sky, the land, and the\f"
+           "sea to each other...\r"
+           "Most of the tower is now crumbled,\n"
+           "and the only things that remain are\f"
+           "the entrance and its interior, where\f"
+           "you’ll see strange patterns.")
     waitbuttonpress
     closemessage
     setflag(FLAG_MET_ROUTE_47_EMBEDDED_TOWER_HIKER)
@@ -98,10 +118,22 @@ script scr_seq_R47_003 {
     lockall
     faceplayer
     if (!flag(FLAG_UNK_157)) {
-        npcmsg(msg_0407_R47_00002)
+        npcmsg("A masked guy who looks great in front\n"
+               "of a huge torrential waterfall...\f"
+               "That’s me, Crasher Wake!\r"
+               "Who dares to talk to me so freely?\r"
+               "Oh!\n"
+               "You are that mask-fanatic Trainer\f"
+               "I saw at the Celadon Dept. Store!\r")
         applymovement(obj_R47_leader3, Route47_Movement_022C)
         waitmovement
-        npcmsg(msg_0407_R47_00003)
+        npcmsg("Wake: I heard about the great\n"
+               "waterfall near Cianwood and decided\f"
+               "to come see it.\r"
+               "This waterfall is awesome!\r"
+               "No human or Pokémon can survive\n"
+               "without water, yet that same water\f"
+               "can sometimes cause great suffering.\r")
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
             applymovement(obj_R47_leader3, Route47_Movement_0234)
@@ -113,7 +145,13 @@ script scr_seq_R47_003 {
         waitmovement
     }
     bufferplayersname(0)
-    npcmsg(msg_0407_R47_00004)
+    npcmsg("Wake: You must be a Trainer from this\n"
+           "region, right?\r"
+           "I hope you’ll become a Trainer\n"
+           "with the qualities of water--\f"
+           "strong, tough to beat, yet\f"
+           "refreshing.\r"
+           "Good luck, mask-fanatic {STRVAR_1 3, 0, 0}!\r")
     closemessage
     applymovement(obj_R47_leader3, Route47_Movement_022C)
     waitmovement
@@ -142,12 +180,16 @@ script scr_seq_R47_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0407_R47_00005)
+    npcmsg("Chuck: Ooomph!\n"
+           "You came all this way just to see me?\r"
+           "Then you might as well take a\n"
+           "picture with me, too. Yes? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0407_R47_00008)
+        npcmsg("Chuck: No? You came all the way\n"
+               "just to say no?")
         waitbuttonpress
         closemessage
         releaseall
@@ -155,13 +197,16 @@ script scr_seq_R47_004 {
     }
     photoalbumisfull(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0407_R47_00009)
+        npcmsg("Your Photo Album is full.\r"
+               "Access your PC and delete\n"
+               "some pictures.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0407_R47_00006)
+    npcmsg("Chuck: Say cheese!\n"
+           "Don’t close your eyes!\r")
     closemessage
     setflag(FLAG_UNK_189)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -172,7 +217,8 @@ script scr_seq_R47_004 {
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     clearflag(FLAG_UNK_189)
-    npcmsg(msg_0407_R47_00007)
+    npcmsg("Chuck: Great picture!\n"
+           "This wil be a good memory for you, too!")
     waitbuttonpress
     closemessage
     releaseall

@@ -2,19 +2,29 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T07R0106_000 {
-    simplenpcmsg(msg_0499_T07R0106_00000)
+    simplenpcmsg("A vending machine with a \n"
+                 "prize roulette...\r"
+                 "It makes you happy when you get\n"
+                 "something for free even if it’s worth\f"
+                 "only $200.\r"
+                 "Happiness does not come from how much\n"
+                 "things are worth.\r"
+                 "It is up to the heart of the one to\n"
+                 "receive it...")
     end
 }
 
 script scr_seq_T07R0106_001 {
-    simplenpcmsg(msg_0499_T07R0106_00001)
+    simplenpcmsg("Aww! There are no games here!\n"
+                 "I wanted to play...")
     end
 }
 
 script scr_seq_T07R0106_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0499_T07R0106_00002)
+    npcmsg("Have a Break at the Vending Machines\n"
+           "6F: Rooftop Atrium")
     waitbuttonpress
     closemessage
     releaseall
@@ -40,7 +50,7 @@ _005E:
     Case(0, _00C2)
     Case(1, _00CE)
     Case(2, _00DA)
-    npcmsg(msg_0499_T07R0106_00007)
+    npcmsg("Decided not to buy a drink.")
     goto(_0205)
 _00C2:
     setvar(VAR_SPECIAL_x8001, 30)
@@ -77,7 +87,7 @@ _011C:
     compare(VAR_SPECIAL_x8000, 2)
     callifeq(_00FA)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0499_T07R0106_00006)
+        npcmsg("Not enough money...")
         goto(_0205)
     _01F9:
         callstd(std_bag_is_full)
@@ -104,19 +114,27 @@ _011C:
     bufferitemname(0, VAR_SPECIAL_x8001)
     playse(SEQ_SE_DP_JIHANKI)
     bufferitemname(0, VAR_SPECIAL_x8001)
-    npcmsg(msg_0499_T07R0106_00004)
+    npcmsg("Clang!\r"
+           "A can of {STRVAR_1 8, 0, 0} dropped down.\r")
     giveitemnocheck(VAR_SPECIAL_x8001, 1)
     random(VAR_SPECIAL_RESULT, 64)
     if (var(VAR_SPECIAL_RESULT) == 0) {
         playse(SEQ_SE_DP_JIHANKI)
         bufferitemname(0, VAR_SPECIAL_x8001)
-        npcmsg(msg_0499_T07R0106_00005)
+        npcmsg("Clang!\r"
+               "Bonus! Another can of {STRVAR_1 8, 0, 0}\n"
+               "dropped down.\r")
         hasspaceforitem(VAR_SPECIAL_x8001, 1, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01F9) }
         callstd(std_give_item_verbose)
     }
     npcmsg(msg_0499_T07R0106_00003)
     goto(_005E)
+}
+
+text msg_0499_T07R0106_00003 {
+    "It’s a vending machine.\n"
+    "Which drink would you like? {YESNO 0}"
 }
 
 mapscripts Celadon_DepartmentStoreRoof_MapScripts {

@@ -6,12 +6,13 @@ script scr_seq_D15R0102_000 {
 }
 
 script scr_seq_D15R0102_001 {
-    simplenpcmsg(msg_0055_D15R0102_00000)
+    simplenpcmsg("However hard we battle, the tower\n"
+                 "will stand strong.")
     end
 }
 
 script scr_seq_D15R0102_002 {
-    simplenpcmsg(msg_0055_D15R0102_00001)
+    simplenpcmsg("I sway like leaves in the wind...")
     end
 }
 

@@ -21,31 +21,57 @@ script scr_seq_R34R0101_001 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     bufferplayersname(0)
-    gendermsgbox(msg_0385_R34R0101_00000, msg_0385_R34R0101_00010)
+    gendermsgbox("Lyra: Grandma!\r"
+                 "Let me introduce my friend.\n"
+                 "This is {STRVAR_1 3, 0, 0}!\r", "Ethan: Grandma!\r"
+                                                  "Let me introduce my friend.\n"
+                                                  "This is {STRVAR_1 3, 0, 0}!\r")
     closemessage
-    gendermsgbox(msg_0385_R34R0101_00001, msg_0385_R34R0101_00011)
+    gendermsgbox("Ah ha.\n"
+                 "This is your boy...friend.\f"
+                 "I see. Hmm.\r", "Ah ha.\n"
+                                  "This is your girl...friend.\f"
+                                  "I see. Hmm.\r")
     closemessage
     applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_0138)
     waitmovement
-    gendermsgbox(msg_0385_R34R0101_00002, msg_0385_R34R0101_00012)
+    gendermsgbox("Lyra: What? Grandma...!\n"
+                 "What are you talking about?\r"
+                 "He just happens to live nearby...\r", "Ethan: What? Grandma...!\n"
+                                                        "What are you talking about?\r"
+                                                        "She just happens to live nearby...\r")
     closemessage
-    gendermsgbox(msg_0385_R34R0101_00003, msg_0385_R34R0101_00013)
+    gendermsgbox("Grandma: Hahaha.\n"
+                 "I know. I know.\r"
+                 "Since you brought him here, Lyra, you\n"
+                 "must be sure about his talent.\r"
+                 "Right, {STRVAR_1 3, 0, 0}?\n"
+                 "Come and see us anytime!\r", "Hahaha.\n"
+                                               "I know. I know.\r"
+                                               "Since you took her here, Ethan, you\n"
+                                               "must be sure about her talent.\r"
+                                               "Right, {STRVAR_1 3, 0, 0}?\n"
+                                               "Come and see us anytime!\r")
     closemessage
     applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_0164)
     waitmovement
-    gendermsgbox(msg_0385_R34R0101_00004, msg_0385_R34R0101_00014)
+    gendermsgbox("Lyra: Well, I better go now...\n"
+                 "See ya!\r", "Ethan: Well, I better go now...\n"
+                              "See ya!\r")
     closemessage
     applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_016C)
     applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_0184)
     waitmovement
-    gendermsgbox(msg_0385_R34R0101_00005, msg_0385_R34R0101_00015)
+    gendermsgbox("Lyra: Oh! I almost forgot!\r", "Ethan: Oh! I almost forgot!\r")
     closemessage
     applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_0198)
     applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_01A8)
     waitmovement
     applymovement(obj_player, Route34_Daycare_Movement_0190)
     waitmovement
-    gendermsgbox(msg_0385_R34R0101_00006, msg_0385_R34R0101_00016)
+    gendermsgbox("Lyra: Here!\n"
+                 "This is my Pokégear number!\r", "Ethan: Here!\n"
+                                                  "This is my Pokégear number!\r")
     closemessage
     getplayergender(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -54,17 +80,41 @@ script scr_seq_R34R0101_001 {
         registergearnumber(PHONE_CONTACT_ETHAN)
     }
     bufferplayersname(0)
-    gendermsgbox(msg_0385_R34R0101_00007, msg_0385_R34R0101_00017)
+    gendermsgbox("{STRVAR_1 3, 0, 0} registered Lyra\n"
+                 "in the Pokégear!\r", "{STRVAR_1 3, 0, 0} registered Ethan\n"
+                                       "in the Pokégear!\r")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_01BC)
     waitmovement
-    gendermsgbox(msg_0385_R34R0101_00008, msg_0385_R34R0101_00018)
+    gendermsgbox("Lyra: You know you can talk to your\n"
+                 "Pokémon as they follow you?\r"
+                 "They do all sorts of cute stuff on the\n"
+                 "road and in towns.\r"
+                 "I’m taking notes every time they do\n"
+                 "funny things.\r"
+                 "Give me a call and I’ll share some of\n"
+                 "them with you.\r", "Ethan: You know you can talk to your\n"
+                                     "Pokémon as they follow you?\r"
+                                     "They do all sorts of cute stuff on the\n"
+                                     "road and in towns.\r"
+                                     "I’m taking notes every time they do\n"
+                                     "funny things.\r"
+                                     "Give me a call and I’ll share some of\n"
+                                     "them with you.\r")
     closemessage
     applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_01C4)
     applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_01CC)
     waitmovement
-    gendermsgbox(msg_0385_R34R0101_00009, msg_0385_R34R0101_00019)
+    gendermsgbox("Lyra: Grandma!\r"
+                 "Don’t you say anything.\r"
+                 "We are both Trainers, and we are\n"
+                 "supposed to exchange numbers.\f"
+                 "That’s all.\r", "Ethan: Grandma!\r"
+                                  "Don’t you say anything.\r"
+                                  "We are both Trainers, and we are\n"
+                                  "supposed to exchange numbers.\f"
+                                  "That’s all.\r")
     closemessage
     applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_01D4)
     applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_01E8)

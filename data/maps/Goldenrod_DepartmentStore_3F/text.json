@@ -3,41 +3,23 @@
   "messages": [
     {
       "id": "msg_0594_T25R1003_00000",
-      "en_US": [
-        "I-I-I’m really impatient!\r",
-        "I use X Speed in battle to speed up\n",
-        "my Pokémon."
-      ]
+      "from": "scr_seq_T25R1003_001#1"
     },
     {
       "id": "msg_0594_T25R1003_00001",
-      "en_US": [
-        "Oh my...\n",
-        "Team Rocket has reached here already!"
-      ]
+      "from": "scr_seq_T25R1003_001#0"
     },
     {
       "id": "msg_0594_T25R1003_00002",
-      "en_US": [
-        "Hey! When you battle, do you use\n",
-        "X Special?\r",
-        "It’s awesome. It really jacks up\n",
-        "Special Attack!"
-      ]
+      "from": "scr_seq_T25R1003_002#1"
     },
     {
       "id": "msg_0594_T25R1003_00003",
-      "en_US": [
-        "I never thought about it, but\n",
-        "Team Rocket does go shopping..."
-      ]
+      "from": "scr_seq_T25R1003_002#0"
     },
     {
       "id": "msg_0594_T25R1003_00004",
-      "en_US": [
-        "For Victory Seekers\n",
-        "3F Battle Collection"
-      ]
+      "from": "scr_seq_T25R1003_003#0"
     }
   ]
 }

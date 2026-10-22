@@ -24,7 +24,9 @@ script scr_seq_T26PC0101_004 {
     if (var(VAR_TEMP_x4007) == 77) { goto(_00C4) }
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0607_T26PC0101_00003)
+    npcmsg("...There!\n"
+           "All done!\f"
+           "It’s sure to surprise anyone!\r")
     setvar(VAR_TEMP_x4007, 77)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 2) {
@@ -33,13 +35,19 @@ script scr_seq_T26PC0101_004 {
         applymovement(obj_T26PC0101_gswoman2, Olivine_Pokecenter_1F_Movement_0104)
     }
     waitmovement
-    npcmsg(msg_0607_T26PC0101_00004)
+    npcmsg("Oh, are you a Trainer?\r"
+           "You came at just the right time!\n"
+           "I just finished putting my Ball Capsule\f"
+           "on my Poké Ball.\r"
+           "Do you want to battle and be\n"
+           "amazed by my decoration? {YESNO 0}")
 _0082:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00D5) }
-    npcmsg(msg_0607_T26PC0101_00005)
+    npcmsg("All right!\n"
+           "Here I come!\r")
     closemessage
     trainerbattle(TRAINER_BEAUTY_CHARLOTTE, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -54,10 +62,13 @@ _00C4:
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0607_T26PC0101_00008)
+    npcmsg("Now you want to see my Ball Capsule?\r"
+           "Battle me so I can show it to you! {YESNO 0}")
     goto(_0082)
 _00D5:
-    npcmsg(msg_0607_T26PC0101_00007)
+    npcmsg("Oh, really?\r"
+           "Talk to me if you want to see my\n"
+           "Ball Capsule sometime!")
     waitbuttonpress
     closemessage
     releaseall
@@ -66,6 +77,16 @@ _00E0:
     whiteout
     releaseall
     end
+}
+
+text msg_0607_T26PC0101_00006 {
+    "You can turn your Poké Balls into your\n"
+    "own special creations by adding Seals.\r"
+    "How cool is it to have a Poké Ball that\n"
+    "only you have in the entire world?\f"
+    "Give it a whirl!\r"
+    "Oh, remember to put the Ball Capsule\n"
+    "on a Poké Ball once it’s ready!"
 }
 
 movement Olivine_Pokecenter_1F_Movement_00FC {
@@ -77,17 +98,27 @@ movement Olivine_Pokecenter_1F_Movement_0104 {
 }
 
 script scr_seq_T26PC0101_001 {
-    simplenpcmsg(msg_0607_T26PC0101_00000)
+    simplenpcmsg("Pokémon get more friendly if you\n"
+                 "spend time with them.")
     end
 }
 
 script scr_seq_T26PC0101_002 {
-    simplenpcmsg(msg_0607_T26PC0101_00001)
+    simplenpcmsg("They can shine like a bright light--\n"
+                 "like a beacon at night to guide us...\r"
+                 "They can take us across the water on\n"
+                 "their backs when we are without\f"
+                 "a boat...\r"
+                 "Pokémon are helping us everywhere.\f"
+                 "I can’t imagine a life without them!")
     end
 }
 
 script scr_seq_T26PC0101_003 {
-    simplenpcmsg(msg_0607_T26PC0101_00002)
+    simplenpcmsg("There’s a person in Cianwood City\n"
+                 "across the sea.\r"
+                 "I heard him bragging about his\n"
+                 "rare Pokémon.")
     end
 }
 

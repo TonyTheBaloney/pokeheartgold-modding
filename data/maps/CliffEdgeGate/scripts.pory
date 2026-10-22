@@ -43,7 +43,18 @@ script scr_seq_D48R0101_004 {
     }
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0136_D48R0101_00007)
+    npcmsg("Chuck: Hey, {STRVAR_1 3, 0, 0}!\n"
+           "Good to see you again! But I never\f"
+           "expected to see you around here.\r"
+           "Could it be...that you are on the way\n"
+           "to the Embedded Tower?\r"
+           "The Embedded Tower is a huge tower\n"
+           "piercing the sky.\r"
+           "It is said to have something to do with\n"
+           "the mythical Pokémon that stretched\f"
+           "the seas and that Pokémon that widened\f"
+           "the lands.\r"
+           "But the tower no longer is standing.\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 2) {
         applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0160)
@@ -51,7 +62,10 @@ script scr_seq_D48R0101_004 {
         applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_016C)
     }
     waitmovement
-    npcmsg(msg_0136_D48R0101_00008)
+    npcmsg("Chuck: The way to the Embedded Tower\n"
+           "is harder than you can imagine.\r"
+           "You need to use Rock Climb\n"
+           "as well as Surf.\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 2) {
         applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0178)
@@ -59,7 +73,11 @@ script scr_seq_D48R0101_004 {
         applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0180)
     }
     waitmovement
-    npcmsg(msg_0136_D48R0101_00009)
+    npcmsg("Chuck: I see! So you’ve defeated all\n"
+           "the Gym Leaders in Kanto as well!\r"
+           "Then there’s nothing to worry about.\n"
+           "Believe in yourself and walk your path.\r"
+           "Yahaha!\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 2) {
         applymovement(obj_player, CliffEdgeGate_Movement_01A8)
@@ -134,31 +152,53 @@ script scr_seq_D48R0101_000 {
     lockall
     faceplayer
     if (var(VAR_UNK_40EB) == 1) {
-        npcmsg(msg_0136_D48R0101_00004)
+        npcmsg("See? The Safari Zone was fun?\n"
+               "No need to say anything!\f"
+               "Your face says it was really fun!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (flag(FLAG_UNK_0F5)) { goto(_01E7) }
-    npcmsg(msg_0136_D48R0101_00000)
+    npcmsg("Did you know?\n"
+           "They are constructing a Safari Zone\f"
+           "just around the corner.\r"
+           "They say it’ll be really fun!\n"
+           "You will see many different kinds of\f"
+           "Pokémon, and it’s all you can catch!\r"
+           "There is no reason not to go, right?\n"
+           "I’m so looking forward to the\f"
+           "Safari Zone!\r"
+           "Finish the construction already!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _01E7:
-    npcmsg(msg_0136_D48R0101_00001)
+    npcmsg("Did you know? There’s a Safari Zone\n"
+           "just around the corner.\r"
+           "It’s really fun!\n"
+           "You will see many different kinds of\f"
+           "Pokémon, and it’s all you can catch!\r"
+           "There is no reason not to go, right?\n"
+           "Just around the corner.\r"
+           "It won’t take too long.\n"
+           "Why don’t you drop by? Won’t you? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_020A) }
-    npcmsg(msg_0136_D48R0101_00003)
+    npcmsg("It’s such a good deal, you know?")
     waitbuttonpress
     closemessage
     releaseall
     end
 _020A:
-    npcmsg(msg_0136_D48R0101_00002)
+    npcmsg("All right!\n"
+           "It’s just over there.\r"
+           "Go up the stairs, and you’ll be outside.\n"
+           "Then it’s only a few paces away!")
     waitbuttonpress
     closemessage
     releaseall
@@ -178,12 +218,18 @@ movement CliffEdgeGate_Movement_0230 {
 }
 
 script scr_seq_D48R0101_001 {
-    simplenpcmsg(msg_0136_D48R0101_00005)
+    simplenpcmsg("What?\n"
+                 "You want to go to the Safari Zone, too?\r"
+                 "It’s still under construction.\n"
+                 "Please come back later.")
     end
 }
 
 script scr_seq_D48R0101_002 {
-    simplenpcmsg(msg_0136_D48R0101_00006)
+    simplenpcmsg("I appreciate that everybody is looking\n"
+                 "forward to it. But the lady at the\f"
+                 "reception seems a bit too dramatic...\f"
+                 "Don’t get your expectations too high!")
     end
 }
 
@@ -192,13 +238,19 @@ script scr_seq_D48R0101_003 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_0F5)) {
-        npcmsg(msg_0136_D48R0101_00011)
+        npcmsg("Everything Is Thrilling!\n"
+               "Explore to Find Wild Pokémon!\r"
+               "Warden Baoba’s Safari Zone\n"
+               "Up and Running!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0136_D48R0101_00010)
+    npcmsg("Everything Is Thrilling!\n"
+           "Explore to Find Wild Pokémon!\r"
+           "Warden Baoba’s Safari Zone\n"
+           "Coming Soon!")
     waitbuttonpress
     closemessage
     releaseall

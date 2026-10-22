@@ -207,7 +207,23 @@ script scr_seq_R14_002 {
                 applymovement(obj_player, Route14_Movement_056C)
                 waitmovement
                 bufferplayersname(0)
-                npcmsg(msg_0351_R14_00006)
+                npcmsg("Eusine: {STRVAR_1 3, 0, 0}! Not again!\n"
+                       "I’ll be there first next time!\r"
+                       "Having followed it here, I’m\n"
+                       "starting to understand what\f"
+                       "SUICUNE is after.\r"
+                       "To be honest, I would like to keep\n"
+                       "this information to myself.\r"
+                       "But I want to be an honest Trainer in\n"
+                       "front of SUICUNE!\r"
+                       "That’s why I am sharing a clue with you.\n"
+                       "It seems that...\r"
+                       "...SUICUNE prefers a hilly place\n"
+                       "near water...\f"
+                       "...Somewhere north.\r"
+                       "I don’t know exactly where, yet.\n"
+                       "It will be just you and me!\r"
+                       "Who’ll find it first? I challenge you!")
                 waitbuttonpress
                 closemessage
                 callstd(std_fade_end_eusine_music)
@@ -366,6 +382,21 @@ script scr_seq_R14_003 {
     end
 }
 
+text msg_0351_R14_00007 {
+    "Eusine: What’s wrong, {STRVAR_1 3, 0, 0}?\n"
+    "To be honest, I would like to keep\f"
+    "this information to myself.\r"
+    "But I want to be an honest Trainer in\n"
+    "front of SUICUNE!\r"
+    "That’s why I am sharing a clue with you.\r"
+    "It seems that...\n"
+    "...SUICUNE prefers a hilly place\f"
+    "near water...\f"
+    "...Somewhere north.\r"
+    "I don’t know exactly where, yet.\n"
+    "It will be just you and me!"
+}
+
 script scr_seq_R14_004 {
     bufferplayersname(0)
     simplenpcmsg(msg_0351_R14_00007)
@@ -382,27 +413,34 @@ script scr_seq_R14_005 {
             getpartyleadalive(VAR_TEMP_x4000)
             getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
             if (var(VAR_TEMP_x4001) == 113) {
-                npcmsg(msg_0351_R14_00004)
+                npcmsg("Hello, you lovely CHANSEY!")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             }
         }
-        npcmsg(msg_0351_R14_00005)
+        npcmsg("Do you know which is the cutest Pokémon\n"
+               "in the world?\f"
+               "It is CHANSEY, of course!\f"
+               "I say CHANSEY, and that’s final!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0351_R14_00000)
+    npcmsg("Do you know which is the cutest Pokémon\n"
+           "in the world?\f"
+           "It’s CHANSEY, of course!\f"
+           "I say CHANSEY, and that’s final!\r")
     playeronbikecheck(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 1) {
         getpartyleadalive(VAR_TEMP_x4000)
         getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 113) { goto(_060D) }
     }
-    npcmsg(msg_0351_R14_00001)
+    npcmsg("I will give you something good\n"
+           "if you can bring me a CHANSEY!")
     waitbuttonpress
     closemessage
     releaseall
@@ -410,11 +448,17 @@ script scr_seq_R14_005 {
 _060D:
     applymovement(obj_R14_gswoman1, Route14_Movement_0698)
     waitmovement
-    npcmsg(msg_0351_R14_00002)
+    npcmsg("That Pokémon is...CHANSEY!\r"
+           "What are the chances of\n"
+           "seeing CHANSEY this close?\r"
+           "Take this as a token of my gratitude!\r")
     if (!itemspace(ITEM_LUCKY_PUNCH, 1)) { goto(_064E) }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_LUCKY_PUNCH_FROM_ROUTE_14_WOMAN)
-    npcmsg(msg_0351_R14_00003)
+    npcmsg("Let a CHANSEY hold this Lucky Punch,\n"
+           "and it’ll have a better chance at\f"
+           "getting critical hits!\r"
+           "Isn’t that awesome?!")
     waitbuttonpress
     closemessage
     releaseall

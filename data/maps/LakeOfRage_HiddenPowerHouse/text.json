@@ -3,13 +3,7 @@
   "messages": [
     {
       "id": "msg_0627_T29R0101_00000",
-      "en_US": [
-        "...You have strayed far...\n",
-        "Here I have meditated. Inside me,\f",
-        "a new power has been awakened.\r",
-        "Let me share my power with your\n",
-        "Pokémon. Take this, child.\r"
-      ]
+      "from": "scr_seq_T29R0101_000#1"
     },
     {
       "id": "msg_0627_T29R0101_00001",
@@ -17,13 +11,7 @@
     },
     {
       "id": "msg_0627_T29R0101_00002",
-      "en_US": [
-        "Do you see it? It is Hidden Power!\r",
-        "It draws out the power of Pokémon\n",
-        "for attacking.\r",
-        "Remember this: its type and power\n",
-        "depend on the Pokémon using it."
-      ]
+      "from": "scr_seq_T29R0101_000#2"
     },
     {
       "id": "msg_0627_T29R0101_00003",
@@ -31,7 +19,7 @@
     },
     {
       "id": "msg_0627_T29R0101_00004",
-      "en_US": "I am meditating..."
+      "from": "scr_seq_T29R0101_000#0"
     }
   ]
 }

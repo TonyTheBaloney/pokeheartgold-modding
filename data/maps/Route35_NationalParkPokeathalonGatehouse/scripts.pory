@@ -128,7 +128,11 @@ script scr_seq_R35R0201_008 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0389_R35R0201_00010)
+    npcmsg("Hey, hey!\n"
+           "Watch yourself! The construction\f"
+           "makes it dangerous around here.\r"
+           "Just wait a little longer for the\n"
+           "exciting reveal!\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 7) {
         applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_02FC)
@@ -203,7 +207,11 @@ movement Route35_NationalParkPokeathalonGatehouse_Movement_0320 {
 }
 
 script scr_seq_R35R0201_000 {
-    simplenpcmsg(msg_0389_R35R0201_00009)
+    simplenpcmsg("Tap tap ding ding!\r"
+                 "We are in a big hurry!\n"
+                 "Just a little more work before you\f"
+                 "can come through.\r"
+                 "I hope you are looking forward to it!")
     end
 }
 
@@ -282,7 +290,9 @@ movement Route35_NationalParkPokeathalonGatehouse_Movement_0460 {
 }
 
 script scr_seq_R35R0201_002 {
-    simplenpcmsg(msg_0389_R35R0201_00003)
+    simplenpcmsg("The Pokéathlon Dome is this way.\r"
+                 "Please go through the entrance gate,\n"
+                 "and do participate in the games!")
     end
 }
 
@@ -395,27 +405,39 @@ movement Route35_NationalParkPokeathalonGatehouse_Movement_0628 {
 }
 
 script scr_seq_R35R0201_003 {
-    simplenpcmsg(msg_0389_R35R0201_00005)
+    simplenpcmsg("I’ve been waiting for this moment!\r"
+                 "Behold my friendship with my Pokémon!")
     end
 }
 
 script scr_seq_R35R0201_004 {
-    simplenpcmsg(msg_0389_R35R0201_00006)
+    simplenpcmsg("I wonder if I can participate, too.\n"
+                 "It’s only running with Pokémon, right?")
     end
 }
 
 script scr_seq_R35R0201_005 {
-    simplenpcmsg(msg_0389_R35R0201_00000)
+    simplenpcmsg("I heard about the Bug-Catching Contest\n"
+                 "where Bug-type lovers gather from all\f"
+                 "over the region.\r"
+                 "...Me?\n"
+                 "I cannot take Bug types...")
     end
 }
 
 script scr_seq_R35R0201_006 {
-    simplenpcmsg(msg_0389_R35R0201_00007)
+    simplenpcmsg("Play collectively with your Pokémon,\n"
+                 "trust your Pokémon, and believe in your\f"
+                 "Pokémon’s potential!\r"
+                 "Your friendship with Pokémon\n"
+                 "will make your dream come true!\r"
+                 "Pokéathlon for you!")
     end
 }
 
 script scr_seq_R35R0201_007 {
-    simplenpcmsg(msg_0389_R35R0201_00008)
+    simplenpcmsg("Charge your energy with friendship!\n"
+                 "Give Aprijuice to your Pokémon!")
     end
 }
 

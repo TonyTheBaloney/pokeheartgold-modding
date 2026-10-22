@@ -4,7 +4,7 @@
 script scr_seq_T03R0201_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0465_T03R0201_00000)
+    npcmsg("NIDORAN♂, shake hands!")
     waitbuttonpress
     closemessage
     releaseall
@@ -15,7 +15,7 @@ script scr_seq_T03R0201_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     playcry(SPECIES_NIDORAN_M, 0)
-    npcmsg(msg_0465_T03R0201_00001)
+    npcmsg("NIDORAN㊚: Gau gau!")
     waitcry
     waitbuttonpress
     closemessage

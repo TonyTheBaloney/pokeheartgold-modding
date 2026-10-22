@@ -7,7 +7,15 @@ script scr_seq_R02R0301_000 {
     faceplayer
     if (!flag(FLAG_GOT_SACRED_ASH_FROM_ROUTE_2_LAB_AIDE)) {
         bufferplayersname(0)
-        gendermsgbox(msg_0323_R02R0301_00000, msg_0323_R02R0301_00001)
+        gendermsgbox("So you are {STRVAR_1 3, 0, 0}?\n"
+                     "Professor Oak is waiting for you in his\f"
+                     "lab in Pallet Town.\r"
+                     "Also, I received this from him.\n"
+                     "He wants you to have this.\r", "So you are {STRVAR_1 3, 0, 0}?\n"
+                                                     "Professor Oak is waiting for you in his\f"
+                                                     "lab in Pallet Town.\r"
+                                                     "Also, I received this from him.\n"
+                                                     "He wants you to have this.\r")
         if (!itemspace(ITEM_SACRED_ASH, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -17,7 +25,8 @@ script scr_seq_R02R0301_000 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_SACRED_ASH_FROM_ROUTE_2_LAB_AIDE)
     }
-    npcmsg(msg_0323_R02R0301_00002)
+    npcmsg("Sacred Ash is an amazing item that can\n"
+           "revive all fainted Pokémon!")
     waitbuttonpress
     closemessage
     releaseall
@@ -25,7 +34,9 @@ script scr_seq_R02R0301_000 {
 }
 
 script scr_seq_R02R0301_001 {
-    simplenpcmsg(msg_0323_R02R0301_00003)
+    simplenpcmsg("To the north is Pewter City.\n"
+                 "To the south is Viridian City.\r"
+                 "I know, I know. I sound like a sign.")
     end
 }
 

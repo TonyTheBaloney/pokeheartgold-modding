@@ -3,76 +3,51 @@
   "messages": [
     {
       "id": "msg_0609_T26R0501_00000",
-      "en_US": [
-        "Along the way to Cianwood, there are\n",
-        "four deserted islands.\r",
-        "Bad kids are taken to the islands\n",
-        "as punishment!"
-      ]
+      "from": "scr_seq_T26R0501_000#0"
     },
     {
       "id": "msg_0609_T26R0501_00001",
-      "en_US": [
-        "Whenever I get in trouble, Daddy\n",
-        "always scares me."
-      ]
+      "from": "scr_seq_T26R0501_001#0"
     },
     {
       "id": "msg_0609_T26R0501_00002",
-      "en_US": [
-        "My sister gave me a lot of Seals!\f",
-        "Here, have some!\r"
-      ]
+      "from": "scr_seq_T26R0501_002#1"
     },
     {
       "id": "msg_0609_T26R0501_00003",
-      "en_US": [
-        "Wow!\n",
-        "You have so many Seals!\r",
-        "You can cover your Poké Balls in Seals!"
-      ]
+      "from": "scr_seq_T26R0501_002#3"
     },
     {
       "id": "msg_0609_T26R0501_00004",
-      "en_US": "I can give you better ones tomorrow!"
+      "from": "scr_seq_T26R0501_002#0"
     },
     {
       "id": "msg_0609_T26R0501_00005",
-      "en_US": [
-        "Huh?\n",
-        "You don’t have a Seal Case?\f",
-        "I was gonna give you some Seals..."
-      ]
+      "from": "scr_seq_T26R0501_002#2"
     },
     {
       "id": "msg_0609_T26R0501_00006",
-      "en_US": [
-        "There!\n",
-        "I’ll give you this!\r"
-      ]
+      "from": "scr_seq_T26R0501_002#4"
     },
     {
       "id": "msg_0609_T26R0501_00007",
-      "en_US": "Have another!\r"
+      "from": "scr_seq_T26R0501_002#5"
     },
     {
       "id": "msg_0609_T26R0501_00008",
-      "en_US": "Have more!\r"
+      "from": "scr_seq_T26R0501_002#6"
     },
     {
       "id": "msg_0609_T26R0501_00009",
-      "en_US": "Stick them on your Ball Capsules!"
+      "from": "scr_seq_T26R0501_002#7"
     },
     {
       "id": "msg_0609_T26R0501_00010",
-      "en_US": "Your Seal Case is full!"
+      "from": "scr_seq_T26R0501_002#8"
     },
     {
       "id": "msg_0609_T26R0501_00011",
-      "en_US": [
-        "The {STRVAR_1 10, 0, 0} was\n",
-        "put away in the Seal Case.\r"
-      ]
+      "from": "text"
     }
   ]
 }

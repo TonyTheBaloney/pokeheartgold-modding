@@ -13,12 +13,12 @@ script scr_seq_D23R0103_000 {
 }
 
 script scr_seq_D23R0103_001 {
-    simplenpcmsg(msg_0067_D23R0103_00015)
+    simplenpcmsg("3F Personnel")
     end
 }
 
 script scr_seq_D23R0103_002 {
-    simplenpcmsg(msg_0067_D23R0103_00016)
+    simplenpcmsg("Pokémon Music with host: DJ Ben")
     end
 }
 
@@ -27,9 +27,15 @@ script scr_seq_D23R0103_003 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
-        npcmsg(msg_0067_D23R0103_00001)
+        npcmsg("To Trainers, Pokémon are their\n"
+               "beloved partners.\r"
+               "It’s terrible how Team Rocket is trying\n"
+               "to control Pokémon.")
     } else {
-        npcmsg(msg_0067_D23R0103_00002)
+        npcmsg("We run 24 hours a day to broadcast\n"
+               "entertaining programs.\r"
+               "I’ll do my best to run around the\n"
+               "clock, too!")
     }
     waitbuttonpress
     closemessage
@@ -38,7 +44,9 @@ script scr_seq_D23R0103_003 {
 }
 
 script scr_seq_D23R0103_004 {
-    simplenpcmsg(msg_0067_D23R0103_00000)
+    simplenpcmsg("We have recordings of the cries of many\n"
+                 "of the Pokémon that have been found.\r"
+                 "We must have about 200 kinds.")
     end
 }
 
@@ -49,36 +57,43 @@ script scr_seq_D23R0103_005 {
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
         getitemquantity(ITEM_BASEMENT_KEY, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) != 0) {
-            npcmsg(msg_0067_D23R0103_00004)
+            npcmsg("Is the Director safe?")
             waitbuttonpress
             closemessage
             releaseall
             end
         _0100:
             if (flag(FLAG_GOT_TM11_FROM_RADIO_TOWER_WOMAN)) {
-                npcmsg(msg_0067_D23R0103_00009)
+                npcmsg("You were simply marvelous!")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             }
-            npcmsg(msg_0067_D23R0103_00005)
+            npcmsg("Thank you, kiddo! You’re the best!\n"
+                   "This is a token of my appreciation.\r")
             if (!itemspace(ITEM_TM11, 1)) { goto(_0142) }
             callstd(std_give_item_verbose)
-            npcmsg(msg_0067_D23R0103_00007)
+            npcmsg("It’s Sunny Day.\n"
+                   "It powers up Fire-type moves for\f"
+                   "a while.")
             waitbuttonpress
             closemessage
             releaseall
             setflag(FLAG_GOT_TM11_FROM_RADIO_TOWER_WOMAN)
             end
         _0142:
-            npcmsg(msg_0067_D23R0103_00008)
+            npcmsg("Oh, your Bag is full.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0067_D23R0103_00003)
+        npcmsg("The Team Rocket boss has locked\n"
+               "himself in.\r"
+               "But the Director can open it.\r"
+               "He’s up on the fifth floor.\n"
+               "Please save him!")
     } else {
         goto(_0100)
     }
@@ -94,7 +109,8 @@ script scr_seq_D23R0103_006 {
     faceplayer
     getitemquantity(ITEM_CARD_KEY, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) { goto(_01B4) }
-    npcmsg(msg_0067_D23R0103_00010)
+    npcmsg("The door is locked...\n"
+           "You need a Card Key.")
     waitbuttonpress
     closemessage
     releaseall
@@ -106,24 +122,25 @@ script scr_seq_D23R0103_007 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_090)) {
-        npcmsg(msg_0067_D23R0103_00014)
+        npcmsg("It’s the Card Key slot.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0067_D23R0103_00011)
+    npcmsg("It’s the Card Key slot.\r")
     closemessage
     getitemquantity(ITEM_CARD_KEY, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) { goto(_01B4) }
-    npcmsg(msg_0067_D23R0103_00013)
+    npcmsg("You should be able to unlock the door\n"
+           "with the Card Key!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _01B4:
     bufferplayersname(0)
-    npcmsg(msg_0067_D23R0103_00012)
+    npcmsg("{STRVAR_1 3, 0, 0} inserted the Card Key.\r")
     closemessage
     applymovement(obj_D23R0103_babyboy1_9, Goldenrod_RadioTower_3F_Movement_01F0)
     applymovement(obj_D23R0103_babyboy1_9_2, Goldenrod_RadioTower_3F_Movement_01F8)

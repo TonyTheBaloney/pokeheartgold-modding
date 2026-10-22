@@ -94,7 +94,22 @@ script scr_seq_T26_001 {
     }
     waitmovement
     bufferrivalsname(0)
-    npcmsg(msg_0604_T26_00000)
+    npcmsg("...\r"
+           "You again?\r"
+           "There’s no need to be alert.\n"
+           "I don’t bother with wimps like you.\r"
+           "Speaking of weaklings, the city’s\n"
+           "Gym Leader isn’t here, and\f"
+           "is supposedly taking care of a\f"
+           "sick Pokémon at the Lighthouse.\r"
+           "Humph! Boo-hoo!\n"
+           "Just let sick Pokémon go!\r"
+           "A Pokémon that can’t battle\n"
+           "is worthless!\r"
+           "Why don’t you go train at\n"
+           "the Lighthouse?\r"
+           "Who knows? It may make you a bit\n"
+           "of a better Trainer!\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 239) {
         applymovement(obj_T26_gsrivel, Olivine_Movement_032C)
@@ -347,37 +362,53 @@ movement Olivine_Movement_059C {
 }
 
 script scr_seq_T26_004 {
-    trainertipsex(2, msg_0604_T26_00007)
+    trainertipsex(2, "Olivine City Pokémon Gym\n"
+                     "Leader: Jasmine\f"
+                     "The Steel-Clad Defense Girl")
     end
 }
 
 script scr_seq_T26_005 {
-    directionsignpostex(0, 17, msg_0604_T26_00005)
+    directionsignpostex(0, 17, "Olivine City\n"
+                               "The Port with Sea Breezes")
     end
 }
 
 script scr_seq_T26_006 {
-    trainertipsex(2, msg_0604_T26_00006)
+    trainertipsex(2, "Olivine Port\n"
+                     "Fast-Ship Pier")
     end
 }
 
 script scr_seq_T26_007 {
-    trainertipsex(2, msg_0604_T26_00008)
+    trainertipsex(2, "Olivine’s Lighthouse\r"
+                     "It is also known as\n"
+                     "the Glitter Lighthouse.")
     end
 }
 
 script scr_seq_T26_008 {
-    simplenpcmsg(msg_0604_T26_00001)
+    simplenpcmsg("Dark roads are dangerous at night.\r"
+                 "But, in the pitch-black night,\n"
+                 "the sea is even more treacherous!\r"
+                 "Without the beacon of the Lighthouse\n"
+                 "to guide her, no ship can sail.")
     end
 }
 
 script scr_seq_T26_009 {
-    simplenpcmsg(msg_0604_T26_00002)
+    simplenpcmsg("That thing you have--\n"
+                 "it’s a Pokégear, right?\f"
+                 "Wow, that’s cool.")
     end
 }
 
 script scr_seq_T26_010 {
-    simplenpcmsg(msg_0604_T26_00004)
+    simplenpcmsg("You, young Trainer!\n"
+                 "The sea is sweet!\r"
+                 "Sing with me!\f"
+                 "The sea is blue!\n"
+                 "The sea is salty!")
     end
 }
 

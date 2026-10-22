@@ -18,12 +18,22 @@ script scr_seq_T21PC0101_000 {
 }
 
 script scr_seq_T21PC0101_004 {
-    simplenpcmsg(msg_0552_T21PC0101_00004)
+    simplenpcmsg("Welcome to the Pokémon Wireless\n"
+                 "Club Union Room.\r"
+                 "...Oh, I was just trying to learn that\n"
+                 "line by heart.\r"
+                 "It’ll take a little longer before\n"
+                 "we open the Union Room.")
     end
 }
 
 script scr_seq_T21PC0101_005 {
-    simplenpcmsg(msg_0552_T21PC0101_00005)
+    simplenpcmsg("Welcome to the Pokémon\n"
+                 "Communication Club Colosseum.\r"
+                 "...Oh, I was just trying to learn that\n"
+                 "line by heart.\r"
+                 "It’ll take a little longer before\n"
+                 "we open the Colosseum.")
     end
 }
 
@@ -32,9 +42,13 @@ script scr_seq_T21PC0101_003 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ELMS_LAB) >= 3) {
-        npcmsg(msg_0552_T21PC0101_00003)
+        npcmsg("The Communication Center upstairs\n"
+               "was just built.\r"
+               "I traded Pokémon there already!")
     } else {
-        npcmsg(msg_0552_T21PC0101_00002)
+        npcmsg("The Communication Center upstairs\n"
+               "was just built.\r"
+               "But they’re still finishing it up.")
     }
     waitbuttonpress
     closemessage
@@ -43,12 +57,13 @@ script scr_seq_T21PC0101_003 {
 }
 
 script scr_seq_T21PC0101_001 {
-    simplenpcmsg(msg_0552_T21PC0101_00000)
+    simplenpcmsg("It’s great. I can store any number\n"
+                 "of Pokémon, and it’s all free.")
     end
 }
 
 script scr_seq_T21PC0101_002 {
-    simplenpcmsg(msg_0552_T21PC0101_00001)
+    simplenpcmsg("That PC is free for any Trainer to use.")
     end
 }
 

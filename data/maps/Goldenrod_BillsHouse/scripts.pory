@@ -6,14 +6,25 @@ script scr_seq_T25R0401_000 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_EEVEE_FROM_BILL)) {
-        npcmsg(msg_0586_T25R0401_00006)
+        npcmsg("Bill: I used to do experiments on\n"
+               "transferring things.\r"
+               "Both the GTS and Nintendo Wi-Fi\n"
+               "Connection were inspired by\f"
+               "my machine that transfers things!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     bufferplayersname(0)
-    npcmsg(msg_0586_T25R0401_00000)
+    npcmsg("Bill: Hi, {STRVAR_1 3, 0, 0}! Would you do\n"
+           "something for me and take this EEVEE?\r"
+           "It came over when I was adjusting\n"
+           "Nintendo Wi-Fi Connection.\r"
+           "Someone has to take care of it,\n"
+           "but I don’t like being outside.\r"
+           "Can I count on you to play with it,\n"
+           "{STRVAR_1 3, 0, 0}? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -23,14 +34,19 @@ script scr_seq_T25R0401_000 {
 _004B:
     getpartycount(VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 6) { goto(_00DE) }
-    npcmsg(msg_0586_T25R0401_00001)
+    npcmsg("Bill: I knew you’d come through!\n"
+           "You’re the real deal! Way to go!\f"
+           "OK, I’m counting on you.\f"
+           "Take good care of it!\r")
     givemon(SPECIES_EEVEE, 5, 0, 0, 0, VAR_SPECIAL_RESULT)
     setflag(FLAG_GOT_EEVEE_FROM_BILL)
     bufferplayersname(0)
-    npcmsg(msg_0586_T25R0401_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the EEVEE!")
     playfanfare(SEQ_ME_POKEGET)
     waitfanfare
-    npcmsg(msg_0586_T25R0401_00007)
+    npcmsg("Give a nickname to\n"
+           "the EEVEE you received? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
@@ -44,20 +60,23 @@ _004B:
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
 _00C6:
-    npcmsg(msg_0586_T25R0401_00003)
+    npcmsg("Bill: Professor Elm said EEVEE can\n"
+           "evolve into seven different kinds\f"
+           "of Pokémon!")
     waitbuttonpress
     closemessage
     touchscreenmenushow
     releaseall
     end
 _00D3:
-    npcmsg(msg_0586_T25R0401_00005)
+    npcmsg("Oh... Now what to do?")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00DE:
-    npcmsg(msg_0586_T25R0401_00004)
+    npcmsg("Whoa, wait. You can’t carry any\n"
+           "more Pokémon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -69,13 +88,17 @@ script scr_seq_T25R0401_001 {
     lockall
     faceplayer
     if (var(VAR_UNK_410D) == 1) {
-        npcmsg(msg_0586_T25R0401_00010)
+        npcmsg("Whatever happens, it makes me happy\n"
+               "to see my own son.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0586_T25R0401_00009)
+    npcmsg("Oh, you collect Pokémon?\n"
+           "My son Bill is an expert.\r"
+           "He just got called to the Pokémon\n"
+           "Center in Ecruteak City.")
     waitbuttonpress
     closemessage
     releaseall
@@ -95,13 +118,16 @@ script scr_seq_T25R0401_002 {
         end
     }
     if (var(VAR_UNK_410D) == 1) { goto(_0152) }
-    npcmsg(msg_0586_T25R0401_00011)
+    npcmsg("My big brother Bill made the\n"
+           "Pokémon Storage System.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0152:
-    npcmsg(msg_0586_T25R0401_00012)
+    npcmsg("Are you a Trainer?\r"
+           "I’ve got a useful phone number\n"
+           "for you. {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -110,7 +136,8 @@ _0152:
     end
 _0179:
     bufferplayersname(0)
-    npcmsg(msg_0586_T25R0401_00013)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Bill\n"
+           "in the Pokégear!")
     registergearnumber(PHONE_CONTACT_BILL)
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
@@ -124,6 +151,12 @@ _0191:
     closemessage
     releaseall
     end
+}
+
+text msg_0586_T25R0401_00015 {
+    "When you call my brother, he can tell\n"
+    "you about the PC Boxes where you\f"
+    "store your Pokémon!"
 }
 
 mapscripts Goldenrod_BillsHouse_MapScripts {

@@ -15,13 +15,17 @@ script scr_seq_D23R0107_000 {
         Case(1, _00A5)
         end
     _0088:
-        npcmsg(msg_0071_D23R0107_00000)
+        npcmsg("Goldenrod City\n"
+               "Radio Tower Elevator\f"
+               "Next stop: Observation Deck\r")
         closemessage
         setdynamicwarp(MAP_GOLDENROD_RADIO_TOWER_OBSERVATION_DECK, 0, 5, 3, 1)
         setvar(VAR_SPECIAL_x8004, 0)
         goto(_00C2)
     _00A5:
-        npcmsg(msg_0071_D23R0107_00001)
+        npcmsg("Goldenrod City\n"
+               "Radio Tower Elevator\f"
+               "Next stop: 5F\r")
         closemessage
         setdynamicwarp(MAP_GOLDENROD_RADIO_TOWER_5F, 1, 5, 3, 1)
         setvar(VAR_SPECIAL_x8004, 1)
@@ -30,9 +34,9 @@ script scr_seq_D23R0107_000 {
         waitse(SEQ_SE_DP_SELECT)
         elevatoranim(VAR_SPECIAL_x8004, 4)
         if (var(VAR_ELEVATOR_LAST_FLOOR) == 0) {
-            npcmsg(msg_0071_D23R0107_00002)
+            npcmsg("You’ve arrived at the Observation Deck.")
         } else {
-            npcmsg(msg_0071_D23R0107_00003)
+            npcmsg("You have arrived at 5F.")
         }
         waitbuttonpress
         closemessage

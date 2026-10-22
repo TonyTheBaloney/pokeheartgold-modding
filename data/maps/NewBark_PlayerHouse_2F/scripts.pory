@@ -6,11 +6,12 @@ script scr_seq_T20R0202_000 {
     lockall
     playse(SEQ_SE_DP_PC_ON)
     bufferplayersname(0)
-    npcmsg(msg_0546_T20R0202_00000)
+    npcmsg("{STRVAR_1 3, 0, 0} booted up the PC and\n"
+           "checked the Mailbox!\r")
     closemessage
     countmailboxmessages(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0546_T20R0202_00001)
+        npcmsg("There is no Mail...")
         waitbuttonpress
         closemessage
         releaseall
@@ -29,7 +30,8 @@ script scr_seq_T20R0202_000 {
 script scr_seq_T20R0202_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0546_T20R0202_00002)
+    npcmsg("It’s a Wii!\r"
+           "Wii is huge in Johto, too!")
     waitbuttonpress
     closemessage
     releaseall

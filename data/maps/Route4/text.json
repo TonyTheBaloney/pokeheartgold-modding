@@ -3,11 +3,7 @@
   "messages": [
     {
       "id": "msg_0328_R04_00000",
-      "en_US": [
-        "Mt. Moon ahead.\r",
-        "Mt. Moon Square is on\n",
-        "the way to the top!"
-      ]
+      "from": "scr_seq_R04_000#0"
     }
   ]
 }

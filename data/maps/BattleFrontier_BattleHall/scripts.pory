@@ -176,13 +176,17 @@ _0269:
         setvar(VAR_UNK_4146, 1)
         battlehallaction(0, 2, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            npcmsg(msg_0108_D32R0401_00036)
+            npcmsg("Excuse me!\r"
+                   "For Double Battles, you must have two\n"
+                   "of the same kind of Pokémon that are\f"
+                   "at least Lv. 30 each.\r")
             msgboxfrontierbannedspecies(37, 2, 0, 0)
             touchscreenmenushow
             goto(_02F5)
             end
         _03A1:
-            npcmsg(msg_0108_D32R0401_00033)
+            npcmsg("Please choose the Pokémon you wish\n"
+                   "to enter.\r")
             closemessage
             fadescreen(6, 1, 0, RGB_BLACK)
             waitfade
@@ -214,7 +218,10 @@ _0269:
                     end
                 _0484:
                     bufferspeciesname(1, VAR_TEMP_x4001, 0, 0)
-                    npcmsg(msg_0108_D32R0401_00034)
+                    npcmsg("There is an ongoing winning streak\n"
+                           "saved for {STRVAR_1 0, 0, 0}.\r"
+                           "Delete this record and start a new\n"
+                           "challenge with {STRVAR_1 0, 1, 0}?{YESNO 0}")
                     touchscreenmenuhide
                     menuinitstdgmm(1, 1, 1, 1, VAR_SPECIAL_RESULT)
                     menuitemadd(42, 255, 0)
@@ -246,7 +253,10 @@ _0269:
                     goto(_0689)
                     end
                 _052E:
-                    npcmsg(msg_0108_D32R0401_00030)
+                    npcmsg("One Trainer should select\n"
+                           "“BECOME LEADER.”\r"
+                           "The other Trainer must select\n"
+                           "“JOIN GROUP.”{YESNO 0}")
                     touchscreenmenuhide
                     menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
                     menuitemadd(14, 255, 0)
@@ -297,7 +307,11 @@ _0269:
                             battlehallcheckspecies(VAR_TEMP_x4001, VAR_SPECIAL_RESULT)
                             if (var(VAR_SPECIAL_RESULT) == 1) {
                                 call(_0685)
-                                npcmsg(msg_0108_D32R0401_00057)
+                                npcmsg("The Battle Hall Multi Battle challenge\n"
+                                       "requires both partners to enter the\f"
+                                       "same kind of Pokémon.\r"
+                                       "Please confer with your friend and\n"
+                                       "choose the same kind of Pokémon.\r")
                                 goto(_02F5)
                                 end
                             _0685:
@@ -385,7 +399,8 @@ _0269:
                             }
                             linksyncclearpackets
                             linksyncandwait(110)
-                            npcmsg(msg_0108_D32R0401_00032)
+                            npcmsg("You must save the game before I\n"
+                                   "show you in. Please wait.")
                             compare(VAR_UNK_4146, 2)
                             callifeq(_066C)
                             call(_08D9)
@@ -418,7 +433,9 @@ _0269:
         goto(_03A1)
         end
     _0377:
-        npcmsg(msg_0108_D32R0401_00035)
+        npcmsg("Excuse me!\r"
+               "You don’t have a single eligible Pokémon\n"
+               "of at least Lv. 30!\r")
         msgboxfrontierbannedspecies(37, 1, 0, 0)
         touchscreenmenushow
         goto(_02F5)
@@ -439,11 +456,20 @@ _02F5:
     end
 _02FD:
     setvar(VAR_UNK_4145, 0)
-    npcmsg(msg_0108_D32R0401_00006)
+    npcmsg("We hope to see you again!")
     waitbuttonpress
     closemessage
     releaseall
     end
+}
+
+text msg_0108_D32R0401_00031 {
+    "We need to launch DS Wireless\n"
+    "Communications.{YESNO 0}"
+}
+
+text msg_0108_D32R0401_00009 {
+    "Right this way, please!"
 }
 
 movement BattleFrontier_BattleHall_Movement_07C8 {
@@ -503,29 +529,69 @@ movement BattleFrontier_BattleHall_Movement_0858 {
 }
 
 script(local) _0868 {
-    npcmsg(msg_0108_D32R0401_00000)
+    npcmsg("Welcome to the Battle Hall!\r"
+           "I am your guide to the Single and\n"
+           "Double Battle challenges.\r"
+           "Please be aware that these challenges\n"
+           "are designed for a single Trainer.\r")
     return
 _086D:
-    npcmsg(msg_0108_D32R0401_00003)
+    npcmsg("Welcome to the Battle Hall!\r"
+           "I am your guide to the Multi Battle\n"
+           "challenge.\r"
+           "Please be aware that this challenge\n"
+           "requires two Trainers.\r")
     return
 _0872:
-    npcmsg(msg_0108_D32R0401_00001)
+    npcmsg("Which challenge would you\n"
+           "like to take?{YESNO 0}")
     touchscreenmenuhide
     menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(16, 255, 0)
     menuitemadd(17, 255, 1)
     return
 _0891:
-    npcmsg(msg_0108_D32R0401_00004)
+    npcmsg("Would you like to take the Battle\n"
+           "Hall Multi Battle challenge? {YESNO 0}")
     touchscreenmenuhide
     menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(18, 255, 4)
     return
 _08A8:
-    npcmsg(msg_0108_D32R0401_00002)
+    npcmsg("At the Battle Hall, you may take Single\n"
+           "or Double Battle challenges alone.\r"
+           "For the Single Battle challenge, you\n"
+           "enter one Pokémon of at least Lv. 30.\r"
+           "The Double Battle Challenge requires\n"
+           "you to enter two of the same kind of\f"
+           "Pokémon that are at least Lv. 30 each.\r"
+           "Winning-streak records are kept for\n"
+           "individual kinds of Pokémon.\r"
+           "That makes it possible for any kind of\n"
+           "Pokémon to aim for no. 1.\r"
+           "When you enter the Hall, you will be\n"
+           "asked to choose the type and rank of\f"
+           "the Pokémon you want to battle.\r"
+           "If you manage to win ten matches in\n"
+           "a row, you will earn Battle Points (BP).\r"
+           "If you want to interrupt your\n"
+           "challenge, please save the game.\r"
+           "If you don’t save, you will be\n"
+           "disqualified from your challenge.\r"
+           "Please be aware of that!\r")
     return
 _08AD:
-    npcmsg(msg_0108_D32R0401_00005)
+    npcmsg("You may team up with a friend for a\n"
+           "Multi Battle challenge using the\f"
+           "same kind of Pokémon that are at\f"
+           "least Lv. 30 each.\r"
+           "When you enter the Hall, you will be\n"
+           "asked to choose the type and rank of\f"
+           "the Pokémon you want to battle.\r"
+           "If you manage to win ten matches in\n"
+           "a row, you will earn Battle Points (BP).\r"
+           "Please note: a Battle Hall Multi Battle\n"
+           "challenge can’t be interrupted.\r")
     return
 }
 
@@ -533,7 +599,9 @@ script scr_seq_D32R0401_001 {
     checkfieldheapfreesize(0)
     setvar(VAR_TEMP_x4003, 1)
     setvar(VAR_UNK_4145, 0)
-    npcmsg(msg_0108_D32R0401_00011)
+    npcmsg("We’ve missed you!\r"
+           "You must save the game before you\n"
+           "resume your challenge. Please wait.")
     call(_066C)
     call(_08D9)
     goto(_0689)
@@ -548,7 +616,11 @@ _08D9:
 }
 
 script scr_seq_D32R0401_002 {
-    npcmsg(msg_0108_D32R0401_00012)
+    npcmsg("Excuse me!\r"
+           "You didn’t save before you quit your\n"
+           "challenge last time.\r"
+           "Because of that, you have been\n"
+           "disqualified from your challenge!\r")
     battlehallresetstreak(VAR_UNK_4146)
     compare(VAR_BATTLE_HALL_PRINT_PROGRESS, 1)
     callifeq(_0914)
@@ -581,7 +653,8 @@ _0960:
 _0966:
     npcmsg(msg_0108_D32R0401_00013)
     bufferplayersname(0)
-    npcmsg(msg_0108_D32R0401_00015)
+    npcmsg("The Silver Print was added to\n"
+           "{STRVAR_1 3, 0, 0}’s Vs. Recorder!\r")
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
     setvar(VAR_BATTLE_HALL_PRINT_PROGRESS, 2)
@@ -589,12 +662,19 @@ _0966:
 _097D:
     npcmsg(msg_0108_D32R0401_00013)
     bufferplayersname(0)
-    npcmsg(msg_0108_D32R0401_00014)
+    npcmsg("The Gold Print was added to\n"
+           "{STRVAR_1 3, 0, 0}’s Vs. Recorder!\r")
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
     setvar(VAR_BATTLE_HALL_PRINT_PROGRESS, 4)
     callstd(std_frontier_gold_prints_check)
     return
+}
+
+text msg_0108_D32R0401_00013 {
+    "Congratulations!\r"
+    "In honor of your victory, we present\n"
+    "you with this commemorative print!\r"
 }
 
 script scr_seq_D32R0401_004 {
@@ -615,17 +695,33 @@ movement BattleFrontier_BattleHall_Movement_09B0 {
 }
 
 script scr_seq_D32R0401_006 {
-    simplenpcmsg(msg_0108_D32R0401_00059)
+    simplenpcmsg("Do you eat your favorite dish first or\n"
+                 "leave it for later?\r"
+                 "At the Battle Hall, it’s better to start\n"
+                 "with the types that your Pokémon\f"
+                 "do not like. Why?\r"
+                 "Because the opposition goes up in\n"
+                 "level as you progress!")
     end
 }
 
 script scr_seq_D32R0401_007 {
-    simplenpcmsg(msg_0108_D32R0401_00060)
+    simplenpcmsg("That opulent stage!\r"
+                 "Your streaks of winnings are kept per\n"
+                 "each kind of Pokémon.\f"
+                 "Every Pokémon can get up there.\r"
+                 "Don’t you think it’s wonderful\n"
+                 "you can aim for the top with\f"
+                 "any Pokémon?")
     end
 }
 
 script scr_seq_D32R0401_008 {
-    simplenpcmsg(msg_0108_D32R0401_00061)
+    simplenpcmsg("Slow...\r"
+                 "My SLOWBRO is a cutie, but he’s even\n"
+                 "battled the Brain here.\r"
+                 "The Brain will take your Pokémon on at\n"
+                 "the same level, to be fair.")
     end
 }
 
@@ -635,7 +731,7 @@ script scr_seq_D32R0401_009 {
     faceplayer
     waitse(SEQ_SE_DP_SELECT)
     playcry(SPECIES_SLOWBRO, 0)
-    npcmsg(msg_0108_D32R0401_00062)
+    npcmsg("SLOWBRO: ...Slow?")
     waitcry
     waitbuttonpress
     closemessage
@@ -644,27 +740,56 @@ script scr_seq_D32R0401_009 {
 }
 
 script scr_seq_D32R0401_010 {
-    simplenpcmsg(msg_0108_D32R0401_00063)
+    simplenpcmsg("Here is a tip!\r"
+                 "You should try the Battle Hall with\n"
+                 "not just your favorite Pokémon,\r"
+                 "but different kinds of Pokémon\n"
+                 "if you want to build your\f"
+                 "overall record as well.")
     end
 }
 
 script scr_seq_D32R0401_011 {
-    simplenpcmsg(msg_0108_D32R0401_00064)
+    simplenpcmsg("At the Battle Hall, if it’s the same kind\n"
+                 "of Pokémon, you can enter different\f"
+                 "ones and still keep your record.\r"
+                 "You may want to have different ones\n"
+                 "knowing different types of moves.")
     end
 }
 
 script scr_seq_D32R0401_012 {
-    simplenpcmsg(msg_0108_D32R0401_00065)
+    simplenpcmsg("You know how HOPPIP has two types--\n"
+                 "Grass and Flying?\r"
+                 "That means it can appear as a\n"
+                 "Grass type and as a Flying type.\r"
+                 "Me?\r"
+                 "You could think of me as...\n"
+                 "a “Lighthearted” type and\f"
+                 "a “Beautiful” type, I guess.")
     end
 }
 
 script scr_seq_D32R0401_013 {
-    simplenpcmsg(msg_0108_D32R0401_00066)
+    simplenpcmsg("A piece of advice...\r"
+                 "At the Battle Hall, the opposing\n"
+                 "Pokémon are matched in level to yours.\r"
+                 "That way, you can choose any of your\n"
+                 "Pokémon without worrying about\f"
+                 "their levels.")
     end
 }
 
 script scr_seq_D32R0401_014 {
-    simplenpcmsg(msg_0108_D32R0401_00067)
+    simplenpcmsg("The Battle Hall lets you keep the\n"
+                 "winning-streak records.\f"
+                 "That’s neat, huh?\r"
+                 "...Wait a sec!\r"
+                 "My friend and I can start challenges\n"
+                 "with identical conditions and see who\f"
+                 "can stretch their win streak\f"
+                 "the longest.\f"
+                 "That’s even more fun!")
     end
 }
 
@@ -688,10 +813,16 @@ script scr_seq_D32R0401_016 {
     if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0AE0) }
     if (var(VAR_SPECIAL_RESULT) == 3) { goto(_0AF1) }
     bufferplayersname(0)
-    npcmsg(msg_0108_D32R0401_00069)
-    npcmsg(msg_0108_D32R0401_00070)
+    npcmsg("When your total win-streak record hits\n"
+           "certain figures, you will earn BP as\f"
+           "a reward.\r"
+           "{STRVAR_1 3, 0, 0}, your total win-streak\n"
+           "record is presently {STRVAR_1 55, 1, 0}.\r")
+    npcmsg("Your total win-streak record has\n"
+           "reached {STRVAR_1 55, 2, 0}.\f"
+           "Here is your BP reward.\r")
     playfanfare(SEQ_ME_BPGET)
-    npcmsg(msg_0108_D32R0401_00072)
+    npcmsg("{STRVAR_1 3, 0, 0} received {STRVAR_1 53, 4, 0} BP!")
     waitfanfare
     goto(_0B0E)
     end
@@ -701,15 +832,28 @@ _0AD5:
     end
 _0AE0:
     bufferplayersname(0)
-    npcmsg(msg_0108_D32R0401_00073)
-    npcmsg(msg_0108_D32R0401_00071)
+    npcmsg("{STRVAR_1 3, 0, 0}, your total win-streak\n"
+           "record stands at {STRVAR_1 55, 1, 0}.\r")
+    npcmsg("When your total win-streak record\n"
+           "reaches {STRVAR_1 55, 3, 0}, you will earn BP.")
     goto(_0B0E)
     end
 _0AF1:
     bufferplayersname(0)
-    npcmsg(msg_0108_D32R0401_00074)
+    npcmsg("{STRVAR_1 3, 0, 0}, your total win-streak\n"
+           "record stands at {STRVAR_1 55, 1, 0}.\r"
+           "...My goodness!\n"
+           "That’s a fantastic record!")
     goto(_0B0E)
     end
+}
+
+text msg_0108_D32R0401_00068 {
+    "I keep track of the total number of\n"
+    "wins from your longest Single Battle\f"
+    "win streaks at the Battle Hall.\r"
+    "To explain, I add only the longest win\n"
+    "streaks of each kind of Pokémon."
 }
 
 script scr_seq_D32R0401_017 {
@@ -724,47 +868,93 @@ _0B37:
     bufferplayersname(0)
     battlehallcountusedspecies(VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) >= 475) {
-        npcmsg(msg_0108_D32R0401_00084)
+        npcmsg("Winston: The love for Pokémon you\n"
+               "exhibited at the Battle Hall is as\f"
+               "infinitely deep as it is wide...\r"
+               "You can count on me, Winston, to be\n"
+               "your lifelong fan.\r"
+               "Just as you love Pokémon, I love you\n"
+               "as the Pokémon superstar!")
         goto(_0C21)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 351) {
-        npcmsg(msg_0108_D32R0401_00083)
+        npcmsg("Winston: You’re phenomenal.\n"
+               "All the battles you waged on stage...\f"
+               "All those moments of glory...\r"
+               "Your star burns so bright and huge!\n"
+               "I can barely open my eyes around you!")
         goto(_0C21)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 251) {
-        npcmsg(msg_0108_D32R0401_00082)
+        npcmsg("Winston: Go, {STRVAR_1 3, 0, 0}, go!\n"
+               "Go, {STRVAR_1 3, 0, 0}, go!\r"
+               "I’m thinking up some dance steps and\n"
+               "cheers I can do to support you.\r"
+               "If you want to see them, you’ll need to\n"
+               "keep working on your records!")
         goto(_0C21)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 151) {
-        npcmsg(msg_0108_D32R0401_00081)
+        npcmsg("Winston: I’ve never seen Pokémon\n"
+               "battle as enjoyably as yours do.\r"
+               "You’re the first of a kind for me as\n"
+               "Trainers go.\r"
+               "You know, I brag about you to everyone\n"
+               "who’s willing to listen.\r"
+               "I was saying that you’re going to be a\n"
+               "star before you even got a record!")
         goto(_0C21)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 101) {
-        npcmsg(msg_0108_D32R0401_00080)
+        npcmsg("Winston: Awesome!\n"
+               "Seriously awesome!\f"
+               "You’re beyond awesome, even!\r"
+               "The love you show so many Pokémon...\n"
+               "It’s no easy feat, I can tell ya!")
         goto(_0C21)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 51) {
-        npcmsg(msg_0108_D32R0401_00079)
+        npcmsg("Winston: Hey, there!\n"
+               "What are you going to do this time?\r"
+               "Which Pokémon are you going for a\n"
+               "record with next?\r"
+               "When I get to thinking about that,\n"
+               "I get too wound up to sleep at night.\r"
+               "That’s why I’ve been sleeping in lately!")
         goto(_0C21)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 31) {
-        npcmsg(msg_0108_D32R0401_00078)
+        npcmsg("Winston: I check you out every time\n"
+               "you get up on stage.\r"
+               "You’re fun to watch, let me tell you.\r"
+               "Now I’m always looking forward to\n"
+               "seeing the combo of you and your\f"
+               "Pokémon on stage.")
         goto(_0C21)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 11) {
-        npcmsg(msg_0108_D32R0401_00077)
+        npcmsg("Winston: ...\n"
+               "...Oh, sorry for staring!\r"
+               "I saw you on stage the last time.\n"
+               "You’ve got some star quality.\r"
+               "I think I’m going to keep an eye on you.\n"
+               "There’s real charisma there.")
         goto(_0C21)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 1) {
-        npcmsg(msg_0108_D32R0401_00076)
+        npcmsg("Winston: Let me take a wild guess.\n"
+               "Are you getting into the Battle Hall?\f"
+               "It’s addictively fun, huh?\r"
+               "The more you win, the more kinds of\n"
+               "Pokémon you get to see, too.")
         goto(_0C21)
         end
     _0C21:
@@ -773,7 +963,12 @@ _0B37:
         releaseall
         end
     }
-    npcmsg(msg_0108_D32R0401_00075)
+    npcmsg("Winston: The Battle Hall’s been kind of\n"
+           "boring lately.\r"
+           "There haven’t been any dazzling\n"
+           "challengers who can electrify crowds.\r"
+           "The kind of challenger who can beat the\n"
+           "Brain... Aren’t there any around?")
     goto(_0C21)
     end
 }
@@ -790,47 +985,94 @@ _0C4A:
     bufferplayersname(0)
     battlehallcountusedspecies(VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) >= 475) {
-        npcmsg(msg_0108_D32R0401_00094)
+        npcmsg("Serena: Your Pokémon love that you’ve\n"
+               "shown at the Battle Hall is as infinitely\f"
+               "deep as it is wide...\r"
+               "It’s amazing, but you love every kind of\n"
+               "Pokémon there is.\r"
+               "I love you for being so amazing and\n"
+               "dedicated!")
         goto(_0D34)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 351) {
-        npcmsg(msg_0108_D32R0401_00093)
+        npcmsg("Serena: You’re so inspiring to me.\r"
+               "All the glory you earned while battling\n"
+               "so often on that shining stage...\r"
+               "Just seeing you makes me feel all\n"
+               "happy inside. ♫")
         goto(_0D34)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 251) {
-        npcmsg(msg_0108_D32R0401_00092)
+        npcmsg("Serena: Hurray, hurray, {STRVAR_1 3, 0, 0}!\n"
+               "Go, Pokémon, go!\r"
+               "...Oh! Um... Excuse me.\r"
+               "I was working on cheers and a dance\n"
+               "routine for you.\r"
+               "B-but, I’m sorry for being so silly and\n"
+               "giddy and...")
         goto(_0D34)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 151) {
-        npcmsg(msg_0108_D32R0401_00091)
+        npcmsg("Serena: I’ve never seen Pokémon\n"
+               "battle as enjoyably as yours do.\r"
+               "You’re the first Trainer ever who’s\n"
+               "done that.\r"
+               "I... I brag about you to all my friends.\n"
+               "I hope you don’t mind.\r"
+               "I tell them I wish I could be as\n"
+               "wonderful a Trainer as you!")
         goto(_0D34)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 101) {
-        npcmsg(msg_0108_D32R0401_00090)
+        npcmsg("Serena: Um... Excuse me?\r"
+               "Fantastic! It’s fantastic!\n"
+               "You’re fabulously fantastic!\r"
+               "The love you show so many Pokémon...\n"
+               "It must take extraordinary effort.")
         goto(_0D34)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 51) {
-        npcmsg(msg_0108_D32R0401_00089)
+        npcmsg("Serena: Um... Excuse me?\r"
+               "Can you tell me what kind of Pokémon\n"
+               "you’re going for a record with next?\r"
+               "When I start thinking about that, I get\n"
+               "sort of all choked up.\r"
+               "I have trouble sleeping at night when\n"
+               "I get that way.")
         goto(_0D34)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 31) {
-        npcmsg(msg_0108_D32R0401_00088)
+        npcmsg("Serena: Um... Excuse me?\r"
+               "I cheer for you the best I can.\r"
+               "I can’t get up on stage with you, but\n"
+               "I want to lend my support to your\f"
+               "Pokémon and you for trying so hard.")
         goto(_0D34)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 11) {
-        npcmsg(msg_0108_D32R0401_00087)
+        npcmsg("Serena: Um... Excuse me?\r"
+               "I watched you when you were on stage.\n"
+               "It made me feel all tingly seeing you.\r"
+               "Um... You won’t mind if I cheer for you\n"
+               "from now on, will you? Please, may I?")
         goto(_0D34)
         end
     }
     if (var(VAR_SPECIAL_x8005) >= 1) {
-        npcmsg(msg_0108_D32R0401_00086)
+        npcmsg("Serena: Um... Excuse me?\r"
+               "If you don’t mind me asking, are you\n"
+               "getting into the Battle Hall?\r"
+               "It’s fun in an engrossing way, isn’t it?\n"
+               "Did you know?\r"
+               "The more you win, the more kinds of\n"
+               "Pokémon appear.")
         goto(_0D34)
         end
     _0D34:
@@ -839,7 +1081,12 @@ _0C4A:
         releaseall
         end
     }
-    npcmsg(msg_0108_D32R0401_00085)
+    npcmsg("Serena: It’s about the Battle Hall...\n"
+           "It hasn’t excited me lately.\r"
+           "There’s been no gorgeous sort of\n"
+           "challenger who can dazzle me.\r"
+           "The kind of challenger who can make me\n"
+           "a fan... Aren’t there any around?")
     goto(_0D34)
     end
 }
@@ -851,27 +1098,56 @@ script scr_seq_D32R0401_019 {
     bufferplayersname(0)
     copyvar(VAR_TEMP_x4001, VAR_OBJ_1)
     if (var(VAR_TEMP_x4001) == 0) {
-        npcmsg(msg_0108_D32R0401_00096)
+        npcmsg("Ethan: The Battle Hall is great for\n"
+               "Pokémon fans like me!\r"
+               "I get to see so many new kinds of\n"
+               "Pokémon I’ve never seen.\r"
+               "It’s so cool!")
         goto(_0DC7)
         end
     }
     if (var(VAR_TEMP_x4001) == 97) {
-        npcmsg(msg_0108_D32R0401_00095)
+        npcmsg("Lyra: Hi, {STRVAR_1 3, 0, 0}.\n"
+               "I love watching you battle here.\r"
+               "Cause...\n"
+               "you have fun whether you win\f"
+               "or lose!")
         goto(_0DC7)
         end
     }
     if (var(VAR_TEMP_x4001) == 365) {
-        npcmsg(msg_0108_D32R0401_00097)
+        npcmsg("Mom: {STRVAR_1 3, 0, 0}!\r"
+               "I couldn’t help checking up on you!\r"
+               "Everyone is working hard, but I have\n"
+               "to say you look more delighted than\f"
+               "anyone else!\r"
+               "Oh, {STRVAR_1 3, 0, 0}, that’s right!\r"
+               "I should go to the Department Store\n"
+               "in Goldenrod and buy some useful\f"
+               "items for you on the way home!")
         goto(_0DC7)
         end
     }
     if (var(VAR_TEMP_x4001) == 366) {
-        npcmsg(msg_0108_D32R0401_00098)
+        npcmsg("Professor Oak: You keep amazing me\n"
+               "over and over again.\r"
+               "What a Trainer you turned out to be!\r"
+               "It’s not enough that you caught\n"
+               "Pokémon in numbers beyond belief.\r"
+               "That alone is fantastic enough.\n"
+               "But you’ve bonded and battled with\f"
+               "them as well.\r"
+               "I am so proud to know you!")
         goto(_0DC7)
         end
     }
     if (var(VAR_TEMP_x4001) == 354) {
-        npcmsg(msg_0108_D32R0401_00099)
+        npcmsg("Whitney: I love showy events like\n"
+               "the Battle Hall.\r"
+               "I’m not saying that I want to stand out\n"
+               "in the crowd...\r"
+               "I just love seeing cute Pokémon\n"
+               "getting lots of attention!")
         goto(_0DC7)
         end
     _0DC7:

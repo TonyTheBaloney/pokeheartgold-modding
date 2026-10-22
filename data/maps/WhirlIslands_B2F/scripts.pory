@@ -31,7 +31,8 @@ script scr_seq_D40R0104_000 {
     lockall
     faceplayer
     if (flag(FLAG_CAUGHT_LUGIA)) {
-        npcmsg(msg_0124_D40R0104_00007)
+        npcmsg("You are quite a remarkable Trainer\n"
+               "for your age...")
         waitbuttonpress
         closemessage
         releaseall
@@ -41,7 +42,14 @@ script scr_seq_D40R0104_000 {
     if (var(VAR_SPECIAL_RESULT) == 8) { goto(_0093) }
     if (flag(FLAG_UNK_106)) { goto(_00C5) }
     if (flag(FLAG_UNK_094)) { goto(_00B4) }
-    npcmsg(msg_0124_D40R0104_00001)
+    npcmsg("LUGIA, the Pokémon of the island, hid\n"
+           "itself deep in the end of the waterfall\f"
+           "basin, and no one has seen it since...\r"
+           "If anyone who could restore deep trust\n"
+           "between people and Pokémon were to\f"
+           "come here with something linked to\f"
+           "LUGIA, it may show itself for such\f"
+           "a person...")
     waitbuttonpress
     closemessage
     releaseall
@@ -49,13 +57,31 @@ script scr_seq_D40R0104_000 {
 _0093:
     if (flag(FLAG_UNK_106)) { goto(_00C5) }
     if (flag(FLAG_UNK_094)) { goto(_00B4) }
-    npcmsg(msg_0124_D40R0104_00000)
+    npcmsg("A long time ago, the Whirl Islands used\n"
+           "to be one large island.\r"
+           "There were two countries fighting over\n"
+           "the island back then.\r"
+           "LUGIA, the guardian of the island, got\n"
+           "upset and cast lightning bolts to tear\f"
+           "the island into four pieces, then\f"
+           "disappeared into the deep end\f"
+           "of the waterfall basin...\r"
+           "I will let you through if you bring the\n"
+           "Silver Wing, which is said to have fallen\f"
+           "from LUGIA.\r"
+           "But the true challenge is whether\n"
+           "LUGIA will appear in front of you.\r"
+           "What LUGIA has longed for is the\n"
+           "invisible trust between people and\f"
+           "Pokémon...\r"
+           "Or the person who can restore such\n"
+           "a relationship...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00B4:
-    npcmsg(msg_0124_D40R0104_00002)
+    npcmsg("That thing you have...!\r")
     closemessage
     showlegendarywing(1)
     releaseall
@@ -67,19 +93,26 @@ _00C5:
         if (flag(FLAG_UNK_109)) { goto(_00F7) }
         if (flag(FLAG_UNK_105)) { goto(_0102) }
     }
-    npcmsg(msg_0124_D40R0104_00004)
+    npcmsg("You have found it...\n"
+           "Please go ahead.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00F7:
-    npcmsg(msg_0124_D40R0104_00006)
+    npcmsg("Hmmm.\r"
+           "So it was you and the Bell!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0102:
-    npcmsg(msg_0124_D40R0104_00005)
+    npcmsg("Silver Wing will merely permit you to go\n"
+           "down the waterfall.\r"
+           "If you are not the kind of person who\n"
+           "would restore the trust between people\f"
+           "and Pokémon, LUGIA will never show\f"
+           "itself to you...")
     waitbuttonpress
     closemessage
     releaseall
@@ -88,7 +121,8 @@ _0102:
 
 script scr_seq_D40R0104_002 {
     wait(60, VAR_SPECIAL_RESULT)
-    npcmsg(msg_0124_D40R0104_00003)
+    npcmsg("You have found it...\n"
+           "Please go ahead.\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {

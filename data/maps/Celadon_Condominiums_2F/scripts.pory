@@ -16,7 +16,8 @@ script scr_seq_T07R0202_001 {
 script scr_seq_T07R0202_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0502_T07R0202_00000)
+    npcmsg("Please take this elevator\n"
+           "to go to the roof.")
     waitbuttonpress
     closemessage
     releaseall
@@ -26,7 +27,8 @@ script scr_seq_T07R0202_000 {
 script scr_seq_T07R0202_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0502_T07R0202_00001)
+    npcmsg("This elevator goes straight between\n"
+           "the first and the third floors.")
     waitbuttonpress
     closemessage
     releaseall

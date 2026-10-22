@@ -3,121 +3,67 @@
   "messages": [
     {
       "id": "msg_0141_D49R0105_00000",
-      "en_US": [
-        "This is the “Trust” room.\r",
-        "It is to show the mutual reliance\n",
-        "between Pokémon and people."
-      ]
+      "from": "scr_seq_D49R0105_000#0"
     },
     {
       "id": "msg_0141_D49R0105_00001",
-      "en_US": [
-        "Only the Pokéathletes who have\n",
-        "come first in five courses with\f",
-        "one Pokémon are allowed here."
-      ]
+      "from": "scr_seq_D49R0105_001#1"
     },
     {
       "id": "msg_0141_D49R0105_00002",
-      "en_US": [
-        "This is the “Potential” room.\n",
-        "Please go ahead."
-      ]
+      "from": "scr_seq_D49R0105_001#0"
     },
     {
       "id": "msg_0141_D49R0105_00003",
-      "en_US": [
-        "To win Medals with different kinds of\n",
-        "Pokémon, it is essential to believe in\f",
-        "your Pokémon."
-      ]
+      "from": "scr_seq_D49R0105_002#0"
     },
     {
       "id": "msg_0141_D49R0105_00004",
-      "en_US": "I would love to see my own shoes here!"
+      "from": "scr_seq_D49R0105_003#0"
     },
     {
       "id": "msg_0141_D49R0105_00005",
-      "en_US": [
-        "This Dome contains so many\n",
-        "other Domes..."
-      ]
+      "from": "scr_seq_D49R0105_004#0"
     },
     {
       "id": "msg_0141_D49R0105_00006",
-      "en_US": "{STRVAR_1 3, 0, 0} checked the Medal!\r"
+      "from": "scr_seq_D49R0105_007#0"
     },
     {
       "id": "msg_0141_D49R0105_00007",
-      "en_US": [
-        "Those who have participated in the\n",
-        "Pokéathlon 50 times are commemorated\f",
-        "here for their never-yielding spirits."
-      ]
+      "from": "scr_seq_D49R0105_008#1"
     },
     {
       "id": "msg_0141_D49R0105_00008",
-      "en_US": [
-        "It’s your jersey with\n",
-        "your autograph!"
-      ]
+      "from": "scr_seq_D49R0105_008#0"
     },
     {
       "id": "msg_0141_D49R0105_00009",
-      "en_US": [
-        "Those who have dashed 5,000 times\n",
-        "are commemorated here for their\f",
-        "achievement in breaking the\f",
-        "legendary record."
-      ]
+      "from": "scr_seq_D49R0105_009#1"
     },
     {
       "id": "msg_0141_D49R0105_00010",
-      "en_US": [
-        "Cool shoes!\n",
-        "And they’re your model!"
-      ]
+      "from": "scr_seq_D49R0105_009#0"
     },
     {
       "id": "msg_0141_D49R0105_00011",
-      "en_US": [
-        "Those who have switched 200 times\n",
-        "are commemorated here for great\f",
-        "teamwork and their bond with\f",
-        "their Pokémon."
-      ]
+      "from": "scr_seq_D49R0105_010#1"
     },
     {
       "id": "msg_0141_D49R0105_00012",
-      "en_US": [
-        "It’s a cool flag!\n",
-        "And it’s yours!"
-      ]
+      "from": "scr_seq_D49R0105_010#0"
     },
     {
       "id": "msg_0141_D49R0105_00013",
-      "en_US": [
-        "Pokéathlon Medals...\r",
-        "Those are the proof of the hard work\n",
-        "of both Pokéathletes and Pokémon.\r",
-        "Those Pokémon that have won all five\n",
-        "Medals are called “Medalist Pokémon”\f",
-        "to commemorate the trust they’ve\f",
-        "earned from their Pokéathlete."
-      ]
+      "from": "scr_seq_D49R0105_013#0"
     },
     {
       "id": "msg_0141_D49R0105_00014",
-      "en_US": [
-        "ABRA: ...\n",
-        "...\f",
-        "...\r",
-        "It must be asleep!"
-      ]
+      "from": "scr_seq_D49R0105_005#0"
     },
     {
       "id": "msg_0141_D49R0105_00015",
-      "en_US": "DRATINI: Achoo!"
+      "from": "scr_seq_D49R0105_006#0"
     }
   ]
 }

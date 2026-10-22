@@ -8,12 +8,15 @@ script scr_seq_T08PC0101_000 {
 }
 
 script scr_seq_T08PC0101_001 {
-    simplenpcmsg(msg_0515_T08PC0101_00000)
+    simplenpcmsg("Hey! You have a Pokédex!\n"
+                 "Did Professor Oak give that to you?")
     end
 }
 
 script scr_seq_T08PC0101_002 {
-    simplenpcmsg(msg_0515_T08PC0101_00001)
+    simplenpcmsg("I got quite a shock at the Gym.\n"
+                 "There were all these girls who\f"
+                 "looked identical.")
     end
 }
 
@@ -21,7 +24,8 @@ script scr_seq_T08PC0101_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0515_T08PC0101_00002)
+    npcmsg("I’m Janine! Hocus-pocus...\n"
+           "Poof!\r")
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
         applymovement(obj_T08PC0101_gsgirl1, Fuchsia_Pokecenter_1F_Movement_009C)
@@ -30,7 +34,9 @@ script scr_seq_T08PC0101_003 {
     } else {
         applymovement(obj_T08PC0101_gsgirl1, Fuchsia_Pokecenter_1F_Movement_00E4)
     }
-    npcmsg(msg_0515_T08PC0101_00003)
+    npcmsg("See? I look just like her now!\r"
+           "...?\r"
+           "Huh? Didn’t work?")
     waitbuttonpress
     closemessage
     releaseall

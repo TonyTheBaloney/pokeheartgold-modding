@@ -6,7 +6,11 @@ script scr_seq_T11R0501_000 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_TM29_FROM_MR_PSYCHIC)) {
-        npcmsg(msg_0534_T11R0501_00000)
+        npcmsg("...\r"
+               "...\r"
+               "...\r"
+               "...I got it!\r"
+               "You wanted this!\r")
         if (!itemspace(ITEM_TM29, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -16,7 +20,8 @@ script scr_seq_T11R0501_000 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_TM29_FROM_MR_PSYCHIC)
     }
-    npcmsg(msg_0534_T11R0501_00001)
+    npcmsg("TM29 is Psychic.\r"
+           "It may lower the target’s Sp. Def.")
     waitbuttonpress
     closemessage
     releaseall

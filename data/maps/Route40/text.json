@@ -3,11 +3,7 @@
   "messages": [
     {
       "id": "msg_0744_W40_00000",
-      "en_US": [
-        "You have to warm up before going into\n",
-        "the water.\r",
-        "That’s basic.\n"
-      ]
+      "from": "scr_seq_W40_003#0"
     },
     {
       "id": "msg_0744_W40_00001",
@@ -19,10 +15,7 @@
     },
     {
       "id": "msg_0744_W40_00003",
-      "en_US": [
-        "Hey, you’re young and fit!\n",
-        "Don’t ride your Pokémon! Swim!\n"
-      ]
+      "from": "scr_seq_W40_005#0"
     },
     {
       "id": "msg_0744_W40_00004",
@@ -34,10 +27,7 @@
     },
     {
       "id": "msg_0744_W40_00006",
-      "en_US": [
-        "Are you going to Cianwood?\r",
-        "How about a quick battle first?\n"
-      ]
+      "from": "scr_seq_W40_004#0"
     },
     {
       "id": "msg_0744_W40_00007",
@@ -49,10 +39,7 @@
     },
     {
       "id": "msg_0744_W40_00009",
-      "en_US": [
-        "No inflatable tube for me.\n",
-        "I’m hanging on to a sea Pokémon!\n"
-      ]
+      "from": "scr_seq_W40_006#0"
     },
     {
       "id": "msg_0744_W40_00010",
@@ -95,22 +82,11 @@
     },
     {
       "id": "msg_0744_W40_00015",
-      "en_US": [
-        "Hey!\n",
-        "Great waves here!\r",
-        "No one can resist such\n",
-        "good waves!\r"
-      ]
+      "from": "scr_seq_W40_008#0"
     },
     {
       "id": "msg_0744_W40_00016",
-      "en_US": [
-        "I see... You don’t have Surf yet...\n",
-        "This is just between you and me...\r",
-        "I got Surf from a man at Ecruteak,\n",
-        "and I think he’s still there.\r",
-        "Why don’t you try going there?\r"
-      ]
+      "from": "scr_seq_W40_008#1"
     },
     {
       "id": "msg_0744_W40_00017",
@@ -123,23 +99,15 @@
     },
     {
       "id": "msg_0744_W40_00018",
-      "en_US": [
-        "Hey!\n",
-        "Great waves here!\r",
-        "No one can resist such\n",
-        "good waves!"
-      ]
+      "from": "scr_seq_W40_007#0"
     },
     {
       "id": "msg_0744_W40_00019",
-      "en_US": [
-        "Rt. 40\n",
-        "South to Cianwood City"
-      ]
+      "from": "scr_seq_W40_002#0"
     },
     {
       "id": "msg_0744_W40_00020",
-      "en_US": "Battle Frontier Ahead"
+      "from": "scr_seq_W40_009#0"
     }
   ]
 }

@@ -7,7 +7,11 @@ script scr_seq_D38R0104_000 {
     faceplayer
     if (flag(FLAG_GOT_TYROGUE_FROM_KARATE_KING)) { goto(_0097) }
     if (!flag(FLAG_BEAT_KARATE_KING)) {
-        npcmsg(msg_0121_D38R0104_00000)
+        npcmsg("Hey!\r"
+               "I am the Karate King!\n"
+               "I train alone here in the cave!\r"
+               "You!\n"
+               "Battle with me! Hwaaarggh!\r")
         closemessage
         trainerbattle(TRAINER_BLACK_BELT_KIYO, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
@@ -23,18 +27,24 @@ script scr_seq_D38R0104_000 {
         }
         setflag(FLAG_BEAT_KARATE_KING)
     }
-    npcmsg(msg_0121_D38R0104_00001)
+    npcmsg("I... I’m crushed...\r"
+           "My training is still not enough...\n"
+           "But a loss is a loss. I admit it.\r"
+           "As proof that you defeated me, I’ll give\n"
+           "you a rare Fighting-type Pokémon.\r")
     getpartycount(VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) != 6) { goto(_0063) }
-    npcmsg(msg_0121_D38R0104_00004)
+    npcmsg("You have no room in your party!")
     goto(_00D2)
 _0063:
     bufferplayersname(0)
-    npcmsg(msg_0121_D38R0104_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received TYROGUE from\n"
+           "the Karate King!")
     playfanfare(SEQ_ME_POKEGET)
     waitfanfare
     givemon(SPECIES_TYROGUE, 10, 0, 0, 0, VAR_SPECIAL_RESULT)
-    npcmsg(msg_0121_D38R0104_00005)
+    npcmsg("Give a nickname to the TYROGUE you\n"
+           "received? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     closemessage
@@ -43,7 +53,10 @@ _0063:
     touchscreenmenushow
 _0097:
     setflag(FLAG_GOT_TYROGUE_FROM_KARATE_KING)
-    npcmsg(msg_0121_D38R0104_00003)
+    npcmsg("TYROGUE is a Fighting type.\n"
+           "It evolves into a tougher Pokémon.\r"
+           "Keep up the hard work. I’ll keep\n"
+           "training too. Farewell!")
     waitbuttonpress
     closemessage
     releaseall

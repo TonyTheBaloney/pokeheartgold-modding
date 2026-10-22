@@ -10,7 +10,8 @@ script scr_seq_R18_000 {
 }
 
 script scr_seq_R18_001 {
-    directionsignpostex(1, 1, msg_0358_R18_00000)
+    directionsignpostex(1, 1, "Rt. 18\n"
+                              "East to Fuchsia City")
     end
 }
 

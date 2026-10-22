@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0150_D52R0103_00000",
-      "en_US": "RAYQUAZA: Kiyuryursheeah!\r"
+      "from": "text"
     },
     {
       "id": "msg_0150_D52R0103_00001",
-      "en_US": "RAYQUAZA disappeared..."
+      "from": "scr_seq_D52R0103_000#0"
     },
     {
       "id": "msg_0150_D52R0103_00002",

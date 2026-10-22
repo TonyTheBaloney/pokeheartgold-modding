@@ -37,7 +37,11 @@ script scr_seq_R28R0101_000 {
             applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0164)
         }
         waitmovement
-        npcmsg(msg_0372_R28R0101_00000)
+        npcmsg("Alas!\n"
+               "You’ve found me...\r"
+               "My peace and quiet to heal myself from\n"
+               "the exhaustion of standing in the\f"
+               "spotlight has been exposed!\r")
         if (var(VAR_SPECIAL_RESULT) == 0) {
             applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0164)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
@@ -48,7 +52,13 @@ script scr_seq_R28R0101_000 {
             applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0140)
         }
         waitmovement
-        npcmsg(msg_0372_R28R0101_00001)
+        npcmsg("What? You are not the media?\n"
+               "Then you must be one of my fans.\r"
+               "Why didn’t you say so?\n"
+               "Giggle...\r"
+               "You can keep it to yourself that\n"
+               "I’m here, right?\r"
+               "I’ll give you this for that!\r")
         if (!itemspace(ITEM_TM47, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -58,7 +68,15 @@ script scr_seq_R28R0101_000 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_TM47_FROM_ROUTE_28_CELEBRITY)
     }
-    npcmsg(msg_0372_R28R0101_00002)
+    npcmsg("It contains Steel Wing!\r"
+           "I remember I was wearing a dress\n"
+           "inspired by this move on my\f"
+           "debut stage...\r"
+           "Alas...\n"
+           "Being a legendary Idol is so demanding.\r"
+           "I’ve been retired for some time, but\n"
+           "people never stop chasing after me...\f"
+           "like you!")
     waitbuttonpress
     closemessage
     releaseall
@@ -87,7 +105,7 @@ movement Route28_House_Movement_0164 {
 
 script scr_seq_R28R0101_001 {
     playcry(SPECIES_FEAROW, 0)
-    simplenpcmsg(msg_0372_R28R0101_00003)
+    simplenpcmsg("FEAROW: Feero!")
     waitcry
     end
 }

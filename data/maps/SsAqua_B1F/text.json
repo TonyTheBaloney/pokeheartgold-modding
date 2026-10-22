@@ -3,33 +3,15 @@
   "messages": [
     {
       "id": "msg_0263_P01R0307_00000",
-      "en_US": [
-        "Hey, kid. Could I get you to look\n",
-        "for my buddy?\r",
-        "He’s taking it easy somewhere, that\n",
-        "good for nothing!\r",
-        "I want to go find him, but I’m on guard\n",
-        "duty and have to stay right here.\r"
-      ]
+      "from": "text"
     },
     {
       "id": "msg_0263_P01R0307_00001",
-      "en_US": [
-        "Hey, kid. Could I get you to look\n",
-        "for my buddy?\r",
-        "He’s taking it easy somewhere, that\n",
-        "good for nothing!\f",
-        "I want to go find him, but I’m on guard\f",
-        "duty and have to stay right here."
-      ]
+      "from": "scr_seq_P01R0307_000#1"
     },
     {
       "id": "msg_0263_P01R0307_00002",
-      "en_US": [
-        "Thanks, kid!\n",
-        "I yelled at him good so he’ll quit\f",
-        "slacking off!"
-      ]
+      "from": "scr_seq_P01R0307_000#0"
     },
     {
       "id": "msg_0263_P01R0307_00003",
@@ -45,10 +27,7 @@
     },
     {
       "id": "msg_0263_P01R0307_00006",
-      "en_US": [
-        "Oh, you found me!\r",
-        "I better go back to my grandpa!\r"
-      ]
+      "from": "scr_seq_P01R0307_003#0"
     }
   ]
 }

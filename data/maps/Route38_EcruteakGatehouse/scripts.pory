@@ -6,7 +6,11 @@ script scr_seq_R38R0101_000 {
 }
 
 script scr_seq_R38R0101_001 {
-    simplenpcmsg(msg_0395_R38R0101_00000)
+    simplenpcmsg("Where did you say you’re from?\r"
+                 "New Bark Town?\r"
+                 "That’s the town where...\n"
+                 "Professor Elm lives, right?\f"
+                 "You’ve come a long way to get here.")
     end
 }
 

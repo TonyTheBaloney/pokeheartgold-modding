@@ -3,42 +3,23 @@
   "messages": [
     {
       "id": "msg_0496_T07R0103_00000",
-      "en_US": [
-        "I can’t decide which Pokémon I\n",
-        "should use this TM on..."
-      ]
+      "from": "scr_seq_T07R0103_001#0"
     },
     {
       "id": "msg_0496_T07R0103_00001",
-      "en_US": [
-        "Uh-oh! I traded my Pokémon without\n",
-        "removing the Up-Grade from it."
-      ]
+      "from": "scr_seq_T07R0103_002#0"
     },
     {
       "id": "msg_0496_T07R0103_00002",
-      "en_US": [
-        "Yeah! I’m finally getting a PORYGON!\r",
-        "I’m no good at the Coin game,\n",
-        "so I could never get enough Coins...\r",
-        "...Huh?\r",
-        "I traded PORYGON, and it turned into a\n",
-        "different Pokémon!"
-      ]
+      "from": "scr_seq_T07R0103_003#0"
     },
     {
       "id": "msg_0496_T07R0103_00003",
-      "en_US": [
-        "The TM Shop sells\n",
-        "some rare moves."
-      ]
+      "from": "scr_seq_T07R0103_004#0"
     },
     {
       "id": "msg_0496_T07R0103_00004",
-      "en_US": [
-        "Make Your Pokémon Stronger!\n",
-        "3F: TM Shop"
-      ]
+      "from": "scr_seq_T07R0103_005#0"
     }
   ]
 }

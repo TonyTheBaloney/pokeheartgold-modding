@@ -48,11 +48,13 @@ script scr_seq_T11R0601_000 {
     if (flag(FLAG_RESTORED_POWER)) {
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 2) {
-            npcmsg(msg_0535_T11R0601_00005)
+            npcmsg("Enjoy the attractive and magnetic\n"
+                   "journey!")
             waitbuttonpress
             closemessage
         } else {
-            npcmsg(msg_0535_T11R0601_00007)
+            npcmsg("Enjoy the attractive and magnetic\n"
+                   "journey!\r")
             closemessage
             applymovement(obj_T11R0601_policeman, Saffron_MagnetTrainStation_1F_Movement_00EC)
             waitmovement
@@ -60,7 +62,12 @@ script scr_seq_T11R0601_000 {
         releaseall
         end
     }
-    npcmsg(msg_0535_T11R0601_00000)
+    npcmsg("This is a problem!\r"
+           "The machine at the Power Plant\n"
+           "is broken, and we’re not receiving\f"
+           "electricity!\r"
+           "I don’t know how long it will be until\n"
+           "we can get the Magnet Train going.")
     waitbuttonpress
     closemessage
     releaseall
@@ -77,18 +84,26 @@ script scr_seq_T11R0601_004 {
     applymovement(obj_player, Saffron_MagnetTrainStation_1F_Movement_017C)
     waitmovement
     if (flag(FLAG_UNK_123)) {
-        npcmsg(msg_0535_T11R0601_00003)
+        npcmsg("Passengers need to go through the\n"
+               "gate for the automatic ticket check...\r")
         closemessage
         goto(_0116)
     }
-    npcmsg(msg_0535_T11R0601_00001)
+    npcmsg("Thanks to someone who got the\n"
+           "Power Plant up and running,\f"
+           "the Magnet Train is available again!\r"
+           "Passengers need to go through the\n"
+           "gate for the automatic ticket check...\r")
     closemessage
     setflag(FLAG_UNK_123)
 _0116:
     wait(50, VAR_SPECIAL_x8004)
     hasitem(ITEM_PASS, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) >= 1) {
-        npcmsg(msg_0535_T11R0601_00004)
+        npcmsg("Ping...fwip!\n"
+               "Here is your Pass back.\r"
+               "This train is about to leave\n"
+               "for Goldenrod City.")
         waitbuttonpress
         closemessage
         setvar(VAR_UNK_411D, 1)
@@ -96,7 +111,10 @@ _0116:
         releaseall
         end
     }
-    npcmsg(msg_0535_T11R0601_00002)
+    npcmsg("...Beep!\r"
+           "I am so sorry, but you need\n"
+           "a Magnet Train Pass to get on\f"
+           "the Magnet Train...\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -122,12 +140,20 @@ script scr_seq_T11R0601_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0535_T11R0601_00012)
+    npcmsg("Lt. Surge: Oh! I never expected to see\n"
+           "you at a place like this!\f"
+           "What a coincidence!\r"
+           "I can feel great electric power around\n"
+           "the Magnet Train station!\r"
+           "You had a PIKACHU, didn’t you?\n"
+           "How about trading it for my\f"
+           "French PIKACHU? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_024F) }
-    npcmsg(msg_0535_T11R0601_00014)
+    npcmsg("Lt. Surge: Wow! Electrifying!\n"
+           "Let’s trade ’em now!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -143,13 +169,20 @@ script scr_seq_T11R0601_007 {
     npctradegetreqspecies(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_x8005) != VAR_SPECIAL_RESULT) {
         npctradeend
-        npcmsg(msg_0535_T11R0601_00017)
+        npcmsg("Lt. Surge: What? That is not\n"
+               "the right Pokémon!\r"
+               "I won’t trade my PIKACHU for\n"
+               "anything other than PIKACHU.")
         waitbuttonpress
         closemessage
         releaseall
         end
     _024F:
-        npcmsg(msg_0535_T11R0601_00015)
+        npcmsg("Lt. Surge: Shocking!\n"
+               "I want to share my feelings for\f"
+               "PIKACHU with you!\r"
+               "I’m ready anytime, so just bring\n"
+               "a PIKACHU, OK?")
         waitbuttonpress
         closemessage
         releaseall
@@ -158,7 +191,9 @@ script scr_seq_T11R0601_007 {
     npctradeexec(VAR_SPECIAL_x8004)
     npctradeend
     setflag(FLAG_TRADE_LT_SURGE_PIKACHU)
-    npcmsg(msg_0535_T11R0601_00016)
+    npcmsg("Lt. Surge: Yeah!\n"
+           "I’m so ecstatic! I’ll see you around.\f"
+           "Good-bye!\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -187,13 +222,19 @@ script scr_seq_T11R0601_001 {
     lockall
     faceplayer
     if (flag(FLAG_RESTORED_POWER)) {
-        npcmsg(msg_0535_T11R0601_00009)
+        npcmsg("Whew...\r"
+               "How many times have I gone back\n"
+               "and forth between Kanto and Johto?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0535_T11R0601_00008)
+    npcmsg("The Magnet Train is a super-modern\n"
+           "rail liner that uses electricity and\f"
+           "magnets to attain incredible speeds.\r"
+           "However, there isn’t any electricity.\n"
+           "It’s just an iron box.")
     waitbuttonpress
     closemessage
     releaseall
@@ -201,19 +242,29 @@ script scr_seq_T11R0601_001 {
 }
 
 script scr_seq_T11R0601_002 {
-    simplenpcmsg(msg_0535_T11R0601_00010)
+    simplenpcmsg("Before the Magnet Train station was\n"
+                 "built, there was a house here.\r"
+                 "A little girl who was called Copycat\n"
+                 "used to live in it.")
     end
 }
 
 script scr_seq_T11R0601_003 {
-    simplenpcmsg(msg_0535_T11R0601_00011)
+    simplenpcmsg("Hi. Do you have a Magnet Train Pass?\r"
+                 "I have one.\r"
+                 "All the people in Saffron who ride the\n"
+                 "Magnet Train have Passes.")
     end
 }
 
 script scr_seq_T11R0601_008 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0535_T11R0601_00018)
+    npcmsg("We request that you make sure your\n"
+           "Pokémon are well behaved or put away\f"
+           "in their Poké Balls so they won’t lick\f"
+           "other passengers’ faces.\f"
+           "Thank you.")
     waitbuttonpress
     closemessage
     releaseall

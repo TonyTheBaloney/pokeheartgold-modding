@@ -5,19 +5,40 @@ script scr_seq_R26R0201_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0367_R26R0201_00000)
+    npcmsg("There’s something written here.\n"
+           "Read it? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     closemessage
     if (var(VAR_SPECIAL_RESULT) != 1) {
-        npcmsg(msg_0367_R26R0201_00001)
+        npcmsg("To my brothers and sisters:\r"
+               "We take pride in serving\n"
+               "Pokémon Trainers.\r"
+               "When Trainers talk to you, give them\n"
+               "something useful.\r"
+               "Love,\n"
+               "Monica\r"
+               "Keep reading? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         closemessage
         if (var(VAR_SPECIAL_RESULT) != 1) {
-            npcmsg(msg_0367_R26R0201_00002)
+            npcmsg("Monday, Monica\n"
+                   "Rt. 40\r"
+                   "Tuesday, Tuscany\n"
+                   "Rt. 29\r"
+                   "Wednesday, Wesley\n"
+                   "Lake of Rage\r"
+                   "Thursday, Arthur\n"
+                   "Rt. 36\r"
+                   "Friday, Frieda\n"
+                   "Rt. 32\r"
+                   "Saturday, Santos\n"
+                   "Blackthorn City\r"
+                   "Sunday, Sunny\n"
+                   "Rt. 37")
             waitbuttonpress
             closemessage
         }

@@ -87,10 +87,7 @@
     },
     {
       "id": "msg_0387_R35_00021",
-      "en_US": [
-        "Your Pokémon look pretty tough.\n",
-        "You could go anywhere safely."
-      ]
+      "from": "scr_seq_R35_002#0"
     },
     {
       "id": "msg_0387_R35_00022",
@@ -118,17 +115,11 @@
     },
     {
       "id": "msg_0387_R35_00028",
-      "en_US": [
-        "Rt. 35\n",
-        "South to Goldenrod City"
-      ]
+      "from": "scr_seq_R35_000#0"
     },
     {
       "id": "msg_0387_R35_00029",
-      "en_US": [
-        "North to the National Park\n",
-        "West to the Pokéathlon Dome"
-      ]
+      "from": "scr_seq_R35_004#0"
     }
   ]
 }

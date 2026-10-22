@@ -195,7 +195,7 @@ script scr_seq_D24R0101_007 {
             applymovement(obj_partner_poke, RuinsOfAlph_Movement_0604)
         }
         waitmovement
-        npcmsg(msg_0072_D24R0101_00001)
+        npcmsg("Ouch!\r")
         closemessage
         applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_054C)
         if (var(VAR_TEMP_x4001) == 3) {
@@ -206,7 +206,9 @@ script scr_seq_D24R0101_007 {
             applymovement(obj_partner_poke, RuinsOfAlph_Movement_0630)
         }
         waitmovement
-        npcmsg(msg_0072_D24R0101_00002)
+        npcmsg("Are you OK?\n"
+               "I was in a hurry and...\f"
+               "Sorry, did I hurt you?\r")
         closemessage
         if (var(VAR_TEMP_x4001) == 3) {
             applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_0554)
@@ -214,19 +216,28 @@ script scr_seq_D24R0101_007 {
             applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_0570)
         }
         waitmovement
-        npcmsg(msg_0072_D24R0101_00003)
+        npcmsg("No way!\n"
+               "Could it be a Pokémon from Sinnoh...\f"
+               "The one they call ARCEUS...?\r")
         closemessage
         applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_0584)
         waitmovement
-        npcmsg(msg_0072_D24R0101_00004)
+        npcmsg("Oh, could it be...?\n"
+               "ARCEUS causing all this...?\r"
+               "I cannot explain it any other way...\r")
         closemessage
         applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_05A4)
         waitmovement
-        npcmsg(msg_0072_D24R0101_00005)
+        npcmsg("ARCEUS may be the key to solving the\n"
+               "mystery of the UNOWN and the\f"
+               "Ruins of Alph...?\r")
         closemessage
         applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_05B4)
         waitmovement
-        npcmsg(msg_0072_D24R0101_00006)
+        npcmsg("Can you come to the Ruins of Alph with\n"
+               "me? Please! You must!\r"
+               "I am trembling with excitement.\n"
+               "I think something is about to happen!\r")
         closemessage
         setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 2)
         setflag(FLAG_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT)
@@ -366,22 +377,27 @@ movement RuinsOfAlph_Movement_0630 {
 }
 
 script scr_seq_D24R0101_000 {
-    trainertipsex(2, msg_0072_D24R0101_00010)
+    trainertipsex(2, "This is a mysterious hall.\n"
+                     "Please watch your step.")
     end
 }
 
 script scr_seq_D24R0101_001 {
-    trainertipsex(2, msg_0072_D24R0101_00009)
+    trainertipsex(2, "Ruins Research Center")
     end
 }
 
 script scr_seq_D24R0101_002 {
-    trainertipsex(2, msg_0072_D24R0101_00007)
+    trainertipsex(2, "Ruins of Alph.\r"
+                     "Visitors who are interested in\n"
+                     "archaeology are welcome.")
     end
 }
 
 script scr_seq_D24R0101_003 {
-    trainertipsex(2, msg_0072_D24R0101_00008)
+    trainertipsex(2, "Ruins of Alph.\r"
+                     "Feel free to explore the ruins and\n"
+                     "become a fossil professor!")
     end
 }
 

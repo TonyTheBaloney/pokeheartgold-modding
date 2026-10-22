@@ -42,7 +42,8 @@ script scr_seq_R03_001 {
         waitfade
     }
     playcry(SPECIES_DEOXYS, 0)
-    npcmsg(msg_0326_R03_00002)
+    npcmsg("Touching the meteorite boosted\n"
+           "the Speed of a certain Pokémon.")
     goto(_02D5)
 }
 
@@ -80,7 +81,9 @@ script scr_seq_R03_002 {
         waitfade
     }
     playcry(SPECIES_DEOXYS, 0)
-    npcmsg(msg_0326_R03_00003)
+    npcmsg("Touching the meteorite heightened\n"
+           "the defensive capabilities of\f"
+           "a certain Pokémon.")
     goto(_02D5)
 }
 
@@ -112,7 +115,9 @@ script scr_seq_R03_003 {
         waitfade
     }
     playcry(SPECIES_DEOXYS, 0)
-    npcmsg(msg_0326_R03_00004)
+    npcmsg("Touching the meteorite heightened\n"
+           "the offensive capabilities of\f"
+           "a certain Pokémon.")
     goto(_02D5)
 }
 
@@ -144,7 +149,8 @@ script scr_seq_R03_004 {
         waitfade
     }
     playcry(SPECIES_DEOXYS, 0)
-    npcmsg(msg_0326_R03_00005)
+    npcmsg("Touching the meteorite balanced out\n"
+           "the attributes of a certain Pokémon.")
 _02D5:
     waitbuttonpress
     waitcry
@@ -152,7 +158,9 @@ _02D5:
     releaseall
     end
 _02DF:
-    npcmsg(msg_0326_R03_00001)
+    npcmsg("Never seen a stone like this before!\r"
+           "Could it be...\n"
+           "a meteorite from space?")
     waitbuttonpress
     closemessage
     releaseall
@@ -160,7 +168,9 @@ _02DF:
 }
 
 script scr_seq_R03_000 {
-    trainertipsex(2, msg_0326_R03_00000)
+    trainertipsex(2, "Mt. Moon ahead.\r"
+                     "Mt. Moon Square is on\n"
+                     "the way to the top!")
     end
 }
 

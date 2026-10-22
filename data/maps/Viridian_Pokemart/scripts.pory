@@ -26,12 +26,14 @@ script scr_seq_T02FS0101_001 {
 }
 
 script scr_seq_T02FS0101_002 {
-    simplenpcmsg(msg_0453_T02FS0101_00000)
+    simplenpcmsg("The Gym Leader here is totally cool.")
     end
 }
 
 script scr_seq_T02FS0101_003 {
-    simplenpcmsg(msg_0453_T02FS0101_00001)
+    simplenpcmsg("Have you been to Cinnabar?\r"
+                 "It’s an island way south\n"
+                 "of here.")
     end
 }
 

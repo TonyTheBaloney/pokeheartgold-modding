@@ -16,18 +16,25 @@ _001F:
     getcurrenthour(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 15) {
         if (flag(FLAG_UNK_AA8)) {
-            npcmsg(msg_0449_T01R0201_00005)
+            npcmsg("Daisy: I always have tea around\n"
+                   "this time. Come join me.")
             waitbuttonpress
             closemessage
             releaseall
             end
         _015D:
             if (var(VAR_TEMP_x4004) >= 1) {
-                npcmsg(msg_0449_T01R0201_00012)
+                npcmsg("Daisy: Do you want to register\n"
+                       "my kid brother’s number? {YESNO 0}")
                 goto(_016D)
                 end
             }
-            npcmsg(msg_0449_T01R0201_00008)
+            npcmsg("Daisy: You are really into grooming!\n"
+                   "Say!\f"
+                   "Would you like my kid brother’s number?\r"
+                   "He is the Gym Leader at Viridian City.\n"
+                   "Have you challenged him?\r"
+                   "Do you want to register him? {YESNO 0}")
         _016D:
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
@@ -35,23 +42,39 @@ _001F:
             if (var(VAR_SPECIAL_RESULT) == 1) { goto(_019D) }
             registergearnumber(PHONE_CONTACT_BLUE)
             bufferplayersname(0)
-            npcmsg(msg_0449_T01R0201_00009)
+            npcmsg("{STRVAR_1 3, 0, 0} registered Blue\n"
+                   "in the Pokégear!")
             playfanfare(SEQ_ME_POKEGEAR_REGIST)
             waitfanfare
-            npcmsg(msg_0449_T01R0201_00010)
+            npcmsg("Daisy: Give him a call when you feel\n"
+                   "like it.\r"
+                   "He can be overly confident, but he\n"
+                   "still needs company.\r"
+                   "He said he won’t have any plans on\n"
+                   "Sunday nights...\f"
+                   "Giggle!")
             waitbuttonpress
             closemessage
             releaseall
             end
         _019D:
-            npcmsg(msg_0449_T01R0201_00011)
+            npcmsg("Daisy: Really? You won’t?\n"
+                   "I see...\f"
+                   "How disappointing.")
             waitbuttonpress
             closemessage
             setvar(VAR_TEMP_x4004, 1)
             releaseall
             end
         }
-        npcmsg(msg_0449_T01R0201_00001)
+        npcmsg("Daisy: Hi! Good timing. I’m about\n"
+               "to have some tea.\r"
+               "Would you like to join me?\r"
+               "Oh, you seem to keep your Pokémon\n"
+               "a bit on the dirty side.\r"
+               "Grooming helps them become more\n"
+               "beautiful and friendly.\r"
+               "Would you like me to groom one? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -65,7 +88,7 @@ _001F:
         goto(_00F0)
         end
     _00A7:
-        npcmsg(msg_0449_T01R0201_00002)
+        npcmsg("Daisy: Which one should I groom?\r")
         closemessage
         fadescreen(6, 1, 0, RGB_BLACK)
         waitfade
@@ -81,7 +104,7 @@ _001F:
     _00F0:
         bufferpartymonnick(0, VAR_SPECIAL_x8004)
         playse(SEQ_SE_DP_FW367)
-        npcmsg(msg_0449_T01R0201_00003)
+        npcmsg("{STRVAR_1 0, 0, 0} looks content.")
         waitse(SEQ_SE_DP_FW367)
         wait(15, VAR_SPECIAL_RESULT)
         monaddfriendship(10, VAR_SPECIAL_x8004)
@@ -91,25 +114,33 @@ _001F:
             addvar(VAR_UNK_4122, 1)
         }
         setflag(FLAG_UNK_AA8)
-        npcmsg(msg_0449_T01R0201_00004)
+        npcmsg("Daisy: There you go!\n"
+               "All done.\r"
+               "See? Doesn’t it look nice?\n"
+               "It’s such a cute Pokémon.")
         waitbuttonpress
         closemessage
         releaseall
         end
     _013C:
-        npcmsg(msg_0449_T01R0201_00007)
+        npcmsg("Daisy: Oh, sorry. I honestly can’t\n"
+               "groom an Egg.")
         waitbuttonpress
         closemessage
         releaseall
         end
     _0147:
-        npcmsg(msg_0449_T01R0201_00006)
+        npcmsg("Daisy: You don’t want to have one\n"
+               "groomed? OK, we’ll just have tea.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0449_T01R0201_00000)
+    npcmsg("Daisy: Hi! My kid brother is the Gym\n"
+           "Leader in Viridian City.\r"
+           "But he goes out of town so often,\n"
+           "it causes problems for the Trainers.")
     waitbuttonpress
     closemessage
     releaseall

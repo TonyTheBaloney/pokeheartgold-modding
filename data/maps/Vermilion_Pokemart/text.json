@@ -3,19 +3,11 @@
   "messages": [
     {
       "id": "msg_0484_T06FS0101_00000",
-      "en_US": [
-        "Team Rocket is no longer in Kanto.\n",
-        "That alone makes me happy."
-      ]
+      "from": "scr_seq_T06FS0101_002#0"
     },
     {
       "id": "msg_0484_T06FS0101_00001",
-      "en_US": [
-        "I’m thinking about going shopping\n",
-        "in Saffron.\r",
-        "Follow the northern route, and you’ll\n",
-        "be there in no time."
-      ]
+      "from": "scr_seq_T06FS0101_003#0"
     }
   ]
 }

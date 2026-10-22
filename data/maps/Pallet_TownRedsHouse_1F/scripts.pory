@@ -2,14 +2,20 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T01R0101_000 {
-    simplenpcmsg(msg_0447_T01R0101_00000)
+    simplenpcmsg("Hi!\r"
+                 "Red’s been away. He hasn’t called\n"
+                 "either, so I have no idea where he\f"
+                 "is or what he’s been doing.\r"
+                 "They say no news is good news,\n"
+                 "but I do worry about him.")
     end
 }
 
 script scr_seq_T01R0101_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0447_T01R0101_00002)
+    npcmsg("They have shows that aren’t\n"
+           "aired in Johto...")
     waitbuttonpress
     closemessage
     releaseall

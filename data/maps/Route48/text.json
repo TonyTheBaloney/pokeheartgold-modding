@@ -3,10 +3,7 @@
   "messages": [
     {
       "id": "msg_0408_R48_00000",
-      "en_US": [
-        "Rt. 48\n",
-        "North to Safari Zone"
-      ]
+      "from": "scr_seq_R48_002#0"
     }
   ]
 }

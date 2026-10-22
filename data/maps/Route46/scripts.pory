@@ -6,13 +6,19 @@ script scr_seq_R46_000 {
     lockall
     faceplayer
     if (flag(FLAG_GAVE_RIVAL_NAME_TO_OFFICER)) {
-        npcmsg(msg_0406_R46_00003)
+        npcmsg("You should try different routes\n"
+               "sometime.\r"
+               "You never know what Pokémon\n"
+               "you’re gonna get!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0406_R46_00002)
+    npcmsg("A dead end...?\r"
+           "Did I take the wrong path?\r"
+           "I didn’t know this was only\n"
+           "one way.")
     waitbuttonpress
     closemessage
     releaseall
@@ -20,12 +26,13 @@ script scr_seq_R46_000 {
 }
 
 script scr_seq_R46_001 {
-    directionsignpostex(1, 3, msg_0406_R46_00000)
+    directionsignpostex(1, 3, "Rt. 46\n"
+                              "Mountain Road ahead")
     end
 }
 
 script scr_seq_R46_002 {
-    trainertipsex(2, msg_0406_R46_00001)
+    trainertipsex(2, "Dark Cave")
     end
 }
 

@@ -124,8 +124,15 @@ script scr_seq_D37R0103_000 {
     releaseall
     end
 _03C9:
-    simplenpcmsg(msg_0118_D37R0103_00001)
+    simplenpcmsg("This warehouse gets cleaned in a matter\n"
+                 "of seconds thanks to MACHOKE.\r"
+                 "The stuff on the ground is junk.\n"
+                 "Take it if you want it!")
     end
+}
+
+text msg_0118_D37R0103_00000 {
+    "MACHOKE, help us move the container!\r"
 }
 
 script scr_seq_D37R0103_001 {
@@ -185,7 +192,7 @@ script scr_seq_D37R0103_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     playcry(SPECIES_MACHOKE, 0)
-    npcmsg(msg_0118_D37R0103_00002)
+    npcmsg("MACHOKE: Maaacho!")
     waitcry
     waitbuttonpress
     closemessage

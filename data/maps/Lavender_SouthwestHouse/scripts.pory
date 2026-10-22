@@ -2,7 +2,10 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T05R0301_000 {
-    simplenpcmsg(msg_0479_T05R0301_00000)
+    simplenpcmsg("Lavender is a tiny, quiet town\n"
+                 "at the foot of the mountains.\r"
+                 "It’s gotten a bit busier since the\n"
+                 "Radio Tower was built.")
     end
 }
 

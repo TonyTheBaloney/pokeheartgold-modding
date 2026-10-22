@@ -14,29 +14,38 @@ script scr_seq_T07R0103_000 {
 }
 
 script scr_seq_T07R0103_001 {
-    simplenpcmsg(msg_0496_T07R0103_00000)
+    simplenpcmsg("I can’t decide which Pokémon I\n"
+                 "should use this TM on...")
     end
 }
 
 script scr_seq_T07R0103_002 {
-    simplenpcmsg(msg_0496_T07R0103_00001)
+    simplenpcmsg("Uh-oh! I traded my Pokémon without\n"
+                 "removing the Up-Grade from it.")
     end
 }
 
 script scr_seq_T07R0103_003 {
-    simplenpcmsg(msg_0496_T07R0103_00002)
+    simplenpcmsg("Yeah! I’m finally getting a PORYGON!\r"
+                 "I’m no good at the Coin game,\n"
+                 "so I could never get enough Coins...\r"
+                 "...Huh?\r"
+                 "I traded PORYGON, and it turned into a\n"
+                 "different Pokémon!")
     end
 }
 
 script scr_seq_T07R0103_004 {
-    simplenpcmsg(msg_0496_T07R0103_00003)
+    simplenpcmsg("The TM Shop sells\n"
+                 "some rare moves.")
     end
 }
 
 script scr_seq_T07R0103_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0496_T07R0103_00004)
+    npcmsg("Make Your Pokémon Stronger!\n"
+           "3F: TM Shop")
     waitbuttonpress
     closemessage
     releaseall

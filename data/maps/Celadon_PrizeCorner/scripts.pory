@@ -15,7 +15,10 @@ script scr_seq_T07R0501_002 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_172)) {
-        npcmsg(msg_0509_T07R0501_00003)
+        npcmsg("I’ll tell you what type your Pokémon’s\n"
+               "Hidden Power will be.\r"
+               "My own hidden power lets me\n"
+               "do that. {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -34,7 +37,8 @@ script scr_seq_T07R0501_002 {
         if (var(VAR_SPECIAL_x8000) == 255) { goto(_00F2) }
         getpartymonspecies(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
         if (var(VAR_SPECIAL_x8001) == 0) {
-            npcmsg(msg_0509_T07R0501_00007)
+            npcmsg("A move that an Egg can learn?!\n"
+                   "That’s flat-out impossible.")
             goto(_0118)
             end
         }
@@ -43,7 +47,9 @@ script scr_seq_T07R0501_002 {
         monhasmove(VAR_SPECIAL_RESULT, MOVE_HIDDEN_POWER, VAR_SPECIAL_x8000)
         if (var(VAR_SPECIAL_RESULT) == 0) {
             buffertypename(0, VAR_SPECIAL_x8004)
-            npcmsg(msg_0509_T07R0501_00004)
+            npcmsg("If this Pokémon were to learn\n"
+                   "Hidden Power, the move’s type\f"
+                   "would be {STRVAR_1 15, 0, 0}.")
             goto(_0118)
             end
         _0118:
@@ -53,20 +59,32 @@ script scr_seq_T07R0501_002 {
             end
         }
         buffertypename(0, VAR_SPECIAL_x8004)
-        npcmsg(msg_0509_T07R0501_00005)
+        npcmsg("This Pokémon’s Hidden Power is the\n"
+               "{STRVAR_1 15, 0, 0} type.")
         goto(_0118)
         end
     _00E7:
-        npcmsg(msg_0509_T07R0501_00008)
+        npcmsg("Oh, no. This Pokémon can’t learn the\n"
+               "move Hidden Power in the first place.")
         goto(_0118)
         end
     _00F2:
-        npcmsg(msg_0509_T07R0501_00006)
+        npcmsg("If you want to know, ask me, and I’ll\n"
+               "activate my hidden power for you.")
         goto(_0118)
         end
     }
     setflag(FLAG_UNK_172)
-    npcmsg(msg_0509_T07R0501_00002)
+    npcmsg("I woke up and realized my potential!\r"
+           "So, what potential was woken in me?\n"
+           "What’s my hidden power, you ask?\r"
+           "It’s a power that lets me see the\n"
+           "Hidden Power of a Pokémon.\r"
+           "When they learn that move, I can tell\n"
+           "what type the move will be.\r"
+           "So, want me to use my hidden power?\r"
+           "I’ll tell you what type your\n"
+           "Pokémon’s Hidden Power will be. {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -80,7 +98,9 @@ script scr_seq_T07R0501_003 {
     lockall
     faceplayer
     scriptoverlaycmd(3, 0)
-    npcmsg(msg_0509_T07R0501_00009)
+    npcmsg("Welcome!\r"
+           "We exchange your game coins for\n"
+           "fabulous prizes! {YESNO 0}")
     touchscreenmenuhide
     showpointsbox(0, 20, 2)
 _0138:
@@ -347,12 +367,28 @@ _0771:
     end
 }
 
+text msg_0509_T07R0501_00012 {
+    "{STRVAR_1 8, 0, 0}.\n"
+    "Is that right? {YESNO 0}"
+}
+
+text msg_0509_T07R0501_00013 {
+    "Here you go!\r"
+}
+
+text msg_0509_T07R0501_00019 {
+    "You put away the {STRVAR_1 8, 0, 0}\n"
+    "in the {STRVAR_1 18, 1, 0} Pocket. {YESNO 0}"
+}
+
 script scr_seq_T07R0501_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     scriptoverlaycmd(3, 0)
-    npcmsg(msg_0509_T07R0501_00018)
+    npcmsg("Welcome!\r"
+           "We exchange your coins for\n"
+           "fabulous prizes! {YESNO 0}")
     touchscreenmenuhide
     showpointsbox(0, 20, 2)
 _0814:
@@ -380,7 +416,7 @@ _0895:
     getpartycount(VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) != 6) {
         bufferspeciesname(1, VAR_TEMP_x4002, 0, 0)
-        npcmsg(msg_0509_T07R0501_00016)
+        npcmsg("Would you like {STRVAR_1 0, 1, 0}? {YESNO 0}")
         getmenuchoice(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
             if (var(VAR_TEMP_x4002) == 122) {
@@ -398,7 +434,8 @@ _0895:
             givemon(VAR_TEMP_x4002, 15, 0, 0, 0, VAR_SPECIAL_RESULT)
             bufferplayersname(0)
             bufferspeciesname(1, VAR_TEMP_x4002, 0, 0)
-            npcmsg(msg_0509_T07R0501_00017)
+            npcmsg("{STRVAR_1 3, 0, 0} received\n"
+                   "the {STRVAR_1 0, 1, 0}! {YESNO 0}")
             if (var(VAR_TEMP_x4002) == 122) {
                 takecoins(3333)
             } elif (var(VAR_TEMP_x4002) == 133) {
@@ -410,7 +447,7 @@ _0895:
             goto(_0814)
             end
         _0990:
-            npcmsg(msg_0509_T07R0501_00014)
+            npcmsg("Sorry. You can’t carry any more.\r")
             closemessage
         _0995:
             if (var(VAR_SPECIAL_x8004) != 385) {
@@ -427,7 +464,8 @@ _0895:
                                     npcmsg(msg_0509_T07R0501_00011)
                                     goto(_0814)
                                 _0A43:
-                                    npcmsg(msg_0509_T07R0501_00010)
+                                    npcmsg("OK. Please save your coins and\n"
+                                           "come again!")
                                     waitbuttonpress
                                     closemessage
                                     goto(_0A52)
@@ -460,19 +498,30 @@ _0895:
         closemessage
         goto(_0814)
     }
-    npcmsg(msg_0509_T07R0501_00015)
+    npcmsg("Your party’s full!\n"
+           "Please make some room\f"
+           "before you come back.")
     waitbuttonpress
     closemessage
     goto(_0A52)
 }
 
+text msg_0509_T07R0501_00011 {
+    "Sorry! You need more coins. {YESNO 0}"
+}
+
 script scr_seq_T07R0501_000 {
-    simplenpcmsg(msg_0509_T07R0501_00000)
+    simplenpcmsg("I wanted PORYGON, but I was short\n"
+                 "by 100 Coins...")
     end
 }
 
 script scr_seq_T07R0501_001 {
-    simplenpcmsg(msg_0509_T07R0501_00001)
+    simplenpcmsg("Whew...\r"
+                 "I’ve got to stay calm and collected...\r"
+                 "I can’t lose my cool.\n"
+                 "If I spend all my time playing here,\f"
+                 "I could get in trouble at home.")
     end
 }
 

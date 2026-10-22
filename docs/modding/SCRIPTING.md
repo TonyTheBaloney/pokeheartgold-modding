@@ -32,9 +32,11 @@ script Cherrygrove_EventScript_MysticWaterMan {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)) {
-        npcmsg(msg_0550_T21_00020)
+        npcmsg("A Pokémon I caught had an item.\n"
+               "I think it’s Mystic Water.\r"
+               "I don’t need it, so do you want it?\r")
         if (!itemspace(ITEM_MYSTIC_WATER, 1)) {
-            npcmsg(msg_0550_T21_00022)
+            npcmsg("You don’t have room for this.")
             waitbuttonpress
             closemessage
             releaseall
@@ -43,14 +45,16 @@ script Cherrygrove_EventScript_MysticWaterMan {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)
     }
-    npcmsg(msg_0550_T21_00021)
+    npcmsg("Back to fishing for me, then.")
     waitbuttonpress
     closemessage
     releaseall
+    end
 }
 ```
 
-compiles to exactly the original commands:
+compiles to exactly the original commands (the three strings fill messages
+`msg_0550_T21_00020`-`00022`, as `text.json` records):
 
 ```asm
 Cherrygrove_EventScript_MysticWaterMan:
@@ -141,12 +145,55 @@ Generated labels are readable: `<Script>_If_1`, `_EndIf_`, `_Else_`, `_While_`,
 
 ### Text
 
-- Inline strings (`npcmsg("Hello!\nNice day.")`) become `<Script>_Text_<n>`;
-  `text Name { ... }` blocks become `Name`.
-- They're appended to the map's bank after the messages in `text.json`, so existing
-  message numbers never move. msgenc accepts any id, so names are real names.
-- `\n`, `\r`, `\f` and codes like `{STRVAR_1 3, 0, 0}` work as in `text.json`.
+Dialog lives in the scripts. A message used by one command is an inline string;
+adjacent strings join, one per line of dialog:
+
+```
+npcmsg("What? This is a big battle!\f"
+       "Leave me alone!\r")
+```
+
+A message used by several commands is a `text` block, named by its id, after the
+first script that uses it; commands use the name:
+
+```
+text msg_0375_R30_00002 {
+    "A Pokémon can use its moves as long\n"
+    "as the moves still have PP.\r"
+}
+```
+
+Message numbers are positions in the bank, so `text.json` still lists every
+message in order. For dialog that lives in `scripts.pory` it holds only the slot:
+
+```json
+{ "id": "msg_0375_R30_00001", "from": "scr_seq_R30_000#1" }
+{ "id": "msg_0375_R30_00002", "from": "text" }
+```
+
+`"<Script>#<n>"` is that script's `n`-th string (from 0, in source order);
+`"text"` is the `text` block with that id. The build fills each slot and keeps the
+`id`, so `msg_0375_R30.h` and every number stay the same.
+
+- **Editing a string** changes the message in place.
+- **New strings** (no slot) are added after the bank's last message as
+  `<Script>_Text_<n>`; `text Name { ... }` blocks become `Name`. msgenc accepts any id.
+- **Inserting a string** before others in a script shifts which slot each string
+  fills. Every command still shows its own string; only message numbers move, and
+  nothing else uses these numbers.
+- **Renaming a script by hand** unlinks its slots: they build as empty messages and
+  the strings are added as new ones. `mapkit validate -w` warns (`empty-text`);
+  `mapkit script rename` updates the slots for you.
+- Messages used from C/asm, by number, or by nothing stay in `text.json` with
+  their text (about 2600 of 6722).
+- `\n`, `\r`, `\f`, `\"`, `\\` and codes like `{STRVAR_1 3, 0, 0}` work as in `text.json`.
 - Maps that share another map's text bank (`@Everywhere` in `maps.txt`) can't add text.
+- Strings inside a `poryswitch` count only in the version that keeps them, so a
+  slot can't point at one; use a `text` block there.
+
+`mapkit pory inline-text <map>|--all` moved the dialog (3907 inline strings, 217
+`text` blocks); each map was compiled before and after and had to give the same
+commands and the same bank. `pory init` does this step too.
 
 ### Movement
 

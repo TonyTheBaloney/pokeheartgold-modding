@@ -6,13 +6,16 @@ script scr_seq_T26R0301_000 {
     lockall
     faceplayer
     if (flag(FLAG_TRADE_OLIVINE_CITY_KRABBY_VOLTORB)) {
-        npcmsg(msg_0608_T26R0301_00004)
+        npcmsg("Hi! The KRABBY you traded me is\n"
+               "doing great!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0608_T26R0301_00000)
+    npcmsg("Hi, I’m looking for this Pokémon.\r"
+           "If you have a KRABBY, would you\n"
+           "trade it for my VOLTORB? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -36,20 +39,23 @@ _0037:
     npctradeexec(VAR_SPECIAL_x8004)
     npctradeend
     setflag(FLAG_TRADE_OLIVINE_CITY_KRABBY_VOLTORB)
-    npcmsg(msg_0608_T26R0301_00001)
+    npcmsg("Great! Thank you!\r"
+           "I finally got a KRABBY!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _009B:
     npctradeend
-    npcmsg(msg_0608_T26R0301_00002)
+    npcmsg("You don’t have a KRABBY?\n"
+           "That’s too bad, then.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00A8:
-    npcmsg(msg_0608_T26R0301_00003)
+    npcmsg("You don’t have one either?\r"
+           "Gee, that’s really disappointing...")
     waitbuttonpress
     closemessage
     releaseall

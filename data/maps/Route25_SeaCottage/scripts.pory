@@ -6,47 +6,89 @@ script scr_seq_R25R0101_000 {
     lockall
     faceplayer
     if (!flag(FLAG_UNK_14E)) {
-        npcmsg(msg_0364_R25R0101_00000)
+        npcmsg("Hmm? You are here for my grandson?\n"
+               "His name is Bill.\r"
+               "He’s in Johto.\n"
+               "He does something with PCs,\f"
+               "so I’m house-sitting.\r")
         setflag(FLAG_UNK_14E)
     }
     getgameversion(VAR_SPECIAL_x8002)
     if (var(VAR_SPECIAL_x8002) == 8) {
     } else {
         if (var(VAR_UNK_412D) == 0) {
-            npcmsg(msg_0364_R25R0101_00001)
+            npcmsg("Ah, my grandson mentioned a round,\n"
+                   "blue Pokémon that has leaves\f"
+                   "growing on its head.\r")
         } elif (var(VAR_UNK_412D) == 1) {
-            npcmsg(msg_0364_R25R0101_00002)
+            npcmsg("Bill told me about a Pokémon that is\n"
+                   "very loyal to its Trainer.\f"
+                   "It’s a Fire-type Pokémon that’s\f"
+                   "supposed to Roar well.\r")
         } elif (var(VAR_UNK_412D) == 2) {
-            npcmsg(msg_0364_R25R0101_00003)
+            npcmsg("Do you know that Pokémon with large,\n"
+                   "round eyes.\r"
+                   "The one that sings a lullaby with\n"
+                   "its cute voice!\r")
         } elif (var(VAR_UNK_412D) == 3) {
-            npcmsg(msg_0364_R25R0101_00004)
+            npcmsg("Do you know that hugely popular\n"
+                   "Pokémon?\r"
+                   "The Pokémon that has a yellow body\n"
+                   "and bright red cheeks...\r"
+                   "I would love to see what it looks\n"
+                   "like before it evolves.\r")
         } elif (var(VAR_UNK_412D) == 4) {
-            npcmsg(msg_0364_R25R0101_00005)
+            npcmsg("I heard that there is a blue and round\n"
+                   "Pokémon in Johto.\r"
+                   "Bill told me that the end of its tail\n"
+                   "works like a float.\r"
+                   "Its belly is white. Just the belly.\n"
+                   "I would love to see what it looks like.\r")
         } else {
             goto(_0484)
         }
         goto(_0125)
     }
     if (var(VAR_UNK_412D) == 0) {
-        npcmsg(msg_0364_R25R0101_00006)
+        npcmsg("My grandson Bill told me about a\n"
+               "Pokémon that has a long tongue.\r"
+               "It has ringlike marks on the front\n"
+               "of its legs, he said!\r")
     } elif (var(VAR_UNK_412D) == 1) {
-        npcmsg(msg_0364_R25R0101_00007)
+        npcmsg("Ah, my grandson mentioned a round,\n"
+               "blue Pokémon that has leaves\f"
+               "growing on its head.\r")
     } elif (var(VAR_UNK_412D) == 2) {
-        npcmsg(msg_0364_R25R0101_00008)
+        npcmsg("Do you know of a sea Pokémon that\n"
+               "has a red sphere in its body?\f"
+               "You know, the one that’s shaped like\f"
+               "a star?\r"
+               "I heard that it appears at night.\n"
+               "I would surely like to see it.\r")
     } elif (var(VAR_UNK_412D) == 3) {
-        npcmsg(msg_0364_R25R0101_00009)
+        npcmsg("I heard about a cute Pokémon that\n"
+               "has six tails.\r"
+               "I would love to hug a cute Pokémon\n"
+               "like that.\r")
     } elif (var(VAR_UNK_412D) == 4) {
-        npcmsg(msg_0364_R25R0101_00010)
+        npcmsg("Do you know that hugely popular\n"
+               "Pokémon?\r"
+               "The Pokémon that has a yellow body\n"
+               "and bright red cheeks...\r"
+               "I would love to see what it looks\n"
+               "like before it evolves.\r")
     } else {
         goto(_0484)
     }
 _0125:
-    npcmsg(msg_0364_R25R0101_00011)
+    npcmsg("If you have that Pokémon,\n"
+           "may I see it, please? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_048D) }
-    npcmsg(msg_0364_R25R0101_00012)
+    npcmsg("You will show me?\n"
+           "How good of you!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -168,10 +210,14 @@ _0125:
                                             releaseall
                                             end
                                         _0484:
-                                            npcmsg(msg_0364_R25R0101_00017)
+                                            npcmsg("Thanks for showing me so many\n"
+                                                   "cute Pokémon.\f"
+                                                   "I really enjoyed myself.\r"
+                                                   "I’m glad I’ve lived such a long life.")
                                             goto(_0490)
                                         _048D:
-                                            npcmsg(msg_0364_R25R0101_00013)
+                                            npcmsg("You don’t have it?\n"
+                                                   "That’s too bad...")
                                         _0490:
                                             waitbuttonpress
                                             closemessage
@@ -180,7 +226,8 @@ _0125:
                                         }
                                         callstd(std_give_item_verbose)
                                         addvar(VAR_UNK_412D, 1)
-                                        npcmsg(msg_0364_R25R0101_00016)
+                                        npcmsg("Come visit again\n"
+                                               "sometime.")
                                         goto(_0490)
                                     }
                                     npcmsg(msg_0364_R25R0101_00014)
@@ -208,6 +255,20 @@ _0125:
         goto(_0490)
     }
     goto(_02F0)
+}
+
+text msg_0364_R25R0101_00014 {
+    "Hm?\r"
+    "That’s not the Pokémon that I was\n"
+    "told about..."
+}
+
+text msg_0364_R25R0101_00015 {
+    "Wow!\n"
+    "That Pokémon is called {STRVAR_1 0, 0, 0}!\r"
+    "It’s a wonderful Pokémon!\n"
+    "As a token of my appreciation,\f"
+    "I would like to give this to you!\r"
 }
 
 mapscripts Route25_SeaCottage_MapScripts {

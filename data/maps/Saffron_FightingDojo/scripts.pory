@@ -129,7 +129,8 @@ script scr_seq_T11R0101_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00008)
+    npcmsg("Whitney: I never break my promises!\n"
+           "Are you ready?\r")
     closemessage
     trainerbattle(TRAINER_LEADER_WHITNEY_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -138,7 +139,8 @@ script scr_seq_T11R0101_004 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00009)
+    npcmsg("Whitney: You really are strong!\n"
+           "But I won’t lose next time!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -158,7 +160,8 @@ script scr_seq_T11R0101_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00030)
+    npcmsg("Janine: I can’t use my ninja technique,\n"
+           "but I won’t let you win!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_JANINE_JANINE_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -167,7 +170,8 @@ script scr_seq_T11R0101_005 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00031)
+    npcmsg("Janine: I lost today,\n"
+           "but I’ll win next time!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -187,7 +191,8 @@ script scr_seq_T11R0101_006 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00018)
+    npcmsg("Clair: ...You are here.\n"
+           "Now let’s battle!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_CLAIR_CLAIR_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -196,7 +201,9 @@ script scr_seq_T11R0101_006 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00019)
+    npcmsg("Clair: Way to go.\n"
+           "...\f"
+           "Now give it your all!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -216,7 +223,10 @@ script scr_seq_T11R0101_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00024)
+    npcmsg("Erika: How are you?\n"
+           "Good to see you again!\r"
+           "This place really doesn’t suit me,\f"
+           "but...let’s ignore that and battle!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_ERIKA_ERIKA_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -225,7 +235,7 @@ script scr_seq_T11R0101_007 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00025)
+    npcmsg("Erika: You have grown even stronger...")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -245,7 +255,11 @@ script scr_seq_T11R0101_008 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00026)
+    npcmsg("Misty: So here you are...\n"
+           "Don’t make me wait!\r"
+           "I’ve heard a lot of good things\n"
+           "about you since our last battle.\r"
+           "Let me test how good you are!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_MISTY_MISTY_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -254,7 +268,9 @@ script scr_seq_T11R0101_008 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00027)
+    npcmsg("Misty: Wow!\n"
+           "You are getting stronger by\f"
+           "the battle!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -274,7 +290,8 @@ script scr_seq_T11R0101_009 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00032)
+    npcmsg("Blaine: You keep your word.\n"
+           "That’s a good thing, kiddo!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_BLAINE_BLAINE_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -283,7 +300,11 @@ script scr_seq_T11R0101_009 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00033)
+    npcmsg("Blaine: Waaah!\r"
+           "If I had known this Dojo was going to be\n"
+           "available, I wouldn’t have needed to\f"
+           "rebuild my Gym.\r"
+           "Wait! I still did, didn’t I?")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -303,7 +324,8 @@ script scr_seq_T11R0101_010 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00034)
+    npcmsg("Blue: Good!\n"
+           "Thanks for coming to lose to me!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_BLUE_BLUE_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -312,7 +334,9 @@ script scr_seq_T11R0101_010 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00035)
+    npcmsg("Blue: Hahaha!\n"
+           "My scare tactic doesn’t scare you\f"
+           "at all!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -332,7 +356,8 @@ script scr_seq_T11R0101_011 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00010)
+    npcmsg("Chuck: There you are!\r"
+           "Taste my 24-hour training!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_CHUCK_CHUCK_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -341,7 +366,8 @@ script scr_seq_T11R0101_011 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00011)
+    npcmsg("Chuck: Wahaha!\n"
+           "A battle with you is never boring!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -361,7 +387,9 @@ script scr_seq_T11R0101_012 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00028)
+    npcmsg("Brock: All right!\n"
+           "Time to fulfill our promise!\f"
+           "Let’s have a Pokémon battle!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_BROCK_BROCK_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -370,7 +398,9 @@ script scr_seq_T11R0101_012 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00029)
+    npcmsg("Brock: I’ve lost again...\n"
+           "You aren’t adventuring around\f"
+           "for nothing!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -390,7 +420,8 @@ script scr_seq_T11R0101_013 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00006)
+    npcmsg("Bugsy: Good to see you again!\r"
+           "Behold my bug research!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_BUGSY_BUGSY_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -399,7 +430,8 @@ script scr_seq_T11R0101_013 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00007)
+    npcmsg("Bugsy: You must have studied\n"
+           "a lot about Pokémon!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -419,7 +451,11 @@ script scr_seq_T11R0101_014 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00022)
+    npcmsg("Sabrina: I knew you’d come!\n"
+           "I had a feeling.\r"
+           "What? We promised each other,\n"
+           "so it’s no surprise?\r"
+           "...Well, you may be right.\r")
     closemessage
     trainerbattle(TRAINER_LEADER_SABRINA_SABRINA_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -428,7 +464,8 @@ script scr_seq_T11R0101_014 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00023)
+    npcmsg("Sabrina: I know...you will give me a call\n"
+           "again sometime.")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -448,7 +485,9 @@ script scr_seq_T11R0101_015 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00004)
+    npcmsg("Falkner: Hi! I’ve been waiting for you!\r"
+           "It’s a pleasure to be able to battle\n"
+           "you again!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_FALKNER_FALKNER_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -457,7 +496,9 @@ script scr_seq_T11R0101_015 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00005)
+    npcmsg("Falkner: Mmm...\n"
+           "It’s still a long way to become\f"
+           "the best Trainer...")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -477,7 +518,9 @@ script scr_seq_T11R0101_016 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00020)
+    npcmsg("Lt. Surge: Hey!\n"
+           "The promise we made!\f"
+           "Let’s battle again!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_LT_SURGE_LT__SURGE_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -486,7 +529,9 @@ script scr_seq_T11R0101_016 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00021)
+    npcmsg("Lt. Surge: Oh no!\n"
+           "You are very strong!\f"
+           "But I will repay my debt someday.")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -506,7 +551,8 @@ script scr_seq_T11R0101_017 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00014)
+    npcmsg("Morty: I was just talking about you...\n"
+           "Let’s battle!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_MORTY_MORTY_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -515,7 +561,9 @@ script scr_seq_T11R0101_017 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00015)
+    npcmsg("Morty: I’ve lost again...\r"
+           "You may have something more than\n"
+           "just strength.")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -535,7 +583,8 @@ script scr_seq_T11R0101_018 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00012)
+    npcmsg("Jasmine: We’re here as we promised...\n"
+           "Are you prepared?\r")
     closemessage
     trainerbattle(TRAINER_LEADER_JASMINE_JASMINE_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -544,7 +593,7 @@ script scr_seq_T11R0101_018 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00013)
+    npcmsg("Jasmine: True to your reputation...")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -564,7 +613,10 @@ script scr_seq_T11R0101_019 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0533_T11R0101_00016)
+    npcmsg("Pryce: Finally.\r"
+           "No need for words.\n"
+           "A Pokémon battle is the way for us\f"
+           "to communicate.\r")
     closemessage
     trainerbattle(TRAINER_LEADER_PRYCE_PRYCE_2, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -573,7 +625,8 @@ script scr_seq_T11R0101_019 {
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00017)
+    npcmsg("Pryce: Mmm...\n"
+           "Impressive!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -594,13 +647,23 @@ script scr_seq_T11R0101_000 {
     lockall
     faceplayer
     if (flag(FLAG_BEAT_KARATE_KING)) {
-        npcmsg(msg_0533_T11R0101_00001)
+        npcmsg("Hello!\r"
+               "We are letting the Gym Leaders use the\n"
+               "Dojo while the Karate King is away.\r"
+               "You can give them a call when you\n"
+               "register their numbers.\r"
+               "They say they are happy to accept\n"
+               "your challenge as long as they are\f"
+               "not busy.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0533_T11R0101_00000)
+    npcmsg("Hello!\r"
+           "Karate King, the Fighting Dojo’s\n"
+           "master, is in a cave in Johto for\f"
+           "further training.")
     waitbuttonpress
     closemessage
     releaseall
@@ -608,12 +671,12 @@ script scr_seq_T11R0101_000 {
 }
 
 script scr_seq_T11R0101_001 {
-    simplenpcmsg(msg_0533_T11R0101_00002)
+    simplenpcmsg("“Struggle for vengeance”")
     end
 }
 
 script scr_seq_T11R0101_002 {
-    simplenpcmsg(msg_0533_T11R0101_00003)
+    simplenpcmsg("“A complicated fracture”")
     end
 }
 

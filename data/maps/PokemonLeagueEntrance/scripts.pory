@@ -43,12 +43,22 @@ _00AC:
 }
 
 script scr_seq_T10R0101_001 {
-    simplenpcmsg(msg_0522_T10R0101_00000)
+    simplenpcmsg("At the Pokémon League, you’ll get\n"
+                 "tested by the Elite Four.\f"
+                 "You have to beat them all.\r"
+                 "If you lose, you have to start\n"
+                 "all over!")
     end
 }
 
 script scr_seq_T10R0101_002 {
-    simplenpcmsg(msg_0522_T10R0101_00001)
+    simplenpcmsg("Some Trainers suddenly feel\n"
+                 "discouraged and leave.\r"
+                 "My ABRA can take you home.\n"
+                 "But...\r"
+                 "Trainers just Fly home lately...\n"
+                 "I feel left out.\f"
+                 "I am sure my ABRA feels the same way.")
     end
 }
 
@@ -57,7 +67,7 @@ script scr_seq_T10R0101_003 {
     lockall
     faceplayer
     playcry(SPECIES_ABRA, 0)
-    npcmsg(msg_0522_T10R0101_00002)
+    npcmsg("ABRA: Aabra...")
     waitcry
     waitbuttonpress
     closemessage
@@ -86,7 +96,14 @@ script scr_seq_T10R0101_006 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     bufferrivalsname(0)
-    npcmsg(msg_0522_T10R0101_00003)
+    npcmsg("{STRVAR_1 3, 0, 0}: Hold it.\r"
+           "You’re going to take the Pokémon\n"
+           "League challenge now?\r"
+           "You’ll have to give up on that.\r"
+           "My well-trained-beyond-recognition\n"
+           "Pokémon are going to pound you.\r"
+           "Right now, right here!\n"
+           "I challenge you!\r")
     closemessage
     getstarterchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 152) {
@@ -106,7 +123,14 @@ script scr_seq_T10R0101_006 {
     }
     callstd(std_play_rival_outro_music)
     bufferrivalsname(0)
-    npcmsg(msg_0522_T10R0101_00004)
+    npcmsg("{STRVAR_1 3, 0, 0}: ...Oh, no... I still can’t\n"
+           "win after all that training...\r"
+           "I...I have to believe more in my\n"
+           "Pokémon...\r"
+           "...No big deal.\n"
+           "Sorry to have got in the way.\r"
+           "Don’t forget to rest your Pokémon\n"
+           "before you challenge the Champion!\r")
     closemessage
     applymovement(obj_T10R0101_gsrivel, PokemonLeagueEntrance_Movement_0210)
     waitmovement
@@ -167,13 +191,23 @@ script scr_seq_T10R0101_008 {
     lockall
     faceplayer
     if (var(VAR_TEMP_x4005) >= 1) {
-        npcmsg(msg_0522_T10R0101_00006)
+        npcmsg("Once you enter this door, you will be\n"
+               "facing one of the Elite Four.\r"
+               "They are really tough!\n"
+               "You cannot exit once you enter.\f"
+               "Are you ready?\f"
+               "Be courageous and go for it!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0522_T10R0101_00005)
+    npcmsg("Once you enter this door, you will be\n"
+           "facing one of the Elite Four.\r"
+           "They are really tough!\n"
+           "You cannot exit once you enter.\f"
+           "Are you ready?\f"
+           "Be courageous and go for it!\r")
     closemessage
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 2) {
@@ -208,9 +242,9 @@ script scr_seq_T10R0101_007 {
     touchscreenmenuhide
 _02CD:
     menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
-    menuitemadd(msg_0522_T10R0101_00008, 255, 0)
-    menuitemadd(msg_0522_T10R0101_00009, 255, 1)
-    menuitemadd(msg_0522_T10R0101_00010, 255, 2)
+    menuitemadd("GROUP RANKING", 255, 0)
+    menuitemadd("GLOBAL RANKING", 255, 1)
+    menuitemadd("QUIT", 255, 2)
     menuexec
     Switch(VAR_SPECIAL_RESULT)
     Case(0, _0317)
@@ -329,6 +363,86 @@ _03CF:
     npcmsg(msg_0522_T10R0101_00007)
     goto(_02CD)
     goto(_03F1)
+}
+
+text msg_0522_T10R0101_00007 {
+    "Which Ranking do you want to see? {YESNO 0}"
+}
+
+text msg_0522_T10R0101_00011 {
+    "What kind of Ranking\n"
+    "do you want to see? {YESNO 0}"
+}
+
+text msg_0522_T10R0101_00012 {
+    "POKéMON RECORDS"
+}
+
+text msg_0522_T10R0101_00013 {
+    "BATTLE TOWER RECORDS"
+}
+
+text msg_0522_T10R0101_00014 {
+    "QUIT"
+}
+
+text msg_0522_T10R0101_00015 {
+    "Which record would you like\n"
+    "to see? {YESNO 0}"
+}
+
+text msg_0522_T10R0101_00016 {
+    "POKéMON\n"
+    "DEFEATED"
+}
+
+text msg_0522_T10R0101_00017 {
+    "POKéMON\n"
+    "CAUGHT"
+}
+
+text msg_0522_T10R0101_00018 {
+    "POKéMON\n"
+    "EGGS"
+}
+
+text msg_0522_T10R0101_00019 {
+    "ENCOUNTERED\n"
+    "WHILE FISHING"
+}
+
+text msg_0522_T10R0101_00026 {
+    "RETURN"
+}
+
+text msg_0522_T10R0101_00020 {
+    "SINGLE\n"
+    "BATTLES"
+}
+
+text msg_0522_T10R0101_00021 {
+    "DOUBLE\n"
+    "BATTLES"
+}
+
+text msg_0522_T10R0101_00022 {
+    "MULTI\n"
+    "BATTLES"
+}
+
+text msg_0522_T10R0101_00023 {
+    "LINK MULTI\n"
+    "BATTLES"
+}
+
+text msg_0522_T10R0101_00024 {
+    "WI-FI BATTLE\n"
+    "ROOM"
+}
+
+text msg_0522_T10R0101_00025 {
+    "AVG WIN\n"
+    "STREAK"
 }
 
 mapscripts PokemonLeagueEntrance_MapScripts {

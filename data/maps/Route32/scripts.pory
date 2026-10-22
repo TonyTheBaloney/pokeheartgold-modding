@@ -123,7 +123,11 @@ script scr_seq_R32_000 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_TM05_FROM_ROUTE_32_MAN)) {
-        npcmsg(msg_0380_R32_00010)
+        npcmsg("WROOOOAR!\r"
+               "PEOPLE RUN WHEN I ROAR!\n"
+               "BUT YOU CAME LOOKING!\r"
+               "THAT PLEASES ME!\n"
+               "NOW TAKE THIS!\r")
         if (!itemspace(ITEM_TM05, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -133,7 +137,10 @@ script scr_seq_R32_000 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_TM05_FROM_ROUTE_32_MAN)
     }
-    npcmsg(msg_0380_R32_00012)
+    npcmsg("WROOOAR!\n"
+           "IT’S ROAR!\r"
+           "EVEN POKéMON RUN\n"
+           "FROM A GOOD ROAR!")
     waitbuttonpress
     closemessage
     releaseall
@@ -146,13 +153,20 @@ script scr_seq_R32_001 {
     faceplayer
     checkbadge(BADGE_ZEPHYR, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0380_R32_00003)
+        npcmsg("Have you gone to the Pokémon Gym?\r"
+               "You can test your Pokémon and\n"
+               "yourself there.\r"
+               "It’s a rite of passage for all Trainers!")
         goto(_0284)
         end
     }
     if (!flag(FLAG_GOT_EGG_FROM_ELMS_ASSISTANT)) {
         bufferplayersname(0)
-        npcmsg(msg_0380_R32_00001)
+        npcmsg("{STRVAR_1 3, 0, 0}, right?\n"
+               "Some guy wearing glasses was looking\f"
+               "for you.\r"
+               "See for yourself. He’s waiting for\n"
+               "you at the Poké Mart.")
         goto(_0284)
         end
     }
@@ -165,16 +179,23 @@ script scr_seq_R32_001 {
         if (var(VAR_UNK_408D) == 0) {
             setvar(VAR_UNK_408D, 1)
         }
-        npcmsg(msg_0380_R32_00005)
+        npcmsg("You have some good Pokémon there.\r"
+               "It must be from the training you gave\n"
+               "them around Violet City.\r"
+               "The training at the Gym must have\n"
+               "been especially helpful.\r"
+               "As a souvenir of Violet City, take this.\r"
+               "It increases the power of\n"
+               "Grass-type moves.\r")
         setvar(VAR_SPECIAL_x8004, 239)
         setvar(VAR_SPECIAL_x8005, 1)
         hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
             if (var(VAR_TEMP_x4002) == 0) {
-                npcmsg(msg_0380_R32_00008)
+                npcmsg("Hey, your Bag is chock-full.")
                 waitbuttonpress
             } else {
-                npcmsg(msg_0380_R32_00009)
+                npcmsg("Hey, your Bag is chock-full.\r")
             }
         } else {
             if (var(VAR_TEMP_x4002) == 0) {
@@ -187,7 +208,8 @@ script scr_seq_R32_001 {
         closemessage
         return
     }
-    npcmsg(msg_0380_R32_00007)
+    npcmsg("Your experiences in Violet City\n"
+           "should be useful for your journey.")
 _0284:
     waitbuttonpress
     closemessage
@@ -200,7 +222,8 @@ script scr_seq_R32_002 {
     lockall
     applymovement(obj_R32_gsmiddleman1, Route32_Movement_046C)
     waitmovement
-    npcmsg(msg_0380_R32_00000)
+    npcmsg("Wait up!\n"
+           "What’s the hurry?\r")
     closemessage
     if (flag(FLAG_GOT_EGG_FROM_ELMS_ASSISTANT)) {
         togglefollowingpokemonmovement(0)
@@ -245,10 +268,17 @@ script scr_seq_R32_002 {
     followingpokemonmovement(48)
     checkbadge(BADGE_ZEPHYR, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0380_R32_00004)
+        npcmsg("Have you gone to the Pokémon Gym?\r"
+               "You can test your Pokémon and\n"
+               "yourself there.\r"
+               "It’s a rite of passage for all Trainers!\r")
     } else {
         bufferplayersname(0)
-        npcmsg(msg_0380_R32_00002)
+        npcmsg("{STRVAR_1 3, 0, 0}, right?\n"
+               "Some guy wearing glasses was looking\f"
+               "for you.\r"
+               "See for yourself. He’s waiting for\n"
+               "you at the Poké Mart.\r")
     }
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
@@ -328,14 +358,19 @@ script scr_seq_R32_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0380_R32_00014)
+    npcmsg("How would you like to have this\n"
+           "tasty, nutritious SlowpokeTail?\r"
+           "For you right now, just $1,000,000!\n"
+           "You’ll want this! {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0380_R32_00015)
+        npcmsg("Tch! I thought kids these days\n"
+               "were loaded...")
     } else {
-        npcmsg(msg_0380_R32_00016)
+        npcmsg("You don’t want it?\n"
+               "Then scram. Shoo!")
     }
     waitbuttonpress
     closemessage
@@ -452,17 +487,19 @@ movement Route32_Movement_06E0 {
 }
 
 script scr_seq_R32_006 {
-    directionsignpostex(1, 2, msg_0380_R32_00018)
+    directionsignpostex(1, 2, "Ruins of Alph\n"
+                              "East Entrance")
     end
 }
 
 script scr_seq_R32_007 {
-    directionsignpostex(1, 4, msg_0380_R32_00017)
+    directionsignpostex(1, 4, "Rt. 32\n"
+                              "South to Azalea Town")
     end
 }
 
 script scr_seq_R32_008 {
-    directionsignpostex(1, 13, msg_0380_R32_00019)
+    directionsignpostex(1, 13, "Union Cave ahead")
     end
 }
 

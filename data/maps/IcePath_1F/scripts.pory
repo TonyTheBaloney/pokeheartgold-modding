@@ -47,6 +47,29 @@ script scr_seq_D39R0101_000 {
     end
 }
 
+text msg_0122_D39R0101_00002 {
+    "The item you picked up over there...\n"
+    "it was an HM, wasn’t it?\r"
+    "I am the one who dropped it...but I\n"
+    "want you to keep it.\f"
+    "You took the time to get it, right?\r"
+    "It contains Waterfall.\n"
+    "Have fun climbing waterfalls!\r"
+    "Me?\r"
+    "I still need a new pair of shoes\n"
+    "before I can enjoy waterfalls."
+}
+
+text msg_0122_D39R0101_00001 {
+    "You see the item over there?\r"
+    "It was me who dropped it, but I cannot\n"
+    "get over there to pick it up.\r"
+    "Why?\r"
+    "Walking on ice makes your feet freeze!\r"
+    "My shoes are so worn that the soles\n"
+    "are gone!\r"
+}
+
 script scr_seq_D39R0101_004 {
     followmonresetmovement
     lockall
@@ -107,7 +130,16 @@ script scr_seq_D39R0101_002 {
     goto(_0157)
 _0157:
     bufferplayersname(0)
-    npcmsg(msg_0122_D39R0101_00003)
+    npcmsg("Me oh my...\n"
+           "Is that you, {STRVAR_1 3, 0, 0}?\f"
+           "Fancy meeting you here!\r"
+           "To tell the truth...my sandals are\n"
+           "frozen on the ice, and I am stuck here.\r"
+           "In other words, my flip-flops are\n"
+           "quick-frozen to the ground.\r"
+           "Tee hee.\r"
+           "Well, it’s no laughing matter. Would you\n"
+           "come around and push my back?")
     waitbuttonpress
     closemessage
     releaseall
@@ -115,7 +147,16 @@ _0157:
     end
 _0169:
     bufferplayersname(0)
-    npcmsg(msg_0122_D39R0101_00004)
+    npcmsg("Me oh my...\n"
+           "Is that you, {STRVAR_1 3, 0, 0}?\f"
+           "Fancy meeting you here!\r"
+           "To tell the truth...my sandals are\n"
+           "frozen on the ice, and I am stuck here.\r"
+           "In other words, my flip-flops are\n"
+           "quick-frozen with the ground.\r"
+           "Tee hee.\r"
+           "Well, it’s no laughing matter.\n"
+           "Would you push my back? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -124,14 +165,15 @@ _0169:
     end
 _0193:
     playse(SEQ_SE_DP_WALL_HIT)
-    npcmsg(msg_0122_D39R0101_00005)
+    npcmsg("{SIZE 200}SHOVE!{SIZE 100}\r")
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     applymovement(obj_D39R0101_dancer, IcePath_1F_Movement_021C)
     applymovement(241, IcePath_1F_Movement_0244)
     waitmovement
-    npcmsg(msg_0122_D39R0101_00007)
+    npcmsg("You really are kind.\r"
+           "Thank you so much!\r")
     closemessage
     applymovement(obj_D39R0101_dancer, IcePath_1F_Movement_023C)
     waitmovement
@@ -147,7 +189,9 @@ _0193:
     releaseall
     end
 _01F3:
-    npcmsg(msg_0122_D39R0101_00006)
+    npcmsg("Don’t be so cruel.\n"
+           "You will push my back,\f"
+           "won’t you? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow

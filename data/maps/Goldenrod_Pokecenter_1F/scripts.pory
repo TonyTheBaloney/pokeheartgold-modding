@@ -20,9 +20,16 @@ script scr_seq_T25PC0101_003 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0583_T25PC0101_00003)
+        npcmsg("Team Rocket...!")
     } else {
-        npcmsg(msg_0583_T25PC0101_00002)
+        npcmsg("I wonder how many kinds of Pokémon\n"
+               "there are in the world.\r"
+               "A long time ago, Professor Oak said\n"
+               "there were 150 different kinds...\r"
+               "Since then, many new Pokémon have\n"
+               "been discovered in different regions.\r"
+               "There are almost 500 different kinds\n"
+               "known now...")
     }
     waitbuttonpress
     closemessage
@@ -35,9 +42,16 @@ script scr_seq_T25PC0101_002 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0583_T25PC0101_00005)
+        npcmsg("I think I’ve met you before...\r"
+               "You must have a reason for\n"
+               "looking like that...?")
     } else {
-        npcmsg(msg_0583_T25PC0101_00004)
+        npcmsg("A higher level Pokémon doesn’t\n"
+               "always win.\r"
+               "After all, it may have a type\n"
+               "disadvantage.\r"
+               "I don’t think there is a single\n"
+               "Pokémon that is the toughest.")
     }
     waitbuttonpress
     closemessage
@@ -50,9 +64,14 @@ script scr_seq_T25PC0101_001 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0583_T25PC0101_00001)
+        npcmsg("Oh, you are a Team Rocket member...")
     } else {
-        npcmsg(msg_0583_T25PC0101_00000)
+        npcmsg("The Colosseum upstairs is for\n"
+               "link battles.\r"
+               "Battle records, such as how many times\n"
+               "you had link battles and the results,\f"
+               "are recorded on the back of your\f"
+               "Trainer Card.")
     }
     waitbuttonpress
     closemessage

@@ -2,7 +2,8 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_R08R0201_000 {
-    simplenpcmsg(msg_0339_R08R0201_00000)
+    simplenpcmsg("Have you been to Lavender Town?\n"
+                 "There’s a tall Radio Tower there.")
     end
 }
 

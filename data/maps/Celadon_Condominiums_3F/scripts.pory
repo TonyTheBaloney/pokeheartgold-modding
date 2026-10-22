@@ -41,7 +41,7 @@ script scr_seq_T07R0203_010 {
     applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_0138)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0503_T07R0203_00012, msg_0503_T07R0203_00013)
+    gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\r", "Ethan: Hey, {STRVAR_1 3, 0, 0}!\r")
     closemessage
     applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_0140)
     applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_0148)
@@ -54,7 +54,25 @@ script scr_seq_T07R0203_010 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     bufferplayersname(0)
-    gendermsgbox(msg_0503_T07R0203_00014, msg_0503_T07R0203_00015)
+    gendermsgbox("Lyra: Guess what?\r"
+                 "That Sound Designer over there\n"
+                 "showed me something cool.\r"
+                 "It’s a hi-tech, retro machine to\n"
+                 "listen to music from the Game Boy!\r"
+                 "He said he’ll give it to anyone\n"
+                 "who has collected all of the\f"
+                 "Kanto Badges.\r"
+                 "Why don’t you go for it, {STRVAR_1 3, 0, 0}?\n"
+                 "See ya!\r", "Ethan: Guess what?\r"
+                              "That Sound Designer over there\n"
+                              "showed me something cool.\r"
+                              "It’s a hi-tech, retro machine to\n"
+                              "listen to music from the Game Boy!\r"
+                              "He said he’ll give it to anyone\n"
+                              "who has collected all of the\f"
+                              "Kanto Badges.\r"
+                              "Why don’t you go for it, {STRVAR_1 3, 0, 0}?\n"
+                              "See ya!\r")
     closemessage
     applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_015C)
     applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_016C)
@@ -128,7 +146,12 @@ script scr_seq_T07R0203_000 {
     checkjohtodexcomplete(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0245) }
     if (!flag(FLAG_SAW_JOHTO_DEX_CERTIFICATE)) {
-        npcmsg(msg_0503_T07R0203_00001)
+        npcmsg("Wow, you did it!\n"
+               "You have filled up the\f"
+               "Johto Pokédex!\r"
+               "Impressive! I’m amazed!\n"
+               "I will reward you for that!\f"
+               "Seriously!\r")
         playfanfare(SEQ_ME_HYOUKA2)
         waitfanfare
         closemessage
@@ -144,7 +167,13 @@ script scr_seq_T07R0203_000 {
     checknationaldexcomplete(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0245) }
     if (!flag(FLAG_SAW_NATIONAL_DEX_CERTIFICATE)) {
-        npcmsg(msg_0503_T07R0203_00002)
+        npcmsg("Wow! Excellent!\n"
+               "You completed your Pokédex!\f"
+               "Congratulations!\r"
+               "You must be the genius of the century!\n"
+               "Seriously!\r"
+               "Game Freak will give you an award\n"
+               "and prove that it’s the truth!\r")
         playfanfare(SEQ_ME_HYOUKA2)
         waitfanfare
         closemessage
@@ -157,13 +186,22 @@ script scr_seq_T07R0203_000 {
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
     }
-    npcmsg(msg_0503_T07R0203_00003)
+    npcmsg("I bet it was a long way to complete\n"
+           "the Pokédex.\r"
+           "Remember, the most precious thing of\n"
+           "all was the time you’ve worked hard\f"
+           "going everywhere to complete\f"
+           "the Pokédex.\r"
+           "I just said something deep! Seriously!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0245:
-    npcmsg(msg_0503_T07R0203_00000)
+    npcmsg("I’m the Game Director!\r"
+           "Filling up your Pokédex is tough,\n"
+           "but don’t give up!\r"
+           "You can do it! Seriously!")
     waitbuttonpress
     closemessage
     releaseall
@@ -178,21 +216,50 @@ script scr_seq_T07R0203_009 {
     if (var(VAR_SPECIAL_RESULT) == 1) {
         getitemquantity(ITEM_GB_SOUNDS, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) != 0) {
-            npcmsg(msg_0503_T07R0203_00011)
+            npcmsg("I find GB Sounds to be incredible!\n"
+                   "Even places that were built recently\f"
+                   "have nice, classic music.\r"
+                   "Behold the full extent of my passion!\r"
+                   "...Did I say “behold”? What am\n"
+                   "I saying?\r"
+                   "Anyway, try it at various places!\r"
+                   "There are some places you won’t\n"
+                   "hear classic music...\r"
+                   "But that’s life!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0503_T07R0203_00008)
+        npcmsg("I am the Sound Designer!\n"
+               "I compose music.\r"
+               "Wow, you have collected\n"
+               "all the Kanto Badges already!\f"
+               "That’s great!\r"
+               "I’ll give you something cool\n"
+               "for that.\r")
         giveitemnocheck(ITEM_GB_SOUNDS, 1)
-        npcmsg(msg_0503_T07R0203_00010)
+        npcmsg("GB is a rectangular thing with a\n"
+               "black-and-white screen that you used\f"
+               "to play the original Pokémon...\f"
+               "Oh, wait! That was a Game Boy!\r"
+               "Turn it on and GB Sounds will let you\n"
+               "hear some nostalgic sounds.\r"
+               "It’s a gadget full of wonder!\n"
+               "Try it at various places!\r"
+               "There are some places you won’t\n"
+               "hear classic music...\r"
+               "But that’s life!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0503_T07R0203_00007)
+    npcmsg("I am the Sound Designer!\n"
+           "I compose music.\r"
+           "I’ll give you something cool if you\n"
+           "manage to collect all eight\f"
+           "Kanto Badges and show them to me.")
     waitbuttonpress
     closemessage
     releaseall
@@ -200,24 +267,31 @@ script scr_seq_T07R0203_009 {
 }
 
 script scr_seq_T07R0203_001 {
-    simplenpcmsg(msg_0503_T07R0203_00004)
+    simplenpcmsg("I am the Graphic Designer!\n"
+                 "I am a skilled dot artist!")
     end
 }
 
 script scr_seq_T07R0203_002 {
-    simplenpcmsg(msg_0503_T07R0203_00005)
+    simplenpcmsg("I am the Programmer!\r"
+                 "I control the world of games\n"
+                 "with my fingertip!")
     end
 }
 
 script scr_seq_T07R0203_003 {
-    simplenpcmsg(msg_0503_T07R0203_00006)
+    simplenpcmsg("I am the Planner!\n"
+                 "I come up with great ideas!\r"
+                 "This place you’re standing\n"
+                 "here is no exception! Hahaha!")
     end
 }
 
 script scr_seq_T07R0203_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0503_T07R0203_00016)
+    npcmsg("Game Freak\n"
+           "Development Room")
     waitbuttonpress
     closemessage
     releaseall
@@ -227,7 +301,8 @@ script scr_seq_T07R0203_004 {
 script scr_seq_T07R0203_013 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0503_T07R0203_00017)
+    npcmsg("This elevator goes straight between\n"
+           "the second floor and the roof.")
     waitbuttonpress
     closemessage
     releaseall
@@ -237,7 +312,9 @@ script scr_seq_T07R0203_013 {
 script scr_seq_T07R0203_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0503_T07R0203_00018)
+    npcmsg("It’s the game program.\r"
+           "Messing with it could ruin it.\n"
+           "You cannot touch it!")
     waitbuttonpress
     closemessage
     releaseall
@@ -247,7 +324,8 @@ script scr_seq_T07R0203_005 {
 script scr_seq_T07R0203_006 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0503_T07R0203_00019)
+    npcmsg("Pokémon stickers are everywhere\n"
+           "on the desk!")
     waitbuttonpress
     closemessage
     releaseall
@@ -257,7 +335,8 @@ script scr_seq_T07R0203_006 {
 script scr_seq_T07R0203_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0503_T07R0203_00020)
+    npcmsg("There are many photo collections\n"
+           "and books about myths!")
     waitbuttonpress
     closemessage
     releaseall
@@ -265,7 +344,20 @@ script scr_seq_T07R0203_007 {
 }
 
 script scr_seq_T07R0203_012 {
-    simplenpcmsg(msg_0503_T07R0203_00021)
+    simplenpcmsg("What do you think?\r"
+                 "I am the President here.\r"
+                 "We are remaking an old game,\n"
+                 "but this is quite a challenge.\r"
+                 "Old fans would not want us to mess\n"
+                 "with their good memories...\f"
+                 "but there is no point in just\f"
+                 "redoing the same thing, right?\r"
+                 "We are working toward something\n"
+                 "that brings back memories,\f"
+                 "yet is also completely new!\r"
+                 "I’ve been in this business for 20 years\n"
+                 "now, but creating a game is always a\f"
+                 "rewarding challenge!")
     end
 }
 

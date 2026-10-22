@@ -63,7 +63,7 @@ script scr_seq_D35R0101_006 {
     lockall
     applymovement(obj_player, Mahogany_SouvenirShop_Movement_0214)
     waitmovement
-    npcmsg(msg_0111_D35R0101_00004)
+    npcmsg("Lance: DRAGONITE, Hyper Beam.\r")
     closemessage
     playse(SEQ_SE_GS_ZUTUKI)
     applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02AC)
@@ -74,7 +74,11 @@ script scr_seq_D35R0101_006 {
     applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02C0)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0111_D35R0101_00005, msg_0111_D35R0101_00006)
+    gendermsgbox("What took you so long, {STRVAR_1 3, 0, 0}?\r"
+                 "Just as I thought, that strange radio\n"
+                 "signal is coming from here.\r", "What took you so long, {STRVAR_1 3, 0, 0}?\r"
+                                                  "Just as I thought, that strange radio\n"
+                                                  "signal is coming from here.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -90,7 +94,7 @@ script scr_seq_D35R0101_006 {
     waitmovement
     applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_0280)
     waitmovement
-    npcmsg(msg_0111_D35R0101_00007)
+    npcmsg("The stairs are right here.\r")
     closemessage
     applymovement(obj_D35R0101_sunglasses, Mahogany_SouvenirShop_Movement_0290)
     waitmovement
@@ -101,7 +105,9 @@ script scr_seq_D35R0101_006 {
     applymovement(obj_D35R0101_stop_3, Mahogany_SouvenirShop_Movement_029C)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0111_D35R0101_00008, msg_0111_D35R0101_00009)
+    gendermsgbox("Lance: {STRVAR_1 3, 0, 0}, we should split up\n"
+                 "to check this place. I’ll go first.\r", "Lance: {STRVAR_1 3, 0, 0}, we should split up\n"
+                                                          "to check this place. I’ll go first.\r")
     closemessage
     applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_02A4)
     waitmovement
@@ -211,13 +217,20 @@ script scr_seq_D35R0101_002 {
     lockall
     faceplayer
     if (var(VAR_UNK_40A8) >= 2) {
-        npcmsg(msg_0111_D35R0101_00001)
+        npcmsg("Arrgh...\n"
+               "You found the secret stairway...\r"
+               "How did you do that?\n"
+               "I thought it was well camouflaged...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0111_D35R0101_00000)
+    npcmsg("Huh?\r"
+           "You hear wind blowing into this room?\n"
+           "That is...just me whistling.\r"
+           "Enough about that.\n"
+           "Why don’t you buy something? {YESNO 0}")
     holdmsg
     setvar(VAR_SPECIAL_x8004, 28)
     callstd(std_special_mart)
@@ -227,10 +240,15 @@ script scr_seq_D35R0101_002 {
 
 script scr_seq_D35R0101_003 {
     if (var(VAR_UNK_40A8) >= 2) {
-        simplenpcmsg(msg_0111_D35R0101_00003)
+        simplenpcmsg("Urrgh...\r"
+                     "That guy’s Dragon-type Pokémon\n"
+                     "are tough...")
         end
     }
-    simplenpcmsg(msg_0111_D35R0101_00002)
+    simplenpcmsg("Heheh! The experiment worked like\n"
+                 "a charm.\r"
+                 "MAGIKARP are just worthless, but\n"
+                 "GYARADOS are big moneymakers.")
     end
 }
 
@@ -243,7 +261,12 @@ script scr_seq_D35R0101_004 {
     lockall
     faceplayer
     setflag(FLAG_SPECIAL_MART_MAHOGANY_GOOD)
-    npcmsg(msg_0111_D35R0101_00010)
+    npcmsg("Whistle...whistle...\r"
+           "Are you bothered by that noise? That’s\n"
+           "me. My false teeth don’t fit right,\f"
+           "and the gap makes the noise.\r"
+           "Enough about that.\n"
+           "Why don’t you buy something?\r")
     holdmsg
     setvar(VAR_SPECIAL_x8004, 29)
     callstd(std_special_mart)
@@ -302,7 +325,9 @@ script scr_seq_D35R0101_009 {
         } elif (var(VAR_TEMP_x4000) == 22) {
             npcmsg(msg_0111_D35R0101_00012)
         } else {
-            npcmsg(msg_0111_D35R0101_00013)
+            npcmsg("The radio is on.\r"
+                   "The variety show is airing\n"
+                   "Buena’s Password!")
         }
     _0552:
         waitbuttonpress
@@ -310,8 +335,25 @@ script scr_seq_D35R0101_009 {
         releaseall
         end
     }
-    npcmsg(msg_0111_D35R0101_00015)
+    npcmsg("You hear something strange...!")
     goto(_0552)
+}
+
+text msg_0111_D35R0101_00014 {
+    "Team Rocket is declaring its revival on\n"
+    "the radio!"
+}
+
+text msg_0111_D35R0101_00011 {
+    "The radio is on.\r"
+    "The variety show is airing\n"
+    "The Pokémon Search Party!"
+}
+
+text msg_0111_D35R0101_00012 {
+    "The radio is on.\r"
+    "The variety show is airing\n"
+    "The Radio Miniseries!"
 }
 
 mapscripts Mahogany_SouvenirShop_MapScripts {

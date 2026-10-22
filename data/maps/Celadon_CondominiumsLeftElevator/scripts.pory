@@ -26,7 +26,9 @@ script scr_seq_T07R0206_000 {
         goto(_00B4)
     _00B4:
         elevatorcurfloorbox(20, 1, VAR_ELEVATOR_LAST_FLOOR, VAR_ELEVATOR_LAST_FLOOR)
-        npcmsg(msg_0506_T07R0206_00000)
+        npcmsg("This elevator is for Game Freak only.\r"
+               "Please select the floor you’d like\n"
+               "to go to. {YESNO 0}")
         touchscreenmenuhide
         menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
         menuitemadd(116, 255, 0)
@@ -92,11 +94,11 @@ script scr_seq_T07R0206_000 {
         setvar(VAR_ELEVATOR_LAST_FLOOR, 3)
         goto(_02BB)
     _0291:
-        npcmsg(msg_0506_T07R0206_00002)
+        npcmsg("Going up.\r")
         setvar(VAR_SPECIAL_x8004, 0)
         return
     _029C:
-        npcmsg(msg_0506_T07R0206_00003)
+        npcmsg("Going down.\r")
         setvar(VAR_SPECIAL_x8004, 1)
         return
     _02A7:
@@ -112,18 +114,19 @@ script scr_seq_T07R0206_000 {
         Case(0, _02FC)
         end
     _02EA:
-        npcmsg(msg_0506_T07R0206_00007)
+        npcmsg("You’ve arrived at the roof.\r")
         goto(_032E)
     _02F3:
-        npcmsg(msg_0506_T07R0206_00006)
+        npcmsg("You’ve arrived at the third floor--\n"
+               "Game Freak.\r")
         goto(_032E)
     _02FC:
-        npcmsg(msg_0506_T07R0206_00005)
+        npcmsg("You’ve arrived at the first floor.\r")
         goto(_032E)
     _0305:
         setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
         wait(1, VAR_SPECIAL_RESULT)
-        npcmsg(msg_0506_T07R0206_00004)
+        npcmsg("We are already there.")
         waitbuttonpress
         closemessage
         setvar(VAR_UNK_4125, 1)
@@ -133,7 +136,7 @@ script scr_seq_T07R0206_000 {
         setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
         wait(1, VAR_SPECIAL_RESULT)
     _032E:
-        npcmsg(msg_0506_T07R0206_00001)
+        npcmsg("Please come again.")
         waitbuttonpress
         closemessage
         setvar(VAR_UNK_4125, 1)

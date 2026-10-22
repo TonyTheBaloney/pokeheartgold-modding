@@ -88,7 +88,8 @@ _009A:
             goto(_0126)
             end
         _01F0:
-            npcmsg(msg_0109_D32R0501_00007)
+            npcmsg("Please select the Pokémon you wish\n"
+                   "to enter.\r")
             closemessage
             fadescreen(6, 1, 0, RGB_BLACK)
             waitfade
@@ -131,7 +132,10 @@ _009A:
                 goto(_04CB)
                 end
             _02FE:
-                npcmsg(msg_0109_D32R0501_00043)
+                npcmsg("One Trainer should select\n"
+                       "“BECOME LEADER.”\r"
+                       "The other Trainer must select\n"
+                       "“JOIN GROUP.” {YESNO 0}")
                 touchscreenmenuhide
                 menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
                 menuitemadd(14, 255, 0)
@@ -188,7 +192,8 @@ _009A:
                         Case(3, _049E)
                         linksyncclearpackets
                         linksyncandwait(138)
-                        npcmsg(msg_0109_D32R0501_00045)
+                        npcmsg("You must save the game before\n"
+                               "I show you in. Please wait.")
                         compare(VAR_UNK_4148, 2)
                         callifeq(_046A)
                         call(_06FD)
@@ -213,7 +218,10 @@ _009A:
                         call(_04C1)
                         buffermonspeciesname(0, VAR_TEMP_x4002)
                         buffermonspeciesname(1, VAR_TEMP_x4005)
-                        npcmsg(msg_0109_D32R0501_00030)
+                        npcmsg("Both Trainers have chosen the Pokémon\n"
+                               "{STRVAR_1 0, 0, 0} and {STRVAR_1 0, 1, 0}.\r"
+                               "Please confer with the other Trainer\n"
+                               "and choose different Pokémon.\r")
                         goto(_04B9)
                         end
                     _04B9:
@@ -337,11 +345,34 @@ _0126:
     end
 _012E:
     setvar(VAR_UNK_4147, 0)
-    npcmsg(msg_0109_D32R0501_00006)
+    npcmsg("We hope to see you again!")
     waitbuttonpress
     closemessage
     releaseall
     end
+}
+
+text msg_0109_D32R0501_00008 {
+    "Excuse me!\r"
+    "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r"
+    "You must have {STRVAR_1 50, 1, 0} different Pokémon\n"
+    "to enter.\r"
+}
+
+text msg_0109_D32R0501_00044 {
+    "We need to launch DS Wireless\n"
+    "Communications. {YESNO 0}"
+}
+
+text msg_0109_D32R0501_00029 {
+    "Both Trainers have chosen the\n"
+    "Pokémon {STRVAR_1 0, 0, 0}.\r"
+    "Please confer with the other Trainer\n"
+    "and choose different Pokémon.\r"
+}
+
+text msg_0109_D32R0501_00032 {
+    "Right this way, please!"
 }
 
 movement BattleFrontier_BattleCastle_Movement_060C {
@@ -393,29 +424,71 @@ movement BattleFrontier_BattleCastle_Movement_067C {
 }
 
 script(local) _068C {
-    npcmsg(msg_0109_D32R0501_00000)
+    npcmsg("Welcome to the Battle Castle!\r"
+           "I am your guide to the Single and\n"
+           "Double Battle challenges.\r"
+           "Please be aware that these challenges\n"
+           "are designed for a single Trainer.\r")
     return
 _0691:
-    npcmsg(msg_0109_D32R0501_00003)
+    npcmsg("Welcome to the Battle Castle!\r"
+           "I am your guide to the Multi Battle\n"
+           "challenge.\r"
+           "Please be aware that this challenge\n"
+           "requires two Trainers.\r")
     return
 _0696:
-    npcmsg(msg_0109_D32R0501_00001)
+    npcmsg("Which challenge would you\n"
+           "like to take? {YESNO 0}")
     touchscreenmenuhide
     menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(38, 255, 0)
     menuitemadd(39, 255, 1)
     return
 _06B5:
-    npcmsg(msg_0109_D32R0501_00004)
+    npcmsg("Would you like to take the Battle\n"
+           "Castle Multi Battle challenge? {YESNO 0}")
     touchscreenmenuhide
     menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
     menuitemadd(40, 255, 4)
     return
 _06CC:
-    npcmsg(msg_0109_D32R0501_00002)
+    npcmsg("At the Battle Castle, you may take a\n"
+           "Single or Double Battle challenge.\r"
+           "Here, you are provided with Castle\n"
+           "Points (CP) that you must manage.\r"
+           "The CP are used for healing Pokémon,\n"
+           "renting items or Berries, and so on.\r"
+           "CP are earned by winning matches.\n"
+           "The amount varies by how you win.\r"
+           "The objective is to keep a winning\n"
+           "streak alive while managing your CP.\r"
+           "If you manage to win seven matches in\n"
+           "a row, you will earn Battle Points (BP).\r"
+           "If you want to interrupt your\n"
+           "challenge, please save the game.\r"
+           "If you don’t save, you will be\n"
+           "disqualified from your challenge.\r"
+           "Please be aware of that!\r")
     return
 _06D1:
-    npcmsg(msg_0109_D32R0501_00005)
+    npcmsg("You may team up with a friend for a\n"
+           "Multi Battle challenge.\r"
+           "Both Trainers are provided with Castle\n"
+           "Points (CP) that must be managed.\r"
+           "The CP is used for healing Pokémon,\n"
+           "renting items or Berries, and so on.\r"
+           "Trainers can use their CP on not only\n"
+           "their own Pokémon, but also their\f"
+           "partner’s.\r"
+           "Both Trainers earn CP by winning\n"
+           "matches.\r"
+           "The objective is to keep a winning\n"
+           "streak alive while managing your CP.\r"
+           "If you manage to win seven matches in\n"
+           "a row, you will earn Battle Points (BP).\r"
+           "Please note: a Battle Castle Multi\n"
+           "Battle challenge can’t be interrupted.\r")
     return
 }
 
@@ -423,7 +496,9 @@ script scr_seq_D32R0501_001 {
     checkfieldheapfreesize(0)
     setvar(VAR_TEMP_x4003, 1)
     setvar(VAR_UNK_4147, 0)
-    npcmsg(msg_0109_D32R0501_00033)
+    npcmsg("We’ve missed you!\r"
+           "You must save the game before you\n"
+           "resume your challenge. Please wait.")
     call(_046A)
     call(_06FD)
     goto(_04CB)
@@ -440,7 +515,11 @@ _06FD:
 script scr_seq_D32R0501_002 {
     lockall
     faceplayer
-    npcmsg(msg_0109_D32R0501_00034)
+    npcmsg("Excuse me!\r"
+           "You didn’t save before you quit your\n"
+           "challenge last time.\r"
+           "Because of that, you have been\n"
+           "disqualified from your challenge!\r")
     battlecastleresetstreak(VAR_UNK_4148)
     compare(VAR_BATTLE_CASTLE_PRINT_PROGRESS, 1)
     callifeq(_073C)
@@ -473,7 +552,8 @@ _0788:
 _078E:
     npcmsg(msg_0109_D32R0501_00035)
     bufferplayersname(0)
-    npcmsg(msg_0109_D32R0501_00037)
+    npcmsg("The Silver Print was added to\n"
+           "{STRVAR_1 3, 0, 0}’s Vs. Recorder!\r")
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
     setvar(VAR_BATTLE_CASTLE_PRINT_PROGRESS, 2)
@@ -481,12 +561,19 @@ _078E:
 _07A5:
     npcmsg(msg_0109_D32R0501_00035)
     bufferplayersname(0)
-    npcmsg(msg_0109_D32R0501_00036)
+    npcmsg("The Gold Print was added to\n"
+           "{STRVAR_1 3, 0, 0}’s Vs. Recorder!\r")
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
     setvar(VAR_BATTLE_CASTLE_PRINT_PROGRESS, 4)
     callstd(std_frontier_gold_prints_check)
     return
+}
+
+text msg_0109_D32R0501_00035 {
+    "Congratulations!\r"
+    "In recognition of your victory, we\n"
+    "present you with a commemorative print!\r"
 }
 
 script scr_seq_D32R0501_004 {
@@ -507,37 +594,65 @@ movement BattleFrontier_BattleCastle_Movement_07D8 {
 }
 
 script scr_seq_D32R0501_006 {
-    simplenpcmsg(msg_0109_D32R0501_00046)
+    simplenpcmsg("Listen carefully!\r"
+                 "If your Pokémon win without taking\n"
+                 "damage, you earn more CP.\f"
+                 "The more, the merrier!\f"
+                 "Look at me. I don’t have much...")
     end
 }
 
 script scr_seq_D32R0501_007 {
-    simplenpcmsg(msg_0109_D32R0501_00047)
+    simplenpcmsg("Listen!\r"
+                 "You can earn more Castle Points or CP\n"
+                 "by facing higher-level opponents.\r"
+                 "This is what they call high risk,\n"
+                 "high return!")
     end
 }
 
 script scr_seq_D32R0501_008 {
-    simplenpcmsg(msg_0109_D32R0501_00048)
+    simplenpcmsg("Before every battle, you should check\n"
+                 "the opponent’s lineup.\r"
+                 "Don’t be cheap with your CP.\n"
+                 "It’s like that old saying goes about\f"
+                 "knowing your enemy.\r"
+                 "“Unless you enter the enemy’s lair,\n"
+                 "you cannot take their prize.”\r"
+                 "...\f"
+                 "That’s not the right old saying!")
     end
 }
 
 script scr_seq_D32R0501_009 {
-    simplenpcmsg(msg_0109_D32R0501_00049)
+    simplenpcmsg("Mr. Darach...\r"
+                 "His feelings for Lady Caitlin are\n"
+                 "all bottled up...\r"
+                 "Oh, how I pine for him...")
     end
 }
 
 script scr_seq_D32R0501_010 {
-    simplenpcmsg(msg_0109_D32R0501_00050)
+    simplenpcmsg("At first, you can only use CP for\n"
+                 "restoring HP.\r"
+                 "But you can spend CP to rank up.\n"
+                 "Then, you can even restore PP!")
     end
 }
 
 script scr_seq_D32R0501_011 {
-    simplenpcmsg(msg_0109_D32R0501_00051)
+    simplenpcmsg("If you lose, your entire stock of CP\n"
+                 "is cleaned out to zero!\r"
+                 "This is the rule at the Battle Castle.")
     end
 }
 
 script scr_seq_D32R0501_012 {
-    simplenpcmsg(msg_0109_D32R0501_00052)
+    simplenpcmsg("My dream is to wear a beautiful dress\n"
+                 "and live in a castle!\r"
+                 "That’s not what I meant to say...\r"
+                 "My dream is to live in a castle with\n"
+                 "someone who wears a beautiful dress!")
     end
 }
 

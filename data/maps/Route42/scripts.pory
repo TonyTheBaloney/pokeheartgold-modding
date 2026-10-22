@@ -30,12 +30,19 @@ script scr_seq_R42_000 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0399_R42_00005)
+    npcmsg("Oh, boy!\r"
+           "Sorry that I bumped into you.\r"
+           "Did I hurt you?\r"
+           "Please don’t cry.\n"
+           "Here, take this.\r")
     closemessage
     applymovement(obj_R42_mount_2_2, Route42_Movement_01D4)
     waitmovement
     giveitemnocheck(ITEM_HM04, 1)
-    npcmsg(msg_0399_R42_00006)
+    npcmsg("It’s a move called Strength!\r"
+           "When a Pokémon learns it, it can move\n"
+           "boulders out of your way.\f"
+           "Enjoy a happy mountain-climbing life!\r")
     closemessage
     if (var(VAR_SPECIAL_x8001) == 172) {
         applymovement(obj_R42_mount_2_2, Route42_Movement_01DC)
@@ -149,16 +156,31 @@ script scr_seq_R42_001 {
     callstd(std_play_eusine_music)
     applymovement(obj_R42_minaki, Route42_Movement_0324)
     waitmovement
-    npcmsg(msg_0399_R42_00007)
+    npcmsg("Eusine: SUICUNE...\n"
+           "How brave it is!\f"
+           "How refreshing it is!\f"
+           "How beautiful it is!\f"
+           "And how quickly it moves!\r")
     closemessage
     applymovement(obj_R42_minaki, Route42_Movement_0334)
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0399_R42_00008)
+    npcmsg("{STRVAR_1 3, 0, 0}!\n"
+           "You seem to be around where\f"
+           "SUICUNE would appear.\r"
+           "Well, that’s OK.\n"
+           "My desire to search for SUICUNE is\f"
+           "far beyond yours...\r"
+           "My grandpa was...quite into myths.\n"
+           "I’ve heard so many stories about\f"
+           "SUICUNE from him.\r")
     closemessage
     applymovement(obj_R42_minaki, Route42_Movement_0348)
     waitmovement
-    npcmsg(msg_0399_R42_00009)
+    npcmsg("SUICUNE...\r"
+           "I won’t stop following you until\n"
+           "I’ve found out what you’re after...\r"
+           "You hear me!\r")
     closemessage
     applymovement(obj_R42_minaki, Route42_Movement_0340)
     waitmovement
@@ -213,22 +235,26 @@ movement Route42_Movement_0348 {
 }
 
 script scr_seq_R42_002 {
-    directionsignpostex(1, 1, msg_0399_R42_00000)
+    directionsignpostex(1, 1, "Rt. 42 Ecruteak City\n"
+                              "to Mahogany Town")
     end
 }
 
 script scr_seq_R42_003 {
-    trainertipsex(2, msg_0399_R42_00001)
+    trainertipsex(2, "Mt. Mortar\n"
+                     "Waterfall Cave Inside")
     end
 }
 
 script scr_seq_R42_004 {
-    trainertipsex(2, msg_0399_R42_00002)
+    trainertipsex(2, "Mt. Mortar\n"
+                     "Waterfall Cave Inside")
     end
 }
 
 script scr_seq_R42_005 {
-    directionsignpostex(1, 2, msg_0399_R42_00003)
+    directionsignpostex(1, 2, "Rt. 42 Mahogany Town\n"
+                              "to Ecruteak City")
     end
 }
 

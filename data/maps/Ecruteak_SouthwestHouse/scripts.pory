@@ -6,12 +6,18 @@ script(local) _000A {
 }
 
 script scr_seq_T27R0401_000 {
-    simplenpcmsg(msg_0617_T27R0401_00000)
+    simplenpcmsg("This happened when I was young.\r"
+                 "The sky suddenly turned black.\n"
+                 "A giant Flying-type Pokémon was\f"
+                 "blocking out the sun.\r"
+                 "I wonder what that Pokémon was?\r"
+                 "It was like a bird and like a dragon.")
     end
 }
 
 script scr_seq_T27R0401_001 {
-    simplenpcmsg(msg_0617_T27R0401_00001)
+    simplenpcmsg("Is there really a Pokémon that big?\f"
+                 "If it exists, it must be powerful.")
     end
 }
 

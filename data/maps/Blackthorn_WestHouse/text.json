@@ -3,13 +3,7 @@
   "messages": [
     {
       "id": "msg_0633_T30R0201_00000",
-      "en_US": [
-        "A clan of Trainers who can freely\n",
-        "command Dragon-type Pokémon lives\f",
-        "right here in Blackthorn.\r",
-        "As a result, there are many legends\n",
-        "about dragons in this town."
-      ]
+      "from": "scr_seq_T30R0201_000#0"
     },
     {
       "id": "msg_0633_T30R0201_00001",
@@ -20,7 +14,7 @@
     },
     {
       "id": "msg_0633_T30R0201_00002",
-      "en_US": "DRATINI: Draa!"
+      "from": "scr_seq_T30R0201_001#0"
     }
   ]
 }

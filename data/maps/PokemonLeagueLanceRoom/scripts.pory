@@ -58,7 +58,27 @@ script scr_seq_T10R0601_000 {
     applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_02C0)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0527_T10R0601_00000, msg_0527_T10R0601_00001)
+    gendermsgbox("Lance: I’ve been waiting for you.\r"
+                 "{STRVAR_1 3, 0, 0}!\r"
+                 "I knew that you, with your skills,\n"
+                 "would eventually reach me here.\r"
+                 "There’s no need for words now.\r"
+                 "We will battle to determine who is\n"
+                 "the stronger of the two of us.\r"
+                 "As the most powerful Trainer and as\n"
+                 "the Pokémon League Champion...\r"
+                 "I, Lance the dragon master,\n"
+                 "accept your challenge!\r", "Lance: I’ve been waiting for you.\r"
+                                             "{STRVAR_1 3, 0, 0}!\r"
+                                             "I knew that you, with your skills,\n"
+                                             "would eventually reach me here.\r"
+                                             "There’s no need for words now.\r"
+                                             "We will battle to determine who is\n"
+                                             "the stronger of the two of us.\r"
+                                             "As the most powerful Trainer and as\n"
+                                             "the Pokémon League Champion...\r"
+                                             "I, Lance the dragon master,\n"
+                                             "accept your challenge!\r")
     closemessage
     if (var(VAR_UNK_4135) >= 8) {
         trainerbattle(TRAINER_CHAMPION_LANCE_2, 0, 0, 0)
@@ -72,7 +92,19 @@ script scr_seq_T10R0601_000 {
         end
     }
     bufferplayersname(0)
-    gendermsgbox(msg_0527_T10R0601_00002, msg_0527_T10R0601_00003)
+    gendermsgbox("...Whew.\r"
+                 "You have become truly powerful,\n"
+                 "{STRVAR_1 3, 0, 0}.\r"
+                 "Your Pokémon have responded to your\n"
+                 "strong and upstanding nature.\r"
+                 "As a Trainer, you will continue to\n"
+                 "grow strong with your Pokémon.\r", "...Whew.\r"
+                                                     "You have become truly powerful,\n"
+                                                     "{STRVAR_1 3, 0, 0}.\r"
+                                                     "Your Pokémon have responded to your\n"
+                                                     "strong and upstanding nature.\r"
+                                                     "As a Trainer, you will continue to\n"
+                                                     "grow strong with your Pokémon.\r")
     closemessage
     wait(10, VAR_SPECIAL_x8004)
     playse(SEQ_SE_DP_KI_GASYAN)
@@ -98,22 +130,49 @@ script scr_seq_T10R0601_000 {
     }
     applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_0338)
     waitmovement
-    npcmsg(msg_0527_T10R0601_00005)
+    npcmsg("Mary: Oh, no! It’s all over!\n"
+           "Professor Oak, if you weren’t\f"
+           "so slow...\r")
     closemessage
     applymovement(obj_T10R0601_ookido, PokemonLeagueLanceRoom_Movement_0348)
     applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_0350)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0527_T10R0601_00006, msg_0527_T10R0601_00007)
+    gendermsgbox("Professor Oak: Ah, {STRVAR_1 3, 0, 0}!\n"
+                 "It’s been a long while.\f"
+                 "You certainly look more impressive.\r"
+                 "Your conquest of the League is just\n"
+                 "fantastic!\r"
+                 "Your dedication, trust, and love for\n"
+                 "your Pokémon made this happen.\r"
+                 "Your Pokémon were outstanding, too.\r"
+                 "Because they believed in you as a\n"
+                 "Trainer, they persevered.\r"
+                 "Congratulations, {STRVAR_1 3, 0, 0}!\r", "Professor Oak: Ah, {STRVAR_1 3, 0, 0}!\n"
+                                                           "It’s been a long while.\f"
+                                                           "You certainly look more impressive.\r"
+                                                           "Your conquest of the League is just\n"
+                                                           "fantastic!\r"
+                                                           "Your dedication, trust, and love for\n"
+                                                           "your Pokémon made this happen.\r"
+                                                           "Your Pokémon were outstanding, too.\r"
+                                                           "Because they believed in you as a\n"
+                                                           "Trainer, they persevered.\r"
+                                                           "Congratulations, {STRVAR_1 3, 0, 0}!\r")
     closemessage
     applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_0360)
     waitmovement
-    npcmsg(msg_0527_T10R0601_00008)
+    npcmsg("Mary: Let’s interview the brand-new\n"
+           "Champion!\r")
     applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_0368)
     applymovement(obj_player, PokemonLeagueLanceRoom_Movement_0378)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0527_T10R0601_00009, msg_0527_T10R0601_00010)
+    gendermsgbox("Lance: This is getting to be a\n"
+                 "bit too noisy...\r"
+                 "{STRVAR_1 3, 0, 0}, could you come with me?\r", "Lance: This is getting to be a\n"
+                                                                  "bit too noisy...\r"
+                                                                  "{STRVAR_1 3, 0, 0}, could you come with me?\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -132,7 +191,8 @@ script scr_seq_T10R0601_000 {
     playse(SEQ_SE_DP_KAIDAN2)
     applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_03AC)
     waitmovement
-    npcmsg(msg_0527_T10R0601_00011)
+    npcmsg("Mary: Oh, wait!\n"
+           "We haven’t done the interview!")
     applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_03BC)
     waitmovement
     waitabpress

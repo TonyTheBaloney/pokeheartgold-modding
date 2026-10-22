@@ -11,10 +11,19 @@ script scr_seq_R11R0101_001 {
     lockall
     faceplayer
     if (flag(FLAG_SNORLAX_MEET)) {
-        npcmsg(msg_0347_R11R0101_00001)
+        npcmsg("Hello, passerby!\r"
+               "Have you been to DIGLETT’s Cave?\n"
+               "Now that the sleeping SNORLAX is gone,\f"
+               "you can go through it to get\f"
+               "to Route 2!")
         goto(_0028)
     }
-    npcmsg(msg_0347_R11R0101_00000)
+    npcmsg("Hello, passerby!\r"
+           "Have you seen DIGLETT’s Cave?\n"
+           "Normally you can go through it to get\f"
+           "to Route 2, but there is a sleeping\f"
+           "SNORLAX at the entrance now.\f"
+           "Somebody has to wake it up!")
 _0028:
     waitbuttonpress
     closemessage

@@ -37,7 +37,10 @@ script scr_seq_D49R0104_011 {
 }
 
 script scr_seq_D49R0104_000 {
-    simplenpcmsg(msg_0140_D49R0104_00000)
+    simplenpcmsg("This is the “Solidarity” room.\r"
+                 "It is to show the solidarity of Pokémon\n"
+                 "and people, as well as the history\f"
+                 "of the Pokéathlon.")
     end
 }
 
@@ -46,13 +49,16 @@ script scr_seq_D49R0104_001 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_0EF)) {
-        npcmsg(msg_0140_D49R0104_00002)
+        npcmsg("This is the “Trust” room.\n"
+               "Please go ahead.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0140_D49R0104_00001)
+    npcmsg("Only the Pokéathletes who have\n"
+           "come in first in five of the courses\f"
+           "are allowed here.")
     waitbuttonpress
     closemessage
     releaseall
@@ -60,7 +66,7 @@ script scr_seq_D49R0104_001 {
 }
 
 script scr_seq_D49R0104_002 {
-    simplenpcmsg(msg_0140_D49R0104_00003)
+    simplenpcmsg("The Pokéathlon does go way back.")
     end
 }
 
@@ -68,12 +74,14 @@ script scr_seq_D49R0104_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0140_D49R0104_00004)
+    npcmsg("When you win a course,\n"
+           "you receive a Medal!\f"
+           "I’ve got to win at every course!\r")
     closemessage
     applymovement(obj_D49R0104_tsure_poke_static_rattata, PokeathlonDome_Interior_B1FSolidarityRoom_Movement_00F0)
     waitmovement
     playcry(SPECIES_RATTATA, 0)
-    npcmsg(msg_0140_D49R0104_00011)
+    npcmsg("RATTATA: Kooar!")
     waitcry
     waitbuttonpress
     closemessage
@@ -86,7 +94,9 @@ movement PokeathlonDome_Interior_B1FSolidarityRoom_Movement_00F0 {
 }
 
 script scr_seq_D49R0104_004 {
-    simplenpcmsg(msg_0140_D49R0104_00005)
+    simplenpcmsg("I heard that Pokéathletes with great\n"
+                 "records are going to have their shoes\f"
+                 "displayed at the museum!")
     end
 }
 
@@ -95,7 +105,7 @@ script scr_seq_D49R0104_005 {
     lockall
     faceplayer
     playcry(SPECIES_RATTATA, 0)
-    npcmsg(msg_0140_D49R0104_00010)
+    npcmsg("RATTATA: Ffft!")
     waitcry
     waitbuttonpress
     closemessage
@@ -108,7 +118,7 @@ script scr_seq_D49R0104_006 {
     lockall
     faceplayer
     playcry(SPECIES_ZUBAT, 0)
-    npcmsg(msg_0140_D49R0104_00012)
+    npcmsg("ZUBAT: Quuooh.")
     waitcry
     waitbuttonpress
     closemessage
@@ -121,7 +131,8 @@ script scr_seq_D49R0104_007 {
     lockall
     faceplayer
     bufferplayersname(0)
-    npcmsg(msg_0140_D49R0104_00006)
+    npcmsg("{STRVAR_1 3, 0, 0} checked\n"
+           "the course record!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -134,22 +145,42 @@ script scr_seq_D49R0104_007 {
 }
 
 script scr_seq_D49R0104_008 {
-    simplenpcmsg(msg_0140_D49R0104_00007)
+    simplenpcmsg("It is an old wall painting.\r"
+                 "One person and three Pokémon\n"
+                 "seem to be learning something\f"
+                 "from looking up at the sky.")
     end
 }
 
 script scr_seq_D49R0104_009 {
-    simplenpcmsg(msg_0140_D49R0104_00008)
+    simplenpcmsg("It is an old, worn scroll.\r"
+                 "“Pokéathlon Myth\r"
+                 "When a disease took over the entire\n"
+                 "island, one human and three Pokémon\f"
+                 "overcame ten obstacles to spread the\f"
+                 "word about the cure.”")
     end
 }
 
 script scr_seq_D49R0104_010 {
-    simplenpcmsg(msg_0140_D49R0104_00009)
+    simplenpcmsg("It’s an old scroll.\r"
+                 "“The Beginning of Pokéathlon\r"
+                 "To commemorate the friendship of the\n"
+                 "person and three Pokémon that\f"
+                 "conveyed the words of the cure, people\f"
+                 "started to tell of their achievement.”\r"
+                 "...\n"
+                 "The commemorating eventually took the\f"
+                 "form of ten games to compete in, just\f"
+                 "like the obstacles in the legend...”")
     end
 }
 
 script scr_seq_D49R0104_013 {
-    simplenpcmsg(msg_0140_D49R0104_00013)
+    simplenpcmsg("“Pokéathlon Almanac”\r"
+                 "There are many Pokéathletes and\n"
+                 "Pokémon Medalists shown in\f"
+                 "the photos.\n")
     end
 }
 

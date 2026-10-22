@@ -4,7 +4,8 @@
 script scr_seq_T01R0102_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0448_T01R0102_00000)
+    npcmsg("It’s a Wii!\n"
+           "Wii is huge in Kanto, too!")
     waitbuttonpress
     closemessage
     releaseall
@@ -14,7 +15,8 @@ script scr_seq_T01R0102_000 {
 script scr_seq_T01R0102_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0448_T01R0102_00001)
+    npcmsg("It looks like it hasn’t been used\n"
+           "in a long time...")
     waitbuttonpress
     closemessage
     releaseall

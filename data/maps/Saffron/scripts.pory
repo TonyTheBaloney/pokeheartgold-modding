@@ -223,13 +223,18 @@ script scr_seq_T11_002 {
     lockall
     faceplayer
     if (flag(FLAG_HIDE_SAFFRON_CITY_COPYCAT_HOUSE_CLEFAIRY_DOLL)) {
-        npcmsg(msg_0529_T11_00003)
+        npcmsg("The Copycat girl looked unhappy.\r"
+               "She said she lost her cherished\n"
+               "Poké Doll--CLEFAIRY.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0529_T11_00002)
+    npcmsg("This is the house of the Copycat girl.\r"
+           "She is so good at being a copycat\n"
+           "of the way people talk that it’ll\f"
+           "confuse you when you talk to her.")
     waitbuttonpress
     closemessage
     releaseall
@@ -237,67 +242,99 @@ script scr_seq_T11_002 {
 }
 
 script scr_seq_T11_000 {
-    simplenpcmsg(msg_0529_T11_00000)
+    simplenpcmsg("Our city was featured on a\n"
+                 "radio show.\r"
+                 "It’s nice to hear praise for your\n"
+                 "city, but it’s a bit embarrassing, too.")
     end
 }
 
 script scr_seq_T11_001 {
-    simplenpcmsg(msg_0529_T11_00001)
+    simplenpcmsg("I went to the Gym, raring for battles\n"
+                 "against Trainers...\r"
+                 "It turns out, I stumbled into the\n"
+                 "unused Gym next door.\f"
+                 "Boy, I was pretty embarrassed.")
     end
 }
 
 script scr_seq_T11_003 {
-    simplenpcmsg(msg_0529_T11_00004)
+    simplenpcmsg("Going into an alley for the first time\n"
+                 "makes me sorta anxious.")
     end
 }
 
 script scr_seq_T11_004 {
-    simplenpcmsg(msg_0529_T11_00005)
+    simplenpcmsg("Chomp... Chew...\r"
+                 "The manager of the Power Plant\n"
+                 "used to be a repairman in a\f"
+                 "small factory.\r"
+                 "Chew... Chew...\r"
+                 "His hard work has taken him up the\n"
+                 "ladder to eventually become the\f"
+                 "manager of the Power Plant.\f"
+                 "Chew... Gulp...\r"
+                 "Quite impressive, don’t you think?\n"
+                 "Haaah, I’m full!")
     end
 }
 
 script scr_seq_T11_005 {
-    simplenpcmsg(msg_0529_T11_00006)
+    simplenpcmsg("This is Silph Co., famous for\n"
+                 "Pokémon merchandise.\r"
+                 "In the past, Team Rocket wanted the\n"
+                 "company because of that.")
     end
 }
 
 script scr_seq_T11_006 {
-    simplenpcmsg(msg_0529_T11_00007)
+    simplenpcmsg("There’s a place called Trainer House\n"
+                 "in Viridian where Trainers gather from\f"
+                 "all over the place.")
     end
 }
 
 script scr_seq_T11_007 {
-    simplenpcmsg(msg_0529_T11_00008)
+    simplenpcmsg("You came out from Johto?\r"
+                 "You can zip back home by hopping on\n"
+                 "the Magnet Train.")
     end
 }
 
 script scr_seq_T11_008 {
-    trainertipsex(2, msg_0529_T11_00009)
+    trainertipsex(2, "Kanto-Johto Magnet Train Line\n"
+                     "Saffron City Station")
     end
 }
 
 script scr_seq_T11_009 {
-    directionsignpostex(0, 10, msg_0529_T11_00010)
+    directionsignpostex(0, 10, "Saffron City\n"
+                               "Shining Big City")
     end
 }
 
 script scr_seq_T11_010 {
-    trainertipsex(2, msg_0529_T11_00011)
+    trainertipsex(2, "Everyone Is Welcome!\n"
+                     "Fighting Dojo")
     end
 }
 
 script scr_seq_T11_011 {
-    trainertipsex(2, msg_0529_T11_00012)
+    trainertipsex(2, "Saffron City Pokémon Gym\n"
+                     "Leader: Sabrina\f"
+                     "The Mistress of Psychic-Type Pokémon!")
     end
 }
 
 script scr_seq_T11_012 {
-    trainertipsex(2, msg_0529_T11_00013)
+    trainertipsex(2, "Silph Co.\n"
+                     "Office Building")
     end
 }
 
 script scr_seq_T11_013 {
-    trainertipsex(2, msg_0529_T11_00014)
+    trainertipsex(2, "Don’t Call Me Uncle Psychic!\n"
+                     "Mr. Psychic’s House")
     end
 }
 

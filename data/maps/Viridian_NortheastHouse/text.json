@@ -3,27 +3,19 @@
   "messages": [
     {
       "id": "msg_0456_T02R0201_00000",
-      "en_US": [
-        "Do you put a lot of thought into naming\n",
-        "your Pokémon?\r",
-        "Giving them good nicknames adds to the\n",
-        "fun of trading with others."
-      ]
+      "from": "scr_seq_T02R0201_000#0"
     },
     {
       "id": "msg_0456_T02R0201_00001",
-      "en_US": [
-        "They’re Speary--a SPEAROW--and\n",
-        "Rattey--a RATTATA."
-      ]
+      "from": "scr_seq_T02R0201_001#0"
     },
     {
       "id": "msg_0456_T02R0201_00002",
-      "en_US": "Speary: Ch-chun!"
+      "from": "scr_seq_T02R0201_002#0"
     },
     {
       "id": "msg_0456_T02R0201_00003",
-      "en_US": "Rattey: Kikiii!"
+      "from": "scr_seq_T02R0201_003#0"
     }
   ]
 }

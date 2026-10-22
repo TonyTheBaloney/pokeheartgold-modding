@@ -56,7 +56,15 @@ script scr_seq_T03GYM0101_000 {
     faceplayer
     checkbadge(BADGE_BOULDER, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0195) }
-    npcmsg(msg_0462_T03GYM0101_00000)
+    npcmsg("Brock: Wow, it’s not often that we\n"
+           "get a challenger from Johto.\r"
+           "I’m Brock, the Pewter Gym Leader.\f"
+           "I’m an expert on Rock-type Pokémon.\r"
+           "My Pokémon are impervious to most\n"
+           "physical attacks.\r"
+           "You’ll have a hard time inflicting\n"
+           "any damage.\r"
+           "Come on!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_BROCK_BROCK, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -70,13 +78,27 @@ script scr_seq_T03GYM0101_000 {
     addspecialgamestat(SCORE_EVENT_BADGE_GET)
     settrainerflag(TRAINER_CAMPER_JERRY)
     settrainerflag(TRAINER_HIKER_EDWIN)
-    npcmsg(msg_0462_T03GYM0101_00001)
+    npcmsg("Brock: Your Pokémon’s powerful\n"
+           "attacks overcame my\f"
+           "rock-hard resistance...\r"
+           "You’re stronger than\n"
+           "I expected...\f"
+           "Go ahead--take this Badge.\r")
     bufferplayersname(0)
-    npcmsg(msg_0462_T03GYM0101_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Boulder Badge from Brock!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
     bufferplayersname(0)
-    gendermsgbox(msg_0462_T03GYM0101_00003, msg_0462_T03GYM0101_00004)
+    gendermsgbox("Brock: I really enjoyed the battle\n"
+                 "with you, {STRVAR_1 3, 0, 0}!\f"
+                 "I’ll give you the move Rock Slide, too.\r"
+                 "It can sometimes cause your foe\n"
+                 "to flinch.\r", "Brock: I really enjoyed the battle\n"
+                                 "with you, {STRVAR_1 3, 0, 0}!\f"
+                                 "I’ll give you the move Rock Slide, too.\r"
+                                 "It can sometimes cause your foe\n"
+                                 "to flinch.\r")
     goto(_016C)
 _016C:
     if (!itemspace(ITEM_TM80, 1)) { goto(_01AE) }
@@ -85,7 +107,11 @@ _016C:
 _0195:
     if (!flag(FLAG_GOT_TM80_FROM_BROCK)) { goto(_016C) }
     bufferplayersname(0)
-    npcmsg(msg_0462_T03GYM0101_00005)
+    npcmsg("Brock: The world is huge. There are\n"
+           "still many strong Trainers like you.\r"
+           "Just wait and see.\r"
+           "I’m going to become a lot\n"
+           "stronger, too.")
     waitbuttonpress
     closemessage
     releaseall
@@ -103,13 +129,22 @@ script scr_seq_T03GYM0101_001 {
     faceplayer
     checkbadge(BADGE_BOULDER, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0462_T03GYM0101_00007)
+        npcmsg("Yo! Legend in the making! That Gym\n"
+               "didn’t give you much trouble.\r"
+               "The way you took charge was\n"
+               "really inspiring.\f"
+               "I mean that seriously.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0462_T03GYM0101_00006)
+    npcmsg("Yo! Legend in the making! You look...\f"
+           "really rocking.\r"
+           "Are you battling the Gym Leaders\n"
+           "of Kanto?\r"
+           "They’re strong and dedicated people,\n"
+           "just like Johto’s Gym Leaders.")
     waitbuttonpress
     closemessage
     releaseall
@@ -123,9 +158,12 @@ script scr_seq_T03GYM0101_002 {
     checkbadge(BADGE_BOULDER, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0462_T03GYM0101_00008)
+        npcmsg("Pewter City Pokémon Gym")
     } else {
-        npcmsg(msg_0462_T03GYM0101_00009)
+        npcmsg("Pewter City Pokémon Gym\r"
+               "Leader: Brock\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

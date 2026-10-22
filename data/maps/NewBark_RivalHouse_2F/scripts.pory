@@ -31,7 +31,21 @@ script scr_seq_T20R0402_000 {
                 bufferplayersname(0)
                 getfollowpokepartyindex(VAR_SPECIAL_RESULT)
                 bufferpartymonnick(1, VAR_SPECIAL_RESULT)
-                gendermsgbox(msg_0549_T20R0402_00015, msg_0549_T20R0402_00016)
+                gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\n"
+                             "How is your Pokémon?\r"
+                             "You can talk to it as you walk from time\n"
+                             "to time to nurture your friendship!\r"
+                             "...\r"
+                             "Oh, I get it.\n"
+                             "Are you here to check on the award\f"
+                             "with {STRVAR_1 1, 1, 0}?\r", "Ethan: Hi, {STRVAR_1 3, 0, 0}!\n"
+                                                           "How is your Pokémon?\r"
+                                                           "You can talk to it as you walk from time\n"
+                                                           "to time to nurture your friendship!\r"
+                                                           "...\r"
+                                                           "Oh, I get it.\n"
+                                                           "Are you here to check on the award\f"
+                                                           "with {STRVAR_1 1, 1, 0}?\r")
                 closemessage
                 goto(_010D)
             }
@@ -39,7 +53,27 @@ script scr_seq_T20R0402_000 {
                 trygiveshinyleafcrown(VAR_SPECIAL_x8006)
                 setflag(FLAG_UNK_184)
                 bufferplayersname(0)
-                gendermsgbox(msg_0549_T20R0402_00011, msg_0549_T20R0402_00012)
+                gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\n"
+                             "How is your Pokémon you’re\f"
+                             "walking with?\r"
+                             "You can talk to it as you walk from time\n"
+                             "to time to nurture your friendship!\r"
+                             "...\r"
+                             "Ha! You have already collected five\f"
+                             "Shiny Leaves!\r"
+                             "Let me turn them into a crown!\n"
+                             "And what’s more...\f"
+                             "I will give you this, too!\r", "Ethan: Hi, {STRVAR_1 3, 0, 0}!\n"
+                                                             "How is your Pokémon you’re\f"
+                                                             "walking with?\r"
+                                                             "You can talk to it as you walk from time\n"
+                                                             "to time to nurture your friendship!\r"
+                                                             "...\r"
+                                                             "Ha! You have already collected five\f"
+                                                             "Shiny Leaves!\r"
+                                                             "Let me turn them into a crown!\n"
+                                                             "And what’s more...\f"
+                                                             "I will give you this, too!\r")
                 closemessage
             _010D:
                 fadescreen(6, 1, 0, RGB_BLACK)
@@ -48,7 +82,9 @@ script scr_seq_T20R0402_000 {
                 restoreoverworld
                 fadescreen(6, 1, 1, RGB_BLACK)
                 waitfade
-                gendermsgbox(msg_0549_T20R0402_00013, msg_0549_T20R0402_00014)
+                gendermsgbox("Lyra: Cherish your friendship with\n"
+                             "Pokémon for years to come!", "Ethan: Cherish your friendship with\n"
+                                                           "Pokémon for years to come!")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -67,7 +103,31 @@ script scr_seq_T20R0402_000 {
                 bufferplayersname(0)
                 bufferint(1, VAR_SPECIAL_x8004)
                 bufferint(2, VAR_SPECIAL_x8005)
-                gendermsgbox(msg_0549_T20R0402_00009, msg_0549_T20R0402_00010)
+                gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\n"
+                             "How is your Pokémon you’re\f"
+                             "walking with?\r"
+                             "You can talk to it as you walk from time\n"
+                             "to time to nurture your friendship!\r"
+                             "...\n"
+                             "Oh!\r"
+                             "You found a Shiny Leaf!\n"
+                             "Let me see!\r"
+                             "Ha! You’ve collected...\r"
+                             "{STRVAR_1 50, 1, 0}!\r"
+                             "Way to go!\n"
+                             "Keep it up and collect {STRVAR_1 50, 2, 0} more!", "Ethan: Hi, {STRVAR_1 3, 0, 0}!\n"
+                                                                                 "How is your Pokémon you’re\f"
+                                                                                 "walking with?\r"
+                                                                                 "You can talk to it as you walk from time\n"
+                                                                                 "to time to nurture your friendship!\r"
+                                                                                 "...\n"
+                                                                                 "Oh!\r"
+                                                                                 "You found a Shiny Leaf!\n"
+                                                                                 "Let me see!\r"
+                                                                                 "Ha! You’ve collected...\r"
+                                                                                 "{STRVAR_1 50, 1, 0}!\r"
+                                                                                 "Way to go!\n"
+                                                                                 "Keep it up and collect {STRVAR_1 50, 2, 0} more!")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -78,7 +138,21 @@ script scr_seq_T20R0402_000 {
         if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_009E) }
     _008F:
         bufferplayersname(0)
-        gendermsgbox(msg_0549_T20R0402_00005, msg_0549_T20R0402_00006)
+        gendermsgbox("Lyra: Isn’t it strange that when we are\n"
+                     "with Pokémon, going out is just so much\f"
+                     "more fun!\r"
+                     "{STRVAR_1 3, 0, 0}!\n"
+                     "Try going to different places and talk\f"
+                     "to your Pokémon!\r"
+                     "I bet you’ll find out so many things\n"
+                     "about them!", "Ethan: Isn’t it strange that when we\n"
+                                    "are with Pokémon, going out is just so\f"
+                                    "much more fun!\r"
+                                    "{STRVAR_1 3, 0, 0}!\n"
+                                    "Try going to different places and talk\f"
+                                    "to your Pokémon!\r"
+                                    "I bet you’ll find so many things\n"
+                                    "about them!")
         waitbuttonpress
         closemessage
         releaseall
@@ -86,7 +160,37 @@ script scr_seq_T20R0402_000 {
     _009E:
         setflag(FLAG_SHOWED_FRIEND_A_SHINY_LEAF)
         bufferplayersname(0)
-        gendermsgbox(msg_0549_T20R0402_00007, msg_0549_T20R0402_00008)
+        gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\n"
+                     "How are your Pokémon?\f"
+                     "Don’t forget to talk to...\r"
+                     "What’s that?\n"
+                     "Your Pokémon is holding a leaf...\r"
+                     "Could that be a Shiny Leaf?\n"
+                     "Legend has it that only Pokémon\f"
+                     "that have formed a close bond with\f"
+                     "people can find such leaves...\r"
+                     "People used to turn the leaves into a\n"
+                     "beautiful crown when they managed\f"
+                     "to collect five of them.\r"
+                     "Wow!\n"
+                     "I knew you could obtain one,\f"
+                     "{STRVAR_1 3, 0, 0}!\f"
+                     "Let me see it when you find another!", "Ethan: Hi, {STRVAR_1 3, 0, 0}!\n"
+                                                             "How are your Pokémon?\f"
+                                                             "Don’t forget to talk to...\r"
+                                                             "What’s that?\n"
+                                                             "Your Pokémon is holding a leaf...\r"
+                                                             "Could that be a Shiny Leaf?\n"
+                                                             "Legend has it that only Pokémon\f"
+                                                             "that have formed a close bond with\f"
+                                                             "people can find such leaves...\r"
+                                                             "People used to turn the leaves into a\n"
+                                                             "beautiful crown when they managed\f"
+                                                             "to collect five of them.\r"
+                                                             "Wow!\n"
+                                                             "I knew you could obtain one,\f"
+                                                             "{STRVAR_1 3, 0, 0}!\f"
+                                                             "Let me see it when you find another!")
         waitbuttonpress
         closemessage
         releaseall
@@ -94,14 +198,22 @@ script scr_seq_T20R0402_000 {
     }
     bufferplayersname(0)
     if (flag(FLAG_GOT_STARTER)) { goto(_005C) }
-    gendermsgbox(msg_0549_T20R0402_00000, msg_0549_T20R0402_00001)
+    gendermsgbox("Lyra: {STRVAR_1 3, 0, 0}!\r"
+                 "Professor Elm was looking for you.\n"
+                 "Did you go to his lab?", "Ethan: {STRVAR_1 3, 0, 0}!\r"
+                                           "Professor Elm was looking for you.\n"
+                                           "Did you go to his lab?")
     waitbuttonpress
     closemessage
     releaseall
     end
 _005C:
     buffermonspeciesname(1, VAR_SPECIAL_RESULT)
-    gendermsgbox(msg_0549_T20R0402_00002, msg_0549_T20R0402_00003)
+    gendermsgbox("Lyra: My MARILL is super cute...\n"
+                 "But your {STRVAR_1 0, 1, 0} looks pretty\f"
+                 "good, too, {STRVAR_1 3, 0, 0}!", "Ethan: My MARILL is super cool...\n"
+                                                   "But your {STRVAR_1 0, 1, 0} looks pretty\f"
+                                                   "good, too, {STRVAR_1 3, 0, 0}!")
     waitbuttonpress
     closemessage
     releaseall
@@ -112,7 +224,7 @@ script scr_seq_T20R0402_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0549_T20R0402_00004)
+    npcmsg("MARILL: Qurururoon.")
     playcry(SPECIES_MARILL, 0)
     waitcry
     waitbuttonpress
@@ -124,7 +236,8 @@ script scr_seq_T20R0402_001 {
 script scr_seq_T20R0402_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0549_T20R0402_00017)
+    npcmsg("It’s a Wii!\r"
+           "Wii is huge in Johto, too!")
     waitbuttonpress
     closemessage
     releaseall
@@ -134,7 +247,8 @@ script scr_seq_T20R0402_003 {
 script scr_seq_T20R0402_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0549_T20R0402_00018)
+    npcmsg("You shouldn’t mess with someone\n"
+           "else’s PC!")
     waitbuttonpress
     closemessage
     releaseall

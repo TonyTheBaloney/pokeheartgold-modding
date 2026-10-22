@@ -2,12 +2,16 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_R05_000 {
-    simplenpcmsg(msg_0329_R05_00000)
+    simplenpcmsg("The road is closed until the problem at\n"
+                 "the Power Plant is solved.")
     end
 }
 
 script scr_seq_R05_001 {
-    trainertipsex(2, msg_0329_R05_00001)
+    trainertipsex(2, "Underground Path\r"
+                     "You can travel from Cerulean City to\n"
+                     "Vermilion City on this path under\f"
+                     "Saffron City.")
     end
 }
 

@@ -4,7 +4,8 @@
 script scr_seq_R08_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0338_R08_00000)
+    npcmsg("It won’t open!\r"
+           "It’s locked...")
     waitbuttonpress
     closemessage
     releaseall
@@ -12,7 +13,8 @@ script scr_seq_R08_000 {
 }
 
 script scr_seq_R08_001 {
-    trainertipsex(2, msg_0338_R08_00001)
+    trainertipsex(2, "The notice is torn.\n"
+                     "It’s impossible to read...")
     end
 }
 

@@ -45,7 +45,29 @@ script scr_seq_T08R0201_003 {
     if (flag(FLAG_UNK_136)) { goto(_019B) }
     setflag(FLAG_UNK_136)
     bufferplayersname(0)
-    gendermsgbox(msg_0516_T08R0201_00000, msg_0516_T08R0201_00001)
+    gendermsgbox("Welcome to the Pal Park!\r"
+                 "This is where top-notch Trainers who\n"
+                 "aren’t satisfied with the Safari Zone\f"
+                 "come to show their Pokémon-catching\f"
+                 "techniques to their peers.\r"
+                 "...Oh?\r"
+                 "Are you maybe...\n"
+                 "Ah, you are {STRVAR_1 3, 0, 0}!\r"
+                 "My dad told me about you!\n"
+                 "Word is, you’re a hotshot Trainer!\r"
+                 "We’d be honored if you would\n"
+                 "participate in our Catching Shows. {YESNO 0}", "Welcome to the Pal Park!\r"
+                                                                 "This is where top-notch Trainers who\n"
+                                                                 "aren’t satisfied with the Safari Zone\f"
+                                                                 "come to show their Pokémon-catching\f"
+                                                                 "techniques to their peers.\r"
+                                                                 "...Oh?\r"
+                                                                 "Are you maybe...\n"
+                                                                 "Ah, you are {STRVAR_1 3, 0, 0}!\r"
+                                                                 "My dad told me about you!\n"
+                                                                 "Word is, you’re a hotshot Trainer!\r"
+                                                                 "We’d be honored if you would\n"
+                                                                 "participate in our Catching Shows. {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -53,16 +75,46 @@ script scr_seq_T08R0201_003 {
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0190) }
     end
 _00C5:
-    npcmsg(msg_0516_T08R0201_00002)
+    npcmsg("Yes! You agreed to participate!\n"
+           "Let’s not waste any time!\r"
+           "Let me explain how Pal Park works.\n"
+           "What should I explain? {YESNO 0}")
     goto(_00E9)
 _00CE:
-    npcmsg(msg_0516_T08R0201_00003)
+    npcmsg("Pal Park is a place where you are\n"
+           "timed on the catching of six Pokémon.\r"
+           "You are provided with six special\n"
+           "Poké Balls for the challenge.\r"
+           "Participating Trainers are required to\n"
+           "supply the six Pokémon that are to\f"
+           "be caught.\r"
+           "If you do not supply the stock of six\n"
+           "Pokémon, you may not participate in\f"
+           "the Catching Show.\r"
+           "...Would you like to know\n"
+           "anything else? {YESNO 0}")
     goto(_00E9)
 _00D7:
-    npcmsg(msg_0516_T08R0201_00004)
+    npcmsg("At the start of the Catching Show,\n"
+           "you will be given six Park Balls.\r"
+           "Use the Park Balls to catch the\n"
+           "six Pokémon you provide.\r"
+           "...Would you like to know\n"
+           "anything else? {YESNO 0}")
     goto(_00E9)
 _00E0:
-    npcmsg(msg_0516_T08R0201_00005)
+    npcmsg("Insert a Game Boy Advance Pokémon\n"
+           "Ruby, Sapphire, Emerald, FireRed,\f"
+           "or LeafGreen in the Game Pak slot.\r"
+           "Six of the currently caught Pokémon\n"
+           "can migrate from the Game Pak to the\f"
+           "DS Game Card when your DS is turned on\f"
+           "and you select “MIGRATE FROM...”\r"
+           "Please note that you cannot insert a\n"
+           "GBA Game Pak into a Nintendo DSi\f"
+           "to migrate.\r"
+           "...Would you like to know\n"
+           "anything else? {YESNO 0}")
     goto(_00E9)
 _00E9:
     touchscreenmenuhide
@@ -78,7 +130,8 @@ _00E9:
     if (var(VAR_SPECIAL_RESULT) == 2) { goto(_00E0) }
     goto(_0144)
 _0144:
-    npcmsg(msg_0516_T08R0201_00006)
+    npcmsg("Would you like to take part in\n"
+           "a Catching Show now? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -92,14 +145,20 @@ _015C:
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0260) }
     goto(_01FB)
 _0190:
-    npcmsg(msg_0516_T08R0201_00007)
+    npcmsg("Aww, that’s too bad.\r"
+           "Well, just give me a shout again\n"
+           "if you’d like to participate.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _019B:
     bufferplayersname(0)
-    gendermsgbox(msg_0516_T08R0201_00008, msg_0516_T08R0201_00009)
+    gendermsgbox("Hi there, {STRVAR_1 3, 0, 0}!\r"
+                 "Did you come to participate in\n"
+                 "a Catching Show? {YESNO 0}", "Hi there, {STRVAR_1 3, 0, 0}!\r"
+                                               "Did you come to participate in\n"
+                                               "a Catching Show? {YESNO 0}")
     goto(_01A8)
 _01A8:
     touchscreenmenuhide
@@ -116,7 +175,21 @@ _01A8:
 _01FB:
     call(_0062)
     bufferplayersname(0)
-    gendermsgbox(msg_0516_T08R0201_00010, msg_0516_T08R0201_00011)
+    gendermsgbox("OK, here are your Park Balls!\r"
+                 "{STRVAR_1 3, 0, 0} received\n"
+                 "six Park Balls.\r"
+                 "The current record holder is\n"
+                 "{STRVAR_1 3, 1, 0} with {STRVAR_1 53, 2, 0} points.\r"
+                 "OK, off you go, {STRVAR_1 3, 0, 0}.\r"
+                 "Dazzle us with a masterful display\n"
+                 "of Pokémon catching!\r", "OK, here are your Park Balls!\r"
+                                           "{STRVAR_1 3, 0, 0} received\n"
+                                           "six Park Balls.\r"
+                                           "The current record holder is\n"
+                                           "{STRVAR_1 3, 1, 0} with {STRVAR_1 53, 2, 0} points.\r"
+                                           "OK, off you go, {STRVAR_1 3, 0, 0}.\r"
+                                           "Dazzle us with a masterful display\n"
+                                           "of Pokémon catching!\r")
     closemessage
     applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_0280)
     waitmovement
@@ -137,16 +210,29 @@ _01FB:
     releaseall
     end
 _0260:
-    npcmsg(msg_0516_T08R0201_00012)
+    npcmsg("Oh, hold on. You don’t have enough\n"
+           "Pokémon for a Catching Show.\r"
+           "You’ll need to stock us with six\n"
+           "Pokémon to participate.\r"
+           "You should make some Pokémon migrate\n"
+           "from Hoenn or another region!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _026B:
-    npcmsg(msg_0516_T08R0201_00013)
+    npcmsg("Yes! You agreed to participate!\n"
+           "Let’s not waste any time!\r"
+           "Let me explain how Pal Park works.\n"
+           "What should I explain? {YESNO 0}")
     goto(_00E9)
 _0274:
-    npcmsg(msg_0516_T08R0201_00015)
+    npcmsg("Oh, your PC Boxes are filled. You\n"
+           "have no room for six more Pokémon.\r"
+           "You won’t be able to accept them,\n"
+           "even if you do catch them.\r"
+           "Make enough room in a PC Box and\n"
+           "come back for your Catching Show.")
     waitbuttonpress
     closemessage
     releaseall
@@ -197,26 +283,46 @@ script scr_seq_T08R0201_001 {
     bufferint(2, VAR_SPECIAL_RESULT)
     palparkscoreget(3, VAR_SPECIAL_RESULT)
     bufferint(3, VAR_SPECIAL_RESULT)
-    npcmsg(msg_0516_T08R0201_00016)
+    npcmsg("Congratulations!\n"
+           "That’s all six Pokémon caught!\r"
+           "The audience sure enjoyed watching\n"
+           "your Catching Show.\r"
+           "All right, let’s see your all-important\n"
+           "score from this show!\r"
+           "...\n"
+           "...\r"
+           "Catching Points: {STRVAR_1 53, 0, 0}!\r"
+           "Time Points: {STRVAR_1 53, 1, 0}!\r"
+           "Type Points: {STRVAR_1 53, 2, 0}!\r"
+           "The total is...\r"
+           "...\n"
+           "...\r"
+           "{STRVAR_1 53, 3, 0} points!\r")
     palparkscoreget(3, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) <= VAR_PAL_PARK_HIGH_SCORE) {
-        npcmsg(msg_0516_T08R0201_00018)
+        npcmsg("Good! That’s a decent record.\n"
+               "Props to you!\r")
         call(_0669)
     } else {
-        npcmsg(msg_0516_T08R0201_00017)
+        npcmsg("Wow! That’s an outstanding record!\n"
+               "Kudos to you!\r")
         call(_0669)
         palparkscoreget(3, VAR_PAL_PARK_HIGH_SCORE)
         goto(_034E)
     }
 _034E:
-    npcmsg(msg_0516_T08R0201_00019)
+    npcmsg("Would you like to put all caught\n"
+           "Pokémon in PC Boxes? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
         movemigratedpokemontopc
-        npcmsg(msg_0516_T08R0201_00020)
-        npcmsg(msg_0516_T08R0201_00022)
+        npcmsg("Done!\n"
+               "Your Pokémon have been boxed away.\r"
+               "You’ll now have to save the game.\r")
+        npcmsg("If you want to do another Catching\n"
+               "Show, come see us again, please!\r")
         closemessage
         goto(_03A1)
     _03A1:
@@ -228,14 +334,19 @@ _034E:
         releaseall
         end
     }
-    npcmsg(msg_0516_T08R0201_00024)
+    npcmsg("Do another Catching Show\n"
+           "with the same Pokémon? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0384) }
     goto(_034E)
 _0384:
-    npcmsg(msg_0516_T08R0201_00021)
+    npcmsg("Oh, then it might be fun for you to\n"
+           "go for an even better score by\f"
+           "trying to catch these six again.\r"
+           "If you want to do another Catching\n"
+           "Show, just come see us!")
     waitabpress
     closemessage
     goto(_03A1)
@@ -269,13 +380,20 @@ script(local) _03F0 {
     end
 }
 
+text msg_0516_T08R0201_00025 {
+    "The current record holder is\n"
+    "{STRVAR_1 3, 1, 0} with {STRVAR_1 53, 2, 0} points.\f"
+    "Can you top that?"
+}
+
 script scr_seq_T08R0201_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 2) {
-        npcmsg(msg_0516_T08R0201_00043)
+        npcmsg("{STRVAR_1 3, 0, 0},\n"
+               "there’s always a next time!")
         waitbuttonpress
         closemessage
         releaseall
@@ -284,13 +402,17 @@ script scr_seq_T08R0201_004 {
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0439) }
     goto(_042E)
 _042E:
-    npcmsg(msg_0516_T08R0201_00041)
+    npcmsg("I came to see {STRVAR_1 3, 0, 0}’s\n"
+           "Catching Show...\r"
+           "Wow, {STRVAR_1 3, 0, 0}! Are you for real?")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0439:
-    npcmsg(msg_0516_T08R0201_00042)
+    npcmsg("Hi, {STRVAR_1 3, 0, 0}!\n"
+           "Your Catching Show was awesome!\f"
+           "I’ll become a Trainer like you!")
     waitbuttonpress
     closemessage
     releaseall
@@ -299,17 +421,24 @@ _0439:
 
 script scr_seq_T08R0201_005 {
     bufferplayersname(0)
-    simplenpcmsg(msg_0516_T08R0201_00044)
+    simplenpcmsg("My son is a big fan of yours,\n"
+                 "{STRVAR_1 3, 0, 0}.\f"
+                 "Are you...that famous?")
     end
 }
 
 script scr_seq_T08R0201_006 {
-    simplenpcmsg(msg_0516_T08R0201_00045)
+    simplenpcmsg("If you want to see rare Pokémon,\n"
+                 "Catching Shows at the Pal Park are\f"
+                 "the best!")
     end
 }
 
 script scr_seq_T08R0201_007 {
-    simplenpcmsg(msg_0516_T08R0201_00033)
+    simplenpcmsg("I’ve heard Trainers complain that\n"
+                 "rare Pokémon take longer to appear.\r"
+                 "Is it easier to start with common\n"
+                 "Pokémon?")
     end
 }
 
@@ -324,7 +453,12 @@ script scr_seq_T08R0201_009 {
     lockall
     faceplayer
     if (var(VAR_TEMP_x4009) == 1) {
-        npcmsg(msg_0516_T08R0201_00040)
+        npcmsg("Not only is there the Pokéathlon and\n"
+               "the Safari Zone, but also the\f"
+               "Battle Frontier and the Pal Park...\r"
+               "People other than me are working\n"
+               "so hard... How dreamy...\f"
+               "This region sets my heart aflutter.")
         waitbuttonpress
         closemessage
         releaseall
@@ -338,7 +472,12 @@ script scr_seq_T08R0201_009 {
         setvar(VAR_SPECIAL_x8005, 1)
         cangiveaccessory(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0506) }
-        npcmsg(msg_0516_T08R0201_00035)
+        npcmsg("I feel so happy that I’d like to share\n"
+               "my happiness with you today.\r"
+               "I must crown you with this...\n"
+               "Crown.\r"
+               "Oh, before you get the wrong idea,\n"
+               "it’s an Accessory for Pokémon.\r")
         goto(_0649)
         end
     }
@@ -349,7 +488,12 @@ script scr_seq_T08R0201_009 {
         setvar(VAR_SPECIAL_x8005, 1)
         cangiveaccessory(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0506) }
-        npcmsg(msg_0516_T08R0201_00036)
+        npcmsg("I feel so happy that I’d like to share\n"
+               "my happiness with you today.\r"
+               "I feel compelled to give you this\n"
+               "Tiara.\r"
+               "Oh, before you get the wrong idea,\n"
+               "it’s an Accessory for Pokémon.\r")
         goto(_0649)
         end
     }
@@ -359,7 +503,12 @@ script scr_seq_T08R0201_009 {
         setvar(VAR_SPECIAL_x8004, 14)
         haswallpaper(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0506) }
-        npcmsg(msg_0516_T08R0201_00037)
+        npcmsg("I feel so happy that I’d like to share\n"
+               "my happiness with you today.\r"
+               "I wish you would take this\n"
+               "“Seafloor” Backdrop.\r"
+               "Please try using it when dressing up\n"
+               "your Pokémon with Accessories.\r")
         goto(_0659)
         end
     }
@@ -369,7 +518,12 @@ script scr_seq_T08R0201_009 {
         setvar(VAR_SPECIAL_x8004, 15)
         haswallpaper(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0506) }
-        npcmsg(msg_0516_T08R0201_00038)
+        npcmsg("I feel so happy that I’d like to share\n"
+               "my happiness with you today.\r"
+               "I wish you would take this\n"
+               "“Underground” Backdrop.\r"
+               "Please try using it when dressing up\n"
+               "your Pokémon with Accessories.\r")
         goto(_0659)
         end
     }
@@ -379,7 +533,12 @@ script scr_seq_T08R0201_009 {
         setvar(VAR_SPECIAL_x8004, 16)
         haswallpaper(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0506) }
-        npcmsg(msg_0516_T08R0201_00039)
+        npcmsg("I feel so happy that I’d like to share\n"
+               "my happiness with you today.\r"
+               "I wish you would take this\n"
+               "“Sky” Backdrop.\r"
+               "Please try using it when dressing up\n"
+               "your Pokémon with Accessories.\r")
         goto(_0659)
         end
     _0649:
@@ -480,7 +639,8 @@ script scr_seq_T08R0201_009 {
         setvar(VAR_SPECIAL_RESULT, 10000)
         return
     _084C:
-        npcmsg(msg_0516_T08R0201_00023)
+        npcmsg("It’s time for your prize!\n"
+               "Here you are!\r")
         giveitemnocheck(VAR_SPECIAL_x8006, 1)
         return
     _0861:
@@ -565,7 +725,13 @@ script scr_seq_T08R0201_009 {
     goto(_0506)
     end
 _0506:
-    npcmsg(msg_0516_T08R0201_00034)
+    npcmsg("Oh, me?\n"
+           "No, I never catch Pokémon myself.\f"
+           "But I enjoy Catching Shows a lot.\r"
+           "I love to see Johto and Hoenn Pokémon,\n"
+           "especially.\r"
+           "The regions I’ve never been to\n"
+           "are so mysterious.")
     waitbuttonpress
     closemessage
     releaseall

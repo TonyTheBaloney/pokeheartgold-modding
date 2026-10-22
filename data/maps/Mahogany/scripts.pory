@@ -32,14 +32,20 @@ script scr_seq_T28_000 {
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 5) {
         if (!flag(FLAG_GOT_RAGECANDYBAR)) {
-            npcmsg(msg_0620_T28_00003)
+            npcmsg("What? RageCandyBar?\n"
+                   "You want to buy one?\r"
+                   "Right on!\r"
+                   "Same as before, it can be yours for\n"
+                   "just $300! Want one? {YESNO 0}")
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             touchscreenmenushow
             if (var(VAR_SPECIAL_RESULT) == 0) { goto(_009D) }
             if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0101) }
         }
-        npcmsg(msg_0620_T28_00004)
+        npcmsg("What? RageCandyBar?\n"
+               "You want to buy another?\r"
+               "I think one is enough for you.")
         waitbuttonpress
     _014C:
         closemessage
@@ -58,25 +64,47 @@ _009D:
     if (!itemspace(ITEM_RAGECANDYBAR, 1)) { goto(_00F7) }
     callstd(std_give_item_verbose)
     submoneyimmediate(200)
-    npcmsg(msg_0620_T28_00005)
+    npcmsg("I remember a person from as far as\n"
+           "Kanto came to buy one a long time ago.\r"
+           "I happened to have none in stock then.\n"
+           "That person left rather upset.\r"
+           "I felt kind of sorry for that.")
     waitbuttonpress
     setflag(FLAG_GOT_RAGECANDYBAR)
     goto(_014C)
 _00EC:
-    npcmsg(msg_0620_T28_00007)
+    npcmsg("You don’t have enough money.")
     waitbuttonpress
     goto(_014C)
 _00F7:
     callstd(std_bag_is_full)
     goto(_014C)
 _0101:
-    npcmsg(msg_0620_T28_00009)
+    npcmsg("Oh, fine then...")
     waitbuttonpress
     goto(_014C)
 _010C:
-    npcmsg(msg_0620_T28_00001)
+    npcmsg("I don’t want to upset you after\n"
+           "buying one from me, but...\r"
+           "Buying a RageCandyBar has nothing to\n"
+           "do with whether I’d allow you to\f"
+           "pass through here.\r"
+           "...Johto has many places to visit,\n"
+           "such as the Lighthouse at Olivine and\f"
+           "the Pharmacy at Cianwood.\r"
+           "Why don’t you slow down and\n"
+           "enjoy sightseeing?")
     waitbuttonpress
     goto(_014C)
+}
+
+text msg_0620_T28_00000 {
+    "Hiya, kid!\r"
+    "I see you’re new in Mahogany Town.\n"
+    "Since you’re new, you should try a\f"
+    "yummy RageCandyBar!\r"
+    "Right now, it can be yours for just\n"
+    "$300! Want one? {YESNO 0}"
 }
 
 script scr_seq_T28_001 {
@@ -100,7 +128,16 @@ script scr_seq_T28_001 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     if (flag(FLAG_GOT_RAGECANDYBAR)) {
-        npcmsg(msg_0620_T28_00002)
+        npcmsg("I don’t want to upset you after\n"
+               "buying one from me, but...\r"
+               "Buying a RageCandyBar has nothing to\n"
+               "do with whether I’d allow you to\f"
+               "pass through here.\r"
+               "...Johto has many places to visit,\n"
+               "such as the Lighthouse at Olivine and\f"
+               "the Pharmacy at Cianwood.\r"
+               "Why don’t you slow down and\n"
+               "enjoy sightseeing?\r")
         closemessage
         goto(_0228)
     }
@@ -116,7 +153,11 @@ script scr_seq_T28_001 {
     if (!itemspace(ITEM_RAGECANDYBAR, 1)) { goto(_00F7) }
     callstd(std_give_item_verbose)
     submoneyimmediate(300)
-    npcmsg(msg_0620_T28_00006)
+    npcmsg("I remember a person from as far as\n"
+           "Kanto came to buy one a long time ago.\r"
+           "I happened to have none in stock then.\n"
+           "That person left rather upset.\r"
+           "I felt kind of sorry for that.\r")
     closemessage
     setflag(FLAG_GOT_RAGECANDYBAR)
 _0228:
@@ -130,11 +171,11 @@ _0228:
     releaseall
     end
 _0257:
-    npcmsg(msg_0620_T28_00010)
+    npcmsg("Oh, fine then...\r")
     closemessage
     goto(_0228)
 _0262:
-    npcmsg(msg_0620_T28_00008)
+    npcmsg("You don’t have enough money.\r")
     closemessage
     goto(_0228)
 }
@@ -183,13 +224,17 @@ script scr_seq_T28_002 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_RED_SCALE)) {
-        npcmsg(msg_0620_T28_00015)
+        npcmsg("MAGIKARP have returned to\n"
+               "Lake of Rage.\r"
+               "That should be splendid news for the\n"
+               "anglers there.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0620_T28_00014)
+    npcmsg("Are you off to see the GYARADOS\n"
+           "rampage at the lake?")
     waitbuttonpress
     closemessage
     releaseall
@@ -197,27 +242,41 @@ script scr_seq_T28_002 {
 }
 
 script scr_seq_T28_003 {
-    simplenpcmsg(msg_0620_T28_00016)
+    simplenpcmsg("Visit Grandma’s shop. She sells\n"
+                 "stuff that nobody else has...\r"
+                 "You want to buy stuff, right?\n"
+                 "So buy stuff at my grandma’s!")
     end
 }
 
 script scr_seq_T28_004 {
-    simplenpcmsg(msg_0620_T28_00013)
+    simplenpcmsg("Have you seen this guy with a\n"
+                 "black cape?\r"
+                 "He has been going back and forth\n"
+                 "between here and the Lake of Rage\f"
+                 "saying strange radio waves are\f"
+                 "being transmitted.\r"
+                 "Who is he, I wonder.\n")
     end
 }
 
 script scr_seq_T28_006 {
-    directionsignpostex(0, 19, msg_0620_T28_00017)
+    directionsignpostex(0, 19, "Mahogany Town\n"
+                               "Home of the Ninja")
     end
 }
 
 script scr_seq_T28_007 {
-    trainertipsex(2, msg_0620_T28_00018)
+    trainertipsex(2, "Just a Souvenir Shop\r"
+                     "Nothing Suspicious about It\n"
+                     "No Need to Be Alarmed")
     end
 }
 
 script scr_seq_T28_008 {
-    trainertipsex(2, msg_0620_T28_00019)
+    trainertipsex(2, "Mahogany Town Pokémon Gym\n"
+                     "Leader: Pryce\f"
+                     "The Teacher of Winter’s Harshness")
     end
 }
 

@@ -78,7 +78,9 @@ script scr_seq_D35R0103_000 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0113_D35R0103_00000)
+    npcmsg("Lance: Are you all right?\r"
+           "Your Pokémon are hurt and tired.\n"
+           "Here, give them some of my medicine.\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -90,7 +92,9 @@ script scr_seq_D35R0103_000 {
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     bufferplayersname(0)
-    gendermsgbox(msg_0113_D35R0103_00001, msg_0113_D35R0103_00002)
+    gendermsgbox("Lance: {STRVAR_1 3, 0, 0}, let’s give our\n"
+                 "best for Pokémon.\r", "Lance: {STRVAR_1 3, 0, 0}, let’s give our\n"
+                                        "best for Pokémon.\r")
     closemessage
     applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_01B8)
     applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_01C0)
@@ -122,7 +126,8 @@ script scr_seq_D35R0103_013 {
     lockall
     applymovement(obj_D35R0103_tsure_poke_static_murkrow, TeamRocketHeadquarters_B2F_Movement_0214)
     waitmovement
-    npcmsg(msg_0113_D35R0103_00024)
+    npcmsg("MURKROW: The password is...\f"
+           "Hail Giovanni.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -160,7 +165,8 @@ script scr_seq_D35R0103_014 {
     lockall
     applymovement(obj_D35R0103_tsure_poke_static_murkrow_2, TeamRocketHeadquarters_B2F_Movement_0270)
     waitmovement
-    npcmsg(msg_0113_D35R0103_00025)
+    npcmsg("MURKROW: The password is...\f"
+           "Hail Giovanni.\r")
     closemessage
     applymovement(obj_D35R0103_tsure_poke_static_murkrow_2, TeamRocketHeadquarters_B2F_Movement_0278)
     waitmovement
@@ -188,9 +194,14 @@ script scr_seq_D35R0103_011 {
     lockall
     applymovement(obj_D35R0103_tsure_poke_static_murkrow_3, TeamRocketHeadquarters_B2F_Movement_0308)
     waitmovement
-    npcmsg(msg_0113_D35R0103_00026)
+    npcmsg("MURKROW: The password is...\f"
+           "Hail Giovanni.\r")
     closemessage
-    npcmsg(msg_0113_D35R0103_00027)
+    npcmsg("MURKROW screamed the password,\n"
+           "mimicking the voice of Petrel.\r"
+           "..................\r"
+           "The voice-recognition system unlocked\n"
+           "the door!\r")
     closemessage
     playse(SEQ_SE_DP_DOOR10)
     applymovement(obj_D35R0103_babyboy1_9, TeamRocketHeadquarters_B2F_Movement_03B0)
@@ -255,14 +266,19 @@ script scr_seq_D35R0103_001 {
         lockall
         faceplayer
         if (!flag(FLAG_UNK_0D3)) {
-            npcmsg(msg_0113_D35R0103_00020)
+            npcmsg("“The Radio Transmitter”\r"
+                   "It seems that this door checks the\n"
+                   "voice of the person saying the password\f"
+                   "before it opens...")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
         bufferplayersname(0)
-        npcmsg(msg_0113_D35R0103_00021)
+        npcmsg("The door’s closed...\r"
+               "{STRVAR_1 3, 0, 0} entered the password.\r"
+               "The door opened!\r")
         closemessage
         playse(SEQ_SE_DP_DOOR10)
         applymovement(obj_D35R0103_babyboy1_9, TeamRocketHeadquarters_B2F_Movement_03B0)
@@ -285,7 +301,7 @@ movement TeamRocketHeadquarters_B2F_Movement_03B8 {
 script scr_seq_D35R0103_003 {
     followmonresetmovement
     lockall
-    npcmsg(msg_0113_D35R0103_00003)
+    npcmsg("Ariana: Hold it right there!")
     applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_0630)
     waitmovement
     closemessage
@@ -313,7 +329,16 @@ script scr_seq_D35R0103_003 {
     followingpokemonmovement(48)
     applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_0648)
     waitmovement
-    npcmsg(msg_0113_D35R0103_00004)
+    npcmsg("Ariana: We can’t let a brat like you\n"
+           "do as you please forever.\r"
+           "It’ll hurt Team Rocket’s pride over and\n"
+           "over again. Making it lessen, you see.\r"
+           "...So, it’s time to finish you. However\n"
+           "strong you may be, if the two of us\f"
+           "fight at the same time, you’ll have no\f"
+           "chance of winning. Don’t you agree?\r"
+           "Hee hee hee! Sorry, baby. Now, get\n"
+           "ready to be thrashed.\r")
     closemessage
     clearflag(FLAG_UNK_1E5)
     addobject(obj_D35R0103_wataru)
@@ -323,14 +348,22 @@ script scr_seq_D35R0103_003 {
     applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_067C)
     applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_0684)
     waitmovement
-    npcmsg(msg_0113_D35R0103_00005)
+    npcmsg("Lance: Hold it!\r"
+           "A two-on-one battle?\n"
+           "That is so unfair!\r"
+           "Typical of Team Rocket to be so sneaky.\n"
+           "Allow me to join the battle!\r")
     closemessage
     applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_0690)
     playcry(SPECIES_DRAGONITE, 0)
     waitcry
     applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_0648)
     waitmovement
-    npcmsg(msg_0113_D35R0103_00006)
+    npcmsg("Ariana: What? You had an accomplice?\n"
+           "Where is your sense of dignity?\r"
+           "As interim boss in place of Giovanni,\n"
+           "I’ll show you how wrong it is to meddle\f"
+           "with Team Rocket!\r")
     closemessage
     applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_0698)
     applymovement(obj_D35R0103_rocketm_4, TeamRocketHeadquarters_B2F_Movement_06A0)
@@ -344,7 +377,15 @@ script scr_seq_D35R0103_003 {
         releaseall
         end
     }
-    npcmsg(msg_0113_D35R0103_00008)
+    npcmsg("Ariana: But that’s fine. The broadcast\n"
+           "experiment was a total success.\r"
+           "It doesn’t matter what happens to this\n"
+           "hideout now.\r"
+           "We have much bigger plans.\n"
+           "You’ll come to appreciate Team\f"
+           "Rocket’s true power soon enough.\r"
+           "Enjoy yourself while you can...\n"
+           "Hee hee hee...\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -372,7 +413,13 @@ script scr_seq_D35R0103_003 {
     applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_06C4)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0113_D35R0103_00010, msg_0113_D35R0103_00011)
+    gendermsgbox("Sorry, {STRVAR_1 3, 0, 0}. I saw how well you\n"
+                 "were doing, so I just hung back.\r"
+                 "Now all there is left to do is to turn\n"
+                 "off that odd radio signal.\r", "Sorry, {STRVAR_1 3, 0, 0}. I saw how well you\n"
+                                                 "were doing, so I just hung back.\r"
+                                                 "Now all there is left to do is to turn\n"
+                                                 "off that odd radio signal.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -390,7 +437,23 @@ script scr_seq_D35R0103_003 {
     applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_072C)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0113_D35R0103_00012, msg_0113_D35R0103_00013)
+    gendermsgbox("It’s this machine that’s causing all the\n"
+                 "problems. I don’t see a switch on it...\r"
+                 "We have no choice. We have to make all\n"
+                 "the ELECTRODE faint.\r"
+                 "That should stop this machine from\n"
+                 "transmitting that strange signal.\r"
+                 "It’s no fault of the ELECTRODE, so it\n"
+                 "makes me feel sad.\r"
+                 "{STRVAR_1 3, 0, 0}, let’s split the job.\r", "It’s this machine that’s causing all the\n"
+                                                               "problems. I don’t see a switch on it...\r"
+                                                               "We have no choice. We have to make all\n"
+                                                               "the ELECTRODE faint.\r"
+                                                               "That should stop this machine from\n"
+                                                               "transmitting that strange signal.\r"
+                                                               "It’s no fault of the ELECTRODE, so it\n"
+                                                               "makes me feel sad.\r"
+                                                               "{STRVAR_1 3, 0, 0}, let’s split the job.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -619,14 +682,42 @@ _08A2:
     applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_0A04)
     applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_0A0C)
     waitmovement
-    npcmsg(msg_0113_D35R0103_00015)
+    npcmsg("Lance: That odd signal has finally\n"
+           "stopped. The lake should be back to\f"
+           "normal. You’re the best!\r"
+           "Let me thank you on behalf of all the\n"
+           "Pokémon. Oh, yes. You should take this.\r"
+           "I found it here, but I don’t have any\n"
+           "need for it.\r")
     giveitemnocheck(ITEM_HM05, 1)
-    npcmsg(msg_0113_D35R0103_00017)
+    npcmsg("Lance: That’s Whirlpool.\r"
+           "Teach it to a Pokémon to get across wild\n"
+           "water. But keep this in mind.\r"
+           "You can use that out of battle only with\n"
+           "the Badge from Mahogany Gym.\r")
     closemessage
     applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_0A18)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0113_D35R0103_00018, msg_0113_D35R0103_00019)
+    gendermsgbox("{STRVAR_1 3, 0, 0}...\r"
+                 "The journey to becoming the Pokémon\n"
+                 "Champion is long and difficult.\r"
+                 "Knowing that, will you keep going?\r"
+                 "..................\r"
+                 "I see. No, you’re right.\r"
+                 "If you would give up that easily,\n"
+                 "you would have never chased that\f"
+                 "dream in the first place.\r"
+                 "I look forward to seeing you again!\r", "{STRVAR_1 3, 0, 0}...\r"
+                                                          "The journey to becoming the Pokémon\n"
+                                                          "Champion is long and difficult.\r"
+                                                          "Knowing that, will you keep going?\r"
+                                                          "..................\r"
+                                                          "I see. No, you’re right.\r"
+                                                          "If you would give up that easily,\n"
+                                                          "you would have never chased that\f"
+                                                          "dream in the first place.\r"
+                                                          "I look forward to seeing you again!\r")
     closemessage
     applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_0A20)
     applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_0A2C)
@@ -719,6 +810,10 @@ script scr_seq_D35R0103_008 {
     end
 }
 
+text msg_0113_D35R0103_00014 {
+    "Lance: Leave this side to me.\r"
+}
+
 movement TeamRocketHeadquarters_B2F_Movement_0A6C {
     walk_left
 }
@@ -752,12 +847,15 @@ script scr_seq_D35R0103_010 {
     if (!flag(FLAG_REMOVED_ROCKET_HIDEOUT_B3F_ELECTRODE_1)) { goto(_0AE4) }
     if (!flag(FLAG_REMOVED_ROCKET_HIDEOUT_B3F_ELECTRODE_2)) { goto(_0AE4) }
     if (!flag(FLAG_REMOVED_ROCKET_HIDEOUT_B3F_ELECTRODE_3)) { goto(_0AE4) }
-    npcmsg(msg_0113_D35R0103_00023)
+    npcmsg("The radio transmitter has finally\n"
+           "stopped its evil broadcast.")
     closemessage
     releaseall
     end
 _0AE4:
-    npcmsg(msg_0113_D35R0103_00022)
+    npcmsg("It’s the radio transmitter that’s\n"
+           "sending the sinister signal.\r"
+           "It’s working at full capacity.")
     closemessage
     releaseall
     end

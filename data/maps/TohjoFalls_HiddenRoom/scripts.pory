@@ -48,44 +48,89 @@ script scr_seq_D45R0102_001 {
     followingpokemonmovement(48)
     applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_031C)
     waitmovement
-    npcmsg(msg_0131_D45R0102_00000)
+    npcmsg("...\r"
+           "I don’t know why you have come here.\r"
+           "Anyway, I have to warn you that\n"
+           "this is not a place for kids like you.\r")
     closemessage
     applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03AC)
     waitmovement
-    gendermsgbox(msg_0131_D45R0102_00008, msg_0131_D45R0102_00007)
+    gendermsgbox("Lyra: Huh?\r"
+                 "That’s the guy we just saw arguing with\n"
+                 "that boy!\r", "Ethan: Huh?\r"
+                                "That’s the guy we just saw arguing with\n"
+                                "that boy!\r")
     closemessage
     applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_032C)
     waitmovement
-    npcmsg(msg_0131_D45R0102_00001)
+    npcmsg("You have a certain look...\r"
+           "It reminds me of the kid who stood in\n"
+           "front of me three years ago...\f"
+           "You have the same eyes...\r"
+           "...\r"
+           "I’m on my way to Goldenrod City to\n"
+           "answer the call and join my team.\f"
+           "Are you going to get in my way?\r")
     closemessage
     applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03B4)
     waitmovement
-    gendermsgbox(msg_0131_D45R0102_00010, msg_0131_D45R0102_00009)
+    gendermsgbox("Lyra: Three years ago...?\n"
+                 "Goldenrod City...?\r", "Ethan: Three years ago...?\n"
+                                         "Goldenrod City...?\r")
     closemessage
     applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_038C)
     waitmovement
-    gendermsgbox(msg_0131_D45R0102_00012, msg_0131_D45R0102_00011)
+    gendermsgbox("Could this be the one that the radio\n"
+                 "was trying to reach?\f"
+                 "Giovanni, their boss?\r", "Could this be the one that the radio\n"
+                                            "was trying to reach?\f"
+                                            "Giovanni, their boss?\r")
     closemessage
     applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03DC)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0131_D45R0102_00014, msg_0131_D45R0102_00013)
+    gendermsgbox("Do you hear it, {STRVAR_1 3, 0, 0}?\n"
+                 "The radio is saying something strange!\r"
+                 "Team Rocket has occupied the Radio\n"
+                 "Tower at Goldenrod City!\r"
+                 "It can’t be! {STRVAR_1 3, 0, 0}, you solved\n"
+                 "this case already!\r", "Do you hear it, {STRVAR_1 3, 0, 0}?\n"
+                                         "The radio is saying something strange!\r"
+                                         "Team Rocket has occupied the Radio\n"
+                                         "Tower at Goldenrod City!\r"
+                                         "It can’t be! {STRVAR_1 3, 0, 0}, you solved\n"
+                                         "this case already!\r")
     closemessage
     stopbgm(0)
     playse(SEQ_SE_PL_FR03)
     playbgm(SEQ_GS_SENKYO)
-    npcmsg(msg_0131_D45R0102_00002)
+    npcmsg("...\n"
+           "This is the Radio Tower.\f"
+           "This is the Radio Tower.\f"
+           "We are pleased to declare\f"
+           "Team Rocket’s revival.\f"
+           "...Giovanni?\f"
+           "...Can you hear us?\f"
+           "We have finally made it!\f"
+           "...\r")
     stopse(SEQ_SE_PL_FR03)
     closemessage
     applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_032C)
     waitmovement
-    npcmsg(msg_0131_D45R0102_00003)
+    npcmsg("My old associates need me...\r"
+           "We will not repeat the failure of three\n"
+           "years ago!\r"
+           "{COLOR 1}Team Rocket{COLOR 0} will be born again, and I\n"
+           "will rule the world!\r")
     closemessage
     setvar(VAR_UNK_40FE, 3)
     trainerbattle(TRAINER_ROCKET_BOSS_GIOVANNI, 0, 1, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0131_D45R0102_00006)
+        npcmsg("Giovanni: Mark my words.\r"
+               "Not being able to measure your own\n"
+               "strength shows that you are still\f"
+               "but a child.\r")
         closemessage
         applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_0360)
         playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
@@ -97,7 +142,9 @@ script scr_seq_D45R0102_001 {
         waitmovement
         removeobject(obj_D45R0102_sakaki)
         setflag(FLAG_HIDE_TOHJO_FALLS_GIOVANNI)
-        npcmsg(msg_0131_D45R0102_00019)
+        npcmsg("CELEBI is traveling through time!\n"
+               "It is going back to the time before\f"
+               "this strange adventure began...\r")
         closemessage
         playse(SEQ_SE_GS_TIMESLIP)
         celebitimetravel
@@ -114,9 +161,13 @@ script scr_seq_D45R0102_001 {
         setvar(VAR_TEMP_x4003, 1)
         applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_0304)
         waitmovement
-        gendermsgbox(msg_0131_D45R0102_00023, msg_0131_D45R0102_00022)
+        gendermsgbox("CELEBI...!\r"
+                     "We need it to get better, or we will\n"
+                     "never be able to go back to our time!\r", "CELEBI...!\r"
+                                                                "We need it to get better, or we will\n"
+                                                                "never be able to go back to our time!\r")
         closemessage
-        gendermsgbox(msg_0131_D45R0102_00025, msg_0131_D45R0102_00024)
+        gendermsgbox("Lyra used Max Revive on CELEBI!\r", "Ethan used Max Revive on CELEBI!\r")
         closemessage
         fadescreen(6, 1, 0, RGB_BLACK)
         waitfade
@@ -132,7 +183,13 @@ script scr_seq_D45R0102_001 {
     setvar(VAR_UNK_40FE, 4)
     applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_033C)
     waitmovement
-    npcmsg(msg_0131_D45R0102_00004)
+    npcmsg("Giovanni: How is this possible...?\r"
+           "The past three years have been\n"
+           "a waste...?\r"
+           "How can a kid like you manage to\n"
+           "destroy my dream once again?\r"
+           "The precious dream of Team Rocket has\n"
+           "become little more than an illusion...\r")
     closemessage
     applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_0350)
     waitmovement
@@ -144,13 +201,32 @@ script scr_seq_D45R0102_001 {
     fadeoutbgm(0, 30)
     stopbgm(0)
     playse(SEQ_SE_PL_FR03)
-    npcmsg(msg_0131_D45R0102_00005)
+    npcmsg("...\n"
+           "...Hey!\f"
+           "Where has Giovanni gone?\f"
+           "I wonder if he is listening to\f"
+           "our broadcast...\f"
+           "...\r")
     stopse(SEQ_SE_PL_FR03)
     closemessage
     applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03D4)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0131_D45R0102_00016, msg_0131_D45R0102_00015)
+    gendermsgbox("Lyra: They keep calling for their boss.\n"
+                 "I feel sorry they don’t know he’s\f"
+                 "not coming.\r"
+                 "After this, {STRVAR_1 3, 0, 0}, you will\n"
+                 "defeat them!\r"
+                 "...Wait a second!\r"
+                 "{STRVAR_1 3, 0, 0}, you’re still here.\n"
+                 "Then, who will defeat Team Rocket...?\r", "Ethan: They keep calling for their boss.\n"
+                                                            "I feel sorry they don’t know he’s\f"
+                                                            "not coming.\r"
+                                                            "After this, {STRVAR_1 3, 0, 0}, you will\n"
+                                                            "defeat them!\r"
+                                                            "...Wait a second!\r"
+                                                            "{STRVAR_1 3, 0, 0}, you’re still here.\n"
+                                                            "Then, who will defeat Team Rocket...?\r")
     closemessage
     getpartyleadalive(VAR_TEMP_x4002)
     getpartymonspecies(VAR_TEMP_x4002, VAR_SPECIAL_RESULT)
@@ -169,10 +245,16 @@ script scr_seq_D45R0102_001 {
     applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03C0)
     waitmovement
     if (var(VAR_TEMP_x4003) == 1) {
-        gendermsgbox(msg_0131_D45R0102_00027, msg_0131_D45R0102_00026)
+        gendermsgbox("{COLOR 1}Time Travel{COLOR 0}......!\r"
+                     "This is it! Please take us to our time!\r", "{COLOR 1}Time Travel{COLOR 0}......!\r"
+                                                                  "This is it! Please take us to our time!\r")
         closemessage
     } else {
-        gendermsgbox(msg_0131_D45R0102_00018, msg_0131_D45R0102_00017)
+        gendermsgbox("Not again...!\n"
+                     "I’ve had enough!\f"
+                     "Please let me go back to my time!\r", "Not again...!\n"
+                                                            "I’ve had enough!\f"
+                                                            "Please let me go back to my time!\r")
         closemessage
     }
     playse(SEQ_SE_GS_TIMESLIP)
@@ -280,13 +362,14 @@ script scr_seq_D45R0102_003 {
     lockall
     faceplayer
     if (var(VAR_UNK_40FE) >= 4) {
-        npcmsg(msg_0131_D45R0102_00021)
+        npcmsg("You cannot turn on the radio.\n"
+               "Giovanni must have left it here...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0131_D45R0102_00020)
+    npcmsg("There is a radio that no longer works...")
     waitbuttonpress
     closemessage
     releaseall

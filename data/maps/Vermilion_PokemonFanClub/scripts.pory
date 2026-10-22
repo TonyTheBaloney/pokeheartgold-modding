@@ -18,35 +18,65 @@ script scr_seq_T06R0301_000 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_RARE_CANDY_FROM_FAN_CLUB_CHAIRMAN)) {
-        npcmsg(msg_0488_T06R0301_00000)
+        npcmsg("I’m the Chairman of the\n"
+               "Pokémon Fan Club.\r"
+               "I’ve raised over 150 Pokémon.\r"
+               "I’m very fussy when it comes\n"
+               "to Pokémon.\r"
+               "Did you visit just to hear about\n"
+               "my Pokémon? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0488_T06R0301_00006)
+            npcmsg("How disappointing...\r"
+                   "Come back if you want to listen\n"
+                   "to me again!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0488_T06R0301_00001)
+        npcmsg("Good! Then listen up!\r"
+               "So...my precious RAPIDASH...\r"
+               "It’s...cute...lovely...smart...\n"
+               "adorable...irresistible...plus...\f"
+               "amazing... Don’t you think so?\f"
+               "Oh, so...wild...beautiful...\f"
+               "kind... I love it!\r"
+               "Hug it... It’s warm and cuddly...\n"
+               "Oh, it’s...spectacular...captivating...\f"
+               "simply divine... I treasure it...\f"
+               "Oops! Look at the time! I’ve kept\f"
+               "you too long!\r"
+               "Thanks for hearing me out. I want to\n"
+               "give you this present!\r")
         if (!itemspace(ITEM_RARE_CANDY, 1)) { goto(_0093) }
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_RARE_CANDY_FROM_FAN_CLUB_CHAIRMAN)
-        npcmsg(msg_0488_T06R0301_00003)
+        npcmsg("It’s a Rare Candy that makes\n"
+               "Pokémon stronger.\r"
+               "I prefer making my Pokémon stronger\n"
+               "by battling, so you can have it.")
         waitbuttonpress
         closemessage
         releaseall
         end
     _0093:
-        npcmsg(msg_0488_T06R0301_00007)
+        npcmsg("Your Bag is jammed full.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     bufferplayersname(0)
-    gendermsgbox(msg_0488_T06R0301_00004, msg_0488_T06R0301_00005)
+    gendermsgbox("Hello, {STRVAR_1 3, 0, 0}!\r"
+                 "Did you come see me about my\n"
+                 "Pokémon again?\r"
+                 "No? Oh... I had more tales to tell...", "Hello, {STRVAR_1 3, 0, 0}!\r"
+                                                          "Did you come see me about my\n"
+                                                          "Pokémon again?\r"
+                                                          "No? Oh... I had more tales to tell...")
     waitbuttonpress
     closemessage
     releaseall
@@ -54,7 +84,8 @@ script scr_seq_T06R0301_000 {
 }
 
 script scr_seq_T06R0301_001 {
-    simplenpcmsg(msg_0488_T06R0301_00008)
+    simplenpcmsg("Our Chairman is very vocal when it\n"
+                 "comes to Pokémon...")
     end
 }
 
@@ -67,7 +98,16 @@ script scr_seq_T06R0301_002 {
     getitemquantity(ITEM_PASS, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) { goto(_0141) }
     if (flag(FLAG_UNK_119)) {
-        npcmsg(msg_0488_T06R0301_00011)
+        npcmsg("I love CLEFAIRY, but I could never\n"
+               "catch one. So I’m making do with a\f"
+               "Poké Doll that I found.\r"
+               "What?\n"
+               "The girl who lost this Poké Doll\f"
+               "is sad...!\r"
+               "OK. Could you take this Poké Doll\n"
+               "back to that poor little girl?\r"
+               "I’ll befriend a real CLEFAIRY on\n"
+               "my own one day!\r")
         removeobject(obj_T06R0301_mono_pip)
         setflag(FLAG_HIDE_VERMILION_FAN_CLUB_LOST_ITEM)
         giveitemnocheck(ITEM_LOST_ITEM, 1)
@@ -77,20 +117,26 @@ script scr_seq_T06R0301_002 {
         releaseall
         end
     _0141:
-        npcmsg(msg_0488_T06R0301_00013)
+        npcmsg("You watch. I’m going to get a\n"
+               "real CLEFAIRY as my friend.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (flag(FLAG_RESTORED_POWER)) { goto(_010B) }
-    npcmsg(msg_0488_T06R0301_00009)
+    npcmsg("I love the way CLEFAIRY opens up\n"
+           "its arms!\r"
+           "It’s so adorable!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _010B:
-    npcmsg(msg_0488_T06R0301_00010)
+    npcmsg("I love CLEFAIRY, but I could never\n"
+           "catch one.\r"
+           "So I’m making do with a Poké Doll\n"
+           "that I found.")
     waitbuttonpress
     closemessage
     releaseall
@@ -98,7 +144,9 @@ _010B:
 }
 
 script scr_seq_T06R0301_003 {
-    simplenpcmsg(msg_0488_T06R0301_00014)
+    simplenpcmsg("Look at my darling BAYLEEF!\r"
+                 "The leaf on its head is so cute\n"
+                 "and fashionable!")
     end
 }
 
@@ -107,7 +155,7 @@ script scr_seq_T06R0301_004 {
     lockall
     faceplayer
     playcry(SPECIES_BAYLEEF, 0)
-    npcmsg(msg_0488_T06R0301_00016)
+    npcmsg("BAYLEEF: Li liif!")
     waitcry
     waitbuttonpress
     closemessage
@@ -119,17 +167,20 @@ script scr_seq_T06R0301_007 {
     if (flag(FLAG_HIDE_VERMILION_FAN_CLUB_LOST_ITEM)) {
         end
     }
-    simplenpcmsg(msg_0488_T06R0301_00015)
+    simplenpcmsg("It’s a CLEFAIRY!\n"
+                 "Huh?\r"
+                 "Oh, right. It’s a CLEFAIRY Poké Doll.")
     end
 }
 
 script scr_seq_T06R0301_005 {
-    simplenpcmsg(msg_0488_T06R0301_00017)
+    simplenpcmsg("Let’s all listen politely to\n"
+                 "other Trainers.")
     end
 }
 
 script scr_seq_T06R0301_006 {
-    simplenpcmsg(msg_0488_T06R0301_00018)
+    simplenpcmsg("If someone brags, brag right back!")
     end
 }
 

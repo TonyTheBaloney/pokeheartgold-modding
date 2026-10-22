@@ -2,32 +2,39 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_R10R0201_000 {
-    simplenpcmsg(msg_0344_R10R0201_00003)
+    simplenpcmsg("Manager: My beloved generator!\r"
+                 "Keep pumping the electricity out to\n"
+                 "provide a pleasant life for Kanto!")
     end
 }
 
 script scr_seq_R10R0201_001 {
-    simplenpcmsg(msg_0344_R10R0201_00004)
+    simplenpcmsg("We’ll have to beef up our security\n"
+                 "presence so something like this will\f"
+                 "never happen again!")
     end
 }
 
 script scr_seq_R10R0201_002 {
-    simplenpcmsg(msg_0344_R10R0201_00005)
+    simplenpcmsg("The generator’s up and running.\n"
+                 "It’s making electricity to spare.")
     end
 }
 
 script scr_seq_R10R0201_003 {
-    simplenpcmsg(msg_0344_R10R0201_00006)
+    simplenpcmsg("The generator’s running again!")
     end
 }
 
 script scr_seq_R10R0201_004 {
-    simplenpcmsg(msg_0344_R10R0201_00007)
+    simplenpcmsg("Since the generator’s been fixed, the\n"
+                 "Manager has been cheerful.")
     end
 }
 
 script scr_seq_R10R0201_005 {
-    simplenpcmsg(msg_0344_R10R0201_00008)
+    simplenpcmsg("All right! We can finally get the\n"
+                 "Magnet Train running again.")
     end
 }
 
@@ -36,13 +43,15 @@ script scr_seq_R10R0201_006 {
     lockall
     faceplayer
     if (flag(FLAG_TRADE_POWER_PLANT_DUGTRIO_MAGNETON)) {
-        npcmsg(msg_0344_R10R0201_00013)
+        npcmsg("Hi, how’s my old MAGNETON doing?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0344_R10R0201_00009)
+    npcmsg("I collect Pokémon.\n"
+           "Do you have a DUGTRIO?\r"
+           "Want to trade it for my MAGNETON? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -64,20 +73,22 @@ script scr_seq_R10R0201_006 {
     npctradeexec(VAR_SPECIAL_x8004)
     npctradeend
     setflag(FLAG_TRADE_POWER_PLANT_DUGTRIO_MAGNETON)
-    npcmsg(msg_0344_R10R0201_00010)
+    npcmsg("Yay! I got myself a DUGTRIO!\n"
+           "Thanks!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0127:
     npctradeend
-    npcmsg(msg_0344_R10R0201_00011)
+    npcmsg("Huh? That’s not DUGTRIO.\n"
+           "What a letdown...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0134:
-    npcmsg(msg_0344_R10R0201_00012)
+    npcmsg("You don’t want to trade? Aww...")
     waitbuttonpress
     closemessage
     releaseall
@@ -87,7 +98,13 @@ _0134:
 script scr_seq_R10R0201_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0344_R10R0201_00014)
+    npcmsg("Staff Mottos:\r"
+           "1. Electricity is not infinite.\n"
+           "2. Conserve wherever possible.\f"
+           "3. Watch out for each other.\f"
+           "4. Idle hands are not allowed.\f"
+           "5. Wear shoes with rubber soles.\f"
+           "6. The Manager is awesome.")
     waitbuttonpress
     closemessage
     releaseall
@@ -97,7 +114,9 @@ script scr_seq_R10R0201_007 {
 script scr_seq_R10R0201_008 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0344_R10R0201_00015)
+    npcmsg("Use electricity wisely\n"
+           "for a bright and pleasant life.\f"
+           "           Kanto Power Plant")
     waitbuttonpress
     closemessage
     releaseall

@@ -120,7 +120,8 @@ script scr_seq_T08GYM0101_003 {
             applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_06B4)
         }
         waitmovement
-        npcmsg(msg_0514_T08GYM0101_00007)
+        npcmsg("Fooled you!\n"
+               "Hahaha!\r")
         closemessage
         trainerbattle(TRAINER_LASS_LINDA, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
@@ -133,7 +134,7 @@ script scr_seq_T08GYM0101_003 {
         }
         settrainerflag(TRAINER_LASS_LINDA)
     }
-    npcmsg(msg_0514_T08GYM0101_00008)
+    npcmsg("Well? Wasn’t my disguise perfect?")
     waitbuttonpress
     closemessage
     releaseall
@@ -170,7 +171,8 @@ script scr_seq_T08GYM0101_004 {
             applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_06B4)
         }
         waitmovement
-        npcmsg(msg_0514_T08GYM0101_00009)
+        npcmsg("Wahahaha!\r"
+               "You betcha! I’m Janine!\r")
         closemessage
         trainerbattle(TRAINER_CAMPER_BARRY, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
@@ -183,7 +185,9 @@ script scr_seq_T08GYM0101_004 {
         }
         settrainerflag(TRAINER_CAMPER_BARRY)
     }
-    npcmsg(msg_0514_T08GYM0101_00010)
+    npcmsg("That’s right, I’m a boy!\n"
+           "What’s wrong with a boy\f"
+           "dressing up as Janine?")
     waitbuttonpress
     closemessage
     releaseall
@@ -195,7 +199,9 @@ script scr_seq_T08GYM0101_005 {
     lockall
     faceplayer
     if (!defeated(TRAINER_LASS_ALICE)) {
-        npcmsg(msg_0514_T08GYM0101_00011)
+        npcmsg("Fufufu!\r"
+               "I’m Janine, the Gym Leader!\f"
+               "Wait, no I’m not! Gotcha!\r")
         closemessage
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -222,7 +228,8 @@ script scr_seq_T08GYM0101_005 {
             applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_06B4)
         }
         waitmovement
-        npcmsg(msg_0514_T08GYM0101_00012)
+        npcmsg("Fooled you!\n"
+               "Hahaha!\r")
         closemessage
         trainerbattle(TRAINER_LASS_ALICE, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
@@ -235,7 +242,8 @@ script scr_seq_T08GYM0101_005 {
         }
         settrainerflag(TRAINER_LASS_ALICE)
     }
-    npcmsg(msg_0514_T08GYM0101_00013)
+    npcmsg("It’s so fun to dress up as Janine,\n"
+           "our idol!")
     waitbuttonpress
     closemessage
     releaseall
@@ -247,7 +255,9 @@ script scr_seq_T08GYM0101_006 {
     lockall
     faceplayer
     if (!defeated(TRAINER_PICNICKER_CINDY)) {
-        npcmsg(msg_0514_T08GYM0101_00014)
+        npcmsg("I’m Janine!\n"
+               "How did you know I was real?\f"
+               "Let’s battle!\r")
         closemessage
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -274,7 +284,7 @@ script scr_seq_T08GYM0101_006 {
             applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_06B4)
         }
         waitmovement
-        npcmsg(msg_0514_T08GYM0101_00015)
+        npcmsg("Or not!\r")
         closemessage
         trainerbattle(TRAINER_PICNICKER_CINDY, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
@@ -287,7 +297,7 @@ script scr_seq_T08GYM0101_006 {
         }
         settrainerflag(TRAINER_PICNICKER_CINDY)
     }
-    npcmsg(msg_0514_T08GYM0101_00016)
+    npcmsg("I feel stronger dressing up as Janine.")
     waitbuttonpress
     closemessage
     releaseall
@@ -376,7 +386,10 @@ script scr_seq_T08GYM0101_001 {
     faceplayer
     checkbadge(BADGE_SOUL, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0778) }
-    npcmsg(msg_0514_T08GYM0101_00000)
+    npcmsg("Fufufufu...\n"
+           "I’m sorry to disappoint you...\r"
+           "I’m only joking! I’m the real deal!\r"
+           "Janine of Fuchsia Gym, that’s me!\r")
     closemessage
     setvar(VAR_TEMP_x400B, 111)
     trainerbattle(TRAINER_LEADER_JANINE_JANINE, 0, 0, 0)
@@ -394,12 +407,21 @@ script scr_seq_T08GYM0101_001 {
     settrainerflag(TRAINER_CAMPER_BARRY)
     settrainerflag(TRAINER_LASS_LINDA)
     settrainerflag(TRAINER_LASS_ALICE)
-    npcmsg(msg_0514_T08GYM0101_00001)
+    npcmsg("Janine: I see... You have defeated\n"
+           "Koga, my father and a member of the\f"
+           "Elite Four, to come here.\r"
+           "No wonder you are strong!\r"
+           "You’ve definitely won...\n"
+           "Here’s the Soul Badge. Take it.\r")
     bufferplayersname(0)
-    npcmsg(msg_0514_T08GYM0101_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Soul Badge from Janine!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
-    npcmsg(msg_0514_T08GYM0101_00003)
+    npcmsg("Janine: You’re so tough!\n"
+           "I have a special gift!\r"
+           "It’s Poison Jab, a powerful Poison-type\n"
+           "move that may poison its victim.\r")
     goto(_074F)
 _074F:
     if (!itemspace(ITEM_TM84, 1)) {
@@ -412,7 +434,10 @@ _074F:
     setflag(FLAG_GOT_TM84_FROM_JANINE)
 _0778:
     if (!flag(FLAG_GOT_TM84_FROM_JANINE)) { goto(_074F) }
-    npcmsg(msg_0514_T08GYM0101_00004)
+    npcmsg("Janine: I’m going to really apply\n"
+           "myself and improve my skills.\r"
+           "I want to become much better than\n"
+           "both my father and you!")
     waitbuttonpress
     closemessage
     releaseall
@@ -425,13 +450,18 @@ script scr_seq_T08GYM0101_002 {
     faceplayer
     checkbadge(BADGE_SOUL, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0514_T08GYM0101_00006)
+        npcmsg("That was a great battle,\n"
+               "Trainer from Johto!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0514_T08GYM0101_00005)
+    npcmsg("Yo, legend in the making!\n"
+           "Whoops! Take a good look around you.\r"
+           "The Trainers all look like the\n"
+           "Gym Leader, Janine.\r"
+           "Which of them is the real Janine?")
     waitbuttonpress
     closemessage
     releaseall
@@ -445,9 +475,12 @@ script scr_seq_T08GYM0101_007 {
     checkbadge(BADGE_SOUL, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0514_T08GYM0101_00017)
+        npcmsg("Fuchsia City Pokémon Gym")
     } else {
-        npcmsg(msg_0514_T08GYM0101_00018)
+        npcmsg("Fuchsia City Pokémon Gym\r"
+               "Leader: Janine\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

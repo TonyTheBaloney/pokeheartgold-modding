@@ -7,7 +7,13 @@ script scr_seq_T24R0501_000 {
         playse(SEQ_SE_DP_SELECT)
         lockall
         faceplayer
-        npcmsg(msg_0577_T24R0501_00000)
+        npcmsg("Huh? You need medicine?\n"
+               "Your Pokémon appear to be fine.\f"
+               "Is something worrying you?\r"
+               "...\r"
+               "The Lighthouse Pokémon is in trouble?\r"
+               "I got it!\f"
+               "This ought to do the trick.")
         waitabpress
         if (!itemspace(ITEM_SECRETPOTION, 1)) {
             callstd(std_bag_is_full)
@@ -17,7 +23,8 @@ script scr_seq_T24R0501_000 {
         }
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_SECRETPOTION)
-        npcmsg(msg_0577_T24R0501_00002)
+        npcmsg("My SecretPotion is a tad too strong.\f"
+               "I only offer it in an emergency.")
         waitabpress
         closemessage
         applymovement(obj_T24R0501_sunglasses, Cianwood_Pharmacy_Movement_00A8)
@@ -31,7 +38,8 @@ _0024:
     lockall
     faceplayer
     setflag(FLAG_SPECIAL_MART_PHARMACY)
-    npcmsg(msg_0577_T24R0501_00003)
+    npcmsg("What’s up?\n"
+           "Need some medicine? {YESNO 0}")
     holdmsg
     setvar(VAR_SPECIAL_x8004, 11)
     callstd(std_special_mart)

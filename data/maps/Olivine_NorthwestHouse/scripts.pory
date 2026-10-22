@@ -6,13 +6,19 @@ script scr_seq_T26R0601_000 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_GOOD_ROD)) {
-        npcmsg(msg_0610_T26R0601_00005)
+        npcmsg("How are things?\n"
+               "Land the big one?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0610_T26R0601_00000)
+    npcmsg("Olivine is on the sea!\r"
+           "And if it’s on the sea, there is bound\n"
+           "to be something to catch!\r"
+           "I’ve fished here for 30 years.\r"
+           "Would you like to face the sea\n"
+           "and fish? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -21,17 +27,21 @@ script scr_seq_T26R0601_000 {
     end
 _0040:
     if (!itemspace(ITEM_GOOD_ROD, 1)) { goto(_0084) }
-    npcmsg(msg_0610_T26R0601_00001)
+    npcmsg("Ah, hahah!\n"
+           "We have ourselves a new angler!")
     waitbuttonpress
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_GOOD_ROD)
-    npcmsg(msg_0610_T26R0601_00003)
+    npcmsg("Water-type Pokémon aren’t found\n"
+           "in the sea alone.\f"
+           "They go wherever there is water.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0079:
-    npcmsg(msg_0610_T26R0601_00004)
+    npcmsg("Whaaat? You don’t like to fish!?\f"
+           "Incomprehensible!")
     waitbuttonpress
     closemessage
     releaseall

@@ -3,32 +3,19 @@
   "messages": [
     {
       "id": "msg_0054_D15R0101_00000",
-      "en_US": [
-        "Only those who reach the top will\n",
-        "receive a wonderful move."
-      ]
+      "from": "scr_seq_D15R0101_004#0"
     },
     {
       "id": "msg_0054_D15R0101_00001",
-      "en_US": [
-        "Sprout Tower was built long ago\n",
-        "as a place for Pokémon training."
-      ]
+      "from": "scr_seq_D15R0101_003#0"
     },
     {
       "id": "msg_0054_D15R0101_00002",
-      "en_US": [
-        "A BELLSPROUT over 100 feet tall...\r",
-        "People say that it became the middle\n",
-        "pillar here."
-      ]
+      "from": "scr_seq_D15R0101_001#0"
     },
     {
       "id": "msg_0054_D15R0101_00003",
-      "en_US": [
-        "See the pillar shaking?\r",
-        "People are training upstairs."
-      ]
+      "from": "scr_seq_D15R0101_002#0"
     },
     {
       "id": "msg_0054_D15R0101_00004",

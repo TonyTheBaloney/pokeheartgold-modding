@@ -2,12 +2,17 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_R33_000 {
-    simplenpcmsg(msg_0383_R33_00000)
+    simplenpcmsg("Pant, pant...\n"
+                 "I finally got through that cave.\r"
+                 "It was much bigger than I’d expected.\n"
+                 "I got too tired to explore the whole\f"
+                 "thing, so I came outside.")
     end
 }
 
 script scr_seq_R33_001 {
-    directionsignpostex(1, 2, msg_0383_R33_00001)
+    directionsignpostex(1, 2, "Rt. 33\n"
+                              "West to Azalea Town")
     end
 }
 

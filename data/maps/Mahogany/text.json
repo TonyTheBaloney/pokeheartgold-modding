@@ -3,98 +3,47 @@
   "messages": [
     {
       "id": "msg_0620_T28_00000",
-      "en_US": [
-        "Hiya, kid!\r",
-        "I see you’re new in Mahogany Town.\n",
-        "Since you’re new, you should try a\f",
-        "yummy RageCandyBar!\r",
-        "Right now, it can be yours for just\n",
-        "$300! Want one? {YESNO 0}"
-      ]
+      "from": "text"
     },
     {
       "id": "msg_0620_T28_00001",
-      "en_US": [
-        "I don’t want to upset you after\n",
-        "buying one from me, but...\r",
-        "Buying a RageCandyBar has nothing to\n",
-        "do with whether I’d allow you to\f",
-        "pass through here.\r",
-        "...Johto has many places to visit,\n",
-        "such as the Lighthouse at Olivine and\f",
-        "the Pharmacy at Cianwood.\r",
-        "Why don’t you slow down and\n",
-        "enjoy sightseeing?"
-      ]
+      "from": "scr_seq_T28_000#5"
     },
     {
       "id": "msg_0620_T28_00002",
-      "en_US": [
-        "I don’t want to upset you after\n",
-        "buying one from me, but...\r",
-        "Buying a RageCandyBar has nothing to\n",
-        "do with whether I’d allow you to\f",
-        "pass through here.\r",
-        "...Johto has many places to visit,\n",
-        "such as the Lighthouse at Olivine and\f",
-        "the Pharmacy at Cianwood.\r",
-        "Why don’t you slow down and\n",
-        "enjoy sightseeing?\r"
-      ]
+      "from": "scr_seq_T28_001#0"
     },
     {
       "id": "msg_0620_T28_00003",
-      "en_US": [
-        "What? RageCandyBar?\n",
-        "You want to buy one?\r",
-        "Right on!\r",
-        "Same as before, it can be yours for\n",
-        "just $300! Want one? {YESNO 0}"
-      ]
+      "from": "scr_seq_T28_000#0"
     },
     {
       "id": "msg_0620_T28_00004",
-      "en_US": [
-        "What? RageCandyBar?\n",
-        "You want to buy another?\r",
-        "I think one is enough for you."
-      ]
+      "from": "scr_seq_T28_000#1"
     },
     {
       "id": "msg_0620_T28_00005",
-      "en_US": [
-        "I remember a person from as far as\n",
-        "Kanto came to buy one a long time ago.\r",
-        "I happened to have none in stock then.\n",
-        "That person left rather upset.\r",
-        "I felt kind of sorry for that."
-      ]
+      "from": "scr_seq_T28_000#2"
     },
     {
       "id": "msg_0620_T28_00006",
-      "en_US": [
-        "I remember a person from as far as\n",
-        "Kanto came to buy one a long time ago.\r",
-        "I happened to have none in stock then.\n",
-        "That person left rather upset.\r",
-        "I felt kind of sorry for that.\r"
-      ]
+      "from": "scr_seq_T28_001#1"
     },
     {
       "id": "msg_0620_T28_00007",
-      "en_US": "You don’t have enough money."
+      "from": "scr_seq_T28_000#3"
     },
     {
       "id": "msg_0620_T28_00008",
-      "en_US": "You don’t have enough money.\r"
+      "from": "scr_seq_T28_001#3"
     },
     {
       "id": "msg_0620_T28_00009",
-      "en_US": "Oh, fine then..."
+      "from": "scr_seq_T28_000#4"
     },
     {
       "id": "msg_0620_T28_00010",
-      "en_US": "Oh, fine then...\r"
+      "from": "scr_seq_T28_001#2"
     },
     {
       "id": "msg_0620_T28_00011",
@@ -106,63 +55,31 @@
     },
     {
       "id": "msg_0620_T28_00013",
-      "en_US": [
-        "Have you seen this guy with a\n",
-        "black cape?\r",
-        "He has been going back and forth\n",
-        "between here and the Lake of Rage\f",
-        "saying strange radio waves are\f",
-        "being transmitted.\r",
-        "Who is he, I wonder.\n"
-      ]
+      "from": "scr_seq_T28_004#0"
     },
     {
       "id": "msg_0620_T28_00014",
-      "en_US": [
-        "Are you off to see the GYARADOS\n",
-        "rampage at the lake?"
-      ]
+      "from": "scr_seq_T28_002#1"
     },
     {
       "id": "msg_0620_T28_00015",
-      "en_US": [
-        "MAGIKARP have returned to\n",
-        "Lake of Rage.\r",
-        "That should be splendid news for the\n",
-        "anglers there."
-      ]
+      "from": "scr_seq_T28_002#0"
     },
     {
       "id": "msg_0620_T28_00016",
-      "en_US": [
-        "Visit Grandma’s shop. She sells\n",
-        "stuff that nobody else has...\r",
-        "You want to buy stuff, right?\n",
-        "So buy stuff at my grandma’s!"
-      ]
+      "from": "scr_seq_T28_003#0"
     },
     {
       "id": "msg_0620_T28_00017",
-      "en_US": [
-        "Mahogany Town\n",
-        "Home of the Ninja"
-      ]
+      "from": "scr_seq_T28_006#0"
     },
     {
       "id": "msg_0620_T28_00018",
-      "en_US": [
-        "Just a Souvenir Shop\r",
-        "Nothing Suspicious about It\n",
-        "No Need to Be Alarmed"
-      ]
+      "from": "scr_seq_T28_007#0"
     },
     {
       "id": "msg_0620_T28_00019",
-      "en_US": [
-        "Mahogany Town Pokémon Gym\n",
-        "Leader: Pryce\f",
-        "The Teacher of Winter’s Harshness"
-      ]
+      "from": "scr_seq_T28_008#0"
     }
   ]
 }

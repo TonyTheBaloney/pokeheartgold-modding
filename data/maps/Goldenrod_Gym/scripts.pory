@@ -56,7 +56,8 @@ script scr_seq_T25GYM0101_000 {
     checkbadge(BADGE_PLAIN, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         if (!flag(FLAG_GOT_TM45_FROM_WHITNEY)) { goto(_01C4) }
-        npcmsg(msg_0582_T25GYM0101_00008)
+        npcmsg("Whitney: Ah, that was a good cry!\r"
+               "Come for a visit again! Bye-bye!")
         waitbuttonpress
         closemessage
         releaseall
@@ -64,7 +65,14 @@ script scr_seq_T25GYM0101_000 {
     }
     if (flag(FLAG_UNK_0B7)) { goto(_01A0) }
     if (var(VAR_UNK_410A) != 1) {
-        npcmsg(msg_0582_T25GYM0101_00000)
+        npcmsg("Whitney: Hi! I’m Whitney!\r"
+               "...You!\n"
+               "I saw you at the Radio Tower just now.\r"
+               "Everyone was into Pokémon, so I got\n"
+               "into it, too!\r"
+               "Pokémon are super cute!\r"
+               "You want to battle?\f"
+               "I’m warning you--I’m good!\r")
         closemessage
         trainerbattle(TRAINER_LEADER_WHITNEY, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
@@ -80,7 +88,10 @@ script scr_seq_T25GYM0101_000 {
         addspecialgamestat(SCORE_EVENT_BADGE_GET)
         movepersonfacing(obj_T25GYM0101_gsgirl1, 13, 0, 15, DIR_NORTH)
     }
-    npcmsg(msg_0582_T25GYM0101_00002)
+    npcmsg("Whitney: Waaaaah!\r"
+           "Waaaaah!\r"
+           "...Snivel, hic.\n"
+           "...You meanie!")
     waitbuttonpress
     closemessage
     releaseall
@@ -91,20 +102,36 @@ script scr_seq_T25GYM0101_000 {
     setflag(FLAG_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_LOCKED)
     end
 _01A0:
-    npcmsg(msg_0582_T25GYM0101_00003)
+    npcmsg("Whitney: Sniff...\r"
+           "What? What do you want? A Badge?\r"
+           "Oh, right. I forgot.\n"
+           "Here’s the Plain Badge.\r")
     bufferplayersname(0)
-    npcmsg(msg_0582_T25GYM0101_00004)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Plain Badge from Whitney.")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
     givebadge(BADGE_PLAIN)
     setvar(VAR_UNK_410A, 2)
     clearflag(FLAG_UNK_084)
     setflag(FLAG_UNK_998)
-    npcmsg(msg_0582_T25GYM0101_00005)
+    npcmsg("Whitney: The Plain Badge lets your\n"
+           "Pokémon use Strength outside\f"
+           "of battle.\r"
+           "Oh, you can have this, too!\r")
 _01C4:
     if (!itemspace(ITEM_TM45, 1)) { goto(_01F8) }
     callstd(std_give_item_verbose)
-    npcmsg(msg_0582_T25GYM0101_00007)
+    npcmsg("Whitney: It’s Attract!\n"
+           "It makes full use of a Pokémon’s charm.\r"
+           "Isn’t it just perfect for a cutie\n"
+           "like me?\f"
+           "That’s right!\r"
+           "I heard that this thing called the\n"
+           "Pokéathlon Dome is now open right next\f"
+           "to the National Park.\r"
+           "You should go try it, since you’re\n"
+           "so good at battling with your Pokémon!")
     waitbuttonpress
     closemessage
     setflag(FLAG_GOT_TM45_FROM_WHITNEY)
@@ -122,7 +149,9 @@ script scr_seq_T25GYM0101_001 {
     lockall
     applymovement(obj_T25GYM0101_gsgirl1, Goldenrod_Gym_Movement_0260)
     waitmovement
-    npcmsg(msg_0582_T25GYM0101_00009)
+    npcmsg("Oh, no. You made Whitney cry.\r"
+           "It’s OK. She’ll stop soon.\n"
+           "She always cries when she loses.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -159,13 +188,18 @@ script scr_seq_T25GYM0101_002 {
     faceplayer
     checkbadge(BADGE_PLAIN, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0582_T25GYM0101_00011)
+        npcmsg("You won? Great! I was busy admiring\n"
+               "the powerful Trainers here.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0582_T25GYM0101_00010)
+    npcmsg("Yo! Champ in the making!\r"
+           "This Gym is home to Normal-type\n"
+           "Pokémon Trainers.\r"
+           "I recommend you use Fighting-type\n"
+           "Pokémon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -179,9 +213,12 @@ script scr_seq_T25GYM0101_003 {
     checkbadge(BADGE_PLAIN, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0582_T25GYM0101_00012)
+        npcmsg("Goldenrod City Pokémon Gym")
     } else {
-        npcmsg(msg_0582_T25GYM0101_00013)
+        npcmsg("Goldenrod City Pokémon Gym\r"
+               "Leader: Whitney\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

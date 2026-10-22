@@ -125,7 +125,14 @@ script scr_seq_T08_008 {
     call(_0601)
     call(_057B)
     if (var(VAR_SPECIAL_x8006) == 1) {
-        npcmsg(msg_0512_T08_00008)
+        npcmsg("Shard de Berry!\n"
+               "Shard de Berry!\r"
+               "Yah, yah!\n"
+               "I trade Berry for Shard.\r"
+               "If ya bring me some Shards,\n"
+               "I will give ya three Berries, yah!\r"
+               "Which Shard will ya trade for\n"
+               "de Berry? {YESNO 0}")
     _01E3:
         touchscreenmenuhide
         menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
@@ -151,7 +158,8 @@ script scr_seq_T08_008 {
         Case(3, _0479)
         goto(_051D)
     _028D:
-        npcmsg(msg_0512_T08_00011)
+        npcmsg("I’ll give ya de Berry set E\n"
+               "for de Red Shard, yah!\r")
         if (!itemspace(ITEM_PERSIM_BERRY, 1)) { goto(_052C) }
         if (!itemspace(ITEM_RAZZ_BERRY, 1)) { goto(_052C) }
         if (!itemspace(ITEM_POMEG_BERRY, 1)) { goto(_052C) }
@@ -161,7 +169,8 @@ script scr_seq_T08_008 {
         takeitem(ITEM_RED_SHARD, 1, VAR_SPECIAL_RESULT)
         goto(_053B)
     _0331:
-        npcmsg(msg_0512_T08_00012)
+        npcmsg("I’ll give ya de Berry set F\n"
+               "for de Blue Shard, yah!\r")
         if (!itemspace(ITEM_BLUK_BERRY, 1)) { goto(_052C) }
         if (!itemspace(ITEM_KELPSY_BERRY, 1)) { goto(_052C) }
         if (!itemspace(ITEM_CORNN_BERRY, 1)) { goto(_052C) }
@@ -171,7 +180,8 @@ script scr_seq_T08_008 {
         takeitem(ITEM_BLUE_SHARD, 1, VAR_SPECIAL_RESULT)
         goto(_053B)
     _03D5:
-        npcmsg(msg_0512_T08_00013)
+        npcmsg("I’ll give ya de Berry set G\n"
+               "for de Yellow Shard, yah!\r")
         if (!itemspace(ITEM_PINAP_BERRY, 1)) { goto(_052C) }
         if (!itemspace(ITEM_GREPA_BERRY, 1)) { goto(_052C) }
         if (!itemspace(ITEM_NOMEL_BERRY, 1)) { goto(_052C) }
@@ -181,7 +191,8 @@ script scr_seq_T08_008 {
         takeitem(ITEM_YELLOW_SHARD, 1, VAR_SPECIAL_RESULT)
         goto(_053B)
     _0479:
-        npcmsg(msg_0512_T08_00014)
+        npcmsg("I’ll give ya de Berry set H\n"
+               "for de Green Shard, yah!\r")
         if (!itemspace(ITEM_WEPEAR_BERRY, 1)) { goto(_052C) }
         if (!itemspace(ITEM_HONDEW_BERRY, 1)) { goto(_052C) }
         if (!itemspace(ITEM_DURIN_BERRY, 1)) { goto(_052C) }
@@ -191,13 +202,17 @@ script scr_seq_T08_008 {
         takeitem(ITEM_GREEN_SHARD, 1, VAR_SPECIAL_RESULT)
         goto(_053B)
     _051D:
-        npcmsg(msg_0512_T08_00010)
+        npcmsg("Yah, yah!\n"
+               "Come back when ya’ve changed\f"
+               "ya mind, yah!\r")
         closemessage
         call(_0601)
         releaseall
         end
     _052C:
-        npcmsg(msg_0512_T08_00015)
+        npcmsg("Ya already have many Berries\n"
+               "of dis set.\r"
+               "Come back when ya need more, yah!\r")
         closemessage
         call(_0601)
         releaseall
@@ -247,10 +262,16 @@ script scr_seq_T08_008 {
             }
             return
         }
-        npcmsg(msg_0512_T08_00009)
+        npcmsg("More Shards to trade for\n"
+               "de Berries? {YESNO 0}")
         goto(_01E3)
     }
-    npcmsg(msg_0512_T08_00007)
+    npcmsg("Shard de Berry!\n"
+           "Shard de Berry!\r"
+           "Yah, yah!\n"
+           "I trade Berry for Shard.\r"
+           "If ya bring me some Shards,\n"
+           "I will give ya three Berries, yah!\r")
     closemessage
     call(_0601)
     releaseall
@@ -315,37 +336,50 @@ movement Fuchsia_Movement_06D4 {
 }
 
 script scr_seq_T08_000 {
-    simplenpcmsg(msg_0512_T08_00000)
+    simplenpcmsg("One of the Elite Four used to be\n"
+                 "the Leader of Fuchsia’s Gym.")
     end
 }
 
 script scr_seq_T08_001 {
-    simplenpcmsg(msg_0512_T08_00001)
+    simplenpcmsg("Koga’s daughter succeeded him as\n"
+                 "the Gym Leader after he joined\f"
+                 "the Elite Four.")
     end
 }
 
 script scr_seq_T08_002 {
-    simplenpcmsg(msg_0512_T08_00002)
+    simplenpcmsg("The Safari Zone wasn’t open\n"
+                 "for a while.\r"
+                 "Then it moved to Johto before\n"
+                 "I knew it.\f"
+                 "It’s sad...\r"
+                 "It was this city’s main attraction.")
     end
 }
 
 script scr_seq_T08_009 {
-    directionsignpostex(0, 8, msg_0512_T08_00003)
+    directionsignpostex(0, 8, "Fuchsia City\n"
+                              "Happening and Passing City")
     end
 }
 
 script scr_seq_T08_003 {
-    trainertipsex(2, msg_0512_T08_00004)
+    trainertipsex(2, "Fuchsia City Pokémon Gym\n"
+                     "Leader: Janine\f"
+                     "The Poisonous Ninja Master")
     end
 }
 
 script scr_seq_T08_004 {
-    trainertipsex(2, msg_0512_T08_00005)
+    trainertipsex(2, "There’s a notice here...\r"
+                     "The Safari Zone is closed.\f"
+                     "Instead, we have Pal Park.")
     end
 }
 
 script scr_seq_T08_005 {
-    trainertipsex(2, msg_0512_T08_00006)
+    trainertipsex(2, "Home of the Pal Park Warden")
     end
 }
 

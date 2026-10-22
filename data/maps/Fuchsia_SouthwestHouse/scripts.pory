@@ -2,12 +2,14 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T08R0401_000 {
-    simplenpcmsg(msg_0517_T08R0401_00000)
+    simplenpcmsg("My grandpa is at my brother Bill’s\n"
+                 "on Cerulean Cape.")
     end
 }
 
 script scr_seq_T08R0401_001 {
-    simplenpcmsg(msg_0517_T08R0401_00001)
+    simplenpcmsg("I saw these weird, slow Pokémon on\n"
+                 "Cycling Road.")
     end
 }
 

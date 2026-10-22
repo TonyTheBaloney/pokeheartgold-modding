@@ -2,7 +2,11 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T08R0601_000 {
-    simplenpcmsg(msg_0518_T08R0601_00000)
+    simplenpcmsg("My grandpa closed the Safari Zone\n"
+                 "and now that we have an empty lot,\f"
+                 "my dad decided to run the Pal Park!\r"
+                 "It seems that catching and releasing\n"
+                 "Pokémon runs in my family.")
     end
 }
 
@@ -11,7 +15,7 @@ script scr_seq_T08R0601_001 {
     lockall
     faceplayer
     playcry(SPECIES_AIPOM, 0)
-    npcmsg(msg_0518_T08R0601_00001)
+    npcmsg("AIPOM: Pom Pom...?")
     waitcry
     waitbuttonpress
     closemessage
@@ -24,7 +28,7 @@ script scr_seq_T08R0601_002 {
     lockall
     faceplayer
     playcry(SPECIES_AIPOM, 0)
-    npcmsg(msg_0518_T08R0601_00002)
+    npcmsg("AIPOM: Pom Pom!")
     waitcry
     waitbuttonpress
     closemessage
@@ -37,7 +41,7 @@ script scr_seq_T08R0601_003 {
     lockall
     faceplayer
     playcry(SPECIES_AIPOM, 0)
-    npcmsg(msg_0518_T08R0601_00003)
+    npcmsg("AIPOM: Pommm...")
     waitcry
     waitbuttonpress
     closemessage

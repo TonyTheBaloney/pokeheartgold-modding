@@ -3,11 +3,7 @@
   "messages": [
     {
       "id": "msg_0521_T10_00000",
-      "en_US": [
-        "Indigo Plateau\r",
-        "The Ultimate Goal for Trainers!\n",
-        "Pokémon League HQ"
-      ]
+      "from": "scr_seq_T10_000#0"
     }
   ]
 }

@@ -7,7 +7,8 @@ script scr_seq_T25SP0101_000 {
     faceplayer
     hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0603_T25SP0101_00038)
+        npcmsg("It seems you need a Coin Case\n"
+               "to play...\r")
         applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0080)
         waitmovement
         npcmsg(msg_0603_T25SP0101_00039)
@@ -15,7 +16,8 @@ script scr_seq_T25SP0101_000 {
     }
     applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0080)
     waitmovement
-    npcmsg(msg_0603_T25SP0101_00040)
+    npcmsg("Mr. Game: Show me how you play and\n"
+           "make my heart pound with excitement!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -26,6 +28,12 @@ script scr_seq_T25SP0101_000 {
     setvar(VAR_TEMP_x4001, 2)
     releaseall
     end
+}
+
+text msg_0603_T25SP0101_00039 {
+    "Mr. Game: Aha!\r"
+    "You must be here to play my Coin game!\n"
+    "Come here and I’ll give you a Coin Case!"
 }
 
 movement Goldenrod_GameCorner_Movement_0080 {
@@ -53,7 +61,9 @@ script scr_seq_T25SP0101_001 {
     waitmovement
     hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
-        npcmsg(msg_0603_T25SP0101_00041)
+        npcmsg("Mr. Game: Huh?\r"
+               "Why don’t you sit across from me\n"
+               "and show me how you play?")
     } else {
         npcmsg(msg_0603_T25SP0101_00039)
     }
@@ -79,31 +89,55 @@ script scr_seq_T25SP0101_002 {
     hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
         if (var(VAR_TEMP_x4001) == 0) {
-            npcmsg(msg_0603_T25SP0101_00028)
+            npcmsg("My name is Mr. Game!\r"
+                   "My heart pounds with excitement when\n"
+                   "people enjoy my Coin game!\r"
+                   "In fact, that’s what I live for!\n"
+                   "You look like quite a challenger!\r"
+                   "Why don’t you play my Coin game?\r"
+                   "You can get fabulous prizes if\n"
+                   "you manage to collect a lot\f"
+                   "of Coins. {YESNO 0}")
         } else {
-            npcmsg(msg_0603_T25SP0101_00037)
+            npcmsg("Did you come back to play\n"
+                   "my Coin game?")
         }
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
             setvar(VAR_TEMP_x4001, 1)
-            npcmsg(msg_0603_T25SP0101_00033)
+            npcmsg("Playing my Coin game will make your\n"
+                   "heart and my heart both pound with\f"
+                   "excitement, you know?")
             goto(_00E8)
         }
-        npcmsg(msg_0603_T25SP0101_00031)
+        npcmsg("All right!\n"
+               "Here is your Coin Case!\r")
         setvar(VAR_TEMP_x4001, 1)
         giveitemnocheck(ITEM_COIN_CASE, 1)
-        npcmsg(msg_0603_T25SP0101_00032)
+        npcmsg("Show me how you play, and my heart\n"
+               "will pound with excitement!\r")
         goto(_00E8)
     }
     if (var(VAR_TEMP_x4001) == 0) {
-        npcmsg(msg_0603_T25SP0101_00034)
+        npcmsg("My name is Mr. Game!\r"
+               "My heart pounds with excitement when\n"
+               "people enjoy my Coin game!\r"
+               "In fact, that’s what I live for!\n"
+               "Go ahead and play it!\r"
+               "Make my heart pound with excitement!")
         setvar(VAR_TEMP_x4001, 1)
     } elif (var(VAR_TEMP_x4001) == 1) {
-        npcmsg(msg_0603_T25SP0101_00035)
+        npcmsg("Go ahead and play my Coin game!\f"
+               "Make my heart pound with excitement!")
     } else {
-        npcmsg(msg_0603_T25SP0101_00036)
+        npcmsg("What a feeling!\r"
+               "Nothing beats Coin-game spectatorship!\n"
+               "Oh! I almost forgot!\r"
+               "You can exchange your Coins for prizes\n"
+               "with the two gentlemen at the table\f"
+               "over there.")
     }
     waitbuttonpress
     closemessage
@@ -116,7 +150,8 @@ script scr_seq_T25SP0101_003 {
     lockall
     faceplayer
     scriptoverlaycmd(3, 0)
-    npcmsg(msg_0603_T25SP0101_00000)
+    npcmsg("We exchange your Coins for\n"
+           "fabulous prizes! {YESNO 0}")
     touchscreenmenuhide
     showpointsbox(0, 20, 2)
 _01EC:
@@ -383,12 +418,28 @@ _0825:
     end
 }
 
+text msg_0603_T25SP0101_00003 {
+    "{STRVAR_1 8, 0, 0}.\n"
+    "Is that right? {YESNO 0}"
+}
+
+text msg_0603_T25SP0101_00004 {
+    "Here you go!\r"
+}
+
+text msg_0603_T25SP0101_00010 {
+    "You put away the {STRVAR_1 8, 0, 0}\n"
+    "in the {STRVAR_1 18, 1, 0} Pocket. {YESNO 0}"
+}
+
 script scr_seq_T25SP0101_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     scriptoverlaycmd(3, 0)
-    npcmsg(msg_0603_T25SP0101_00009)
+    npcmsg("Welcome!\r"
+           "We exchange your Coins for\n"
+           "fabulous prizes! {YESNO 0}")
     touchscreenmenuhide
     showpointsbox(0, 20, 2)
     getgameversion(VAR_TEMP_x4000)
@@ -434,7 +485,7 @@ script scr_seq_T25SP0101_004 {
         getpartycount(VAR_SPECIAL_x8005)
         if (var(VAR_SPECIAL_x8005) != 6) {
             bufferspeciesname(1, VAR_TEMP_x4002, 0, 0)
-            npcmsg(msg_0603_T25SP0101_00007)
+            npcmsg("Would you like {STRVAR_1 0, 1, 0}? {YESNO 0}")
             getmenuchoice(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0A34) }
             closemessage
@@ -460,7 +511,8 @@ script scr_seq_T25SP0101_004 {
                 givemon(VAR_TEMP_x4002, 15, 0, 0, 0, VAR_SPECIAL_RESULT)
                 bufferplayersname(0)
                 bufferspeciesname(1, VAR_TEMP_x4002, 0, 0)
-                npcmsg(msg_0603_T25SP0101_00008)
+                npcmsg("{STRVAR_1 3, 0, 0} received\n"
+                       "the {STRVAR_1 0, 1, 0}! {YESNO 0}")
                 if (var(VAR_TEMP_x4002) == 63) {
                     takecoins(200)
                 } elif (var(VAR_TEMP_x4002) == 23) {
@@ -477,7 +529,7 @@ script scr_seq_T25SP0101_004 {
                 _0B43:
                     end
                 _0B45:
-                    npcmsg(msg_0603_T25SP0101_00005)
+                    npcmsg("Sorry. You can’t carry any more.\r")
                     closemessage
                 _0B4A:
                     if (var(VAR_SPECIAL_x8004) != 417) {
@@ -497,7 +549,8 @@ script scr_seq_T25SP0101_004 {
                                             if (var(VAR_TEMP_x4000) != 7) {
                                                 goto(_0948)
                                             _0C17:
-                                                npcmsg(msg_0603_T25SP0101_00001)
+                                                npcmsg("Please save your Coins and\n"
+                                                       "come again!")
                                                 waitbuttonpress
                                                 closemessage
                                                 goto(_0C26)
@@ -536,13 +589,19 @@ script scr_seq_T25SP0101_004 {
             goto(_08EB)
             goto(_0A34)
         }
-        npcmsg(msg_0603_T25SP0101_00006)
+        npcmsg("Your party’s full!\n"
+               "Please make some room before you\f"
+               "come back.")
         waitbuttonpress
         closemessage
         goto(_0C26)
     }
     goto(_08EB)
     goto(_08EB)
+}
+
+text msg_0603_T25SP0101_00002 {
+    "Sorry! You need more Coins. {YESNO 0}"
 }
 
 mapscripts Goldenrod_GameCorner_MapScripts {

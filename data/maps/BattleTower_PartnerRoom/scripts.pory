@@ -94,12 +94,20 @@ script scr_seq_D31R0207_008 {
     end
 }
 
+text msg_0099_D31R0207_00000 {
+    "Please find a partner from the Trainers\n"
+    "that are gathered here.\r"
+}
+
 script scr_seq_D31R0207_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     bufferplayersname(0)
-    npcmsg(msg_0099_D31R0207_00001)
+    npcmsg("{STRVAR_1 3, 0, 0}, you have not found\n"
+           "a partner for your tag team.\r"
+           "Would you like to quit looking and\n"
+           "return to the reception counter? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -124,7 +132,9 @@ script scr_seq_D31R0207_009 {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_4151, 0)
-    npcmsg(msg_0099_D31R0207_00002)
+    npcmsg("Thank you for choosing a partner.\r"
+           "I will now show you to your\n"
+           "Multi Battle Room.\r")
     closemessage
     call(_04C5)
     setvar(VAR_UNK_414D, 2)
@@ -157,14 +167,18 @@ script scr_seq_D31R0207_001 {
         battletowergetallymonspeciesandmove(VAR_TEMP_x4009, 1, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
         bufferspeciesnameindef(2, VAR_SPECIAL_x8004, 0, 0)
         buffermovename(3, VAR_SPECIAL_x8005)
-        npcmsg(msg_0099_D31R0207_00006)
+        npcmsg("Cheryl: I have {STRVAR_1 0, 0, 0} that\n"
+               "is very good with {STRVAR_1 6, 1, 0}\r"
+               "and {STRVAR_1 0, 2, 0} that likes to\n"
+               "show off its {STRVAR_1 6, 3, 0}.\r"
+               "Will you team up with me? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) {
             battletoweraction(50, VAR_TEMP_x4009, 0)
             setvar(VAR_UNK_4151, 2)
-            npcmsg(msg_0099_D31R0207_00008)
+            npcmsg("Cheryl: I’ll go on ahead, then.\r")
             closemessage
             releaseall
             lock(obj_D31R0207_seven1)
@@ -172,7 +186,8 @@ script scr_seq_D31R0207_001 {
             end
         }
     }
-    npcmsg(msg_0099_D31R0207_00007)
+    npcmsg("Cheryl: Oh...\n"
+           "Too bad...")
     waitbuttonpress
     closemessage
     releaseall
@@ -187,7 +202,12 @@ script scr_seq_D31R0207_002 {
         setvar(VAR_TEMP_x4009, 1)
         call(_0216)
         bufferplayersname(4)
-        npcmsg(msg_0099_D31R0207_00015)
+        npcmsg("Mira: Hi, hi!\n"
+               "I’m with my {STRVAR_1 0, 0, 0}!\f"
+               "It’s really good with {STRVAR_1 6, 1, 0}!\r"
+               "The other one is my {STRVAR_1 0, 2, 0}.\n"
+               "Its {STRVAR_1 6, 3, 0} is awesome!\r"
+               "Do you want to join with me? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
@@ -195,7 +215,8 @@ script scr_seq_D31R0207_002 {
             battletoweraction(50, VAR_TEMP_x4009, 0)
             setvar(VAR_UNK_4151, 2)
             bufferplayersname(0)
-            npcmsg(msg_0099_D31R0207_00017)
+            npcmsg("Mira: OK! I’ll wait for you!\n"
+                   "{STRVAR_1 3, 0, 0}, don’t be long!\r")
             closemessage
             releaseall
             lock(obj_D31R0207_seven5)
@@ -203,7 +224,8 @@ script scr_seq_D31R0207_002 {
             end
         }
     }
-    npcmsg(msg_0099_D31R0207_00016)
+    npcmsg("Mira: Oh, OK.\n"
+           "Let’s go another time!")
     waitbuttonpress
     closemessage
     releaseall
@@ -217,14 +239,20 @@ script scr_seq_D31R0207_003 {
     if (var(VAR_UNK_4151) != 2) {
         setvar(VAR_TEMP_x4009, 2)
         call(_0216)
-        npcmsg(msg_0099_D31R0207_00003)
+        npcmsg("Riley: The partners I have now?\r"
+               "Well, my {STRVAR_1 0, 0, 0}’s nasty with its\n"
+               "{STRVAR_1 6, 1, 0}.\r"
+               "And there’s my {STRVAR_1 0, 2, 0}, which\n"
+               "is a sure hand with {STRVAR_1 6, 3, 0}.\r"
+               "Would you like to team up with me? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) {
             battletoweraction(50, VAR_TEMP_x4009, 0)
             setvar(VAR_UNK_4151, 2)
-            npcmsg(msg_0099_D31R0207_00005)
+            npcmsg("Riley: Ahaha, thanks.\n"
+                   "I’ll be waiting for you.\r")
             closemessage
             releaseall
             lock(obj_D31R0207_seven2)
@@ -232,7 +260,8 @@ script scr_seq_D31R0207_003 {
             end
         }
     }
-    npcmsg(msg_0099_D31R0207_00004)
+    npcmsg("Riley: ...Oh, is that so?\n"
+           "That’s too bad.")
     waitbuttonpress
     closemessage
     releaseall
@@ -246,14 +275,19 @@ script scr_seq_D31R0207_004 {
     if (var(VAR_UNK_4151) != 2) {
         setvar(VAR_TEMP_x4009, 3)
         call(_0216)
-        npcmsg(msg_0099_D31R0207_00012)
+        npcmsg("Marley: ...My {STRVAR_1 0, 0, 0} uses\n"
+               "{STRVAR_1 6, 1, 0} well...\r"
+               "And my {STRVAR_1 0, 2, 0} likes to use\n"
+               "{STRVAR_1 6, 3, 0}.\r"
+               "...What do you want?\n"
+               "Am I supposed to go with you? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) {
             battletoweraction(50, VAR_TEMP_x4009, 0)
             setvar(VAR_UNK_4151, 2)
-            npcmsg(msg_0099_D31R0207_00014)
+            npcmsg("Marley: ...I’ll go ahead...\r")
             closemessage
             releaseall
             lock(obj_D31R0207_seven3)
@@ -261,7 +295,7 @@ script scr_seq_D31R0207_004 {
             end
         }
     }
-    npcmsg(msg_0099_D31R0207_00013)
+    npcmsg("Marley: ...Whatever...")
     waitbuttonpress
     closemessage
     releaseall
@@ -275,14 +309,21 @@ script scr_seq_D31R0207_005 {
     if (var(VAR_UNK_4151) != 2) {
         setvar(VAR_TEMP_x4009, 4)
         call(_0216)
-        npcmsg(msg_0099_D31R0207_00009)
+        npcmsg("Buck: Yo, are you looking to team\n"
+               "up? Let me tell you what I’ve got.\r"
+               "My {STRVAR_1 0, 0, 0}’s first-rate\n"
+               "with {STRVAR_1 6, 1, 0}.\r"
+               "And my {STRVAR_1 0, 2, 0} is the best when\n"
+               "it comes to using {STRVAR_1 6, 3, 0}.\r"
+               "You want to go with me, don’t you? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) {
             battletoweraction(50, VAR_TEMP_x4009, 0)
             setvar(VAR_UNK_4151, 2)
-            npcmsg(msg_0099_D31R0207_00011)
+            npcmsg("Buck: Hehehe! Good choice!\n"
+                   "There’s no problem when I’m around!\r")
             closemessage
             releaseall
             lock(obj_D31R0207_seven4)
@@ -418,7 +459,8 @@ script scr_seq_D31R0207_005 {
             end
         }
     }
-    npcmsg(msg_0099_D31R0207_00010)
+    npcmsg("Buck: Huh? What?\n"
+           "That’s pretty cold of you!")
     waitbuttonpress
     closemessage
     releaseall

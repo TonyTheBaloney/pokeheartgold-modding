@@ -6,17 +6,22 @@ script scr_seq_R32R0101_000 {
 }
 
 script scr_seq_R32R0101_001 {
-    simplenpcmsg(msg_0382_R32R0101_00000)
+    simplenpcmsg("The Ruins of Alph.\n"
+                 "A look-and-touch tourist site.\f"
+                 "Try the sliding stone panels!")
     end
 }
 
 script scr_seq_R32R0101_002 {
-    simplenpcmsg(msg_0382_R32R0101_00002)
+    simplenpcmsg("There are drawings on stone panels.\n"
+                 "I tried moving them.\f"
+                 "I wonder what they are.")
     end
 }
 
 script scr_seq_R32R0101_003 {
-    simplenpcmsg(msg_0382_R32R0101_00001)
+    simplenpcmsg("You’re studying the ruins?\n"
+                 "I see a scientist in the making.")
     end
 }
 

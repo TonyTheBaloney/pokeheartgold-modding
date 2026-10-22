@@ -80,7 +80,13 @@ script scr_seq_T03R0101_017 {
 }
 
 script scr_seq_T03R0101_000 {
-    simplenpcmsg(msg_0464_T03R0101_00000)
+    simplenpcmsg("Welcome!\r"
+                 "Just to let you know, all the large\n"
+                 "specimens have been taken to the\f"
+                 "other museums for display.\r"
+                 "So for now, admission is free\n"
+                 "of charge!\r"
+                 "Please go ahead.")
     end
 }
 
@@ -92,20 +98,29 @@ script scr_seq_T03R0101_001 {
     if (flag(FLAG_MAPTEMP_001)) { goto(_0530) }
     if (var(VAR_UNK_407F) != 0) {
         bufferspeciesname(0, VAR_UNK_407F, 0, 0)
-        npcmsg(msg_0464_T03R0101_00004)
+        npcmsg("Hi, there!\r"
+               "I have extracted a Pokémon from\n"
+               "your Fossil!\r"
+               "It is called {STRVAR_1 0, 0, 0}.\n"
+               "Take good care of it!\r")
         getpartycount(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 6) {
-            npcmsg(msg_0464_T03R0101_00005)
+            npcmsg("Oops!\n"
+                   "Your party seems full.\r"
+                   "Why don’t you go to the PC\n"
+                   "to make room for it?")
         } else {
             bufferspeciesname(1, VAR_UNK_407F, 0, 0)
             bufferplayersname(0)
             playfanfare(SEQ_ME_POKEGET)
-            npcmsg(msg_0464_T03R0101_00008)
+            npcmsg("{STRVAR_1 3, 0, 0} received\n"
+                   "the {STRVAR_1 0, 1, 0}!")
             waitfanfare
             givemon(VAR_UNK_407F, 20, 0, 0, 0, VAR_SPECIAL_RESULT)
             incgamestat(116)
             setvar(VAR_UNK_407F, 0)
-            npcmsg(msg_0464_T03R0101_00009)
+            npcmsg("Would you like to give a nickname\n"
+                   "to the {STRVAR_1 0, 1, 0} you received? {YESNO 0}")
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             touchscreenmenushow
@@ -133,10 +148,17 @@ script scr_seq_T03R0101_001 {
         releaseall
         end
     }
-    npcmsg(msg_0464_T03R0101_00001)
+    npcmsg("Did you know that you can\n"
+           "extract Pokémon from Fossils?\r"
+           "If you ever need to, let me take care\n"
+           "of it for you!\r")
     countfossils(VAR_SPECIAL_x8000)
     if (var(VAR_SPECIAL_x8000) != 0) { goto(_019B) }
-    npcmsg(msg_0464_T03R0101_00006)
+    npcmsg("Hey!\n"
+           "You don’t have any Fossils.\r"
+           "I heard that sometimes you find Fossils\n"
+           "when you smash rocks at the\f"
+           "Ruins of Alph and other places.")
     goto(_05FC)
 _019B:
     if (var(VAR_SPECIAL_x8000) == 1) { goto(_04F7) }
@@ -319,14 +341,21 @@ _04F7:
     goto(_0530)
 _0530:
     setflag(FLAG_MAPTEMP_001)
-    npcmsg(msg_0464_T03R0101_00003)
+    npcmsg("I’ll extract it for you.\r"
+           "Come back after a while!")
     goto(_05FC)
     end
 _053F:
     setvar(VAR_UNK_407F, 0)
-    npcmsg(msg_0464_T03R0101_00002)
+    npcmsg("Please come by again if you ever want to\n"
+           "extract Pokémon.")
     goto(_05FC)
     end
+}
+
+text msg_0464_T03R0101_00007 {
+    "Do you want to extract a Pokémon\n"
+    "from the {STRVAR_1 8, 0, 0}? {YESNO 0}"
 }
 
 script scr_seq_T03R0101_013 {
@@ -430,7 +459,9 @@ movement Pewter_MuseumOfScience_Movement_077C {
 script scr_seq_T03R0101_019 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0464_T03R0101_00013)
+    npcmsg("..................\r"
+           "All those shining stars at night are\n"
+           "the stones I’ll never get to know...")
     waitbuttonpress
     closemessage
     setvar(VAR_UNK_4130, 5)
@@ -465,12 +496,21 @@ script scr_seq_T03R0101_016 {
         if (var(VAR_SPECIAL_RESULT) != 0) {
             applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_0968)
             waitmovement
-            npcmsg(msg_0464_T03R0101_00014)
+            npcmsg("Steven: People who dedicate themselves\n"
+                   "to what they believe stand out in\f"
+                   "a crowd.\r"
+                   "But, my passion is no less than yours.\r")
             closemessage
             applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_0970)
             waitmovement
-            npcmsg(msg_0464_T03R0101_00015)
-            npcmsg(msg_0464_T03R0101_00016)
+            npcmsg("Wow!\n"
+                   "The thing you have...\r")
+            npcmsg("This stone is...so mysterious!\r"
+                   "Something seems to be shining inside...\n"
+                   "The stone is modest...yet hiding\f"
+                   "something wonderful!\r"
+                   "You should have it studied\n"
+                   "by experts.\r")
             closemessage
             applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_097C)
             applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_09C8)
@@ -491,11 +531,13 @@ script scr_seq_T03R0101_016 {
             applymovement(obj_player, Pewter_MuseumOfScience_Movement_09A4)
             waitmovement
             bufferplayersname(0)
-            npcmsg(msg_0464_T03R0101_00017)
+            npcmsg("{STRVAR_1 3, 0, 0} handed the Enigma Stone\n"
+                   "to the researcher!\r")
             closemessage
             applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_09D0)
             waitmovement
-            npcmsg(msg_0464_T03R0101_00018)
+            npcmsg("I will check it.\n"
+                   "Can you hold on a second?\r")
             closemessage
             fadescreen(6, 1, 0, RGB_BLACK)
             waitfade
@@ -516,7 +558,11 @@ script scr_seq_T03R0101_016 {
             wait(10, VAR_SPECIAL_RESULT)
             applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_09D0)
             waitmovement
-            npcmsg(msg_0464_T03R0101_00019)
+            npcmsg("Thank you for your patience!\n"
+                   "It took me a little while,\f"
+                   "but I have confirmed it!\r"
+                   "This is an Orb that contains\n"
+                   "what is called {COLOR 2}Soul Dew{COLOR 0}.\r")
             closemessage
             applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_09D8)
             waitmovement
@@ -529,7 +575,16 @@ script scr_seq_T03R0101_016 {
             waitmovement
             applymovement(obj_player, Pewter_MuseumOfScience_Movement_0968)
             waitmovement
-            npcmsg(msg_0464_T03R0101_00021)
+            npcmsg("Steven: Soul Dew is said to be the\n"
+                   "solidified spirits of LATIAS and LATIOS.\r"
+                   "It has the power to bring out the\n"
+                   "true potential of LATIAS and LATIOS.\r"
+                   "The spirits of these Pokémon and\n"
+                   "Soul Dew are said to call out to\f"
+                   "each other...\r"
+                   "The only thing that puzzles me is\n"
+                   "the place Soul Dew was found.\f"
+                   "Why Kanto?\r")
             closemessage
             applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_09C0)
             waitmovement
@@ -604,24 +659,38 @@ movement Pewter_MuseumOfScience_Movement_09F0 {
 }
 
 script scr_seq_T03R0101_002 {
-    simplenpcmsg(msg_0464_T03R0101_00010)
+    simplenpcmsg("They say that meteorites struck\n"
+                 "somewhere near Pewter City.\r"
+                 "We would love to display them here\n"
+                 "in our museum, but...\r"
+                 "These meteorites are said to\n"
+                 "emit strange energy and cannot\f"
+                 "be carried away...")
     end
 }
 
 script scr_seq_T03R0101_003 {
-    simplenpcmsg(msg_0464_T03R0101_00011)
+    simplenpcmsg("There are two places that I love!\n"
+                 "One is the Ruins of Alph in Johto...\r"
+                 "The other is the Pewter Museum!\n"
+                 "It’s so quiet and makes me feel calm.\r"
+                 "Do you feel its admirable history\n"
+                 "silently creeping up on you?")
     end
 }
 
 script scr_seq_T03R0101_004 {
-    simplenpcmsg(msg_0464_T03R0101_00012)
+    simplenpcmsg("I should be grateful for my long life.\r"
+                 "Never did I think I would get to\n"
+                 "see the bones of a dragon!")
     end
 }
 
 script scr_seq_T03R0101_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0464_T03R0101_00022)
+    npcmsg("Stringy and winding...\n"
+           "Is this a plant Fossil?")
     waitbuttonpress
     closemessage
     releaseall
@@ -631,7 +700,9 @@ script scr_seq_T03R0101_005 {
 script scr_seq_T03R0101_006 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0464_T03R0101_00023)
+    npcmsg("It’s a curving, sharp Fossil.\n"
+           "This may be...\f"
+           "the Fossil of a carnivore?")
     waitbuttonpress
     closemessage
     releaseall
@@ -641,7 +712,9 @@ script scr_seq_T03R0101_006 {
 script scr_seq_T03R0101_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0464_T03R0101_00024)
+    npcmsg("It’s flat and looks hard.\n"
+           "This may be...\f"
+           "a part that protected its body?")
     waitbuttonpress
     closemessage
     releaseall
@@ -651,7 +724,11 @@ script scr_seq_T03R0101_007 {
 script scr_seq_T03R0101_008 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0464_T03R0101_00025)
+    npcmsg("Solid amber tree sap has\n"
+           "something inside!\r"
+           "If you can take it out, you can\n"
+           "extract a Pokémon from\f"
+           "ancient times...?")
     waitbuttonpress
     closemessage
     releaseall
@@ -661,7 +738,8 @@ script scr_seq_T03R0101_008 {
 script scr_seq_T03R0101_009 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0464_T03R0101_00026)
+    npcmsg("Small bones are put together to form\n"
+           "some kind of a Pokémon!")
     waitbuttonpress
     closemessage
     releaseall
@@ -671,7 +749,11 @@ script scr_seq_T03R0101_009 {
 script scr_seq_T03R0101_010 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0464_T03R0101_00027)
+    npcmsg("The rough stone has words etched\n"
+           "into it...\r"
+           "“This is an unidentified object\n"
+           "found at Mt. Moon. It is possibly a\f"
+           "moon rock.”")
     waitbuttonpress
     closemessage
     releaseall
@@ -681,7 +763,13 @@ script scr_seq_T03R0101_010 {
 script scr_seq_T03R0101_011 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0464_T03R0101_00028)
+    npcmsg("There are thick and well-read books!\r"
+           "“The Principles of Fossil Extraction”\f"
+           "“Archaeology Manual”\f"
+           "“Lost Pokémon”\f"
+           "“Pokémon Ancestors”\f"
+           "“Friendships of Trainers and Pokémon”\f"
+           "“Caring at the Loamy Layer of Kanto”")
     waitbuttonpress
     closemessage
     releaseall
@@ -691,7 +779,11 @@ script scr_seq_T03R0101_011 {
 script scr_seq_T03R0101_012 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0464_T03R0101_00029)
+    npcmsg("Our museum mainly displays\n"
+           "Fossils and specimens from Kanto.\r"
+           "Please enjoy the extinct Pokémon\n"
+           "through their remembrance, and\f"
+           "step through time to the ancient world.")
     waitbuttonpress
     closemessage
     releaseall

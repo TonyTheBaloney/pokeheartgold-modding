@@ -6,7 +6,10 @@ script scr_seq_R34R0201_000 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_TM12_FROM_ILEX_FOREST_GATE_WOMAN)) { goto(_0055) }
-    npcmsg(msg_0386_R34R0201_00000)
+    npcmsg("Oh, honey. You’re making a Pokédex?\r"
+           "You must be battling all kinds\n"
+           "of Pokémon.\r"
+           "Try using this TM for a change.")
     waitabpress
     if (!itemspace(ITEM_TM12, 1)) {
         callstd(std_bag_is_full)
@@ -18,7 +21,10 @@ script scr_seq_R34R0201_000 {
     setflag(FLAG_GOT_TM12_FROM_ILEX_FOREST_GATE_WOMAN)
     goto(_0055)
 _0055:
-    npcmsg(msg_0386_R34R0201_00002)
+    npcmsg("It’s Taunt.\r"
+           "Use it and the target Pokémon\n"
+           "can only use moves that do damage\f"
+           "to your Pokémon for a while.")
     waitbuttonpress
     closemessage
     releaseall
@@ -30,7 +36,7 @@ script scr_seq_R34R0201_001 {
     lockall
     faceplayer
     playcry(SPECIES_BUTTERFREE, 0)
-    npcmsg(msg_0386_R34R0201_00003)
+    npcmsg("BUTTERFREE: Freeh!")
     waitcry
     waitbuttonpress
     closemessage
@@ -39,7 +45,12 @@ script scr_seq_R34R0201_001 {
 }
 
 script scr_seq_R34R0201_002 {
-    simplenpcmsg(msg_0386_R34R0201_00004)
+    simplenpcmsg("Did you see the shrine that pays homage\n"
+                 "to the protector?\r"
+                 "This protector watches over the forest\n"
+                 "from across time.\r"
+                 "I think that it must be a\n"
+                 "Grass-type Pokémon.")
     end
 }
 

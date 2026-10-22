@@ -20,7 +20,8 @@ script scr_seq_T24GYM0101_000 {
     lockall
     faceplayer
     if (var(VAR_TEMP_x4000) == 0) {
-        npcmsg(msg_0574_T24GYM0101_00009)
+        npcmsg("He’s so into his training, he\n"
+               "doesn’t seem to notice you.")
         waitbuttonpress
         closemessage
         releaseall
@@ -28,18 +29,38 @@ script scr_seq_T24GYM0101_000 {
     }
     checkbadge(BADGE_STORM, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00EE) }
-    npcmsg(msg_0574_T24GYM0101_00000)
+    npcmsg("Chuck: Ooomph!\n"
+           "The pounding waterfall right onto\f"
+           "my head...\f"
+           "Arrgh!\r"
+           "Why did you stop the waterfall from\n"
+           "pouring on me!\r"
+           "You just spoiled my training!\n"
+           "I have to warn you that I am a strong\f"
+           "Trainer training every day under\f"
+           "this waterfall!\r"
+           "What?\n"
+           "It has nothing to do with Pokémon?\r"
+           "...\n"
+           "That’s true!\r"
+           "...\n"
+           "...\r"
+           "Come on. We shall do battle!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_CHUCK_CHUCK, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0104) }
-    npcmsg(msg_0574_T24GYM0101_00003)
+    npcmsg("Chuck: Hmm... I lost?\r"
+           "How about that!\n"
+           "All right. You’re worthy of\f"
+           "the Storm Badge!\r")
     settrainerflag(TRAINER_BLACK_BELT_YOSHI)
     settrainerflag(TRAINER_BLACK_BELT_LAO)
     settrainerflag(TRAINER_BLACK_BELT_NOB)
     settrainerflag(TRAINER_BLACK_BELT_LUNG)
     bufferplayersname(0)
-    npcmsg(msg_0574_T24GYM0101_00004)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Storm Badge from Chuck!")
     givebadge(BADGE_STORM)
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
@@ -49,26 +70,36 @@ script scr_seq_T24GYM0101_000 {
     if (var(VAR_MIDGAME_BADGES) == 3) {
         setvar(VAR_SCENE_ROCKET_TAKEOVER, 1)
     }
-    npcmsg(msg_0574_T24GYM0101_00005)
+    npcmsg("Chuck: The Storm Badge lets your\n"
+           "Pokémon Fly to any city or town you’ve\f"
+           "already been to!\r"
+           "Here, take this, too!\r")
     goto(_00AF)
 _00AF:
     if (!itemspace(ITEM_TM01, 1)) { goto(_00E3) }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_TM01_FROM_CHUCK)
-    npcmsg(msg_0574_T24GYM0101_00006)
+    npcmsg("Chuck: That is Focus Punch.\r"
+           "It doesn’t land if the foe you’re\n"
+           "attacking hits you first, but it’s very\f"
+           "powerful if it manages to hit!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00E3:
-    npcmsg(msg_0574_T24GYM0101_00007)
+    npcmsg("Argh... Your Bag is jammed full!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _00EE:
     if (!flag(FLAG_GOT_TM01_FROM_CHUCK)) { goto(_00AF) }
-    npcmsg(msg_0574_T24GYM0101_00008)
+    npcmsg("Chuck: Wahahah!\n"
+           "I enjoyed battling you!\r"
+           "But a loss is a loss!\r"
+           "From now on, I’m going to train\n"
+           "24 hours a day!")
     waitbuttonpress
     closemessage
     releaseall
@@ -84,13 +115,15 @@ script scr_seq_T24GYM0101_002 {
     lockall
     faceplayer
     if (var(VAR_TEMP_x4000) == 0) {
-        npcmsg(msg_0574_T24GYM0101_00010)
+        npcmsg("There is a large winch.\n"
+               "Will you turn it? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) {
             bufferplayersname(0)
-            npcmsg(msg_0574_T24GYM0101_00011)
+            npcmsg("{STRVAR_1 3, 0, 0} turned the winch\n"
+                   "with pure might!\r")
             closemessage
             setflag(FLAG_SYS_CIANWOOD_WATERFALL_DISABLE)
             stopse(SEQ_SE_GS_N_TAKI)
@@ -104,7 +137,7 @@ script scr_seq_T24GYM0101_002 {
         releaseall
         end
     }
-    npcmsg(msg_0574_T24GYM0101_00012)
+    npcmsg("It won’t turn anymore.")
     waitbuttonpress
     closemessage
     releaseall
@@ -118,9 +151,12 @@ script scr_seq_T24GYM0101_003 {
     checkbadge(BADGE_STORM, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0574_T24GYM0101_00013)
+        npcmsg("Cianwood City Pokémon Gym")
     } else {
-        npcmsg(msg_0574_T24GYM0101_00014)
+        npcmsg("Cianwood City Pokémon Gym\r"
+               "Leader: Chuck\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

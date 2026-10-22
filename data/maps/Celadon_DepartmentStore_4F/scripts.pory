@@ -52,23 +52,34 @@ _00CC:
     lockall
     applymovement(obj_T07R0104_gsleader1, Celadon_DepartmentStore_4F_Movement_026C)
     waitmovement
-    npcmsg(msg_0497_T07R0104_00000)
+    npcmsg("Falkner: Out of all the Trainers\n"
+           "out there, the best Trainer would\f"
+           "have to be my dad.\r")
     closemessage
     applymovement(obj_T07R0104_gsleader13, Celadon_DepartmentStore_4F_Movement_0274)
     waitmovement
-    npcmsg(msg_0497_T07R0104_00001)
+    npcmsg("Janine: Ha!\n"
+           "You don’t know a thing!\r"
+           "The best Trainer in the world is Koga,\n"
+           "one of the Elite Four!\f"
+           "Namely--my dad!\r")
     closemessage
     applymovement(obj_T07R0104_gsleader1, Celadon_DepartmentStore_4F_Movement_026C)
     waitmovement
-    npcmsg(msg_0497_T07R0104_00002)
+    npcmsg("Falkner: You are mistaken.\n"
+           "My dad treats Poké...\r")
     closemessage
     applymovement(obj_T07R0104_gsleader13, Celadon_DepartmentStore_4F_Movement_0274)
     waitmovement
-    npcmsg(msg_0497_T07R0104_00003)
+    npcmsg("Janine: Please stop this!\n"
+           "Why don’t you just admit that my dad\f"
+           "is the true Trainer!\r")
     closemessage
     applymovement(obj_T07R0104_gsleader1, Celadon_DepartmentStore_4F_Movement_027C)
     waitmovement
-    npcmsg(msg_0497_T07R0104_00004)
+    npcmsg("Falkner: You were listening, right?\n"
+           "You agree my dad is\f"
+           "greater, right? {YESNO 0}")
 _011B:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -77,13 +88,21 @@ _011B:
     if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_0189) }
     end
 _013F:
-    npcmsg(msg_0497_T07R0104_00005)
+    npcmsg("Falkner: You do?\n"
+           "Just as I thought!\r"
+           "You know something?\n"
+           "I’m sure we’ll enjoy talking about\f"
+           "my dad!\f"
+           "Here is my number!\r")
     registergearnumber(PHONE_CONTACT_FALKNER)
     bufferplayersname(0)
-    npcmsg(msg_0497_T07R0104_00006)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Falkner\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
-    npcmsg(msg_0497_T07R0104_00007)
+    npcmsg("Falkner: Give me a call on Saturday\n"
+           "morning if you want to hear about\f"
+           "my dad!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -99,7 +118,10 @@ _013F:
     end
 _0189:
     setvar(VAR_TEMP_x4004, 1)
-    npcmsg(msg_0497_T07R0104_00008)
+    npcmsg("Falkner: You don’t?\n"
+           "I thought you were smarter than that.\r"
+           "Oh, well.\f"
+           "You’ll change your mind eventually.")
     waitbuttonpress
     closemessage
     releaseall
@@ -112,12 +134,14 @@ script scr_seq_T07R0104_005 {
         playse(SEQ_SE_DP_SELECT)
         lockall
         faceplayer
-        npcmsg(msg_0497_T07R0104_00010)
+        npcmsg("Falkner: Hey, why don’t we take\n"
+               "a picture together? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0497_T07R0104_00013)
+            npcmsg("Falkner: That’s all right.\n"
+                   "I’ll just take one with my dad...")
             waitbuttonpress
             closemessage
             releaseall
@@ -125,13 +149,16 @@ script scr_seq_T07R0104_005 {
         }
         photoalbumisfull(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0497_T07R0104_00014)
+            npcmsg("Your Photo Album is full.\r"
+                   "Access your PC and delete\n"
+                   "some pictures.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0497_T07R0104_00011)
+        npcmsg("Falkner: All right!\n"
+               "Are you ready?\r")
         closemessage
         setflag(FLAG_UNK_189)
         fadescreen(6, 1, 0, RGB_BLACK)
@@ -142,7 +169,8 @@ script scr_seq_T07R0104_005 {
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
         clearflag(FLAG_UNK_189)
-        npcmsg(msg_0497_T07R0104_00012)
+        npcmsg("Falkner: Yes!\n"
+               "We look good.")
         waitbuttonpress
         closemessage
         releaseall
@@ -152,14 +180,16 @@ script scr_seq_T07R0104_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0497_T07R0104_00009)
+    npcmsg("Falkner: So, you did change your mind.\n"
+           "You now think my dad\f"
+           "is greater? {YESNO 0}")
     goto(_011B)
     end
 }
 
 script scr_seq_T07R0104_006 {
     if (var(VAR_TEMP_x4004) != 1) { goto(_00CC) }
-    simplenpcmsg(msg_0497_T07R0104_00015)
+    simplenpcmsg("Janine: Bah!")
     end
 }
 
@@ -188,19 +218,25 @@ script scr_seq_T07R0104_000 {
 }
 
 script scr_seq_T07R0104_001 {
-    simplenpcmsg(msg_0497_T07R0104_00016)
+    simplenpcmsg("I’m here to buy Bloom Mail to send\n"
+                 "to my girlfriend.")
     end
 }
 
 script scr_seq_T07R0104_002 {
-    simplenpcmsg(msg_0497_T07R0104_00017)
+    simplenpcmsg("You know what?\r"
+                 "Tunnel Mail is finally available\n"
+                 "at this department store!\r"
+                 "Previously, it was only sold\n"
+                 "in Violet City.")
     end
 }
 
 script scr_seq_T07R0104_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0497_T07R0104_00018)
+    npcmsg("Gifts to Express Yourself!\n"
+           "4F: Wiseman Gifts")
     waitbuttonpress
     closemessage
     releaseall

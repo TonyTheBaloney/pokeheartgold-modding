@@ -3,50 +3,27 @@
   "messages": [
     {
       "id": "msg_0067_D23R0103_00000",
-      "en_US": [
-        "We have recordings of the cries of many\n",
-        "of the Pokémon that have been found.\r",
-        "We must have about 200 kinds."
-      ]
+      "from": "scr_seq_D23R0103_004#0"
     },
     {
       "id": "msg_0067_D23R0103_00001",
-      "en_US": [
-        "To Trainers, Pokémon are their\n",
-        "beloved partners.\r",
-        "It’s terrible how Team Rocket is trying\n",
-        "to control Pokémon."
-      ]
+      "from": "scr_seq_D23R0103_003#0"
     },
     {
       "id": "msg_0067_D23R0103_00002",
-      "en_US": [
-        "We run 24 hours a day to broadcast\n",
-        "entertaining programs.\r",
-        "I’ll do my best to run around the\n",
-        "clock, too!"
-      ]
+      "from": "scr_seq_D23R0103_003#1"
     },
     {
       "id": "msg_0067_D23R0103_00003",
-      "en_US": [
-        "The Team Rocket boss has locked\n",
-        "himself in.\r",
-        "But the Director can open it.\r",
-        "He’s up on the fifth floor.\n",
-        "Please save him!"
-      ]
+      "from": "scr_seq_D23R0103_005#5"
     },
     {
       "id": "msg_0067_D23R0103_00004",
-      "en_US": "Is the Director safe?"
+      "from": "scr_seq_D23R0103_005#0"
     },
     {
       "id": "msg_0067_D23R0103_00005",
-      "en_US": [
-        "Thank you, kiddo! You’re the best!\n",
-        "This is a token of my appreciation.\r"
-      ]
+      "from": "scr_seq_D23R0103_005#2"
     },
     {
       "id": "msg_0067_D23R0103_00006",
@@ -54,53 +31,43 @@
     },
     {
       "id": "msg_0067_D23R0103_00007",
-      "en_US": [
-        "It’s Sunny Day.\n",
-        "It powers up Fire-type moves for\f",
-        "a while."
-      ]
+      "from": "scr_seq_D23R0103_005#3"
     },
     {
       "id": "msg_0067_D23R0103_00008",
-      "en_US": "Oh, your Bag is full."
+      "from": "scr_seq_D23R0103_005#4"
     },
     {
       "id": "msg_0067_D23R0103_00009",
-      "en_US": "You were simply marvelous!"
+      "from": "scr_seq_D23R0103_005#1"
     },
     {
       "id": "msg_0067_D23R0103_00010",
-      "en_US": [
-        "The door is locked...\n",
-        "You need a Card Key."
-      ]
+      "from": "scr_seq_D23R0103_006#0"
     },
     {
       "id": "msg_0067_D23R0103_00011",
-      "en_US": "It’s the Card Key slot.\r"
+      "from": "scr_seq_D23R0103_007#1"
     },
     {
       "id": "msg_0067_D23R0103_00012",
-      "en_US": "{STRVAR_1 3, 0, 0} inserted the Card Key.\r"
+      "from": "scr_seq_D23R0103_007#3"
     },
     {
       "id": "msg_0067_D23R0103_00013",
-      "en_US": [
-        "You should be able to unlock the door\n",
-        "with the Card Key!"
-      ]
+      "from": "scr_seq_D23R0103_007#2"
     },
     {
       "id": "msg_0067_D23R0103_00014",
-      "en_US": "It’s the Card Key slot."
+      "from": "scr_seq_D23R0103_007#0"
     },
     {
       "id": "msg_0067_D23R0103_00015",
-      "en_US": "3F Personnel"
+      "from": "scr_seq_D23R0103_001#0"
     },
     {
       "id": "msg_0067_D23R0103_00016",
-      "en_US": "Pokémon Music with host: DJ Ben"
+      "from": "scr_seq_D23R0103_002#0"
     }
   ]
 }

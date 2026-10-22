@@ -3,27 +3,15 @@
   "messages": [
     {
       "id": "msg_0333_R05R0401_00000",
-      "en_US": [
-        "Eeyaaaah!\r",
-        "I sense a sinister shadow hovering\n",
-        "over you.\f",
-        "Take this to ward it off!\r"
-      ]
+      "from": "scr_seq_R05R0401_000#0"
     },
     {
       "id": "msg_0333_R05R0401_00001",
-      "en_US": [
-        "You were in mortal danger, but you’re\n",
-        "protected now."
-      ]
+      "from": "scr_seq_R05R0401_000#1"
     },
     {
       "id": "msg_0333_R05R0401_00002",
-      "en_US": [
-        "My grandma is into warding off what she\n",
-        "believes to be evil spirits.\f",
-        "I’m sorry that she startled you."
-      ]
+      "from": "scr_seq_R05R0401_001#0"
     }
   ]
 }

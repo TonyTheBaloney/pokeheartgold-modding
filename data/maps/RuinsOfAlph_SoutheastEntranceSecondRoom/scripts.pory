@@ -80,7 +80,7 @@ movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_014C {
 script scr_seq_D24R0213_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0081_D24R0213_00000)
+    npcmsg("It’s a replica of an ancient Pokémon.")
     waitbuttonpress
     closemessage
     releaseall

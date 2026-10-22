@@ -43,7 +43,7 @@ _00C1:
     goto(_00DB)
     end
 _00DB:
-    npcmsg(msg_0212_HIROBA_00000)
+    npcmsg("Have a good time!")
     waitabpress
     closemessage
     applymovement(obj_player, WifiPlazaWarpRoom_Movement_0188)

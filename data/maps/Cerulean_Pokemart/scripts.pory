@@ -26,12 +26,17 @@ script scr_seq_T04FS0101_001 {
 }
 
 script scr_seq_T04FS0101_002 {
-    simplenpcmsg(msg_0468_T04FS0101_00000)
+    simplenpcmsg("You’ll run into many Trainers on\n"
+                 "the way to Cerulean Cape.\r"
+                 "They want to see how they stack\n"
+                 "up against other Trainers.")
     end
 }
 
 script scr_seq_T04FS0101_003 {
-    simplenpcmsg(msg_0468_T04FS0101_00001)
+    simplenpcmsg("Misty is about the only person in town\n"
+                 "who can beat the Trainers at\f"
+                 "Cerulean Cape.")
     end
 }
 

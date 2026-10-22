@@ -26,12 +26,15 @@ script scr_seq_T11FS0101_001 {
 }
 
 script scr_seq_T11FS0101_002 {
-    simplenpcmsg(msg_0530_T11FS0101_00000)
+    simplenpcmsg("There’s a big Radio Tower in\n"
+                 "Lavender Town.")
     end
 }
 
 script scr_seq_T11FS0101_003 {
-    simplenpcmsg(msg_0530_T11FS0101_00001)
+    simplenpcmsg("I want to become stronger, but I’m\n"
+                 "not good yet...\r"
+                 "Could you show me how sometime?")
     end
 }
 

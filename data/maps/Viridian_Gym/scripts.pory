@@ -38,13 +38,28 @@ script scr_seq_T02GYM0101_000 {
     checkbadge(BADGE_EARTH, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         if (!flag(FLAG_GOT_TM92_FROM_BLUE)) { goto(_00F0) }
-        npcmsg(msg_0454_T02GYM0101_00005)
+        npcmsg("Blue: ...\r"
+               "All right, I was wrong. You’re the\n"
+               "real deal.\f"
+               "You are a good Trainer.\r"
+               "But I’m going to beat you someday.\n"
+               "Don’t you forget it!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0454_T02GYM0101_00000)
+    npcmsg("Blue: Yo! Finally got here, huh?\r"
+           "I wasn’t in the mood at Cinnabar,\n"
+           "but now I’m ready to battle you.\r"
+           "...\r"
+           "You’re telling me you conquered all\n"
+           "the Gyms in Johto?\r"
+           "Hahaha!\f"
+           "Heh! Johto’s Gyms are that pathetic?\r"
+           "Hey, don’t worry about it.\n"
+           "I’ll know if you are good or not by\f"
+           "battling you right now.\r")
     closemessage
     trainerbattle(TRAINER_LEADER_BLUE_BLUE, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -65,19 +80,32 @@ script scr_seq_T02GYM0101_000 {
     clearflag(FLAG_HIDE_ROUTE_10_ZAPDOS)
     setflag(FLAG_HIDE_CERULEAN_CITY_MAN_OUTSIDE_CAVE)
     setvar(VAR_UNK_4096, 1)
-    npcmsg(msg_0454_T02GYM0101_00001)
+    npcmsg("Blue: No way!\r"
+           "How the heck did I lose to you?\r"
+           "...\r"
+           "Tch, all right...\f"
+           "Here, take this.\f"
+           "It’s the Earth Badge.\r")
     bufferplayersname(0)
-    npcmsg(msg_0454_T02GYM0101_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Earth Badge from Blue!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
-    npcmsg(msg_0454_T02GYM0101_00003)
+    npcmsg("Blue: With this Badge, you’ll be able\n"
+           "to use the HM move Rock Climb!\f"
+           "Here!\r"
+           "Take this as well!\r")
     goto(_00F0)
 _00F0:
     if (!itemspace(ITEM_TM92, 1)) { goto(_0127) }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_TM92_FROM_BLUE)
     bufferplayersname(0)
-    npcmsg(msg_0454_T02GYM0101_00004)
+    npcmsg("Blue: It contains Trick Room!\r"
+           "It allows slower Pokémon to move\n"
+           "before faster Pokémon for a while.\r"
+           "It’s a very tricky move, isn’t it?\n"
+           "Hence the name!")
     waitbuttonpress
     closemessage
     releaseall
@@ -95,13 +123,22 @@ script scr_seq_T02GYM0101_001 {
     faceplayer
     checkbadge(BADGE_EARTH, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0454_T02GYM0101_00007)
+        npcmsg("Man, you are truly tough...\r"
+               "That was such an inspirational battle.\n"
+               "It brought tears to my eyes.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0454_T02GYM0101_00006)
+    npcmsg("Yo, legend in the making!\r"
+           "The floor here is unstable,\n"
+           "so you should put away your Pokémon\f"
+           "...now!\r"
+           "The Gym Leader is a guy who battled\n"
+           "the Champion three years ago.\r"
+           "He’s no pushover.\n"
+           "Give it everything you’ve got!")
     followmonrecall
     setfollowmoninhibitstate(1)
     followmonmovetoplayer
@@ -144,7 +181,14 @@ script scr_seq_T02GYM0101_003 {
             applymovement(obj_player, Viridian_Gym_Movement_0424)
         }
         waitmovement
-        npcmsg(msg_0454_T02GYM0101_00008)
+        npcmsg("Yo, legend in the making!\r"
+               "The floor here is unstable,\n"
+               "so you should put away your Pokémon\f"
+               "...now!\r"
+               "The Gym Leader is a guy who battled\n"
+               "the Champion three years ago.\r"
+               "He’s no pushover.\n"
+               "Give it everything you’ve got!\r")
         closemessage
         setflag(FLAG_UNK_13A)
         if (var(VAR_TEMP_x4000) == 1) {
@@ -277,9 +321,12 @@ script scr_seq_T02GYM0101_004 {
     checkbadge(BADGE_EARTH, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0454_T02GYM0101_00009)
+        npcmsg("Viridian City Pokémon Gym")
     } else {
-        npcmsg(msg_0454_T02GYM0101_00010)
+        npcmsg("Viridian City Pokémon Gym\r"
+               "Gym Leader: Blue\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

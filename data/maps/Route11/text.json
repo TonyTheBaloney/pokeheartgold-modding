@@ -3,29 +3,19 @@
   "messages": [
     {
       "id": "msg_0346_R11_00000",
-      "en_US": [
-        "Rt. 11\n",
-        "West to DIGLETT’s Cave"
-      ]
+      "from": "scr_seq_R11_002#0"
     },
     {
       "id": "msg_0346_R11_00001",
-      "en_US": "DIGLETT’s Cave"
+      "from": "scr_seq_R11_003#0"
     },
     {
       "id": "msg_0346_R11_00002",
-      "en_US": [
-        "There is a large Pokémon\n",
-        "sleeping peacefully.\f",
-        "It looks so content!"
-      ]
+      "from": "scr_seq_R11_000#1"
     },
     {
       "id": "msg_0346_R11_00003",
-      "en_US": [
-        "...!\r",
-        "The SNORLAX opened its eyes wide!\r"
-      ]
+      "from": "scr_seq_R11_000#0"
     }
   ]
 }

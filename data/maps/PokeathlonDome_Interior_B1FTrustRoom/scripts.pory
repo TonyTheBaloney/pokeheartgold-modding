@@ -37,7 +37,9 @@ script scr_seq_D49R0105_011 {
 }
 
 script scr_seq_D49R0105_000 {
-    simplenpcmsg(msg_0141_D49R0105_00000)
+    simplenpcmsg("This is the “Trust” room.\r"
+                 "It is to show the mutual reliance\n"
+                 "between Pokémon and people.")
     end
 }
 
@@ -46,13 +48,16 @@ script scr_seq_D49R0105_001 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_0F0)) {
-        npcmsg(msg_0141_D49R0105_00002)
+        npcmsg("This is the “Potential” room.\n"
+               "Please go ahead.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0141_D49R0105_00001)
+    npcmsg("Only the Pokéathletes who have\n"
+           "come first in five courses with\f"
+           "one Pokémon are allowed here.")
     waitbuttonpress
     closemessage
     releaseall
@@ -60,24 +65,30 @@ script scr_seq_D49R0105_001 {
 }
 
 script scr_seq_D49R0105_002 {
-    simplenpcmsg(msg_0141_D49R0105_00003)
+    simplenpcmsg("To win Medals with different kinds of\n"
+                 "Pokémon, it is essential to believe in\f"
+                 "your Pokémon.")
     end
 }
 
 script scr_seq_D49R0105_003 {
-    simplenpcmsg(msg_0141_D49R0105_00004)
+    simplenpcmsg("I would love to see my own shoes here!")
     end
 }
 
 script scr_seq_D49R0105_004 {
-    simplenpcmsg(msg_0141_D49R0105_00005)
+    simplenpcmsg("This Dome contains so many\n"
+                 "other Domes...")
     end
 }
 
 script scr_seq_D49R0105_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0141_D49R0105_00014)
+    npcmsg("ABRA: ...\n"
+           "...\f"
+           "...\r"
+           "It must be asleep!")
     waitbuttonpress
     closemessage
     releaseall
@@ -89,7 +100,7 @@ script scr_seq_D49R0105_006 {
     lockall
     faceplayer
     playcry(SPECIES_DRATINI, 0)
-    npcmsg(msg_0141_D49R0105_00015)
+    npcmsg("DRATINI: Achoo!")
     waitcry
     waitbuttonpress
     closemessage
@@ -102,7 +113,7 @@ script scr_seq_D49R0105_007 {
     lockall
     faceplayer
     bufferplayersname(0)
-    npcmsg(msg_0141_D49R0105_00006)
+    npcmsg("{STRVAR_1 3, 0, 0} checked the Medal!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -119,13 +130,16 @@ script scr_seq_D49R0105_008 {
     lockall
     faceplayer
     if (!flag(FLAG_HIDE_POKEATHLON_CLOTHES_SIGN)) {
-        npcmsg(msg_0141_D49R0105_00008)
+        npcmsg("It’s your jersey with\n"
+               "your autograph!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0141_D49R0105_00007)
+    npcmsg("Those who have participated in the\n"
+           "Pokéathlon 50 times are commemorated\f"
+           "here for their never-yielding spirits.")
     waitbuttonpress
     closemessage
     releaseall
@@ -137,13 +151,17 @@ script scr_seq_D49R0105_009 {
     lockall
     faceplayer
     if (!flag(FLAG_HIDE_POKEATHLON_SHOES_SIGN)) {
-        npcmsg(msg_0141_D49R0105_00010)
+        npcmsg("Cool shoes!\n"
+               "And they’re your model!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0141_D49R0105_00009)
+    npcmsg("Those who have dashed 5,000 times\n"
+           "are commemorated here for their\f"
+           "achievement in breaking the\f"
+           "legendary record.")
     waitbuttonpress
     closemessage
     releaseall
@@ -155,13 +173,17 @@ script scr_seq_D49R0105_010 {
     lockall
     faceplayer
     if (!flag(FLAG_HIDE_POKEATHLON_FLAG_SIGN)) {
-        npcmsg(msg_0141_D49R0105_00012)
+        npcmsg("It’s a cool flag!\n"
+               "And it’s yours!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0141_D49R0105_00011)
+    npcmsg("Those who have switched 200 times\n"
+           "are commemorated here for great\f"
+           "teamwork and their bond with\f"
+           "their Pokémon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -169,7 +191,13 @@ script scr_seq_D49R0105_010 {
 }
 
 script scr_seq_D49R0105_013 {
-    simplenpcmsg(msg_0141_D49R0105_00013)
+    simplenpcmsg("Pokéathlon Medals...\r"
+                 "Those are the proof of the hard work\n"
+                 "of both Pokéathletes and Pokémon.\r"
+                 "Those Pokémon that have won all five\n"
+                 "Medals are called “Medalist Pokémon”\f"
+                 "to commemorate the trust they’ve\f"
+                 "earned from their Pokéathlete.")
     end
 }
 

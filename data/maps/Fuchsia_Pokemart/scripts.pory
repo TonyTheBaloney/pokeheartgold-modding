@@ -26,12 +26,20 @@ script scr_seq_T08FS0101_001 {
 }
 
 script scr_seq_T08FS0101_002 {
-    simplenpcmsg(msg_0513_T08FS0101_00000)
+    simplenpcmsg("I was hoping to buy some Safari Zone\n"
+                 "souvenirs, but it’s not open!\r"
+                 "I thought it was closed today,\n"
+                 "but actually it’s gone!\r"
+                 "I never saw it coming.")
     end
 }
 
 script scr_seq_T08FS0101_003 {
-    simplenpcmsg(msg_0513_T08FS0101_00002)
+    simplenpcmsg("Have you been to the Pal Park?\r"
+                 "The Safari Zone Warden’s son is\n"
+                 "running it with his wife.\r"
+                 "It must run in their family to\n"
+                 "manage parks.")
     end
 }
 

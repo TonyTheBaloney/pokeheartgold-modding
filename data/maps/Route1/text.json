@@ -3,10 +3,7 @@
   "messages": [
     {
       "id": "msg_0319_R01_00000",
-      "en_US": [
-        "Rt. 1\n",
-        "South to Pallet Town"
-      ]
+      "from": "scr_seq_R01_002#0"
     }
   ]
 }

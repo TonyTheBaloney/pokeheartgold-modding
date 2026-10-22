@@ -13,7 +13,9 @@ script scr_seq_T07R0204_001 {
 }
 
 script scr_seq_T07R0204_000 {
-    simplenpcmsg(msg_0504_T07R0204_00000)
+    simplenpcmsg("High places--I do love them so!\r"
+                 "I’d say the only thing that loves\n"
+                 "heights as much as me is smoke!")
     end
 }
 

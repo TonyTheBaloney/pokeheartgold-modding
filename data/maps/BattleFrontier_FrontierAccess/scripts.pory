@@ -42,13 +42,21 @@ script scr_seq_D32R0102_000 {
     lockall
     faceplayer
     if (var(VAR_UNK_40E5) == 2) {
-        npcmsg(msg_0104_D32R0102_00003)
+        npcmsg("Click, click, click...\n"
+               "Oh! It is you!\r"
+               "I’ve gotten over being first all\n"
+               "the time.\r"
+               "Now I’m counting the number of people\n"
+               "coming to the Battle Frontier.\f"
+               "Of course no one asked me to.\f"
+               "It’s just a hobby.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0104_D32R0102_00002)
+    npcmsg("Stupid, stupid me...\n"
+           "Sob...sob...")
     waitbuttonpress
     closemessage
     releaseall
@@ -58,7 +66,7 @@ script scr_seq_D32R0102_000 {
 script scr_seq_D32R0102_001 {
     followmonresetmovement
     lockall
-    npcmsg(msg_0104_D32R0102_00000)
+    npcmsg("Wait for meeee!!\r")
     closemessage
     movepersonfacing(obj_D32R0102_gsmiddleman1, 14, 1, 36, DIR_NORTH)
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
@@ -82,7 +90,11 @@ script scr_seq_D32R0102_001 {
         applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0230)
     }
     waitmovement
-    npcmsg(msg_0104_D32R0102_00001)
+    npcmsg("Oh my!\n"
+           "I fell asleep and ruined my chances\f"
+           "of being the first to arrive here...\r"
+           "Stupid, stupid me...\n"
+           "Sob...sob...")
     waitbuttonpress
     closemessage
     releaseall
@@ -259,17 +271,31 @@ script scr_seq_D32R0102_005 {
     if (!flag(FLAG_UNK_150)) {
         playse(SEQ_SE_DP_SELECT)
         lockall
-        npcmsg(msg_0104_D32R0102_00004)
+        npcmsg("I can’t stop shivering!\r"
+               "I told my family that I would conquer\n"
+               "the Battle Frontier when I left home...\r"
+               "But now I’m here, and somehow I\n"
+               "can’t stop shivering!\r"
+               "What am I gonna do if I get beaten\n"
+               "to a pulp?\r")
         applymovement(obj_D32R0102_gsman1, BattleFrontier_FrontierAccess_Movement_043C)
         waitmovement
-        npcmsg(msg_0104_D32R0102_00005)
+        npcmsg("...You look quite young.\r"
+               "...\n"
+               "...\r"
+               "I will pull myself together and\n"
+               "challenge the Battle Frontier...\f"
+               "Maybe!\r")
         closemessage
         setflag(FLAG_UNK_150)
     } else {
         playse(SEQ_SE_DP_SELECT)
         lockall
         faceplayer
-        npcmsg(msg_0104_D32R0102_00006)
+        npcmsg("I will pull myself together and\n"
+               "challenge the Battle Frontier!\r"
+               "...\n"
+               "Or I might not!\r")
         closemessage
     }
     applymovement(obj_D32R0102_gsman1, BattleFrontier_FrontierAccess_Movement_0444)
@@ -287,17 +313,30 @@ movement BattleFrontier_FrontierAccess_Movement_0444 {
 }
 
 script scr_seq_D32R0102_006 {
-    simplenpcmsg(msg_0104_D32R0102_00007)
+    simplenpcmsg("Finally!\n"
+                 "I’m here at the Battle Frontier!\r"
+                 "When a Pokémon battle on the road\n"
+                 "doesn’t satisfy you any longer, you\f"
+                 "have to come to the Battle Frontier!\r"
+                 "Wouldn’t you agree?")
     end
 }
 
 script scr_seq_D32R0102_007 {
-    simplenpcmsg(msg_0104_D32R0102_00008)
+    simplenpcmsg("Normally, choosing which Pokémon is all\n"
+                 "there is to a Pokémon battle.\r"
+                 "But when you change certain rules or\n"
+                 "limitations, the battle suddenly\f"
+                 "becomes even more fun.\r"
+                 "And this place you can have such fun...\n"
+                 "is called the Battle Frontier!")
     end
 }
 
 script scr_seq_D32R0102_008 {
-    trainertipsex(2, msg_0104_D32R0102_00009)
+    trainertipsex(2, "This Is the Battle Frontier\r"
+                     "Come, Proud Trainers\n"
+                     "Aim for the Top!")
     end
 }
 

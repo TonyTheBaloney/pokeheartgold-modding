@@ -6,7 +6,15 @@ script scr_seq_T20R0102_000 {
     lockall
     faceplayer
     bufferplayersname(0)
-    gendermsgbox(msg_0544_T20R0102_00000, msg_0544_T20R0102_00001)
+    gendermsgbox("Hi, {STRVAR_1 3, 0, 0}!\r"
+                 "My husband’s always\n"
+                 "so busy--I hope he’s OK.\r"
+                 "When he’s caught up in his Pokémon\n"
+                 "research, he even forgets to eat.", "Hi, {STRVAR_1 3, 0, 0}!\r"
+                                                      "My husband’s always\n"
+                                                      "so busy--I hope he’s OK.\r"
+                                                      "When he’s caught up in his Pokémon\n"
+                                                      "research, he even forgets to eat.")
     waitbuttonpress
     closemessage
     releaseall
@@ -14,7 +22,10 @@ script scr_seq_T20R0102_000 {
 }
 
 script scr_seq_T20R0102_001 {
-    simplenpcmsg(msg_0544_T20R0102_00002)
+    simplenpcmsg("When I grow up, I’m going to help\n"
+                 "my dad!\r"
+                 "I’m going to be a great\n"
+                 "Pokémon Professor!")
     end
 }
 

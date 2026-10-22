@@ -85,7 +85,12 @@ script scr_seq_D18R0102_000 {
         applymovement(obj_player, BurnedTower_B1F_Movement_02D8)
     }
     waitmovement
-    npcmsg(msg_0061_D18R0102_00000)
+    npcmsg("Eusine: Did you see it?\r"
+           "SUICUNE raced by like a blur, right in\n"
+           "front of my eyes!\r"
+           "I have been chasing SUICUNE for almost\n"
+           "ten years, but I have never been this\f"
+           "close! I’m all choked up!\r")
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 16) {
         applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02C4)
@@ -95,7 +100,16 @@ script scr_seq_D18R0102_000 {
     }
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0061_D18R0102_00001)
+    npcmsg("By the way...\n"
+           "It was clear to me that SUICUNE took\f"
+           "notice of your presence.\r"
+           "Ecruteak’s legendary Pokémon are said\n"
+           "to come to people only when they\f"
+           "recognize their talents.\r"
+           "Perhaps I should be more aggressive\n"
+           "toward SUICUNE...\r"
+           "Anyway, {STRVAR_1 3, 0, 0}, we will\n"
+           "meet again!\r")
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 16) {

@@ -25,7 +25,7 @@ movement IcePath_B2F_Movement_0050 {
 }
 
 script scr_seq_D39R0103_002 {
-    simplenpcmsg(msg_0123_D39R0103_00000)
+    simplenpcmsg("It has sunk in and cannot be moved.")
     end
 }
 

@@ -6,17 +6,35 @@ script scr_seq_R30R0101_000 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_APRICORN_BOX)) {
-        npcmsg(msg_0376_R30R0101_00003)
+        npcmsg("Hey, collector of Apricorns!\r"
+               "Have you noticed that Apricorn colors\n"
+               "are different from tree to tree?\r"
+               "Try to remember what color Apricorn\n"
+               "you get from each tree!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0376_R30R0101_00000)
+    npcmsg("People usually come to my house\n"
+           "looking for Mr. Pokémon’s house.\f"
+           "You did mean to visit my house, right?\r"
+           "How kind of you!\n"
+           "Do you...have any Apricorns?\f"
+           "Apricorn trees bear fruit once a day.\f"
+           "I have one of those trees, too!\r"
+           "Apricorns are really something.\n"
+           "You can make Poké Balls and\f"
+           "other things.\r"
+           "They are quite useful.\r"
+           "I have a feeling this is meant to be.\n"
+           "I’m so happy that I’ll give you this!\r")
     giveitemnocheck(ITEM_APRICORN_BOX, 1)
     setflag(FLAG_GOT_APRICORN_BOX)
     setvar(VAR_SCENE_ROUTE_30_OW, 1)
-    npcmsg(msg_0376_R30R0101_00002)
+    npcmsg("With that Apricorn Box, you can carry\n"
+           "so many Apricorns.\f"
+           "You’ll be a decent Apricorn collector!")
     waitbuttonpress
     closemessage
     releaseall

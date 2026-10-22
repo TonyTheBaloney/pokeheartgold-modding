@@ -48,9 +48,10 @@ script scr_seq_D23R0101_000 {
     } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
         npcmsg(msg_0065_D23R0101_00001)
     } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0065_D23R0101_00002)
+        npcmsg("Um, yes. I have been telling visitors\n"
+               "to go home as you instructed...")
     } else {
-        npcmsg(msg_0065_D23R0101_00000)
+        npcmsg("Welcome to Goldenrod’s Radio Tower!")
     }
     waitbuttonpress
     closemessage
@@ -58,11 +59,22 @@ script scr_seq_D23R0101_000 {
     end
 }
 
+text msg_0065_D23R0101_00001 {
+    "Welcome to Goldenrod’s Radio Tower!\r"
+    "...Or, maybe not.\n"
+    "I am sorry to tell you this, but no one\f"
+    "can visit the tower now."
+}
+
 script scr_seq_D23R0101_010 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0065_D23R0101_00014)
+    npcmsg("Whitney: Hi!\n"
+           "My name is Whitney!\r"
+           "I heard about the Quiz to win a Radio\n"
+           "Card, so I came here to get one...\r"
+           "But this Quiz is so hard!\r")
     applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_036C)
     waitmovement
     closemessage
@@ -75,46 +87,69 @@ script scr_seq_D23R0101_002 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_RADIO_CARD)) {
-        npcmsg(msg_0065_D23R0101_00011)
+        npcmsg("Please tune in to our radio shows!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0065_D23R0101_00003)
+    npcmsg("We have a special Quiz campaign!\r"
+           "Answer five questions correctly in a\n"
+           "row to win a Radio Card!\r"
+           "When you load it into the Pokégear, you\n"
+           "will be able to listen to the radio...\f"
+           "anytime, anywhere!\r"
+           "Would you like to try our Quiz? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0221) }
-    npcmsg(msg_0065_D23R0101_00004)
+    npcmsg("The first question!\r"
+           "Can you check the Town Map with\n"
+           "your Pokégear? {YESNO 0}")
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_022E) }
     playse(SEQ_SE_DP_PINPON)
     waitse(SEQ_SE_DP_PINPON)
-    npcmsg(msg_0065_D23R0101_00005)
+    npcmsg("You are correct.\n"
+           "The second question!\r"
+           "NIDORINA can only be female.\n"
+           "True? {YESNO 0}")
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_022E) }
     playse(SEQ_SE_DP_PINPON)
     waitse(SEQ_SE_DP_PINPON)
-    npcmsg(msg_0065_D23R0101_00006)
+    npcmsg("You are correct.\n"
+           "The third question!\r"
+           "Kurt, the Poké Ball creator, uses\n"
+           "apricots as ingredients? {YESNO 0}")
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_022E) }
     playse(SEQ_SE_DP_PINPON)
     waitse(SEQ_SE_DP_PINPON)
-    npcmsg(msg_0065_D23R0101_00007)
+    npcmsg("You are correct again.\n"
+           "The fourth question!\r"
+           "It’s impossible to use a TM on\n"
+           "MAGIKARP. True? {YESNO 0}")
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_022E) }
     playse(SEQ_SE_DP_PINPON)
     waitse(SEQ_SE_DP_PINPON)
-    npcmsg(msg_0065_D23R0101_00008)
+    npcmsg("Wow!\n"
+           "I have only one more question to go.\r"
+           "In Professor Oak’s popular show,\n"
+           "Pokémon Talk, is he on with Marie? {YESNO 0}")
     getmenuchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_022E) }
     wait(30, VAR_SPECIAL_RESULT)
     playse(SEQ_SE_DP_PINPON)
     waitse(SEQ_SE_DP_PINPON)
     touchscreenmenushow
-    npcmsg(msg_0065_D23R0101_00009)
+    npcmsg("Bingo! You got it!\n"
+           "Congratulations!\f"
+           "Here’s your prize, a Radio Card!\r")
     bufferplayersname(0)
-    npcmsg(msg_0065_D23R0101_00010)
+    npcmsg("{STRVAR_1 3, 0, 0} can now listen to the\n"
+           "radio with the Pokégear!")
     playfanfare(SEQ_ME_KEYITEM)
     waitfanfare
     closemessage
@@ -129,7 +164,11 @@ script scr_seq_D23R0101_002 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0065_D23R0101_00015)
+    npcmsg("Whitney: Wow, you did it!\n"
+           "I thought the answer to the third\f"
+           "question was surely apricots!\r"
+           "Oops!\n"
+           "It’s time to go back to the Gym!\r")
     closemessage
     applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_0264)
     wait(24, VAR_SPECIAL_RESULT)
@@ -140,7 +179,8 @@ script scr_seq_D23R0101_002 {
     releaseall
     end
 _0221:
-    npcmsg(msg_0065_D23R0101_00013)
+    npcmsg("Oh. I see.\n"
+           "Please see me if you change your mind.")
     waitbuttonpress
     closemessage
     touchscreenmenushow
@@ -149,7 +189,9 @@ _0221:
 _022E:
     playse(SEQ_SE_DP_BOX03)
     waitse(SEQ_SE_DP_BOX03)
-    npcmsg(msg_0065_D23R0101_00012)
+    npcmsg("Oh, dear.\n"
+           "Sorry, but you got it wrong.\f"
+           "Please try again!")
     waitbuttonpress
     closemessage
     touchscreenmenushow
@@ -178,7 +220,8 @@ movement Goldenrod_RadioTower_1F_Movement_0270 {
 script scr_seq_D23R0101_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0065_D23R0101_00016)
+    npcmsg("Ben is a fabulous DJ!\n"
+           "His sweet voice just makes me melt!")
     waitbuttonpress
     closemessage
     releaseall
@@ -188,7 +231,9 @@ script scr_seq_D23R0101_003 {
 script scr_seq_D23R0101_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0065_D23R0101_00017)
+    npcmsg("I love Mary from Pokémon Talk.\r"
+           "I only know what she sounds like,\n"
+           "though!")
     waitbuttonpress
     closemessage
     releaseall
@@ -207,13 +252,17 @@ script scr_seq_D23R0101_005 {
             } elif (var(VAR_SPECIAL_RESULT) == 0) {
                 setvar(VAR_TEMP_x400B, 11)
             }
-            npcmsg(msg_0065_D23R0101_00020)
+            npcmsg("What are you doing?\n"
+                   "Go upstairs and take your position!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0065_D23R0101_00019)
+        npcmsg("Ha! You must be new!\n"
+               "You look pretty good in the Team Rocket\f"
+               "uniform!\r"
+               "Go on ahead!\r")
         closemessage
         getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 5) {
@@ -226,7 +275,14 @@ script scr_seq_D23R0101_005 {
         setvar(VAR_TEMP_x400A, 1)
         end
     }
-    npcmsg(msg_0065_D23R0101_00018)
+    npcmsg("Who are you?\n"
+           "We have some business going on.\r"
+           "I was told not to let anyone pass but\n"
+           "Team Rocket!\r"
+           "Do you understand?\r"
+           "You are only allowed to come through\n"
+           "when you are wearing the cool black\f"
+           "uniform for Team Rocket!")
     waitbuttonpress
     closemessage
     releaseall
@@ -274,7 +330,9 @@ script scr_seq_D23R0101_009 {
     }
     waitmovement
     bufferrivalsname(1)
-    npcmsg(msg_0065_D23R0101_00021)
+    npcmsg("{STRVAR_1 3, 1, 0}: Hey, Team Rocket!\r"
+           "Stop going around in groups and\n"
+           "troubling people. You cowards!\r")
     closemessage
     applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0664)
     waitmovement
@@ -294,7 +352,13 @@ script scr_seq_D23R0101_009 {
     waitmovement
     bufferplayersname(0)
     bufferrivalsname(1)
-    npcmsg(msg_0065_D23R0101_00022)
+    npcmsg("{STRVAR_1 3, 1, 0}: ...Huh?\n"
+           "Are you {STRVAR_1 3, 0, 0}?\f"
+           "What are you doing here?\r"
+           "No way... You think you’re strong now\n"
+           "that you look like them?\r"
+           "That’s foolish!\n"
+           "You shouldn’t wear those things!\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 5) {
         applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06FC)
@@ -320,7 +384,9 @@ script scr_seq_D23R0101_009 {
         applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_08D4)
     }
     waitmovement
-    npcmsg(msg_0065_D23R0101_00023)
+    npcmsg("What? You!\n"
+           "You’re not a newcomer?\f"
+           "Then battle with me!\r")
     closemessage
     trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_3, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -330,7 +396,9 @@ script scr_seq_D23R0101_009 {
         releaseall
         end
     }
-    npcmsg(msg_0065_D23R0101_00024)
+    npcmsg("You are too powerful.\r"
+           "You could spoil our plan.\n"
+           "I have to inform the others...\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -361,7 +429,16 @@ script scr_seq_D23R0101_009 {
     }
     waitmovement
     bufferrivalsname(1)
-    npcmsg(msg_0065_D23R0101_00025)
+    npcmsg("{STRVAR_1 3, 1, 0}: I see.\n"
+           "You were trying to be sneaky...\r"
+           "Huh!\n"
+           "A typical idea of the meek!\r"
+           "No matter.\n"
+           "I’ll let you handle this.\r"
+           "I have to defeat the Dragon Tamer...\n"
+           "What’s his name...? Lance!\r"
+           "After that...it will be your turn.\n"
+           "Be ready for it!\r")
     closemessage
     applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0938)
     waitmovement
@@ -614,12 +691,20 @@ movement Goldenrod_RadioTower_1F_Movement_0938 {
 }
 
 script scr_seq_D23R0101_006 {
-    simplenpcmsg(msg_0065_D23R0101_00026)
+    simplenpcmsg("1F Reception\n"
+                 "2F Sales\f"
+                 "3F Personnel\f"
+                 "4F Production\f"
+                 "5F Director’s Office\f"
+                 "6F Observation Deck")
     end
 }
 
 script scr_seq_D23R0101_007 {
-    simplenpcmsg(msg_0065_D23R0101_00027)
+    simplenpcmsg("Lucky Channel!\n"
+                 "Win with Pokémon ID numbers!\r"
+                 "Trade your Pokémon to collect different\n"
+                 "ID numbers!")
     end
 }
 
@@ -630,14 +715,22 @@ script scr_seq_D23R0101_001 {
     if (var(VAR_UNK_4136) != 0) { goto(_0B86) }
     if (flag(FLAG_UNK_AA6)) { goto(_09CF) }
     if (flag(FLAG_UNK_AA5)) { goto(_09AF) }
-    npcmsg(msg_0065_D23R0101_00028)
+    npcmsg("This is the Pokémon Lottery Corner.\n"
+           "I’m Felicity, your attendant today.\r"
+           "If the drawn number matches the ID No.\n"
+           "of any of your Pokémon, you could win\f"
+           "fabulous gifts.\r"
+           "Would you like to check today’s\n"
+           "lucky number? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_09E5) }
     goto(_09DA)
 _09AF:
-    npcmsg(msg_0065_D23R0101_00045)
+    npcmsg("This is the Pokémon Lottery Corner.\r"
+           "Would you like to check today’s\n"
+           "lucky number again? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -645,40 +738,53 @@ _09AF:
     goto(_09DA)
     end
 _09CF:
-    npcmsg(msg_0065_D23R0101_00029)
+    npcmsg("You’ve already drawn a Loto Ticket\n"
+           "today. Please come back tomorrow.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _09DA:
-    npcmsg(msg_0065_D23R0101_00030)
+    npcmsg("Oh. I see.\n"
+           "Please do visit us again.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _09E5:
     setflag(FLAG_UNK_AA5)
-    npcmsg(msg_0065_D23R0101_00031)
+    npcmsg("First, I’ll look up today’s Pokémon\n"
+           "Lottery Corner lucky number.\r"
+           "...\r")
     lotoidget(VAR_SPECIAL_x8000)
     bufferintex(0, VAR_SPECIAL_x8000, 2, 5)
-    npcmsg(msg_0065_D23R0101_00032)
+    npcmsg("Your Loto Ticket number is {STRVAR_1 54, 0, 0}.\r"
+           "Now, let’s see if it matches the\n"
+           "ID No. of any of your Pokémon.\r")
     lotoidsearch(VAR_SPECIAL_x8001, VAR_SPECIAL_x8002, VAR_SPECIAL_x8003, VAR_SPECIAL_x8000)
     if (var(VAR_SPECIAL_x8002) == 0) { goto(_0A24) }
     if (var(VAR_SPECIAL_x8003) == 0) { goto(_0A2F) }
     goto(_0A3D)
 _0A24:
-    npcmsg(msg_0065_D23R0101_00035)
+    npcmsg("I’m sorry.\n"
+           "You didn’t get a match...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0A2F:
     bufferpartymonnick(0, VAR_SPECIAL_x8001)
-    npcmsg(msg_0065_D23R0101_00033)
+    npcmsg("Congratulations!\r"
+           "The ID No. of your team’s\n"
+           "{STRVAR_1 1, 0, 0} matches your Loto\f"
+           "Ticket number!\r")
     goto(_0A4B)
 _0A3D:
     bufferboxmonnick(0, VAR_SPECIAL_x8001)
-    npcmsg(msg_0065_D23R0101_00034)
+    npcmsg("Congratulations!\r"
+           "The ID No. of your PC-boxed\n"
+           "{STRVAR_1 1, 0, 0} matches your Loto\f"
+           "Ticket number!\r")
     goto(_0A4B)
 _0A4B:
     Switch(VAR_SPECIAL_x8002)
@@ -689,20 +795,30 @@ _0A4B:
     Case(5, _0ABA)
     end
 _0A94:
-    npcmsg(msg_0065_D23R0101_00036)
+    npcmsg("The last digit matched, so you\n"
+           "win the fourth prize!\r")
     goto(_0AC3)
     end
 _0A9F:
-    npcmsg(msg_0065_D23R0101_00038)
+    npcmsg("The last two digits matched, so you\n"
+           "win the third prize!\r")
     goto(_0AC3)
 _0AA8:
-    npcmsg(msg_0065_D23R0101_00039)
+    npcmsg("The last three digits matched, so you\n"
+           "win the second prize!\r")
     goto(_0AC3)
 _0AB1:
-    npcmsg(msg_0065_D23R0101_00040)
+    npcmsg("The last four digits matched, so you\n"
+           "win the first prize!\r")
     goto(_0AC3)
 _0ABA:
-    npcmsg(msg_0065_D23R0101_00041)
+    npcmsg("Oh, my goodness, all five digits\n"
+           "matched!\r"
+           "You’ve won the jackpot prize!\n"
+           "This is just so incredible!\r"
+           "...Oh, I’m sorry! Your prize!\n"
+           "I got carried away there.\r"
+           "Here you go!\r")
     goto(_0AC3)
 _0AC3:
     Switch(VAR_SPECIAL_x8002)
@@ -734,20 +850,27 @@ _0B4A:
     goto(_0B98)
 _0B75:
     copyvar(VAR_UNK_4136, VAR_SPECIAL_x8002)
-    npcmsg(msg_0065_D23R0101_00042)
+    npcmsg("...Oh?\n"
+           "You seem to have no room for this.\r"
+           "Please make room in your Bag and\n"
+           "then let me know.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0B86:
     bufferplayersname(0)
-    npcmsg(msg_0065_D23R0101_00043)
+    npcmsg("{STRVAR_1 3, 0, 0}?\n"
+           "Yes, I’ve been expecting you.\r"
+           "This is the prize we’ve been holding\n"
+           "for you. Here you go!\r")
     copyvar(VAR_SPECIAL_x8002, VAR_UNK_4136)
     goto(_0AC3)
 _0B98:
     setvar(VAR_UNK_4136, 0)
     setflag(FLAG_UNK_AA6)
-    npcmsg(msg_0065_D23R0101_00044)
+    npcmsg("Please do visit again!\n"
+           "Good-bye from Felicity, your attendant!")
     waitbuttonpress
     closemessage
     releaseall

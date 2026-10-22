@@ -59,17 +59,25 @@ script scr_seq_R34_001 {
     applymovement(obj_R34_gsoldman1, Route34_Movement_0130)
     applymovement(obj_player, Route34_Movement_0140)
     waitmovement
-    npcmsg(msg_0384_R34_00046)
+    npcmsg("I have an idea!\n"
+           "I’ll give you our numbers.\r"
+           "Then you can check on the Pokémon\n"
+           "we raise for you.\r")
     bufferplayersname(0)
     registergearnumber(PHONE_CONTACT_DAY_C_MAN)
-    npcmsg(msg_0384_R34_00047)
+    npcmsg("{STRVAR_1 3, 0, 0} registered the\n"
+           "Day-Care Man in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     registergearnumber(PHONE_CONTACT_DAY_C_LADY)
-    npcmsg(msg_0384_R34_00048)
+    npcmsg("{STRVAR_1 3, 0, 0} registered the\n"
+           "Day-Care Lady in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
-    npcmsg(msg_0384_R34_00049)
+    npcmsg("Call us from time to time when you\n"
+           "give us your Pokémon to raise.\r"
+           "I’ll be happy to have a use for this\n"
+           "Pokégear my grandchild gave me.\r")
     closemessage
     applymovement(obj_R34_gsoldman1, Route34_Movement_014C)
     waitmovement
@@ -98,7 +106,7 @@ movement Route34_Movement_014C {
 script scr_seq_R34_003 {
     followmonresetmovement
     lockall
-    gendermsgbox(msg_0384_R34_00036, msg_0384_R34_00041)
+    gendermsgbox("Lyra: Grandpa!\r", "Ethan: Grandpa!\r")
     closemessage
     applymovement(obj_R34_gsoldman1, Route34_Movement_0510)
     waitmovement
@@ -108,7 +116,13 @@ script scr_seq_R34_003 {
     waitmovement
     applymovement(obj_R34_gsoldman1, Route34_Movement_0500)
     waitmovement
-    gendermsgbox(msg_0384_R34_00037, msg_0384_R34_00042)
+    gendermsgbox("Lyra: Good work, Grandpa!\n"
+                 "The Pokémon you raised for me has\f"
+                 "been as healthy as can be!\r"
+                 "You look fit, too!\r", "Ethan: Good work, Grandpa!\n"
+                                         "The Pokémon you raised for me has\f"
+                                         "been as healthy as can be!\r"
+                                         "You look fit, too!\r")
     closemessage
     applymovement(obj_R34_var_1, Route34_Movement_04F8)
     waitmovement
@@ -126,7 +140,7 @@ script scr_seq_R34_003 {
         applymovement(obj_R34_var_1, Route34_Movement_0518)
     }
     waitmovement
-    gendermsgbox(msg_0384_R34_00038, msg_0384_R34_00043)
+    gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\r", "Ethan: Hey, {STRVAR_1 3, 0, 0}!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -159,7 +173,17 @@ script scr_seq_R34_003 {
     }
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0384_R34_00039, msg_0384_R34_00044)
+    gendermsgbox("Let me introduce you.\n"
+                 "This is {STRVAR_1 3, 0, 0}. He’s a Trainer.\r"
+                 "He seems to be getting better at\n"
+                 "raising Pokémon.\r"
+                 "Well, not as good as you, Grandpa,\n"
+                 "of course!\r", "Let me introduce you.\n"
+                                 "This is {STRVAR_1 3, 0, 0}. She’s a Trainer.\r"
+                                 "She seems to be getting better at\n"
+                                 "raising Pokémon.\r"
+                                 "Well, not as good as you, Grandpa,\n"
+                                 "of course!\r")
     closemessage
     if (var(VAR_SPECIAL_x8004) == 368) {
         applymovement(obj_R34_var_1, Route34_Movement_04D4)
@@ -173,7 +197,7 @@ script scr_seq_R34_003 {
     }
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0384_R34_00040, msg_0384_R34_00045)
+    gendermsgbox("Follow me, {STRVAR_1 3, 0, 0}!\r", "Follow me, {STRVAR_1 3, 0, 0}!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -376,7 +400,7 @@ movement Route34_Movement_05E0 {
 }
 
 script scr_seq_R34_002 {
-    simplenpcmsg(msg_0384_R34_00018)
+    simplenpcmsg("I’m on patrol for suspicious individuals.")
     end
 }
 
@@ -573,6 +597,24 @@ script scr_seq_R34_004 {
     goto(_07E1)
 }
 
+text msg_0384_R34_00019 {
+    "Irene: Who are you?!\r"
+}
+
+text msg_0384_R34_00021 {
+    "Irene: I’ll tell my sister about you!\r"
+}
+
+text msg_0384_R34_00024 {
+    "Jenn: What the...?\n"
+    "What are you doing?\r"
+}
+
+text msg_0384_R34_00026 {
+    "Jenn: Better not laugh yet.\n"
+    "My sister is really strong!"
+}
+
 movement Route34_Movement_0918 {
     emote_exclamation_mark
     walk_left * 4
@@ -612,7 +654,8 @@ script scr_seq_R34_005 {
     stopbgm(0)
     playbgm(SEQ_GS_EYE_J_SHOUJO)
     waitmovement
-    npcmsg(msg_0384_R34_00028)
+    npcmsg("Kate: I must pay you back for taking\n"
+           "care of my sisters!\r")
     closemessage
     stopbgm(0)
     trainerbattle(TRAINER_ACE_TRAINER_F_KATE, 0, 0, 0)
@@ -620,7 +663,9 @@ script scr_seq_R34_005 {
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0912) }
     setvar(VAR_UNK_4097, 2)
 _09A0:
-    npcmsg(msg_0384_R34_00030)
+    npcmsg("Kate: You are so strong.\n"
+           "We lost with no excuses...\r"
+           "Here, take this!\r")
     if (!itemspace(ITEM_POWER_HERB, 1)) {
         callstd(std_bag_is_full)
         closemessage
@@ -641,14 +686,22 @@ _09D5:
     end
 }
 
+text msg_0384_R34_00032 {
+    "Kate: I’m sorry we jumped you.\r"
+    "We never expected anyone to find \n"
+    "us here.\f"
+    "You sure startled us."
+}
+
 script scr_seq_R34_006 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     if (var(VAR_UNK_4097) == 1) {
-        npcmsg(msg_0384_R34_00022)
+        npcmsg("Irene: I’ll tell my sister about you!")
     } else {
-        npcmsg(msg_0384_R34_00023)
+        npcmsg("Irene: How did you find this place?\f"
+               "This is our hideout!")
     }
     waitbuttonpress
     closemessage
@@ -663,7 +716,8 @@ script scr_seq_R34_007 {
     if (var(VAR_UNK_4097) == 1) {
         npcmsg(msg_0384_R34_00026)
     } else {
-        npcmsg(msg_0384_R34_00027)
+        npcmsg("Jenn: You and us... We might as well\n"
+               "become friends!")
     }
     waitbuttonpress
     closemessage
@@ -685,17 +739,24 @@ script scr_seq_R34_008 {
 }
 
 script scr_seq_R34_009 {
-    trainertipsex(3, msg_0384_R34_00034)
+    trainertipsex(3, "Trainer Tips\r"
+                     "North to Goldenrod City\n"
+                     "The Radio Tower at Goldenrod is giving\f"
+                     "away Radio Cards.\r"
+                     "Answer their questions and receive a\n"
+                     "Radio Card!")
     end
 }
 
 script scr_seq_R34_010 {
-    trainertipsex(2, msg_0384_R34_00035)
+    trainertipsex(2, "Pokémon Day Care\n"
+                     "Let us raise your Pokémon for you!")
     end
 }
 
 script scr_seq_R34_011 {
-    directionsignpostex(1, 4, msg_0384_R34_00033)
+    directionsignpostex(1, 4, "Rt. 34\n"
+                              "South to Azalea Town")
     end
 }
 

@@ -6,12 +6,18 @@ script scr_seq_T21R0301_000 {
 }
 
 script scr_seq_T21R0301_001 {
-    simplenpcmsg(msg_0553_T21R0301_00000)
+    simplenpcmsg("You’re trying to see how good you\n"
+                 "are as a Pokémon Trainer?\r"
+                 "You better visit the Pokémon Gyms\n"
+                 "all over Johto and collect Badges.")
     end
 }
 
 script scr_seq_T21R0301_002 {
-    simplenpcmsg(msg_0553_T21R0301_00001)
+    simplenpcmsg("When I get older, I’m going to be a\n"
+                 "Gym Leader!\r"
+                 "I make my Pokémon battle with my\n"
+                 "friends’ to make them tougher!")
     end
 }
 

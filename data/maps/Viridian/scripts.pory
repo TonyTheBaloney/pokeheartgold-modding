@@ -47,14 +47,23 @@ script scr_seq_T02_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0452_T02_00000)
+    npcmsg("Hey, kid! I just had a double shot\n"
+           "of espresso, and I am wired!\r"
+           "I need to talk to someone, so you’ll\n"
+           "have to do!\r"
+           "I might not look like much now, but\n"
+           "I was an expert at catching Pokémon.\r"
+           "Do you believe me? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0452_T02_00001)
+        npcmsg("Good, good. Yes, I was something out\n"
+               "of the ordinary, let me tell you!")
     } else {
-        npcmsg(msg_0452_T02_00002)
+        npcmsg("What? You little whelp!\r"
+               "If I were just a bit younger, I’d\n"
+               "show you a thing or two. Humph!")
     }
     waitbuttonpress
     closemessage
@@ -63,12 +72,15 @@ script scr_seq_T02_000 {
 }
 
 script scr_seq_T02_001 {
-    simplenpcmsg(msg_0452_T02_00003)
+    simplenpcmsg("This Gym didn’t have a Leader...\r"
+                 "A young man from Pallet Town became the\n"
+                 "Leader, but he’s often away.")
     end
 }
 
 script scr_seq_T02_010 {
-    simplenpcmsg(msg_0452_T02_00004)
+    simplenpcmsg("How was it?\n"
+                 "Were you able to battle the Leader?")
     end
 }
 
@@ -77,7 +89,16 @@ script scr_seq_T02_002 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_TM85_FROM_VIRIDIAN_CITY_MAN)) {
-        npcmsg(msg_0452_T02_00005)
+        npcmsg("Yawn!\n"
+               "I must have dozed off in the sun.\r"
+               "...I had this dream about a DROWZEE\n"
+               "eating my dream.\r"
+               "Weird, huh?\f"
+               "Huh?\f"
+               "What’s this?\r"
+               "Where did this TM come from?\n"
+               "This is spooky!\f"
+               "Here, you can have this TM.\r")
         if (!itemspace(ITEM_TM85, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -87,7 +108,8 @@ script scr_seq_T02_002 {
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_TM85_FROM_VIRIDIAN_CITY_MAN)
     }
-    npcmsg(msg_0452_T02_00006)
+    npcmsg("TM85 contains Dream Eater...\n"
+           "...Zzzzz...")
     waitbuttonpress
     closemessage
     releaseall
@@ -203,27 +225,33 @@ movement Viridian_Movement_0304 {
 }
 
 script scr_seq_T02_003 {
-    simplenpcmsg(msg_0452_T02_00007)
+    simplenpcmsg("I heard that there are many items on\n"
+                 "the ground in Viridian Forest.")
     end
 }
 
 script scr_seq_T02_004 {
-    directionsignpostex(0, 2, msg_0452_T02_00008)
+    directionsignpostex(0, 2, "Viridian City\n"
+                              "The City of Evergreen")
     end
 }
 
 script scr_seq_T02_005 {
-    trainertipsex(2, msg_0452_T02_00009)
+    trainertipsex(2, "Viridian City Pokémon Gym\n"
+                     "Leader: ...\f"
+                     "The rest of the text is illegible...")
     end
 }
 
 script scr_seq_T02_006 {
-    trainertipsex(2, msg_0452_T02_00010)
+    trainertipsex(2, "Welcome to Viridian City,\n"
+                     "the Gateway to Indigo Plateau!")
     end
 }
 
 script scr_seq_T02_007 {
-    trainertipsex(2, msg_0452_T02_00011)
+    trainertipsex(2, "Trainer House\n"
+                     "The Club for Top Trainer Battles")
     end
 }
 

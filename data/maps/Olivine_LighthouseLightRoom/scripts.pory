@@ -27,16 +27,17 @@ script scr_seq_D27R0107_000 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_SECRETPOTION)) {
-        npcmsg(msg_0094_D27R0107_00002)
+        npcmsg("Jasmine: ...Will that medicine cure\n"
+               "Amphy? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0094_D27R0107_00008)
+            npcmsg("Jasmine: ...I see...\r")
             closemessage
             applymovement(obj_D27R0107_gsleader6, Olivine_LighthouseLightRoom_Movement_01B0)
             waitmovement
-            npcmsg(msg_0094_D27R0107_00009)
+            npcmsg("...Amphy, hang on!\r")
             closemessage
             playcry(SPECIES_AMPHAROS, 12)
             waitcry
@@ -45,19 +46,25 @@ script scr_seq_D27R0107_000 {
         }
         takeitem(ITEM_SECRETPOTION, 1, VAR_SPECIAL_RESULT)
         bufferplayersname(0)
-        npcmsg(msg_0094_D27R0107_00003)
+        npcmsg("{STRVAR_1 3, 0, 0} handed the SecretPotion\n"
+               "to Jasmine.")
         playfanfare(SEQ_ME_ITEM)
         waitfanfare
-        npcmsg(msg_0094_D27R0107_00004)
+        npcmsg("Jasmine: ...Um, please don’t be\n"
+               "offended...\r"
+               "Amphy will not take anything from\n"
+               "anyone but me...\r")
         closemessage
         applymovement(obj_D27R0107_gsleader6, Olivine_LighthouseLightRoom_Movement_01B0)
         waitmovement
-        npcmsg(msg_0094_D27R0107_00005)
+        npcmsg("Jasmine: ...\r"
+               "Amphy, how are you feeling?\r")
         closemessage
         applymovement(obj_D27R0107_tsure_poke_static_ampharos, Olivine_LighthouseLightRoom_Movement_01A0)
         waitmovement
         playcry(SPECIES_AMPHAROS, 0)
-        npcmsg(msg_0094_D27R0107_00006)
+        npcmsg("Amphy: Palu!\n"
+               "Palulu!\r")
         waitcry
         closemessage
         lighthouselightup
@@ -65,7 +72,10 @@ script scr_seq_D27R0107_000 {
         waitmovement
         playcry(SPECIES_AMPHAROS, 0)
         waitcry
-        npcmsg(msg_0094_D27R0107_00007)
+        npcmsg("Jasmine: ...Oh, I’m so relieved...\n"
+               "This is just so wonderful...\r"
+               "Thank you so very, very much.\n"
+               "...I will return to the Gym...\r")
         closemessage
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
@@ -91,14 +101,22 @@ script scr_seq_D27R0107_000 {
         end
     }
     if (var(VAR_SCENE_LIGHTHOUSE_JASMINE) == 0) { goto(_0062) }
-    npcmsg(msg_0094_D27R0107_00001)
+    npcmsg("...May I ask you to get some medicine\n"
+           "for me? Please?\r")
     closemessage
     applymovement(obj_D27R0107_gsleader6, Olivine_LighthouseLightRoom_Movement_01B0)
     waitmovement
     releaseall
     end
 _0062:
-    npcmsg(msg_0094_D27R0107_00000)
+    npcmsg("Jasmine: ...This Pokémon always kept\n"
+           "the sea lit at night.\r"
+           "...But it suddenly got sick...\n"
+           "It’s gasping for air...\r"
+           "...I understand that there is a\n"
+           "wonderful Pharmacy in Cianwood...\r"
+           "But that’s across the sea...\n"
+           "And I can’t leave Amphy unattended...\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -185,13 +203,15 @@ script scr_seq_D27R0107_001 {
     faceplayer
     if (var(VAR_SCENE_LIGHTHOUSE_JASMINE) >= 2) {
         playcry(SPECIES_AMPHAROS, 0)
-        npcmsg(msg_0094_D27R0107_00012)
+        npcmsg("Amphy: Palu!\n"
+               "Palulu!")
         waitcry
     } else {
         playcry(SPECIES_AMPHAROS, 12)
-        npcmsg(msg_0094_D27R0107_00010)
+        npcmsg("Amphy: ...\n"
+               "...Pa...paloo...\r")
         waitcry
-        npcmsg(msg_0094_D27R0107_00011)
+        npcmsg("Its breathing is slight...")
     }
     waitbuttonpress
     closemessage

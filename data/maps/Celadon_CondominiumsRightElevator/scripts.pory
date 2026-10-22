@@ -26,24 +26,30 @@ script scr_seq_T07R0207_000 {
         elevatorcurfloorbox(20, 1, VAR_ELEVATOR_LAST_FLOOR, VAR_ELEVATOR_LAST_FLOOR)
         return
     _00B3:
-        npcmsg(msg_0507_T07R0207_00000)
+        npcmsg("Celadon Condominiums\n"
+               "This elevator goes straight to\f"
+               "the roof.\r"
+               "Will you go to the roof? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0150) }
-        npcmsg(msg_0507_T07R0207_00003)
+        npcmsg("Going up to the roof.\r")
         closemessage
         setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
         setdynamicwarp(MAP_CELADON_CONDOMINIUMS_ROOF, 2, 5, 3, 1)
         setvar(VAR_SPECIAL_x8004, 0)
         goto(_0129)
     _00EE:
-        npcmsg(msg_0507_T07R0207_00001)
+        npcmsg("Celadon Condominiums\n"
+               "This elevator goes straight to the\f"
+               "second floor.\r"
+               "Will you go to the second floor? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0150) }
-        npcmsg(msg_0507_T07R0207_00004)
+        npcmsg("Going down to the second floor.\r")
         closemessage
         setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
         setdynamicwarp(MAP_CELADON_CONDOMINIUMS_2F, 1, 5, 3, 1)
@@ -54,14 +60,14 @@ script scr_seq_T07R0207_000 {
         elevatoranim(VAR_SPECIAL_x8004, 2)
         getdynamicwarpfloorno(VAR_ELEVATOR_LAST_FLOOR)
         if (var(VAR_ELEVATOR_LAST_FLOOR) == 1) {
-            npcmsg(msg_0507_T07R0207_00006)
+            npcmsg("You’ve arrived at the second floor.\r")
         } else {
-            npcmsg(msg_0507_T07R0207_00005)
+            npcmsg("You’ve arrived at the roof.\r")
         }
     _0150:
         setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
         wait(1, VAR_SPECIAL_RESULT)
-        npcmsg(msg_0507_T07R0207_00002)
+        npcmsg("Please come again.")
         waitbuttonpress
         closemessage
         setvar(VAR_UNK_4125, 1)

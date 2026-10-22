@@ -56,13 +56,14 @@ script scr_seq_T07R0102_007 {
     lockall
     hasitem(ITEM_FASHION_CASE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0495_T07R0102_00009)
+        npcmsg("Wake: Hmm... Hmm... Humm...\r"
+               "Ha! This is quite a mask...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0495_T07R0102_00003)
+    npcmsg("Wake: Hmm... Hmm... Humm...\r")
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 2) {
         applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_01E8)
@@ -70,7 +71,7 @@ script scr_seq_T07R0102_007 {
         applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0200)
     }
     waitmovement
-    npcmsg(msg_0495_T07R0102_00004)
+    npcmsg("Wake: Ha! This is quite a mask...\r")
     applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0218)
     waitmovement
     if (var(VAR_TEMP_x4000) == 0) {
@@ -81,19 +82,38 @@ script scr_seq_T07R0102_007 {
         applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0228)
     }
     waitmovement
-    npcmsg(msg_0495_T07R0102_00005)
+    npcmsg("Wake: Huh? You talking to me?\r"
+           "Your eyes...are on my\n"
+           "Crasher Wake mask?\r"
+           "No, no, no!\n"
+           "I can never let it go!\r"
+           "...\n"
+           "Huh? That’s not it?\f"
+           "You want the other mask?\r"
+           "Hmm.\n"
+           "OK.\r")
     setvar(VAR_SPECIAL_x8004, 92)
     setvar(VAR_SPECIAL_x8005, 1)
     callstd(std_receive_accessory)
-    npcmsg(msg_0495_T07R0102_00006)
+    npcmsg("Wake: What?\n"
+           "That’s not enough?\r"
+           "You’re quite a negotiator for your\n"
+           "age... All right, I’ll give you this, too!\r")
     setvar(VAR_SPECIAL_x8004, 93)
     setvar(VAR_SPECIAL_x8005, 1)
     callstd(std_receive_accessory)
-    npcmsg(msg_0495_T07R0102_00007)
+    npcmsg("Wake: ...\r"
+           "Arrr, all right, all right! I will give you\n"
+           "this much-valued one as well!\r")
     setvar(VAR_SPECIAL_x8004, 94)
     setvar(VAR_SPECIAL_x8005, 1)
     callstd(std_receive_accessory)
-    npcmsg(msg_0495_T07R0102_00008)
+    npcmsg("Wake: It’s OK.\n"
+           "I’ve already paid for you.\r"
+           "Presents for you from the one\n"
+           "who wears masks the best.\f"
+           "Don’t be shy.\f"
+           "Ha ha ha!\r")
     closemessage
     compare(VAR_TEMP_x4000, 3)
     callifeq(_01A0)
@@ -284,19 +304,25 @@ movement Celadon_DepartmentStore_2F_Movement_041C {
 }
 
 script scr_seq_T07R0102_002 {
-    simplenpcmsg(msg_0495_T07R0102_00000)
+    simplenpcmsg("I just recently became a Trainer.\f"
+                 "My son encouraged me to do it.\r"
+                 "I’m impressed by the selection of\n"
+                 "convenient items.")
     end
 }
 
 script scr_seq_T07R0102_003 {
-    simplenpcmsg(msg_0495_T07R0102_00001)
+    simplenpcmsg("My dad’s having a hard time learning\n"
+                 "the names of items and how they are\f"
+                 "supposed to be used...")
     end
 }
 
 script scr_seq_T07R0102_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0495_T07R0102_00002)
+    npcmsg("Top Grade Items for Trainers!\n"
+           "2F: Trainer’s Market")
     waitbuttonpress
     closemessage
     releaseall

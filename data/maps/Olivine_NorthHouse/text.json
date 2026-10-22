@@ -3,39 +3,23 @@
   "messages": [
     {
       "id": "msg_0608_T26R0301_00000",
-      "en_US": [
-        "Hi, I’m looking for this Pokémon.\r",
-        "If you have a KRABBY, would you\n",
-        "trade it for my VOLTORB? {YESNO 0}"
-      ]
+      "from": "scr_seq_T26R0301_000#1"
     },
     {
       "id": "msg_0608_T26R0301_00001",
-      "en_US": [
-        "Great! Thank you!\r",
-        "I finally got a KRABBY!"
-      ]
+      "from": "scr_seq_T26R0301_000#2"
     },
     {
       "id": "msg_0608_T26R0301_00002",
-      "en_US": [
-        "You don’t have a KRABBY?\n",
-        "That’s too bad, then."
-      ]
+      "from": "scr_seq_T26R0301_000#3"
     },
     {
       "id": "msg_0608_T26R0301_00003",
-      "en_US": [
-        "You don’t have one either?\r",
-        "Gee, that’s really disappointing..."
-      ]
+      "from": "scr_seq_T26R0301_000#4"
     },
     {
       "id": "msg_0608_T26R0301_00004",
-      "en_US": [
-        "Hi! The KRABBY you traded me is\n",
-        "doing great!"
-      ]
+      "from": "scr_seq_T26R0301_000#0"
     }
   ]
 }

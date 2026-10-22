@@ -3,18 +3,11 @@
   "messages": [
     {
       "id": "msg_0404_R44_00000",
-      "en_US": [
-        "Ice Path\r",
-        "Careful not to slip, fall over,\n",
-        "freeze, and get stuck on the ice."
-      ]
+      "from": "scr_seq_R44_001#0"
     },
     {
       "id": "msg_0404_R44_00001",
-      "en_US": [
-        "Rt. 44\n",
-        "East to Blackthorn City"
-      ]
+      "from": "scr_seq_R44_002#0"
     }
   ]
 }

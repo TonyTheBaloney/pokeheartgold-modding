@@ -6,12 +6,15 @@ script scr_seq_T23R0101_000 {
 }
 
 script scr_seq_T23R0101_001 {
-    simplenpcmsg(msg_0569_T23R0101_00000)
+    simplenpcmsg("Ilex Forest is big. Be careful!\n"
+                 "Don’t get lost.")
     end
 }
 
 script scr_seq_T23R0101_002 {
-    simplenpcmsg(msg_0569_T23R0101_00001)
+    simplenpcmsg("The forest is watched over by\n"
+                 "its protector.\r"
+                 "Stay out of mischief!")
     end
 }
 

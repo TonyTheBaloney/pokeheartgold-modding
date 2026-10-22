@@ -142,7 +142,7 @@ script scr_seq_D24R0202_002 {
     lockall
     if (flag(FLAG_OPENED_ALPH_ESCAPE_ROPE_SECRET_ROOM)) {
         wait(10, VAR_SPECIAL_x8004)
-        npcmsg(msg_0074_D24R0202_00003)
+        npcmsg("Nothing happened...")
         waitbuttonpress
         closemessage
         releaseall
@@ -169,13 +169,23 @@ script scr_seq_D24R0202_003 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_188)) {
-        npcmsg(msg_0074_D24R0202_00001)
+        npcmsg("You reconstructed the stone panel?\r"
+               "That’s great!\n"
+               "We have an archaeology genius here!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0074_D24R0202_00000)
+    npcmsg("Welcome to this chamber!\r"
+           "We are reconstructing ancient Pokémon\n"
+           "stone panels.\r"
+           "You can rotate stone-panel pieces by\n"
+           "touching them for a short time.\r"
+           "If you touch a piece and slide it,\n"
+           "you can move it around.\r"
+           "We think we should be able to put them\n"
+           "back to where they were...")
     waitbuttonpress
     closemessage
     releaseall

@@ -2,12 +2,15 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_T04R0301_000 {
-    simplenpcmsg(msg_0473_T04R0301_00000)
+    simplenpcmsg("My husband lives happily with Pokémon\n"
+                 "he got through trades.\r"
+                 "I live happily having such a\n"
+                 "great husband.")
     end
 }
 
 script scr_seq_T04R0301_001 {
-    simplenpcmsg(msg_0473_T04R0301_00001)
+    simplenpcmsg("Ah... I’m so happy...")
     end
 }
 
@@ -16,7 +19,7 @@ script scr_seq_T04R0301_002 {
     lockall
     faceplayer
     playcry(SPECIES_KANGASKHAN, 0)
-    npcmsg(msg_0473_T04R0301_00002)
+    npcmsg("KANGASKHAN: Garu garuu.")
     waitcry
     waitbuttonpress
     closemessage
@@ -29,7 +32,7 @@ script scr_seq_T04R0301_003 {
     lockall
     faceplayer
     playcry(SPECIES_ZUBAT, 0)
-    npcmsg(msg_0473_T04R0301_00003)
+    npcmsg("ZUBAT: Zuba zubaa.")
     waitcry
     waitbuttonpress
     closemessage

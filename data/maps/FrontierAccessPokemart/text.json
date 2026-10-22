@@ -3,23 +3,11 @@
   "messages": [
     {
       "id": "msg_0101_D32FS0101_00000",
-      "en_US": [
-        "Some Trainers rely on a Pokémon’s\n",
-        "potential alone. But you can use items\f",
-        "and medicines to help improve a\f",
-        "Pokémon’s capabilities."
-      ]
+      "from": "scr_seq_D32FS0101_002#0"
     },
     {
       "id": "msg_0101_D32FS0101_00001",
-      "en_US": [
-        "Mountain climbing and Pokémon are\n",
-        "similar in a sense.\r",
-        "They both come down to potential!\r",
-        "I do not rely on items or medicines\n",
-        "but rather potential and training\f",
-        "for battle!"
-      ]
+      "from": "scr_seq_D32FS0101_003#0"
     }
   ]
 }

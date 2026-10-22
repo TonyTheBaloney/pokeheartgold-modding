@@ -6,7 +6,10 @@ script scr_seq_P01R0303_000 {
     lockall
     faceplayer
     if (!flag(FLAG_UNK_0ED)) {
-        npcmsg(msg_0261_P01R0303_00004)
+        npcmsg("Zzz... Zzz...\r"
+               "Wh-what?\n"
+               "I’m awake, of course...\r"
+               "Zzz... Zzz...")
         waitbuttonpress
         closemessage
         releaseall
@@ -69,6 +72,24 @@ _010C:
     whiteout
     releaseall
     end
+}
+
+text msg_0261_P01R0303_00005 {
+    "What? You’re saying I was asleep?\n"
+    "Show some respect!\r"
+    "A crewman on duty would never\n"
+    "be so unmindful as to take a nap\f"
+    "in a place like this!\r"
+    "I resent your implication!\n"
+    "I challenge you!\r"
+}
+
+text msg_0261_P01R0303_00006 {
+    "Losing to you has woken me up.\n"
+    "I will mend my ways and work hard.\r"
+    "Can you keep it a secret that I was\n"
+    "taking a nap here?\f"
+    "Please don’t tell the Captain.\r"
 }
 
 movement SsAqua_1F_SoutheastRooms_Movement_0120 {
@@ -144,7 +165,8 @@ script scr_seq_P01R0303_001 {
     lockall
     applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_02B4)
     waitmovement
-    npcmsg(msg_0261_P01R0303_00000)
+    npcmsg("A comfy bed!\n"
+           "Time to sleep...\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -155,7 +177,7 @@ script scr_seq_P01R0303_001 {
     restoreoverworld
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
-    npcmsg(msg_0261_P01R0303_00001)
+    npcmsg("Ah, refreshed and restored!\r")
     closemessage
     followmonisactive(VAR_TEMP_x4002)
     if (var(VAR_TEMP_x4002) != 0) {
@@ -176,9 +198,11 @@ script scr_seq_P01R0303_001 {
             waitse(SEQ_SE_DP_PINPON)
             setflag(FLAG_BOAT_ARRIVED)
             if (var(VAR_BOAT_DIRECTION) == 1) {
-                npcmsg(msg_0261_P01R0303_00003)
+                npcmsg("Fast Ship S.S. Aqua\n"
+                       "has arrived in Vermilion City.")
             } else {
-                npcmsg(msg_0261_P01R0303_00002)
+                npcmsg("Fast Ship S.S. Aqua\n"
+                       "has arrived in Olivine City.")
             }
             waitbuttonpress
             closemessage

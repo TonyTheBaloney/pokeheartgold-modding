@@ -28,7 +28,17 @@ script scr_seq_T23R0501_005 {
     applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02B0)
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0571_T23R0501_00001)
+    npcmsg("Kurt: Hi, {STRVAR_1 3, 0, 0}!\n"
+           "You handled yourself like a real hero.\r"
+           "As I mentioned before, Team Rocket was\n"
+           "disbanded by a boy called Red three\f"
+           "years ago.\r"
+           "Now that they have come back...\n"
+           "I have a bad feeling about it...\r"
+           "In any case, it would please me greatly\n"
+           "to make Poké Balls for a Trainer\f"
+           "like you, {STRVAR_1 3, 0, 0}.\f"
+           "This is all I have now, but take it.\r")
     setvar(VAR_SPECIAL_x8004, 492)
     setvar(VAR_SPECIAL_x8005, 1)
     callstd(std_obtain_item_verbose)
@@ -44,7 +54,22 @@ script scr_seq_T23R0501_001 {
     lockall
     faceplayer
     bufferplayersname(0)
-    npcmsg(msg_0571_T23R0501_00000)
+    npcmsg("Hm? Who are you?\r"
+           "{STRVAR_1 3, 0, 0}, eh? You want me to make\n"
+           "some Balls?\r"
+           "Sorry, but that’ll have to wait.\r"
+           "Do you know Team Rocket?\n"
+           "Ah, don’t worry. I’ll tell you anyhow.\r"
+           "Team Rocket’s an evil gang that\n"
+           "uses Pokémon for their dirty work.\r"
+           "They’re supposed to have disbanded\n"
+           "three years ago.\r"
+           "Anyway, they’re at the well, cutting\n"
+           "off SlowpokeTails for sale!\r"
+           "So I’m going to go give them a\n"
+           "lesson in pain!\r"
+           "Hang on, SLOWPOKE!\n"
+           "Old Kurt is on his way!")
     waitabpress
     closemessage
     getplayerfacing(VAR_TEMP_x4001)
@@ -85,7 +110,8 @@ script scr_seq_T23R0501_001 {
         if (var(VAR_SPECIAL_x8000) != 0) {
             if (flag(FLAG_DAILY_KURT_MAKING_BALLS)) { goto(_0204) }
             bufferplayersname(0)
-            npcmsg(msg_0571_T23R0501_00008)
+            npcmsg("Kurt: Ah, {STRVAR_1 3, 0, 0}!\f"
+                   "I just finished your Poké Ball. Here!\r")
             getkurtball(VAR_SPECIAL_x8004)
             hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
             copyvar(VAR_SPECIAL_x8005, VAR_SPECIAL_x8000)
@@ -96,20 +122,26 @@ script scr_seq_T23R0501_001 {
                 compare(VAR_UNK_413B, 10)
                 callifge(_0227)
             }
-            npcmsg(msg_0571_T23R0501_00010)
+            npcmsg("Kurt: That turned out great.\r"
+                   "Try catching Pokémon with it.")
             goto(_021F)
             end
-            npcmsg(msg_0571_T23R0501_00009)
+            npcmsg("Kurt: Your Bag is full!\n"
+                   "Come back when it’s lighter.")
             goto(_021F)
             end
         _0204:
-            npcmsg(msg_0571_T23R0501_00007)
+            npcmsg("Kurt: I’m working!\n"
+                   "Don’t bother me!")
             goto(_021F)
             end
         }
         gettotalapricorncount(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            npcmsg(msg_0571_T23R0501_00003)
+            npcmsg("Kurt: I make Poké Balls from Apricorns.\r"
+                   "Collect them from trees and bring\n"
+                   "’em to me.\r"
+                   "I’ll make Poké Balls out of them.")
             if (var(VAR_UNK_4080) == 3) { goto(_022D) }
         _021F:
             waitbuttonpress
@@ -125,25 +157,29 @@ script scr_seq_T23R0501_001 {
             waitmovement
             applymovement(obj_player, Azalea_KurtHouse_Movement_02D4)
             waitmovement
-            npcmsg(msg_0571_T23R0501_00015)
+            npcmsg("That’s right!\n"
+                   "I’ll give you my grandpa’s number. {YESNO 0}")
         _024A:
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             touchscreenmenushow
             if (var(VAR_SPECIAL_RESULT) == 0) {
                 bufferplayersname(0)
-                npcmsg(msg_0571_T23R0501_00016)
+                npcmsg("{STRVAR_1 3, 0, 0} registered Kurt\n"
+                       "in the Pokégear!")
                 playfanfare(SEQ_ME_POKEGEAR_REGIST)
                 waitfanfare
                 registergearnumber(PHONE_CONTACT_KURT)
-                npcmsg(msg_0571_T23R0501_00017)
+                npcmsg("My grandpa can tell you more\n"
+                       "about Apricorns.")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             }
             if (var(VAR_SPECIAL_RESULT) >= 1) {
-                npcmsg(msg_0571_T23R0501_00018)
+                npcmsg("No? Why?\n"
+                       "You don’t want to talk to my grandpa?")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -153,7 +189,8 @@ script scr_seq_T23R0501_001 {
                 releaseall
                 end
             _02A2:
-                npcmsg(msg_0571_T23R0501_00019)
+                npcmsg("You want to talk to my grandpa,\n"
+                       "don’t you? {YESNO 0}")
                 goto(_024A)
                 end
             }
@@ -161,7 +198,8 @@ script scr_seq_T23R0501_001 {
         }
         applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02BC)
         waitmovement
-        npcmsg(msg_0571_T23R0501_00004)
+        npcmsg("Kurt: You have Apricorns for me?\f"
+               "Fine! I’ll turn them into Poké Balls.\r")
         closemessage
         fadescreen(6, 1, 0, RGB_BLACK)
         waitfade
@@ -171,10 +209,12 @@ script scr_seq_T23R0501_001 {
         waitfade
         getkurtapricornquantity(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            npcmsg(msg_0571_T23R0501_00006)
+            npcmsg("Kurt: Oh...\n"
+                   "That’s a letdown.")
         } else {
             setflag(FLAG_DAILY_KURT_MAKING_BALLS)
-            npcmsg(msg_0571_T23R0501_00005)
+            npcmsg("Kurt: It’ll take a day to make you a\n"
+                   "Poké Ball. Come back for it later.")
         }
         waitbuttonpress
         closemessage
@@ -236,25 +276,31 @@ script scr_seq_T23R0501_002 {
             checkregisteredphonenumber(PHONE_CONTACT_KURT, VAR_TEMP_x4001)
             if (var(VAR_TEMP_x4001) == 0) { goto(_02A2) }
             if (flag(FLAG_GAME_CLEAR)) {
-                npcmsg(msg_0571_T23R0501_00014)
+                npcmsg("Dad works at Silph where he studies\n"
+                       "Poké Balls.\r"
+                       "I have to stay home with Grandpa\n"
+                       "and SLOWPOKE.")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             }
-            npcmsg(msg_0571_T23R0501_00013)
+            npcmsg("The SLOWPOKE my dad gave me came\n"
+                   "back! Its tail has grown back, too!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0571_T23R0501_00012)
+        npcmsg("Grandpa’s gone...\n"
+               "I’m so lonely...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0571_T23R0501_00011)
+    npcmsg("The SLOWPOKE are gone...\n"
+           "Were they taken away by bad people?")
     waitbuttonpress
     closemessage
     releaseall
@@ -266,7 +312,8 @@ script scr_seq_T23R0501_003 {
     lockall
     faceplayer
     playcry(SPECIES_SLOWPOKE, 0)
-    npcmsg(msg_0571_T23R0501_00020)
+    npcmsg("SLOWPOKE: ...\n"
+           "Yawn?")
     waitcry
     waitbuttonpress
     closemessage
@@ -275,7 +322,11 @@ script scr_seq_T23R0501_003 {
 }
 
 script scr_seq_T23R0501_004 {
-    simplenpcmsg(msg_0571_T23R0501_00021)
+    simplenpcmsg("You see three people, with landscape\n"
+                 "in the background.\r"
+                 "It’s Kurt, Professor Oak, and...\n"
+                 "in the middle,\f"
+                 "a lady with determined eyes.")
     end
 }
 
@@ -290,12 +341,18 @@ script scr_seq_T23R0501_006 {
     } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
         npcmsg(msg_0571_T23R0501_00024)
     } else {
-        npcmsg(msg_0571_T23R0501_00023)
+        npcmsg("The radio is on.\r"
+               "It’s Professor Oak’s Pokémon Talk!")
     }
     waitbuttonpress
     closemessage
     releaseall
     end
+}
+
+text msg_0571_T23R0501_00024 {
+    "The radio is declaring the revival\n"
+    "of Team Rocket!"
 }
 
 mapscripts Azalea_KurtHouse_MapScripts {

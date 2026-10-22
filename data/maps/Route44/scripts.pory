@@ -6,12 +6,15 @@ script scr_seq_R44_000 {
 }
 
 script scr_seq_R44_001 {
-    trainertipsex(2, msg_0404_R44_00000)
+    trainertipsex(2, "Ice Path\r"
+                     "Careful not to slip, fall over,\n"
+                     "freeze, and get stuck on the ice.")
     end
 }
 
 script scr_seq_R44_002 {
-    directionsignpostex(1, 1, msg_0404_R44_00001)
+    directionsignpostex(1, 1, "Rt. 44\n"
+                              "East to Blackthorn City")
     end
 }
 

@@ -191,7 +191,7 @@ _023A:
         waitbuttonpress
         closemessage
         vermiliongymlockaction(0, 0)
-        npcmsg(msg_0485_T06GYM0101_00011)
+        npcmsg("The first electric fence is unlocked!")
         waitbuttonpress
         closemessage
         releaseall
@@ -206,7 +206,9 @@ _023A:
         vermiliongymlockaction(1, 0)
         setflag(FLAG_SYS_SOLVED_LT_SURGE_GYM)
         stopse(SEQ_SE_GS_DENGEKIBARIA)
-        npcmsg(msg_0485_T06GYM0101_00012)
+        npcmsg("The second electric fence is unlocked!\r"
+               "Now the electric fences are gone, and\n"
+               "the path to the Leader is clear!")
         waitbuttonpress
         closemessage
         releaseall
@@ -216,7 +218,9 @@ _023A:
     if (var(VAR_SPECIAL_RESULT) == 3) {
         playse(SEQ_SE_DP_SELECT)
         lockall
-        npcmsg(msg_0485_T06GYM0101_00010)
+        npcmsg("Nope! Nothing here but trash.\n"
+               "Oh no, the electric fence is\f"
+               "locked again!")
         waitbuttonpress
         closemessage
         vermiliongymlockaction(0, 1)
@@ -234,6 +238,17 @@ _023A:
         end
     }
     end
+}
+
+text msg_0485_T06GYM0101_00008 {
+    "Nope! Nothing here but trash."
+}
+
+text msg_0485_T06GYM0101_00009 {
+    "...\n"
+    "Oh, you found a secret switch at the\f"
+    "bottom of the trash can!\f"
+    "Better press it."
 }
 
 script scr_seq_T06GYM0101_015 {
@@ -267,13 +282,23 @@ script scr_seq_T06GYM0101_023 {
     checkbadge(BADGE_THUNDER, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
         if (!flag(FLAG_GOT_TM34_FROM_LT_SURGE)) { goto(_0389) }
-        npcmsg(msg_0485_T06GYM0101_00005)
+        npcmsg("Lt. Surge: Hey, kid!\n"
+               "Still slugging and chugging away?\r"
+               "When you go north, you will see a\n"
+               "big city called Saffron!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0485_T06GYM0101_00000)
+    npcmsg("Lt. Surge: Hey, you little tyke!\r"
+           "It may not be very smart to\n"
+           "challenge me, but it takes guts!\r"
+           "When it comes to Electric-type Pokémon,\n"
+           "I’m number one!\r"
+           "I’ve never lost on the battlefield.\r"
+           "I’ll zap you just like I do all my\n"
+           "enemies in battle!\r")
     closemessage
     trainerbattle(TRAINER_LEADER_LT_SURGE_LT__SURGE, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -295,18 +320,30 @@ script scr_seq_T06GYM0101_023 {
     settrainerflag(TRAINER_GUITARIST_VINCENT)
     settrainerflag(TRAINER_GENTLEMAN_GREGORY)
     settrainerflag(TRAINER_JUGGLER_HORTON)
-    npcmsg(msg_0485_T06GYM0101_00001)
+    npcmsg("Lt. Surge: Arrrgh!\n"
+           "You are strong!\r"
+           "OK, kid.\n"
+           "You get the Thunder Badge!\r")
     bufferplayersname(0)
-    npcmsg(msg_0485_T06GYM0101_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} received\n"
+           "the Thunder Badge from Lt. Surge!")
     playfanfare(SEQ_ME_BADGE)
     waitfanfare
-    npcmsg(msg_0485_T06GYM0101_00003)
+    npcmsg("Lt. Surge: That Thunder Badge suits\n"
+           "those who’ve defeated me!\f"
+           "Take good care of it, OK?\r"
+           "There is something else.\n"
+           "Here is a great TM for you!\r")
     goto(_0389)
 _0389:
     if (!itemspace(ITEM_TM34, 1)) { goto(_03BD) }
     callstd(std_give_item_verbose)
     setflag(FLAG_GOT_TM34_FROM_LT_SURGE)
-    npcmsg(msg_0485_T06GYM0101_00004)
+    npcmsg("Lt. Surge: That TM contains\n"
+           "Shock Wave... Zzzap!\r"
+           "Use it to go like lightning!\r"
+           "When you go north, you will see\n"
+           "a big city called Saffron!")
     waitbuttonpress
     closemessage
     releaseall
@@ -324,13 +361,23 @@ script scr_seq_T06GYM0101_024 {
     faceplayer
     checkbadge(BADGE_THUNDER, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0485_T06GYM0101_00007)
+        npcmsg("Whew! That was an electrifying bout!\n"
+               "It sure made my nerves tingle.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0485_T06GYM0101_00006)
+    npcmsg("Yo! Legend in the making!\n"
+           "You lucked out this time.\r"
+           "The traps at this Gym have been out\n"
+           "of order for a while.\r"
+           "But the traps are back up and\n"
+           "running now!\f"
+           "Why lucky, you may ask...\r"
+           "Because you can train yourself better\n"
+           "that way!\r"
+           "Make up your mind and go for Lt. Surge!")
     waitbuttonpress
     closemessage
     releaseall
@@ -344,9 +391,12 @@ script scr_seq_T06GYM0101_025 {
     checkbadge(BADGE_THUNDER, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0485_T06GYM0101_00013)
+        npcmsg("Vermilion City Pokémon Gym")
     } else {
-        npcmsg(msg_0485_T06GYM0101_00014)
+        npcmsg("Vermilion City Pokémon Gym\r"
+               "Gym Leader: Lt. Surge\n"
+               "Certified Trainer!\f"
+               "{STRVAR_1 3, 0, 0}")
     }
     waitbuttonpress
     closemessage

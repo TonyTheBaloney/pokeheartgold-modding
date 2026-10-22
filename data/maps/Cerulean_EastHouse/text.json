@@ -3,20 +3,15 @@
   "messages": [
     {
       "id": "msg_0472_T04R0201_00000",
-      "en_US": [
-        "I heard that some shady character is\n",
-        "skulking about.\r",
-        "I won’t stand for it if he turns out\n",
-        "to be a thief."
-      ]
+      "from": "scr_seq_T04R0201_000#0"
     },
     {
       "id": "msg_0472_T04R0201_00001",
-      "en_US": "We were held up by robbers before."
+      "from": "scr_seq_T04R0201_001#0"
     },
     {
       "id": "msg_0472_T04R0201_00002",
-      "en_US": "DIGLETT: Dug dug."
+      "from": "scr_seq_T04R0201_002#0"
     }
   ]
 }

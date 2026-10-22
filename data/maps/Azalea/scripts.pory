@@ -37,7 +37,11 @@ script scr_seq_T23_004 {
 
 script scr_seq_T23_000 {
 scr_seq_T23_005:
-    simplenpcmsg(msg_0564_T23_00003)
+    simplenpcmsg("Nothing is going on.\n"
+                 "It’s unsafe to go in there, so I’m\f"
+                 "standing guard to make sure\f"
+                 "people don’t wander in.\r"
+                 "Am I not a good Samaritan?")
     end
 }
 
@@ -45,9 +49,10 @@ script scr_seq_T23_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0564_T23_00009)
+    npcmsg("SLOWPOKE: ...\r"
+           "...\r")
     playcry(SPECIES_SLOWPOKE, 0)
-    npcmsg(msg_0564_T23_00010)
+    npcmsg("...Yawn?")
     waitcry
     waitbuttonpress
     closemessage
@@ -87,7 +92,13 @@ script scr_seq_T23_002 {
     }
     waitmovement
     bufferrivalsname(0)
-    npcmsg(msg_0564_T23_00001)
+    npcmsg("{STRVAR_1 3, 0, 0}: ...Tell me something.\r"
+           "Is it true that Team Rocket has\n"
+           "returned?\r"
+           "What? You beat them? Hah!\n"
+           "Quit lying.\r"
+           "Are you serious?\n"
+           "Then let’s see how good you are.\r")
     closemessage
     getstarterchoice(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 152) {
@@ -105,7 +116,18 @@ script scr_seq_T23_002 {
     }
     callstd(std_play_rival_outro_music)
     bufferrivalsname(0)
-    npcmsg(msg_0564_T23_00002)
+    npcmsg("{STRVAR_1 3, 0, 0}: I hate the weak.\r"
+           "Pokémon, Trainers.\n"
+           "It doesn’t matter who or what.\r"
+           "I hate to see them hanging around.\n"
+           "That goes for Team Rocket, too.\r"
+           "They think they are big and tough\n"
+           "as long as they are in a group.\r"
+           "But get them alone, and they’re weak.\n"
+           "I hate them all.\r"
+           "You stay out of my way.\n"
+           "You won’t be an exception\f"
+           "if you get in my way.\r")
     closemessage
     setvar(VAR_UNK_4075, 2)
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
@@ -176,9 +198,21 @@ script scr_seq_T23_003 {
     lockall
     applymovement(obj_T23_rocketm_3, Azalea_Movement_0350)
     waitmovement
-    npcmsg(msg_0564_T23_00016)
+    npcmsg("Who are you?\n"
+           "You don’t know us?\r"
+           "We are...\n"
+           "Team Rocket!\r"
+           "...What?\n"
+           "We broke up a while ago?\r"
+           "Give me a break!\n"
+           "We have not broken up!\r"
+           "Actually we did once.\n"
+           "But we have come back to\f"
+           "pursue Giovanni’s ambition.\r"
+           "Enough talking.\n"
+           "Shut up and just beat it!\r")
     playse(SEQ_SE_DP_WALL_HIT)
-    npcmsg(msg_0564_T23_00017)
+    npcmsg("{SIZE 200}Thud!{SIZE 100}\r")
     closemessage
     applymovement(obj_T23_gsmiddleman1_2, Azalea_Movement_0358)
     waitmovement
@@ -217,9 +251,11 @@ script scr_seq_T23_006 {
     lockall
     faceplayer
     if (!flag(FLAG_BEAT_AZALEA_ROCKETS)) {
-        npcmsg(msg_0564_T23_00018)
+        npcmsg("We have this tough guy called Kurt\n"
+               "in this town.\f"
+               "He should be able to take care of it...")
     } else {
-        npcmsg(msg_0564_T23_00019)
+        npcmsg("I knew we could count on Kurt!")
     }
 _039F:
     waitbuttonpress
@@ -233,55 +269,82 @@ script scr_seq_T23_007 {
     lockall
     faceplayer
     if (flag(FLAG_BEAT_AZALEA_ROCKETS)) {
-        npcmsg(msg_0564_T23_00006)
+        npcmsg("The SLOWPOKE have returned.\r"
+               "Knowing them, they could’ve just been\n"
+               "taking it easy somewhere.")
         goto(_039F)
     }
-    npcmsg(msg_0564_T23_00005)
+    npcmsg("The SLOWPOKE have disappeared\n"
+           "from town...\r"
+           "I heard their tails are being sold\n"
+           "somewhere.")
     goto(_039F)
 }
 
 script scr_seq_T23_008 {
-    trainertipsex(2, msg_0564_T23_00012)
+    trainertipsex(2, "Kurt’s House\r"
+                     "Apricorn and Nothing Else\n"
+                     "The Stubborn Poké Ball Creator")
     end
 }
 
 script scr_seq_T23_009 {
-    trainertipsex(2, msg_0564_T23_00013)
+    trainertipsex(2, "Azalea Town Pokémon Gym\n"
+                     "Leader: Bugsy\f"
+                     "The Walking Bug Pokémon Encyclopedia")
     end
 }
 
 script scr_seq_T23_010 {
-    trainertipsex(2, msg_0564_T23_00015)
+    trainertipsex(2, "Charcoal Kiln\r"
+                     "We let our FARFETCH’D fetch branches\n"
+                     "for charcoal!")
     end
 }
 
 script scr_seq_T23_011 {
-    directionsignpostex(0, 14, msg_0564_T23_00011)
+    directionsignpostex(0, 14, "Azalea Town\n"
+                               "Living Happily with Pokémon")
     end
 }
 
 script scr_seq_T23_012 {
-    trainertipsex(2, msg_0564_T23_00014)
+    trainertipsex(2, "SLOWPOKE Well\n"
+                     "Also known as the Rainmaker Well.\r"
+                     "Locals believe that a SLOWPOKE’s\n"
+                     "yawn summons the rain.\r"
+                     "Records show that a SLOWPOKE’s yawn\n"
+                     "ended a drought 400 years ago.")
     end
 }
 
 script scr_seq_T23_013 {
-    directionsignpostex(1, 2, msg_0564_T23_00000)
+    directionsignpostex(1, 2, "Ilex Forest Ahead\n"
+                              "Enter through the gate.")
     end
 }
 
 script scr_seq_T23_014 {
-    simplenpcmsg(msg_0564_T23_00004)
+    simplenpcmsg("Do you know about SlowpokeTail?\n"
+                 "I heard it’s tasty!\r"
+                 "Aren’t you glad I told you that?")
     end
 }
 
 script scr_seq_T23_015 {
-    simplenpcmsg(msg_0564_T23_00007)
+    simplenpcmsg("Did you come to get Kurt to make\n"
+                 "some Poké Balls?\f"
+                 "A lot of people do just that.")
     end
 }
 
 script scr_seq_T23_016 {
-    simplenpcmsg(msg_0564_T23_00008)
+    simplenpcmsg("Cut through Azalea and you’ll be in\n"
+                 "Ilex Forest.\r"
+                 "But these skinny trees make it\n"
+                 "impossible to get through.\r"
+                 "The Charcoal Man’s Pokémon can cut\n"
+                 "down trees.")
     end
 }
 

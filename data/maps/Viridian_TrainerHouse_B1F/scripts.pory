@@ -13,7 +13,8 @@ script scr_seq_T02R0302_002 {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_412E, 2)
-    npcmsg(msg_0458_T02R0302_00007)
+    npcmsg("Oh, hello!\n"
+           "Right this way, please!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -23,16 +24,32 @@ script scr_seq_T02R0302_002 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0458_T02R0302_00008)
+    npcmsg("This is the Trainer House--\n"
+           "the place for Trainers.\r"
+           "The Pokéwalker will bring your\n"
+           "friends here!\r"
+           "You can challenge various Trainers\n"
+           "once a day.\r"
+           "You’ll earn Battle Points when you win.\f"
+           "Bring out your best!\r")
     if (!flag(FLAG_UNK_176)) {
-        npcmsg(msg_0458_T02R0302_00009)
+        npcmsg("Oh! I’ll borrow your Vs. Recorder\n"
+               "for a moment.\r"
+               "Let’s see... Slide open this part here,\n"
+               "and ticka-tacka-kachunk there!\r"
+               "All done!\r"
+               "Now you can check your Battle Points\n"
+               "using your Vs. Recorder!\r")
         setflag(FLAG_UNK_25B)
         dummy486
         setvar(VAR_UNK_40E5, 2)
-        npcmsg(msg_0458_T02R0302_00011)
+        npcmsg("You may exchange your Battle Points\n"
+               "for fabulous prizes at Johto\f"
+               "Battle Frontier!\r")
         setflag(FLAG_UNK_176)
     }
-    npcmsg(msg_0458_T02R0302_00012)
+    npcmsg("Now that you are ready,\n"
+           "would you like to train yourself? {YESNO 0}")
     goto(_0091)
     releaseall
     end
@@ -50,7 +67,11 @@ scr_seq_T02R0302_003:
     lockall
     applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0120)
     waitmovement
-    npcmsg(msg_0458_T02R0302_00000)
+    npcmsg("Hello, welcome to our Training Hall.\r"
+           "You may battle our best Trainers and\n"
+           "their favorite Pokémon once\f"
+           "per day.\r"
+           "Would you like to participate? {YESNO 0}")
 _0091:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -64,7 +85,8 @@ _0091:
     touchscreenmenushow
     followmonrecall
     healparty
-    npcmsg(msg_0458_T02R0302_00002)
+    npcmsg("You are ready!\n"
+           "Please go right through.\r")
     closemessage
     applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_017C)
     waitmovement
@@ -75,7 +97,8 @@ _0091:
     end
 _00ED:
     setfollowmoninhibitstate(0)
-    npcmsg(msg_0458_T02R0302_00003)
+    npcmsg("I see...\n"
+           "Please come back again.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -97,19 +120,20 @@ movement Viridian_TrainerHouse_B1F_Movement_0120 {
 script scr_seq_T02R0302_001 {
     followmonresetmovement
     lockall
-    npcmsg(msg_0458_T02R0302_00004)
+    npcmsg("Do you want to exit? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0458_T02R0302_00006)
+        npcmsg("I see.\n"
+               "Good luck!\r")
         closemessage
         applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_017C)
         waitmovement
         releaseall
         end
     }
-    npcmsg(msg_0458_T02R0302_00005)
+    npcmsg("Thank you for playing!\r")
     closemessage
     applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0184)
     waitmovement

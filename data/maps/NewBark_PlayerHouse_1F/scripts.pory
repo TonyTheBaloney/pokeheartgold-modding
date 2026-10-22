@@ -23,23 +23,49 @@ script scr_seq_T20R0201_000 {
     applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B8)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0545_T20R0201_00000, msg_0545_T20R0201_00001)
+    gendermsgbox("Hi, {STRVAR_1 3, 0, 0}!\n"
+                 "You’re finally awake.\f"
+                 "Your friend Lyra was just here.\r"
+                 "She was playing hide-and-seek with\n"
+                 "her MARILL.\r"
+                 "Oh, I almost forgot! Our acquaintance,\n"
+                 "Professor Elm, was looking for you.\r"
+                 "He said he had a favor to ask of you.\r"
+                 "You know where the lab is, right?\n"
+                 "It’s right next door to us.\r"
+                 "By the way, do you have everything\n"
+                 "you need to go out?\f"
+                 "Here, use this Bag to carry things...\r", "Hi, {STRVAR_1 3, 0, 0}!\n"
+                                                            "You’re finally awake.\f"
+                                                            "Your friend Ethan was just here.\r"
+                                                            "He was playing hide-and-seek with\n"
+                                                            "his MARILL.\r"
+                                                            "Oh, I almost forgot! Our acquaintance,\n"
+                                                            "Professor Elm, was looking for you.\r"
+                                                            "He said he had a favor to ask of you.\r"
+                                                            "You know where the lab is, right?\n"
+                                                            "It’s right next door to us.\r"
+                                                            "By the way, do you have everything\n"
+                                                            "you need to go out?\f"
+                                                            "Here, use this Bag to carry things...\r")
     setflag(FLAG_GOT_BAG)
     playfanfare(SEQ_SE_PL_KIRAKIRA)
     waitfanfare
-    npcmsg(msg_0545_T20R0201_00002)
+    npcmsg("This is your Trainer Card...\r")
     setflag(FLAG_GOT_TRAINER_CARD)
     playfanfare(SEQ_SE_PL_KIRAKIRA)
     waitfanfare
-    npcmsg(msg_0545_T20R0201_00003)
+    npcmsg("Here you can save a record of\n"
+           "your progress...\r")
     setflag(FLAG_GOT_SAVE_BUTTON)
     playfanfare(SEQ_SE_PL_KIRAKIRA)
     waitfanfare
-    npcmsg(msg_0545_T20R0201_00004)
+    npcmsg("These are also rather helpful...\r")
     setflag(FLAG_GOT_OPTIONS_BUTTON)
     playfanfare(SEQ_SE_PL_KIRAKIRA)
     waitfanfare
-    npcmsg(msg_0545_T20R0201_00005)
+    npcmsg("Just try touching the buttons, and\n"
+           "you’ll know what to do in no time.\r")
     closemessage
     wait(15, VAR_SPECIAL_RESULT)
     applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00C8)
@@ -83,7 +109,9 @@ script scr_seq_T20R0201_006 {
     applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B8)
     waitmovement
     bufferplayersname(0)
-    npcmsg(msg_0545_T20R0201_00033)
+    npcmsg("Hi, {STRVAR_1 3, 0, 0}!\n"
+           "Professor Elm told me that\f"
+           "he has something to give you!\r")
     closemessage
     applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00C8)
     waitmovement
@@ -97,14 +125,20 @@ script scr_seq_T20R0201_001 {
     if (flag(FLAG_GAME_CLEAR)) {
         hasitem(ITEM_S_S__TICKET, 1, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            simplenpcmsg(msg_0545_T20R0201_00034)
+            simplenpcmsg("Professor Elm told me that\n"
+                         "he has something to give you.\f"
+                         "Why don’t you visit his lab?")
             end
         _0205:
             playse(SEQ_SE_DP_SELECT)
             lockall
             faceplayer
             if (flag(FLAG_TALKED_TO_MOM_AFTER_NAMING_RIVAL)) {
-                npcmsg(msg_0545_T20R0201_00020)
+                npcmsg("Hi! Welcome home!\n"
+                       "You’re doing fine, I see.\r"
+                       "I’ve kept your room tidy and clean.\n"
+                       "Or...\f"
+                       "Is this about your money? {YESNO 0}")
                 showsavingsbox(1, 1)
                 touchscreenmenuhide
                 menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
@@ -124,7 +158,8 @@ script scr_seq_T20R0201_001 {
                 if (var(VAR_SPECIAL_RESULT) == 1) {
                     touchscreenmenushow
                     hidesavingsbox
-                    npcmsg(msg_0545_T20R0201_00028)
+                    npcmsg("You have so much money already.\n"
+                           "I can’t let you have any more.")
                     waitbuttonpress
                     closemessage
                     releaseall
@@ -156,13 +191,18 @@ script scr_seq_T20R0201_001 {
             _0389:
                 touchscreenmenushow
                 hidesavingsbox
-                npcmsg(msg_0545_T20R0201_00026)
+                npcmsg("Oh!\n"
+                       "You have no money left to save.\r"
+                       "Don’t waste your money on\n"
+                       "frivolous things, OK?\r"
+                       "I know you are sensible like me\n"
+                       "and that I can count on you!")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             _0398:
-                npcmsg(msg_0545_T20R0201_00025)
+                npcmsg("Do you want to save some money? {YESNO 0}")
                 touchscreenmenuhide
                 getmenuchoice(VAR_SPECIAL_RESULT)
                 touchscreenmenushow
@@ -192,7 +232,8 @@ script scr_seq_T20R0201_001 {
                 wait(8, VAR_SPECIAL_RESULT)
                 playse(SEQ_SE_GS_OKOZUKAI)
                 bufferplayersname(0)
-                npcmsg(msg_0545_T20R0201_00024)
+                npcmsg("{STRVAR_1 3, 0, 0}\n"
+                       "You should think hard how you spend it!")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -201,7 +242,8 @@ script scr_seq_T20R0201_001 {
                 closemessage
                 wait(8, VAR_SPECIAL_RESULT)
                 playse(SEQ_SE_GS_OKOZUKAI)
-                npcmsg(msg_0545_T20R0201_00023)
+                npcmsg("Your money’s safe here!\n"
+                       "Take care of yourself!")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -215,7 +257,8 @@ script scr_seq_T20R0201_001 {
             _041C:
                 touchscreenmenushow
                 hidesavingsbox
-                npcmsg(msg_0545_T20R0201_00022)
+                npcmsg("Oh!\n"
+                       "You have no money saved.")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -223,7 +266,8 @@ script scr_seq_T20R0201_001 {
             _042B:
                 touchscreenmenushow
                 hidesavingsbox
-                npcmsg(msg_0545_T20R0201_00027)
+                npcmsg("I have saved so much.\n"
+                       "I can’t save any more.")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -231,10 +275,28 @@ script scr_seq_T20R0201_001 {
             }
             checkbadge(BADGE_ZEPHYR, VAR_TEMP_x4000)
             if (var(VAR_TEMP_x4000) == 0) {
-                npcmsg(msg_0545_T20R0201_00015)
+                npcmsg("...\n"
+                       "So, you’re leaving on an adventure...\r"
+                       "OK! I’ll help, too.\n"
+                       "But what can I do for you?\r"
+                       "I know!\n"
+                       "Every time you receive prize money,\f"
+                       "I’ll save some of it for you.\r"
+                       "On a long journey, money’s important.\r"
+                       "Do you want me to save\n"
+                       "your money for you? {YESNO 0}")
             } else {
                 bufferplayersname(0)
-                npcmsg(msg_0545_T20R0201_00016)
+                npcmsg("I want to support you on your\n"
+                       "adventure, {STRVAR_1 3, 0, 0}.\f"
+                       "OK! I’ll help, too.\f"
+                       "But what can I do for you?\r"
+                       "I know!\r"
+                       "Every time you receive prize money,\n"
+                       "I’ll save some of it for you.\r"
+                       "On a long journey, money’s important.\n"
+                       "Do you want me to save\f"
+                       "your money for you? {YESNO 0}")
             }
             setflag(FLAG_TALKED_TO_MOM_AFTER_NAMING_RIVAL)
             setvar(VAR_SCENE_ROUTE_30_PHONE_CALL, 0)
@@ -265,27 +327,45 @@ script scr_seq_T20R0201_001 {
         bufferplayersname(0)
         npcmsg(msg_0545_T20R0201_00007)
         bufferplayersname(0)
-        npcmsg(msg_0545_T20R0201_00008)
+        npcmsg("{STRVAR_1 3, 0, 0} received\n"
+               "the Pokégear!\r")
         setflag(FLAG_GOT_POKEGEAR)
         playfanfare(SEQ_ME_ITEM)
         waitfanfare
-        npcmsg(msg_0545_T20R0201_00009)
-        npcmsg(msg_0545_T20R0201_00010)
+        npcmsg("The Pokémon Gear...\n"
+               "or Pokégear, as it’s often called,\f"
+               "is what every Trainer should have.\r")
+        npcmsg("Guess what?\n"
+               "You can use the Pokégear to make a\f"
+               "phone call, too.\f"
+               "Do you remember how? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            npcmsg(msg_0545_T20R0201_00011)
+            npcmsg("Just power on the Pokégear and\n"
+                   "touch the telephone button, OK?\r")
         } else {
-            npcmsg(msg_0545_T20R0201_00012)
+            npcmsg("Select the POKéGEAR button on the\n"
+                   "Touch Screen. Then select the\f"
+                   "telephone button.\r")
         }
-        npcmsg(msg_0545_T20R0201_00013)
+        npcmsg("The names of the people you can call\n"
+               "are automatically registered.\r"
+               "Just select one to give him or her\n"
+               "a call.\r"
+               "Wow, I can’t believe it’s so easy\n"
+               "to make a phone call!")
         waitbuttonordpad
         closemessage
         releaseall
         end
     _01D4:
-        npcmsg(msg_0545_T20R0201_00014)
+        npcmsg("What’s wrong?\r"
+               "Did you forget how to get to\n"
+               "Mr. Pokémon’s house?\r"
+               "Go north on Route 30.\n"
+               "Take care, dear.")
         waitbuttonpress
         closemessage
         releaseall
@@ -293,14 +373,58 @@ script scr_seq_T20R0201_001 {
         simplenpcmsg(msg_0545_T20R0201_00007)
         end
     }
-    simplenpcmsg(msg_0545_T20R0201_00006)
+    simplenpcmsg("Professor Elm has been waiting for\n"
+                 "you, dear. Please, go and help him.")
     end
+}
+
+text msg_0545_T20R0201_00017 {
+    "OK, I’ll take care of your money.\r"
+    "Be careful.\r"
+    "Pokémon are your friends.\n"
+    "When you work as a team,\f"
+    "you can accomplish anything!\f"
+    "Now, go on!"
+}
+
+text msg_0545_T20R0201_00018 {
+    "OK, but be careful out there.\r"
+    "Pokémon are your friends.\n"
+    "When you work as a team,\f"
+    "you can accomplish anything!\f"
+    "Now, go on!"
+}
+
+text msg_0545_T20R0201_00021 {
+    "Just do what you can."
+}
+
+text msg_0545_T20R0201_00007 {
+    "Oh! {STRVAR_1 3, 0, 0}!\n"
+    "That’s a cute Pokémon you have.\r"
+    "Professor Elm must have given it\n"
+    "to you?\r"
+    "Oh, Professor Elm has a task for you,\n"
+    "you say?\f"
+    "What kind of task?\r"
+    "...\r"
+    "I see. That sounds a little difficult.\r"
+    "But when someone makes that kind of\n"
+    "request of you, it must be important!\r"
+    "Oh, that’s right!\n"
+    "I completely forgot!\r"
+    "Your Pokégear came back from the\n"
+    "repair shop!\r"
+    "Here you go!\r"
 }
 
 script scr_seq_T20R0201_002 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0545_T20R0201_00035)
+    npcmsg("The TV is playing a movie!\r"
+           "Two boys are in a cave searching\n"
+           "for treasure!\r"
+           "I better get going...")
     waitbuttonpress
     closemessage
     releaseall
@@ -310,7 +434,8 @@ script scr_seq_T20R0201_002 {
 script scr_seq_T20R0201_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0545_T20R0201_00036)
+    npcmsg("Cinnabar Volcano Burger!\n"
+           "Mom’s specialty!")
     waitbuttonpress
     closemessage
     releaseall
@@ -320,7 +445,8 @@ script scr_seq_T20R0201_003 {
 script scr_seq_T20R0201_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0545_T20R0201_00037)
+    npcmsg("A squeaky-clean sink!\n"
+           "Mom loves having it clean.")
     waitbuttonpress
     closemessage
     releaseall
@@ -330,7 +456,9 @@ script scr_seq_T20R0201_004 {
 script scr_seq_T20R0201_005 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0545_T20R0201_00038)
+    npcmsg("What’s in the fridge...?\r"
+           "Lots of drinking water and\n"
+           "sweeeet lemonade!")
     waitbuttonpress
     closemessage
     releaseall

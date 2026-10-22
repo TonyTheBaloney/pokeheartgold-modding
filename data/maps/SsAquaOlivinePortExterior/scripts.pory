@@ -79,7 +79,10 @@ movement SsAquaOlivinePortExterior_Movement_010C {
 script scr_seq_P01R0102_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0256_P01R0102_00002)
+    npcmsg("If I manage to come back safely from\n"
+           "this journey and take my first steps in\f"
+           "Olivine City, will you live there with me?\r"
+           "Please! I beg you!")
     waitbuttonpress
     closemessage
     releaseall
@@ -90,7 +93,9 @@ script scr_seq_P01R0102_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0256_P01R0102_00003)
+    npcmsg("He’s only a crewman of a\n"
+           "pleasure cruise.\f"
+           "He has a way of exaggerating things.\r")
     closemessage
     applymovement(obj_P01R0102_gswoman2, SsAquaOlivinePortExterior_Movement_0144)
     waitmovement
@@ -107,13 +112,16 @@ script scr_seq_P01R0102_000 {
     lockall
     faceplayer
     if (flag(FLAG_BOAT_ARRIVED)) {
-        npcmsg(msg_0256_P01R0102_00001)
+        npcmsg("Huh?\n"
+               "Doesn’t seem like the ship will be moving\f"
+               "anytime soon.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0256_P01R0102_00000)
+    npcmsg("OK!\n"
+           "You must be the last passenger.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -186,12 +194,16 @@ script scr_seq_P01R0102_006 {
     faceplayer
     checkregisteredphonenumber(PHONE_CONTACT_SABRINA, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 1) {
-        npcmsg(msg_0256_P01R0102_00009)
+        npcmsg("Sabrina: It’s you...\r"
+               "How about a picture here\n"
+               "against the pleasant sea breeze? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0256_P01R0102_00012)
+            npcmsg("Sabrina: I see...\n"
+                   "I thought you’d make a good\f"
+                   "picture subject...")
             waitbuttonpress
             closemessage
             releaseall
@@ -199,13 +211,15 @@ script scr_seq_P01R0102_006 {
         }
         photoalbumisfull(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0256_P01R0102_00013)
+            npcmsg("Your Photo Album is full.\r"
+                   "Access your PC and delete\n"
+                   "some pictures.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0256_P01R0102_00010)
+        npcmsg("Sabrina: Are you ready?\r")
         closemessage
         setflag(FLAG_UNK_189)
         fadescreen(6, 1, 0, RGB_BLACK)
@@ -216,14 +230,18 @@ script scr_seq_P01R0102_006 {
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
         clearflag(FLAG_UNK_189)
-        npcmsg(msg_0256_P01R0102_00011)
+        npcmsg("Sabrina: I think it looks good.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (var(VAR_TEMP_x4004) >= 1) { goto(_0317) }
-    npcmsg(msg_0256_P01R0102_00004)
+    npcmsg("Sabrina: Out of the blue...\n"
+           "I get the urge to see the ocean...\r"
+           "It may be fun to exchange numbers\n"
+           "with you...\r"
+           "Do you want mine? {YESNO 0}")
 _029F:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -233,11 +251,13 @@ _029F:
     end
 _02C3:
     bufferplayersname(0)
-    npcmsg(msg_0256_P01R0102_00005)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Sabrina\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     registergearnumber(PHONE_CONTACT_SABRINA)
-    npcmsg(msg_0256_P01R0102_00006)
+    npcmsg("Sabrina: I think I can keep my promises\n"
+           "if you call me on Sundays around noon.")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -252,13 +272,16 @@ _02C3:
     end
 _0306:
     setvar(VAR_TEMP_x4004, 1)
-    npcmsg(msg_0256_P01R0102_00007)
+    npcmsg("Sabrina: I see...\n"
+           "I thought you’d make a good friend.")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0317:
-    npcmsg(msg_0256_P01R0102_00008)
+    npcmsg("Sabrina: Now you want to know\n"
+           "my number?\f"
+           "I can see it in your eyes... {YESNO 0}")
     goto(_029F)
     end
 }

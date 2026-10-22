@@ -2,32 +2,43 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_W19_000 {
-    simplenpcmsg(msg_0740_W19_00000)
+    simplenpcmsg("I have removed the boulder that was\n"
+                 "in the way, but it may still take some\f"
+                 "time to flatten the ground...")
     end
 }
 
 script scr_seq_W19_001 {
-    simplenpcmsg(msg_0740_W19_00002)
+    simplenpcmsg("Sorry. This road is closed for\n"
+                 "construction.\r"
+                 "If you want to get to Cinnabar, you’d\n"
+                 "better go south from Pallet Town.")
     end
 }
 
 script scr_seq_W19_002 {
-    simplenpcmsg(msg_0740_W19_00001)
+    simplenpcmsg("The roadwork is finally finished.\r"
+                 "Now I can go fishing again.")
     end
 }
 
 script scr_seq_W19_003 {
-    simplenpcmsg(msg_0740_W19_00003)
+    simplenpcmsg("I’m all sweaty.\n"
+                 "Time for a swim!")
     end
 }
 
 script scr_seq_W19_004 {
-    directionsignpostex(1, 4, msg_0740_W19_00004)
+    directionsignpostex(1, 4, "Rt. 19 Fuchsia City to\n"
+                              "Seafoam Islands")
     end
 }
 
 script scr_seq_W19_005 {
-    trainertipsex(3, msg_0740_W19_00005)
+    trainertipsex(3, "What’s this notice?\r"
+                     "Please be careful if you are swimming\n"
+                     "to Seafoam Islands.\f"
+                     "Fuchsia Police")
     end
 }
 

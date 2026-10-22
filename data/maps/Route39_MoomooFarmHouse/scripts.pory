@@ -11,7 +11,10 @@ script scr_seq_R39R0101_000 {
         hasitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) != 999) {
             showmoneybox(20, 2)
-            npcmsg(msg_0397_R39R0101_00001)
+            npcmsg("How’d you like my Moomoo Milk?\r"
+                   "It’s my pride and joy, there.\f"
+                   "Give it to Pokémon to restore HP!\r"
+                   "I’ll give it to ya fer just $500. {YESNO 0}")
             touchscreenmenuhide
             menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
             menuitemadd(12, 255, 1)
@@ -20,7 +23,8 @@ script scr_seq_R39R0101_000 {
             menuexec
             touchscreenmenushow
             if (var(VAR_SPECIAL_RESULT) == 3) {
-                npcmsg(msg_0397_R39R0101_00005)
+                npcmsg("You don’t want it?\n"
+                       "Come again, hear?")
                 waitbuttonpress
                 closemessage
                 hidemoneybox
@@ -44,35 +48,42 @@ script scr_seq_R39R0101_000 {
             if (!itemspace(ITEM_MOOMOO_MILK, VAR_TEMP_x4000)) { goto(_0104) }
             submoneyvar(VAR_TEMP_x4001)
             updatemoneybox
-            npcmsg(msg_0397_R39R0101_00002)
+            npcmsg("Here ya go!\n"
+                   "Drink up’n enjoy!\r")
             callstd(std_give_item_verbose)
             closemessage
             hidemoneybox
             releaseall
             end
         _00F7:
-            npcmsg(msg_0397_R39R0101_00003)
+            npcmsg("Sorry, there.\n"
+                   "No cash, no sale!")
             waitbuttonpress
             closemessage
             hidemoneybox
             releaseall
             end
         _0104:
-            npcmsg(msg_0397_R39R0101_00004)
+            npcmsg("I reckon yer Bag’s full.")
             waitbuttonpress
             closemessage
             hidemoneybox
             releaseall
             end
         }
-        npcmsg(msg_0397_R39R0101_00006)
+        npcmsg("I best go do my milkin’.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     setflag(FLAG_UNK_0A8)
-    npcmsg(msg_0397_R39R0101_00000)
+    npcmsg("My MILTANK ain’t givin’ me milk\n"
+           "n’more.\r"
+           "This here farm’s got famous milk.\r"
+           "Most everyone wants a drink.\n"
+           "It’ll give me lots o’ milk if’n I feed it\f"
+           "lots o’ Berries, I reckon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -85,10 +96,12 @@ script scr_seq_R39R0101_001 {
     faceplayer
     if (flag(FLAG_UNK_0AA)) {
         if (flag(FLAG_GOT_TM83_FROM_MOOMOO_FARM_WOMAN)) { goto(_0197) }
-        npcmsg(msg_0397_R39R0101_00008)
+        npcmsg("You fixed our MILTANK, hon.\n"
+               "Now it gives Moomoo Milk again.\r"
+               "Here’s somethin’ fer your trouble.")
         waitabpress
         if (!itemspace(ITEM_TM83, 1)) {
-            npcmsg(msg_0397_R39R0101_00011)
+            npcmsg("I reckon yer Bag’s full.")
             waitbuttonpress
             closemessage
             releaseall
@@ -98,13 +111,20 @@ script scr_seq_R39R0101_001 {
         setflag(FLAG_GOT_TM83_FROM_MOOMOO_FARM_WOMAN)
         goto(_0197)
     _0197:
-        npcmsg(msg_0397_R39R0101_00010)
+        npcmsg("That there’s Natural Gift.\r"
+               "Its move type and Power will depend\n"
+               "on the Berry yer Pokémon holds.\r"
+               "When you use it once, the Berry’s gone.\n"
+               "You best think how you ought to\f"
+               "use it, hon.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0397_R39R0101_00007)
+    npcmsg("Our milk even goes out to Kanto.\r"
+           "So if our own MILTANK won’t give\n"
+           "us any milk, we’re in trouble.")
     waitbuttonpress
     closemessage
     releaseall

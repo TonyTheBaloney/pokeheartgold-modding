@@ -130,7 +130,8 @@ movement Route1_Movement_01DC {
 }
 
 script scr_seq_R01_002 {
-    directionsignpostex(1, 4, msg_0319_R01_00000)
+    directionsignpostex(1, 4, "Rt. 1\n"
+                              "South to Pallet Town")
     end
 }
 

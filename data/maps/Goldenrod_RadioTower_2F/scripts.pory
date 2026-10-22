@@ -37,17 +37,18 @@ script scr_seq_D23R0102_008 {
 }
 
 script scr_seq_D23R0102_000 {
-    simplenpcmsg(msg_0066_D23R0102_00006)
+    simplenpcmsg("2F Sales")
     end
 }
 
 script scr_seq_D23R0102_001 {
-    simplenpcmsg(msg_0066_D23R0102_00007)
+    simplenpcmsg("Pokémon Talk with Professor Oak\n"
+                 "The Hottest Show on the Air!")
     end
 }
 
 script scr_seq_D23R0102_002 {
-    simplenpcmsg(msg_0066_D23R0102_00008)
+    simplenpcmsg("2F Studio 2")
     end
 }
 
@@ -56,7 +57,7 @@ script scr_seq_D23R0102_003 {
     lockall
     faceplayer
     playcry(SPECIES_JIGGLYPUFF, 0)
-    npcmsg(msg_0066_D23R0102_00003)
+    npcmsg("JIGGLYPUFF: Jiggly...")
     waitcry
     waitbuttonpress
     closemessage
@@ -69,9 +70,14 @@ script scr_seq_D23R0102_004 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
-        npcmsg(msg_0066_D23R0102_00002)
+        npcmsg("Why would they want to take over the\n"
+               "Radio Tower?")
     } else {
-        npcmsg(msg_0066_D23R0102_00001)
+        npcmsg("Lullabies on the radio make wild\n"
+               "Pokémon sleepy.\r"
+               "That’s why you don’t see many Pokémon\n"
+               "when the radio plays lullabies in the\f"
+               "tall grass.")
     }
     waitbuttonpress
     closemessage
@@ -80,7 +86,13 @@ script scr_seq_D23R0102_004 {
 }
 
 script scr_seq_D23R0102_005 {
-    simplenpcmsg(msg_0066_D23R0102_00000)
+    simplenpcmsg("Radio is good, you know?\r"
+                 "Cool music and Pokémon information...\n"
+                 "Surprising news and moving dramas...\f"
+                 "It has everything!\r"
+                 "The only thing missing would be images.\r"
+                 "..................\n"
+                 "Oops, they call that a TV!")
     end
 }
 
@@ -89,9 +101,14 @@ script scr_seq_D23R0102_006 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 5) {
-        npcmsg(msg_0066_D23R0102_00005)
+        npcmsg("Feel free to look around anywhere.\n"
+               "The Director is nice again, just as he\f"
+               "was before.")
     } else {
-        npcmsg(msg_0066_D23R0102_00004)
+        npcmsg("Sorry. Authorized personnel only\n"
+               "beyond this point.\r"
+               "It wasn’t that way before. There’s\n"
+               "something wrong with the Director...")
     }
     waitbuttonpress
     closemessage
@@ -104,7 +121,9 @@ script scr_seq_D23R0102_009 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
-        npcmsg(msg_0066_D23R0102_00009)
+        npcmsg("Buena: Huh?\n"
+               "Today’s password?\r"
+               "HELP, of course!")
     } else {
         goto(_016A)
     }
@@ -117,25 +136,32 @@ _016A:
     if (var(VAR_SPECIAL_RESULT) >= 1) {
         if (var(VAR_NUM_TIMES_GIVEN_BLUE_CARD) >= 2) {
             bufferplayersname(0)
-            gendermsgbox(msg_0066_D23R0102_00012, msg_0066_D23R0102_00013)
+            gendermsgbox("Buena: {STRVAR_1 3, 0, 0}!\n"
+                         "Thank you for listening to my show!\r", "Buena: {STRVAR_1 3, 0, 0}!\n"
+                                                                  "Thank you for listening in to my show!\r")
         } else {
-            npcmsg(msg_0066_D23R0102_00011)
+            npcmsg("Buena: Thank you for listening in\n"
+                   "every day!\r")
         }
         closemessage
         if (flag(FLAG_DAILY_HEARD_BUENAS_PASSWORD)) {
             if (flag(FLAG_DAILY_BUENAS_PASSWORD)) {
-                npcmsg(msg_0066_D23R0102_00029)
+                npcmsg("Buena: Sorry...\n"
+                       "You get just one chance each day.\r"
+                       "Come back tomorrow for another try!")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             }
-            npcmsg(msg_0066_D23R0102_00014)
+            npcmsg("Buena: Do you remember today’s\n"
+                   "password? {YESNO 0}")
             touchscreenmenuhide
             getmenuchoice(VAR_SPECIAL_RESULT)
             touchscreenmenushow
             if (var(VAR_SPECIAL_RESULT) == 1) {
-                npcmsg(msg_0066_D23R0102_00019)
+                npcmsg("Buena: Come back after you listen to\n"
+                       "my show, OK? Catch ya later!")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -143,14 +169,28 @@ _016A:
             }
             bufferplayersname(0)
             if (var(VAR_NUM_TIMES_GIVEN_BLUE_CARD) >= 2) {
-                gendermsgbox(msg_0066_D23R0102_00017, msg_0066_D23R0102_00018)
+                gendermsgbox("Buena: Thanks, {STRVAR_1 3, 0, 0}!\r"
+                             "Please join the show like you always do!\r", "Buena: Thanks, {STRVAR_1 3, 0, 0}!\r"
+                                                                           "Please join the show like you always do!\r")
             } else {
-                gendermsgbox(msg_0066_D23R0102_00015, msg_0066_D23R0102_00016)
+                gendermsgbox("Buena: Oh, wow! Thank you!\n"
+                             "What was your name again?\r"
+                             "...{STRVAR_1 3, 0, 0}!\r"
+                             "Come on, {STRVAR_1 3, 0, 0}.\n"
+                             "Join the show.\r", "Buena: Oh, wow! Thank you!\n"
+                                                 "What was your name again?\r"
+                                                 "...{STRVAR_1 3, 0, 0}!\r"
+                                                 "Come on, {STRVAR_1 3, 0, 0}.\n"
+                                                 "Join the show.\r")
             }
             closemessage
             applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0620)
             waitmovement
-            gendermsgbox(msg_0066_D23R0102_00020, msg_0066_D23R0102_00021)
+            gendermsgbox("Buena: Everyone ready?\r"
+                         "I want to hear you shout out today’s\n"
+                         "password for {STRVAR_1 3, 0, 0}!\r", "Buena: Everyone ready?\r"
+                                                               "I want to hear you shout out today’s\n"
+                                                               "password for {STRVAR_1 3, 0, 0}!\r")
             closemessage
             getplayerfacing(VAR_TEMP_x4000)
             followmonisactive(VAR_TEMP_x4002)
@@ -188,7 +228,8 @@ _016A:
             applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0628)
             waitmovement
             if (var(VAR_SPECIAL_RESULT) != VAR_SPECIAL_x8001) {
-                npcmsg(msg_0066_D23R0102_00023)
+                npcmsg("Buena: Aww... That’s not it...\n"
+                       "Did you forget the password?")
                 waitbuttonpress
                 closemessage
                 releaseall
@@ -201,7 +242,9 @@ _016A:
                 releaseall
                 end
             }
-            npcmsg(msg_0066_D23R0102_00022)
+            npcmsg("Buena: Yippee! That’s right!\r"
+                   "You did tune in! I’m so happy!\n"
+                   "You earned one point! Congratulations!\r")
             applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0630)
             waitmovement
             applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_060C)
@@ -214,16 +257,28 @@ _016A:
                 if (var(VAR_NUM_TIMES_GIVEN_BLUE_CARD) < 2) {
                     applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0628)
                     waitmovement
-                    gendermsgbox(msg_0066_D23R0102_00024, msg_0066_D23R0102_00025)
+                    gendermsgbox("Buena: Oh! Your Blue Card reached 30\n"
+                                 "points today! That’s so wild!\r"
+                                 "Hmm... You came by so often,\n"
+                                 "{STRVAR_1 3, 0, 0}, I’ll make you a\f"
+                                 "special deal!\r"
+                                 "How would you like my phone number?\r", "Buena: Oh! Your Blue Card reached 30\n"
+                                                                          "points today! That’s so wild!\r"
+                                                                          "Hmm... You came by so often,\n"
+                                                                          "{STRVAR_1 3, 0, 0}, I’ll make you a\f"
+                                                                          "special deal!\r"
+                                                                          "How would you like my phone number?\r")
                     closemessage
                     registergearnumber(PHONE_CONTACT_BUENA)
-                    npcmsg(msg_0066_D23R0102_00026)
+                    npcmsg("{STRVAR_1 3, 0, 0} registered Buena\n"
+                           "in the Pokégear!\r")
                     playfanfare(SEQ_ME_POKEGEAR_REGIST)
                     waitfanfare
                     closemessage
                     applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0628)
                     waitmovement
-                    npcmsg(msg_0066_D23R0102_00027)
+                    npcmsg("Buena: I look forward to hearing\n"
+                           "from you!\r")
                     closemessage
                 }
             }
@@ -252,16 +307,20 @@ _016A:
             followingpokemonmovement(48)
             bufferint(0, VAR_BLUE_CARD_POINTS)
             bufferitemname(1, VAR_SPECIAL_x8004)
-            npcmsg(msg_0066_D23R0102_00035)
+            npcmsg("Congratulations!\r"
+                   "Your points total is now {STRVAR_1 51, 0, 0}. The prize\n"
+                   "is this {STRVAR_1 8, 1, 0}. Here you are!\r")
             hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0539) }
             callstd(std_give_item_verbose)
         _0450:
             if (var(VAR_BLUE_CARD_POINTS) >= 30) {
-                npcmsg(msg_0066_D23R0102_00036)
+                npcmsg("Your Blue Card points have reached\n"
+                       "their max.\f"
+                       "I will give you a new card!\r")
                 closemessage
                 playfanfare(SEQ_ME_KEYITEM)
-                npcmsg(msg_0066_D23R0102_00037)
+                npcmsg("You received a new Blue Card!")
                 waitfanfare
                 closemessage
                 if (var(VAR_NUM_TIMES_GIVEN_BLUE_CARD) < 255) {
@@ -269,7 +328,7 @@ _016A:
                 }
                 setvar(VAR_BLUE_CARD_POINTS, 0)
             }
-            npcmsg(msg_0066_D23R0102_00038)
+            npcmsg("Please join the show again!\r")
             closemessage
             applymovement(obj_D23R0102_gswoman2_2, Goldenrod_RadioTower_2F_Movement_0654)
             waitmovement
@@ -321,13 +380,22 @@ _016A:
             goto(_0450)
             end
         }
-        npcmsg(msg_0066_D23R0102_00028)
+        npcmsg("Buena: Tune in to my password show!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0066_D23R0102_00010)
+    npcmsg("Buena: Hi! I’m Buena!\r"
+           "Do you know about the radio show\n"
+           "called Buena’s Password?\r"
+           "If you can tell me the password from\n"
+           "the program, you will earn points.\r"
+           "Save up those points and trade them\n"
+           "with that sweet young lady over there\f"
+           "for some choice prizes!\r"
+           "Here you go!\n"
+           "It’s your very own point card!\r")
     closemessage
     if (!itemspace(ITEM_BLUE_CARD, 1)) { goto(_0539) }
     callstd(std_give_item_verbose)
@@ -337,12 +405,19 @@ _016A:
     end
 }
 
+text msg_0066_D23R0102_00032 {
+    "Buena: Tune in to my show again\n"
+    "tomorrow!\r"
+}
+
 script scr_seq_D23R0102_010 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
-        npcmsg(msg_0066_D23R0102_00039)
+        npcmsg("Somebody needs to put a beating on this\n"
+               "mean Team Rocket!\f"
+               "Like three years ago even!")
         waitbuttonpress
         closemessage
         releaseall
@@ -350,14 +425,16 @@ script scr_seq_D23R0102_010 {
     }
     hasitem(ITEM_BLUE_CARD, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_05B0) }
-    npcmsg(msg_0066_D23R0102_00033)
+    npcmsg("Save up the Blue Card points for some\n"
+           "choice prizes!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _05B0:
     bufferint(0, VAR_BLUE_CARD_POINTS)
-    npcmsg(msg_0066_D23R0102_00034)
+    npcmsg("Your points total on your\n"
+           "Blue Card is now {STRVAR_1 51, 0, 0}.")
     waitbuttonpress
     closemessage
     releaseall

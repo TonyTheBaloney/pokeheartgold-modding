@@ -131,7 +131,11 @@ _01DA:
 }
 
 script scr_seq_T30_000 {
-    simplenpcmsg(msg_0629_T30_00000)
+    simplenpcmsg("I am sorry.\r"
+                 "Clair, our Gym Leader, entered\n"
+                 "the Dragon’s Den behind the Gym.\r"
+                 "I have no idea when our Leader\n"
+                 "will return.")
     end
 }
 
@@ -140,13 +144,19 @@ script scr_seq_T30_001 {
     lockall
     faceplayer
     if (flag(FLAG_UNK_0D1)) {
-        npcmsg(msg_0629_T30_00002)
+        npcmsg("You defeated Clair?\n"
+               "That’s amazing!\r"
+               "I’ve never heard of her losing to\n"
+               "anyone other than Lance.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0629_T30_00001)
+    npcmsg("Clair, our Gym Leader, is waiting\n"
+           "for you.\r"
+           "However, it would be impossible for\n"
+           "a run-of-the-mill Trainer to win.")
     waitbuttonpress
     closemessage
     releaseall
@@ -154,12 +164,15 @@ script scr_seq_T30_001 {
 }
 
 script scr_seq_T30_002 {
-    simplenpcmsg(msg_0629_T30_00003)
+    simplenpcmsg("No. Only chosen Trainers may train\n"
+                 "here. Please leave.")
     end
 }
 
 script scr_seq_T30_003 {
-    simplenpcmsg(msg_0629_T30_00004)
+    simplenpcmsg("If Clair allows it, her grandfather--\n"
+                 "our Master--will also.\r"
+                 "You may enter.")
     end
 }
 
@@ -168,9 +181,11 @@ script scr_seq_T30_004 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 2) {
-        npcmsg(msg_0629_T30_00005)
+        npcmsg("My radio’s busted?\n"
+               "Lately, I only get this weird signal.")
     } else {
-        npcmsg(msg_0629_T30_00006)
+        npcmsg("Arooo! Voices in my head!\r"
+               "Huh? I’m listening to my radio!")
     }
     waitbuttonpress
     closemessage
@@ -277,42 +292,56 @@ movement Blackthorn_Movement_0430 {
 }
 
 script scr_seq_T30_008 {
-    directionsignpostex(0, 20, msg_0629_T30_00010)
+    directionsignpostex(0, 20, "Blackthorn City\n"
+                               "A Quiet Mountain Retreat")
     end
 }
 
 script scr_seq_T30_009 {
-    trainertipsex(2, msg_0629_T30_00011)
+    trainertipsex(2, "Blackthorn City Pokémon Gym\n"
+                     "Leader: Clair\f"
+                     "The Blessed User of Dragon Pokémon")
     end
 }
 
 script scr_seq_T30_010 {
-    trainertipsex(2, msg_0629_T30_00012)
+    trainertipsex(2, "Move Deleter and Move Tutor House\r"
+                     "A Mysterious House Where You Can Make\n"
+                     "Pokémon Forget and Remember Moves")
     end
 }
 
 script scr_seq_T30_011 {
-    trainertipsex(2, msg_0629_T30_00013)
+    trainertipsex(2, "Dragon’s Den Ahead")
     end
 }
 
 script scr_seq_T30_012 {
-    trainertipsex(3, msg_0629_T30_00014)
+    trainertipsex(3, "Trainer Tips\r"
+                     "Wild Pokémon will appear regularly\n"
+                     "if you don’t run, but walk quietly in the\f"
+                     "tall grass.\r"
+                     "If your party Pokémon are\n"
+                     "tired, it is better to avoid running,\f"
+                     "and go straight to a Pokémon Center.")
     end
 }
 
 script scr_seq_T30_013 {
-    simplenpcmsg(msg_0629_T30_00007)
+    simplenpcmsg("Are you going to make your Pokémon\n"
+                 "forget some moves?")
     end
 }
 
 script scr_seq_T30_014 {
-    simplenpcmsg(msg_0629_T30_00008)
+    simplenpcmsg("Those Trainers called Dragon Tamers\n"
+                 "are all from Blackthorn City.")
     end
 }
 
 script scr_seq_T30_015 {
-    simplenpcmsg(msg_0629_T30_00009)
+    simplenpcmsg("Wow, you came through the Ice Path?\r"
+                 "You must be a real hotshot Trainer!")
     end
 }
 

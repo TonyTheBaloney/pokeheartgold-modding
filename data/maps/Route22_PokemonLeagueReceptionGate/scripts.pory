@@ -82,6 +82,13 @@ script scr_seq_R22R0101_000 {
     end
 }
 
+text msg_0361_R22R0101_00000 {
+    "Only Trainers who have proven\n"
+    "themselves may pass.\r"
+    "Oh! The eight Badges of Johto!\n"
+    "Please, go right on through!"
+}
+
 movement Route22_PokemonLeagueReceptionGate_Movement_015C {
     emote_exclamation_mark
 }
@@ -113,7 +120,10 @@ script scr_seq_R22R0101_001 {
         applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_029C)
     }
     waitmovement
-    npcmsg(msg_0361_R22R0101_00005)
+    npcmsg("Hold there!\r"
+           "This way leads to Kanto...\n"
+           "But this path’s blocked for\f"
+           "the time being, I’m afraid.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -195,13 +205,20 @@ script scr_seq_R22R0101_004 {
     lockall
     faceplayer
     if (flag(FLAG_UNLOCKED_WEST_KANTO)) {
-        npcmsg(msg_0361_R22R0101_00006)
+        npcmsg("West to Mt. Silver.\n"
+               "East to the Kanto region.\r"
+               "Go north for the Elite Four!\n"
+               "But you should know that already,\f"
+               "since you defeated the Champion!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0361_R22R0101_00004)
+    npcmsg("Huh?\n"
+           "This way leads to Kanto...\f"
+           "But this path’s blocked for\f"
+           "the time being, I’m afraid.")
     waitbuttonpress
     closemessage
     releaseall
@@ -226,7 +243,11 @@ script scr_seq_R22R0101_002 {
         applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0430)
     }
     waitmovement
-    npcmsg(msg_0361_R22R0101_00002)
+    npcmsg("This way leads to\n"
+           "Mt. Silver.\r"
+           "You’ll see scary-strong Pokémon\n"
+           "out there.\f"
+           "You’re not ready for it.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -308,13 +329,22 @@ script scr_seq_R22R0101_005 {
     lockall
     faceplayer
     if (flag(FLAG_UNLOCKED_MT_SILVER)) {
-        npcmsg(msg_0361_R22R0101_00003)
+        npcmsg("This way leads to\n"
+               "Mt. Silver.\r"
+               "You’ll see scary-strong Pokémon\n"
+               "out there.\r"
+               "But you should be all right.\n"
+               "Just watch out for yourself.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0361_R22R0101_00001)
+    npcmsg("This way leads to\n"
+           "Mt. Silver.\r"
+           "You’ll see scary-strong Pokémon\n"
+           "out there.\f"
+           "You’re not ready for it.")
     waitbuttonpress
     closemessage
     releaseall
@@ -327,12 +357,15 @@ script scr_seq_R22R0101_008 {
     faceplayer
     checkregisteredphonenumber(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 1) {
-        npcmsg(msg_0361_R22R0101_00012)
+        npcmsg("Janine: I’m done taking lunch to\n"
+               "my dad, and now I’m on my way home.\r"
+               "Do you want to take a picture\n"
+               "with me? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0361_R22R0101_00015)
+            npcmsg("Janine: That’s a pity!")
             waitbuttonpress
             closemessage
             releaseall
@@ -340,13 +373,16 @@ script scr_seq_R22R0101_008 {
         }
         photoalbumisfull(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0361_R22R0101_00016)
+            npcmsg("Your Photo Album is full.\r"
+                   "Access your PC and delete\n"
+                   "some pictures.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0361_R22R0101_00013)
+        npcmsg("Janine: Can you look as cool as me\n"
+               "for the picture?\r")
         closemessage
         setflag(FLAG_UNK_189)
         fadescreen(6, 1, 0, RGB_BLACK)
@@ -357,14 +393,21 @@ script scr_seq_R22R0101_008 {
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
         clearflag(FLAG_UNK_189)
-        npcmsg(msg_0361_R22R0101_00014)
+        npcmsg("Janine: Don’t you think we look\n"
+               "good in the picture?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (var(VAR_TEMP_x4005) >= 1) { goto(_0548) }
-    npcmsg(msg_0361_R22R0101_00007)
+    npcmsg("Janine: I’m on the way to my dad’s\n"
+           "house to give him his lunch.\r"
+           "The Elite Four has no time to rest,\n"
+           "day or night. It’s such hard work,\f"
+           "you know?\r"
+           "Say!\n"
+           "Do you want to exchange numbers? {YESNO 0}")
 _04D0:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -374,11 +417,13 @@ _04D0:
     end
 _04F4:
     bufferplayersname(0)
-    npcmsg(msg_0361_R22R0101_00008)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Janine\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     registergearnumber(PHONE_CONTACT_JANINE)
-    npcmsg(msg_0361_R22R0101_00009)
+    npcmsg("Janine: Call me on Monday around noon\n"
+           "if you want to battle!")
     waitbuttonpress
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -393,13 +438,15 @@ _04F4:
     end
 _0537:
     setvar(VAR_TEMP_x4005, 1)
-    npcmsg(msg_0361_R22R0101_00010)
+    npcmsg("Janine: You don’t look like you’re\n"
+           "scared, but you are, aren’t you?")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0548:
-    npcmsg(msg_0361_R22R0101_00011)
+    npcmsg("Janine: Now you want to know\n"
+           "my number, don’t you? {YESNO 0}")
     goto(_04D0)
     end
 }

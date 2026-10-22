@@ -72,14 +72,18 @@ script scr_seq_T25_000 {
     faceplayer
     if (var(VAR_UNK_40DA) == 1) {
         if (var(VAR_UNK_40DB) == 0) {
-            npcmsg(msg_0581_T25_00010)
+            npcmsg("I think I’ll give my Pokémon cool\n"
+                   "nicknames as a reward if they do\f"
+                   "well in the Pokéathlon.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
     }
-    npcmsg(msg_0581_T25_00009)
+    npcmsg("The man at that tent rates your\n"
+           "Pokémon names.\r"
+           "He can even rename your Pokémon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -91,9 +95,13 @@ script scr_seq_T25_001 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) < 2) {
-        npcmsg(msg_0581_T25_00004)
+        npcmsg("Is that man in black dressed up\n"
+               "like a Team Rocket member?\f"
+               "How silly!")
     } else {
-        npcmsg(msg_0581_T25_00005)
+        npcmsg("Was that man in black really part\n"
+               "of Team Rocket?\f"
+               "I can’t believe it!")
     }
     waitbuttonpress
     closemessage
@@ -106,13 +114,24 @@ script scr_seq_T25_002 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_RADIO_CARD)) {
-        npcmsg(msg_0581_T25_00007)
+        npcmsg("The Radio Tower in Goldenrod City is\n"
+               "a landmark.\r"
+               "They’re running a promotional campaign\n"
+               "right now.\r"
+               "They’ll modify your Pokégear so it can\n"
+               "also serve as a radio.\r"
+               "Oh, your Pokégear works as a radio!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0581_T25_00006)
+    npcmsg("The Radio Tower in Goldenrod City is\n"
+           "a landmark.\r"
+           "They’re running a promotional campaign\n"
+           "right now.\r"
+           "They’ll modify your Pokégear so it can\n"
+           "also serve as a radio.")
     waitbuttonpress
     closemessage
     releaseall
@@ -120,7 +139,9 @@ script scr_seq_T25_002 {
 }
 
 script scr_seq_T25_003 {
-    simplenpcmsg(msg_0581_T25_00008)
+    simplenpcmsg("E-he-he-he...\n"
+                 "I got in trouble for playing in the\f"
+                 "basement of the department store.")
     end
 }
 
@@ -130,13 +151,19 @@ script scr_seq_T25_004 {
     faceplayer
     playeronbikecheck(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        npcmsg(msg_0581_T25_00003)
+        npcmsg("The fact that you have a Bike...\n"
+               "means you got it from a Bike Shop,\f"
+               "right?\r"
+               "All right!\n"
+               "I can say that there is a Bike Shop\f"
+               "somewhere in this city!")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0581_T25_00002)
+    npcmsg("I know there’s a new Bike Shop,\n"
+           "but I can’t find it anywhere.")
     waitbuttonpress
     closemessage
     releaseall
@@ -149,14 +176,18 @@ script scr_seq_T25_005 {
     faceplayer
     if (var(VAR_UNK_40DA) == 1) {
         if (var(VAR_UNK_40DB) == 0) {
-            npcmsg(msg_0581_T25_00001)
+            npcmsg("Have you visited the Pokéathlon Dome?\n"
+                   "It is a huge sports facility where\f"
+                   "Pokémon compete with each other.\r"
+                   "It was quite a sight!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
     }
-    npcmsg(msg_0581_T25_00000)
+    npcmsg("They built the new Radio Tower to\n"
+           "replace the old, creaky one.")
     waitbuttonpress
     closemessage
     releaseall
@@ -169,14 +200,20 @@ script scr_seq_T25_006 {
     faceplayer
     if (var(VAR_UNK_40DA) == 1) {
         if (var(VAR_UNK_40DB) == 0) {
-            npcmsg(msg_0581_T25_00012)
+            npcmsg("I know that you can find the\n"
+                   "Pokéathlon Dome when you take\f"
+                   "Route 35 north and go past the\f"
+                   "left gate...\r"
+                   "But I seem to get lost every time\n"
+                   "I come to this town...")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
     }
-    npcmsg(msg_0581_T25_00011)
+    npcmsg("Whew! This is one big town.\n"
+           "I don’t know where anything is.")
     waitbuttonpress
     closemessage
     releaseall
@@ -186,7 +223,7 @@ script scr_seq_T25_006 {
 script scr_seq_T25_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0581_T25_00013)
+    npcmsg("So this is the Radio Tower...\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -200,9 +237,11 @@ script scr_seq_T25_007 {
         waitmovement
     }
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0581_T25_00015)
+        npcmsg("What are you doing?\n"
+               "Get to your position right away!\r")
     } else {
-        npcmsg(msg_0581_T25_00014)
+        npcmsg("What do you want, you pest?\n"
+               "Scram!\r")
     }
     closemessage
     if (var(VAR_TEMP_x4001) != 350) {
@@ -234,9 +273,11 @@ script scr_seq_T25_008 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0581_T25_00017)
+        npcmsg("We are on guard here.\n"
+               "Don’t you worry!")
     } else {
-        npcmsg(msg_0581_T25_00016)
+        npcmsg("Pokémon? They’re nothing more than\n"
+               "tools for making money!")
     }
     waitbuttonpress
     closemessage
@@ -249,9 +290,11 @@ script scr_seq_T25_009 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0581_T25_00019)
+        npcmsg("You look awfully young...\n"
+               "Are you new?")
     } else {
-        npcmsg(msg_0581_T25_00018)
+        npcmsg("Take over the Radio Tower...\r"
+               "What? It’s none of your business!")
     }
     waitbuttonpress
     closemessage
@@ -264,9 +307,12 @@ script scr_seq_T25_010 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0581_T25_00021)
+        npcmsg("Hey, hey!\n"
+               "I’ve got this covered!\r"
+               "Why don’t you go to the Radio Tower?")
     } else {
-        npcmsg(msg_0581_T25_00020)
+        npcmsg("Hey, brat! You don’t belong here!\f"
+               "Get lost!")
     }
     waitbuttonpress
     closemessage
@@ -279,9 +325,11 @@ script scr_seq_T25_011 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0581_T25_00023)
+        npcmsg("Our dream will soon come true...\n"
+               "It was such a long struggle...")
     } else {
-        npcmsg(msg_0581_T25_00022)
+        npcmsg("Friendship with Pokémon?\r"
+               "That makes me laugh!")
     }
     waitbuttonpress
     closemessage
@@ -294,9 +342,17 @@ script scr_seq_T25_012 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0581_T25_00025)
+        npcmsg("For a young one like you to decide\n"
+               "to become a member of Team Rocket...\f"
+               "That’s great, kiddo!")
     } else {
-        npcmsg(msg_0581_T25_00024)
+        npcmsg("Who are you? A newcomer?\r"
+               "We’ve run out of Team Rocket\n"
+               "uniforms.\r"
+               "One of my guys is going to get more...\r"
+               "What’s taking him so long?\r"
+               "The studio in the tunnel is just around\n"
+               "the corner.")
     }
     waitbuttonpress
     closemessage
@@ -309,9 +365,15 @@ script scr_seq_T25_013 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0581_T25_00030)
+        npcmsg("You don’t appear scary enough to be a\n"
+               "Team Rocket member in that uniform...\f"
+               "Make a scarier face and say, “Yeee!”\r"
+               "All the while, clenching your teeth!")
     } else {
-        npcmsg(msg_0581_T25_00029)
+        npcmsg("Wh-what are you trying to do?\n"
+               "Can’t you see this cool, pitch-black\f"
+               "uniform I’m wearing?\r"
+               "You’re not afraid of Team Rocket? Huh?")
     }
     waitbuttonpress
     closemessage
@@ -322,7 +384,10 @@ script scr_seq_T25_013 {
 script scr_seq_T25_030 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0581_T25_00026)
+    npcmsg("Get out of my way!\r"
+           "We, as Gym Trainers, will never allow\n"
+           "Team Rocket to do nasty things here\f"
+           "in our city!")
     waitbuttonpress
     closemessage
     releaseall
@@ -330,14 +395,19 @@ script scr_seq_T25_030 {
 }
 
 script scr_seq_T25_032 {
-    simplenpcmsg(msg_0581_T25_00028)
+    simplenpcmsg("The Gym Leader, Whitney, went flying by\n"
+                 "saying, “I have got to\f"
+                 "get a Radio Card!”")
     end
 }
 
 script scr_seq_T25_031 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0581_T25_00027)
+    npcmsg("Tee hee!\r"
+           "You Gym Trainers can be a problem.\n"
+           "Stay in the Gym and stay out of\f"
+           "the way!")
     waitbuttonpress
     closemessage
     releaseall
@@ -345,12 +415,15 @@ script scr_seq_T25_031 {
 }
 
 script scr_seq_T25_014 {
-    simplenpcmsg(msg_0581_T25_00031)
+    simplenpcmsg("Where do you think you’re going?\n"
+                 "We are right in the middle of\f"
+                 "the mission!")
     end
 }
 
 script scr_seq_T25_015 {
-    simplenpcmsg(msg_0581_T25_00032)
+    simplenpcmsg("Where do you think you are going?\n"
+                 "The Radio Tower is not here!")
     end
 }
 
@@ -359,9 +432,14 @@ script scr_seq_T25_016 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
-        npcmsg(msg_0581_T25_00034)
+        npcmsg("If you love to trade so much, wait until\n"
+               "the Radio Tower mission is over.\r"
+               "Then you’ll have plenty of time!")
     } else {
-        npcmsg(msg_0581_T25_00033)
+        npcmsg("The GTS lets you trade Pokémon\n"
+               "all over the world!\r"
+               "...Except that we have something\n"
+               "more important to do right now!")
     }
     waitbuttonpress
     closemessage
@@ -406,7 +484,9 @@ script scr_seq_T25_017 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0581_T25_00035)
+    npcmsg("Slow down!\r"
+           "I’m the only one who was sent here.\f"
+           "Don’t give me any more trouble, OK?\r")
     closemessage
     if (var(VAR_TEMP_x4000) == 354) {
         applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0754)
@@ -548,57 +628,72 @@ movement Goldenrod_Movement_07E0 {
 }
 
 script scr_seq_T25_019 {
-    trainertipsex(2, msg_0581_T25_00036)
+    trainertipsex(2, "Johto-Kanto Magnet Train Line\n"
+                     "Goldenrod City Station")
     end
 }
 
 script scr_seq_T25_020 {
-    trainertipsex(2, msg_0581_T25_00037)
+    trainertipsex(2, "Goldenrod City Radio Tower\r"
+                     "A Network Providing Johto\n"
+                     "with Interesting Information")
     end
 }
 
 script scr_seq_T25_021 {
-    trainertipsex(2, msg_0581_T25_00038)
+    trainertipsex(2, "Goldenrod City Pokémon Gym\n"
+                     "Leader: Whitney\f"
+                     "The Incredibly Pretty Girl!")
     end
 }
 
 script scr_seq_T25_022 {
-    directionsignpostex(0, 16, msg_0581_T25_00039)
+    directionsignpostex(0, 16, "Goldenrod City\n"
+                               "A Happening Big City")
     end
 }
 
 script scr_seq_T25_023 {
-    trainertipsex(2, msg_0581_T25_00040)
+    trainertipsex(2, "Bike Shop Goldenrod Branch\n"
+                     "The World is a Cycling Path!")
     end
 }
 
 script scr_seq_T25_024 {
-    trainertipsex(2, msg_0581_T25_00041)
+    trainertipsex(2, "Goldenrod City Game Corner\n"
+                     "A Safe and Sound Playground!")
     end
 }
 
 script scr_seq_T25_025 {
-    trainertipsex(2, msg_0581_T25_00042)
+    trainertipsex(2, "Name Rater\n"
+                     "Get Your Pokémon Nicknames Rated")
     end
 }
 
 script scr_seq_T25_026 {
-    trainertipsex(3, msg_0581_T25_00043)
+    trainertipsex(3, "Watch Out!\n"
+                     "Get Off Your Bike in the Tunnel")
     end
 }
 
 script scr_seq_T25_027 {
-    trainertipsex(3, msg_0581_T25_00044)
+    trainertipsex(3, "Be Careful!\n"
+                     "Get Off Your Bike in the Tunnel")
     end
 }
 
 script scr_seq_T25_028 {
-    trainertipsex(2, msg_0581_T25_00045)
+    trainertipsex(2, "The Global Terminal\r"
+                     "An Amazing and Completely\n"
+                     "Global Terminal!\n")
     end
 }
 
 script scr_seq_T25_029 {
-    trainertipsex(2, msg_0581_T25_00046)
+    trainertipsex(2, "Goldenrod Flower Shop\r"
+                     "A Small Shop Providing\n"
+                     "Lots of Beauty")
     end
 }
 

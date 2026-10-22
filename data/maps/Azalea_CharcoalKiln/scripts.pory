@@ -7,19 +7,31 @@ script scr_seq_T23R0201_000 {
     faceplayer
     if (flag(FLAG_BEAT_AZALEA_ROCKETS)) {
         if (flag(FLAG_GOT_HM01)) {
-            npcmsg(msg_0570_T23R0201_00002)
+            npcmsg("You chased off Team Rocket and went to\n"
+                   "Ilex Forest alone?\r"
+                   "That takes guts!\n"
+                   "I like that. Come train with us.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0570_T23R0201_00001)
+        npcmsg("The SLOWPOKE have returned...\r"
+               "But my FARFETCH’D haven’t come back.\n"
+               "My apprentice has gone to look for them\f"
+               "in the Ilex Forest.\r"
+               "It’s been ages now.\n"
+               "Where in the world is that lazy guy?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0570_T23R0201_00000)
+    npcmsg("All the SLOWPOKE have disappeared\n"
+           "from the town.\r"
+           "The forest’s protector may be\n"
+           "angry with us...\r"
+           "It may be a bad omen. We should stay in.")
     waitbuttonpress
     closemessage
     releaseall
@@ -32,13 +44,19 @@ script scr_seq_T23R0201_001 {
     faceplayer
     if (flag(FLAG_GOT_HM01)) {
         if (flag(FLAG_GOT_CHARCOAL_FROM_AZALEA_TOWN_MAN)) {
-            npcmsg(msg_0570_T23R0201_00006)
+            npcmsg("The SLOWPOKE came back, and you even\n"
+                   "found FARFETCH’D.\f"
+                   "You’re the coolest, man!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0570_T23R0201_00004)
+        npcmsg("I’m sorry--I forgot to thank you.\n"
+               "This is Charcoal that I made.\r"
+               "Fire-type moves will become\n"
+               "more powerful when a Pokémon\f"
+               "holds that.")
         waitabpress
         if (!itemspace(ITEM_CHARCOAL, 1)) {
             callstd(std_bag_is_full)
@@ -52,7 +70,8 @@ script scr_seq_T23R0201_001 {
         releaseall
         end
     }
-    npcmsg(msg_0570_T23R0201_00003)
+    npcmsg("Where have all the SLOWPOKE gone?\n"
+           "Are they out playing somewhere?")
     waitbuttonpress
     closemessage
     releaseall
@@ -64,7 +83,7 @@ script scr_seq_T23R0201_002 {
     lockall
     faceplayer
     playcry(SPECIES_FARFETCHD, 0)
-    npcmsg(msg_0570_T23R0201_00008)
+    npcmsg("FARFETCH’D: Kwaa!")
     waitcry
     waitbuttonpress
     closemessage

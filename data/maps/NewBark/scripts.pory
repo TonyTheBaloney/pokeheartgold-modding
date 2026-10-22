@@ -58,7 +58,8 @@ script scr_seq_T20_009 {
 script scr_seq_T20_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0542_T20_00013)
+    npcmsg("...\r"
+           "So this is the famous Elm Pokémon Lab...\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -69,7 +70,7 @@ script scr_seq_T20_000 {
         applymovement(obj_T20_gsrivel, NewBark_Movement_0254)
     }
     waitmovement
-    npcmsg(msg_0542_T20_00014)
+    npcmsg("...What are you staring at?\r")
     closemessage
     if (!flag(FLAG_GOT_STARTER)) { goto(_0166) }
     if (var(VAR_SPECIAL_RESULT) != 1) {
@@ -195,21 +196,32 @@ script scr_seq_T20_001 {
     lockall
     faceplayer
     if (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 0) {
-        npcmsg(msg_0542_T20_00009)
+        npcmsg("I like your Bag!")
     } elif (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 1) {
         npcmsg(msg_0542_T20_00005)
     } elif (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 2) {
         npcmsg(msg_0542_T20_00005)
     } elif (var(VAR_SCENE_NEW_BARK_WEST_EXIT) == 1) {
-        npcmsg(msg_0542_T20_00000)
+        npcmsg("Wow, your Pokégear is impressive!")
     } else {
         bufferplayersname(0)
-        gendermsgbox(msg_0542_T20_00006, msg_0542_T20_00007)
+        gendermsgbox("Hi, {STRVAR_1 3, 0, 0}!\n"
+                     "Leaving again?\r"
+                     "You should tell your mom if you\n"
+                     "are leaving.", "Hi, {STRVAR_1 3, 0, 0}!\n"
+                                     "Leaving again?\r"
+                                     "You should tell your mom if you\n"
+                                     "are leaving.")
     }
     waitbuttonpress
     closemessage
     releaseall
     end
+}
+
+text msg_0542_T20_00005 {
+    "Oh! Your Pokémon is adorable!\n"
+    "I wish I had one!"
 }
 
 script scr_seq_T20_002 {
@@ -226,7 +238,7 @@ script scr_seq_T20_002 {
         dooranimationclose(77)
         dooranimationwait(77)
         dooranimationunload(77)
-        npcmsg(msg_0542_T20_00017)
+        npcmsg("Professor Elm: Wait one second!\r")
         closemessage
         applymovement(obj_player, NewBark_Movement_09C8)
         waitmovement
@@ -254,13 +266,17 @@ script scr_seq_T20_002 {
             applymovement(obj_player, NewBark_Movement_09F4)
         }
         waitmovement
-        npcmsg(msg_0542_T20_00018)
+        npcmsg("I almost completely forgot\n"
+               "about this...\f"
+               "Here, I’ll give you my number.\r")
         registergearnumber(PHONE_CONTACT_PROF__ELM)
         bufferplayersname(0)
-        npcmsg(msg_0542_T20_00019)
+        npcmsg("{STRVAR_1 3, 0, 0} registered Professor Elm\n"
+               "in the Pokégear!")
         playfanfare(SEQ_ME_POKEGEAR_REGIST)
         waitfanfare
-        npcmsg(msg_0542_T20_00020)
+        npcmsg("Professor Elm: I’ll call you if\n"
+               "anything comes up.\r")
         closemessage
         getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 396) {
@@ -298,7 +314,7 @@ script scr_seq_T20_002 {
     applymovement(obj_T20_gswoman1, NewBark_Movement_09B8)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0542_T20_00001, msg_0542_T20_00002)
+    gendermsgbox("Wait, {STRVAR_1 3, 0, 0}!", "Wait, {STRVAR_1 3, 0, 0}!")
     wait(20, VAR_SPECIAL_RESULT)
     closemessage
     applymovement(obj_player, NewBark_Movement_09D4)
@@ -321,7 +337,7 @@ script scr_seq_T20_002 {
         applymovement(obj_T20_gswoman1, NewBark_Movement_0A74)
     }
     waitmovement
-    npcmsg(msg_0542_T20_00003)
+    npcmsg("What do you think you’re doing?\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 396) {
         applymovement(obj_T20_gswoman1, NewBark_Movement_0AEC)
@@ -346,7 +362,10 @@ script scr_seq_T20_002 {
         applymovement(obj_player, NewBark_Movement_0C2C)
     }
     waitmovement
-    npcmsg(msg_0542_T20_00004)
+    npcmsg("It’s dangerous to go out without\n"
+           "a Pokémon!\r"
+           "Wild Pokémon jump out of the grass\n"
+           "on the way to the next town.")
     waitbuttonpress
     closemessage
     releaseall
@@ -376,7 +395,7 @@ _054E:
         applymovement(obj_T20_gswoman1, NewBark_Movement_0AD4)
     }
     waitmovement
-    npcmsg(msg_0542_T20_00010)
+    npcmsg("Wait a sec!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -407,7 +426,8 @@ _054E:
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0542_T20_00011)
+    npcmsg("Did you leave your Pokégear at home?\r"
+           "You should ask your mom.")
     waitbuttonpress
     closemessage
     releaseall
@@ -898,6 +918,10 @@ script scr_seq_T20_007 {
     end
 }
 
+text msg_0542_T20_00035 {
+    "{STRVAR_1 3, 0, 0}’s House"
+}
+
 script scr_seq_T20_008 {
     followmonresetmovement
     lockall
@@ -916,7 +940,27 @@ script scr_seq_T20_008 {
     followingpokemonmovement(48)
     bufferplayersname(0)
     bufferpartymonspeciesnameindef(1, 0)
-    gendermsgbox(msg_0542_T20_00015, msg_0542_T20_00016)
+    gendermsgbox("Lyra: {STRVAR_1 3, 0, 0}!\r"
+                 "So you picked...\n"
+                 "{STRVAR_1 0, 1, 0}!\r"
+                 "That’s a cute Pokémon you have!\r"
+                 "When you walk with it, it’ll become\n"
+                 "more friendly.\r"
+                 "You should turn around and talk to it\n"
+                 "sometimes, too.\r"
+                 "Oh, that’s right!\n"
+                 "Why don’t you show it to your mom?\f"
+                 "See ya!\r", "Ethan: {STRVAR_1 3, 0, 0}!\r"
+                              "So you picked...\n"
+                              "{STRVAR_1 0, 1, 0}!\r"
+                              "That’s a cute Pokémon you have!\r"
+                              "When you walk with it, it’ll become\n"
+                              "more friendly.\r"
+                              "You should turn around and talk to it\n"
+                              "sometimes, too.\r"
+                              "Oh, that’s right!\n"
+                              "Why don’t you show it to your mom?\f"
+                              "See ya!\r")
     closemessage
     applymovement(obj_T20_var_1, NewBark_Movement_1000)
     applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_1014)
@@ -1153,7 +1197,7 @@ script scr_seq_T20_011 {
     followmonresetmovement
     lockall
     if (var(VAR_TEMP_x4007) == 2) {
-        npcmsg(msg_0542_T20_00024)
+        npcmsg("I’m getting upset!\r")
         closemessage
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
@@ -1177,7 +1221,7 @@ script scr_seq_T20_011 {
     waitmovement
     if (var(VAR_TEMP_x4007) == 0) {
         bufferplayersname(0)
-        npcmsg(msg_0542_T20_00021)
+        npcmsg("{STRVAR_1 1, 0, 0}! Where are you going?\r")
         closemessage
     }
     dooranimationclose(77)
@@ -1208,9 +1252,11 @@ script scr_seq_T20_011 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     if (var(VAR_TEMP_x4007) == 0) {
-        npcmsg(msg_0542_T20_00022)
+        npcmsg("Professor Elm has been waiting for you.\f"
+               "He said he has something to give you.\r")
     } else {
-        npcmsg(msg_0542_T20_00023)
+        npcmsg("Did you not hear me saying that\n"
+               "Professor Elm is waiting for you?\r")
     }
     closemessage
     if (var(VAR_SPECIAL_x8005) == 398) {
@@ -1312,7 +1358,7 @@ script scr_seq_T20_012 {
     applymovement(obj_T20_var_1_2, NewBark_Movement_1644)
     waitmovement
     bufferplayersname(0)
-    gendermsgbox(msg_0542_T20_00027, msg_0542_T20_00028)
+    gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\r", "Ethan: Hey, {STRVAR_1 3, 0, 0}!\r")
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     togglefollowingpokemonmovement(0)
@@ -1335,7 +1381,9 @@ script scr_seq_T20_012 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     bufferplayersname(0)
-    gendermsgbox(msg_0542_T20_00029, msg_0542_T20_00030)
+    gendermsgbox("Where do you think you’re going,\n"
+                 "{STRVAR_1 3, 0, 0}?\r", "Where do you think you’re going,\n"
+                                          "{STRVAR_1 3, 0, 0}?\r")
     closemessage
     if (var(VAR_SPECIAL_x8005) == 398) {
         applymovement(obj_T20_var_1_2, NewBark_Movement_1680)
@@ -1406,7 +1454,9 @@ script scr_seq_T20_004 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    gendermsgbox(msg_0542_T20_00025, msg_0542_T20_00026)
+    gendermsgbox("Lyra: I wonder what a Kimono Girl\n"
+                 "wants from you...", "Ethan: I wonder what a Kimono Girl\n"
+                                      "wants from you...")
     waitbuttonpress
     closemessage
     releaseall
@@ -1418,14 +1468,16 @@ script scr_seq_T20_005 {
     lockall
     faceplayer
     playcry(SPECIES_MARILL, 0)
-    npcmsg(msg_0542_T20_00033)
+    npcmsg("MARILL: Murfu.\r")
     waitcry
     closemessage
     applymovement(obj_T20_tsure_poke_static_marill_2, NewBark_Movement_16F4)
     waitmovement
     applymovement(obj_T20_var_1_2, NewBark_Movement_1700)
     waitmovement
-    gendermsgbox(msg_0542_T20_00031, msg_0542_T20_00032)
+    gendermsgbox("Lyra: Hmm... My Pokémon may be\n"
+                 "putting on some weight lately...", "Ethan: Hmm... My Pokémon may be\n"
+                                                     "putting on some weight lately...")
     waitbuttonpress
     closemessage
     releaseall
@@ -1442,18 +1494,21 @@ movement NewBark_Movement_1700 {
 }
 
 script scr_seq_T20_013 {
-    trainertipsex(2, msg_0542_T20_00036)
+    trainertipsex(2, "Elm Pokémon Lab")
     end
 }
 
 script scr_seq_T20_014 {
-    directionsignpostex(0, 11, msg_0542_T20_00034)
+    directionsignpostex(0, 11, "New Bark Town\n"
+                               "Winds of a New Beginning")
     end
 }
 
 script scr_seq_T20_015 {
     bufferplayersname(0)
-    simplenpcmsg(msg_0542_T20_00012)
+    simplenpcmsg("Yo, {STRVAR_1 3, 0, 0}!\r"
+                 "I hear Professor Elm discovered some\n"
+                 "new Pokémon.")
     end
 }
 

@@ -21,7 +21,14 @@ script scr_seq_R10R0202_006 {
     faceplayer
     hasitem(ITEM_MACHINE_PART, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) >= 1) {
-        npcmsg(msg_0345_R10R0202_00014)
+        npcmsg("Manager: Ah! Yeah!\n"
+               "The thing you have...\r"
+               "Is that the part that was stolen from\n"
+               "my beloved generator?\r"
+               "You found it?\n"
+               "Thank you so much!\r"
+               "Now, all I have to do is...\n"
+               "attach this part here...\r")
         closemessage
         takeitem(ITEM_MACHINE_PART, 1, VAR_SPECIAL_RESULT)
         applymovement(obj_R10R0202_gsbigman, Route10_PowerPlantBroken_Movement_0108)
@@ -32,13 +39,19 @@ script scr_seq_R10R0202_006 {
         warp(MAP_ROUTE_10_POWER_PLANT_REPAIRED, 0, 13, 7, DIR_SOUTH)
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
-        npcmsg(msg_0345_R10R0202_00015)
+        npcmsg("Manager: Whirrrrrr!\r"
+               "Yes, it’s running!\n"
+               "Whirrr, whirrr!\r")
         applymovement(obj_R10R0202_gsbigman, Route10_PowerPlantBroken_Movement_0120)
         waitmovement
         setflag(FLAG_RESTORED_POWER)
-        npcmsg(msg_0345_R10R0202_00016)
+        npcmsg("Manager: Wahah! Thanks!\r"
+               "Here! Go ahead and take this TM\n"
+               "as a reward!\r")
         giveitemnocheck(ITEM_TM57, 1)
-        npcmsg(msg_0345_R10R0202_00017)
+        npcmsg("Manager: TM57 is my Charge Beam!\r"
+               "It will shoot beams, and it can also\n"
+               "sometimes raise Special Attack!")
         waitbuttonpress
         closemessage
         setflag(FLAG_UNK_258)
@@ -57,7 +70,13 @@ script scr_seq_R10R0202_006 {
         setflag(FLAG_GOT_POWER_PLANT_MANAGERS_STORY)
         setvar(VAR_SCENE_ROUTE_10_POWER_PLANT, 1)
     }
-    npcmsg(msg_0345_R10R0202_00013)
+    npcmsg("Manager: I-I-I’m ready to blast\n"
+           "something!\r"
+           "Who would dare steal a part from the\n"
+           "generator?\r"
+           "I spent so much time fixing it!\n"
+           "If I catch him, he’s going to see\f"
+           "what I can do with my Charge Beam!")
     waitbuttonpress
     closemessage
     applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_0100)
@@ -96,12 +115,16 @@ script scr_seq_R10R0202_007 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0345_R10R0202_00001)
+    npcmsg("I just got word from Cerulean.\n"
+           "It appears that a shady character has\f"
+           "been loitering around.\r")
     closemessage
     applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_01D8)
     applymovement(obj_player, Route10_PowerPlantBroken_Movement_01FC)
     waitmovement
-    npcmsg(msg_0345_R10R0202_00002)
+    npcmsg("Could I ask for your cooperation?\r"
+           "The shady character was hanging around\n"
+           "the Cerulean Gym...\r")
     closemessage
     applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_01E8)
     waitmovement
@@ -157,13 +180,16 @@ script scr_seq_R10R0202_000 {
     lockall
     faceplayer
     if (flag(FLAG_GOT_POWER_PLANT_MANAGERS_STORY)) {
-        npcmsg(msg_0345_R10R0202_00003)
+        npcmsg("Could I ask for your cooperation?\r"
+               "The shady character was hanging around\n"
+               "the Cerulean Gym...")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0345_R10R0202_00000)
+    npcmsg("A thief broke into the Power Plant...\n"
+           "What is the world coming to?")
     waitbuttonpress
     closemessage
     releaseall
@@ -175,13 +201,15 @@ script scr_seq_R10R0202_005 {
     lockall
     faceplayer
     if (flag(FLAG_TRADE_POWER_PLANT_DUGTRIO_MAGNETON)) {
-        npcmsg(msg_0345_R10R0202_00012)
+        npcmsg("Hi, how’s my old MAGNETON doing?")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0345_R10R0202_00008)
+    npcmsg("I collect Pokémon.\n"
+           "Do you have a DUGTRIO?\r"
+           "Want to trade it for my MAGNETON? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -203,20 +231,22 @@ script scr_seq_R10R0202_005 {
     npctradeexec(VAR_SPECIAL_x8004)
     npctradeend
     setflag(FLAG_TRADE_POWER_PLANT_DUGTRIO_MAGNETON)
-    npcmsg(msg_0345_R10R0202_00009)
+    npcmsg("Yay! I got myself a DUGTRIO!\n"
+           "Thanks!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _02C0:
     npctradeend
-    npcmsg(msg_0345_R10R0202_00010)
+    npcmsg("Huh? That’s not DUGTRIO.\n"
+           "What a letdown...")
     waitbuttonpress
     closemessage
     releaseall
     end
 _02CD:
-    npcmsg(msg_0345_R10R0202_00011)
+    npcmsg("You don’t want to trade? Aww...")
     waitbuttonpress
     closemessage
     releaseall
@@ -224,32 +254,55 @@ _02CD:
 }
 
 script scr_seq_R10R0202_003 {
-    simplenpcmsg(msg_0345_R10R0202_00006)
+    simplenpcmsg("The Power Plant’s Manager is up ahead.\r"
+                 "But since someone wrecked the\n"
+                 "generator, he’s been both sad and,\f"
+                 "at times, furious...\r"
+                 "Sometimes he would burst out laughing\n"
+                 "out of desperation.\f"
+                 "We’ve had to go through so much...")
     end
 }
 
 script scr_seq_R10R0202_001 {
-    simplenpcmsg(msg_0345_R10R0202_00004)
+    simplenpcmsg("Someone made off with a part that’s\n"
+                 "essential for the generator.\r"
+                 "Without it, the new generator’s\n"
+                 "useless!")
     end
 }
 
 script scr_seq_R10R0202_002 {
-    simplenpcmsg(msg_0345_R10R0202_00005)
+    simplenpcmsg("This Power Plant had been abandoned in\n"
+                 "the past.\r"
+                 "We got it back up and running to provide\n"
+                 "power to the Magnet Train.")
     end
 }
 
 script scr_seq_R10R0202_004 {
-    simplenpcmsg(msg_0345_R10R0202_00007)
+    simplenpcmsg("The Magnet Train consumes a lot\n"
+                 "of electricity.\r"
+                 "It can’t move if the new generator\n"
+                 "isn’t operating.")
     end
 }
 
 script scr_seq_R10R0202_008 {
-    simplenpcmsg(msg_0345_R10R0202_00018)
+    simplenpcmsg("Staff Mottos:\r"
+                 "1. Electricity is not infinite.\n"
+                 "2. Conserve wherever possible.\f"
+                 "3. Watch out for each other.\f"
+                 "4. Idle hands are not allowed.\f"
+                 "5. Wear shoes with rubber soles.\f"
+                 "6. The Manager is awesome.")
     end
 }
 
 script scr_seq_R10R0202_009 {
-    simplenpcmsg(msg_0345_R10R0202_00019)
+    simplenpcmsg("Use electricity wisely\n"
+                 "for a bright and pleasant life.\f"
+                 "           Kanto Power Plant")
     end
 }
 

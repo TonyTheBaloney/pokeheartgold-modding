@@ -5,12 +5,16 @@ script scr_seq_T05R0401_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0480_T05R0401_00000)
+    npcmsg("Hello, there!\n"
+           "I am the official Name Rater!\r"
+           "Want me to rate the nicknames\n"
+           "of your Pokémon? {YESNO 0}")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0480_T05R0401_00001)
+        npcmsg("Which Pokémon nickname should\n"
+               "I critique, kid?")
         waitabpress
         closemessage
         fadescreen(6, 1, 0, RGB_BLACK)
@@ -24,7 +28,8 @@ script scr_seq_T05R0401_000 {
         copyvar(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
         getpartymonspecies(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            npcmsg(msg_0480_T05R0401_00008)
+            npcmsg("Huh...\n"
+                   "That is merely an Egg!")
             waitbuttonpress
             closemessage
             releaseall
@@ -33,19 +38,27 @@ script scr_seq_T05R0401_000 {
         partymonismine(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
             bufferpartymonnick(0, VAR_SPECIAL_x8005)
-            npcmsg(msg_0480_T05R0401_00007)
+            npcmsg("Hmm.\n"
+                   "{STRVAR_1 1, 0, 0}, is it?\r"
+                   "That is a truly impeccable name!\r"
+                   "Take good care of {STRVAR_1 1, 0, 0}!")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
         bufferpartymonnick(0, VAR_SPECIAL_x8005)
-        npcmsg(msg_0480_T05R0401_00002)
+        npcmsg("{STRVAR_1 1, 0, 0}, is it?\n"
+               "That is a decent nickname!\r"
+               "But, would you like me to give it\n"
+               "a much better name?\f"
+               "How about it? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            npcmsg(msg_0480_T05R0401_00003)
+            npcmsg("All right! Then, what shall the new\n"
+                   "nickname be?\r")
             closemessage
             setvar(VAR_SPECIAL_RESULT, 0)
             fadescreen(6, 1, 0, RGB_BLACK)
@@ -55,14 +68,22 @@ script scr_seq_T05R0401_000 {
             waitfade
             if (var(VAR_SPECIAL_RESULT) == 1) {
                 bufferpartymonnick(0, VAR_SPECIAL_x8005)
-                npcmsg(msg_0480_T05R0401_00006)
+                npcmsg("There! From now on, this Pokémon\n"
+                       "shall be known as {STRVAR_1 1, 0, 0}!\r"
+                       "Not so different from before?\n"
+                       "Your eyes are tricking you!\r"
+                       "This one is better.\n"
+                       "How fortunate for you!")
                 waitbuttonpress
                 closemessage
                 releaseall
                 end
             }
             bufferpartymonnick(0, VAR_SPECIAL_x8005)
-            npcmsg(msg_0480_T05R0401_00004)
+            npcmsg("There! From now on, this Pokémon\n"
+                   "shall be known as {STRVAR_1 1, 0, 0}!\r"
+                   "It is a much better name than before!\n"
+                   "Don’t you agree?")
             waitbuttonpress
             closemessage
             releaseall
@@ -71,7 +92,10 @@ script scr_seq_T05R0401_000 {
         goto(_00B3)
         end
     _00B3:
-        npcmsg(msg_0480_T05R0401_00005)
+        npcmsg("OK.\n"
+               "Suit yourself.\r"
+               "Do come visit again if you’ve changed\n"
+               "your mind.")
         waitbuttonpress
         closemessage
         releaseall

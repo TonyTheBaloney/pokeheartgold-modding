@@ -2,7 +2,8 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_R05R0201_000 {
-    simplenpcmsg(msg_0330_R05R0201_00000)
+    simplenpcmsg("Many cities in Johto have long\n"
+                 "histories. I’d love to visit!")
     end
 }
 

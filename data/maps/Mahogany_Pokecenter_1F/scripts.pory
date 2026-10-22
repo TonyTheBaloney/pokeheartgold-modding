@@ -8,17 +8,25 @@ script scr_seq_T28PC0101_000 {
 }
 
 script scr_seq_T28PC0101_001 {
-    simplenpcmsg(msg_0624_T28PC0101_00000)
+    simplenpcmsg("What’s this? Team Rocket has\n"
+                 "come back?\r"
+                 "I saw some men in black at the\n"
+                 "Lake of Rage.")
     end
 }
 
 script scr_seq_T28PC0101_002 {
-    simplenpcmsg(msg_0624_T28PC0101_00001)
+    simplenpcmsg("I stop my Pokémon from evolving too\n"
+                 "early.\r"
+                 "I make them learn certain moves before\n"
+                 "I let them evolve.")
     end
 }
 
 script scr_seq_T28PC0101_003 {
-    simplenpcmsg(msg_0624_T28PC0101_00002)
+    simplenpcmsg("Pokémon do become stronger when they\n"
+                 "evolve, but they also learn moves\f"
+                 "more slowly.")
     end
 }
 

@@ -9,18 +9,18 @@ script scr_seq_D10R0101_000 {
 script scr_seq_D10R0101_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    nonnpcmsg(msg_0052_D10R0101_00006)
+    nonnpcmsg("Let the countdown begin!")
     wait(30, VAR_SPECIAL_RESULT)
-    nonnpcmsg(msg_0052_D10R0101_00007)
+    nonnpcmsg("Three...")
     playse(SEQ_SE_DP_DECIDE)
     wait(30, VAR_SPECIAL_RESULT)
-    nonnpcmsg(msg_0052_D10R0101_00008)
+    nonnpcmsg("Two...")
     playse(SEQ_SE_DP_DECIDE)
     wait(30, VAR_SPECIAL_RESULT)
-    nonnpcmsg(msg_0052_D10R0101_00009)
+    nonnpcmsg("One...")
     playse(SEQ_SE_DP_DECIDE)
     wait(30, VAR_SPECIAL_RESULT)
-    nonnpcmsg(msg_0052_D10R0101_00010)
+    nonnpcmsg("Start!")
     playse(SEQ_SE_DP_CON_016)
     wait(30, VAR_SPECIAL_RESULT)
     palparkaction(0)
@@ -41,7 +41,10 @@ script scr_seq_D10R0101_002 {
     lockall
     playse(SEQ_SE_DP_PINPON)
     bufferplayersname(0)
-    npcmsg(msg_0052_D10R0101_00004)
+    npcmsg("Ding-dong!\n"
+           "Congratulations!\r"
+           "{STRVAR_1 3, 0, 0} has successfully\n"
+           "caught the stocked Pokémon!\r")
     playbgm(SEQ_SILENCE_DUNGEON)
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
@@ -55,7 +58,7 @@ script scr_seq_D10R0101_002 {
 script scr_seq_D10R0101_003 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0052_D10R0101_00005)
+    npcmsg("Would you like to retire?")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
@@ -120,12 +123,17 @@ movement PalPark_Movement_0178 {
 }
 
 script(local) _0180 {
-    npcmsg(msg_0052_D10R0101_00000)
+    npcmsg("You haven’t caught all your\n"
+           "Pokémon yet, but...\r"
+           "Would you like to retire from your\n"
+           "Catching Show?")
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
     touchscreenmenushow
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        npcmsg(msg_0052_D10R0101_00001)
+        npcmsg("I see...\r"
+               "I’m disappointed that you dropped\n"
+               "out. Make up for it next time!\r")
         setvar(VAR_SPECIAL_RESULT, 1)
         return
     _01D4:
@@ -140,13 +148,15 @@ script(local) _0180 {
     getplayergender(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01B9) }
     bufferplayersname(0)
-    npcmsg(msg_0052_D10R0101_00002)
+    npcmsg("That’s the spirit, {STRVAR_1 3, 0, 0}!\n"
+           "I like how you don’t give up!")
     waitbuttonpress
     setvar(VAR_SPECIAL_RESULT, 0)
     return
 _01B9:
     bufferplayersname(0)
-    npcmsg(msg_0052_D10R0101_00003)
+    npcmsg("That’s the spirit, {STRVAR_1 3, 0, 0}!\n"
+           "I like how you don’t give up!")
     waitbuttonpress
     setvar(VAR_SPECIAL_RESULT, 0)
     return

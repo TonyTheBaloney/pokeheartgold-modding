@@ -38,22 +38,28 @@ script scr_seq_D47_014 {
 }
 
 script scr_seq_D47_000 {
-    simplenpcmsg(msg_0133_D47_00002)
+    simplenpcmsg("Safari Zone...\r"
+                 "It makes me feel like I am in a\n"
+                 "foreign country.\f"
+                 "It brings up a strange feeling.")
     end
 }
 
 script scr_seq_D47_001 {
-    simplenpcmsg(msg_0133_D47_00003)
+    simplenpcmsg("..................\n"
+                 "(I am not a talker.)")
     end
 }
 
 script scr_seq_D47_002 {
-    simplenpcmsg(msg_0133_D47_00004)
+    simplenpcmsg("KANGASKHAN: ..................")
     end
 }
 
 script scr_seq_D47_003 {
-    simplenpcmsg(msg_0133_D47_00005)
+    simplenpcmsg("This Safari Zone is great!\r"
+                 "I just kept going after Pokémon!\n"
+                 "That made my JIGGLYPUFF upset though.")
     end
 }
 
@@ -62,7 +68,7 @@ script scr_seq_D47_004 {
     lockall
     faceplayer
     playcry(SPECIES_JIGGLYPUFF, 0)
-    npcmsg(msg_0133_D47_00006)
+    npcmsg("JIGGLYPUFF: Puu pupuu.")
     waitcry
     waitbuttonpress
     closemessage
@@ -75,9 +81,20 @@ script scr_seq_D47_005 {
     lockall
     faceplayer
     if (var(VAR_TEMP_x400B) == 0) {
-        npcmsg(msg_0133_D47_00007)
+        npcmsg("Safari, safari,\n"
+               "it is so much fun.\r"
+               "Safari, safari,\n"
+               "so interesting, huh!\r"
+               "So many Pokémon are waiting for us!\r"
+               "...That’s a song I made up.\n"
+               "I sing it when I am in the Safari Zone.")
     } else {
-        npcmsg(msg_0133_D47_00008)
+        npcmsg("Airily goes the Safari Ball under the\n"
+               "blue sky. Sprinkly goes your sweat to\f"
+               "celebrate a friendship.\r"
+               "I love the Safari Zone!\r"
+               "...I made a whole jingle out of it.\n"
+               "You think anyone would be interested?")
     }
     waitbuttonpress
     closemessage
@@ -94,7 +111,9 @@ script scr_seq_D47_006 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0133_D47_00009)
+    npcmsg("I’ve decided to carry Pokémon drinks.\r"
+           "This will be new to me, but I will do\n"
+           "my best...\r")
     callstd(std_mart_intro)
     holdmsg
     setvar(VAR_SPECIAL_x8004, 6)
@@ -107,7 +126,10 @@ script scr_seq_D47_007 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0133_D47_00010)
+    npcmsg("Oh, you want to buy something?\n"
+           "Can you wait while I get it ready?\r"
+           "Just a minute...\f"
+           "..................\r")
     callstd(std_mart_intro)
     holdmsg
     setvar(VAR_SPECIAL_x8004, 14)
@@ -121,7 +143,7 @@ script scr_seq_D47_008 {
     lockall
     faceplayer
     playcry(SPECIES_BUTTERFREE, 0)
-    npcmsg(msg_0133_D47_00011)
+    npcmsg("BUTTERFREE: Flu flu.")
     waitcry
     waitbuttonpress
     closemessage
@@ -130,7 +152,10 @@ script scr_seq_D47_008 {
 }
 
 script scr_seq_D47_009 {
-    simplenpcmsg(msg_0133_D47_00012)
+    simplenpcmsg("There are many Pokémon to choose from,\n"
+                 "but nothing beats the cuteness of\f"
+                 "SLOWPOKE.\r"
+                 "People often say that I look like one!")
     end
 }
 
@@ -139,7 +164,7 @@ script scr_seq_D47_010 {
     lockall
     faceplayer
     playcry(SPECIES_SLOWPOKE, 0)
-    npcmsg(msg_0133_D47_00013)
+    npcmsg("SLOWPOKE: ...Yawn?")
     waitcry
     waitbuttonpress
     closemessage
@@ -148,12 +173,16 @@ script scr_seq_D47_010 {
 }
 
 script scr_seq_D47_011 {
-    trainertipsex(2, msg_0133_D47_00017)
+    trainertipsex(2, "Safari Zone\r"
+                     "This is where everything is thrilling.\n"
+                     "Feel free to come by and experience\f"
+                     "the wild!")
     end
 }
 
 script scr_seq_D47_012 {
-    simplenpcmsg(msg_0133_D47_00014)
+    simplenpcmsg("I have always wanted to catch my first\n"
+                 "Pokémon at the Safari Zone.")
     end
 }
 
@@ -266,12 +295,17 @@ movement SafariZoneGate_Movement_0388 {
 }
 
 script scr_seq_D47_015 {
-    simplenpcmsg(msg_0133_D47_00015)
+    simplenpcmsg("You may be under the impression\n"
+                 "there is a sophisticated system to\f"
+                 "customizing the Safari Zone, right?\r"
+                 "The real truth is that...")
     end
 }
 
 script scr_seq_D47_016 {
-    simplenpcmsg(msg_0133_D47_00016)
+    simplenpcmsg("Arrrgh...\n"
+                 "I am so exhausted...\f"
+                 "This job uses so much of your energy...")
     end
 }
 

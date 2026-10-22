@@ -3,14 +3,11 @@
   "messages": [
     {
       "id": "msg_0055_D15R0102_00000",
-      "en_US": [
-        "However hard we battle, the tower\n",
-        "will stand strong."
-      ]
+      "from": "scr_seq_D15R0102_001#0"
     },
     {
       "id": "msg_0055_D15R0102_00001",
-      "en_US": "I sway like leaves in the wind..."
+      "from": "scr_seq_D15R0102_002#0"
     },
     {
       "id": "msg_0055_D15R0102_00002",

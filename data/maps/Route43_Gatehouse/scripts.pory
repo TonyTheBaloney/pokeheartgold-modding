@@ -63,6 +63,21 @@ _00ED:
     end
 }
 
+text msg_0403_R43R0201_00000 {
+    "Hold it there, kiddo!\r"
+    "The toll is $1,000 to go through.\r"
+}
+
+text msg_0403_R43R0201_00001 {
+    "Thank you very much!\r"
+}
+
+text msg_0403_R43R0201_00002 {
+    "Then pay what you have, please.\r"
+    "Those who have no money, hmm...\n"
+    "can go through free of charge!\r"
+}
+
 script scr_seq_R43R0201_002 {
     if (flag(FLAG_ROCKET_HIDEOUT_CLEARED)) {
         end
@@ -128,7 +143,9 @@ movement Route43_Gatehouse_Movement_01A4 {
 }
 
 script scr_seq_R43R0201_000 {
-    simplenpcmsg(msg_0403_R43R0201_00003)
+    simplenpcmsg("He-he-he. We’re making a bundle.\r"
+                 "Everyone wants to see what’s going\n"
+                 "on up at Lake of Rage.")
     end
 }
 
@@ -137,7 +154,15 @@ script scr_seq_R43R0201_003 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_TM36_FROM_ROUTE_43_GUARD)) {
-        npcmsg(msg_0403_R43R0201_00004)
+        npcmsg("I got chased from my post by\n"
+               "these Team Rocket thugs.\r"
+               "Then they just disappeared.\n"
+               "Someone apparently destroyed\f"
+               "their hideout.\r"
+               "...One more thing!\f"
+               "I found this under the counter.\f"
+               "It makes me uncomfortable.\f"
+               "Could I give it to you?\r")
         if (!itemspace(ITEM_TM36, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -148,7 +173,12 @@ script scr_seq_R43R0201_003 {
         waitbuttonpress
         setflag(FLAG_GOT_TM36_FROM_ROUTE_43_GUARD)
     }
-    npcmsg(msg_0403_R43R0201_00006)
+    npcmsg("It contains Sludge Bomb!\r"
+           "It not only damages the target\n"
+           "but also poisons it sometimes.\f"
+           "See!\r"
+           "Doesn’t it make you feel\n"
+           "uncomfortable?")
     waitbuttonpress
     closemessage
     releaseall

@@ -23,12 +23,19 @@ script scr_seq_R27_000 {
     end
 }
 
+text msg_0369_R27_00001 {
+    "Do you know what you just did?\r"
+    "You’ve taken your first step\n"
+    "into Kanto.\r"
+    "Check your Pokégear Map and see."
+}
+
 script scr_seq_R27_001 {
     followmonresetmovement
     lockall
     applymovement(obj_R27_gsbigman, Route27_Movement_00A8)
     waitmovement
-    npcmsg(msg_0369_R27_00000)
+    npcmsg("Hey!\r")
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 402) {
@@ -66,12 +73,15 @@ movement Route27_Movement_00C4 {
 }
 
 script scr_seq_R27_002 {
-    trainertipsex(2, msg_0369_R27_00002)
+    trainertipsex(2, "Tohjo Falls\r"
+                     "The Link between\n"
+                     "Kanto and Johto")
     end
 }
 
 script scr_seq_R27_004 {
-    directionsignpostex(1, 5, msg_0369_R27_00003)
+    directionsignpostex(1, 5, "West to New Bark Town\n"
+                              "East to Rt. 26")
     end
 }
 

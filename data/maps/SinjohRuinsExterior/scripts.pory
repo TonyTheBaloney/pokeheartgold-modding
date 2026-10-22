@@ -24,11 +24,23 @@ script scr_seq_D51R0101_000 {
     waitmovement
     applymovement(obj_player, SinjohRuinsExterior_Movement_0094)
     waitmovement
-    npcmsg(msg_0145_D51R0101_00000)
+    npcmsg("Well, hello!\r"
+           "It’s so freezing, isn’t it?\r"
+           "For a youngster like you to be\n"
+           "interested in the Sinjoh Ruins is\f"
+           "not something we see every day.\r"
+           "Take a look at them.\r"
+           "From the design of the pillars at the\n"
+           "Sinjoh Ruins, you can see that the\f"
+           "cultures of Sinnoh and Johto\f"
+           "have blended.\r")
     closemessage
     applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_009C)
     waitmovement
-    npcmsg(msg_0145_D51R0101_00001)
+    npcmsg("What was I thinking?\r"
+           "We don’t need to be standing here.\n"
+           "Why don’t you come to the cabin\f"
+           "around the corner for more discussion?\r")
     closemessage
     applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_00A8)
     waitmovement
@@ -65,7 +77,13 @@ script scr_seq_D51R0101_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    npcmsg(msg_0145_D51R0101_00002)
+    npcmsg("By the way, we happen to have a person\n"
+           "at the cabin.\r"
+           "Any Trainer should know who she is.\n"
+           "The famous Trainer from Sinnoh!\r"
+           "She is traveling around to study\n"
+           "myths and ancient ruins.\f"
+           "Isn’t that something?\r")
     closemessage
     applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_0108)
     waitmovement
@@ -94,7 +112,7 @@ movement SinjohRuinsExterior_Movement_0114 {
 }
 
 script scr_seq_D51R0101_003 {
-    trainertipsex(2, msg_0145_D51R0101_00007)
+    trainertipsex(2, "The Sinjoh Ruins")
     end
 }
 

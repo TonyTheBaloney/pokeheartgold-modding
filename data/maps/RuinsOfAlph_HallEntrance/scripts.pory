@@ -32,7 +32,7 @@ script scr_seq_D24R0211_003 {
 script scr_seq_D24R0211_000 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0079_D24R0211_00000)
+    npcmsg("It’s a replica of an ancient Pokémon.")
     waitbuttonpress
     closemessage
     releaseall
@@ -53,10 +53,14 @@ script scr_seq_D24R0211_001 {
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     wait(15, VAR_SPECIAL_x8005)
-    npcmsg(msg_0079_D24R0211_00001)
+    npcmsg("Hmmm.\n"
+           "When did this appear...?\r"
+           "I wonder what these symbols mean...\f"
+           "..................\r")
     applymovement(obj_D24R0211_gsassistantm, RuinsOfAlph_HallEntrance_Movement_0160)
     waitmovement
-    npcmsg(msg_0079_D24R0211_00002)
+    npcmsg("Hey, you!\n"
+           "Let’s go back to the Research Center!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -64,11 +68,14 @@ script scr_seq_D24R0211_001 {
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     setobjectfacingandupdatedraw(2, 2)
-    npcmsg(msg_0079_D24R0211_00003)
+    npcmsg("The symbols on the stone panel were\n"
+           "like this...\r")
     msgfont3(4)
-    npcmsg(msg_0079_D24R0211_00005)
+    npcmsg("I wonder what it means.\n"
+           "We need to examine the ruins once again.\r")
     bufferplayersname(0)
-    npcmsg(msg_0079_D24R0211_00006)
+    npcmsg("{STRVAR_1 3, 0, 0} opened the UNOWN Report\n"
+           "and made notes!")
     playfanfare(SEQ_ME_LVUP)
     waitfanfare
     addvar(VAR_UNOWN_REPORT_LEVEL, 1)

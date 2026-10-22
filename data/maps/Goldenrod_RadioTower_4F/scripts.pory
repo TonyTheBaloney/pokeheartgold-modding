@@ -35,17 +35,19 @@ script scr_seq_D23R0104_008 {
 }
 
 script scr_seq_D23R0104_001 {
-    simplenpcmsg(msg_0068_D23R0104_00008)
+    simplenpcmsg("4F Production")
     end
 }
 
 script scr_seq_D23R0104_002 {
-    simplenpcmsg(msg_0068_D23R0104_00009)
+    simplenpcmsg("4F Studio 1")
     end
 }
 
 script scr_seq_D23R0104_003 {
-    simplenpcmsg(msg_0068_D23R0104_00000)
+    simplenpcmsg("I listened to the radio while I was at\n"
+                 "the ruins.\r"
+                 "I heard a strange broadcast there.")
     end
 }
 
@@ -54,7 +56,9 @@ script scr_seq_D23R0104_004 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
-        npcmsg(msg_0068_D23R0104_00001)
+        npcmsg("Mary: Why? Why do I have to suffer\n"
+               "through this?\r"
+               "MEOWTH, help me!")
     } else {
         goto(_00F0)
     }
@@ -64,23 +68,26 @@ script scr_seq_D23R0104_004 {
     end
 _00F0:
     if (flag(FLAG_GOT_BRIGHTPOWDER_FROM_MARY)) {
-        npcmsg(msg_0068_D23R0104_00006)
+        npcmsg("Mary: Please tune in to me on\n"
+               "Professor Oak’s Pokémon Talk show.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0068_D23R0104_00002)
+    npcmsg("Mary: Oh! You’re my little savior! Will\n"
+           "you take this as my thanks?\r")
     if (!itemspace(ITEM_BRIGHTPOWDER, 1)) { goto(_0132) }
     callstd(std_give_item_verbose)
-    npcmsg(msg_0068_D23R0104_00004)
+    npcmsg("Mary: When a Pokémon holds it, it\n"
+           "lowers the opponent’s accuracy.")
     waitbuttonpress
     closemessage
     releaseall
     setflag(FLAG_GOT_BRIGHTPOWDER_FROM_MARY)
     end
 _0132:
-    npcmsg(msg_0068_D23R0104_00005)
+    npcmsg("Nooo! Your Bag is full!")
     waitbuttonpress
     closemessage
     releaseall
@@ -92,7 +99,7 @@ script scr_seq_D23R0104_005 {
     lockall
     faceplayer
     playcry(SPECIES_MEOWTH, 0)
-    npcmsg(msg_0068_D23R0104_00007)
+    npcmsg("MEOWTH: Meowth...")
     waitcry
     waitbuttonpress
     closemessage
@@ -105,9 +112,14 @@ script scr_seq_D23R0104_006 {
     lockall
     faceplayer
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
-        npcmsg(msg_0068_D23R0104_00010)
+        npcmsg("Ben: Team Rocket... There is something\n"
+               "they lack. It is music!\r"
+               "Music enriches people’s heart and soul.\r"
+               "Music lovers would never do such\n"
+               "horrible things at a place like the\f"
+               "Radio Tower!")
     } else {
-        npcmsg(msg_0068_D23R0104_00011)
+        npcmsg("Ben: Do you listen to our music?")
     }
     waitbuttonpress
     closemessage
@@ -122,7 +134,8 @@ script scr_seq_D23R0104_007 {
     }
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0068_D23R0104_00012)
+    npcmsg("Proton, the leader of this Radio Tower\n"
+           "mission... He is so cool.\r")
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 2) {
         applymovement(obj_D23R0104_rocketw, Goldenrod_RadioTower_4F_Movement_0210)
@@ -130,7 +143,9 @@ script scr_seq_D23R0104_007 {
         applymovement(obj_D23R0104_rocketw, Goldenrod_RadioTower_4F_Movement_021C)
     }
     waitmovement
-    npcmsg(msg_0068_D23R0104_00013)
+    npcmsg("Who are you?\r"
+           "If you are in the way of Proton...\n"
+           "I mean Team Rocket. I won’t allow that!\r")
     closemessage
     trainerbattle(TRAINER_TEAM_ROCKET_F_GRUNT_4, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -145,6 +160,11 @@ script scr_seq_D23R0104_007 {
     closemessage
     releaseall
     end
+}
+
+text msg_0068_D23R0104_00014 {
+    "Team Rocket and Proton are all I need!\r"
+    "Who cares about Pokémon?"
 }
 
 movement Goldenrod_RadioTower_4F_Movement_0210 {

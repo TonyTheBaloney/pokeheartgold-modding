@@ -22,7 +22,8 @@ script scr_seq_T11R0602_000 {
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    npcmsg(msg_0536_T11R0602_00000)
+    npcmsg("We have arrived at Saffron! Saffron!\n"
+           "The accent is on the “a”!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement

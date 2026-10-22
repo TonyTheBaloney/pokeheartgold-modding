@@ -31,7 +31,9 @@ script scr_seq_R16R0201_001 {
     }
     applymovement(obj_player, Route16_Gatehouse_Movement_0084)
     waitmovement
-    npcmsg(msg_0356_R16R0201_00001)
+    npcmsg("You! Stop right there!\r"
+           "You have to be on a Bicycle to go on\n"
+           "the Cycling Road!\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
@@ -62,7 +64,13 @@ script scr_seq_R16R0201_002 {
 }
 
 script scr_seq_R16R0201_000 {
-    simplenpcmsg(msg_0356_R16R0201_00000)
+    simplenpcmsg("Cycling Road starts here.\n"
+                 "It’s all downhill, so it’s totally\f"
+                 "exhilarating.\r"
+                 "Some people prefer convenient and cool\n"
+                 "transportation such as the Fast Ship\f"
+                 "and the Magnet Train.\f"
+                 "You prefer the Bicycle, don’t you?")
     end
 }
 

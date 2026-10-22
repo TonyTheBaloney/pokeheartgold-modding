@@ -25,7 +25,15 @@ script scr_seq_P01R0302_000 {
             if (!flag(FLAG_RECEIVED_PLATE_FROM_AQUA_CAPTAIN_THIS_TRIP)) {
                 checkbadge(BADGE_EARTH, VAR_TEMP_x4002)
                 if (var(VAR_TEMP_x4002) == 1) {
-                    npcmsg(msg_0260_P01R0302_00007)
+                    npcmsg("Long time no see.\n"
+                           "How are you doing?\r"
+                           "The S.S. Aqua is as smooth as she\n"
+                           "can be!\r"
+                           "By the way, I found this mysterious\n"
+                           "thing when I went to Sinnoh\f"
+                           "the other day.\r"
+                           "Now that we’ve met again,\n"
+                           "I would like you to have it.\r")
                     closemessage
                     if (var(VAR_RECEIVED_PLATES_COUNT) == 0) {
                         setvar(VAR_SPECIAL_x8004, ITEM_FLAME_PLATE)
@@ -85,7 +93,8 @@ script scr_seq_P01R0302_000 {
                     hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
                     if (var(VAR_SPECIAL_RESULT) == 0) {
                         bufferitemname(1, VAR_SPECIAL_x8004)
-                        npcmsg(msg_0260_P01R0302_00008)
+                        npcmsg("Your Bag is full.\r"
+                               "You must like the {STRVAR_1 8, 1, 0} a lot.")
                         waitbuttonpress
                         closemessage
                         releaseall
@@ -100,20 +109,32 @@ script scr_seq_P01R0302_000 {
                 }
             }
         }
-        npcmsg(msg_0260_P01R0302_00006)
+        npcmsg("How do you like S.S. Aqua’s ride?\r"
+               "She practically skates across\n"
+               "the waves.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
     if (var(VAR_SCENE_SS_AQUA) == 4) { goto(_0050) }
-    npcmsg(msg_0260_P01R0302_00004)
+    npcmsg("This little girl keeps asking me to play\n"
+           "with her.\r"
+           "Ouch! Please don’t stretch my ear!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _0050:
-    npcmsg(msg_0260_P01R0302_00005)
+    npcmsg("Thank you for playing with her.\r"
+           "You may think being a Captain\n"
+           "is a somewhat easy job, but\f"
+           "it’s actually quite demanding.\r"
+           "That little passenger has gone out\n"
+           "of the room.\r"
+           "She can’t get off the ship, so she\n"
+           "must be hiding somewhere\f"
+           "around here.")
     waitbuttonpress
     closemessage
     releaseall
@@ -123,7 +144,8 @@ _0050:
 script scr_seq_P01R0302_001 {
     playse(SEQ_SE_DP_SELECT)
     lockall
-    npcmsg(msg_0260_P01R0302_00000)
+    npcmsg("Captain, play with me, please?\r"
+           "I’m bored! I want to play more!\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
@@ -132,7 +154,11 @@ script scr_seq_P01R0302_001 {
         applymovement(obj_P01R0302_gsbabygirl1, SsAquaCaptainRoom_Movement_0350)
     }
     waitmovement
-    gendermsgbox(msg_0260_P01R0302_00003, msg_0260_P01R0302_00002)
+    gendermsgbox("Wow, you are going to play with me?\r"
+                 "Let’s play hide-and-seek!\n"
+                 "I’ll hide, so close your eyes!\r", "Wow, you are going to play with me?\r"
+                                                     "Let’s play hide-and-seek!\n"
+                                                     "I’ll hide, so close your eyes!\r")
     closemessage
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade

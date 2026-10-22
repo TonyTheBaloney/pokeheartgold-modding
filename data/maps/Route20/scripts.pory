@@ -2,12 +2,16 @@
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
 script scr_seq_W20_000 {
-    trainertipsex(2, msg_0742_W20_00000)
+    trainertipsex(2, "Seafoam Islands\r"
+                     "...Somebody put a notice\n"
+                     "under the sign!\r"
+                     "The Cinnabar Gym has moved here.\n"
+                     "Leader: Blaine")
     end
 }
 
 script scr_seq_W20_001 {
-    trainertipsex(2, msg_0742_W20_00001)
+    trainertipsex(2, "Seafoam Islands")
     end
 }
 

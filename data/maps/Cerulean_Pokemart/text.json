@@ -3,20 +3,11 @@
   "messages": [
     {
       "id": "msg_0468_T04FS0101_00000",
-      "en_US": [
-        "You’ll run into many Trainers on\n",
-        "the way to Cerulean Cape.\r",
-        "They want to see how they stack\n",
-        "up against other Trainers."
-      ]
+      "from": "scr_seq_T04FS0101_002#0"
     },
     {
       "id": "msg_0468_T04FS0101_00001",
-      "en_US": [
-        "Misty is about the only person in town\n",
-        "who can beat the Trainers at\f",
-        "Cerulean Cape."
-      ]
+      "from": "scr_seq_T04FS0101_003#0"
     }
   ]
 }

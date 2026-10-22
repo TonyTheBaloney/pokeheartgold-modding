@@ -6,12 +6,15 @@ script scr_seq_T21R0501_000 {
 }
 
 script scr_seq_T21R0501_001 {
-    simplenpcmsg(msg_0555_T21R0501_00000)
+    simplenpcmsg("Pokémon gain experience in battle\n"
+                 "and change their form.")
     end
 }
 
 script scr_seq_T21R0501_002 {
-    simplenpcmsg(msg_0555_T21R0501_00001)
+    simplenpcmsg("I heard that each Pokémon has its own\n"
+                 "nature, and it has something to do with\f"
+                 "Pokémon stats!\n")
     end
 }
 

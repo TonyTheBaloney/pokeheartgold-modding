@@ -26,12 +26,16 @@ script scr_seq_T06FS0101_001 {
 }
 
 script scr_seq_T06FS0101_002 {
-    simplenpcmsg(msg_0484_T06FS0101_00000)
+    simplenpcmsg("Team Rocket is no longer in Kanto.\n"
+                 "That alone makes me happy.")
     end
 }
 
 script scr_seq_T06FS0101_003 {
-    simplenpcmsg(msg_0484_T06FS0101_00001)
+    simplenpcmsg("I’m thinking about going shopping\n"
+                 "in Saffron.\r"
+                 "Follow the northern route, and you’ll\n"
+                 "be there in no time.")
     end
 }
 

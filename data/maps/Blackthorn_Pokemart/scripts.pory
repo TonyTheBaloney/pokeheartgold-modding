@@ -26,12 +26,17 @@ script scr_seq_T30FS0101_001 {
 }
 
 script scr_seq_T30FS0101_002 {
-    simplenpcmsg(msg_0630_T30FS0101_00000)
+    simplenpcmsg("You can’t buy a Max Revive, but it fully\n"
+                 "restores a fainted Pokémon.\r"
+                 "Beware--it won’t restore PP, the\n"
+                 "Power Points needed for moves.")
     end
 }
 
 script scr_seq_T30FS0101_003 {
-    simplenpcmsg(msg_0630_T30FS0101_00001)
+    simplenpcmsg("Max Repel keeps weak Pokémon away\n"
+                 "from you. It’s the longest lasting of\f"
+                 "the Repel sprays.")
     end
 }
 

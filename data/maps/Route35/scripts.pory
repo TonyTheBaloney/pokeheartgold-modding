@@ -134,17 +134,20 @@ movement Route35_Movement_0200 {
 }
 
 script scr_seq_R35_000 {
-    directionsignpostex(1, 4, msg_0387_R35_00028)
+    directionsignpostex(1, 4, "Rt. 35\n"
+                              "South to Goldenrod City")
     end
 }
 
 script scr_seq_R35_004 {
-    directionsignpostex(1, 19, msg_0387_R35_00029)
+    directionsignpostex(1, 19, "North to the National Park\n"
+                               "West to the Pokéathlon Dome")
     end
 }
 
 script scr_seq_R35_002 {
-    simplenpcmsg(msg_0387_R35_00021)
+    simplenpcmsg("Your Pokémon look pretty tough.\n"
+                 "You could go anywhere safely.")
     end
 }
 

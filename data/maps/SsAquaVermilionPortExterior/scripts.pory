@@ -61,13 +61,15 @@ script scr_seq_P01R0104_000 {
     lockall
     faceplayer
     if (flag(FLAG_BOAT_ARRIVED)) {
-        npcmsg(msg_0258_P01R0104_00001)
+        npcmsg("Huh?\n"
+               "The ship won’t go anywhere today.")
         waitbuttonpress
         closemessage
         releaseall
         end
     }
-    npcmsg(msg_0258_P01R0104_00000)
+    npcmsg("OK!\n"
+           "You must be the last passenger.\r")
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement

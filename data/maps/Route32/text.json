@@ -3,61 +3,27 @@
   "messages": [
     {
       "id": "msg_0380_R32_00000",
-      "en_US": [
-        "Wait up!\n",
-        "What’s the hurry?\r"
-      ]
+      "from": "scr_seq_R32_002#0"
     },
     {
       "id": "msg_0380_R32_00001",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0}, right?\n",
-        "Some guy wearing glasses was looking\f",
-        "for you.\r",
-        "See for yourself. He’s waiting for\n",
-        "you at the Poké Mart."
-      ]
+      "from": "scr_seq_R32_001#1"
     },
     {
       "id": "msg_0380_R32_00002",
-      "en_US": [
-        "{STRVAR_1 3, 0, 0}, right?\n",
-        "Some guy wearing glasses was looking\f",
-        "for you.\r",
-        "See for yourself. He’s waiting for\n",
-        "you at the Poké Mart.\r"
-      ]
+      "from": "scr_seq_R32_002#2"
     },
     {
       "id": "msg_0380_R32_00003",
-      "en_US": [
-        "Have you gone to the Pokémon Gym?\r",
-        "You can test your Pokémon and\n",
-        "yourself there.\r",
-        "It’s a rite of passage for all Trainers!"
-      ]
+      "from": "scr_seq_R32_001#0"
     },
     {
       "id": "msg_0380_R32_00004",
-      "en_US": [
-        "Have you gone to the Pokémon Gym?\r",
-        "You can test your Pokémon and\n",
-        "yourself there.\r",
-        "It’s a rite of passage for all Trainers!\r"
-      ]
+      "from": "scr_seq_R32_002#1"
     },
     {
       "id": "msg_0380_R32_00005",
-      "en_US": [
-        "You have some good Pokémon there.\r",
-        "It must be from the training you gave\n",
-        "them around Violet City.\r",
-        "The training at the Gym must have\n",
-        "been especially helpful.\r",
-        "As a souvenir of Violet City, take this.\r",
-        "It increases the power of\n",
-        "Grass-type moves.\r"
-      ]
+      "from": "scr_seq_R32_001#2"
     },
     {
       "id": "msg_0380_R32_00006",
@@ -65,28 +31,19 @@
     },
     {
       "id": "msg_0380_R32_00007",
-      "en_US": [
-        "Your experiences in Violet City\n",
-        "should be useful for your journey."
-      ]
+      "from": "scr_seq_R32_001#5"
     },
     {
       "id": "msg_0380_R32_00008",
-      "en_US": "Hey, your Bag is chock-full."
+      "from": "scr_seq_R32_001#3"
     },
     {
       "id": "msg_0380_R32_00009",
-      "en_US": "Hey, your Bag is chock-full.\r"
+      "from": "scr_seq_R32_001#4"
     },
     {
       "id": "msg_0380_R32_00010",
-      "en_US": [
-        "WROOOOAR!\r",
-        "PEOPLE RUN WHEN I ROAR!\n",
-        "BUT YOU CAME LOOKING!\r",
-        "THAT PLEASES ME!\n",
-        "NOW TAKE THIS!\r"
-      ]
+      "from": "scr_seq_R32_000#0"
     },
     {
       "id": "msg_0380_R32_00011",
@@ -94,12 +51,7 @@
     },
     {
       "id": "msg_0380_R32_00012",
-      "en_US": [
-        "WROOOAR!\n",
-        "IT’S ROAR!\r",
-        "EVEN POKéMON RUN\n",
-        "FROM A GOOD ROAR!"
-      ]
+      "from": "scr_seq_R32_000#1"
     },
     {
       "id": "msg_0380_R32_00013",
@@ -107,44 +59,27 @@
     },
     {
       "id": "msg_0380_R32_00014",
-      "en_US": [
-        "How would you like to have this\n",
-        "tasty, nutritious SlowpokeTail?\r",
-        "For you right now, just $1,000,000!\n",
-        "You’ll want this! {YESNO 0}"
-      ]
+      "from": "scr_seq_R32_003#0"
     },
     {
       "id": "msg_0380_R32_00015",
-      "en_US": [
-        "Tch! I thought kids these days\n",
-        "were loaded..."
-      ]
+      "from": "scr_seq_R32_003#1"
     },
     {
       "id": "msg_0380_R32_00016",
-      "en_US": [
-        "You don’t want it?\n",
-        "Then scram. Shoo!"
-      ]
+      "from": "scr_seq_R32_003#2"
     },
     {
       "id": "msg_0380_R32_00017",
-      "en_US": [
-        "Rt. 32\n",
-        "South to Azalea Town"
-      ]
+      "from": "scr_seq_R32_007#0"
     },
     {
       "id": "msg_0380_R32_00018",
-      "en_US": [
-        "Ruins of Alph\n",
-        "East Entrance"
-      ]
+      "from": "scr_seq_R32_006#0"
     },
     {
       "id": "msg_0380_R32_00019",
-      "en_US": "Union Cave ahead"
+      "from": "scr_seq_R32_008#0"
     }
   ]
 }

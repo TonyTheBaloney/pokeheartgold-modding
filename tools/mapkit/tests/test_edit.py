@@ -93,8 +93,11 @@ class EditTest(unittest.TestCase):
         self.assertEqual(list(self.changed_files()), ["files/fielddata/encountdata/gs_enc_data.json"])
 
     def test_script_rename_updates_references(self):
+        before = [m.get("en_US") for m in self.repo.text_bank(self.m).messages]
         edit.script_rename(self.repo, self.m, "Cherrygrove_EventScript_Boy", "Cherrygrove_EventScript_TiredBoy")
         repo = Repo(self.tmp)
+        # the Boy's inline dialog still fills its text.json slot
+        self.assertEqual([m.get("en_US") for m in repo.text_bank(self.m).messages], before)
         self.assertIn("Cherrygrove_EventScript_TiredBoy", repo.script_file(self.m).scrdefs)
         self.assertEqual(repo.event_defines(self.m).eval(repo.events(self.m).objects[1]["scriptId"]), 8)
         self.assert_valid([self.m])

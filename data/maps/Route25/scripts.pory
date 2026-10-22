@@ -100,7 +100,19 @@ script scr_seq_R25_000 {
         applymovement(obj_player, Route25_Movement_0350)
     }
     waitmovement
-    npcmsg(msg_0363_R25_00000)
+    npcmsg("Misty: Aww! Why did you have to\n"
+           "show up and bug us now?\r"
+           "Do you know what they call people\n"
+           "like you?\r"
+           "Pests! You heard me right, pest!\r"
+           "...\r"
+           "...Oh? Those Badges you have...\n"
+           "Are they Johto Gym Badges?\r"
+           "If you have eight, you must be good.\r"
+           "OK, then. Come to Cerulean Gym.\n"
+           "I’ll be happy to take you on.\r"
+           "I’m Misty, the Gym Leader\n"
+           "in Cerulean.\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 40) {
         applymovement(obj_R25_gsleader11, Route25_Movement_035C)
@@ -232,12 +244,14 @@ script scr_seq_R25_009 {
         if (var(VAR_SPECIAL_RESULT) == 1) { goto(_04DA) }
         firstalivemonhastype(11, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04DA) }
-        npcmsg(msg_0363_R25_00006)
+        npcmsg("Misty: Ah! You have a cool\n"
+               "Water-type Pokémon!\f"
+               "Can I take a picture with it? {YESNO 0}")
         touchscreenmenuhide
         getmenuchoice(VAR_SPECIAL_RESULT)
         touchscreenmenushow
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0363_R25_00009)
+            npcmsg("Misty: What a letdown...")
             waitbuttonpress
             closemessage
             releaseall
@@ -245,13 +259,16 @@ script scr_seq_R25_009 {
         }
         photoalbumisfull(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            npcmsg(msg_0363_R25_00010)
+            npcmsg("Your Photo Album is full.\r"
+                   "Access your PC and delete\n"
+                   "some pictures.")
             waitbuttonpress
             closemessage
             releaseall
             end
         }
-        npcmsg(msg_0363_R25_00007)
+        npcmsg("Misty: Way to go!\r"
+               "Let’s see a big smile!\r")
         closemessage
         setflag(FLAG_UNK_189)
         fadescreen(6, 1, 0, RGB_BLACK)
@@ -262,7 +279,8 @@ script scr_seq_R25_009 {
         fadescreen(6, 1, 1, RGB_BLACK)
         waitfade
         clearflag(FLAG_UNK_189)
-        npcmsg(msg_0363_R25_00008)
+        npcmsg("Misty: We look good!\n"
+               "I really like Water-type Pokémon!")
         waitbuttonpress
         closemessage
         releaseall
@@ -275,7 +293,10 @@ script scr_seq_R25_009 {
         end
     }
     if (var(VAR_TEMP_x4002) >= 1) { goto(_044B) }
-    npcmsg(msg_0363_R25_00001)
+    npcmsg("Misty: I love the sunset here!\n"
+           "It gives me courage to go on, you know?\r"
+           "Right!\r"
+           "Why don’t we exchange numbers? {YESNO 0}")
 _03D3:
     touchscreenmenuhide
     getmenuchoice(VAR_SPECIAL_RESULT)
@@ -285,7 +306,8 @@ _03D3:
     end
 _03F7:
     bufferplayersname(0)
-    npcmsg(msg_0363_R25_00002)
+    npcmsg("{STRVAR_1 3, 0, 0} registered Misty\n"
+           "in the Pokégear!")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     registergearnumber(PHONE_CONTACT_MISTY)
@@ -304,15 +326,22 @@ _03F7:
     end
 _043A:
     setvar(VAR_TEMP_x4002, 1)
-    npcmsg(msg_0363_R25_00004)
+    npcmsg("Misty: That’s a shame!")
     waitbuttonpress
     closemessage
     releaseall
     end
 _044B:
-    npcmsg(msg_0363_R25_00005)
+    npcmsg("Misty: So you do want to know\n"
+           "my number? {YESNO 0}")
     goto(_03D3)
     end
+}
+
+text msg_0363_R25_00003 {
+    "Misty: Give me a call on Wednesday\n"
+    "morning if you want another\f"
+    "battle with me!"
 }
 
 script scr_seq_R25_001 {
@@ -320,7 +349,9 @@ script scr_seq_R25_001 {
     lockall
     faceplayer
     if (!flag(FLAG_GOT_NUGGET_FROM_ACE_TRAINER_M_KEVIN)) {
-        npcmsg(msg_0363_R25_00011)
+        npcmsg("You took on one more battle than\n"
+               "you expected, but you won anyway.\r"
+               "As promised, you win a prize.\r")
         if (!itemspace(ITEM_NUGGET, 1)) {
             callstd(std_bag_is_full)
             closemessage
@@ -329,7 +360,9 @@ script scr_seq_R25_001 {
         }
         callstd(std_give_item_verbose)
         setflag(FLAG_GOT_NUGGET_FROM_ACE_TRAINER_M_KEVIN)
-        npcmsg(msg_0363_R25_00013)
+        npcmsg("But after seeing how you battle,\n"
+               "I want to see how I’ll fare.\f"
+               "How about it? Let me take you on.\r")
         closemessage
         trainerbattle(TRAINER_ACE_TRAINER_M_KEVIN, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
@@ -339,7 +372,10 @@ script scr_seq_R25_001 {
             end
         }
     }
-    npcmsg(msg_0363_R25_00014)
+    npcmsg("I’ve never had a battle this\n"
+           "wonderful!\r"
+           "You and your Pokémon are\n"
+           "really strong!")
     waitbuttonpress
     closemessage
     releaseall
@@ -378,7 +414,14 @@ script scr_seq_R25_004 {
     applymovement(obj_R25_minaki, Route25_Movement_069C)
     applymovement(obj_player, Route25_Movement_0690)
     waitmovement
-    npcmsg(msg_0363_R25_00016)
+    npcmsg("Eusine: Puff, puff...\n"
+           "I am...no match for you.\f"
+           "...As I predicted.\r"
+           "..................\n"
+           "...Go ahead.\r"
+           "Since I met you in the Burned Tower\n"
+           "at Ecruteak City, I’ve sort of known\f"
+           "that SUICUNE would choose you.\r")
     closemessage
     applymovement(obj_R25_minaki, Route25_Movement_06B0)
     applymovement(obj_player, Route25_Movement_0684)
@@ -390,6 +433,14 @@ script scr_seq_R25_004 {
     setvar(VAR_SCENE_ROUTE_25, 2)
     releaseall
     end
+}
+
+text msg_0363_R25_00017 {
+    "Eusine: Take a look at it!\n"
+    "SUICUNE is waiting for you!\f"
+    "It has been waiting for a battle\f"
+    "with a worthy Trainer to whom\f"
+    "it can entrust itself!"
 }
 
 movement Route25_Movement_0648 {
@@ -487,13 +538,26 @@ script scr_seq_R25_007 {
             applymovement(obj_player, Route25_Movement_07EC)
             waitmovement
             bufferplayersname(0)
-            npcmsg(msg_0363_R25_00019)
+            npcmsg("Eusine: {STRVAR_1 3, 0, 0}...\n"
+                   "There is nothing to be ashamed of.\r"
+                   "No one can pick on you just because\n"
+                   "you ran from SUICUNE.\r"
+                   "It’s just that SUICUNE is such an\n"
+                   "amazing Pokémon. That’s all.\f"
+                   "Anyway, SUICUNE is gone again.\f"
+                   "It’s back to square one...\r")
             closemessage
             if (flag(FLAG_HIDE_ROUTE_25_EUSINE_2)) { goto(_0766) }
             goto(_0786)
         }
         bufferplayersname(0)
-        npcmsg(msg_0363_R25_00018)
+        npcmsg("Eusine: {STRVAR_1 3, 0, 0}...\n"
+               "You two are truly amazing...\r"
+               "I have never seen a battle\n"
+               "this intense!\f"
+               "I have no regrets...\r"
+               "Farewell, SUICUNE!\n"
+               "Farewell...{STRVAR_1 3, 0, 0}!\r")
         closemessage
         if (!flag(FLAG_HIDE_ROUTE_25_EUSINE_2)) {
         } else {
@@ -537,7 +601,8 @@ movement Route25_Movement_0800 {
 }
 
 script scr_seq_R25_002 {
-    trainertipsex(2, msg_0363_R25_00015)
+    trainertipsex(2, "Sea Cottage\n"
+                     "Bill’s House")
     end
 }
 

@@ -146,7 +146,7 @@ script scr_seq_D24R0204_002 {
     wait(2, VAR_SPECIAL_x8004)
     if (flag(FLAG_OPENED_ALPH_FLASH_SECRET_ROOM)) {
         wait(20, VAR_SPECIAL_x8004)
-        npcmsg(msg_0075_D24R0204_00001)
+        npcmsg("Nothing happened...")
         waitbuttonpress
         closemessage
         releaseall
