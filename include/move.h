@@ -13,11 +13,11 @@ typedef struct MoveTbl {
     u8 effectChance;
     u16 range;
     s8 priority;
-    u8 flags;
+    u8 flags; // MOVE_FLAG_*
     struct {
-        u8 unkC;
-        u8 contestType;
-        u16 unk_E;
+        u8 contestEffect;
+        u8 contestType; // CONTEST_CATEGORY_*
+        u16 padding;
     };
 } MoveTbl;
 
@@ -31,8 +31,8 @@ typedef enum MoveAttr {
     MOVEATTR_EFFECT_CHANCE,
     MOVEATTR_RANGE,
     MOVEATTR_PRIORTY,
-    MOVEATTR_UNK9,
-    MOVEATTR_UNK10,
+    MOVEATTR_FLAGS,
+    MOVEATTR_CONTEST_EFFECT,
     MOVEATTR_CONTEST_TYPE,
 } MoveAttr;
 

@@ -2560,7 +2560,7 @@ static BOOL BattleSystem_CheckMoveEffect(BattleSystem *battleSystem, BattleConte
     }
 
     if (ctx->turnData[battlerIdTarget].protectFlag
-        && ctx->trainerAIData.moveData[move].flags & (1 << 1)
+        && ctx->trainerAIData.moveData[move].flags & MOVE_FLAG_CAN_PROTECT
         && (move != MOVE_CURSE || CurseUserIsGhost(ctx, move, battlerIdAttacker) == TRUE)
         && (!BattleCtx_IsIdenticalToCurrentMove(ctx, move) || ctx->battleStatus & BATTLE_STATUS_CHARGE_MOVE_HIT)) {
         UnlockBattlerOutOfCurrentMove(battleSystem, ctx, battlerIdAttacker);
@@ -2606,7 +2606,7 @@ static BOOL BattleControllerPlayer_CheckMagicCoat(BattleSystem *battleSystem, Ba
         return FALSE;
     }
 
-    if (!(ctx->moveStatusFlag & MOVE_STATUS_FAIL) && ctx->turnData[ctx->battlerIdTarget].magicCoatFlag && (ctx->trainerAIData.moveData[ctx->moveNoCur].flags & 4)) {
+    if (!(ctx->moveStatusFlag & MOVE_STATUS_FAIL) && ctx->turnData[ctx->battlerIdTarget].magicCoatFlag && (ctx->trainerAIData.moveData[ctx->moveNoCur].flags & MOVE_FLAG_CAN_MAGIC_COAT)) {
         ctx->turnData[ctx->battlerIdTarget].magicCoatFlag = 0;
         ctx->moveNoProtect[ctx->battlerIdAttacker] = 0;
         ctx->moveNoBattlerPrev[ctx->battlerIdAttacker] = ctx->moveNoTemp;
@@ -2621,7 +2621,7 @@ static BOOL BattleControllerPlayer_CheckMagicCoat(BattleSystem *battleSystem, Ba
 
     for (i = 0; i < maxBattlers; i++) {
         battlerId = ctx->turnOrder[i];
-        if (!(ctx->moveStatusFlag & MOVE_STATUS_FAIL) && ctx->turnData[battlerId].snatchFlag && ctx->trainerAIData.moveData[ctx->moveNoCur].flags & 8) {
+        if (!(ctx->moveStatusFlag & MOVE_STATUS_FAIL) && ctx->turnData[battlerId].snatchFlag && ctx->trainerAIData.moveData[ctx->moveNoCur].flags & MOVE_FLAG_CAN_SNATCH) {
             ctx->battlerIdTemp = battlerId;
             ctx->turnData[battlerId].snatchFlag = 0;
             if (!(ctx->battleStatus & BATTLE_STATUS_NO_MOVE_SET)) {
@@ -3721,7 +3721,7 @@ static void BattleControllerPlayer_UpdateTargetMoveHistory(BattleSystem *battleS
 
     flag = ctx->trainerAIData.moveData[ctx->moveNoTemp].flags;
 
-    if (flag & 0x10 && !(ctx->battleStatus & BATTLE_STATUS_NO_MOVE_SET) && ctx->battlerIdTarget != BATTLER_NONE && ctx->battleStatus2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE) {
+    if (flag & MOVE_FLAG_CAN_MIRROR_MOVE && !(ctx->battleStatus & BATTLE_STATUS_NO_MOVE_SET) && ctx->battlerIdTarget != BATTLER_NONE && ctx->battleStatus2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE) {
         ctx->moveNoCopied[ctx->battlerIdTarget] = ctx->moveNoTemp;
         ctx->moveNoCopiedHit[ctx->battlerIdTarget][ctx->battlerIdAttacker] = ctx->moveNoTemp;
     }
@@ -3836,7 +3836,7 @@ static BOOL TryItemFlinch(BattleSystem *battleSystem, BattleContext *ctx) {
         && !(ctx->moveStatusFlag & MOVE_STATUS_FAIL)
         && (ctx->selfTurnData[ctx->battlerIdTarget].physicalDamage != 0 || ctx->selfTurnData[ctx->battlerIdTarget].specialDamage != 0)
         && (BattleSystem_Random(battleSystem) % 100) < itemMod
-        && ctx->trainerAIData.moveData[ctx->moveNoCur].flags & (1 << 5)
+        && ctx->trainerAIData.moveData[ctx->moveNoCur].flags & MOVE_FLAG_CAN_KINGS_ROCK
         && ctx->battleMons[ctx->battlerIdTarget].hp != 0) {
         ctx->battlerIdStatChange = ctx->battlerIdTarget;
         ctx->statChangeType = 2;

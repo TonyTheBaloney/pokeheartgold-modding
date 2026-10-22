@@ -503,6 +503,23 @@
 #define RANGE_SINGLE_TARGET_USER_SIDE (1 << 9)
 #define RANGE_FRONT                   (1 << 10)
 
+// MoveTbl.flags
+#define MOVE_FLAG_MAKES_CONTACT     (1 << 0) // Rough Skin, Static, Sticky Barb, ...
+#define MOVE_FLAG_CAN_PROTECT       (1 << 1) // stopped by Protect and Detect
+#define MOVE_FLAG_CAN_MAGIC_COAT    (1 << 2) // reflected by Magic Coat
+#define MOVE_FLAG_CAN_SNATCH        (1 << 3) // stolen by Snatch
+#define MOVE_FLAG_CAN_MIRROR_MOVE   (1 << 4) // copied by Mirror Move
+#define MOVE_FLAG_CAN_KINGS_ROCK    (1 << 5) // King's Rock / Razor Fang can flinch
+#define MOVE_FLAG_KEEP_HP_BAR       (1 << 6) // HP bars stay shown during the animation
+#define MOVE_FLAG_ANIM_G3_MASK      (1 << 7) // sets the Pokepic G3 update mask during the animation
+
+// MoveTbl.contestType
+#define CONTEST_CATEGORY_COOL   0
+#define CONTEST_CATEGORY_BEAUTY 1
+#define CONTEST_CATEGORY_CUTE   2
+#define CONTEST_CATEGORY_SMART  3
+#define CONTEST_CATEGORY_TOUGH  4
+
 // Tutor move flags
 #define TUTOR_DIVE          0
 #define TUTOR_MUD_SLAP      1

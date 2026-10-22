@@ -4,6 +4,7 @@
 
     level_up_learnsets.json  -> poketool/personal/wotbl.narc
     egg_moves.json           -> fielddata/sodateya/kowaza_list.narc
+    battle_moves.json        -> poketool/waza/waza_tbl.narc
 
 Formats follow pokeemerald's src/data/pokemon/level_up_learnsets.h
 (LEVEL_UP_MOVE(level, MOVE_X)) and egg_moves.h (egg_moves(SPECIES, MOVE_X, ...)),
@@ -12,11 +13,16 @@ written as JSON keyed by species constant:
     "SPECIES_BULBASAUR": [ { "level": 1, "move": "MOVE_TACKLE" }, ... ]
     "SPECIES_BULBASAUR": [ "MOVE_LIGHT_SCREEN", "MOVE_SKULL_BASH", ... ]
 
+battle_moves.json follows pokeemerald's src/data/battle_moves.h, keyed by move
+constant: "MOVE_POUND": { "effect": "MOVE_EFFECT_HIT", "power": 40, ... }.
+
 Usage:
     pokedata.py learnsets IN.json OUT.narc --nitroarc PATH --include DIR --work DIR
     pokedata.py egg-moves IN.json OUT.narc --nitroarc PATH --include DIR --work DIR
+    pokedata.py moves IN.json OUT.narc --nitroarc PATH --include DIR --work DIR
     pokedata.py extract-learnsets wotbl.narc OUT.json --include DIR
     pokedata.py extract-egg-moves kowaza_list.narc OUT.json --include DIR
+    pokedata.py extract-moves waza_tbl.narc OUT.json --include DIR
 """
 
 import argparse
@@ -47,15 +53,18 @@ class DataError(Exception):
 # --- constants ---------------------------------------------------------------------
 
 def read_defines(path, prefix):
-    """{NAME: int} for `#define PREFIX... <int or earlier name>` lines, in file order."""
+    """{NAME: int} for `#define PREFIX... <int, (1 << n) or earlier name>` lines, in file order."""
     out = {}
     with open(path, encoding="utf-8") as f:
         for line in f:
-            m = re.match(r"\s*#define\s+(%s\w+)\s+(\w+)\s*(?://.*)?$" % prefix, line)
+            m = re.match(r"\s*#define\s+(%s\w+)\s+(\w+|\(\s*1\s*<<\s*\d+\s*\))\s*(?://.*)?$" % prefix, line)
             if not m:
                 continue
             v = m.group(2)
-            if re.fullmatch(r"0[xX][0-9a-fA-F]+|\d+", v):
+            shift = re.fullmatch(r"\(\s*1\s*<<\s*(\d+)\s*\)", v)
+            if shift:
+                out[m.group(1)] = 1 << int(shift.group(1))
+            elif re.fullmatch(r"0[xX][0-9a-fA-F]+|\d+", v):
                 out[m.group(1)] = int(v, 0)
             elif v in out:
                 out[m.group(1)] = out[v]
@@ -71,9 +80,14 @@ class Constants:
                     raise DataError("%s doesn't define %s" % (header, n))
                 setattr(self, n, d[n])
         self.species = read_defines(os.path.join(include, "constants/species.h"), "SPECIES_")
-        moves = read_defines(os.path.join(include, "constants/moves.h"), "MOVE_")
-        last = moves.get("NUM_MOVES") or max(v for k, v in moves.items() if not k.startswith("MOVE_ATTRIBUTE_"))
-        self.moves = {k: v for k, v in moves.items() if not k.startswith("MOVE_ATTRIBUTE_") and v <= last}
+        moves_h = os.path.join(include, "constants/moves.h")
+        moves = {k: v for k, v in read_defines(moves_h, "MOVE_").items()
+                 if not k.startswith(("MOVE_ATTRIBUTE_", "MOVE_FLAG_"))}
+        num = re.search(r"^\s*#define\s+NUM_MOVES\s+(\w+)", open(moves_h, encoding="utf-8").read(), re.M)
+        if not num:
+            raise DataError("constants/moves.h doesn't define NUM_MOVES")
+        self.num_moves = moves[num.group(1)] if num.group(1) in moves else int(num.group(1), 0)
+        self.moves = {k: v for k, v in moves.items() if v <= self.num_moves}
         self.num_species = max(self.species.values()) + 1
         self.species_name = {}
         for k, v in self.species.items():
@@ -81,6 +95,17 @@ class Constants:
         self.move_name = {}
         for k, v in self.moves.items():
             self.move_name.setdefault(v, k)
+        # names for the fields of battle_moves.json: {field: {NAME: value}}
+        types = read_defines(os.path.join(include, "constants/pokemon.h"), "TYPE_")
+        self.move_fields = {
+            "effect": read_defines(os.path.join(include, "constants/move_effects.h"), "MOVE_EFFECT_"),
+            "category": read_defines(moves_h, "CATEGORY_"),
+            "type": {k: v for k, v in types.items() if k not in ("TYPE_NONE", "TYPE_FORESIGHT", "TYPE_ENDTABLE")
+                     and not k.startswith("TYPE_MUL_")},
+            "target": read_defines(moves_h, "RANGE_"),
+            "flags": read_defines(moves_h, "MOVE_FLAG_"),
+            "contestCategory": read_defines(moves_h, "CONTEST_CATEGORY_"),
+        }
 
     def species_id(self, name, where):
         if name not in self.species:
@@ -142,6 +167,20 @@ def write_egg_moves_json(path, lists):
         f.write("\n".join(out) + "\n")
 
 
+def write_moves_json(path, moves):
+    """One move per block, fields in MOVE_FIELDS order; flags on one line."""
+    out = ["{"]
+    for i, (key, fields) in enumerate(moves):
+        out.append('    "%s": {' % key)
+        items = list(fields.items())
+        for j, (k, v) in enumerate(items):
+            out.append('        "%s": %s%s' % (k, json.dumps(v), "," if j < len(items) - 1 else ""))
+        out.append("    }%s" % ("," if i < len(moves) - 1 else ""))
+    out.append("}")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(out) + "\n")
+
+
 # --- binary --------------------------------------------------------------------------
 
 def learnset_member(moves, c):
@@ -194,6 +233,78 @@ def build_egg_moves(path, c):
         words += [c.move_id(m, "%s: %s" % (path, species)) for m in moves]
     words.append(c.EGG_MOVES_TERMINATOR)
     return [b"".join(struct.pack("<H", w) for w in words)]
+
+
+# waza_tbl member: struct MoveTbl (include/move.h). LoadMoveTbl reads all of them at once
+# from member 0, so every member must be exactly this size.
+MOVE_TBL = struct.Struct("<HBBBBBBHbBBBH")
+MOVE_FIELDS = (  # (JSON key, MoveTbl field, named by c.move_fields?, lo, hi)
+    ("effect", "effect", True, 0, 0xFFFF),
+    ("category", "category", True, 0, 0xFF),
+    ("power", "power", False, 0, 0xFF),
+    ("type", "type", True, 0, 0xFF),
+    ("accuracy", "accuracy", False, 0, 100),
+    ("pp", "pp", False, 0, 0xFF),
+    ("secondaryEffectChance", "effectChance", False, 0, 100),
+    ("target", "range", True, 0, 0xFFFF),
+    ("priority", "priority", False, -128, 127),
+    ("flags", "flags", True, 0, 0xFF),
+    ("contestEffect", "unkC", False, 0, 0xFF),
+    ("contestCategory", "contestType", True, 0, 0xFF),
+)
+
+
+def move_member(key, fields, c, where):
+    if not isinstance(fields, dict):
+        raise DataError("%s: expected an object" % where)
+    unknown = set(fields) - {f[0] for f in MOVE_FIELDS}
+    if unknown:
+        raise DataError("%s: unknown field %s" % (where, ", ".join(sorted(unknown))))
+    values = []
+    for name, _, named, lo, hi in MOVE_FIELDS:
+        if name not in fields:
+            raise DataError("%s: missing %r" % (where, name))
+        v = fields[name]
+        if name == "flags":
+            if not isinstance(v, list):
+                raise DataError("%s: flags: expected a list of MOVE_FLAG_* names" % where)
+            bits = 0
+            for flag in v:
+                if flag not in c.move_fields["flags"]:
+                    raise DataError("%s: unknown flag %r" % (where, flag))
+                bits |= c.move_fields["flags"][flag]
+            v = bits
+        elif named and isinstance(v, str):
+            if v not in c.move_fields[name]:
+                raise DataError("%s: %s: unknown %r" % (where, name, v))
+            v = c.move_fields[name][v]
+        if isinstance(v, bool) or not isinstance(v, int) or not lo <= v <= hi:
+            raise DataError("%s: %s %r is not %d-%d" % (where, name, fields[name], lo, hi))
+        values.append(v)
+    return MOVE_TBL.pack(*values, 0)
+
+
+def build_moves(path, c):
+    """Keys are MOVE_* constants, or a number for the spare entries past NUM_MOVES."""
+    doc = load_json(path)
+    by_id = {}
+    for key, fields in doc.items():
+        if re.fullmatch(r"\d+", key):
+            mid = int(key)
+            if mid <= c.num_moves:
+                raise DataError("%s: %s: use the move's name (%s)" % (path, key, c.move_name[mid]))
+        else:
+            mid = c.move_id(key, path)
+        if mid in by_id:
+            raise DataError("%s: %s and %s are the same move (%d)" % (path, by_id[mid][0], key, mid))
+        by_id[mid] = (key, move_member(key, fields, c, "%s: %s" % (path, key)))
+    missing = [c.move_name.get(i, str(i)) for i in range(max(by_id) + 1) if i not in by_id]
+    if missing:
+        raise DataError("%s: missing %s (moves are stored by number, so every one needs an entry)"
+                        % (path, ", ".join(missing[:5]) + (" ..." if len(missing) > 5 else "")))
+    if max(by_id) < c.num_moves:
+        raise DataError("%s: NUM_MOVES is %d but the last entry is %d" % (path, c.num_moves, max(by_id)))
+    return [by_id[i][1] for i in range(len(by_id))]
 
 
 def pack(members, out, nitroarc, work):
@@ -249,9 +360,34 @@ def extract_egg_moves(narc, c):
     return lists
 
 
+def extract_moves(narc, c):
+    names = {field: {} for field in c.move_fields}
+    for field, table in c.move_fields.items():
+        for k, v in table.items():
+            names[field].setdefault(v, k)
+    moves = []
+    for mid, data in enumerate(narc_members(narc)):
+        values = MOVE_TBL.unpack(data)
+        if values[-1]:
+            raise DataError("move %d: padding is %d, not 0" % (mid, values[-1]))
+        fields = {}
+        for (name, _, named, _, _), v in zip(MOVE_FIELDS, values):
+            if name == "flags":
+                fields[name] = [k for k, bit in c.move_fields["flags"].items() if v & bit]
+                if sum(c.move_fields["flags"][k] for k in fields[name]) != v:
+                    raise DataError("move %d: unnamed flag bits in 0x%X" % (mid, v))
+            elif named:
+                fields[name] = names[name].get(v, v)
+            else:
+                fields[name] = v
+        moves.append((c.move_name.get(mid, str(mid)), fields))
+    return moves
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("action", choices=("learnsets", "egg-moves", "extract-learnsets", "extract-egg-moves"))
+    ap.add_argument("action", choices=("learnsets", "egg-moves", "moves",
+                                       "extract-learnsets", "extract-egg-moves", "extract-moves"))
     ap.add_argument("input")
     ap.add_argument("output")
     ap.add_argument("--include", required=True, help="the repo's include/ directory")
@@ -264,8 +400,11 @@ def main(argv=None):
             write_learnsets_json(a.output, extract_learnsets(a.input, c))
         elif a.action == "extract-egg-moves":
             write_egg_moves_json(a.output, extract_egg_moves(a.input, c))
+        elif a.action == "extract-moves":
+            write_moves_json(a.output, extract_moves(a.input, c))
         else:
-            members = (build_learnsets if a.action == "learnsets" else build_egg_moves)(a.input, c)
+            build = {"learnsets": build_learnsets, "egg-moves": build_egg_moves, "moves": build_moves}[a.action]
+            members = build(a.input, c)
             pack(members, a.output, a.nitroarc, a.work or os.path.dirname(os.path.abspath(a.output)))
     except DataError as e:
         print("error: %s" % e, file=sys.stderr)

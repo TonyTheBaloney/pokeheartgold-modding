@@ -59,7 +59,7 @@ The baby/base species used for eggs is **not** here; it's the binary
 | Egg moves | `files/poketool/personal/egg_moves.json` | yes |
 | TM/HM compatibility | `personal.json` `tms`/`hms` | yes |
 | Move tutors | `files/fielddata/wazaoshie/waza_oshie.json` | yes |
-| Move data itself (power, type, ...) | `files/poketool/waza/waza_tbl.narc` | **no** (binary) |
+| Move data itself (power, type, ...) | `files/poketool/waza/battle_moves.json`, see [moves.md](moves.md) | yes |
 
 ### Level-up learnsets
 

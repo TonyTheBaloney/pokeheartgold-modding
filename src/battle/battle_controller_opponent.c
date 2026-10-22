@@ -6961,12 +6961,12 @@ static void BattleController_InitBattlerPicParams(BattleSystem *battleSystem, Mo
 static void MoveAnim_GetDisplayFlags(u8 *disableHpBar, u8 *updateG3, BOOL isEffect, int effect, u16 move) {
     if (!isEffect) {
         const u16 moveNo = move;
-        if (!(GetMoveAttr(moveNo, MOVEATTR_UNK9) & 0x40)) {
+        if (!(GetMoveAttr(moveNo, MOVEATTR_FLAGS) & MOVE_FLAG_KEEP_HP_BAR)) {
             *disableHpBar = TRUE;
         } else {
             *disableHpBar = FALSE;
         }
-        if (GetMoveAttr(moveNo, MOVEATTR_UNK9) & 0x80) {
+        if (GetMoveAttr(moveNo, MOVEATTR_FLAGS) & MOVE_FLAG_ANIM_G3_MASK) {
             *updateG3 = TRUE;
             return;
         }

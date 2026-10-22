@@ -131,10 +131,11 @@ subdir('lib')
 ###                     FILE SYSTEM                      ###
 ############################################################
 # [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] per-map folders (data/maps); see tools/mapkit
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] species move data: JSON -> NARCs (tools/pokedata)
+# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] species and move data: JSON -> NARCs (tools/pokedata)
 pokedata_py = find_program('tools/pokedata/pokedata.py')
 pokedata_depends = files('tools/pokedata/pokedata.py', 'include/constants/species.h', 'include/constants/moves.h',
-    'include/constants/pokemon.h', 'include/pokemon.h', 'include/constants/daycare.h')
+    'include/constants/pokemon.h', 'include/pokemon.h', 'include/constants/daycare.h',
+    'include/constants/move_effects.h')
 subdir('data/maps')
 subdir('files')
 naix_headers += maps_headers
