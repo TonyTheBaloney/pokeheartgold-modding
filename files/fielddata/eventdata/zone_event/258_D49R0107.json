@@ -3,46 +3,46 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_D49R0107_001 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 8,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D49R0107_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 5,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D49R0107_003 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 10,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D49R0107_004 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 4,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         }
     ],
     "objects": [
         {
             "id": "obj_D49R0107_thlonowner",
             "spriteId": "SPRITE_THLONOWNER",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D49R0107_000 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -55,11 +55,11 @@
         {
             "id": "obj_D49R0107_statuehero",
             "spriteId": "SPRITE_STATUEHERO",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -72,11 +72,11 @@
         {
             "id": "obj_D49R0107_statueheroine",
             "spriteId": "SPRITE_STATUEHEROINE",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

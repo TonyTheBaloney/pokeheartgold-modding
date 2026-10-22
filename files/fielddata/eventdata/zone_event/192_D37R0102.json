@@ -3,110 +3,110 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_D37R0102_007 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 23,
             "z": 30,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_012 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 2,
             "z": 49,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_013 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 5,
             "z": 49,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_014 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 49,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_015 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 9,
             "z": 49,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_016 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 49,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_017 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 13,
             "z": 49,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_018 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 5,
             "z": 55,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_019 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 55,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_020 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 9,
             "z": 55,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_021 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 55,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D37R0102_022 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 13,
             "z": 55,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         }
     ],
     "objects": [
         {
             "id": "obj_D37R0102_gsoldman1",
             "spriteId": "SPRITE_GSOLDMAN1",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_1B0",
             "scriptId": "_EV_scr_seq_D37R0102_003 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -119,11 +119,11 @@
         {
             "id": "obj_D37R0102_gsman3",
             "spriteId": "SPRITE_GSMAN3",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_1B2",
             "scriptId": "_EV_scr_seq_D37R0102_001 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -136,11 +136,11 @@
         {
             "id": "obj_D37R0102_gsman2",
             "spriteId": "SPRITE_GSMAN2",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_1B3",
             "scriptId": "_EV_scr_seq_D37R0102_002 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -153,11 +153,11 @@
         {
             "id": "obj_D37R0102_gsoldwoman1",
             "spriteId": "SPRITE_GSOLDWOMAN1",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_1B1",
             "scriptId": "_EV_scr_seq_D37R0102_000 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -170,11 +170,11 @@
         {
             "id": "obj_D37R0102_mania",
             "spriteId": "SPRITE_MANIA",
-            "movement": 0,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_HIDE_ROCKET_TAKEOVER_2",
             "scriptId": "std_trainer(TRAINER_POKE_MANIAC_DONALD)",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 4,
             "param1": 0,
             "param2": 0,
@@ -187,11 +187,11 @@
         {
             "id": "obj_D37R0102_gsassistantm",
             "spriteId": "SPRITE_GSASSISTANTM",
-            "movement": 0,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_HIDE_ROCKET_TAKEOVER_2",
             "scriptId": "std_trainer(TRAINER_SUPER_NERD_TERU)",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 4,
             "param1": 0,
             "param2": 0,
@@ -204,11 +204,11 @@
         {
             "id": "obj_D37R0102_mania_2",
             "spriteId": "SPRITE_MANIA",
-            "movement": 0,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_HIDE_ROCKET_TAKEOVER_2",
             "scriptId": "std_trainer(TRAINER_POKE_MANIAC_ISSAC)",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 6,
             "param1": 0,
             "param2": 0,
@@ -221,11 +221,11 @@
         {
             "id": "obj_D37R0102_gsassistantm_2",
             "spriteId": "SPRITE_GSASSISTANTM",
-            "movement": 0,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_HIDE_ROCKET_TAKEOVER_2",
             "scriptId": "std_trainer(TRAINER_SUPER_NERD_ERIC)",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 6,
             "param1": 0,
             "param2": 0,
@@ -238,11 +238,11 @@
         {
             "id": "obj_D37R0102_rocketm",
             "spriteId": "SPRITE_ROCKETM",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_1B4",
             "scriptId": "_EV_scr_seq_D37R0102_009 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -255,11 +255,11 @@
         {
             "id": "obj_D37R0102_mount_2",
             "spriteId": "SPRITE_MOUNT_2",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ROCKET_TAKEOVER_2",
             "scriptId": "_EV_scr_seq_D37R0102_005 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -272,11 +272,11 @@
         {
             "id": "obj_D37R0102_gsmiddleman1",
             "spriteId": "SPRITE_GSMIDDLEMAN1",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ROCKET_TAKEOVER_2",
             "scriptId": "_EV_scr_seq_D37R0102_006 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -289,11 +289,11 @@
         {
             "id": "obj_D37R0102_babyboy1_8",
             "spriteId": "SPRITE_BABYBOY1_8",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_1C0",
             "scriptId": "_EV_scr_seq_D37R0102_010 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -306,11 +306,11 @@
         {
             "id": "obj_D37R0102_dancer",
             "spriteId": "SPRITE_DANCER",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_UNDERGROUND_KIMONO_GIRL",
             "scriptId": 0,
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -323,11 +323,11 @@
         {
             "id": "obj_D37R0102_mount_2_2",
             "spriteId": "SPRITE_MOUNT_2",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ROCKET_TAKEOVER_2",
             "scriptId": "_EV_scr_seq_D37R0102_023 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

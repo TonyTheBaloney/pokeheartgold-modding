@@ -3,214 +3,214 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_D32_030 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 46,
             "z": 49,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_031 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 50,
             "z": 49,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_030 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 46,
             "z": 48,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_030 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 47,
             "z": 48,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_030 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 47,
             "z": 49,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_031 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 50,
             "z": 48,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_031 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 51,
             "z": 49,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_031 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 51,
             "z": 48,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 50,
             "z": 39,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 51,
             "z": 39,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 50,
             "z": 38,
             "y": 0,
-            "dir": 1
+            "dir": "BG_DIR_EAST"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 50,
             "z": 37,
             "y": 0,
-            "dir": 1
+            "dir": "BG_DIR_EAST"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 50,
             "z": 36,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 51,
             "z": 36,
             "y": 0,
-            "dir": 3
+            "dir": "BG_DIR_NORTH"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 52,
             "z": 39,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 52,
             "z": 36,
             "y": 0,
-            "dir": 3
+            "dir": "BG_DIR_NORTH"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 53,
             "z": 36,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 53,
             "z": 37,
             "y": 0,
-            "dir": 2
+            "dir": "BG_DIR_WEST"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 53,
             "z": 38,
             "y": 0,
-            "dir": 2
+            "dir": "BG_DIR_WEST"
         },
         {
             "scriptId": "_EV_scr_seq_D32_032 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 53,
             "z": 39,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_025 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 47,
             "z": 19,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_029 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 72,
             "z": 32,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_026 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 25,
             "z": 32,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_027 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 35,
             "z": 57,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D32_028 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 62,
             "z": 57,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_D32_gswoman1",
             "spriteId": "SPRITE_GSWOMAN1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_017 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -223,11 +223,11 @@
         {
             "id": "obj_D32_gsoldwoman1",
             "spriteId": "SPRITE_GSOLDWOMAN1",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_008 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -240,11 +240,11 @@
         {
             "id": "obj_D32_gsoldman1",
             "spriteId": "SPRITE_GSOLDMAN1",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_007 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -257,11 +257,11 @@
         {
             "id": "obj_D32_gsbabygirl1",
             "spriteId": "SPRITE_GSBABYGIRL1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_005 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -274,11 +274,11 @@
         {
             "id": "obj_D32_gsboy1",
             "spriteId": "SPRITE_GSBOY1",
-            "movement": 6,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_LOOK_UP_LEFT",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_019 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -291,11 +291,11 @@
         {
             "id": "obj_D32_gsbabyboy1",
             "spriteId": "SPRITE_GSBABYBOY1",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_001 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -308,11 +308,11 @@
         {
             "id": "obj_D32_idol",
             "spriteId": "SPRITE_IDOL",
-            "movement": 10,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_LOOK_UP_DOWN_LEFT",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_003 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -325,11 +325,11 @@
         {
             "id": "obj_D32_badman",
             "spriteId": "SPRITE_BADMAN",
-            "movement": 2,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_LOOK_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_011 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -342,11 +342,11 @@
         {
             "id": "obj_D32_gsfighter",
             "spriteId": "SPRITE_GSFIGHTER",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_002 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -359,11 +359,11 @@
         {
             "id": "obj_D32_bfsw2",
             "spriteId": "SPRITE_BFSW2",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_022 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -376,11 +376,11 @@
         {
             "id": "obj_D32_bfsw2_2",
             "spriteId": "SPRITE_BFSW2",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_scratch_card",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -393,11 +393,11 @@
         {
             "id": "obj_D32_bfsw2_3",
             "spriteId": "SPRITE_BFSW2",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_024 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -410,11 +410,11 @@
         {
             "id": "obj_D32_gsmiddleman1",
             "spriteId": "SPRITE_GSMIDDLEMAN1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_012 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -427,11 +427,11 @@
         {
             "id": "obj_D32_gsbigman",
             "spriteId": "SPRITE_GSBIGMAN",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_013 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -444,11 +444,11 @@
         {
             "id": "obj_D32_gsgentleman",
             "spriteId": "SPRITE_GSGENTLEMAN",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_014 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -461,11 +461,11 @@
         {
             "id": "obj_D32_gsbabyboy1_2",
             "spriteId": "SPRITE_GSBABYBOY1",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_021 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -478,11 +478,11 @@
         {
             "id": "obj_D32_gsman2",
             "spriteId": "SPRITE_GSMAN2",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_018 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -495,11 +495,11 @@
         {
             "id": "obj_D32_cowgirl",
             "spriteId": "SPRITE_COWGIRL",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_010 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -512,11 +512,11 @@
         {
             "id": "obj_D32_fishing_2",
             "spriteId": "SPRITE_FISHING_2",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_020 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -529,11 +529,11 @@
         {
             "id": "obj_D32_picnicgirl_2",
             "spriteId": "SPRITE_PICNICGIRL_2",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_016 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -546,11 +546,11 @@
         {
             "id": "obj_D32_gswoman1_2",
             "spriteId": "SPRITE_GSWOMAN1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_006 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -563,11 +563,11 @@
         {
             "id": "obj_D32_gswoman1_3",
             "spriteId": "SPRITE_GSWOMAN1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_009 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -580,11 +580,11 @@
         {
             "id": "obj_D32_gsman3",
             "spriteId": "SPRITE_GSMAN3",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_015 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -597,11 +597,11 @@
         {
             "id": "obj_D32_fishing_2_2",
             "spriteId": "SPRITE_FISHING_2",
-            "movement": 10,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_LOOK_UP_DOWN_LEFT",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D32_004 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -614,11 +614,11 @@
         {
             "id": "obj_D32_gsmiddleman1_2",
             "spriteId": "SPRITE_GSMIDDLEMAN1",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_CAMERON",
             "scriptId": "_EV_scr_seq_D32_038 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

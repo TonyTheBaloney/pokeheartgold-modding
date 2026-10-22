@@ -3,38 +3,38 @@
     "bgs": [
         {
             "scriptId": "std_hiddenitem_d41r0102_rare_candy",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 28,
             "z": 41,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d41r0102_max_ether",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 23,
             "z": 12,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d41r0102_hyper_potion",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 20,
             "z": 40,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_EVERYWHERE_monstarball",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D41R0102_PURE_INCENSE",
             "scriptId": "std_itemball_d41r0102_pure_incense",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -47,11 +47,11 @@
         {
             "id": "obj_EVERYWHERE_monstarball_2",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D41R0102_DAWN_STONE",
             "scriptId": "std_itemball_d41r0102_dawn_stone",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

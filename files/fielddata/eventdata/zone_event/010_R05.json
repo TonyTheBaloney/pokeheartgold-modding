@@ -3,22 +3,22 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_R05_001 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 1308,
             "z": 186,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_R05_gsmiddleman1",
             "spriteId": "SPRITE_GSMIDDLEMAN1",
-            "movement": 15,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_DOWN",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_258",
             "scriptId": "_EV_scr_seq_R05_000 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

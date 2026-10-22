@@ -3,46 +3,46 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_T21_005 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 556,
             "z": 401,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T21_006 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 554,
             "z": 396,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_r29_r30_t21_nugget",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 572,
             "z": 390,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_t21_nugget",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 522,
             "z": 388,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_T21_gsoldman1",
             "spriteId": "SPRITE_GSOLDMAN1",
-            "movement": 15,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_DOWN",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_CHERRYGROVE_GUIDE_GENT",
             "scriptId": "_EV_scr_seq_T21_000 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -55,11 +55,11 @@
         {
             "id": "obj_T21_gsboy1",
             "spriteId": "SPRITE_GSBOY1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T21_007 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -72,11 +72,11 @@
         {
             "id": "obj_T21_gswoman1",
             "spriteId": "SPRITE_GSWOMAN1",
-            "movement": 5,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_LEFT_RIGHT",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T21_008 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -89,11 +89,11 @@
         {
             "id": "obj_T21_gsbigman",
             "spriteId": "SPRITE_GSBIGMAN",
-            "movement": 17,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_RIGHT",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T21_004 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -106,11 +106,11 @@
         {
             "id": "obj_T21_gsrivel",
             "spriteId": "SPRITE_GSRIVEL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_CHERRYGROVE_RIVAL",
             "scriptId": 0,
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -123,11 +123,11 @@
         {
             "id": "obj_T21_gsmiddleman1",
             "spriteId": "SPRITE_GSMIDDLEMAN1",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_CAMERON",
             "scriptId": "_EV_scr_seq_T21_009 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

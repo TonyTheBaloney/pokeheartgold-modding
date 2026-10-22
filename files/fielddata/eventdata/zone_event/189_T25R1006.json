@@ -3,46 +3,46 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_T25R1006_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 17,
             "z": 2,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T25R1006_003 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T25R1006_003 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 12,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T25R1006_003 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 13,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         }
     ],
     "objects": [
         {
             "id": "obj_T25R1006_gsman1",
             "spriteId": "SPRITE_GSMAN1",
-            "movement": 4,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_UP_DOWN",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T25R1006_000 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -55,11 +55,11 @@
         {
             "id": "obj_T25R1006_gsgirl2",
             "spriteId": "SPRITE_GSGIRL2",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T25R1006_001 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -72,11 +72,11 @@
         {
             "id": "obj_T25R1006_gswoman6",
             "spriteId": "SPRITE_GSWOMAN6",
-            "movement": 16,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_LEFT",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T25R1006_004 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -89,11 +89,11 @@
         {
             "id": "obj_T25R1006_gsleader3",
             "spriteId": "SPRITE_GSLEADER3",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_26F",
             "scriptId": "_EV_scr_seq_T25R1006_007 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -106,11 +106,11 @@
         {
             "id": "obj_T25R1006_gswoman6_2",
             "spriteId": "SPRITE_GSWOMAN6",
-            "movement": 16,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_LEFT",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T25R1006_005 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,

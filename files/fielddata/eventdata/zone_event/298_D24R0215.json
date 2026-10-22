@@ -3,46 +3,46 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_D24R0215_001 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 4,
             "z": 4,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0215_001 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 4,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0215_001 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 4,
             "z": 3,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0215_001 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 3,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_D24R0215_monstarball",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D24R0215_STARDUST",
             "scriptId": "std_itemball_d24r0215_stardust",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -55,11 +55,11 @@
         {
             "id": "obj_D24R0215_monstarball_2",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D24R0215_STAR_PIECE",
             "scriptId": "std_itemball_d24r0215_star_piece",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -72,11 +72,11 @@
         {
             "id": "obj_D24R0215_monstarball_3",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D24R0215_LEPPA_BERRY",
             "scriptId": "std_itemball_d24r0215_leppa_berry",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -89,11 +89,11 @@
         {
             "id": "obj_D24R0215_monstarball_4",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D24R0215_MYSTIC_WATER",
             "scriptId": "std_itemball_d24r0215_mystic_water",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

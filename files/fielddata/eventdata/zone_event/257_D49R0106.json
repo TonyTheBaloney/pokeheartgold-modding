@@ -3,62 +3,62 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_D49R0106_005 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 3,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D49R0106_006 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 10,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D49R0106_006 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D49R0106_004 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 6,
             "z": 11,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D49R0106_004 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 11,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_D49R0106_004 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 11,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         }
     ],
     "objects": [
         {
             "id": "obj_D49R0106_pcwoman2",
             "spriteId": "SPRITE_PCWOMAN2",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D49R0106_001 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -71,11 +71,11 @@
         {
             "id": "obj_D49R0106_pcwoman2_2",
             "spriteId": "SPRITE_PCWOMAN2",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D49R0106_000 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -88,11 +88,11 @@
         {
             "id": "obj_D49R0106_gsbigman",
             "spriteId": "SPRITE_GSBIGMAN",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D49R0106_002 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -105,11 +105,11 @@
         {
             "id": "obj_D49R0106_tsure_poke_static_dodrio",
             "spriteId": "SPRITE_FOLLOWER_MON_STATIC_DODRIO",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D49R0106_003 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -122,11 +122,11 @@
         {
             "id": "obj_D49R0106_signpokegear",
             "spriteId": "SPRITE_SIGNPOKEGEAR",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_POKEATHLON_POKEGEAR_SIGN",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -139,11 +139,11 @@
         {
             "id": "obj_D49R0106_signball",
             "spriteId": "SPRITE_SIGNBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_POKEATHLON_BALL_SIGN",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

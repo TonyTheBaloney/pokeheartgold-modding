@@ -3,46 +3,46 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_T07R0106_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 2,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T07R0106_003 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 15,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T07R0106_003 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 19,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T07R0106_003 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 20,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         }
     ],
     "objects": [
         {
             "id": "obj_T07R0106_gsman1",
             "spriteId": "SPRITE_GSMAN1",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T07R0106_000 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -55,11 +55,11 @@
         {
             "id": "obj_T07R0106_gsboy1",
             "spriteId": "SPRITE_GSBOY1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T07R0106_001 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,

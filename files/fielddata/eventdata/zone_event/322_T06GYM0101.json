@@ -3,150 +3,150 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_000 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 2,
             "z": 13,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_001 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 4,
             "z": 13,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 6,
             "z": 13,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_003 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 13,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_004 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 10,
             "z": 13,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_005 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 2,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_006 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 4,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_007 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 6,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_008 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_009 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 10,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_010 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 2,
             "z": 17,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_011 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 4,
             "z": 17,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_012 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 6,
             "z": 17,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_013 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 17,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_014 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 10,
             "z": 17,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_025 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 4,
             "z": 20,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T06GYM0101_025 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 20,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         }
     ],
     "objects": [
         {
             "id": "obj_T06GYM0101_stop",
             "spriteId": "SPRITE_STOP",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_VERMILION_GYM_STOPS",
             "scriptId": "_EV_scr_seq_T06GYM0101_015 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -159,11 +159,11 @@
         {
             "id": "obj_T06GYM0101_stop_2",
             "spriteId": "SPRITE_STOP",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_VERMILION_GYM_STOPS",
             "scriptId": "_EV_scr_seq_T06GYM0101_016 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -176,11 +176,11 @@
         {
             "id": "obj_T06GYM0101_stop_3",
             "spriteId": "SPRITE_STOP",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_VERMILION_GYM_STOPS",
             "scriptId": "_EV_scr_seq_T06GYM0101_017 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -193,11 +193,11 @@
         {
             "id": "obj_T06GYM0101_stop_4",
             "spriteId": "SPRITE_STOP",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_VERMILION_GYM_STOPS",
             "scriptId": "_EV_scr_seq_T06GYM0101_018 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -210,11 +210,11 @@
         {
             "id": "obj_T06GYM0101_stop_5",
             "spriteId": "SPRITE_STOP",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_VERMILION_GYM_STOPS",
             "scriptId": "_EV_scr_seq_T06GYM0101_019 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -227,11 +227,11 @@
         {
             "id": "obj_T06GYM0101_stop_6",
             "spriteId": "SPRITE_STOP",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_VERMILION_GYM_STOPS",
             "scriptId": "_EV_scr_seq_T06GYM0101_020 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -244,11 +244,11 @@
         {
             "id": "obj_T06GYM0101_gsman2",
             "spriteId": "SPRITE_GSMAN2",
-            "movement": 15,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_FACE_DOWN",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_trainer(TRAINER_GUITARIST_VINCENT)",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 3,
             "param1": 0,
             "param2": 0,
@@ -261,11 +261,11 @@
         {
             "id": "obj_T06GYM0101_juggrer",
             "spriteId": "SPRITE_JUGGRER",
-            "movement": 17,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_FACE_RIGHT",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_trainer(TRAINER_JUGGLER_HORTON)",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 2,
             "param1": 0,
             "param2": 0,
@@ -278,11 +278,11 @@
         {
             "id": "obj_T06GYM0101_gsgentleman",
             "spriteId": "SPRITE_GSGENTLEMAN",
-            "movement": 16,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_FACE_LEFT",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_trainer(TRAINER_GENTLEMAN_GREGORY)",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 5,
             "param1": 0,
             "param2": 0,
@@ -295,11 +295,11 @@
         {
             "id": "obj_T06GYM0101_gsleader9",
             "spriteId": "SPRITE_GSLEADER9",
-            "movement": 15,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_DOWN",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_VERMILION_GYM_LT_SURGE",
             "scriptId": "_EV_scr_seq_T06GYM0101_023 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -312,11 +312,11 @@
         {
             "id": "obj_T06GYM0101_sunglasses",
             "spriteId": "SPRITE_SUNGLASSES",
-            "movement": 15,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_DOWN",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T06GYM0101_024 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

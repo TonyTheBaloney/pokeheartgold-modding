@@ -3,54 +3,54 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_T20R0201_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 5,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0201_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 6,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0201_004 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0201_003 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 9,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0201_005 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         }
     ],
     "objects": [
         {
             "id": "obj_T20R0201_gsmama",
             "spriteId": "SPRITE_GSMAMA",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T20R0201_001 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,

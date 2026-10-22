@@ -3,102 +3,102 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_T20R0101_005 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 1,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_005 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 2,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_006 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_006 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_007 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 9,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_007 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 10,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_008 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_008 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 12,
             "z": 10,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_009 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 6,
             "z": 3,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_012 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 8,
             "z": 4,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T20R0101_013 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 4,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         }
     ],
     "objects": [
         {
             "id": "obj_T20R0101_doctor",
             "spriteId": "SPRITE_DOCTOR",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ELMS_LAB_ELM",
             "scriptId": "_EV_scr_seq_T20R0101_000 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -111,11 +111,11 @@
         {
             "id": "obj_T20R0101_policeman",
             "spriteId": "SPRITE_POLICEMAN",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ELMS_LAB_OFFICER",
             "scriptId": 0,
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -128,11 +128,11 @@
         {
             "id": "obj_T20R0101_assistantm",
             "spriteId": "SPRITE_ASSISTANTM",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ELMS_LAB_AIDE",
             "scriptId": "_EV_scr_seq_T20R0101_001 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -145,11 +145,11 @@
         {
             "id": "obj_T20R0101_var_1",
             "spriteId": "SPRITE_VAR_1",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ELMS_LAB_FRIEND",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

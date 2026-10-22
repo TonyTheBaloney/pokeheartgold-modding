@@ -3,11 +3,11 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_R16_001 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 1132,
             "z": 283,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "warps": [

@@ -3,62 +3,62 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_T26_004 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 265,
             "z": 238,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T26_005 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 279,
             "z": 247,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T26_006 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 280,
             "z": 266,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_T26_007 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 302,
             "z": 264,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_t26_rare_candy",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 309,
             "z": 256,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_r39_t26_full_heal",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 285,
             "z": 231,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_T26_seaman_2",
             "spriteId": "SPRITE_SEAMAN_2",
-            "movement": 5,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_LEFT_RIGHT",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T26_008 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -71,11 +71,11 @@
         {
             "id": "obj_T26_gsboy1",
             "spriteId": "SPRITE_GSBOY1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T26_009 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -88,11 +88,11 @@
         {
             "id": "obj_T26_seaman_2_2",
             "spriteId": "SPRITE_SEAMAN_2",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_T26_010 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -105,11 +105,11 @@
         {
             "id": "obj_T26_gsrivel",
             "spriteId": "SPRITE_GSRIVEL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_OLIVINE_RIVAL",
             "scriptId": "_EV_scr_seq_T26_000 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -122,11 +122,11 @@
         {
             "id": "obj_T26_monstarball",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_T26_TM57",
             "scriptId": "std_itemball_t26_tm57",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -139,11 +139,11 @@
         {
             "id": "obj_T26_seaman_2_3",
             "spriteId": "SPRITE_SEAMAN_2",
-            "movement": 15,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_DOWN",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": 0,
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -156,11 +156,11 @@
         {
             "id": "obj_T26_gswoman2",
             "spriteId": "SPRITE_GSWOMAN2",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -173,11 +173,11 @@
         {
             "id": "obj_T26_gsmiddleman1",
             "spriteId": "SPRITE_GSMIDDLEMAN1",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_CAMERON",
             "scriptId": "_EV_scr_seq_T26_011 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -190,11 +190,11 @@
         {
             "id": "obj_T26_gsmiddleman1_2",
             "spriteId": "SPRITE_GSMIDDLEMAN1",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_05E",
             "scriptId": 65535,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

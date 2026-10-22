@@ -3,38 +3,38 @@
     "bgs": [
         {
             "scriptId": "std_hiddenitem_d43r0102_max_revive",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 15,
             "z": 27,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d43r0102_pp_up",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 28,
             "z": 38,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d43r0102_ultra_ball",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 57,
             "z": 42,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_D43R0102_monstarball",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D43R0102_TM26",
             "scriptId": "std_itemball_d43r0102_tm26",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -47,11 +47,11 @@
         {
             "id": "obj_D43R0102_monstarball_2",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D43R0102_HP_UP",
             "scriptId": "std_itemball_d43r0102_hp_up",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -64,11 +64,11 @@
         {
             "id": "obj_D43R0102_monstarball_3",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D43R0102_FULL_RESTORE",
             "scriptId": "std_itemball_d43r0102_full_restore",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -81,11 +81,11 @@
         {
             "id": "obj_D43R0102_rock",
             "spriteId": "SPRITE_ROCK",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_field_strength",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -98,11 +98,11 @@
         {
             "id": "obj_D43R0102_rock_2",
             "spriteId": "SPRITE_ROCK",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_field_strength",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

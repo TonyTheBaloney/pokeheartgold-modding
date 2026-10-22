@@ -3,30 +3,30 @@
     "bgs": [
         {
             "scriptId": "std_hiddenitem_d38r0101_hyper_potion",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 27,
             "z": 42,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d38r0101_revive",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 58,
             "z": 46,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_EVERYWHERE_monstarball",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D38R0101_ETHER",
             "scriptId": "std_itemball_d38r0101_ether",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -39,11 +39,11 @@
         {
             "id": "obj_EVERYWHERE_monstarball_2",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D38R0101_REVIVE",
             "scriptId": "std_itemball_d38r0101_revive",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

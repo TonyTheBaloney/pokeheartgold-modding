@@ -3,19 +3,19 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_T10_000 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 914,
             "z": 202,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_t10_rare_candy",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 910,
             "z": 209,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "warps": [

@@ -3,19 +3,19 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_T01R0202_001 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 5,
             "z": 3,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_T01R0202_000 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 3,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "warps": [

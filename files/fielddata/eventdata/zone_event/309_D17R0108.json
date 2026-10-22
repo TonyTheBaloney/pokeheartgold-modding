@@ -3,22 +3,22 @@
     "bgs": [
         {
             "scriptId": "std_hiddenitem_d17r0108_carbos",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 21,
             "z": 6,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_EVERYWHERE_monstarball",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D17R0108_FULL_RESTORE",
             "scriptId": "std_itemball_d17r0108_full_restore",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -31,11 +31,11 @@
         {
             "id": "obj_EVERYWHERE_monstarball_2",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D17R0108_MAX_ELIXIR",
             "scriptId": "std_itemball_d17r0108_max_elixir",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -48,11 +48,11 @@
         {
             "id": "obj_EVERYWHERE_monstarball_3",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D17R0108_NUGGET",
             "scriptId": "std_itemball_d17r0108_nugget",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

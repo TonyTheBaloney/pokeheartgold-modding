@@ -3,54 +3,54 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_R35R0201_006 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 15,
             "z": 2,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_R35R0201_006 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 2,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_R35R0201_006 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 2,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_R35R0201_007 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 13,
             "z": 2,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         },
         {
             "scriptId": "_EV_scr_seq_R35R0201_007 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 9,
             "z": 2,
             "y": 0,
-            "dir": 0
+            "dir": "BG_DIR_SOUTH"
         }
     ],
     "objects": [
         {
             "id": "obj_R35R0201_gsboy2",
             "spriteId": "SPRITE_GSBOY2",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_R35R0201_005 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -63,11 +63,11 @@
         {
             "id": "obj_R35R0201_counterm",
             "spriteId": "SPRITE_COUNTERM",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_1C3",
             "scriptId": "_EV_scr_seq_R35R0201_001 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -80,11 +80,11 @@
         {
             "id": "obj_R35R0201_workman",
             "spriteId": "SPRITE_WORKMAN",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_LOCKED",
             "scriptId": "_EV_scr_seq_R35R0201_000 + 1",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -97,11 +97,11 @@
         {
             "id": "obj_R35R0201_counterm_2",
             "spriteId": "SPRITE_COUNTERM",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_UNLOCKED",
             "scriptId": "_EV_scr_seq_R35R0201_002 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -114,11 +114,11 @@
         {
             "id": "obj_R35R0201_gsfighter",
             "spriteId": "SPRITE_GSFIGHTER",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_UNLOCKED",
             "scriptId": "_EV_scr_seq_R35R0201_003 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -131,11 +131,11 @@
         {
             "id": "obj_R35R0201_gsgirl1",
             "spriteId": "SPRITE_GSGIRL1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_UNLOCKED",
             "scriptId": "_EV_scr_seq_R35R0201_004 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -148,11 +148,11 @@
         {
             "id": "obj_R35R0201_gsmiddleman1",
             "spriteId": "SPRITE_GSMIDDLEMAN1",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_CAMERON",
             "scriptId": "_EV_scr_seq_R35R0201_011 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -165,11 +165,11 @@
         {
             "id": "obj_R35R0201_counterm_3",
             "spriteId": "SPRITE_COUNTERM",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_UNK_1C4",
             "scriptId": "_EV_scr_seq_R35R0201_001 + 1",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

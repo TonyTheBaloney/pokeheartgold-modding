@@ -3,22 +3,22 @@
     "bgs": [
         {
             "scriptId": "std_hiddenitem_d27r0104_hyper_potion",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 5,
             "z": 14,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_EVERYWHERE_seaman_2",
             "spriteId": "SPRITE_SEAMAN_2",
-            "movement": 0,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_trainer(TRAINER_SAILOR_KENT)",
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 4,
             "param1": 0,
             "param2": 0,
@@ -31,11 +31,11 @@
         {
             "id": "obj_EVERYWHERE_gsman2",
             "spriteId": "SPRITE_GSMAN2",
-            "movement": 9,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_LOOK_DOWN_RIGHT",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_trainer(TRAINER_BIRD_KEEPER_GS_DENIS)",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 6,
             "param1": 0,
             "param2": 0,
@@ -48,11 +48,11 @@
         {
             "id": "obj_EVERYWHERE_gsman2_2",
             "spriteId": "SPRITE_GSMAN2",
-            "movement": 8,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_LOOK_DOWN_LEFT",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_trainer(TRAINER_BIRD_KEEPER_GS_THEO)",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 5,
             "param1": 0,
             "param2": 0,
@@ -65,11 +65,11 @@
         {
             "id": "obj_EVERYWHERE_monstarball",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D27R0104_ETHER",
             "scriptId": "std_itemball_d27r0104_ether",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

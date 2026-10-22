@@ -3,86 +3,86 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_D24R0101_002 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 429,
             "z": 266,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0101_000 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 429,
             "z": 286,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0101_001 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 440,
             "z": 287,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0101_003 + 1",
-            "type": 1,
+            "type": "BG_TYPE_SIGNPOST",
             "x": 443,
             "z": 292,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d24r0101_great_ball",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 442,
             "z": 296,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d24r0101_rare_candy",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 422,
             "z": 263,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d24r0101_tinymushroom",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 424,
             "z": 278,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d24r0101_big_mushroom",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 418,
             "z": 314,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "std_hiddenitem_d24r0101_nugget",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 423,
             "z": 311,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_D24R0101_mystery_2",
             "spriteId": "SPRITE_MYSTERY_2",
-            "movement": 17,
-            "type": 1,
+            "movement": "MOVEMENT_TYPE_FACE_RIGHT",
+            "type": "OBJECT_TYPE_TRAINER",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "std_trainer(TRAINER_PSYCHIC_M_NATHAN)",
-            "facingDirection": 3,
+            "facingDirection": "DIR_EAST",
             "param0": 3,
             "param1": 0,
             "param2": 0,
@@ -95,11 +95,11 @@
         {
             "id": "obj_D24R0101_monstarball",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D24R0101_POTION",
             "scriptId": "std_itemball_d24r0101_potion",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -112,11 +112,11 @@
         {
             "id": "obj_D24R0101_breakrock",
             "spriteId": "SPRITE_BREAKROCK",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_MAPTEMP_010",
             "scriptId": "std_field_rock_smash",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -129,11 +129,11 @@
         {
             "id": "obj_D24R0101_breakrock_2",
             "spriteId": "SPRITE_BREAKROCK",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_MAPTEMP_011",
             "scriptId": "std_field_rock_smash",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -146,11 +146,11 @@
         {
             "id": "obj_D24R0101_breakrock_3",
             "spriteId": "SPRITE_BREAKROCK",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_MAPTEMP_013",
             "scriptId": "std_field_rock_smash",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -163,11 +163,11 @@
         {
             "id": "obj_D24R0101_breakrock_4",
             "spriteId": "SPRITE_BREAKROCK",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_MAPTEMP_015",
             "scriptId": "std_field_rock_smash",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -180,11 +180,11 @@
         {
             "id": "obj_D24R0101_breakrock_5",
             "spriteId": "SPRITE_BREAKROCK",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_MAPTEMP_016",
             "scriptId": "std_field_rock_smash",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -197,11 +197,11 @@
         {
             "id": "obj_D24R0101_monstarball_2",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D24R0101_HYPER_POTION",
             "scriptId": "std_itemball_d24r0101_hyper_potion",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -214,11 +214,11 @@
         {
             "id": "obj_D24R0101_gsmiddleman1",
             "spriteId": "SPRITE_GSMIDDLEMAN1",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_CAMERON",
             "scriptId": "_EV_scr_seq_D24R0101_004 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -231,11 +231,11 @@
         {
             "id": "obj_D24R0101_suit",
             "spriteId": "SPRITE_SUIT",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT",
             "scriptId": 0,
-            "facingDirection": 1,
+            "facingDirection": "DIR_SOUTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

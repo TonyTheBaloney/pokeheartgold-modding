@@ -1,5 +1,6 @@
 {{ doNotModifyHeader }}
 #include "constants/scrcmd.h"
+#include "constants/map_object.h"
 {% if exists("header") %}#include "{{ header }}"{% endif %}
 
 	.rodata

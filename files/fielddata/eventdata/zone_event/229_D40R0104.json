@@ -3,22 +3,22 @@
     "bgs": [
         {
             "scriptId": "std_hiddenitem_d40r0104_full_restore",
-            "type": 2,
+            "type": "BG_TYPE_HIDDEN_ITEM",
             "x": 29,
             "z": 11,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_D40R0104_bozu",
             "spriteId": "SPRITE_BOZU",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_NOTHING",
             "scriptId": "_EV_scr_seq_D40R0104_000 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -31,11 +31,11 @@
         {
             "id": "obj_D40R0104_monstarball",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D40R0104_MAX_REVIVE",
             "scriptId": "std_itemball_d40r0104_max_revive",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -48,11 +48,11 @@
         {
             "id": "obj_D40R0104_monstarball_2",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D40R0104_FULL_RESTORE",
             "scriptId": "std_itemball_d40r0104_full_restore",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -65,11 +65,11 @@
         {
             "id": "obj_D40R0104_monstarball_3",
             "spriteId": "SPRITE_MONSTARBALL",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ITEMBALL_D40R0104_MAX_ELIXIR",
             "scriptId": "std_itemball_d40r0104_max_elixir",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,

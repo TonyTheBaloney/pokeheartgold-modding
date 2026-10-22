@@ -3,254 +3,254 @@
     "bgs": [
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 3,
             "z": 6,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 6,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 6,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 15,
             "z": 6,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 19,
             "z": 6,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 23,
             "z": 6,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 27,
             "z": 6,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 27,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 23,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 3,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 27,
             "z": 24,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 15,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 19,
             "z": 15,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 3,
             "z": 24,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 27,
             "z": 33,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 23,
             "z": 33,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 19,
             "z": 33,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 15,
             "z": 33,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 33,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 33,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 3,
             "z": 33,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 3,
             "z": 42,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 7,
             "z": 42,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 11,
             "z": 42,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 15,
             "z": 42,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 19,
             "z": 42,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 23,
             "z": 42,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         },
         {
             "scriptId": "_EV_scr_seq_D24R0205_002 + 1",
-            "type": 0,
+            "type": "BG_TYPE_NORMAL",
             "x": 27,
             "z": 42,
             "y": 0,
-            "dir": 4
+            "dir": "BG_DIR_ALL"
         }
     ],
     "objects": [
         {
             "id": "obj_D24R0205_gswoman1",
             "spriteId": "SPRITE_GSWOMAN1",
-            "movement": 3,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_WANDER_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_RUINS_OF_ALPH_TOURISTS",
             "scriptId": "_EV_scr_seq_D24R0205_004 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -263,11 +263,11 @@
         {
             "id": "obj_D24R0205_gsbigman",
             "spriteId": "SPRITE_GSBIGMAN",
-            "movement": 2,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_LOOK_AROUND",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_RUINS_OF_ALPH_TOURISTS",
             "scriptId": "_EV_scr_seq_D24R0205_003 + 1",
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -280,11 +280,11 @@
         {
             "id": "obj_D24R0205_gsoldman1",
             "spriteId": "SPRITE_GSOLDMAN1",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_RUINS_OF_ALPH_TOURISTS",
             "scriptId": "_EV_scr_seq_D24R0205_005 + 1",
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -297,11 +297,11 @@
         {
             "id": "obj_D24R0205_gsassistantm",
             "spriteId": "SPRITE_GSASSISTANTM",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_RUINS_OF_ALPH_ASSISTANTS",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -314,11 +314,11 @@
         {
             "id": "obj_D24R0205_gsassistantm_2",
             "spriteId": "SPRITE_GSASSISTANTM",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_RUINS_OF_ALPH_ASSISTANTS",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -331,11 +331,11 @@
         {
             "id": "obj_D24R0205_gsassistantm_3",
             "spriteId": "SPRITE_GSASSISTANTM",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_RUINS_OF_ALPH_ASSISTANTS",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -348,11 +348,11 @@
         {
             "id": "obj_D24R0205_gsassistantm_4",
             "spriteId": "SPRITE_GSASSISTANTM",
-            "movement": 14,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_FACE_UP",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_RUINS_OF_ALPH_ASSISTANTS",
             "scriptId": 0,
-            "facingDirection": 0,
+            "facingDirection": "DIR_NORTH",
             "param0": 0,
             "param1": 0,
             "param2": 0,
@@ -365,11 +365,11 @@
         {
             "id": "obj_D24R0205_suit",
             "spriteId": "SPRITE_SUIT",
-            "movement": 0,
-            "type": 0,
+            "movement": "MOVEMENT_TYPE_NONE",
+            "type": "OBJECT_TYPE_NORMAL",
             "eventFlag": "FLAG_HIDE_ALPH_MAIN_CHAMBER_ARCEUS_EVENT_PEOPLE",
             "scriptId": 0,
-            "facingDirection": 2,
+            "facingDirection": "DIR_WEST",
             "param0": 0,
             "param1": 0,
             "param2": 0,
