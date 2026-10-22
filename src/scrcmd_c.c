@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "poke_overlay.h"
 #define _IN_SCRCMD_C
 
@@ -3648,7 +3651,7 @@ void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species) {
     Pokedex *pokedex = Save_Pokedex_Get(fieldSystem->saveData);
     Pokemon *mon = AllocMonZeroed(HEAP_ID_FIELD3);
     ZeroMonData(mon);
-    CreateMon(mon, species, 50, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, 50, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     Pokedex_SetMonSeenFlag(pokedex, mon);
     Heap_Free(mon);
 }

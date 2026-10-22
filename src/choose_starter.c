@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "choose_starter.h"
 
 #include "constants/balls.h"
@@ -56,7 +59,7 @@ static BOOL CreateStarter(TaskManager *taskManager) {
                 Pokemon *mon = &env->args->starters[i];
                 PlayerProfile *profile = Save_PlayerData_GetProfile(fieldSystem->saveData);
                 ZeroMonData(mon);
-                CreateMon(mon, species[i], 5, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
+                CreateMon(mon, species[i], 5, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
                 MonSetCatchData(mon, profile, BALL_POKE, mapsec, 12, HEAP_ID_FIELD2);
                 {
                     int item = ITEM_NONE;

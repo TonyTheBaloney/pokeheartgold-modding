@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "battle/battle_setup.h"
 
 #include "global.h"
@@ -124,9 +127,9 @@ BattleSetup *BattleSetup_New_Tutorial(enum HeapID heapID, FieldSystem *fieldSyst
     Bag_AddItem(setup->bag, ITEM_POKE_BALL, 20, heapID);
     {
         Pokemon *pokemon = AllocMonZeroed(heapID);
-        CreateMon(pokemon, SPECIES_MARILL, 5, 32, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+        CreateMon(pokemon, SPECIES_MARILL, 5, USE_RANDOM_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
         Party_AddMon(setup->party[BATTLER_PLAYER], pokemon);
-        CreateMon(pokemon, SPECIES_RATTATA, 2, 32, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+        CreateMon(pokemon, SPECIES_RATTATA, 2, USE_RANDOM_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
         Party_AddMon(setup->party[BATTLER_ENEMY], pokemon);
         Heap_Free(pokemon);
     }

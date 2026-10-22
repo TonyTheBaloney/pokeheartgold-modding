@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/items.h"
@@ -1118,7 +1121,7 @@ BOOL ScrCmd_GiveSpikyEarPichu(ScriptContext *ctx) {
 
     u32 trId = PlayerProfile_GetTrainerID(profile);
     u32 personality = ChangePersonalityToNatureGenderAndAbility(trId, 0xac, NATURE_NAUGHTY, MON_FEMALE, 0, 0);
-    CreateMon(mon, SPECIES_PICHU, 30, 0x20, 1, personality, 1, trId);
+    CreateMon(mon, SPECIES_PICHU, 30, USE_RANDOM_IVS, 1, personality, 1, trId);
 
     form = 1;
     SetMonData(mon, MON_DATA_FORM, &form);

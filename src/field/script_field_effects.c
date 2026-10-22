@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/sndseq.h"
@@ -870,7 +873,7 @@ static LanceFliesAwayEnv *LanceFliesAway_CreateTaskEnv(FieldSystem *fieldSystem,
     env->heapId = HEAP_ID_FIELD1;
     env->dragonite = AllocMonZeroed(HEAP_ID_FIELD1);
     ZeroMonData(env->dragonite);
-    CreateMon(env->dragonite, SPECIES_DRAGONITE, 100, 32, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+    CreateMon(env->dragonite, SPECIES_DRAGONITE, 100, USE_RANDOM_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
     return env;
 }
 

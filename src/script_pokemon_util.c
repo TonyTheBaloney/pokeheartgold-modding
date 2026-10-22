@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "script_pokemon_util.h"
 
 #include "global.h"
@@ -30,7 +33,7 @@ BOOL GiveMon(enum HeapID heapID, SaveData *saveData, int species, int level, int
     {
         mon = AllocMonZeroed(heapID);
         ZeroMonData(mon);
-        CreateMon(mon, species, level, 32, FALSE, 0, 0, 0);
+        CreateMon(mon, species, level, USE_RANDOM_IVS, FALSE, 0, 0, 0);
         MonSetCatchData(mon, profile, ITEM_POKE_BALL, ball, encounterType, heapID);
         heldItemValue = heldItem;
         SetMonData(mon, MON_DATA_HELD_ITEM, &heldItemValue);

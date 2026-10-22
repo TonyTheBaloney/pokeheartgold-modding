@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "get_egg.h"
 
 #include "global.h"
@@ -197,7 +200,7 @@ static u16 DaycareMon_BufferNickAndRetrievalPrice(DaycareMon *daycareMon, Messag
     BoxPokemon *boxMon = DaycareMon_GetBoxMon(daycareMon);
     u16 levelGrowth = DaycareMon_CalcLevelGrowth(daycareMon);
     BufferBoxMonNickname(msgFmt, 0, boxMon);
-    u16 price = (levelGrowth + 1) * 100;
+    u16 price = (levelGrowth + 1) * DAYCARE_PRICE_PER_LEVEL;
     BufferIntegerAsString(msgFmt, 1, price, 5, PRINTING_MODE_LEFT_ALIGN, TRUE);
     return price;
 }
@@ -267,7 +270,7 @@ static void GenerateEggPID(Daycare *dayCare) {
             if (nature == GetNatureFromPersonality(pid) && pid != 0) {
                 break;
             }
-            if (++i > 2400) {
+            if (++i > EGG_NATURE_PID_ATTEMPTS) {
                 break;
             }
         }
@@ -566,14 +569,14 @@ void SetEggStats(Pokemon *mon, int species, u8 metLocation, PlayerProfile *profi
     u8 metLevel;
     u8 isEgg;
 
-    u8 friendship = GetMonBaseStat(species, BASE_EGG_CYCLES);
-    CreateMon(mon, species, 1, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    u8 eggCycles = GetMonBaseStat(species, BASE_EGG_CYCLES);
+    CreateMon(mon, species, EGG_HATCH_LEVEL, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
 
     metLevel = 0;
     pokeball = BALL_POKE;
 
     SetMonData(mon, MON_DATA_POKEBALL, &pokeball);
-    SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
+    SetMonData(mon, MON_DATA_EGG_CYCLES, &eggCycles);
     SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
 
     if (metLocation != MAPSEC_MYSTERY_ZONE) {
@@ -599,11 +602,11 @@ void SetEggStats(Pokemon *mon, int species, u8 metLocation, PlayerProfile *profi
 static void SetBreedEggStats(Pokemon *mon, u16 species, Daycare *dayCare, u32 otId, u8 form) {
     u16 pokeball;
     u8 metLevel;
-    u8 friendship = GetMonBaseStat(species, BASE_EGG_CYCLES);
+    u8 eggCycles = GetMonBaseStat(species, BASE_EGG_CYCLES);
     u32 pid = Save_Daycare_GetEggPID(dayCare);
     if (Save_Daycare_MasudaCheck(dayCare)) {
         if (!CalcShininessByOtIdAndPersonality(otId, pid)) {
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < MASUDA_METHOD_REROLLS; i++) {
                 pid = PRandom(pid);
                 if (CalcShininessByOtIdAndPersonality(otId, pid)) {
                     break;
@@ -611,13 +614,13 @@ static void SetBreedEggStats(Pokemon *mon, u16 species, Daycare *dayCare, u32 ot
             }
         }
     }
-    CreateMon(mon, species, 1, 32, TRUE, pid, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, EGG_HATCH_LEVEL, USE_RANDOM_IVS, TRUE, pid, OT_ID_PLAYER_ID, 0);
 
     metLevel = 0;
     pokeball = BALL_POKE;
 
     SetMonData(mon, MON_DATA_POKEBALL, &pokeball);
-    SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
+    SetMonData(mon, MON_DATA_EGG_CYCLES, &eggCycles);
     SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
     SetMonData(mon, MON_DATA_FORM, &form);
     String *name = GetSpeciesName(SPECIES_EGG, HEAP_ID_FIELD1);
@@ -753,18 +756,18 @@ static const u16 sEggCycleSpecialDates[] = {
 static u8 Daycare_GetEggCycleLength(FieldSystem *fieldSystem) {
     int day = Field_GetDay(fieldSystem) + Field_GetMonth(fieldSystem) * 100;
     if (FieldSystem_HasPenalty(fieldSystem)) {
-        return 255;
+        return EGG_CYCLE_STEPS;
     }
     for (int i = 0; i < NELEMS(sEggCycleSpecialDates); i++) {
         if (day == sEggCycleSpecialDates[i]) {
-            return 230;
+            return EGG_CYCLE_STEPS_SPECIAL_DAY;
         }
     }
-    return 255;
+    return EGG_CYCLE_STEPS;
 }
 
 BOOL HandleDaycareStep(Daycare *dayCare, Party *party, FieldSystem *fieldSystem) {
-    u32 friendship;
+    u32 eggCycles;
     BoxPokemon *parents[NUM_DAYCARE_MONS];
     u32 slot;
 
@@ -778,7 +781,7 @@ BOOL HandleDaycareStep(Daycare *dayCare, Party *party, FieldSystem *fieldSystem)
     }
     if (!Save_Daycare_HasEgg(dayCare) && monsInDaycare == NUM_DAYCARE_MONS) {
         u8 steps = DaycareMon_GetSteps(Save_Daycare_GetMonX(dayCare, 1));
-        if (steps == 255) {
+        if (steps == DAYCARE_BREED_CHECK_STEPS) {
             u8 compat = Save_Daycare_CalcCompatibilityInternal(dayCare);
             if (compat > (LCRandom() * 100 / 0xFFFFu)) {
                 GenerateEggPID(dayCare);
@@ -794,14 +797,14 @@ BOOL HandleDaycareStep(Daycare *dayCare, Party *party, FieldSystem *fieldSystem)
         for (slot = 0; slot < Party_GetCount(party); slot++) {
             Pokemon *mon = Party_GetMonByIndex(party, slot);
             if (GetMonData(mon, MON_DATA_IS_EGG, NULL) && !GetMonData(mon, MON_DATA_CHECKSUM_FAILED, NULL)) {
-                friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);
-                if (friendship != 0) {
-                    if (friendship >= to_sub) {
-                        friendship -= to_sub;
+                eggCycles = GetMonData(mon, MON_DATA_EGG_CYCLES, NULL);
+                if (eggCycles != 0) {
+                    if (eggCycles >= to_sub) {
+                        eggCycles -= to_sub;
                     } else {
-                        friendship -= 1;
+                        eggCycles -= 1;
                     }
-                    SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
+                    SetMonData(mon, MON_DATA_EGG_CYCLES, &eggCycles);
                 } else {
                     return TRUE;
                 }
@@ -943,7 +946,7 @@ static void HatchEgg_RecreateMon(Pokemon *mon, enum HeapID heapID) {
             } while (CalcShininessByOtIdAndPersonality(otId, pid));
         }
     }
-    CreateMon(tempMon, species, 1, 32, TRUE, pid, OT_ID_PLAYER_ID, 0);
+    CreateMon(tempMon, species, EGG_HATCH_LEVEL, USE_RANDOM_IVS, TRUE, pid, OT_ID_PLAYER_ID, 0);
     for (i = 0; i < MAX_MON_MOVES; i++) {
         SetMonData(tempMon, MON_DATA_MOVE1 + i, &moves[i]);
         SetMonData(tempMon, MON_DATA_MOVE1_PP + i, &pp[i]);
@@ -954,7 +957,7 @@ static void HatchEgg_RecreateMon(Pokemon *mon, enum HeapID heapID) {
     SetMonData(tempMon, MON_DATA_LANGUAGE, &language);
     SetMonData(tempMon, MON_DATA_MET_GAME, &version);
     SetMonData(tempMon, MON_DATA_MARKINGS, &markings);
-    friendship = 120;
+    friendship = EGG_HATCH_FRIENDSHIP;
     SetMonData(tempMon, MON_DATA_FRIENDSHIP, &friendship);
     SetMonData(tempMon, MON_DATA_POKERUS, &pokerus);
     SetMonData(tempMon, MON_DATA_FATEFUL_ENCOUNTER, &fateful);

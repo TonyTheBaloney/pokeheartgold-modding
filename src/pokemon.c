@@ -1,6 +1,6 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
-// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...); IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "pokemon.h"
 
 #include "global.h"
@@ -218,7 +218,7 @@ void CreateBoxMon(BoxPokemon *boxMon, int species, int level, int fixedIV, int h
     exp = ITEM_POKE_BALL;
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &exp);
     SetBoxMonData(boxMon, MON_DATA_DP_POKEBALL, &exp);
-    if (fixedIV < 0x20) {
+    if (fixedIV < USE_RANDOM_IVS) {
         SetBoxMonData(boxMon, MON_DATA_HP_IV, &fixedIV);
         SetBoxMonData(boxMon, MON_DATA_ATK_IV, &fixedIV);
         SetBoxMonData(boxMon, MON_DATA_DEF_IV, &fixedIV);
@@ -227,14 +227,14 @@ void CreateBoxMon(BoxPokemon *boxMon, int species, int level, int fixedIV, int h
         SetBoxMonData(boxMon, MON_DATA_SPDEF_IV, &fixedIV);
     } else {
         exp = LCRandom();
-        iv = exp & 0x1F;
+        iv = exp & MAX_IV_MASK;
         SetBoxMonData(boxMon, MON_DATA_HP_IV, &iv);
         iv = (exp & 0x3E0) >> 5;
         SetBoxMonData(boxMon, MON_DATA_ATK_IV, &iv);
         iv = (exp & 0x7C00) >> 10;
         SetBoxMonData(boxMon, MON_DATA_DEF_IV, &iv);
         exp = LCRandom();
-        iv = exp & 0x1F;
+        iv = exp & MAX_IV_MASK;
         SetBoxMonData(boxMon, MON_DATA_SPEED_IV, &iv);
         iv = (exp & 0x3E0) >> 5;
         SetBoxMonData(boxMon, MON_DATA_SPATK_IV, &iv);
@@ -1319,12 +1319,12 @@ static void SetBoxMonDataInternal(BoxPokemon *boxMon, int attr, const void *valu
         blockD->metTerrain = VALUE(u8);
         break;
     case MON_DATA_COMBINED_IVS:
-        blockB->hpIV = (VALUE(u32) >> 0) & 0x1F;
-        blockB->atkIV = (VALUE(u32) >> 5) & 0x1F;
-        blockB->defIV = (VALUE(u32) >> 10) & 0x1F;
-        blockB->speedIV = (VALUE(u32) >> 15) & 0x1F;
-        blockB->spAtkIV = (VALUE(u32) >> 20) & 0x1F;
-        blockB->spDefIV = (VALUE(u32) >> 25) & 0x1F;
+        blockB->hpIV = (VALUE(u32) >> 0) & MAX_IV_MASK;
+        blockB->atkIV = (VALUE(u32) >> 5) & MAX_IV_MASK;
+        blockB->defIV = (VALUE(u32) >> 10) & MAX_IV_MASK;
+        blockB->speedIV = (VALUE(u32) >> 15) & MAX_IV_MASK;
+        blockB->spAtkIV = (VALUE(u32) >> 20) & MAX_IV_MASK;
+        blockB->spDefIV = (VALUE(u32) >> 25) & MAX_IV_MASK;
         break;
     case MON_DATA_SPECIES_NAME:
         speciesName = GetSpeciesName(blockA->species, HEAP_ID_DEFAULT);
@@ -1514,43 +1514,43 @@ static void AddBoxMonDataInternal(BoxPokemon *boxMon, int attr, int value) {
     case MON_DATA_MOVE4_MAX_PP:
         break;
     case MON_DATA_HP_IV:
-        if (blockB->hpIV + value > 31) {
-            blockB->hpIV = 31;
+        if (blockB->hpIV + value > MAX_PER_STAT_IVS) {
+            blockB->hpIV = MAX_PER_STAT_IVS;
         } else {
             blockB->hpIV += value;
         }
         break;
     case MON_DATA_ATK_IV:
-        if (blockB->atkIV + value > 31) {
-            blockB->atkIV = 31;
+        if (blockB->atkIV + value > MAX_PER_STAT_IVS) {
+            blockB->atkIV = MAX_PER_STAT_IVS;
         } else {
             blockB->atkIV += value;
         }
         break;
     case MON_DATA_DEF_IV:
-        if (blockB->defIV + value > 31) {
-            blockB->defIV = 31;
+        if (blockB->defIV + value > MAX_PER_STAT_IVS) {
+            blockB->defIV = MAX_PER_STAT_IVS;
         } else {
             blockB->defIV += value;
         }
         break;
     case MON_DATA_SPEED_IV:
-        if (blockB->speedIV + value > 31) {
-            blockB->speedIV = 31;
+        if (blockB->speedIV + value > MAX_PER_STAT_IVS) {
+            blockB->speedIV = MAX_PER_STAT_IVS;
         } else {
             blockB->speedIV += value;
         }
         break;
     case MON_DATA_SPATK_IV:
-        if (blockB->spAtkIV + value > 31) {
-            blockB->spAtkIV = 31;
+        if (blockB->spAtkIV + value > MAX_PER_STAT_IVS) {
+            blockB->spAtkIV = MAX_PER_STAT_IVS;
         } else {
             blockB->spAtkIV += value;
         }
         break;
     case MON_DATA_SPDEF_IV:
-        if (blockB->spDefIV + value > 31) {
-            blockB->spDefIV = 31;
+        if (blockB->spDefIV + value > MAX_PER_STAT_IVS) {
+            blockB->spDefIV = MAX_PER_STAT_IVS;
         } else {
             blockB->spDefIV += value;
         }

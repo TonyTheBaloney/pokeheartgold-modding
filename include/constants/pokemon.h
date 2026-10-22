@@ -163,6 +163,12 @@
 #define DEFAULT_STAT_STAGE 6
 #define MAX_STAT_STAGE     12
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING (names for literals in src; pokeemerald names)
+#define MAX_PER_STAT_IVS 31
+#define MAX_IV_MASK      0x1F                   // one IV in a packed IV word
+#define USE_RANDOM_IVS   (MAX_PER_STAT_IVS + 1) // CreateMon fixedIV: roll random IVs
+
 // Shiny odds
 #define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
 

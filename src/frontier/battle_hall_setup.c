@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "frontier/battle_hall_setup.h"
 
 #include "global.h"
@@ -349,9 +352,9 @@ static void BattleHall_GenerateOpponentMons(FrontierMon *mons, u32 rank, u32 tra
     int ivs;
 
     if (trainerId == HALL_MATRON_SILVER) {
-        ivs = 31;
+        ivs = MAX_PER_STAT_IVS;
     } else if (trainerId == HALL_MATRON_GOLD) {
-        ivs = 31;
+        ivs = MAX_PER_STAT_IVS;
     } else {
         ivs = BattleHall_GetOpponentIVs(rank);
     }

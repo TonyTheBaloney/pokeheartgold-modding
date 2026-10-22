@@ -11,6 +11,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | Guide | Covers |
 |---|---|
 | [pokemon.md](pokemon.md) | Base stats, evolutions, moves, Pokédex data, sprites, names |
+| [game-limits.md](game-limits.md) | Named game limits and rules in C (max level, IVs, egg moves, daycare...) |
 | [maps-and-warps.md](maps-and-warps.md) | Map headers, map grids, warps, signs, trigger zones |
 | [npcs-and-scripts.md](npcs-and-scripts.md) | Moving/adding NPCs, trainers, event scripts, text, flags |
 | [wild-encounters.md](wild-encounters.md) | Grass/surf/fishing tables, headbutt, Safari, Bug Contest, roamers |

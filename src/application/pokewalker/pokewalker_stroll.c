@@ -1,6 +1,6 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
-// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...); IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 // Pokewalker connection app, modes 4 and 5: waiting before the save, and starting a Stroll.
 
 #include "global.h"
@@ -236,7 +236,7 @@ static void PokewalkerApp_CreateWalkerMon(Pokemon *mon, u32 otId, const Pokewalk
     }
     {
         u32 personality = ChangePersonalityToNatureGenderAndAbility(otId, walkerMon->species, nature, gender, nature & 1, genMode);
-        CreateMon(mon, walkerMon->species, walkerMon->level, 32, TRUE, personality, OT_ID_PRESET, otId);
+        CreateMon(mon, walkerMon->species, walkerMon->level, USE_RANDOM_IVS, TRUE, personality, OT_ID_PRESET, otId);
     }
     SetMonData(mon, MON_DATA_HELD_ITEM, &walkerMon->heldItem);
     SetMonData(mon, MON_DATA_MOVE1, &walkerMon->moves[0]);

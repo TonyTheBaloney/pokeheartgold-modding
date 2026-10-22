@@ -1,6 +1,6 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
-// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...); IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "field/encounter_check.h"
 
 #include "global.h"
@@ -817,7 +817,7 @@ static void generateWildShinyAndAddToParty(u16 species, u8 level, int battler, u
         } while (TRUE);
     }
 
-    CreateMon(wildMon, species, level, 0x20, TRUE, personality, OT_ID_PRESET, encounterGen->playerId);
+    CreateMon(wildMon, species, level, USE_RANDOM_IVS, TRUE, personality, OT_ID_PRESET, encounterGen->playerId);
     GF_ASSERT(addGeneratedMonToBattleSetupParty(battler, encounterGen, wildMon, battleSetup));
     Heap_Free(wildMon);
 }
@@ -847,7 +847,7 @@ static void generateWildNonShinyAndAddToParty(u16 species, u8 level, int battler
         } else {
             GF_ASSERT(FALSE); // can't put cute charm on a genderless pokemon
         }
-        CreateMonWithGenderNatureLetter(wildMon, species, level, 0x20, monGender, getWildMonNature(leadMon, encounterGen), 0);
+        CreateMonWithGenderNatureLetter(wildMon, species, level, USE_RANDOM_IVS, monGender, getWildMonNature(leadMon, encounterGen), 0);
         SetMonData(wildMon, MON_DATA_OT_ID, &encounterGen->playerId);
         GF_ASSERT(addGeneratedMonToBattleSetupParty(battler, encounterGen, wildMon, battleSetup));
         Heap_Free(wildMon);
@@ -858,9 +858,9 @@ static void generateWildNonShinyAndAddToParty(u16 species, u8 level, int battler
         int i;
         BOOL success = FALSE;
         for (i = 0; i < 4; ++i) {
-            CreateMonWithNature(wildMon, species, level, 0x20, getWildMonNature(leadMon, encounterGen));
+            CreateMonWithNature(wildMon, species, level, USE_RANDOM_IVS, getWildMonNature(leadMon, encounterGen));
             for (int j = 0; j < NUM_STATS; ++j) {
-                if (GetMonData(wildMon, MON_DATA_HP_IV + j, NULL) == 31) {
+                if (GetMonData(wildMon, MON_DATA_HP_IV + j, NULL) == MAX_PER_STAT_IVS) {
                     success = TRUE;
                     break;
                 }
@@ -870,7 +870,7 @@ static void generateWildNonShinyAndAddToParty(u16 species, u8 level, int battler
             }
         }
     } else {
-        CreateMonWithNature(wildMon, species, level, 0x20, getWildMonNature(leadMon, encounterGen));
+        CreateMonWithNature(wildMon, species, level, USE_RANDOM_IVS, getWildMonNature(leadMon, encounterGen));
     }
 
     SetMonData(wildMon, MON_DATA_OT_ID, &encounterGen->playerId);
