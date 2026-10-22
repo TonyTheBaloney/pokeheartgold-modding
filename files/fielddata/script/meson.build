@@ -15,6 +15,7 @@ scr_seq_gen = generator(
         '-i', relative_source_root / 'subprojects' / 'NitroSystem-071126.1' / 'include',
         '-i', relative_source_root / 'include',
         '-i', relative_source_root / 'files',
+        '-i', relative_source_root / 'data',  # maps/<MapName>/ids.h
         '-i', meson.global_build_root() / 'files',
         '-i', relative_source_root / 'asm' / 'include',
         '-i', relative_source_root / 'asm',

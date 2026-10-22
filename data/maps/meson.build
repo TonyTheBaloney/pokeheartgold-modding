@@ -7,6 +7,13 @@
 
 mapkit_sh = find_program(meson.project_source_root() / 'tools' / 'mapkit' / 'mapkit.sh')
 mapkit_root = ['--root', meson.project_source_root()]
+# regenerate when the generator changes
+mapkit_sources = files(
+    '../../tools/mapkit/mapkit.sh',
+    '../../tools/mapkit/mapkit/cli.py',
+    '../../tools/mapkit/mapkit/layout.py',
+    '../../tools/mapkit/mapkit/repo.py',
+)
 
 maps_zone_event_json = []
 maps_scr_seq_asm = []
@@ -29,18 +36,29 @@ foreach line : fs.read('maps.txt').splitlines()
         endif
     endforeach
 
-    maps_zone_event_json += custom_target('events_' + map_id,
-        input: dir / 'map.json',
-        output: banks['events'] + '.json',
-        command: [mapkit_sh, mapkit_root, 'gen-events', '@INPUT@', '@OUTPUT@'],
-    )
+    # A bank written @Folder belongs to another map's folder; only the owner builds it.
+    if not banks['events'].startswith('@')
+        maps_zone_event_json += custom_target('events_' + map_id,
+            input: dir / 'map.json',
+            output: banks['events'] + '.json',
+            command: [mapkit_sh, mapkit_root, 'gen-events', '@INPUT@', '@OUTPUT@'],
+            depend_files: mapkit_sources,
+        )
+    endif
     maps_headers += custom_target('header_' + map_id,
-        input: dir / 'map.json',
+        input: [dir / 'map.json', 'maps.txt'],
         output: 'header_' + map_id + '.h',
-        command: [mapkit_sh, mapkit_root, 'gen-header', '@INPUT@', '@OUTPUT@'],
+        command: [mapkit_sh, mapkit_root, 'gen-header', '@INPUT0@', '@OUTPUT@'],
+        depend_files: mapkit_sources,
     )
-    maps_scr_seq_asm += fs.copyfile(dir / 'scripts.inc', banks['scripts'] + '.s')
-    maps_scr_seq_asm += fs.copyfile(dir / 'map_scripts.inc', banks['init'] + '.s')
-    maps_text_banks += fs.copyfile(dir / 'text.json', banks['text'] + '.json')
-    maps_text_bank_names += banks['text'] + '.json'
+    if not banks['scripts'].startswith('@')
+        maps_scr_seq_asm += fs.copyfile(dir / 'scripts.inc', banks['scripts'] + '.s')
+    endif
+    if not banks['init'].startswith('@')
+        maps_scr_seq_asm += fs.copyfile(dir / 'map_scripts.inc', banks['init'] + '.s')
+    endif
+    if not banks['text'].startswith('@')
+        maps_text_banks += fs.copyfile(dir / 'text.json', banks['text'] + '.json')
+        maps_text_bank_names += banks['text'] + '.json'
+    endif
 endforeach

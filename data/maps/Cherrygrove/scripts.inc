@@ -1,5 +1,5 @@
 #include "constants/scrcmd.h"
-#include "data/maps/Cherrygrove/ids.h"
+#include "maps/Cherrygrove/ids.h"
 #include "msgdata/msg/msg_0550_T21.h"
 #include "macros/script.inc"
 

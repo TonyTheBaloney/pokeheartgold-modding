@@ -16,8 +16,7 @@ zone_event_gen = generator(json2bin_sh,
         '-i', relative_source_root / 'include',
         '-i', relative_source_root / 'subprojects' / 'NitroSDK-4.2.30001' / 'include',
         '-i', relative_source_root / 'files',
-        # mwasm ignores '-I../..' but accepts '-I../../' (for data/maps/<MapName>/ids.h)
-        '-i', relative_source_root + '/',
+        '-i', relative_source_root / 'data',  # maps/<MapName>/ids.h
         '--language', 'asm',
         '-D', 'PM_ASM',
         '-y',
