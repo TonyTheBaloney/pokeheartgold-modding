@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 // Pokewalker connection app, modes 6 to 10: saving after a link, choosing the Pokemon for a Stroll, the event
 // log and the Stroll report.
 
@@ -420,7 +423,7 @@ static void PokewalkerApp_SelectMon_VBlankCB(PokewalkerSelectMonWork *work) {
 static void PokewalkerApp_SelectMon_StoreSelection(PokewalkerSelectMonWork *work, PokewalkerApp *app) {
     if (work->cancelled == FALSE) {
         u32 box = work->box;
-        if (box == 18) {
+        if (box == NUM_BOXES) {
             Pokemon *mon = Party_GetMonByIndex(SaveArray_Party_Get(app->saveData), work->slot);
             work->species = GetMonData(mon, MON_DATA_SPECIES, NULL);
             work->form = GetMonData(mon, MON_DATA_FORM, NULL);
@@ -454,7 +457,7 @@ static void PokewalkerApp_SelectMon_ShowMonInfo(int box, int slot, PokewalkerApp
 
     if (box != -1 && slot != -1) {
         info.state = 2;
-        if (box == 18) {
+        if (box == NUM_BOXES) {
             Pokemon *mon = Party_GetMonByIndex(SaveArray_Party_Get(app->saveData), slot);
             u8 i;
             s32 markings;

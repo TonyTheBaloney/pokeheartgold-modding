@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "wifi_club_app.h"
 
 #include "global.h"
@@ -3144,11 +3147,11 @@ s32 WifiClub_State_OpenApplyMenu(WifiClubApp *app, s32 mainState) {
 }
 
 s32 WifiClub_IsPartyValid(WifiClubPlayerStatus *playerStatus) {
-    for (s32 i = 0; i < 6; i++) {
-        if (playerStatus->species[i] == 495) {
+    for (s32 i = 0; i < PARTY_SIZE; i++) {
+        if (playerStatus->species[i] == SPECIES_BAD_EGG) {
             return 0;
         }
-        if (playerStatus->species[i] > 495) {
+        if (playerStatus->species[i] > SPECIES_BAD_EGG) {
             return 0;
         }
         if (playerStatus->heldItems[i] > 536) {

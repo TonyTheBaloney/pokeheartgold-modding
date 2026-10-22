@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "scrcmd_battle_hall.h"
 
 #include "global.h"
@@ -206,7 +209,7 @@ static BOOL BattleHall_DoesPartyContainEligibleMons(s32 numRequiredMons, SaveDat
         return FALSE;
     }
     u16 arr[6];
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < PARTY_SIZE; i++) {
         arr[i] = SPECIES_NONE;
     }
     for (i = 0, numEligibleMons = 0; i < partyCount; i++) {

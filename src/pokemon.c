@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "pokemon.h"
 
 #include "global.h"
@@ -289,7 +292,7 @@ u32 GenPersonalityByGenderAndNature(u16 species, u8 gender, u8 nature) {
         if (gender == MON_MALE) {
             // Smallest increment that forces the low byte to exceed the
             // gender ratio, thus making the mon male
-            pid = 25 * ((ratio / 25) + 1);
+            pid = NATURE_NUM * ((ratio / NATURE_NUM) + 1);
             pid += nature;
         }
         break;
@@ -1407,8 +1410,8 @@ static void AddBoxMonDataInternal(BoxPokemon *boxMon, int attr, int value) {
 
     switch (attr) {
     case MON_DATA_EXPERIENCE:
-        if (blockA->exp + value > GetMonExpBySpeciesAndLevel(blockA->species, 100)) {
-            blockA->exp = GetMonExpBySpeciesAndLevel(blockA->species, 100);
+        if (blockA->exp + value > GetMonExpBySpeciesAndLevel(blockA->species, MAX_LEVEL)) {
+            blockA->exp = GetMonExpBySpeciesAndLevel(blockA->species, MAX_LEVEL);
         } else {
             blockA->exp += value;
         }
@@ -1934,10 +1937,10 @@ int CalcLevelBySpeciesAndExp(u16 species, u32 exp) {
 
 int CalcLevelBySpeciesAndExp_PreloadedPersonal(BASE_STATS *personal, u16 species, u32 exp) {
 #pragma unused(species)
-    static u32 table[101];
+    static u32 table[MAX_LEVEL + 1];
     int i;
     LoadGrowthTable(GetPersonalAttr(personal, BASE_GROWTH_RATE), table);
-    for (i = 1; i < 101; i++) {
+    for (i = 1; i < MAX_LEVEL + 1; i++) {
         if (table[i] > exp) {
             break;
         }
@@ -1957,7 +1960,7 @@ u8 GetBoxMonNature(BoxPokemon *boxMon) {
 }
 
 u8 GetNatureFromPersonality(u32 pid) {
-    return (u8)(pid % 25);
+    return (u8)(pid % NATURE_NUM);
 }
 
 const s8 gNatureStatMods[NATURE_NUM][NUM_EV_STATS] = {
@@ -2764,12 +2767,12 @@ BOOL Pokemon_TryLevelUp(Pokemon *mon) {
     u8 level = (u8)(GetMonData(mon, MON_DATA_LEVEL, NULL) + 1);
     u32 exp = GetMonData(mon, MON_DATA_EXPERIENCE, NULL);
     u32 growthrate = (u32)GetMonBaseStat(species, BASE_GROWTH_RATE);
-    u32 maxexp = GetExpByGrowthRateAndLevel((int)growthrate, 100);
+    u32 maxexp = GetExpByGrowthRateAndLevel((int)growthrate, MAX_LEVEL);
     if (exp > maxexp) {
         exp = maxexp;
         SetMonData(mon, MON_DATA_EXPERIENCE, &exp);
     }
-    if (level > 100) {
+    if (level > MAX_LEVEL) {
         return FALSE;
     }
     if (exp >= GetExpByGrowthRateAndLevel((int)growthrate, level)) {
@@ -2816,7 +2819,7 @@ u16 GetMonEvolution(Party *party, Pokemon *mon, u8 context, u16 usedItem, int *m
     case EVOCTX_LEVELUP:
         level = (u8)GetMonData(mon, MON_DATA_LEVEL, NULL);
         friendship = (u16)GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);
-        for (i = 0; i < 7; i++) {
+        for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
             switch (evoTable[i].method) {
             case EVO_NONE:
                 break;
@@ -2960,7 +2963,7 @@ u16 GetMonEvolution(Party *party, Pokemon *mon, u8 context, u16 usedItem, int *m
         }
         break;
     case EVOCTX_TRADE:
-        for (i = 0; i < 7; i++) {
+        for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
             switch (evoTable[i].method) {
             case EVO_TRADE:
                 target = evoTable[i].target;
@@ -2980,7 +2983,7 @@ u16 GetMonEvolution(Party *party, Pokemon *mon, u8 context, u16 usedItem, int *m
         break;
     case EVOCTX_ITEM_CHECK:
     case EVOCTX_ITEM_USE:
-        for (i = 0; i < 7; i++) {
+        for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
             if (evoTable[i].method == EVO_STONE && usedItem == evoTable[i].param) {
                 target = evoTable[i].target;
                 *method_ret = 0;
@@ -3884,7 +3887,7 @@ u32 ChangePersonalityToNatureGenderAndAbility(u32 pid, u16 species, u8 nature, u
         trainerIdXor = ((pid & 0xFFFF0000) >> 16) ^ (u16)pid;
         pid = (0xFF00 ^ (trainerIdXor & 0xFF00)) << 16;
         // Force the pid to have the requested nature
-        pid += nature - (pid % 25);
+        pid += nature - (pid % NATURE_NUM);
         // Maintaining that pid%25 is nature, and pid&1 is ability,
         // ensure pid&0xFF compared to the gender ratio yields gender
         switch (ratio) {
@@ -3905,10 +3908,10 @@ u32 ChangePersonalityToNatureGenderAndAbility(u32 pid, u16 species, u8 nature, u
             } else {
                 if (ratio < (u8)pid) {
                     // pid is male; force pid to become female
-                    pid -= 25 * (((u8)pid - ratio) / 25u + 1);
+                    pid -= NATURE_NUM * (((u8)pid - ratio) / (u32)NATURE_NUM + 1);
                     if ((pid & 1) != ability) {
-                        GF_ASSERT((u8)pid >= 25);
-                        pid -= 25;
+                        GF_ASSERT((u8)pid >= NATURE_NUM);
+                        pid -= NATURE_NUM;
                     }
                 }
             }

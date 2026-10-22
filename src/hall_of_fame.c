@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "hall_of_fame.h"
 
 #include "global.h"
@@ -123,7 +126,7 @@ void Save_HOF_GetMonStatsByIndexPair(HallOfFame *hallOfFame, int teamNum, int mo
     dest->form = mon->form;
     CopyU16ArrayToString(dest->nickname, mon->nickname);
     CopyU16ArrayToString(dest->otname, mon->otname);
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         dest->moves[i] = mon->moves[i];
     }
 }

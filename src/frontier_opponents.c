@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "frontier_opponents.h"
 
 #include "global.h"
@@ -290,8 +293,8 @@ static u32 FrontierFieldSystem_GenerateFrontierMon(FrontierFieldSystem *frontier
         }
     }
     ev = MAX_EV_SUM / ev;
-    if (ev > 255) {
-        ev = 255;
+    if (ev > MAX_EV_PER_STAT) {
+        ev = MAX_EV_PER_STAT;
     }
     for (i = 0; i < NUM_STATS; i++) {
         if (frontierMonNarcData.evs & MaskOfFlagNo(i)) {

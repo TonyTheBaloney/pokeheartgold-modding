@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/items.h"
@@ -950,7 +953,7 @@ u32 PCBox_State_SetupPartyPanelInput(PCBoxWork *work) {
 }
 
 static inline u32 plus30(u32 n) {
-    return n + 30;
+    return n + PC_BOX_SLOT_PARTY_START;
 }
 
 int PCBox_State_MoveModePartyInput(PCBoxWork *work) {
@@ -963,9 +966,9 @@ int PCBox_State_MoveModePartyInput(PCBoxWork *work) {
             if (PCBox_IsActionMenuOpen(work->view->panels) == 0) {
                 PCBox_DrawActionMenu(work, gPCBoxMoveMenu, 5);
             }
-            PCBox_ShowSlotMonInfo(work, touch + 30);
+            PCBox_ShowSlotMonInfo(work, touch + PC_BOX_SLOT_PARTY_START);
             PCBox_SetSpriteVisible(work->view, 9, 0);
-            return PCBox_StartMoveModePartyDrag(work, touch += 30);
+            return PCBox_StartMoveModePartyDrag(work, touch += PC_BOX_SLOT_PARTY_START);
         } else if (PCBox_IsActionMenuOpen(work->view->panels) == 1) {
             touch = (u8)(work->selectedSlot - PC_BOX_SLOT_PARTY_START);
             PCBox_StartCursorSlide(work->view, touch, GridInputHandler_GetNextInput(work->view->gridInput));
@@ -1013,7 +1016,7 @@ int PCBox_State_MoveModePartyInput(PCBoxWork *work) {
         case (u32)-3: {
             u32 i = GridInputHandler_GetNextInput(work->view->gridInput);
             if (i <= 5) {
-                PCBox_ShowSlotMonInfo(work, i + 30);
+                PCBox_ShowSlotMonInfo(work, i + PC_BOX_SLOT_PARTY_START);
             } else if (i != 8 && i != 9 && i != 10 && i != 11 && i != 12 && i != 13) {
                 PCBox_ClearMonInfo(work);
             }
@@ -1033,7 +1036,7 @@ int PCBox_State_MoveModePartyInput(PCBoxWork *work) {
         case (u32)-4: {
             u32 i = GridInputHandler_GetNextInput(work->view->gridInput);
             if (i <= 5) {
-                PCBox_ShowSlotMonInfo(work, i + 30);
+                PCBox_ShowSlotMonInfo(work, i + PC_BOX_SLOT_PARTY_START);
             } else if (i != 8 && i != 9 && i != 10 && i != 11 && i != 12 && i != 13) {
                 PCBox_ClearMonInfo(work);
             }
@@ -1046,10 +1049,10 @@ int PCBox_State_MoveModePartyInput(PCBoxWork *work) {
             if (PCBox_GetSlotMonData(work, input + 30, MON_DATA_SPECIES_EXISTS, NULL)) {
                 PlaySE(SEQ_SE_DP_DECIDE);
                 PCBox_DrawActionMenu(work, gPCBoxMoveMenu, 5);
-                PCBox_ShowSlotMonInfo(work, input + 30);
+                PCBox_ShowSlotMonInfo(work, input + PC_BOX_SLOT_PARTY_START);
                 PCBox_StartCursorSlide(work->view, 8, GridInputHandler_GetNextInput(work->view->gridInput));
                 GridInputHandler_SetNextInput(work->view->gridInput, 8);
-                return PCBox_SelectMoveModePartyMon(work, input += 30);
+                return PCBox_SelectMoveModePartyMon(work, input += PC_BOX_SLOT_PARTY_START);
             }
             break;
         }
@@ -1880,7 +1883,7 @@ int PCBox_State_WithdrawInput(PCBoxWork *work) {
         return PCBox_ScrollToNextBox(work, PC_BOX_STATE_WITHDRAW_INPUT);
     case (u32)-3: {
         u32 i = GridInputHandler_GetNextInput(work->view->gridInput);
-        if (i < 30) {
+        if (i < PC_BOX_SLOT_PARTY_START) {
             PCBox_ShowSlotMonInfo(work, i);
         } else if (i != 34 && i != 35 && i != 36 && i != 37 && i != 38) {
             PCBox_ClearMonInfo(work);
@@ -1910,7 +1913,7 @@ int PCBox_State_WithdrawInput(PCBoxWork *work) {
         break;
     case (u32)-4: {
         u32 i = GridInputHandler_GetNextInput(work->view->gridInput);
-        if (i < 30) {
+        if (i < PC_BOX_SLOT_PARTY_START) {
             PCBox_ShowSlotMonInfo(work, i);
         } else if (i != 34 && i != 35 && i != 36 && i != 37 && i != 38) {
             PCBox_ClearMonInfo(work);
@@ -2005,9 +2008,9 @@ int PCBox_State_DepositInput(PCBoxWork *work) {
                 PCBox_DrawActionMenu(work, gPCBoxDepositMenu, 4);
             }
             PlaySE(SEQ_SE_DP_BOX02);
-            PCBox_ShowSlotMonInfo(work, (u32)(choice + 30));
+            PCBox_ShowSlotMonInfo(work, (u32)(choice + PC_BOX_SLOT_PARTY_START));
             PCBox_SetSpriteVisible(work->view, 9, 0);
-            choice += 30;
+            choice += PC_BOX_SLOT_PARTY_START;
             return PCBox_StartDepositDrag(work, choice);
         }
         if (PCBox_IsActionMenuOpen(work->view->panels) == 1) {
@@ -2051,7 +2054,7 @@ int PCBox_State_DepositInput(PCBoxWork *work) {
     case (u32)-4: {
         u32 input = GridInputHandler_GetNextInput(work->view->gridInput);
         if (input <= 6) {
-            PCBox_ShowSlotMonInfo(work, input + 30);
+            PCBox_ShowSlotMonInfo(work, input + PC_BOX_SLOT_PARTY_START);
         }
         PlaySE(SEQ_SE_DP_SELECT);
         return PC_BOX_STATE_DEPOSIT_INPUT;
@@ -2059,7 +2062,7 @@ int PCBox_State_DepositInput(PCBoxWork *work) {
     case (u32)-3: {
         u32 input = GridInputHandler_GetNextInput(work->view->gridInput);
         if (input <= 6) {
-            PCBox_ShowSlotMonInfo(work, input + 30);
+            PCBox_ShowSlotMonInfo(work, input + PC_BOX_SLOT_PARTY_START);
         }
         PlaySE(SEQ_SE_DP_SELECT);
         return PCBox_WaitForPendingUpdateFunc(work, PC_BOX_STATE_END_CURSOR_SLIDE_TO_DEPOSIT);
@@ -2077,10 +2080,10 @@ int PCBox_State_DepositInput(PCBoxWork *work) {
         if (PCBox_GetSlotMonData(work, (s32)choice + 30, MON_DATA_SPECIES_EXISTS, NULL)) {
             PlaySE(SEQ_SE_DP_DECIDE);
             PCBox_DrawActionMenu(work, gPCBoxDepositMenu, 4);
-            PCBox_ShowSlotMonInfo(work, (u32)(choice + 30));
+            PCBox_ShowSlotMonInfo(work, (u32)(choice + PC_BOX_SLOT_PARTY_START));
             PCBox_StartCursorSlide(work->view, 7, GridInputHandler_GetNextInput(work->view->gridInput));
             GridInputHandler_SetNextInput(work->view->gridInput, 7);
-            choice += 30;
+            choice += PC_BOX_SLOT_PARTY_START;
             return PCBox_SelectDepositMon(work, choice);
         }
         break;
@@ -3973,7 +3976,7 @@ static u32 PCBox_DropTrayMon(PCBoxWork *work, u32 index) {
     ManagedSprite_GetPositionXY(work->view->sprites[9], &xy.x, &xy.y);
     ManagedSprite_SetPositionXY(work->view->sprites[work->view->slotIcons[work->selectedSlot]], xy.x, xy.y + 4);
     if (index < 36) {
-        if (index >= 30) {
+        if (index >= PC_BOX_SLOT_PARTY_START) {
             int count = Party_GetCount(work->party);
             if (work->selectedSlot < PC_BOX_SLOT_PARTY_START) {
                 if (index - 30 > count) {
@@ -4001,7 +4004,7 @@ static u32 PCBox_DropTrayMon(PCBoxWork *work, u32 index) {
         selected = work->selectedSlot;
         if (selected >= 30) {
             Pokemon *mon;
-            selected -= 30;
+            selected -= PC_BOX_SLOT_PARTY_START;
             mon = Party_GetMonByIndex(work->party, selected);
             if (ItemIdIsMail((u16)GetMonData(mon, MON_DATA_HELD_ITEM, NULL)) == TRUE) {
                 PCBox_SlideOutMovesPanel(work->view);

@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_WIFI_CLUB_APP_H
 #define POKEHEARTGOLD_WIFI_CLUB_APP_H
 
@@ -164,7 +167,7 @@ enum WifiClubStatus {
 #define WIFI_CLUB_SEEK_MENU_PLAZA_GAMES   29
 
 typedef struct WifiClubPlayerStatus {
-    u16 species[6];
+    u16 species[PARTY_SIZE];
     u16 heldItems[6];
     u8 gameInfo[3];
     u8 status;

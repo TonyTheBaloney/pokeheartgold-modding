@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "field/encounter_check.h"
 
 #include "global.h"
@@ -733,7 +736,7 @@ static void ApplyFluteEffectToEncounterRate(FieldSystem *fieldSystem, u8 *pEncou
 
 static u8 getWildMonNature(Pokemon *pokemon, EncounterGenState *encounterGen) {
     if (!encounterGen->isEgg && encounterGen->ability == ABILITY_SYNCHRONIZE && LCRandRange(2) == 0) {
-        return GetMonData(pokemon, MON_DATA_PERSONALITY, NULL) % 25;
+        return GetMonData(pokemon, MON_DATA_PERSONALITY, NULL) % NATURE_NUM;
     } else {
         return LCRandRange(25);
     }
@@ -856,7 +859,7 @@ static void generateWildNonShinyAndAddToParty(u16 species, u8 level, int battler
         BOOL success = FALSE;
         for (i = 0; i < 4; ++i) {
             CreateMonWithNature(wildMon, species, level, 0x20, getWildMonNature(leadMon, encounterGen));
-            for (int j = 0; j < 6; ++j) {
+            for (int j = 0; j < NUM_STATS; ++j) {
                 if (GetMonData(wildMon, MON_DATA_HP_IV + j, NULL) == 31) {
                     success = TRUE;
                     break;

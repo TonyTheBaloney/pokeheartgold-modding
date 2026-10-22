@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/items.h"
@@ -2802,7 +2805,7 @@ static void BattleCastlePartyApp_LoadMonSummary(BattleCastlePartyApp *app) {
         app->summary.hideGender = 1;
     }
     app->summary.gender = GetMonGender(mon);
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         app->summary.moves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, NULL);
         app->summary.pp[i] = GetMonData(mon, MON_DATA_MOVE1_PP + i, NULL);
         {
@@ -2911,7 +2914,7 @@ static void BattleCastlePartyApp_PrintMonSummary(BattleCastlePartyApp *app, int 
     BattleCastlePartyApp_PrintExpandedMessage(app, &app->windows[CASTLE_PARTY_WIN_SPEED], app->msgData, msg_0031_00085, GetWindowWidth(&app->windows[CASTLE_PARTY_WIN_SPEED]) * 8, 0, 0, CASTLE_PARTY_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
 
     // moves: name, then "pp / maxPp" centered on the slash ("--" for an empty slot)
-    for (move = 0, cursor = (u8 *)app; move < 4; move++, cursor += sizeof(u16)) {
+    for (move = 0, cursor = (u8 *)app; move < MAX_MON_MOVES; move++, cursor += sizeof(u16)) {
         BufferMoveName(app->msgFormat, move, *(u16 *)(cursor + offsetof(BattleCastlePartyApp, summary.moves)));
         BattleCastlePartyApp_PrintExpandedMessage(app, &app->windows[CASTLE_PARTY_WIN_MOVE_NAMES + move], app->msgData, msg_0031_00096 + move, 0, 0, 0, CASTLE_PARTY_TEXT_COLOR, CASTLE_ALIGN_LEFT);
         if (*(u16 *)(cursor + offsetof(BattleCastlePartyApp, summary.moves)) == MOVE_NONE) {

@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 // Pokewalker connection app, modes 4 and 5: waiting before the save, and starting a Stroll.
 
 #include "global.h"
@@ -209,7 +212,7 @@ static void PokewalkerApp_AddStrollFriendship(BoxPokemon *boxMon, int steps) {
     u8 friendship;
     if (steps >= 5000) {
         friendship = GetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, NULL);
-        if (friendship < 255) {
+        if (friendship < FRIENDSHIP_MAX) {
             friendship++;
             SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &friendship);
         }

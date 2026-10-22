@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "pokemon_summary.h"
 
 #include "global.h"
@@ -1308,7 +1311,7 @@ void PokemonSummary_ReadMon(PokemonSummary *summary, Pokemon *mon, PokemonSummar
     out->otGender = GetMonData(mon, MON_DATA_OT_GENDER, NULL);
 
     out->curLevelExp = GetMonExpBySpeciesAndLevel(out->species, out->level);
-    if (out->level == 100) {
+    if (out->level == MAX_LEVEL) {
         out->nextLevelExp = out->curLevelExp;
     } else {
         out->nextLevelExp = GetMonExpBySpeciesAndLevel(out->species, out->level + 1);
@@ -1618,7 +1621,7 @@ static void PokemonSummary_DrawExpBar(PokemonSummary *summary) {
     u32 pixels;
     u8 i;
 
-    if (summary->mon.level < 100) {
+    if (summary->mon.level < MAX_LEVEL) {
         u32 start = summary->mon.curLevelExp;
         levelExp = summary->mon.nextLevelExp - start;
         exp = summary->mon.exp - start;

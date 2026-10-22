@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "frontier/battle_tower_setup.h"
 
 #include "global.h"
@@ -253,8 +256,8 @@ static u32 BattleTower_GenerateFrontierMon(FrontierFieldSystem *tower, FrontierM
         }
     }
     evs = MAX_EV_SUM / count;
-    if (evs > 255) {
-        evs = 255;
+    if (evs > MAX_EV_PER_STAT) {
+        evs = MAX_EV_PER_STAT;
     }
     i = 0;
     ev = evs;

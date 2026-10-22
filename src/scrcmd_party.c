@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "constants/balls.h"
 
 #include "field_system.h"
@@ -602,10 +605,10 @@ BOOL ScrCmd_CountPartyMonsOfSpecies(ScriptContext *ctx) {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 *speciesCount = ScriptGetVarPointer(ctx);
     u16 species = ScriptGetVar(ctx);
-    u16 array[6];
+    u16 array[PARTY_SIZE];
     u8 i, j;
 
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < PARTY_SIZE; i++) {
         array[i] = 0;
     }
 

@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "party_menu_items.h"
 
 #include "global.h"
@@ -494,7 +497,7 @@ static u8 PartyMenu_SacredAshGetNextMonId(PartyMenu *partyMenu, u8 partySlot) {
     if (partySlot >= PARTY_SIZE) {
         return 0xFF;
     }
-    for (; partySlot < 6; ++partySlot) {
+    for (; partySlot < PARTY_SIZE; ++partySlot) {
         if (partyMenu->monsDrawState[partySlot].active && partyMenu->monsDrawState[partySlot].hp == 0) {
             return partySlot;
         }

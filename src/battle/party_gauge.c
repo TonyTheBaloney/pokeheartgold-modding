@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/party_gauge.h"
 
 #include "global.h"
@@ -169,7 +172,7 @@ PartyGauge *PartyGauge_NewAndShow(u8 *ballStatus, s32 side, s32 showType, s32 po
 BOOL PartyGauge_IsArrowTaskFinished(PartyGauge *partyGauge) {
     int i;
     if (partyGauge->arrow.task == 0) {
-        for (i = 0; i < 6; i++) {
+        for (i = 0; i < PARTY_SIZE; i++) {
             if (partyGauge->pokeballs[i].task != 0) {
                 break;
             }
@@ -186,7 +189,7 @@ void PartyGauge_StartHideTask(PartyGauge *partyGauge, s32 hideArrowType, s32 hid
 
     PartyGaugeArrow_StartHideTask(&partyGauge->arrow, hideArrowType);
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < PARTY_SIZE; i++) {
         PartyGaugePokeballs_StartHideTask(&partyGauge->pokeballs[i], i, hideGaugeType, &partyGauge->arrow.alpha);
     }
 }
@@ -194,7 +197,7 @@ void PartyGauge_StartHideTask(PartyGauge *partyGauge, s32 hideArrowType, s32 hid
 u32 PartyGauge_IsHideTaskFinished(PartyGauge *partyGauge) {
     int i;
     if (partyGauge->arrow.task == 0) {
-        for (i = 0; i < 6; i++) {
+        for (i = 0; i < PARTY_SIZE; i++) {
             if (partyGauge->pokeballs[i].task) {
                 break;
             }

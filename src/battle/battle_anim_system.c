@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/battle.h"
@@ -691,7 +694,7 @@ BOOL BattleAnimSystem_StartMove(BattleAnimSystem *system, MoveAnimData *animData
     system->bgConfig = setup->bgConfig;
     system->paletteData = setup->paletteData;
     system->context->battleType = setup->battleType;
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < BATTLER_MAX; i++) {
         system->context->picData[i] = setup->picData[i];
         system->context->battlerTypes[i] = setup->battlerTypes[i];
         system->context->pokepics[i] = setup->pokepics[i];

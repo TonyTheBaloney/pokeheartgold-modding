@@ -1,6 +1,6 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
-// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE (see AI_WORK_LOG.md)
+// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE; game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/battle_command.h"
 
 #include "global.h"
@@ -6050,7 +6050,7 @@ static void Task_GetExp(SysTask *task, void *inData) {
         // "{0} gained {1} Exp. Points!"
         msg.id = msg_0197_00001;
 
-        if (GetMonData(mon, MON_DATA_HP, NULL) && GetMonData(mon, MON_DATA_LEVEL, NULL) != 100) {
+        if (GetMonData(mon, MON_DATA_HP, NULL) && GetMonData(mon, MON_DATA_LEVEL, NULL) != MAX_LEVEL) {
             if (data->ctx->expEarnFlags[side] & MaskOfFlagNo(slot)) {
                 totalExp = data->ctx->gainedExp;
             }
@@ -7017,7 +7017,7 @@ static void Task_GetPokemon(SysTask *task, void *inData) {
             int emptyBox = PCStorage_FindFirstBoxWithEmptySlot(pcStorage);
             PCStorage_SetActiveBox(pcStorage, emptyBox);
 
-            for (s32 moveSlot = 0; moveSlot < 4; moveSlot++) {
+            for (s32 moveSlot = 0; moveSlot < MAX_MON_MOVES; moveSlot++) {
                 u32 maxPP = GetMonData(mon, MON_DATA_MOVE1_MAX_PP + moveSlot, 0);
                 SetMonData(mon, MON_DATA_MOVE1_PP + moveSlot, &maxPP);
             }

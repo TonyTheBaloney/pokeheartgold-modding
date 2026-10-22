@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "application/main_menu/agb_cartridge.h"
 
 #include "global.h"
@@ -1407,7 +1410,7 @@ void MigrateBoxMon(AgbBoxMon *agbMon, BoxPokemon *boxMon) {
     COPY_FIELD(AGB_MON_DATA_SMART, MON_DATA_SMART);
     COPY_FIELD(AGB_MON_DATA_TOUGH, MON_DATA_TOUGH);
     COPY_FIELD(AGB_MON_DATA_SHEEN, MON_DATA_SHEEN);
-    for (i = 0, j = 0; i < 4; i++, j += 2) {
+    for (i = 0, j = 0; i < MAX_MON_MOVES; i++, j += 2) {
         COPY_FIELD(i + AGB_MON_DATA_MOVE1, i + MON_DATA_MOVE1);
         data = AGB_GetBoxMonData(agbMon, AGB_MON_DATA_PP_UPS, NULL);
         data = (data & (3 << j)) >> j;

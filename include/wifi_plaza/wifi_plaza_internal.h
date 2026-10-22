@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_WIFI_PLAZA_INTERNAL_H
 #define POKEHEARTGOLD_WIFI_PLAZA_INTERNAL_H
 
@@ -46,7 +49,7 @@ typedef struct WiFiPlazaPlayer {
     u16 name[8];
     u32 entryTime;   // WiFiPlaza_SecondsToTime of the entry time
     void *localTime; // WiFiPlazaTime: local time of the location
-    u16 species[6];
+    u16 species[PARTY_SIZE];
     u8 forms[6];
     u8 isEgg[6];
     u8 gender; // >= 2: taken from the avatar table
@@ -141,7 +144,7 @@ typedef struct WiFiPlazaSessionState {
 // Own status data sent to the other players of the lobby session; the same record as WifiClubPlayerStatus, of
 // which the plaza fills in only the trainer.
 typedef struct WiFiPlazaPlayerInfo {
-    u16 species[6];
+    u16 species[PARTY_SIZE];
     u16 heldItems[6];
     u8 version;
     u8 language;

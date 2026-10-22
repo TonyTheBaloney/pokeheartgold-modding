@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_FIELD_LAUNCH_APPLICATION_H
 #define POKEHEARTGOLD_FIELD_LAUNCH_APPLICATION_H
 
@@ -72,7 +75,7 @@ typedef struct GlobalTerminalLaunchArgs {
 
 struct LinkBattleScriptWork {
     u8 filler_00[0x30];
-    u8 selectedOrder[6];
+    u8 selectedOrder[PARTY_SIZE];
 };
 
 typedef struct MoveSelectionResult {

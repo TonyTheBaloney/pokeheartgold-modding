@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "frontier/frontier_link_lobby.h"
 
 #include "global.h"
@@ -116,7 +119,7 @@ static void FrontierLinkLobby_LaunchPartyMenu(void *frontierWork, FrontierLinkLo
     if (lobby->facility == 1) {
         lobby->partyMenuArgs->minMonsToSelect = 2;
         lobby->partyMenuArgs->maxMonsToSelect = 2;
-        lobby->partyMenuArgs->maxLevel = 100;
+        lobby->partyMenuArgs->maxLevel = MAX_LEVEL;
     } else if (lobby->facility == 5) {
         lobby->partyMenuArgs->minMonsToSelect = 1;
         lobby->partyMenuArgs->maxMonsToSelect = 1;
@@ -124,11 +127,11 @@ static void FrontierLinkLobby_LaunchPartyMenu(void *frontierWork, FrontierLinkLo
     } else if (lobby->facility == 4) {
         lobby->partyMenuArgs->minMonsToSelect = 2;
         lobby->partyMenuArgs->maxMonsToSelect = 2;
-        lobby->partyMenuArgs->maxLevel = 100;
+        lobby->partyMenuArgs->maxLevel = MAX_LEVEL;
     } else if (lobby->facility == 6) {
         lobby->partyMenuArgs->minMonsToSelect = 2;
         lobby->partyMenuArgs->maxMonsToSelect = 2;
-        lobby->partyMenuArgs->maxLevel = 100;
+        lobby->partyMenuArgs->maxLevel = MAX_LEVEL;
     } else {
         GF_ASSERT(FALSE);
     }

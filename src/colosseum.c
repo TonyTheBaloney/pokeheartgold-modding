@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/comm_type.h"
@@ -174,9 +177,9 @@ static void Colosseum_OpenPartyMenu(ColosseumEntry *entry, enum HeapID heapId) {
         args->minMonsToSelect = 3;
         args->maxMonsToSelect = 3;
     }
-    args->maxLevel = 100;
+    args->maxLevel = MAX_LEVEL;
     args->partySlot = entry->partySlot;
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < PARTY_SIZE; i++) {
         args->selectedOrder[i] = entry->selectedOrder[i];
     }
     FieldSystem_LaunchApplication(entry->fieldSystem, &gOverlayTemplate_PartyMenu, args);

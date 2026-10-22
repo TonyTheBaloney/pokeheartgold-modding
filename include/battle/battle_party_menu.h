@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_BATTLE_BATTLE_PARTY_MENU_H
 #define POKEHEARTGOLD_BATTLE_BATTLE_PARTY_MENU_H
 
@@ -31,7 +34,7 @@ typedef struct BattlePartyContext {
     u16 move;        // move to learn (BATTLE_PARTY_MODE_LEARN_MOVE); in switch mode non-zero when the battler cannot switch out (msg 78)
     u8 unk_26[2];
     int battlerId;
-    u8 partyOrder[6]; // party index of each slot on the screen
+    u8 partyOrder[PARTY_SIZE]; // party index of each slot on the screen
     u8 cursorActive;  // d-pad cursor state, kept between openings
     u8 pocket;        // battle pocket of item
     u8 selectedMove;  // move slot picked, 4 for the move to learn

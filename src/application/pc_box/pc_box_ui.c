@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/items.h"
@@ -713,7 +716,7 @@ u32 PCBox_StartSummaryApp(PCBoxWork *work) {
     if (work->selectedSlot < PC_BOX_SLOT_PARTY_START) {
         args->party = (Party *)PCBox_GetSlotBoxMon(work, work->activeBox, 0);
         args->monDataType = 2;
-        args->partyCount = 30;
+        args->partyCount = MONS_PER_BOX;
         args->partySlot = work->selectedSlot;
     } else {
         args->party = work->party;

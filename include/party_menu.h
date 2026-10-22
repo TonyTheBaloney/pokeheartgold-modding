@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_PARTY_MENU_H
 #define POKEHEARTGOLD_PARTY_MENU_H
 
@@ -296,7 +299,7 @@ typedef struct PartyMenuArgs {
     u8 unk_2D;
     u8 contestStat;
     u8 contestLevel;
-    u8 selectedOrder[6];
+    u8 selectedOrder[PARTY_SIZE];
     u8 minMonsToSelect : 4;
     u8 maxMonsToSelect : 4;
     u8 maxLevel;

@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "scrcmd_battle_arcade.h"
 
 #include "global.h"
@@ -211,7 +214,7 @@ static u32 BattleArcadeSelectMons_OpenPartyMenu(FrontierSelectMonsEnv *env, Fiel
     for (u8 i = 0; i < 3; i++) {
         partyMenu->selectedOrder[i] = env->selectedOrder[i];
     }
-    partyMenu->maxLevel = 100;
+    partyMenu->maxLevel = MAX_LEVEL;
     partyMenu->minMonsToSelect = 3;
     partyMenu->maxMonsToSelect = 3;
     partyMenu->menuInputStatePtr = &(fieldSystem->menuInputState);

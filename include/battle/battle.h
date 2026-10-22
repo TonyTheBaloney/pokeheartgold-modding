@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_BATTLE_H
 #define POKEHEARTGOLD_BATTLE_H
 
@@ -439,7 +442,7 @@ typedef struct BattleContext {
     u8 weatherCheckFlag;
     s16 hpTemp;
     u16 recycleItem[4];
-    u8 partyOrder[4][6];
+    u8 partyOrder[BATTLER_MAX][PARTY_SIZE];
     int victoryMusicPlayed;
     int queueTimeout;
     u8 recordInputFlags[4];

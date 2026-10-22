@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_BATTLE_RECORDING_H
 #define POKEHEARTGOLD_BATTLE_RECORDING_H
 
@@ -28,7 +31,7 @@ typedef struct BattleRecordHeader {
 
 typedef struct BattleRecordParty {
     u16 capacity, count;
-    struct BattleRecordMon mons[6];
+    struct BattleRecordMon mons[PARTY_SIZE];
 } BattleRecordParty;
 
 // Encrypted while stored: the BattleSetup, the parties and every battler's inputs.

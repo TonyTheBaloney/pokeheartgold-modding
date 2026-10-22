@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "use_item_on_mon.h"
 
 #include "global.h"
@@ -594,19 +597,19 @@ s32 TryModEV(s32 ev, s32 evSum, s32 by) {
 
 BOOL CanItemModFriendship(Pokemon *mon, ItemData *itemData) {
     s32 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);
-    if (friendship >= 255) {
+    if (friendship >= FRIENDSHIP_MAX) {
         return FALSE;
     }
 
-    if (friendship < 100) {
+    if (friendship < FRIENDSHIP_TIER_MID_MIN) {
         return GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_LO) && GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_LO_PARAM) > 0;
     }
 
-    if (friendship >= 100 && friendship < 200) {
+    if (friendship >= FRIENDSHIP_TIER_MID_MIN && friendship < FRIENDSHIP_TIER_HI_MIN) {
         return GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_MED) && GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_MED_PARAM) > 0;
     }
 
-    if (friendship >= 200 && friendship < 255) {
+    if (friendship >= FRIENDSHIP_TIER_HI_MIN && friendship < FRIENDSHIP_MAX) {
         return GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_HI) && GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_HI_PARAM) > 0;
     }
 
@@ -614,7 +617,7 @@ BOOL CanItemModFriendship(Pokemon *mon, ItemData *itemData) {
 }
 
 BOOL DoItemFriendshipMod(Pokemon *mon, s32 friendship, s32 mod, u16 location, enum HeapID heapID) {
-    if (friendship == 255 && mod > 0) {
+    if (friendship == FRIENDSHIP_MAX && mod > 0) {
         return FALSE;
     }
 

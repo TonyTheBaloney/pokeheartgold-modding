@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "wifi_club.h"
 
 #include "global.h"
@@ -151,7 +154,7 @@ static BOOL Task_WifiClub(TaskManager *taskManager) {
             task->state = WIFI_CLUB_TASK_START_BATTLE;
             break;
         case WIFI_CLUB_BATTLE_SINGLE_LV100:
-            task->maxLevel = 100;
+            task->maxLevel = MAX_LEVEL;
             task->doubleBattle = FALSE;
             task->state = WIFI_CLUB_TASK_START_BATTLE;
             break;
@@ -166,7 +169,7 @@ static BOOL Task_WifiClub(TaskManager *taskManager) {
             task->state = WIFI_CLUB_TASK_START_BATTLE;
             break;
         case WIFI_CLUB_BATTLE_DOUBLE_LV100:
-            task->maxLevel = 100;
+            task->maxLevel = MAX_LEVEL;
             task->doubleBattle = TRUE;
             task->state = WIFI_CLUB_TASK_START_BATTLE;
             break;

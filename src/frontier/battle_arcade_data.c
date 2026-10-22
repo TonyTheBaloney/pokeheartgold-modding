@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "frontier/battle_arcade_data.h"
 
 #include "global.h"
@@ -953,9 +956,9 @@ static void BattleArcade_Event_LevelUp(ArcadeContext *ctx, Party *party, int cou
         Pokemon *mon = Party_GetMonByIndex(party, i);
         u32 level = GetMonData(mon, MON_DATA_LEVEL, NULL) + 3;
         u32 exp;
-        if (level > 100) {
+        if (level > MAX_LEVEL) {
             GF_ASSERT(FALSE);
-            level = 100;
+            level = MAX_LEVEL;
         }
         exp = GetMonExpBySpeciesAndLevel(GetMonData(mon, MON_DATA_SPECIES, NULL), level);
         SetMonData(mon, MON_DATA_EXPERIENCE, &exp);

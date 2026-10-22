@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/moves.h"
@@ -2218,7 +2221,7 @@ static void BattleCastleOpponentApp_LoadMonSummary(BattleCastleOpponentApp *app)
         app->summary.hideGender = 1;
     }
     app->summary.gender = GetMonGender(mon);
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         app->summary.moves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, NULL);
         app->summary.pp[i] = GetMonData(mon, MON_DATA_MOVE1_PP + i, NULL);
         {
@@ -2356,7 +2359,7 @@ static void BattleCastleOpponentApp_PrintMonSummary(BattleCastleOpponentApp *app
             BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00073, 120 + halfSlashWidth, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
         }
     } else {
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < MAX_MON_MOVES; i++) {
             BufferMoveName(app->msgFormat, i, app->summary.moves[i]);
             BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00084 + i, 0, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
             if (app->summary.moves[i] == MOVE_NONE) {

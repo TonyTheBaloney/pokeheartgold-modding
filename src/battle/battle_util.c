@@ -1,6 +1,6 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
-// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE (see AI_WORK_LOG.md)
+// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE; game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/battle_util.h"
 
 #include "global.h"
@@ -59,7 +59,7 @@ void BattleSystem_GetBattleMon(BattleSystem *battleSystem, BattleContext *ctx, i
     ctx->battleMons[battlerId].spAtk = GetMonData(mon, MON_DATA_SP_ATK, NULL);
     ctx->battleMons[battlerId].spDef = GetMonData(mon, MON_DATA_SP_DEF, NULL);
 
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         ctx->battleMons[battlerId].moves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, NULL);
         ctx->battleMons[battlerId].movePPCur[i] = GetMonData(mon, MON_DATA_MOVE1_PP + i, NULL);
         ctx->battleMons[battlerId].movePP[i] = GetMonData(mon, MON_DATA_MOVE1_PP_UPS + i, NULL);
@@ -168,7 +168,7 @@ void BattleSystem_ReloadMonData(BattleSystem *battleSystem, BattleContext *ctx, 
     ctx->battleMons[battlerId].maxHp = GetMonData(mon, MON_DATA_MAX_HP, NULL);
 
     if (!(ctx->battleMons[battlerId].status2 & STATUS2_TRANSFORM)) {
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < MAX_MON_MOVES; i++) {
             if (!(ctx->battleMons[battlerId].moveEffectData.mimicedMoveIndex & MaskOfFlagNo(i))) {
                 ctx->battleMons[battlerId].moves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, NULL);
                 ctx->battleMons[battlerId].movePPCur[i] = GetMonData(mon, MON_DATA_MOVE1_PP + i, NULL);
@@ -249,7 +249,7 @@ BOOL Link_QueueNotEmpty(BattleContext *ctx) {
     int cnt = 0;
 
     for (i = 0; i < 4; i++) {
-        for (battlerId = 0; battlerId < 4; battlerId++) {
+        for (battlerId = 0; battlerId < BATTLER_MAX; battlerId++) {
             for (j = 0; j < 16; j++) {
                 cnt += ctx->linkBuffer[i][battlerId][j];
             }
@@ -855,8 +855,8 @@ void BattleMon_AddVar(BattleMon *mon, u32 varId, int data) {
     case BMON_DATA_FRIENDSHIP: {
         int friendship = mon->friendship;
 
-        if (friendship + data > 255) {
-            friendship = 255;
+        if (friendship + data > FRIENDSHIP_MAX) {
+            friendship = FRIENDSHIP_MAX;
         } else if (friendship + data < 0) {
             friendship = 0;
         } else {
@@ -1744,7 +1744,7 @@ void BattleContext_Init(BattleContext *ctx) {
 
     ctx->magnitude = 0;
 
-    for (battlerId = 0; battlerId < 4; battlerId++) {
+    for (battlerId = 0; battlerId < BATTLER_MAX; battlerId++) {
         MIi_CpuClearFast(0, (u32 *)&ctx->selfTurnData[battlerId], sizeof(SelfTurnData));
         ctx->aiSwitchedPartySlot[battlerId] = 6;
     }
@@ -1753,7 +1753,7 @@ void BattleContext_Init(BattleContext *ctx) {
 void BattleContext_InitBattleStart(BattleSystem *battleSystem, BattleContext *ctx) {
     int battleType;
 
-    for (int battlerId = 0; battlerId < 4; battlerId++) {
+    for (int battlerId = 0; battlerId < BATTLER_MAX; battlerId++) {
         ctx->moveNoHitBattler[battlerId] = 0xFF;
         ctx->switchMonIndex[battlerId] = 6;
         ctx->quickClawRandom[battlerId] = BattleSystem_Random(battleSystem);
@@ -1947,7 +1947,7 @@ void InitFaintedWork(BattleSystem *battleSystem, BattleContext *ctx, int battler
 void BattleContext_ResetTurnData(BattleSystem *battleSystem, BattleContext *ctx) {
     int battlerId;
 
-    for (battlerId = 0; battlerId < 4; battlerId++) {
+    for (battlerId = 0; battlerId < BATTLER_MAX; battlerId++) {
         MIi_CpuClearFast(0, (u32 *)&ctx->turnData[battlerId], sizeof(TurnData));
         MIi_CpuClearFast(0, (u32 *)&ctx->moveFail[battlerId], sizeof(MoveFailFlags));
         ctx->battleMons[battlerId].status2 &= ~STATUS2_FLINCH;
@@ -1970,7 +1970,7 @@ u32 StruggleCheck(BattleSystem *battleSystem, BattleContext *ctx, int battlerId,
     int movePos;
     int item = GetBattlerHeldItemEffect(ctx, battlerId);
 
-    for (movePos = 0; movePos < 4; movePos++) {
+    for (movePos = 0; movePos < MAX_MON_MOVES; movePos++) {
         if (!(ctx->battleMons[battlerId].moves[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_NO_MOVES)) {
             nonSelectableMoves |= MaskOfFlagNo(movePos);
         }
@@ -2068,7 +2068,7 @@ BOOL BattleContext_CheckMoveSelectable(BattleSystem *battleSystem, BattleContext
 int BattleMon_GetMoveIndex(BattleMon *mon, u16 moveNo) {
     int movePos;
 
-    for (movePos = 0; movePos < 4; movePos++) {
+    for (movePos = 0; movePos < MAX_MON_MOVES; movePos++) {
         if (mon->moves[movePos] == moveNo) {
             break;
         }
@@ -5418,7 +5418,7 @@ void BattleSystem_InitPartyOrder(BattleSystem *battleSystem, BattleContext *ctx)
     int index;
 
     for (battlerId = 0; battlerId < BattleSystem_GetMaxBattlers(battleSystem); battlerId++) {
-        for (index = 0; index < 6; index++) {
+        for (index = 0; index < PARTY_SIZE; index++) {
             ctx->partyOrder[battlerId][index] = index;
         }
         BattleSystem_MoveMonToFrontOfPartyOrder(battleSystem, ctx, battlerId, ctx->selectedMonIndex[battlerId]);
@@ -5442,7 +5442,7 @@ void BattleSystem_MoveMonToFrontOfPartyOrder(BattleSystem *battleSystem, BattleC
         flag = 0;
     }
 
-    for (index = 0; index < 6; index++) {
+    for (index = 0; index < PARTY_SIZE; index++) {
         if (ctx->partyOrder[battlerId][index] == selectedMonIndex) {
             break;
         }

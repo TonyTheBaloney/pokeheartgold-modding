@@ -1,11 +1,12 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
-// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE (see AI_WORK_LOG.md)
+// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE; game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/battle_controller_player.h"
 
 #include "global.h"
 
 #include "constants/abilities.h"
+#include "constants/badge.h"
 #include "constants/battle_menu.h"
 #include "constants/battle_subscript.h"
 #include "constants/items.h"
@@ -762,7 +763,7 @@ static void BattleControllerPlayer_BeforeTurn(BattleSystem *battleSystem, Battle
             ctx->stateBeforeTurn++;
             break;
         case BT_STATE_QUICK_CLAW:
-            for (battlerId = 0; battlerId < 4; battlerId++) {
+            for (battlerId = 0; battlerId < BATTLER_MAX; battlerId++) {
                 ctx->quickClawRandom[battlerId] = BattleSystem_Random(battleSystem);
             }
             ctx->stateBeforeTurn++;
@@ -1926,11 +1927,11 @@ static u32 TryDisobedience(BattleSystem *battleSystem, BattleContext *ctx, int *
         level = 30;
     }
 
-    if (PlayerProfile_TestBadgeFlag(profile, 3)) {
+    if (PlayerProfile_TestBadgeFlag(profile, BADGE_FOG)) {
         level = 50;
     }
 
-    if (PlayerProfile_TestBadgeFlag(profile, 5)) {
+    if (PlayerProfile_TestBadgeFlag(profile, BADGE_MINERAL)) {
         level = 70;
     }
 
@@ -3947,7 +3948,7 @@ static void BattleControllerPlayer_InitTrainerAIData(BattleSystem *battleSystem,
     MIi_CpuClear32(0, (u32 *)&ctx->trainerAIData, sizeof(TrainerAIData));
 
     if ((battleType & BATTLE_TYPE_TRAINER) && !(battleType & (BATTLE_TYPE_NO_EXP | BATTLE_TYPE_AI))) {
-        for (battler = 0; battler < 4; battler++) {
+        for (battler = 0; battler < BATTLER_MAX; battler++) {
             if (battler & 1) {
                 for (i = 0; i < 4; i++) {
                     item = BattleSystem_GetTrainerItem(battleSystem, battler, i);

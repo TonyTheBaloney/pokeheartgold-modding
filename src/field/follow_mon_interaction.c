@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/global_fieldmap.h"
@@ -1357,15 +1360,15 @@ static void FollowMon_ApplyInteractionEffects(FieldSystem *fieldSystem, FollowMo
 BOOL FollowMonRule_CheckFriendship(int rule, int friendship) {
     switch (rule) {
     case 1:
-        if (friendship != 255) {
+        if (friendship != FRIENDSHIP_MAX) {
             break;
         }
         return TRUE;
     case 2:
-        if (friendship < 200) {
+        if (friendship < FRIENDSHIP_TIER_HI_MIN) {
             break;
         }
-        if (friendship >= 255) {
+        if (friendship >= FRIENDSHIP_MAX) {
             break;
         }
         return TRUE;
@@ -1373,7 +1376,7 @@ BOOL FollowMonRule_CheckFriendship(int rule, int friendship) {
         if (friendship < 150) {
             break;
         }
-        if (friendship >= 200) {
+        if (friendship >= FRIENDSHIP_TIER_HI_MIN) {
             break;
         }
         return TRUE;

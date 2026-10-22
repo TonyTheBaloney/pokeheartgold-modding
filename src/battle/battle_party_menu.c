@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/battle_party_menu.h"
 
 #include <stddef.h>
@@ -1245,7 +1248,7 @@ static int BattlePartyMenu_AnimateRestoreAllPP(BattlePartyMenu *menu) {
     switch (menu->effectState) {
     case RESTORE_ALL_PP_STATE_START:
         menu->mons[context->selectedMon].mon = BattleSystem_GetPartyMon(context->battleSystem, context->battlerId, context->partyOrder[context->selectedMon]);
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < MAX_MON_MOVES; i++) {
             if (menu->mons[context->selectedMon].moves[i].move != MOVE_NONE) {
                 menu->ppTargets[i] = GetMonData(menu->mons[context->selectedMon].mon, MON_DATA_MOVE1_PP + i, NULL);
             }
@@ -1256,7 +1259,7 @@ static int BattlePartyMenu_AnimateRestoreAllPP(BattlePartyMenu *menu) {
         break;
     case RESTORE_ALL_PP_STATE_RESTORE:
         count = 0;
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < MAX_MON_MOVES; i++) {
             if (menu->mons[context->selectedMon].moves[i].move == MOVE_NONE) {
                 count++;
             } else if (menu->ppTargets[i] != menu->mons[context->selectedMon].moves[i].pp) {
@@ -1415,7 +1418,7 @@ static void BattlePartyMenu_LoadMonData(BattlePartyMenu *menu) {
         menu->mons[i].heldItem = GetMonData(menu->mons[i].mon, MON_DATA_HELD_ITEM, NULL);
         menu->mons[i].exp = GetMonData(menu->mons[i].mon, MON_DATA_EXPERIENCE, NULL);
         menu->mons[i].levelExp = GetMonExpBySpeciesAndLevel(menu->mons[i].species, menu->mons[i].level);
-        if (menu->mons[i].level == 100) {
+        if (menu->mons[i].level == MAX_LEVEL) {
             menu->mons[i].nextLevelExp = menu->mons[i].levelExp;
         } else {
             menu->mons[i].nextLevelExp = GetMonExpBySpeciesAndLevel(menu->mons[i].species, menu->mons[i].level + 1);
@@ -1427,7 +1430,7 @@ static void BattlePartyMenu_LoadMonData(BattlePartyMenu *menu) {
         menu->mons[i].contestStats[4] = GetMonData(menu->mons[i].mon, MON_DATA_TOUGH, NULL);
         menu->mons[i].ballCapsule = GetMonData(menu->mons[i].mon, MON_DATA_BALL_CAPSULE_ID, NULL);
         menu->mons[i].form = GetMonData(menu->mons[i].mon, MON_DATA_FORM, NULL);
-        for (j = 0; j < 4; j++) {
+        for (j = 0; j < MAX_MON_MOVES; j++) {
             BattlePartyMenuMove *move = &menu->mons[i].moves[j];
             move->move = GetMonData(menu->mons[i].mon, MON_DATA_MOVE1 + j, NULL);
             if (move->move == MOVE_NONE) {
@@ -1558,7 +1561,7 @@ static void BattlePartyMenu_DrawExpBar(BattlePartyMenu *menu, int page) {
     }
     slot = menu->context->selectedMon;
     mon = &menu->mons[slot];
-    if (mon->level < 100) {
+    if (mon->level < MAX_LEVEL) {
         u32 levelExp = mon->levelExp;
         expToNextLevel = mon->nextLevelExp - levelExp;
         exp = mon->exp - levelExp;
@@ -2079,7 +2082,7 @@ static void BattlePartyMenu_PrintLevelAndNextExp(BattlePartyMenu *menu, int slot
 
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00026);
     expanded = String_New(14, menu->context->heapID);
-    if (mon->level < 100) {
+    if (mon->level < MAX_LEVEL) {
         BufferIntegerAsString(menu->msgFormat, 0, mon->nextLevelExp - mon->exp, 6, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     } else {
         BufferIntegerAsString(menu->msgFormat, 0, 0, 6, PRINTING_MODE_RIGHT_ALIGN, TRUE);
@@ -2512,7 +2515,7 @@ static void BattlePartyMenu_PrintCheckMovesPage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[base + 4], 0);
     FillWindowPixelBuffer(&menu->pageWindows[5], 0);
     BattlePartyMenu_PrintMonName(menu, base, 0, menu->context->selectedMon, 0, 0);
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         BattlePartyMenuMove *move = &menu->mons[menu->context->selectedMon].moves[i];
         if (move->move) {
             BattlePartyMenu_PrintMoveName(menu, move->move, base + 1 + i, gBattlePartyMoveNameMsgIds[i], 4, 7, MAKE_TEXT_COLOR(7, 8, 9));
@@ -2612,7 +2615,7 @@ static void BattlePartyMenu_PrintLearnMovePage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[4], 0);
     FillWindowPixelBuffer(&menu->pageWindows[5], 0);
     BattlePartyMenu_PrintMonName(menu, 0, 0, menu->context->selectedMon, 0, 0);
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         BattlePartyMenuMove *moves = menu->mons[menu->context->selectedMon].moves;
         if (moves[i].move) {
             BattlePartyMenu_PrintMoveName(menu, moves[i].move, i + 1, gBattlePartyMoveNameMsgIds[i], 4, 7, MAKE_TEXT_COLOR(7, 8, 9));
@@ -2684,7 +2687,7 @@ static void BattlePartyMenu_PrintRestorePPPage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[3], 0);
     FillWindowPixelBuffer(&menu->pageWindows[4], 0);
     BattlePartyMenu_PrintMonName(menu, 0, 0, menu->context->selectedMon, 0, 0);
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         moves = menu->mons[menu->context->selectedMon].moves;
         if (moves[i].move) {
             BattlePartyMenu_PrintMoveName(menu, moves[i].move, i + 1, gBattlePartyMoveNameMsgIds[i], 4, 7, MAKE_TEXT_COLOR(7, 8, 9));
@@ -3106,7 +3109,7 @@ static void BattlePartyMenu_ShowCheckMovesSprites(BattlePartyMenu *menu) {
     BattlePartyMenu_ShowMonTypeIcons(menu, mon, gBattlePartyCheckMovesTypeIconPos);
     BattlePartyMenu_ShowHeldItemIcon(mon->heldItem, menu->sprites[menu->context->selectedMon], 32, 20);
     BattlePartyMenu_ShowCapsuleIcon(mon->ballCapsule, menu->sprites[32 + menu->context->selectedMon], 40, 20);
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         if (mon->moves[i].move != MOVE_NONE) {
             BattlePartyMenu_SetTypeIcon(menu, menu->sprites[21 + i], 0xB010 + i, mon->moves[i].type);
             BattlePartyMenu_ShowSpriteAt(menu->sprites[21 + i], gBattlePartyCheckMovesMoveIconPos[i].x, gBattlePartyCheckMovesMoveIconPos[i].y);
@@ -3187,7 +3190,7 @@ static void BattlePartyMenu_ShowMoveTypeIcons(BattlePartyMenu *menu) {
     u16 i;
     BattlePartyMenuMon *mon = &menu->mons[menu->context->selectedMon];
 
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         if (mon->moves[i].move != MOVE_NONE) {
             BattlePartyMenu_SetTypeIcon(menu, menu->sprites[21 + i], 0xB010 + i, mon->moves[i].type);
             BattlePartyMenu_ShowSpriteAt(menu->sprites[21 + i], gBattlePartyLearnMoveMoveIconPos[i].x, gBattlePartyLearnMoveMoveIconPos[i].y);
@@ -3204,7 +3207,7 @@ static void BattlePartyMenu_ShowMoveContestTypeIcons(BattlePartyMenu *menu) {
     u16 i;
     BattlePartyMenuMon *mon = &menu->mons[menu->context->selectedMon];
 
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         if (mon->moves[i].move != MOVE_NONE) {
             BattlePartyMenu_SetTypeIcon(menu, menu->sprites[21 + i], 0xB010 + i, (u8)(GetMoveAttr(mon->moves[i].move, MOVEATTR_CONTEST_TYPE) + 18));
             BattlePartyMenu_ShowSpriteAt(menu->sprites[21 + i], gBattlePartyLearnMoveMoveIconPos[i].x, gBattlePartyLearnMoveMoveIconPos[i].y);
@@ -3670,7 +3673,7 @@ static void BattlePartyMenu_DrawPageButtons(BattlePartyMenu *menu, u32 page) {
 
     switch (page) {
     case BATTLE_PARTY_PAGE_PARTY_LIST:
-        for (i = 0; i < 6; i++) {
+        for (i = 0; i < PARTY_SIZE; i++) {
             int slotType = BattlePartyMenu_GetSlotType(menu, i);
             if (slotType == BATTLE_PARTY_SLOT_EMPTY) {
                 BattlePartyMenu_DrawButton(menu, (u8)i, 3, 1);
@@ -3716,7 +3719,7 @@ static void BattlePartyMenu_DrawPageButtons(BattlePartyMenu *menu, u32 page) {
             BattlePartyMenu_DrawButton(menu, 12, 3, 0);
             BattlePartyMenu_DrawButton(menu, 13, 3, 0);
         }
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < MAX_MON_MOVES; i++) {
             if (menu->mons[menu->context->selectedMon].moves[i].move != MOVE_NONE) {
                 BattlePartyMenu_DrawButton(menu, (u8)(i + 14), 0, 0);
             } else {
@@ -3728,7 +3731,7 @@ static void BattlePartyMenu_DrawPageButtons(BattlePartyMenu *menu, u32 page) {
         break;
     case BATTLE_PARTY_PAGE_MOVE_DETAIL:
         BattlePartyMenu_DrawButton(menu, 6, 0, 0);
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < MAX_MON_MOVES; i++) {
             if (menu->context->selectedMove == i) {
                 BattlePartyMenu_DrawButton(menu, (u8)(i + 30), 2, 0);
             } else {
@@ -3737,7 +3740,7 @@ static void BattlePartyMenu_DrawPageButtons(BattlePartyMenu *menu, u32 page) {
         }
         break;
     case BATTLE_PARTY_PAGE_RESTORE_PP:
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < MAX_MON_MOVES; i++) {
             if (menu->mons[menu->context->selectedMon].moves[i].move != MOVE_NONE) {
                 BattlePartyMenu_DrawButton(menu, (u8)(i + 19), 0, 0);
             } else {
@@ -3787,7 +3790,7 @@ static u8 BattlePartyMenu_HasMultipleNonEggMons(BattlePartyMenu *menu) {
     u16 i;
     u16 count = 0;
 
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < PARTY_SIZE; i++) {
         if (menu->mons[i].species != SPECIES_NONE && !menu->mons[i].isEgg) {
             count++;
         }

@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "pokeathlon/pokeathlon_util.h"
 
 #include "global.h"
@@ -374,7 +377,7 @@ void PokeathlonUtil_PrintMessageWithPlayerName(PokeathlonTextContext *ctx, u32 w
 
 void PokeathlonUtil_PrintSpeciesName(PokeathlonTextContext *ctx, u32 window, u32 message) {
     MsgData *msgData = ctx->msgDataFixed;
-    GF_ASSERT(message <= 493);
+    GF_ASSERT(message <= MAX_SPECIES);
     ReadMsgDataIntoString(msgData, message, ctx->string);
     FillWindowPixelBuffer(&ctx->windows[window], 0);
     AddTextPrinterParameterizedWithColor(&ctx->windows[window], 0, ctx->string, 0, 0, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);

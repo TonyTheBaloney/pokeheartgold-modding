@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/battle_input.h"
 
 #include "global.h"
@@ -3034,7 +3037,7 @@ static void BattleInput_SetEmptyMoveButtons(BattleInput *battleInput, int movePo
 
     palette = BattleSystem_GetPaletteData(battleInput->battleSystem);
 
-    for (i = movePos; i < 4; i++) {
+    for (i = movePos; i < MAX_MON_MOVES; i++) {
         BattleInput_CopyButtonTilemap(battleInput, &sEmptyMoveButtonsScreenOffsets[i], &sEmptyMoveButtonsTouchscreenRect[i], 3, 0);
         PaletteData_LoadPalette(palette, &battleInput->paletteBuffer[14 * 16], PLTTBUF_SUB_BG, (8 + i) * 16, 0x20);
     }
@@ -3093,7 +3096,7 @@ static void BattleInput_GetMonsHitArray(BattleInput *battleInput, u8 *monsHit, i
     menu = &battleInput->menu.target;
     BattleSystem_GetBattlerIdsByType(battleInput->battleSystem, battlerIdBuffer);
 
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < BATTLER_MAX; i++) {
         battlerId = battlerIdBuffer[2 + i];
 
         if ((checkMonExists == TRUE) && (menu->targetMons[battlerId].exists == FALSE)) {

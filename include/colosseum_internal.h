@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_COLOSSEUM_INTERNAL_H
 #define POKEHEARTGOLD_COLOSSEUM_INTERNAL_H
 
@@ -56,7 +59,7 @@ typedef struct ColosseumEntry {
     int state;
     int partyMenuResult; // enum ColosseumPartyMenuResult
     u8 partySlot;
-    u8 selectedOrder[6];
+    u8 selectedOrder[PARTY_SIZE];
     u8 timer;
     u8 delay;
     u8 *receivedMons; // the opponent's 3 Pokemon, then their ready flag

@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/maps.h"
@@ -33,7 +36,7 @@ typedef struct FrontierPartySelectEnv {
     u8 maxMons;
     u8 maxLevel;
     u8 partySlot;
-    u8 selectedOrder[6];
+    u8 selectedOrder[PARTY_SIZE];
     void **runningApp;
 } FrontierPartySelectEnv;
 
@@ -100,7 +103,7 @@ static u32 FrontierPartySelect_LaunchPartyMenu(FrontierPartySelectEnv *env, Fiel
     args->maxLevel = env->maxLevel;
     args->partySlot = env->partySlot;
     args->menuInputStatePtr = &fieldSystem->menuInputState;
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < PARTY_SIZE; i++) {
         args->selectedOrder[i] = env->selectedOrder[i];
     }
     FieldSystem_LaunchApplication(fieldSystem, &gOverlayTemplate_PartyMenu, args);

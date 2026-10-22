@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle_record.h"
 
 #include "constants/items.h"
@@ -308,7 +311,7 @@ static BOOL BattleRecord_IsValid(SaveData *save, BattleRecord *record) {
         return FALSE;
     }
     for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 6; j++) {
+        for (int j = 0; j < PARTY_SIZE; j++) {
             struct BattleRecordMon *mon = &data->parties[i].mons[j];
             if (mon->species > SPECIES_BAD_EGG) {
                 return FALSE;
@@ -316,7 +319,7 @@ static BOOL BattleRecord_IsValid(SaveData *save, BattleRecord *record) {
             if (mon->heldItem > ITEM_MAX) {
                 return FALSE;
             }
-            for (int k = 0; k < 4; k++) {
+            for (int k = 0; k < MAX_MON_MOVES; k++) {
                 if (mon->moves[k] > NUM_MOVES) {
                     return FALSE;
                 }

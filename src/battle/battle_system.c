@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/battle_system.h"
 
 #include "global.h"
@@ -595,19 +598,19 @@ BOOL BattleSystem_RecoverStatus(BattleSystem *battleSystem, int battlerId, int s
     }
 
     if (GetItemAttr(item, ITEMATTR_FRIENDSHIP_MOD_LO, HEAP_ID_BATTLE)) {
-        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 100 && ret == TRUE) {
+        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < FRIENDSHIP_TIER_MID_MIN && ret == TRUE) {
             friendship = GetItemAttr(item, ITEMATTR_FRIENDSHIP_MOD_LO_PARAM, HEAP_ID_BATTLE);
         }
     }
 
     if (GetItemAttr(item, ITEMATTR_FRIENDSHIP_MOD_MED, HEAP_ID_BATTLE)) {
-        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 100 && GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 200 && ret == TRUE) {
+        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= FRIENDSHIP_TIER_MID_MIN && GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < FRIENDSHIP_TIER_HI_MIN && ret == TRUE) {
             friendship = GetItemAttr(item, ITEMATTR_FRIENDSHIP_MOD_MED_PARAM, HEAP_ID_BATTLE);
         }
     }
 
     if (GetItemAttr(item, ITEMATTR_FRIENDSHIP_MOD_HI, HEAP_ID_BATTLE)) {
-        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 200 && ret == TRUE) {
+        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= FRIENDSHIP_TIER_HI_MIN && ret == TRUE) {
             friendship = GetItemAttr(item, ITEMATTR_FRIENDSHIP_MOD_HI_PARAM, HEAP_ID_BATTLE);
         }
     }

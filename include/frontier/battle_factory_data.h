@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_FRONTIER_BATTLE_FACTORY_DATA_H
 #define POKEHEARTGOLD_FRONTIER_BATTLE_FACTORY_DATA_H
 
@@ -44,8 +47,8 @@ typedef struct BattleFactoryData {
     u8 padding_4D0[4];
     Party *playerParty;
     Party *opponentParty;
-    u16 selection[6]; // result of the factory app (picked rentals / trade slots)
-    u16 partySetIds[6];
+    u16 selection[PARTY_SIZE]; // result of the factory app (picked rentals / trade slots)
+    u16 partySetIds[PARTY_SIZE];
     void *challenge;
     SaveData *saveData;
     BattleSetup *battleSetup;

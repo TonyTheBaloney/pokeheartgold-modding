@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "party_menu_sprites.h"
 
 #include "global.h"
@@ -459,7 +462,7 @@ void PartyMenu_CreateSprites(PartyMenu *partyMenu) {
     partyMenu->sprites[PARTY_MENU_SPRITE_ID_9] = SpriteSystem_CreateSpriteFromResourceHeader(partyMenu->spriteRenderer, partyMenu->spriteGfxHandler, &sSpriteTemplates[3]);
     partyMenu->sprites[PARTY_MENU_SPRITE_ID_28] = SpriteSystem_CreateSpriteFromResourceHeader(partyMenu->spriteRenderer, partyMenu->spriteGfxHandler, &sSpriteTemplates[22]);
 
-    for (u32 i = 0; i < 6; ++i) {
+    for (u32 i = 0; i < PARTY_SIZE; ++i) {
         partyMenu->sprites[PARTY_MENU_SPRITE_ID_MON1_STATUS + i] = SpriteSystem_CreateSpriteFromResourceHeader(partyMenu->spriteRenderer, partyMenu->spriteGfxHandler, &sSpriteTemplates[4 + i]);
         partyMenu->monsDrawState[i].statusIconX = sSpriteTemplates[4 + i].x;
         partyMenu->monsDrawState[i].statusIconY = sSpriteTemplates[4 + i].y;
@@ -468,7 +471,7 @@ void PartyMenu_CreateSprites(PartyMenu *partyMenu) {
         partyMenu->sprites[PARTY_MENU_SPRITE_ID_MON1_HELD_ITEM + i] = SpriteSystem_CreateSpriteFromResourceHeader(partyMenu->spriteRenderer, partyMenu->spriteGfxHandler, &sSpriteTemplates[10 + i]);
         partyMenu->sprites[PARTY_MENU_SPRITE_ID_MON1_CAPSULE + i] = SpriteSystem_CreateSpriteFromResourceHeader(partyMenu->spriteRenderer, partyMenu->spriteGfxHandler, &sSpriteTemplates[16 + i]);
     }
-    for (u32 i = 0; i < 6; ++i) {
+    for (u32 i = 0; i < PARTY_SIZE; ++i) {
         partyMenu->mainScreenStatusSprites[i] = SpriteSystem_CreateSpriteFromResourceHeader(partyMenu->spriteRenderer, partyMenu->spriteGfxHandler, &sSpriteTemplates[23]);
         Sprite_SetDrawFlag(partyMenu->mainScreenStatusSprites[i], FALSE);
     }
@@ -584,7 +587,7 @@ void PartyMenu_UpdateMonIconAnims(PartyMenu *partyMenu) {
     PartyMenuMonsDrawState *monDraw;
     u16 i;
 
-    for (i = 0; i < 6; ++i) {
+    for (i = 0; i < PARTY_SIZE; ++i) {
         monDraw = &partyMenu->monsDrawState[i];
         if (monDraw->active) {
             int animSeqNo;

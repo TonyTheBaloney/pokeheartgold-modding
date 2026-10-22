@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/battle_controller_opponent.h"
 
 #include "global.h"
@@ -4224,7 +4227,7 @@ static void Task_PlayerSelectCommand(SysTask *task, void *data) {
     case SELECT_COMMAND_STATE_INIT: {
         BattleInputMove moveDisplay;
         int i;
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < MAX_MON_MOVES; i++) {
             moveDisplay.moveNo[i] = work->moves[i];
             moveDisplay.pp[i] = work->movePPCur[i];
             moveDisplay.ppMax[i] = work->movePP[i];
@@ -4516,7 +4519,7 @@ static void Task_PlayerSelectMove(SysTask *task, void *data) {
             BattleInput_EnableBallGauge(battleInput);
             narc0 = NARC_New(NARC_a_0_0_7, HEAP_ID_BATTLE);
             narc1 = NARC_New(NARC_a_0_0_8, HEAP_ID_BATTLE);
-            for (i = 0; i < 4; i++) {
+            for (i = 0; i < MAX_MON_MOVES; i++) {
                 menu.moveNo[i] = work->moves[i];
                 menu.pp[i] = work->movePPCur[i];
                 menu.ppMax[i] = work->movePP[i];
@@ -4582,7 +4585,7 @@ static void Task_AISelectMove(SysTask *task, void *data) {
         int *choice = choices;
         int moveTarget;
 
-        for (; i < 4; i++) {
+        for (; i < MAX_MON_MOVES; i++) {
             if (!(MaskOfFlagNo(i) & work->unusableMovesMask)) {
                 *choice++ = i + 1;
                 count++;

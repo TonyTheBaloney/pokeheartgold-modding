@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/items.h"
@@ -123,8 +126,8 @@ static u32 FrontierMon_Generate(FrontierMon *mon, u32 setId, u32 otId, u32 pid, 
     } else {
         mon->item = set.item;
     }
-    friendship = 255;
-    for (int i = 0; i < 4; i++) {
+    friendship = FRIENDSHIP_MAX;
+    for (int i = 0; i < MAX_MON_MOVES; i++) {
         mon->moves[i] = set.moves[i];
         if (set.moves[i] == MOVE_FRUSTRATION) {
             friendship = 0;
@@ -152,7 +155,7 @@ static u32 FrontierMon_Generate(FrontierMon *mon, u32 setId, u32 otId, u32 pid, 
             count++;
         }
     }
-    int evPerStat = 510 / count;
+    int evPerStat = MAX_EV_SUM / count;
     if (evPerStat > 255) {
         evPerStat = 255;
     }
@@ -202,7 +205,7 @@ void FrontierMon_ToPokemon(FrontierMon *frontierMon, Pokemon *mon, int level) {
     iter = frontierMon;
     int i = 0;
     int shift = 0;
-    for (; i < 4; i++, iter = (FrontierMon *)((u8 *)iter + 2), shift += 2) {
+    for (; i < MAX_MON_MOVES; i++, iter = (FrontierMon *)((u8 *)iter + 2), shift += 2) {
         param.move = iter->moves[0];
         SetMonData(mon, MON_DATA_MOVE1 + i, &param.move);
         param.value = (frontierMon->ppUp >> shift) & 3;

@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 // Pokewalker connection app: the event log (mode 8), one page per entry read from the Pokewalker.
 
 #include "application/pokewalker/pokewalker_event_log.h"
@@ -1141,7 +1144,7 @@ static void PokewalkerEventLog_ShowMonFoundItem(PokewalkerEventLog *eventLog) {
     ManagedSprite_SetAnim(eventLog->sprites[EVENT_LOG_SPRITE_RIGHT_ICON], 12);
     if (record->friendship >= 250) {
         msgId2 = msg_0275_00047;
-    } else if (record->friendship >= 200) {
+    } else if (record->friendship >= FRIENDSHIP_TIER_HI_MIN) {
         msgId2 = msg_0275_00048;
     } else if (record->friendship >= 150) {
         msgId2 = msg_0275_00049;

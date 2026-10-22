@@ -1,6 +1,6 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
-// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE (see AI_WORK_LOG.md)
+// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE; game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/trainer_ai.h"
 
 #include "constants/abilities.h"
@@ -2862,7 +2862,7 @@ static s32 TrainerAI_CalcDamage(BattleSystem *battleSystem, BattleContext *ctx, 
         break;
 
     case MOVE_FRUSTRATION:
-        power = (255 - ctx->battleMons[attacker].friendship) * 10 / 25;
+        power = (FRIENDSHIP_MAX - ctx->battleMons[attacker].friendship) * 10 / 25;
         type = TYPE_NORMAL;
         break;
 

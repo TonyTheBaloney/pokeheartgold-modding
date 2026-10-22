@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/battle_hp_bar.h"
 
 #include "global.h"
@@ -1169,7 +1172,7 @@ static void BattleHpBar_DrawGauge(BattleHpBar *hpBar, u8 isExp) {
     case TRUE:
         // exp
         BattleHpBar_Util_MakeHpBarPixelBuffer(hpBar->maxExp, hpBar->exp, hpBar->gainedExp, &hpBar->expCalc, pixelBuffer, 12);
-        if (hpBar->level == 100) {
+        if (hpBar->level == MAX_LEVEL) {
             // Don't fill an exp bar for a level 100 mon
             for (i = 0; i < 12; ++i) {
                 pixelBuffer[i] = 0;

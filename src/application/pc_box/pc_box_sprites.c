@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include <stddef.h>
 
 #include "global.h"
@@ -265,7 +268,7 @@ void PCBox_LoadBoxIconImages(PCBoxWork *work, int box) {
     void *allocation;
     BoxPokemon *boxMon;
 
-    for (i = 0; i < 30; i++) {
+    for (i = 0; i < MONS_PER_BOX; i++) {
         if (!PCStorage_GetMonDataByIndexPair(work->storage, box, i, MON_DATA_SPECIES_EXISTS, NULL)) {
             work->view->iconDraw[i] = 0;
         } else {
@@ -306,7 +309,7 @@ void PCBox_RefreshSlotIcon(PCBoxWork *work, int box, int slot, int index) {
 void PCBox_LoadBoxIcons(PCBoxWork *work) {
     u32 i;
 
-    for (i = 0; i < 30; i++) {
+    for (i = 0; i < MONS_PER_BOX; i++) {
         PCBox_RefreshSlotIcon(work, work->activeBox, i, i + 25);
     }
 }
@@ -343,7 +346,7 @@ void PCBox_PlacePartyIconsLeftHidden(PCBoxWork *work) {
 
     count = Party_GetCount(work->party);
     pos = gPCBoxPartySlotPositions;
-    for (i = 0; i < 6; i++, pos++) {
+    for (i = 0; i < PARTY_SIZE; i++, pos++) {
         u8 index = work->view->slotIcons[PC_BOX_SLOT_PARTY_START + i];
         ManagedSprite_SetPositionXY(work->view->sprites[index], pos->x + 0, pos->y + 0);
         PCBox_SetIconLayer(work->view, PC_BOX_SLOT_PARTY_START + i, 1);
@@ -362,7 +365,7 @@ void PCBox_PlacePartyIconsRightHidden(PCBoxWork *work) {
 
     count = Party_GetCount(work->party);
     pos = gPCBoxPartySlotPositions;
-    for (i = 0; i < 6; i++, pos++) {
+    for (i = 0; i < PARTY_SIZE; i++, pos++) {
         u8 index = work->view->slotIcons[PC_BOX_SLOT_PARTY_START + i];
         ManagedSprite_SetPositionXY(work->view->sprites[index], pos->x + 152, pos->y + 0);
         PCBox_SetIconLayer(work->view, PC_BOX_SLOT_PARTY_START + i, 1);
@@ -381,7 +384,7 @@ void PCBox_PlacePartyIconsLeft(PCBoxWork *work) {
 
     count = Party_GetCount(work->party);
     pos = gPCBoxPartySlotPositions;
-    for (i = 0; i < 6; i++, pos++) {
+    for (i = 0; i < PARTY_SIZE; i++, pos++) {
         u8 index = work->view->slotIcons[PC_BOX_SLOT_PARTY_START + i];
         ManagedSprite_SetPositionXY(work->view->sprites[index], pos->x + 0, pos->y + -144);
         PCBox_SetIconLayer(work->view, PC_BOX_SLOT_PARTY_START + i, 1);
@@ -400,7 +403,7 @@ void PCBox_PlacePartyIconsRight(PCBoxWork *work) {
 
     count = Party_GetCount(work->party);
     pos = gPCBoxPartySlotPositions;
-    for (i = 0; i < 6; i++, pos++) {
+    for (i = 0; i < PARTY_SIZE; i++, pos++) {
         u8 index = work->view->slotIcons[PC_BOX_SLOT_PARTY_START + i];
         ManagedSprite_SetPositionXY(work->view->sprites[index], pos->x + 152, pos->y + -144);
         PCBox_SetIconLayer(work->view, PC_BOX_SLOT_PARTY_START + i, 1);
@@ -457,7 +460,7 @@ void PCBox_ScrollBoxIcons(PCBoxWork *work, s32 amount) {
         stop = -8;
         wrap = 176;
     }
-    for (i = 0; i < 30; i++) {
+    for (i = 0; i < MONS_PER_BOX; i++) {
         int index = work->view->slotIcons[i];
         ManagedSprite_GetPositionXY(work->view->sprites[index], &position.x, &position.y);
         position.x += amount;
@@ -481,7 +484,7 @@ void PCBox_UpdatePartyIconPositions(PCBoxWork *work) {
     BgCellManager_GetCellPosition(work->view->panels, 1, &cell[1], &cell[0]);
     y = cell[0] * 8;
     x = cell[1] * 8;
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < PARTY_SIZE; i++) {
         ManagedSprite_SetPositionXY(work->view->sprites[work->view->slotIcons[PC_BOX_SLOT_PARTY_START + i]], x + gPCBoxPartyIconOffsets[i][0], y + gPCBoxPartyIconOffsets[i][1]);
     }
 }
@@ -1143,7 +1146,7 @@ void PCBox_DrawBoxThumbnail(PCBoxWork *work, int box) {
 void PCBox_DrawAllBoxThumbnails(PCBoxWork *work) {
     u32 i;
 
-    for (i = 0; i < 18; i++) {
+    for (i = 0; i < NUM_BOXES; i++) {
         PCBox_DrawBoxThumbnail(work, i);
     }
 }

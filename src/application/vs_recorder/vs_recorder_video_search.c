@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/sndseq.h"
@@ -265,7 +268,7 @@ static void VsRecorder_CreateSearchResultIcons(VsRecorderWork *work) {
             layout = 0;
         }
         count = 0;
-        for (j = 0; j < 6; j++) {
+        for (j = 0; j < PARTY_SIZE; j++) {
             species[j] = 0;
             forms[j] = 0;
         }
@@ -279,7 +282,7 @@ static void VsRecorder_CreateSearchResultIcons(VsRecorderWork *work) {
         if (VsRecorder_HeaderUsesThreeMonLayout(VIDEO_PARTY(work, scroll + i)->species)) {
             count = 3;
         }
-        for (j = 3; j < 6; j++) {
+        for (j = 3; j < PARTY_SIZE; j++) {
             if (VIDEO_PARTY(work, scroll + i)->species[order.slots[layout][j]] != SPECIES_NONE) {
                 species[count] = VIDEO_PARTY(work, scroll + i)->species[order.slots[layout][j]];
                 forms[count] = VIDEO_PARTY(work, scroll + i)->forms[order.slots[layout][j]];
@@ -386,7 +389,7 @@ static void VsRecorder_ScrollSearchResultIcons(VsRecorderWork *work) {
             layout = 1;
         }
         count = 0;
-        for (n = 0; n < 6; n++) {
+        for (n = 0; n < PARTY_SIZE; n++) {
             forms[n] = species[n] = 0;
         }
         for (j = 0; j < 3; j++) {
@@ -399,7 +402,7 @@ static void VsRecorder_ScrollSearchResultIcons(VsRecorderWork *work) {
         if (VsRecorder_HeaderUsesThreeMonLayout(VIDEO_PARTY(work, index)->species)) {
             count = 3;
         }
-        for (j = 3; j < 6; j++) {
+        for (j = 3; j < PARTY_SIZE; j++) {
             if (VIDEO_PARTY(work, index)->species[order.slots[layout][j]] != SPECIES_NONE) {
                 species[count] = VIDEO_PARTY(work, index)->species[order.slots[layout][j]];
                 forms[count] = VIDEO_PARTY(work, index)->forms[order.slots[layout][j]];

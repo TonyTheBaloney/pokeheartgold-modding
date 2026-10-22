@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "wireless_trade_select_mon.h"
 
 #include "global.h"
@@ -1881,7 +1884,7 @@ static int WirelessTradeSelectMon_WaitOfferAnswers(WirelessTradeSelectMon *work)
 static int WirelessTradeSelectMon_StartTradeSlide(WirelessTradeSelectMon *work) {
     int i;
 
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < PARTY_SIZE; i++) {
         if (i != work->cursor) {
             Sprite_SetDrawFlag(work->iconSprites[i], FALSE);
             if (work->mons[i].heldItem != 0) {

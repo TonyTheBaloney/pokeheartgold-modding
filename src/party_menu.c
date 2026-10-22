@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "party_menu.h"
 
 #include "constants/maps.h"
@@ -1061,7 +1064,7 @@ static void PartyMenu_MonSuperContestEligibilityCheck(PartyMenu *partyMenu, Poke
             // A Pokemon must be at the minimum required ribbon level and have at least 2 moves
             u32 numRibbons = Pokemon_CountRibbonsByCategory(mon, partyMenu->args->contestStat);
             u32 i;
-            for (i = 0; i < 4; ++i) {
+            for (i = 0; i < MAX_MON_MOVES; ++i) {
                 if (GetMonData(mon, MON_DATA_MOVE1 + i, NULL) == MOVE_NONE) {
                     break;
                 }

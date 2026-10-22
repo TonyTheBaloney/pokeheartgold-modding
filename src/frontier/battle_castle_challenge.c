@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "global.h"
 
 #include "constants/game_stats.h"
@@ -504,7 +507,7 @@ int BattleCastleData_CalcPointsEarned(BattleCastleData *data) {
     }
     ppTotal = 0;
     for (j = 0; j < numMons; j++) {
-        for (k = 0; k < 4; k++) {
+        for (k = 0; k < MAX_MON_MOVES; k++) {
             ppTotal += data->startPP[j][k];
         }
     }

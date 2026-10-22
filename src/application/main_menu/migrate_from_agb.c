@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "application/main_menu/migrate_from_agb.h"
 
 #include "global.h"
@@ -301,7 +304,7 @@ static BOOL MigrateFromAgb_IsSpeciesUnavailable(int species) {
     if (species <= 0) {
         return TRUE;
     }
-    if (species <= 251) {
+    if (species <= JOHTO_DEX_COUNT) {
         return FALSE;
     }
     if (species < 277) {
@@ -829,7 +832,7 @@ static BOOL MigrateFromAgb_KnowsHM(MigrateFromAgbApp *app, int slot) {
     AgbBoxMon *mon = &storage->boxes[box][slot];
     int i;
     u32 j;
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < MAX_MON_MOVES; i++) {
         u32 move = AGB_GetBoxMonData(mon, i + AGB_MON_DATA_MOVE1, NULL);
         for (j = 0; j < 8; j++) {
             if (move == sMigrateFromAgbHMMoves[j]) {

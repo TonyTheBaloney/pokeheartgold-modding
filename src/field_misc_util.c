@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "field_misc_util.h"
 
 #include "global.h"
@@ -210,7 +213,7 @@ BOOL Save_PlayerHasAllRegisInParty(SaveData *saveData) {
     int found = 0;
     Party *party = SaveArray_Party_Get(saveData);
     int count = Party_GetCount(party);
-    u16 species[6];
+    u16 species[PARTY_SIZE];
     int i;
     int j;
 
