@@ -2,7 +2,7 @@
 """Lexer and parser for the poryscript-style map script language.
 
 Syntax follows poryscript (https://github.com/huderlem/poryscript) where it
-can: script/text/movement/mapscripts/raw/const top-level blocks, if/elif/else,
+can: script/text/movement/mapscripts/scrdefs/raw/const top-level blocks, if/elif/else,
 while, do-while, switch, break/continue, goto/call/return/end, labels,
 flag()/var()/defeated() conditions with ! && ||, inline strings and moves(),
 poryswitch. See docs/modding/SCRIPTING.md for the HGSS differences.
@@ -168,6 +168,12 @@ class MapScripts:
 
 
 @dataclass
+class ScrDefs:
+    names: list           # script labels in number order (script n = index + 1)
+    line: int
+
+
+@dataclass
 class Raw:
     text: str
     line: int
@@ -293,6 +299,14 @@ class Parser:
         if t.kind == "ident" and t.text == "mapscripts":
             self.next()
             return [self.mapscripts(t.line)]
+        if t.kind == "ident" and t.text == "scrdefs":
+            self.next()
+            self.expect("{")
+            names = []
+            while not self.accept("}"):
+                names.append(self.ident())
+                self.accept(",")
+            return [ScrDefs(names, t.line)]
         if t.kind == "ident" and t.text == "raw":
             self.next()
             if self.tok.kind != "raw":
@@ -309,7 +323,7 @@ class Parser:
                 self.next()
             self.consts[name] = self.src[start:end].strip()
             return []
-        self.error("expected script, text, movement, mapscripts, raw or const; found %r" % t.text)
+        self.error("expected script, text, movement, mapscripts, scrdefs, raw or const; found %r" % t.text)
 
     # strings
     def string_value(self):

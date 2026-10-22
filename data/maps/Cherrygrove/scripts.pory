@@ -1,21 +1,20 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef Cherrygrove_EventScript_GuideGent
-	ScrDef Cherrygrove_EventScript_GuideGentTour
-	ScrDef Cherrygrove_EventScript_GuideGentMapCard
-	ScrDef Cherrygrove_EventScript_RivalBattle
-	ScrDef Cherrygrove_EventScript_MysticWaterMan
-	ScrDef Cherrygrove_EventScript_GuideGentsHouseSign
-	ScrDef Cherrygrove_EventScript_CitySign
-	ScrDef Cherrygrove_EventScript_Boy
-	ScrDef Cherrygrove_EventScript_Woman
-	ScrDef Cherrygrove_EventScript_Cameron
-	ScrDef Cherrygrove_OnTransition
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    Cherrygrove_EventScript_GuideGent
+    Cherrygrove_EventScript_GuideGentTour
+    Cherrygrove_EventScript_GuideGentMapCard
+    Cherrygrove_EventScript_RivalBattle
+    Cherrygrove_EventScript_MysticWaterMan
+    Cherrygrove_EventScript_GuideGentsHouseSign
+    Cherrygrove_EventScript_CitySign
+    Cherrygrove_EventScript_Boy
+    Cherrygrove_EventScript_Woman
+    Cherrygrove_EventScript_Cameron
+    Cherrygrove_OnTransition
+}
 
 script Cherrygrove_OnTransition {
     if (!flag(FLAG_UNK_189)) {

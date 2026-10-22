@@ -1,16 +1,15 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_T21PC0101_000
-	ScrDef scr_seq_T21PC0101_001
-	ScrDef scr_seq_T21PC0101_002
-	ScrDef scr_seq_T21PC0101_003
-	ScrDef scr_seq_T21PC0101_004
-	ScrDef scr_seq_T21PC0101_005
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_T21PC0101_000
+    scr_seq_T21PC0101_001
+    scr_seq_T21PC0101_002
+    scr_seq_T21PC0101_003
+    scr_seq_T21PC0101_004
+    scr_seq_T21PC0101_005
+}
 
 script scr_seq_T21PC0101_000 {
     setvar(VAR_SPECIAL_x8007, 0)

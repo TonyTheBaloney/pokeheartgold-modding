@@ -1,27 +1,26 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_D32R0601_000
-	ScrDef scr_seq_D32R0601_001
-	ScrDef scr_seq_D32R0601_002
-	ScrDef scr_seq_D32R0601_003
-	ScrDef scr_seq_D32R0601_004
-	ScrDef scr_seq_D32R0601_005
-	ScrDef scr_seq_D32R0601_006
-	ScrDef scr_seq_D32R0601_007
-	ScrDef scr_seq_D32R0601_008
-	ScrDef scr_seq_D32R0601_009
-	ScrDef scr_seq_D32R0601_010
-	ScrDef scr_seq_D32R0601_011
-	ScrDef scr_seq_D32R0601_012
-	ScrDef scr_seq_D32R0601_013
-	ScrDef scr_seq_D32R0601_014
-	ScrDef scr_seq_D32R0601_015
-	ScrDef scr_seq_D32R0601_016
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_D32R0601_000
+    scr_seq_D32R0601_001
+    scr_seq_D32R0601_002
+    scr_seq_D32R0601_003
+    scr_seq_D32R0601_004
+    scr_seq_D32R0601_005
+    scr_seq_D32R0601_006
+    scr_seq_D32R0601_007
+    scr_seq_D32R0601_008
+    scr_seq_D32R0601_009
+    scr_seq_D32R0601_010
+    scr_seq_D32R0601_011
+    scr_seq_D32R0601_012
+    scr_seq_D32R0601_013
+    scr_seq_D32R0601_014
+    scr_seq_D32R0601_015
+    scr_seq_D32R0601_016
+}
 
 script scr_seq_D32R0601_014 {
     end

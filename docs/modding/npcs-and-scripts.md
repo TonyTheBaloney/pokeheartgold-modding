@@ -186,9 +186,9 @@ Events refer to scripts in one of three ways:
 `ids.h`, and prints the script's number. Point the object/sign/trigger at
 `"script": "<Label>"`.
 
-Script numbers follow the `ScrDef` table at the top of the file when there is one
-(a `raw` block), else file order; new scripts are numbered after the existing ones.
-Never reorder or insert into the `ScrDef` table: it renumbers every later script.
+Script numbers follow the `scrdefs { ... }` list at the top of the file when there
+is one, else file order; new scripts are numbered after the existing ones.
+Never reorder or insert into the `scrdefs` list: it renumbers every later script.
 `mapkit script rename <map> <old> <new>` renames a script everywhere in the map.
 
 ### Init / level scripts (`mapscripts`)

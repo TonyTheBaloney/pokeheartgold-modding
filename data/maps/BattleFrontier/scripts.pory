@@ -1,49 +1,48 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_D32_000
-	ScrDef scr_seq_D32_001
-	ScrDef scr_seq_D32_002
-	ScrDef scr_seq_D32_003
-	ScrDef scr_seq_D32_004
-	ScrDef scr_seq_D32_005
-	ScrDef scr_seq_D32_006
-	ScrDef scr_seq_D32_007
-	ScrDef scr_seq_D32_008
-	ScrDef scr_seq_D32_009
-	ScrDef scr_seq_D32_010
-	ScrDef scr_seq_D32_011
-	ScrDef scr_seq_D32_012
-	ScrDef scr_seq_D32_013
-	ScrDef scr_seq_D32_014
-	ScrDef scr_seq_D32_015
-	ScrDef scr_seq_D32_016
-	ScrDef scr_seq_D32_017
-	ScrDef scr_seq_D32_018
-	ScrDef scr_seq_D32_019
-	ScrDef scr_seq_D32_020
-	ScrDef scr_seq_D32_021
-	ScrDef scr_seq_D32_022
-	ScrDef scr_seq_D32_023
-	ScrDef scr_seq_D32_024
-	ScrDef scr_seq_D32_025
-	ScrDef scr_seq_D32_026
-	ScrDef scr_seq_D32_027
-	ScrDef scr_seq_D32_028
-	ScrDef scr_seq_D32_029
-	ScrDef scr_seq_D32_030
-	ScrDef scr_seq_D32_031
-	ScrDef scr_seq_D32_032
-	ScrDef scr_seq_D32_033
-	ScrDef scr_seq_D32_034
-	ScrDef scr_seq_D32_035
-	ScrDef scr_seq_D32_036
-	ScrDef scr_seq_D32_037
-	ScrDef scr_seq_D32_038
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_D32_000
+    scr_seq_D32_001
+    scr_seq_D32_002
+    scr_seq_D32_003
+    scr_seq_D32_004
+    scr_seq_D32_005
+    scr_seq_D32_006
+    scr_seq_D32_007
+    scr_seq_D32_008
+    scr_seq_D32_009
+    scr_seq_D32_010
+    scr_seq_D32_011
+    scr_seq_D32_012
+    scr_seq_D32_013
+    scr_seq_D32_014
+    scr_seq_D32_015
+    scr_seq_D32_016
+    scr_seq_D32_017
+    scr_seq_D32_018
+    scr_seq_D32_019
+    scr_seq_D32_020
+    scr_seq_D32_021
+    scr_seq_D32_022
+    scr_seq_D32_023
+    scr_seq_D32_024
+    scr_seq_D32_025
+    scr_seq_D32_026
+    scr_seq_D32_027
+    scr_seq_D32_028
+    scr_seq_D32_029
+    scr_seq_D32_030
+    scr_seq_D32_031
+    scr_seq_D32_032
+    scr_seq_D32_033
+    scr_seq_D32_034
+    scr_seq_D32_035
+    scr_seq_D32_036
+    scr_seq_D32_037
+    scr_seq_D32_038
+}
 
 script scr_seq_D32_037 {
     if (!flag(FLAG_UNK_189)) {

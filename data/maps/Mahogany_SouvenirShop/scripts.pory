@@ -1,20 +1,19 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_D35R0101_000
-	ScrDef scr_seq_D35R0101_001
-	ScrDef scr_seq_D35R0101_002
-	ScrDef scr_seq_D35R0101_003
-	ScrDef scr_seq_D35R0101_004
-	ScrDef scr_seq_D35R0101_005
-	ScrDef scr_seq_D35R0101_006
-	ScrDef scr_seq_D35R0101_007
-	ScrDef scr_seq_D35R0101_008
-	ScrDef scr_seq_D35R0101_009
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_D35R0101_000
+    scr_seq_D35R0101_001
+    scr_seq_D35R0101_002
+    scr_seq_D35R0101_003
+    scr_seq_D35R0101_004
+    scr_seq_D35R0101_005
+    scr_seq_D35R0101_006
+    scr_seq_D35R0101_007
+    scr_seq_D35R0101_008
+    scr_seq_D35R0101_009
+}
 
 script scr_seq_D35R0101_001 {
     makeobjectvisible(obj_D35R0101_stop)

@@ -347,6 +347,11 @@ class Printer:
         return out
 
 
+def scrdefs_block(names):
+    return ["// Script numbers, from 1, in this order (map.json and mapscripts use the labels).",
+            "scrdefs {"] + ["    " + n for n in names] + ["}"]
+
+
 # --- whole file ------------------------------------------------------------------
 
 class Decompiler:
@@ -591,6 +596,5 @@ class Decompiler:
                 self.levels[name] = RAW
         if scripts_order != self.scrdefs:
             # numbers follow ScrDef order, which isn't file order here: keep the table
-            out = ["// Script numbers (map.json and map scripts refer to these by label).", "raw `"] + \
-                  ["\tScrDef %s" % n for n in self.scrdefs] + ["\tScrDefEnd", "`", ""] + out
+            out = scrdefs_block(self.scrdefs) + [""] + out
         return out, stats

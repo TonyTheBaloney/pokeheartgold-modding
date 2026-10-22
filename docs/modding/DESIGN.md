@@ -146,9 +146,9 @@ for all 451 existing headers), and the build turns a bare label into
 `Cherrygrove_EventScript_*`, `Cherrygrove_OnTransition`. Internal jump labels
 (`_005F`) can be renamed freely.
 
-The `ScrDef` table is generated from `scripts.pory` (script blocks in file
-order), except in the 210 maps whose scripts aren't in number order in the file:
-those keep the table as a `raw` block. The `_EV_` block of `ids.h` is still a
+The `ScrDef` table is generated from `scripts.pory`: script blocks in file
+order, or the `scrdefs { ... }` list in the 209 maps whose scripts aren't in
+number order in the file. The `_EV_` block of `ids.h` is still a
 file; `mapkit pory sync <map>` regenerates it.
 
 ### Text
@@ -236,11 +236,12 @@ layout (`NUM_DEX_FLAG_WORDS`), in many file-index-based archives and in about
    and script includes of event headers point at `maps/<MapName>/ids.h`. Map grids
    (`data/layouts`) not started.
 3. **Editing.** Done for the pilot (2026-10-21): `npc`, `warp`, `wild`, `text` and
-   `script add/rename` commands; label references in `map.json`. Not done: generate
-   the `ScrDef` table and `ids.h` from labels; map-scoped text names.
+   `script add/rename` commands; label references in `map.json`. The `ScrDef`
+   table now comes from `scripts.pory` (`scrdefs`); not done: generating `ids.h`'s
+   `_EV_` block at build time, map-scoped text names.
 3b. **Scripting. Done (2026-10-22):** `scripts.pory` compiler in mapkit
-   ([SCRIPTING.md](SCRIPTING.md)); Cherrygrove converted, its Mystic Water script
-   rewritten in structured form, ROM unchanged.
+   ([SCRIPTING.md](SCRIPTING.md)). All 452 maps decompiled to structured
+   `scripts.pory` by `mapkit pory init`; script order in `scrdefs`. ROM unchanged.
 4. **Blobs.** Learnsets and egg moves first, then trainer text, then the rest.
 5. **Later.** Land data parsing, a map viewer, new species.
 

@@ -1,37 +1,36 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_D22R0101_000
-	ScrDef scr_seq_D22R0101_001
-	ScrDef scr_seq_D22R0101_002
-	ScrDef scr_seq_D22R0101_003
-	ScrDef scr_seq_D22R0101_004
-	ScrDef scr_seq_D22R0101_005
-	ScrDef scr_seq_D22R0101_006
-	ScrDef scr_seq_D22R0101_007
-	ScrDef scr_seq_D22R0101_008
-	ScrDef scr_seq_D22R0101_009
-	ScrDef scr_seq_D22R0101_010
-	ScrDef scr_seq_D22R0101_011
-	ScrDef scr_seq_D22R0101_012
-	ScrDef scr_seq_D22R0101_013
-	ScrDef scr_seq_D22R0101_014
-	ScrDef scr_seq_D22R0101_015
-	ScrDef scr_seq_D22R0101_016
-	ScrDef scr_seq_D22R0101_017
-	ScrDef scr_seq_D22R0101_018
-	ScrDef scr_seq_D22R0101_019
-	ScrDef scr_seq_D22R0101_020
-	ScrDef scr_seq_D22R0101_021
-	ScrDef scr_seq_D22R0101_022
-	ScrDef scr_seq_D22R0101_023
-	ScrDef scr_seq_D22R0101_024
-	ScrDef scr_seq_D22R0101_025
-	ScrDef scr_seq_D22R0101_026
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_D22R0101_000
+    scr_seq_D22R0101_001
+    scr_seq_D22R0101_002
+    scr_seq_D22R0101_003
+    scr_seq_D22R0101_004
+    scr_seq_D22R0101_005
+    scr_seq_D22R0101_006
+    scr_seq_D22R0101_007
+    scr_seq_D22R0101_008
+    scr_seq_D22R0101_009
+    scr_seq_D22R0101_010
+    scr_seq_D22R0101_011
+    scr_seq_D22R0101_012
+    scr_seq_D22R0101_013
+    scr_seq_D22R0101_014
+    scr_seq_D22R0101_015
+    scr_seq_D22R0101_016
+    scr_seq_D22R0101_017
+    scr_seq_D22R0101_018
+    scr_seq_D22R0101_019
+    scr_seq_D22R0101_020
+    scr_seq_D22R0101_021
+    scr_seq_D22R0101_022
+    scr_seq_D22R0101_023
+    scr_seq_D22R0101_024
+    scr_seq_D22R0101_025
+    scr_seq_D22R0101_026
+}
 
 script scr_seq_D22R0101_011 {
     compare(VAR_UNK_40F7, 1)

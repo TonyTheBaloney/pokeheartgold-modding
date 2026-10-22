@@ -1,17 +1,16 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_T23R0501_000
-	ScrDef scr_seq_T23R0501_001
-	ScrDef scr_seq_T23R0501_002
-	ScrDef scr_seq_T23R0501_003
-	ScrDef scr_seq_T23R0501_004
-	ScrDef scr_seq_T23R0501_005
-	ScrDef scr_seq_T23R0501_006
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_T23R0501_000
+    scr_seq_T23R0501_001
+    scr_seq_T23R0501_002
+    scr_seq_T23R0501_003
+    scr_seq_T23R0501_004
+    scr_seq_T23R0501_005
+    scr_seq_T23R0501_006
+}
 
 script scr_seq_T23R0501_000 {
     if (flag(FLAG_BEAT_AZALEA_ROCKETS)) {

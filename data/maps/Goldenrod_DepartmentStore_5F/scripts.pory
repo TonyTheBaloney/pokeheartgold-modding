@@ -1,17 +1,16 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_T25R1005_000
-	ScrDef scr_seq_T25R1005_001
-	ScrDef scr_seq_T25R1005_002
-	ScrDef scr_seq_T25R1005_003
-	ScrDef scr_seq_T25R1005_004
-	ScrDef scr_seq_T25R1005_005
-	ScrDef scr_seq_T25R1005_006
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_T25R1005_000
+    scr_seq_T25R1005_001
+    scr_seq_T25R1005_002
+    scr_seq_T25R1005_003
+    scr_seq_T25R1005_004
+    scr_seq_T25R1005_005
+    scr_seq_T25R1005_006
+}
 
 script scr_seq_T25R1005_005 {
     setflag(FLAG_HIDE_GOLDENROD_DEPT_STORE_5F_RETURN_FRUSTRATION_LADY)

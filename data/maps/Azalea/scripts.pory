@@ -1,27 +1,26 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_T23_000
-	ScrDef scr_seq_T23_001
-	ScrDef scr_seq_T23_002
-	ScrDef scr_seq_T23_003
-	ScrDef scr_seq_T23_004
-	ScrDef scr_seq_T23_005
-	ScrDef scr_seq_T23_006
-	ScrDef scr_seq_T23_007
-	ScrDef scr_seq_T23_008
-	ScrDef scr_seq_T23_009
-	ScrDef scr_seq_T23_010
-	ScrDef scr_seq_T23_011
-	ScrDef scr_seq_T23_012
-	ScrDef scr_seq_T23_013
-	ScrDef scr_seq_T23_014
-	ScrDef scr_seq_T23_015
-	ScrDef scr_seq_T23_016
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_T23_000
+    scr_seq_T23_001
+    scr_seq_T23_002
+    scr_seq_T23_003
+    scr_seq_T23_004
+    scr_seq_T23_005
+    scr_seq_T23_006
+    scr_seq_T23_007
+    scr_seq_T23_008
+    scr_seq_T23_009
+    scr_seq_T23_010
+    scr_seq_T23_011
+    scr_seq_T23_012
+    scr_seq_T23_013
+    scr_seq_T23_014
+    scr_seq_T23_015
+    scr_seq_T23_016
+}
 
 raw `
 #include "maps/IlexForest/ids.h"

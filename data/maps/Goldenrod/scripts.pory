@@ -1,43 +1,42 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_T25_000
-	ScrDef scr_seq_T25_001
-	ScrDef scr_seq_T25_002
-	ScrDef scr_seq_T25_003
-	ScrDef scr_seq_T25_004
-	ScrDef scr_seq_T25_005
-	ScrDef scr_seq_T25_006
-	ScrDef scr_seq_T25_007
-	ScrDef scr_seq_T25_008
-	ScrDef scr_seq_T25_009
-	ScrDef scr_seq_T25_010
-	ScrDef scr_seq_T25_011
-	ScrDef scr_seq_T25_012
-	ScrDef scr_seq_T25_013
-	ScrDef scr_seq_T25_014
-	ScrDef scr_seq_T25_015
-	ScrDef scr_seq_T25_016
-	ScrDef scr_seq_T25_017
-	ScrDef scr_seq_T25_018
-	ScrDef scr_seq_T25_019
-	ScrDef scr_seq_T25_020
-	ScrDef scr_seq_T25_021
-	ScrDef scr_seq_T25_022
-	ScrDef scr_seq_T25_023
-	ScrDef scr_seq_T25_024
-	ScrDef scr_seq_T25_025
-	ScrDef scr_seq_T25_026
-	ScrDef scr_seq_T25_027
-	ScrDef scr_seq_T25_028
-	ScrDef scr_seq_T25_029
-	ScrDef scr_seq_T25_030
-	ScrDef scr_seq_T25_031
-	ScrDef scr_seq_T25_032
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_T25_000
+    scr_seq_T25_001
+    scr_seq_T25_002
+    scr_seq_T25_003
+    scr_seq_T25_004
+    scr_seq_T25_005
+    scr_seq_T25_006
+    scr_seq_T25_007
+    scr_seq_T25_008
+    scr_seq_T25_009
+    scr_seq_T25_010
+    scr_seq_T25_011
+    scr_seq_T25_012
+    scr_seq_T25_013
+    scr_seq_T25_014
+    scr_seq_T25_015
+    scr_seq_T25_016
+    scr_seq_T25_017
+    scr_seq_T25_018
+    scr_seq_T25_019
+    scr_seq_T25_020
+    scr_seq_T25_021
+    scr_seq_T25_022
+    scr_seq_T25_023
+    scr_seq_T25_024
+    scr_seq_T25_025
+    scr_seq_T25_026
+    scr_seq_T25_027
+    scr_seq_T25_028
+    scr_seq_T25_029
+    scr_seq_T25_030
+    scr_seq_T25_031
+    scr_seq_T25_032
+}
 
 script scr_seq_T25_018 {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_3)

@@ -363,13 +363,19 @@ class Compiler:
         self.texts.append((tid, value))
 
     def public_scripts(self, prog):
-        """ScrDef order: raw ScrDef lines and top-level scripts in file order. A script
-        block whose name is in a raw ScrDef line keeps that line's position."""
+        """ScrDef order: the scrdefs block (and ScrDef lines in raw blocks), then top-level
+        scripts in file order. A script listed in scrdefs keeps its place there."""
+        blocks = [it for it in prog.items if isinstance(it, P.ScrDefs)]
+        if len(blocks) > 1:
+            raise CompileError("only one scrdefs block per map", self.ctx.path, blocks[1].line)
         declared = {m.group(1) for it in prog.items if isinstance(it, P.Raw)
                     for m in map(_SCRDEF_RE.match, it.text.splitlines()) if m}
+        declared |= {n for b in blocks for n in b.names}
         out = []
         for it in prog.items:
-            if isinstance(it, P.Raw):
+            if isinstance(it, P.ScrDefs):
+                out += it.names
+            elif isinstance(it, P.Raw):
                 out += [m.group(1) for m in map(_SCRDEF_RE.match, it.text.splitlines()) if m]
             elif isinstance(it, P.Script) and not it.local:
                 if it.name not in declared:  # a raw ScrDef line already fixes its number
@@ -380,6 +386,38 @@ class Compiler:
         if len(set(out)) != len(out):
             dup = sorted(n for n in set(out) if out.count(n) > 1)
             raise CompileError("scripts defined twice: %s" % ", ".join(dup), self.ctx.path)
+        if blocks:
+            missing = [n for n in blocks[0].names if n not in self._labels(prog)]
+            if missing:
+                raise CompileError("scrdefs: no script or label named %s" % ", ".join(missing),
+                                   self.ctx.path, blocks[0].line)
+        return out
+
+    def _labels(self, prog):
+        """Every label the program defines (scripts, labels inside them, raw labels)."""
+        out = set()
+
+        def walk(body):
+            for s in body:
+                if isinstance(s, P.Label):
+                    out.add(s.name)
+                elif isinstance(s, P.If):
+                    for _, b in s.branches:
+                        walk(b)
+                    walk(s.else_body or [])
+                elif isinstance(s, P.While):
+                    walk(s.body)
+                elif isinstance(s, P.Switch):
+                    for _, b in s.cases:
+                        walk(b)
+        for it in prog.items:
+            if isinstance(it, P.Script):
+                out.add(it.name)
+                walk(it.body)
+            elif isinstance(it, P.Raw):
+                out |= set(re.findall(r"^\s*([A-Za-z_]\w*):", it.text, re.M))
+            elif isinstance(it, P.MapScripts):
+                out |= {n for n, _ in self._inline_init_scripts(it)}
         return out
 
     @staticmethod

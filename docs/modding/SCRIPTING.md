@@ -86,6 +86,7 @@ Cherrygrove_EventScript_MysticWaterMan_If_2:
 | `text Name { "..." "..." }` | a named message; adjacent strings join |
 | `movement Name { walk_up * 2  face_left }` | movement data, placed where it is written (`EndMovement` added) |
 | `mapscripts Name { ... }` | the map's init scripts (compiles to `map_scripts.inc`) |
+| `scrdefs { A B C }` | script numbers: the listed scripts get 1, 2, 3, ... (optional) |
 | ``raw `...` `` | copied as-is into `scripts.inc` |
 | `const NAME = value` | replaced in arguments and conditions |
 
@@ -177,10 +178,24 @@ script labels (compiled to their number) or any expression.
 
 Events and map scripts refer to scripts by number, so order matters:
 
-- Numbers follow file order: `ScrDef` lines inside `raw` blocks and top-level
-  `script` blocks (and inline map scripts).
-- A `script` block whose name already has a `ScrDef` line in a `raw` block keeps
-  that line's number. That's how a script converted out of `raw` keeps its number.
+- Without a `scrdefs` block, numbers follow file order: top-level `script` blocks
+  (and inline map scripts) get 1, 2, 3, ...
+- A `scrdefs` block fixes the order, where the original game didn't number
+  scripts in file order (209 maps):
+
+  ```
+  scrdefs {
+      scr_seq_R30_000
+      scr_seq_R30_001
+  }
+  ```
+
+  Listed scripts take those numbers wherever their blocks are; scripts not in the
+  list are numbered after it, in file order, so `mapkit script add` never
+  renumbers anything. A name can also be a label inside a script (two numbers for
+  one script). One block per map; each name once; every name must exist.
+- Never reorder or insert into the list: it renumbers every later script.
+- `ScrDef` lines in a `raw` block still count, as they did before `scrdefs`.
 - `map.json` refers to scripts by label; the build turns labels into numbers.
 - `mapkit pory sync <map>` rewrites the `_EV_` defines in `ids.h` to match (only
   needed for code that still uses `_EV_<label> + 1`); `mapkit script add` does it for you.
@@ -223,9 +238,9 @@ What stays as written, because the bytes depend on it:
 - **Dead code** the original compiler left, such as a `goto` right after another
   `goto`, or an `end` after movement data. Removing it changes the ROM.
 - **Shared tails**: blocks several branches `goto` keep their label (`_0083:`).
-- **The `ScrDef` table**, as a `raw` block, when the scripts aren't in number
-  order in the file (210 maps). Scripts keep their numbers; new `script` blocks
-  are numbered after the table.
+- **Script order**, as a `scrdefs` block, when the scripts aren't in number
+  order in the file (209 maps). Scripts keep their numbers; new `script` blocks
+  are numbered after the list.
 - Two `ScrDef` names for one script, or a script that runs on into the next:
   the second name becomes a label inside the first script.
 - Extra `#include`/`#define` lines, in `raw`.
@@ -259,6 +274,7 @@ macro files; pointing it at `asm/macros/script.inc` and `asm/macros/movement.inc
 - No `mart` (HGSS marts are C tables).
 - `raw` can only target `scripts.inc`; `map_scripts.inc` always comes from `mapscripts`.
 - Labels inside a script are emitted as written (no local/global distinction on DS).
+- `scrdefs` is new: GBA scripts are referenced by address, DS scripts by number.
 
 ## Tests
 

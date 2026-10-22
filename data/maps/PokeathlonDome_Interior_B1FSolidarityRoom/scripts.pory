@@ -1,24 +1,23 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_D49R0104_000
-	ScrDef scr_seq_D49R0104_001
-	ScrDef scr_seq_D49R0104_002
-	ScrDef scr_seq_D49R0104_003
-	ScrDef scr_seq_D49R0104_004
-	ScrDef scr_seq_D49R0104_005
-	ScrDef scr_seq_D49R0104_006
-	ScrDef scr_seq_D49R0104_007
-	ScrDef scr_seq_D49R0104_008
-	ScrDef scr_seq_D49R0104_009
-	ScrDef scr_seq_D49R0104_010
-	ScrDef scr_seq_D49R0104_011
-	ScrDef scr_seq_D49R0104_012
-	ScrDef scr_seq_D49R0104_013
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_D49R0104_000
+    scr_seq_D49R0104_001
+    scr_seq_D49R0104_002
+    scr_seq_D49R0104_003
+    scr_seq_D49R0104_004
+    scr_seq_D49R0104_005
+    scr_seq_D49R0104_006
+    scr_seq_D49R0104_007
+    scr_seq_D49R0104_008
+    scr_seq_D49R0104_009
+    scr_seq_D49R0104_010
+    scr_seq_D49R0104_011
+    scr_seq_D49R0104_012
+    scr_seq_D49R0104_013
+}
 
 script scr_seq_D49R0104_012 {
     if (flag(FLAG_UNK_0EF)) {

@@ -1,23 +1,22 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_T26_000
-	ScrDef scr_seq_T26_001
-	ScrDef scr_seq_T26_002
-	ScrDef scr_seq_T26_003
-	ScrDef scr_seq_T26_004
-	ScrDef scr_seq_T26_005
-	ScrDef scr_seq_T26_006
-	ScrDef scr_seq_T26_007
-	ScrDef scr_seq_T26_008
-	ScrDef scr_seq_T26_009
-	ScrDef scr_seq_T26_010
-	ScrDef scr_seq_T26_011
-	ScrDef scr_seq_T26_012
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_T26_000
+    scr_seq_T26_001
+    scr_seq_T26_002
+    scr_seq_T26_003
+    scr_seq_T26_004
+    scr_seq_T26_005
+    scr_seq_T26_006
+    scr_seq_T26_007
+    scr_seq_T26_008
+    scr_seq_T26_009
+    scr_seq_T26_010
+    scr_seq_T26_011
+    scr_seq_T26_012
+}
 
 script scr_seq_T26_002 {
     setvar(VAR_SCENE_ROCKET_TAKEOVER, 2)

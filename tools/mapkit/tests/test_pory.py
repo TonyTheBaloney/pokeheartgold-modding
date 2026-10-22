@@ -113,13 +113,23 @@ class Lowering(unittest.TestCase):
         self.assertIn("\tInitScriptGoToIfEqual VAR_X, 1, 4  // MS_FrameTable_0", r.map_scripts_inc)
         self.assertEqual(r.scripts_inc.count("ScrDefEnd"), 1)
 
+    def test_scrdefs(self):
+        r = compile_("scrdefs { B, A }\nscript A { end }\nscript B { end }\nscript New { end }\n"
+                     "script(local) L { inner: return }")
+        self.assertEqual(r.public, ["B", "A", "New"])
+        self.assertIn("\tScrDef B\n\tScrDef A\n\tScrDef New\n\tScrDefEnd", r.scripts_inc)
+        self.assertEqual(compile_("scrdefs { inner }\nscript(local) L { inner: return }").public, ["inner"])
+
     def test_errors(self):
         for src, msg in [("script S { nosuchcommand }", "unknown command"),
                          ("script S { break }", "outside a loop"),
                          ("script S { end }\nscript S { end }", "defined twice"),
                          ("script S { if (flag(F) { end } }", "expected"),
                          ("script S { if (bogus(X)) { end } }", "unknown command"),
-                         ("script S { if (lockall() == 1) { end } }", "not a condition")]:
+                         ("script S { if (lockall() == 1) { end } }", "not a condition"),
+                         ("scrdefs { S, Missing }\nscript S { end }", "no script or label named Missing"),
+                         ("scrdefs { S }\nscrdefs { S }\nscript S { end }", "only one scrdefs"),
+                         ("scrdefs { S, S }\nscript S { end }", "defined twice")]:
             with self.assertRaises(PoryError) as cm:
                 compile_(src)
             self.assertIn(msg, str(cm.exception), src)
@@ -161,7 +171,7 @@ class Decompile(unittest.TestCase):
         # two numbers for one script, a script that runs on into the next, ScrDef order != file order
         src, st = decompiled("\tScrDef B\n\tScrDef A\n\tScrDef C\n\tScrDefEnd\n\n"
                              "A:\nB:\n\tSetFlag F\nC:\n\tEnd\n\t.balign 4, 0\n")
-        self.assertIn("ScrDef B\n\tScrDef A\n\tScrDef C", src)
+        self.assertIn("scrdefs {\n    B\n    A\n    C\n}", src)
         self.assertIn("script A {\nB:\n    setflag(F)\nC:\n    end\n}", src)
 
     def test_dead_goto_is_kept(self):

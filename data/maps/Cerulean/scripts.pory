@@ -1,24 +1,23 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_T04_000
-	ScrDef scr_seq_T04_001
-	ScrDef scr_seq_T04_002
-	ScrDef scr_seq_T04_003
-	ScrDef scr_seq_T04_004
-	ScrDef scr_seq_T04_005
-	ScrDef scr_seq_T04_006
-	ScrDef scr_seq_T04_007
-	ScrDef scr_seq_T04_008
-	ScrDef scr_seq_T04_009
-	ScrDef scr_seq_T04_010
-	ScrDef scr_seq_T04_011
-	ScrDef scr_seq_T04_012
-	ScrDef scr_seq_T04_013
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_T04_000
+    scr_seq_T04_001
+    scr_seq_T04_002
+    scr_seq_T04_003
+    scr_seq_T04_004
+    scr_seq_T04_005
+    scr_seq_T04_006
+    scr_seq_T04_007
+    scr_seq_T04_008
+    scr_seq_T04_009
+    scr_seq_T04_010
+    scr_seq_T04_011
+    scr_seq_T04_012
+    scr_seq_T04_013
+}
 
 script scr_seq_T04_012 {
     if (!flag(FLAG_UNK_189)) {

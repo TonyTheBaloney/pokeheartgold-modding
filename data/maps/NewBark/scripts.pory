@@ -1,28 +1,27 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-// Script numbers (map.json and map scripts refer to these by label).
-raw `
-	ScrDef scr_seq_T20_000
-	ScrDef scr_seq_T20_001
-	ScrDef scr_seq_T20_002
-	ScrDef scr_seq_T20_003
-	ScrDef scr_seq_T20_004
-	ScrDef scr_seq_T20_005
-	ScrDef scr_seq_T20_006
-	ScrDef scr_seq_T20_007
-	ScrDef scr_seq_T20_008
-	ScrDef scr_seq_T20_009
-	ScrDef scr_seq_T20_010
-	ScrDef scr_seq_T20_011
-	ScrDef scr_seq_T20_012
-	ScrDef scr_seq_T20_013
-	ScrDef scr_seq_T20_014
-	ScrDef scr_seq_T20_015
-	ScrDef scr_seq_T20_016
-	ScrDef scr_seq_T20_017
-	ScrDefEnd
-`
+// Script numbers, from 1, in this order (map.json and mapscripts use the labels).
+scrdefs {
+    scr_seq_T20_000
+    scr_seq_T20_001
+    scr_seq_T20_002
+    scr_seq_T20_003
+    scr_seq_T20_004
+    scr_seq_T20_005
+    scr_seq_T20_006
+    scr_seq_T20_007
+    scr_seq_T20_008
+    scr_seq_T20_009
+    scr_seq_T20_010
+    scr_seq_T20_011
+    scr_seq_T20_012
+    scr_seq_T20_013
+    scr_seq_T20_014
+    scr_seq_T20_015
+    scr_seq_T20_016
+    scr_seq_T20_017
+}
 
 script scr_seq_T20_006 {
     getfriendsprite(VAR_OBJ_0)
