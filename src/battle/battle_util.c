@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE (see AI_WORK_LOG.md)
 #include "battle/battle_util.h"
 
 #include "global.h"
@@ -74,7 +77,7 @@ void BattleSystem_GetBattleMon(BattleSystem *battleSystem, BattleContext *ctx, i
 
     if (!(ctx->battleStatus & BATTLE_STATUS_BATON_PASS)) {
         for (i = 0; i < 8; i++) {
-            ctx->battleMons[battlerId].statChanges[i] = 6; // 6 is the default for stat changes
+            ctx->battleMons[battlerId].statChanges[i] = DEFAULT_STAT_STAGE;
         }
     }
 
@@ -819,10 +822,10 @@ void BattleMon_AddVar(BattleMon *mon, u32 varId, int data) {
     case BMON_DATA_STAT_CHANGE_ACC:
     case BMON_DATA_STAT_CHANGE_EVASION: {
         int index = varId - BMON_DATA_STAT_CHANGE_HP;
-        if (mon->statChanges[index] + data < 0) {
-            mon->statChanges[index] = 0;
-        } else if (mon->statChanges[index] + data > BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
-            mon->statChanges[index] = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
+        if (mon->statChanges[index] + data < MIN_STAT_STAGE) {
+            mon->statChanges[index] = MIN_STAT_STAGE;
+        } else if (mon->statChanges[index] + data > MAX_STAT_STAGE) {
+            mon->statChanges[index] = MAX_STAT_STAGE;
         } else {
             mon->statChanges[index] += data;
         }
@@ -1004,25 +1007,25 @@ u8 CheckSortSpeed(BattleSystem *battleSystem, BattleContext *ctx, int battlerId1
     speedStatChange2 = ctx->battleMons[battlerId2].statChanges[3];
 
     if (GetBattlerAbility(ctx, battlerId1) == ABILITY_SIMPLE) {
-        speedStatChange1 = 6 + (speedStatChange1 - 6) * 2;
+        speedStatChange1 = DEFAULT_STAT_STAGE + (speedStatChange1 - DEFAULT_STAT_STAGE) * 2;
 
-        if (speedStatChange1 > BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
-            speedStatChange1 = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
+        if (speedStatChange1 > MAX_STAT_STAGE) {
+            speedStatChange1 = MAX_STAT_STAGE;
         }
 
-        if (speedStatChange1 < 0) {
-            speedStatChange1 = 0;
+        if (speedStatChange1 < MIN_STAT_STAGE) {
+            speedStatChange1 = MIN_STAT_STAGE;
         }
     }
     if (GetBattlerAbility(ctx, battlerId2) == ABILITY_SIMPLE) {
-        speedStatChange2 = 6 + (speedStatChange2 - 6) * 2;
+        speedStatChange2 = DEFAULT_STAT_STAGE + (speedStatChange2 - DEFAULT_STAT_STAGE) * 2;
 
-        if (speedStatChange2 > BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
-            speedStatChange2 = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
+        if (speedStatChange2 > MAX_STAT_STAGE) {
+            speedStatChange2 = MAX_STAT_STAGE;
         }
 
-        if (speedStatChange2 < 0) {
-            speedStatChange2 = 0;
+        if (speedStatChange2 < MIN_STAT_STAGE) {
+            speedStatChange2 = MIN_STAT_STAGE;
         }
     }
 
@@ -1876,7 +1879,7 @@ void InitFaintedWork(BattleSystem *battleSystem, BattleContext *ctx, int battler
     maxBattlers = BattleSystem_GetMaxBattlers(battleSystem);
 
     for (int stat = 0; stat < 8; stat++) {
-        ctx->battleMons[battlerId].statChanges[stat] = 6;
+        ctx->battleMons[battlerId].statChanges[stat] = DEFAULT_STAT_STAGE;
     }
 
     ctx->battleMons[battlerId].status2 = 0;
@@ -3068,7 +3071,7 @@ BOOL BattleContext_TryEndOfTurnAbility(BattleSystem *battleSystem, BattleContext
 
     switch (GetBattlerAbility(ctx, battlerId)) {
     case ABILITY_SPEED_BOOST:
-        if (ctx->battleMons[battlerId].hp && ctx->battleMons[battlerId].statChanges[3] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE && ctx->battleMons[battlerId].moveEffectData.fakeOutCount != ctx->totalTurns + 1) {
+        if (ctx->battleMons[battlerId].hp && ctx->battleMons[battlerId].statChanges[3] < MAX_STAT_STAGE && ctx->battleMons[battlerId].moveEffectData.fakeOutCount != ctx->totalTurns + 1) {
             ctx->statChangeParam = 17;
             ctx->statChangeType = 3;
             ctx->battlerIdStatChange = battlerId;
@@ -3506,7 +3509,7 @@ int TryAbilityOnEntry(BattleSystem *battleSystem, BattleContext *ctx) {
                 ctx->sendOutState++;
             }
             break;
-        case BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE: // Amulet coin
+        case 12: // Amulet coin
             for (i = 0; i < maxBattlers; i++) {
                 battlerId = ctx->turnOrder[i];
                 if (GetItemVar(ctx, ctx->battleMons[battlerId].item, ITEM_VAR_HOLD_EFFECT) == HOLD_EFFECT_MONEY_UP) {
@@ -4013,7 +4016,7 @@ BOOL TryUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battlerI
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[1] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[1] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 1;
                 script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4023,7 +4026,7 @@ BOOL TryUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battlerI
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[2] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[2] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 2;
                 script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4033,7 +4036,7 @@ BOOL TryUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battlerI
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[3] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[3] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 3;
                 script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4043,7 +4046,7 @@ BOOL TryUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battlerI
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[4] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[4] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 4;
                 script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4053,7 +4056,7 @@ BOOL TryUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battlerI
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[5] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[5] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 5;
                 script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4075,14 +4078,14 @@ BOOL TryUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battlerI
             if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost) {
                 int stat;
                 for (stat = 0; stat < 5; stat++) {
-                    if (ctx->battleMons[battlerId].statChanges[1 + stat] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+                    if (ctx->battleMons[battlerId].statChanges[1 + stat] < MAX_STAT_STAGE) {
                         break;
                     }
                 }
                 if (stat != 5) {
                     do {
                         stat = BattleSystem_Random(battleSystem) % 5;
-                    } while (ctx->battleMons[battlerId].statChanges[1 + stat] == BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE);
+                    } while (ctx->battleMons[battlerId].statChanges[1 + stat] == MAX_STAT_STAGE);
                     ctx->msgTemp = stat + 1;
                     script = BATTLE_SUBSCRIPT_HELD_ITEM_SHARPLY_RAISE_STAT;
                     ret = TRUE;
@@ -4093,8 +4096,8 @@ BOOL TryUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battlerI
         {
             int stat;
             for (stat = 0; stat < 8; stat++) {
-                if (ctx->battleMons[battlerId].statChanges[stat] < 6) {
-                    ctx->battleMons[battlerId].statChanges[stat] = 6;
+                if (ctx->battleMons[battlerId].statChanges[stat] < DEFAULT_STAT_STAGE) {
+                    ctx->battleMons[battlerId].statChanges[stat] = DEFAULT_STAT_STAGE;
                     ret = TRUE;
                 }
             }
@@ -4284,8 +4287,8 @@ BOOL CheckUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battle
         {
             int stat;
             for (stat = 0; stat < 8; stat++) {
-                if (ctx->battleMons[battlerId].statChanges[stat] < 6) {
-                    ctx->battleMons[battlerId].statChanges[stat] = 6;
+                if (ctx->battleMons[battlerId].statChanges[stat] < DEFAULT_STAT_STAGE) {
+                    ctx->battleMons[battlerId].statChanges[stat] = DEFAULT_STAT_STAGE;
                     ret = TRUE;
                 }
             }
@@ -4374,7 +4377,7 @@ BOOL CheckUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battle
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[1] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[1] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 1;
                 *script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4384,7 +4387,7 @@ BOOL CheckUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battle
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[2] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[2] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 2;
                 *script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4394,7 +4397,7 @@ BOOL CheckUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battle
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[3] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[3] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 3;
                 *script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4404,7 +4407,7 @@ BOOL CheckUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battle
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[4] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[4] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 4;
                 *script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4414,7 +4417,7 @@ BOOL CheckUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battle
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[5] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost && ctx->battleMons[battlerId].statChanges[5] < MAX_STAT_STAGE) {
                 ctx->msgTemp = 5;
                 *script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
                 ret = TRUE;
@@ -4436,14 +4439,14 @@ BOOL CheckUseHeldItem(BattleSystem *battleSystem, BattleContext *ctx, int battle
             if (ctx->battleMons[battlerId].hp <= ctx->battleMons[battlerId].maxHp / boost) {
                 int stat;
                 for (stat = 0; stat < 5; stat++) {
-                    if (ctx->battleMons[battlerId].statChanges[1 + stat] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+                    if (ctx->battleMons[battlerId].statChanges[1 + stat] < MAX_STAT_STAGE) {
                         break;
                     }
                 }
                 if (stat != 5) {
                     do {
                         stat = BattleSystem_Random(battleSystem) % 5;
-                    } while (ctx->battleMons[battlerId].statChanges[1 + stat] == BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE);
+                    } while (ctx->battleMons[battlerId].statChanges[1 + stat] == MAX_STAT_STAGE);
                     ctx->msgTemp = stat + 1;
                     *script = BATTLE_SUBSCRIPT_HELD_ITEM_SHARPLY_RAISE_STAT;
                     ret = TRUE;
@@ -4819,35 +4822,35 @@ BOOL TryEatOpponentBerry(BattleSystem *battleSystem, BattleContext *ctx, int bat
         ret = TRUE;
         break;
     case STEAL_EFFECT_ATK_UP: // liechi berry
-        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[1] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[1] < MAX_STAT_STAGE) {
             ctx->msgTemp = 1;
             script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         ret = TRUE;
         break;
     case STEAL_EFFECT_DEF_UP: // ganlon berry
-        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[2] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[2] < MAX_STAT_STAGE) {
             ctx->msgTemp = 2;
             script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         ret = TRUE;
         break;
     case STEAL_EFFECT_SPEED_UP: // salac berry
-        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[3] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[3] < MAX_STAT_STAGE) {
             ctx->msgTemp = 3;
             script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         ret = TRUE;
         break;
     case STEAL_EFFECT_SPATK_UP: // petaya berry
-        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[4] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[4] < MAX_STAT_STAGE) {
             ctx->msgTemp = 4;
             script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         ret = TRUE;
         break;
     case STEAL_EFFECT_SPDEF_UP: // apicot berry
-        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[5] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[5] < MAX_STAT_STAGE) {
             ctx->msgTemp = 5;
             script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
@@ -4857,14 +4860,14 @@ BOOL TryEatOpponentBerry(BattleSystem *battleSystem, BattleContext *ctx, int bat
     {
         int stat;
         for (stat = 0; stat < 5; stat++) {
-            if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[1 + stat] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[ctx->battlerIdAttacker].statChanges[1 + stat] < MAX_STAT_STAGE) {
                 break;
             }
         }
         if (stat != 5) {
             do {
                 stat = BattleSystem_Random(battleSystem) % 5;
-            } while (ctx->battleMons[ctx->battlerIdAttacker].statChanges[1 + stat] == BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE);
+            } while (ctx->battleMons[ctx->battlerIdAttacker].statChanges[1 + stat] == MAX_STAT_STAGE);
             ctx->msgTemp = stat + 1;
             script = BATTLE_SUBSCRIPT_HELD_ITEM_SHARPLY_RAISE_STAT;
         }
@@ -5048,8 +5051,8 @@ BOOL TryFling(BattleSystem *battleSystem, BattleContext *ctx, int battlerId) {
     {
         int stat;
         for (stat = 0; stat < 8; stat++) {
-            if (ctx->battleMons[ctx->battlerIdTarget].statChanges[stat] < 6) {
-                ctx->battleMons[ctx->battlerIdTarget].statChanges[stat] = 6;
+            if (ctx->battleMons[ctx->battlerIdTarget].statChanges[stat] < DEFAULT_STAT_STAGE) {
+                ctx->battleMons[ctx->battlerIdTarget].statChanges[stat] = DEFAULT_STAT_STAGE;
                 ctx->flingScript = 211;
             }
         }
@@ -5086,31 +5089,31 @@ BOOL TryFling(BattleSystem *battleSystem, BattleContext *ctx, int battlerId) {
         ctx->flingScript = 25;
         break;
     case STEAL_EFFECT_ATK_UP: // liechi berry
-        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[1] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[1] < MAX_STAT_STAGE) {
             ctx->msgTemp = 1;
             ctx->flingScript = 208;
         }
         break;
     case STEAL_EFFECT_DEF_UP: // ganlon berry
-        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[2] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[2] < MAX_STAT_STAGE) {
             ctx->msgTemp = 2;
             ctx->flingScript = 208;
         }
         break;
     case STEAL_EFFECT_SPEED_UP: // salac berry
-        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[3] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[3] < MAX_STAT_STAGE) {
             ctx->msgTemp = 3;
             ctx->flingScript = 208;
         }
         break;
     case STEAL_EFFECT_SPATK_UP: // petaya berry
-        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[4] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[4] < MAX_STAT_STAGE) {
             ctx->msgTemp = 4;
             ctx->flingScript = 208;
         }
         break;
     case STEAL_EFFECT_SPDEF_UP: // apicot berry
-        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[5] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[5] < MAX_STAT_STAGE) {
             ctx->msgTemp = 5;
             ctx->flingScript = 208;
         }
@@ -5119,14 +5122,14 @@ BOOL TryFling(BattleSystem *battleSystem, BattleContext *ctx, int battlerId) {
     {
         int stat;
         for (stat = 0; stat < 5; stat++) {
-            if (ctx->battleMons[ctx->battlerIdTarget].statChanges[1 + stat] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
+            if (ctx->battleMons[ctx->battlerIdTarget].statChanges[1 + stat] < MAX_STAT_STAGE) {
                 break;
             }
         }
         if (stat != 5) {
             do {
                 stat = BattleSystem_Random(battleSystem) % 5;
-            } while (ctx->battleMons[ctx->battlerIdTarget].statChanges[1 + stat] == BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE);
+            } while (ctx->battleMons[ctx->battlerIdTarget].statChanges[1 + stat] == MAX_STAT_STAGE);
             ctx->msgTemp = stat + 1;
             ctx->flingScript = 210;
         }
@@ -5807,7 +5810,7 @@ int CalcMoveDamage(BattleSystem *battleSystem, BattleContext *ctx, u32 moveNo, u
 
     for (i = 0; i < NELEMS(sPunchingMoves); i++) {
         if (sPunchingMoves[i] == moveNo && calcAttacker.ability == ABILITY_IRON_FIST) {
-            movePower = movePower * BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE / 10;
+            movePower = movePower * 12 / 10;
             break;
         }
     }

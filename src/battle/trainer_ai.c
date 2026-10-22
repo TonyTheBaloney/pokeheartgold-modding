@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE (see AI_WORK_LOG.md)
 #include "battle/trainer_ai.h"
 
 #include "constants/abilities.h"
@@ -2111,8 +2114,8 @@ void AICmd_SumPositiveStatStages(BattleSystem *battleSystem, BattleContext *ctx)
     ctx->trainerAIData.calcTemp = 0;
 
     for (int stat = STAT_HP; stat < NUM_BATTLE_STATS; stat++) {
-        if (ctx->battleMons[battler].statChanges[stat] > 6) {
-            ctx->trainerAIData.calcTemp += ctx->battleMons[battler].statChanges[stat] - 6;
+        if (ctx->battleMons[battler].statChanges[stat] > DEFAULT_STAT_STAGE) {
+            ctx->trainerAIData.calcTemp += ctx->battleMons[battler].statChanges[stat] - DEFAULT_STAT_STAGE;
         }
     }
 }
@@ -3707,8 +3710,8 @@ static BOOL AI_IsHeavilyStatBoosted(BattleSystem *battleSystem, BattleContext *c
     u8 numBoosts = 0;
 
     for (stat = STAT_HP; stat < NUM_BATTLE_STATS; stat++) {
-        if (ctx->battleMons[battler].statChanges[stat] > 6) {
-            numBoosts += ctx->battleMons[battler].statChanges[stat] - 6;
+        if (ctx->battleMons[battler].statChanges[stat] > DEFAULT_STAT_STAGE) {
+            numBoosts += ctx->battleMons[battler].statChanges[stat] - DEFAULT_STAT_STAGE;
         }
     }
 

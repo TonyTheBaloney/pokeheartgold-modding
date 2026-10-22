@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE (see AI_WORK_LOG.md)
 #include "battle/battle_command.h"
 
 #include "global.h"
@@ -1597,7 +1600,7 @@ BOOL BtlCmd_ChangeStatStage(BattleSystem *battleSystem, BattleContext *ctx) {
     }
 
     if (change > 0) { // Stat Increase
-        if (mon->statChanges[stat + 1] == 12) {
+        if (mon->statChanges[stat + 1] == MAX_STAT_STAGE) {
             ctx->battleStatus |= BATTLE_STATUS_FAIL_STAT_STAGE_CHANGE;
             if (ctx->statChangeType == 3 || ctx->statChangeType == 2) {
                 BattleScriptIncrementPointer(ctx, unkB);
@@ -1632,8 +1635,8 @@ BOOL BtlCmd_ChangeStatStage(BattleSystem *battleSystem, BattleContext *ctx) {
                 ctx->buffMsg.param[1] = stat + 1;
             }
             mon->statChanges[stat + 1] += change;
-            if (mon->statChanges[stat + 1] > 12) {
-                mon->statChanges[stat + 1] = 12;
+            if (mon->statChanges[stat + 1] > MAX_STAT_STAGE) {
+                mon->statChanges[stat + 1] = MAX_STAT_STAGE;
             }
         }
     } else { // Stat Decrease
@@ -1681,7 +1684,7 @@ BOOL BtlCmd_ChangeStatStage(BattleSystem *battleSystem, BattleContext *ctx) {
                         ctx->buffMsg.param[2] = stat + 1;
                     }
                     unkD = TRUE;
-                } else if (mon->statChanges[1 + stat] == 0) {
+                } else if (mon->statChanges[1 + stat] == MIN_STAT_STAGE) {
                     ctx->battleStatus |= BATTLE_STATUS_FAIL_STAT_STAGE_CHANGE;
                     if (ctx->statChangeType == 2 || ctx->statChangeType == 3) {
                         BattleScriptIncrementPointer(ctx, unkB);
@@ -1700,7 +1703,7 @@ BOOL BtlCmd_ChangeStatStage(BattleSystem *battleSystem, BattleContext *ctx) {
                 } else if (ctx->battleMons[ctx->battlerIdStatChange].status2 & STATUS2_SUBSTITUTE) {
                     unkD = 2;
                 }
-            } else if (mon->statChanges[1 + stat] == 0) {
+            } else if (mon->statChanges[1 + stat] == MIN_STAT_STAGE) {
                 ctx->battleStatus |= BATTLE_STATUS_FAIL_STAT_STAGE_CHANGE;
                 if (ctx->statChangeType == 2 || ctx->statChangeType == 3) {
                     BattleScriptIncrementPointer(ctx, unkB);
@@ -1742,8 +1745,8 @@ BOOL BtlCmd_ChangeStatStage(BattleSystem *battleSystem, BattleContext *ctx) {
             ctx->buffMsg.param[1] = stat + 1;
         }
         mon->statChanges[stat + 1] += change;
-        if (mon->statChanges[stat + 1] < 0) {
-            mon->statChanges[stat + 1] = 0;
+        if (mon->statChanges[stat + 1] < MIN_STAT_STAGE) {
+            mon->statChanges[stat + 1] = MIN_STAT_STAGE;
         }
     }
 
@@ -2108,7 +2111,7 @@ BOOL BtlCmd_ResetAllStatChanges(BattleSystem *battleSystem, BattleContext *ctx) 
 
     for (battlerId = 0; battlerId < battlersMax; battlerId++) {
         for (stat = 0; stat < 8; stat++) {
-            ctx->battleMons[battlerId].statChanges[stat] = 6;
+            ctx->battleMons[battlerId].statChanges[stat] = DEFAULT_STAT_STAGE;
         }
         ctx->battleMons[battlerId].status2 &= ~STATUS2_FOCUS_ENERGY;
     }
@@ -4487,8 +4490,8 @@ BOOL BtlCmd_CalcPunishmentPower(BattleSystem *battleSystem, BattleContext *ctx) 
 
     cnt = 0;
     for (stat = 0; stat < 8; stat++) {
-        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[stat] > 6) {
-            cnt += ctx->battleMons[ctx->battlerIdTarget].statChanges[stat] - 6;
+        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[stat] > DEFAULT_STAT_STAGE) {
+            cnt += ctx->battleMons[ctx->battlerIdTarget].statChanges[stat] - DEFAULT_STAT_STAGE;
         }
     }
 
@@ -5446,7 +5449,7 @@ BOOL BtlCmd_BoostRandomStatBy2(BattleSystem *battleSystem, BattleContext *ctx) {
 
     cnt = 0;
     for (i = 1; i < 8; i++) {
-        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[i] < 12) {
+        if (ctx->battleMons[ctx->battlerIdTarget].statChanges[i] < MAX_STAT_STAGE) {
             statChanges[cnt++] = i - 1;
         }
     }

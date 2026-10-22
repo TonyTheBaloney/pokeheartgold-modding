@@ -1,3 +1,6 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE (see AI_WORK_LOG.md)
 #include "battle/battle_controller_player.h"
 
 #include "global.h"
@@ -2435,8 +2438,8 @@ static BOOL BattleSystem_CheckMoveHit(BattleSystem *battleSystem, BattleContext 
     }
 
     moveCategory = ctx->trainerAIData.moveData[move].category;
-    attackerAccuracy = ctx->battleMons[battlerIdAttacker].statChanges[STAT_ACC] - 6;
-    targetEvasion = 6 - ctx->battleMons[battlerIdTarget].statChanges[STAT_EVASION];
+    attackerAccuracy = ctx->battleMons[battlerIdAttacker].statChanges[STAT_ACC] - DEFAULT_STAT_STAGE;
+    targetEvasion = DEFAULT_STAT_STAGE - ctx->battleMons[battlerIdTarget].statChanges[STAT_EVASION];
 
     if (GetBattlerAbility(ctx, battlerIdAttacker) == ABILITY_SIMPLE) {
         attackerAccuracy *= 2;
@@ -3811,7 +3814,7 @@ static BOOL TryBuildRage(BattleSystem *battleSystem, BattleContext *ctx) {
         && ctx->battlerIdTarget != ctx->battlerIdAttacker
         && ctx->battleMons[ctx->battlerIdTarget].hp != 0
         && (ctx->selfTurnData[ctx->battlerIdTarget].physicalDamage != 0 || ctx->selfTurnData[ctx->battlerIdTarget].specialDamage != 0)
-        && ctx->battleMons[ctx->battlerIdTarget].statChanges[STAT_ATK] < 12) {
+        && ctx->battleMons[ctx->battlerIdTarget].statChanges[STAT_ATK] < MAX_STAT_STAGE) {
         ctx->battleMons[ctx->battlerIdTarget].statChanges[STAT_ATK]++;
         ReadBattleScriptFromNarc(ctx, NARC_a_0_0_1, BATTLE_SUBSCRIPT_RAGE_IS_BUILDING);
         ctx->commandNext = ctx->command;
