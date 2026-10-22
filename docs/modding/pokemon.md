@@ -55,14 +55,60 @@ The baby/base species used for eggs is **not** here; it's the binary
 
 | What | Where | Editable? |
 |---|---|---|
-| Level-up learnset | `files/poketool/personal/wotbl.narc` | **no** (binary) |
-| Egg moves | `files/fielddata/sodateya/kowaza_list.narc` | **no** (binary) |
+| Level-up learnset | `files/poketool/personal/level_up_learnsets.json` | yes |
+| Egg moves | `files/poketool/personal/egg_moves.json` | yes |
 | TM/HM compatibility | `personal.json` `tms`/`hms` | yes |
 | Move tutors | `files/fielddata/wazaoshie/waza_oshie.json` | yes |
 | Move data itself (power, type, ...) | `files/poketool/waza/waza_tbl.narc` | **no** (binary) |
 
-Extracting the learnset and egg-move archives to JSON is the first item on the
-blob list in [DESIGN.md](DESIGN.md#species-data-blobs-to-extract).
+### Level-up learnsets
+
+`files/poketool/personal/level_up_learnsets.json`, one list per species, like
+pokeemerald's `LEVEL_UP_MOVE(level, move)` lines:
+
+```json
+"SPECIES_BULBASAUR": [
+    { "level": 1, "move": "MOVE_TACKLE" },
+    { "level": 3, "move": "MOVE_GROWL" },
+    ...
+]
+```
+
+- Keys are `SPECIES_*` constants (`include/constants/species.h`), including the
+  alternate forms that have their own learnset (`SPECIES_DEOXYS_ATK`,
+  `SPECIES_ROTOM_HEAT`, ...). A species left out learns nothing.
+- Moves are `MOVE_*` constants (`include/constants/moves.h`); levels 1-100.
+- **At most 21 moves** per species: the game reads a learnset into a 22-entry
+  buffer (`MAX_LEARNED_MOVES`). The Move Relearner's buffer is a little smaller
+  (`LEVEL_UP_LEARNSET_MAX`, 19 moves plus the end marker and padding); retail
+  already goes past it for the species with 20+ moves.
+- Keep levels in order: when a Pokémon levels up or is generated, the game stops
+  at the first move above its level. (Retail Banette has one out of order.)
+- Built into `wotbl.narc` by `tools/pokedata/pokedata.py`.
+
+### Egg moves
+
+`files/poketool/personal/egg_moves.json`, like pokeemerald's `egg_moves(...)`:
+
+```json
+"SPECIES_BULBASAUR": [
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_SKULL_BASH",
+    ...
+]
+```
+
+- Key: the species that hatches (the baby). At most **16 moves** (`MAX_EGG_MOVES`).
+- **The table is full.** The game only searches the first 2045 entries of the
+  list for a species (`LoadEggMoves`, `src/get_egg.c`), and retail uses exactly
+  that many (each species costs one entry plus one per move). To add moves,
+  remove others first, or raise that limit in C (the build tells you which
+  species fell off the end).
+- Built into `kowaza_list.narc` by `tools/pokedata/pokedata.py`.
+
+Both files are checked at build time (unknown names, too many moves, bad levels)
+with an error that names the species. `python3 tools/pokedata/test_pokedata.py`
+checks that the unmodified files build the retail archives.
 
 ## Pokédex data
 
@@ -100,7 +146,7 @@ in `zukan_data.json`. Change both.
 
 ## Not editable yet (binary)
 
-`wotbl.narc` (level-up moves), `kowaza_list.narc` (egg moves), `pms.narc`
+`pms.narc`
 (base species for eggs), `performance.narc` (Pokéathlon stats),
 `johtozukan.narc`, `height*.narc`, cries in `files/data/sound/gs_sound_data.sdat`.
 

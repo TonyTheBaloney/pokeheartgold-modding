@@ -101,9 +101,27 @@ nitrofs_files += personal_narc
 naix_headers += personal_narc[1]
 
 
+############################################################
+###                       WOTBL                          ###
+############################################################
+# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] level-up learnsets from JSON
+wotbl_narc = custom_target('wotbl.narc',
+    input : files('level_up_learnsets.json'),
+    output : 'wotbl.narc',
+    command : [
+        pokedata_py, 'learnsets', '@INPUT@', '@OUTPUT@',
+        '--include', meson.project_source_root() / 'include',
+        '--nitroarc', nitroarc_exe,
+        '--work', '@PRIVATE_DIR@',
+    ],
+    depend_files : pokedata_depends,
+)
+
+nitrofs_files += wotbl_narc
+
+
 prebuilt_files = [
     'pms.narc',
-    'wotbl.narc',
     'performance.narc',
 ]
 

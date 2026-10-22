@@ -37,8 +37,8 @@ passes on that commit so you know any later mismatch comes from your edit.
 | Tutor moves | yes (`waza_oshie.json`) |
 | Pokédex height/weight/text | yes (JSON) |
 | Sprites, icons, footprints | yes (PNG) |
-| **Level-up moves** | **no**, binary `wotbl.narc` |
-| **Egg moves** | **no**, binary `kowaza_list.narc` |
+| Level-up moves | yes (`files/poketool/personal/level_up_learnsets.json`) |
+| Egg moves | yes (`files/poketool/personal/egg_moves.json`) |
 | Map headers | yes (`data/maps/<MapName>/map.json`) |
 | NPCs, warps, signs, triggers | yes (`data/maps/<MapName>/map.json`) |
 | Event scripts and text | yes (`scripts.pory`, `text.json` in the map folder) |
