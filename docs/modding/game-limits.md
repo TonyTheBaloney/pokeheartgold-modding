@@ -35,5 +35,6 @@ formats: raising those needs more than editing the constant.
 
 Still literals (candidates for names): badge counts (16/8), Unown forms (28),
 obedience level caps by badge, Battle Frontier caps (9999) and level modes
-(50/100, sentinels 120/121), max PP Ups (3), apricorn cap (99). Inside battle
-code, the stat-stage tables (`sStatStageRatios` etc.) still assume 13 stages.
+(50/100, sentinels 120/121), max PP Ups (3), apricorn cap (99). The accuracy
+table `sHitChanceTable[13]` (`src/battle/battle_controller_player.c`) has one row
+per stat stage, so changing the stage range means editing it too.
