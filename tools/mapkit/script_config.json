@@ -1,0 +1,59 @@
+{
+    "_comment": "[AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Target config for mapkit's poryscript-style compiler (docs/modding/SCRIPTING.md). Lowering for conditions, jumps and result-writing commands lives here, not in the compiler.",
+    "jumps": {
+        "goto": "GoTo {label}",
+        "call": "Call {label}",
+        "return": "Return",
+        "end": "End"
+    },
+    "default_terminator": "End",
+    "conditions": {
+        "flag": {
+            "true": "GoToIfSet {0}, {label}",
+            "false": "GoToIfUnset {0}, {label}"
+        },
+        "defeated": {
+            "true": "GoToIfDefeated {0}, {label}",
+            "false": "GoToIfNotDefeated {0}, {label}"
+        },
+        "itemspace": {
+            "false": "GoToIfNoItemSpace {0}, {1}, {label}"
+        }
+    },
+    "compare": {
+        "compare": "Compare {0}, {1}",
+        "==": "GoToIfEq {label}",
+        "!=": "GoToIfNe {label}",
+        "<": "GoToIfLt {label}",
+        "<=": "GoToIfLe {label}",
+        ">": "GoToIfGt {label}",
+        ">=": "GoToIfGe {label}"
+    },
+    "autovar": {
+        "GetMenuChoice": {"var_arg": 0},
+        "CheckBadge": {"var_arg": 1},
+        "YesNo": {"var_arg": 0}
+    },
+    "command_aliases": {
+        "waitbuttonpress": "WaitButton",
+        "closemessage": "CloseMsg",
+        "message": "NPCMsg",
+        "removeobject": "HidePerson",
+        "addobject": "ShowPerson",
+        "applymovement": "ApplyMovement",
+        "waitmovement": "WaitMovement"
+    },
+    "movement_aliases": {
+        "step_end": "EndMovement"
+    },
+    "init_script_types": {
+        "INIT_SCRIPT_ON_LOAD": "InitScriptEntry_OnLoad",
+        "INIT_SCRIPT_ON_TRANSITION": "InitScriptEntry_OnTransition",
+        "INIT_SCRIPT_ON_RESUME": "InitScriptEntry_OnResume",
+        "INIT_SCRIPT_ON_FRAME_TABLE": "InitScriptEntry_OnFrameTable",
+        "MAP_SCRIPT_ON_LOAD": "InitScriptEntry_OnLoad",
+        "MAP_SCRIPT_ON_TRANSITION": "InitScriptEntry_OnTransition",
+        "MAP_SCRIPT_ON_RESUME": "InitScriptEntry_OnResume",
+        "MAP_SCRIPT_ON_FRAME_TABLE": "InitScriptEntry_OnFrameTable"
+    }
+}

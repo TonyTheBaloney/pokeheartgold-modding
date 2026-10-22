@@ -13,6 +13,11 @@ mapkit_sources = files(
     '../../tools/mapkit/mapkit/cli.py',
     '../../tools/mapkit/mapkit/layout.py',
     '../../tools/mapkit/mapkit/repo.py',
+    '../../tools/mapkit/mapkit/scripts.py',
+    '../../tools/mapkit/mapkit/pory/__init__.py',
+    '../../tools/mapkit/mapkit/pory/parser.py',
+    '../../tools/mapkit/mapkit/pory/compiler.py',
+    '../../tools/mapkit/script_config.json',
 )
 
 maps_zone_event_json = []
@@ -37,11 +42,13 @@ foreach line : fs.read('maps.txt').splitlines()
     endforeach
 
     # A bank written @Folder belongs to another map's folder; only the owner builds it.
+    has_pory = fs.exists(dir / 'scripts.pory')
     if not banks['events'].startswith('@')
         maps_zone_event_json += custom_target('events_' + map_id,
-            input: dir / 'map.json',
+            # script numbers for "script": "<label>" come from scripts.pory when there is one
+            input: has_pory ? [dir / 'map.json', dir / 'scripts.pory'] : [dir / 'map.json'],
             output: banks['events'] + '.json',
-            command: [mapkit_sh, mapkit_root, 'gen-events', '@INPUT@', '@OUTPUT@'],
+            command: [mapkit_sh, mapkit_root, 'gen-events', '@INPUT0@', '@OUTPUT@'],
             depend_files: mapkit_sources,
         )
     endif
@@ -51,14 +58,31 @@ foreach line : fs.read('maps.txt').splitlines()
         command: [mapkit_sh, mapkit_root, 'gen-header', '@INPUT0@', '@OUTPUT@'],
         depend_files: mapkit_sources,
     )
-    if not banks['scripts'].startswith('@')
-        maps_scr_seq_asm += fs.copyfile(dir / 'scripts.inc', banks['scripts'] + '.s')
-    endif
-    if not banks['init'].startswith('@')
-        maps_scr_seq_asm += fs.copyfile(dir / 'map_scripts.inc', banks['init'] + '.s')
-    endif
-    if not banks['text'].startswith('@')
-        maps_text_banks += fs.copyfile(dir / 'text.json', banks['text'] + '.json')
-        maps_text_bank_names += banks['text'] + '.json'
+    if has_pory
+        # scripts.pory -> scripts, map scripts and text (text.json + the .pory text)
+        own_text = not banks['text'].startswith('@')
+        pory_out = custom_target('pory_' + map_id,
+            input: own_text ? [dir / 'scripts.pory', dir / 'text.json'] : [dir / 'scripts.pory'],
+            output: [banks['scripts'] + '.s', banks['init'] + '.s'] + (own_text ? [banks['text'] + '.json'] : []),
+            command: [mapkit_sh, mapkit_root, 'pory', 'build', '@INPUT0@', '@OUTDIR@',
+                      '--game', get_option('game_version')],
+            depend_files: mapkit_sources,
+        )
+        maps_scr_seq_asm += [pory_out[0], pory_out[1]]
+        if own_text
+            maps_text_banks += pory_out[2]
+            maps_text_bank_names += banks['text'] + '.json'
+        endif
+    else
+        if not banks['scripts'].startswith('@')
+            maps_scr_seq_asm += fs.copyfile(dir / 'scripts.inc', banks['scripts'] + '.s')
+        endif
+        if not banks['init'].startswith('@')
+            maps_scr_seq_asm += fs.copyfile(dir / 'map_scripts.inc', banks['init'] + '.s')
+        endif
+        if not banks['text'].startswith('@')
+            maps_text_banks += fs.copyfile(dir / 'text.json', banks['text'] + '.json')
+            maps_text_bank_names += banks['text'] + '.json'
+        endif
     endif
 endforeach

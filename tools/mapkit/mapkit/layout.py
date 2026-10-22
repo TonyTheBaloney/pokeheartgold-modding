@@ -193,23 +193,25 @@ def header_from_map_json(d, entry, index):
     return h
 
 
-def script_ref(v):
+def script_ref(v, numbers=None):
     """A map.json "script" value as the zone_event template needs it.
 
     pokeemerald style: a bare label (Cherrygrove_EventScript_MysticWaterMan) means
     that map script; it becomes `_EV_<label> + 1` (ids.h defines _EV_<label> as its
     ScrDef index). Numbers, std_* constants and expressions pass through."""
     if isinstance(v, str) and re.fullmatch(r"[A-Za-z_]\w*", v) and not v.startswith(("std_", "_EV_")):
+        if numbers and v in numbers:
+            return numbers[v]  # scripts.pory: number from the compiled ScrDef order
         return "_EV_%s + 1" % v
     return v
 
 
-def zone_event_from_map_json(d, ids_include):
+def zone_event_from_map_json(d, ids_include, numbers=None):
     """map.json -> zone_event JSON dict in template key order."""
     out = {"header": ids_include}
     for tkey, ekey, keys in [("bgs", "bg_events", BG_KEYS), ("objects", "object_events", OBJECT_KEYS),
                              ("warps", "warp_events", WARP_KEYS), ("coords", "coord_events", COORD_KEYS)]:
-        out[tkey] = [{t: (script_ref(ev[e]) if e == "script" else ev[e]) for t, e in keys}
+        out[tkey] = [{t: (script_ref(ev[e], numbers) if e == "script" else ev[e]) for t, e in keys}
                      for ev in d.get(ekey, [])]
     return out
 
@@ -256,11 +258,21 @@ def gen_header(root, map_json_path, out_path):
         f.write("\n".join(lines) + "\n")
 
 
+def script_numbers(root, entry):
+    """{label: script number} when the map has scripts.pory, else None."""
+    if not os.path.exists(os.path.join(root, MAPS_DIR, entry["dir"], "scripts.pory")):
+        return None
+    from . import pory
+    from .repo import Repo
+    public = pory.compile_map(Repo(root), entry).public
+    return {n: i + 1 for i, n in enumerate(public)}
+
+
 def gen_events(root, map_json_path, out_path):
     """map.json -> zone_event JSON for zone_event.json.txt."""
     entry, _ = _load_entry(root, map_json_path)
     with open(map_json_path, encoding="utf-8") as f:
-        ze = zone_event_from_map_json(json.load(f), ids_include(entry["dir"]))
+        ze = zone_event_from_map_json(json.load(f), ids_include(entry["dir"]), script_numbers(root, entry))
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(json.dumps(ze, indent=4, ensure_ascii=False) + "\n")
 

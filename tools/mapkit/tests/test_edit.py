@@ -99,6 +99,20 @@ class EditTest(unittest.TestCase):
         self.assertEqual(repo.event_defines(self.m).eval(repo.events(self.m).objects[1]["scriptId"]), 8)
         self.assert_valid([self.m])
 
+    def test_script_add_on_pory_map(self):
+        self.assertIsNotNone(self.repo.pory_entry(self.m))  # Cherrygrove uses scripts.pory
+        msg = edit.text_add(self.repo, self.m, "Hi!")
+        sid = edit.script_add(self.repo, self.m, "Cherrygrove_EventScript_Fisher", msg)
+        self.assertEqual(sid, 12)
+        with open(os.path.join(self.tmp, "data/maps/Cherrygrove/scripts.pory"), encoding="utf-8") as f:
+            self.assertIn("script Cherrygrove_EventScript_Fisher {\n    playse(SEQ_SE_DP_SELECT)", f.read())
+        with open(os.path.join(self.tmp, "data/maps/Cherrygrove/ids.h"), encoding="utf-8") as f:
+            self.assertIn("#define _EV_Cherrygrove_EventScript_Fisher 11", f.read())
+        edit.npc_add(self.repo, self.m, "fisher", "SPRITE_FISHING_2", 532, 404, script="Cherrygrove_EventScript_Fisher")
+        repo = Repo(self.tmp)
+        self.assertEqual(repo.events(self.m).objects[-1]["scriptId"], 12)  # number from the compiled .pory
+        self.assert_valid([self.m])
+
     def test_bad_script_label_is_caught(self):
         edit.npc_set(self.repo, self.m, "gsboy1", script="Cherrygrove_EventScript_Missing")
         errors = [i for i in Validator(Repo(self.tmp)).run([self.m]) if i.severity == ERROR]

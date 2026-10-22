@@ -36,6 +36,7 @@ PYTHONPATH=tools/mapkit python3 -m mapkit <command> ...
 | `text add MAP 'text'` | append a message; prints its id |
 | `script add MAP LABEL [--msg ID]` / `script rename MAP OLD NEW` | add a script / rename one everywhere |
 | `migrate MAP [--dry-run]` | move a map into `data/maps/<MapName>/` (pokeemerald layout); ROM unchanged |
+| `pory init MAP` / `pory show MAP` / `pory sync MAP` | convert a map to `scripts.pory`, print its compiled output, sync `ids.h` ([SCRIPTING.md](../../docs/modding/SCRIPTING.md)) |
 
 `MAP` can be `MAP_CHERRYGROVE`, `Cherrygrove`, `cherrygrove`, the code `T21`, or the id `67`.
 
@@ -78,6 +79,7 @@ On the unmodified repo, both versions report 0 errors.
 | `validate.py` | the checks above |
 | `layout.py` | `data/maps` folders: migration, `map.json` <-> header/zone_event, build generators |
 | `edit.py` | the edit commands |
+| `pory/` | `scripts.pory` parser and compiler; target config in `tools/mapkit/script_config.json` |
 | `cli.py` | commands |
 
 ## Tests
@@ -85,6 +87,7 @@ On the unmodified repo, both versions report 0 errors.
 ```sh
 python3 tools/mapkit/tests/test_mapkit.py
 python3 tools/mapkit/tests/test_edit.py    # edits run on a temporary copy of the data
+python3 tools/mapkit/tests/test_pory.py    # compiler, and pory init on every map
 ```
 
 Checks the parsers against the real data (every matrix file round-trips; the

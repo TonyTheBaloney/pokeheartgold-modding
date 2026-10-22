@@ -188,8 +188,27 @@ def text_add(repo, m, text):
 
 # --- scripts -----------------------------------------------------------------
 
+def _pory_script_add(repo, m, label, msg_id):
+    from . import pory
+    path = repo.bank_path(m, "scriptsBank")
+    text = _read_text(path)
+    if re.search(r"\b%s\b" % re.escape(label), text):
+        raise EditError("%s already uses the name %s" % (os.path.basename(path), label))
+    body = ["playse(SEQ_SE_DP_SELECT)", "lockall", "faceplayer", "npcmsg(%s)" % msg_id,
+            "waitbuttonpress", "closemessage", "releaseall"] if msg_id else []
+    block = "\nscript %s {\n%s}\n" % (label, "".join("    %s\n" % b for b in body))
+    _write_text(path, text.rstrip("\n") + "\n" + block)
+    repo._cache.clear()
+    res = repo.pory_result(m)
+    pory.sync_ids(repo, repo.migrated[m.name], res.public)
+    repo._cache.clear()
+    return res.public.index(label) + 1
+
+
 def script_add(repo, m, label, msg_id=None):
     """Append a script (and its ScrDef entry and _EV_ id). With msg_id, a talk-to-NPC stub."""
+    if repo.pory_entry(m):
+        return _pory_script_add(repo, m, label, msg_id)
     path = repo.bank_path(m, "scriptsBank")
     text = _read_text(path)
     nl = "\r\n" if "\r\n" in text else "\n"
@@ -225,7 +244,8 @@ def script_rename(repo, m, old, new):
         raise EditError("%s is not a script in %s (have: %s)" % (old, m.name, ", ".join(sf.scrdefs)))
     if new in sf.labels:
         raise EditError("label %s already exists" % new)
-    files = [repo.bank_path(m, "scriptsBank"), repo.bank_path(m, "scriptHeaderBank"), _ids_path(repo, m)]
+    files = list(dict.fromkeys([repo.bank_path(m, "scriptsBank"), repo.bank_path(m, "scriptHeaderBank"),
+                                _ids_path(repo, m)]))  # scripts.pory maps list it once
     pat = re.compile(r"\b(_EV_)?%s\b" % re.escape(old))
     for p in files:
         _write_text(p, pat.sub(lambda mm: (mm.group(1) or "") + new, _read_text(p)))

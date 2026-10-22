@@ -237,6 +237,9 @@ layout (`NUM_DEX_FLAG_WORDS`), in many file-index-based archives and in about
 3. **Editing.** Done for the pilot (2026-10-21): `npc`, `warp`, `wild`, `text` and
    `script add/rename` commands; label references in `map.json`. Not done: generate
    the `ScrDef` table and `ids.h` from labels; map-scoped text names.
+3b. **Scripting. Done (2026-10-22):** `scripts.pory` compiler in mapkit
+   ([SCRIPTING.md](SCRIPTING.md)); Cherrygrove converted, its Mystic Water script
+   rewritten in structured form, ROM unchanged.
 4. **Blobs.** Learnsets and egg moves first, then trainer text, then the rest.
 5. **Later.** Land data parsing, a map viewer, new species.
 

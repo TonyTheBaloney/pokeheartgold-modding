@@ -168,9 +168,7 @@ class Validator:
                 defs.load(p)
             mm = re.match(r"msgdata/msg/(msg_\w+)\.h$", inc)
             if mm:
-                jp = r.text_bank_path(mm.group(1))
-                if os.path.exists(jp):
-                    msg_ids |= set(text.load(jp).ids)
+                msg_ids |= r.text_ids(mm.group(1))
         for label in sf.scrdefs:
             if label not in sf.labels:
                 self.add(ERROR, "scrdef-label", where, "ScrDef %s has no label" % label)

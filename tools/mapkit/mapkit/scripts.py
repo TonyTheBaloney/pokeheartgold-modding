@@ -124,12 +124,14 @@ class ScriptFile:
         return [s for s in self.statements if s.label == label]
 
 
-def parse(path, macros):
+def parse(path, macros, text=None):
+    """Parse a script file (or `text`, reported as `path`)."""
     sf = ScriptFile(path)
     label = None
-    with open(path, encoding="utf-8") as f:
-        lines = f.readlines()
-    for n, raw in enumerate(lines, 1):
+    if text is None:
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+    for n, raw in enumerate(text.splitlines(), 1):
         line = raw.split("//")[0].split("@")[0].rstrip()
         s = line.strip()
         if not s:

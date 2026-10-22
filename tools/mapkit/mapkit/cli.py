@@ -282,6 +282,38 @@ def cmd_edit(repo, args):
     return 0
 
 
+def cmd_pory(repo, args):
+    from . import pory
+    try:
+        if args.action == "build":
+            folder = os.path.basename(os.path.dirname(os.path.abspath(args.pory_file)))
+            entry = next(e for e in repo.migrated.values() if e["dir"] == folder)
+            pory.build(repo, entry, args.out_dir, args.game)
+            return 0
+        if args.action == "init":
+            for q in args.maps:
+                m = _map(repo, q)
+                print("wrote %s" % repo.rel(pory.init(repo, m)))
+                repo = type(repo)(repo.root, repo.version)
+            return 0
+        m = _map(repo, args.map)
+        res = repo.pory_result(m)
+        if res is None:
+            raise edit.EditError("%s has no scripts.pory (create one with `mapkit pory init %s`)" % (m.name, args.map))
+        if args.action == "show":
+            print(res.scripts_inc)
+            print(res.map_scripts_inc)
+            for tid, v in res.texts:
+                print("%s: %r" % (tid, v))
+        else:
+            changed = pory.sync_ids(repo, repo.migrated[m.name], res.public)
+            print("ids.h %s" % ("updated" if changed else "already up to date"))
+    except (pory.PoryError, edit.EditError) as e:
+        print("error: %s" % e, file=sys.stderr)
+        return 1
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="mapkit", description="Read and check pokeheartgold map data.")
     ap.add_argument("--root", help="repo root (default: search upward from the current directory)")
@@ -361,6 +393,19 @@ def main(argv=None):
     p.add_argument("map"); p.add_argument("old"); p.add_argument("new")
     for p in scs.choices.values():
         p.set_defaults(func=cmd_edit)
+
+    pory_p = sub.add_parser("pory", help="poryscript-style scripts (docs/modding/SCRIPTING.md)")
+    ps = pory_p.add_subparsers(dest="action", required=True)
+    p = ps.add_parser("init", help="convert a map's scripts.inc/map_scripts.inc to scripts.pory (ROM unchanged)")
+    p.add_argument("maps", nargs="+")
+    p = ps.add_parser("show", help="print what a map's scripts.pory compiles to")
+    p.add_argument("map")
+    p = ps.add_parser("sync", help="update the _EV_ defines in ids.h to the compiled script order")
+    p.add_argument("map")
+    p = ps.add_parser("build", help="(used by the build)")
+    p.add_argument("pory_file"); p.add_argument("out_dir"); p.add_argument("--game", default="HEARTGOLD")
+    for p in ps.choices.values():
+        p.set_defaults(func=cmd_pory)
 
     # build-time generators (called from data/maps/meson.build)
     for name, fn in (("gen-header", layout.gen_header), ("gen-events", layout.gen_events)):

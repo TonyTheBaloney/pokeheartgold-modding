@@ -1,9 +1,7 @@
-#include "constants/scrcmd.h"
-#include "maps/Cherrygrove/ids.h"
-#include "msgdata/msg/msg_0550_T21.h"
-#include "macros/script.inc"
+// Converted from scripts.inc / map_scripts.inc by `mapkit pory init`.
+// Scripts inside raw keep their ScrDef order; new `script` blocks are numbered after them.
 
-
+raw `
 	ScrDef Cherrygrove_EventScript_GuideGent
 	ScrDef Cherrygrove_EventScript_GuideGentTour
 	ScrDef Cherrygrove_EventScript_GuideGentMapCard
@@ -687,29 +685,33 @@ _08B8:
 	WalkOnSpotNormalWest
 	EndMovement
 
-Cherrygrove_EventScript_MysticWaterMan:
-	PlaySE SEQ_SE_DP_SELECT
-	LockAll
-	FacePlayer
-	GoToIfSet FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN, _0903
-	NPCMsg msg_0550_T21_00020
-	GoToIfNoItemSpace ITEM_MYSTIC_WATER, 1, _090E
-	CallStd std_give_item_verbose
-	SetFlag FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN
-_0903:
-	NPCMsg msg_0550_T21_00021
-	WaitButton
-	CloseMsg
-	ReleaseAll
-	End
+`
 
-_090E:
-	NPCMsg msg_0550_T21_00022
-	WaitButton
-	CloseMsg
-	ReleaseAll
-	End
+// The man who gives Mystic Water: structured version of the original script
+// (same commands in the same order, so the ROM is unchanged).
+script Cherrygrove_EventScript_MysticWaterMan {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)) {
+        npcmsg(msg_0550_T21_00020)
+        if (!itemspace(ITEM_MYSTIC_WATER, 1)) {
+            npcmsg(msg_0550_T21_00022)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)
+    }
+    npcmsg(msg_0550_T21_00021)
+    waitbuttonpress
+    closemessage
+    releaseall
+}
 
+raw `
 Cherrygrove_EventScript_Cameron:
 	PlaySE SEQ_SE_DP_SELECT
 	LockAll
@@ -857,3 +859,8 @@ Cherrygrove_EventScript_Woman:
 	SimpleNPCMsg msg_0550_T21_00017
 	End
 	.balign 4, 0
+`
+
+mapscripts Cherrygrove_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: Cherrygrove_OnTransition
+}

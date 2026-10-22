@@ -126,6 +126,9 @@ isn't possible as text yet.
 
 ## Event scripts
 
+Scripts can also be written in `scripts.pory` with `if`/`while`/`switch` and inline
+text: see [SCRIPTING.md](SCRIPTING.md). This section covers the `.inc` form.
+
 `data/maps/<MapName>/scripts.inc` is an assembly file made of script-command macros
 from `asm/macros/script.inc`. From Cherrygrove, the man who gives Mystic Water:
 

@@ -136,6 +136,8 @@ class Repo:
     def bank_path(self, m, field):
         e = self.migrated.get(m.name)
         if e and field in layout.BANK_FIELDS:
+            if field in ("scriptsBank", "scriptHeaderBank") and self.pory_entry(m):
+                return self.path(layout.MAPS_DIR, e["dir"], "scripts.pory")
             return layout.folder_paths(self.root, e, list(self.migrated.values()))[field]
         v = m.header.get(field, "")
         if field in ("scriptsBank", "scriptHeaderBank"):
@@ -151,6 +153,22 @@ class Repo:
             return self.path("files/fielddata/mapmatrix/map_matrix", mm.group(1) + ".bin") if mm else None
         raise KeyError(field)
 
+    def pory_entry(self, m):
+        """The maps.txt entry if this map's scripts come from scripts.pory, else None."""
+        e = self.migrated.get(m.name)
+        if e and not e["scripts"].startswith("@") and \
+                os.path.exists(self.path(layout.MAPS_DIR, e["dir"], "scripts.pory")):
+            return e
+        return None
+
+    def pory_result(self, m):
+        """Compiled scripts.pory (scripts_inc, map_scripts_inc, texts, public), or None."""
+        e = self.pory_entry(m)
+        if e is None:
+            return None
+        from . import pory
+        return self._cached(("pory", e["dir"]), lambda: pory.compile_map(self, e, {"GAME": self.version}, self.macros))
+
     def _cached(self, key, fn):
         if key not in self._cache:
             self._cache[key] = fn()
@@ -164,9 +182,13 @@ class Repo:
         if e:
             owner_dir = layout.resolve(list(self.migrated.values()), e, "eventsBank")[0]
 
+            owner = next(o for o in self.maps if self.migrated.get(o.name, {}).get("dir") == owner_dir)
+            res = self.pory_result(owner)
+            numbers = {n: i + 1 for i, n in enumerate(res.public)} if res else None
+
             def from_map_json():
                 with open(p, encoding="utf-8") as f:
-                    ze = layout.zone_event_from_map_json(json.load(f), layout.ids_include(owner_dir))
+                    ze = layout.zone_event_from_map_json(json.load(f), layout.ids_include(owner_dir), numbers)
                 return events.Events(p, ze["header"], ze["bgs"], ze["objects"], ze["warps"], ze["coords"])
             return self._cached(("events", p), from_map_json)
         return self._cached(("events", p), lambda: events.load(p))
@@ -202,11 +224,33 @@ class Repo:
         p = self.bank_path(m, field)
         if not p or not os.path.exists(p):
             return None
+        res = self.pory_result(m)
+        if res is not None:  # parse the compiled output, reported against scripts.pory
+            src = res.scripts_inc if field == "scriptsBank" else res.map_scripts_inc
+            return self._cached(("script", p, field), lambda: scripts.parse(p, self.macros, src))
         return self._cached(("script", p), lambda: scripts.parse(p, self.macros))
 
     def text_bank(self, m):
         p = self.bank_path(m, "msgBank")
-        return self._cached(("text", p), lambda: text.load(p)) if p and os.path.exists(p) else None
+        if not p or not os.path.exists(p):
+            return None
+        bank = self._cached(("text", p), lambda: text.load(p))
+        res = self.pory_result(m)
+        if res is not None and res.texts:
+            from . import pory
+            extra = [pory.text_entry(tid, v) for tid, v in res.texts]
+            return text.TextBank(p, bank.key, bank.messages + extra)
+        return bank
+
+    def text_ids(self, base):
+        """Message ids in bank `base`, including text from a scripts.pory."""
+        for m in self.maps:
+            e = self.migrated.get(m.name)
+            if e and e["text"] == base:
+                tb = self.text_bank(m)
+                return set(tb.ids) if tb else set()
+        p = self.text_bank_path(base)
+        return set(text.load(p).ids) if os.path.exists(p) else set()
 
     def matrix(self, m):
         p = self.bank_path(m, "matrixId")

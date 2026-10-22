@@ -15,7 +15,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [npcs-and-scripts.md](npcs-and-scripts.md) | Moving/adding NPCs, trainers, event scripts, text, flags |
 | [wild-encounters.md](wild-encounters.md) | Grass/surf/fishing tables, headbutt, Safari, Bug Contest, roamers |
 | [DESIGN.md](DESIGN.md) | Plan for per-map folders and the `mapkit` tool |
-| [SCRIPTING.md](SCRIPTING.md) | Proposal: poryscript-style language for map scripts |
+| [SCRIPTING.md](SCRIPTING.md) | Writing map scripts in `scripts.pory` (poryscript-style) |
 
 ## Building a modified ROM
 
