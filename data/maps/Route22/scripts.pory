@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R22_000
-    scr_seq_R22_001
-    scr_seq_R22_002
-    scr_seq_R22_003
-    scr_seq_R22_004
+    Route22_EventScript_PokefanM
+    Route22_OnTransition
+    Route22_EventScript_TrainerTips
+    Route22_EventScript_LyraScene
+    Route22_OnResume
 }
 
-script scr_seq_R22_001 {
+script Route22_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         if (var(VAR_UNK_40FE) == 1) {
             setflag(FLAG_HIDE_CAMERON)
@@ -29,7 +29,7 @@ script scr_seq_R22_001 {
     end
 }
 
-script scr_seq_R22_004 {
+script Route22_OnResume {
     if (var(VAR_UNK_40FE) == 1) {
         movepersonfacing(obj_R22_sakaki, 947, 1, 266, DIR_WEST)
         movepersonfacing(obj_R22_gsrivel, 950, 1, 266, DIR_WEST)
@@ -39,19 +39,19 @@ script scr_seq_R22_004 {
     end
 }
 
-script scr_seq_R22_003 {
+script Route22_EventScript_LyraScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Route22_Movement_037C)
+    applymovement(obj_player, Route22_Movement_PlayerWalkUp1)
     waitmovement
-    applymovement(obj_R22_var_1, Route22_Movement_02CC)
+    applymovement(obj_R22_var_1, Route22_Movement_FriendExclamation)
     waitmovement
     gendermsgbox("Lyra: Where are we...?\r", "Ethan: Where are we...?\r")
     closemessage
-    applymovement(obj_R22_var_1, Route22_Movement_02E0)
+    applymovement(obj_R22_var_1, Route22_Movement_FriendWalkUp)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lyra: Ilex Forest has disappeared!\r"
@@ -62,7 +62,7 @@ script scr_seq_R22_003 {
                                                      "It’s more like we have been\f"
                                                      "transported somewhere else...?\r")
     closemessage
-    applymovement(obj_R22_var_1, Route22_Movement_02FC)
+    applymovement(obj_R22_var_1, Route22_Movement_FriendWalkDown1)
     waitmovement
     gendermsgbox("{STRVAR_1 3, 0, 0}, something is strange!\r"
                  "I heard the radio mentioning\n"
@@ -70,8 +70,8 @@ script scr_seq_R22_003 {
                                                      "I heard the radio mentioning\n"
                                                      "the date from three years ago!\r")
     closemessage
-    applymovement(obj_R22_var_1, Route22_Movement_0304)
-    applymovement(obj_player, Route22_Movement_03D0)
+    applymovement(obj_R22_var_1, Route22_Movement_FriendWalkDown2)
+    applymovement(obj_player, Route22_Movement_PlayerFaceDown)
     waitmovement
     gendermsgbox("Is that...am I looking at...\n"
                  "CELEBI?\r"
@@ -91,25 +91,25 @@ script scr_seq_R22_003 {
                                  "CELEBI must have taken us back in time!\n"
                                  "Literally!\r")
     closemessage
-    applymovement(obj_R22_var_1, Route22_Movement_0338)
+    applymovement(obj_R22_var_1, Route22_Movement_FriendWalkUpRight)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("{STRVAR_1 3, 0, 0}, there is someone else\n"
                  "here besides us! Let’s go find out who!\r", "{STRVAR_1 3, 0, 0}, there is someone else\n"
                                                               "here besides us! Let’s go find out who!\r")
     closemessage
-    applymovement(obj_player, Route22_Movement_03A0)
-    applymovement(obj_R22_var_1, Route22_Movement_0310)
+    applymovement(obj_player, Route22_Movement_PlayerWalkUpLeft1)
+    applymovement(obj_R22_var_1, Route22_Movement_FriendWalkUpLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
-    applymovement(241, Route22_Movement_03DC)
+    applymovement(241, Route22_Movement_ObjectWalkUpLeft)
     waitmovement
     fadeoutbgm(0, 30)
-    applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
+    applymovement(obj_R22_gsrivel, Route22_Movement_RivalWalkLeft)
     waitmovement
     bufferrivalsname(0)
     npcmsg("{STRVAR_1 3, 0, 0}: You told me...\n"
@@ -117,7 +117,7 @@ script scr_seq_R22_003 {
            "Are you gonna quit?\r"
            "What are you going to do now?\r")
     closemessage
-    applymovement(obj_R22_sakaki, Route22_Movement_0438)
+    applymovement(obj_R22_sakaki, Route22_Movement_GiovanniFaceRight1)
     waitmovement
     npcmsg("..................\r"
            "One must acknowledge one’s defeat\n"
@@ -126,7 +126,7 @@ script scr_seq_R22_003 {
            "So that one day I will form\n"
            "a stronger organization!\r")
     closemessage
-    applymovement(obj_R22_gsrivel, Route22_Movement_03FC)
+    applymovement(obj_R22_gsrivel, Route22_Movement_RivalFaceLeft)
     waitmovement
     bufferrivalsname(0)
     npcmsg("{STRVAR_1 3, 0, 0}: What aspect of you was\n"
@@ -134,7 +134,7 @@ script scr_seq_R22_003 {
            "Gathering so many only to be defeated\n"
            "by a mere child!\r")
     closemessage
-    applymovement(obj_R22_sakaki, Route22_Movement_0444)
+    applymovement(obj_R22_sakaki, Route22_Movement_GiovanniFaceRight2)
     waitmovement
     npcmsg("Putting together the potential of many\n"
            "is how you produce a huge power...\f"
@@ -146,20 +146,20 @@ script scr_seq_R22_003 {
            "But you shall witness one day\n"
            "the revival of me and my {COLOR 1}Team Rocket{COLOR 0}!\r")
     closemessage
-    applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
+    applymovement(obj_R22_gsrivel, Route22_Movement_RivalWalkLeft)
     waitmovement
     bufferrivalsname(0)
     npcmsg("{STRVAR_1 3, 0, 0}: I don’t understand you!\r"
            "You don’t make any sense!\r")
     closemessage
-    applymovement(obj_R22_sakaki, Route22_Movement_044C)
+    applymovement(obj_R22_sakaki, Route22_Movement_GiovanniFaceLeft)
     waitmovement
     npcmsg("..................\n"
            "One day, you will understand.\r")
     closemessage
-    applymovement(obj_R22_sakaki, Route22_Movement_0454)
+    applymovement(obj_R22_sakaki, Route22_Movement_GiovanniWalkLeft)
     waitmovement
-    applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
+    applymovement(obj_R22_gsrivel, Route22_Movement_RivalWalkLeft)
     waitmovement
     bufferrivalsname(0)
     npcmsg("{STRVAR_1 3, 0, 0}: I don’t want to\n"
@@ -172,13 +172,13 @@ script scr_seq_R22_003 {
            "I will become a stronger man all\n"
            "by myself!\r")
     closemessage
-    applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
+    applymovement(obj_R22_gsrivel, Route22_Movement_RivalWalkLeft)
     waitmovement
     npcmsg("{SIZE 200}All by myself!{SIZE 100}\r")
     closemessage
     callstd(std_play_rival_intro_music)
-    applymovement(241, Route22_Movement_03E8)
-    applymovement(obj_R22_gsrivel, Route22_Movement_0404)
+    applymovement(241, Route22_Movement_ObjectWalkRightDown)
+    applymovement(obj_R22_gsrivel, Route22_Movement_RivalWalkRightDown1)
     waitmovement
     removecameratarget
     bufferrivalsname(0)
@@ -188,13 +188,13 @@ script scr_seq_R22_003 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_R22_gsrivel, Route22_Movement_0420)
+    applymovement(obj_R22_gsrivel, Route22_Movement_RivalWalkDown)
     playse(SEQ_SE_DP_WALL_HIT2)
-    applymovement(obj_player, Route22_Movement_03B0)
-    applymovement(obj_R22_var_1, Route22_Movement_03D0)
+    applymovement(obj_player, Route22_Movement_PlayerJumpDown)
+    applymovement(obj_R22_var_1, Route22_Movement_PlayerFaceDown)
     waitmovement
-    applymovement(obj_R22_gsrivel, Route22_Movement_042C)
-    applymovement(obj_player, Route22_Movement_03D0)
+    applymovement(obj_R22_gsrivel, Route22_Movement_RivalWalkRightDown2)
+    applymovement(obj_player, Route22_Movement_PlayerFaceDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -220,7 +220,7 @@ script scr_seq_R22_003 {
                                                          "So this really is three years ago!\r")
     closemessage
     fadeoutbgm(20, 30)
-    applymovement(obj_partner_poke, Route22_Movement_0350)
+    applymovement(obj_partner_poke, Route22_Movement_FollowMonJumpDown)
     waitmovement
     playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
     fadescreen(6, 6, 0, RGB_WHITE)
@@ -228,8 +228,8 @@ script scr_seq_R22_003 {
     wait(15, VAR_SPECIAL_RESULT)
     fadescreen(6, 6, 1, RGB_WHITE)
     waitfade
-    applymovement(obj_player, Route22_Movement_03C4)
-    applymovement(obj_R22_var_1, Route22_Movement_0320)
+    applymovement(obj_player, Route22_Movement_PlayerExclamation)
+    applymovement(obj_R22_var_1, Route22_Movement_FriendSpin)
     waitmovement
     gendermsgbox("Oh no! It’s happening again...!\r"
                  "It’s CELEBI’s {COLOR 1}Time Travel{COLOR 0}!\r", "Oh no! It’s happening again...!\r"
@@ -247,14 +247,14 @@ script scr_seq_R22_003 {
     end
 }
 
-movement Route22_Movement_02CC {
+movement Route22_Movement_FriendExclamation {
     emote_exclamation_mark
     delay_8
     walk_in_place_right
     delay_16
 }
 
-movement Route22_Movement_02E0 {
+movement Route22_Movement_FriendWalkUp {
     walk_fast_up * 2
     delay_8
     walk_in_place_left
@@ -263,22 +263,22 @@ movement Route22_Movement_02E0 {
     delay_16
 }
 
-movement Route22_Movement_02FC {
+movement Route22_Movement_FriendWalkDown1 {
     walk_down
 }
 
-movement Route22_Movement_0304 {
+movement Route22_Movement_FriendWalkDown2 {
     walk_down
     walk_in_place_right
 }
 
-movement Route22_Movement_0310 {
+movement Route22_Movement_FriendWalkUpLeft {
     walk_up * 2
     walk_left * 2
     walk_up
 }
 
-movement Route22_Movement_0320 {
+movement Route22_Movement_FriendSpin {
     walk_in_place_left
     delay_16
     walk_in_place_right
@@ -286,7 +286,7 @@ movement Route22_Movement_0320 {
     walk_in_place_down
 }
 
-movement Route22_Movement_0338 {
+movement Route22_Movement_FriendWalkUpRight {
     emote_exclamation_mark
     delay_8
     walk_up * 2
@@ -294,7 +294,7 @@ movement Route22_Movement_0338 {
     walk_up * 2
 }
 
-movement Route22_Movement_0350 {
+movement Route22_Movement_FollowMonJumpDown {
     face_down
     jump_far_down
     lock_dir
@@ -309,7 +309,7 @@ movement Route22_Movement_0368 {
     face_left
 }
 
-movement Route22_Movement_037C {
+movement Route22_Movement_PlayerWalkUp1 {
     walk_in_place_up
     walk_up
     delay_8
@@ -320,48 +320,48 @@ movement Route22_Movement_037C {
     walk_in_place_up
 }
 
-movement Route22_Movement_03A0 {
+movement Route22_Movement_PlayerWalkUpLeft1 {
     walk_up * 5
     walk_left * 2
     walk_up * 2
 }
 
-movement Route22_Movement_03B0 {
+movement Route22_Movement_PlayerJumpDown {
     delay_4
     lock_dir
     jump_near_fast_down
     unlock_dir
 }
 
-movement Route22_Movement_03C4 {
+movement Route22_Movement_PlayerExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement Route22_Movement_03D0 {
+movement Route22_Movement_PlayerFaceDown {
     delay_16
     walk_in_place_down
 }
 
-movement Route22_Movement_03DC {
+movement Route22_Movement_ObjectWalkUpLeft {
     walk_up * 5
     walk_left * 2
 }
 
-movement Route22_Movement_03E8 {
+movement Route22_Movement_ObjectWalkRightDown {
     walk_fast_right * 2
     walk_fast_down * 4
 }
 
-movement Route22_Movement_03F4 {
+movement Route22_Movement_RivalWalkLeft {
     walk_left
 }
 
-movement Route22_Movement_03FC {
+movement Route22_Movement_RivalFaceLeft {
     walk_in_place_left
 }
 
-movement Route22_Movement_0404 {
+movement Route22_Movement_RivalWalkRightDown1 {
     delay_32
     walk_fast_right * 6
     walk_fast_down * 4
@@ -370,34 +370,34 @@ movement Route22_Movement_0404 {
     delay_8
 }
 
-movement Route22_Movement_0420 {
+movement Route22_Movement_RivalWalkDown {
     walk_fast_down * 2
     delay_16
 }
 
-movement Route22_Movement_042C {
+movement Route22_Movement_RivalWalkRightDown2 {
     walk_fast_right
     walk_fast_down * 8
 }
 
-movement Route22_Movement_0438 {
+movement Route22_Movement_GiovanniFaceRight1 {
     walk_in_place_right
     delay_8
 }
 
-movement Route22_Movement_0444 {
+movement Route22_Movement_GiovanniFaceRight2 {
     walk_in_place_right
 }
 
-movement Route22_Movement_044C {
+movement Route22_Movement_GiovanniFaceLeft {
     walk_in_place_left
 }
 
-movement Route22_Movement_0454 {
+movement Route22_Movement_GiovanniWalkLeft {
     walk_left * 6
 }
 
-script scr_seq_R22_000 {
+script Route22_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -431,16 +431,16 @@ script scr_seq_R22_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Route22_Movement_05AC)
-        applymovement(obj_R22_gsmiddleman1, Route22_Movement_05F8)
+        applymovement(obj_player, Route22_Movement_PlayerWalkRightUp)
+        applymovement(obj_R22_gsmiddleman1, Route22_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route22_Movement_05C4)
+        applymovement(obj_player, Route22_Movement_PlayerWalkUp2)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Route22_Movement_05E4)
-        applymovement(obj_R22_gsmiddleman1, Route22_Movement_05F8)
+        applymovement(obj_player, Route22_Movement_PlayerWalkUpRight)
+        applymovement(obj_R22_gsmiddleman1, Route22_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Route22_Movement_05D0)
-        applymovement(obj_R22_gsmiddleman1, Route22_Movement_05F8)
+        applymovement(obj_player, Route22_Movement_PlayerWalkUpLeft2)
+        applymovement(obj_R22_gsmiddleman1, Route22_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -448,7 +448,7 @@ script scr_seq_R22_000 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route22_Movement_0604)
+        applymovement(obj_partner_poke, Route22_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -467,7 +467,7 @@ script scr_seq_R22_000 {
     end
 }
 
-movement Route22_Movement_05AC {
+movement Route22_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -475,46 +475,46 @@ movement Route22_Movement_05AC {
     walk_in_place_down
 }
 
-movement Route22_Movement_05C4 {
+movement Route22_Movement_PlayerWalkUp2 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route22_Movement_05D0 {
+movement Route22_Movement_PlayerWalkUpLeft2 {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route22_Movement_05E4 {
+movement Route22_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route22_Movement_05F8 {
+movement Route22_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route22_Movement_0604 {
+movement Route22_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R22_002 {
+script Route22_EventScript_TrainerTips {
     trainertipsex(2, "Pokémon League\n"
                      "Victory Road Entrance")
     end
 }
 
 mapscripts Route22_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R22_001
-    INIT_SCRIPT_ON_RESUME: scr_seq_R22_004
+    INIT_SCRIPT_ON_TRANSITION: Route22_OnTransition
+    INIT_SCRIPT_ON_RESUME: Route22_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40FE, 1: scr_seq_R22_003
+        VAR_UNK_40FE, 1: Route22_EventScript_LyraScene
     ]
 }

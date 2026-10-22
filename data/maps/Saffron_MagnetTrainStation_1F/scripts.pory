@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T11R0601_000
-    scr_seq_T11R0601_001
-    scr_seq_T11R0601_002
-    scr_seq_T11R0601_003
-    scr_seq_T11R0601_004
-    scr_seq_T11R0601_005
-    scr_seq_T11R0601_006
-    scr_seq_T11R0601_007
-    scr_seq_T11R0601_008
+    Saffron_MagnetTrainStation_1F_EventScript_Policeman
+    Saffron_MagnetTrainStation_1F_EventScript_FatMan
+    Saffron_MagnetTrainStation_1F_EventScript_Woman
+    Saffron_MagnetTrainStation_1F_EventScript_Lass
+    Saffron_MagnetTrainStation_1F_EventScript_Trigger
+    Saffron_MagnetTrainStation_1F_OnResume
+    Saffron_MagnetTrainStation_1F_OnTransition
+    Saffron_MagnetTrainStation_1F_EventScript_LtSurge
+    Saffron_MagnetTrainStation_1F_EventScript_Sign
 }
 
-script scr_seq_T11R0601_006 {
+script Saffron_MagnetTrainStation_1F_OnTransition {
     setspecialspawnwarp(MAP_GOLDENROD, 1290, 209)
     if (!flag(FLAG_RESTORED_POWER)) {
     } else {
@@ -33,7 +33,7 @@ script scr_seq_T11R0601_006 {
     end
 }
 
-script scr_seq_T11R0601_005 {
+script Saffron_MagnetTrainStation_1F_OnResume {
     if (flag(FLAG_RESTORED_POWER)) {
         movepersonfacing(obj_T11R0601_policeman, 12, 0, 7, DIR_EAST)
         end
@@ -41,7 +41,7 @@ script scr_seq_T11R0601_005 {
     end
 }
 
-script scr_seq_T11R0601_000 {
+script Saffron_MagnetTrainStation_1F_EventScript_Policeman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -56,7 +56,7 @@ script scr_seq_T11R0601_000 {
             npcmsg("Enjoy the attractive and magnetic\n"
                    "journey!\r")
             closemessage
-            applymovement(obj_T11R0601_policeman, Saffron_MagnetTrainStation_1F_Movement_00EC)
+            applymovement(obj_T11R0601_policeman, Saffron_MagnetTrainStation_1F_Movement_PolicemanFaceRight)
             waitmovement
         }
         releaseall
@@ -74,14 +74,14 @@ script scr_seq_T11R0601_000 {
     end
 }
 
-movement Saffron_MagnetTrainStation_1F_Movement_00EC {
+movement Saffron_MagnetTrainStation_1F_Movement_PolicemanFaceRight {
     face_right
 }
 
-script scr_seq_T11R0601_004 {
+script Saffron_MagnetTrainStation_1F_EventScript_Trigger {
     followmonresetmovement
     lockall
-    applymovement(obj_player, Saffron_MagnetTrainStation_1F_Movement_017C)
+    applymovement(obj_player, Saffron_MagnetTrainStation_1F_Movement_PlayerFaceLeft)
     waitmovement
     if (flag(FLAG_UNK_123)) {
         npcmsg("Passengers need to go through the\n"
@@ -119,7 +119,7 @@ _0116:
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Saffron_MagnetTrainStation_1F_Movement_0184)
+    applymovement(obj_player, Saffron_MagnetTrainStation_1F_Movement_PlayerWalkDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -128,15 +128,15 @@ _0116:
     end
 }
 
-movement Saffron_MagnetTrainStation_1F_Movement_017C {
+movement Saffron_MagnetTrainStation_1F_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-movement Saffron_MagnetTrainStation_1F_Movement_0184 {
+movement Saffron_MagnetTrainStation_1F_Movement_PlayerWalkDown {
     walk_down * 2
 }
 
-script scr_seq_T11R0601_007 {
+script Saffron_MagnetTrainStation_1F_EventScript_LtSurge {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -197,9 +197,9 @@ script scr_seq_T11R0601_007 {
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_T11R0601_gsleader9, Saffron_MagnetTrainStation_1F_Movement_025C)
+        applymovement(obj_T11R0601_gsleader9, Saffron_MagnetTrainStation_1F_Movement_LtSurgeWalkLeftDown)
     } else {
-        applymovement(obj_T11R0601_gsleader9, Saffron_MagnetTrainStation_1F_Movement_0268)
+        applymovement(obj_T11R0601_gsleader9, Saffron_MagnetTrainStation_1F_Movement_LtSurgeWalkDown)
     }
     waitmovement
     removeobject(obj_T11R0601_gsleader9)
@@ -208,16 +208,16 @@ script scr_seq_T11R0601_007 {
     end
 }
 
-movement Saffron_MagnetTrainStation_1F_Movement_025C {
+movement Saffron_MagnetTrainStation_1F_Movement_LtSurgeWalkLeftDown {
     walk_slightly_fast_left * 5
     walk_slightly_fast_down * 10
 }
 
-movement Saffron_MagnetTrainStation_1F_Movement_0268 {
+movement Saffron_MagnetTrainStation_1F_Movement_LtSurgeWalkDown {
     walk_slightly_fast_down * 10
 }
 
-script scr_seq_T11R0601_001 {
+script Saffron_MagnetTrainStation_1F_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -241,7 +241,7 @@ script scr_seq_T11R0601_001 {
     end
 }
 
-script scr_seq_T11R0601_002 {
+script Saffron_MagnetTrainStation_1F_EventScript_Woman {
     simplenpcmsg("Before the Magnet Train station was\n"
                  "built, there was a house here.\r"
                  "A little girl who was called Copycat\n"
@@ -249,7 +249,7 @@ script scr_seq_T11R0601_002 {
     end
 }
 
-script scr_seq_T11R0601_003 {
+script Saffron_MagnetTrainStation_1F_EventScript_Lass {
     simplenpcmsg("Hi. Do you have a Magnet Train Pass?\r"
                  "I have one.\r"
                  "All the people in Saffron who ride the\n"
@@ -257,7 +257,7 @@ script scr_seq_T11R0601_003 {
     end
 }
 
-script scr_seq_T11R0601_008 {
+script Saffron_MagnetTrainStation_1F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("We request that you make sure your\n"
@@ -272,6 +272,6 @@ script scr_seq_T11R0601_008 {
 }
 
 mapscripts Saffron_MagnetTrainStation_1F_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_T11R0601_005
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11R0601_006
+    INIT_SCRIPT_ON_RESUME: Saffron_MagnetTrainStation_1F_OnResume
+    INIT_SCRIPT_ON_TRANSITION: Saffron_MagnetTrainStation_1F_OnTransition
 }

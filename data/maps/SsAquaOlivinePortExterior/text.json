@@ -3,59 +3,59 @@
   "messages": [
     {
       "id": "msg_0256_P01R0102_00000",
-      "from": "scr_seq_P01R0102_000#1"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sailor1#1"
     },
     {
       "id": "msg_0256_P01R0102_00001",
-      "from": "scr_seq_P01R0102_000#0"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sailor1#0"
     },
     {
       "id": "msg_0256_P01R0102_00002",
-      "from": "scr_seq_P01R0102_003#0"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sailor2#0"
     },
     {
       "id": "msg_0256_P01R0102_00003",
-      "from": "scr_seq_P01R0102_004#0"
+      "from": "SsAquaOlivinePortExterior_EventScript_Beauty#0"
     },
     {
       "id": "msg_0256_P01R0102_00004",
-      "from": "scr_seq_P01R0102_006#5"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#5"
     },
     {
       "id": "msg_0256_P01R0102_00005",
-      "from": "scr_seq_P01R0102_006#6"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#6"
     },
     {
       "id": "msg_0256_P01R0102_00006",
-      "from": "scr_seq_P01R0102_006#7"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#7"
     },
     {
       "id": "msg_0256_P01R0102_00007",
-      "from": "scr_seq_P01R0102_006#8"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#8"
     },
     {
       "id": "msg_0256_P01R0102_00008",
-      "from": "scr_seq_P01R0102_006#9"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#9"
     },
     {
       "id": "msg_0256_P01R0102_00009",
-      "from": "scr_seq_P01R0102_006#0"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#0"
     },
     {
       "id": "msg_0256_P01R0102_00010",
-      "from": "scr_seq_P01R0102_006#3"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#3"
     },
     {
       "id": "msg_0256_P01R0102_00011",
-      "from": "scr_seq_P01R0102_006#4"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#4"
     },
     {
       "id": "msg_0256_P01R0102_00012",
-      "from": "scr_seq_P01R0102_006#1"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#1"
     },
     {
       "id": "msg_0256_P01R0102_00013",
-      "from": "scr_seq_P01R0102_006#2"
+      "from": "SsAquaOlivinePortExterior_EventScript_Sabrina#2"
     }
   ]
 }

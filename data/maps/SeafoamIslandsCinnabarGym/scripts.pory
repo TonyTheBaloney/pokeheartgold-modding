@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D11R0106_000
-    scr_seq_D11R0106_001
-    scr_seq_D11R0106_002
-    scr_seq_D11R0106_003
-    scr_seq_D11R0106_004
-    scr_seq_D11R0106_005
-    scr_seq_D11R0106_006
-    scr_seq_D11R0106_007
-    scr_seq_D11R0106_008
-    scr_seq_D11R0106_009
+    SeafoamIslandsCinnabarGym_EventScript_Blaine
+    SeafoamIslandsCinnabarGym_EventScript_GymGuide
+    SeafoamIslandsCinnabarGym_EventScript_Cary
+    SeafoamIslandsCinnabarGym_EventScript_Waldo
+    SeafoamIslandsCinnabarGym_EventScript_Merle
+    SeafoamIslandsCinnabarGym_EventScript_Lowell
+    SeafoamIslandsCinnabarGym_EventScript_Linden
+    SeafoamIslandsCinnabarGym_EventScript_Daniel
+    SeafoamIslandsCinnabarGym_OnResume
+    SeafoamIslandsCinnabarGym_OnTransition
 }
 
-script scr_seq_D11R0106_009 {
+script SeafoamIslandsCinnabarGym_OnTransition {
     getphonebookrematch(PHONE_CONTACT_BLAINE, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
         setflag(FLAG_HIDE_SEAFOAM_GYM_BLAINE)
@@ -45,7 +45,7 @@ _008A:
     end
 }
 
-script scr_seq_D11R0106_008 {
+script SeafoamIslandsCinnabarGym_OnResume {
     callifset(FLAG_UNK_13B, _00D4)
     callifset(FLAG_UNK_13D, _00E2)
     callifset(FLAG_UNK_13E, _00F0)
@@ -61,7 +61,7 @@ _00F0:
     return
 }
 
-script scr_seq_D11R0106_000 {
+script SeafoamIslandsCinnabarGym_EventScript_Blaine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -134,7 +134,7 @@ _01AC:
     end
 }
 
-script scr_seq_D11R0106_002 {
+script SeafoamIslandsCinnabarGym_EventScript_Cary {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -155,14 +155,14 @@ script scr_seq_D11R0106_002 {
     npcmsg("Bitterness leads to improvement\n"
            "tomorrow.\r")
     closemessage
-    applymovement(obj_D11R0106_gsassistantm, SeafoamIslandsCinnabarGym_Movement_0424)
+    applymovement(obj_D11R0106_gsassistantm, SeafoamIslandsCinnabarGym_Movement_CaryWalkRight)
     waitmovement
     setflag(FLAG_UNK_13B)
     releaseall
     end
 }
 
-script scr_seq_D11R0106_003 {
+script SeafoamIslandsCinnabarGym_EventScript_Waldo {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -186,9 +186,9 @@ script scr_seq_D11R0106_003 {
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_D11R0106_gsassistantm_2, SeafoamIslandsCinnabarGym_Movement_043C)
+        applymovement(obj_D11R0106_gsassistantm_2, SeafoamIslandsCinnabarGym_Movement_WaldoWalkUp)
     } else {
-        applymovement(obj_D11R0106_gsassistantm_2, SeafoamIslandsCinnabarGym_Movement_0430)
+        applymovement(obj_D11R0106_gsassistantm_2, SeafoamIslandsCinnabarGym_Movement_WaldoWalkDown)
     }
     waitmovement
     setflag(FLAG_UNK_13C)
@@ -196,7 +196,7 @@ script scr_seq_D11R0106_003 {
     end
 }
 
-script scr_seq_D11R0106_004 {
+script SeafoamIslandsCinnabarGym_EventScript_Merle {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -217,14 +217,14 @@ script scr_seq_D11R0106_004 {
     npcmsg("Pardon me!\n"
            "I failed to sense how strong you are.\r")
     closemessage
-    applymovement(obj_D11R0106_gsassistantm_3, SeafoamIslandsCinnabarGym_Movement_0448)
+    applymovement(obj_D11R0106_gsassistantm_3, SeafoamIslandsCinnabarGym_Movement_MerleWalkDown)
     waitmovement
     setflag(FLAG_UNK_13D)
     releaseall
     end
 }
 
-script scr_seq_D11R0106_005 {
+script SeafoamIslandsCinnabarGym_EventScript_Lowell {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -246,14 +246,14 @@ script scr_seq_D11R0106_005 {
     npcmsg("This white lab coat makes me feel like I\n"
            "have become smarter for some reason.\r")
     closemessage
-    applymovement(obj_D11R0106_assistantm, SeafoamIslandsCinnabarGym_Movement_0454)
+    applymovement(obj_D11R0106_assistantm, SeafoamIslandsCinnabarGym_Movement_LowellWalkUp)
     waitmovement
     setflag(FLAG_UNK_13E)
     releaseall
     end
 }
 
-script scr_seq_D11R0106_006 {
+script SeafoamIslandsCinnabarGym_EventScript_Linden {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -277,9 +277,9 @@ script scr_seq_D11R0106_006 {
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_D11R0106_assistantm_2, SeafoamIslandsCinnabarGym_Movement_046C)
+        applymovement(obj_D11R0106_assistantm_2, SeafoamIslandsCinnabarGym_Movement_LindenWalkRight)
     } else {
-        applymovement(obj_D11R0106_assistantm_2, SeafoamIslandsCinnabarGym_Movement_0460)
+        applymovement(obj_D11R0106_assistantm_2, SeafoamIslandsCinnabarGym_Movement_LindenWalkLeft)
     }
     waitmovement
     setflag(FLAG_UNK_13F)
@@ -287,7 +287,7 @@ script scr_seq_D11R0106_006 {
     end
 }
 
-script scr_seq_D11R0106_007 {
+script SeafoamIslandsCinnabarGym_EventScript_Daniel {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -318,9 +318,9 @@ script scr_seq_D11R0106_007 {
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 2) {
-        applymovement(obj_D11R0106_assistantm_3, SeafoamIslandsCinnabarGym_Movement_0478)
+        applymovement(obj_D11R0106_assistantm_3, SeafoamIslandsCinnabarGym_Movement_DanielWalkLeft)
     } else {
-        applymovement(obj_D11R0106_assistantm_3, SeafoamIslandsCinnabarGym_Movement_0484)
+        applymovement(obj_D11R0106_assistantm_3, SeafoamIslandsCinnabarGym_Movement_DanielWalkRight)
     }
     waitmovement
     setflag(FLAG_UNK_140)
@@ -328,52 +328,52 @@ script scr_seq_D11R0106_007 {
     end
 }
 
-movement SeafoamIslandsCinnabarGym_Movement_0424 {
+movement SeafoamIslandsCinnabarGym_Movement_CaryWalkRight {
     walk_right
     face_left
 }
 
-movement SeafoamIslandsCinnabarGym_Movement_0430 {
+movement SeafoamIslandsCinnabarGym_Movement_WaldoWalkDown {
     walk_down
     face_up
 }
 
-movement SeafoamIslandsCinnabarGym_Movement_043C {
+movement SeafoamIslandsCinnabarGym_Movement_WaldoWalkUp {
     walk_up
     face_down
 }
 
-movement SeafoamIslandsCinnabarGym_Movement_0448 {
+movement SeafoamIslandsCinnabarGym_Movement_MerleWalkDown {
     walk_down
     face_up
 }
 
-movement SeafoamIslandsCinnabarGym_Movement_0454 {
+movement SeafoamIslandsCinnabarGym_Movement_LowellWalkUp {
     walk_up
     face_down
 }
 
-movement SeafoamIslandsCinnabarGym_Movement_0460 {
+movement SeafoamIslandsCinnabarGym_Movement_LindenWalkLeft {
     walk_left
     face_right
 }
 
-movement SeafoamIslandsCinnabarGym_Movement_046C {
+movement SeafoamIslandsCinnabarGym_Movement_LindenWalkRight {
     walk_right
     face_left
 }
 
-movement SeafoamIslandsCinnabarGym_Movement_0478 {
+movement SeafoamIslandsCinnabarGym_Movement_DanielWalkLeft {
     walk_left
     face_right
 }
 
-movement SeafoamIslandsCinnabarGym_Movement_0484 {
+movement SeafoamIslandsCinnabarGym_Movement_DanielWalkRight {
     walk_right
     face_left
 }
 
-script scr_seq_D11R0106_001 {
+script SeafoamIslandsCinnabarGym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -402,6 +402,6 @@ script scr_seq_D11R0106_001 {
 }
 
 mapscripts SeafoamIslandsCinnabarGym_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D11R0106_008
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D11R0106_009
+    INIT_SCRIPT_ON_RESUME: SeafoamIslandsCinnabarGym_OnResume
+    INIT_SCRIPT_ON_TRANSITION: SeafoamIslandsCinnabarGym_OnTransition
 }

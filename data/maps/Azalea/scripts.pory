@@ -3,30 +3,30 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T23_000
-    scr_seq_T23_001
-    scr_seq_T23_002
-    scr_seq_T23_003
-    scr_seq_T23_004
+    Azalea_EventScript_RocketGrunt1
+    Azalea_EventScript_Slowpoke
+    Azalea_EventScript_RivalTrigger
+    Azalea_EventScript_RocketGruntTrigger
+    Azalea_OnTransition
     scr_seq_T23_005
-    scr_seq_T23_006
-    scr_seq_T23_007
-    scr_seq_T23_008
-    scr_seq_T23_009
-    scr_seq_T23_010
-    scr_seq_T23_011
-    scr_seq_T23_012
-    scr_seq_T23_013
-    scr_seq_T23_014
-    scr_seq_T23_015
-    scr_seq_T23_016
+    Azalea_EventScript_PokefanM
+    Azalea_EventScript_OldMan
+    Azalea_EventScript_TrainerTips1
+    Azalea_EventScript_TrainerTips2
+    Azalea_EventScript_TrainerTips3
+    Azalea_EventScript_TownSign
+    Azalea_EventScript_TrainerTips4
+    Azalea_EventScript_IlexForestAheadSign
+    Azalea_EventScript_RocketGrunt2
+    Azalea_EventScript_Woman
+    Azalea_EventScript_Man
 }
 
 raw `
 #include "maps/IlexForest/ids.h"
 `
 
-script scr_seq_T23_004 {
+script Azalea_OnTransition {
     if (var(VAR_UNK_4080) == 0) {
         setflag(FLAG_UNK_19F)
         clearflag(FLAG_AZALEA_ROCKET_HARASSING_CIVILIAN)
@@ -35,7 +35,7 @@ script scr_seq_T23_004 {
     end
 }
 
-script scr_seq_T23_000 {
+script Azalea_EventScript_RocketGrunt1 {
 scr_seq_T23_005:
     simplenpcmsg("Nothing is going on.\n"
                  "It’s unsafe to go in there, so I’m\f"
@@ -45,7 +45,7 @@ scr_seq_T23_005:
     end
 }
 
-script scr_seq_T23_001 {
+script Azalea_EventScript_Slowpoke {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -60,35 +60,35 @@ script scr_seq_T23_001 {
     end
 }
 
-script scr_seq_T23_002 {
+script Azalea_EventScript_RivalTrigger {
     followmonresetmovement
     lockall
     fadeoutbgm(0, 3)
-    applymovement(obj_player, Azalea_Movement_02A4)
+    applymovement(obj_player, Azalea_Movement_PlayerExclamation)
     waitmovement
     setvar(VAR_FARFETCHD1_STICKS1, STICKS_ACTIVE)
     callstd(std_play_rival_intro_music)
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 462) {
         movepersonfacing(obj_T23_gsrivel, 404, 0, 463, DIR_WEST)
-        applymovement(obj_T23_gsrivel, Azalea_Movement_028C)
-        applymovement(obj_player, Azalea_Movement_02AC)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeft1)
+        applymovement(obj_player, Azalea_Movement_PlayerFaceDown)
     } elif (var(VAR_SPECIAL_x8005) == 463) {
         movepersonfacing(obj_T23_gsrivel, 404, 0, 464, DIR_WEST)
-        applymovement(obj_T23_gsrivel, Azalea_Movement_028C)
-        applymovement(obj_player, Azalea_Movement_02AC)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeft1)
+        applymovement(obj_player, Azalea_Movement_PlayerFaceDown)
     } elif (var(VAR_SPECIAL_x8005) == 464) {
         movepersonfacing(obj_T23_gsrivel, 404, 0, 463, DIR_WEST)
-        applymovement(obj_T23_gsrivel, Azalea_Movement_0298)
-        applymovement(obj_player, Azalea_Movement_02C0)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeft2)
+        applymovement(obj_player, Azalea_Movement_PlayerFaceUp)
     } elif (var(VAR_SPECIAL_x8005) == 465) {
         movepersonfacing(obj_T23_gsrivel, 404, 0, 464, DIR_WEST)
-        applymovement(obj_T23_gsrivel, Azalea_Movement_0298)
-        applymovement(obj_player, Azalea_Movement_02C0)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeft2)
+        applymovement(obj_player, Azalea_Movement_PlayerFaceUp)
     } else {
         movepersonfacing(obj_T23_gsrivel, 404, 0, 465, DIR_WEST)
-        applymovement(obj_T23_gsrivel, Azalea_Movement_0298)
-        applymovement(obj_player, Azalea_Movement_02C0)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeft2)
+        applymovement(obj_player, Azalea_Movement_PlayerFaceUp)
     }
     waitmovement
     bufferrivalsname(0)
@@ -132,15 +132,15 @@ script scr_seq_T23_002 {
     setvar(VAR_UNK_4075, 2)
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 462) {
-        applymovement(obj_T23_gsrivel, Azalea_Movement_02D4)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeft3)
     } elif (var(VAR_SPECIAL_x8005) == 463) {
-        applymovement(obj_T23_gsrivel, Azalea_Movement_02DC)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeftUp1)
     } elif (var(VAR_SPECIAL_x8005) == 464) {
-        applymovement(obj_T23_gsrivel, Azalea_Movement_02D4)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeft3)
     } elif (var(VAR_SPECIAL_x8005) == 465) {
-        applymovement(obj_T23_gsrivel, Azalea_Movement_02DC)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeftUp1)
     } else {
-        applymovement(obj_T23_gsrivel, Azalea_Movement_02EC)
+        applymovement(obj_T23_gsrivel, Azalea_Movement_RivalWalkLeftUp2)
     }
     waitmovement
     removeobject(obj_T23_gsrivel)
@@ -149,54 +149,54 @@ script scr_seq_T23_002 {
     end
 }
 
-movement Azalea_Movement_028C {
+movement Azalea_Movement_RivalWalkLeft1 {
     walk_left * 9
     face_up
 }
 
-movement Azalea_Movement_0298 {
+movement Azalea_Movement_RivalWalkLeft2 {
     walk_left * 9
     face_down
 }
 
-movement Azalea_Movement_02A4 {
+movement Azalea_Movement_PlayerExclamation {
     emote_exclamation_mark
 }
 
-movement Azalea_Movement_02AC {
+movement Azalea_Movement_PlayerFaceDown {
     face_right
     delay_4 * 6
     delay_8 * 7
     face_down
 }
 
-movement Azalea_Movement_02C0 {
+movement Azalea_Movement_PlayerFaceUp {
     face_right
     delay_4 * 6
     delay_8 * 7
     face_up
 }
 
-movement Azalea_Movement_02D4 {
+movement Azalea_Movement_RivalWalkLeft3 {
     walk_left * 3
 }
 
-movement Azalea_Movement_02DC {
+movement Azalea_Movement_RivalWalkLeftUp1 {
     walk_left
     walk_up
     walk_left * 2
 }
 
-movement Azalea_Movement_02EC {
+movement Azalea_Movement_RivalWalkLeftUp2 {
     walk_left
     walk_up * 2
     walk_left * 2
 }
 
-script scr_seq_T23_003 {
+script Azalea_EventScript_RocketGruntTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_T23_rocketm_3, Azalea_Movement_0350)
+    applymovement(obj_T23_rocketm_3, Azalea_Movement_RocketGruntFaceLeft)
     waitmovement
     npcmsg("Who are you?\n"
            "You don’t know us?\r"
@@ -214,10 +214,10 @@ script scr_seq_T23_003 {
     playse(SEQ_SE_DP_WALL_HIT)
     npcmsg("{SIZE 200}Thud!{SIZE 100}\r")
     closemessage
-    applymovement(obj_T23_gsmiddleman1_2, Azalea_Movement_0358)
+    applymovement(obj_T23_gsmiddleman1_2, Azalea_Movement_PokefanMWalkLeft)
     waitmovement
     movepersonfacing(obj_T23_gsmiddleman1_2, 23, 0, 16, DIR_EAST)
-    applymovement(obj_T23_rocketm_3, Azalea_Movement_0374)
+    applymovement(obj_T23_rocketm_3, Azalea_Movement_RocketGruntWalkUp)
     waitmovement
     removeobject(obj_T23_gsmiddleman1_2)
     setflag(FLAG_AZALEA_HARASSED_CIVILIAN)
@@ -228,11 +228,11 @@ script scr_seq_T23_003 {
     end
 }
 
-movement Azalea_Movement_0350 {
+movement Azalea_Movement_RocketGruntFaceLeft {
     walk_in_place_left * 2
 }
 
-movement Azalea_Movement_0358 {
+movement Azalea_Movement_PokefanMWalkLeft {
     lock_dir
     walk_faster_left
     delay_8 * 2
@@ -241,12 +241,12 @@ movement Azalea_Movement_0358 {
     walk_fast_left * 9
 }
 
-movement Azalea_Movement_0374 {
+movement Azalea_Movement_RocketGruntWalkUp {
     walk_up * 2
     walk_in_place_down
 }
 
-script scr_seq_T23_006 {
+script Azalea_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -264,7 +264,7 @@ _039F:
     end
 }
 
-script scr_seq_T23_007 {
+script Azalea_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -281,34 +281,34 @@ script scr_seq_T23_007 {
     goto(_039F)
 }
 
-script scr_seq_T23_008 {
+script Azalea_EventScript_TrainerTips1 {
     trainertipsex(2, "Kurt’s House\r"
                      "Apricorn and Nothing Else\n"
                      "The Stubborn Poké Ball Creator")
     end
 }
 
-script scr_seq_T23_009 {
+script Azalea_EventScript_TrainerTips2 {
     trainertipsex(2, "Azalea Town Pokémon Gym\n"
                      "Leader: Bugsy\f"
                      "The Walking Bug Pokémon Encyclopedia")
     end
 }
 
-script scr_seq_T23_010 {
+script Azalea_EventScript_TrainerTips3 {
     trainertipsex(2, "Charcoal Kiln\r"
                      "We let our FARFETCH’D fetch branches\n"
                      "for charcoal!")
     end
 }
 
-script scr_seq_T23_011 {
+script Azalea_EventScript_TownSign {
     directionsignpostex(0, 14, "Azalea Town\n"
                                "Living Happily with Pokémon")
     end
 }
 
-script scr_seq_T23_012 {
+script Azalea_EventScript_TrainerTips4 {
     trainertipsex(2, "SLOWPOKE Well\n"
                      "Also known as the Rainmaker Well.\r"
                      "Locals believe that a SLOWPOKE’s\n"
@@ -318,27 +318,27 @@ script scr_seq_T23_012 {
     end
 }
 
-script scr_seq_T23_013 {
+script Azalea_EventScript_IlexForestAheadSign {
     directionsignpostex(1, 2, "Ilex Forest Ahead\n"
                               "Enter through the gate.")
     end
 }
 
-script scr_seq_T23_014 {
+script Azalea_EventScript_RocketGrunt2 {
     simplenpcmsg("Do you know about SlowpokeTail?\n"
                  "I heard it’s tasty!\r"
                  "Aren’t you glad I told you that?")
     end
 }
 
-script scr_seq_T23_015 {
+script Azalea_EventScript_Woman {
     simplenpcmsg("Did you come to get Kurt to make\n"
                  "some Poké Balls?\f"
                  "A lot of people do just that.")
     end
 }
 
-script scr_seq_T23_016 {
+script Azalea_EventScript_Man {
     simplenpcmsg("Cut through Azalea and you’ll be in\n"
                  "Ilex Forest.\r"
                  "But these skinny trees make it\n"
@@ -349,5 +349,5 @@ script scr_seq_T23_016 {
 }
 
 mapscripts Azalea_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T23_004
+    INIT_SCRIPT_ON_TRANSITION: Azalea_OnTransition
 }

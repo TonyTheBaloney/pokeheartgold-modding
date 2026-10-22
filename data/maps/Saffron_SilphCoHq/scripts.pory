@@ -3,15 +3,15 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T11R0701_000
-    scr_seq_T11R0701_001
-    scr_seq_T11R0701_002
-    scr_seq_T11R0701_003
-    scr_seq_T11R0701_004
-    scr_seq_T11R0701_005
+    Saffron_SilphCoHq_EventScript_Receptionist
+    Saffron_SilphCoHq_EventScript_Policeman
+    Saffron_SilphCoHq_OnTransition
+    Saffron_SilphCoHq_EventScript_Sign
+    Saffron_SilphCoHq_EventScript_Steven
+    Saffron_SilphCoHq_OnResume
 }
 
-script scr_seq_T11R0701_002 {
+script Saffron_SilphCoHq_OnTransition {
     setvar(VAR_TEMP_x4008, 0)
     setvar(VAR_TEMP_x4009, 0)
     if (var(VAR_UNK_4130) != 3) {
@@ -48,7 +48,7 @@ _00A5:
     return
 }
 
-script scr_seq_T11R0701_005 {
+script Saffron_SilphCoHq_OnResume {
     if (var(VAR_TEMP_x4009) == 1) {
         movewarp(1, 23, 2)
     }
@@ -60,13 +60,13 @@ script scr_seq_T11R0701_005 {
     end
 }
 
-script scr_seq_T11R0701_000 {
+script Saffron_SilphCoHq_EventScript_Receptionist {
     simplenpcmsg("Welcome. This is Silph Co.’s\n"
                  "head office building.")
     end
 }
 
-script scr_seq_T11R0701_001 {
+script Saffron_SilphCoHq_EventScript_Policeman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -94,7 +94,7 @@ script scr_seq_T11R0701_001 {
     end
 }
 
-script scr_seq_T11R0701_004 {
+script Saffron_SilphCoHq_EventScript_Steven {
     if (flag(FLAG_GOT_HOENN_STARTER_FROM_STEVEN)) { goto(_03E8) }
     if (var(VAR_UNK_4130) == 3) {
         playse(SEQ_SE_DP_SELECT)
@@ -115,25 +115,25 @@ script scr_seq_T11R0701_004 {
     closemessage
     getplayerfacing(VAR_TEMP_x4002)
     if (var(VAR_TEMP_x4002) == 0) {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03AC)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenFaceDown)
     } elif (var(VAR_TEMP_x4002) == 2) {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03BC)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenFaceRight)
     } else {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03B4)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenFaceLeft)
     }
     waitmovement
-    applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03C4)
+    applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenExclamation)
     waitmovement
     npcmsg("Steven: You are...\n"
            "I remember your eyes.\r"
            "When I see a Trainer whose eyes\n"
            "twinkle, I always remember.\r")
     if (var(VAR_TEMP_x4002) == 0) {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03AC)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenFaceDown)
     } elif (var(VAR_TEMP_x4002) == 2) {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03BC)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenFaceRight)
     } else {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03B4)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenFaceLeft)
     }
     waitmovement
     npcmsg("Steven: You have a Pokédex!\n"
@@ -185,9 +185,9 @@ _02F3:
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03DC)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenWalkDownLeft)
     } else {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03CC)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenWalkLeftDown)
     }
     waitmovement
     removeobject(obj_T11R0701_daigo)
@@ -233,29 +233,29 @@ _0351:
     goto(_02F3)
 }
 
-movement Saffron_SilphCoHq_Movement_03AC {
+movement Saffron_SilphCoHq_Movement_StevenFaceDown {
     walk_in_place_down
 }
 
-movement Saffron_SilphCoHq_Movement_03B4 {
+movement Saffron_SilphCoHq_Movement_StevenFaceLeft {
     walk_in_place_left
 }
 
-movement Saffron_SilphCoHq_Movement_03BC {
+movement Saffron_SilphCoHq_Movement_StevenFaceRight {
     walk_in_place_right
 }
 
-movement Saffron_SilphCoHq_Movement_03C4 {
+movement Saffron_SilphCoHq_Movement_StevenExclamation {
     emote_exclamation_mark
 }
 
-movement Saffron_SilphCoHq_Movement_03CC {
+movement Saffron_SilphCoHq_Movement_StevenWalkLeftDown {
     walk_left * 2
     walk_down * 3
     walk_left * 8
 }
 
-movement Saffron_SilphCoHq_Movement_03DC {
+movement Saffron_SilphCoHq_Movement_StevenWalkDownLeft {
     walk_down * 3
     walk_left * 10
 }
@@ -341,9 +341,9 @@ script(local) _03E8 {
     closemessage
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 0) {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_0504)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenExit1)
     } else {
-        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_051C)
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_StevenExit2)
     }
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
@@ -361,7 +361,7 @@ _04EA:
     end
 }
 
-movement Saffron_SilphCoHq_Movement_0504 {
+movement Saffron_SilphCoHq_Movement_StevenExit1 {
     walk_left * 2
     walk_down * 5
     walk_left
@@ -369,14 +369,14 @@ movement Saffron_SilphCoHq_Movement_0504 {
     set_invisible
 }
 
-movement Saffron_SilphCoHq_Movement_051C {
+movement Saffron_SilphCoHq_Movement_StevenExit2 {
     walk_down * 5
     walk_left * 3
     walk_down
     set_invisible
 }
 
-script scr_seq_T11R0701_003 {
+script Saffron_SilphCoHq_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("This elevator is out of order.\r"
@@ -388,6 +388,6 @@ script scr_seq_T11R0701_003 {
 }
 
 mapscripts Saffron_SilphCoHq_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11R0701_002
-    INIT_SCRIPT_ON_RESUME: scr_seq_T11R0701_005
+    INIT_SCRIPT_ON_TRANSITION: Saffron_SilphCoHq_OnTransition
+    INIT_SCRIPT_ON_RESUME: Saffron_SilphCoHq_OnResume
 }

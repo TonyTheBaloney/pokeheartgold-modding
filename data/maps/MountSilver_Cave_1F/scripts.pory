@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D41R0101_000
-    scr_seq_D41R0101_001
+    MountSilver_Cave_1F_EventScript_PokefanM
+    MountSilver_Cave_1F_OnTransition
 }
 
-script scr_seq_D41R0101_001 {
+script MountSilver_Cave_1F_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 4) {
@@ -21,7 +21,7 @@ script scr_seq_D41R0101_001 {
     end
 }
 
-script scr_seq_D41R0101_000 {
+script MountSilver_Cave_1F_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -55,16 +55,16 @@ script scr_seq_D41R0101_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, MountSilver_Cave_1F_Movement_018C)
-        applymovement(obj_D41R0101_gsmiddleman1, MountSilver_Cave_1F_Movement_01D8)
+        applymovement(obj_player, MountSilver_Cave_1F_Movement_PlayerWalkRightUp)
+        applymovement(obj_D41R0101_gsmiddleman1, MountSilver_Cave_1F_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, MountSilver_Cave_1F_Movement_01A4)
+        applymovement(obj_player, MountSilver_Cave_1F_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, MountSilver_Cave_1F_Movement_01C4)
-        applymovement(obj_D41R0101_gsmiddleman1, MountSilver_Cave_1F_Movement_01D8)
+        applymovement(obj_player, MountSilver_Cave_1F_Movement_PlayerWalkUpRight)
+        applymovement(obj_D41R0101_gsmiddleman1, MountSilver_Cave_1F_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, MountSilver_Cave_1F_Movement_01B0)
-        applymovement(obj_D41R0101_gsmiddleman1, MountSilver_Cave_1F_Movement_01D8)
+        applymovement(obj_player, MountSilver_Cave_1F_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D41R0101_gsmiddleman1, MountSilver_Cave_1F_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -72,7 +72,7 @@ script scr_seq_D41R0101_000 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, MountSilver_Cave_1F_Movement_01E4)
+        applymovement(obj_partner_poke, MountSilver_Cave_1F_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -91,7 +91,7 @@ script scr_seq_D41R0101_000 {
     end
 }
 
-movement MountSilver_Cave_1F_Movement_018C {
+movement MountSilver_Cave_1F_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -99,36 +99,36 @@ movement MountSilver_Cave_1F_Movement_018C {
     walk_in_place_down
 }
 
-movement MountSilver_Cave_1F_Movement_01A4 {
+movement MountSilver_Cave_1F_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement MountSilver_Cave_1F_Movement_01B0 {
+movement MountSilver_Cave_1F_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement MountSilver_Cave_1F_Movement_01C4 {
+movement MountSilver_Cave_1F_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement MountSilver_Cave_1F_Movement_01D8 {
+movement MountSilver_Cave_1F_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement MountSilver_Cave_1F_Movement_01E4 {
+movement MountSilver_Cave_1F_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
 mapscripts MountSilver_Cave_1F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D41R0101_001
+    INIT_SCRIPT_ON_TRANSITION: MountSilver_Cave_1F_OnTransition
 }

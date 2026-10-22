@@ -3,35 +3,35 @@
   "messages": [
     {
       "id": "msg_0485_T06GYM0101_00000",
-      "from": "scr_seq_T06GYM0101_023#1"
+      "from": "Vermilion_Gym_EventScript_LtSurge#1"
     },
     {
       "id": "msg_0485_T06GYM0101_00001",
-      "from": "scr_seq_T06GYM0101_023#2"
+      "from": "Vermilion_Gym_EventScript_LtSurge#2"
     },
     {
       "id": "msg_0485_T06GYM0101_00002",
-      "from": "scr_seq_T06GYM0101_023#3"
+      "from": "Vermilion_Gym_EventScript_LtSurge#3"
     },
     {
       "id": "msg_0485_T06GYM0101_00003",
-      "from": "scr_seq_T06GYM0101_023#4"
+      "from": "Vermilion_Gym_EventScript_LtSurge#4"
     },
     {
       "id": "msg_0485_T06GYM0101_00004",
-      "from": "scr_seq_T06GYM0101_023#5"
+      "from": "Vermilion_Gym_EventScript_LtSurge#5"
     },
     {
       "id": "msg_0485_T06GYM0101_00005",
-      "from": "scr_seq_T06GYM0101_023#0"
+      "from": "Vermilion_Gym_EventScript_LtSurge#0"
     },
     {
       "id": "msg_0485_T06GYM0101_00006",
-      "from": "scr_seq_T06GYM0101_024#1"
+      "from": "Vermilion_Gym_EventScript_GymGuide#1"
     },
     {
       "id": "msg_0485_T06GYM0101_00007",
-      "from": "scr_seq_T06GYM0101_024#0"
+      "from": "Vermilion_Gym_EventScript_GymGuide#0"
     },
     {
       "id": "msg_0485_T06GYM0101_00008",
@@ -43,23 +43,23 @@
     },
     {
       "id": "msg_0485_T06GYM0101_00010",
-      "from": "scr_seq_T06GYM0101_014#2"
+      "from": "Vermilion_Gym_EventScript_TrashCan#2"
     },
     {
       "id": "msg_0485_T06GYM0101_00011",
-      "from": "scr_seq_T06GYM0101_014#0"
+      "from": "Vermilion_Gym_EventScript_TrashCan#0"
     },
     {
       "id": "msg_0485_T06GYM0101_00012",
-      "from": "scr_seq_T06GYM0101_014#1"
+      "from": "Vermilion_Gym_EventScript_TrashCan#1"
     },
     {
       "id": "msg_0485_T06GYM0101_00013",
-      "from": "scr_seq_T06GYM0101_025#0"
+      "from": "Vermilion_Gym_EventScript_GymSign#0"
     },
     {
       "id": "msg_0485_T06GYM0101_00014",
-      "from": "scr_seq_T06GYM0101_025#1"
+      "from": "Vermilion_Gym_EventScript_GymSign#1"
     }
   ]
 }

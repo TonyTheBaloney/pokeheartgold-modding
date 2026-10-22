@@ -3,20 +3,20 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D24R0102_000
-    scr_seq_D24R0102_001
-    scr_seq_D24R0102_002
-    scr_seq_D24R0102_003
-    scr_seq_D24R0102_004
-    scr_seq_D24R0102_005
+    RuinsOfAlph_ResearchCenter_EventScript_Businessman
+    RuinsOfAlph_ResearchCenter_EventScript_SuperNerd1
+    RuinsOfAlph_ResearchCenter_EventScript_SuperNerd2
+    RuinsOfAlph_ResearchCenter_EventScript_Sign
+    RuinsOfAlph_ResearchCenter_EventScript_Bookshelf
+    RuinsOfAlph_ResearchCenter_OnTransition
 }
 
-script scr_seq_D24R0102_005 {
+script RuinsOfAlph_ResearchCenter_OnTransition {
     clearflag(FLAG_UNK_10F)
     end
 }
 
-script scr_seq_D24R0102_000 {
+script RuinsOfAlph_ResearchCenter_EventScript_Businessman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -37,9 +37,9 @@ script scr_seq_D24R0102_000 {
         setflag(FLAG_UNK_10F)
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_D24R0102_suit, RuinsOfAlph_ResearchCenter_Movement_009C)
+            applymovement(obj_D24R0102_suit, RuinsOfAlph_ResearchCenter_Movement_BusinessmanExclamation1)
         } else {
-            applymovement(obj_D24R0102_suit, RuinsOfAlph_ResearchCenter_Movement_00E4)
+            applymovement(obj_D24R0102_suit, RuinsOfAlph_ResearchCenter_Movement_BusinessmanExclamation2)
         }
         waitmovement
     }
@@ -57,7 +57,7 @@ _008A:
     goto(_0366)
 }
 
-movement RuinsOfAlph_ResearchCenter_Movement_009C {
+movement RuinsOfAlph_ResearchCenter_Movement_BusinessmanExclamation1 {
     face_left
     face_up
     face_right
@@ -77,7 +77,7 @@ movement RuinsOfAlph_ResearchCenter_Movement_009C {
     emote_exclamation_mark
 }
 
-movement RuinsOfAlph_ResearchCenter_Movement_00E4 {
+movement RuinsOfAlph_ResearchCenter_Movement_BusinessmanExclamation2 {
     face_down
     face_left
     face_up
@@ -97,7 +97,7 @@ movement RuinsOfAlph_ResearchCenter_Movement_00E4 {
     emote_exclamation_mark
 }
 
-script scr_seq_D24R0102_001 {
+script RuinsOfAlph_ResearchCenter_EventScript_SuperNerd1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -269,7 +269,7 @@ text msg_0073_D24R0102_00004 {
     "built...or by whom."
 }
 
-script scr_seq_D24R0102_002 {
+script RuinsOfAlph_ResearchCenter_EventScript_SuperNerd2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -300,7 +300,7 @@ _03A1:
     goto(_0366)
 }
 
-script scr_seq_D24R0102_003 {
+script RuinsOfAlph_ResearchCenter_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -323,7 +323,7 @@ _03E2:
     goto(_0366)
 }
 
-script scr_seq_D24R0102_004 {
+script RuinsOfAlph_ResearchCenter_EventScript_Bookshelf {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -335,5 +335,5 @@ script scr_seq_D24R0102_004 {
 }
 
 mapscripts RuinsOfAlph_ResearchCenter_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D24R0102_005
+    INIT_SCRIPT_ON_TRANSITION: RuinsOfAlph_ResearchCenter_OnTransition
 }

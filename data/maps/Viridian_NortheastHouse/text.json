@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0456_T02R0201_00000",
-      "from": "scr_seq_T02R0201_000#0"
+      "from": "Viridian_NortheastHouse_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0456_T02R0201_00001",
-      "from": "scr_seq_T02R0201_001#0"
+      "from": "Viridian_NortheastHouse_EventScript_Lass#0"
     },
     {
       "id": "msg_0456_T02R0201_00002",
-      "from": "scr_seq_T02R0201_002#0"
+      "from": "Viridian_NortheastHouse_EventScript_Speary#0"
     },
     {
       "id": "msg_0456_T02R0201_00003",
-      "from": "scr_seq_T02R0201_003#0"
+      "from": "Viridian_NortheastHouse_EventScript_Rattey#0"
     }
   ]
 }

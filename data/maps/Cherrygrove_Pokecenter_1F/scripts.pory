@@ -3,21 +3,21 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T21PC0101_000
-    scr_seq_T21PC0101_001
-    scr_seq_T21PC0101_002
-    scr_seq_T21PC0101_003
-    scr_seq_T21PC0101_004
-    scr_seq_T21PC0101_005
+    Cherrygrove_Pokecenter_1F_EventScript_Nurse
+    Cherrygrove_Pokecenter_1F_EventScript_FatMan
+    Cherrygrove_Pokecenter_1F_EventScript_Gentleman
+    Cherrygrove_Pokecenter_1F_EventScript_Woman
+    Cherrygrove_Pokecenter_1F_EventScript_Receptionist1
+    Cherrygrove_Pokecenter_1F_EventScript_Receptionist2
 }
 
-script scr_seq_T21PC0101_000 {
+script Cherrygrove_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T21PC0101_004 {
+script Cherrygrove_Pokecenter_1F_EventScript_Receptionist1 {
     simplenpcmsg("Welcome to the Pokémon Wireless\n"
                  "Club Union Room.\r"
                  "...Oh, I was just trying to learn that\n"
@@ -27,7 +27,7 @@ script scr_seq_T21PC0101_004 {
     end
 }
 
-script scr_seq_T21PC0101_005 {
+script Cherrygrove_Pokecenter_1F_EventScript_Receptionist2 {
     simplenpcmsg("Welcome to the Pokémon\n"
                  "Communication Club Colosseum.\r"
                  "...Oh, I was just trying to learn that\n"
@@ -37,7 +37,7 @@ script scr_seq_T21PC0101_005 {
     end
 }
 
-script scr_seq_T21PC0101_003 {
+script Cherrygrove_Pokecenter_1F_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -56,13 +56,13 @@ script scr_seq_T21PC0101_003 {
     end
 }
 
-script scr_seq_T21PC0101_001 {
+script Cherrygrove_Pokecenter_1F_EventScript_FatMan {
     simplenpcmsg("It’s great. I can store any number\n"
                  "of Pokémon, and it’s all free.")
     end
 }
 
-script scr_seq_T21PC0101_002 {
+script Cherrygrove_Pokecenter_1F_EventScript_Gentleman {
     simplenpcmsg("That PC is free for any Trainer to use.")
     end
 }

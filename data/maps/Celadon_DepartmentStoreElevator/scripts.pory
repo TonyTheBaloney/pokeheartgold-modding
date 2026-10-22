@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T07R0107_000 {
+script Celadon_DepartmentStoreElevator_EventScript_Receptionist {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -206,7 +206,7 @@ _05FE:
 _0609:
     setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
     closemessage
-    applymovement(obj_T07R0107_gswoman6, Celadon_DepartmentStoreElevator_Movement_06F8)
+    applymovement(obj_T07R0107_gswoman6, Celadon_DepartmentStoreElevator_Movement_ReceptionistFaceDown)
     waitmovement
     waitse(SEQ_SE_DP_SELECT)
     elevatoranim(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
@@ -273,7 +273,7 @@ _06DE:
     end
 }
 
-movement Celadon_DepartmentStoreElevator_Movement_06F8 {
+movement Celadon_DepartmentStoreElevator_Movement_ReceptionistFaceDown {
     walk_in_place_down
 }
 

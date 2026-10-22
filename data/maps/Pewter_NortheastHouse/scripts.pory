@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T03R0201_000 {
+script Pewter_NortheastHouse_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("NIDORAN♂, shake hands!")
@@ -11,7 +11,7 @@ script scr_seq_T03R0201_000 {
     end
 }
 
-script scr_seq_T03R0201_001 {
+script Pewter_NortheastHouse_EventScript_NidoranM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     playcry(SPECIES_NIDORAN_M, 0)

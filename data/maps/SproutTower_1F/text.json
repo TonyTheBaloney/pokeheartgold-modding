@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0054_D15R0101_00000",
-      "from": "scr_seq_D15R0101_004#0"
+      "from": "SproutTower_1F_EventScript_Sage2#0"
     },
     {
       "id": "msg_0054_D15R0101_00001",
-      "from": "scr_seq_D15R0101_003#0"
+      "from": "SproutTower_1F_EventScript_Sage1#0"
     },
     {
       "id": "msg_0054_D15R0101_00002",
-      "from": "scr_seq_D15R0101_001#0"
+      "from": "SproutTower_1F_EventScript_OldWoman#0"
     },
     {
       "id": "msg_0054_D15R0101_00003",
-      "from": "scr_seq_D15R0101_002#0"
+      "from": "SproutTower_1F_EventScript_Woman#0"
     },
     {
       "id": "msg_0054_D15R0101_00004",

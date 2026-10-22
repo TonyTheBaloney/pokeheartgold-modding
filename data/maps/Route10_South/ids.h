@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_R10R0101_H_
 #define SCR_SEQ_R10R0101_H_
 
-#define _EV_scr_seq_R10R0101_000 0
+#define _EV_Route10_South_EventScript_Route10Sign 0
 
 #define obj_R10R0101_mount_2      0
 #define obj_R10R0101_gsmiddleman1 1

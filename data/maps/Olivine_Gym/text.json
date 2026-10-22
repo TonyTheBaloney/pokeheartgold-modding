@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0606_T26GYM0101_00000",
-      "from": "scr_seq_T26GYM0101_000#9"
+      "from": "Olivine_Gym_EventScript_Jasmine#9"
     },
     {
       "id": "msg_0606_T26GYM0101_00001",
-      "from": "scr_seq_T26GYM0101_000#10"
+      "from": "Olivine_Gym_EventScript_Jasmine#10"
     },
     {
       "id": "msg_0606_T26GYM0101_00002",
-      "from": "scr_seq_T26GYM0101_000#11"
+      "from": "Olivine_Gym_EventScript_Jasmine#11"
     },
     {
       "id": "msg_0606_T26GYM0101_00003",
-      "from": "scr_seq_T26GYM0101_000#12"
+      "from": "Olivine_Gym_EventScript_Jasmine#12"
     },
     {
       "id": "msg_0606_T26GYM0101_00004",
@@ -23,27 +23,27 @@
     },
     {
       "id": "msg_0606_T26GYM0101_00005",
-      "from": "scr_seq_T26GYM0101_000#13"
+      "from": "Olivine_Gym_EventScript_Jasmine#13"
     },
     {
       "id": "msg_0606_T26GYM0101_00006",
-      "from": "scr_seq_T26GYM0101_000#8"
+      "from": "Olivine_Gym_EventScript_Jasmine#8"
     },
     {
       "id": "msg_0606_T26GYM0101_00007",
-      "from": "scr_seq_T26GYM0101_000#1"
+      "from": "Olivine_Gym_EventScript_Jasmine#1"
     },
     {
       "id": "msg_0606_T26GYM0101_00008",
-      "from": "scr_seq_T26GYM0101_000#2"
+      "from": "Olivine_Gym_EventScript_Jasmine#2"
     },
     {
       "id": "msg_0606_T26GYM0101_00009",
-      "from": "scr_seq_T26GYM0101_000#3"
+      "from": "Olivine_Gym_EventScript_Jasmine#3"
     },
     {
       "id": "msg_0606_T26GYM0101_00010",
-      "from": "scr_seq_T26GYM0101_000#5"
+      "from": "Olivine_Gym_EventScript_Jasmine#5"
     },
     {
       "id": "msg_0606_T26GYM0101_00011",
@@ -51,31 +51,31 @@
     },
     {
       "id": "msg_0606_T26GYM0101_00012",
-      "from": "scr_seq_T26GYM0101_000#0"
+      "from": "Olivine_Gym_EventScript_Jasmine#0"
     },
     {
       "id": "msg_0606_T26GYM0101_00013",
-      "from": "scr_seq_T26GYM0101_000#4"
+      "from": "Olivine_Gym_EventScript_Jasmine#4"
     },
     {
       "id": "msg_0606_T26GYM0101_00014",
-      "from": "scr_seq_T26GYM0101_000#6"
+      "from": "Olivine_Gym_EventScript_Jasmine#6"
     },
     {
       "id": "msg_0606_T26GYM0101_00015",
-      "from": "scr_seq_T26GYM0101_000#7"
+      "from": "Olivine_Gym_EventScript_Jasmine#7"
     },
     {
       "id": "msg_0606_T26GYM0101_00016",
-      "from": "scr_seq_T26GYM0101_005#1"
+      "from": "Olivine_Gym_EventScript_GymGuide#1"
     },
     {
       "id": "msg_0606_T26GYM0101_00017",
-      "from": "scr_seq_T26GYM0101_005#2"
+      "from": "Olivine_Gym_EventScript_GymGuide#2"
     },
     {
       "id": "msg_0606_T26GYM0101_00018",
-      "from": "scr_seq_T26GYM0101_005#0"
+      "from": "Olivine_Gym_EventScript_GymGuide#0"
     },
     {
       "id": "msg_0606_T26GYM0101_00019",
@@ -83,7 +83,7 @@
     },
     {
       "id": "msg_0606_T26GYM0101_00020",
-      "from": "scr_seq_T26GYM0101_003#0"
+      "from": "Olivine_Gym_EventScript_Gentleman#0"
     },
     {
       "id": "msg_0606_T26GYM0101_00021",
@@ -91,15 +91,15 @@
     },
     {
       "id": "msg_0606_T26GYM0101_00022",
-      "from": "scr_seq_T26GYM0101_004#0"
+      "from": "Olivine_Gym_EventScript_Lass#0"
     },
     {
       "id": "msg_0606_T26GYM0101_00023",
-      "from": "scr_seq_T26GYM0101_006#0"
+      "from": "Olivine_Gym_EventScript_GymSign#0"
     },
     {
       "id": "msg_0606_T26GYM0101_00024",
-      "from": "scr_seq_T26GYM0101_006#1"
+      "from": "Olivine_Gym_EventScript_GymSign#1"
     }
   ]
 }

@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0346_R11_00000",
-      "from": "scr_seq_R11_002#0"
+      "from": "Route11_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0346_R11_00001",
-      "from": "scr_seq_R11_003#0"
+      "from": "Route11_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0346_R11_00002",
-      "from": "scr_seq_R11_000#1"
+      "from": "Route11_EventScript_Kabigon#1"
     },
     {
       "id": "msg_0346_R11_00003",
-      "from": "scr_seq_R11_000#0"
+      "from": "Route11_EventScript_Kabigon#0"
     }
   ]
 }

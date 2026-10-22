@@ -3,26 +3,26 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T30_000
-    scr_seq_T30_001
-    scr_seq_T30_002
-    scr_seq_T30_003
-    scr_seq_T30_004
-    scr_seq_T30_005
-    scr_seq_T30_006
-    scr_seq_T30_007
-    scr_seq_T30_008
-    scr_seq_T30_009
-    scr_seq_T30_010
-    scr_seq_T30_011
-    scr_seq_T30_012
-    scr_seq_T30_013
-    scr_seq_T30_014
-    scr_seq_T30_015
-    scr_seq_T30_016
+    Blackthorn_EventScript_Man1
+    Blackthorn_EventScript_Man2
+    Blackthorn_EventScript_OldMan1
+    Blackthorn_EventScript_OldMan2
+    Blackthorn_EventScript_BlackBelt
+    Blackthorn_OnTransition
+    Blackthorn_EventScript_Youngster
+    Blackthorn_EventScript_ProfElmCall
+    Blackthorn_EventScript_CitySign
+    Blackthorn_EventScript_TrainerTips1
+    Blackthorn_EventScript_TrainerTips2
+    Blackthorn_EventScript_TrainerTips3
+    Blackthorn_EventScript_TrainerTips4
+    Blackthorn_EventScript_AceTrainerF1
+    Blackthorn_EventScript_SchoolKidM
+    Blackthorn_EventScript_AceTrainerF2
+    Blackthorn_EventScript_PokefanM
 }
 
-script scr_seq_T30_005 {
+script Blackthorn_OnTransition {
     if (var(VAR_UNK_40C4) == 1) {
         setflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
         setvar(VAR_UNK_40C4, 2)
@@ -48,13 +48,13 @@ script scr_seq_T30_005 {
     end
 }
 
-script scr_seq_T30_007 {
+script Blackthorn_EventScript_ProfElmCall {
     phonecall(PHONE_CONTACT_PROF__ELM, 2, 3)
     setvar(VAR_UNK_407B, 2)
     end
 }
 
-script scr_seq_T30_006 {
+script Blackthorn_EventScript_Youngster {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -130,7 +130,7 @@ _01DA:
     end
 }
 
-script scr_seq_T30_000 {
+script Blackthorn_EventScript_Man1 {
     simplenpcmsg("I am sorry.\r"
                  "Clair, our Gym Leader, entered\n"
                  "the Dragon’s Den behind the Gym.\r"
@@ -139,7 +139,7 @@ script scr_seq_T30_000 {
     end
 }
 
-script scr_seq_T30_001 {
+script Blackthorn_EventScript_Man2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -163,20 +163,20 @@ script scr_seq_T30_001 {
     end
 }
 
-script scr_seq_T30_002 {
+script Blackthorn_EventScript_OldMan1 {
     simplenpcmsg("No. Only chosen Trainers may train\n"
                  "here. Please leave.")
     end
 }
 
-script scr_seq_T30_003 {
+script Blackthorn_EventScript_OldMan2 {
     simplenpcmsg("If Clair allows it, her grandfather--\n"
                  "our Master--will also.\r"
                  "You may enter.")
     end
 }
 
-script scr_seq_T30_004 {
+script Blackthorn_EventScript_BlackBelt {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -193,7 +193,7 @@ script scr_seq_T30_004 {
     end
 }
 
-script scr_seq_T30_016 {
+script Blackthorn_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -227,13 +227,13 @@ script scr_seq_T30_016 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Blackthorn_Movement_03EC)
-        applymovement(obj_T30_gsmiddleman1, Blackthorn_Movement_0424)
+        applymovement(obj_player, Blackthorn_Movement_PlayerWalkLeftUp)
+        applymovement(obj_T30_gsmiddleman1, Blackthorn_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Blackthorn_Movement_0404)
+        applymovement(obj_player, Blackthorn_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Blackthorn_Movement_0410)
-        applymovement(obj_T30_gsmiddleman1, Blackthorn_Movement_0424)
+        applymovement(obj_player, Blackthorn_Movement_PlayerWalkUpRight)
+        applymovement(obj_T30_gsmiddleman1, Blackthorn_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -241,7 +241,7 @@ script scr_seq_T30_016 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Blackthorn_Movement_0430)
+        applymovement(obj_partner_poke, Blackthorn_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -260,7 +260,7 @@ script scr_seq_T30_016 {
     end
 }
 
-movement Blackthorn_Movement_03EC {
+movement Blackthorn_Movement_PlayerWalkLeftUp {
     walk_left
     walk_up * 2
     walk_right
@@ -268,55 +268,55 @@ movement Blackthorn_Movement_03EC {
     walk_in_place_down
 }
 
-movement Blackthorn_Movement_0404 {
+movement Blackthorn_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Blackthorn_Movement_0410 {
+movement Blackthorn_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Blackthorn_Movement_0424 {
+movement Blackthorn_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Blackthorn_Movement_0430 {
+movement Blackthorn_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T30_008 {
+script Blackthorn_EventScript_CitySign {
     directionsignpostex(0, 20, "Blackthorn City\n"
                                "A Quiet Mountain Retreat")
     end
 }
 
-script scr_seq_T30_009 {
+script Blackthorn_EventScript_TrainerTips1 {
     trainertipsex(2, "Blackthorn City Pokémon Gym\n"
                      "Leader: Clair\f"
                      "The Blessed User of Dragon Pokémon")
     end
 }
 
-script scr_seq_T30_010 {
+script Blackthorn_EventScript_TrainerTips2 {
     trainertipsex(2, "Move Deleter and Move Tutor House\r"
                      "A Mysterious House Where You Can Make\n"
                      "Pokémon Forget and Remember Moves")
     end
 }
 
-script scr_seq_T30_011 {
+script Blackthorn_EventScript_TrainerTips3 {
     trainertipsex(2, "Dragon’s Den Ahead")
     end
 }
 
-script scr_seq_T30_012 {
+script Blackthorn_EventScript_TrainerTips4 {
     trainertipsex(3, "Trainer Tips\r"
                      "Wild Pokémon will appear regularly\n"
                      "if you don’t run, but walk quietly in the\f"
@@ -327,27 +327,27 @@ script scr_seq_T30_012 {
     end
 }
 
-script scr_seq_T30_013 {
+script Blackthorn_EventScript_AceTrainerF1 {
     simplenpcmsg("Are you going to make your Pokémon\n"
                  "forget some moves?")
     end
 }
 
-script scr_seq_T30_014 {
+script Blackthorn_EventScript_SchoolKidM {
     simplenpcmsg("Those Trainers called Dragon Tamers\n"
                  "are all from Blackthorn City.")
     end
 }
 
-script scr_seq_T30_015 {
+script Blackthorn_EventScript_AceTrainerF2 {
     simplenpcmsg("Wow, you came through the Ice Path?\r"
                  "You must be a real hotshot Trainer!")
     end
 }
 
 mapscripts Blackthorn_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T30_005
+    INIT_SCRIPT_ON_TRANSITION: Blackthorn_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_407B, 1: scr_seq_T30_007
+        VAR_UNK_407B, 1: Blackthorn_EventScript_ProfElmCall
     ]
 }

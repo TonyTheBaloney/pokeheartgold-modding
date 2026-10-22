@@ -3,33 +3,33 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D37R0102_000
-    scr_seq_D37R0102_001
-    scr_seq_D37R0102_002
-    scr_seq_D37R0102_003
-    scr_seq_D37R0102_004
-    scr_seq_D37R0102_005
-    scr_seq_D37R0102_006
-    scr_seq_D37R0102_007
-    scr_seq_D37R0102_008
-    scr_seq_D37R0102_009
-    scr_seq_D37R0102_010
-    scr_seq_D37R0102_011
-    scr_seq_D37R0102_012
-    scr_seq_D37R0102_013
-    scr_seq_D37R0102_014
-    scr_seq_D37R0102_015
-    scr_seq_D37R0102_016
-    scr_seq_D37R0102_017
-    scr_seq_D37R0102_018
-    scr_seq_D37R0102_019
-    scr_seq_D37R0102_020
-    scr_seq_D37R0102_021
-    scr_seq_D37R0102_022
-    scr_seq_D37R0102_023
+    Goldenrod_Tunnel_B1F_EventScript_OldWoman
+    Goldenrod_Tunnel_B1F_EventScript_AceTrainerM
+    Goldenrod_Tunnel_B1F_EventScript_Man
+    Goldenrod_Tunnel_B1F_EventScript_OldMan
+    Goldenrod_Tunnel_B1F_EventScript_RocketGruntTrigger
+    Goldenrod_Tunnel_B1F_EventScript_Hiker1
+    Goldenrod_Tunnel_B1F_EventScript_PokefanM
+    Goldenrod_Tunnel_B1F_EventScript_Sign1
+    Goldenrod_Tunnel_B1F_OnTransition
+    Goldenrod_Tunnel_B1F_EventScript_RocketGrunt
+    Goldenrod_Tunnel_B1F_EventScript_LittleBoy
+    Goldenrod_Tunnel_B1F_EventScript_KimonoGirlTrigger
+    Goldenrod_Tunnel_B1F_EventScript_Sign2
+    Goldenrod_Tunnel_B1F_EventScript_Sign3
+    Goldenrod_Tunnel_B1F_EventScript_Sign4
+    Goldenrod_Tunnel_B1F_EventScript_Sign5
+    Goldenrod_Tunnel_B1F_EventScript_Sign6
+    Goldenrod_Tunnel_B1F_EventScript_Sign7
+    Goldenrod_Tunnel_B1F_EventScript_Sign8
+    Goldenrod_Tunnel_B1F_EventScript_Sign9
+    Goldenrod_Tunnel_B1F_EventScript_Sign10
+    Goldenrod_Tunnel_B1F_EventScript_Sign11
+    Goldenrod_Tunnel_B1F_EventScript_Photo
+    Goldenrod_Tunnel_B1F_EventScript_Hiker2
 }
 
-script scr_seq_D37R0102_008 {
+script Goldenrod_Tunnel_B1F_OnTransition {
     setflag(FLAG_UNK_1B0)
     setflag(FLAG_UNK_1B1)
     setflag(FLAG_UNK_1B2)
@@ -78,7 +78,7 @@ _0161:
     return
 }
 
-script scr_seq_D37R0102_000 {
+script Goldenrod_Tunnel_B1F_EventScript_OldWoman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -96,7 +96,7 @@ script scr_seq_D37R0102_000 {
     end
 }
 
-script scr_seq_D37R0102_001 {
+script Goldenrod_Tunnel_B1F_EventScript_AceTrainerM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -226,7 +226,7 @@ text msg_0117_D37R0102_00014 {
     "Is that right? That’s a shame!"
 }
 
-script scr_seq_D37R0102_002 {
+script Goldenrod_Tunnel_B1F_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -353,7 +353,7 @@ text msg_0117_D37R0102_00021 {
     "No? How disappointing!"
 }
 
-script scr_seq_D37R0102_003 {
+script Goldenrod_Tunnel_B1F_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -504,26 +504,26 @@ _0886:
     end
 }
 
-script scr_seq_D37R0102_004 {
+script Goldenrod_Tunnel_B1F_EventScript_RocketGruntTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0AC4)
+    applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntExclamation)
     waitmovement
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 7) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0ACC)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntDelay)
     } elif (var(VAR_TEMP_x4001) == 8) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0AD4)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown1)
     } elif (var(VAR_TEMP_x4001) == 9) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0ADC)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown2)
     } elif (var(VAR_TEMP_x4001) == 10) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0AE4)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown3)
     } elif (var(VAR_TEMP_x4001) == 11) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0AEC)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown4)
     } elif (var(VAR_TEMP_x4001) == 12) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0AF4)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown5)
     } elif (var(VAR_TEMP_x4001) == 13) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0AFC)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown6)
     }
     waitmovement
     npcmsg("Huh?\n"
@@ -541,26 +541,26 @@ script scr_seq_D37R0102_004 {
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_TEMP_x4001) == 7) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0B04)
-        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_0B70)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkRight)
+        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp1)
     } elif (var(VAR_TEMP_x4001) == 8) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0B10)
-        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_0B7C)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight1)
+        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp2)
     } elif (var(VAR_TEMP_x4001) == 9) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0B20)
-        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_0B88)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight2)
+        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp3)
     } elif (var(VAR_TEMP_x4001) == 10) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0B30)
-        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_0B94)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight3)
+        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp4)
     } elif (var(VAR_TEMP_x4001) == 11) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0B40)
-        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_0BA0)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight4)
+        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp5)
     } elif (var(VAR_TEMP_x4001) == 12) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0B50)
-        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_0BAC)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight5)
+        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp6)
     } elif (var(VAR_TEMP_x4001) == 13) {
-        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_0B60)
-        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_0BB8)
+        applymovement(obj_D37R0102_rocketm, Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight6)
+        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp7)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -592,120 +592,120 @@ text msg_0117_D37R0102_00037 {
     "like that, OK?"
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0AC4 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntExclamation {
     emote_exclamation_mark
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0ACC {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntDelay {
     delay_2
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0AD4 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown1 {
     walk_down
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0ADC {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown2 {
     walk_down * 2
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0AE4 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown3 {
     walk_down * 3
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0AEC {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown4 {
     walk_down * 4
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0AF4 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown5 {
     walk_down * 5
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0AFC {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkDown6 {
     walk_down * 6
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B04 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkRight {
     walk_right
     walk_in_place_left
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B10 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight1 {
     walk_up
     walk_right
     walk_in_place_left
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B20 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight2 {
     walk_up * 2
     walk_right
     walk_in_place_left
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B30 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight3 {
     walk_up * 3
     walk_right
     walk_in_place_left
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B40 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight4 {
     walk_up * 4
     walk_right
     walk_in_place_left
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B50 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight5 {
     walk_up * 5
     walk_right
     walk_in_place_left
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B60 {
+movement Goldenrod_Tunnel_B1F_Movement_RocketGruntWalkUpRight6 {
     walk_up * 6
     walk_right
     walk_in_place_left
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B70 {
+movement Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp1 {
     walk_up
     walk_in_place_right
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B7C {
+movement Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp2 {
     walk_up * 2
     walk_in_place_right
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B88 {
+movement Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp3 {
     walk_up * 3
     walk_in_place_right
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0B94 {
+movement Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp4 {
     walk_up * 4
     walk_in_place_right
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0BA0 {
+movement Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp5 {
     walk_up * 5
     walk_in_place_right
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0BAC {
+movement Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp6 {
     walk_up * 6
     walk_in_place_right
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0BB8 {
+movement Goldenrod_Tunnel_B1F_Movement_PlayerWalkUp7 {
     walk_up * 7
     walk_in_place_right
 }
 
-script scr_seq_D37R0102_009 {
+script Goldenrod_Tunnel_B1F_EventScript_RocketGrunt {
     simplenpcmsg(msg_0117_D37R0102_00037)
     end
 }
 
-script scr_seq_D37R0102_005 {
+script Goldenrod_Tunnel_B1F_EventScript_Hiker1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -943,7 +943,7 @@ script(local) _0ED8 {
     end
 }
 
-script scr_seq_D37R0102_006 {
+script Goldenrod_Tunnel_B1F_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -977,8 +977,8 @@ script scr_seq_D37R0102_006 {
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
-        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_0FE8)
-        applymovement(obj_D37R0102_gsmiddleman1, Goldenrod_Tunnel_B1F_Movement_1000)
+        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D37R0102_gsmiddleman1, Goldenrod_Tunnel_B1F_Movement_PokefanMWalkDownLeft)
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
@@ -986,7 +986,7 @@ script scr_seq_D37R0102_006 {
         followmonisactive(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 1) {
             release(obj_partner_poke)
-            applymovement(obj_partner_poke, Goldenrod_Tunnel_B1F_Movement_0FF8)
+            applymovement(obj_partner_poke, Goldenrod_Tunnel_B1F_Movement_FollowMonFaceDown)
             lock(obj_partner_poke)
             waitmovement
         }
@@ -1006,7 +1006,7 @@ script scr_seq_D37R0102_006 {
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
-        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_1010)
+        applymovement(obj_player, Goldenrod_Tunnel_B1F_Movement_PlayerWalkDownRight)
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
@@ -1028,23 +1028,23 @@ script scr_seq_D37R0102_006 {
     end
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0FE8 {
+movement Goldenrod_Tunnel_B1F_Movement_PlayerWalkUpLeft {
     walk_faster_up * 3
     walk_faster_left * 2
     face_down
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_0FF8 {
+movement Goldenrod_Tunnel_B1F_Movement_FollowMonFaceDown {
     face_down
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_1000 {
+movement Goldenrod_Tunnel_B1F_Movement_PokefanMWalkDownLeft {
     walk_faster_down * 2
     walk_faster_left * 4
     face_up
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_1010 {
+movement Goldenrod_Tunnel_B1F_Movement_PlayerWalkDownRight {
     walk_faster_down * 3
     walk_faster_right * 2
 }
@@ -1055,15 +1055,15 @@ movement Goldenrod_Tunnel_B1F_Movement_101C {
     face_left
 }
 
-script scr_seq_D37R0102_011 {
+script Goldenrod_Tunnel_B1F_EventScript_KimonoGirlTrigger {
     followmonresetmovement
     lockall
     callstd(std_play_kimono_girl_music)
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 31) {
-        applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_10B4)
+        applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_KimonoGirlWalkLeft)
     } else {
-        applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_10C8)
+        applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_KimonoGirlWalkLeftDown)
     }
     waitmovement
     npcmsg("Team Rocket members in black suits\n"
@@ -1074,16 +1074,16 @@ script scr_seq_D37R0102_011 {
            "You may be able to face the\n"
            "legendary Poké...\r")
     closemessage
-    applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_10E4)
+    applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_KimonoGirlExclamation)
     waitmovement
     npcmsg("Hahaha! Never mind.\r"
            "I must go now.\r")
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 31) {
-        applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_10F0)
+        applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_KimonoGirlWalkDownLeft)
     } else {
-        applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_1120)
+        applymovement(obj_D37R0102_dancer, Goldenrod_Tunnel_B1F_Movement_KimonoGirlWalkUpLeft)
     }
     waitmovement
     removeobject(obj_D37R0102_dancer)
@@ -1094,14 +1094,14 @@ script scr_seq_D37R0102_011 {
     end
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_10B4 {
+movement Goldenrod_Tunnel_B1F_Movement_KimonoGirlWalkLeft {
     emote_exclamation_mark
     walk_in_place_left
     delay_8
     walk_left * 2
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_10C8 {
+movement Goldenrod_Tunnel_B1F_Movement_KimonoGirlWalkLeftDown {
     emote_exclamation_mark
     walk_in_place_left
     delay_8
@@ -1110,12 +1110,12 @@ movement Goldenrod_Tunnel_B1F_Movement_10C8 {
     walk_left
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_10E4 {
+movement Goldenrod_Tunnel_B1F_Movement_KimonoGirlExclamation {
     emote_exclamation_mark
     delay_16
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_10F0 {
+movement Goldenrod_Tunnel_B1F_Movement_KimonoGirlWalkDownLeft {
     walk_down
     walk_left * 3
     face_up
@@ -1129,7 +1129,7 @@ movement Goldenrod_Tunnel_B1F_Movement_10F0 {
     walk_left * 7
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_1120 {
+movement Goldenrod_Tunnel_B1F_Movement_KimonoGirlWalkUpLeft {
     walk_up
     walk_left * 3
     face_up
@@ -1143,7 +1143,7 @@ movement Goldenrod_Tunnel_B1F_Movement_1120 {
     walk_left * 7
 }
 
-script scr_seq_D37R0102_007 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign1 {
     simplenpcmsg(msg_0117_D37R0102_00027)
     end
 }
@@ -1152,7 +1152,7 @@ text msg_0117_D37R0102_00027 {
     "NO ENTRY BEYOND THIS POINT"
 }
 
-script scr_seq_D37R0102_010 {
+script Goldenrod_Tunnel_B1F_EventScript_LittleBoy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1162,7 +1162,7 @@ script scr_seq_D37R0102_010 {
         npcmsg("{STRVAR_1 3, 0, 0} inserted the\n"
                "Basement Key.\r")
         closemessage
-        applymovement(obj_D37R0102_babyboy1_8, Goldenrod_Tunnel_B1F_Movement_11A4)
+        applymovement(obj_D37R0102_babyboy1_8, Goldenrod_Tunnel_B1F_Movement_LittleBoyWalkRight)
         waitmovement
         releaseall
         setflag(FLAG_UNK_1C0)
@@ -1175,11 +1175,11 @@ script scr_seq_D37R0102_010 {
     end
 }
 
-movement Goldenrod_Tunnel_B1F_Movement_11A4 {
+movement Goldenrod_Tunnel_B1F_Movement_LittleBoyWalkRight {
     walk_right * 2
 }
 
-script scr_seq_D37R0102_012 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(0, VAR_SPECIAL_RESULT)
@@ -1194,7 +1194,7 @@ script scr_seq_D37R0102_012 {
     end
 }
 
-script scr_seq_D37R0102_013 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(1, VAR_SPECIAL_RESULT)
@@ -1209,7 +1209,7 @@ script scr_seq_D37R0102_013 {
     end
 }
 
-script scr_seq_D37R0102_014 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(2, VAR_SPECIAL_RESULT)
@@ -1224,7 +1224,7 @@ script scr_seq_D37R0102_014 {
     end
 }
 
-script scr_seq_D37R0102_015 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign5 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(3, VAR_SPECIAL_RESULT)
@@ -1239,7 +1239,7 @@ script scr_seq_D37R0102_015 {
     end
 }
 
-script scr_seq_D37R0102_016 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign6 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(4, VAR_SPECIAL_RESULT)
@@ -1254,7 +1254,7 @@ script scr_seq_D37R0102_016 {
     end
 }
 
-script scr_seq_D37R0102_017 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign7 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(5, VAR_SPECIAL_RESULT)
@@ -1269,7 +1269,7 @@ script scr_seq_D37R0102_017 {
     end
 }
 
-script scr_seq_D37R0102_018 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign8 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(6, VAR_SPECIAL_RESULT)
@@ -1284,7 +1284,7 @@ script scr_seq_D37R0102_018 {
     end
 }
 
-script scr_seq_D37R0102_019 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign9 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(7, VAR_SPECIAL_RESULT)
@@ -1299,7 +1299,7 @@ script scr_seq_D37R0102_019 {
     end
 }
 
-script scr_seq_D37R0102_020 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign10 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(8, VAR_SPECIAL_RESULT)
@@ -1314,7 +1314,7 @@ script scr_seq_D37R0102_020 {
     end
 }
 
-script scr_seq_D37R0102_021 {
+script Goldenrod_Tunnel_B1F_EventScript_Sign11 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(9, VAR_SPECIAL_RESULT)
@@ -1329,7 +1329,7 @@ script scr_seq_D37R0102_021 {
     end
 }
 
-script scr_seq_D37R0102_022 {
+script Goldenrod_Tunnel_B1F_EventScript_Photo {
     playse(SEQ_SE_DP_SELECT)
     lockall
     fashionentryissaved(10, VAR_SPECIAL_RESULT)
@@ -1351,7 +1351,7 @@ _144B:
     end
 }
 
-script scr_seq_D37R0102_023 {
+script Goldenrod_Tunnel_B1F_EventScript_Hiker2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1434,5 +1434,5 @@ text msg_0117_D37R0102_00064 {
 }
 
 mapscripts Goldenrod_Tunnel_B1F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D37R0102_008
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_Tunnel_B1F_OnTransition
 }

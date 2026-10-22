@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0379_R31R0101_00000",
-      "from": "scr_seq_R31R0101_002#0"
+      "from": "Route31_VioletGatehouse_EventScript_Attendant#0"
     },
     {
       "id": "msg_0379_R31R0101_00001",
@@ -11,27 +11,27 @@
     },
     {
       "id": "msg_0379_R31R0101_00002",
-      "from": "scr_seq_R31R0101_000#0"
+      "from": "Route31_VioletGatehouse_EventScript_LyraTrigger#0"
     },
     {
       "id": "msg_0379_R31R0101_00003",
-      "from": "scr_seq_R31R0101_000#1"
+      "from": "Route31_VioletGatehouse_EventScript_LyraTrigger#1"
     },
     {
       "id": "msg_0379_R31R0101_00004",
-      "from": "scr_seq_R31R0101_000#2"
+      "from": "Route31_VioletGatehouse_EventScript_LyraTrigger#2"
     },
     {
       "id": "msg_0379_R31R0101_00005",
-      "from": "scr_seq_R31R0101_000#3"
+      "from": "Route31_VioletGatehouse_EventScript_LyraTrigger#3"
     },
     {
       "id": "msg_0379_R31R0101_00006",
-      "from": "scr_seq_R31R0101_000#4"
+      "from": "Route31_VioletGatehouse_EventScript_LyraTrigger#4"
     },
     {
       "id": "msg_0379_R31R0101_00007",
-      "from": "scr_seq_R31R0101_000#5"
+      "from": "Route31_VioletGatehouse_EventScript_LyraTrigger#5"
     }
   ]
 }

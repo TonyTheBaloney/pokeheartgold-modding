@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D24R0211_000
-    scr_seq_D24R0211_001
-    scr_seq_D24R0211_002
-    scr_seq_D24R0211_003
-    scr_seq_D24R0211_004
+    RuinsOfAlph_HallEntrance_EventScript_Sign1
+    RuinsOfAlph_HallEntrance_EventScript_Sign2
+    RuinsOfAlph_HallEntrance_EventScript_PokefanM1
+    RuinsOfAlph_HallEntrance_OnTransition
+    RuinsOfAlph_HallEntrance_EventScript_PokefanM2
 }
 
-script scr_seq_D24R0211_003 {
+script RuinsOfAlph_HallEntrance_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) != 0) {
@@ -29,7 +29,7 @@ script scr_seq_D24R0211_003 {
     end
 }
 
-script scr_seq_D24R0211_000 {
+script RuinsOfAlph_HallEntrance_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It’s a replica of an ancient Pokémon.")
@@ -39,15 +39,15 @@ script scr_seq_D24R0211_000 {
     end
 }
 
-script scr_seq_D24R0211_001 {
+script RuinsOfAlph_HallEntrance_EventScript_Sign2 {
     followmonresetmovement
     lockall
     movepersonfacing(obj_D24R0211_gsassistantm, 25, 0, 30, DIR_NORTH)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_0120)
-    applymovement(obj_D24R0211_gsassistantm, RuinsOfAlph_HallEntrance_Movement_0144)
+    applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_PlayerWalkRightDown)
+    applymovement(obj_D24R0211_gsassistantm, RuinsOfAlph_HallEntrance_Movement_SuperNerdWalkUpRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -57,7 +57,7 @@ script scr_seq_D24R0211_001 {
            "When did this appear...?\r"
            "I wonder what these symbols mean...\f"
            "..................\r")
-    applymovement(obj_D24R0211_gsassistantm, RuinsOfAlph_HallEntrance_Movement_0160)
+    applymovement(obj_D24R0211_gsassistantm, RuinsOfAlph_HallEntrance_Movement_SuperNerdFaceDown)
     waitmovement
     npcmsg("Hey, you!\n"
            "Let’s go back to the Research Center!\r")
@@ -85,7 +85,7 @@ script scr_seq_D24R0211_001 {
     end
 }
 
-movement RuinsOfAlph_HallEntrance_Movement_0120 {
+movement RuinsOfAlph_HallEntrance_Movement_PlayerWalkRightDown {
     delay_4
     walk_right
     face_down
@@ -96,7 +96,7 @@ movement RuinsOfAlph_HallEntrance_Movement_0120 {
     face_up
 }
 
-movement RuinsOfAlph_HallEntrance_Movement_0144 {
+movement RuinsOfAlph_HallEntrance_Movement_SuperNerdWalkUpRight {
     delay_8 * 4
     walk_fast_up * 4
     walk_fast_right
@@ -105,11 +105,11 @@ movement RuinsOfAlph_HallEntrance_Movement_0144 {
     walk_in_place_up
 }
 
-movement RuinsOfAlph_HallEntrance_Movement_0160 {
+movement RuinsOfAlph_HallEntrance_Movement_SuperNerdFaceDown {
     face_down
 }
 
-script scr_seq_D24R0211_002 {
+script RuinsOfAlph_HallEntrance_EventScript_PokefanM1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -129,16 +129,16 @@ script scr_seq_D24R0211_002 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02B8)
-        applymovement(obj_D24R0211_gsmiddleman1, RuinsOfAlph_HallEntrance_Movement_0304)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_PlayerWalkRightUp)
+        applymovement(obj_D24R0211_gsmiddleman1, RuinsOfAlph_HallEntrance_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02D0)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02F0)
-        applymovement(obj_D24R0211_gsmiddleman1, RuinsOfAlph_HallEntrance_Movement_0304)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_PlayerWalkUpRight)
+        applymovement(obj_D24R0211_gsmiddleman1, RuinsOfAlph_HallEntrance_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02DC)
-        applymovement(obj_D24R0211_gsmiddleman1, RuinsOfAlph_HallEntrance_Movement_0304)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D24R0211_gsmiddleman1, RuinsOfAlph_HallEntrance_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -146,7 +146,7 @@ script scr_seq_D24R0211_002 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, RuinsOfAlph_HallEntrance_Movement_0310)
+        applymovement(obj_partner_poke, RuinsOfAlph_HallEntrance_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -179,7 +179,7 @@ _02A4:
     end
 }
 
-movement RuinsOfAlph_HallEntrance_Movement_02B8 {
+movement RuinsOfAlph_HallEntrance_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -187,37 +187,37 @@ movement RuinsOfAlph_HallEntrance_Movement_02B8 {
     walk_in_place_down
 }
 
-movement RuinsOfAlph_HallEntrance_Movement_02D0 {
+movement RuinsOfAlph_HallEntrance_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement RuinsOfAlph_HallEntrance_Movement_02DC {
+movement RuinsOfAlph_HallEntrance_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement RuinsOfAlph_HallEntrance_Movement_02F0 {
+movement RuinsOfAlph_HallEntrance_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement RuinsOfAlph_HallEntrance_Movement_0304 {
+movement RuinsOfAlph_HallEntrance_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement RuinsOfAlph_HallEntrance_Movement_0310 {
+movement RuinsOfAlph_HallEntrance_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_D24R0211_004 {
+script RuinsOfAlph_HallEntrance_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -237,16 +237,16 @@ script scr_seq_D24R0211_004 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02B8)
-        applymovement(obj_D24R0211_gsmiddleman1_2, RuinsOfAlph_HallEntrance_Movement_0304)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_PlayerWalkRightUp)
+        applymovement(obj_D24R0211_gsmiddleman1_2, RuinsOfAlph_HallEntrance_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02D0)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02F0)
-        applymovement(obj_D24R0211_gsmiddleman1_2, RuinsOfAlph_HallEntrance_Movement_0304)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_PlayerWalkUpRight)
+        applymovement(obj_D24R0211_gsmiddleman1_2, RuinsOfAlph_HallEntrance_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02DC)
-        applymovement(obj_D24R0211_gsmiddleman1_2, RuinsOfAlph_HallEntrance_Movement_0304)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D24R0211_gsmiddleman1_2, RuinsOfAlph_HallEntrance_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -254,7 +254,7 @@ script scr_seq_D24R0211_004 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, RuinsOfAlph_HallEntrance_Movement_0310)
+        applymovement(obj_partner_poke, RuinsOfAlph_HallEntrance_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -274,5 +274,5 @@ script scr_seq_D24R0211_004 {
 }
 
 mapscripts RuinsOfAlph_HallEntrance_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D24R0211_003
+    INIT_SCRIPT_ON_TRANSITION: RuinsOfAlph_HallEntrance_OnTransition
 }

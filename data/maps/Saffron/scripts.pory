@@ -3,26 +3,26 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T11_000
-    scr_seq_T11_001
-    scr_seq_T11_002
-    scr_seq_T11_003
-    scr_seq_T11_004
-    scr_seq_T11_005
-    scr_seq_T11_006
-    scr_seq_T11_007
-    scr_seq_T11_008
-    scr_seq_T11_009
-    scr_seq_T11_010
-    scr_seq_T11_011
-    scr_seq_T11_012
-    scr_seq_T11_013
-    scr_seq_T11_014
-    scr_seq_T11_015
-    scr_seq_T11_016
+    Saffron_EventScript_Girl
+    Saffron_EventScript_SchoolKidM
+    Saffron_EventScript_Beauty
+    Saffron_EventScript_Youngster
+    Saffron_EventScript_FatMan
+    Saffron_EventScript_Woman
+    Saffron_EventScript_Man
+    Saffron_EventScript_PokefanM1
+    Saffron_EventScript_TrainerTips1
+    Saffron_EventScript_CitySign
+    Saffron_EventScript_TrainerTips2
+    Saffron_EventScript_TrainerTips3
+    Saffron_EventScript_TrainerTips4
+    Saffron_EventScript_TrainerTips5
+    Saffron_EventScript_PokefanM2
+    Saffron_EventScript_PokefanM3
+    Saffron_OnTransition
 }
 
-script scr_seq_T11_016 {
+script Saffron_OnTransition {
     if (flag(FLAG_UNK_0A0)) {
         clearflag(FLAG_UNK_0A0)
     }
@@ -49,7 +49,7 @@ script scr_seq_T11_016 {
     end
 }
 
-script scr_seq_T11_014 {
+script Saffron_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -69,13 +69,13 @@ script scr_seq_T11_014 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Saffron_Movement_01D0)
-        applymovement(obj_T11_gsmiddleman1_2, Saffron_Movement_0208)
+        applymovement(obj_player, Saffron_Movement_PlayerWalkLeftUp)
+        applymovement(obj_T11_gsmiddleman1_2, Saffron_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Saffron_Movement_01E8)
+        applymovement(obj_player, Saffron_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Saffron_Movement_01F4)
-        applymovement(obj_T11_gsmiddleman1_2, Saffron_Movement_0208)
+        applymovement(obj_player, Saffron_Movement_PlayerWalkUpRight)
+        applymovement(obj_T11_gsmiddleman1_2, Saffron_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -83,7 +83,7 @@ script scr_seq_T11_014 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Saffron_Movement_0214)
+        applymovement(obj_partner_poke, Saffron_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -102,7 +102,7 @@ script scr_seq_T11_014 {
     end
 }
 
-movement Saffron_Movement_01D0 {
+movement Saffron_Movement_PlayerWalkLeftUp {
     walk_left
     walk_up * 2
     walk_right
@@ -110,30 +110,30 @@ movement Saffron_Movement_01D0 {
     walk_in_place_down
 }
 
-movement Saffron_Movement_01E8 {
+movement Saffron_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Saffron_Movement_01F4 {
+movement Saffron_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Saffron_Movement_0208 {
+movement Saffron_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Saffron_Movement_0214 {
+movement Saffron_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T11_015 {
+script Saffron_EventScript_PokefanM3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -153,16 +153,16 @@ script scr_seq_T11_015 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Saffron_Movement_0374)
-        applymovement(obj_T11_gsmiddleman1_3, Saffron_Movement_0208)
+        applymovement(obj_player, Saffron_Movement_PlayerWalkRightUp)
+        applymovement(obj_T11_gsmiddleman1_3, Saffron_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Saffron_Movement_01E8)
+        applymovement(obj_player, Saffron_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Saffron_Movement_01F4)
-        applymovement(obj_T11_gsmiddleman1_3, Saffron_Movement_0208)
+        applymovement(obj_player, Saffron_Movement_PlayerWalkUpRight)
+        applymovement(obj_T11_gsmiddleman1_3, Saffron_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Saffron_Movement_038C)
-        applymovement(obj_T11_gsmiddleman1_3, Saffron_Movement_0208)
+        applymovement(obj_player, Saffron_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T11_gsmiddleman1_3, Saffron_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -170,7 +170,7 @@ script scr_seq_T11_015 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Saffron_Movement_0214)
+        applymovement(obj_partner_poke, Saffron_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -203,7 +203,7 @@ _0360:
     end
 }
 
-movement Saffron_Movement_0374 {
+movement Saffron_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -211,14 +211,14 @@ movement Saffron_Movement_0374 {
     walk_in_place_down
 }
 
-movement Saffron_Movement_038C {
+movement Saffron_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-script scr_seq_T11_002 {
+script Saffron_EventScript_Beauty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -241,7 +241,7 @@ script scr_seq_T11_002 {
     end
 }
 
-script scr_seq_T11_000 {
+script Saffron_EventScript_Girl {
     simplenpcmsg("Our city was featured on a\n"
                  "radio show.\r"
                  "It’s nice to hear praise for your\n"
@@ -249,7 +249,7 @@ script scr_seq_T11_000 {
     end
 }
 
-script scr_seq_T11_001 {
+script Saffron_EventScript_SchoolKidM {
     simplenpcmsg("I went to the Gym, raring for battles\n"
                  "against Trainers...\r"
                  "It turns out, I stumbled into the\n"
@@ -258,13 +258,13 @@ script scr_seq_T11_001 {
     end
 }
 
-script scr_seq_T11_003 {
+script Saffron_EventScript_Youngster {
     simplenpcmsg("Going into an alley for the first time\n"
                  "makes me sorta anxious.")
     end
 }
 
-script scr_seq_T11_004 {
+script Saffron_EventScript_FatMan {
     simplenpcmsg("Chomp... Chew...\r"
                  "The manager of the Power Plant\n"
                  "used to be a repairman in a\f"
@@ -279,7 +279,7 @@ script scr_seq_T11_004 {
     end
 }
 
-script scr_seq_T11_005 {
+script Saffron_EventScript_Woman {
     simplenpcmsg("This is Silph Co., famous for\n"
                  "Pokémon merchandise.\r"
                  "In the past, Team Rocket wanted the\n"
@@ -287,57 +287,57 @@ script scr_seq_T11_005 {
     end
 }
 
-script scr_seq_T11_006 {
+script Saffron_EventScript_Man {
     simplenpcmsg("There’s a place called Trainer House\n"
                  "in Viridian where Trainers gather from\f"
                  "all over the place.")
     end
 }
 
-script scr_seq_T11_007 {
+script Saffron_EventScript_PokefanM1 {
     simplenpcmsg("You came out from Johto?\r"
                  "You can zip back home by hopping on\n"
                  "the Magnet Train.")
     end
 }
 
-script scr_seq_T11_008 {
+script Saffron_EventScript_TrainerTips1 {
     trainertipsex(2, "Kanto-Johto Magnet Train Line\n"
                      "Saffron City Station")
     end
 }
 
-script scr_seq_T11_009 {
+script Saffron_EventScript_CitySign {
     directionsignpostex(0, 10, "Saffron City\n"
                                "Shining Big City")
     end
 }
 
-script scr_seq_T11_010 {
+script Saffron_EventScript_TrainerTips2 {
     trainertipsex(2, "Everyone Is Welcome!\n"
                      "Fighting Dojo")
     end
 }
 
-script scr_seq_T11_011 {
+script Saffron_EventScript_TrainerTips3 {
     trainertipsex(2, "Saffron City Pokémon Gym\n"
                      "Leader: Sabrina\f"
                      "The Mistress of Psychic-Type Pokémon!")
     end
 }
 
-script scr_seq_T11_012 {
+script Saffron_EventScript_TrainerTips4 {
     trainertipsex(2, "Silph Co.\n"
                      "Office Building")
     end
 }
 
-script scr_seq_T11_013 {
+script Saffron_EventScript_TrainerTips5 {
     trainertipsex(2, "Don’t Call Me Uncle Psychic!\n"
                      "Mr. Psychic’s House")
     end
 }
 
 mapscripts Saffron_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11_016
+    INIT_SCRIPT_ON_TRANSITION: Saffron_OnTransition
 }

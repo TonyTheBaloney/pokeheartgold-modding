@@ -3,27 +3,27 @@
   "messages": [
     {
       "id": "msg_0446_T01_00000",
-      "from": "scr_seq_T01_000#0"
+      "from": "Pallet_EventScript_Woman#0"
     },
     {
       "id": "msg_0446_T01_00001",
-      "from": "scr_seq_T01_001#0"
+      "from": "Pallet_EventScript_FatMan#0"
     },
     {
       "id": "msg_0446_T01_00002",
-      "from": "scr_seq_T01_002#0"
+      "from": "Pallet_EventScript_TownSign#0"
     },
     {
       "id": "msg_0446_T01_00003",
-      "from": "scr_seq_T01_003#0"
+      "from": "Pallet_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0446_T01_00004",
-      "from": "scr_seq_T01_004#0"
+      "from": "Pallet_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0446_T01_00005",
-      "from": "scr_seq_T01_005#0"
+      "from": "Pallet_EventScript_TrainerTips3#0"
     }
   ]
 }

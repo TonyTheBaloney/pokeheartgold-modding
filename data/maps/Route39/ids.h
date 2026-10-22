@@ -1,14 +1,14 @@
 #ifndef SCR_SEQ_R39_H_
 #define SCR_SEQ_R39_H_
 
-#define _EV_scr_seq_R39_000 0
-#define _EV_scr_seq_R39_001 1
-#define _EV_scr_seq_R39_002 2
-#define _EV_scr_seq_R39_003 3
-#define _EV_scr_seq_R39_004 4
-#define _EV_scr_seq_R39_005 5
-#define _EV_scr_seq_R39_006 6
-#define _EV_scr_seq_R39_007 7
+#define _EV_Route39_EventScript_Miltank 0
+#define _EV_Route39_OnTransition 1
+#define _EV_Route39_EventScript_BaobaTrigger 2
+#define _EV_Route39_EventScript_RouteSign 3
+#define _EV_Route39_EventScript_TrainerTips1 4
+#define _EV_Route39_EventScript_TrainerTips2 5
+#define _EV_Route39_EventScript_PokefanM 6
+#define _EV_Route39_EventScript_LtSurge 7
 
 #define obj_R39_seaman_2                    0
 #define obj_R39_gsmiddleman1                1

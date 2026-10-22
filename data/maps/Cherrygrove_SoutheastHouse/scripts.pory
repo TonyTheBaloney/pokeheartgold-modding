@@ -5,13 +5,13 @@ script scr_seq_T21R0501_000 {
     end
 }
 
-script scr_seq_T21R0501_001 {
+script Cherrygrove_SoutheastHouse_EventScript_SchoolKidM {
     simplenpcmsg("Pokémon gain experience in battle\n"
                  "and change their form.")
     end
 }
 
-script scr_seq_T21R0501_002 {
+script Cherrygrove_SoutheastHouse_EventScript_Lass {
     simplenpcmsg("I heard that each Pokémon has its own\n"
                  "nature, and it has something to do with\f"
                  "Pokémon stats!\n")

@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T26GYM0101_000
-    scr_seq_T26GYM0101_001
-    scr_seq_T26GYM0101_002
-    scr_seq_T26GYM0101_003
-    scr_seq_T26GYM0101_004
-    scr_seq_T26GYM0101_005
-    scr_seq_T26GYM0101_006
-    scr_seq_T26GYM0101_007
+    Olivine_Gym_EventScript_Jasmine
+    Olivine_Gym_EventScript_GentlemanTrigger
+    Olivine_Gym_EventScript_LassTrigger
+    Olivine_Gym_EventScript_Gentleman
+    Olivine_Gym_EventScript_Lass
+    Olivine_Gym_EventScript_GymGuide
+    Olivine_Gym_EventScript_GymSign
+    Olivine_Gym_OnTransition
 }
 
-script scr_seq_T26GYM0101_007 {
+script Olivine_Gym_OnTransition {
     getphonebookrematch(PHONE_CONTACT_JASMINE, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
         setflag(FLAG_HIDE_JASMINE_IN_GYM)
@@ -74,7 +74,7 @@ _015A:
     end
 }
 
-script scr_seq_T26GYM0101_000 {
+script Olivine_Gym_EventScript_Jasmine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -248,20 +248,20 @@ text msg_0606_T26GYM0101_00011 {
     "I’ll take good care of it."
 }
 
-script scr_seq_T26GYM0101_001 {
+script Olivine_Gym_EventScript_GentlemanTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_040C)
+    applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_GentlemanExclamation)
     waitmovement
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 5) {
-        applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_0414)
+        applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_GentlemanWalkRight1)
     } elif (var(VAR_TEMP_x4000) == 6) {
-        applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_041C)
+        applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_GentlemanWalkRight2)
     } else {
-        applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_0424)
+        applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_GentlemanWalkRight3)
     }
-    applymovement(obj_player, Olivine_Gym_Movement_042C)
+    applymovement(obj_player, Olivine_Gym_Movement_PlayerFaceLeft)
     waitmovement
     npcmsg(msg_0606_T26GYM0101_00019)
     waitbuttonpress
@@ -280,44 +280,44 @@ text msg_0606_T26GYM0101_00019 {
     "Go for it!"
 }
 
-movement Olivine_Gym_Movement_040C {
+movement Olivine_Gym_Movement_GentlemanExclamation {
     emote_exclamation_mark
 }
 
-movement Olivine_Gym_Movement_0414 {
+movement Olivine_Gym_Movement_GentlemanWalkRight1 {
     walk_right
 }
 
-movement Olivine_Gym_Movement_041C {
+movement Olivine_Gym_Movement_GentlemanWalkRight2 {
     walk_right * 2
 }
 
-movement Olivine_Gym_Movement_0424 {
+movement Olivine_Gym_Movement_GentlemanWalkRight3 {
     walk_right * 3
 }
 
-movement Olivine_Gym_Movement_042C {
+movement Olivine_Gym_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-movement Olivine_Gym_Movement_0434 {
+movement Olivine_Gym_Movement_PlayerFaceRight {
     walk_in_place_right
 }
 
-script scr_seq_T26GYM0101_002 {
+script Olivine_Gym_EventScript_LassTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_040C)
+    applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_GentlemanExclamation)
     waitmovement
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 5) {
-        applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_04B8)
+        applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_LassWalkLeft1)
     } elif (var(VAR_TEMP_x4000) == 6) {
-        applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_04C0)
+        applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_LassWalkLeft2)
     } else {
-        applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_04C8)
+        applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_LassWalkLeft3)
     }
-    applymovement(obj_player, Olivine_Gym_Movement_0434)
+    applymovement(obj_player, Olivine_Gym_Movement_PlayerFaceRight)
     waitmovement
     npcmsg(msg_0606_T26GYM0101_00021)
     waitbuttonpress
@@ -337,19 +337,19 @@ text msg_0606_T26GYM0101_00021 {
     "yourself to Jasmine! Good luck!"
 }
 
-movement Olivine_Gym_Movement_04B8 {
+movement Olivine_Gym_Movement_LassWalkLeft1 {
     walk_left * 3
 }
 
-movement Olivine_Gym_Movement_04C0 {
+movement Olivine_Gym_Movement_LassWalkLeft2 {
     walk_left * 2
 }
 
-movement Olivine_Gym_Movement_04C8 {
+movement Olivine_Gym_Movement_LassWalkLeft3 {
     walk_left
 }
 
-script scr_seq_T26GYM0101_003 {
+script Olivine_Gym_EventScript_Gentleman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -372,7 +372,7 @@ script scr_seq_T26GYM0101_003 {
     end
 }
 
-script scr_seq_T26GYM0101_004 {
+script Olivine_Gym_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -394,7 +394,7 @@ script scr_seq_T26GYM0101_004 {
     end
 }
 
-script scr_seq_T26GYM0101_005 {
+script Olivine_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -425,7 +425,7 @@ script scr_seq_T26GYM0101_005 {
     end
 }
 
-script scr_seq_T26GYM0101_006 {
+script Olivine_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -446,5 +446,5 @@ script scr_seq_T26GYM0101_006 {
 }
 
 mapscripts Olivine_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T26GYM0101_007
+    INIT_SCRIPT_ON_TRANSITION: Olivine_Gym_OnTransition
 }

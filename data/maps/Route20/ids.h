@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_W20_H_
 #define SCR_SEQ_W20_H_
 
-#define _EV_scr_seq_W20_000 0
-#define _EV_scr_seq_W20_001 1
+#define _EV_Route20_EventScript_TrainerTips1 0
+#define _EV_Route20_EventScript_TrainerTips2 1
 
 #define obj_W20_gsswimmerm     0
 #define obj_W20_campboy_2      1

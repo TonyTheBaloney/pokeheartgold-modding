@@ -3,24 +3,24 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D35R0103_000
-    scr_seq_D35R0103_001
-    scr_seq_D35R0103_002
-    scr_seq_D35R0103_003
-    scr_seq_D35R0103_004
-    scr_seq_D35R0103_005
-    scr_seq_D35R0103_006
-    scr_seq_D35R0103_007
-    scr_seq_D35R0103_008
-    scr_seq_D35R0103_009
-    scr_seq_D35R0103_010
-    scr_seq_D35R0103_011
-    scr_seq_D35R0103_012
-    scr_seq_D35R0103_013
-    scr_seq_D35R0103_014
+    TeamRocketHeadquarters_B2F_EventScript_LanceScene
+    TeamRocketHeadquarters_B2F_EventScript_LittleBoy
+    TeamRocketHeadquarters_B2F_OnResume
+    TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger
+    TeamRocketHeadquarters_B2F_EventScript_Electrode1
+    TeamRocketHeadquarters_B2F_EventScript_Electrode2
+    TeamRocketHeadquarters_B2F_EventScript_Lance
+    TeamRocketHeadquarters_B2F_OnLoad
+    TeamRocketHeadquarters_B2F_EventScript_LanceTrigger1
+    TeamRocketHeadquarters_B2F_EventScript_LanceTrigger2
+    TeamRocketHeadquarters_B2F_EventScript_Radio
+    TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger1
+    TeamRocketHeadquarters_B2F_EventScript_Trigger
+    TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger2
+    TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger3
 }
 
-script scr_seq_D35R0103_002 {
+script TeamRocketHeadquarters_B2F_OnResume {
     updatemappropanimsfromflag96b
     if (var(VAR_UNK_40A9) >= 3) {
         movepersonfacing(obj_D35R0103_babyboy1_9, 29, 0, 22, DIR_NORTH)
@@ -40,7 +40,7 @@ script scr_seq_D35R0103_002 {
     end
 }
 
-script scr_seq_D35R0103_007 {
+script TeamRocketHeadquarters_B2F_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         staticwildwonorcaughtcheck(VAR_TEMP_x4000, 1)
         if (var(VAR_TEMP_x4000) != 1) {
@@ -67,13 +67,13 @@ script scr_seq_D35R0103_007 {
     end
 }
 
-script scr_seq_D35R0103_000 {
+script TeamRocketHeadquarters_B2F_EventScript_LanceScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_01AC)
+    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkRightUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -96,8 +96,8 @@ script scr_seq_D35R0103_000 {
                  "best for Pokémon.\r", "Lance: {STRVAR_1 3, 0, 0}, let’s give our\n"
                                         "best for Pokémon.\r")
     closemessage
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_01B8)
-    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_01C0)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceWalkRight1)
+    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_DragoniteWalkRight1)
     waitmovement
     removeobject(obj_D35R0103_wataru)
     removeobject(obj_D35R0103_tsure_poke_static_dragonite)
@@ -107,24 +107,24 @@ script scr_seq_D35R0103_000 {
     end
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_01AC {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkRightUp {
     walk_right * 5
     walk_up * 4
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_01B8 {
+movement TeamRocketHeadquarters_B2F_Movement_LanceWalkRight1 {
     walk_right * 11
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_01C0 {
+movement TeamRocketHeadquarters_B2F_Movement_DragoniteWalkRight1 {
     delay_2
     walk_right * 11
 }
 
-script scr_seq_D35R0103_013 {
+script TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger2 {
     followmonresetmovement
     lockall
-    applymovement(obj_D35R0103_tsure_poke_static_murkrow, TeamRocketHeadquarters_B2F_Movement_0214)
+    applymovement(obj_D35R0103_tsure_poke_static_murkrow, TeamRocketHeadquarters_B2F_Movement_MurkrowFaceLeft)
     waitmovement
     npcmsg("MURKROW: The password is...\f"
            "Hail Giovanni.\r")
@@ -132,7 +132,7 @@ script scr_seq_D35R0103_013 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D35R0103_tsure_poke_static_murkrow, TeamRocketHeadquarters_B2F_Movement_021C)
+    applymovement(obj_D35R0103_tsure_poke_static_murkrow, TeamRocketHeadquarters_B2F_Movement_MurkrowWalkRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -145,11 +145,11 @@ script scr_seq_D35R0103_013 {
     end
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0214 {
+movement TeamRocketHeadquarters_B2F_Movement_MurkrowFaceLeft {
     jump_in_place_fast_left * 2
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_021C {
+movement TeamRocketHeadquarters_B2F_Movement_MurkrowWalkRight {
     face_right
     jump_in_place_fast_right
     walk_fast_right * 5
@@ -160,15 +160,15 @@ movement TeamRocketHeadquarters_B2F_Movement_022C {
     walk_right * 3
 }
 
-script scr_seq_D35R0103_014 {
+script TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger3 {
     followmonresetmovement
     lockall
-    applymovement(obj_D35R0103_tsure_poke_static_murkrow_2, TeamRocketHeadquarters_B2F_Movement_0270)
+    applymovement(obj_D35R0103_tsure_poke_static_murkrow_2, TeamRocketHeadquarters_B2F_Movement_MurkrowFaceRight)
     waitmovement
     npcmsg("MURKROW: The password is...\f"
            "Hail Giovanni.\r")
     closemessage
-    applymovement(obj_D35R0103_tsure_poke_static_murkrow_2, TeamRocketHeadquarters_B2F_Movement_0278)
+    applymovement(obj_D35R0103_tsure_poke_static_murkrow_2, TeamRocketHeadquarters_B2F_Movement_MurkrowWalkLeft1)
     waitmovement
     setvar(VAR_UNK_40AC, 7)
     removeobject(obj_D35R0103_tsure_poke_static_murkrow_2)
@@ -179,20 +179,20 @@ script scr_seq_D35R0103_014 {
     end
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0270 {
+movement TeamRocketHeadquarters_B2F_Movement_MurkrowFaceRight {
     jump_in_place_fast_right * 2
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0278 {
+movement TeamRocketHeadquarters_B2F_Movement_MurkrowWalkLeft1 {
     face_left
     jump_in_place_fast_left
     walk_fast_left * 10
 }
 
-script scr_seq_D35R0103_011 {
+script TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger1 {
     followmonresetmovement
     lockall
-    applymovement(obj_D35R0103_tsure_poke_static_murkrow_3, TeamRocketHeadquarters_B2F_Movement_0308)
+    applymovement(obj_D35R0103_tsure_poke_static_murkrow_3, TeamRocketHeadquarters_B2F_Movement_MurkrowFaceUp)
     waitmovement
     npcmsg("MURKROW: The password is...\f"
            "Hail Giovanni.\r")
@@ -204,14 +204,14 @@ script scr_seq_D35R0103_011 {
            "the door!\r")
     closemessage
     playse(SEQ_SE_DP_DOOR10)
-    applymovement(obj_D35R0103_babyboy1_9, TeamRocketHeadquarters_B2F_Movement_03B0)
-    applymovement(obj_D35R0103_babyboy1_9_2, TeamRocketHeadquarters_B2F_Movement_03B8)
+    applymovement(obj_D35R0103_babyboy1_9, TeamRocketHeadquarters_B2F_Movement_LittleBoyWalkLeft1)
+    applymovement(obj_D35R0103_babyboy1_9_2, TeamRocketHeadquarters_B2F_Movement_LittleBoyWalkLeft2)
     waitmovement
     getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
     if (var(VAR_SPECIAL_x8001) == 24) {
-        applymovement(obj_D35R0103_tsure_poke_static_murkrow_3, TeamRocketHeadquarters_B2F_Movement_0324)
+        applymovement(obj_D35R0103_tsure_poke_static_murkrow_3, TeamRocketHeadquarters_B2F_Movement_MurkrowWalkLeftDown)
     } else {
-        applymovement(obj_D35R0103_tsure_poke_static_murkrow_3, TeamRocketHeadquarters_B2F_Movement_0310)
+        applymovement(obj_D35R0103_tsure_poke_static_murkrow_3, TeamRocketHeadquarters_B2F_Movement_MurkrowWalkLeft2)
     }
     waitmovement
     setvar(VAR_UNK_40AC, 8)
@@ -225,18 +225,18 @@ script scr_seq_D35R0103_011 {
     end
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0308 {
+movement TeamRocketHeadquarters_B2F_Movement_MurkrowFaceUp {
     jump_in_place_fast_up * 2
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0310 {
+movement TeamRocketHeadquarters_B2F_Movement_MurkrowWalkLeft2 {
     jump_in_place_fast_up * 2
     face_left
     delay_8
     walk_fast_left * 12
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0324 {
+movement TeamRocketHeadquarters_B2F_Movement_MurkrowWalkLeftDown {
     jump_in_place_fast_up * 2
     face_left
     delay_8
@@ -246,8 +246,8 @@ movement TeamRocketHeadquarters_B2F_Movement_0324 {
     walk_fast_left * 10
 }
 
-script scr_seq_D35R0103_012 {
-    goto(scr_seq_D35R0103_011)
+script TeamRocketHeadquarters_B2F_EventScript_Trigger {
+    goto(TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger1)
     end
 }
 
@@ -260,7 +260,7 @@ movement TeamRocketHeadquarters_B2F_Movement_0354 {
     walk_fast_up * 5
 }
 
-script scr_seq_D35R0103_001 {
+script TeamRocketHeadquarters_B2F_EventScript_LittleBoy {
     if (var(VAR_UNK_40AC) < 8) {
         playse(SEQ_SE_DP_SELECT)
         lockall
@@ -281,28 +281,28 @@ script scr_seq_D35R0103_001 {
                "The door opened!\r")
         closemessage
         playse(SEQ_SE_DP_DOOR10)
-        applymovement(obj_D35R0103_babyboy1_9, TeamRocketHeadquarters_B2F_Movement_03B0)
-        applymovement(obj_D35R0103_babyboy1_9_2, TeamRocketHeadquarters_B2F_Movement_03B8)
+        applymovement(obj_D35R0103_babyboy1_9, TeamRocketHeadquarters_B2F_Movement_LittleBoyWalkLeft1)
+        applymovement(obj_D35R0103_babyboy1_9_2, TeamRocketHeadquarters_B2F_Movement_LittleBoyWalkLeft2)
         waitmovement
         releaseall
     }
     end
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_03B0 {
+movement TeamRocketHeadquarters_B2F_Movement_LittleBoyWalkLeft1 {
     walk_left * 2
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_03B8 {
+movement TeamRocketHeadquarters_B2F_Movement_LittleBoyWalkLeft2 {
     delay_8
     walk_left
 }
 
-script scr_seq_D35R0103_003 {
+script TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger {
     followmonresetmovement
     lockall
     npcmsg("Ariana: Hold it right there!")
-    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_0630)
+    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerExclamation)
     waitmovement
     closemessage
     clearflag(FLAG_HIDE_ROCKET_HIDEOUT_B2F_ARIANA)
@@ -317,17 +317,17 @@ script scr_seq_D35R0103_003 {
     followingpokemonmovement(55)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 30) {
-        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_065C)
+        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkDown)
     } else {
-        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_0668)
+        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkDownLeft)
     }
-    applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_0638)
-    applymovement(obj_D35R0103_rocketm_4, TeamRocketHeadquarters_B2F_Movement_0650)
+    applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_ArianaWalkUp)
+    applymovement(obj_D35R0103_rocketm_4, TeamRocketHeadquarters_B2F_Movement_RocketGruntWalkUp1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_0648)
+    applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_ArianaFaceLeft)
     waitmovement
     npcmsg("Ariana: We can’t let a brat like you\n"
            "do as you please forever.\r"
@@ -345,8 +345,8 @@ script scr_seq_D35R0103_003 {
     addobject(obj_D35R0103_tsure_poke_static_dragonite)
     movepersonfacing(obj_D35R0103_wataru, 20, 1, 25, DIR_EAST)
     movepersonfacing(obj_D35R0103_tsure_poke_static_dragonite, 19, 1, 25, DIR_NORTH)
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_067C)
-    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_0684)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceWalkRight2)
+    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_DragoniteWalkRight2)
     waitmovement
     npcmsg("Lance: Hold it!\r"
            "A two-on-one battle?\n"
@@ -354,10 +354,10 @@ script scr_seq_D35R0103_003 {
            "Typical of Team Rocket to be so sneaky.\n"
            "Allow me to join the battle!\r")
     closemessage
-    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_0690)
+    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_DragoniteFaceRight)
     playcry(SPECIES_DRAGONITE, 0)
     waitcry
-    applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_0648)
+    applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_ArianaFaceLeft)
     waitmovement
     npcmsg("Ariana: What? You had an accomplice?\n"
            "Where is your sense of dignity?\r"
@@ -365,8 +365,8 @@ script scr_seq_D35R0103_003 {
            "I’ll show you how wrong it is to meddle\f"
            "with Team Rocket!\r")
     closemessage
-    applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_0698)
-    applymovement(obj_D35R0103_rocketm_4, TeamRocketHeadquarters_B2F_Movement_06A0)
+    applymovement(obj_D35R0103_rkanbuw, TeamRocketHeadquarters_B2F_Movement_ArianaWalkLeft)
+    applymovement(obj_D35R0103_rocketm_4, TeamRocketHeadquarters_B2F_Movement_RocketGruntWalkUp2)
     waitmovement
     multibattle(TRAINER_PKMN_TRAINER_LANCE_LANCE, TRAINER_EXECUTIVE_ARIANA_ARIANA_2, TRAINER_TEAM_ROCKET_GRUNT_25, 1)
     checkbattlewon(VAR_SPECIAL_RESULT)
@@ -394,7 +394,7 @@ script scr_seq_D35R0103_003 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_06A8)
+    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkUpRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -409,8 +409,8 @@ script scr_seq_D35R0103_003 {
     setflag(FLAG_UNK_1E8)
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_06BC)
-    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_06C4)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceWalkRight3)
+    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_DragoniteWalkRight3)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Sorry, {STRVAR_1 3, 0, 0}. I saw how well you\n"
@@ -424,17 +424,17 @@ script scr_seq_D35R0103_003 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_0738)
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_06D0)
-    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_070C)
+    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkUp)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceWalkUpLeft)
+    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_DragoniteWalkRightUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     playcry(SPECIES_DRAGONITE, 0)
     waitcry
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_06FC)
-    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_072C)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceWalkLeft1)
+    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_DragoniteWalkLeft1)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("It’s this machine that’s causing all the\n"
@@ -458,9 +458,9 @@ script scr_seq_D35R0103_003 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_0744)
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_0758)
-    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_0760)
+    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkUpLeft)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceWalkRight4)
+    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_DragoniteWalkLeftRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -474,75 +474,75 @@ script scr_seq_D35R0103_003 {
     end
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0630 {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerExclamation {
     emote_exclamation_mark
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0638 {
+movement TeamRocketHeadquarters_B2F_Movement_ArianaWalkUp {
     delay_8
     walk_fast_up * 6
     walk_in_place_left
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0648 {
+movement TeamRocketHeadquarters_B2F_Movement_ArianaFaceLeft {
     walk_in_place_left
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0650 {
+movement TeamRocketHeadquarters_B2F_Movement_RocketGruntWalkUp1 {
     delay_8 * 2
     walk_fast_up * 3
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_065C {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkDown {
     walk_down * 5
     walk_in_place_right
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0668 {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkDownLeft {
     walk_down * 2
     walk_left
     walk_down * 3
     walk_in_place_right
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_067C {
+movement TeamRocketHeadquarters_B2F_Movement_LanceWalkRight2 {
     walk_fast_right * 10
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0684 {
+movement TeamRocketHeadquarters_B2F_Movement_DragoniteWalkRight2 {
     delay_4
     walk_fast_right * 10
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0690 {
+movement TeamRocketHeadquarters_B2F_Movement_DragoniteFaceRight {
     jump_in_place_fast_right
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0698 {
+movement TeamRocketHeadquarters_B2F_Movement_ArianaWalkLeft {
     walk_fast_left
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_06A0 {
+movement TeamRocketHeadquarters_B2F_Movement_RocketGruntWalkUp2 {
     walk_fast_up
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_06A8 {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkUpRight {
     walk_fast_up * 2
     walk_fast_right
     walk_fast_down * 2
     face_left
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_06BC {
+movement TeamRocketHeadquarters_B2F_Movement_LanceWalkRight3 {
     walk_right * 2
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_06C4 {
+movement TeamRocketHeadquarters_B2F_Movement_DragoniteWalkRight3 {
     delay_2
     walk_right * 2
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_06D0 {
+movement TeamRocketHeadquarters_B2F_Movement_LanceWalkUpLeft {
     walk_up * 6
     delay_8 * 2
     walk_left * 2
@@ -555,13 +555,13 @@ movement TeamRocketHeadquarters_B2F_Movement_06D0 {
     walk_in_place_right
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_06FC {
+movement TeamRocketHeadquarters_B2F_Movement_LanceWalkLeft1 {
     walk_left * 2
     walk_in_place_down
     walk_in_place_down
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_070C {
+movement TeamRocketHeadquarters_B2F_Movement_DragoniteWalkRightUp {
     delay_2
     walk_right
     walk_up * 5
@@ -571,34 +571,34 @@ movement TeamRocketHeadquarters_B2F_Movement_070C {
     walk_left * 4
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_072C {
+movement TeamRocketHeadquarters_B2F_Movement_DragoniteWalkLeft1 {
     delay_4
     walk_left * 2
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0738 {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkUp {
     delay_8 * 4
     walk_up * 5
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0744 {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkUpLeft {
     delay_2
     delay_8
     walk_up
     walk_left * 5
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0758 {
+movement TeamRocketHeadquarters_B2F_Movement_LanceWalkRight4 {
     walk_right * 6
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0760 {
+movement TeamRocketHeadquarters_B2F_Movement_DragoniteWalkLeftRight {
     delay_2
     walk_left
     walk_right * 5
 }
 
-script scr_seq_D35R0103_004 {
+script TeamRocketHeadquarters_B2F_EventScript_Electrode1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -619,7 +619,7 @@ _07D0:
     end
 }
 
-script scr_seq_D35R0103_005 {
+script TeamRocketHeadquarters_B2F_EventScript_Electrode2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -640,7 +640,7 @@ _0834:
     end
 }
 
-script scr_seq_D35R0103_006 {
+script TeamRocketHeadquarters_B2F_EventScript_Lance {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -669,18 +669,18 @@ _08A2:
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_TEMP_x4001) == 16) {
-        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_09E0)
+        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkDownRight1)
     } elif (var(VAR_TEMP_x4001) == 14) {
-        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_09EC)
+        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkDownRight2)
     } else {
-        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_09F8)
+        applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkDownRight3)
     }
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_0A04)
-    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_0A0C)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceWalkLeft2)
+    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_DragoniteWalkLeft2)
     waitmovement
     npcmsg("Lance: That odd signal has finally\n"
            "stopped. The lake should be back to\f"
@@ -696,7 +696,7 @@ _08A2:
            "You can use that out of battle only with\n"
            "the Badge from Mahogany Gym.\r")
     closemessage
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_0A18)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceFaceDown)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("{STRVAR_1 3, 0, 0}...\r"
@@ -719,8 +719,8 @@ _08A2:
                                                           "dream in the first place.\r"
                                                           "I look forward to seeing you again!\r")
     closemessage
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_0A20)
-    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_0A2C)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceWalkDownLeft)
+    applymovement(obj_D35R0103_tsure_poke_static_dragonite, TeamRocketHeadquarters_B2F_Movement_DragoniteWalkLeftDown)
     waitmovement
     removeobject(obj_D35R0103_wataru)
     removeobject(obj_D35R0103_tsure_poke_static_dragonite)
@@ -753,47 +753,47 @@ _08A2:
     end
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_09E0 {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkDownRight1 {
     walk_down * 2
     walk_right * 10
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_09EC {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkDownRight2 {
     walk_down * 4
     walk_right * 10
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_09F8 {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkDownRight3 {
     walk_down * 6
     walk_right * 10
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0A04 {
+movement TeamRocketHeadquarters_B2F_Movement_LanceWalkLeft2 {
     walk_left * 8
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0A0C {
+movement TeamRocketHeadquarters_B2F_Movement_DragoniteWalkLeft2 {
     delay_2
     walk_left * 8
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0A18 {
+movement TeamRocketHeadquarters_B2F_Movement_LanceFaceDown {
     walk_in_place_down
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0A20 {
+movement TeamRocketHeadquarters_B2F_Movement_LanceWalkDownLeft {
     walk_fast_down * 6
     walk_fast_left * 12
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0A2C {
+movement TeamRocketHeadquarters_B2F_Movement_DragoniteWalkLeftDown {
     delay_4
     walk_fast_left
     walk_fast_down * 6
     walk_fast_left * 12
 }
 
-script scr_seq_D35R0103_008 {
+script TeamRocketHeadquarters_B2F_EventScript_LanceTrigger1 {
     followmonresetmovement
     lockall
     npcmsg(msg_0113_D35R0103_00014)
@@ -801,7 +801,7 @@ script scr_seq_D35R0103_008 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_0A6C)
+    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -814,21 +814,21 @@ text msg_0113_D35R0103_00014 {
     "Lance: Leave this side to me.\r"
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0A6C {
+movement TeamRocketHeadquarters_B2F_Movement_PlayerWalkLeft {
     walk_left
 }
 
-script scr_seq_D35R0103_009 {
+script TeamRocketHeadquarters_B2F_EventScript_LanceTrigger2 {
     followmonresetmovement
     lockall
-    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_0AAC)
+    applymovement(obj_D35R0103_wataru, TeamRocketHeadquarters_B2F_Movement_LanceExclamation)
     waitmovement
     npcmsg(msg_0113_D35R0103_00014)
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_0A6C)
+    applymovement(obj_player, TeamRocketHeadquarters_B2F_Movement_PlayerWalkLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -837,12 +837,12 @@ script scr_seq_D35R0103_009 {
     end
 }
 
-movement TeamRocketHeadquarters_B2F_Movement_0AAC {
+movement TeamRocketHeadquarters_B2F_Movement_LanceExclamation {
     emote_exclamation_mark
     walk_in_place_left
 }
 
-script scr_seq_D35R0103_010 {
+script TeamRocketHeadquarters_B2F_EventScript_Radio {
     releaseall
     if (!flag(FLAG_REMOVED_ROCKET_HIDEOUT_B3F_ELECTRODE_1)) { goto(_0AE4) }
     if (!flag(FLAG_REMOVED_ROCKET_HIDEOUT_B3F_ELECTRODE_2)) { goto(_0AE4) }
@@ -862,9 +862,9 @@ _0AE4:
 }
 
 mapscripts TeamRocketHeadquarters_B2F_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D35R0103_002
-    INIT_SCRIPT_ON_LOAD: scr_seq_D35R0103_007
+    INIT_SCRIPT_ON_RESUME: TeamRocketHeadquarters_B2F_OnResume
+    INIT_SCRIPT_ON_LOAD: TeamRocketHeadquarters_B2F_OnLoad
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40A9, 0: scr_seq_D35R0103_000
+        VAR_UNK_40A9, 0: TeamRocketHeadquarters_B2F_EventScript_LanceScene
     ]
 }

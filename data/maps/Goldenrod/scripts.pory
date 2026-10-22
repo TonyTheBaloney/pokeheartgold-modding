@@ -3,42 +3,42 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T25_000
-    scr_seq_T25_001
-    scr_seq_T25_002
-    scr_seq_T25_003
-    scr_seq_T25_004
-    scr_seq_T25_005
-    scr_seq_T25_006
-    scr_seq_T25_007
-    scr_seq_T25_008
-    scr_seq_T25_009
-    scr_seq_T25_010
-    scr_seq_T25_011
-    scr_seq_T25_012
-    scr_seq_T25_013
-    scr_seq_T25_014
-    scr_seq_T25_015
-    scr_seq_T25_016
-    scr_seq_T25_017
-    scr_seq_T25_018
-    scr_seq_T25_019
-    scr_seq_T25_020
-    scr_seq_T25_021
-    scr_seq_T25_022
-    scr_seq_T25_023
-    scr_seq_T25_024
-    scr_seq_T25_025
-    scr_seq_T25_026
-    scr_seq_T25_027
-    scr_seq_T25_028
-    scr_seq_T25_029
-    scr_seq_T25_030
-    scr_seq_T25_031
-    scr_seq_T25_032
+    Goldenrod_EventScript_Lass
+    Goldenrod_EventScript_Beauty1
+    Goldenrod_EventScript_Beauty2
+    Goldenrod_EventScript_SchoolKidM1
+    Goldenrod_EventScript_SchoolKidM2
+    Goldenrod_EventScript_PokefanM
+    Goldenrod_EventScript_OldMan
+    Goldenrod_EventScript_RocketGrunt1
+    Goldenrod_EventScript_RocketGrunt2
+    Goldenrod_EventScript_RocketGrunt3
+    Goldenrod_EventScript_RocketGrunt4
+    Goldenrod_EventScript_RocketGrunt5
+    Goldenrod_EventScript_RocketGrunt6
+    Goldenrod_EventScript_RocketGrunt7
+    Goldenrod_EventScript_RocketGrunt8
+    Goldenrod_EventScript_RocketGrunt9
+    Goldenrod_EventScript_RocketGrunt10
+    Goldenrod_EventScript_RocketGruntTrigger
+    Goldenrod_OnTransition
+    Goldenrod_EventScript_TrainerTips1
+    Goldenrod_EventScript_TrainerTips2
+    Goldenrod_EventScript_TrainerTips3
+    Goldenrod_EventScript_CitySign
+    Goldenrod_EventScript_TrainerTips4
+    Goldenrod_EventScript_TrainerTips5
+    Goldenrod_EventScript_TrainerTips6
+    Goldenrod_EventScript_TrainerTips7
+    Goldenrod_EventScript_TrainerTips8
+    Goldenrod_EventScript_TrainerTips9
+    Goldenrod_EventScript_TrainerTips10
+    Goldenrod_EventScript_Beauty3
+    Goldenrod_EventScript_RocketGrunt11
+    Goldenrod_EventScript_Beauty4
 }
 
-script scr_seq_T25_018 {
+script Goldenrod_OnTransition {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_3)
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_4)
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
@@ -66,7 +66,7 @@ script scr_seq_T25_018 {
     end
 }
 
-script scr_seq_T25_000 {
+script Goldenrod_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -90,7 +90,7 @@ script scr_seq_T25_000 {
     end
 }
 
-script scr_seq_T25_001 {
+script Goldenrod_EventScript_Beauty1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -109,7 +109,7 @@ script scr_seq_T25_001 {
     end
 }
 
-script scr_seq_T25_002 {
+script Goldenrod_EventScript_Beauty2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -138,14 +138,14 @@ script scr_seq_T25_002 {
     end
 }
 
-script scr_seq_T25_003 {
+script Goldenrod_EventScript_SchoolKidM1 {
     simplenpcmsg("E-he-he-he...\n"
                  "I got in trouble for playing in the\f"
                  "basement of the department store.")
     end
 }
 
-script scr_seq_T25_004 {
+script Goldenrod_EventScript_SchoolKidM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -170,7 +170,7 @@ script scr_seq_T25_004 {
     end
 }
 
-script scr_seq_T25_005 {
+script Goldenrod_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -194,7 +194,7 @@ script scr_seq_T25_005 {
     end
 }
 
-script scr_seq_T25_006 {
+script Goldenrod_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -220,20 +220,20 @@ script scr_seq_T25_006 {
     end
 }
 
-script scr_seq_T25_007 {
+script Goldenrod_EventScript_RocketGrunt1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("So this is the Radio Tower...\r")
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_T25_rocketm, Goldenrod_Movement_02F8)
+        applymovement(obj_T25_rocketm, Goldenrod_Movement_RocketGruntFaceDown)
         waitmovement
     } elif (var(VAR_SPECIAL_RESULT) == 2) {
-        applymovement(obj_T25_rocketm, Goldenrod_Movement_0308)
+        applymovement(obj_T25_rocketm, Goldenrod_Movement_RocketGruntFaceRight)
         waitmovement
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_T25_rocketm, Goldenrod_Movement_0300)
+        applymovement(obj_T25_rocketm, Goldenrod_Movement_RocketGruntFaceLeft)
         waitmovement
     }
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
@@ -245,30 +245,30 @@ script scr_seq_T25_007 {
     }
     closemessage
     if (var(VAR_TEMP_x4001) != 350) {
-        applymovement(obj_T25_rocketm, Goldenrod_Movement_02F0)
+        applymovement(obj_T25_rocketm, Goldenrod_Movement_RocketGruntFaceUp)
         waitmovement
     }
     releaseall
     end
 }
 
-movement Goldenrod_Movement_02F0 {
+movement Goldenrod_Movement_RocketGruntFaceUp {
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_02F8 {
+movement Goldenrod_Movement_RocketGruntFaceDown {
     walk_in_place_down
 }
 
-movement Goldenrod_Movement_0300 {
+movement Goldenrod_Movement_RocketGruntFaceLeft {
     walk_in_place_left
 }
 
-movement Goldenrod_Movement_0308 {
+movement Goldenrod_Movement_RocketGruntFaceRight {
     walk_in_place_right
 }
 
-script scr_seq_T25_008 {
+script Goldenrod_EventScript_RocketGrunt2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -285,7 +285,7 @@ script scr_seq_T25_008 {
     end
 }
 
-script scr_seq_T25_009 {
+script Goldenrod_EventScript_RocketGrunt3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -302,7 +302,7 @@ script scr_seq_T25_009 {
     end
 }
 
-script scr_seq_T25_010 {
+script Goldenrod_EventScript_RocketGrunt4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -320,7 +320,7 @@ script scr_seq_T25_010 {
     end
 }
 
-script scr_seq_T25_011 {
+script Goldenrod_EventScript_RocketGrunt5 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -337,7 +337,7 @@ script scr_seq_T25_011 {
     end
 }
 
-script scr_seq_T25_012 {
+script Goldenrod_EventScript_RocketGrunt6 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -360,7 +360,7 @@ script scr_seq_T25_012 {
     end
 }
 
-script scr_seq_T25_013 {
+script Goldenrod_EventScript_RocketGrunt7 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -381,7 +381,7 @@ script scr_seq_T25_013 {
     end
 }
 
-script scr_seq_T25_030 {
+script Goldenrod_EventScript_Beauty3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Get out of my way!\r"
@@ -394,14 +394,14 @@ script scr_seq_T25_030 {
     end
 }
 
-script scr_seq_T25_032 {
+script Goldenrod_EventScript_Beauty4 {
     simplenpcmsg("The Gym Leader, Whitney, went flying by\n"
                  "saying, “I have got to\f"
                  "get a Radio Card!”")
     end
 }
 
-script scr_seq_T25_031 {
+script Goldenrod_EventScript_RocketGrunt11 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Tee hee!\r"
@@ -414,20 +414,20 @@ script scr_seq_T25_031 {
     end
 }
 
-script scr_seq_T25_014 {
+script Goldenrod_EventScript_RocketGrunt8 {
     simplenpcmsg("Where do you think you’re going?\n"
                  "We are right in the middle of\f"
                  "the mission!")
     end
 }
 
-script scr_seq_T25_015 {
+script Goldenrod_EventScript_RocketGrunt9 {
     simplenpcmsg("Where do you think you are going?\n"
                  "The Radio Tower is not here!")
     end
 }
 
-script scr_seq_T25_016 {
+script Goldenrod_EventScript_RocketGrunt10 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -447,39 +447,39 @@ script scr_seq_T25_016 {
     end
 }
 
-script scr_seq_T25_017 {
+script Goldenrod_EventScript_RocketGruntTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_T25_rocketm_9, Goldenrod_Movement_06E4)
+    applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntExclamation)
     waitmovement
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 354) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_06EC)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkLeft1)
     } elif (var(VAR_TEMP_x4000) == 355) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_06F4)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkLeft2)
     } elif (var(VAR_TEMP_x4000) == 356) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_06FC)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkLeft3)
     } elif (var(VAR_TEMP_x4000) == 357) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0704)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkLeft4)
     } elif (var(VAR_TEMP_x4000) == 358) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_070C)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkLeft5)
     } elif (var(VAR_TEMP_x4000) == 359) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0714)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntDelay)
     } elif (var(VAR_TEMP_x4000) == 360) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_071C)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkRight1)
     } elif (var(VAR_TEMP_x4000) == 361) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0724)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkRight2)
     } elif (var(VAR_TEMP_x4000) == 362) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_072C)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkRight3)
     } elif (var(VAR_TEMP_x4000) == 363) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0734)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkRight4)
     }
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_T25_rocketm_9, Goldenrod_Movement_073C)
-    applymovement(obj_player, Goldenrod_Movement_0744)
+    applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkUp)
+    applymovement(obj_player, Goldenrod_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -489,208 +489,208 @@ script scr_seq_T25_017 {
            "Don’t give me any more trouble, OK?\r")
     closemessage
     if (var(VAR_TEMP_x4000) == 354) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0754)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDownRight1)
     } elif (var(VAR_TEMP_x4000) == 355) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0764)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDownRight2)
     } elif (var(VAR_TEMP_x4000) == 356) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0774)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDownRight3)
     } elif (var(VAR_TEMP_x4000) == 357) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0784)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDownRight4)
     } elif (var(VAR_TEMP_x4000) == 358) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_0794)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDownRight5)
     } elif (var(VAR_TEMP_x4000) == 359) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_07A4)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDown)
     } elif (var(VAR_TEMP_x4000) == 360) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_07B0)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDownLeft1)
     } elif (var(VAR_TEMP_x4000) == 361) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_07C0)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDownLeft2)
     } elif (var(VAR_TEMP_x4000) == 362) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_07D0)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDownLeft3)
     } elif (var(VAR_TEMP_x4000) == 363) {
-        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_07E0)
+        applymovement(obj_T25_rocketm_9, Goldenrod_Movement_RocketGruntWalkDownLeft4)
     }
     waitmovement
     releaseall
     end
 }
 
-movement Goldenrod_Movement_06E4 {
+movement Goldenrod_Movement_RocketGruntExclamation {
     emote_exclamation_mark
 }
 
-movement Goldenrod_Movement_06EC {
+movement Goldenrod_Movement_RocketGruntWalkLeft1 {
     walk_left * 5
 }
 
-movement Goldenrod_Movement_06F4 {
+movement Goldenrod_Movement_RocketGruntWalkLeft2 {
     walk_left * 4
 }
 
-movement Goldenrod_Movement_06FC {
+movement Goldenrod_Movement_RocketGruntWalkLeft3 {
     walk_left * 3
 }
 
-movement Goldenrod_Movement_0704 {
+movement Goldenrod_Movement_RocketGruntWalkLeft4 {
     walk_left * 2
 }
 
-movement Goldenrod_Movement_070C {
+movement Goldenrod_Movement_RocketGruntWalkLeft5 {
     walk_left
 }
 
-movement Goldenrod_Movement_0714 {
+movement Goldenrod_Movement_RocketGruntDelay {
     delay_1
 }
 
-movement Goldenrod_Movement_071C {
+movement Goldenrod_Movement_RocketGruntWalkRight1 {
     walk_right
 }
 
-movement Goldenrod_Movement_0724 {
+movement Goldenrod_Movement_RocketGruntWalkRight2 {
     walk_right * 2
 }
 
-movement Goldenrod_Movement_072C {
+movement Goldenrod_Movement_RocketGruntWalkRight3 {
     walk_right * 3
 }
 
-movement Goldenrod_Movement_0734 {
+movement Goldenrod_Movement_RocketGruntWalkRight4 {
     walk_right * 4
 }
 
-movement Goldenrod_Movement_073C {
+movement Goldenrod_Movement_RocketGruntWalkUp {
     walk_up
 }
 
-movement Goldenrod_Movement_0744 {
+movement Goldenrod_Movement_PlayerWalkUp {
     lock_dir
     walk_up
     unlock_dir
 }
 
-movement Goldenrod_Movement_0754 {
+movement Goldenrod_Movement_RocketGruntWalkDownRight1 {
     walk_down
     walk_right * 5
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_0764 {
+movement Goldenrod_Movement_RocketGruntWalkDownRight2 {
     walk_down
     walk_right * 4
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_0774 {
+movement Goldenrod_Movement_RocketGruntWalkDownRight3 {
     walk_down
     walk_right * 3
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_0784 {
+movement Goldenrod_Movement_RocketGruntWalkDownRight4 {
     walk_down
     walk_right * 2
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_0794 {
+movement Goldenrod_Movement_RocketGruntWalkDownRight5 {
     walk_down
     walk_right
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_07A4 {
+movement Goldenrod_Movement_RocketGruntWalkDown {
     walk_down
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_07B0 {
+movement Goldenrod_Movement_RocketGruntWalkDownLeft1 {
     walk_down
     walk_left
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_07C0 {
+movement Goldenrod_Movement_RocketGruntWalkDownLeft2 {
     walk_down
     walk_left * 2
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_07D0 {
+movement Goldenrod_Movement_RocketGruntWalkDownLeft3 {
     walk_down
     walk_left * 3
     walk_in_place_up
 }
 
-movement Goldenrod_Movement_07E0 {
+movement Goldenrod_Movement_RocketGruntWalkDownLeft4 {
     walk_down
     walk_left * 4
     walk_in_place_up
 }
 
-script scr_seq_T25_019 {
+script Goldenrod_EventScript_TrainerTips1 {
     trainertipsex(2, "Johto-Kanto Magnet Train Line\n"
                      "Goldenrod City Station")
     end
 }
 
-script scr_seq_T25_020 {
+script Goldenrod_EventScript_TrainerTips2 {
     trainertipsex(2, "Goldenrod City Radio Tower\r"
                      "A Network Providing Johto\n"
                      "with Interesting Information")
     end
 }
 
-script scr_seq_T25_021 {
+script Goldenrod_EventScript_TrainerTips3 {
     trainertipsex(2, "Goldenrod City Pokémon Gym\n"
                      "Leader: Whitney\f"
                      "The Incredibly Pretty Girl!")
     end
 }
 
-script scr_seq_T25_022 {
+script Goldenrod_EventScript_CitySign {
     directionsignpostex(0, 16, "Goldenrod City\n"
                                "A Happening Big City")
     end
 }
 
-script scr_seq_T25_023 {
+script Goldenrod_EventScript_TrainerTips4 {
     trainertipsex(2, "Bike Shop Goldenrod Branch\n"
                      "The World is a Cycling Path!")
     end
 }
 
-script scr_seq_T25_024 {
+script Goldenrod_EventScript_TrainerTips5 {
     trainertipsex(2, "Goldenrod City Game Corner\n"
                      "A Safe and Sound Playground!")
     end
 }
 
-script scr_seq_T25_025 {
+script Goldenrod_EventScript_TrainerTips6 {
     trainertipsex(2, "Name Rater\n"
                      "Get Your Pokémon Nicknames Rated")
     end
 }
 
-script scr_seq_T25_026 {
+script Goldenrod_EventScript_TrainerTips7 {
     trainertipsex(3, "Watch Out!\n"
                      "Get Off Your Bike in the Tunnel")
     end
 }
 
-script scr_seq_T25_027 {
+script Goldenrod_EventScript_TrainerTips8 {
     trainertipsex(3, "Be Careful!\n"
                      "Get Off Your Bike in the Tunnel")
     end
 }
 
-script scr_seq_T25_028 {
+script Goldenrod_EventScript_TrainerTips9 {
     trainertipsex(2, "The Global Terminal\r"
                      "An Amazing and Completely\n"
                      "Global Terminal!\n")
     end
 }
 
-script scr_seq_T25_029 {
+script Goldenrod_EventScript_TrainerTips10 {
     trainertipsex(2, "Goldenrod Flower Shop\r"
                      "A Small Shop Providing\n"
                      "Lots of Beauty")
@@ -698,5 +698,5 @@ script scr_seq_T25_029 {
 }
 
 mapscripts Goldenrod_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25_018
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_OnTransition
 }

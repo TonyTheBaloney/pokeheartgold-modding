@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D23R0104_000
-    scr_seq_D23R0104_001
-    scr_seq_D23R0104_002
-    scr_seq_D23R0104_003
-    scr_seq_D23R0104_004
-    scr_seq_D23R0104_005
-    scr_seq_D23R0104_006
-    scr_seq_D23R0104_007
-    scr_seq_D23R0104_008
+    Goldenrod_RadioTower_4F_OnTransition
+    Goldenrod_RadioTower_4F_EventScript_4FProductionSign
+    Goldenrod_RadioTower_4F_EventScript_4FStudio1Sign
+    Goldenrod_RadioTower_4F_EventScript_FatMan
+    Goldenrod_RadioTower_4F_EventScript_Mary
+    Goldenrod_RadioTower_4F_EventScript_Meowth
+    Goldenrod_RadioTower_4F_EventScript_Ben
+    Goldenrod_RadioTower_4F_EventScript_Grunt
+    Goldenrod_RadioTower_4F_OnResume
 }
 
-script scr_seq_D23R0104_000 {
+script Goldenrod_RadioTower_4F_OnTransition {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
@@ -25,7 +25,7 @@ script scr_seq_D23R0104_000 {
     end
 }
 
-script scr_seq_D23R0104_008 {
+script Goldenrod_RadioTower_4F_OnResume {
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
         movepersonfacing(obj_D23R0104_kurumi, 18, 1, 12, DIR_EAST)
         movepersonfacing(obj_D23R0104_tsure_poke_static_meowth, 19, 1, 12, DIR_SOUTH)
@@ -34,24 +34,24 @@ script scr_seq_D23R0104_008 {
     end
 }
 
-script scr_seq_D23R0104_001 {
+script Goldenrod_RadioTower_4F_EventScript_4FProductionSign {
     simplenpcmsg("4F Production")
     end
 }
 
-script scr_seq_D23R0104_002 {
+script Goldenrod_RadioTower_4F_EventScript_4FStudio1Sign {
     simplenpcmsg("4F Studio 1")
     end
 }
 
-script scr_seq_D23R0104_003 {
+script Goldenrod_RadioTower_4F_EventScript_FatMan {
     simplenpcmsg("I listened to the radio while I was at\n"
                  "the ruins.\r"
                  "I heard a strange broadcast there.")
     end
 }
 
-script scr_seq_D23R0104_004 {
+script Goldenrod_RadioTower_4F_EventScript_Mary {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -94,7 +94,7 @@ _0132:
     end
 }
 
-script scr_seq_D23R0104_005 {
+script Goldenrod_RadioTower_4F_EventScript_Meowth {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -107,7 +107,7 @@ script scr_seq_D23R0104_005 {
     end
 }
 
-script scr_seq_D23R0104_006 {
+script Goldenrod_RadioTower_4F_EventScript_Ben {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -127,7 +127,7 @@ script scr_seq_D23R0104_006 {
     end
 }
 
-script scr_seq_D23R0104_007 {
+script Goldenrod_RadioTower_4F_EventScript_Grunt {
     if (defeated(TRAINER_TEAM_ROCKET_F_GRUNT_4)) {
         simplenpcmsg(msg_0068_D23R0104_00014)
         end
@@ -138,9 +138,9 @@ script scr_seq_D23R0104_007 {
            "mission... He is so cool.\r")
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 2) {
-        applymovement(obj_D23R0104_rocketw, Goldenrod_RadioTower_4F_Movement_0210)
+        applymovement(obj_D23R0104_rocketw, Goldenrod_RadioTower_4F_Movement_GruntExclamation1)
     } else {
-        applymovement(obj_D23R0104_rocketw, Goldenrod_RadioTower_4F_Movement_021C)
+        applymovement(obj_D23R0104_rocketw, Goldenrod_RadioTower_4F_Movement_GruntExclamation2)
     }
     waitmovement
     npcmsg("Who are you?\r"
@@ -167,17 +167,17 @@ text msg_0068_D23R0104_00014 {
     "Who cares about Pokémon?"
 }
 
-movement Goldenrod_RadioTower_4F_Movement_0210 {
+movement Goldenrod_RadioTower_4F_Movement_GruntExclamation1 {
     emote_exclamation_mark
     walk_in_place_right
 }
 
-movement Goldenrod_RadioTower_4F_Movement_021C {
+movement Goldenrod_RadioTower_4F_Movement_GruntExclamation2 {
     emote_exclamation_mark
     walk_in_place_down
 }
 
 mapscripts Goldenrod_RadioTower_4F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0104_000
-    INIT_SCRIPT_ON_RESUME: scr_seq_D23R0104_008
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_RadioTower_4F_OnTransition
+    INIT_SCRIPT_ON_RESUME: Goldenrod_RadioTower_4F_OnResume
 }

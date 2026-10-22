@@ -3,29 +3,29 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D36R0101_000
-    scr_seq_D36R0101_farfetchd1
-    scr_seq_D36R0101_002
-    scr_seq_D36R0101_farfetchd1_sticks1
-    scr_seq_D36R0101_farfetchd1_sticks2
-    scr_seq_D36R0101_farfetchd2
-    scr_seq_D36R0101_farfetchd2_sticks1
-    scr_seq_D36R0101_farfetchd2_sticks2
-    scr_seq_D36R0101_farfetchd2_sticks3
-    scr_seq_D36R0101_farfetchd2_sticks4
-    scr_seq_D36R0101_010
-    scr_seq_D36R0101_011
-    scr_seq_D36R0101_012
-    scr_seq_D36R0101_013
-    scr_seq_D36R0101_014
-    scr_seq_D36R0101_015
-    scr_seq_D36R0101_016
-    scr_seq_D36R0101_017
-    scr_seq_D36R0101_018
-    scr_seq_D36R0101_019
-    scr_seq_D36R0101_020
-    scr_seq_D36R0101_021
-    scr_seq_D36R0101_022
+    IlexForest_OnTransition
+    IlexForest_EventScript_Farfetchd1
+    IlexForest_EventScript_FatMan
+    IlexForest_EventScript_FarfetchdTrigger1
+    IlexForest_EventScript_FarfetchdTrigger2
+    IlexForest_EventScript_Farfetchd2
+    IlexForest_EventScript_FarfetchdTrigger3
+    IlexForest_EventScript_FarfetchdTrigger4
+    IlexForest_EventScript_FarfetchdTrigger5
+    IlexForest_EventScript_FarfetchdTrigger6
+    IlexForest_EventScript_SchoolKidM
+    IlexForest_EventScript_BlackBelt
+    IlexForest_EventScript_Shrine
+    IlexForest_EventScript_TrainerTips
+    IlexForest_EventScript_Farfetchd3
+    IlexForest_EventScript_KimonoGirlTrigger
+    IlexForest_EventScript_FatManTrigger
+    IlexForest_EventScript_SchoolKidMTrigger
+    IlexForest_EventScript_PokefanM
+    IlexForest_EventScript_Pichu
+    IlexForest_EventScript_Lyra
+    IlexForest_OnResume
+    IlexForest_EventScript_LyraScene
 }
 
 raw `
@@ -37,7 +37,7 @@ raw `
 #include "constants/events.h"
 `
 
-script scr_seq_D36R0101_000 {
+script IlexForest_OnTransition {
     getfriendsprite(VAR_OBJ_0)
     if (!flag(FLAG_UNK_189)) {
         checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
@@ -85,7 +85,7 @@ script scr_seq_D36R0101_000 {
     goto(_00C3)
 }
 
-script scr_seq_D36R0101_021 {
+script IlexForest_OnResume {
     compare(VAR_UNK_412B, 1)
     callifeq(_016F)
     compare(VAR_UNK_40FE, 4)
@@ -101,7 +101,7 @@ _0189:
     return
 }
 
-script scr_seq_D36R0101_farfetchd1 {
+script IlexForest_EventScript_Farfetchd1 {
     getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
     if (var(FARFETCHD_X_COORD) != 25) {
         if (var(FARFETCHD_X_COORD) != 32) { goto(_farfetchd1_left) }
@@ -275,7 +275,7 @@ text msg_0115_D36R0101_00001 {
     "Sneak up on it slowly from behind."
 }
 
-script scr_seq_D36R0101_farfetchd1_sticks1 {
+script IlexForest_EventScript_FarfetchdTrigger1 {
     followmonresetmovement
     lockall
     if (var(FARFETCHD1_BOTTOM_RIGHT_FACING_UP) == TRUE) { goto(_farfetchd1_look_left) }
@@ -335,7 +335,7 @@ script scr_seq_D36R0101_farfetchd1_sticks1 {
     goto(_sticks1_farfetchd1_left)
 }
 
-script scr_seq_D36R0101_farfetchd1_sticks2 {
+script IlexForest_EventScript_FarfetchdTrigger2 {
     followmonresetmovement
     lockall
     if (var(FARFETCHD1_BOTTOM_RIGHT_FACING_UP) == TRUE) { goto(_farfetchd1_look_left) }
@@ -394,7 +394,7 @@ script scr_seq_D36R0101_farfetchd1_sticks2 {
     goto(_sticks2_farfetchd1_left)
 }
 
-script scr_seq_D36R0101_farfetchd2 {
+script IlexForest_EventScript_Farfetchd2 {
     getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
     if (var(FARFETCHD_X_COORD) != 41) {
         if (var(FARFETCHD_X_COORD) != 49) { goto(_farfetchd2_left) }
@@ -561,7 +561,7 @@ script scr_seq_D36R0101_farfetchd2 {
     goto(_farfetchd2_left)
 }
 
-script scr_seq_D36R0101_farfetchd2_sticks1 {
+script IlexForest_EventScript_FarfetchdTrigger3 {
     followmonresetmovement
     lockall
     setvar(FARFETCHD2_BLIND_SPOT, FALSE)
@@ -614,7 +614,7 @@ script scr_seq_D36R0101_farfetchd2_sticks1 {
     goto(_sticks1_farfetchd2_left)
 }
 
-script scr_seq_D36R0101_farfetchd2_sticks2 {
+script IlexForest_EventScript_FarfetchdTrigger4 {
     followmonresetmovement
     lockall
     setvar(FARFETCHD2_BLIND_SPOT, TRUE)
@@ -667,7 +667,7 @@ script scr_seq_D36R0101_farfetchd2_sticks2 {
     goto(_sticks2_farfetchd2_left)
 }
 
-script scr_seq_D36R0101_farfetchd2_sticks3 {
+script IlexForest_EventScript_FarfetchdTrigger5 {
     followmonresetmovement
     lockall
     setvar(FARFETCHD2_BLIND_SPOT, FALSE)
@@ -718,7 +718,7 @@ script scr_seq_D36R0101_farfetchd2_sticks3 {
     goto(_sticks3_farfetchd2_left)
 }
 
-script scr_seq_D36R0101_farfetchd2_sticks4 {
+script IlexForest_EventScript_FarfetchdTrigger6 {
     followmonresetmovement
     lockall
     setvar(FARFETCHD2_BLIND_SPOT, FALSE)
@@ -835,44 +835,44 @@ movement _walk_in_place_face_right {
     walk_in_place_fast_right * 5
 }
 
-script scr_seq_D36R0101_016 {
+script IlexForest_EventScript_FatManTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_player, IlexForest_Movement_0EC4)
+    applymovement(obj_player, IlexForest_Movement_PlayerExclamation1)
     waitmovement
-    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_0ED0)
-    waitmovement
-    playse(SEQ_SE_DP_KI_GASYAN)
-    screenshake(0, 2, 10, 5)
-    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_0ED8)
-    waitmovement
-    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_0ED0)
+    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_FatManJumpUp)
     waitmovement
     playse(SEQ_SE_DP_KI_GASYAN)
     screenshake(0, 2, 10, 5)
-    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_0ED8)
+    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_FatManWalkDown)
+    waitmovement
+    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_FatManJumpUp)
+    waitmovement
+    playse(SEQ_SE_DP_KI_GASYAN)
+    screenshake(0, 2, 10, 5)
+    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_FatManWalkDown)
     waitmovement
     setvar(VAR_UNK_40EA, 1)
     releaseall
     end
 }
 
-movement IlexForest_Movement_0EC4 {
+movement IlexForest_Movement_PlayerExclamation1 {
     emote_exclamation_mark
     walk_in_place_up
 }
 
-movement IlexForest_Movement_0ED0 {
+movement IlexForest_Movement_FatManJumpUp {
     jump_near_fast_up
 }
 
-movement IlexForest_Movement_0ED8 {
+movement IlexForest_Movement_FatManWalkDown {
     lock_dir
     walk_slow_down
     unlock_dir
 }
 
-script scr_seq_D36R0101_002 {
+script IlexForest_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1024,7 +1024,7 @@ text msg_0115_D36R0101_00022 {
     "Your {STRVAR_1 0, 0, 0} looks stronger!"
 }
 
-script scr_seq_D36R0101_010 {
+script IlexForest_EventScript_SchoolKidM {
     if (!flag(FLAG_FOUND_FIRST_FARFETCHD)) {
     } else {
         if (flag(FLAG_FOUND_SECOND_FARFETCHD)) {
@@ -1072,11 +1072,11 @@ text msg_0115_D36R0101_00000 {
     "Do you think you can do that?"
 }
 
-script scr_seq_D36R0101_017 {
+script IlexForest_EventScript_SchoolKidMTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_D36R0101_gsboy1, IlexForest_Movement_118C)
-    applymovement(obj_player, IlexForest_Movement_1194)
+    applymovement(obj_D36R0101_gsboy1, IlexForest_Movement_SchoolKidMExclamation)
+    applymovement(obj_player, IlexForest_Movement_PlayerFaceUp)
     waitmovement
     npcmsg(msg_0115_D36R0101_00000)
     waitbuttonpress
@@ -1086,16 +1086,16 @@ script scr_seq_D36R0101_017 {
     end
 }
 
-movement IlexForest_Movement_118C {
+movement IlexForest_Movement_SchoolKidMExclamation {
     emote_exclamation_mark
 }
 
-movement IlexForest_Movement_1194 {
+movement IlexForest_Movement_PlayerFaceUp {
     delay_8 * 2
     face_up
 }
 
-script scr_seq_D36R0101_011 {
+script IlexForest_EventScript_BlackBelt {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1126,8 +1126,8 @@ script scr_seq_D36R0101_011 {
         npcmsg(msg_0115_D36R0101_00002)
         waitbuttonpress
         closemessage
-        applymovement(obj_D36R0101_gsfighter, IlexForest_Movement_12EC)
-        applymovement(obj_player, IlexForest_Movement_12F8)
+        applymovement(obj_D36R0101_gsfighter, IlexForest_Movement_BlackBeltWalkUpRight)
+        applymovement(obj_player, IlexForest_Movement_PlayerFaceLeft1)
         waitmovement
         if (flag(FLAG_GOT_HM01)) {
             npcmsg(msg_0115_D36R0101_00010)
@@ -1194,40 +1194,40 @@ text msg_0115_D36R0101_00008 {
     "Badge from Azalea to use it."
 }
 
-script scr_seq_D36R0101_014 {
+script IlexForest_EventScript_Farfetchd3 {
     playcry(SPECIES_FARFETCHD, 0)
     simplenpcmsg("FARFETCH’D: Kwaa!")
     end
 }
 
-movement IlexForest_Movement_12EC {
+movement IlexForest_Movement_BlackBeltWalkUpRight {
     walk_up * 10
     walk_right * 3
 }
 
-movement IlexForest_Movement_12F8 {
+movement IlexForest_Movement_PlayerFaceLeft1 {
     delay_8 * 12
     face_left
 }
 
-script scr_seq_D36R0101_015 {
+script IlexForest_EventScript_KimonoGirlTrigger {
     followmonresetmovement
     lockall
     callstd(std_play_kimono_girl_music)
-    applymovement(obj_D36R0101_dancer, IlexForest_Movement_1478)
+    applymovement(obj_D36R0101_dancer, IlexForest_Movement_KimonoGirlExclamation)
     waitmovement
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8004) == 40) {
-        applymovement(obj_D36R0101_dancer, IlexForest_Movement_1484)
+        applymovement(obj_D36R0101_dancer, IlexForest_Movement_KimonoGirlWalkDownRight1)
     } else {
-        applymovement(obj_D36R0101_dancer, IlexForest_Movement_1494)
+        applymovement(obj_D36R0101_dancer, IlexForest_Movement_KimonoGirlWalkDownRight2)
     }
     waitmovement
     npcmsg("Kimono Girl, Kimono Girl, lost and all\n"
            "alone. Poor girl lost in the dark\f"
            "Ilex Forest.\r")
     closemessage
-    applymovement(obj_D36R0101_dancer, IlexForest_Movement_14A4)
+    applymovement(obj_D36R0101_dancer, IlexForest_Movement_KimonoGirlSpin)
     waitmovement
     npcmsg("What?\n"
            "You remember me from Violet City?\f"
@@ -1252,10 +1252,10 @@ script scr_seq_D36R0101_015 {
         if (var(VAR_TEMP_x4001) == 51) { goto(_13D5) }
         release(obj_partner_poke)
         if (var(VAR_SPECIAL_x8004) == 40) {
-            applymovement(obj_player, IlexForest_Movement_14E8)
-            applymovement(obj_partner_poke, IlexForest_Movement_14FC)
+            applymovement(obj_player, IlexForest_Movement_PlayerWalkRight)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonWalkUpLeft1)
         } else {
-            applymovement(obj_partner_poke, IlexForest_Movement_1518)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonWalkLeftUp1)
         }
         waitmovement
         lock(obj_partner_poke)
@@ -1263,35 +1263,35 @@ script scr_seq_D36R0101_015 {
     _13D5:
         release(obj_partner_poke)
         if (var(VAR_SPECIAL_x8004) == 40) {
-            applymovement(obj_player, IlexForest_Movement_14E8)
-            applymovement(obj_partner_poke, IlexForest_Movement_1538)
+            applymovement(obj_player, IlexForest_Movement_PlayerWalkRight)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonWalkUpLeft2)
         } else {
-            applymovement(obj_partner_poke, IlexForest_Movement_1550)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonWalkLeftUp2)
         }
         waitmovement
         lock(obj_partner_poke)
     }
     if (var(VAR_SPECIAL_x8004) == 40) {
-        applymovement(obj_D36R0101_dancer, IlexForest_Movement_156C)
+        applymovement(obj_D36R0101_dancer, IlexForest_Movement_KimonoGirlFaceLeft)
     } else {
-        applymovement(obj_D36R0101_dancer, IlexForest_Movement_1574)
+        applymovement(obj_D36R0101_dancer, IlexForest_Movement_KimonoGirlWalkLeft)
     }
     waitmovement
     npcmsg("Wow! Are you going to\n"
            "show me how to get out?\f"
            "You are such a smart Pokémon!\r")
     closemessage
-    applymovement(obj_D36R0101_dancer, IlexForest_Movement_157C)
+    applymovement(obj_D36R0101_dancer, IlexForest_Movement_KimonoGirlFaceDown)
     waitmovement
     npcmsg("See you.\r")
     closemessage
-    applymovement(obj_D36R0101_dancer, IlexForest_Movement_159C)
+    applymovement(obj_D36R0101_dancer, IlexForest_Movement_KimonoGirlWalkLeftUp)
     waitmovement
     removeobject(obj_D36R0101_dancer)
     setflag(FLAG_UNK_23D)
     callstd(std_fade_end_kimono_girl_music)
     release(obj_partner_poke)
-    applymovement(obj_partner_poke, IlexForest_Movement_1584)
+    applymovement(obj_partner_poke, IlexForest_Movement_FollowMonWalkRightDown1)
     waitmovement
     lock(obj_partner_poke)
     releaseall
@@ -1299,24 +1299,24 @@ script scr_seq_D36R0101_015 {
     end
 }
 
-movement IlexForest_Movement_1478 {
+movement IlexForest_Movement_KimonoGirlExclamation {
     emote_exclamation_mark
     walk_in_place_down
 }
 
-movement IlexForest_Movement_1484 {
+movement IlexForest_Movement_KimonoGirlWalkDownRight1 {
     walk_down
     walk_right * 2
     walk_down
 }
 
-movement IlexForest_Movement_1494 {
+movement IlexForest_Movement_KimonoGirlWalkDownRight2 {
     walk_down
     walk_right * 3
     walk_down
 }
 
-movement IlexForest_Movement_14A4 {
+movement IlexForest_Movement_KimonoGirlSpin {
     face_left
     delay_2
     face_up
@@ -1335,14 +1335,14 @@ movement IlexForest_Movement_14A4 {
     delay_2
 }
 
-movement IlexForest_Movement_14E8 {
+movement IlexForest_Movement_PlayerWalkRight {
     face_left
     lock_dir
     walk_right
     unlock_dir
 }
 
-movement IlexForest_Movement_14FC {
+movement IlexForest_Movement_FollowMonWalkUpLeft1 {
     walk_up * 2
     walk_left
     walk_up * 2
@@ -1351,7 +1351,7 @@ movement IlexForest_Movement_14FC {
     jump_in_place_fast_right * 3
 }
 
-movement IlexForest_Movement_1518 {
+movement IlexForest_Movement_FollowMonWalkLeftUp1 {
     walk_left
     walk_up * 2
     walk_left
@@ -1361,7 +1361,7 @@ movement IlexForest_Movement_1518 {
     jump_in_place_fast_right * 3
 }
 
-movement IlexForest_Movement_1538 {
+movement IlexForest_Movement_FollowMonWalkUpLeft2 {
     walk_up * 2
     walk_left
     walk_up * 2
@@ -1369,7 +1369,7 @@ movement IlexForest_Movement_1538 {
     walk_in_place_right
 }
 
-movement IlexForest_Movement_1550 {
+movement IlexForest_Movement_FollowMonWalkLeftUp2 {
     walk_left
     walk_up * 2
     walk_left
@@ -1378,19 +1378,19 @@ movement IlexForest_Movement_1550 {
     walk_in_place_right
 }
 
-movement IlexForest_Movement_156C {
+movement IlexForest_Movement_KimonoGirlFaceLeft {
     walk_in_place_left
 }
 
-movement IlexForest_Movement_1574 {
+movement IlexForest_Movement_KimonoGirlWalkLeft {
     walk_left
 }
 
-movement IlexForest_Movement_157C {
+movement IlexForest_Movement_KimonoGirlFaceDown {
     walk_in_place_down
 }
 
-movement IlexForest_Movement_1584 {
+movement IlexForest_Movement_FollowMonWalkRightDown1 {
     walk_right * 3
     walk_down * 2
     walk_right
@@ -1398,13 +1398,13 @@ movement IlexForest_Movement_1584 {
     walk_in_place_right
 }
 
-movement IlexForest_Movement_159C {
+movement IlexForest_Movement_KimonoGirlWalkLeftUp {
     walk_left * 2
     walk_up * 2
     walk_left * 6
 }
 
-script scr_seq_D36R0101_018 {
+script IlexForest_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1438,17 +1438,17 @@ script scr_seq_D36R0101_018 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == DIR_NORTH) {
-        applymovement(obj_player, IlexForest_Movement_1700)
-        applymovement(obj_D36R0101_gsmiddleman1, IlexForest_Movement_174C)
+        applymovement(obj_player, IlexForest_Movement_PlayerWalkRightUp1)
+        applymovement(obj_D36R0101_gsmiddleman1, IlexForest_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == DIR_SOUTH) {
-        applymovement(obj_player, IlexForest_Movement_1718)
+        applymovement(obj_player, IlexForest_Movement_PlayerWalkUp1)
     } elif (var(VAR_SPECIAL_RESULT) == DIR_EAST) {
-        applymovement(obj_player, IlexForest_Movement_1738)
-        applymovement(obj_D36R0101_gsmiddleman1, IlexForest_Movement_174C)
+        applymovement(obj_player, IlexForest_Movement_PlayerWalkUpRight)
+        applymovement(obj_D36R0101_gsmiddleman1, IlexForest_Movement_PokefanMFaceUp)
     } else {
         stopse(SEQ_SE_GS_N_SESERAGI)
-        applymovement(obj_player, IlexForest_Movement_1724)
-        applymovement(obj_D36R0101_gsmiddleman1, IlexForest_Movement_174C)
+        applymovement(obj_player, IlexForest_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D36R0101_gsmiddleman1, IlexForest_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -1456,7 +1456,7 @@ script scr_seq_D36R0101_018 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, IlexForest_Movement_1758)
+        applymovement(obj_partner_poke, IlexForest_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -1475,7 +1475,7 @@ script scr_seq_D36R0101_018 {
     end
 }
 
-movement IlexForest_Movement_1700 {
+movement IlexForest_Movement_PlayerWalkRightUp1 {
     walk_right
     walk_up * 2
     walk_left
@@ -1483,37 +1483,37 @@ movement IlexForest_Movement_1700 {
     walk_in_place_down
 }
 
-movement IlexForest_Movement_1718 {
+movement IlexForest_Movement_PlayerWalkUp1 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement IlexForest_Movement_1724 {
+movement IlexForest_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement IlexForest_Movement_1738 {
+movement IlexForest_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement IlexForest_Movement_174C {
+movement IlexForest_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement IlexForest_Movement_1758 {
+movement IlexForest_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_D36R0101_012 {
+script IlexForest_EventScript_Shrine {
     playeronbikecheck(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_1803) }
     if (var(VAR_UNK_412B) >= 2) { goto(_17C1) }
@@ -1541,18 +1541,18 @@ script scr_seq_D36R0101_012 {
             stopbgm(0)
             clearflag(FLAG_HIDE_ILEX_FOREST_SPIKY_EAR_PICHU)
             addobject(obj_D36R0101_tsure_poke_static_pichu_spiky)
-            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1C44)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuJumpRight1)
             waitmovement
             playcry(SPECIES_PICHU, 0)
             waitcry
-            applymovement(obj_player, IlexForest_Movement_1C58)
+            applymovement(obj_player, IlexForest_Movement_PlayerExclamation2)
             waitmovement
             callstd(std_play_pichu_music)
-            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1C64)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuWalkDownLeft)
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_player, IlexForest_Movement_1C8C)
+            applymovement(obj_player, IlexForest_Movement_PlayerWalkDown1)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -1560,28 +1560,28 @@ script scr_seq_D36R0101_012 {
             npcmsg("It’s a PICHU...!\n"
                    "One of its ears is spiky!\r")
             closemessage
-            applymovement(obj_partner_poke, IlexForest_Movement_1CB4)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonWalkRightDown2)
             waitmovement
-            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1CC4)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuJumpRight2)
             waitmovement
-            applymovement(obj_partner_poke, IlexForest_Movement_1CF8)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonExclamation)
             waitmovement
-            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1D08)
-            applymovement(obj_partner_poke, IlexForest_Movement_1D2C)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuWalkLeftUp)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonWalkDownLeft)
             waitmovement
             clearflag(FLAG_HIDE_ILEX_FOREST_OLD_MAN)
             addobject(obj_D36R0101_gsoldman1)
-            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1DE0)
-            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1D48)
-            applymovement(obj_partner_poke, IlexForest_Movement_1DA4)
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraWalkDownRight)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuWalkDownRight)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonWalkDownRight)
             waitmovement
-            applymovement(obj_player, IlexForest_Movement_1E88)
+            applymovement(obj_player, IlexForest_Movement_PlayerFaceLeft2)
             waitmovement
             npcmsg("Hey, hey!\n"
                    "You should not tamper with that shrine!\f"
                    "People are said to disappear.\r")
             closemessage
-            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1DF4)
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraFaceUp)
             waitmovement
             npcmsg("Kids and Pokémon sometimes disappear\n"
                    "around this shrine.\r"
@@ -1589,9 +1589,9 @@ script scr_seq_D36R0101_012 {
                    "wanders across time does that.\r"
                    "It is truly a strange thing...\r")
             closemessage
-            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E00)
-            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1E10)
-            applymovement(obj_player, IlexForest_Movement_1ED0)
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraExclamation)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuFaceUp)
+            applymovement(obj_player, IlexForest_Movement_PlayerFaceDown)
             waitmovement
             npcmsg("Well, well, this must be...\r"
                    "This must be the PICHU that has lived in\n"
@@ -1599,23 +1599,23 @@ script scr_seq_D36R0101_012 {
                    "When I saw it the first time, it looked\n"
                    "lonely. It is full of energy today.\r")
             closemessage
-            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1E20)
-            applymovement(obj_partner_poke, IlexForest_Movement_1E2C)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuFaceRight1)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonJumpLeft)
             waitmovement
             npcmsg("I see.\n"
                    "It seems that these old friends\f"
                    "finally meet again after a long time.\r")
             closemessage
-            applymovement(obj_partner_poke, IlexForest_Movement_1E38)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonFaceLeft)
             waitmovement
-            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1E40)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuFaceRight2)
             waitmovement
-            applymovement(obj_partner_poke, IlexForest_Movement_1E48)
+            applymovement(obj_partner_poke, IlexForest_Movement_FollowMonFaceUp)
             waitmovement
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_player, IlexForest_Movement_1E74)
+            applymovement(obj_player, IlexForest_Movement_PlayerWalkDown2)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -1647,7 +1647,7 @@ script scr_seq_D36R0101_012 {
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_player, IlexForest_Movement_1EB4)
+            applymovement(obj_player, IlexForest_Movement_PlayerWalkUp3)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -1655,9 +1655,9 @@ script scr_seq_D36R0101_012 {
         _19CF:
             getplayerfacing(VAR_TEMP_x4005)
             if (var(VAR_TEMP_x4005) == 3) {
-                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E90)
+                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraFaceLeft)
             } else {
-                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E98)
+                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraFaceRight)
             }
             waitmovement
             playfanfare(SEQ_ME_ITEM)
@@ -1670,9 +1670,9 @@ script scr_seq_D36R0101_012 {
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
             if (var(VAR_TEMP_x4005) == 3) {
-                applymovement(obj_player, IlexForest_Movement_1ED8)
+                applymovement(obj_player, IlexForest_Movement_PlayerWalkDown3)
             } else {
-                applymovement(obj_player, IlexForest_Movement_1EE4)
+                applymovement(obj_player, IlexForest_Movement_PlayerWalkDown4)
             }
             waitmovement
             waitfollowingpokemonmovement
@@ -1714,9 +1714,9 @@ script scr_seq_D36R0101_012 {
             closemessage
             touchscreenmenushow
             if (var(VAR_TEMP_x4005) == 3) {
-                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E64)
+                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraWalkDownLeft)
             } else {
-                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E50)
+                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraWalkLeftUp)
             }
             waitmovement
             removeobject(obj_D36R0101_gsoldman1)
@@ -1755,17 +1755,17 @@ text msg_0115_D36R0101_00052 {
     "It’s still in good condition.\r"
 }
 
-script scr_seq_D36R0101_019 {
+script IlexForest_EventScript_Pichu {
     followmonresetmovement
     lockall
     setvar(VAR_TEMP_x4008, 1)
     getplayerfacing(VAR_TEMP_x4005)
     if (var(VAR_TEMP_x4005) == 3) {
-        applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1EF0)
+        applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuFaceLeft)
     } elif (var(VAR_TEMP_x4005) == 2) {
-        applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1EF8)
+        applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuFaceRight3)
     } else {
-        applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1F00)
+        applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_PichuFaceDown)
     }
     waitmovement
     playcry(SPECIES_PICHU, 0)
@@ -1779,22 +1779,22 @@ script scr_seq_D36R0101_019 {
         followingpokemonmovement(55)
         getplayerfacing(VAR_TEMP_x4005)
         if (var(VAR_TEMP_x4005) == 3) {
-            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E90)
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraFaceLeft)
         } elif (var(VAR_TEMP_x4005) == 2) {
-            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E98)
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraFaceRight)
         } else {
-            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1EA0)
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_LyraFaceDown)
         }
         waitmovement
         npcmsg(msg_0115_D36R0101_00052)
         closemessage
         getplayerfacing(VAR_TEMP_x4005)
         if (var(VAR_TEMP_x4005) == 3) {
-            applymovement(obj_player, IlexForest_Movement_1EA8)
+            applymovement(obj_player, IlexForest_Movement_PlayerWalkUp2)
         } elif (var(VAR_TEMP_x4005) == 2) {
-            applymovement(obj_player, IlexForest_Movement_1EB4)
+            applymovement(obj_player, IlexForest_Movement_PlayerWalkUp3)
         } else {
-            applymovement(obj_player, IlexForest_Movement_1EC0)
+            applymovement(obj_player, IlexForest_Movement_PlayerWalkRightUp2)
         }
         waitmovement
         waitfollowingpokemonmovement
@@ -1811,19 +1811,19 @@ script scr_seq_D36R0101_019 {
     end
 }
 
-movement IlexForest_Movement_1C44 {
+movement IlexForest_Movement_PichuJumpRight1 {
     lock_dir
     jump_far_right
     unlock_dir
     jump_in_place_fast_down * 2
 }
 
-movement IlexForest_Movement_1C58 {
+movement IlexForest_Movement_PlayerExclamation2 {
     emote_exclamation_mark
     delay_8
 }
 
-movement IlexForest_Movement_1C64 {
+movement IlexForest_Movement_PichuWalkDownLeft {
     walk_fast_down * 7
     jump_in_place_fast_left
     walk_fast_left * 4
@@ -1835,7 +1835,7 @@ movement IlexForest_Movement_1C64 {
     jump_in_place_fast_up * 2
 }
 
-movement IlexForest_Movement_1C8C {
+movement IlexForest_Movement_PlayerWalkDown1 {
     delay_8 * 3
     face_down
     delay_8
@@ -1847,13 +1847,13 @@ movement IlexForest_Movement_1C8C {
     walk_in_place_down
 }
 
-movement IlexForest_Movement_1CB4 {
+movement IlexForest_Movement_FollowMonWalkRightDown2 {
     walk_right
     walk_down
     face_down
 }
 
-movement IlexForest_Movement_1CC4 {
+movement IlexForest_Movement_PichuJumpRight2 {
     lock_dir
     jump_near_fast_right
     unlock_dir
@@ -1868,13 +1868,13 @@ movement IlexForest_Movement_1CC4 {
     face_up
 }
 
-movement IlexForest_Movement_1CF8 {
+movement IlexForest_Movement_FollowMonExclamation {
     emote_exclamation_mark
     delay_8
     jump_in_place_fast_down * 2
 }
 
-movement IlexForest_Movement_1D08 {
+movement IlexForest_Movement_PichuWalkLeftUp {
     lock_dir
     jump_near_fast_down
     unlock_dir
@@ -1885,7 +1885,7 @@ movement IlexForest_Movement_1D08 {
     walk_right
 }
 
-movement IlexForest_Movement_1D2C {
+movement IlexForest_Movement_FollowMonWalkDownLeft {
     delay_16 * 2
     walk_fast_down
     walk_fast_left * 6
@@ -1894,7 +1894,7 @@ movement IlexForest_Movement_1D2C {
     walk_fast_left
 }
 
-movement IlexForest_Movement_1D48 {
+movement IlexForest_Movement_PichuWalkDownRight {
     walk_fast_down * 12
     walk_fast_right * 6
     walk_fast_up * 4
@@ -1919,7 +1919,7 @@ movement IlexForest_Movement_1D48 {
     unlock_dir
 }
 
-movement IlexForest_Movement_1DA4 {
+movement IlexForest_Movement_FollowMonWalkDownRight {
     walk_fast_down * 13
     walk_fast_right * 7
     jump_in_place_fast_up
@@ -1936,131 +1936,131 @@ movement IlexForest_Movement_1DA4 {
     walk_left
 }
 
-movement IlexForest_Movement_1DE0 {
+movement IlexForest_Movement_LyraWalkDownRight {
     delay_16 * 5
     walk_slow_down * 10
     walk_slow_right * 4
     walk_in_place_right
 }
 
-movement IlexForest_Movement_1DF4 {
+movement IlexForest_Movement_LyraFaceUp {
     walk_in_place_up
     delay_16
 }
 
-movement IlexForest_Movement_1E00 {
+movement IlexForest_Movement_LyraExclamation {
     walk_in_place_down
     delay_16
     emote_exclamation_mark
 }
 
-movement IlexForest_Movement_1E10 {
+movement IlexForest_Movement_PichuFaceUp {
     delay_16
     walk_in_place_up
     delay_16
 }
 
-movement IlexForest_Movement_1E20 {
+movement IlexForest_Movement_PichuFaceRight1 {
     jump_in_place_fast_up
     jump_in_place_fast_right
 }
 
-movement IlexForest_Movement_1E2C {
+movement IlexForest_Movement_FollowMonJumpLeft {
     jump_near_fast_left
     jump_in_place_fast_left * 2
 }
 
-movement IlexForest_Movement_1E38 {
+movement IlexForest_Movement_FollowMonFaceLeft {
     walk_in_place_left
 }
 
-movement IlexForest_Movement_1E40 {
+movement IlexForest_Movement_PichuFaceRight2 {
     jump_in_place_fast_right * 2
 }
 
-movement IlexForest_Movement_1E48 {
+movement IlexForest_Movement_FollowMonFaceUp {
     jump_in_place_fast_up * 2
 }
 
-movement IlexForest_Movement_1E50 {
+movement IlexForest_Movement_LyraWalkLeftUp {
     walk_in_place_right
     delay_16
     walk_slow_left * 4
     walk_slow_up * 10
 }
 
-movement IlexForest_Movement_1E64 {
+movement IlexForest_Movement_LyraWalkDownLeft {
     walk_slow_down * 2
     walk_slow_left * 4
     walk_slow_up * 12
 }
 
-movement IlexForest_Movement_1E74 {
+movement IlexForest_Movement_PlayerWalkDown2 {
     emote_exclamation_mark
     delay_8
     walk_down
     walk_in_place_left
 }
 
-movement IlexForest_Movement_1E88 {
+movement IlexForest_Movement_PlayerFaceLeft2 {
     walk_in_place_left
 }
 
-movement IlexForest_Movement_1E90 {
+movement IlexForest_Movement_LyraFaceLeft {
     walk_in_place_left
 }
 
-movement IlexForest_Movement_1E98 {
+movement IlexForest_Movement_LyraFaceRight {
     walk_in_place_right
 }
 
-movement IlexForest_Movement_1EA0 {
+movement IlexForest_Movement_LyraFaceDown {
     walk_in_place_down
 }
 
-movement IlexForest_Movement_1EA8 {
+movement IlexForest_Movement_PlayerWalkUp2 {
     walk_up
     walk_in_place_right
 }
 
-movement IlexForest_Movement_1EB4 {
+movement IlexForest_Movement_PlayerWalkUp3 {
     walk_up
     walk_in_place_left
 }
 
-movement IlexForest_Movement_1EC0 {
+movement IlexForest_Movement_PlayerWalkRightUp2 {
     walk_right
     walk_up * 2
     walk_in_place_left
 }
 
-movement IlexForest_Movement_1ED0 {
+movement IlexForest_Movement_PlayerFaceDown {
     walk_in_place_down
 }
 
-movement IlexForest_Movement_1ED8 {
+movement IlexForest_Movement_PlayerWalkDown3 {
     walk_down
     walk_in_place_right
 }
 
-movement IlexForest_Movement_1EE4 {
+movement IlexForest_Movement_PlayerWalkDown4 {
     walk_down
     walk_in_place_left
 }
 
-movement IlexForest_Movement_1EF0 {
+movement IlexForest_Movement_PichuFaceLeft {
     walk_in_place_left
 }
 
-movement IlexForest_Movement_1EF8 {
+movement IlexForest_Movement_PichuFaceRight3 {
     walk_in_place_right
 }
 
-movement IlexForest_Movement_1F00 {
+movement IlexForest_Movement_PichuFaceDown {
     walk_in_place_down
 }
 
-script scr_seq_D36R0101_020 {
+script IlexForest_EventScript_Lyra {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -2084,7 +2084,7 @@ _1F48:
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
-    applymovement(obj_partner_poke, IlexForest_Movement_2038)
+    applymovement(obj_partner_poke, IlexForest_Movement_FollowMonJumpDown)
     waitmovement
     fadeoutbgm(0, 30)
     callstd(std_play_friend_music)
@@ -2092,10 +2092,10 @@ _1F48:
     clearflag(FLAG_HIDE_ILEX_FOREST_FRIEND)
     addobject(obj_D36R0101_var_1)
     addobject(obj_D36R0101_tsure_poke_static_marill)
-    applymovement(obj_D36R0101_var_1, IlexForest_Movement_2054)
-    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_2060)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_FriendWalkDownRight)
+    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_MarillWalkDownRight)
     waitmovement
-    applymovement(obj_player, IlexForest_Movement_200C)
+    applymovement(obj_player, IlexForest_Movement_PlayerFaceLeft3)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}.\n"
@@ -2115,8 +2115,8 @@ _1F48:
     wait(15, VAR_SPECIAL_RESULT)
     fadescreen(6, 6, 1, RGB_WHITE)
     waitfade
-    applymovement(obj_player, IlexForest_Movement_2014)
-    applymovement(obj_D36R0101_var_1, IlexForest_Movement_208C)
+    applymovement(obj_player, IlexForest_Movement_PlayerExclamation3)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_FriendWalkRightUp)
     waitmovement
     gendermsgbox("Lyra: ...\n"
                  "What was that?\r", "Ethan: ...\n"
@@ -2135,11 +2135,11 @@ _1F48:
     end
 }
 
-movement IlexForest_Movement_200C {
+movement IlexForest_Movement_PlayerFaceLeft3 {
     walk_in_place_left
 }
 
-movement IlexForest_Movement_2014 {
+movement IlexForest_Movement_PlayerExclamation3 {
     emote_exclamation_mark
     delay_8
     walk_in_place_up
@@ -2150,7 +2150,7 @@ movement IlexForest_Movement_2014 {
     delay_8
 }
 
-movement IlexForest_Movement_2038 {
+movement IlexForest_Movement_FollowMonJumpDown {
     face_down
     face_down
     jump_far_down
@@ -2159,12 +2159,12 @@ movement IlexForest_Movement_2038 {
     lock_dir
 }
 
-movement IlexForest_Movement_2054 {
+movement IlexForest_Movement_FriendWalkDownRight {
     walk_down * 11
     walk_right * 2
 }
 
-movement IlexForest_Movement_2060 {
+movement IlexForest_Movement_MarillWalkDownRight {
     walk_down * 8
     walk_in_place_right
     walk_right
@@ -2177,21 +2177,21 @@ movement IlexForest_Movement_2060 {
     walk_left
 }
 
-movement IlexForest_Movement_208C {
+movement IlexForest_Movement_FriendWalkRightUp {
     delay_16
     walk_right * 2
     walk_up * 2
     walk_in_place_right
 }
 
-script scr_seq_D36R0101_022 {
+script IlexForest_EventScript_LyraScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D36R0101_var_1, IlexForest_Movement_2148)
-    applymovement(obj_player, IlexForest_Movement_21F4)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_FriendFaceRight)
+    applymovement(obj_player, IlexForest_Movement_PlayerWalkDown5)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -2200,14 +2200,14 @@ script scr_seq_D36R0101_022 {
                  "sure doesn’t feel good.\r", "Ethan: Traveling through time\n"
                                               "sure doesn’t feel good.\r")
     closemessage
-    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_2170)
+    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_MarillJumpRight)
     waitmovement
     callstd(std_play_friend_music)
-    applymovement(obj_D36R0101_var_1, IlexForest_Movement_215C)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_FriendExclamation)
     waitmovement
     gendermsgbox("Hey, my MARILL!\r", "Hey, my MARILL!\r")
     closemessage
-    applymovement(obj_D36R0101_var_1, IlexForest_Movement_218C)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_FriendWalkLeft)
     waitmovement
     gendermsgbox("I missed you so much!\r"
                  "Wait a sec...\n"
@@ -2215,8 +2215,8 @@ script scr_seq_D36R0101_022 {
                                                       "Wait a sec...\n"
                                                       "So we must be back to our time!\r")
     closemessage
-    applymovement(obj_D36R0101_var_1, IlexForest_Movement_219C)
-    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_21A4)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_FriendWalkRight)
+    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_MarillWalkRight)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("It was all so bizarre.\n"
@@ -2239,8 +2239,8 @@ script scr_seq_D36R0101_022 {
                                "I better get going.\r"
                                "See you!\r")
     closemessage
-    applymovement(obj_D36R0101_var_1, IlexForest_Movement_21AC)
-    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_21C4)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_FriendWalkLeftUp)
+    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_MarillWalkLeftUp)
     waitmovement
     callstd(std_fade_end_friend_music)
     touchscreenmenushow
@@ -2252,21 +2252,21 @@ script scr_seq_D36R0101_022 {
     end
 }
 
-movement IlexForest_Movement_2148 {
+movement IlexForest_Movement_FriendFaceRight {
     walk_in_place_left
     delay_8
     walk_in_place_right
     delay_8
 }
 
-movement IlexForest_Movement_215C {
+movement IlexForest_Movement_FriendExclamation {
     walk_in_place_left
     emote_exclamation_mark
     delay_8
     walk_in_place_left
 }
 
-movement IlexForest_Movement_2170 {
+movement IlexForest_Movement_MarillJumpRight {
     delay_8
     jump_in_place_fast_right * 2
     lock_dir
@@ -2275,21 +2275,21 @@ movement IlexForest_Movement_2170 {
     unlock_dir
 }
 
-movement IlexForest_Movement_218C {
+movement IlexForest_Movement_FriendWalkLeft {
     walk_left * 3
     delay_16
     jump_in_place_fast_left * 2
 }
 
-movement IlexForest_Movement_219C {
+movement IlexForest_Movement_FriendWalkRight {
     walk_right * 3
 }
 
-movement IlexForest_Movement_21A4 {
+movement IlexForest_Movement_MarillWalkRight {
     walk_right * 3
 }
 
-movement IlexForest_Movement_21AC {
+movement IlexForest_Movement_FriendWalkLeftUp {
     walk_left * 4
     walk_up * 6
     walk_in_place_down
@@ -2297,7 +2297,7 @@ movement IlexForest_Movement_21AC {
     walk_up * 5
 }
 
-movement IlexForest_Movement_21C4 {
+movement IlexForest_Movement_MarillWalkLeftUp {
     lock_dir
     jump_near_fast_down
     unlock_dir
@@ -2311,12 +2311,12 @@ movement IlexForest_Movement_21C4 {
     walk_up * 10
 }
 
-movement IlexForest_Movement_21F4 {
+movement IlexForest_Movement_PlayerWalkDown5 {
     walk_down
     delay_8
 }
 
-script scr_seq_D36R0101_013 {
+script IlexForest_EventScript_TrainerTips {
     trainertipsex(3, "Trainer Tips!\r"
                      "Ilex Forest is so overgrown with trees\n"
                      "that you can’t see the sky.\r"
@@ -2326,9 +2326,9 @@ script scr_seq_D36R0101_013 {
 }
 
 mapscripts IlexForest_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D36R0101_000
-    INIT_SCRIPT_ON_RESUME: scr_seq_D36R0101_021
+    INIT_SCRIPT_ON_TRANSITION: IlexForest_OnTransition
+    INIT_SCRIPT_ON_RESUME: IlexForest_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40FE, 4: scr_seq_D36R0101_022
+        VAR_UNK_40FE, 4: IlexForest_EventScript_LyraScene
     ]
 }

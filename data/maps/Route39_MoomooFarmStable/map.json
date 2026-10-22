@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39R0201_000 + 1",
+            "script": "Route39_MoomooFarmStable_EventScript_LittleGirl1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39R0201_002 + 1",
+            "script": "Route39_MoomooFarmStable_EventScript_Miltank1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39R0201_001 + 1",
+            "script": "Route39_MoomooFarmStable_EventScript_LittleGirl2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39R0201_003 + 1",
+            "script": "Route39_MoomooFarmStable_EventScript_Miltank2",
             "flag": "FLAG_UNK_226"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39R0201_003 + 1",
+            "script": "Route39_MoomooFarmStable_EventScript_Miltank2",
             "flag": "FLAG_UNK_226"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39R0201_003 + 1",
+            "script": "Route39_MoomooFarmStable_EventScript_Miltank2",
             "flag": "FLAG_UNK_226"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39R0201_003 + 1",
+            "script": "Route39_MoomooFarmStable_EventScript_Miltank2",
             "flag": "FLAG_UNK_226"
         }
     ],

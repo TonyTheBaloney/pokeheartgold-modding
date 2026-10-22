@@ -5,7 +5,7 @@ script scr_seq_T22R0601_000 {
     end
 }
 
-script scr_seq_T22R0601_001 {
+script Violet_BellsproutOnyxTradeHouse_EventScript_SchoolKidM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -64,7 +64,7 @@ _00B2:
     end
 }
 
-script scr_seq_T22R0601_002 {
+script Violet_BellsproutOnyxTradeHouse_EventScript_PokefanM {
     simplenpcmsg("A Pokémon you get in a trade\n"
                  "grows quickly.\r"
                  "But if you don’t have the right Gym\n"

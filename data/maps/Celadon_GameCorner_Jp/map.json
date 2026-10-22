@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0401_000 + 1",
+            "script": "Celadon_GameCorner_Jp_EventScript_Clerk",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0401_001 + 1",
+            "script": "Celadon_GameCorner_Jp_EventScript_Receptionist",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0401_006 + 1",
+            "script": "Celadon_GameCorner_Jp_EventScript_GymGuide",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0401_005 + 1",
+            "script": "Celadon_GameCorner_Jp_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0401_007 + 1",
+            "script": "Celadon_GameCorner_Jp_EventScript_OldMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0401_004 + 1",
+            "script": "Celadon_GameCorner_Jp_EventScript_Fisherman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0401_002 + 1",
+            "script": "Celadon_GameCorner_Jp_EventScript_PokefanM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0401_003 + 1",
+            "script": "Celadon_GameCorner_Jp_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         }
     ],
@@ -181,7 +181,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T07R0401_009 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -189,7 +189,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T07R0401_022 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign15"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -197,7 +197,7 @@
             "y": 14,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T07R0401_008 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -205,7 +205,7 @@
             "y": 14,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T07R0401_008 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -213,7 +213,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T07R0401_013 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign6"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -221,7 +221,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T07R0401_012 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign5"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -229,7 +229,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T07R0401_011 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign4"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -237,7 +237,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T07R0401_010 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign3"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -245,7 +245,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T07R0401_019 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign12"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -253,7 +253,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T07R0401_018 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign11"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -261,7 +261,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T07R0401_017 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign10"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -269,7 +269,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T07R0401_016 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign9"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -277,7 +277,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T07R0401_015 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign8"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -285,7 +285,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T07R0401_014 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign7"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -293,7 +293,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T07R0401_023 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign16"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -301,7 +301,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T07R0401_021 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign14"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -309,7 +309,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T07R0401_020 + 1"
+            "script": "Celadon_GameCorner_Jp_EventScript_Sign13"
         }
     ]
 }

@@ -37,6 +37,7 @@ PYTHONPATH=tools/mapkit python3 -m mapkit <command> ...
 | `script add MAP LABEL [--msg ID]` / `script rename MAP OLD NEW` | add a script / rename one everywhere |
 | `migrate MAP [--dry-run]` | move a map into `data/maps/<MapName>/` (pokeemerald layout); ROM unchanged |
 | `pory init MAP\|--all [--raw]` / `pory show MAP` / `pory sync MAP` | decompile a map's `.inc` scripts to `scripts.pory`, print its compiled output, sync `ids.h` ([SCRIPTING.md](../../docs/modding/SCRIPTING.md)) |
+| `pory name-scripts MAP\|--all [--dry-run]` | pokeemerald-style names for generated script/movement labels (`npc_names.json`) |
 | `pory inline-text MAP\|--all` | move dialog from `text.json` into `scripts.pory` as inline strings (ROM unchanged) |
 
 `MAP` can be `MAP_CHERRYGROVE`, `Cherrygrove`, `cherrygrove`, the code `T21`, or the id `67`.

@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_D24R0207_H_
 #define SCR_SEQ_D24R0207_H_
 
-#define _EV_scr_seq_D24R0207_000 0
-#define _EV_scr_seq_D24R0207_001 1
-#define _EV_scr_seq_D24R0207_002 2
+#define _EV_RuinsOfAlph_SouthwestHiddenRoom_EventScript_Scene 0
+#define _EV_RuinsOfAlph_SouthwestHiddenRoom_OnResume 1
+#define _EV_RuinsOfAlph_SouthwestHiddenRoom_EventScript_WarpToRuinsOfAlphUndergroundHallSinjohEvent2 2
 
 #endif // SCR_SEQ_D24R0207_H_

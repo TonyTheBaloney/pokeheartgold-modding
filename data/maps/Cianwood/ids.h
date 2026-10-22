@@ -1,22 +1,22 @@
 #ifndef SCR_SEQ_T24_H_
 #define SCR_SEQ_T24_H_
 
-#define _EV_scr_seq_T24_000 0
-#define _EV_scr_seq_T24_001 1
-#define _EV_scr_seq_T24_002 2
+#define _EV_Cianwood_EventScript_PokefanF1 0
+#define _EV_Cianwood_EventScript_Suicune 1
+#define _EV_Cianwood_EventScript_EusineTrigger 2
 #define _EV_scr_seq_T24_003 3
-#define _EV_scr_seq_T24_004 4
-#define _EV_scr_seq_T24_005 5
-#define _EV_scr_seq_T24_006 6
-#define _EV_scr_seq_T24_007 7
-#define _EV_scr_seq_T24_008 8
-#define _EV_scr_seq_T24_009 9
-#define _EV_scr_seq_T24_010 10
-#define _EV_scr_seq_T24_011 11
-#define _EV_scr_seq_T24_012 12
-#define _EV_scr_seq_T24_013 13
-#define _EV_scr_seq_T24_014 14
-#define _EV_scr_seq_T24_015 15
+#define _EV_Cianwood_EventScript_TrainerTips1 4
+#define _EV_Cianwood_OnTransition 5
+#define _EV_Cianwood_EventScript_PokefanFScene 6
+#define _EV_Cianwood_EventScript_Sign 7
+#define _EV_Cianwood_EventScript_CitySign 8
+#define _EV_Cianwood_EventScript_TrainerTips2 9
+#define _EV_Cianwood_EventScript_TrainerTips3 10
+#define _EV_Cianwood_EventScript_TrainerTips4 11
+#define _EV_Cianwood_EventScript_SchoolKidM 12
+#define _EV_Cianwood_EventScript_PokefanM 13
+#define _EV_Cianwood_EventScript_Lass 14
+#define _EV_Cianwood_EventScript_PokefanF2 15
 
 #define obj_T24_middlewoman1_2            0
 #define obj_T24_gsboy1                    1

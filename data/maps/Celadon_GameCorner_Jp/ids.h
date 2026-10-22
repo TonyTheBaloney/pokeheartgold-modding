@@ -1,30 +1,30 @@
 #ifndef SCR_SEQ_T07R0401_H_
 #define SCR_SEQ_T07R0401_H_
 
-#define _EV_scr_seq_T07R0401_000 0
-#define _EV_scr_seq_T07R0401_001 1
-#define _EV_scr_seq_T07R0401_002 2
-#define _EV_scr_seq_T07R0401_003 3
-#define _EV_scr_seq_T07R0401_004 4
-#define _EV_scr_seq_T07R0401_005 5
-#define _EV_scr_seq_T07R0401_006 6
-#define _EV_scr_seq_T07R0401_007 7
-#define _EV_scr_seq_T07R0401_008 8
-#define _EV_scr_seq_T07R0401_009 9
-#define _EV_scr_seq_T07R0401_010 10
-#define _EV_scr_seq_T07R0401_011 11
-#define _EV_scr_seq_T07R0401_012 12
-#define _EV_scr_seq_T07R0401_013 13
-#define _EV_scr_seq_T07R0401_014 14
-#define _EV_scr_seq_T07R0401_015 15
-#define _EV_scr_seq_T07R0401_016 16
-#define _EV_scr_seq_T07R0401_017 17
-#define _EV_scr_seq_T07R0401_018 18
-#define _EV_scr_seq_T07R0401_019 19
-#define _EV_scr_seq_T07R0401_020 20
-#define _EV_scr_seq_T07R0401_021 21
-#define _EV_scr_seq_T07R0401_022 22
-#define _EV_scr_seq_T07R0401_023 23
+#define _EV_Celadon_GameCorner_Jp_EventScript_Clerk 0
+#define _EV_Celadon_GameCorner_Jp_EventScript_Receptionist 1
+#define _EV_Celadon_GameCorner_Jp_EventScript_PokefanM 2
+#define _EV_Celadon_GameCorner_Jp_EventScript_Woman 3
+#define _EV_Celadon_GameCorner_Jp_EventScript_Fisherman 4
+#define _EV_Celadon_GameCorner_Jp_EventScript_FatMan 5
+#define _EV_Celadon_GameCorner_Jp_EventScript_GymGuide 6
+#define _EV_Celadon_GameCorner_Jp_EventScript_OldMan 7
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign1 8
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign2 9
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign3 10
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign4 11
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign5 12
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign6 13
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign7 14
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign8 15
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign9 16
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign10 17
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign11 18
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign12 19
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign13 20
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign14 21
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign15 22
+#define _EV_Celadon_GameCorner_Jp_EventScript_Sign16 23
 
 #define obj_T07R0401_shopm1_2     0
 #define obj_T07R0401_gswoman6     1

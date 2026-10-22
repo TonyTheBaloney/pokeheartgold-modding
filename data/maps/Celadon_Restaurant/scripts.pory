@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0701_000
-    scr_seq_T07R0701_001
-    scr_seq_T07R0701_002
-    scr_seq_T07R0701_003
-    scr_seq_T07R0701_004
-    scr_seq_T07R0701_005
+    Celadon_Restaurant_EventScript_Man
+    Celadon_Restaurant_EventScript_FatMan1
+    Celadon_Restaurant_EventScript_FatMan2
+    Celadon_Restaurant_EventScript_FatMan3
+    Celadon_Restaurant_EventScript_Woman
+    Celadon_Restaurant_EventScript_Maylene
     scr_seq_T07R0701_006
 }
 
-script scr_seq_T07R0701_005 {
+script Celadon_Restaurant_EventScript_Maylene {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,17 +25,17 @@ script scr_seq_T07R0701_005 {
            "The winner eats for free, too.\n"
            "That’s just a dream come true!\r")
     closemessage
-    applymovement(obj_T07R0701_leader4, Celadon_Restaurant_Movement_003C)
+    applymovement(obj_T07R0701_leader4, Celadon_Restaurant_Movement_MayleneFaceRight)
     waitmovement
     releaseall
     end
 }
 
-movement Celadon_Restaurant_Movement_003C {
+movement Celadon_Restaurant_Movement_MayleneFaceRight {
     walk_in_place_right
 }
 
-script scr_seq_T07R0701_004 {
+script Celadon_Restaurant_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -45,7 +45,7 @@ script scr_seq_T07R0701_004 {
                "I can keep eating!\n"
                "More, chef!\r")
         closemessage
-        applymovement(obj_T07R0701_gswoman1, Celadon_Restaurant_Movement_00D8)
+        applymovement(obj_T07R0701_gswoman1, Celadon_Restaurant_Movement_WomanFaceDown)
         waitmovement
         releaseall
         end
@@ -54,13 +54,13 @@ script scr_seq_T07R0701_004 {
            "I can keep eating!\n"
            "More, chef!\r")
     closemessage
-    applymovement(obj_T07R0701_gswoman1, Celadon_Restaurant_Movement_00D8)
+    applymovement(obj_T07R0701_gswoman1, Celadon_Restaurant_Movement_WomanFaceDown)
     waitmovement
     releaseall
     end
 }
 
-script scr_seq_T07R0701_001 {
+script Celadon_Restaurant_EventScript_FatMan1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -72,13 +72,13 @@ script scr_seq_T07R0701_001 {
            "If I have to hurry eating, my mouth...\f"
            "Hot, hot, hot!\r")
     closemessage
-    applymovement(obj_T07R0701_gsbigman_3, Celadon_Restaurant_Movement_00E0)
+    applymovement(obj_T07R0701_gsbigman_3, Celadon_Restaurant_Movement_FatManFaceUp)
     waitmovement
     releaseall
     end
 }
 
-script scr_seq_T07R0701_002 {
+script Celadon_Restaurant_EventScript_FatMan2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -87,13 +87,13 @@ script scr_seq_T07R0701_002 {
            "Chomp, chew, cough...\n"
            "(Food is gonna come out of my mouth...)\r")
     closemessage
-    applymovement(obj_T07R0701_gsbigman_2, Celadon_Restaurant_Movement_00E0)
+    applymovement(obj_T07R0701_gsbigman_2, Celadon_Restaurant_Movement_FatManFaceUp)
     waitmovement
     releaseall
     end
 }
 
-script scr_seq_T07R0701_003 {
+script Celadon_Restaurant_EventScript_FatMan3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -103,21 +103,21 @@ script scr_seq_T07R0701_003 {
            "I thought it was the speed-eating\n"
            "contest...\r")
     closemessage
-    applymovement(obj_T07R0701_gsbigman, Celadon_Restaurant_Movement_00D8)
+    applymovement(obj_T07R0701_gsbigman, Celadon_Restaurant_Movement_WomanFaceDown)
     waitmovement
     releaseall
     end
 }
 
-movement Celadon_Restaurant_Movement_00D8 {
+movement Celadon_Restaurant_Movement_WomanFaceDown {
     walk_in_place_down
 }
 
-movement Celadon_Restaurant_Movement_00E0 {
+movement Celadon_Restaurant_Movement_FatManFaceUp {
     walk_in_place_up
 }
 
-script scr_seq_T07R0701_000 {
+script Celadon_Restaurant_EventScript_Man {
     simplenpcmsg("Hi!\r"
                  "We’re holding an eatathon contest.\n"
                  "We can’t serve you right now. Sorry.")

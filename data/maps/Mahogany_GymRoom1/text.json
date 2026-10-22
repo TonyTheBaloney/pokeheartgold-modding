@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0623_T28GYM0103_00000",
-      "from": "scr_seq_T28GYM0103_000#1"
+      "from": "Mahogany_GymRoom1_EventScript_GymGuide#1"
     },
     {
       "id": "msg_0623_T28GYM0103_00001",
-      "from": "scr_seq_T28GYM0103_000#0"
+      "from": "Mahogany_GymRoom1_EventScript_GymGuide#0"
     },
     {
       "id": "msg_0623_T28GYM0103_00002",
-      "from": "scr_seq_T28GYM0103_001#0"
+      "from": "Mahogany_GymRoom1_EventScript_GymSign#0"
     },
     {
       "id": "msg_0623_T28GYM0103_00003",
-      "from": "scr_seq_T28GYM0103_001#1"
+      "from": "Mahogany_GymRoom1_EventScript_GymSign#1"
     }
   ]
 }

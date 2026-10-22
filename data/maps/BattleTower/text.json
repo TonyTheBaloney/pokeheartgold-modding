@@ -3,23 +3,23 @@
   "messages": [
     {
       "id": "msg_0096_D31R0201_00000",
-      "from": "scr_seq_D31R0201_000#0"
+      "from": "BattleTower_EventScript_Attendant1#0"
     },
     {
       "id": "msg_0096_D31R0201_00001",
-      "from": "scr_seq_D31R0201_000#1"
+      "from": "BattleTower_EventScript_Attendant1#1"
     },
     {
       "id": "msg_0096_D31R0201_00002",
-      "from": "scr_seq_D31R0201_007#0"
+      "from": "BattleTower_EventScript_WarpToBattleTowerElevator#0"
     },
     {
       "id": "msg_0096_D31R0201_00003",
-      "from": "scr_seq_D31R0201_000#2"
+      "from": "BattleTower_EventScript_Attendant1#2"
     },
     {
       "id": "msg_0096_D31R0201_00004",
-      "from": "scr_seq_D31R0201_000#3"
+      "from": "BattleTower_EventScript_Attendant1#3"
     },
     {
       "id": "msg_0096_D31R0201_00005",
@@ -39,11 +39,11 @@
     },
     {
       "id": "msg_0096_D31R0201_00009",
-      "from": "scr_seq_D31R0201_000#4"
+      "from": "BattleTower_EventScript_Attendant1#4"
     },
     {
       "id": "msg_0096_D31R0201_00010",
-      "from": "scr_seq_D31R0201_000#5"
+      "from": "BattleTower_EventScript_Attendant1#5"
     },
     {
       "id": "msg_0096_D31R0201_00011",
@@ -74,7 +74,7 @@
     },
     {
       "id": "msg_0096_D31R0201_00016",
-      "from": "scr_seq_D31R0201_004#0"
+      "from": "BattleTower_EventScript_Scene2#0"
     },
     {
       "id": "msg_0096_D31R0201_00017",
@@ -86,15 +86,15 @@
     },
     {
       "id": "msg_0096_D31R0201_00019",
-      "from": "scr_seq_D31R0201_005#0"
+      "from": "BattleTower_EventScript_Scene3#0"
     },
     {
       "id": "msg_0096_D31R0201_00020",
-      "from": "scr_seq_D31R0201_001#0"
+      "from": "BattleTower_EventScript_Attendant2#0"
     },
     {
       "id": "msg_0096_D31R0201_00021",
-      "from": "scr_seq_D31R0201_001#1"
+      "from": "BattleTower_EventScript_Attendant2#1"
     },
     {
       "id": "msg_0096_D31R0201_00022",
@@ -102,7 +102,7 @@
     },
     {
       "id": "msg_0096_D31R0201_00023",
-      "from": "scr_seq_D31R0201_001#2"
+      "from": "BattleTower_EventScript_Attendant2#2"
     },
     {
       "id": "msg_0096_D31R0201_00024",
@@ -114,11 +114,11 @@
     },
     {
       "id": "msg_0096_D31R0201_00026",
-      "from": "scr_seq_D31R0201_001#3"
+      "from": "BattleTower_EventScript_Attendant2#3"
     },
     {
       "id": "msg_0096_D31R0201_00027",
-      "from": "scr_seq_D31R0201_001#4"
+      "from": "BattleTower_EventScript_Attendant2#4"
     },
     {
       "id": "msg_0096_D31R0201_00028",
@@ -146,15 +146,15 @@
     },
     {
       "id": "msg_0096_D31R0201_00034",
-      "from": "scr_seq_D31R0201_001#5"
+      "from": "BattleTower_EventScript_Attendant2#5"
     },
     {
       "id": "msg_0096_D31R0201_00035",
-      "from": "scr_seq_D31R0201_001#7"
+      "from": "BattleTower_EventScript_Attendant2#7"
     },
     {
       "id": "msg_0096_D31R0201_00036",
-      "from": "scr_seq_D31R0201_002#4"
+      "from": "BattleTower_EventScript_Wifisf#4"
     },
     {
       "id": "msg_0096_D31R0201_00037",
@@ -162,7 +162,7 @@
     },
     {
       "id": "msg_0096_D31R0201_00038",
-      "from": "scr_seq_D31R0201_002#5"
+      "from": "BattleTower_EventScript_Wifisf#5"
     },
     {
       "id": "msg_0096_D31R0201_00039",
@@ -198,11 +198,11 @@
     },
     {
       "id": "msg_0096_D31R0201_00047",
-      "from": "scr_seq_D31R0201_002#1"
+      "from": "BattleTower_EventScript_Wifisf#1"
     },
     {
       "id": "msg_0096_D31R0201_00048",
-      "from": "scr_seq_D31R0201_002#2"
+      "from": "BattleTower_EventScript_Wifisf#2"
     },
     {
       "id": "msg_0096_D31R0201_00049",
@@ -218,19 +218,19 @@
     },
     {
       "id": "msg_0096_D31R0201_00052",
-      "from": "scr_seq_D31R0201_002#3"
+      "from": "BattleTower_EventScript_Wifisf#3"
     },
     {
       "id": "msg_0096_D31R0201_00053",
-      "from": "scr_seq_D31R0201_003#0"
+      "from": "BattleTower_EventScript_Scene1#0"
     },
     {
       "id": "msg_0096_D31R0201_00054",
-      "from": "scr_seq_D31R0201_003#7"
+      "from": "BattleTower_EventScript_Scene1#7"
     },
     {
       "id": "msg_0096_D31R0201_00055",
-      "from": "scr_seq_D31R0201_003#1"
+      "from": "BattleTower_EventScript_Scene1#1"
     },
     {
       "id": "msg_0096_D31R0201_00056",
@@ -238,7 +238,7 @@
     },
     {
       "id": "msg_0096_D31R0201_00057",
-      "from": "scr_seq_D31R0201_003#8"
+      "from": "BattleTower_EventScript_Scene1#8"
     },
     {
       "id": "msg_0096_D31R0201_00058",
@@ -259,7 +259,7 @@
     },
     {
       "id": "msg_0096_D31R0201_00061",
-      "from": "scr_seq_D31R0201_002#0"
+      "from": "BattleTower_EventScript_Wifisf#0"
     },
     {
       "id": "msg_0096_D31R0201_00062",
@@ -291,11 +291,11 @@
     },
     {
       "id": "msg_0096_D31R0201_00069",
-      "from": "scr_seq_D31R0201_001#6"
+      "from": "BattleTower_EventScript_Attendant2#6"
     },
     {
       "id": "msg_0096_D31R0201_00070",
-      "from": "scr_seq_D31R0201_003#2"
+      "from": "BattleTower_EventScript_Scene1#2"
     },
     {
       "id": "msg_0096_D31R0201_00071",
@@ -311,35 +311,35 @@
     },
     {
       "id": "msg_0096_D31R0201_00074",
-      "from": "scr_seq_D31R0201_013#0"
+      "from": "BattleTower_EventScript_SuperNerd1#0"
     },
     {
       "id": "msg_0096_D31R0201_00075",
-      "from": "scr_seq_D31R0201_014#0"
+      "from": "BattleTower_EventScript_Nurse#0"
     },
     {
       "id": "msg_0096_D31R0201_00076",
-      "from": "scr_seq_D31R0201_015#0"
+      "from": "BattleTower_EventScript_Idol#0"
     },
     {
       "id": "msg_0096_D31R0201_00077",
-      "from": "scr_seq_D31R0201_016#0"
+      "from": "BattleTower_EventScript_RichBoy#0"
     },
     {
       "id": "msg_0096_D31R0201_00078",
-      "from": "scr_seq_D31R0201_017#0"
+      "from": "BattleTower_EventScript_Pikachu1#0"
     },
     {
       "id": "msg_0096_D31R0201_00079",
-      "from": "scr_seq_D31R0201_018#0"
+      "from": "BattleTower_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0096_D31R0201_00080",
-      "from": "scr_seq_D31R0201_019#0"
+      "from": "BattleTower_EventScript_SchoolKidM#0"
     },
     {
       "id": "msg_0096_D31R0201_00081",
-      "from": "scr_seq_D31R0201_020#0"
+      "from": "BattleTower_EventScript_Pikachu2#0"
     },
     {
       "id": "msg_0096_D31R0201_00082",
@@ -361,7 +361,7 @@
     },
     {
       "id": "msg_0096_D31R0201_00084",
-      "from": "scr_seq_D31R0201_003#4"
+      "from": "BattleTower_EventScript_Scene1#4"
     },
     {
       "id": "msg_0096_D31R0201_00085",
@@ -369,19 +369,19 @@
     },
     {
       "id": "msg_0096_D31R0201_00086",
-      "from": "scr_seq_D31R0201_003#6"
+      "from": "BattleTower_EventScript_Scene1#6"
     },
     {
       "id": "msg_0096_D31R0201_00087",
-      "from": "scr_seq_D31R0201_003#5"
+      "from": "BattleTower_EventScript_Scene1#5"
     },
     {
       "id": "msg_0096_D31R0201_00088",
-      "from": "scr_seq_D31R0201_006#1"
+      "from": "BattleTower_EventScript_Receptionist#1"
     },
     {
       "id": "msg_0096_D31R0201_00089",
-      "from": "scr_seq_D31R0201_006#0"
+      "from": "BattleTower_EventScript_Receptionist#0"
     },
     {
       "id": "msg_0096_D31R0201_00090",
@@ -730,7 +730,7 @@
     },
     {
       "id": "msg_0096_D31R0201_00111",
-      "from": "scr_seq_D31R0201_012#0"
+      "from": "BattleTower_EventScript_Sign2#0"
     },
     {
       "id": "msg_0096_D31R0201_00112",
@@ -742,35 +742,35 @@
     },
     {
       "id": "msg_0096_D31R0201_00114",
-      "from": "scr_seq_D31R0201_023#1"
+      "from": "BattleTower_EventScript_SuperNerd2#1"
     },
     {
       "id": "msg_0096_D31R0201_00115",
-      "from": "scr_seq_D31R0201_023#2"
+      "from": "BattleTower_EventScript_SuperNerd2#2"
     },
     {
       "id": "msg_0096_D31R0201_00116",
-      "from": "scr_seq_D31R0201_023#0"
+      "from": "BattleTower_EventScript_SuperNerd2#0"
     },
     {
       "id": "msg_0096_D31R0201_00117",
-      "from": "scr_seq_D31R0201_023#3"
+      "from": "BattleTower_EventScript_SuperNerd2#3"
     },
     {
       "id": "msg_0096_D31R0201_00118",
-      "from": "scr_seq_D31R0201_023#4"
+      "from": "BattleTower_EventScript_SuperNerd2#4"
     },
     {
       "id": "msg_0096_D31R0201_00119",
-      "from": "scr_seq_D31R0201_023#5"
+      "from": "BattleTower_EventScript_SuperNerd2#5"
     },
     {
       "id": "msg_0096_D31R0201_00120",
-      "from": "scr_seq_D31R0201_023#6"
+      "from": "BattleTower_EventScript_SuperNerd2#6"
     },
     {
       "id": "msg_0096_D31R0201_00121",
-      "from": "scr_seq_D31R0201_023#7"
+      "from": "BattleTower_EventScript_SuperNerd2#7"
     },
     {
       "id": "msg_0096_D31R0201_00122",
@@ -816,23 +816,23 @@
     },
     {
       "id": "msg_0096_D31R0201_00128",
-      "from": "scr_seq_D31R0201_023#8"
+      "from": "BattleTower_EventScript_SuperNerd2#8"
     },
     {
       "id": "msg_0096_D31R0201_00129",
-      "from": "scr_seq_D31R0201_023#9"
+      "from": "BattleTower_EventScript_SuperNerd2#9"
     },
     {
       "id": "msg_0096_D31R0201_00130",
-      "from": "scr_seq_D31R0201_023#10"
+      "from": "BattleTower_EventScript_SuperNerd2#10"
     },
     {
       "id": "msg_0096_D31R0201_00131",
-      "from": "scr_seq_D31R0201_023#11"
+      "from": "BattleTower_EventScript_SuperNerd2#11"
     },
     {
       "id": "msg_0096_D31R0201_00132",
-      "from": "scr_seq_D31R0201_003#3"
+      "from": "BattleTower_EventScript_Scene1#3"
     }
   ]
 }

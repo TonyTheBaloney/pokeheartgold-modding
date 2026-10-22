@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0101_D32FS0101_00000",
-      "from": "scr_seq_D32FS0101_002#0"
+      "from": "FrontierAccessPokemart_EventScript_Boy#0"
     },
     {
       "id": "msg_0101_D32FS0101_00001",
-      "from": "scr_seq_D32FS0101_003#0"
+      "from": "FrontierAccessPokemart_EventScript_Hiker#0"
     }
   ]
 }

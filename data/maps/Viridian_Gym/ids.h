@@ -1,11 +1,11 @@
 #ifndef SCR_SEQ_T02GYM0101_H_
 #define SCR_SEQ_T02GYM0101_H_
 
-#define _EV_scr_seq_T02GYM0101_000 0
-#define _EV_scr_seq_T02GYM0101_001 1
-#define _EV_scr_seq_T02GYM0101_002 2
-#define _EV_scr_seq_T02GYM0101_003 3
-#define _EV_scr_seq_T02GYM0101_004 4
+#define _EV_Viridian_Gym_EventScript_Blue 0
+#define _EV_Viridian_Gym_EventScript_GymGuide 1
+#define _EV_Viridian_Gym_OnTransition 2
+#define _EV_Viridian_Gym_EventScript_GymGuideTrigger 3
+#define _EV_Viridian_Gym_EventScript_GymSign 4
 
 #define obj_T02GYM0101_gsman3     0
 #define obj_T02GYM0101_gsman3_2   1

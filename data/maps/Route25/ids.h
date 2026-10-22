@@ -1,16 +1,16 @@
 #ifndef SCR_SEQ_R25_H_
 #define SCR_SEQ_R25_H_
 
-#define _EV_scr_seq_R25_000 0
-#define _EV_scr_seq_R25_001 1
-#define _EV_scr_seq_R25_002 2
-#define _EV_scr_seq_R25_003 3
-#define _EV_scr_seq_R25_004 4
-#define _EV_scr_seq_R25_005 5
-#define _EV_scr_seq_R25_006 6
-#define _EV_scr_seq_R25_007 7
-#define _EV_scr_seq_R25_008 8
-#define _EV_scr_seq_R25_009 9
+#define _EV_Route25_EventScript_MistyTrigger 0
+#define _EV_Route25_EventScript_Kevin 1
+#define _EV_Route25_EventScript_TrainerTips 2
+#define _EV_Route25_OnTransition 3
+#define _EV_Route25_EventScript_EusineTrigger 4
+#define _EV_Route25_EventScript_Eusine1 5
+#define _EV_Route25_EventScript_Eusine2 6
+#define _EV_Route25_EventScript_Eusine3 7
+#define _EV_Route25_OnLoad 8
+#define _EV_Route25_EventScript_Misty 9
 
 #define obj_R25_gsboy1                    0
 #define obj_R25_gsgirl1                   1

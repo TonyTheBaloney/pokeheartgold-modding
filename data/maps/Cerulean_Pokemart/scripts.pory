@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T04FS0101_000 {
+script Cerulean_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T04FS0101_000 {
     end
 }
 
-script scr_seq_T04FS0101_001 {
+script Cerulean_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,7 +25,7 @@ script scr_seq_T04FS0101_001 {
     end
 }
 
-script scr_seq_T04FS0101_002 {
+script Cerulean_Pokemart_EventScript_AceTrainerM {
     simplenpcmsg("You’ll run into many Trainers on\n"
                  "the way to Cerulean Cape.\r"
                  "They want to see how they stack\n"
@@ -33,7 +33,7 @@ script scr_seq_T04FS0101_002 {
     end
 }
 
-script scr_seq_T04FS0101_003 {
+script Cerulean_Pokemart_EventScript_AceTrainerF {
     simplenpcmsg("Misty is about the only person in town\n"
                  "who can beat the Trainers at\f"
                  "Cerulean Cape.")

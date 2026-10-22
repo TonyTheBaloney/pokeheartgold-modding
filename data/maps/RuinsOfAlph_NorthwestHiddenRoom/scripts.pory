@@ -1,9 +1,9 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D24R0209_000 {
+script RuinsOfAlph_NorthwestHiddenRoom_EventScript_Scene {
     playse(SEQ_SE_GS_RAKKA01)
-    applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_0064)
+    applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerWarpIn)
     makeobjectinvisible(obj_player)
     waitmovement
     screenshake(0, 1, 1, 8)
@@ -16,18 +16,18 @@ script scr_seq_D24R0209_000 {
     end
 }
 
-script scr_seq_D24R0209_001 {
+script RuinsOfAlph_NorthwestHiddenRoom_OnResume {
     if (var(VAR_UNK_40D8) == 1) {
         makeobjectvisible(obj_player)
     }
     end
 }
 
-movement RuinsOfAlph_NorthwestHiddenRoom_Movement_0064 {
+movement RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerWarpIn {
     warp_in
 }
 
-script scr_seq_D24R0209_002 {
+script RuinsOfAlph_NorthwestHiddenRoom_EventScript_WarpToRuinsOfAlphUndergroundHallSinjohEvent2 {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_40CE, 1)
@@ -36,13 +36,13 @@ script scr_seq_D24R0209_002 {
     if (var(VAR_SPECIAL_RESULT) == 0) {
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_0218)
+            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit1)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_0234)
+            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit2)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_0250)
+            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit3)
         } else {
-            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_026C)
+            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit4)
         }
         waitmovement
         goto(_017E)
@@ -50,17 +50,17 @@ script scr_seq_D24R0209_002 {
     if (var(VAR_SPECIAL_RESULT) == 1) {
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_0218)
-            applymovement(obj_partner_poke, RuinsOfAlph_NorthwestHiddenRoom_Movement_0224)
+            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit1)
+            applymovement(obj_partner_poke, RuinsOfAlph_NorthwestHiddenRoom_Movement_FollowMonExit1)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_0234)
-            applymovement(obj_partner_poke, RuinsOfAlph_NorthwestHiddenRoom_Movement_0240)
+            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit2)
+            applymovement(obj_partner_poke, RuinsOfAlph_NorthwestHiddenRoom_Movement_FollowMonExit2)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_0250)
-            applymovement(obj_partner_poke, RuinsOfAlph_NorthwestHiddenRoom_Movement_025C)
+            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit3)
+            applymovement(obj_partner_poke, RuinsOfAlph_NorthwestHiddenRoom_Movement_FollowMonExit3)
         } else {
-            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_026C)
-            applymovement(obj_partner_poke, RuinsOfAlph_NorthwestHiddenRoom_Movement_0278)
+            applymovement(obj_player, RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit4)
+            applymovement(obj_partner_poke, RuinsOfAlph_NorthwestHiddenRoom_Movement_FollowMonExit4)
         }
         waitmovement
     _017E:
@@ -93,53 +93,53 @@ script scr_seq_D24R0209_002 {
     end
 }
 
-movement RuinsOfAlph_NorthwestHiddenRoom_Movement_0218 {
+movement RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit1 {
     walk_in_place_faster_up * 4
     set_invisible
 }
 
-movement RuinsOfAlph_NorthwestHiddenRoom_Movement_0224 {
+movement RuinsOfAlph_NorthwestHiddenRoom_Movement_FollowMonExit1 {
     delay_4 * 3
     walk_faster_up
     set_invisible
 }
 
-movement RuinsOfAlph_NorthwestHiddenRoom_Movement_0234 {
+movement RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit2 {
     walk_in_place_faster_down * 4
     set_invisible
 }
 
-movement RuinsOfAlph_NorthwestHiddenRoom_Movement_0240 {
+movement RuinsOfAlph_NorthwestHiddenRoom_Movement_FollowMonExit2 {
     delay_4 * 3
     walk_faster_down
     set_invisible
 }
 
-movement RuinsOfAlph_NorthwestHiddenRoom_Movement_0250 {
+movement RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit3 {
     walk_in_place_faster_left * 4
     set_invisible
 }
 
-movement RuinsOfAlph_NorthwestHiddenRoom_Movement_025C {
+movement RuinsOfAlph_NorthwestHiddenRoom_Movement_FollowMonExit3 {
     delay_4 * 3
     walk_faster_left
     set_invisible
 }
 
-movement RuinsOfAlph_NorthwestHiddenRoom_Movement_026C {
+movement RuinsOfAlph_NorthwestHiddenRoom_Movement_PlayerExit4 {
     walk_in_place_faster_right * 4
     set_invisible
 }
 
-movement RuinsOfAlph_NorthwestHiddenRoom_Movement_0278 {
+movement RuinsOfAlph_NorthwestHiddenRoom_Movement_FollowMonExit4 {
     delay_4 * 3
     walk_faster_right
     set_invisible
 }
 
 mapscripts RuinsOfAlph_NorthwestHiddenRoom_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D24R0209_001
+    INIT_SCRIPT_ON_RESUME: RuinsOfAlph_NorthwestHiddenRoom_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40D8, 1: scr_seq_D24R0209_000
+        VAR_UNK_40D8, 1: RuinsOfAlph_NorthwestHiddenRoom_EventScript_Scene
     ]
 }

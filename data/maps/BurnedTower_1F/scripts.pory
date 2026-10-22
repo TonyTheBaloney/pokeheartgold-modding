@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D18R0101_000
-    scr_seq_D18R0101_001
-    scr_seq_D18R0101_002
-    scr_seq_D18R0101_003
+    BurnedTower_1F_EventScript_EusineTrigger
+    BurnedTower_1F_EventScript_Eusine
+    BurnedTower_1F_EventScript_Morty
+    BurnedTower_1F_EventScript_RivalTrigger
 }
 
-script scr_seq_D18R0101_003 {
+script BurnedTower_1F_EventScript_RivalTrigger {
     followmonresetmovement
     lockall
     callstd(std_play_rival_intro_music)
-    applymovement(obj_D18R0101_gsrivel, BurnedTower_1F_Movement_00D0)
+    applymovement(obj_D18R0101_gsrivel, BurnedTower_1F_Movement_RivalWalkDownLeft1)
     waitmovement
     bufferrivalsname(0)
     npcmsg("{STRVAR_1 3, 0, 0}: ..................\r"
@@ -51,8 +51,8 @@ script scr_seq_D18R0101_003 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_player, BurnedTower_1F_Movement_00E8)
-    applymovement(obj_D18R0101_gsrivel, BurnedTower_1F_Movement_00F8)
+    applymovement(obj_player, BurnedTower_1F_Movement_PlayerWalkDownRight)
+    applymovement(obj_D18R0101_gsrivel, BurnedTower_1F_Movement_RivalWalkDownLeft2)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -65,7 +65,7 @@ script scr_seq_D18R0101_003 {
     end
 }
 
-movement BurnedTower_1F_Movement_00D0 {
+movement BurnedTower_1F_Movement_RivalWalkDownLeft1 {
     face_down
     emote_exclamation_mark
     walk_down * 4
@@ -73,13 +73,13 @@ movement BurnedTower_1F_Movement_00D0 {
     face_down
 }
 
-movement BurnedTower_1F_Movement_00E8 {
+movement BurnedTower_1F_Movement_PlayerWalkDownRight {
     walk_down * 2
     walk_right
     face_left
 }
 
-movement BurnedTower_1F_Movement_00F8 {
+movement BurnedTower_1F_Movement_RivalWalkDownLeft2 {
     walk_down * 3
     walk_left
     walk_down
@@ -89,11 +89,11 @@ movement BurnedTower_1F_Movement_00F8 {
     walk_down * 3
 }
 
-script scr_seq_D18R0101_000 {
+script BurnedTower_1F_EventScript_EusineTrigger {
     followmonresetmovement
     lockall
     callstd(std_play_eusine_music)
-    applymovement(obj_D18R0101_minaki, BurnedTower_1F_Movement_0158)
+    applymovement(obj_D18R0101_minaki, BurnedTower_1F_Movement_EusineWalkLeft)
     waitmovement
     bufferplayersname(0)
     npcmsg("Eusine: My name is Eusine.\r"
@@ -118,19 +118,19 @@ script scr_seq_D18R0101_000 {
     end
 }
 
-script scr_seq_D18R0101_001 {
+script BurnedTower_1F_EventScript_Eusine {
     simplenpcmsg("Eusine: There seems to be more than\n"
                  "meets the eye with you...")
     end
 }
 
-movement BurnedTower_1F_Movement_0158 {
+movement BurnedTower_1F_Movement_EusineWalkLeft {
     face_left
     emote_exclamation_mark
     walk_left * 3
 }
 
-script scr_seq_D18R0101_002 {
+script BurnedTower_1F_EventScript_Morty {
     simplenpcmsg("Morty: My name is Morty.\n"
                  "I am Ecruteak’s Gym Leader.\r"
                  "Because my old friend Eusine is here\n"

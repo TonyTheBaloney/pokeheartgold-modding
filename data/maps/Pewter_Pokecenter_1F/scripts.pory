@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T03PC0101_000 {
+script Pewter_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T03PC0101_001 {
+script Pewter_Pokecenter_1F_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -74,7 +74,7 @@ _00BE:
     end
 }
 
-script scr_seq_T03PC0101_002 {
+script Pewter_Pokecenter_1F_EventScript_Woman {
     simplenpcmsg("...Yeah, and the Gym in Cinnabar’s\n"
                  "gone. I was really amazed.\r"
                  "...Yes? I’m on the phone.\n"
@@ -82,7 +82,7 @@ script scr_seq_T03PC0101_002 {
     end
 }
 
-script scr_seq_T03PC0101_003 {
+script Pewter_Pokecenter_1F_EventScript_Jigglypuff {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -95,7 +95,7 @@ script scr_seq_T03PC0101_003 {
     end
 }
 
-script scr_seq_T03PC0101_004 {
+script Pewter_Pokecenter_1F_EventScript_LittleBoy {
     simplenpcmsg("Most Pokémon get drowsy if they\n"
                  "hear a JIGGLYPUFF singing.\r"
                  "There are several moves that can be\n"

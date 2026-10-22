@@ -3,29 +3,29 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T03R0101_000
-    scr_seq_T03R0101_001
-    scr_seq_T03R0101_002
-    scr_seq_T03R0101_003
-    scr_seq_T03R0101_004
-    scr_seq_T03R0101_005
-    scr_seq_T03R0101_006
-    scr_seq_T03R0101_007
-    scr_seq_T03R0101_008
-    scr_seq_T03R0101_009
-    scr_seq_T03R0101_010
-    scr_seq_T03R0101_011
-    scr_seq_T03R0101_012
-    scr_seq_T03R0101_013
-    scr_seq_T03R0101_014
-    scr_seq_T03R0101_015
-    scr_seq_T03R0101_016
-    scr_seq_T03R0101_017
-    scr_seq_T03R0101_018
-    scr_seq_T03R0101_019
+    Pewter_MuseumOfScience_EventScript_Receptionist
+    Pewter_MuseumOfScience_EventScript_SuperNerd1
+    Pewter_MuseumOfScience_EventScript_SuperNerd2
+    Pewter_MuseumOfScience_EventScript_Maniac
+    Pewter_MuseumOfScience_EventScript_OldMan
+    Pewter_MuseumOfScience_EventScript_Sign1
+    Pewter_MuseumOfScience_EventScript_Sign2
+    Pewter_MuseumOfScience_EventScript_Sign3
+    Pewter_MuseumOfScience_EventScript_Sign4
+    Pewter_MuseumOfScience_EventScript_Sign5
+    Pewter_MuseumOfScience_EventScript_Sign6
+    Pewter_MuseumOfScience_EventScript_Bookshelf
+    Pewter_MuseumOfScience_EventScript_OurMuseumMainlyDisplaysSign
+    Pewter_MuseumOfScience_EventScript_PokefanM
+    Pewter_MuseumOfScience_OnTransition
+    Pewter_MuseumOfScience_EventScript_Steven1
+    Pewter_MuseumOfScience_EventScript_StevenTrigger
+    Pewter_MuseumOfScience_OnLoad
+    Pewter_MuseumOfScience_OnResume
+    Pewter_MuseumOfScience_EventScript_Steven2
 }
 
-script scr_seq_T03R0101_014 {
+script Pewter_MuseumOfScience_OnTransition {
     if (var(VAR_UNK_4083) >= 5) { goto(_00E8) }
     if (var(VAR_UNK_4083) == 4) { goto(_00E8) }
     if (var(VAR_UNK_4083) == 3) { goto(_00D8) }
@@ -73,13 +73,13 @@ script scr_seq_T03R0101_014 {
     end
 }
 
-script scr_seq_T03R0101_017 {
+script Pewter_MuseumOfScience_OnLoad {
     end
     nopvar490(VAR_TEMP_x4006)
     end
 }
 
-script scr_seq_T03R0101_000 {
+script Pewter_MuseumOfScience_EventScript_Receptionist {
     simplenpcmsg("Welcome!\r"
                  "Just to let you know, all the large\n"
                  "specimens have been taken to the\f"
@@ -90,7 +90,7 @@ script scr_seq_T03R0101_000 {
     end
 }
 
-script scr_seq_T03R0101_001 {
+script Pewter_MuseumOfScience_EventScript_SuperNerd1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -358,7 +358,7 @@ text msg_0464_T03R0101_00007 {
     "from the {STRVAR_1 8, 0, 0}? {YESNO 0}"
 }
 
-script scr_seq_T03R0101_013 {
+script Pewter_MuseumOfScience_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -392,13 +392,13 @@ script scr_seq_T03R0101_013 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Pewter_MuseumOfScience_Movement_0738)
-        applymovement(obj_T03R0101_gsmiddleman1, Pewter_MuseumOfScience_Movement_0770)
+        applymovement(obj_player, Pewter_MuseumOfScience_Movement_PlayerWalkLeftUp)
+        applymovement(obj_T03R0101_gsmiddleman1, Pewter_MuseumOfScience_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Pewter_MuseumOfScience_Movement_0750)
+        applymovement(obj_player, Pewter_MuseumOfScience_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Pewter_MuseumOfScience_Movement_075C)
-        applymovement(obj_T03R0101_gsmiddleman1, Pewter_MuseumOfScience_Movement_0770)
+        applymovement(obj_player, Pewter_MuseumOfScience_Movement_PlayerWalkUpRight)
+        applymovement(obj_T03R0101_gsmiddleman1, Pewter_MuseumOfScience_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -406,7 +406,7 @@ script scr_seq_T03R0101_013 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Pewter_MuseumOfScience_Movement_077C)
+        applymovement(obj_partner_poke, Pewter_MuseumOfScience_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -425,7 +425,7 @@ script scr_seq_T03R0101_013 {
     end
 }
 
-movement Pewter_MuseumOfScience_Movement_0738 {
+movement Pewter_MuseumOfScience_Movement_PlayerWalkLeftUp {
     walk_left
     walk_up * 2
     walk_right
@@ -433,30 +433,30 @@ movement Pewter_MuseumOfScience_Movement_0738 {
     walk_in_place_down
 }
 
-movement Pewter_MuseumOfScience_Movement_0750 {
+movement Pewter_MuseumOfScience_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Pewter_MuseumOfScience_Movement_075C {
+movement Pewter_MuseumOfScience_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Pewter_MuseumOfScience_Movement_0770 {
+movement Pewter_MuseumOfScience_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Pewter_MuseumOfScience_Movement_077C {
+movement Pewter_MuseumOfScience_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T03R0101_019 {
+script Pewter_MuseumOfScience_EventScript_Steven2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("..................\r"
@@ -469,11 +469,11 @@ script scr_seq_T03R0101_019 {
     end
 }
 
-script scr_seq_T03R0101_015 {
+script Pewter_MuseumOfScience_EventScript_Steven1 {
     end
 }
 
-script scr_seq_T03R0101_018 {
+script Pewter_MuseumOfScience_OnResume {
     if (var(VAR_UNK_4083) != 0) {
         if (var(VAR_UNK_4083) == 1) {
             nopvar490(VAR_UNK_4083)
@@ -487,21 +487,21 @@ _07BF:
     end
 }
 
-script scr_seq_T03R0101_016 {
+script Pewter_MuseumOfScience_EventScript_StevenTrigger {
     followmonresetmovement
     lockall
     hasitem(ITEM_ENIGMA_STONE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
         checkeventkey(0, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) != 0) {
-            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_0968)
+            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_StevenFaceLeft)
             waitmovement
             npcmsg("Steven: People who dedicate themselves\n"
                    "to what they believe stand out in\f"
                    "a crowd.\r"
                    "But, my passion is no less than yours.\r")
             closemessage
-            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_0970)
+            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_StevenExclamation)
             waitmovement
             npcmsg("Wow!\n"
                    "The thing you have...\r")
@@ -512,29 +512,29 @@ script scr_seq_T03R0101_016 {
                    "You should have it studied\n"
                    "by experts.\r")
             closemessage
-            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_097C)
-            applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_09C8)
+            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_StevenWalkRight)
+            applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_SuperNerdFaceUp1)
             waitmovement
             getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
             if (var(VAR_TEMP_x4001) == 6) {
-                applymovement(obj_player, Pewter_MuseumOfScience_Movement_0998)
+                applymovement(obj_player, Pewter_MuseumOfScience_Movement_PlayerWalkRightDown)
             } else {
-                applymovement(obj_player, Pewter_MuseumOfScience_Movement_098C)
+                applymovement(obj_player, Pewter_MuseumOfScience_Movement_PlayerWalkRight)
             }
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
             followingpokemonmovement(48)
-            applymovement(obj_player, Pewter_MuseumOfScience_Movement_09A4)
+            applymovement(obj_player, Pewter_MuseumOfScience_Movement_PlayerWalkDownUp)
             waitmovement
             bufferplayersname(0)
             npcmsg("{STRVAR_1 3, 0, 0} handed the Enigma Stone\n"
                    "to the researcher!\r")
             closemessage
-            applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_09D0)
+            applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_SuperNerdFaceUp2)
             waitmovement
             npcmsg("I will check it.\n"
                    "Can you hold on a second?\r")
@@ -549,14 +549,14 @@ script scr_seq_T03R0101_016 {
             if (var(VAR_TEMP_x4001) != 6) {
                 followmonisactive(VAR_TEMP_x4009)
                 if (var(VAR_TEMP_x4009) != 0) {
-                    applymovement(obj_partner_poke, Pewter_MuseumOfScience_Movement_09F0)
+                    applymovement(obj_partner_poke, Pewter_MuseumOfScience_Movement_FollowMonWalkUpRight)
                     waitmovement
                 }
             }
             fadescreen(6, 1, 1, RGB_BLACK)
             waitfade
             wait(10, VAR_SPECIAL_RESULT)
-            applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_09D0)
+            applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_SuperNerdFaceUp2)
             waitmovement
             npcmsg("Thank you for your patience!\n"
                    "It took me a little while,\f"
@@ -564,16 +564,16 @@ script scr_seq_T03R0101_016 {
                    "This is an Orb that contains\n"
                    "what is called {COLOR 2}Soul Dew{COLOR 0}.\r")
             closemessage
-            applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_09D8)
+            applymovement(obj_T03R0101_gsassistantm, Pewter_MuseumOfScience_Movement_SuperNerdWalkUpDown)
             waitmovement
             takeitem(ITEM_ENIGMA_STONE, 1, VAR_SPECIAL_RESULT)
             setvar(VAR_SPECIAL_x8004, 225)
             setvar(VAR_SPECIAL_x8005, 1)
             callstd(std_obtain_item_verbose)
             closemessage
-            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_09B8)
+            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_StevenFaceRight)
             waitmovement
-            applymovement(obj_player, Pewter_MuseumOfScience_Movement_0968)
+            applymovement(obj_player, Pewter_MuseumOfScience_Movement_StevenFaceLeft)
             waitmovement
             npcmsg("Steven: Soul Dew is said to be the\n"
                    "solidified spirits of LATIAS and LATIOS.\r"
@@ -586,7 +586,7 @@ script scr_seq_T03R0101_016 {
                    "the place Soul Dew was found.\f"
                    "Why Kanto?\r")
             closemessage
-            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_09C0)
+            applymovement(obj_T03R0101_daigo, Pewter_MuseumOfScience_Movement_StevenWalkLeft)
             waitmovement
             setvar(VAR_UNK_4083, 2)
             removeobject(obj_T03R0101_daigo)
@@ -596,55 +596,55 @@ script scr_seq_T03R0101_016 {
     end
 }
 
-movement Pewter_MuseumOfScience_Movement_0968 {
+movement Pewter_MuseumOfScience_Movement_StevenFaceLeft {
     walk_in_place_left
 }
 
-movement Pewter_MuseumOfScience_Movement_0970 {
+movement Pewter_MuseumOfScience_Movement_StevenExclamation {
     delay_8
     emote_exclamation_mark
 }
 
-movement Pewter_MuseumOfScience_Movement_097C {
+movement Pewter_MuseumOfScience_Movement_StevenWalkRight {
     lock_dir
     walk_right
     unlock_dir
 }
 
-movement Pewter_MuseumOfScience_Movement_098C {
+movement Pewter_MuseumOfScience_Movement_PlayerWalkRight {
     walk_right
     face_down
 }
 
-movement Pewter_MuseumOfScience_Movement_0998 {
+movement Pewter_MuseumOfScience_Movement_PlayerWalkRightDown {
     walk_right
     walk_down
 }
 
-movement Pewter_MuseumOfScience_Movement_09A4 {
+movement Pewter_MuseumOfScience_Movement_PlayerWalkDownUp {
     walk_down
     delay_8
     walk_up
     face_down
 }
 
-movement Pewter_MuseumOfScience_Movement_09B8 {
+movement Pewter_MuseumOfScience_Movement_StevenFaceRight {
     face_right
 }
 
-movement Pewter_MuseumOfScience_Movement_09C0 {
+movement Pewter_MuseumOfScience_Movement_StevenWalkLeft {
     walk_left * 8
 }
 
-movement Pewter_MuseumOfScience_Movement_09C8 {
+movement Pewter_MuseumOfScience_Movement_SuperNerdFaceUp1 {
     walk_in_place_up
 }
 
-movement Pewter_MuseumOfScience_Movement_09D0 {
+movement Pewter_MuseumOfScience_Movement_SuperNerdFaceUp2 {
     walk_in_place_up
 }
 
-movement Pewter_MuseumOfScience_Movement_09D8 {
+movement Pewter_MuseumOfScience_Movement_SuperNerdWalkUpDown {
     walk_up
     walk_in_place_up
     lock_dir
@@ -652,13 +652,13 @@ movement Pewter_MuseumOfScience_Movement_09D8 {
     unlock_dir
 }
 
-movement Pewter_MuseumOfScience_Movement_09F0 {
+movement Pewter_MuseumOfScience_Movement_FollowMonWalkUpRight {
     walk_faster_up
     walk_faster_right
     face_down
 }
 
-script scr_seq_T03R0101_002 {
+script Pewter_MuseumOfScience_EventScript_SuperNerd2 {
     simplenpcmsg("They say that meteorites struck\n"
                  "somewhere near Pewter City.\r"
                  "We would love to display them here\n"
@@ -669,7 +669,7 @@ script scr_seq_T03R0101_002 {
     end
 }
 
-script scr_seq_T03R0101_003 {
+script Pewter_MuseumOfScience_EventScript_Maniac {
     simplenpcmsg("There are two places that I love!\n"
                  "One is the Ruins of Alph in Johto...\r"
                  "The other is the Pewter Museum!\n"
@@ -679,14 +679,14 @@ script scr_seq_T03R0101_003 {
     end
 }
 
-script scr_seq_T03R0101_004 {
+script Pewter_MuseumOfScience_EventScript_OldMan {
     simplenpcmsg("I should be grateful for my long life.\r"
                  "Never did I think I would get to\n"
                  "see the bones of a dragon!")
     end
 }
 
-script scr_seq_T03R0101_005 {
+script Pewter_MuseumOfScience_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Stringy and winding...\n"
@@ -697,7 +697,7 @@ script scr_seq_T03R0101_005 {
     end
 }
 
-script scr_seq_T03R0101_006 {
+script Pewter_MuseumOfScience_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It’s a curving, sharp Fossil.\n"
@@ -709,7 +709,7 @@ script scr_seq_T03R0101_006 {
     end
 }
 
-script scr_seq_T03R0101_007 {
+script Pewter_MuseumOfScience_EventScript_Sign3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It’s flat and looks hard.\n"
@@ -721,7 +721,7 @@ script scr_seq_T03R0101_007 {
     end
 }
 
-script scr_seq_T03R0101_008 {
+script Pewter_MuseumOfScience_EventScript_Sign4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Solid amber tree sap has\n"
@@ -735,7 +735,7 @@ script scr_seq_T03R0101_008 {
     end
 }
 
-script scr_seq_T03R0101_009 {
+script Pewter_MuseumOfScience_EventScript_Sign5 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Small bones are put together to form\n"
@@ -746,7 +746,7 @@ script scr_seq_T03R0101_009 {
     end
 }
 
-script scr_seq_T03R0101_010 {
+script Pewter_MuseumOfScience_EventScript_Sign6 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("The rough stone has words etched\n"
@@ -760,7 +760,7 @@ script scr_seq_T03R0101_010 {
     end
 }
 
-script scr_seq_T03R0101_011 {
+script Pewter_MuseumOfScience_EventScript_Bookshelf {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("There are thick and well-read books!\r"
@@ -776,7 +776,7 @@ script scr_seq_T03R0101_011 {
     end
 }
 
-script scr_seq_T03R0101_012 {
+script Pewter_MuseumOfScience_EventScript_OurMuseumMainlyDisplaysSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Our museum mainly displays\n"
@@ -791,7 +791,7 @@ script scr_seq_T03R0101_012 {
 }
 
 mapscripts Pewter_MuseumOfScience_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T03R0101_014
-    INIT_SCRIPT_ON_LOAD: scr_seq_T03R0101_017
-    INIT_SCRIPT_ON_RESUME: scr_seq_T03R0101_018
+    INIT_SCRIPT_ON_TRANSITION: Pewter_MuseumOfScience_OnTransition
+    INIT_SCRIPT_ON_LOAD: Pewter_MuseumOfScience_OnLoad
+    INIT_SCRIPT_ON_RESUME: Pewter_MuseumOfScience_OnResume
 }

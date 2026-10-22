@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0139_D49R0102_00000",
-      "from": "scr_seq_D49R0102_000#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#1"
     },
     {
       "id": "msg_0139_D49R0102_00001",
-      "from": "scr_seq_D49R0102_000#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#0"
     },
     {
       "id": "msg_0139_D49R0102_00002",
-      "from": "scr_seq_D49R0102_000#2"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#2"
     },
     {
       "id": "msg_0139_D49R0102_00003",
-      "from": "scr_seq_D49R0102_000#3"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#3"
     },
     {
       "id": "msg_0139_D49R0102_00004",
@@ -23,195 +23,195 @@
     },
     {
       "id": "msg_0139_D49R0102_00005",
-      "from": "scr_seq_D49R0102_000#14"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#14"
     },
     {
       "id": "msg_0139_D49R0102_00006",
-      "from": "scr_seq_D49R0102_000#4"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#4"
     },
     {
       "id": "msg_0139_D49R0102_00007",
-      "from": "scr_seq_D49R0102_000#5"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#5"
     },
     {
       "id": "msg_0139_D49R0102_00008",
-      "from": "scr_seq_D49R0102_000#6"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#6"
     },
     {
       "id": "msg_0139_D49R0102_00009",
-      "from": "scr_seq_D49R0102_000#7"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#7"
     },
     {
       "id": "msg_0139_D49R0102_00010",
-      "from": "scr_seq_D49R0102_000#8"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#8"
     },
     {
       "id": "msg_0139_D49R0102_00011",
-      "from": "scr_seq_D49R0102_000#9"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#9"
     },
     {
       "id": "msg_0139_D49R0102_00012",
-      "from": "scr_seq_D49R0102_000#10"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#10"
     },
     {
       "id": "msg_0139_D49R0102_00013",
-      "from": "scr_seq_D49R0102_000#11"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#11"
     },
     {
       "id": "msg_0139_D49R0102_00014",
-      "from": "scr_seq_D49R0102_000#12"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#12"
     },
     {
       "id": "msg_0139_D49R0102_00015",
-      "from": "scr_seq_D49R0102_000#13"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#13"
     },
     {
       "id": "msg_0139_D49R0102_00016",
-      "from": "scr_seq_D49R0102_000#16"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#16"
     },
     {
       "id": "msg_0139_D49R0102_00017",
-      "from": "scr_seq_D49R0102_000#15"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Maximo#15"
     },
     {
       "id": "msg_0139_D49R0102_00018",
-      "from": "scr_seq_D49R0102_014#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Rattata#1"
     },
     {
       "id": "msg_0139_D49R0102_00019",
-      "from": "scr_seq_D49R0102_014#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Rattata#0"
     },
     {
       "id": "msg_0139_D49R0102_00020",
-      "from": "scr_seq_D49R0102_015#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Machop#1"
     },
     {
       "id": "msg_0139_D49R0102_00021",
-      "from": "scr_seq_D49R0102_015#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Machop#0"
     },
     {
       "id": "msg_0139_D49R0102_00022",
-      "from": "scr_seq_D49R0102_016#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Butterfree#1"
     },
     {
       "id": "msg_0139_D49R0102_00023",
-      "from": "scr_seq_D49R0102_016#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Butterfree#0"
     },
     {
       "id": "msg_0139_D49R0102_00024",
-      "from": "scr_seq_D49R0102_001#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Youngster#1"
     },
     {
       "id": "msg_0139_D49R0102_00025",
-      "from": "scr_seq_D49R0102_001#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Youngster#0"
     },
     {
       "id": "msg_0139_D49R0102_00026",
-      "from": "scr_seq_D49R0102_002#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Lass#1"
     },
     {
       "id": "msg_0139_D49R0102_00027",
-      "from": "scr_seq_D49R0102_002#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Lass#0"
     },
     {
       "id": "msg_0139_D49R0102_00028",
-      "from": "scr_seq_D49R0102_003#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Man#1"
     },
     {
       "id": "msg_0139_D49R0102_00029",
-      "from": "scr_seq_D49R0102_003#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Man#0"
     },
     {
       "id": "msg_0139_D49R0102_00030",
-      "from": "scr_seq_D49R0102_004#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_AceTrainerM#1"
     },
     {
       "id": "msg_0139_D49R0102_00031",
-      "from": "scr_seq_D49R0102_004#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_AceTrainerM#0"
     },
     {
       "id": "msg_0139_D49R0102_00032",
-      "from": "scr_seq_D49R0102_005#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_SchoolKidM#1"
     },
     {
       "id": "msg_0139_D49R0102_00033",
-      "from": "scr_seq_D49R0102_005#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_SchoolKidM#0"
     },
     {
       "id": "msg_0139_D49R0102_00034",
-      "from": "scr_seq_D49R0102_006#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_OldMan#1"
     },
     {
       "id": "msg_0139_D49R0102_00035",
-      "from": "scr_seq_D49R0102_006#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_OldMan#0"
     },
     {
       "id": "msg_0139_D49R0102_00036",
-      "from": "scr_seq_D49R0102_007#2"
+      "from": "PokeathlonDome_Interior_2F_EventScript_OldWoman#2"
     },
     {
       "id": "msg_0139_D49R0102_00037",
-      "from": "scr_seq_D49R0102_007#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_OldWoman#0"
     },
     {
       "id": "msg_0139_D49R0102_00038",
-      "from": "scr_seq_D49R0102_007#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_OldWoman#1"
     },
     {
       "id": "msg_0139_D49R0102_00039",
-      "from": "scr_seq_D49R0102_008#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Beauty#1"
     },
     {
       "id": "msg_0139_D49R0102_00040",
-      "from": "scr_seq_D49R0102_008#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_Beauty#0"
     },
     {
       "id": "msg_0139_D49R0102_00041",
-      "from": "scr_seq_D49R0102_009#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_PokefanM#1"
     },
     {
       "id": "msg_0139_D49R0102_00042",
-      "from": "scr_seq_D49R0102_010#3"
+      "from": "PokeathlonDome_Interior_2F_EventScript_LittleBoy#3"
     },
     {
       "id": "msg_0139_D49R0102_00043",
-      "from": "scr_seq_D49R0102_009#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0139_D49R0102_00044",
-      "from": "scr_seq_D49R0102_010#2"
+      "from": "PokeathlonDome_Interior_2F_EventScript_LittleBoy#2"
     },
     {
       "id": "msg_0139_D49R0102_00045",
-      "from": "scr_seq_D49R0102_010#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_LittleBoy#1"
     },
     {
       "id": "msg_0139_D49R0102_00046",
-      "from": "scr_seq_D49R0102_010#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_LittleBoy#0"
     },
     {
       "id": "msg_0139_D49R0102_00047",
-      "from": "scr_seq_D49R0102_011#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_LittleGirl1#1"
     },
     {
       "id": "msg_0139_D49R0102_00048",
-      "from": "scr_seq_D49R0102_011#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_LittleGirl1#0"
     },
     {
       "id": "msg_0139_D49R0102_00049",
-      "from": "scr_seq_D49R0102_012#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_LittleGirl2#1"
     },
     {
       "id": "msg_0139_D49R0102_00050",
-      "from": "scr_seq_D49R0102_012#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_LittleGirl2#0"
     },
     {
       "id": "msg_0139_D49R0102_00051",
-      "from": "scr_seq_D49R0102_013#1"
+      "from": "PokeathlonDome_Interior_2F_EventScript_PokefanF#1"
     },
     {
       "id": "msg_0139_D49R0102_00052",
-      "from": "scr_seq_D49R0102_013#0"
+      "from": "PokeathlonDome_Interior_2F_EventScript_PokefanF#0"
     }
   ]
 }

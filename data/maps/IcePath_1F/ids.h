@@ -1,11 +1,11 @@
 #ifndef SCR_SEQ_D39R0101_H_
 #define SCR_SEQ_D39R0101_H_
 
-#define _EV_scr_seq_D39R0101_000 0
-#define _EV_scr_seq_D39R0101_001 1
-#define _EV_scr_seq_D39R0101_002 2
-#define _EV_scr_seq_D39R0101_003 3
-#define _EV_scr_seq_D39R0101_004 4
+#define _EV_IcePath_1F_EventScript_PokefanM1 0
+#define _EV_IcePath_1F_OnTransition 1
+#define _EV_IcePath_1F_EventScript_KimonoGirl 2
+#define _EV_IcePath_1F_EventScript_PokefanM2 3
+#define _EV_IcePath_1F_EventScript_PokefanMTrigger 4
 
 #define obj_D39R0101_monstarball    0
 #define obj_D39R0101_gsmiddleman1   1

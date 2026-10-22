@@ -1,23 +1,23 @@
 #ifndef SCR_SEQ_T27R0501_H_
 #define SCR_SEQ_T27R0501_H_
 
-#define _EV_scr_seq_T27R0501_000 0
-#define _EV_scr_seq_T27R0501_001 1
-#define _EV_scr_seq_T27R0501_002 2
-#define _EV_scr_seq_T27R0501_003 3
-#define _EV_scr_seq_T27R0501_004 4
-#define _EV_scr_seq_T27R0501_005 5
-#define _EV_scr_seq_T27R0501_006 6
-#define _EV_scr_seq_T27R0501_007 7
-#define _EV_scr_seq_T27R0501_008 8
-#define _EV_scr_seq_T27R0501_009 9
-#define _EV_scr_seq_T27R0501_010 10
-#define _EV_scr_seq_T27R0501_011 11
-#define _EV_scr_seq_T27R0501_012 12
-#define _EV_scr_seq_T27R0501_013 13
-#define _EV_scr_seq_T27R0501_014 14
-#define _EV_scr_seq_T27R0501_015 15
-#define _EV_scr_seq_T27R0501_016 16
+#define _EV_Ecruteak_DanceTheater_EventScript_Gentleman 0
+#define _EV_Ecruteak_DanceTheater_EventScript_Psyduck 1
+#define _EV_Ecruteak_DanceTheater_EventScript_Man 2
+#define _EV_Ecruteak_DanceTheater_EventScript_Grunt 3
+#define _EV_Ecruteak_DanceTheater_EventScript_KimonoGirl1 4
+#define _EV_Ecruteak_DanceTheater_EventScript_KimonoGirl2 5
+#define _EV_Ecruteak_DanceTheater_EventScript_KimonoGirl3 6
+#define _EV_Ecruteak_DanceTheater_EventScript_KimonoGirl4 7
+#define _EV_Ecruteak_DanceTheater_EventScript_KimonoGirl5 8
+#define _EV_Ecruteak_DanceTheater_EventScript_KimonoGirl6 9
+#define _EV_Ecruteak_DanceTheater_EventScript_Sign 10
+#define _EV_Ecruteak_DanceTheater_EventScript_GentlemanTrigger1 11
+#define _EV_Ecruteak_DanceTheater_EventScript_GentlemanTrigger2 12
+#define _EV_Ecruteak_DanceTheater_OnResume 13
+#define _EV_Ecruteak_DanceTheater_EventScript_OldWoman 14
+#define _EV_Ecruteak_DanceTheater_EventScript_GruntScene 15
+#define _EV_Ecruteak_DanceTheater_EventScript_ZukiScene 16
 
 #define obj_T27R0501_gsoldwoman1               0
 #define obj_T27R0501_gsman1                    1

@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D02FS0101_000
-    scr_seq_D02FS0101_001
+    MountMoon_Square_Shop_EventScript_Lass
+    MountMoon_Square_Shop_EventScript_OldMan
 }
 
-script scr_seq_D02FS0101_001 {
+script MountMoon_Square_Shop_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -22,7 +22,7 @@ script scr_seq_D02FS0101_001 {
     end
 }
 
-script scr_seq_D02FS0101_000 {
+script MountMoon_Square_Shop_EventScript_Lass {
     simplenpcmsg("When the sun goes down, CLEFAIRY come\n"
                  "out to play.")
     end

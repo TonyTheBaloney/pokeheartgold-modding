@@ -1,11 +1,11 @@
 #ifndef SCR_SEQ_T25R1001_H_
 #define SCR_SEQ_T25R1001_H_
 
-#define _EV_scr_seq_T25R1001_000 0
-#define _EV_scr_seq_T25R1001_001 1
-#define _EV_scr_seq_T25R1001_002 2
-#define _EV_scr_seq_T25R1001_003 3
-#define _EV_scr_seq_T25R1001_004 4
+#define _EV_Goldenrod_DepartmentStore_1F_EventScript_Receptionist 0
+#define _EV_Goldenrod_DepartmentStore_1F_EventScript_Gentleman 1
+#define _EV_Goldenrod_DepartmentStore_1F_EventScript_PokefanF 2
+#define _EV_Goldenrod_DepartmentStore_1F_EventScript_SchoolKidM 3
+#define _EV_Goldenrod_DepartmentStore_1F_EventScript_1FServiceCounterSign 4
 
 #define obj_T25R1001_gswoman6       0
 #define obj_T25R1001_gsgentleman    1

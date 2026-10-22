@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03_000 + 1",
+            "script": "Pewter_EventScript_OldMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03_001 + 1",
+            "script": "Pewter_EventScript_AceTrainerF",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03_002 + 1",
+            "script": "Pewter_EventScript_LittleBoy",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03_007 + 1",
+            "script": "Pewter_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03_009 + 1",
+            "script": "Pewter_EventScript_Steven",
             "flag": "FLAG_HIDE_PEWTER_CITY_STEVEN"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03_010 + 1",
+            "script": "Pewter_EventScript_Latios",
             "flag": "FLAG_HIDE_PEWTER_CITY_LATIOS"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03_010 + 1",
+            "script": "Pewter_EventScript_Latios",
             "flag": "FLAG_HIDE_PEWTER_CITY_LATIAS"
         }
     ],
@@ -267,7 +267,7 @@
             "y": 112,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03_006 + 1"
+            "script": "Pewter_EventScript_CitySign2"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -275,7 +275,7 @@
             "y": 95,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03_004 + 1"
+            "script": "Pewter_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -283,7 +283,7 @@
             "y": 105,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03_003 + 1"
+            "script": "Pewter_EventScript_CitySign1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -291,7 +291,7 @@
             "y": 81,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03_005 + 1"
+            "script": "Pewter_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

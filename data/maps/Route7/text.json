@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0336_R07_00000",
-      "from": "scr_seq_R07_000#0"
+      "from": "Route7_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0336_R07_00001",
-      "from": "scr_seq_R07_001#0"
+      "from": "Route7_EventScript_ItWontOpenSign#0"
     }
   ]
 }

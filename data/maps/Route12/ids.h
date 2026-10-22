@@ -1,12 +1,12 @@
 #ifndef SCR_SEQ_R12_H_
 #define SCR_SEQ_R12_H_
 
-#define _EV_scr_seq_R12_000 0
-#define _EV_scr_seq_R12_001 1
-#define _EV_scr_seq_R12_002 2
-#define _EV_scr_seq_R12_003 3
-#define _EV_scr_seq_R12_004 4
-#define _EV_scr_seq_R12_005 5
+#define _EV_Route12_EventScript_PokefanM 0
+#define _EV_Route12_OnTransition 1
+#define _EV_Route12_EventScript_RouteSign 2
+#define _EV_Route12_EventScript_TrainerTips 3
+#define _EV_Route12_OnLoad 4
+#define _EV_Route12_EventScript_Kabigon 5
 
 #define obj_R12_fishing_2     0
 #define obj_R12_fishing_2_2   1

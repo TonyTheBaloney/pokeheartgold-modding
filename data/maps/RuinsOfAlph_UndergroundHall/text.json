@@ -3,47 +3,47 @@
   "messages": [
     {
       "id": "msg_0076_D24R0205_00000",
-      "from": "scr_seq_D24R0205_000#0"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_SuperNerdScene#0"
     },
     {
       "id": "msg_0076_D24R0205_00001",
-      "from": "scr_seq_D24R0205_000#1"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_SuperNerdScene#1"
     },
     {
       "id": "msg_0076_D24R0205_00002",
-      "from": "scr_seq_D24R0205_003#0"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_FatMan#0"
     },
     {
       "id": "msg_0076_D24R0205_00003",
-      "from": "scr_seq_D24R0205_004#0"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_Woman#0"
     },
     {
       "id": "msg_0076_D24R0205_00004",
-      "from": "scr_seq_D24R0205_005#0"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_OldMan#0"
     },
     {
       "id": "msg_0076_D24R0205_00005",
-      "from": "scr_seq_D24R0205_002#0"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_Sign#0"
     },
     {
       "id": "msg_0076_D24R0205_00006",
-      "from": "scr_seq_D24R0205_006#0"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_BusinessmanScene1#0"
     },
     {
       "id": "msg_0076_D24R0205_00007",
-      "from": "scr_seq_D24R0205_006#1"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_BusinessmanScene1#1"
     },
     {
       "id": "msg_0076_D24R0205_00008",
-      "from": "scr_seq_D24R0205_006#2"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_BusinessmanScene1#2"
     },
     {
       "id": "msg_0076_D24R0205_00009",
-      "from": "scr_seq_D24R0205_007#0"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_BusinessmanScene2#0"
     },
     {
       "id": "msg_0076_D24R0205_00010",
-      "from": "scr_seq_D24R0205_007#1"
+      "from": "RuinsOfAlph_UndergroundHall_EventScript_BusinessmanScene2#1"
     }
   ]
 }

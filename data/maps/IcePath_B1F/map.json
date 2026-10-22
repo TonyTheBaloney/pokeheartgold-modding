@@ -183,7 +183,7 @@
             "height": 1,
             "var": "VAR_UNK_40AA",
             "var_value": 0,
-            "script": "_EV_scr_seq_D39R0102_000 + 1"
+            "script": "IcePath_B1F_EventScript_Trigger1"
         },
         {
             "x": 10,
@@ -193,7 +193,7 @@
             "height": 1,
             "var": "VAR_UNK_40AA",
             "var_value": 0,
-            "script": "_EV_scr_seq_D39R0102_001 + 1"
+            "script": "IcePath_B1F_EventScript_Trigger2"
         },
         {
             "x": 18,
@@ -203,7 +203,7 @@
             "height": 1,
             "var": "VAR_UNK_40AA",
             "var_value": 0,
-            "script": "_EV_scr_seq_D39R0102_002 + 1"
+            "script": "IcePath_B1F_EventScript_Trigger3"
         },
         {
             "x": 19,
@@ -213,7 +213,7 @@
             "height": 1,
             "var": "VAR_UNK_40AA",
             "var_value": 0,
-            "script": "_EV_scr_seq_D39R0102_003 + 1"
+            "script": "IcePath_B1F_EventScript_WarpToIcePathB2F"
         }
     ],
     "bg_events": [

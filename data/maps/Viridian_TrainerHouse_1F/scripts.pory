@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T02R0301_000 {
+script Viridian_TrainerHouse_1F_EventScript_Receptionist {
     simplenpcmsg("Welcome to Trainer House, the newest\n"
                  "and most happening place in Viridian.\f"
                  "We’re open to Trainers only.\r"
@@ -10,7 +10,7 @@ script scr_seq_T02R0301_000 {
     end
 }
 
-script scr_seq_T02R0301_001 {
+script Viridian_TrainerHouse_1F_EventScript_AceTrainerM {
     simplenpcmsg("Viridian is the town closest to\n"
                  "Indigo Plateau.\r"
                  "They built this place because so\n"
@@ -19,7 +19,7 @@ script scr_seq_T02R0301_001 {
     end
 }
 
-script scr_seq_T02R0301_002 {
+script Viridian_TrainerHouse_1F_EventScript_AceTrainerF {
     simplenpcmsg("They hold practice battles\n"
                  "downstairs here.\r"
                  "I would love to see how well a\n"
@@ -27,7 +27,7 @@ script scr_seq_T02R0301_002 {
     end
 }
 
-script scr_seq_T02R0301_003 {
+script Viridian_TrainerHouse_1F_EventScript_SchoolKidM {
     simplenpcmsg("You go all over the place and battle\n"
                  "all kinds of Trainers.\r"
                  "This is not just to train your Pokémon.\n"
@@ -39,14 +39,14 @@ script scr_seq_T02R0301_003 {
     end
 }
 
-script scr_seq_T02R0301_004 {
+script Viridian_TrainerHouse_1F_EventScript_Gentleman {
     simplenpcmsg("Whew...\r"
                  "I’m taking a rest from\n"
                  "Pokémon battles.")
     end
 }
 
-script scr_seq_T02R0301_005 {
+script Viridian_TrainerHouse_1F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Practice battles are held in the\n"
@@ -63,7 +63,7 @@ script scr_seq_T02R0301_005 {
     end
 }
 
-script scr_seq_T02R0301_006 {
+script Viridian_TrainerHouse_1F_EventScript_TrainerHouseRulesSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Trainer House Rules\r"
@@ -85,7 +85,7 @@ script scr_seq_T02R0301_006 {
     end
 }
 
-script scr_seq_T02R0301_007 {
+script Viridian_TrainerHouse_1F_EventScript_LittleBoy {
     simplenpcmsg("...What’s this?\n"
                  "A strategy memo?\r"
                  "This writing looks like ONIX tracks...\f"

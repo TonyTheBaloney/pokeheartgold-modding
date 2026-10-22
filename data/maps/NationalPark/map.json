@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_004 + 1",
+            "script": "NationalPark_EventScript_Lass",
             "flag": "FLAG_UNK_24E"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_005 + 1",
+            "script": "NationalPark_EventScript_PokefanF",
             "flag": "FLAG_UNK_24E"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_006 + 1",
+            "script": "NationalPark_EventScript_SchoolKidM1",
             "flag": "FLAG_UNK_24E"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_007 + 1",
+            "script": "NationalPark_EventScript_SchoolKidM2",
             "flag": "FLAG_UNK_24E"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_008 + 1",
+            "script": "NationalPark_EventScript_Boy",
             "flag": "FLAG_UNK_24E"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_000 + 1",
+            "script": "NationalPark_EventScript_Woman",
             "flag": "FLAG_UNK_24E"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_010 + 1",
+            "script": "NationalPark_EventScript_Persian",
             "flag": "FLAG_UNK_24E"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_009 + 1",
+            "script": "NationalPark_EventScript_Beauty",
             "flag": "FLAG_UNK_24E"
         },
         {
@@ -483,7 +483,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_023 + 1",
+            "script": "NationalPark_EventScript_PokefanM1",
             "flag": "FLAG_HIDE_CAMERON"
         },
         {
@@ -500,7 +500,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_024 + 1",
+            "script": "NationalPark_EventScript_PokefanM2",
             "flag": "FLAG_UNK_27F"
         },
         {
@@ -517,7 +517,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D22R0101_026 + 1",
+            "script": "NationalPark_EventScript_Bugsy",
             "flag": "FLAG_UNK_288"
         }
     ],
@@ -580,7 +580,7 @@
             "y": 81,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D22R0101_001 + 1"
+            "script": "NationalPark_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -588,7 +588,7 @@
             "y": 60,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D22R0101_002 + 1"
+            "script": "NationalPark_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -596,7 +596,7 @@
             "y": 16,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D22R0101_003 + 1"
+            "script": "NationalPark_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0571_T23R0501_00000",
-      "from": "scr_seq_T23R0501_001#0"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#0"
     },
     {
       "id": "msg_0571_T23R0501_00001",
-      "from": "scr_seq_T23R0501_005#0"
+      "from": "Azalea_KurtHouse_EventScript_KurtScene#0"
     },
     {
       "id": "msg_0571_T23R0501_00002",
@@ -15,79 +15,79 @@
     },
     {
       "id": "msg_0571_T23R0501_00003",
-      "from": "scr_seq_T23R0501_001#5"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#5"
     },
     {
       "id": "msg_0571_T23R0501_00004",
-      "from": "scr_seq_T23R0501_001#11"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#11"
     },
     {
       "id": "msg_0571_T23R0501_00005",
-      "from": "scr_seq_T23R0501_001#13"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#13"
     },
     {
       "id": "msg_0571_T23R0501_00006",
-      "from": "scr_seq_T23R0501_001#12"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#12"
     },
     {
       "id": "msg_0571_T23R0501_00007",
-      "from": "scr_seq_T23R0501_001#4"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#4"
     },
     {
       "id": "msg_0571_T23R0501_00008",
-      "from": "scr_seq_T23R0501_001#1"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#1"
     },
     {
       "id": "msg_0571_T23R0501_00009",
-      "from": "scr_seq_T23R0501_001#3"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#3"
     },
     {
       "id": "msg_0571_T23R0501_00010",
-      "from": "scr_seq_T23R0501_001#2"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#2"
     },
     {
       "id": "msg_0571_T23R0501_00011",
-      "from": "scr_seq_T23R0501_002#3"
+      "from": "Azalea_KurtHouse_EventScript_LittleGirl#3"
     },
     {
       "id": "msg_0571_T23R0501_00012",
-      "from": "scr_seq_T23R0501_002#2"
+      "from": "Azalea_KurtHouse_EventScript_LittleGirl#2"
     },
     {
       "id": "msg_0571_T23R0501_00013",
-      "from": "scr_seq_T23R0501_002#1"
+      "from": "Azalea_KurtHouse_EventScript_LittleGirl#1"
     },
     {
       "id": "msg_0571_T23R0501_00014",
-      "from": "scr_seq_T23R0501_002#0"
+      "from": "Azalea_KurtHouse_EventScript_LittleGirl#0"
     },
     {
       "id": "msg_0571_T23R0501_00015",
-      "from": "scr_seq_T23R0501_001#6"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#6"
     },
     {
       "id": "msg_0571_T23R0501_00016",
-      "from": "scr_seq_T23R0501_001#7"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#7"
     },
     {
       "id": "msg_0571_T23R0501_00017",
-      "from": "scr_seq_T23R0501_001#8"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#8"
     },
     {
       "id": "msg_0571_T23R0501_00018",
-      "from": "scr_seq_T23R0501_001#9"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#9"
     },
     {
       "id": "msg_0571_T23R0501_00019",
-      "from": "scr_seq_T23R0501_001#10"
+      "from": "Azalea_KurtHouse_EventScript_Kurt#10"
     },
     {
       "id": "msg_0571_T23R0501_00020",
-      "from": "scr_seq_T23R0501_003#0"
+      "from": "Azalea_KurtHouse_EventScript_Slowpoke#0"
     },
     {
       "id": "msg_0571_T23R0501_00021",
-      "from": "scr_seq_T23R0501_004#0"
+      "from": "Azalea_KurtHouse_EventScript_Sign#0"
     },
     {
       "id": "msg_0571_T23R0501_00022",
@@ -98,7 +98,7 @@
     },
     {
       "id": "msg_0571_T23R0501_00023",
-      "from": "scr_seq_T23R0501_006#0"
+      "from": "Azalea_KurtHouse_EventScript_Radio#0"
     },
     {
       "id": "msg_0571_T23R0501_00024",

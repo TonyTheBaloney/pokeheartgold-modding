@@ -3,23 +3,23 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T10R0701_000
-    scr_seq_T10R0701_001
+    PokemonLeagueHallOfFame_EventScript_LanceScene
+    PokemonLeagueHallOfFame_OnLoad
 }
 
-script scr_seq_T10R0701_001 {
+script PokemonLeagueHallOfFame_OnLoad {
     stopbgm(0)
     end
 }
 
-script scr_seq_T10R0701_000 {
+script PokemonLeagueHallOfFame_EventScript_LanceScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, PokemonLeagueHallOfFame_Movement_0188)
-    applymovement(obj_T10R0701_wataru, PokemonLeagueHallOfFame_Movement_0194)
+    applymovement(obj_player, PokemonLeagueHallOfFame_Movement_PlayerWalkUp1)
+    applymovement(obj_T10R0701_wataru, PokemonLeagueHallOfFame_Movement_LanceWalkUpRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -60,7 +60,7 @@ script scr_seq_T10R0701_000 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, PokemonLeagueHallOfFame_Movement_01A8)
+    applymovement(obj_player, PokemonLeagueHallOfFame_Movement_PlayerWalkUp2)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -112,19 +112,19 @@ _0105:
     goto(_0133)
 }
 
-movement PokemonLeagueHallOfFame_Movement_0188 {
+movement PokemonLeagueHallOfFame_Movement_PlayerWalkUp1 {
     walk_up * 14
     face_right * 2
 }
 
-movement PokemonLeagueHallOfFame_Movement_0194 {
+movement PokemonLeagueHallOfFame_Movement_LanceWalkUpRight {
     walk_up * 12
     face_right * 2
     walk_right
     face_left * 2
 }
 
-movement PokemonLeagueHallOfFame_Movement_01A8 {
+movement PokemonLeagueHallOfFame_Movement_PlayerWalkUp2 {
     face_up * 2
     walk_up * 4
 }
@@ -204,7 +204,7 @@ _020C:
 
 mapscripts PokemonLeagueHallOfFame_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_TEMP_x4001, 0: scr_seq_T10R0701_000
+        VAR_TEMP_x4001, 0: PokemonLeagueHallOfFame_EventScript_LanceScene
     ]
-    INIT_SCRIPT_ON_LOAD: scr_seq_T10R0701_001
+    INIT_SCRIPT_ON_LOAD: PokemonLeagueHallOfFame_OnLoad
 }

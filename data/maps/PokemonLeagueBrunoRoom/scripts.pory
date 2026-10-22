@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T10R0401_000
-    scr_seq_T10R0401_001
-    scr_seq_T10R0401_002
+    PokemonLeagueBrunoRoom_EventScript_LittleBoyScene
+    PokemonLeagueBrunoRoom_EventScript_Bruno
+    PokemonLeagueBrunoRoom_OnLoad
 }
 
-script scr_seq_T10R0401_002 {
+script PokemonLeagueBrunoRoom_OnLoad {
     if (flag(FLAG_DEFEATED_BRUNO)) {
         end
     }
@@ -17,13 +17,13 @@ script scr_seq_T10R0401_002 {
     end
 }
 
-script scr_seq_T10R0401_000 {
+script PokemonLeagueBrunoRoom_EventScript_LittleBoyScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, PokemonLeagueBrunoRoom_Movement_0060)
+    applymovement(obj_player, PokemonLeagueBrunoRoom_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -36,11 +36,11 @@ script scr_seq_T10R0401_000 {
     end
 }
 
-movement PokemonLeagueBrunoRoom_Movement_0060 {
+movement PokemonLeagueBrunoRoom_Movement_PlayerWalkUp {
     walk_up * 6
 }
 
-script scr_seq_T10R0401_001 {
+script PokemonLeagueBrunoRoom_EventScript_Bruno {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -92,7 +92,7 @@ script scr_seq_T10R0401_001 {
 
 mapscripts PokemonLeagueBrunoRoom_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_TEMP_x4001, 0: scr_seq_T10R0401_000
+        VAR_TEMP_x4001, 0: PokemonLeagueBrunoRoom_EventScript_LittleBoyScene
     ]
-    INIT_SCRIPT_ON_LOAD: scr_seq_T10R0401_002
+    INIT_SCRIPT_ON_LOAD: PokemonLeagueBrunoRoom_OnLoad
 }

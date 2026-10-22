@@ -3,20 +3,20 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D23R0101_000
-    scr_seq_D23R0101_001
-    scr_seq_D23R0101_002
-    scr_seq_D23R0101_003
-    scr_seq_D23R0101_004
-    scr_seq_D23R0101_005
-    scr_seq_D23R0101_006
-    scr_seq_D23R0101_007
-    scr_seq_D23R0101_008
-    scr_seq_D23R0101_009
-    scr_seq_D23R0101_010
+    Goldenrod_RadioTower_1F_EventScript_Receptionist1
+    Goldenrod_RadioTower_1F_EventScript_Receptionist2
+    Goldenrod_RadioTower_1F_EventScript_Whitney1
+    Goldenrod_RadioTower_1F_EventScript_Girl
+    Goldenrod_RadioTower_1F_EventScript_Man
+    Goldenrod_RadioTower_1F_EventScript_RocketGrunt
+    Goldenrod_RadioTower_1F_EventScript_1FReceptionSign
+    Goldenrod_RadioTower_1F_EventScript_LuckyChannelSign
+    Goldenrod_RadioTower_1F_OnTransition
+    Goldenrod_RadioTower_1F_EventScript_RivalTrigger
+    Goldenrod_RadioTower_1F_EventScript_Whitney2
 }
 
-script scr_seq_D23R0101_008 {
+script Goldenrod_RadioTower_1F_OnTransition {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_6)
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
     if (var(VAR_SCENE_ROCKET_TAKEOVER) != 2) {
@@ -39,7 +39,7 @@ script scr_seq_D23R0101_008 {
     goto(_0085)
 }
 
-script scr_seq_D23R0101_000 {
+script Goldenrod_RadioTower_1F_EventScript_Receptionist1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -66,7 +66,7 @@ text msg_0065_D23R0101_00001 {
     "can visit the tower now."
 }
 
-script scr_seq_D23R0101_010 {
+script Goldenrod_RadioTower_1F_EventScript_Whitney2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -75,14 +75,14 @@ script scr_seq_D23R0101_010 {
            "I heard about the Quiz to win a Radio\n"
            "Card, so I came here to get one...\r"
            "But this Quiz is so hard!\r")
-    applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_036C)
+    applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_WhitneyFaceLeft)
     waitmovement
     closemessage
     releaseall
     end
 }
 
-script scr_seq_D23R0101_002 {
+script Goldenrod_RadioTower_1F_EventScript_Whitney1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -158,8 +158,8 @@ script scr_seq_D23R0101_002 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_0250)
-    applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_0270)
+    applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_WhitneyWalkUpLeft1)
+    applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -170,9 +170,9 @@ script scr_seq_D23R0101_002 {
            "Oops!\n"
            "It’s time to go back to the Gym!\r")
     closemessage
-    applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_0264)
+    applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_WhitneyWalkUpLeft2)
     wait(24, VAR_SPECIAL_RESULT)
-    applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_036C)
+    applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_WhitneyFaceLeft)
     waitmovement
     removeobject(obj_D23R0101_gsleader3)
     setflag(FLAG_UNK_318)
@@ -199,25 +199,25 @@ _022E:
     end
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0250 {
+movement Goldenrod_RadioTower_1F_Movement_WhitneyWalkUpLeft1 {
     emote_exclamation_mark
     jump_in_place_fast_left * 2
     walk_slightly_fast_up * 3
     walk_slightly_fast_left
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0264 {
+movement Goldenrod_RadioTower_1F_Movement_WhitneyWalkUpLeft2 {
     walk_slightly_fast_up
     walk_slightly_fast_left * 10
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0270 {
+movement Goldenrod_RadioTower_1F_Movement_PlayerWalkUp {
     delay_8 * 6
     walk_slightly_fast_up
     face_right
 }
 
-script scr_seq_D23R0101_003 {
+script Goldenrod_RadioTower_1F_EventScript_Girl {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Ben is a fabulous DJ!\n"
@@ -228,7 +228,7 @@ script scr_seq_D23R0101_003 {
     end
 }
 
-script scr_seq_D23R0101_004 {
+script Goldenrod_RadioTower_1F_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("I love Mary from Pokémon Talk.\r"
@@ -240,7 +240,7 @@ script scr_seq_D23R0101_004 {
     end
 }
 
-script scr_seq_D23R0101_005 {
+script Goldenrod_RadioTower_1F_EventScript_RocketGrunt {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -266,9 +266,9 @@ script scr_seq_D23R0101_005 {
         closemessage
         getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 5) {
-            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_0354)
+            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkDown1)
         } elif (var(VAR_TEMP_x4001) == 6) {
-            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_0360)
+            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkLeft1)
         }
         waitmovement
         releaseall
@@ -289,17 +289,17 @@ script scr_seq_D23R0101_005 {
     end
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0354 {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkDown1 {
     walk_down
     walk_in_place_left
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0360 {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkLeft1 {
     walk_left
     walk_in_place_down
 }
 
-movement Goldenrod_RadioTower_1F_Movement_036C {
+movement Goldenrod_RadioTower_1F_Movement_WhitneyFaceLeft {
     walk_in_place_left
 }
 
@@ -311,21 +311,21 @@ movement Goldenrod_RadioTower_1F_Movement_037C {
     walk_in_place_down
 }
 
-script scr_seq_D23R0101_009 {
+script Goldenrod_RadioTower_1F_EventScript_RivalTrigger {
     followmonresetmovement
     lockall
     movepersonfacing(obj_D23R0101_gsrivel, 13, 1, 6, DIR_EAST)
     callstd(std_play_rival_intro_music)
     getpersoncoords(6, VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 5) {
-        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0670)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalWalkRight1)
         if (var(VAR_TEMP_x400B) == 33) {
-            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_069C)
+            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntFaceDown)
         }
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_067C)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalWalkRight2)
         if (var(VAR_TEMP_x400B) == 11) {
-            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_06A8)
+            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntFaceLeft)
         }
     }
     waitmovement
@@ -334,20 +334,20 @@ script scr_seq_D23R0101_009 {
            "Stop going around in groups and\n"
            "troubling people. You cowards!\r")
     closemessage
-    applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0664)
+    applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalExclamation)
     waitmovement
     if (var(VAR_TEMP_x4001) == 5) {
-        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0684)
-        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_06B4)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalWalkUp)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkLeft2)
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0690)
-        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_06C8)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalWalkRight3)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkDown2)
     }
     waitmovement
     if (var(VAR_TEMP_x4001) == 5) {
-        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06E4)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_PlayerFaceRight)
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06EC)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_PlayerFaceUp)
     }
     waitmovement
     bufferplayersname(0)
@@ -361,9 +361,9 @@ script scr_seq_D23R0101_009 {
            "You shouldn’t wear those things!\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 5) {
-        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06FC)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_PlayerSpin1)
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_07BC)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_PlayerSpin2)
     }
     wait(50, VAR_SPECIAL_RESULT)
     setavatarbits(PLAYER_TRANSITION_WALKING)
@@ -371,17 +371,17 @@ script scr_seq_D23R0101_009 {
     rocketcostumeflagaction(0)
     waitmovement
     if (var(VAR_TEMP_x4001) == 5) {
-        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_0874)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkLeft3)
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_0890)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkDown3)
     }
     waitmovement
     if (var(VAR_TEMP_x4001) == 5) {
-        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_08AC)
-        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_08BC)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkRight1)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalWalkDown)
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_08B4)
-        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_08D4)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkUp)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalWalkLeft1)
     }
     waitmovement
     npcmsg("What? You!\n"
@@ -404,11 +404,11 @@ script scr_seq_D23R0101_009 {
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
     if (var(VAR_TEMP_x4001) == 5) {
-        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_08EC)
-        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_0900)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkRight2)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_PlayerWalkDown)
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_08F4)
-        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_0914)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_RocketGruntWalkUpRight)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_PlayerWalkLeft)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -417,15 +417,15 @@ script scr_seq_D23R0101_009 {
     removeobject(obj_D23R0101_rocketm)
     callstd(std_play_rival_outro_music)
     if (var(VAR_TEMP_x4001) == 5) {
-        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0928)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalFaceRight)
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0930)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalFaceUp)
     }
     waitmovement
     if (var(VAR_TEMP_x4001) == 5) {
-        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06DC)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_PlayerFaceLeft)
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06F4)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_PlayerFaceDown)
     }
     waitmovement
     bufferrivalsname(1)
@@ -440,7 +440,7 @@ script scr_seq_D23R0101_009 {
            "After that...it will be your turn.\n"
            "Be ready for it!\r")
     closemessage
-    applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0938)
+    applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_RivalWalkLeft2)
     waitmovement
     removeobject(obj_D23R0101_gsrivel)
     callstd(std_fade_end_rival_outro_music)
@@ -451,71 +451,71 @@ script scr_seq_D23R0101_009 {
     end
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0664 {
+movement Goldenrod_RadioTower_1F_Movement_RivalExclamation {
     delay_16
     emote_exclamation_mark
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0670 {
+movement Goldenrod_RadioTower_1F_Movement_RivalWalkRight1 {
     walk_fast_right * 9
     walk_in_place_up
 }
 
-movement Goldenrod_RadioTower_1F_Movement_067C {
+movement Goldenrod_RadioTower_1F_Movement_RivalWalkRight2 {
     walk_fast_right * 9
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0684 {
+movement Goldenrod_RadioTower_1F_Movement_RivalWalkUp {
     walk_up
     walk_in_place_right
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0690 {
+movement Goldenrod_RadioTower_1F_Movement_RivalWalkRight3 {
     walk_right
     walk_in_place_up
 }
 
-movement Goldenrod_RadioTower_1F_Movement_069C {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntFaceDown {
     delay_4 * 9
     walk_in_place_down
 }
 
-movement Goldenrod_RadioTower_1F_Movement_06A8 {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntFaceLeft {
     delay_4 * 9
     walk_in_place_left
 }
 
-movement Goldenrod_RadioTower_1F_Movement_06B4 {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkLeft2 {
     face_right
     lock_dir
     walk_left
     unlock_dir
 }
 
-movement Goldenrod_RadioTower_1F_Movement_06C8 {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkDown2 {
     face_up
     lock_dir
     walk_down
     unlock_dir
 }
 
-movement Goldenrod_RadioTower_1F_Movement_06DC {
+movement Goldenrod_RadioTower_1F_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-movement Goldenrod_RadioTower_1F_Movement_06E4 {
+movement Goldenrod_RadioTower_1F_Movement_PlayerFaceRight {
     walk_in_place_right
 }
 
-movement Goldenrod_RadioTower_1F_Movement_06EC {
+movement Goldenrod_RadioTower_1F_Movement_PlayerFaceUp {
     walk_in_place_up
 }
 
-movement Goldenrod_RadioTower_1F_Movement_06F4 {
+movement Goldenrod_RadioTower_1F_Movement_PlayerFaceDown {
     walk_in_place_down
 }
 
-movement Goldenrod_RadioTower_1F_Movement_06FC {
+movement Goldenrod_RadioTower_1F_Movement_PlayerSpin1 {
     delay_4
     face_right
     delay_4
@@ -565,7 +565,7 @@ movement Goldenrod_RadioTower_1F_Movement_06FC {
     face_left
 }
 
-movement Goldenrod_RadioTower_1F_Movement_07BC {
+movement Goldenrod_RadioTower_1F_Movement_PlayerSpin2 {
     delay_4
     face_left
     delay_4
@@ -613,7 +613,7 @@ movement Goldenrod_RadioTower_1F_Movement_07BC {
     face_down
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0874 {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkLeft3 {
     delay_16
     face_right
     lock_dir
@@ -622,7 +622,7 @@ movement Goldenrod_RadioTower_1F_Movement_0874 {
     emote_exclamation_mark
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0890 {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkDown3 {
     delay_16
     face_up
     lock_dir
@@ -631,15 +631,15 @@ movement Goldenrod_RadioTower_1F_Movement_0890 {
     emote_exclamation_mark
 }
 
-movement Goldenrod_RadioTower_1F_Movement_08AC {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkRight1 {
     walk_fast_right * 3
 }
 
-movement Goldenrod_RadioTower_1F_Movement_08B4 {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkUp {
     walk_fast_up * 3
 }
 
-movement Goldenrod_RadioTower_1F_Movement_08BC {
+movement Goldenrod_RadioTower_1F_Movement_RivalWalkDown {
     delay_4
     face_up
     lock_dir
@@ -647,7 +647,7 @@ movement Goldenrod_RadioTower_1F_Movement_08BC {
     unlock_dir
 }
 
-movement Goldenrod_RadioTower_1F_Movement_08D4 {
+movement Goldenrod_RadioTower_1F_Movement_RivalWalkLeft1 {
     delay_4
     face_right
     lock_dir
@@ -655,42 +655,42 @@ movement Goldenrod_RadioTower_1F_Movement_08D4 {
     unlock_dir
 }
 
-movement Goldenrod_RadioTower_1F_Movement_08EC {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkRight2 {
     walk_right * 2
 }
 
-movement Goldenrod_RadioTower_1F_Movement_08F4 {
+movement Goldenrod_RadioTower_1F_Movement_RocketGruntWalkUpRight {
     walk_up
     walk_right
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0900 {
+movement Goldenrod_RadioTower_1F_Movement_PlayerWalkDown {
     face_up
     lock_dir
     walk_down
     unlock_dir
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0914 {
+movement Goldenrod_RadioTower_1F_Movement_PlayerWalkLeft {
     face_right
     lock_dir
     walk_left
     unlock_dir
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0928 {
+movement Goldenrod_RadioTower_1F_Movement_RivalFaceRight {
     walk_in_place_right
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0930 {
+movement Goldenrod_RadioTower_1F_Movement_RivalFaceUp {
     walk_in_place_up
 }
 
-movement Goldenrod_RadioTower_1F_Movement_0938 {
+movement Goldenrod_RadioTower_1F_Movement_RivalWalkLeft2 {
     walk_left * 9
 }
 
-script scr_seq_D23R0101_006 {
+script Goldenrod_RadioTower_1F_EventScript_1FReceptionSign {
     simplenpcmsg("1F Reception\n"
                  "2F Sales\f"
                  "3F Personnel\f"
@@ -700,7 +700,7 @@ script scr_seq_D23R0101_006 {
     end
 }
 
-script scr_seq_D23R0101_007 {
+script Goldenrod_RadioTower_1F_EventScript_LuckyChannelSign {
     simplenpcmsg("Lucky Channel!\n"
                  "Win with Pokémon ID numbers!\r"
                  "Trade your Pokémon to collect different\n"
@@ -708,7 +708,7 @@ script scr_seq_D23R0101_007 {
     end
 }
 
-script scr_seq_D23R0101_001 {
+script Goldenrod_RadioTower_1F_EventScript_Receptionist2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -878,5 +878,5 @@ _0B98:
 }
 
 mapscripts Goldenrod_RadioTower_1F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0101_008
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_RadioTower_1F_OnTransition
 }

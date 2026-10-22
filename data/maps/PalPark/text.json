@@ -27,23 +27,23 @@
     },
     {
       "id": "msg_0052_D10R0101_00006",
-      "from": "scr_seq_D10R0101_001#0"
+      "from": "PalPark_EventScript_Scene#0"
     },
     {
       "id": "msg_0052_D10R0101_00007",
-      "from": "scr_seq_D10R0101_001#1"
+      "from": "PalPark_EventScript_Scene#1"
     },
     {
       "id": "msg_0052_D10R0101_00008",
-      "from": "scr_seq_D10R0101_001#2"
+      "from": "PalPark_EventScript_Scene#2"
     },
     {
       "id": "msg_0052_D10R0101_00009",
-      "from": "scr_seq_D10R0101_001#3"
+      "from": "PalPark_EventScript_Scene#3"
     },
     {
       "id": "msg_0052_D10R0101_00010",
-      "from": "scr_seq_D10R0101_001#4"
+      "from": "PalPark_EventScript_Scene#4"
     }
   ]
 }

@@ -1,12 +1,12 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T07R0206_000 {
+script Celadon_CondominiumsLeftElevator_EventScript_Scene {
     followmonresetmovement
     lockall
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Celadon_CondominiumsLeftElevator_Movement_0340)
+        applymovement(obj_player, Celadon_CondominiumsLeftElevator_Movement_PlayerWalkUp)
         waitmovement
     _0062:
         getdynamicwarpfloorno(VAR_ELEVATOR_LAST_FLOOR)
@@ -149,22 +149,22 @@ _002A:
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Celadon_CondominiumsLeftElevator_Movement_0340)
+    applymovement(obj_player, Celadon_CondominiumsLeftElevator_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_partner_poke, Celadon_CondominiumsLeftElevator_Movement_034C)
+    applymovement(obj_partner_poke, Celadon_CondominiumsLeftElevator_Movement_FollowMonWalkRightUp)
     waitmovement
     goto(_0062)
 }
 
-movement Celadon_CondominiumsLeftElevator_Movement_0340 {
+movement Celadon_CondominiumsLeftElevator_Movement_PlayerWalkUp {
     walk_up * 2
     walk_in_place_down
 }
 
-movement Celadon_CondominiumsLeftElevator_Movement_034C {
+movement Celadon_CondominiumsLeftElevator_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
@@ -172,6 +172,6 @@ movement Celadon_CondominiumsLeftElevator_Movement_034C {
 
 mapscripts Celadon_CondominiumsLeftElevator_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4125, 0: scr_seq_T07R0206_000
+        VAR_UNK_4125, 0: Celadon_CondominiumsLeftElevator_EventScript_Scene
     ]
 }

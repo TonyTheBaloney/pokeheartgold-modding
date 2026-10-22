@@ -262,7 +262,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R12_000 + 1",
+            "script": "Route12_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         },
         {
@@ -296,7 +296,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R12_005 + 1",
+            "script": "Route12_EventScript_Kabigon",
             "flag": "FLAG_HIDE_ROUTE_12_SNORLAX"
         },
         {
@@ -313,7 +313,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R12_005 + 1",
+            "script": "Route12_EventScript_Kabigon",
             "flag": "FLAG_HIDE_ROUTE_12_SNORLAX"
         },
         {
@@ -330,7 +330,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R12_005 + 1",
+            "script": "Route12_EventScript_Kabigon",
             "flag": "FLAG_HIDE_ROUTE_12_SNORLAX"
         },
         {
@@ -347,7 +347,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R12_005 + 1",
+            "script": "Route12_EventScript_Kabigon",
             "flag": "FLAG_HIDE_ROUTE_12_SNORLAX"
         }
     ],
@@ -382,7 +382,7 @@
             "y": 273,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R12_003 + 1"
+            "script": "Route12_EventScript_TrainerTips"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -390,7 +390,7 @@
             "y": 342,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R12_002 + 1"
+            "script": "Route12_EventScript_RouteSign"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

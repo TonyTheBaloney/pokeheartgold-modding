@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R29_006 + 1",
+            "script": "Route29_EventScript_Youngster",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R29_007 + 1",
+            "script": "Route29_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R29_002 + 1",
+            "script": "Route29_EventScript_Man",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R29_008 + 1",
+            "script": "Route29_EventScript_Beauty2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R29_003 + 1",
+            "script": "Route29_EventScript_Beauty1",
             "flag": "FLAG_UNK_207"
         }
     ],
@@ -240,7 +240,7 @@
             "height": 7,
             "var": "VAR_UNK_408B",
             "var_value": 1,
-            "script": "_EV_scr_seq_R29_001 + 1"
+            "script": "Route29_EventScript_LyraTrigger"
         }
     ],
     "bg_events": [
@@ -250,7 +250,7 @@
             "y": 397,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R29_004 + 1"
+            "script": "Route29_EventScript_RouteSign1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -258,7 +258,7 @@
             "y": 397,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R29_005 + 1"
+            "script": "Route29_EventScript_RouteSign2"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

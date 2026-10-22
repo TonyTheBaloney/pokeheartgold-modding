@@ -1,16 +1,16 @@
 #ifndef SCR_SEQ_T08R0201_H_
 #define SCR_SEQ_T08R0201_H_
 
-#define _EV_scr_seq_T08R0201_000 0
-#define _EV_scr_seq_T08R0201_001 1
-#define _EV_scr_seq_T08R0201_002 2
-#define _EV_scr_seq_T08R0201_003 3
-#define _EV_scr_seq_T08R0201_004 4
-#define _EV_scr_seq_T08R0201_005 5
-#define _EV_scr_seq_T08R0201_006 6
-#define _EV_scr_seq_T08R0201_007 7
-#define _EV_scr_seq_T08R0201_008 8
-#define _EV_scr_seq_T08R0201_009 9
+#define _EV_Fuchsia_PalParkEntrance_OnTransition 0
+#define _EV_Fuchsia_PalParkEntrance_EventScript_WorkerScene1 1
+#define _EV_Fuchsia_PalParkEntrance_EventScript_WorkerScene2 2
+#define _EV_Fuchsia_PalParkEntrance_EventScript_Worker 3
+#define _EV_Fuchsia_PalParkEntrance_EventScript_SchoolKidM 4
+#define _EV_Fuchsia_PalParkEntrance_EventScript_PokefanF 5
+#define _EV_Fuchsia_PalParkEntrance_EventScript_Youngster 6
+#define _EV_Fuchsia_PalParkEntrance_EventScript_Beauty 7
+#define _EV_Fuchsia_PalParkEntrance_EventScript_Man 8
+#define _EV_Fuchsia_PalParkEntrance_EventScript_Lady 9
 
 #define obj_T08R0201_gorggeousw     0
 #define obj_T08R0201_gsboy1         1

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T03R0601_000 {
+script Pewter_SouthwestHouse_EventScript_OldMan {
     simplenpcmsg("I used to enjoy snoozing\n"
                  "with the radio on...\r"
                  "It’s broken and is being fixed now.\r"

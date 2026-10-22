@@ -2,9 +2,9 @@
 #define SCR_SEQ_R43_H_
 
 #define _EV_scr_seq_R43_000 0
-#define _EV_scr_seq_R43_001 1
-#define _EV_scr_seq_R43_002 2
-#define _EV_scr_seq_R43_003 3
+#define _EV_Route43_EventScript_RouteSign 1
+#define _EV_Route43_EventScript_TrainerTips 2
+#define _EV_Route43_EventScript_NorthToLakeOfRageSign 3
 
 #define obj_R43_campboy_2    0
 #define obj_R43_picnicgirl_2 1

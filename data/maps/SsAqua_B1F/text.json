@@ -7,11 +7,11 @@
     },
     {
       "id": "msg_0263_P01R0307_00001",
-      "from": "scr_seq_P01R0307_000#1"
+      "from": "SsAqua_B1F_EventScript_Sailor#1"
     },
     {
       "id": "msg_0263_P01R0307_00002",
-      "from": "scr_seq_P01R0307_000#0"
+      "from": "SsAqua_B1F_EventScript_Sailor#0"
     },
     {
       "id": "msg_0263_P01R0307_00003",
@@ -27,7 +27,7 @@
     },
     {
       "id": "msg_0263_P01R0307_00006",
-      "from": "scr_seq_P01R0307_003#0"
+      "from": "SsAqua_B1F_EventScript_LittleGirl#0"
     }
   ]
 }

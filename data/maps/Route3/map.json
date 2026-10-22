@@ -375,7 +375,7 @@
             "y": 121,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R03_000 + 1"
+            "script": "Route3_EventScript_TrainerTips"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",
@@ -407,7 +407,7 @@
             "y": 115,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R03_004 + 1"
+            "script": "Route3_EventScript_Meteorite"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -415,7 +415,7 @@
             "y": 121,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R03_002 + 1"
+            "script": "Route3_EventScript_TouchingTheMeteoriteHeightenedSign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -423,7 +423,7 @@
             "y": 115,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R03_003 + 1"
+            "script": "Route3_EventScript_TouchingTheMeteoriteHeightenedSign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -431,7 +431,7 @@
             "y": 122,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R03_001 + 1"
+            "script": "Route3_EventScript_TouchingTheMeteoriteBoostedSign"
         }
     ]
 }

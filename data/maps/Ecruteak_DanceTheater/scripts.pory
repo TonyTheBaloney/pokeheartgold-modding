@@ -3,26 +3,26 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T27R0501_000
-    scr_seq_T27R0501_001
-    scr_seq_T27R0501_002
-    scr_seq_T27R0501_003
-    scr_seq_T27R0501_004
-    scr_seq_T27R0501_005
-    scr_seq_T27R0501_006
-    scr_seq_T27R0501_007
-    scr_seq_T27R0501_008
-    scr_seq_T27R0501_009
-    scr_seq_T27R0501_010
-    scr_seq_T27R0501_011
-    scr_seq_T27R0501_012
-    scr_seq_T27R0501_013
-    scr_seq_T27R0501_014
-    scr_seq_T27R0501_015
-    scr_seq_T27R0501_016
+    Ecruteak_DanceTheater_EventScript_Gentleman
+    Ecruteak_DanceTheater_EventScript_Psyduck
+    Ecruteak_DanceTheater_EventScript_Man
+    Ecruteak_DanceTheater_EventScript_Grunt
+    Ecruteak_DanceTheater_EventScript_KimonoGirl1
+    Ecruteak_DanceTheater_EventScript_KimonoGirl2
+    Ecruteak_DanceTheater_EventScript_KimonoGirl3
+    Ecruteak_DanceTheater_EventScript_KimonoGirl4
+    Ecruteak_DanceTheater_EventScript_KimonoGirl5
+    Ecruteak_DanceTheater_EventScript_KimonoGirl6
+    Ecruteak_DanceTheater_EventScript_Sign
+    Ecruteak_DanceTheater_EventScript_GentlemanTrigger1
+    Ecruteak_DanceTheater_EventScript_GentlemanTrigger2
+    Ecruteak_DanceTheater_OnResume
+    Ecruteak_DanceTheater_EventScript_OldWoman
+    Ecruteak_DanceTheater_EventScript_GruntScene
+    Ecruteak_DanceTheater_EventScript_ZukiScene
 }
 
-script scr_seq_T27R0501_013 {
+script Ecruteak_DanceTheater_OnResume {
     if (var(VAR_UNK_410C) <= 1) {
         makeobjectvisible(obj_T27R0501_rocketm_2)
     }
@@ -54,44 +54,44 @@ script scr_seq_T27R0501_013 {
     end
 }
 
-script scr_seq_T27R0501_015 {
+script Ecruteak_DanceTheater_EventScript_GruntScene {
     followmonresetmovement
     lockall
     npcmsg("{SIZE 200}Hey! Hey!{SIZE 100}\r")
     closemessage
-    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_01CC)
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_GruntFaceRight1)
     waitmovement
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
-    applymovement(241, Ecruteak_DanceTheater_Movement_01D4)
+    applymovement(241, Ecruteak_DanceTheater_Movement_ObjectWalkUp)
     waitmovement
     wait(10, VAR_SPECIAL_RESULT)
-    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_01F0)
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_GruntWalkRight)
     waitmovement
     npcmsg("Stop dancing such a serious dance!\n"
            "Show me something like a hula dance!\r")
     closemessage
-    applymovement(obj_T27R0501_dancer_3, Ecruteak_DanceTheater_Movement_01F8)
+    applymovement(obj_T27R0501_dancer_3, Ecruteak_DanceTheater_Movement_KimonoGirlFaceLeft1)
     waitmovement
     npcmsg("...You mustn’t push such a request\n"
            "on me.\r")
     closemessage
-    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_0200)
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_GruntFaceRight2)
     waitmovement
     npcmsg("Huh?\n"
            "Are you telling me you don’t respect\f"
            "what the customer wants?\r")
     closemessage
-    applymovement(obj_T27R0501_dancer_3, Ecruteak_DanceTheater_Movement_0208)
+    applymovement(obj_T27R0501_dancer_3, Ecruteak_DanceTheater_Movement_KimonoGirlWalkRight1)
     waitmovement
     npcmsg("Well, then I’ll show you how to dance.\r"
            "I’ll show you a great one.\n"
            "Wahahaha!\r")
     closemessage
-    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_0218)
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_GruntFaceDown)
     waitmovement
-    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_0220)
-    applymovement(241, Ecruteak_DanceTheater_Movement_01DC)
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_GruntSpin)
+    applymovement(241, Ecruteak_DanceTheater_Movement_ObjectWalkDown)
     waitmovement
     removecameratarget
     releaseall
@@ -99,15 +99,15 @@ script scr_seq_T27R0501_015 {
     end
 }
 
-movement Ecruteak_DanceTheater_Movement_01CC {
+movement Ecruteak_DanceTheater_Movement_GruntFaceRight1 {
     face_right
 }
 
-movement Ecruteak_DanceTheater_Movement_01D4 {
+movement Ecruteak_DanceTheater_Movement_ObjectWalkUp {
     walk_slightly_fast_up * 9
 }
 
-movement Ecruteak_DanceTheater_Movement_01DC {
+movement Ecruteak_DanceTheater_Movement_ObjectWalkDown {
     delay_32
     walk_slightly_fast_down * 9
 }
@@ -116,29 +116,29 @@ movement Ecruteak_DanceTheater_Movement_01E8 {
     walk_up * 3
 }
 
-movement Ecruteak_DanceTheater_Movement_01F0 {
+movement Ecruteak_DanceTheater_Movement_GruntWalkRight {
     walk_right
 }
 
-movement Ecruteak_DanceTheater_Movement_01F8 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlFaceLeft1 {
     walk_in_place_fast_left
 }
 
-movement Ecruteak_DanceTheater_Movement_0200 {
+movement Ecruteak_DanceTheater_Movement_GruntFaceRight2 {
     jump_in_place_fast_right * 2
 }
 
-movement Ecruteak_DanceTheater_Movement_0208 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkRight1 {
     lock_dir
     walk_right * 2
     unlock_dir
 }
 
-movement Ecruteak_DanceTheater_Movement_0218 {
+movement Ecruteak_DanceTheater_Movement_GruntFaceDown {
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0220 {
+movement Ecruteak_DanceTheater_Movement_GruntSpin {
     face_left
     delay_1
     face_up
@@ -195,7 +195,7 @@ movement Ecruteak_DanceTheater_Movement_0220 {
     face_down
 }
 
-script scr_seq_T27R0501_003 {
+script Ecruteak_DanceTheater_EventScript_Grunt {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -217,13 +217,13 @@ script scr_seq_T27R0501_003 {
     closemessage
     getplayerfacing(VAR_SPECIAL_x8004)
     if (var(VAR_SPECIAL_x8004) == 0) {
-        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0414)
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_RocketGruntWalkUp)
     } elif (var(VAR_SPECIAL_x8004) == 1) {
-        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0424)
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_RocketGruntWalkDown)
     } elif (var(VAR_SPECIAL_x8004) == 2) {
-        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0434)
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_RocketGruntWalkLeft)
     } else {
-        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0444)
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_RocketGruntWalkRight)
     }
     waitmovement
     npcmsg("Oops!\n"
@@ -234,13 +234,13 @@ script scr_seq_T27R0501_003 {
            "I better leave now!\r")
     closemessage
     if (var(VAR_SPECIAL_x8004) == 0) {
-        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0454)
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_RocketGruntWalkLeftDown1)
     } elif (var(VAR_SPECIAL_x8004) == 1) {
-        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0460)
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_RocketGruntWalkLeftDown2)
     } elif (var(VAR_SPECIAL_x8004) == 2) {
-        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_046C)
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_RocketGruntWalkLeftDown3)
     } else {
-        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0478)
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_RocketGruntWalkDownRight)
     }
     waitmovement
     removeobject(obj_T27R0501_rocketm_2)
@@ -251,52 +251,52 @@ script scr_seq_T27R0501_003 {
     end
 }
 
-movement Ecruteak_DanceTheater_Movement_0414 {
+movement Ecruteak_DanceTheater_Movement_RocketGruntWalkUp {
     lock_dir
     walk_up
     unlock_dir
 }
 
-movement Ecruteak_DanceTheater_Movement_0424 {
+movement Ecruteak_DanceTheater_Movement_RocketGruntWalkDown {
     lock_dir
     walk_down
     unlock_dir
 }
 
-movement Ecruteak_DanceTheater_Movement_0434 {
+movement Ecruteak_DanceTheater_Movement_RocketGruntWalkLeft {
     lock_dir
     walk_left
     unlock_dir
 }
 
-movement Ecruteak_DanceTheater_Movement_0444 {
+movement Ecruteak_DanceTheater_Movement_RocketGruntWalkRight {
     lock_dir
     walk_right
     unlock_dir
 }
 
-movement Ecruteak_DanceTheater_Movement_0454 {
+movement Ecruteak_DanceTheater_Movement_RocketGruntWalkLeftDown1 {
     walk_fast_left * 4
     walk_fast_down * 12
 }
 
-movement Ecruteak_DanceTheater_Movement_0460 {
+movement Ecruteak_DanceTheater_Movement_RocketGruntWalkLeftDown2 {
     walk_fast_left * 4
     walk_fast_down * 10
 }
 
-movement Ecruteak_DanceTheater_Movement_046C {
+movement Ecruteak_DanceTheater_Movement_RocketGruntWalkLeftDown3 {
     walk_fast_left * 3
     walk_fast_down * 10
 }
 
-movement Ecruteak_DanceTheater_Movement_0478 {
+movement Ecruteak_DanceTheater_Movement_RocketGruntWalkDownRight {
     walk_fast_down
     walk_fast_right * 3
     walk_fast_down * 9
 }
 
-script scr_seq_T27R0501_004 {
+script Ecruteak_DanceTheater_EventScript_KimonoGirl1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -336,10 +336,10 @@ script scr_seq_T27R0501_004 {
     end
 }
 
-script scr_seq_T27R0501_011 {
+script Ecruteak_DanceTheater_EventScript_GentlemanTrigger1 {
     followmonresetmovement
     lockall
-    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_05B4)
+    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_GentlemanWalkUpLeft)
     waitmovement
     npcmsg(msg_0618_T27R0501_00026)
     if (!itemspace(ITEM_HM03, 1)) { goto(_05A9) }
@@ -349,7 +349,7 @@ script scr_seq_T27R0501_011 {
     setvar(VAR_UNK_4090, 1)
     npcmsg(msg_0618_T27R0501_00028)
     closemessage
-    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_05C4)
+    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_GentlemanWalkDownRight)
     waitmovement
     releaseall
     end
@@ -369,10 +369,10 @@ text msg_0618_T27R0501_00028 {
     "across water with ease.\r"
 }
 
-script scr_seq_T27R0501_012 {
+script Ecruteak_DanceTheater_EventScript_GentlemanTrigger2 {
     followmonresetmovement
     lockall
-    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_05D8)
+    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_GentlemanWalkUpRight)
     waitmovement
     npcmsg(msg_0618_T27R0501_00026)
     if (!itemspace(ITEM_HM03, 1)) { goto(_05A9) }
@@ -382,13 +382,13 @@ script scr_seq_T27R0501_012 {
     setvar(VAR_UNK_410C, 3)
     npcmsg(msg_0618_T27R0501_00028)
     closemessage
-    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_05E8)
+    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_GentlemanWalkDownLeft)
     waitmovement
     releaseall
     end
 }
 
-script scr_seq_T27R0501_000 {
+script Ecruteak_DanceTheater_EventScript_Gentleman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -419,33 +419,33 @@ script scr_seq_T27R0501_000 {
     end
 }
 
-movement Ecruteak_DanceTheater_Movement_05B4 {
+movement Ecruteak_DanceTheater_Movement_GentlemanWalkUpLeft {
     walk_up
     walk_left * 5
     walk_up * 2
 }
 
-movement Ecruteak_DanceTheater_Movement_05C4 {
+movement Ecruteak_DanceTheater_Movement_GentlemanWalkDownRight {
     walk_down * 2
     walk_right * 5
     walk_down
     face_up
 }
 
-movement Ecruteak_DanceTheater_Movement_05D8 {
+movement Ecruteak_DanceTheater_Movement_GentlemanWalkUpRight {
     walk_up
     walk_right * 3
     walk_up * 2
 }
 
-movement Ecruteak_DanceTheater_Movement_05E8 {
+movement Ecruteak_DanceTheater_Movement_GentlemanWalkDownLeft {
     walk_down * 2
     walk_left * 3
     walk_down
     face_up
 }
 
-script scr_seq_T27R0501_001 {
+script Ecruteak_DanceTheater_EventScript_Psyduck {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -458,7 +458,7 @@ script scr_seq_T27R0501_001 {
     end
 }
 
-script scr_seq_T27R0501_002 {
+script Ecruteak_DanceTheater_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -509,7 +509,7 @@ script scr_seq_T27R0501_002 {
     end
 }
 
-script scr_seq_T27R0501_014 {
+script Ecruteak_DanceTheater_EventScript_OldWoman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -543,13 +543,13 @@ script scr_seq_T27R0501_014 {
     end
 }
 
-script scr_seq_T27R0501_010 {
+script Ecruteak_DanceTheater_EventScript_Sign {
     simplenpcmsg("This desk is used for\n"
                  "certain programs...")
     end
 }
 
-script scr_seq_T27R0501_005 {
+script Ecruteak_DanceTheater_EventScript_KimonoGirl2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -573,7 +573,7 @@ text msg_0618_T27R0501_00019 {
     "when you are ready."
 }
 
-script scr_seq_T27R0501_006 {
+script Ecruteak_DanceTheater_EventScript_KimonoGirl3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -592,7 +592,7 @@ _0758:
     end
 }
 
-script scr_seq_T27R0501_007 {
+script Ecruteak_DanceTheater_EventScript_KimonoGirl4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -617,13 +617,13 @@ _07BA:
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Ecruteak_DanceTheater_Movement_0828)
+        applymovement(obj_player, Ecruteak_DanceTheater_Movement_PlayerWalkRightDown)
     } elif (var(VAR_SPECIAL_RESULT) == 2) {
-        applymovement(obj_player, Ecruteak_DanceTheater_Movement_083C)
+        applymovement(obj_player, Ecruteak_DanceTheater_Movement_PlayerWalkDownLeft)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Ecruteak_DanceTheater_Movement_084C)
+        applymovement(obj_player, Ecruteak_DanceTheater_Movement_PlayerWalkDownRight)
     }
-    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_085C)
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_KimonoGirlFaceDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -631,26 +631,26 @@ _07BA:
     return
 }
 
-movement Ecruteak_DanceTheater_Movement_0828 {
+movement Ecruteak_DanceTheater_Movement_PlayerWalkRightDown {
     walk_right
     walk_down * 2
     walk_left
     walk_in_place_up
 }
 
-movement Ecruteak_DanceTheater_Movement_083C {
+movement Ecruteak_DanceTheater_Movement_PlayerWalkDownLeft {
     walk_down
     walk_left
     walk_in_place_up
 }
 
-movement Ecruteak_DanceTheater_Movement_084C {
+movement Ecruteak_DanceTheater_Movement_PlayerWalkDownRight {
     walk_down
     walk_right
     walk_in_place_up
 }
 
-movement Ecruteak_DanceTheater_Movement_085C {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlFaceDown {
     delay_8 * 2
     walk_in_place_down
 }
@@ -674,7 +674,7 @@ script(local) _0868 {
     end
 }
 
-script scr_seq_T27R0501_008 {
+script Ecruteak_DanceTheater_EventScript_KimonoGirl5 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -693,7 +693,7 @@ _08A3:
     end
 }
 
-script scr_seq_T27R0501_009 {
+script Ecruteak_DanceTheater_EventScript_KimonoGirl6 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -712,7 +712,7 @@ _08D7:
     end
 }
 
-script scr_seq_T27R0501_016 {
+script Ecruteak_DanceTheater_EventScript_ZukiScene {
     followmonresetmovement
     lockall
     setvar(VAR_SPECIAL_x8000, 11)
@@ -720,7 +720,7 @@ script scr_seq_T27R0501_016 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Ecruteak_DanceTheater_Movement_0BF4)
+    applymovement(obj_player, Ecruteak_DanceTheater_Movement_PlayerWalkUpLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -771,7 +771,7 @@ script scr_seq_T27R0501_016 {
 _0944:
     stopbgm(30)
     playbgm(SEQ_GS_EYE_MAIKO)
-    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0D74)
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_KimonoGirlSpin)
     waitmovement
     npcmsg("I will test how closely you’ve\n"
            "bonded with your Pokémon!\r")
@@ -780,11 +780,11 @@ _0944:
     trainerbattle(TRAINER_KIMONO_GIRL_ZUKI, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
-    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0C0C)
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_KimonoGirlWalkUp)
     waitmovement
     stopbgm(30)
     playbgm(SEQ_GS_EYE_MAIKO)
-    applymovement(obj_T27R0501_dancer, Ecruteak_DanceTheater_Movement_0C18)
+    applymovement(obj_T27R0501_dancer, Ecruteak_DanceTheater_Movement_KimonoGirlWalkRight2)
     waitmovement
     npcmsg("You are quite strong.\r"
            "You helped me in the Ilex Forest.\r"
@@ -799,11 +799,11 @@ _0944:
     trainerbattle(TRAINER_KIMONO_GIRL_NAOKO, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
-    applymovement(obj_T27R0501_dancer, Ecruteak_DanceTheater_Movement_0C48)
+    applymovement(obj_T27R0501_dancer, Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeft1)
     waitmovement
     stopbgm(30)
     playbgm(SEQ_GS_EYE_MAIKO)
-    applymovement(obj_T27R0501_dancer_5, Ecruteak_DanceTheater_Movement_0C54)
+    applymovement(obj_T27R0501_dancer_5, Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeft2)
     waitmovement
     npcmsg("You are quite the Trainer.\r"
            "I remember you chasing off\n"
@@ -821,11 +821,11 @@ _0944:
     trainerbattle(TRAINER_KIMONO_GIRL_MIKI, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
-    applymovement(obj_T27R0501_dancer_5, Ecruteak_DanceTheater_Movement_0C84)
+    applymovement(obj_T27R0501_dancer_5, Ecruteak_DanceTheater_Movement_KimonoGirlWalkRight3)
     waitmovement
     stopbgm(30)
     playbgm(SEQ_GS_EYE_MAIKO)
-    applymovement(obj_T27R0501_dancer_2, Ecruteak_DanceTheater_Movement_0C90)
+    applymovement(obj_T27R0501_dancer_2, Ecruteak_DanceTheater_Movement_KimonoGirlWalkDownRight)
     waitmovement
     npcmsg("Excellent fighting spirit!\r"
            "You got me off the ice by pushing me\n"
@@ -840,11 +840,11 @@ _0944:
     trainerbattle(TRAINER_KIMONO_GIRL_SAYO, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
-    applymovement(obj_T27R0501_dancer_2, Ecruteak_DanceTheater_Movement_0CBC)
+    applymovement(obj_T27R0501_dancer_2, Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeftUp)
     waitmovement
     stopbgm(30)
     playbgm(SEQ_GS_EYE_MAIKO)
-    applymovement(obj_T27R0501_dancer_4, Ecruteak_DanceTheater_Movement_0CCC)
+    applymovement(obj_T27R0501_dancer_4, Ecruteak_DanceTheater_Movement_KimonoGirlWalkDownLeft)
     waitmovement
     npcmsg("I am the last one.\r"
            "You were so dependable at the\n"
@@ -861,9 +861,9 @@ _0944:
     trainerbattle(TRAINER_KIMONO_GIRL_KUNI, 0, 0, 0)
     checkbattlewon(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
-    applymovement(obj_T27R0501_dancer_4, Ecruteak_DanceTheater_Movement_0CF8)
+    applymovement(obj_T27R0501_dancer_4, Ecruteak_DanceTheater_Movement_KimonoGirlWalkRightUp)
     waitmovement
-    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0D08)
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_KimonoGirlWalkDown)
     waitmovement
     npcmsg("We were not wrong about you.\n"
            "You are indeed worthy of this...\r"
@@ -882,9 +882,9 @@ _0944:
     waitse(SEQ_SE_DP_KI_GASYAN)
     clearflag(FLAG_HIDE_DANCE_STUDIO_LITTLE_GIRL)
     addobject(obj_T27R0501_gsbabygirl1)
-    applymovement(obj_T27R0501_gsbabygirl1, Ecruteak_DanceTheater_Movement_0D10)
+    applymovement(obj_T27R0501_gsbabygirl1, Ecruteak_DanceTheater_Movement_LittleGirlWalkUpRight)
     waitmovement
-    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0BEC)
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_KimonoGirlFaceLeft2)
     waitmovement
     getgameversion(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 7) {
@@ -899,7 +899,7 @@ _0944:
                "It could be...\r")
     }
     closemessage
-    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0BE4)
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_KimonoGirlExclamation)
     waitmovement
     bufferplayersname(0)
     if (var(VAR_SPECIAL_RESULT) == 7) {
@@ -912,12 +912,12 @@ _0944:
                "See you there!\r")
     }
     closemessage
-    applymovement(obj_T27R0501_dancer, Ecruteak_DanceTheater_Movement_0D1C)
-    applymovement(obj_T27R0501_dancer_2, Ecruteak_DanceTheater_Movement_0D28)
-    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0D38)
-    applymovement(obj_T27R0501_dancer_4, Ecruteak_DanceTheater_Movement_0D48)
-    applymovement(obj_T27R0501_dancer_5, Ecruteak_DanceTheater_Movement_0D58)
-    applymovement(obj_T27R0501_gsbabygirl1, Ecruteak_DanceTheater_Movement_0D64)
+    applymovement(obj_T27R0501_dancer, Ecruteak_DanceTheater_Movement_KimonoGirlWalkRightDown1)
+    applymovement(obj_T27R0501_dancer_2, Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeftDown1)
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_KimonoGirlWalkRightDown2)
+    applymovement(obj_T27R0501_dancer_4, Ecruteak_DanceTheater_Movement_KimonoGirlWalkRightDown3)
+    applymovement(obj_T27R0501_dancer_5, Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeftDown2)
+    applymovement(obj_T27R0501_gsbabygirl1, Ecruteak_DanceTheater_Movement_LittleGirlWalkRightDown)
     waitmovement
     removeobject(obj_T27R0501_dancer)
     removeobject(obj_T27R0501_dancer_2)
@@ -956,15 +956,15 @@ _0BD3:
     end
 }
 
-movement Ecruteak_DanceTheater_Movement_0BE4 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlExclamation {
     emote_exclamation_mark
 }
 
-movement Ecruteak_DanceTheater_Movement_0BEC {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlFaceLeft2 {
     walk_in_place_left
 }
 
-movement Ecruteak_DanceTheater_Movement_0BF4 {
+movement Ecruteak_DanceTheater_Movement_PlayerWalkUpLeft {
     walk_up * 5
     walk_left * 4
     walk_up * 5
@@ -972,12 +972,12 @@ movement Ecruteak_DanceTheater_Movement_0BF4 {
     walk_in_place_up
 }
 
-movement Ecruteak_DanceTheater_Movement_0C0C {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkUp {
     walk_up
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0C18 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkRight2 {
     face_right
     delay_2
     face_up
@@ -991,12 +991,12 @@ movement Ecruteak_DanceTheater_Movement_0C18 {
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0C48 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeft1 {
     walk_left * 5
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0C54 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeft2 {
     face_left
     delay_2
     face_up
@@ -1010,12 +1010,12 @@ movement Ecruteak_DanceTheater_Movement_0C54 {
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0C84 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkRight3 {
     walk_right * 5
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0C90 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkDownRight {
     face_right
     delay_2
     face_up
@@ -1028,13 +1028,13 @@ movement Ecruteak_DanceTheater_Movement_0C90 {
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0CBC {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeftUp {
     walk_left * 3
     walk_up
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0CCC {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkDownLeft {
     face_left
     delay_2
     face_up
@@ -1047,56 +1047,56 @@ movement Ecruteak_DanceTheater_Movement_0CCC {
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0CF8 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkRightUp {
     walk_right * 3
     walk_up
     walk_in_place_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0D08 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkDown {
     walk_down
 }
 
-movement Ecruteak_DanceTheater_Movement_0D10 {
+movement Ecruteak_DanceTheater_Movement_LittleGirlWalkUpRight {
     walk_fast_up * 10
     walk_fast_right * 3
 }
 
-movement Ecruteak_DanceTheater_Movement_0D1C {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkRightDown1 {
     walk_right
     walk_down * 11
 }
 
-movement Ecruteak_DanceTheater_Movement_0D28 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeftDown1 {
     delay_8
     walk_left
     walk_down * 12
 }
 
-movement Ecruteak_DanceTheater_Movement_0D38 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkRightDown2 {
     delay_8
     walk_right * 4
     walk_down * 11
 }
 
-movement Ecruteak_DanceTheater_Movement_0D48 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkRightDown3 {
     delay_8
     walk_right
     walk_down * 12
 }
 
-movement Ecruteak_DanceTheater_Movement_0D58 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlWalkLeftDown2 {
     walk_left
     walk_down * 11
 }
 
-movement Ecruteak_DanceTheater_Movement_0D64 {
+movement Ecruteak_DanceTheater_Movement_LittleGirlWalkRightDown {
     delay_8 * 2
     walk_right * 5
     walk_down * 11
 }
 
-movement Ecruteak_DanceTheater_Movement_0D74 {
+movement Ecruteak_DanceTheater_Movement_KimonoGirlSpin {
     face_left
     delay_4
     face_up
@@ -1115,9 +1115,9 @@ movement Ecruteak_DanceTheater_Movement_0D74 {
 }
 
 mapscripts Ecruteak_DanceTheater_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_T27R0501_013
+    INIT_SCRIPT_ON_RESUME: Ecruteak_DanceTheater_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_410C, 0: scr_seq_T27R0501_015
-        VAR_UNK_410C, 4: scr_seq_T27R0501_016
+        VAR_UNK_410C, 0: Ecruteak_DanceTheater_EventScript_GruntScene
+        VAR_UNK_410C, 4: Ecruteak_DanceTheater_EventScript_ZukiScene
     ]
 }

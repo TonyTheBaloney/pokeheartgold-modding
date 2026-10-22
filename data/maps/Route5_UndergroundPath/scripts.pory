@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R05R0202_000
-    scr_seq_R05R0202_001
+    Route5_UndergroundPath_EventScript_PokefanM
+    Route5_UndergroundPath_OnTransition
 }
 
-script scr_seq_R05R0202_001 {
+script Route5_UndergroundPath_OnTransition {
     setvar(VAR_TEMP_x4000, 0)
     end
 }
 
-script scr_seq_R05R0202_000 {
+script Route5_UndergroundPath_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -53,7 +53,7 @@ _005F:
            "It makes me mad just thinking\n"
            "about it...\r")
     closemessage
-    applymovement(obj_R05R0202_gsmiddleman1, Route5_UndergroundPath_Movement_0100)
+    applymovement(obj_R05R0202_gsmiddleman1, Route5_UndergroundPath_Movement_PokefanMExclamation)
     waitmovement
 _006E:
     npcmsg("Aha!\n"
@@ -124,10 +124,10 @@ _00BE:
     end
 }
 
-movement Route5_UndergroundPath_Movement_0100 {
+movement Route5_UndergroundPath_Movement_PokefanMExclamation {
     emote_exclamation_mark
 }
 
 mapscripts Route5_UndergroundPath_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R05R0202_001
+    INIT_SCRIPT_ON_TRANSITION: Route5_UndergroundPath_OnTransition
 }

@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T11PC0101_000 {
+script Saffron_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T11PC0101_001 {
+script Saffron_Pokecenter_1F_EventScript_Woman {
     simplenpcmsg("What are Johto’s Pokémon Centers like?\r"
                  "...Oh, I see. So they’re not much\n"
                  "different from the ones in Kanto.\r"
@@ -16,7 +16,7 @@ script scr_seq_T11PC0101_001 {
     end
 }
 
-script scr_seq_T11PC0101_002 {
+script Saffron_Pokecenter_1F_EventScript_Hiker {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -41,7 +41,7 @@ script scr_seq_T11PC0101_002 {
     end
 }
 
-script scr_seq_T11PC0101_003 {
+script Saffron_Pokecenter_1F_EventScript_SchoolKidM {
     simplenpcmsg("Silph Co.’s head office and the\n"
                  "Magnet Train station--\f"
                  "they’re the places to see in Saffron.")

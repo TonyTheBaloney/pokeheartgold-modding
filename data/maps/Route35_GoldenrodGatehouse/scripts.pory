@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R35R0101_000
-    scr_seq_R35R0101_001
+    Route35_GoldenrodGatehouse_EventScript_Attendant
+    Route35_GoldenrodGatehouse_EventScript_PokefanF
 }
 
-script scr_seq_R35R0101_001 {
+script Route35_GoldenrodGatehouse_EventScript_PokefanF {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -60,7 +60,7 @@ script scr_seq_R35R0101_001 {
     end
 }
 
-script scr_seq_R35R0101_000 {
+script Route35_GoldenrodGatehouse_EventScript_Attendant {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

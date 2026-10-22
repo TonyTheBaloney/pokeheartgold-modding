@@ -5,7 +5,7 @@ script scr_seq_T21R0301_000 {
     end
 }
 
-script scr_seq_T21R0301_001 {
+script Cherrygrove_SouthwestHouse_EventScript_PokefanM {
     simplenpcmsg("You’re trying to see how good you\n"
                  "are as a Pokémon Trainer?\r"
                  "You better visit the Pokémon Gyms\n"
@@ -13,7 +13,7 @@ script scr_seq_T21R0301_001 {
     end
 }
 
-script scr_seq_T21R0301_002 {
+script Cherrygrove_SouthwestHouse_EventScript_LittleBoy {
     simplenpcmsg("When I get older, I’m going to be a\n"
                  "Gym Leader!\r"
                  "I make my Pokémon battle with my\n"

@@ -3,23 +3,23 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T04_000
-    scr_seq_T04_001
-    scr_seq_T04_002
-    scr_seq_T04_003
-    scr_seq_T04_004
-    scr_seq_T04_005
-    scr_seq_T04_006
-    scr_seq_T04_007
-    scr_seq_T04_008
-    scr_seq_T04_009
-    scr_seq_T04_010
-    scr_seq_T04_011
-    scr_seq_T04_012
-    scr_seq_T04_013
+    Cerulean_EventScript_Man1
+    Cerulean_EventScript_Man2
+    Cerulean_EventScript_Woman
+    Cerulean_EventScript_Slowbro
+    Cerulean_EventScript_FatMan
+    Cerulean_EventScript_SchoolKidM
+    Cerulean_EventScript_CitySign
+    Cerulean_EventScript_TrainerTips1
+    Cerulean_EventScript_TrainerTips2
+    Cerulean_EventScript_TrainerTips3
+    Cerulean_EventScript_Route24AheadSign
+    Cerulean_EventScript_PokefanM
+    Cerulean_OnTransition
+    Cerulean_EventScript_Man3
 }
 
-script scr_seq_T04_012 {
+script Cerulean_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 4) { goto(_006F) }
@@ -34,7 +34,7 @@ script scr_seq_T04_012 {
     end
 }
 
-script scr_seq_T04_000 {
+script Cerulean_EventScript_Man1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -59,7 +59,7 @@ script scr_seq_T04_000 {
     end
 }
 
-script scr_seq_T04_001 {
+script Cerulean_EventScript_Man2 {
     simplenpcmsg("The cape in the north is a good\n"
                  "place for dates.\r"
                  "Girls like it!\r"
@@ -70,7 +70,7 @@ script scr_seq_T04_001 {
     end
 }
 
-script scr_seq_T04_002 {
+script Cerulean_EventScript_Woman {
     simplenpcmsg("My SLOWBRO and I make an\n"
                  "awesome combination!\r"
                  "SLOWBRO, show me your Psychic!\r"
@@ -79,7 +79,7 @@ script scr_seq_T04_002 {
     end
 }
 
-script scr_seq_T04_003 {
+script Cerulean_EventScript_Slowbro {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -93,7 +93,7 @@ script scr_seq_T04_003 {
     end
 }
 
-script scr_seq_T04_004 {
+script Cerulean_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -124,7 +124,7 @@ _0123:
     goto(_012F)
 }
 
-script scr_seq_T04_005 {
+script Cerulean_EventScript_SchoolKidM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -139,7 +139,7 @@ script scr_seq_T04_005 {
     end
 }
 
-script scr_seq_T04_013 {
+script Cerulean_EventScript_Man3 {
     simplenpcmsg("This is...\n"
                  "The notorious Cerulean Cave!\r"
                  "Horribly powerful Pokémon live here.\n"
@@ -149,26 +149,26 @@ script scr_seq_T04_013 {
     end
 }
 
-script scr_seq_T04_006 {
+script Cerulean_EventScript_CitySign {
     directionsignpostex(0, 4, "Cerulean City\n"
                               "The Floral Lagoon City")
     end
 }
 
-script scr_seq_T04_007 {
+script Cerulean_EventScript_TrainerTips1 {
     trainertipsex(2, "Cerulean City Pokémon Gym\n"
                      "Leader: Misty\f"
                      "The Tomboyish Mermaid")
     end
 }
 
-script scr_seq_T04_008 {
+script Cerulean_EventScript_TrainerTips2 {
     trainertipsex(2, "Trendsetter of the Bicycle Boom\r"
                      "Cerulean Bike Main Shop")
     end
 }
 
-script scr_seq_T04_009 {
+script Cerulean_EventScript_TrainerTips3 {
     trainertipsex(3, "There’s a notice here...\r"
                      "Stamp out thievery and make the city\n"
                      "a friendlier, more cheerful place!\f"
@@ -176,13 +176,13 @@ script scr_seq_T04_009 {
     end
 }
 
-script scr_seq_T04_010 {
+script Cerulean_EventScript_Route24AheadSign {
     directionsignpostex(1, 14, "Rt. 24 Ahead\n"
                                "East to Cerulean Cape")
     end
 }
 
-script scr_seq_T04_011 {
+script Cerulean_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -216,16 +216,16 @@ script scr_seq_T04_011 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Cerulean_Movement_0320)
-        applymovement(obj_T04_gsmiddleman1, Cerulean_Movement_036C)
+        applymovement(obj_player, Cerulean_Movement_PlayerWalkRightUp)
+        applymovement(obj_T04_gsmiddleman1, Cerulean_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Cerulean_Movement_0338)
+        applymovement(obj_player, Cerulean_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Cerulean_Movement_0358)
-        applymovement(obj_T04_gsmiddleman1, Cerulean_Movement_036C)
+        applymovement(obj_player, Cerulean_Movement_PlayerWalkUpRight)
+        applymovement(obj_T04_gsmiddleman1, Cerulean_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Cerulean_Movement_0344)
-        applymovement(obj_T04_gsmiddleman1, Cerulean_Movement_036C)
+        applymovement(obj_player, Cerulean_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T04_gsmiddleman1, Cerulean_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -233,7 +233,7 @@ script scr_seq_T04_011 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Cerulean_Movement_0378)
+        applymovement(obj_partner_poke, Cerulean_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -252,7 +252,7 @@ script scr_seq_T04_011 {
     end
 }
 
-movement Cerulean_Movement_0320 {
+movement Cerulean_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -260,36 +260,36 @@ movement Cerulean_Movement_0320 {
     walk_in_place_down
 }
 
-movement Cerulean_Movement_0338 {
+movement Cerulean_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Cerulean_Movement_0344 {
+movement Cerulean_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Cerulean_Movement_0358 {
+movement Cerulean_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Cerulean_Movement_036C {
+movement Cerulean_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Cerulean_Movement_0378 {
+movement Cerulean_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
 mapscripts Cerulean_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T04_012
+    INIT_SCRIPT_ON_TRANSITION: Cerulean_OnTransition
 }

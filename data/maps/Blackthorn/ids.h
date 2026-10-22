@@ -1,23 +1,23 @@
 #ifndef SCR_SEQ_T30_H_
 #define SCR_SEQ_T30_H_
 
-#define _EV_scr_seq_T30_000 0
-#define _EV_scr_seq_T30_001 1
-#define _EV_scr_seq_T30_002 2
-#define _EV_scr_seq_T30_003 3
-#define _EV_scr_seq_T30_004 4
-#define _EV_scr_seq_T30_005 5
-#define _EV_scr_seq_T30_006 6
-#define _EV_scr_seq_T30_007 7
-#define _EV_scr_seq_T30_008 8
-#define _EV_scr_seq_T30_009 9
-#define _EV_scr_seq_T30_010 10
-#define _EV_scr_seq_T30_011 11
-#define _EV_scr_seq_T30_012 12
-#define _EV_scr_seq_T30_013 13
-#define _EV_scr_seq_T30_014 14
-#define _EV_scr_seq_T30_015 15
-#define _EV_scr_seq_T30_016 16
+#define _EV_Blackthorn_EventScript_Man1 0
+#define _EV_Blackthorn_EventScript_Man2 1
+#define _EV_Blackthorn_EventScript_OldMan1 2
+#define _EV_Blackthorn_EventScript_OldMan2 3
+#define _EV_Blackthorn_EventScript_BlackBelt 4
+#define _EV_Blackthorn_OnTransition 5
+#define _EV_Blackthorn_EventScript_Youngster 6
+#define _EV_Blackthorn_EventScript_ProfElmCall 7
+#define _EV_Blackthorn_EventScript_CitySign 8
+#define _EV_Blackthorn_EventScript_TrainerTips1 9
+#define _EV_Blackthorn_EventScript_TrainerTips2 10
+#define _EV_Blackthorn_EventScript_TrainerTips3 11
+#define _EV_Blackthorn_EventScript_TrainerTips4 12
+#define _EV_Blackthorn_EventScript_AceTrainerF1 13
+#define _EV_Blackthorn_EventScript_SchoolKidM 14
+#define _EV_Blackthorn_EventScript_AceTrainerF2 15
+#define _EV_Blackthorn_EventScript_PokefanM 16
 
 #define obj_T30_gsman1       0
 #define obj_T30_gsoldman1    1

@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_000 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_Maximo",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_003 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_Man",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_001 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_Youngster",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_011 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_LittleGirl1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_002 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_Lass",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_008 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_Beauty",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_013 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_PokefanF",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_012 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_LittleGirl2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_007 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_OldWoman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_006 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_OldMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -245,7 +245,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_005 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_SchoolKidM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -262,7 +262,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_009 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_PokefanM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -279,7 +279,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_010 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_LittleBoy",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -296,7 +296,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_014 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_Rattata",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -313,7 +313,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_016 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_Butterfree",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -330,7 +330,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_015 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_Machop",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -347,7 +347,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0102_004 + 1",
+            "script": "PokeathlonDome_Interior_2F_EventScript_AceTrainerM",
             "flag": "FLAG_NOTHING"
         }
     ],

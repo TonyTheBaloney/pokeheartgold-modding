@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_T31PC0101_H_
 #define SCR_SEQ_T31PC0101_H_
 
-#define _EV_scr_seq_T31PC0101_000 0
+#define _EV_MountSilver_Pokecenter_1F_EventScript_Nurse 0
 #define _EV_scr_seq_T31PC0101_001 1
 
 #define obj_T31PC0101_pcwoman1   0

@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R10_002 + 1",
+            "script": "Route10_EventScript_LtSurge",
             "flag": "FLAG_HIDE_ROUTE_10_LT_SURGE"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R10_003 + 1",
+            "script": "Route10_EventScript_Zapdos",
             "flag": "FLAG_HIDE_ROUTE_10_ZAPDOS"
         }
     ],
@@ -94,7 +94,7 @@
             "height": 1,
             "var": "VAR_UNK_4084",
             "var_value": 0,
-            "script": "_EV_scr_seq_R10_000 + 1"
+            "script": "Route10_EventScript_WarpToRoute10PowerPlantRepaired"
         }
     ],
     "bg_events": [
@@ -112,7 +112,7 @@
             "y": 185,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R10_005 + 1"
+            "script": "Route10_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -120,7 +120,7 @@
             "y": 164,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R10_006 + 1"
+            "script": "Route10_EventScript_TrainerTips2"
         }
     ]
 }

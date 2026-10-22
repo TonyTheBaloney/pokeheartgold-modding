@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0370_R27R0101_00000",
-      "from": "scr_seq_R27R0101_000#0"
+      "from": "Route27_House_EventScript_OldWoman#0"
     },
     {
       "id": "msg_0370_R27R0101_00001",
-      "from": "scr_seq_R27R0101_000#1"
+      "from": "Route27_House_EventScript_OldWoman#1"
     },
     {
       "id": "msg_0370_R27R0101_00002",
-      "from": "scr_seq_R27R0101_000#2"
+      "from": "Route27_House_EventScript_OldWoman#2"
     },
     {
       "id": "msg_0370_R27R0101_00003",
-      "from": "scr_seq_R27R0101_000#3"
+      "from": "Route27_House_EventScript_OldWoman#3"
     }
   ]
 }

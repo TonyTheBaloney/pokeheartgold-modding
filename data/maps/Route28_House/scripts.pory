@@ -3,24 +3,24 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R28R0101_000
-    scr_seq_R28R0101_001
-    scr_seq_R28R0101_002
+    Route28_House_EventScript_Lass
+    Route28_House_EventScript_Fearow
+    Route28_House_EventScript_LassScene
 }
 
-script scr_seq_R28R0101_002 {
-    applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0020)
+script Route28_House_EventScript_LassScene {
+    applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_LassExclamation)
     waitmovement
     setvar(VAR_UNK_4126, 1)
     end
 }
 
-movement Route28_House_Movement_0020 {
+movement Route28_House_Movement_LassExclamation {
     face_down
     emote_exclamation_mark
 }
 
-script scr_seq_R28R0101_000 {
+script Route28_House_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -28,13 +28,13 @@ script scr_seq_R28R0101_000 {
         faceplayer
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0140)
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_LassFaceUp)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_014C)
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_LassFaceLeft)
         } elif (var(VAR_SPECIAL_RESULT) == 3) {
-            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0158)
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_LassFaceRight)
         } else {
-            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0164)
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_LassFaceDown)
         }
         waitmovement
         npcmsg("Alas!\n"
@@ -43,13 +43,13 @@ script scr_seq_R28R0101_000 {
                "the exhaustion of standing in the\f"
                "spotlight has been exposed!\r")
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0164)
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_LassFaceDown)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0158)
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_LassFaceRight)
         } elif (var(VAR_SPECIAL_RESULT) == 3) {
-            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_014C)
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_LassFaceLeft)
         } else {
-            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0140)
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_LassFaceUp)
         }
         waitmovement
         npcmsg("What? You are not the media?\n"
@@ -83,27 +83,27 @@ script scr_seq_R28R0101_000 {
     end
 }
 
-movement Route28_House_Movement_0140 {
+movement Route28_House_Movement_LassFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route28_House_Movement_014C {
+movement Route28_House_Movement_LassFaceLeft {
     delay_8
     walk_in_place_left
 }
 
-movement Route28_House_Movement_0158 {
+movement Route28_House_Movement_LassFaceRight {
     delay_8
     walk_in_place_right
 }
 
-movement Route28_House_Movement_0164 {
+movement Route28_House_Movement_LassFaceDown {
     delay_8
     walk_in_place_down
 }
 
-script scr_seq_R28R0101_001 {
+script Route28_House_EventScript_Fearow {
     playcry(SPECIES_FEAROW, 0)
     simplenpcmsg("FEAROW: Feero!")
     waitcry
@@ -112,6 +112,6 @@ script scr_seq_R28R0101_001 {
 
 mapscripts Route28_House_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4126, 0: scr_seq_R28R0101_002
+        VAR_UNK_4126, 0: Route28_House_EventScript_LassScene
     ]
 }

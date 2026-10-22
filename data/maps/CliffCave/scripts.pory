@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D50R0101_000
-    scr_seq_D50R0101_001
+    CliffCave_EventScript_PokefanM
+    CliffCave_OnResume
 }
 
-script scr_seq_D50R0101_001 {
+script CliffCave_OnResume {
     natdexflagaction(2, VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) != 1) {
         movepersonfacing(obj_D50R0101_breakrock, 30, 1, 30, DIR_NORTH)
@@ -20,7 +20,7 @@ script scr_seq_D50R0101_001 {
     end
 }
 
-script scr_seq_D50R0101_000 {
+script CliffCave_EventScript_PokefanM {
     simplenpcmsg("If you see a fork in the road inside\n"
                  "a cave, most likely one way is right and\f"
                  "the other leads to a dead end.\f"
@@ -31,5 +31,5 @@ script scr_seq_D50R0101_000 {
 }
 
 mapscripts CliffCave_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D50R0101_001
+    INIT_SCRIPT_ON_RESUME: CliffCave_OnResume
 }

@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D11R0105_000
-    scr_seq_D11R0105_001
+    SeafoamIslands_B4F_EventScript_Articuno
+    SeafoamIslands_B4F_OnLoad
 }
 
-script scr_seq_D11R0105_001 {
+script SeafoamIslands_B4F_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_SEAFOAM_ISLAND_ARTICUNO)
         removeobject(obj_D11R0105_tsure_poke_static_articuno)
@@ -17,7 +17,7 @@ script scr_seq_D11R0105_001 {
     end
 }
 
-script scr_seq_D11R0105_000 {
+script SeafoamIslands_B4F_EventScript_Articuno {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -45,5 +45,5 @@ script scr_seq_D11R0105_000 {
 }
 
 mapscripts SeafoamIslands_B4F_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_D11R0105_001
+    INIT_SCRIPT_ON_LOAD: SeafoamIslands_B4F_OnLoad
 }

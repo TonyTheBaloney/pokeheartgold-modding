@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0540_T11R0801_00000",
-      "from": "scr_seq_T11R0801_000#0"
+      "from": "Saffron_CopycatHouse_1F_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0540_T11R0801_00001",
-      "from": "scr_seq_T11R0801_001#1"
+      "from": "Saffron_CopycatHouse_1F_EventScript_PokefanF#1"
     },
     {
       "id": "msg_0540_T11R0801_00002",
-      "from": "scr_seq_T11R0801_001#0"
+      "from": "Saffron_CopycatHouse_1F_EventScript_PokefanF#0"
     },
     {
       "id": "msg_0540_T11R0801_00003",
-      "from": "scr_seq_T11R0801_002#0"
+      "from": "Saffron_CopycatHouse_1F_EventScript_Blissey#0"
     }
   ]
 }

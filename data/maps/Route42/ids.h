@@ -1,12 +1,12 @@
 #ifndef SCR_SEQ_R42_H_
 #define SCR_SEQ_R42_H_
 
-#define _EV_scr_seq_R42_000 0
-#define _EV_scr_seq_R42_001 1
-#define _EV_scr_seq_R42_002 2
-#define _EV_scr_seq_R42_003 3
-#define _EV_scr_seq_R42_004 4
-#define _EV_scr_seq_R42_005 5
+#define _EV_Route42_EventScript_HikerTrigger 0
+#define _EV_Route42_EventScript_EusineTrigger 1
+#define _EV_Route42_EventScript_RouteSignEcruteak 2
+#define _EV_Route42_EventScript_TrainerTips1 3
+#define _EV_Route42_EventScript_TrainerTips2 4
+#define _EV_Route42_EventScript_RouteSignMahogany 5
 
 #define obj_R42_fishing_2                 0
 #define obj_R42_mania                     1

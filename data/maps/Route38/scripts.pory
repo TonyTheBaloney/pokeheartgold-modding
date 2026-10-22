@@ -5,13 +5,13 @@ script scr_seq_R38_000 {
     end
 }
 
-script scr_seq_R38_001 {
+script Route38_EventScript_RouteSign {
     directionsignpostex(1, 8, "Rt. 38\n"
                               "South to Olivine City")
     end
 }
 
-script scr_seq_R38_002 {
+script Route38_EventScript_TrainerTips {
     trainertipsex(3, "Trainer Tips\r"
                      "If a Pokémon is trying to evolve,\n"
                      "you can stop it.\r"

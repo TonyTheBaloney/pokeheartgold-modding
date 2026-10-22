@@ -3,31 +3,31 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T25R1201_000
-    scr_seq_T25R1201_001
-    scr_seq_T25R1201_002
-    scr_seq_T25R1201_003
-    scr_seq_T25R1201_004
-    scr_seq_T25R1201_005
-    scr_seq_T25R1201_006
-    scr_seq_T25R1201_007
-    scr_seq_T25R1201_008
-    scr_seq_T25R1201_009
-    scr_seq_T25R1201_010
-    scr_seq_T25R1201_011
-    scr_seq_T25R1201_012
-    scr_seq_T25R1201_013
-    scr_seq_T25R1201_014
-    scr_seq_T25R1201_015
-    scr_seq_T25R1201_016
-    scr_seq_T25R1201_017
+    Goldenrod_GlobalTerminal_1F_EventScript_Receptionist1
+    Goldenrod_GlobalTerminal_1F_OnResume
+    Goldenrod_GlobalTerminal_1F_EventScript_Scene
+    Goldenrod_GlobalTerminal_1F_EventScript_FatMan
+    Goldenrod_GlobalTerminal_1F_EventScript_BugCatcher
+    Goldenrod_GlobalTerminal_1F_EventScript_Man1
+    Goldenrod_GlobalTerminal_1F_EventScript_OldMan
+    Goldenrod_GlobalTerminal_1F_EventScript_AceTrainerM
+    Goldenrod_GlobalTerminal_1F_EventScript_Beauty
+    Goldenrod_GlobalTerminal_1F_EventScript_Girl
+    Goldenrod_GlobalTerminal_1F_EventScript_Youngster
+    Goldenrod_GlobalTerminal_1F_EventScript_Sign1
+    Goldenrod_GlobalTerminal_1F_EventScript_Sign2
+    Goldenrod_GlobalTerminal_1F_EventScript_Receptionist2
+    Goldenrod_GlobalTerminal_1F_EventScript_Receptionist3
+    Goldenrod_GlobalTerminal_1F_EventScript_Woman
+    Goldenrod_GlobalTerminal_1F_EventScript_Man2
+    Goldenrod_GlobalTerminal_1F_EventScript_Sign3
 }
 
 raw `
 	ScrDefEnd // not sure why there are two of these...
 `
 
-script scr_seq_T25R1201_001 {
+script Goldenrod_GlobalTerminal_1F_OnResume {
     compare(VAR_UNK_4133, 6)
     callifeq(_005B)
     end
@@ -36,7 +36,7 @@ _005B:
     return
 }
 
-script scr_seq_T25R1201_002 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Scene {
     followmonresetmovement
     lockall
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
@@ -54,12 +54,12 @@ script scr_seq_T25R1201_002 {
         dooranimationload(0, 0, 8, 2, 77)
         call(_00F5)
         makeobjectinvisible(obj_player)
-        applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_0108)
+        applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkDown1)
         waitmovement
         call(_00FD)
         dooranimationload(0, 0, 8, 4, 77)
         call(_00F5)
-        applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_0118)
+        applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkDown2)
         waitmovement
         call(_00FD)
         setvar(VAR_UNK_4133, 0)
@@ -78,7 +78,7 @@ script scr_seq_T25R1201_002 {
     goto(_0097)
 }
 
-movement Goldenrod_GlobalTerminal_1F_Movement_0108 {
+movement Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkDown1 {
     walk_down
 }
 
@@ -86,11 +86,11 @@ movement Goldenrod_GlobalTerminal_1F_Movement_0110 {
     walk_down
 }
 
-movement Goldenrod_GlobalTerminal_1F_Movement_0118 {
+movement Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkDown2 {
     walk_down * 2
 }
 
-script scr_seq_T25R1201_000 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Receptionist1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -222,19 +222,19 @@ _024D:
     npcmsg("I hope you enjoy your visit\n"
            "to the GTS!\r")
     closemessage
-    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_03A0)
+    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkRight)
     waitmovement
     dooranimationload(0, 0, 8, 4, 77)
     call(_00F5)
-    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_03B4)
+    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkUp2)
     waitmovement
     call(_00FD)
     dooranimationload(0, 0, 8, 2, 77)
     call(_00F5)
-    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_03AC)
+    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkUp1)
     waitmovement
     makeobjectvisible(obj_player)
-    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_03BC)
+    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_PlayerFaceDown)
     waitmovement
     call(_00FD)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -279,20 +279,20 @@ text msg_0600_T25R1201_00006 {
     "Please do visit again."
 }
 
-movement Goldenrod_GlobalTerminal_1F_Movement_03A0 {
+movement Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkRight {
     walk_right
     walk_in_place_up
 }
 
-movement Goldenrod_GlobalTerminal_1F_Movement_03AC {
+movement Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkUp1 {
     walk_up
 }
 
-movement Goldenrod_GlobalTerminal_1F_Movement_03B4 {
+movement Goldenrod_GlobalTerminal_1F_Movement_PlayerWalkUp2 {
     walk_up * 2
 }
 
-movement Goldenrod_GlobalTerminal_1F_Movement_03BC {
+movement Goldenrod_GlobalTerminal_1F_Movement_PlayerFaceDown {
     face_down
 }
 
@@ -304,7 +304,7 @@ script(local) _03C4 {
     end
 }
 
-script scr_seq_T25R1201_003 {
+script Goldenrod_GlobalTerminal_1F_EventScript_FatMan {
     simplenpcmsg("Such a small world it is, eh?\r"
                  "Eh? Wait, this is a miniature?\n"
                  "The real Earth is millions of times bigger\f"
@@ -313,14 +313,14 @@ script scr_seq_T25R1201_003 {
     end
 }
 
-script scr_seq_T25R1201_004 {
+script Goldenrod_GlobalTerminal_1F_EventScript_BugCatcher {
     simplenpcmsg("They say if you communicate with\n"
                  "someone, their location is\f"
                  "recorded on this giant globe.")
     end
 }
 
-script scr_seq_T25R1201_005 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Man1 {
     simplenpcmsg("All I need to do is leave a Pokémon\n"
                  "here to trade.\r"
                  "Who knows, it might be traded while\n"
@@ -328,7 +328,7 @@ script scr_seq_T25R1201_005 {
     end
 }
 
-script scr_seq_T25R1201_006 {
+script Goldenrod_GlobalTerminal_1F_EventScript_OldMan {
     simplenpcmsg("Using the equipment here, you can easily\n"
                  "trade Pokémon with other Pokémon fans\f"
                  "on the other side of the world!\r"
@@ -336,7 +336,7 @@ script scr_seq_T25R1201_006 {
     end
 }
 
-script scr_seq_T25R1201_007 {
+script Goldenrod_GlobalTerminal_1F_EventScript_AceTrainerM {
     simplenpcmsg("You can register where you live on\n"
                  "this giant globe.\r"
                  "Once you do, you can show your location\n"
@@ -344,20 +344,20 @@ script scr_seq_T25R1201_007 {
     end
 }
 
-script scr_seq_T25R1201_008 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Beauty {
     simplenpcmsg("Nintendo WFC is so easy to use,\n"
                  "even I can trade Pokémon now!")
     end
 }
 
-script scr_seq_T25R1201_009 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Girl {
     simplenpcmsg("This week, I’ll do it!\r"
                  "I really want to make the Top 4 of the\n"
                  "rankings.")
     end
 }
 
-script scr_seq_T25R1201_010 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Youngster {
     simplenpcmsg("The Global Terminal has three floors.\r"
                  "You use warp panels for getting from\n"
                  "one floor to another.\r"
@@ -370,7 +370,7 @@ script scr_seq_T25R1201_010 {
     end
 }
 
-script scr_seq_T25R1201_011 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8005, 3)
@@ -415,7 +415,7 @@ _04F8:
     end
 }
 
-script scr_seq_T25R1201_012 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8005, 4)
@@ -468,7 +468,7 @@ _0593:
     end
 }
 
-script scr_seq_T25R1201_013 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Receptionist2 {
     simplenpcmsg("There are several portal machines here\n"
                  "at the Global Terminal.\r"
                  "You must set your Vs. Recorder in\n"
@@ -478,7 +478,7 @@ script scr_seq_T25R1201_013 {
     end
 }
 
-script scr_seq_T25R1201_014 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Receptionist3 {
     simplenpcmsg("Welcome to the Global Terminal!\r"
                  "Here, you may join the huge community\n"
                  "of Trainers worldwide.\r"
@@ -489,7 +489,7 @@ script scr_seq_T25R1201_014 {
     end
 }
 
-script scr_seq_T25R1201_015 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -550,7 +550,7 @@ text msg_0600_T25R1201_00018 {
     "isn’t it? {YESNO 0}"
 }
 
-script scr_seq_T25R1201_016 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Man2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -585,7 +585,7 @@ _06D1:
     end
 }
 
-script scr_seq_T25R1201_017 {
+script Goldenrod_GlobalTerminal_1F_EventScript_Sign3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("The green panel leads to the studios\n"
@@ -599,8 +599,8 @@ script scr_seq_T25R1201_017 {
 }
 
 mapscripts Goldenrod_GlobalTerminal_1F_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_T25R1201_001
+    INIT_SCRIPT_ON_RESUME: Goldenrod_GlobalTerminal_1F_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4133, 6: scr_seq_T25R1201_002
+        VAR_UNK_4133, 6: Goldenrod_GlobalTerminal_1F_EventScript_Scene
     ]
 }

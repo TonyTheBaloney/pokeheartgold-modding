@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T20R0102_000 {
+script NewBark_ElmsLab_2F_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -21,7 +21,7 @@ script scr_seq_T20R0102_000 {
     end
 }
 
-script scr_seq_T20R0102_001 {
+script NewBark_ElmsLab_2F_EventScript_Youngster {
     simplenpcmsg("When I grow up, I’m going to help\n"
                  "my dad!\r"
                  "I’m going to be a great\n"

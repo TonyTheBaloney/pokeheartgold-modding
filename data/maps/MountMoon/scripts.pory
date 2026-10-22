@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D02R0101_000 {
+script MountMoon_EventScript_RivalScene {
     callstd(std_play_rival_intro_music)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D02R0101_gsrivel, MountMoon_Movement_00D0)
-    applymovement(obj_player, MountMoon_Movement_00DC)
+    applymovement(obj_D02R0101_gsrivel, MountMoon_Movement_RivalWalkLeft)
+    applymovement(obj_player, MountMoon_Movement_PlayerWalkRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -54,7 +54,7 @@ script scr_seq_D02R0101_000 {
            "I should take them to Dragon’s Den!\f"
            "See ya, {STRVAR_1 3, 0, 0}!\r")
     closemessage
-    applymovement(obj_D02R0101_gsrivel, MountMoon_Movement_00E8)
+    applymovement(obj_D02R0101_gsrivel, MountMoon_Movement_RivalWalkRightDown)
     waitmovement
     removeobject(obj_D02R0101_gsrivel)
     callstd(std_fade_end_rival_outro_music)
@@ -66,17 +66,17 @@ script scr_seq_D02R0101_000 {
     end
 }
 
-movement MountMoon_Movement_00D0 {
+movement MountMoon_Movement_RivalWalkLeft {
     emote_exclamation_mark
     walk_left * 4
 }
 
-movement MountMoon_Movement_00DC {
+movement MountMoon_Movement_PlayerWalkRight {
     delay_8 * 4
     walk_right
 }
 
-movement MountMoon_Movement_00E8 {
+movement MountMoon_Movement_RivalWalkRightDown {
     walk_fast_right * 5
     walk_fast_down * 9
 }
@@ -87,6 +87,6 @@ script(local) _00F4 {
 
 mapscripts MountMoon_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40F5, 0: scr_seq_D02R0101_000
+        VAR_UNK_40F5, 0: MountMoon_EventScript_RivalScene
     ]
 }

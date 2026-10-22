@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T28GYM0101_000 + 1",
+            "script": "Mahogany_GymLeaderRoom_EventScript_Pryce",
             "flag": "FLAG_HIDE_MAHOGANY_GYM_PRYCE"
         },
         {

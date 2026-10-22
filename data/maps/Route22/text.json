@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0360_R22_00000",
-      "from": "scr_seq_R22_002#0"
+      "from": "Route22_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0360_R22_00001",
@@ -15,95 +15,95 @@
     },
     {
       "id": "msg_0360_R22_00002",
-      "from": "scr_seq_R22_003#10"
+      "from": "Route22_EventScript_LyraScene#10"
     },
     {
       "id": "msg_0360_R22_00003",
-      "from": "scr_seq_R22_003#12"
+      "from": "Route22_EventScript_LyraScene#12"
     },
     {
       "id": "msg_0360_R22_00004",
-      "from": "scr_seq_R22_003#14"
+      "from": "Route22_EventScript_LyraScene#14"
     },
     {
       "id": "msg_0360_R22_00005",
-      "from": "scr_seq_R22_003#16"
+      "from": "Route22_EventScript_LyraScene#16"
     },
     {
       "id": "msg_0360_R22_00006",
-      "from": "scr_seq_R22_003#17"
+      "from": "Route22_EventScript_LyraScene#17"
     },
     {
       "id": "msg_0360_R22_00007",
-      "from": "scr_seq_R22_003#18"
+      "from": "Route22_EventScript_LyraScene#18"
     },
     {
       "id": "msg_0360_R22_00008",
-      "from": "scr_seq_R22_003#11"
+      "from": "Route22_EventScript_LyraScene#11"
     },
     {
       "id": "msg_0360_R22_00009",
-      "from": "scr_seq_R22_003#13"
+      "from": "Route22_EventScript_LyraScene#13"
     },
     {
       "id": "msg_0360_R22_00010",
-      "from": "scr_seq_R22_003#15"
+      "from": "Route22_EventScript_LyraScene#15"
     },
     {
       "id": "msg_0360_R22_00011",
-      "from": "scr_seq_R22_003#1"
+      "from": "Route22_EventScript_LyraScene#1"
     },
     {
       "id": "msg_0360_R22_00012",
-      "from": "scr_seq_R22_003#0"
+      "from": "Route22_EventScript_LyraScene#0"
     },
     {
       "id": "msg_0360_R22_00013",
-      "from": "scr_seq_R22_003#3"
+      "from": "Route22_EventScript_LyraScene#3"
     },
     {
       "id": "msg_0360_R22_00014",
-      "from": "scr_seq_R22_003#2"
+      "from": "Route22_EventScript_LyraScene#2"
     },
     {
       "id": "msg_0360_R22_00015",
-      "from": "scr_seq_R22_003#5"
+      "from": "Route22_EventScript_LyraScene#5"
     },
     {
       "id": "msg_0360_R22_00016",
-      "from": "scr_seq_R22_003#4"
+      "from": "Route22_EventScript_LyraScene#4"
     },
     {
       "id": "msg_0360_R22_00017",
-      "from": "scr_seq_R22_003#7"
+      "from": "Route22_EventScript_LyraScene#7"
     },
     {
       "id": "msg_0360_R22_00018",
-      "from": "scr_seq_R22_003#6"
+      "from": "Route22_EventScript_LyraScene#6"
     },
     {
       "id": "msg_0360_R22_00019",
-      "from": "scr_seq_R22_003#9"
+      "from": "Route22_EventScript_LyraScene#9"
     },
     {
       "id": "msg_0360_R22_00020",
-      "from": "scr_seq_R22_003#8"
+      "from": "Route22_EventScript_LyraScene#8"
     },
     {
       "id": "msg_0360_R22_00021",
-      "from": "scr_seq_R22_003#20"
+      "from": "Route22_EventScript_LyraScene#20"
     },
     {
       "id": "msg_0360_R22_00022",
-      "from": "scr_seq_R22_003#19"
+      "from": "Route22_EventScript_LyraScene#19"
     },
     {
       "id": "msg_0360_R22_00023",
-      "from": "scr_seq_R22_003#22"
+      "from": "Route22_EventScript_LyraScene#22"
     },
     {
       "id": "msg_0360_R22_00024",
-      "from": "scr_seq_R22_003#21"
+      "from": "Route22_EventScript_LyraScene#21"
     }
   ]
 }

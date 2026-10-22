@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T04R0101_000 {
+script Cerulean_NorthHouse_EventScript_PokefanM {
     simplenpcmsg("Are you collecting\n"
                  "Kanto Gym Badges?")
     end

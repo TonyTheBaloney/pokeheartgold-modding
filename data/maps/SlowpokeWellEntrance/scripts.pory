@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D26R0101_000
-    scr_seq_D26R0101_001
-    scr_seq_D26R0101_002
+    SlowpokeWellEntrance_EventScript_Kurt
+    SlowpokeWellEntrance_EventScript_PokefanM
+    SlowpokeWellEntrance_OnTransition
 }
 
-script scr_seq_D26R0101_002 {
+script SlowpokeWellEntrance_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) != 0) {
@@ -27,7 +27,7 @@ script scr_seq_D26R0101_002 {
     end
 }
 
-script scr_seq_D26R0101_000 {
+script SlowpokeWellEntrance_EventScript_Kurt {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -49,7 +49,7 @@ script scr_seq_D26R0101_000 {
     end
 }
 
-script scr_seq_D26R0101_001 {
+script SlowpokeWellEntrance_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -83,13 +83,13 @@ script scr_seq_D26R0101_001 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, SlowpokeWellEntrance_Movement_01AC)
+        applymovement(obj_player, SlowpokeWellEntrance_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, SlowpokeWellEntrance_Movement_01CC)
-        applymovement(obj_D26R0101_gsmiddleman1, SlowpokeWellEntrance_Movement_01E0)
+        applymovement(obj_player, SlowpokeWellEntrance_Movement_PlayerWalkUpRight)
+        applymovement(obj_D26R0101_gsmiddleman1, SlowpokeWellEntrance_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, SlowpokeWellEntrance_Movement_01B8)
-        applymovement(obj_D26R0101_gsmiddleman1, SlowpokeWellEntrance_Movement_01E0)
+        applymovement(obj_player, SlowpokeWellEntrance_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D26R0101_gsmiddleman1, SlowpokeWellEntrance_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -97,7 +97,7 @@ script scr_seq_D26R0101_001 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, SlowpokeWellEntrance_Movement_01EC)
+        applymovement(obj_partner_poke, SlowpokeWellEntrance_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -116,36 +116,36 @@ script scr_seq_D26R0101_001 {
     end
 }
 
-movement SlowpokeWellEntrance_Movement_01AC {
+movement SlowpokeWellEntrance_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement SlowpokeWellEntrance_Movement_01B8 {
+movement SlowpokeWellEntrance_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement SlowpokeWellEntrance_Movement_01CC {
+movement SlowpokeWellEntrance_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement SlowpokeWellEntrance_Movement_01E0 {
+movement SlowpokeWellEntrance_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement SlowpokeWellEntrance_Movement_01EC {
+movement SlowpokeWellEntrance_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
 mapscripts SlowpokeWellEntrance_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D26R0101_002
+    INIT_SCRIPT_ON_TRANSITION: SlowpokeWellEntrance_OnTransition
 }

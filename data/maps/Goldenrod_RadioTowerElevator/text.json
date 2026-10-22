@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0071_D23R0107_00000",
-      "from": "scr_seq_D23R0107_000#0"
+      "from": "Goldenrod_RadioTowerElevator_EventScript_Scene#0"
     },
     {
       "id": "msg_0071_D23R0107_00001",
-      "from": "scr_seq_D23R0107_000#1"
+      "from": "Goldenrod_RadioTowerElevator_EventScript_Scene#1"
     },
     {
       "id": "msg_0071_D23R0107_00002",
-      "from": "scr_seq_D23R0107_000#2"
+      "from": "Goldenrod_RadioTowerElevator_EventScript_Scene#2"
     },
     {
       "id": "msg_0071_D23R0107_00003",
-      "from": "scr_seq_D23R0107_000#3"
+      "from": "Goldenrod_RadioTowerElevator_EventScript_Scene#3"
     }
   ]
 }

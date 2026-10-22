@@ -1,19 +1,19 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R10PC0101_000 {
+script Route10_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_R10PC0101_001 {
+script Route10_Pokecenter_1F_EventScript_Gentleman {
     simplenpcmsg("A Pokémon Center near a cave?\n"
                  "That’s mighty convenient.")
     end
 }
 
-script scr_seq_R10PC0101_002 {
+script Route10_Pokecenter_1F_EventScript_SuperNerd {
     if (flag(FLAG_RESTORED_POWER)) {
         simplenpcmsg("I hear Team Rocket got back together\n"
                      "in Johto but fell apart right away.\r"
@@ -27,7 +27,7 @@ script scr_seq_R10PC0101_002 {
     end
 }
 
-script scr_seq_R10PC0101_003 {
+script Route10_Pokecenter_1F_EventScript_AceTrainerF {
     simplenpcmsg("You can’t see it from here, but there’s\n"
                  "a Power Plant south of this\f"
                  "Pokémon Center!")

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R07_000 {
+script Route7_EventScript_TrainerTips {
     trainertipsex(2, "There is a notice!\r"
                      "...Uncouth Trainers have been holding\n"
                      "battles in the Underground Path.\r"
@@ -12,7 +12,7 @@ script scr_seq_R07_000 {
     end
 }
 
-script scr_seq_R07_001 {
+script Route7_EventScript_ItWontOpenSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It won’t open!\r"

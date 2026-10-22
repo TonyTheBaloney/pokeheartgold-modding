@@ -3,23 +3,23 @@
   "messages": [
     {
       "id": "msg_0261_P01R0303_00000",
-      "from": "scr_seq_P01R0303_001#0"
+      "from": "SsAqua_1F_SoutheastRooms_EventScript_Trigger#0"
     },
     {
       "id": "msg_0261_P01R0303_00001",
-      "from": "scr_seq_P01R0303_001#1"
+      "from": "SsAqua_1F_SoutheastRooms_EventScript_Trigger#1"
     },
     {
       "id": "msg_0261_P01R0303_00002",
-      "from": "scr_seq_P01R0303_001#3"
+      "from": "SsAqua_1F_SoutheastRooms_EventScript_Trigger#3"
     },
     {
       "id": "msg_0261_P01R0303_00003",
-      "from": "scr_seq_P01R0303_001#2"
+      "from": "SsAqua_1F_SoutheastRooms_EventScript_Trigger#2"
     },
     {
       "id": "msg_0261_P01R0303_00004",
-      "from": "scr_seq_P01R0303_000#0"
+      "from": "SsAqua_1F_SoutheastRooms_EventScript_Stanly#0"
     },
     {
       "id": "msg_0261_P01R0303_00005",

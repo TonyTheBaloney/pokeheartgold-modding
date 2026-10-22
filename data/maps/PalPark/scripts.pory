@@ -1,12 +1,12 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D10R0101_000 {
+script PalPark_OnTransition {
     palparkaction(2)
     end
 }
 
-script scr_seq_D10R0101_001 {
+script PalPark_EventScript_Scene {
     playse(SEQ_SE_DP_SELECT)
     lockall
     nonnpcmsg("Let the countdown begin!")
@@ -73,7 +73,7 @@ script scr_seq_D10R0101_003 {
     end
 }
 
-script scr_seq_D10R0101_004 {
+script PalPark_EventScript_Trigger {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0180)
@@ -82,7 +82,7 @@ script scr_seq_D10R0101_004 {
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
-        applymovement(obj_player, PalPark_Movement_0134)
+        applymovement(obj_player, PalPark_Movement_PlayerWalkUp)
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
@@ -96,18 +96,18 @@ script scr_seq_D10R0101_004 {
     end
 }
 
-movement PalPark_Movement_0134 {
+movement PalPark_Movement_PlayerWalkUp {
     walk_up
 }
 
-script scr_seq_D10R0101_005 {
+script PalPark_EventScript_Hiker {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     call(_0180)
     closemessage
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_D10R0101_mount_2, PalPark_Movement_0178)
+        applymovement(obj_D10R0101_mount_2, PalPark_Movement_HikerFaceLeft)
         waitmovement
         releaseall
         end
@@ -118,7 +118,7 @@ script scr_seq_D10R0101_005 {
     end
 }
 
-movement PalPark_Movement_0178 {
+movement PalPark_Movement_HikerFaceLeft {
     walk_in_place_left
 }
 
@@ -163,8 +163,8 @@ _01B9:
 }
 
 mapscripts PalPark_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D10R0101_000
+    INIT_SCRIPT_ON_TRANSITION: PalPark_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4124, 0: scr_seq_D10R0101_001
+        VAR_UNK_4124, 0: PalPark_EventScript_Scene
     ]
 }

@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D49R0107_000
-    scr_seq_D49R0107_001
-    scr_seq_D49R0107_002
-    scr_seq_D49R0107_003
-    scr_seq_D49R0107_004
-    scr_seq_D49R0107_005
-    scr_seq_D49R0107_006
-    scr_seq_D49R0107_007
+    PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Magnus
+    PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_ItsYourStatueSign
+    PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Statue1
+    PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Statue2
+    PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Statue3
+    PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_MagnusScene
+    PokeathlonDome_Interior_B1FFriendshipRoom_OnResume
+    PokeathlonDome_Interior_B1FFriendshipRoom_OnTransition
 }
 
-script scr_seq_D49R0107_007 {
+script PokeathlonDome_Interior_B1FFriendshipRoom_OnTransition {
     if (var(VAR_UNK_40D3) == 1) {
         setvar(VAR_TEMP_x400E, 1)
     } else {
@@ -22,7 +22,7 @@ script scr_seq_D49R0107_007 {
     end
 }
 
-script scr_seq_D49R0107_006 {
+script PokeathlonDome_Interior_B1FFriendshipRoom_OnResume {
     if (var(VAR_TEMP_x400F) == 0) {
         createpokeathlonfriendshiproomstatues
         setvar(VAR_TEMP_x400F, 1)
@@ -40,14 +40,14 @@ script scr_seq_D49R0107_006 {
     end
 }
 
-script scr_seq_D49R0107_005 {
+script PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_MagnusScene {
     followmonresetmovement
     lockall
-    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_015C)
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusExclamation)
     waitmovement
     npcmsg("Magnus: Oh, gosh!\r")
     closemessage
-    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0164)
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusFaceDown)
     waitmovement
     wait(15, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
@@ -57,7 +57,7 @@ script scr_seq_D49R0107_005 {
            "Quite an achievement for you\f"
            "to come up here, bud!\r")
     closemessage
-    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_016C)
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusWalkDown)
     waitmovement
     npcmsg("This is the “Friendship” room.\r"
            "It was built to commemorate the\n"
@@ -69,8 +69,8 @@ script scr_seq_D49R0107_005 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0174)
-    applymovement(obj_player, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0180)
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusWalkUp1)
+    applymovement(obj_player, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -83,13 +83,13 @@ script scr_seq_D49R0107_005 {
            "{STRVAR_1 3, 0, 0}!\n"
            "You are a true Pokéathlete, bud!\r")
     closemessage
-    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0188)
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusWalkUp2)
     waitmovement
     npcmsg("Having said that...\n"
            "this is also the moment\f"
            "of a new beginning...\r")
     closemessage
-    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0164)
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusFaceDown)
     waitmovement
     npcmsg("That’s right, bud!\n"
            "You have just heard a new starting\f"
@@ -99,7 +99,7 @@ script scr_seq_D49R0107_005 {
            "Take a look at this statue.\n"
            "You may be looking at your goal...\r")
     closemessage
-    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0190)
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusWalkRight)
     waitmovement
     releaseall
     setvar(VAR_UNK_40D3, 1)
@@ -112,39 +112,39 @@ _0154:
     return
 }
 
-movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_015C {
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusExclamation {
     emote_exclamation_mark
 }
 
-movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0164 {
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusFaceDown {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_016C {
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusWalkDown {
     walk_down * 3
 }
 
-movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0174 {
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusWalkUp1 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0180 {
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_PlayerWalkUp {
     walk_up * 3
 }
 
-movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0188 {
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusWalkUp2 {
     walk_slow_up
 }
 
-movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0190 {
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_MagnusWalkRight {
     walk_in_place_left
     lock_dir
     walk_slow_right * 2
     unlock_dir
 }
 
-script scr_seq_D49R0107_000 {
+script PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Magnus {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -170,7 +170,7 @@ script scr_seq_D49R0107_000 {
     end
 }
 
-script scr_seq_D49R0107_001 {
+script PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_ItsYourStatueSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -186,7 +186,7 @@ script scr_seq_D49R0107_001 {
     end
 }
 
-script scr_seq_D49R0107_002 {
+script PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Statue1 {
     simplenpcmsg(msg_0143_D49R0107_00008)
     end
 }
@@ -198,20 +198,20 @@ text msg_0143_D49R0107_00008 {
     "cultivating your friendship!"
 }
 
-script scr_seq_D49R0107_003 {
+script PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Statue2 {
     simplenpcmsg(msg_0143_D49R0107_00008)
     end
 }
 
-script scr_seq_D49R0107_004 {
+script PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Statue3 {
     simplenpcmsg(msg_0143_D49R0107_00008)
     end
 }
 
 mapscripts PokeathlonDome_Interior_B1FFriendshipRoom_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D49R0107_006
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D49R0107_007
+    INIT_SCRIPT_ON_RESUME: PokeathlonDome_Interior_B1FFriendshipRoom_OnResume
+    INIT_SCRIPT_ON_TRANSITION: PokeathlonDome_Interior_B1FFriendshipRoom_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40D3, 0: scr_seq_D49R0107_005
+        VAR_UNK_40D3, 0: PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_MagnusScene
     ]
 }

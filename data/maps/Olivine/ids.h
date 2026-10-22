@@ -1,19 +1,19 @@
 #ifndef SCR_SEQ_T26_H_
 #define SCR_SEQ_T26_H_
 
-#define _EV_scr_seq_T26_000 0
-#define _EV_scr_seq_T26_001 1
-#define _EV_scr_seq_T26_002 2
-#define _EV_scr_seq_T26_003 3
-#define _EV_scr_seq_T26_004 4
-#define _EV_scr_seq_T26_005 5
-#define _EV_scr_seq_T26_006 6
-#define _EV_scr_seq_T26_007 7
-#define _EV_scr_seq_T26_008 8
-#define _EV_scr_seq_T26_009 9
-#define _EV_scr_seq_T26_010 10
-#define _EV_scr_seq_T26_011 11
-#define _EV_scr_seq_T26_012 12
+#define _EV_Olivine_EventScript_Rival 0
+#define _EV_Olivine_EventScript_RivalTrigger 1
+#define _EV_Olivine_EventScript_ProfElmCall 2
+#define _EV_Olivine_EventScript_BaobaCall 3
+#define _EV_Olivine_EventScript_TrainerTips1 4
+#define _EV_Olivine_EventScript_CitySign 5
+#define _EV_Olivine_EventScript_TrainerTips2 6
+#define _EV_Olivine_EventScript_TrainerTips3 7
+#define _EV_Olivine_EventScript_Sailor1 8
+#define _EV_Olivine_EventScript_SchoolKidM 9
+#define _EV_Olivine_EventScript_Sailor2 10
+#define _EV_Olivine_EventScript_PokefanM 11
+#define _EV_Olivine_OnTransition 12
 
 #define obj_T26_seaman_2       0
 #define obj_T26_gsboy1         1

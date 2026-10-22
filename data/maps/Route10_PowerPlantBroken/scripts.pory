@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R10R0202_000
-    scr_seq_R10R0202_001
-    scr_seq_R10R0202_002
-    scr_seq_R10R0202_003
-    scr_seq_R10R0202_004
-    scr_seq_R10R0202_005
-    scr_seq_R10R0202_006
-    scr_seq_R10R0202_007
-    scr_seq_R10R0202_008
-    scr_seq_R10R0202_009
+    Route10_PowerPlantBroken_EventScript_Policeman1
+    Route10_PowerPlantBroken_EventScript_SuperNerd1
+    Route10_PowerPlantBroken_EventScript_SuperNerd2
+    Route10_PowerPlantBroken_EventScript_Policeman2
+    Route10_PowerPlantBroken_EventScript_SuperNerd3
+    Route10_PowerPlantBroken_EventScript_SuperNerd4
+    Route10_PowerPlantBroken_EventScript_Manager
+    Route10_PowerPlantBroken_EventScript_PolicemanTrigger
+    Route10_PowerPlantBroken_EventScript_Sign
+    Route10_PowerPlantBroken_EventScript_UseElectricityWiselySign
 }
 
-script scr_seq_R10R0202_006 {
+script Route10_PowerPlantBroken_EventScript_Manager {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -31,7 +31,7 @@ script scr_seq_R10R0202_006 {
                "attach this part here...\r")
         closemessage
         takeitem(ITEM_MACHINE_PART, 1, VAR_SPECIAL_RESULT)
-        applymovement(obj_R10R0202_gsbigman, Route10_PowerPlantBroken_Movement_0108)
+        applymovement(obj_R10R0202_gsbigman, Route10_PowerPlantBroken_Movement_ManagerFaceLeft)
         waitmovement
         waitse(SEQ_SE_GS_W012)
         fadescreen(6, 1, 0, RGB_BLACK)
@@ -42,7 +42,7 @@ script scr_seq_R10R0202_006 {
         npcmsg("Manager: Whirrrrrr!\r"
                "Yes, it’s running!\n"
                "Whirrr, whirrr!\r")
-        applymovement(obj_R10R0202_gsbigman, Route10_PowerPlantBroken_Movement_0120)
+        applymovement(obj_R10R0202_gsbigman, Route10_PowerPlantBroken_Movement_ManagerFaceUp)
         waitmovement
         setflag(FLAG_RESTORED_POWER)
         npcmsg("Manager: Wahah! Thanks!\r"
@@ -79,17 +79,17 @@ script scr_seq_R10R0202_006 {
            "what I can do with my Charge Beam!")
     waitbuttonpress
     closemessage
-    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_0100)
+    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_PolicemanFaceDown)
     waitmovement
     releaseall
     end
 }
 
-movement Route10_PowerPlantBroken_Movement_0100 {
+movement Route10_PowerPlantBroken_Movement_PolicemanFaceDown {
     face_down
 }
 
-movement Route10_PowerPlantBroken_Movement_0108 {
+movement Route10_PowerPlantBroken_Movement_ManagerFaceLeft {
     walk_in_place_left
     delay_2
     walk_in_place_left
@@ -97,20 +97,20 @@ movement Route10_PowerPlantBroken_Movement_0108 {
     walk_in_place_left
 }
 
-movement Route10_PowerPlantBroken_Movement_0120 {
+movement Route10_PowerPlantBroken_Movement_ManagerFaceUp {
     face_up
 }
 
-script scr_seq_R10R0202_007 {
+script Route10_PowerPlantBroken_EventScript_PolicemanTrigger {
     followmonresetmovement
     lockall
     playse(SEQ_SE_GS_PHONE0)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_0198)
-    applymovement(obj_player, Route10_PowerPlantBroken_Movement_01B4)
-    applymovement(obj_R10R0202_gsassistantm, Route10_PowerPlantBroken_Movement_01CC)
+    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_PolicemanWalkDownRight)
+    applymovement(obj_player, Route10_PowerPlantBroken_Movement_PlayerWalkUp)
+    applymovement(obj_R10R0202_gsassistantm, Route10_PowerPlantBroken_Movement_SuperNerdFaceDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -119,14 +119,14 @@ script scr_seq_R10R0202_007 {
            "It appears that a shady character has\f"
            "been loitering around.\r")
     closemessage
-    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_01D8)
-    applymovement(obj_player, Route10_PowerPlantBroken_Movement_01FC)
+    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_PolicemanWalkDownLeft1)
+    applymovement(obj_player, Route10_PowerPlantBroken_Movement_PlayerFaceDown)
     waitmovement
     npcmsg("Could I ask for your cooperation?\r"
            "The shady character was hanging around\n"
            "the Cerulean Gym...\r")
     closemessage
-    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_01E8)
+    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_PolicemanWalkDownLeft2)
     waitmovement
     clearflag(FLAG_HIDE_CERULEAN_GYM_ROCKET)
     setvar(VAR_SCENE_ROUTE_10_POWER_PLANT, 0)
@@ -135,7 +135,7 @@ script scr_seq_R10R0202_007 {
     end
 }
 
-movement Route10_PowerPlantBroken_Movement_0198 {
+movement Route10_PowerPlantBroken_Movement_PolicemanWalkDownRight {
     emote_exclamation_mark
     walk_down
     walk_right * 2
@@ -144,7 +144,7 @@ movement Route10_PowerPlantBroken_Movement_0198 {
     walk_up * 2
 }
 
-movement Route10_PowerPlantBroken_Movement_01B4 {
+movement Route10_PowerPlantBroken_Movement_PlayerWalkUp {
     delay_32 * 2
     walk_up
     face_down
@@ -152,30 +152,30 @@ movement Route10_PowerPlantBroken_Movement_01B4 {
     face_right
 }
 
-movement Route10_PowerPlantBroken_Movement_01CC {
+movement Route10_PowerPlantBroken_Movement_SuperNerdFaceDown {
     delay_32 * 4
     face_down
 }
 
-movement Route10_PowerPlantBroken_Movement_01D8 {
+movement Route10_PowerPlantBroken_Movement_PolicemanWalkDownLeft1 {
     walk_down * 2
     walk_left * 5
     face_up
 }
 
-movement Route10_PowerPlantBroken_Movement_01E8 {
+movement Route10_PowerPlantBroken_Movement_PolicemanWalkDownLeft2 {
     walk_down * 3
     walk_left * 2
     walk_up
     walk_in_place_down
 }
 
-movement Route10_PowerPlantBroken_Movement_01FC {
+movement Route10_PowerPlantBroken_Movement_PlayerFaceDown {
     delay_8 * 7
     face_down
 }
 
-script scr_seq_R10R0202_000 {
+script Route10_PowerPlantBroken_EventScript_Policeman1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -196,7 +196,7 @@ script scr_seq_R10R0202_000 {
     end
 }
 
-script scr_seq_R10R0202_005 {
+script Route10_PowerPlantBroken_EventScript_SuperNerd4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -253,7 +253,7 @@ _02CD:
     end
 }
 
-script scr_seq_R10R0202_003 {
+script Route10_PowerPlantBroken_EventScript_Policeman2 {
     simplenpcmsg("The Power Plant’s Manager is up ahead.\r"
                  "But since someone wrecked the\n"
                  "generator, he’s been both sad and,\f"
@@ -264,7 +264,7 @@ script scr_seq_R10R0202_003 {
     end
 }
 
-script scr_seq_R10R0202_001 {
+script Route10_PowerPlantBroken_EventScript_SuperNerd1 {
     simplenpcmsg("Someone made off with a part that’s\n"
                  "essential for the generator.\r"
                  "Without it, the new generator’s\n"
@@ -272,7 +272,7 @@ script scr_seq_R10R0202_001 {
     end
 }
 
-script scr_seq_R10R0202_002 {
+script Route10_PowerPlantBroken_EventScript_SuperNerd2 {
     simplenpcmsg("This Power Plant had been abandoned in\n"
                  "the past.\r"
                  "We got it back up and running to provide\n"
@@ -280,7 +280,7 @@ script scr_seq_R10R0202_002 {
     end
 }
 
-script scr_seq_R10R0202_004 {
+script Route10_PowerPlantBroken_EventScript_SuperNerd3 {
     simplenpcmsg("The Magnet Train consumes a lot\n"
                  "of electricity.\r"
                  "It can’t move if the new generator\n"
@@ -288,7 +288,7 @@ script scr_seq_R10R0202_004 {
     end
 }
 
-script scr_seq_R10R0202_008 {
+script Route10_PowerPlantBroken_EventScript_Sign {
     simplenpcmsg("Staff Mottos:\r"
                  "1. Electricity is not infinite.\n"
                  "2. Conserve wherever possible.\f"
@@ -299,7 +299,7 @@ script scr_seq_R10R0202_008 {
     end
 }
 
-script scr_seq_R10R0202_009 {
+script Route10_PowerPlantBroken_EventScript_UseElectricityWiselySign {
     simplenpcmsg("Use electricity wisely\n"
                  "for a bright and pleasant life.\f"
                  "           Kanto Power Plant")

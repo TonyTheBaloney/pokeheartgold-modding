@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0335_R06R0201_00000",
-      "from": "scr_seq_R06R0201_000#1"
+      "from": "Route6_SaffronGatehouse_EventScript_Attendant#1"
     },
     {
       "id": "msg_0335_R06R0201_00001",
-      "from": "scr_seq_R06R0201_000#0"
+      "from": "Route6_SaffronGatehouse_EventScript_Attendant#0"
     }
   ]
 }

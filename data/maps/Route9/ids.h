@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_R09_H_
 #define SCR_SEQ_R09_H_
 
-#define _EV_scr_seq_R09_000 0
+#define _EV_Route9_EventScript_RouteSign 0
 
 #define obj_R09_campboy_2      0
 #define obj_R09_picnicgirl_2   1

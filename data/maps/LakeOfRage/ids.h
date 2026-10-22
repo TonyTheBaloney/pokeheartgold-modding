@@ -1,25 +1,25 @@
 #ifndef SCR_SEQ_T29_H_
 #define SCR_SEQ_T29_H_
 
-#define _EV_scr_seq_T29_000 0
-#define _EV_scr_seq_T29_001 1
-#define _EV_scr_seq_T29_002 2
-#define _EV_scr_seq_T29_003 3
-#define _EV_scr_seq_T29_004 4
-#define _EV_scr_seq_T29_005 5
-#define _EV_scr_seq_T29_006 6
-#define _EV_scr_seq_T29_007 7
-#define _EV_scr_seq_T29_008 8
-#define _EV_scr_seq_T29_009 9
+#define _EV_LakeOfRage_OnTransition 0
+#define _EV_LakeOfRage_EventScript_Gyarados1 1
+#define _EV_LakeOfRage_OnLoad 2
+#define _EV_LakeOfRage_EventScript_Lance 3
+#define _EV_LakeOfRage_EventScript_OldMan 4
+#define _EV_LakeOfRage_EventScript_Man 5
+#define _EV_LakeOfRage_EventScript_TrainerTips1 6
+#define _EV_LakeOfRage_EventScript_TrainerTips2 7
+#define _EV_LakeOfRage_EventScript_Woman 8
+#define _EV_LakeOfRage_EventScript_Gyarados2 9
 #define _EV_scr_seq_T29_010 10
 #define _EV_scr_seq_T29_011 11
 #define _EV_scr_seq_T29_012 12
 #define _EV_scr_seq_T29_013 13
-#define _EV_scr_seq_T29_014 14
-#define _EV_scr_seq_T29_015 15
-#define _EV_scr_seq_T29_016 16
-#define _EV_scr_seq_T29_017 17
-#define _EV_scr_seq_T29_018 18
+#define _EV_LakeOfRage_EventScript_ItemBall1 14
+#define _EV_LakeOfRage_EventScript_ItemBall2 15
+#define _EV_LakeOfRage_EventScript_ItemBall3 16
+#define _EV_LakeOfRage_EventScript_Pryce 17
+#define _EV_LakeOfRage_EventScript_Dragonite 18
 
 #define obj_T29_gsoldman1                   0
 #define obj_T29_gswoman1                    1

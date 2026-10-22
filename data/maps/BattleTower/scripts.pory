@@ -3,33 +3,33 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D31R0201_000
-    scr_seq_D31R0201_001
-    scr_seq_D31R0201_002
-    scr_seq_D31R0201_003
-    scr_seq_D31R0201_004
-    scr_seq_D31R0201_005
-    scr_seq_D31R0201_006
-    scr_seq_D31R0201_007
+    BattleTower_EventScript_Attendant1
+    BattleTower_EventScript_Attendant2
+    BattleTower_EventScript_Wifisf
+    BattleTower_EventScript_Scene1
+    BattleTower_EventScript_Scene2
+    BattleTower_EventScript_Scene3
+    BattleTower_EventScript_Receptionist
+    BattleTower_EventScript_WarpToBattleTowerElevator
     scr_seq_D31R0201_008
     scr_seq_D31R0201_009
     scr_seq_D31R0201_010
-    scr_seq_D31R0201_011
-    scr_seq_D31R0201_012
-    scr_seq_D31R0201_013
-    scr_seq_D31R0201_014
-    scr_seq_D31R0201_015
-    scr_seq_D31R0201_016
-    scr_seq_D31R0201_017
-    scr_seq_D31R0201_018
-    scr_seq_D31R0201_019
-    scr_seq_D31R0201_020
-    scr_seq_D31R0201_021
-    scr_seq_D31R0201_022
-    scr_seq_D31R0201_023
+    BattleTower_EventScript_Sign1
+    BattleTower_EventScript_Sign2
+    BattleTower_EventScript_SuperNerd1
+    BattleTower_EventScript_Nurse
+    BattleTower_EventScript_Idol
+    BattleTower_EventScript_RichBoy
+    BattleTower_EventScript_Pikachu1
+    BattleTower_EventScript_PokefanM
+    BattleTower_EventScript_SchoolKidM
+    BattleTower_EventScript_Pikachu2
+    BattleTower_OnTransition
+    BattleTower_OnResume
+    BattleTower_EventScript_SuperNerd2
 }
 
-script scr_seq_D31R0201_021 {
+script BattleTower_OnTransition {
     compare(VAR_UNK_414B, 1)
     callifeq(_00A6)
     compare(VAR_UNK_414B, 3)
@@ -48,7 +48,7 @@ script scr_seq_D31R0201_021 {
     end
 }
 
-script scr_seq_D31R0201_022 {
+script BattleTower_OnResume {
     if (var(VAR_UNK_414B) == 1) {
         battletowergetrecordmilestone(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) != 0) { goto(_00F1) }
@@ -81,7 +81,7 @@ _0133:
     return
 }
 
-script scr_seq_D31R0201_006 {
+script BattleTower_EventScript_Receptionist {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -154,7 +154,7 @@ text msg_0096_D31R0201_00015 {
     "We hope to see you again."
 }
 
-script scr_seq_D31R0201_000 {
+script BattleTower_EventScript_Attendant1 {
     followmonresetmovement
     lockall
     playse(SEQ_SE_DP_SELECT)
@@ -333,12 +333,12 @@ text msg_0096_D31R0201_00011 {
     "I will now show you to the Battle Room."
 }
 
-script scr_seq_D31R0201_004 {
+script BattleTower_EventScript_Scene2 {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_414B, 0)
     battletoweraction(4, 0, VAR_SPECIAL_RESULT)
-    if (var(VAR_SPECIAL_RESULT) == 0) { goto(scr_seq_D31R0201_005) }
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(BattleTower_EventScript_Scene3) }
     npcmsg("We’ve been waiting for you!\r"
            "Before entering a Battle Room, your\n"
            "progress will be saved. Please wait.")
@@ -376,7 +376,7 @@ text msg_0096_D31R0201_00032 {
     "Room now."
 }
 
-script scr_seq_D31R0201_005 {
+script BattleTower_EventScript_Scene3 {
     followmonresetmovement
     lockall
     npcmsg("Excuse me!\r"
@@ -437,14 +437,14 @@ script scr_seq_D31R0201_005 {
         goto(_0829)
         end
     _078F:
-        applymovement(VAR_TEMP_x4002, BattleTower_Movement_1348)
-        applymovement(obj_player, BattleTower_Movement_1360)
+        applymovement(VAR_TEMP_x4002, BattleTower_Movement_ObjectWalkUp)
+        applymovement(obj_player, BattleTower_Movement_PlayerWalkUp)
         waitmovement
         dooranimationload(0, 0, VAR_TEMP_x4003, 2, 77)
         dooranimationopen(77)
         dooranimationwait(77)
-        applymovement(VAR_TEMP_x4002, BattleTower_Movement_1354)
-        applymovement(obj_player, BattleTower_Movement_136C)
+        applymovement(VAR_TEMP_x4002, BattleTower_Movement_ObjectExit)
+        applymovement(obj_player, BattleTower_Movement_PlayerExit)
         waitmovement
         dooranimationclose(77)
         dooranimationwait(77)
@@ -469,7 +469,7 @@ text msg_0096_D31R0201_00065 {
     "demoted to Rank {STRVAR_1 51, 0, 0}...\r"
 }
 
-script scr_seq_D31R0201_007 {
+script BattleTower_EventScript_WarpToBattleTowerElevator {
     followmonresetmovement
     lockall
     call(_0807)
@@ -537,7 +537,7 @@ text msg_0096_D31R0201_00056 {
     "Don’t turn off the power."
 }
 
-script scr_seq_D31R0201_002 {
+script BattleTower_EventScript_Wifisf {
     followmonresetmovement
     lockall
     playse(SEQ_SE_DP_SELECT)
@@ -644,7 +644,7 @@ script scr_seq_D31R0201_002 {
         goto(_032F)
         end
     _0BB3:
-        applymovement(obj_player, BattleTower_Movement_1378)
+        applymovement(obj_player, BattleTower_Movement_PlayerFaceRight)
         waitmovement
         return
     }
@@ -735,7 +735,7 @@ text msg_0096_D31R0201_00037 {
     "Battle Room challenge? {YESNO 0}"
 }
 
-script scr_seq_D31R0201_001 {
+script BattleTower_EventScript_Attendant2 {
     followmonresetmovement
     lockall
     playse(SEQ_SE_DP_SELECT)
@@ -982,7 +982,7 @@ text msg_0096_D31R0201_00033 {
     "and choose different Pokémon.\r"
 }
 
-script scr_seq_D31R0201_003 {
+script BattleTower_EventScript_Scene1 {
     followmonresetmovement
     lockall
     fadescreen(6, 1, 1, RGB_BLACK)
@@ -1217,27 +1217,27 @@ text msg_0096_D31R0201_00085 {
     "you this commemorative print!\r"
 }
 
-movement BattleTower_Movement_1348 {
+movement BattleTower_Movement_ObjectWalkUp {
     delay_4
     walk_up * 2
 }
 
-movement BattleTower_Movement_1354 {
+movement BattleTower_Movement_ObjectExit {
     walk_up
     set_invisible
 }
 
-movement BattleTower_Movement_1360 {
+movement BattleTower_Movement_PlayerWalkUp {
     delay_4
     walk_up * 2
 }
 
-movement BattleTower_Movement_136C {
+movement BattleTower_Movement_PlayerExit {
     walk_up * 2
     set_invisible
 }
 
-movement BattleTower_Movement_1378 {
+movement BattleTower_Movement_PlayerFaceRight {
     face_right
 }
 
@@ -1259,7 +1259,7 @@ script scr_seq_D31R0201_010 {
     end
 }
 
-script scr_seq_D31R0201_011 {
+script BattleTower_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8000, 0)
@@ -1268,7 +1268,7 @@ script scr_seq_D31R0201_011 {
     end
 }
 
-script scr_seq_D31R0201_012 {
+script BattleTower_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     battleroomhasleaders(VAR_SPECIAL_RESULT)
@@ -1295,7 +1295,7 @@ script scr_seq_D31R0201_012 {
     end
 }
 
-script scr_seq_D31R0201_013 {
+script BattleTower_EventScript_SuperNerd1 {
     simplenpcmsg("As you can see, Battle Frontier is a\n"
                  "great facility.\r"
                  "You know what?\r"
@@ -1304,7 +1304,7 @@ script scr_seq_D31R0201_013 {
     end
 }
 
-script scr_seq_D31R0201_014 {
+script BattleTower_EventScript_Nurse {
     simplenpcmsg("Thank you for playing!\r"
                  "Your Pokémon will be restored to\n"
                  "full...\f"
@@ -1314,7 +1314,7 @@ script scr_seq_D31R0201_014 {
     end
 }
 
-script scr_seq_D31R0201_015 {
+script BattleTower_EventScript_Idol {
     simplenpcmsg("Me?\r"
                  "I just made a debut as an Idol!\f"
                  "I haven’t gotten much work yet.\r"
@@ -1323,7 +1323,7 @@ script scr_seq_D31R0201_015 {
     end
 }
 
-script scr_seq_D31R0201_016 {
+script BattleTower_EventScript_RichBoy {
     simplenpcmsg("I trained my little guy till we\n"
                  "couldn’t take any more.\r"
                  "He’s going to do a 50-win streak\n"
@@ -1332,12 +1332,12 @@ script scr_seq_D31R0201_016 {
     end
 }
 
-script scr_seq_D31R0201_017 {
+script BattleTower_EventScript_Pikachu1 {
     simplenpcmsg("PIKACHU: ...")
     end
 }
 
-script scr_seq_D31R0201_018 {
+script BattleTower_EventScript_PokefanM {
     simplenpcmsg("I’ve always loved this kind of\n"
                  "see-through elevator since I\f"
                  "was young.\r"
@@ -1347,7 +1347,7 @@ script scr_seq_D31R0201_018 {
     end
 }
 
-script scr_seq_D31R0201_019 {
+script BattleTower_EventScript_SchoolKidM {
     simplenpcmsg("Tee hee!\n"
                  "All the Trainers around us look\f"
                  "so pathetic!\r"
@@ -1361,7 +1361,7 @@ script scr_seq_D31R0201_008 {
     end
 }
 
-script scr_seq_D31R0201_020 {
+script BattleTower_EventScript_Pikachu2 {
     playcry(SPECIES_PIKACHU, 0)
     simplenpcmsg("PIKACHU: Pichuu! Pichuu!")
     end
@@ -1373,7 +1373,7 @@ _14C8:
     end
 }
 
-script scr_seq_D31R0201_023 {
+script BattleTower_EventScript_SuperNerd2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1494,12 +1494,12 @@ _163D:
 }
 
 mapscripts BattleTower_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D31R0201_021
-    INIT_SCRIPT_ON_RESUME: scr_seq_D31R0201_022
+    INIT_SCRIPT_ON_TRANSITION: BattleTower_OnTransition
+    INIT_SCRIPT_ON_RESUME: BattleTower_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_414B, 1: scr_seq_D31R0201_003
-        VAR_UNK_414B, 2: scr_seq_D31R0201_004
-        VAR_UNK_414B, 3: scr_seq_D31R0201_007
-        VAR_UNK_414B, 255: scr_seq_D31R0201_005
+        VAR_UNK_414B, 1: BattleTower_EventScript_Scene1
+        VAR_UNK_414B, 2: BattleTower_EventScript_Scene2
+        VAR_UNK_414B, 3: BattleTower_EventScript_WarpToBattleTowerElevator
+        VAR_UNK_414B, 255: BattleTower_EventScript_Scene3
     ]
 }

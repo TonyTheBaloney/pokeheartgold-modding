@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R0501_000 + 1",
+            "script": "Goldenrod_MagnetTrainStation_1F_EventScript_Policeman",
             "flag": "FLAG_NOTHING"
         }
     ],
@@ -77,7 +77,7 @@
             "height": 3,
             "var": "VAR_TEMP_x400A",
             "var_value": 2,
-            "script": "_EV_scr_seq_T25R0501_004 + 1"
+            "script": "Goldenrod_MagnetTrainStation_1F_EventScript_Trigger4"
         },
         {
             "x": 4,
@@ -87,7 +87,7 @@
             "height": 3,
             "var": "VAR_TEMP_x400A",
             "var_value": 2,
-            "script": "_EV_scr_seq_T25R0501_002 + 1"
+            "script": "Goldenrod_MagnetTrainStation_1F_EventScript_Trigger2"
         },
         {
             "x": 6,
@@ -97,7 +97,7 @@
             "height": 3,
             "var": "VAR_TEMP_x400A",
             "var_value": 2,
-            "script": "_EV_scr_seq_T25R0501_002 + 1"
+            "script": "Goldenrod_MagnetTrainStation_1F_EventScript_Trigger2"
         },
         {
             "x": 6,
@@ -107,7 +107,7 @@
             "height": 2,
             "var": "VAR_TEMP_x400A",
             "var_value": 3,
-            "script": "_EV_scr_seq_T25R0501_003 + 1"
+            "script": "Goldenrod_MagnetTrainStation_1F_EventScript_Trigger3"
         },
         {
             "x": 6,
@@ -117,7 +117,7 @@
             "height": 1,
             "var": "VAR_UNK_410B",
             "var_value": 0,
-            "script": "_EV_scr_seq_T25R0501_001 + 1"
+            "script": "Goldenrod_MagnetTrainStation_1F_EventScript_Trigger1"
         },
         {
             "x": 6,
@@ -127,7 +127,7 @@
             "height": 2,
             "var": "VAR_TEMP_x400A",
             "var_value": 1,
-            "script": "_EV_scr_seq_T25R0501_003 + 1"
+            "script": "Goldenrod_MagnetTrainStation_1F_EventScript_Trigger3"
         }
     ],
     "bg_events": [
@@ -137,7 +137,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T25R0501_007 + 1"
+            "script": "Goldenrod_MagnetTrainStation_1F_EventScript_Sign"
         }
     ]
 }

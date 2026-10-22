@@ -3,23 +3,23 @@
   "messages": [
     {
       "id": "msg_0148_D52R0101_00000",
-      "from": "scr_seq_D52R0101_000#0"
+      "from": "EmbeddedTowerGroudonRoom_EventScript_Groudon#0"
     },
     {
       "id": "msg_0148_D52R0101_00001",
-      "from": "scr_seq_D52R0101_000#1"
+      "from": "EmbeddedTowerGroudonRoom_EventScript_Groudon#1"
     },
     {
       "id": "msg_0148_D52R0101_00002",
-      "from": "scr_seq_D52R0101_000#2"
+      "from": "EmbeddedTowerGroudonRoom_EventScript_Groudon#2"
     },
     {
       "id": "msg_0148_D52R0101_00003",
-      "from": "scr_seq_D52R0101_000#3"
+      "from": "EmbeddedTowerGroudonRoom_EventScript_Groudon#3"
     },
     {
       "id": "msg_0148_D52R0101_00004",
-      "from": "scr_seq_D52R0101_000#4"
+      "from": "EmbeddedTowerGroudonRoom_EventScript_Groudon#4"
     }
   ]
 }

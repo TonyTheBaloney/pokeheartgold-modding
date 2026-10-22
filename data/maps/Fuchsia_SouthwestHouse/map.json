@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08R0401_000 + 1",
+            "script": "Fuchsia_SouthwestHouse_EventScript_PokefanF",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08R0401_001 + 1",
+            "script": "Fuchsia_SouthwestHouse_EventScript_SchoolKidM",
             "flag": "FLAG_NOTHING"
         }
     ],

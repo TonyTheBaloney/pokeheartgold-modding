@@ -5,7 +5,7 @@ script scr_seq_R31_000 {
     end
 }
 
-script scr_seq_R31_001 {
+script Route31_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -55,13 +55,13 @@ script scr_seq_R31_001 {
                 waitfade
                 getplayerfacing(VAR_SPECIAL_RESULT)
                 if (var(VAR_SPECIAL_RESULT) == 0) {
-                    applymovement(obj_player, Route31_Movement_02BC)
+                    applymovement(obj_player, Route31_Movement_PlayerFaceUp)
                 } elif (var(VAR_SPECIAL_RESULT) == 1) {
-                    applymovement(obj_player, Route31_Movement_02C4)
+                    applymovement(obj_player, Route31_Movement_PlayerFaceDown)
                 } elif (var(VAR_SPECIAL_RESULT) == 2) {
-                    applymovement(obj_player, Route31_Movement_02CC)
+                    applymovement(obj_player, Route31_Movement_PlayerFaceLeft)
                 } else {
-                    applymovement(obj_player, Route31_Movement_02D4)
+                    applymovement(obj_player, Route31_Movement_PlayerFaceRight)
                 }
                 waitmovement
                 bufferplayersname(0)
@@ -199,34 +199,34 @@ text msg_0378_R31_00001 {
     "...!!\r"
 }
 
-movement Route31_Movement_02BC {
+movement Route31_Movement_PlayerFaceUp {
     walk_in_place_up
 }
 
-movement Route31_Movement_02C4 {
+movement Route31_Movement_PlayerFaceDown {
     walk_in_place_down
 }
 
-movement Route31_Movement_02CC {
+movement Route31_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-movement Route31_Movement_02D4 {
+movement Route31_Movement_PlayerFaceRight {
     walk_in_place_right
 }
 
-script scr_seq_R31_002 {
+script Route31_EventScript_RouteSign {
     directionsignpostex(1, 2, "Rt. 31\n"
                               "West to Violet City")
     end
 }
 
-script scr_seq_R31_003 {
+script Route31_EventScript_TrainerTips {
     trainertipsex(2, "Dark Cave")
     end
 }
 
-script scr_seq_R31_004 {
+script Route31_EventScript_Man {
     simplenpcmsg("Dark Cave...\r"
                  "If a Pokémon could light it up,\n"
                  "I’d explore it.")
@@ -235,7 +235,7 @@ script scr_seq_R31_004 {
     end
 }
 
-script scr_seq_R31_005 {
+script Route31_EventScript_SchoolKidM {
     simplenpcmsg("I found a good Pokémon in Dark Cave.\n"
                  "I’m going to raise it to take on\f"
                  "Falkner.\r"

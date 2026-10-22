@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T29R0101_000 {
+script LakeOfRage_HiddenPowerHouse_EventScript_FatMan {
     if (flag(FLAG_GOT_TM10_FROM_LAKE_OF_RAGE_MAN)) {
         playse(SEQ_SE_DP_SELECT)
         lockall
@@ -34,13 +34,13 @@ script scr_seq_T29R0101_000 {
            "depend on the Pokémon using it.")
     waitbuttonpress
     closemessage
-    applymovement(obj_T29R0101_gsbigman, LakeOfRage_HiddenPowerHouse_Movement_0078)
+    applymovement(obj_T29R0101_gsbigman, LakeOfRage_HiddenPowerHouse_Movement_FatManFaceRight)
     waitmovement
     releaseall
     end
 }
 
-movement LakeOfRage_HiddenPowerHouse_Movement_0078 {
+movement LakeOfRage_HiddenPowerHouse_Movement_FatManFaceRight {
     face_right
 }
 

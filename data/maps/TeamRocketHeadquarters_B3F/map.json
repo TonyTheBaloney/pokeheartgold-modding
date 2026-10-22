@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0104_000 + 1",
+            "script": "TeamRocketHeadquarters_B3F_EventScript_RocketGrunt",
             "flag": "FLAG_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0104_005 + 1",
+            "script": "TeamRocketHeadquarters_B3F_EventScript_Murkrow",
             "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B3F_MURKROW_1"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0104_004 + 1",
+            "script": "TeamRocketHeadquarters_B3F_EventScript_LittleBoy",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0104_004 + 1",
+            "script": "TeamRocketHeadquarters_B3F_EventScript_LittleBoy",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -390,7 +390,7 @@
             "height": 3,
             "var": "VAR_UNK_40AC",
             "var_value": 2,
-            "script": "_EV_scr_seq_D35R0104_002 + 1"
+            "script": "TeamRocketHeadquarters_B3F_EventScript_RivalTrigger"
         },
         {
             "x": 23,
@@ -400,7 +400,7 @@
             "height": 1,
             "var": "VAR_UNK_40AC",
             "var_value": 3,
-            "script": "_EV_scr_seq_D35R0104_003 + 1"
+            "script": "TeamRocketHeadquarters_B3F_EventScript_PetrelTrigger"
         },
         {
             "x": 50,
@@ -410,7 +410,7 @@
             "height": 2,
             "var": "VAR_UNK_40AC",
             "var_value": 5,
-            "script": "_EV_scr_seq_D35R0104_007 + 1"
+            "script": "TeamRocketHeadquarters_B3F_EventScript_MurkrowTrigger"
         }
     ],
     "bg_events": []

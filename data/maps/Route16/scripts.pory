@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R16_000 {
+script Route16_OnResume {
     setbikestatelock(1)
     setflag(FLAG_UNK_149)
     end
 }
 
-script scr_seq_R16_001 {
+script Route16_EventScript_TrainerTips {
     trainertipsex(2, "The Cycling Road starts here!\r"
                      "Enjoy coasting downhill on\n"
                      "your Bicycle!")
@@ -15,5 +15,5 @@ script scr_seq_R16_001 {
 }
 
 mapscripts Route16_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_R16_000
+    INIT_SCRIPT_ON_RESUME: Route16_OnResume
 }

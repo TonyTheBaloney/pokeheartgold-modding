@@ -75,7 +75,7 @@
     },
     {
       "id": "msg_0384_R34_00018",
-      "from": "scr_seq_R34_002#0"
+      "from": "Route34_EventScript_Policeman#0"
     },
     {
       "id": "msg_0384_R34_00019",
@@ -91,11 +91,11 @@
     },
     {
       "id": "msg_0384_R34_00022",
-      "from": "scr_seq_R34_006#0"
+      "from": "Route34_EventScript_Irene#0"
     },
     {
       "id": "msg_0384_R34_00023",
-      "from": "scr_seq_R34_006#1"
+      "from": "Route34_EventScript_Irene#1"
     },
     {
       "id": "msg_0384_R34_00024",
@@ -111,11 +111,11 @@
     },
     {
       "id": "msg_0384_R34_00027",
-      "from": "scr_seq_R34_007#0"
+      "from": "Route34_EventScript_Jenn#0"
     },
     {
       "id": "msg_0384_R34_00028",
-      "from": "scr_seq_R34_005#0"
+      "from": "Route34_EventScript_KateTrigger#0"
     },
     {
       "id": "msg_0384_R34_00029",
@@ -123,7 +123,7 @@
     },
     {
       "id": "msg_0384_R34_00030",
-      "from": "scr_seq_R34_005#1"
+      "from": "Route34_EventScript_KateTrigger#1"
     },
     {
       "id": "msg_0384_R34_00031",
@@ -135,71 +135,71 @@
     },
     {
       "id": "msg_0384_R34_00033",
-      "from": "scr_seq_R34_011#0"
+      "from": "Route34_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0384_R34_00034",
-      "from": "scr_seq_R34_009#0"
+      "from": "Route34_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0384_R34_00035",
-      "from": "scr_seq_R34_010#0"
+      "from": "Route34_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0384_R34_00036",
-      "from": "scr_seq_R34_003#0"
+      "from": "Route34_EventScript_LyraTrigger#0"
     },
     {
       "id": "msg_0384_R34_00037",
-      "from": "scr_seq_R34_003#2"
+      "from": "Route34_EventScript_LyraTrigger#2"
     },
     {
       "id": "msg_0384_R34_00038",
-      "from": "scr_seq_R34_003#4"
+      "from": "Route34_EventScript_LyraTrigger#4"
     },
     {
       "id": "msg_0384_R34_00039",
-      "from": "scr_seq_R34_003#6"
+      "from": "Route34_EventScript_LyraTrigger#6"
     },
     {
       "id": "msg_0384_R34_00040",
-      "from": "scr_seq_R34_003#8"
+      "from": "Route34_EventScript_LyraTrigger#8"
     },
     {
       "id": "msg_0384_R34_00041",
-      "from": "scr_seq_R34_003#1"
+      "from": "Route34_EventScript_LyraTrigger#1"
     },
     {
       "id": "msg_0384_R34_00042",
-      "from": "scr_seq_R34_003#3"
+      "from": "Route34_EventScript_LyraTrigger#3"
     },
     {
       "id": "msg_0384_R34_00043",
-      "from": "scr_seq_R34_003#5"
+      "from": "Route34_EventScript_LyraTrigger#5"
     },
     {
       "id": "msg_0384_R34_00044",
-      "from": "scr_seq_R34_003#7"
+      "from": "Route34_EventScript_LyraTrigger#7"
     },
     {
       "id": "msg_0384_R34_00045",
-      "from": "scr_seq_R34_003#9"
+      "from": "Route34_EventScript_LyraTrigger#9"
     },
     {
       "id": "msg_0384_R34_00046",
-      "from": "scr_seq_R34_001#0"
+      "from": "Route34_EventScript_OldManScene#0"
     },
     {
       "id": "msg_0384_R34_00047",
-      "from": "scr_seq_R34_001#1"
+      "from": "Route34_EventScript_OldManScene#1"
     },
     {
       "id": "msg_0384_R34_00048",
-      "from": "scr_seq_R34_001#2"
+      "from": "Route34_EventScript_OldManScene#2"
     },
     {
       "id": "msg_0384_R34_00049",
-      "from": "scr_seq_R34_001#3"
+      "from": "Route34_EventScript_OldManScene#3"
     }
   ]
 }

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R1203_000 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Youngster {
     simplenpcmsg("What you see here is how much people\n"
                  "around the world love Pokémon.\r"
                  "Watching Battle Videos lets you share\n"
@@ -9,7 +9,7 @@ script scr_seq_T25R1203_000 {
     end
 }
 
-script scr_seq_T25R1203_001 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Girl {
     simplenpcmsg("This is a great idea.\n"
                  "Anyone and everyone can participate.\r"
                  "Even if you lose, that battle could still\n"
@@ -17,20 +17,20 @@ script scr_seq_T25R1203_001 {
     end
 }
 
-script scr_seq_T25R1203_002 {
+script Goldenrod_GlobalTerminal_3F_EventScript_AceTrainerF {
     simplenpcmsg("What stunning, gripping Battle Videos!\n"
                  "Should I go home and retrain\f"
                  "my Pokémon?")
     end
 }
 
-script scr_seq_T25R1203_003 {
+script Goldenrod_GlobalTerminal_3F_EventScript_PokefanM {
     simplenpcmsg("My Battle Videos starring only cute\n"
                  "little MARILL are the ones I like best.")
     end
 }
 
-script scr_seq_T25R1203_004 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Camper {
     simplenpcmsg("What an amazing collection!\n"
                  "I can see why this is so popular.\r"
                  "Just seeing some of these Battle Videos\n"
@@ -38,7 +38,7 @@ script scr_seq_T25R1203_004 {
     end
 }
 
-script scr_seq_T25R1203_005 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Gentleman {
     simplenpcmsg("To treat one’s self to Battle Videos\n"
                  "every day...\r"
                  "I would consider that a hobby worthy\n"
@@ -46,7 +46,7 @@ script scr_seq_T25R1203_005 {
     end
 }
 
-script scr_seq_T25R1203_006 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Juggler {
     simplenpcmsg("My mysterious Battle Video.\n"
                  "My mysterious Battle Video.\r"
                  "What’s on it?\n"
@@ -56,7 +56,7 @@ script scr_seq_T25R1203_006 {
     end
 }
 
-script scr_seq_T25R1203_007 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Man {
     simplenpcmsg("Let me attempt the alphabet rap using\n"
                  "Goldenrod, dig?\r"
                  "G... Go south from here for the\n"
@@ -71,13 +71,13 @@ script scr_seq_T25R1203_007 {
     end
 }
 
-script scr_seq_T25R1203_008 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Hiker {
     simplenpcmsg("The Hiker enjoying the Box Data down\n"
                  "on 2F is my little brother.")
     end
 }
 
-script scr_seq_T25R1203_009 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Warps to the GTS and the Trainer\n"
@@ -88,7 +88,7 @@ script scr_seq_T25R1203_009 {
     end
 }
 
-script scr_seq_T25R1203_010 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Warps to the studios for Box Data and\n"
@@ -99,7 +99,7 @@ script scr_seq_T25R1203_010 {
     end
 }
 
-script scr_seq_T25R1203_011 {
+script Goldenrod_GlobalTerminal_3F_EventScript_Sign3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8005, 2)

@@ -3,23 +3,23 @@
   "messages": [
     {
       "id": "msg_0542_T20_00000",
-      "from": "scr_seq_T20_001#1"
+      "from": "NewBark_EventScript_Woman#1"
     },
     {
       "id": "msg_0542_T20_00001",
-      "from": "scr_seq_T20_002#4"
+      "from": "NewBark_EventScript_ProfElmTrigger#4"
     },
     {
       "id": "msg_0542_T20_00002",
-      "from": "scr_seq_T20_002#5"
+      "from": "NewBark_EventScript_ProfElmTrigger#5"
     },
     {
       "id": "msg_0542_T20_00003",
-      "from": "scr_seq_T20_002#6"
+      "from": "NewBark_EventScript_ProfElmTrigger#6"
     },
     {
       "id": "msg_0542_T20_00004",
-      "from": "scr_seq_T20_002#7"
+      "from": "NewBark_EventScript_ProfElmTrigger#7"
     },
     {
       "id": "msg_0542_T20_00005",
@@ -27,11 +27,11 @@
     },
     {
       "id": "msg_0542_T20_00006",
-      "from": "scr_seq_T20_001#2"
+      "from": "NewBark_EventScript_Woman#2"
     },
     {
       "id": "msg_0542_T20_00007",
-      "from": "scr_seq_T20_001#3"
+      "from": "NewBark_EventScript_Woman#3"
     },
     {
       "id": "msg_0542_T20_00008",
@@ -42,107 +42,107 @@
     },
     {
       "id": "msg_0542_T20_00009",
-      "from": "scr_seq_T20_001#0"
+      "from": "NewBark_EventScript_Woman#0"
     },
     {
       "id": "msg_0542_T20_00010",
-      "from": "scr_seq_T20_002#8"
+      "from": "NewBark_EventScript_ProfElmTrigger#8"
     },
     {
       "id": "msg_0542_T20_00011",
-      "from": "scr_seq_T20_002#9"
+      "from": "NewBark_EventScript_ProfElmTrigger#9"
     },
     {
       "id": "msg_0542_T20_00012",
-      "from": "scr_seq_T20_015#0"
+      "from": "NewBark_EventScript_FatMan#0"
     },
     {
       "id": "msg_0542_T20_00013",
-      "from": "scr_seq_T20_000#0"
+      "from": "NewBark_EventScript_Rival#0"
     },
     {
       "id": "msg_0542_T20_00014",
-      "from": "scr_seq_T20_000#1"
+      "from": "NewBark_EventScript_Rival#1"
     },
     {
       "id": "msg_0542_T20_00015",
-      "from": "scr_seq_T20_008#0"
+      "from": "NewBark_EventScript_LyraScene#0"
     },
     {
       "id": "msg_0542_T20_00016",
-      "from": "scr_seq_T20_008#1"
+      "from": "NewBark_EventScript_LyraScene#1"
     },
     {
       "id": "msg_0542_T20_00017",
-      "from": "scr_seq_T20_002#0"
+      "from": "NewBark_EventScript_ProfElmTrigger#0"
     },
     {
       "id": "msg_0542_T20_00018",
-      "from": "scr_seq_T20_002#1"
+      "from": "NewBark_EventScript_ProfElmTrigger#1"
     },
     {
       "id": "msg_0542_T20_00019",
-      "from": "scr_seq_T20_002#2"
+      "from": "NewBark_EventScript_ProfElmTrigger#2"
     },
     {
       "id": "msg_0542_T20_00020",
-      "from": "scr_seq_T20_002#3"
+      "from": "NewBark_EventScript_ProfElmTrigger#3"
     },
     {
       "id": "msg_0542_T20_00021",
-      "from": "scr_seq_T20_011#1"
+      "from": "NewBark_EventScript_MomTrigger#1"
     },
     {
       "id": "msg_0542_T20_00022",
-      "from": "scr_seq_T20_011#2"
+      "from": "NewBark_EventScript_MomTrigger#2"
     },
     {
       "id": "msg_0542_T20_00023",
-      "from": "scr_seq_T20_011#3"
+      "from": "NewBark_EventScript_MomTrigger#3"
     },
     {
       "id": "msg_0542_T20_00024",
-      "from": "scr_seq_T20_011#0"
+      "from": "NewBark_EventScript_MomTrigger#0"
     },
     {
       "id": "msg_0542_T20_00025",
-      "from": "scr_seq_T20_004#0"
+      "from": "NewBark_EventScript_Lyra#0"
     },
     {
       "id": "msg_0542_T20_00026",
-      "from": "scr_seq_T20_004#1"
+      "from": "NewBark_EventScript_Lyra#1"
     },
     {
       "id": "msg_0542_T20_00027",
-      "from": "scr_seq_T20_012#0"
+      "from": "NewBark_EventScript_LyraTrigger#0"
     },
     {
       "id": "msg_0542_T20_00028",
-      "from": "scr_seq_T20_012#1"
+      "from": "NewBark_EventScript_LyraTrigger#1"
     },
     {
       "id": "msg_0542_T20_00029",
-      "from": "scr_seq_T20_012#2"
+      "from": "NewBark_EventScript_LyraTrigger#2"
     },
     {
       "id": "msg_0542_T20_00030",
-      "from": "scr_seq_T20_012#3"
+      "from": "NewBark_EventScript_LyraTrigger#3"
     },
     {
       "id": "msg_0542_T20_00031",
-      "from": "scr_seq_T20_005#1"
+      "from": "NewBark_EventScript_Marill#1"
     },
     {
       "id": "msg_0542_T20_00032",
-      "from": "scr_seq_T20_005#2"
+      "from": "NewBark_EventScript_Marill#2"
     },
     {
       "id": "msg_0542_T20_00033",
-      "from": "scr_seq_T20_005#0"
+      "from": "NewBark_EventScript_Marill#0"
     },
     {
       "id": "msg_0542_T20_00034",
-      "from": "scr_seq_T20_014#0"
+      "from": "NewBark_EventScript_TownSign#0"
     },
     {
       "id": "msg_0542_T20_00035",
@@ -150,7 +150,7 @@
     },
     {
       "id": "msg_0542_T20_00036",
-      "from": "scr_seq_T20_013#0"
+      "from": "NewBark_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0542_T20_00037",

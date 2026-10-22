@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T09PC0101_000 + 1",
+            "script": "CinnabarIsland_Pokecenter_1F_EventScript_Nurse",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T09PC0101_002 + 1",
+            "script": "CinnabarIsland_Pokecenter_1F_EventScript_Sailor",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T09PC0101_001 + 1",
+            "script": "CinnabarIsland_Pokecenter_1F_EventScript_AceTrainerF",
             "flag": "FLAG_NOTHING"
         }
     ],

@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0518_T08R0601_00000",
-      "from": "scr_seq_T08R0601_000#0"
+      "from": "Fuchsia_SafariZoneWardenHouse_EventScript_Lass#0"
     },
     {
       "id": "msg_0518_T08R0601_00001",
-      "from": "scr_seq_T08R0601_001#0"
+      "from": "Fuchsia_SafariZoneWardenHouse_EventScript_Aipom1#0"
     },
     {
       "id": "msg_0518_T08R0601_00002",
-      "from": "scr_seq_T08R0601_002#0"
+      "from": "Fuchsia_SafariZoneWardenHouse_EventScript_Aipom2#0"
     },
     {
       "id": "msg_0518_T08R0601_00003",
-      "from": "scr_seq_T08R0601_003#0"
+      "from": "Fuchsia_SafariZoneWardenHouse_EventScript_Aipom3#0"
     }
   ]
 }

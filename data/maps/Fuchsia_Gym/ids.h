@@ -1,15 +1,15 @@
 #ifndef SCR_SEQ_T08GYM0101_H_
 #define SCR_SEQ_T08GYM0101_H_
 
-#define _EV_scr_seq_T08GYM0101_000 0
-#define _EV_scr_seq_T08GYM0101_001 1
-#define _EV_scr_seq_T08GYM0101_002 2
-#define _EV_scr_seq_T08GYM0101_003 3
-#define _EV_scr_seq_T08GYM0101_004 4
-#define _EV_scr_seq_T08GYM0101_005 5
-#define _EV_scr_seq_T08GYM0101_006 6
-#define _EV_scr_seq_T08GYM0101_007 7
-#define _EV_scr_seq_T08GYM0101_008 8
+#define _EV_Fuchsia_Gym_OnTransition 0
+#define _EV_Fuchsia_Gym_EventScript_Janine 1
+#define _EV_Fuchsia_Gym_EventScript_GymGuide 2
+#define _EV_Fuchsia_Gym_EventScript_Linda 3
+#define _EV_Fuchsia_Gym_EventScript_Barry 4
+#define _EV_Fuchsia_Gym_EventScript_Alice 5
+#define _EV_Fuchsia_Gym_EventScript_Cindy 6
+#define _EV_Fuchsia_Gym_EventScript_GymSign 7
+#define _EV_Fuchsia_Gym_OnLoad 8
 
 #define obj_T08GYM0101_picnicgirl_2 0
 #define obj_T08GYM0101_gsgirl1      1

@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_R17_H_
 #define SCR_SEQ_R17_H_
 
-#define _EV_scr_seq_R17_000 0
-#define _EV_scr_seq_R17_001 1
+#define _EV_Route17_OnTransition 0
+#define _EV_Route17_OnResume 1
 
 #define obj_R17_gang    0
 #define obj_R17_gang_2  1

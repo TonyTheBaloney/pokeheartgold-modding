@@ -5,13 +5,13 @@ script scr_seq_T23R0101_000 {
     end
 }
 
-script scr_seq_T23R0101_001 {
+script Azalea_IlexForestGatehouse_EventScript_Attendant {
     simplenpcmsg("Ilex Forest is big. Be careful!\n"
                  "Don’t get lost.")
     end
 }
 
-script scr_seq_T23R0101_002 {
+script Azalea_IlexForestGatehouse_EventScript_OldWoman {
     simplenpcmsg("The forest is watched over by\n"
                  "its protector.\r"
                  "Stay out of mischief!")

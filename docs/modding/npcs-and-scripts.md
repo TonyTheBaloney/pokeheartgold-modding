@@ -210,7 +210,7 @@ Mount Moon checks a var every frame:
 ```
 mapscripts MountMoon_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40F5, 0: scr_seq_D02R0101_000
+        VAR_UNK_40F5, 0: MountMoon_EventScript_RivalScene
     ]
 }
 ```
@@ -224,7 +224,7 @@ mapscripts MountMoon_MapScripts {
 for the macros in `asm/macros/movement.inc`:
 
 ```
-movement Cherrygrove_Movement_0390 {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp1 {
     walk_fast_left * 2
     walk_fast_up * 2
     emote_exclamation_mark
@@ -234,7 +234,7 @@ movement Cherrygrove_Movement_0390 {
 }
 ```
 
-Run with `applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0390)` then
+Run with `applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp1)` then
 `waitmovement`.
 
 ## Text

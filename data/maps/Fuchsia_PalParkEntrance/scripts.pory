@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T08R0201_000
-    scr_seq_T08R0201_001
-    scr_seq_T08R0201_002
-    scr_seq_T08R0201_003
-    scr_seq_T08R0201_004
-    scr_seq_T08R0201_005
-    scr_seq_T08R0201_006
-    scr_seq_T08R0201_007
-    scr_seq_T08R0201_008
-    scr_seq_T08R0201_009
+    Fuchsia_PalParkEntrance_OnTransition
+    Fuchsia_PalParkEntrance_EventScript_WorkerScene1
+    Fuchsia_PalParkEntrance_EventScript_WorkerScene2
+    Fuchsia_PalParkEntrance_EventScript_Worker
+    Fuchsia_PalParkEntrance_EventScript_SchoolKidM
+    Fuchsia_PalParkEntrance_EventScript_PokefanF
+    Fuchsia_PalParkEntrance_EventScript_Youngster
+    Fuchsia_PalParkEntrance_EventScript_Beauty
+    Fuchsia_PalParkEntrance_EventScript_Man
+    Fuchsia_PalParkEntrance_EventScript_Lady
 }
 
-script scr_seq_T08R0201_000 {
+script Fuchsia_PalParkEntrance_OnTransition {
     if (!flag(FLAG_UNK_9CD)) {
         setvar(VAR_PAL_PARK_HIGH_SCORE, 2000)
     }
@@ -38,7 +38,7 @@ script scr_seq_T08R0201_000 {
     end
 }
 
-script scr_seq_T08R0201_003 {
+script Fuchsia_PalParkEntrance_EventScript_Worker {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -191,10 +191,10 @@ _01FB:
                                            "Dazzle us with a masterful display\n"
                                            "of Pokémon catching!\r")
     closemessage
-    applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_0280)
+    applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_WorkerWalkUpRight)
     waitmovement
     followmonrecall
-    applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_0294)
+    applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_PlayerExit)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -204,7 +204,7 @@ _01FB:
     waitfade
     lock(obj_partner_poke)
     followmonreleasenexttoplayer
-    applymovement(obj_partner_poke, Fuchsia_PalParkEntrance_Movement_02A0)
+    applymovement(obj_partner_poke, Fuchsia_PalParkEntrance_Movement_FollowMonFaceUp)
     waitmovement
     release(obj_partner_poke)
     releaseall
@@ -239,41 +239,41 @@ _0274:
     end
 }
 
-movement Fuchsia_PalParkEntrance_Movement_0280 {
+movement Fuchsia_PalParkEntrance_Movement_WorkerWalkUpRight {
     walk_in_place_fast_up
     walk_up * 2
     walk_right
     walk_in_place_fast_left
 }
 
-movement Fuchsia_PalParkEntrance_Movement_0294 {
+movement Fuchsia_PalParkEntrance_Movement_PlayerExit {
     walk_up * 5
     set_invisible
 }
 
-movement Fuchsia_PalParkEntrance_Movement_02A0 {
+movement Fuchsia_PalParkEntrance_Movement_FollowMonFaceUp {
     face_up
 }
 
-script scr_seq_T08R0201_002 {
+script Fuchsia_PalParkEntrance_EventScript_WorkerScene2 {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_4124, 0)
-    applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_03D4)
+    applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_PlayerWalkDown1)
     waitmovement
-    applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_03BC)
+    applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_WorkerWalkLeftDown)
     waitmovement
     followmonreleasenexttoplayer
     releaseall
     end
 }
 
-script scr_seq_T08R0201_001 {
+script Fuchsia_PalParkEntrance_EventScript_WorkerScene1 {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_4124, 0)
-    applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_03DC)
-    applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_03C8)
+    applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_PlayerWalkDown2)
+    applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_WorkerFaceLeft)
     waitmovement
     palparkscoreget(0, VAR_SPECIAL_RESULT)
     bufferint(0, VAR_SPECIAL_RESULT)
@@ -326,9 +326,9 @@ _034E:
         closemessage
         goto(_03A1)
     _03A1:
-        applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_03E8)
+        applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_PlayerWalkDown3)
         waitmovement
-        applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_03BC)
+        applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_WorkerWalkLeftDown)
         waitmovement
         followmonreleasenexttoplayer
         releaseall
@@ -352,26 +352,26 @@ _0384:
     goto(_03A1)
 }
 
-movement Fuchsia_PalParkEntrance_Movement_03BC {
+movement Fuchsia_PalParkEntrance_Movement_WorkerWalkLeftDown {
     walk_left
     walk_down * 2
 }
 
-movement Fuchsia_PalParkEntrance_Movement_03C8 {
+movement Fuchsia_PalParkEntrance_Movement_WorkerFaceLeft {
     delay_8 * 2
     walk_in_place_left
 }
 
-movement Fuchsia_PalParkEntrance_Movement_03D4 {
+movement Fuchsia_PalParkEntrance_Movement_PlayerWalkDown1 {
     walk_down * 5
 }
 
-movement Fuchsia_PalParkEntrance_Movement_03DC {
+movement Fuchsia_PalParkEntrance_Movement_PlayerWalkDown2 {
     walk_down * 2
     walk_in_place_fast_right
 }
 
-movement Fuchsia_PalParkEntrance_Movement_03E8 {
+movement Fuchsia_PalParkEntrance_Movement_PlayerWalkDown3 {
     walk_down * 4
 }
 
@@ -386,7 +386,7 @@ text msg_0516_T08R0201_00025 {
     "Can you top that?"
 }
 
-script scr_seq_T08R0201_004 {
+script Fuchsia_PalParkEntrance_EventScript_SchoolKidM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -419,7 +419,7 @@ _0439:
     end
 }
 
-script scr_seq_T08R0201_005 {
+script Fuchsia_PalParkEntrance_EventScript_PokefanF {
     bufferplayersname(0)
     simplenpcmsg("My son is a big fan of yours,\n"
                  "{STRVAR_1 3, 0, 0}.\f"
@@ -427,14 +427,14 @@ script scr_seq_T08R0201_005 {
     end
 }
 
-script scr_seq_T08R0201_006 {
+script Fuchsia_PalParkEntrance_EventScript_Youngster {
     simplenpcmsg("If you want to see rare Pokémon,\n"
                  "Catching Shows at the Pal Park are\f"
                  "the best!")
     end
 }
 
-script scr_seq_T08R0201_007 {
+script Fuchsia_PalParkEntrance_EventScript_Beauty {
     simplenpcmsg("I’ve heard Trainers complain that\n"
                  "rare Pokémon take longer to appear.\r"
                  "Is it easier to start with common\n"
@@ -442,13 +442,13 @@ script scr_seq_T08R0201_007 {
     end
 }
 
-script scr_seq_T08R0201_008 {
+script Fuchsia_PalParkEntrance_EventScript_Man {
     call(_0062)
     simplenpcmsg(msg_0516_T08R0201_00025)
     end
 }
 
-script scr_seq_T08R0201_009 {
+script Fuchsia_PalParkEntrance_EventScript_Lady {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -739,9 +739,9 @@ _0506:
 }
 
 mapscripts Fuchsia_PalParkEntrance_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T08R0201_000
+    INIT_SCRIPT_ON_TRANSITION: Fuchsia_PalParkEntrance_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4124, 1: scr_seq_T08R0201_001
-        VAR_UNK_4124, 2: scr_seq_T08R0201_002
+        VAR_UNK_4124, 1: Fuchsia_PalParkEntrance_EventScript_WorkerScene1
+        VAR_UNK_4124, 2: Fuchsia_PalParkEntrance_EventScript_WorkerScene2
     ]
 }

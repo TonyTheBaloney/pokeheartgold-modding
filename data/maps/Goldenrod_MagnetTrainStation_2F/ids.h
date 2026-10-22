@@ -1,6 +1,6 @@
 #ifndef SCR_SEQ_T25R0502_H_
 #define SCR_SEQ_T25R0502_H_
 
-#define _EV_scr_seq_T25R0502_000 0
+#define _EV_Goldenrod_MagnetTrainStation_2F_EventScript_WarpToGoldenrodMagnetTrainStation1F 0
 
 #endif // SCR_SEQ_T25R0502_H_

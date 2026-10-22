@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0524_T10R0301_00000",
-      "from": "scr_seq_T10R0301_001#1"
+      "from": "PokemonLeagueKogaRoom_EventScript_Koga#1"
     },
     {
       "id": "msg_0524_T10R0301_00001",
-      "from": "scr_seq_T10R0301_001#2"
+      "from": "PokemonLeagueKogaRoom_EventScript_Koga#2"
     },
     {
       "id": "msg_0524_T10R0301_00002",
-      "from": "scr_seq_T10R0301_001#0"
+      "from": "PokemonLeagueKogaRoom_EventScript_Koga#0"
     }
   ]
 }

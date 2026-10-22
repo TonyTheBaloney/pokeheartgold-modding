@@ -4,25 +4,25 @@
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
     scr_seq_T23GYM0102_000
-    scr_seq_T23GYM0102_001
-    scr_seq_T23GYM0102_002
-    scr_seq_T23GYM0102_003
-    scr_seq_T23GYM0102_004
-    scr_seq_T23GYM0102_005
-    scr_seq_T23GYM0102_006
-    scr_seq_T23GYM0102_007
-    scr_seq_T23GYM0102_008
-    scr_seq_T23GYM0102_009
-    scr_seq_T23GYM0102_010
-    scr_seq_T23GYM0102_011
-    scr_seq_T23GYM0102_012
-    scr_seq_T23GYM0102_013
-    scr_seq_T23GYM0102_014
-    scr_seq_T23GYM0102_015
-    scr_seq_T23GYM0102_016
+    Azalea_Gym_EventScript_Bugsy
+    Azalea_Gym_EventScript_Trigger1
+    Azalea_Gym_EventScript_Trigger2
+    Azalea_Gym_EventScript_Trigger3
+    Azalea_Gym_EventScript_Trigger4
+    Azalea_Gym_EventScript_Trigger5
+    Azalea_Gym_EventScript_Trigger6
+    Azalea_Gym_EventScript_Trigger7
+    Azalea_Gym_EventScript_Trigger8
+    Azalea_Gym_EventScript_Trigger9
+    Azalea_Gym_EventScript_Trigger10
+    Azalea_Gym_EventScript_Trigger11
+    Azalea_Gym_EventScript_Trigger12
+    Azalea_Gym_EventScript_Sign1
+    Azalea_Gym_EventScript_Sign2
+    Azalea_Gym_OnTransition
 }
 
-script scr_seq_T23GYM0102_016 {
+script Azalea_Gym_OnTransition {
     azaleagyminit
     getphonebookrematch(PHONE_CONTACT_BUGSY, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
@@ -51,7 +51,7 @@ _00C7:
     end
 }
 
-script scr_seq_T23GYM0102_001 {
+script Azalea_Gym_EventScript_Bugsy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -127,76 +127,76 @@ script scr_seq_T23GYM0102_000 {
     end
 }
 
-script scr_seq_T23GYM0102_002 {
+script Azalea_Gym_EventScript_Trigger1 {
     azaleagymspinarak(0)
     end
 }
 
-script scr_seq_T23GYM0102_003 {
+script Azalea_Gym_EventScript_Trigger2 {
     azaleagymspinarak(1)
     end
 }
 
-script scr_seq_T23GYM0102_004 {
+script Azalea_Gym_EventScript_Trigger3 {
     azaleagymspinarak(2)
     end
 }
 
-script scr_seq_T23GYM0102_005 {
+script Azalea_Gym_EventScript_Trigger4 {
     azaleagymspinarak(3)
     end
 }
 
-script scr_seq_T23GYM0102_006 {
+script Azalea_Gym_EventScript_Trigger5 {
     azaleagymspinarak(4)
     end
 }
 
-script scr_seq_T23GYM0102_007 {
+script Azalea_Gym_EventScript_Trigger6 {
     azaleagymspinarak(5)
     end
 }
 
-script scr_seq_T23GYM0102_008 {
+script Azalea_Gym_EventScript_Trigger7 {
     azaleagymspinarak(6)
     end
 }
 
-script scr_seq_T23GYM0102_009 {
+script Azalea_Gym_EventScript_Trigger8 {
     azaleagymspinarak(7)
     end
 }
 
-script scr_seq_T23GYM0102_010 {
+script Azalea_Gym_EventScript_Trigger9 {
     azaleagymspinarak(8)
     end
 }
 
-script scr_seq_T23GYM0102_011 {
+script Azalea_Gym_EventScript_Trigger10 {
     azaleagymspinarak(9)
     end
 }
 
-script scr_seq_T23GYM0102_012 {
+script Azalea_Gym_EventScript_Trigger11 {
     azaleagymspinarak(10)
     end
 }
 
-script scr_seq_T23GYM0102_013 {
+script Azalea_Gym_EventScript_Trigger12 {
     azaleagymspinarak(11)
     end
 }
 
-script scr_seq_T23GYM0102_014 {
+script Azalea_Gym_EventScript_Sign1 {
     azaleagymswitch(0)
     end
 }
 
-script scr_seq_T23GYM0102_015 {
+script Azalea_Gym_EventScript_Sign2 {
     azaleagymswitch(1)
     end
 }
 
 mapscripts Azalea_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T23GYM0102_016
+    INIT_SCRIPT_ON_TRANSITION: Azalea_Gym_OnTransition
 }

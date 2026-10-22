@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0501_000
-    scr_seq_T07R0501_001
-    scr_seq_T07R0501_002
-    scr_seq_T07R0501_003
-    scr_seq_T07R0501_004
+    Celadon_PrizeCorner_EventScript_Gentleman
+    Celadon_PrizeCorner_EventScript_GymGuide
+    Celadon_PrizeCorner_EventScript_Man
+    Celadon_PrizeCorner_EventScript_Sign1
+    Celadon_PrizeCorner_EventScript_Sign2
 }
 
-script scr_seq_T07R0501_002 {
+script Celadon_PrizeCorner_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -93,7 +93,7 @@ script scr_seq_T07R0501_002 {
     end
 }
 
-script scr_seq_T07R0501_003 {
+script Celadon_PrizeCorner_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -381,7 +381,7 @@ text msg_0509_T07R0501_00019 {
     "in the {STRVAR_1 18, 1, 0} Pocket. {YESNO 0}"
 }
 
-script scr_seq_T07R0501_004 {
+script Celadon_PrizeCorner_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -510,13 +510,13 @@ text msg_0509_T07R0501_00011 {
     "Sorry! You need more coins. {YESNO 0}"
 }
 
-script scr_seq_T07R0501_000 {
+script Celadon_PrizeCorner_EventScript_Gentleman {
     simplenpcmsg("I wanted PORYGON, but I was short\n"
                  "by 100 Coins...")
     end
 }
 
-script scr_seq_T07R0501_001 {
+script Celadon_PrizeCorner_EventScript_GymGuide {
     simplenpcmsg("Whew...\r"
                  "I’ve got to stay calm and collected...\r"
                  "I can’t lose my cool.\n"

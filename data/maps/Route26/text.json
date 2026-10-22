@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0365_R26_00000",
-      "from": "scr_seq_R26_002#0"
+      "from": "Route26_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0365_R26_00001",
-      "from": "scr_seq_R26_003#0"
+      "from": "Route26_EventScript_NorthToVictoryRoadSign#0"
     }
   ]
 }

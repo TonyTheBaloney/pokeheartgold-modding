@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T28PC0101_000 {
+script Mahogany_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 2)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T28PC0101_001 {
+script Mahogany_Pokecenter_1F_EventScript_PokefanM {
     simplenpcmsg("What’s this? Team Rocket has\n"
                  "come back?\r"
                  "I saw some men in black at the\n"
@@ -15,7 +15,7 @@ script scr_seq_T28PC0101_001 {
     end
 }
 
-script scr_seq_T28PC0101_002 {
+script Mahogany_Pokecenter_1F_EventScript_SchoolKidM {
     simplenpcmsg("I stop my Pokémon from evolving too\n"
                  "early.\r"
                  "I make them learn certain moves before\n"
@@ -23,7 +23,7 @@ script scr_seq_T28PC0101_002 {
     end
 }
 
-script scr_seq_T28PC0101_003 {
+script Mahogany_Pokecenter_1F_EventScript_AceTrainerF {
     simplenpcmsg("Pokémon do become stronger when they\n"
                  "evolve, but they also learn moves\f"
                  "more slowly.")

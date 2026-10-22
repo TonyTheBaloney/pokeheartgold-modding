@@ -5,7 +5,7 @@ script scr_seq_T21R0401_000 {
     end
 }
 
-script scr_seq_T21R0401_001 {
+script Cherrygrove_GuideGentHouse_EventScript_OldMan {
     simplenpcmsg("When I was a wee lad, I was a\n"
                  "hotshot Trainer!\r"
                  "Here’s some words of advice: catch\n"

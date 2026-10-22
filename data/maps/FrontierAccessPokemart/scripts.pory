@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D32FS0101_000 {
+script FrontierAccessPokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_D32FS0101_000 {
     end
 }
 
-script scr_seq_D32FS0101_001 {
+script FrontierAccessPokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,7 +25,7 @@ script scr_seq_D32FS0101_001 {
     end
 }
 
-script scr_seq_D32FS0101_002 {
+script FrontierAccessPokemart_EventScript_Boy {
     simplenpcmsg("Some Trainers rely on a Pokémon’s\n"
                  "potential alone. But you can use items\f"
                  "and medicines to help improve a\f"
@@ -33,7 +33,7 @@ script scr_seq_D32FS0101_002 {
     end
 }
 
-script scr_seq_D32FS0101_003 {
+script FrontierAccessPokemart_EventScript_Hiker {
     simplenpcmsg("Mountain climbing and Pokémon are\n"
                  "similar in a sense.\r"
                  "They both come down to potential!\r"

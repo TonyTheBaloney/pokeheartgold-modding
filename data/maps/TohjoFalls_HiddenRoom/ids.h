@@ -1,10 +1,10 @@
 #ifndef SCR_SEQ_D45R0102_H_
 #define SCR_SEQ_D45R0102_H_
 
-#define _EV_scr_seq_D45R0102_000 0
-#define _EV_scr_seq_D45R0102_001 1
-#define _EV_scr_seq_D45R0102_002 2
-#define _EV_scr_seq_D45R0102_003 3
+#define _EV_TohjoFalls_HiddenRoom_OnResume 0
+#define _EV_TohjoFalls_HiddenRoom_EventScript_LyraScene 1
+#define _EV_TohjoFalls_HiddenRoom_OnLoad 2
+#define _EV_TohjoFalls_HiddenRoom_EventScript_Radio 3
 
 #define obj_D45R0102_breakrock   0
 #define obj_D45R0102_breakrock_2 1

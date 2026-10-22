@@ -1,9 +1,9 @@
 #ifndef SCR_SEQ_R31R0101_H_
 #define SCR_SEQ_R31R0101_H_
 
-#define _EV_scr_seq_R31R0101_000 0
-#define _EV_scr_seq_R31R0101_001 1
-#define _EV_scr_seq_R31R0101_002 2
+#define _EV_Route31_VioletGatehouse_EventScript_LyraTrigger 0
+#define _EV_Route31_VioletGatehouse_OnTransition 1
+#define _EV_Route31_VioletGatehouse_EventScript_Attendant 2
 
 #define obj_R31R0101_counterm                 0
 #define obj_R31R0101_var_1                    1

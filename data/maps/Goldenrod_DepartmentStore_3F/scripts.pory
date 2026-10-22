@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R1003_000 {
+script Goldenrod_DepartmentStore_3F_EventScript_Clerk {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T25R1003_000 {
     end
 }
 
-script scr_seq_T25R1003_001 {
+script Goldenrod_DepartmentStore_3F_EventScript_Maniac {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -31,7 +31,7 @@ script scr_seq_T25R1003_001 {
     end
 }
 
-script scr_seq_T25R1003_002 {
+script Goldenrod_DepartmentStore_3F_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -50,7 +50,7 @@ script scr_seq_T25R1003_002 {
     end
 }
 
-script scr_seq_T25R1003_003 {
+script Goldenrod_DepartmentStore_3F_EventScript_ForVictorySeekersSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("For Victory Seekers\n"

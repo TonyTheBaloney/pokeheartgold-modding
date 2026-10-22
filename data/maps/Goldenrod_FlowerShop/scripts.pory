@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T25R0601_000
-    scr_seq_T25R0601_001
-    scr_seq_T25R0601_002
-    scr_seq_T25R0601_003
+    Goldenrod_FlowerShop_EventScript_Woman
+    Goldenrod_FlowerShop_EventScript_Lass
+    Goldenrod_FlowerShop_OnTransition
+    Goldenrod_FlowerShop_EventScript_LassScene
 }
 
-script scr_seq_T25R0601_002 {
+script Goldenrod_FlowerShop_OnTransition {
     if (!flag(FLAG_UNK_15D)) {
         if (flag(FLAG_UNK_0B5)) {
             getpartyslotwithfatefulencounter(VAR_TEMP_x4000, 492)
@@ -25,25 +25,25 @@ script scr_seq_T25R0601_002 {
     end
 }
 
-script scr_seq_T25R0601_003 {
+script Goldenrod_FlowerShop_EventScript_LassScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Goldenrod_FlowerShop_Movement_00FC)
-    applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_0110)
+    applymovement(obj_player, Goldenrod_FlowerShop_Movement_PlayerWalkUp)
+    applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_LassExclamation1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_0120)
-    applymovement(obj_player, Goldenrod_FlowerShop_Movement_0108)
-    applymovement(obj_partner_poke, Goldenrod_FlowerShop_Movement_014C)
+    applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_LassWalkDownLeft)
+    applymovement(obj_player, Goldenrod_FlowerShop_Movement_PlayerFaceRight)
+    applymovement(obj_partner_poke, Goldenrod_FlowerShop_Movement_FollowMonFaceRight)
     waitmovement
     npcmsg(msg_0589_T25R0601_00005)
     closemessage
-    applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_012C)
+    applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_LassFaceLeft)
     waitmovement
     npcmsg(msg_0589_T25R0601_00006)
     setvar(VAR_SPECIAL_x8004, 466)
@@ -91,47 +91,47 @@ text msg_0589_T25R0601_00007 {
     "Put it on SHAYMIN in the daylight."
 }
 
-movement Goldenrod_FlowerShop_Movement_00FC {
+movement Goldenrod_FlowerShop_Movement_PlayerWalkUp {
     walk_up
     delay_8
 }
 
-movement Goldenrod_FlowerShop_Movement_0108 {
+movement Goldenrod_FlowerShop_Movement_PlayerFaceRight {
     face_right
 }
 
-movement Goldenrod_FlowerShop_Movement_0110 {
+movement Goldenrod_FlowerShop_Movement_LassExclamation1 {
     delay_8
     face_left
     emote_exclamation_mark
 }
 
-movement Goldenrod_FlowerShop_Movement_0120 {
+movement Goldenrod_FlowerShop_Movement_LassWalkDownLeft {
     walk_down
     walk_left
 }
 
-movement Goldenrod_FlowerShop_Movement_012C {
+movement Goldenrod_FlowerShop_Movement_LassFaceLeft {
     walk_in_place_fast_left * 4
 }
 
-movement Goldenrod_FlowerShop_Movement_0134 {
+movement Goldenrod_FlowerShop_Movement_LassFaceDown {
     walk_in_place_fast_down * 4
 }
 
-movement Goldenrod_FlowerShop_Movement_013C {
+movement Goldenrod_FlowerShop_Movement_LassFaceUp {
     walk_in_place_fast_up * 4
 }
 
-movement Goldenrod_FlowerShop_Movement_0144 {
+movement Goldenrod_FlowerShop_Movement_LassFaceRight {
     walk_in_place_fast_right * 4
 }
 
-movement Goldenrod_FlowerShop_Movement_014C {
+movement Goldenrod_FlowerShop_Movement_FollowMonFaceRight {
     face_right
 }
 
-script scr_seq_T25R0601_000 {
+script Goldenrod_FlowerShop_EventScript_Woman {
     if (flag(FLAG_UNK_0B5)) {
         playse(SEQ_SE_DP_SELECT)
         lockall
@@ -295,7 +295,7 @@ _01DB:
     end
 }
 
-script scr_seq_T25R0601_001 {
+script Goldenrod_FlowerShop_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -316,19 +316,19 @@ script scr_seq_T25R0601_001 {
         getpartyleadalive(VAR_TEMP_x4000)
         getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 492) {
-            applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_04F0)
+            applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_LassExclamation2)
             waitmovement
             npcmsg(msg_0589_T25R0601_00005)
             closemessage
             getplayerfacing(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 0) {
-                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_0134)
+                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_LassFaceDown)
             } elif (var(VAR_SPECIAL_RESULT) == 1) {
-                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_013C)
+                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_LassFaceUp)
             } elif (var(VAR_SPECIAL_RESULT) == 2) {
-                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_0144)
+                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_LassFaceRight)
             } else {
-                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_012C)
+                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_LassFaceLeft)
             }
             waitmovement
             npcmsg(msg_0589_T25R0601_00006)
@@ -364,13 +364,13 @@ _03F2:
     end
 }
 
-movement Goldenrod_FlowerShop_Movement_04F0 {
+movement Goldenrod_FlowerShop_Movement_LassExclamation2 {
     emote_exclamation_mark
 }
 
 mapscripts Goldenrod_FlowerShop_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25R0601_002
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_FlowerShop_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4082, 1: scr_seq_T25R0601_003
+        VAR_UNK_4082, 1: Goldenrod_FlowerShop_EventScript_LassScene
     ]
 }

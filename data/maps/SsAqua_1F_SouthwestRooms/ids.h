@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_P01R0304_H_
 #define SCR_SEQ_P01R0304_H_
 
-#define _EV_scr_seq_P01R0304_000 0
+#define _EV_SsAqua_1F_SouthwestRooms_OnLoad 0
 
 #define obj_P01R0304_mount_2  0
 #define obj_P01R0304_gsman3   1

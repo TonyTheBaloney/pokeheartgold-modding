@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0470_T04PC0101_00000",
-      "from": "scr_seq_T04PC0101_001#0"
+      "from": "Cerulean_Pokecenter_1F_EventScript_Man#0"
     },
     {
       "id": "msg_0470_T04PC0101_00001",
-      "from": "scr_seq_T04PC0101_002#0"
+      "from": "Cerulean_Pokecenter_1F_EventScript_FatMan#0"
     }
   ]
 }

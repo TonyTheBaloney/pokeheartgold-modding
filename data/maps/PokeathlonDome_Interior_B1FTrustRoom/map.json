@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0105_000 + 1",
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Receptionist1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0105_001 + 1",
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Receptionist2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0105_004 + 1",
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_BlackBelt",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0105_003 + 1",
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_AceTrainerM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0105_002 + 1",
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_AceTrainerF",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0105_005 + 1",
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Abra",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0105_006 + 1",
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Dratini",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -222,7 +222,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_008 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -230,7 +230,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_008 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -238,7 +238,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_009 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -246,7 +246,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_009 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -254,7 +254,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_010 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign3"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -262,7 +262,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_010 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign3"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -270,7 +270,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_009 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -278,7 +278,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_007 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_CheckedTheMedalSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -286,7 +286,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_007 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_CheckedTheMedalSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -294,7 +294,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_007 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_CheckedTheMedalSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -302,7 +302,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_007 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_CheckedTheMedalSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -310,7 +310,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_007 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_CheckedTheMedalSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -318,7 +318,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0105_013 + 1"
+            "script": "PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign4"
         }
     ]
 }

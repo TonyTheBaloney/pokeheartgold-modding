@@ -1,19 +1,19 @@
 #ifndef SCR_SEQ_R34_H_
 #define SCR_SEQ_R34_H_
 
-#define _EV_scr_seq_R34_000 0
-#define _EV_scr_seq_R34_001 1
-#define _EV_scr_seq_R34_002 2
-#define _EV_scr_seq_R34_003 3
-#define _EV_scr_seq_R34_004 4
-#define _EV_scr_seq_R34_005 5
-#define _EV_scr_seq_R34_006 6
-#define _EV_scr_seq_R34_007 7
-#define _EV_scr_seq_R34_008 8
-#define _EV_scr_seq_R34_009 9
-#define _EV_scr_seq_R34_010 10
-#define _EV_scr_seq_R34_011 11
-#define _EV_scr_seq_R34_012 12
+#define _EV_Route34_OnTransition 0
+#define _EV_Route34_EventScript_OldManScene 1
+#define _EV_Route34_EventScript_Policeman 2
+#define _EV_Route34_EventScript_LyraTrigger 3
+#define _EV_Route34_EventScript_IreneTrigger 4
+#define _EV_Route34_EventScript_KateTrigger 5
+#define _EV_Route34_EventScript_Irene 6
+#define _EV_Route34_EventScript_Jenn 7
+#define _EV_Route34_EventScript_Kate 8
+#define _EV_Route34_EventScript_TrainerTips1 9
+#define _EV_Route34_EventScript_TrainerTips2 10
+#define _EV_Route34_EventScript_RouteSign 11
+#define _EV_Route34_EventScript_PokefanM 12
 
 #define obj_R34_gsboy2                   0
 #define obj_R34_picnicgirl_2             1

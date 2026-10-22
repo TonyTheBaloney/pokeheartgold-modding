@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T25R0501_000
-    scr_seq_T25R0501_001
-    scr_seq_T25R0501_002
-    scr_seq_T25R0501_003
-    scr_seq_T25R0501_004
-    scr_seq_T25R0501_005
-    scr_seq_T25R0501_006
-    scr_seq_T25R0501_007
+    Goldenrod_MagnetTrainStation_1F_EventScript_Policeman
+    Goldenrod_MagnetTrainStation_1F_EventScript_Trigger1
+    Goldenrod_MagnetTrainStation_1F_EventScript_Trigger2
+    Goldenrod_MagnetTrainStation_1F_EventScript_Trigger3
+    Goldenrod_MagnetTrainStation_1F_EventScript_Trigger4
+    Goldenrod_MagnetTrainStation_1F_OnResume
+    Goldenrod_MagnetTrainStation_1F_OnTransition
+    Goldenrod_MagnetTrainStation_1F_EventScript_Sign
 }
 
-script scr_seq_T25R0501_006 {
+script Goldenrod_MagnetTrainStation_1F_OnTransition {
     setspecialspawnwarp(MAP_GOLDENROD, 348, 350)
     if (flag(FLAG_RESTORED_POWER)) {
         setvar(VAR_UNK_410B, 0)
@@ -22,7 +22,7 @@ script scr_seq_T25R0501_006 {
     end
 }
 
-script scr_seq_T25R0501_005 {
+script Goldenrod_MagnetTrainStation_1F_OnResume {
     if (flag(FLAG_RESTORED_POWER)) {
         movepersonfacing(obj_T25R0501_policeman, 4, 0, 6, DIR_EAST)
         end
@@ -30,7 +30,7 @@ script scr_seq_T25R0501_005 {
     end
 }
 
-script scr_seq_T25R0501_000 {
+script Goldenrod_MagnetTrainStation_1F_EventScript_Policeman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -45,7 +45,7 @@ script scr_seq_T25R0501_000 {
             npcmsg("Enjoy the attractive and magnetic\n"
                    "journey!\r")
             closemessage
-            applymovement(obj_T25R0501_policeman, Goldenrod_MagnetTrainStation_1F_Movement_00AC)
+            applymovement(obj_T25R0501_policeman, Goldenrod_MagnetTrainStation_1F_Movement_PolicemanFaceRight)
             waitmovement
         }
         releaseall
@@ -61,14 +61,14 @@ script scr_seq_T25R0501_000 {
     end
 }
 
-movement Goldenrod_MagnetTrainStation_1F_Movement_00AC {
+movement Goldenrod_MagnetTrainStation_1F_Movement_PolicemanFaceRight {
     face_right
 }
 
-script scr_seq_T25R0501_001 {
+script Goldenrod_MagnetTrainStation_1F_EventScript_Trigger1 {
     followmonresetmovement
     lockall
-    applymovement(obj_player, Goldenrod_MagnetTrainStation_1F_Movement_013C)
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_1F_Movement_PlayerFaceLeft)
     waitmovement
     if (flag(FLAG_UNK_123)) {
         npcmsg("Passengers need to go through the\n"
@@ -104,7 +104,7 @@ _00D6:
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Goldenrod_MagnetTrainStation_1F_Movement_0144)
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_1F_Movement_PlayerWalkDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -113,15 +113,15 @@ _00D6:
     end
 }
 
-movement Goldenrod_MagnetTrainStation_1F_Movement_013C {
+movement Goldenrod_MagnetTrainStation_1F_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-movement Goldenrod_MagnetTrainStation_1F_Movement_0144 {
+movement Goldenrod_MagnetTrainStation_1F_Movement_PlayerWalkDown {
     walk_down * 2
 }
 
-script scr_seq_T25R0501_007 {
+script Goldenrod_MagnetTrainStation_1F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("We request that you make sure you\n"
@@ -133,19 +133,19 @@ script scr_seq_T25R0501_007 {
     end
 }
 
-script scr_seq_T25R0501_002 {
+script Goldenrod_MagnetTrainStation_1F_EventScript_Trigger2 {
     end
 }
 
-script scr_seq_T25R0501_003 {
+script Goldenrod_MagnetTrainStation_1F_EventScript_Trigger3 {
     end
 }
 
-script scr_seq_T25R0501_004 {
+script Goldenrod_MagnetTrainStation_1F_EventScript_Trigger4 {
     end
 }
 
 mapscripts Goldenrod_MagnetTrainStation_1F_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_T25R0501_005
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25R0501_006
+    INIT_SCRIPT_ON_RESUME: Goldenrod_MagnetTrainStation_1F_OnResume
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_MagnetTrainStation_1F_OnTransition
 }

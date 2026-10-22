@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R01_000
-    scr_seq_R01_001
-    scr_seq_R01_002
+    Route1_EventScript_PokefanM
+    Route1_OnTransition
+    Route1_EventScript_RouteSign
 }
 
-script scr_seq_R01_001 {
+script Route1_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 1) { goto(_0050) }
@@ -24,7 +24,7 @@ script scr_seq_R01_001 {
     end
 }
 
-script scr_seq_R01_000 {
+script Route1_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -58,13 +58,13 @@ script scr_seq_R01_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Route1_Movement_01BC)
-        applymovement(obj_R01_gsmiddleman1, Route1_Movement_01D0)
+        applymovement(obj_player, Route1_Movement_PlayerWalkUpRight)
+        applymovement(obj_R01_gsmiddleman1, Route1_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route1_Movement_019C)
+        applymovement(obj_player, Route1_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Route1_Movement_01A8)
-        applymovement(obj_R01_gsmiddleman1, Route1_Movement_01D0)
+        applymovement(obj_player, Route1_Movement_PlayerWalkUpLeft)
+        applymovement(obj_R01_gsmiddleman1, Route1_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -72,7 +72,7 @@ script scr_seq_R01_000 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route1_Movement_01DC)
+        applymovement(obj_partner_poke, Route1_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -99,42 +99,42 @@ movement Route1_Movement_0184 {
     walk_in_place_down
 }
 
-movement Route1_Movement_019C {
+movement Route1_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route1_Movement_01A8 {
+movement Route1_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route1_Movement_01BC {
+movement Route1_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route1_Movement_01D0 {
+movement Route1_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route1_Movement_01DC {
+movement Route1_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R01_002 {
+script Route1_EventScript_RouteSign {
     directionsignpostex(1, 4, "Rt. 1\n"
                               "South to Pallet Town")
     end
 }
 
 mapscripts Route1_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R01_001
+    INIT_SCRIPT_ON_TRANSITION: Route1_OnTransition
 }

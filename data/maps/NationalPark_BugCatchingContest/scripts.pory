@@ -3,9 +3,9 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D22R0102_000
-    scr_seq_D22R0102_001
-    scr_seq_D22R0102_002
+    NationalPark_BugCatchingContest_EventScript_TrainerTips1
+    NationalPark_BugCatchingContest_EventScript_TrainerTips2
+    NationalPark_BugCatchingContest_EventScript_TrainerTips3
     scr_seq_D22R0102_003
     scr_seq_D22R0102_004
     scr_seq_D22R0102_005
@@ -138,13 +138,13 @@ script scr_seq_D22R0102_012 {
     end
 }
 
-script scr_seq_D22R0102_000 {
+script NationalPark_BugCatchingContest_EventScript_TrainerTips1 {
     trainertipsex(2, "Relaxation Square for Everyone\n"
                      "National Park")
     end
 }
 
-script scr_seq_D22R0102_001 {
+script NationalPark_BugCatchingContest_EventScript_TrainerTips2 {
     trainertipsex(3, "What is this notice?\r"
                      "Please battle only in the park grass.\r"
                      "National Park\n"
@@ -152,7 +152,7 @@ script scr_seq_D22R0102_001 {
     end
 }
 
-script scr_seq_D22R0102_002 {
+script NationalPark_BugCatchingContest_EventScript_TrainerTips3 {
     trainertipsex(3, "What is this notice?\r"
                      "No ball playing allowed\n"
                      "other than Poké Balls.\r"

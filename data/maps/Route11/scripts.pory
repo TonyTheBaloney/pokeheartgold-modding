@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R11_000
-    scr_seq_R11_001
-    scr_seq_R11_002
-    scr_seq_R11_003
+    Route11_EventScript_Kabigon
+    Route11_OnLoad
+    Route11_EventScript_RouteSign
+    Route11_EventScript_TrainerTips
 }
 
-script scr_seq_R11_001 {
+script Route11_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_ROUTE_11_SNORLAX)
         removeobject(obj_R11_kabigon)
@@ -25,7 +25,7 @@ script scr_seq_R11_001 {
     end
 }
 
-script scr_seq_R11_000 {
+script Route11_EventScript_Kabigon {
     playse(SEQ_SE_DP_SELECT)
     lockall
     radiomusicisplaying(5, VAR_SPECIAL_RESULT)
@@ -64,17 +64,17 @@ script scr_seq_R11_000 {
     end
 }
 
-script scr_seq_R11_002 {
+script Route11_EventScript_RouteSign {
     directionsignpostex(1, 2, "Rt. 11\n"
                               "West to DIGLETT’s Cave")
     end
 }
 
-script scr_seq_R11_003 {
+script Route11_EventScript_TrainerTips {
     trainertipsex(2, "DIGLETT’s Cave")
     end
 }
 
 mapscripts Route11_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_R11_001
+    INIT_SCRIPT_ON_LOAD: Route11_OnLoad
 }

@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_W40R0101_000
-    scr_seq_W40R0101_001
-    scr_seq_W40R0101_002
+    Route40_BattleFrontierGatehouse_EventScript_PokefanM
+    Route40_BattleFrontierGatehouse_OnResume
+    Route40_BattleFrontierGatehouse_EventScript_Attendant
 }
 
-script scr_seq_W40R0101_001 {
+script Route40_BattleFrontierGatehouse_OnResume {
     if (var(VAR_UNK_40E5) >= 1) {
         setvar(VAR_UNK_40E5, 2)
         end
@@ -20,7 +20,7 @@ _0028:
     end
 }
 
-script scr_seq_W40R0101_000 {
+script Route40_BattleFrontierGatehouse_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     if (flag(FLAG_UNK_0FB)) {
@@ -36,11 +36,11 @@ script scr_seq_W40R0101_000 {
     if (flag(FLAG_GAME_CLEAR)) { goto(_00B1) }
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 3) {
-        applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_00E4)
+        applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_PokefanMFaceLeft)
     } elif (var(VAR_TEMP_x4000) == 2) {
-        applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_00DC)
+        applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_PokefanMFaceRight)
     } else {
-        applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_00D4)
+        applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_PokefanMFaceDown)
     }
     waitmovement
     npcmsg("What? I’m the first to arrive!\r"
@@ -51,7 +51,7 @@ script scr_seq_W40R0101_000 {
            "Get in line if you want to be the second\n"
            "one in!\r")
     closemessage
-    applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_00CC)
+    applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_PokefanMFaceUp)
     waitmovement
     releaseall
     end
@@ -65,23 +65,23 @@ _00B1:
     end
 }
 
-movement Route40_BattleFrontierGatehouse_Movement_00CC {
+movement Route40_BattleFrontierGatehouse_Movement_PokefanMFaceUp {
     walk_in_place_up
 }
 
-movement Route40_BattleFrontierGatehouse_Movement_00D4 {
+movement Route40_BattleFrontierGatehouse_Movement_PokefanMFaceDown {
     walk_in_place_down
 }
 
-movement Route40_BattleFrontierGatehouse_Movement_00DC {
+movement Route40_BattleFrontierGatehouse_Movement_PokefanMFaceRight {
     walk_in_place_right
 }
 
-movement Route40_BattleFrontierGatehouse_Movement_00E4 {
+movement Route40_BattleFrontierGatehouse_Movement_PokefanMFaceLeft {
     walk_in_place_left
 }
 
-script scr_seq_W40R0101_002 {
+script Route40_BattleFrontierGatehouse_EventScript_Attendant {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -100,5 +100,5 @@ script scr_seq_W40R0101_002 {
 }
 
 mapscripts Route40_BattleFrontierGatehouse_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_W40R0101_001
+    INIT_SCRIPT_ON_RESUME: Route40_BattleFrontierGatehouse_OnResume
 }

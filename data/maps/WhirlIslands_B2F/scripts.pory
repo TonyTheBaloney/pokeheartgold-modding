@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D40R0104_000
-    scr_seq_D40R0104_001
+    WhirlIslands_B2F_EventScript_Sage
+    WhirlIslands_B2F_OnResume
     scr_seq_D40R0104_002
-    scr_seq_D40R0104_003
+    WhirlIslands_B2F_OnTransition
 }
 
-script scr_seq_D40R0104_003 {
+script WhirlIslands_B2F_OnTransition {
     setvar(VAR_TEMP_x4003, 111)
     end
 }
 
-script scr_seq_D40R0104_001 {
+script WhirlIslands_B2F_OnResume {
     if (var(VAR_TEMP_x4003) == 111) {
         if (flag(FLAG_UNK_106)) {
             movepersonfacing(obj_D40R0104_bozu, 34, 1, 29, DIR_EAST)
@@ -26,7 +26,7 @@ script scr_seq_D40R0104_001 {
     end
 }
 
-script scr_seq_D40R0104_000 {
+script WhirlIslands_B2F_EventScript_Sage {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -126,23 +126,23 @@ script scr_seq_D40R0104_002 {
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_D40R0104_bozu, WhirlIslands_B2F_Movement_0168)
+        applymovement(obj_D40R0104_bozu, WhirlIslands_B2F_Movement_SageWalkLeft)
     } else {
-        applymovement(obj_D40R0104_bozu, WhirlIslands_B2F_Movement_0154)
+        applymovement(obj_D40R0104_bozu, WhirlIslands_B2F_Movement_SageWalkUp)
     }
     waitmovement
     wait(30, VAR_SPECIAL_RESULT)
     end
 }
 
-movement WhirlIslands_B2F_Movement_0154 {
+movement WhirlIslands_B2F_Movement_SageWalkUp {
     face_down
     lock_dir
     walk_up
     unlock_dir
 }
 
-movement WhirlIslands_B2F_Movement_0168 {
+movement WhirlIslands_B2F_Movement_SageWalkLeft {
     face_right
     lock_dir
     walk_left
@@ -150,6 +150,6 @@ movement WhirlIslands_B2F_Movement_0168 {
 }
 
 mapscripts WhirlIslands_B2F_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D40R0104_001
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D40R0104_003
+    INIT_SCRIPT_ON_RESUME: WhirlIslands_B2F_OnResume
+    INIT_SCRIPT_ON_TRANSITION: WhirlIslands_B2F_OnTransition
 }

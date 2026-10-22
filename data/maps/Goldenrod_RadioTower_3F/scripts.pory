@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D23R0103_000 {
+script Goldenrod_RadioTower_3F_OnTransition {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
@@ -12,17 +12,17 @@ script scr_seq_D23R0103_000 {
     end
 }
 
-script scr_seq_D23R0103_001 {
+script Goldenrod_RadioTower_3F_EventScript_3FPersonnelSign {
     simplenpcmsg("3F Personnel")
     end
 }
 
-script scr_seq_D23R0103_002 {
+script Goldenrod_RadioTower_3F_EventScript_Sign1 {
     simplenpcmsg("Pokémon Music with host: DJ Ben")
     end
 }
 
-script scr_seq_D23R0103_003 {
+script Goldenrod_RadioTower_3F_EventScript_Man1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -43,14 +43,14 @@ script scr_seq_D23R0103_003 {
     end
 }
 
-script scr_seq_D23R0103_004 {
+script Goldenrod_RadioTower_3F_EventScript_Man2 {
     simplenpcmsg("We have recordings of the cries of many\n"
                  "of the Pokémon that have been found.\r"
                  "We must have about 200 kinds.")
     end
 }
 
-script scr_seq_D23R0103_005 {
+script Goldenrod_RadioTower_3F_EventScript_Beauty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -103,7 +103,7 @@ script scr_seq_D23R0103_005 {
     end
 }
 
-script scr_seq_D23R0103_006 {
+script Goldenrod_RadioTower_3F_EventScript_LittleBoy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -117,7 +117,7 @@ script scr_seq_D23R0103_006 {
     end
 }
 
-script scr_seq_D23R0103_007 {
+script Goldenrod_RadioTower_3F_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -142,8 +142,8 @@ _01B4:
     bufferplayersname(0)
     npcmsg("{STRVAR_1 3, 0, 0} inserted the Card Key.\r")
     closemessage
-    applymovement(obj_D23R0103_babyboy1_9, Goldenrod_RadioTower_3F_Movement_01F0)
-    applymovement(obj_D23R0103_babyboy1_9_2, Goldenrod_RadioTower_3F_Movement_01F8)
+    applymovement(obj_D23R0103_babyboy1_9, Goldenrod_RadioTower_3F_Movement_LittleBoyWalkLeft)
+    applymovement(obj_D23R0103_babyboy1_9_2, Goldenrod_RadioTower_3F_Movement_LittleBoyWalkRight)
     waitmovement
     releaseall
     setflag(FLAG_UNK_1BF)
@@ -153,14 +153,14 @@ _01B4:
     end
 }
 
-movement Goldenrod_RadioTower_3F_Movement_01F0 {
+movement Goldenrod_RadioTower_3F_Movement_LittleBoyWalkLeft {
     walk_left * 2
 }
 
-movement Goldenrod_RadioTower_3F_Movement_01F8 {
+movement Goldenrod_RadioTower_3F_Movement_LittleBoyWalkRight {
     walk_right * 2
 }
 
 mapscripts Goldenrod_RadioTower_3F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0103_000
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_RadioTower_3F_OnTransition
 }

@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07GYM0101_000
-    scr_seq_T07GYM0101_001
-    scr_seq_T07GYM0101_002
+    Celadon_Gym_EventScript_Erika
+    Celadon_Gym_EventScript_GymSign
+    Celadon_Gym_OnTransition
 }
 
-script scr_seq_T07GYM0101_002 {
+script Celadon_Gym_OnTransition {
     getphonebookrematch(PHONE_CONTACT_ERIKA, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
         setflag(FLAG_HIDE_CELADON_GYM_ERIKA)
@@ -58,7 +58,7 @@ _0101:
     end
 }
 
-script scr_seq_T07GYM0101_000 {
+script Celadon_Gym_EventScript_Erika {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -134,7 +134,7 @@ _01A5:
     end
 }
 
-script scr_seq_T07GYM0101_001 {
+script Celadon_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -155,5 +155,5 @@ script scr_seq_T07GYM0101_001 {
 }
 
 mapscripts Celadon_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07GYM0101_002
+    INIT_SCRIPT_ON_TRANSITION: Celadon_Gym_OnTransition
 }

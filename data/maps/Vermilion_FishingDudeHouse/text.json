@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0487_T06R0101_00000",
-      "from": "scr_seq_T06R0101_000#0"
+      "from": "Vermilion_FishingDudeHouse_EventScript_Fisherman#0"
     },
     {
       "id": "msg_0487_T06R0101_00001",
-      "from": "scr_seq_T06R0101_001#0"
+      "from": "Vermilion_FishingDudeHouse_EventScript_LittleBoy#0"
     }
   ]
 }

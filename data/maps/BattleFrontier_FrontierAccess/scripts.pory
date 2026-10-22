@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D32R0102_000
-    scr_seq_D32R0102_001
-    scr_seq_D32R0102_002
-    scr_seq_D32R0102_003
-    scr_seq_D32R0102_004
-    scr_seq_D32R0102_005
-    scr_seq_D32R0102_006
-    scr_seq_D32R0102_007
-    scr_seq_D32R0102_008
+    BattleFrontier_FrontierAccess_EventScript_PokefanM1
+    BattleFrontier_FrontierAccess_EventScript_PokefanMTrigger
+    BattleFrontier_FrontierAccess_OnResume
+    BattleFrontier_FrontierAccess_EventScript_PokefanM2
+    BattleFrontier_FrontierAccess_OnTransition
+    BattleFrontier_FrontierAccess_EventScript_Man
+    BattleFrontier_FrontierAccess_EventScript_Hiker
+    BattleFrontier_FrontierAccess_EventScript_Girl
+    BattleFrontier_FrontierAccess_EventScript_TrainerTips
 }
 
-script scr_seq_D32R0102_002 {
+script BattleFrontier_FrontierAccess_OnResume {
     if (var(VAR_UNK_40E5) == 2) {
         movepersonfacing(obj_D32R0102_gsmiddleman1, 17, 1, 25, DIR_WEST)
         end
@@ -22,7 +22,7 @@ script scr_seq_D32R0102_002 {
     end
 }
 
-script scr_seq_D32R0102_004 {
+script BattleFrontier_FrontierAccess_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 2) { goto(_0078) }
@@ -37,7 +37,7 @@ script scr_seq_D32R0102_004 {
     end
 }
 
-script scr_seq_D32R0102_000 {
+script BattleFrontier_FrontierAccess_EventScript_PokefanM1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -63,7 +63,7 @@ script scr_seq_D32R0102_000 {
     end
 }
 
-script scr_seq_D32R0102_001 {
+script BattleFrontier_FrontierAccess_EventScript_PokefanMTrigger {
     followmonresetmovement
     lockall
     npcmsg("Wait for meeee!!\r")
@@ -71,23 +71,23 @@ script scr_seq_D32R0102_001 {
     movepersonfacing(obj_D32R0102_gsmiddleman1, 14, 1, 36, DIR_NORTH)
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8004) == 12) {
-        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_019C)
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0224)
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_PokefanMWalkLeftUp)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerFaceRight)
     } elif (var(VAR_SPECIAL_x8004) == 13) {
-        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_01B4)
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0224)
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_PokefanMWalkUp1)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerFaceRight)
     } elif (var(VAR_SPECIAL_x8004) == 14) {
-        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_01C8)
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0224)
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_PokefanMWalkRightUp1)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerFaceRight)
     } elif (var(VAR_SPECIAL_x8004) == 15) {
-        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_01E0)
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0230)
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_PokefanMWalkUp2)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerFaceLeft)
     } elif (var(VAR_SPECIAL_x8004) == 16) {
-        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_01F4)
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0230)
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_PokefanMWalkRightUp2)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerFaceLeft)
     } else {
-        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_020C)
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0230)
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_PokefanMWalkRightUp3)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerFaceLeft)
     }
     waitmovement
     npcmsg("Oh my!\n"
@@ -103,7 +103,7 @@ script scr_seq_D32R0102_001 {
     end
 }
 
-movement BattleFrontier_FrontierAccess_Movement_019C {
+movement BattleFrontier_FrontierAccess_Movement_PokefanMWalkLeftUp {
     walk_fast_left
     walk_fast_up * 5
     walk_slightly_fast_up * 2
@@ -111,14 +111,14 @@ movement BattleFrontier_FrontierAccess_Movement_019C {
     walk_in_place_left
 }
 
-movement BattleFrontier_FrontierAccess_Movement_01B4 {
+movement BattleFrontier_FrontierAccess_Movement_PokefanMWalkUp1 {
     walk_fast_up * 5
     walk_slightly_fast_up * 2
     walk_up
     walk_in_place_left
 }
 
-movement BattleFrontier_FrontierAccess_Movement_01C8 {
+movement BattleFrontier_FrontierAccess_Movement_PokefanMWalkRightUp1 {
     walk_right
     walk_fast_up * 5
     walk_slightly_fast_up * 2
@@ -126,14 +126,14 @@ movement BattleFrontier_FrontierAccess_Movement_01C8 {
     walk_in_place_left
 }
 
-movement BattleFrontier_FrontierAccess_Movement_01E0 {
+movement BattleFrontier_FrontierAccess_Movement_PokefanMWalkUp2 {
     walk_fast_up * 5
     walk_slightly_fast_up * 2
     walk_up
     walk_in_place_right
 }
 
-movement BattleFrontier_FrontierAccess_Movement_01F4 {
+movement BattleFrontier_FrontierAccess_Movement_PokefanMWalkRightUp2 {
     walk_right
     walk_fast_up * 5
     walk_slightly_fast_up * 2
@@ -141,7 +141,7 @@ movement BattleFrontier_FrontierAccess_Movement_01F4 {
     walk_in_place_right
 }
 
-movement BattleFrontier_FrontierAccess_Movement_020C {
+movement BattleFrontier_FrontierAccess_Movement_PokefanMWalkRightUp3 {
     walk_fast_right * 2
     walk_fast_up * 5
     walk_slightly_fast_up * 2
@@ -149,17 +149,17 @@ movement BattleFrontier_FrontierAccess_Movement_020C {
     walk_in_place_right
 }
 
-movement BattleFrontier_FrontierAccess_Movement_0224 {
+movement BattleFrontier_FrontierAccess_Movement_PlayerFaceRight {
     delay_8 * 5
     walk_in_place_right
 }
 
-movement BattleFrontier_FrontierAccess_Movement_0230 {
+movement BattleFrontier_FrontierAccess_Movement_PlayerFaceLeft {
     delay_8 * 5
     walk_in_place_left
 }
 
-script scr_seq_D32R0102_003 {
+script BattleFrontier_FrontierAccess_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -193,16 +193,16 @@ script scr_seq_D32R0102_003 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_038C)
-        applymovement(obj_D32R0102_gsmiddleman1_2, BattleFrontier_FrontierAccess_Movement_03D8)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerWalkRightUp)
+        applymovement(obj_D32R0102_gsmiddleman1_2, BattleFrontier_FrontierAccess_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_03A4)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_03C4)
-        applymovement(obj_D32R0102_gsmiddleman1_2, BattleFrontier_FrontierAccess_Movement_03D8)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerWalkUpRight)
+        applymovement(obj_D32R0102_gsmiddleman1_2, BattleFrontier_FrontierAccess_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_03B0)
-        applymovement(obj_D32R0102_gsmiddleman1_2, BattleFrontier_FrontierAccess_Movement_03D8)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D32R0102_gsmiddleman1_2, BattleFrontier_FrontierAccess_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -210,7 +210,7 @@ script scr_seq_D32R0102_003 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, BattleFrontier_FrontierAccess_Movement_03E4)
+        applymovement(obj_partner_poke, BattleFrontier_FrontierAccess_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -229,7 +229,7 @@ script scr_seq_D32R0102_003 {
     end
 }
 
-movement BattleFrontier_FrontierAccess_Movement_038C {
+movement BattleFrontier_FrontierAccess_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -237,37 +237,37 @@ movement BattleFrontier_FrontierAccess_Movement_038C {
     walk_in_place_down
 }
 
-movement BattleFrontier_FrontierAccess_Movement_03A4 {
+movement BattleFrontier_FrontierAccess_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement BattleFrontier_FrontierAccess_Movement_03B0 {
+movement BattleFrontier_FrontierAccess_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement BattleFrontier_FrontierAccess_Movement_03C4 {
+movement BattleFrontier_FrontierAccess_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement BattleFrontier_FrontierAccess_Movement_03D8 {
+movement BattleFrontier_FrontierAccess_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement BattleFrontier_FrontierAccess_Movement_03E4 {
+movement BattleFrontier_FrontierAccess_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_D32R0102_005 {
+script BattleFrontier_FrontierAccess_EventScript_Man {
     if (!flag(FLAG_UNK_150)) {
         playse(SEQ_SE_DP_SELECT)
         lockall
@@ -278,7 +278,7 @@ script scr_seq_D32R0102_005 {
                "can’t stop shivering!\r"
                "What am I gonna do if I get beaten\n"
                "to a pulp?\r")
-        applymovement(obj_D32R0102_gsman1, BattleFrontier_FrontierAccess_Movement_043C)
+        applymovement(obj_D32R0102_gsman1, BattleFrontier_FrontierAccess_Movement_ManFaceDown)
         waitmovement
         npcmsg("...You look quite young.\r"
                "...\n"
@@ -298,21 +298,21 @@ script scr_seq_D32R0102_005 {
                "Or I might not!\r")
         closemessage
     }
-    applymovement(obj_D32R0102_gsman1, BattleFrontier_FrontierAccess_Movement_0444)
+    applymovement(obj_D32R0102_gsman1, BattleFrontier_FrontierAccess_Movement_ManFaceUp)
     waitmovement
     releaseall
     end
 }
 
-movement BattleFrontier_FrontierAccess_Movement_043C {
+movement BattleFrontier_FrontierAccess_Movement_ManFaceDown {
     face_down
 }
 
-movement BattleFrontier_FrontierAccess_Movement_0444 {
+movement BattleFrontier_FrontierAccess_Movement_ManFaceUp {
     face_up
 }
 
-script scr_seq_D32R0102_006 {
+script BattleFrontier_FrontierAccess_EventScript_Hiker {
     simplenpcmsg("Finally!\n"
                  "I’m here at the Battle Frontier!\r"
                  "When a Pokémon battle on the road\n"
@@ -322,7 +322,7 @@ script scr_seq_D32R0102_006 {
     end
 }
 
-script scr_seq_D32R0102_007 {
+script BattleFrontier_FrontierAccess_EventScript_Girl {
     simplenpcmsg("Normally, choosing which Pokémon is all\n"
                  "there is to a Pokémon battle.\r"
                  "But when you change certain rules or\n"
@@ -333,7 +333,7 @@ script scr_seq_D32R0102_007 {
     end
 }
 
-script scr_seq_D32R0102_008 {
+script BattleFrontier_FrontierAccess_EventScript_TrainerTips {
     trainertipsex(2, "This Is the Battle Frontier\r"
                      "Come, Proud Trainers\n"
                      "Aim for the Top!")
@@ -341,6 +341,6 @@ script scr_seq_D32R0102_008 {
 }
 
 mapscripts BattleFrontier_FrontierAccess_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D32R0102_002
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0102_004
+    INIT_SCRIPT_ON_RESUME: BattleFrontier_FrontierAccess_OnResume
+    INIT_SCRIPT_ON_TRANSITION: BattleFrontier_FrontierAccess_OnTransition
 }

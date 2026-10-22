@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R30_009 + 1",
+            "script": "Route30_EventScript_Man",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R30_010 + 1",
+            "script": "Route30_EventScript_Girl",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R30_000 + 1",
+            "script": "Route30_EventScript_Youngster",
             "flag": "FLAG_HIDE_ROUTE_30_BATTLERS"
         },
         {
@@ -279,7 +279,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R30_003 + 1",
+            "script": "Route30_EventScript_BugCatcher",
             "flag": "FLAG_NOTHING"
         }
     ],
@@ -308,7 +308,7 @@
             "height": 1,
             "var": "VAR_SCENE_ROUTE_30_OW",
             "var_value": 0,
-            "script": "_EV_scr_seq_R30_002 + 1"
+            "script": "Route30_EventScript_PokefanMTrigger"
         },
         {
             "x": 553,
@@ -318,7 +318,7 @@
             "height": 1,
             "var": "VAR_SCENE_ROUTE_30_PHONE_CALL",
             "var_value": 1,
-            "script": "_EV_scr_seq_R30_004 + 1"
+            "script": "Route30_EventScript_MomCall"
         }
     ],
     "bg_events": [
@@ -328,7 +328,7 @@
             "y": 363,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R30_005 + 1"
+            "script": "Route30_EventScript_RouteSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -336,7 +336,7 @@
             "y": 332,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R30_006 + 1"
+            "script": "Route30_EventScript_MrPokemonsHouseSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -344,7 +344,7 @@
             "y": 319,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R30_007 + 1"
+            "script": "Route30_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -352,7 +352,7 @@
             "y": 294,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R30_008 + 1"
+            "script": "Route30_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

@@ -1,10 +1,10 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_P01R0304_000 {
+script SsAqua_1F_SouthwestRooms_OnLoad {
     end
 }
 
 mapscripts SsAqua_1F_SouthwestRooms_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_P01R0304_000
+    INIT_SCRIPT_ON_LOAD: SsAqua_1F_SouthwestRooms_OnLoad
 }

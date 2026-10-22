@@ -3,31 +3,31 @@
   "messages": [
     {
       "id": "msg_0113_D35R0103_00000",
-      "from": "scr_seq_D35R0103_000#0"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_LanceScene#0"
     },
     {
       "id": "msg_0113_D35R0103_00001",
-      "from": "scr_seq_D35R0103_000#1"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_LanceScene#1"
     },
     {
       "id": "msg_0113_D35R0103_00002",
-      "from": "scr_seq_D35R0103_000#2"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_LanceScene#2"
     },
     {
       "id": "msg_0113_D35R0103_00003",
-      "from": "scr_seq_D35R0103_003#0"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger#0"
     },
     {
       "id": "msg_0113_D35R0103_00004",
-      "from": "scr_seq_D35R0103_003#1"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger#1"
     },
     {
       "id": "msg_0113_D35R0103_00005",
-      "from": "scr_seq_D35R0103_003#2"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger#2"
     },
     {
       "id": "msg_0113_D35R0103_00006",
-      "from": "scr_seq_D35R0103_003#3"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger#3"
     },
     {
       "id": "msg_0113_D35R0103_00007",
@@ -40,7 +40,7 @@
     },
     {
       "id": "msg_0113_D35R0103_00008",
-      "from": "scr_seq_D35R0103_003#4"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger#4"
     },
     {
       "id": "msg_0113_D35R0103_00009",
@@ -54,19 +54,19 @@
     },
     {
       "id": "msg_0113_D35R0103_00010",
-      "from": "scr_seq_D35R0103_003#5"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger#5"
     },
     {
       "id": "msg_0113_D35R0103_00011",
-      "from": "scr_seq_D35R0103_003#6"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger#6"
     },
     {
       "id": "msg_0113_D35R0103_00012",
-      "from": "scr_seq_D35R0103_003#7"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger#7"
     },
     {
       "id": "msg_0113_D35R0103_00013",
-      "from": "scr_seq_D35R0103_003#8"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger#8"
     },
     {
       "id": "msg_0113_D35R0103_00014",
@@ -74,7 +74,7 @@
     },
     {
       "id": "msg_0113_D35R0103_00015",
-      "from": "scr_seq_D35R0103_006#0"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_Lance#0"
     },
     {
       "id": "msg_0113_D35R0103_00016",
@@ -82,47 +82,47 @@
     },
     {
       "id": "msg_0113_D35R0103_00017",
-      "from": "scr_seq_D35R0103_006#1"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_Lance#1"
     },
     {
       "id": "msg_0113_D35R0103_00018",
-      "from": "scr_seq_D35R0103_006#2"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_Lance#2"
     },
     {
       "id": "msg_0113_D35R0103_00019",
-      "from": "scr_seq_D35R0103_006#3"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_Lance#3"
     },
     {
       "id": "msg_0113_D35R0103_00020",
-      "from": "scr_seq_D35R0103_001#0"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_LittleBoy#0"
     },
     {
       "id": "msg_0113_D35R0103_00021",
-      "from": "scr_seq_D35R0103_001#1"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_LittleBoy#1"
     },
     {
       "id": "msg_0113_D35R0103_00022",
-      "from": "scr_seq_D35R0103_010#1"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_Radio#1"
     },
     {
       "id": "msg_0113_D35R0103_00023",
-      "from": "scr_seq_D35R0103_010#0"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_Radio#0"
     },
     {
       "id": "msg_0113_D35R0103_00024",
-      "from": "scr_seq_D35R0103_013#0"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger2#0"
     },
     {
       "id": "msg_0113_D35R0103_00025",
-      "from": "scr_seq_D35R0103_014#0"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger3#0"
     },
     {
       "id": "msg_0113_D35R0103_00026",
-      "from": "scr_seq_D35R0103_011#0"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger1#0"
     },
     {
       "id": "msg_0113_D35R0103_00027",
-      "from": "scr_seq_D35R0103_011#1"
+      "from": "TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger1#1"
     }
   ]
 }

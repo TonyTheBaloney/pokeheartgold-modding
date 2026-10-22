@@ -82,11 +82,11 @@
     },
     {
       "id": "msg_0744_W40_00015",
-      "from": "scr_seq_W40_008#0"
+      "from": "Route40_EventScript_PokefanMTrigger#0"
     },
     {
       "id": "msg_0744_W40_00016",
-      "from": "scr_seq_W40_008#1"
+      "from": "Route40_EventScript_PokefanMTrigger#1"
     },
     {
       "id": "msg_0744_W40_00017",
@@ -99,15 +99,15 @@
     },
     {
       "id": "msg_0744_W40_00018",
-      "from": "scr_seq_W40_007#0"
+      "from": "Route40_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0744_W40_00019",
-      "from": "scr_seq_W40_002#0"
+      "from": "Route40_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0744_W40_00020",
-      "from": "scr_seq_W40_009#0"
+      "from": "Route40_EventScript_TrainerTips#0"
     }
   ]
 }

@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T25R1006_000
-    scr_seq_T25R1006_001
-    scr_seq_T25R1006_002
-    scr_seq_T25R1006_003
-    scr_seq_T25R1006_004
-    scr_seq_T25R1006_005
-    scr_seq_T25R1006_006
-    scr_seq_T25R1006_007
+    Goldenrod_DepartmentStore_6F_EventScript_Man
+    Goldenrod_DepartmentStore_6F_EventScript_Girl
+    Goldenrod_DepartmentStore_6F_EventScript_Sign
+    Goldenrod_DepartmentStore_6F_EventScript_Machine
+    Goldenrod_DepartmentStore_6F_EventScript_Receptionist1
+    Goldenrod_DepartmentStore_6F_EventScript_Receptionist2
+    Goldenrod_DepartmentStore_6F_OnTransition
+    Goldenrod_DepartmentStore_6F_EventScript_Whitney
 }
 
-script scr_seq_T25R1006_006 {
+script Goldenrod_DepartmentStore_6F_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         if (!flag(FLAG_GAME_CLEAR)) { goto(_011D) }
         getphonebookrematch(PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001)
@@ -53,7 +53,7 @@ script scr_seq_T25R1006_006 {
     end
 }
 
-script scr_seq_T25R1006_004 {
+script Goldenrod_DepartmentStore_6F_EventScript_Receptionist1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -239,7 +239,7 @@ text msg_0597_T25R1006_00012 {
     "Please take it.\r"
 }
 
-script scr_seq_T25R1006_005 {
+script Goldenrod_DepartmentStore_6F_EventScript_Receptionist2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -286,7 +286,7 @@ script scr_seq_T25R1006_005 {
     end
 }
 
-script scr_seq_T25R1006_000 {
+script Goldenrod_DepartmentStore_6F_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -307,7 +307,7 @@ script scr_seq_T25R1006_000 {
     end
 }
 
-script scr_seq_T25R1006_001 {
+script Goldenrod_DepartmentStore_6F_EventScript_Girl {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -330,7 +330,7 @@ script scr_seq_T25R1006_001 {
     end
 }
 
-script scr_seq_T25R1006_007 {
+script Goldenrod_DepartmentStore_6F_EventScript_Whitney {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -424,7 +424,7 @@ _066F:
     end
 }
 
-script scr_seq_T25R1006_002 {
+script Goldenrod_DepartmentStore_6F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Take a Break from Shopping!\n"
@@ -435,7 +435,7 @@ script scr_seq_T25R1006_002 {
     end
 }
 
-script scr_seq_T25R1006_003 {
+script Goldenrod_DepartmentStore_6F_EventScript_Machine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg(msg_0597_T25R1006_00005)
@@ -542,5 +542,5 @@ text msg_0597_T25R1006_00005 {
 }
 
 mapscripts Goldenrod_DepartmentStore_6F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25R1006_006
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_DepartmentStore_6F_OnTransition
 }

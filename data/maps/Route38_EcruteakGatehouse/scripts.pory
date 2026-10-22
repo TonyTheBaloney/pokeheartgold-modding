@@ -5,7 +5,7 @@ script scr_seq_R38R0101_000 {
     end
 }
 
-script scr_seq_R38R0101_001 {
+script Route38_EcruteakGatehouse_EventScript_Attendant {
     simplenpcmsg("Where did you say you’re from?\r"
                  "New Bark Town?\r"
                  "That’s the town where...\n"

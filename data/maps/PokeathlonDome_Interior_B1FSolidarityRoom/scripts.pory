@@ -3,23 +3,23 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D49R0104_000
-    scr_seq_D49R0104_001
-    scr_seq_D49R0104_002
-    scr_seq_D49R0104_003
-    scr_seq_D49R0104_004
-    scr_seq_D49R0104_005
-    scr_seq_D49R0104_006
-    scr_seq_D49R0104_007
-    scr_seq_D49R0104_008
-    scr_seq_D49R0104_009
-    scr_seq_D49R0104_010
-    scr_seq_D49R0104_011
-    scr_seq_D49R0104_012
-    scr_seq_D49R0104_013
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Receptionist1
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Receptionist2
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Man
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Rattata1
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Lass
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Rattata2
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Zubat
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_CheckedSign
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Painting
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Sign1
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Sign2
+    PokeathlonDome_Interior_B1FSolidarityRoom_OnResume
+    PokeathlonDome_Interior_B1FSolidarityRoom_OnTransition
+    PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Sign3
 }
 
-script scr_seq_D49R0104_012 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_OnTransition {
     if (flag(FLAG_UNK_0EF)) {
         setvar(VAR_TEMP_x400B, 1)
         end
@@ -28,7 +28,7 @@ script scr_seq_D49R0104_012 {
     end
 }
 
-script scr_seq_D49R0104_011 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_OnResume {
     if (var(VAR_TEMP_x400B) == 1) {
         movepersonfacing(obj_D49R0104_pcwoman2_2, 2, 1, 3, DIR_EAST)
         setvar(VAR_TEMP_x400B, 0)
@@ -36,7 +36,7 @@ script scr_seq_D49R0104_011 {
     end
 }
 
-script scr_seq_D49R0104_000 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Receptionist1 {
     simplenpcmsg("This is the “Solidarity” room.\r"
                  "It is to show the solidarity of Pokémon\n"
                  "and people, as well as the history\f"
@@ -44,7 +44,7 @@ script scr_seq_D49R0104_000 {
     end
 }
 
-script scr_seq_D49R0104_001 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Receptionist2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -65,12 +65,12 @@ script scr_seq_D49R0104_001 {
     end
 }
 
-script scr_seq_D49R0104_002 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Man {
     simplenpcmsg("The Pokéathlon does go way back.")
     end
 }
 
-script scr_seq_D49R0104_003 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Rattata1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -78,7 +78,7 @@ script scr_seq_D49R0104_003 {
            "you receive a Medal!\f"
            "I’ve got to win at every course!\r")
     closemessage
-    applymovement(obj_D49R0104_tsure_poke_static_rattata, PokeathlonDome_Interior_B1FSolidarityRoom_Movement_00F0)
+    applymovement(obj_D49R0104_tsure_poke_static_rattata, PokeathlonDome_Interior_B1FSolidarityRoom_Movement_RattataFaceUp)
     waitmovement
     playcry(SPECIES_RATTATA, 0)
     npcmsg("RATTATA: Kooar!")
@@ -89,18 +89,18 @@ script scr_seq_D49R0104_003 {
     end
 }
 
-movement PokeathlonDome_Interior_B1FSolidarityRoom_Movement_00F0 {
+movement PokeathlonDome_Interior_B1FSolidarityRoom_Movement_RattataFaceUp {
     jump_in_place_fast_up * 2
 }
 
-script scr_seq_D49R0104_004 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Lass {
     simplenpcmsg("I heard that Pokéathletes with great\n"
                  "records are going to have their shoes\f"
                  "displayed at the museum!")
     end
 }
 
-script scr_seq_D49R0104_005 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Rattata2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -113,7 +113,7 @@ script scr_seq_D49R0104_005 {
     end
 }
 
-script scr_seq_D49R0104_006 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Zubat {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -126,7 +126,7 @@ script scr_seq_D49R0104_006 {
     end
 }
 
-script scr_seq_D49R0104_007 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_CheckedSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -144,7 +144,7 @@ script scr_seq_D49R0104_007 {
     end
 }
 
-script scr_seq_D49R0104_008 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Painting {
     simplenpcmsg("It is an old wall painting.\r"
                  "One person and three Pokémon\n"
                  "seem to be learning something\f"
@@ -152,7 +152,7 @@ script scr_seq_D49R0104_008 {
     end
 }
 
-script scr_seq_D49R0104_009 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Sign1 {
     simplenpcmsg("It is an old, worn scroll.\r"
                  "“Pokéathlon Myth\r"
                  "When a disease took over the entire\n"
@@ -162,7 +162,7 @@ script scr_seq_D49R0104_009 {
     end
 }
 
-script scr_seq_D49R0104_010 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Sign2 {
     simplenpcmsg("It’s an old scroll.\r"
                  "“The Beginning of Pokéathlon\r"
                  "To commemorate the friendship of the\n"
@@ -176,7 +176,7 @@ script scr_seq_D49R0104_010 {
     end
 }
 
-script scr_seq_D49R0104_013 {
+script PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Sign3 {
     simplenpcmsg("“Pokéathlon Almanac”\r"
                  "There are many Pokéathletes and\n"
                  "Pokémon Medalists shown in\f"
@@ -185,6 +185,6 @@ script scr_seq_D49R0104_013 {
 }
 
 mapscripts PokeathlonDome_Interior_B1FSolidarityRoom_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D49R0104_011
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D49R0104_012
+    INIT_SCRIPT_ON_RESUME: PokeathlonDome_Interior_B1FSolidarityRoom_OnResume
+    INIT_SCRIPT_ON_TRANSITION: PokeathlonDome_Interior_B1FSolidarityRoom_OnTransition
 }

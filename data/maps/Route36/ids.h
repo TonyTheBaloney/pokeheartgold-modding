@@ -1,17 +1,17 @@
 #ifndef SCR_SEQ_R36_H_
 #define SCR_SEQ_R36_H_
 
-#define _EV_scr_seq_R36_000 0
-#define _EV_scr_seq_R36_001 1
-#define _EV_scr_seq_R36_002 2
-#define _EV_scr_seq_R36_003 3
-#define _EV_scr_seq_R36_004 4
-#define _EV_scr_seq_R36_005 5
-#define _EV_scr_seq_R36_006 6
-#define _EV_scr_seq_R36_007 7
-#define _EV_scr_seq_R36_008 8
-#define _EV_scr_seq_R36_009 9
-#define _EV_scr_seq_R36_010 10
+#define _EV_Route36_EventScript_Usokky 0
+#define _EV_Route36_EventScript_SchoolKidM 1
+#define _EV_Route36_OnTransition 2
+#define _EV_Route36_EventScript_RouteSign 3
+#define _EV_Route36_EventScript_TrainerTips1 4
+#define _EV_Route36_EventScript_TrainerTips2 5
+#define _EV_Route36_EventScript_TrainerTips3 6
+#define _EV_Route36_EventScript_Lass1 7
+#define _EV_Route36_EventScript_FatMan 8
+#define _EV_Route36_EventScript_Lass2 9
+#define _EV_Route36_OnLoad 10
 
 #define obj_R36_gsbigman    0
 #define obj_R36_gsgirl1     1

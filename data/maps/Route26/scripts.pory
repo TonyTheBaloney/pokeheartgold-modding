@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R26_000
-    scr_seq_R26_001
-    scr_seq_R26_002
-    scr_seq_R26_003
+    Route26_EventScript_PokefanM
+    Route26_OnTransition
+    Route26_EventScript_TrainerTips
+    Route26_EventScript_NorthToVictoryRoadSign
 }
 
-script scr_seq_R26_001 {
+script Route26_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 2) { goto(_0047) }
@@ -24,7 +24,7 @@ script scr_seq_R26_001 {
     end
 }
 
-script scr_seq_R26_000 {
+script Route26_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -58,13 +58,13 @@ script scr_seq_R26_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Route26_Movement_017C)
-        applymovement(obj_R26_gsmiddleman1, Route26_Movement_01B4)
+        applymovement(obj_player, Route26_Movement_PlayerWalkRightUp)
+        applymovement(obj_R26_gsmiddleman1, Route26_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route26_Movement_0194)
+        applymovement(obj_player, Route26_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Route26_Movement_01A0)
-        applymovement(obj_R26_gsmiddleman1, Route26_Movement_01B4)
+        applymovement(obj_player, Route26_Movement_PlayerWalkUpLeft)
+        applymovement(obj_R26_gsmiddleman1, Route26_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -72,7 +72,7 @@ script scr_seq_R26_000 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route26_Movement_01C0)
+        applymovement(obj_partner_poke, Route26_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -91,7 +91,7 @@ script scr_seq_R26_000 {
     end
 }
 
-movement Route26_Movement_017C {
+movement Route26_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -99,41 +99,41 @@ movement Route26_Movement_017C {
     walk_in_place_down
 }
 
-movement Route26_Movement_0194 {
+movement Route26_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route26_Movement_01A0 {
+movement Route26_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route26_Movement_01B4 {
+movement Route26_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route26_Movement_01C0 {
+movement Route26_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R26_002 {
+script Route26_EventScript_TrainerTips {
     trainertipsex(2, "Rt. 26\n"
                      "Pokémon League Reception Gate")
     end
 }
 
-script scr_seq_R26_003 {
+script Route26_EventScript_NorthToVictoryRoadSign {
     directionsignpostex(1, 6, "North to Victory Road\n"
                               "South to Rt. 27")
     end
 }
 
 mapscripts Route26_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R26_001
+    INIT_SCRIPT_ON_TRANSITION: Route26_OnTransition
 }

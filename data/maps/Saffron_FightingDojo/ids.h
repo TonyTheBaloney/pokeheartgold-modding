@@ -1,26 +1,26 @@
 #ifndef SCR_SEQ_T11R0101_H_
 #define SCR_SEQ_T11R0101_H_
 
-#define _EV_scr_seq_T11R0101_000 0
-#define _EV_scr_seq_T11R0101_001 1
-#define _EV_scr_seq_T11R0101_002 2
-#define _EV_scr_seq_T11R0101_003 3
-#define _EV_scr_seq_T11R0101_004 4
-#define _EV_scr_seq_T11R0101_005 5
-#define _EV_scr_seq_T11R0101_006 6
-#define _EV_scr_seq_T11R0101_007 7
-#define _EV_scr_seq_T11R0101_008 8
-#define _EV_scr_seq_T11R0101_009 9
-#define _EV_scr_seq_T11R0101_010 10
-#define _EV_scr_seq_T11R0101_011 11
-#define _EV_scr_seq_T11R0101_012 12
-#define _EV_scr_seq_T11R0101_013 13
-#define _EV_scr_seq_T11R0101_014 14
-#define _EV_scr_seq_T11R0101_015 15
-#define _EV_scr_seq_T11R0101_016 16
-#define _EV_scr_seq_T11R0101_017 17
-#define _EV_scr_seq_T11R0101_018 18
-#define _EV_scr_seq_T11R0101_019 19
+#define _EV_Saffron_FightingDojo_EventScript_BlackBelt 0
+#define _EV_Saffron_FightingDojo_EventScript_Sign1 1
+#define _EV_Saffron_FightingDojo_EventScript_Sign2 2
+#define _EV_Saffron_FightingDojo_OnTransition 3
+#define _EV_Saffron_FightingDojo_EventScript_Whitney 4
+#define _EV_Saffron_FightingDojo_EventScript_Janine 5
+#define _EV_Saffron_FightingDojo_EventScript_Clair 6
+#define _EV_Saffron_FightingDojo_EventScript_Erika 7
+#define _EV_Saffron_FightingDojo_EventScript_Misty 8
+#define _EV_Saffron_FightingDojo_EventScript_Blaine 9
+#define _EV_Saffron_FightingDojo_EventScript_Blue 10
+#define _EV_Saffron_FightingDojo_EventScript_Chuck 11
+#define _EV_Saffron_FightingDojo_EventScript_Brock 12
+#define _EV_Saffron_FightingDojo_EventScript_Bugsy 13
+#define _EV_Saffron_FightingDojo_EventScript_Sabrina 14
+#define _EV_Saffron_FightingDojo_EventScript_Falkner 15
+#define _EV_Saffron_FightingDojo_EventScript_LtSurge 16
+#define _EV_Saffron_FightingDojo_EventScript_Morty 17
+#define _EV_Saffron_FightingDojo_EventScript_Jasmine 18
+#define _EV_Saffron_FightingDojo_EventScript_Pryce 19
 
 #define obj_T11R0101_gsfighter  0
 #define obj_T11R0101_gsleader3  1

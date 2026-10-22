@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0701_000 + 1",
+            "script": "Celadon_Restaurant_EventScript_Man",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0701_004 + 1",
+            "script": "Celadon_Restaurant_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0701_003 + 1",
+            "script": "Celadon_Restaurant_EventScript_FatMan3",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0701_005 + 1",
+            "script": "Celadon_Restaurant_EventScript_Maylene",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0701_002 + 1",
+            "script": "Celadon_Restaurant_EventScript_FatMan2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0701_001 + 1",
+            "script": "Celadon_Restaurant_EventScript_FatMan1",
             "flag": "FLAG_NOTHING"
         }
     ],

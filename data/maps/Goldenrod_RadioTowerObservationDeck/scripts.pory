@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D23R0106_000 {
+script Goldenrod_RadioTowerObservationDeck_OnTransition {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
     setvar(VAR_UNK_4125, 0)
@@ -12,7 +12,7 @@ script scr_seq_D23R0106_000 {
     end
 }
 
-script scr_seq_D23R0106_001 {
+script Goldenrod_RadioTowerObservationDeck_EventScript_Archer {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -39,7 +39,7 @@ script scr_seq_D23R0106_001 {
         getpersoncoords(253, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
         if (var(VAR_SPECIAL_x8004) == 7) {
             wait(112, VAR_SPECIAL_RESULT)
-            applymovement(obj_partner_poke, Goldenrod_RadioTowerObservationDeck_Movement_02DC)
+            applymovement(obj_partner_poke, Goldenrod_RadioTowerObservationDeck_Movement_FollowMonWalkUpRight)
         }
         return
     }
@@ -65,18 +65,18 @@ script scr_seq_D23R0106_001 {
     movepersonfacing(obj_D23R0106_gsgentleman, 8, 1, 12, DIR_SOUTH)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 7) {
-        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0288)
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft1)
     } elif (var(VAR_TEMP_x4000) == 8) {
-        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_02A4)
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft2)
         followmonisactive(VAR_SPECIAL_RESULT)
         compare(VAR_SPECIAL_RESULT, 1)
         callifeq(_0263)
     } elif (var(VAR_TEMP_x4000) == 9) {
-        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_02C0)
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft3)
     }
     waitmovement
     if (var(VAR_TEMP_x4000) == 8) {
-        applymovement(obj_player, Goldenrod_RadioTowerObservationDeck_Movement_02EC)
+        applymovement(obj_player, Goldenrod_RadioTowerObservationDeck_Movement_PlayerFaceLeft)
     }
     waitmovement
     npcmsg("Director: Oh...!\r"
@@ -116,16 +116,16 @@ script scr_seq_D23R0106_001 {
         closemessage
     }
     if (var(VAR_TEMP_x4000) == 7) {
-        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_02F4)
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft4)
     } elif (var(VAR_TEMP_x4000) == 8) {
-        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0304)
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft5)
     } elif (var(VAR_TEMP_x4000) == 9) {
-        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0314)
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft6)
     }
     waitmovement
-    applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0324)
+    applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkRight)
     waitmovement
-    applymovement(obj_player, Goldenrod_RadioTowerObservationDeck_Movement_02EC)
+    applymovement(obj_player, Goldenrod_RadioTowerObservationDeck_Movement_PlayerFaceLeft)
     waitmovement
     getgameversion(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 7) {
@@ -152,14 +152,14 @@ script scr_seq_D23R0106_001 {
                "I can’t remember.\r")
     }
     closemessage
-    applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_032C)
+    applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkLeftDown)
     waitmovement
     npcmsg("Are you expecting something?\n"
            "This is what they call Fake Out.\r"
            "I really must go back to my office this\n"
            "time. See ya!\r")
     closemessage
-    applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0344)
+    applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownRight)
     waitmovement
     playse(SEQ_SE_DP_DOOR10)
     waitse(SEQ_SE_DP_DOOR10)
@@ -184,7 +184,7 @@ script scr_seq_D23R0106_001 {
     end
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_0288 {
+movement Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft1 {
     walk_down
     walk_left * 4
     walk_up * 7
@@ -193,7 +193,7 @@ movement Goldenrod_RadioTowerObservationDeck_Movement_0288 {
     walk_in_place_left
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_02A4 {
+movement Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft2 {
     walk_down
     walk_left * 4
     walk_up * 7
@@ -202,7 +202,7 @@ movement Goldenrod_RadioTowerObservationDeck_Movement_02A4 {
     walk_in_place_right
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_02C0 {
+movement Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft3 {
     walk_down
     walk_left * 4
     walk_up * 7
@@ -211,39 +211,39 @@ movement Goldenrod_RadioTowerObservationDeck_Movement_02C0 {
     walk_in_place_right
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_02DC {
+movement Goldenrod_RadioTowerObservationDeck_Movement_FollowMonWalkUpRight {
     walk_up
     walk_right
     walk_in_place_down
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_02EC {
+movement Goldenrod_RadioTowerObservationDeck_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_02F4 {
+movement Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft4 {
     walk_down * 3
     walk_left * 4
     emote_exclamation_mark
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_0304 {
+movement Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft5 {
     walk_down * 2
     walk_left * 3
     emote_exclamation_mark
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_0314 {
+movement Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownLeft6 {
     walk_down * 3
     walk_left * 4
     emote_exclamation_mark
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_0324 {
+movement Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkRight {
     walk_right
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_032C {
+movement Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkLeftDown {
     walk_left
     walk_down
     emote_exclamation_mark
@@ -251,11 +251,11 @@ movement Goldenrod_RadioTowerObservationDeck_Movement_032C {
     walk_in_place_up
 }
 
-movement Goldenrod_RadioTowerObservationDeck_Movement_0344 {
+movement Goldenrod_RadioTowerObservationDeck_Movement_GentlemanWalkDownRight {
     walk_down * 6
     walk_right * 4
 }
 
 mapscripts Goldenrod_RadioTowerObservationDeck_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0106_000
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_RadioTowerObservationDeck_OnTransition
 }

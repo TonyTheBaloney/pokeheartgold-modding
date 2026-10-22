@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0389_R35R0201_00000",
-      "from": "scr_seq_R35R0201_005#0"
+      "from": "Route35_NationalParkPokeathalonGatehouse_EventScript_Youngster#0"
     },
     {
       "id": "msg_0389_R35R0201_00001",
@@ -30,7 +30,7 @@
     },
     {
       "id": "msg_0389_R35R0201_00003",
-      "from": "scr_seq_R35R0201_002#0"
+      "from": "Route35_NationalParkPokeathalonGatehouse_EventScript_Attendant2#0"
     },
     {
       "id": "msg_0389_R35R0201_00004",
@@ -44,27 +44,27 @@
     },
     {
       "id": "msg_0389_R35R0201_00005",
-      "from": "scr_seq_R35R0201_003#0"
+      "from": "Route35_NationalParkPokeathalonGatehouse_EventScript_BlackBelt#0"
     },
     {
       "id": "msg_0389_R35R0201_00006",
-      "from": "scr_seq_R35R0201_004#0"
+      "from": "Route35_NationalParkPokeathalonGatehouse_EventScript_Lass#0"
     },
     {
       "id": "msg_0389_R35R0201_00007",
-      "from": "scr_seq_R35R0201_006#0"
+      "from": "Route35_NationalParkPokeathalonGatehouse_EventScript_Sign1#0"
     },
     {
       "id": "msg_0389_R35R0201_00008",
-      "from": "scr_seq_R35R0201_007#0"
+      "from": "Route35_NationalParkPokeathalonGatehouse_EventScript_Sign2#0"
     },
     {
       "id": "msg_0389_R35R0201_00009",
-      "from": "scr_seq_R35R0201_000#0"
+      "from": "Route35_NationalParkPokeathalonGatehouse_EventScript_Worker#0"
     },
     {
       "id": "msg_0389_R35R0201_00010",
-      "from": "scr_seq_R35R0201_008#0"
+      "from": "Route35_NationalParkPokeathalonGatehouse_EventScript_WorkerTrigger#0"
     }
   ]
 }

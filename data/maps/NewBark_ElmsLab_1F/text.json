@@ -3,51 +3,51 @@
   "messages": [
     {
       "id": "msg_0543_T20R0101_00000",
-      "from": "scr_seq_T20R0101_011#1"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElmTrigger#1"
     },
     {
       "id": "msg_0543_T20R0101_00001",
-      "from": "scr_seq_T20R0101_011#2"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElmTrigger#2"
     },
     {
       "id": "msg_0543_T20R0101_00002",
-      "from": "scr_seq_T20R0101_011#3"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElmTrigger#3"
     },
     {
       "id": "msg_0543_T20R0101_00003",
-      "from": "scr_seq_T20R0101_011#4"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElmTrigger#4"
     },
     {
       "id": "msg_0543_T20R0101_00004",
-      "from": "scr_seq_T20R0101_011#5"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElmTrigger#5"
     },
     {
       "id": "msg_0543_T20R0101_00005",
-      "from": "scr_seq_T20R0101_000#12"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#12"
     },
     {
       "id": "msg_0543_T20R0101_00006",
-      "from": "scr_seq_T20R0101_011#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElmTrigger#0"
     },
     {
       "id": "msg_0543_T20R0101_00007",
-      "from": "scr_seq_T20R0101_012#3"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC1#3"
     },
     {
       "id": "msg_0543_T20R0101_00008",
-      "from": "scr_seq_T20R0101_012#4"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC1#4"
     },
     {
       "id": "msg_0543_T20R0101_00009",
-      "from": "scr_seq_T20R0101_012#7"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC1#7"
     },
     {
       "id": "msg_0543_T20R0101_00010",
-      "from": "scr_seq_T20R0101_012#5"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC1#5"
     },
     {
       "id": "msg_0543_T20R0101_00011",
-      "from": "scr_seq_T20R0101_012#6"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC1#6"
     },
     {
       "id": "msg_0543_T20R0101_00012",
@@ -59,135 +59,135 @@
     },
     {
       "id": "msg_0543_T20R0101_00014",
-      "from": "scr_seq_T20R0101_013#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC2#0"
     },
     {
       "id": "msg_0543_T20R0101_00015",
-      "from": "scr_seq_T20R0101_012#1"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC1#1"
     },
     {
       "id": "msg_0543_T20R0101_00016",
-      "from": "scr_seq_T20R0101_012#2"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC1#2"
     },
     {
       "id": "msg_0543_T20R0101_00017",
-      "from": "scr_seq_T20R0101_012#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC1#0"
     },
     {
       "id": "msg_0543_T20R0101_00018",
-      "from": "scr_seq_T20R0101_001#1"
+      "from": "NewBark_ElmsLab_1F_EventScript_Scientist#1"
     },
     {
       "id": "msg_0543_T20R0101_00019",
-      "from": "scr_seq_T20R0101_003#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_ScientistTrigger#0"
     },
     {
       "id": "msg_0543_T20R0101_00020",
-      "from": "scr_seq_T20R0101_003#1"
+      "from": "NewBark_ElmsLab_1F_EventScript_ScientistTrigger#1"
     },
     {
       "id": "msg_0543_T20R0101_00021",
-      "from": "scr_seq_T20R0101_003#2"
+      "from": "NewBark_ElmsLab_1F_EventScript_ScientistTrigger#2"
     },
     {
       "id": "msg_0543_T20R0101_00022",
-      "from": "scr_seq_T20R0101_001#2"
+      "from": "NewBark_ElmsLab_1F_EventScript_Scientist#2"
     },
     {
       "id": "msg_0543_T20R0101_00023",
-      "from": "scr_seq_T20R0101_002#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#0"
     },
     {
       "id": "msg_0543_T20R0101_00024",
-      "from": "scr_seq_T20R0101_002#1"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#1"
     },
     {
       "id": "msg_0543_T20R0101_00025",
-      "from": "scr_seq_T20R0101_002#2"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#2"
     },
     {
       "id": "msg_0543_T20R0101_00026",
-      "from": "scr_seq_T20R0101_002#3"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#3"
     },
     {
       "id": "msg_0543_T20R0101_00027",
-      "from": "scr_seq_T20R0101_002#4"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#4"
     },
     {
       "id": "msg_0543_T20R0101_00028",
-      "from": "scr_seq_T20R0101_002#6"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#6"
     },
     {
       "id": "msg_0543_T20R0101_00029",
-      "from": "scr_seq_T20R0101_002#5"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#5"
     },
     {
       "id": "msg_0543_T20R0101_00030",
-      "from": "scr_seq_T20R0101_002#7"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#7"
     },
     {
       "id": "msg_0543_T20R0101_00031",
-      "from": "scr_seq_T20R0101_002#8"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#8"
     },
     {
       "id": "msg_0543_T20R0101_00032",
-      "from": "scr_seq_T20R0101_002#9"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#9"
     },
     {
       "id": "msg_0543_T20R0101_00033",
-      "from": "scr_seq_T20R0101_002#10"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#10"
     },
     {
       "id": "msg_0543_T20R0101_00034",
-      "from": "scr_seq_T20R0101_002#11"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#11"
     },
     {
       "id": "msg_0543_T20R0101_00035",
-      "from": "scr_seq_T20R0101_002#12"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#12"
     },
     {
       "id": "msg_0543_T20R0101_00036",
-      "from": "scr_seq_T20R0101_002#13"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#13"
     },
     {
       "id": "msg_0543_T20R0101_00037",
-      "from": "scr_seq_T20R0101_002#14"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#14"
     },
     {
       "id": "msg_0543_T20R0101_00038",
-      "from": "scr_seq_T20R0101_002#15"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#15"
     },
     {
       "id": "msg_0543_T20R0101_00039",
-      "from": "scr_seq_T20R0101_002#16"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene1#16"
     },
     {
       "id": "msg_0543_T20R0101_00040",
-      "from": "scr_seq_T20R0101_000#13"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#13"
     },
     {
       "id": "msg_0543_T20R0101_00041",
-      "from": "scr_seq_T20R0101_001#3"
+      "from": "NewBark_ElmsLab_1F_EventScript_Scientist#3"
     },
     {
       "id": "msg_0543_T20R0101_00042",
-      "from": "scr_seq_T20R0101_000#14"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#14"
     },
     {
       "id": "msg_0543_T20R0101_00043",
-      "from": "scr_seq_T20R0101_000#15"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#15"
     },
     {
       "id": "msg_0543_T20R0101_00044",
-      "from": "scr_seq_T20R0101_000#16"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#16"
     },
     {
       "id": "msg_0543_T20R0101_00045",
-      "from": "scr_seq_T20R0101_000#17"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#17"
     },
     {
       "id": "msg_0543_T20R0101_00046",
-      "from": "scr_seq_T20R0101_000#6"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#6"
     },
     {
       "id": "msg_0543_T20R0101_00047",
@@ -199,15 +199,15 @@
     },
     {
       "id": "msg_0543_T20R0101_00049",
-      "from": "scr_seq_T20R0101_000#7"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#7"
     },
     {
       "id": "msg_0543_T20R0101_00050",
-      "from": "scr_seq_T20R0101_000#8"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#8"
     },
     {
       "id": "msg_0543_T20R0101_00051",
-      "from": "scr_seq_T20R0101_000#9"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#9"
     },
     {
       "id": "msg_0543_T20R0101_00052",
@@ -215,11 +215,11 @@
     },
     {
       "id": "msg_0543_T20R0101_00053",
-      "from": "scr_seq_T20R0101_000#10"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#10"
     },
     {
       "id": "msg_0543_T20R0101_00054",
-      "from": "scr_seq_T20R0101_000#11"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#11"
     },
     {
       "id": "msg_0543_T20R0101_00055",
@@ -227,43 +227,43 @@
     },
     {
       "id": "msg_0543_T20R0101_00056",
-      "from": "scr_seq_T20R0101_015#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_ScientistScene#0"
     },
     {
       "id": "msg_0543_T20R0101_00057",
-      "from": "scr_seq_T20R0101_001#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_Scientist#0"
     },
     {
       "id": "msg_0543_T20R0101_00058",
-      "from": "scr_seq_T20R0101_014#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#0"
     },
     {
       "id": "msg_0543_T20R0101_00059",
-      "from": "scr_seq_T20R0101_014#1"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#1"
     },
     {
       "id": "msg_0543_T20R0101_00060",
-      "from": "scr_seq_T20R0101_014#2"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#2"
     },
     {
       "id": "msg_0543_T20R0101_00061",
-      "from": "scr_seq_T20R0101_014#3"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#3"
     },
     {
       "id": "msg_0543_T20R0101_00062",
-      "from": "scr_seq_T20R0101_014#4"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#4"
     },
     {
       "id": "msg_0543_T20R0101_00063",
-      "from": "scr_seq_T20R0101_014#5"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#5"
     },
     {
       "id": "msg_0543_T20R0101_00064",
-      "from": "scr_seq_T20R0101_014#6"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#6"
     },
     {
       "id": "msg_0543_T20R0101_00065",
-      "from": "scr_seq_T20R0101_014#7"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#7"
     },
     {
       "id": "msg_0543_T20R0101_00066",
@@ -279,11 +279,11 @@
     },
     {
       "id": "msg_0543_T20R0101_00067",
-      "from": "scr_seq_T20R0101_014#8"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#8"
     },
     {
       "id": "msg_0543_T20R0101_00068",
-      "from": "scr_seq_T20R0101_014#9"
+      "from": "NewBark_ElmsLab_1F_EventScript_LyraScene2#9"
     },
     {
       "id": "msg_0543_T20R0101_00069",
@@ -291,23 +291,23 @@
     },
     {
       "id": "msg_0543_T20R0101_00070",
-      "from": "scr_seq_T20R0101_000#22"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#22"
     },
     {
       "id": "msg_0543_T20R0101_00071",
-      "from": "scr_seq_T20R0101_000#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#0"
     },
     {
       "id": "msg_0543_T20R0101_00072",
-      "from": "scr_seq_T20R0101_000#1"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#1"
     },
     {
       "id": "msg_0543_T20R0101_00073",
-      "from": "scr_seq_T20R0101_000#2"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#2"
     },
     {
       "id": "msg_0543_T20R0101_00074",
-      "from": "scr_seq_T20R0101_000#3"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#3"
     },
     {
       "id": "msg_0543_T20R0101_00075",
@@ -379,51 +379,51 @@
     },
     {
       "id": "msg_0543_T20R0101_00092",
-      "from": "scr_seq_T20R0101_013#1"
+      "from": "NewBark_ElmsLab_1F_EventScript_PC2#1"
     },
     {
       "id": "msg_0543_T20R0101_00093",
-      "from": "scr_seq_T20R0101_005#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_Book1#0"
     },
     {
       "id": "msg_0543_T20R0101_00094",
-      "from": "scr_seq_T20R0101_006#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_Book2#0"
     },
     {
       "id": "msg_0543_T20R0101_00095",
-      "from": "scr_seq_T20R0101_007#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_Book3#0"
     },
     {
       "id": "msg_0543_T20R0101_00096",
-      "from": "scr_seq_T20R0101_008#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_Book4#0"
     },
     {
       "id": "msg_0543_T20R0101_00097",
-      "from": "scr_seq_T20R0101_009#0"
+      "from": "NewBark_ElmsLab_1F_EventScript_Memo#0"
     },
     {
       "id": "msg_0543_T20R0101_00098",
-      "from": "scr_seq_T20R0101_000#18"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#18"
     },
     {
       "id": "msg_0543_T20R0101_00099",
-      "from": "scr_seq_T20R0101_000#19"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#19"
     },
     {
       "id": "msg_0543_T20R0101_00100",
-      "from": "scr_seq_T20R0101_000#20"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#20"
     },
     {
       "id": "msg_0543_T20R0101_00101",
-      "from": "scr_seq_T20R0101_000#21"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#21"
     },
     {
       "id": "msg_0543_T20R0101_00102",
-      "from": "scr_seq_T20R0101_000#4"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#4"
     },
     {
       "id": "msg_0543_T20R0101_00103",
-      "from": "scr_seq_T20R0101_000#5"
+      "from": "NewBark_ElmsLab_1F_EventScript_ProfElm#5"
     },
     {
       "id": "msg_0543_T20R0101_00104",

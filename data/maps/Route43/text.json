@@ -75,15 +75,15 @@
     },
     {
       "id": "msg_0401_R43_00018",
-      "from": "scr_seq_R43_001#0"
+      "from": "Route43_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0401_R43_00019",
-      "from": "scr_seq_R43_002#0"
+      "from": "Route43_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0401_R43_00020",
-      "from": "scr_seq_R43_003#0"
+      "from": "Route43_EventScript_NorthToLakeOfRageSign#0"
     }
   ]
 }

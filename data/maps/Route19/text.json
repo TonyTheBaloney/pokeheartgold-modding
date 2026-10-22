@@ -3,27 +3,27 @@
   "messages": [
     {
       "id": "msg_0740_W19_00000",
-      "from": "scr_seq_W19_000#0"
+      "from": "Route19_EventScript_Worker1#0"
     },
     {
       "id": "msg_0740_W19_00001",
-      "from": "scr_seq_W19_002#0"
+      "from": "Route19_EventScript_Worker3#0"
     },
     {
       "id": "msg_0740_W19_00002",
-      "from": "scr_seq_W19_001#0"
+      "from": "Route19_EventScript_Worker2#0"
     },
     {
       "id": "msg_0740_W19_00003",
-      "from": "scr_seq_W19_003#0"
+      "from": "Route19_EventScript_Worker4#0"
     },
     {
       "id": "msg_0740_W19_00004",
-      "from": "scr_seq_W19_004#0"
+      "from": "Route19_EventScript_RouteSignFuchsia#0"
     },
     {
       "id": "msg_0740_W19_00005",
-      "from": "scr_seq_W19_005#0"
+      "from": "Route19_EventScript_TrainerTips#0"
     }
   ]
 }

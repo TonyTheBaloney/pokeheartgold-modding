@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R03_000
-    scr_seq_R03_001
-    scr_seq_R03_002
-    scr_seq_R03_003
-    scr_seq_R03_004
+    Route3_EventScript_TrainerTips
+    Route3_EventScript_TouchingTheMeteoriteBoostedSign
+    Route3_EventScript_TouchingTheMeteoriteHeightenedSign1
+    Route3_EventScript_TouchingTheMeteoriteHeightenedSign2
+    Route3_EventScript_Meteorite
 }
 
-script scr_seq_R03_001 {
+script Route3_EventScript_TouchingTheMeteoriteBoostedSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     partyhasspecies(SPECIES_DEOXYS, VAR_SPECIAL_RESULT)
@@ -47,7 +47,7 @@ script scr_seq_R03_001 {
     goto(_02D5)
 }
 
-script scr_seq_R03_002 {
+script Route3_EventScript_TouchingTheMeteoriteHeightenedSign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     partyhasspecies(SPECIES_DEOXYS, VAR_SPECIAL_RESULT)
@@ -87,7 +87,7 @@ script scr_seq_R03_002 {
     goto(_02D5)
 }
 
-script scr_seq_R03_003 {
+script Route3_EventScript_TouchingTheMeteoriteHeightenedSign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     partyhasspecies(SPECIES_DEOXYS, VAR_SPECIAL_RESULT)
@@ -121,7 +121,7 @@ script scr_seq_R03_003 {
     goto(_02D5)
 }
 
-script scr_seq_R03_004 {
+script Route3_EventScript_Meteorite {
     playse(SEQ_SE_DP_SELECT)
     lockall
     partyhasspecies(SPECIES_DEOXYS, VAR_SPECIAL_RESULT)
@@ -167,7 +167,7 @@ _02DF:
     end
 }
 
-script scr_seq_R03_000 {
+script Route3_EventScript_TrainerTips {
     trainertipsex(2, "Mt. Moon ahead.\r"
                      "Mt. Moon Square is on\n"
                      "the way to the top!")

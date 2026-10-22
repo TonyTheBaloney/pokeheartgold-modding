@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R1004_000 {
+script Goldenrod_DepartmentStore_4F_EventScript_Clerk {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T25R1004_000 {
     end
 }
 
-script scr_seq_T25R1004_001 {
+script Goldenrod_DepartmentStore_4F_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -32,7 +32,7 @@ script scr_seq_T25R1004_001 {
     end
 }
 
-script scr_seq_T25R1004_002 {
+script Goldenrod_DepartmentStore_4F_EventScript_SchoolKidM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -49,7 +49,7 @@ script scr_seq_T25R1004_002 {
     end
 }
 
-script scr_seq_T25R1004_003 {
+script Goldenrod_DepartmentStore_4F_EventScript_Boy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -69,7 +69,7 @@ script scr_seq_T25R1004_003 {
     end
 }
 
-script scr_seq_T25R1004_004 {
+script Goldenrod_DepartmentStore_4F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Let Us Pump Up Your Pokémon!\n"

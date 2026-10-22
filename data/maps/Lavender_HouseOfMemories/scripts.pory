@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T05R0601_000 {
+script Lavender_HouseOfMemories_EventScript_MrFuji {
     simplenpcmsg("Mr. Fuji: Welcome.\r"
                  "Hmm... You appear to be raising your\n"
                  "Pokémon in a kind and loving manner.\r"
@@ -13,7 +13,7 @@ script scr_seq_T05R0601_000 {
     end
 }
 
-script scr_seq_T05R0601_001 {
+script Lavender_HouseOfMemories_EventScript_Woman {
     simplenpcmsg("There are other resting places of\n"
                  "Pokémon here, I think.\r"
                  "There are many chambers that only\n"
@@ -21,13 +21,13 @@ script scr_seq_T05R0601_001 {
     end
 }
 
-script scr_seq_T05R0601_002 {
+script Lavender_HouseOfMemories_EventScript_Lass {
     simplenpcmsg("I came with my mom to visit\n"
                  "Pokémon resting places...")
     end
 }
 
-script scr_seq_T05R0601_003 {
+script Lavender_HouseOfMemories_EventScript_OldWoman {
     simplenpcmsg("The Pokémon that lived with me a\n"
                  "long time...\r"
                  "I didn’t treat them as Pokémon!\f"

@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_000 + 1",
+            "script": "Saffron_FightingDojo_EventScript_BlackBelt",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_004 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Whitney",
             "flag": "FLAG_UNK_2B5"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_005 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Janine",
             "flag": "FLAG_UNK_2B6"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_006 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Clair",
             "flag": "FLAG_UNK_2B7"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_007 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Erika",
             "flag": "FLAG_UNK_2B8"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_008 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Misty",
             "flag": "FLAG_UNK_2B9"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_010 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Blue",
             "flag": "FLAG_UNK_2BB"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_011 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Chuck",
             "flag": "FLAG_UNK_2BC"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_012 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Brock",
             "flag": "FLAG_UNK_2BD"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_013 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Bugsy",
             "flag": "FLAG_UNK_2BE"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_014 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Sabrina",
             "flag": "FLAG_UNK_2BF"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_015 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Falkner",
             "flag": "FLAG_UNK_2C0"
         },
         {
@@ -245,7 +245,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_016 + 1",
+            "script": "Saffron_FightingDojo_EventScript_LtSurge",
             "flag": "FLAG_UNK_2C1"
         },
         {
@@ -262,7 +262,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_017 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Morty",
             "flag": "FLAG_UNK_2C2"
         },
         {
@@ -279,7 +279,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_018 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Jasmine",
             "flag": "FLAG_UNK_2C3"
         },
         {
@@ -296,7 +296,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_019 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Pryce",
             "flag": "FLAG_UNK_2C4"
         },
         {
@@ -313,7 +313,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T11R0101_009 + 1",
+            "script": "Saffron_FightingDojo_EventScript_Blaine",
             "flag": "FLAG_UNK_2BA"
         }
     ],
@@ -334,7 +334,7 @@
             "y": 2,
             "elevation": 131072,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T11R0101_001 + 1"
+            "script": "Saffron_FightingDojo_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -342,7 +342,7 @@
             "y": 2,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T11R0101_002 + 1"
+            "script": "Saffron_FightingDojo_EventScript_Sign2"
         }
     ]
 }

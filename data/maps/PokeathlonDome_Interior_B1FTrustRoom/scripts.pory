@@ -3,23 +3,23 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D49R0105_000
-    scr_seq_D49R0105_001
-    scr_seq_D49R0105_002
-    scr_seq_D49R0105_003
-    scr_seq_D49R0105_004
-    scr_seq_D49R0105_005
-    scr_seq_D49R0105_006
-    scr_seq_D49R0105_007
-    scr_seq_D49R0105_008
-    scr_seq_D49R0105_009
-    scr_seq_D49R0105_010
-    scr_seq_D49R0105_011
-    scr_seq_D49R0105_012
-    scr_seq_D49R0105_013
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_Receptionist1
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_Receptionist2
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_AceTrainerF
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_AceTrainerM
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_BlackBelt
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_Abra
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_Dratini
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_CheckedTheMedalSign
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign1
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign2
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign3
+    PokeathlonDome_Interior_B1FTrustRoom_OnResume
+    PokeathlonDome_Interior_B1FTrustRoom_OnTransition
+    PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign4
 }
 
-script scr_seq_D49R0105_012 {
+script PokeathlonDome_Interior_B1FTrustRoom_OnTransition {
     if (flag(FLAG_UNK_0F0)) {
         setvar(VAR_TEMP_x400C, 1)
         end
@@ -28,7 +28,7 @@ script scr_seq_D49R0105_012 {
     end
 }
 
-script scr_seq_D49R0105_011 {
+script PokeathlonDome_Interior_B1FTrustRoom_OnResume {
     if (var(VAR_TEMP_x400C) == 1) {
         movepersonfacing(obj_D49R0105_pcwoman2_2, 2, 1, 3, DIR_EAST)
         setvar(VAR_TEMP_x400C, 0)
@@ -36,14 +36,14 @@ script scr_seq_D49R0105_011 {
     end
 }
 
-script scr_seq_D49R0105_000 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_Receptionist1 {
     simplenpcmsg("This is the “Trust” room.\r"
                  "It is to show the mutual reliance\n"
                  "between Pokémon and people.")
     end
 }
 
-script scr_seq_D49R0105_001 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_Receptionist2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -64,25 +64,25 @@ script scr_seq_D49R0105_001 {
     end
 }
 
-script scr_seq_D49R0105_002 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_AceTrainerF {
     simplenpcmsg("To win Medals with different kinds of\n"
                  "Pokémon, it is essential to believe in\f"
                  "your Pokémon.")
     end
 }
 
-script scr_seq_D49R0105_003 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_AceTrainerM {
     simplenpcmsg("I would love to see my own shoes here!")
     end
 }
 
-script scr_seq_D49R0105_004 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_BlackBelt {
     simplenpcmsg("This Dome contains so many\n"
                  "other Domes...")
     end
 }
 
-script scr_seq_D49R0105_005 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_Abra {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("ABRA: ...\n"
@@ -95,7 +95,7 @@ script scr_seq_D49R0105_005 {
     end
 }
 
-script scr_seq_D49R0105_006 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_Dratini {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -108,7 +108,7 @@ script scr_seq_D49R0105_006 {
     end
 }
 
-script scr_seq_D49R0105_007 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_CheckedTheMedalSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -125,7 +125,7 @@ script scr_seq_D49R0105_007 {
     end
 }
 
-script scr_seq_D49R0105_008 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -146,7 +146,7 @@ script scr_seq_D49R0105_008 {
     end
 }
 
-script scr_seq_D49R0105_009 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -168,7 +168,7 @@ script scr_seq_D49R0105_009 {
     end
 }
 
-script scr_seq_D49R0105_010 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -190,7 +190,7 @@ script scr_seq_D49R0105_010 {
     end
 }
 
-script scr_seq_D49R0105_013 {
+script PokeathlonDome_Interior_B1FTrustRoom_EventScript_Sign4 {
     simplenpcmsg("Pokéathlon Medals...\r"
                  "Those are the proof of the hard work\n"
                  "of both Pokéathletes and Pokémon.\r"
@@ -202,6 +202,6 @@ script scr_seq_D49R0105_013 {
 }
 
 mapscripts PokeathlonDome_Interior_B1FTrustRoom_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D49R0105_011
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D49R0105_012
+    INIT_SCRIPT_ON_RESUME: PokeathlonDome_Interior_B1FTrustRoom_OnResume
+    INIT_SCRIPT_ON_TRANSITION: PokeathlonDome_Interior_B1FTrustRoom_OnTransition
 }

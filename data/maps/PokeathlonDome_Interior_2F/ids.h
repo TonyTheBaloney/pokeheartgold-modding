@@ -1,23 +1,23 @@
 #ifndef SCR_SEQ_D49R0102_H_
 #define SCR_SEQ_D49R0102_H_
 
-#define _EV_scr_seq_D49R0102_000 0
-#define _EV_scr_seq_D49R0102_001 1
-#define _EV_scr_seq_D49R0102_002 2
-#define _EV_scr_seq_D49R0102_003 3
-#define _EV_scr_seq_D49R0102_004 4
-#define _EV_scr_seq_D49R0102_005 5
-#define _EV_scr_seq_D49R0102_006 6
-#define _EV_scr_seq_D49R0102_007 7
-#define _EV_scr_seq_D49R0102_008 8
-#define _EV_scr_seq_D49R0102_009 9
-#define _EV_scr_seq_D49R0102_010 10
-#define _EV_scr_seq_D49R0102_011 11
-#define _EV_scr_seq_D49R0102_012 12
-#define _EV_scr_seq_D49R0102_013 13
-#define _EV_scr_seq_D49R0102_014 14
-#define _EV_scr_seq_D49R0102_015 15
-#define _EV_scr_seq_D49R0102_016 16
+#define _EV_PokeathlonDome_Interior_2F_EventScript_Maximo 0
+#define _EV_PokeathlonDome_Interior_2F_EventScript_Youngster 1
+#define _EV_PokeathlonDome_Interior_2F_EventScript_Lass 2
+#define _EV_PokeathlonDome_Interior_2F_EventScript_Man 3
+#define _EV_PokeathlonDome_Interior_2F_EventScript_AceTrainerM 4
+#define _EV_PokeathlonDome_Interior_2F_EventScript_SchoolKidM 5
+#define _EV_PokeathlonDome_Interior_2F_EventScript_OldMan 6
+#define _EV_PokeathlonDome_Interior_2F_EventScript_OldWoman 7
+#define _EV_PokeathlonDome_Interior_2F_EventScript_Beauty 8
+#define _EV_PokeathlonDome_Interior_2F_EventScript_PokefanM 9
+#define _EV_PokeathlonDome_Interior_2F_EventScript_LittleBoy 10
+#define _EV_PokeathlonDome_Interior_2F_EventScript_LittleGirl1 11
+#define _EV_PokeathlonDome_Interior_2F_EventScript_LittleGirl2 12
+#define _EV_PokeathlonDome_Interior_2F_EventScript_PokefanF 13
+#define _EV_PokeathlonDome_Interior_2F_EventScript_Rattata 14
+#define _EV_PokeathlonDome_Interior_2F_EventScript_Machop 15
+#define _EV_PokeathlonDome_Interior_2F_EventScript_Butterfree 16
 
 #define obj_D49R0102_thlonowner                   0
 #define obj_D49R0102_tsure_poke_static_poliwrath  1

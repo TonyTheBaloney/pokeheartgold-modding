@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08R0601_000 + 1",
+            "script": "Fuchsia_SafariZoneWardenHouse_EventScript_Lass",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08R0601_001 + 1",
+            "script": "Fuchsia_SafariZoneWardenHouse_EventScript_Aipom1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08R0601_002 + 1",
+            "script": "Fuchsia_SafariZoneWardenHouse_EventScript_Aipom2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08R0601_003 + 1",
+            "script": "Fuchsia_SafariZoneWardenHouse_EventScript_Aipom3",
             "flag": "FLAG_NOTHING"
         }
     ],

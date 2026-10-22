@@ -1,22 +1,22 @@
 #ifndef SCR_SEQ_T20R0101_H_
 #define SCR_SEQ_T20R0101_H_
 
-#define _EV_scr_seq_T20R0101_000 0
-#define _EV_scr_seq_T20R0101_001 1
-#define _EV_scr_seq_T20R0101_002 2
-#define _EV_scr_seq_T20R0101_003 3
+#define _EV_NewBark_ElmsLab_1F_EventScript_ProfElm 0
+#define _EV_NewBark_ElmsLab_1F_EventScript_Scientist 1
+#define _EV_NewBark_ElmsLab_1F_EventScript_LyraScene1 2
+#define _EV_NewBark_ElmsLab_1F_EventScript_ScientistTrigger 3
 #define _EV_scr_seq_T20R0101_004 4
-#define _EV_scr_seq_T20R0101_005 5
-#define _EV_scr_seq_T20R0101_006 6
-#define _EV_scr_seq_T20R0101_007 7
-#define _EV_scr_seq_T20R0101_008 8
-#define _EV_scr_seq_T20R0101_009 9
-#define _EV_scr_seq_T20R0101_010 10
-#define _EV_scr_seq_T20R0101_011 11
-#define _EV_scr_seq_T20R0101_012 12
-#define _EV_scr_seq_T20R0101_013 13
-#define _EV_scr_seq_T20R0101_014 14
-#define _EV_scr_seq_T20R0101_015 15
+#define _EV_NewBark_ElmsLab_1F_EventScript_Book1 5
+#define _EV_NewBark_ElmsLab_1F_EventScript_Book2 6
+#define _EV_NewBark_ElmsLab_1F_EventScript_Book3 7
+#define _EV_NewBark_ElmsLab_1F_EventScript_Book4 8
+#define _EV_NewBark_ElmsLab_1F_EventScript_Memo 9
+#define _EV_NewBark_ElmsLab_1F_OnResume 10
+#define _EV_NewBark_ElmsLab_1F_EventScript_ProfElmTrigger 11
+#define _EV_NewBark_ElmsLab_1F_EventScript_PC1 12
+#define _EV_NewBark_ElmsLab_1F_EventScript_PC2 13
+#define _EV_NewBark_ElmsLab_1F_EventScript_LyraScene2 14
+#define _EV_NewBark_ElmsLab_1F_EventScript_ScientistScene 15
 
 #define obj_T20R0101_doctor     0
 #define obj_T20R0101_policeman  1

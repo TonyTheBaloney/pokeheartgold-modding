@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_farfetchd1 + 1",
+            "script": "IlexForest_EventScript_Farfetchd1",
             "flag": "FLAG_HIDE_FARFETCHD_1_LOST"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_002 + 1",
+            "script": "IlexForest_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_farfetchd2 + 1",
+            "script": "IlexForest_EventScript_Farfetchd2",
             "flag": "FLAG_HIDE_FARFETCHD_2_LOST"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_010 + 1",
+            "script": "IlexForest_EventScript_SchoolKidM",
             "flag": "FLAG_HIDE_ILEX_APPRENTICE"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_011 + 1",
+            "script": "IlexForest_EventScript_BlackBelt",
             "flag": "FLAG_HIDE_ILEX_CUT_MASTER"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_014 + 1",
+            "script": "IlexForest_EventScript_Farfetchd3",
             "flag": "FLAG_HIDE_FARFETCHD_1_FOUND"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_014 + 1",
+            "script": "IlexForest_EventScript_Farfetchd3",
             "flag": "FLAG_HIDE_FARFETCHD_2_FOUND"
         },
         {
@@ -262,7 +262,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_018 + 1",
+            "script": "IlexForest_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         },
         {
@@ -279,7 +279,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_019 + 1",
+            "script": "IlexForest_EventScript_Pichu",
             "flag": "FLAG_HIDE_ILEX_FOREST_SPIKY_EAR_PICHU"
         },
         {
@@ -296,7 +296,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D36R0101_020 + 1",
+            "script": "IlexForest_EventScript_Lyra",
             "flag": "FLAG_HIDE_ILEX_FOREST_OLD_MAN"
         },
         {
@@ -387,7 +387,7 @@
             "height": 2,
             "var": "VAR_FARFETCHD1_STICKS1",
             "var_value": "STICKS_ACTIVE",
-            "script": "_EV_scr_seq_D36R0101_farfetchd1_sticks1 + 1"
+            "script": "IlexForest_EventScript_FarfetchdTrigger1"
         },
         {
             "x": 28,
@@ -397,7 +397,7 @@
             "height": 2,
             "var": "VAR_FARFETCHD1_STICKS2",
             "var_value": "STICKS_ACTIVE",
-            "script": "_EV_scr_seq_D36R0101_farfetchd1_sticks2 + 1"
+            "script": "IlexForest_EventScript_FarfetchdTrigger2"
         },
         {
             "x": 46,
@@ -407,7 +407,7 @@
             "height": 2,
             "var": "VAR_FARFETCHD2_STICKS3",
             "var_value": "STICKS_ACTIVE",
-            "script": "_EV_scr_seq_D36R0101_farfetchd2_sticks3 + 1"
+            "script": "IlexForest_EventScript_FarfetchdTrigger5"
         },
         {
             "x": 50,
@@ -417,7 +417,7 @@
             "height": 2,
             "var": "VAR_FARFETCHD2_STICKS1",
             "var_value": "STICKS_ACTIVE",
-            "script": "_EV_scr_seq_D36R0101_farfetchd2_sticks1 + 1"
+            "script": "IlexForest_EventScript_FarfetchdTrigger3"
         },
         {
             "x": 52,
@@ -427,7 +427,7 @@
             "height": 2,
             "var": "VAR_FARFETCHD2_STICKS2",
             "var_value": "STICKS_ACTIVE",
-            "script": "_EV_scr_seq_D36R0101_farfetchd2_sticks2 + 1"
+            "script": "IlexForest_EventScript_FarfetchdTrigger4"
         },
         {
             "x": 45,
@@ -437,7 +437,7 @@
             "height": 2,
             "var": "VAR_FARFETCHD2_STICKS4",
             "var_value": "STICKS_ACTIVE",
-            "script": "_EV_scr_seq_D36R0101_farfetchd2_sticks4 + 1"
+            "script": "IlexForest_EventScript_FarfetchdTrigger6"
         },
         {
             "x": 40,
@@ -447,7 +447,7 @@
             "height": 1,
             "var": "VAR_UNK_40E9",
             "var_value": 0,
-            "script": "_EV_scr_seq_D36R0101_015 + 1"
+            "script": "IlexForest_EventScript_KimonoGirlTrigger"
         },
         {
             "x": 37,
@@ -457,7 +457,7 @@
             "height": 1,
             "var": "VAR_UNK_40EA",
             "var_value": 0,
-            "script": "_EV_scr_seq_D36R0101_016 + 1"
+            "script": "IlexForest_EventScript_FatManTrigger"
         },
         {
             "x": 15,
@@ -467,7 +467,7 @@
             "height": 2,
             "var": "VAR_UNK_40F4",
             "var_value": 1,
-            "script": "_EV_scr_seq_D36R0101_017 + 1"
+            "script": "IlexForest_EventScript_SchoolKidMTrigger"
         }
     ],
     "bg_events": [
@@ -477,7 +477,7 @@
             "y": 55,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D36R0101_012 + 1"
+            "script": "IlexForest_EventScript_Shrine"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -485,7 +485,7 @@
             "y": 43,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D36R0101_013 + 1"
+            "script": "IlexForest_EventScript_TrainerTips"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

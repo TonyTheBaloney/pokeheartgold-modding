@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R47_000
-    scr_seq_R47_001
-    scr_seq_R47_002
-    scr_seq_R47_003
-    scr_seq_R47_004
+    Route47_OnTransition
+    Route47_EventScript_Hiker
+    Route47_OnResume
+    Route47_EventScript_CrasherWake
+    Route47_EventScript_Chuck
 }
 
-script scr_seq_R47_000 {
+script Route47_OnTransition {
     setvar(VAR_UNK_40EB, 1)
     setflag(FLAG_UNK_9C9)
     getgameversion(VAR_TEMP_x4000)
@@ -54,7 +54,7 @@ _00E6:
     end
 }
 
-script scr_seq_R47_002 {
+script Route47_OnResume {
     if (var(VAR_SCENE_EMBEDDED_TOWER) >= 5) {
         movewarp(4, 87, 385)
         movewarp(5, 87, 385)
@@ -74,7 +74,7 @@ script scr_seq_R47_002 {
     end
 }
 
-script scr_seq_R47_001 {
+script Route47_EventScript_Hiker {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -113,7 +113,7 @@ script scr_seq_R47_001 {
     end
 }
 
-script scr_seq_R47_003 {
+script Route47_EventScript_CrasherWake {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -125,7 +125,7 @@ script scr_seq_R47_003 {
                "Oh!\n"
                "You are that mask-fanatic Trainer\f"
                "I saw at the Celadon Dept. Store!\r")
-        applymovement(obj_R47_leader3, Route47_Movement_022C)
+        applymovement(obj_R47_leader3, Route47_Movement_CrasherWakeFaceUp)
         waitmovement
         npcmsg("Wake: I heard about the great\n"
                "waterfall near Cianwood and decided\f"
@@ -136,11 +136,11 @@ script scr_seq_R47_003 {
                "can sometimes cause great suffering.\r")
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_R47_leader3, Route47_Movement_0234)
+            applymovement(obj_R47_leader3, Route47_Movement_CrasherWakeFaceDown)
         } elif (var(VAR_SPECIAL_RESULT) == 3) {
-            applymovement(obj_R47_leader3, Route47_Movement_023C)
+            applymovement(obj_R47_leader3, Route47_Movement_CrasherWakeFaceLeft)
         } else {
-            applymovement(obj_R47_leader3, Route47_Movement_0244)
+            applymovement(obj_R47_leader3, Route47_Movement_CrasherWakeFaceRight)
         }
         waitmovement
     }
@@ -153,30 +153,30 @@ script scr_seq_R47_003 {
            "refreshing.\r"
            "Good luck, mask-fanatic {STRVAR_1 3, 0, 0}!\r")
     closemessage
-    applymovement(obj_R47_leader3, Route47_Movement_022C)
+    applymovement(obj_R47_leader3, Route47_Movement_CrasherWakeFaceUp)
     waitmovement
     setflag(FLAG_UNK_157)
     releaseall
     end
 }
 
-movement Route47_Movement_022C {
+movement Route47_Movement_CrasherWakeFaceUp {
     walk_in_place_up
 }
 
-movement Route47_Movement_0234 {
+movement Route47_Movement_CrasherWakeFaceDown {
     walk_in_place_down
 }
 
-movement Route47_Movement_023C {
+movement Route47_Movement_CrasherWakeFaceLeft {
     walk_in_place_left
 }
 
-movement Route47_Movement_0244 {
+movement Route47_Movement_CrasherWakeFaceRight {
     walk_in_place_right
 }
 
-script scr_seq_R47_004 {
+script Route47_EventScript_Chuck {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -226,6 +226,6 @@ script scr_seq_R47_004 {
 }
 
 mapscripts Route47_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R47_000
-    INIT_SCRIPT_ON_RESUME: scr_seq_R47_002
+    INIT_SCRIPT_ON_TRANSITION: Route47_OnTransition
+    INIT_SCRIPT_ON_RESUME: Route47_OnResume
 }

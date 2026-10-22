@@ -5,7 +5,7 @@ script scr_seq_R36R0101_000 {
     end
 }
 
-script scr_seq_R36R0101_001 {
+script Route36_RuinsOfAlphGatehouse_EventScript_OldMan {
     simplenpcmsg("Did you see that strange tree in\n"
                  "the road?\r"
                  "That may explain why fewer people\n"
@@ -13,7 +13,7 @@ script scr_seq_R36R0101_001 {
     end
 }
 
-script scr_seq_R36R0101_002 {
+script Route36_RuinsOfAlphGatehouse_EventScript_Attendant {
     simplenpcmsg("This is the Ruins of Alph.\n"
                  "An ancient tradition made of stones.\r"
                  "Don’t you wonder who’d make\n"

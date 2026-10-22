@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1006_000 + 1",
+            "script": "Goldenrod_DepartmentStore_6F_EventScript_Man",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1006_001 + 1",
+            "script": "Goldenrod_DepartmentStore_6F_EventScript_Girl",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1006_004 + 1",
+            "script": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1006_007 + 1",
+            "script": "Goldenrod_DepartmentStore_6F_EventScript_Whitney",
             "flag": "FLAG_UNK_26F"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1006_005 + 1",
+            "script": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist2",
             "flag": "FLAG_NOTHING"
         }
     ],
@@ -137,7 +137,7 @@
             "y": 2,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T25R1006_002 + 1"
+            "script": "Goldenrod_DepartmentStore_6F_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -145,7 +145,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T25R1006_003 + 1"
+            "script": "Goldenrod_DepartmentStore_6F_EventScript_Machine"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -153,7 +153,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T25R1006_003 + 1"
+            "script": "Goldenrod_DepartmentStore_6F_EventScript_Machine"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -161,7 +161,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T25R1006_003 + 1"
+            "script": "Goldenrod_DepartmentStore_6F_EventScript_Machine"
         }
     ]
 }

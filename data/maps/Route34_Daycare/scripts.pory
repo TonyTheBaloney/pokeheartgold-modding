@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R34R0101_000
-    scr_seq_R34R0101_001
+    Route34_Daycare_OnResume
+    Route34_Daycare_EventScript_LyraScene
 }
 
-script scr_seq_R34R0101_001 {
+script Route34_Daycare_EventScript_LyraScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_0140)
-    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_014C)
-    applymovement(obj_player, Route34_Daycare_Movement_0158)
+    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_FriendWalkUp1)
+    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_MarillWalkUp)
+    applymovement(obj_player, Route34_Daycare_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -33,7 +33,7 @@ script scr_seq_R34R0101_001 {
                                   "This is your girl...friend.\f"
                                   "I see. Hmm.\r")
     closemessage
-    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_0138)
+    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_FriendExclamation)
     waitmovement
     gendermsgbox("Lyra: What? Grandma...!\n"
                  "What are you talking about?\r"
@@ -53,21 +53,21 @@ script scr_seq_R34R0101_001 {
                                                "Right, {STRVAR_1 3, 0, 0}?\n"
                                                "Come and see us anytime!\r")
     closemessage
-    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_0164)
+    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_FriendFaceDown)
     waitmovement
     gendermsgbox("Lyra: Well, I better go now...\n"
                  "See ya!\r", "Ethan: Well, I better go now...\n"
                               "See ya!\r")
     closemessage
-    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_016C)
-    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_0184)
+    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_FriendWalkLeftDown)
+    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_MarillWalkLeftDown)
     waitmovement
     gendermsgbox("Lyra: Oh! I almost forgot!\r", "Ethan: Oh! I almost forgot!\r")
     closemessage
-    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_0198)
-    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_01A8)
+    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_FriendWalkUp2)
+    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_MarillJumpLeft)
     waitmovement
-    applymovement(obj_player, Route34_Daycare_Movement_0190)
+    applymovement(obj_player, Route34_Daycare_Movement_PlayerFaceLeft)
     waitmovement
     gendermsgbox("Lyra: Here!\n"
                  "This is my Pokégear number!\r", "Ethan: Here!\n"
@@ -85,7 +85,7 @@ script scr_seq_R34R0101_001 {
                                        "in the Pokégear!\r")
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
-    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_01BC)
+    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_FriendFaceRight)
     waitmovement
     gendermsgbox("Lyra: You know you can talk to your\n"
                  "Pokémon as they follow you?\r"
@@ -103,8 +103,8 @@ script scr_seq_R34R0101_001 {
                                      "Give me a call and I’ll share some of\n"
                                      "them with you.\r")
     closemessage
-    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_01C4)
-    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_01CC)
+    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_FriendFaceUp)
+    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_MarillFaceUp)
     waitmovement
     gendermsgbox("Lyra: Grandma!\r"
                  "Don’t you say anything.\r"
@@ -116,9 +116,9 @@ script scr_seq_R34R0101_001 {
                                   "supposed to exchange numbers.\f"
                                   "That’s all.\r")
     closemessage
-    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_01D4)
-    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_01E8)
-    applymovement(obj_player, Route34_Daycare_Movement_0204)
+    applymovement(obj_R34R0101_var_1, Route34_Daycare_Movement_FriendExit)
+    applymovement(obj_R34R0101_tsure_poke_static_marill, Route34_Daycare_Movement_MarillWalkDownRight)
+    applymovement(obj_player, Route34_Daycare_Movement_PlayerFaceDown)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     removeobject(obj_R34R0101_var_1)
@@ -130,30 +130,30 @@ script scr_seq_R34R0101_001 {
     end
 }
 
-movement Route34_Daycare_Movement_0138 {
+movement Route34_Daycare_Movement_FriendExclamation {
     emote_exclamation_mark
 }
 
-movement Route34_Daycare_Movement_0140 {
+movement Route34_Daycare_Movement_FriendWalkUp1 {
     delay_8
     walk_up * 3
 }
 
-movement Route34_Daycare_Movement_014C {
+movement Route34_Daycare_Movement_MarillWalkUp {
     walk_fast_up * 3
     jump_in_place_fast_up * 2
 }
 
-movement Route34_Daycare_Movement_0158 {
+movement Route34_Daycare_Movement_PlayerWalkUp {
     delay_8
     walk_up * 3
 }
 
-movement Route34_Daycare_Movement_0164 {
+movement Route34_Daycare_Movement_FriendFaceDown {
     walk_in_place_down
 }
 
-movement Route34_Daycare_Movement_016C {
+movement Route34_Daycare_Movement_FriendWalkLeftDown {
     walk_left
     walk_down * 3
     delay_8
@@ -161,48 +161,48 @@ movement Route34_Daycare_Movement_016C {
     walk_in_place_up
 }
 
-movement Route34_Daycare_Movement_0184 {
+movement Route34_Daycare_Movement_MarillWalkLeftDown {
     walk_left * 2
     walk_down * 2
 }
 
-movement Route34_Daycare_Movement_0190 {
+movement Route34_Daycare_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-movement Route34_Daycare_Movement_0198 {
+movement Route34_Daycare_Movement_FriendWalkUp2 {
     delay_8
     walk_up
     walk_in_place_right
 }
 
-movement Route34_Daycare_Movement_01A8 {
+movement Route34_Daycare_Movement_MarillJumpLeft {
     walk_in_place_right
     lock_dir
     jump_near_fast_left
     unlock_dir
 }
 
-movement Route34_Daycare_Movement_01BC {
+movement Route34_Daycare_Movement_FriendFaceRight {
     walk_in_place_right
 }
 
-movement Route34_Daycare_Movement_01C4 {
+movement Route34_Daycare_Movement_FriendFaceUp {
     walk_in_place_up
 }
 
-movement Route34_Daycare_Movement_01CC {
+movement Route34_Daycare_Movement_MarillFaceUp {
     walk_in_place_up
 }
 
-movement Route34_Daycare_Movement_01D4 {
+movement Route34_Daycare_Movement_FriendExit {
     walk_down * 2
     walk_right
     walk_down
     set_invisible
 }
 
-movement Route34_Daycare_Movement_01E8 {
+movement Route34_Daycare_Movement_MarillWalkDownRight {
     delay_8
     jump_in_place_fast_up * 2
     delay_8
@@ -211,19 +211,19 @@ movement Route34_Daycare_Movement_01E8 {
     walk_in_place_fast_down
 }
 
-movement Route34_Daycare_Movement_0204 {
+movement Route34_Daycare_Movement_PlayerFaceDown {
     delay_8 * 2
     walk_in_place_down
 }
 
-script scr_seq_R34R0101_000 {
+script Route34_Daycare_OnResume {
     updatedaycaremonobjects
     end
 }
 
 mapscripts Route34_Daycare_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_R34R0101_000
+    INIT_SCRIPT_ON_RESUME: Route34_Daycare_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_408E, 1: scr_seq_R34R0101_001
+        VAR_UNK_408E, 1: Route34_Daycare_EventScript_LyraScene
     ]
 }

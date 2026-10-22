@@ -19,7 +19,7 @@
     },
     {
       "id": "msg_0115_D36R0101_00004",
-      "from": "scr_seq_D36R0101_014#0"
+      "from": "IlexForest_EventScript_Farfetchd3#0"
     },
     {
       "id": "msg_0115_D36R0101_00005",
@@ -47,7 +47,7 @@
     },
     {
       "id": "msg_0115_D36R0101_00011",
-      "from": "scr_seq_D36R0101_002#0"
+      "from": "IlexForest_EventScript_FatMan#0"
     },
     {
       "id": "msg_0115_D36R0101_00012",
@@ -62,23 +62,23 @@
     },
     {
       "id": "msg_0115_D36R0101_00014",
-      "from": "scr_seq_D36R0101_002#1"
+      "from": "IlexForest_EventScript_FatMan#1"
     },
     {
       "id": "msg_0115_D36R0101_00015",
-      "from": "scr_seq_D36R0101_002#2"
+      "from": "IlexForest_EventScript_FatMan#2"
     },
     {
       "id": "msg_0115_D36R0101_00016",
-      "from": "scr_seq_D36R0101_002#4"
+      "from": "IlexForest_EventScript_FatMan#4"
     },
     {
       "id": "msg_0115_D36R0101_00017",
-      "from": "scr_seq_D36R0101_002#5"
+      "from": "IlexForest_EventScript_FatMan#5"
     },
     {
       "id": "msg_0115_D36R0101_00018",
-      "from": "scr_seq_D36R0101_002#6"
+      "from": "IlexForest_EventScript_FatMan#6"
     },
     {
       "id": "msg_0115_D36R0101_00019",
@@ -86,11 +86,11 @@
     },
     {
       "id": "msg_0115_D36R0101_00020",
-      "from": "scr_seq_D36R0101_002#7"
+      "from": "IlexForest_EventScript_FatMan#7"
     },
     {
       "id": "msg_0115_D36R0101_00021",
-      "from": "scr_seq_D36R0101_002#10"
+      "from": "IlexForest_EventScript_FatMan#10"
     },
     {
       "id": "msg_0115_D36R0101_00022",
@@ -98,55 +98,55 @@
     },
     {
       "id": "msg_0115_D36R0101_00023",
-      "from": "scr_seq_D36R0101_002#3"
+      "from": "IlexForest_EventScript_FatMan#3"
     },
     {
       "id": "msg_0115_D36R0101_00024",
-      "from": "scr_seq_D36R0101_002#8"
+      "from": "IlexForest_EventScript_FatMan#8"
     },
     {
       "id": "msg_0115_D36R0101_00025",
-      "from": "scr_seq_D36R0101_002#9"
+      "from": "IlexForest_EventScript_FatMan#9"
     },
     {
       "id": "msg_0115_D36R0101_00026",
-      "from": "scr_seq_D36R0101_002#11"
+      "from": "IlexForest_EventScript_FatMan#11"
     },
     {
       "id": "msg_0115_D36R0101_00027",
-      "from": "scr_seq_D36R0101_013#0"
+      "from": "IlexForest_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0115_D36R0101_00028",
-      "from": "scr_seq_D36R0101_012#0"
+      "from": "IlexForest_EventScript_Shrine#0"
     },
     {
       "id": "msg_0115_D36R0101_00029",
-      "from": "scr_seq_D36R0101_015#0"
+      "from": "IlexForest_EventScript_KimonoGirlTrigger#0"
     },
     {
       "id": "msg_0115_D36R0101_00030",
-      "from": "scr_seq_D36R0101_015#1"
+      "from": "IlexForest_EventScript_KimonoGirlTrigger#1"
     },
     {
       "id": "msg_0115_D36R0101_00031",
-      "from": "scr_seq_D36R0101_015#2"
+      "from": "IlexForest_EventScript_KimonoGirlTrigger#2"
     },
     {
       "id": "msg_0115_D36R0101_00032",
-      "from": "scr_seq_D36R0101_015#3"
+      "from": "IlexForest_EventScript_KimonoGirlTrigger#3"
     },
     {
       "id": "msg_0115_D36R0101_00033",
-      "from": "scr_seq_D36R0101_015#4"
+      "from": "IlexForest_EventScript_KimonoGirlTrigger#4"
     },
     {
       "id": "msg_0115_D36R0101_00034",
-      "from": "scr_seq_D36R0101_015#5"
+      "from": "IlexForest_EventScript_KimonoGirlTrigger#5"
     },
     {
       "id": "msg_0115_D36R0101_00035",
-      "from": "scr_seq_D36R0101_farfetchd1_sticks1#0"
+      "from": "IlexForest_EventScript_FarfetchdTrigger1#0"
     },
     {
       "id": "msg_0115_D36R0101_00036",
@@ -158,15 +158,15 @@
     },
     {
       "id": "msg_0115_D36R0101_00038",
-      "from": "scr_seq_D36R0101_012#1"
+      "from": "IlexForest_EventScript_Shrine#1"
     },
     {
       "id": "msg_0115_D36R0101_00039",
-      "from": "scr_seq_D36R0101_012#6"
+      "from": "IlexForest_EventScript_Shrine#6"
     },
     {
       "id": "msg_0115_D36R0101_00040",
-      "from": "scr_seq_D36R0101_012#9"
+      "from": "IlexForest_EventScript_Shrine#9"
     },
     {
       "id": "msg_0115_D36R0101_00041",
@@ -174,7 +174,7 @@
     },
     {
       "id": "msg_0115_D36R0101_00042",
-      "from": "scr_seq_D36R0101_019#0"
+      "from": "IlexForest_EventScript_Pichu#0"
     },
     {
       "id": "msg_0115_D36R0101_00043",
@@ -182,35 +182,35 @@
     },
     {
       "id": "msg_0115_D36R0101_00044",
-      "from": "scr_seq_D36R0101_012#7"
+      "from": "IlexForest_EventScript_Shrine#7"
     },
     {
       "id": "msg_0115_D36R0101_00045",
-      "from": "scr_seq_D36R0101_012#10"
+      "from": "IlexForest_EventScript_Shrine#10"
     },
     {
       "id": "msg_0115_D36R0101_00046",
-      "from": "scr_seq_D36R0101_012#2"
+      "from": "IlexForest_EventScript_Shrine#2"
     },
     {
       "id": "msg_0115_D36R0101_00047",
-      "from": "scr_seq_D36R0101_012#3"
+      "from": "IlexForest_EventScript_Shrine#3"
     },
     {
       "id": "msg_0115_D36R0101_00048",
-      "from": "scr_seq_D36R0101_012#4"
+      "from": "IlexForest_EventScript_Shrine#4"
     },
     {
       "id": "msg_0115_D36R0101_00049",
-      "from": "scr_seq_D36R0101_012#5"
+      "from": "IlexForest_EventScript_Shrine#5"
     },
     {
       "id": "msg_0115_D36R0101_00050",
-      "from": "scr_seq_D36R0101_012#13"
+      "from": "IlexForest_EventScript_Shrine#13"
     },
     {
       "id": "msg_0115_D36R0101_00051",
-      "from": "scr_seq_D36R0101_012#12"
+      "from": "IlexForest_EventScript_Shrine#12"
     },
     {
       "id": "msg_0115_D36R0101_00052",
@@ -218,63 +218,63 @@
     },
     {
       "id": "msg_0115_D36R0101_00053",
-      "from": "scr_seq_D36R0101_012#8"
+      "from": "IlexForest_EventScript_Shrine#8"
     },
     {
       "id": "msg_0115_D36R0101_00054",
-      "from": "scr_seq_D36R0101_012#11"
+      "from": "IlexForest_EventScript_Shrine#11"
     },
     {
       "id": "msg_0115_D36R0101_00055",
-      "from": "scr_seq_D36R0101_020#0"
+      "from": "IlexForest_EventScript_Lyra#0"
     },
     {
       "id": "msg_0115_D36R0101_00056",
-      "from": "scr_seq_D36R0101_020#2"
+      "from": "IlexForest_EventScript_Lyra#2"
     },
     {
       "id": "msg_0115_D36R0101_00057",
-      "from": "scr_seq_D36R0101_020#1"
+      "from": "IlexForest_EventScript_Lyra#1"
     },
     {
       "id": "msg_0115_D36R0101_00058",
-      "from": "scr_seq_D36R0101_020#4"
+      "from": "IlexForest_EventScript_Lyra#4"
     },
     {
       "id": "msg_0115_D36R0101_00059",
-      "from": "scr_seq_D36R0101_020#3"
+      "from": "IlexForest_EventScript_Lyra#3"
     },
     {
       "id": "msg_0115_D36R0101_00060",
-      "from": "scr_seq_D36R0101_022#1"
+      "from": "IlexForest_EventScript_LyraScene#1"
     },
     {
       "id": "msg_0115_D36R0101_00061",
-      "from": "scr_seq_D36R0101_022#0"
+      "from": "IlexForest_EventScript_LyraScene#0"
     },
     {
       "id": "msg_0115_D36R0101_00062",
-      "from": "scr_seq_D36R0101_022#3"
+      "from": "IlexForest_EventScript_LyraScene#3"
     },
     {
       "id": "msg_0115_D36R0101_00063",
-      "from": "scr_seq_D36R0101_022#2"
+      "from": "IlexForest_EventScript_LyraScene#2"
     },
     {
       "id": "msg_0115_D36R0101_00064",
-      "from": "scr_seq_D36R0101_022#5"
+      "from": "IlexForest_EventScript_LyraScene#5"
     },
     {
       "id": "msg_0115_D36R0101_00065",
-      "from": "scr_seq_D36R0101_022#4"
+      "from": "IlexForest_EventScript_LyraScene#4"
     },
     {
       "id": "msg_0115_D36R0101_00066",
-      "from": "scr_seq_D36R0101_022#7"
+      "from": "IlexForest_EventScript_LyraScene#7"
     },
     {
       "id": "msg_0115_D36R0101_00067",
-      "from": "scr_seq_D36R0101_022#6"
+      "from": "IlexForest_EventScript_LyraScene#6"
     }
   ]
 }

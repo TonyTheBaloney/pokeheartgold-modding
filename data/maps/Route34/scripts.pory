@@ -3,22 +3,22 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R34_000
-    scr_seq_R34_001
-    scr_seq_R34_002
-    scr_seq_R34_003
-    scr_seq_R34_004
-    scr_seq_R34_005
-    scr_seq_R34_006
-    scr_seq_R34_007
-    scr_seq_R34_008
-    scr_seq_R34_009
-    scr_seq_R34_010
-    scr_seq_R34_011
-    scr_seq_R34_012
+    Route34_OnTransition
+    Route34_EventScript_OldManScene
+    Route34_EventScript_Policeman
+    Route34_EventScript_LyraTrigger
+    Route34_EventScript_IreneTrigger
+    Route34_EventScript_KateTrigger
+    Route34_EventScript_Irene
+    Route34_EventScript_Jenn
+    Route34_EventScript_Kate
+    Route34_EventScript_TrainerTips1
+    Route34_EventScript_TrainerTips2
+    Route34_EventScript_RouteSign
+    Route34_EventScript_PokefanM
 }
 
-script scr_seq_R34_000 {
+script Route34_OnTransition {
     getfriendsprite(VAR_OBJ_0)
     checkdaycareegg(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) != 0) {
@@ -53,11 +53,11 @@ script scr_seq_R34_000 {
     end
 }
 
-script scr_seq_R34_001 {
+script Route34_EventScript_OldManScene {
     followmonresetmovement
     lockall
-    applymovement(obj_R34_gsoldman1, Route34_Movement_0130)
-    applymovement(obj_player, Route34_Movement_0140)
+    applymovement(obj_R34_gsoldman1, Route34_Movement_OldManWalkDownRight)
+    applymovement(obj_player, Route34_Movement_PlayerFaceLeft1)
     waitmovement
     npcmsg("I have an idea!\n"
            "I’ll give you our numbers.\r"
@@ -79,42 +79,42 @@ script scr_seq_R34_001 {
            "I’ll be happy to have a use for this\n"
            "Pokégear my grandchild gave me.\r")
     closemessage
-    applymovement(obj_R34_gsoldman1, Route34_Movement_014C)
+    applymovement(obj_R34_gsoldman1, Route34_Movement_OldManWalkLeftUp)
     waitmovement
     setvar(VAR_UNK_408E, 3)
     releaseall
     end
 }
 
-movement Route34_Movement_0130 {
+movement Route34_Movement_OldManWalkDownRight {
     emote_exclamation_mark
     walk_down
     walk_right * 2
 }
 
-movement Route34_Movement_0140 {
+movement Route34_Movement_PlayerFaceLeft1 {
     delay_8 * 3
     walk_in_place_left
 }
 
-movement Route34_Movement_014C {
+movement Route34_Movement_OldManWalkLeftUp {
     walk_left * 2
     walk_up
     walk_in_place_down
 }
 
-script scr_seq_R34_003 {
+script Route34_EventScript_LyraTrigger {
     followmonresetmovement
     lockall
     gendermsgbox("Lyra: Grandpa!\r", "Ethan: Grandpa!\r")
     closemessage
-    applymovement(obj_R34_gsoldman1, Route34_Movement_0510)
+    applymovement(obj_R34_gsoldman1, Route34_Movement_OldManFaceUp)
     waitmovement
     callstd(std_play_friend_music)
-    applymovement(obj_R34_var_1, Route34_Movement_049C)
-    applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04B0)
+    applymovement(obj_R34_var_1, Route34_Movement_FriendWalkDownRight)
+    applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillWalkDownRight1)
     waitmovement
-    applymovement(obj_R34_gsoldman1, Route34_Movement_0500)
+    applymovement(obj_R34_gsoldman1, Route34_Movement_OldManFaceLeft)
     waitmovement
     gendermsgbox("Lyra: Good work, Grandpa!\n"
                  "The Pokémon you raised for me has\f"
@@ -124,20 +124,20 @@ script scr_seq_R34_003 {
                                          "been as healthy as can be!\r"
                                          "You look fit, too!\r")
     closemessage
-    applymovement(obj_R34_var_1, Route34_Movement_04F8)
+    applymovement(obj_R34_var_1, Route34_Movement_FriendExclamation)
     waitmovement
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     bufferplayersname(0)
     if (var(VAR_SPECIAL_x8004) == 368) {
-        applymovement(obj_R34_var_1, Route34_Movement_04C0)
-        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04CC)
-        applymovement(obj_R34_gsoldman1, Route34_Movement_0494)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendWalkDown1)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillWalkDown1)
+        applymovement(obj_R34_gsoldman1, Route34_Movement_OldManFaceDown)
     } elif (var(VAR_SPECIAL_x8004) == 369) {
-        applymovement(obj_R34_var_1, Route34_Movement_04C0)
-        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04CC)
-        applymovement(obj_R34_gsoldman1, Route34_Movement_0494)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendWalkDown1)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillWalkDown1)
+        applymovement(obj_R34_gsoldman1, Route34_Movement_OldManFaceDown)
     } else {
-        applymovement(obj_R34_var_1, Route34_Movement_0518)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendFaceDown)
     }
     waitmovement
     gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\r", "Ethan: Hey, {STRVAR_1 3, 0, 0}!\r")
@@ -146,30 +146,30 @@ script scr_seq_R34_003 {
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_SPECIAL_x8004) == 363) {
-        applymovement(obj_player, Route34_Movement_0528)
+        applymovement(obj_player, Route34_Movement_PlayerWalkRightUp1)
     } elif (var(VAR_SPECIAL_x8004) == 364) {
-        applymovement(obj_player, Route34_Movement_0534)
+        applymovement(obj_player, Route34_Movement_PlayerWalkUp1)
     } elif (var(VAR_SPECIAL_x8004) == 365) {
-        applymovement(obj_player, Route34_Movement_053C)
+        applymovement(obj_player, Route34_Movement_PlayerWalkLeftUp1)
     } elif (var(VAR_SPECIAL_x8004) == 366) {
-        applymovement(obj_player, Route34_Movement_0548)
+        applymovement(obj_player, Route34_Movement_PlayerWalkLeftUp2)
     } elif (var(VAR_SPECIAL_x8004) == 367) {
-        applymovement(obj_player, Route34_Movement_0554)
+        applymovement(obj_player, Route34_Movement_PlayerWalkLeftUp3)
     } elif (var(VAR_SPECIAL_x8004) == 368) {
-        applymovement(obj_player, Route34_Movement_0560)
+        applymovement(obj_player, Route34_Movement_PlayerWalkLeftUp4)
     } else {
-        applymovement(obj_player, Route34_Movement_056C)
+        applymovement(obj_player, Route34_Movement_PlayerWalkLeftUp5)
     }
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     if (var(VAR_SPECIAL_x8004) == 368) {
-        applymovement(obj_R34_var_1, Route34_Movement_0510)
+        applymovement(obj_R34_var_1, Route34_Movement_OldManFaceUp)
     } elif (var(VAR_SPECIAL_x8004) == 369) {
-        applymovement(obj_R34_var_1, Route34_Movement_0510)
+        applymovement(obj_R34_var_1, Route34_Movement_OldManFaceUp)
     } else {
-        applymovement(obj_R34_var_1, Route34_Movement_0508)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendFaceRight)
     }
     waitmovement
     bufferplayersname(0)
@@ -186,14 +186,14 @@ script scr_seq_R34_003 {
                                  "of course!\r")
     closemessage
     if (var(VAR_SPECIAL_x8004) == 368) {
-        applymovement(obj_R34_var_1, Route34_Movement_04D4)
-        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04E8)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendWalkRight1)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillWalkDown2)
     } elif (var(VAR_SPECIAL_x8004) == 369) {
-        applymovement(obj_R34_var_1, Route34_Movement_04D4)
-        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04E8)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendWalkRight1)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillWalkDown2)
     } else {
-        applymovement(obj_R34_var_1, Route34_Movement_04E0)
-        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04F0)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendWalkDown2)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillWalkDown3)
     }
     waitmovement
     bufferplayersname(0)
@@ -203,17 +203,17 @@ script scr_seq_R34_003 {
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_SPECIAL_x8004) == 368) {
-        applymovement(obj_R34_var_1, Route34_Movement_0578)
-        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_0590)
-        applymovement(obj_player, Route34_Movement_05A4)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendWalkRight2)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillWalkRight)
+        applymovement(obj_player, Route34_Movement_PlayerWalkRight1)
     } elif (var(VAR_SPECIAL_x8004) == 369) {
-        applymovement(obj_R34_var_1, Route34_Movement_0578)
-        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_0590)
-        applymovement(obj_player, Route34_Movement_05A4)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendWalkRight2)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillWalkRight)
+        applymovement(obj_player, Route34_Movement_PlayerWalkRight1)
     } else {
-        applymovement(obj_R34_var_1, Route34_Movement_0584)
-        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_0598)
-        applymovement(obj_player, Route34_Movement_05B4)
+        applymovement(obj_R34_var_1, Route34_Movement_FriendWalkRight3)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillWalkDownRight2)
+        applymovement(obj_player, Route34_Movement_PlayerWalkRight2)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -222,13 +222,13 @@ script scr_seq_R34_003 {
     dooranimationload(11, 12, 16, 26, 77)
     dooranimationopen(77)
     dooranimationwait(77)
-    applymovement(obj_R34_var_1, Route34_Movement_05C4)
-    applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_05D0)
+    applymovement(obj_R34_var_1, Route34_Movement_FriendExit)
+    applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_MarillExit)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Route34_Movement_05E0)
+    applymovement(obj_player, Route34_Movement_PlayerExit)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -251,66 +251,66 @@ script scr_seq_R34_003 {
     end
 }
 
-movement Route34_Movement_0494 {
+movement Route34_Movement_OldManFaceDown {
     walk_in_place_down
 }
 
-movement Route34_Movement_049C {
+movement Route34_Movement_FriendWalkDownRight {
     walk_down * 6
     walk_right * 3
     walk_down * 2
     walk_in_place_right
 }
 
-movement Route34_Movement_04B0 {
+movement Route34_Movement_MarillWalkDownRight1 {
     walk_down * 7
     walk_right * 3
     walk_down
 }
 
-movement Route34_Movement_04C0 {
+movement Route34_Movement_FriendWalkDown1 {
     walk_down
     walk_in_place_right
 }
 
-movement Route34_Movement_04CC {
+movement Route34_Movement_MarillWalkDown1 {
     walk_down
 }
 
-movement Route34_Movement_04D4 {
+movement Route34_Movement_FriendWalkRight1 {
     walk_right
     walk_in_place_down
 }
 
-movement Route34_Movement_04E0 {
+movement Route34_Movement_FriendWalkDown2 {
     walk_down
 }
 
-movement Route34_Movement_04E8 {
+movement Route34_Movement_MarillWalkDown2 {
     walk_down
 }
 
-movement Route34_Movement_04F0 {
+movement Route34_Movement_MarillWalkDown3 {
     walk_down
 }
 
-movement Route34_Movement_04F8 {
+movement Route34_Movement_FriendExclamation {
     emote_exclamation_mark
 }
 
-movement Route34_Movement_0500 {
+movement Route34_Movement_OldManFaceLeft {
     walk_in_place_left
 }
 
-movement Route34_Movement_0508 {
+movement Route34_Movement_FriendFaceRight {
     walk_in_place_right
 }
 
-movement Route34_Movement_0510 {
+movement Route34_Movement_OldManFaceUp {
     walk_in_place_up
 }
 
-movement Route34_Movement_0518 {
+movement Route34_Movement_FriendFaceDown {
     walk_in_place_down
 }
 
@@ -318,93 +318,93 @@ movement Route34_Movement_0520 {
     set_invisible
 }
 
-movement Route34_Movement_0528 {
+movement Route34_Movement_PlayerWalkRightUp1 {
     walk_right
     walk_up
 }
 
-movement Route34_Movement_0534 {
+movement Route34_Movement_PlayerWalkUp1 {
     walk_up
 }
 
-movement Route34_Movement_053C {
+movement Route34_Movement_PlayerWalkLeftUp1 {
     walk_left
     walk_up
 }
 
-movement Route34_Movement_0548 {
+movement Route34_Movement_PlayerWalkLeftUp2 {
     walk_left * 2
     walk_up
 }
 
-movement Route34_Movement_0554 {
+movement Route34_Movement_PlayerWalkLeftUp3 {
     walk_left * 3
     walk_up
 }
 
-movement Route34_Movement_0560 {
+movement Route34_Movement_PlayerWalkLeftUp4 {
     walk_left * 3
     walk_up
 }
 
-movement Route34_Movement_056C {
+movement Route34_Movement_PlayerWalkLeftUp5 {
     walk_left * 4
     walk_up
 }
 
-movement Route34_Movement_0578 {
+movement Route34_Movement_FriendWalkRight2 {
     walk_right * 3
     walk_in_place_up
 }
 
-movement Route34_Movement_0584 {
+movement Route34_Movement_FriendWalkRight3 {
     walk_right * 4
     walk_in_place_up
 }
 
-movement Route34_Movement_0590 {
+movement Route34_Movement_MarillWalkRight {
     walk_right * 3
 }
 
-movement Route34_Movement_0598 {
+movement Route34_Movement_MarillWalkDownRight2 {
     walk_down
     walk_right * 3
 }
 
-movement Route34_Movement_05A4 {
+movement Route34_Movement_PlayerWalkRight1 {
     delay_8
     walk_right * 3
     walk_in_place_up
 }
 
-movement Route34_Movement_05B4 {
+movement Route34_Movement_PlayerWalkRight2 {
     delay_8
     walk_right * 4
     walk_in_place_up
 }
 
-movement Route34_Movement_05C4 {
+movement Route34_Movement_FriendExit {
     walk_up
     set_invisible
 }
 
-movement Route34_Movement_05D0 {
+movement Route34_Movement_MarillExit {
     walk_right
     walk_up
     set_invisible
 }
 
-movement Route34_Movement_05E0 {
+movement Route34_Movement_PlayerExit {
     walk_up * 2
     set_invisible
 }
 
-script scr_seq_R34_002 {
+script Route34_EventScript_Policeman {
     simplenpcmsg("I’m on patrol for suspicious individuals.")
     end
 }
 
-script scr_seq_R34_012 {
+script Route34_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -438,16 +438,16 @@ script scr_seq_R34_012 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Route34_Movement_0750)
-        applymovement(obj_R34_gsmiddleman1_2, Route34_Movement_079C)
+        applymovement(obj_player, Route34_Movement_PlayerWalkRightUp2)
+        applymovement(obj_R34_gsmiddleman1_2, Route34_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route34_Movement_0768)
+        applymovement(obj_player, Route34_Movement_PlayerWalkUp2)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Route34_Movement_0788)
-        applymovement(obj_R34_gsmiddleman1_2, Route34_Movement_079C)
+        applymovement(obj_player, Route34_Movement_PlayerWalkUpRight)
+        applymovement(obj_R34_gsmiddleman1_2, Route34_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Route34_Movement_0774)
-        applymovement(obj_R34_gsmiddleman1_2, Route34_Movement_079C)
+        applymovement(obj_player, Route34_Movement_PlayerWalkUpLeft)
+        applymovement(obj_R34_gsmiddleman1_2, Route34_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -455,7 +455,7 @@ script scr_seq_R34_012 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route34_Movement_07A8)
+        applymovement(obj_partner_poke, Route34_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -474,7 +474,7 @@ script scr_seq_R34_012 {
     end
 }
 
-movement Route34_Movement_0750 {
+movement Route34_Movement_PlayerWalkRightUp2 {
     walk_right
     walk_up * 2
     walk_left
@@ -482,70 +482,70 @@ movement Route34_Movement_0750 {
     walk_in_place_down
 }
 
-movement Route34_Movement_0768 {
+movement Route34_Movement_PlayerWalkUp2 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route34_Movement_0774 {
+movement Route34_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route34_Movement_0788 {
+movement Route34_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route34_Movement_079C {
+movement Route34_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route34_Movement_07A8 {
+movement Route34_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R34_004 {
+script Route34_EventScript_IreneTrigger {
     followmonresetmovement
     lockall
     countalivemons(VAR_TEMP_x4003, 6)
     if (var(VAR_TEMP_x4003) != 1) {
         goto(_087D)
     _07E1:
-        applymovement(obj_R34_gswoman3, Route34_Movement_0918)
+        applymovement(obj_R34_gswoman3, Route34_Movement_IreneWalkLeft)
         stopbgm(0)
         playbgm(SEQ_GS_EYE_J_SHOUJO)
         waitmovement
-        applymovement(obj_player, Route34_Movement_0944)
+        applymovement(obj_player, Route34_Movement_PlayerFaceRight)
         waitmovement
         npcmsg(msg_0384_R34_00019)
         closemessage
         trainerbattle(TRAINER_ACE_TRAINER_F_IRENE, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0912) }
-        applymovement(obj_R34_gswoman3, Route34_Movement_094C)
+        applymovement(obj_R34_gswoman3, Route34_Movement_IreneFaceLeft)
         waitmovement
         npcmsg(msg_0384_R34_00021)
         closemessage
-        applymovement(obj_R34_gswoman3_2, Route34_Movement_0924)
+        applymovement(obj_R34_gswoman3_2, Route34_Movement_JennWalkRight)
         stopbgm(0)
         playbgm(SEQ_GS_EYE_J_SHOUJO)
         waitmovement
-        applymovement(obj_player, Route34_Movement_093C)
+        applymovement(obj_player, Route34_Movement_PlayerFaceLeft2)
         waitmovement
         npcmsg(msg_0384_R34_00024)
         closemessage
         trainerbattle(TRAINER_ACE_TRAINER_F_JENN, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0912) }
-        applymovement(obj_R34_gswoman3_2, Route34_Movement_0954)
+        applymovement(obj_R34_gswoman3_2, Route34_Movement_JennFaceRight)
         waitmovement
         npcmsg(msg_0384_R34_00026)
         waitbuttonpress
@@ -553,33 +553,33 @@ script scr_seq_R34_004 {
         goto(_0908)
         end
     _087D:
-        applymovement(obj_R34_gswoman3, Route34_Movement_0918)
+        applymovement(obj_R34_gswoman3, Route34_Movement_IreneWalkLeft)
         stopbgm(0)
         playbgm(SEQ_GS_EYE_J_SHOUJO)
         waitmovement
-        applymovement(obj_player, Route34_Movement_0944)
+        applymovement(obj_player, Route34_Movement_PlayerFaceRight)
         waitmovement
         npcmsg(msg_0384_R34_00019)
         closemessage
-        applymovement(obj_R34_gswoman3_2, Route34_Movement_0924)
+        applymovement(obj_R34_gswoman3_2, Route34_Movement_JennWalkRight)
         playbgm(SEQ_GS_EYE_J_SHOUJO)
         waitmovement
-        applymovement(obj_player, Route34_Movement_093C)
+        applymovement(obj_player, Route34_Movement_PlayerFaceLeft2)
         waitmovement
         npcmsg(msg_0384_R34_00024)
         closemessage
         trainerbattle(TRAINER_ACE_TRAINER_F_JENN, 120, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0912) }
-        applymovement(obj_R34_gswoman3, Route34_Movement_094C)
+        applymovement(obj_R34_gswoman3, Route34_Movement_IreneFaceLeft)
         waitmovement
-        applymovement(obj_player, Route34_Movement_0944)
+        applymovement(obj_player, Route34_Movement_PlayerFaceRight)
         waitmovement
         npcmsg(msg_0384_R34_00021)
         closemessage
-        applymovement(obj_R34_gswoman3_2, Route34_Movement_0954)
+        applymovement(obj_R34_gswoman3_2, Route34_Movement_JennFaceRight)
         waitmovement
-        applymovement(obj_player, Route34_Movement_093C)
+        applymovement(obj_player, Route34_Movement_PlayerFaceLeft2)
         waitmovement
         npcmsg(msg_0384_R34_00026)
         waitbuttonpress
@@ -615,42 +615,42 @@ text msg_0384_R34_00026 {
     "My sister is really strong!"
 }
 
-movement Route34_Movement_0918 {
+movement Route34_Movement_IreneWalkLeft {
     emote_exclamation_mark
     walk_left * 4
 }
 
-movement Route34_Movement_0924 {
+movement Route34_Movement_JennWalkRight {
     emote_exclamation_mark
     walk_right * 4
 }
 
-movement Route34_Movement_0930 {
+movement Route34_Movement_KateWalkUp {
     emote_exclamation_mark
     walk_up * 2
 }
 
-movement Route34_Movement_093C {
+movement Route34_Movement_PlayerFaceLeft2 {
     face_left
 }
 
-movement Route34_Movement_0944 {
+movement Route34_Movement_PlayerFaceRight {
     face_right
 }
 
-movement Route34_Movement_094C {
+movement Route34_Movement_IreneFaceLeft {
     jump_in_place_fast_left * 2
 }
 
-movement Route34_Movement_0954 {
+movement Route34_Movement_JennFaceRight {
     jump_in_place_fast_right * 2
 }
 
-script scr_seq_R34_005 {
+script Route34_EventScript_KateTrigger {
     followmonresetmovement
     lockall
     setvar(VAR_TEMP_x4004, 777)
-    applymovement(obj_R34_gswoman3_3, Route34_Movement_0930)
+    applymovement(obj_R34_gswoman3_3, Route34_Movement_KateWalkUp)
     stopbgm(0)
     playbgm(SEQ_GS_EYE_J_SHOUJO)
     waitmovement
@@ -693,7 +693,7 @@ text msg_0384_R34_00032 {
     "You sure startled us."
 }
 
-script scr_seq_R34_006 {
+script Route34_EventScript_Irene {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -709,7 +709,7 @@ script scr_seq_R34_006 {
     end
 }
 
-script scr_seq_R34_007 {
+script Route34_EventScript_Jenn {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -725,7 +725,7 @@ script scr_seq_R34_007 {
     end
 }
 
-script scr_seq_R34_008 {
+script Route34_EventScript_Kate {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -738,7 +738,7 @@ script scr_seq_R34_008 {
     end
 }
 
-script scr_seq_R34_009 {
+script Route34_EventScript_TrainerTips1 {
     trainertipsex(3, "Trainer Tips\r"
                      "North to Goldenrod City\n"
                      "The Radio Tower at Goldenrod is giving\f"
@@ -748,21 +748,21 @@ script scr_seq_R34_009 {
     end
 }
 
-script scr_seq_R34_010 {
+script Route34_EventScript_TrainerTips2 {
     trainertipsex(2, "Pokémon Day Care\n"
                      "Let us raise your Pokémon for you!")
     end
 }
 
-script scr_seq_R34_011 {
+script Route34_EventScript_RouteSign {
     directionsignpostex(1, 4, "Rt. 34\n"
                               "South to Azalea Town")
     end
 }
 
 mapscripts Route34_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R34_000
+    INIT_SCRIPT_ON_TRANSITION: Route34_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_408E, 2: scr_seq_R34_001
+        VAR_UNK_408E, 2: Route34_EventScript_OldManScene
     ]
 }

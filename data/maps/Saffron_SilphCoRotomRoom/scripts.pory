@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T11R0702_000
-    scr_seq_T11R0702_001
-    scr_seq_T11R0702_002
-    scr_seq_T11R0702_003
-    scr_seq_T11R0702_004
-    scr_seq_T11R0702_005
-    scr_seq_T11R0702_006
-    scr_seq_T11R0702_007
+    Saffron_SilphCoRotomRoom_EventScript_LittleBoy
+    Saffron_SilphCoRotomRoom_EventScript_Rotomf
+    Saffron_SilphCoRotomRoom_EventScript_Rotoms
+    Saffron_SilphCoRotomRoom_EventScript_Rotomi
+    Saffron_SilphCoRotomRoom_EventScript_Rotomw
+    Saffron_SilphCoRotomRoom_EventScript_Rotomg
+    Saffron_SilphCoRotomRoom_OnTransition
+    Saffron_SilphCoRotomRoom_EventScript_Sign
 }
 
-script scr_seq_T11R0702_006 {
+script Saffron_SilphCoRotomRoom_OnTransition {
     setflag(FLAG_HIDE_SILPH_ROTOM_HEAT)
     setflag(FLAG_HIDE_SILPH_ROTOM_WASH)
     setflag(FLAG_HIDE_SILPH_ROTOM_FROST)
@@ -48,7 +48,7 @@ _009D:
     return
 }
 
-script scr_seq_T11R0702_001 {
+script Saffron_SilphCoRotomRoom_EventScript_Rotomf {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8004, 1)
@@ -56,7 +56,7 @@ script scr_seq_T11R0702_001 {
     end
 }
 
-script scr_seq_T11R0702_002 {
+script Saffron_SilphCoRotomRoom_EventScript_Rotoms {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8004, 4)
@@ -64,7 +64,7 @@ script scr_seq_T11R0702_002 {
     end
 }
 
-script scr_seq_T11R0702_003 {
+script Saffron_SilphCoRotomRoom_EventScript_Rotomi {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8004, 3)
@@ -72,7 +72,7 @@ script scr_seq_T11R0702_003 {
     end
 }
 
-script scr_seq_T11R0702_004 {
+script Saffron_SilphCoRotomRoom_EventScript_Rotomw {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8004, 2)
@@ -80,7 +80,7 @@ script scr_seq_T11R0702_004 {
     end
 }
 
-script scr_seq_T11R0702_005 {
+script Saffron_SilphCoRotomRoom_EventScript_Rotomg {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8004, 5)
@@ -267,7 +267,7 @@ _0189:
                 nopvar490(VAR_SPECIAL_x8000)
                 if (var(VAR_TEMP_x4000) == VAR_SPECIAL_x8000) {
                     release(obj_partner_poke)
-                    applymovement(obj_partner_poke, Saffron_SilphCoRotomRoom_Movement_06F0)
+                    applymovement(obj_partner_poke, Saffron_SilphCoRotomRoom_Movement_FollowMonExit)
                     waitmovement
                     lock(obj_partner_poke)
                 }
@@ -387,7 +387,7 @@ _0189:
         if (var(VAR_TEMP_x4001) == 479) {
             if (var(VAR_TEMP_x4000) == VAR_SPECIAL_x8000) {
                 release(obj_partner_poke)
-                applymovement(obj_partner_poke, Saffron_SilphCoRotomRoom_Movement_06F0)
+                applymovement(obj_partner_poke, Saffron_SilphCoRotomRoom_Movement_FollowMonExit)
                 waitmovement
                 lock(obj_partner_poke)
             }
@@ -406,7 +406,7 @@ text msg_0538_T11R0702_00007 {
     "Which ROTOM are you choosing?\r"
 }
 
-movement Saffron_SilphCoRotomRoom_Movement_06F0 {
+movement Saffron_SilphCoRotomRoom_Movement_FollowMonExit {
     jump_in_place_slow_down * 2
     set_invisible
 }
@@ -504,13 +504,13 @@ _07B3:
     return
 _07BA:
     release(obj_partner_poke)
-    applymovement(obj_partner_poke, Saffron_SilphCoRotomRoom_Movement_07D0)
+    applymovement(obj_partner_poke, Saffron_SilphCoRotomRoom_Movement_FollowMonMove)
     waitmovement
     lock(obj_partner_poke)
     return
 }
 
-movement Saffron_SilphCoRotomRoom_Movement_07D0 {
+movement Saffron_SilphCoRotomRoom_Movement_FollowMonMove {
     set_visible
 }
 
@@ -549,7 +549,7 @@ _0835:
     return
 }
 
-script scr_seq_T11R0702_007 {
+script Saffron_SilphCoRotomRoom_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     counttranformedrotomsinparty(VAR_SPECIAL_x8003, VAR_SPECIAL_RESULT)
@@ -584,7 +584,7 @@ script scr_seq_T11R0702_007 {
     end
 }
 
-script scr_seq_T11R0702_000 {
+script Saffron_SilphCoRotomRoom_EventScript_LittleBoy {
     simplenpcmsg("There is a mysterious notebook here.\n"
                  "Its age is impossible to tell.\r"
                  "“It was by pure chance that I obtained\n"
@@ -610,5 +610,5 @@ script scr_seq_T11R0702_000 {
 }
 
 mapscripts Saffron_SilphCoRotomRoom_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11R0702_006
+    INIT_SCRIPT_ON_TRANSITION: Saffron_SilphCoRotomRoom_OnTransition
 }

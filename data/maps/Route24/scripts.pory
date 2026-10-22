@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R24_000
-    scr_seq_R24_001
-    scr_seq_R24_002
-    scr_seq_R24_003
-    scr_seq_R24_004
+    Route24_EventScript_Man
+    Route24_EventScript_Beauty
+    Route24_EventScript_Grunt
+    Route24_EventScript_GruntTrigger
+    Route24_OnTransition
 }
 
-script scr_seq_R24_004 {
+script Route24_OnTransition {
     if (var(VAR_SCENE_ROUTE_24_ROCKET) == 2) {
         setvar(VAR_SCENE_ROUTE_24_ROCKET, 1)
         end
@@ -18,18 +18,18 @@ script scr_seq_R24_004 {
     end
 }
 
-script scr_seq_R24_003 {
+script Route24_EventScript_GruntTrigger {
     followmonresetmovement
     lockall
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 0) {
-        applymovement(obj_R24_rocketm, Route24_Movement_0084)
-        applymovement(obj_R24_gsman1, Route24_Movement_00A0)
-        applymovement(obj_R24_gswoman2, Route24_Movement_00AC)
+        applymovement(obj_R24_rocketm, Route24_Movement_GruntWalkLeft1)
+        applymovement(obj_R24_gsman1, Route24_Movement_ManFaceDown)
+        applymovement(obj_R24_gswoman2, Route24_Movement_BeautyWalkDown)
     } else {
-        applymovement(obj_R24_rocketm, Route24_Movement_0090)
-        applymovement(obj_R24_gsman1, Route24_Movement_00A0)
-        applymovement(obj_R24_gswoman2, Route24_Movement_00AC)
+        applymovement(obj_R24_rocketm, Route24_Movement_GruntWalkLeft2)
+        applymovement(obj_R24_gsman1, Route24_Movement_ManFaceDown)
+        applymovement(obj_R24_gswoman2, Route24_Movement_BeautyWalkDown)
     }
     waitmovement
     setvar(VAR_SCENE_ROUTE_24_ROCKET, 2)
@@ -37,29 +37,29 @@ script scr_seq_R24_003 {
     end
 }
 
-movement Route24_Movement_0084 {
+movement Route24_Movement_GruntWalkLeft1 {
     emote_exclamation_mark
     walk_fast_left * 3
 }
 
-movement Route24_Movement_0090 {
+movement Route24_Movement_GruntWalkLeft2 {
     face_up
     emote_exclamation_mark
     walk_fast_left * 3
 }
 
-movement Route24_Movement_00A0 {
+movement Route24_Movement_ManFaceDown {
     delay_16 * 3
     face_down
 }
 
-movement Route24_Movement_00AC {
+movement Route24_Movement_BeautyWalkDown {
     delay_16 * 3
     walk_fast_down
     face_up
 }
 
-script scr_seq_R24_002 {
+script Route24_EventScript_Grunt {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -112,10 +112,10 @@ script scr_seq_R24_002 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_R24_rocketm, Route24_Movement_0150)
-    applymovement(obj_player, Route24_Movement_015C)
-    applymovement(obj_R24_gsman1, Route24_Movement_0170)
-    applymovement(obj_R24_gswoman2, Route24_Movement_017C)
+    applymovement(obj_R24_rocketm, Route24_Movement_GruntWalkRightDown)
+    applymovement(obj_player, Route24_Movement_PlayerWalkRight)
+    applymovement(obj_R24_gsman1, Route24_Movement_ManFaceLeft)
+    applymovement(obj_R24_gswoman2, Route24_Movement_BeautyWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -129,24 +129,24 @@ script scr_seq_R24_002 {
     end
 }
 
-movement Route24_Movement_0150 {
+movement Route24_Movement_GruntWalkRightDown {
     walk_fast_right
     walk_fast_down * 10
 }
 
-movement Route24_Movement_015C {
+movement Route24_Movement_PlayerWalkRight {
     lock_dir
     walk_fast_right
     unlock_dir
     face_down
 }
 
-movement Route24_Movement_0170 {
+movement Route24_Movement_ManFaceLeft {
     delay_4 * 12
     face_left
 }
 
-movement Route24_Movement_017C {
+movement Route24_Movement_BeautyWalkUp {
     delay_4
     face_down
     delay_4 * 10
@@ -154,7 +154,7 @@ movement Route24_Movement_017C {
     face_left
 }
 
-script scr_seq_R24_000 {
+script Route24_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     if (var(VAR_SCENE_ROUTE_24_ROCKET) != 2) {
@@ -183,7 +183,7 @@ script scr_seq_R24_000 {
     goto(_01DC)
 }
 
-script scr_seq_R24_001 {
+script Route24_EventScript_Beauty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     if (var(VAR_SCENE_ROUTE_24_ROCKET) != 2) {
@@ -213,5 +213,5 @@ script scr_seq_R24_001 {
 }
 
 mapscripts Route24_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R24_004
+    INIT_SCRIPT_ON_TRANSITION: Route24_OnTransition
 }

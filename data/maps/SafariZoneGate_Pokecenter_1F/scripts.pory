@@ -1,20 +1,20 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D47PC0101_000 {
+script SafariZoneGate_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_D47PC0101_001 {
+script SafariZoneGate_Pokecenter_1F_EventScript_Girl {
     simplenpcmsg("Those who come to a Pokémon Center\n"
                  "often take good care of their Pokémon.\f"
                  "Wouldn’t you agree?")
     end
 }
 
-script scr_seq_D47PC0101_002 {
+script SafariZoneGate_Pokecenter_1F_EventScript_Hiker {
     simplenpcmsg("After a long walk in the mountains to\n"
                  "find a Pokémon Center, when you’re\f"
                  "just about to fall flat...\r"

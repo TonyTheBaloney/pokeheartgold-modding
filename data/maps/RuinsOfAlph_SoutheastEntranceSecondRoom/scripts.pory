@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D24R0213_000 {
+script RuinsOfAlph_SoutheastEntranceSecondRoom_EventScript_WarpToRuinsOfAlphSoutheastHiddenRoom {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_40D1, 1)
@@ -9,11 +9,11 @@ script scr_seq_D24R0213_000 {
     if (var(VAR_SPECIAL_RESULT) == 0) {
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0108)
+            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_PlayerExit1)
         } elif (var(VAR_SPECIAL_RESULT) == 3) {
-            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0140)
+            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_PlayerExit3)
         } else {
-            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0124)
+            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_PlayerExit2)
         }
         waitmovement
         goto(_00DA)
@@ -21,14 +21,14 @@ script scr_seq_D24R0213_000 {
     if (var(VAR_SPECIAL_RESULT) == 1) {
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0108)
-            applymovement(obj_partner_poke, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0114)
+            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_PlayerExit1)
+            applymovement(obj_partner_poke, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_FollowMonExit1)
         } elif (var(VAR_SPECIAL_RESULT) == 3) {
-            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0140)
-            applymovement(obj_partner_poke, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_014C)
+            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_PlayerExit3)
+            applymovement(obj_partner_poke, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_FollowMonExit3)
         } else {
-            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0124)
-            applymovement(obj_partner_poke, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0130)
+            applymovement(obj_player, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_PlayerExit2)
+            applymovement(obj_partner_poke, RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_FollowMonExit2)
         }
         waitmovement
     _00DA:
@@ -44,40 +44,40 @@ script scr_seq_D24R0213_000 {
     end
 }
 
-movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0108 {
+movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_PlayerExit1 {
     walk_in_place_faster_up * 4
     set_invisible
 }
 
-movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0114 {
+movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_FollowMonExit1 {
     delay_4 * 3
     walk_faster_up
     set_invisible
 }
 
-movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0124 {
+movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_PlayerExit2 {
     walk_in_place_faster_left * 4
     set_invisible
 }
 
-movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0130 {
+movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_FollowMonExit2 {
     delay_4 * 3
     walk_faster_left
     set_invisible
 }
 
-movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_0140 {
+movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_PlayerExit3 {
     walk_in_place_faster_right * 4
     set_invisible
 }
 
-movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_014C {
+movement RuinsOfAlph_SoutheastEntranceSecondRoom_Movement_FollowMonExit3 {
     delay_4 * 3
     walk_faster_right
     set_invisible
 }
 
-script scr_seq_D24R0213_001 {
+script RuinsOfAlph_SoutheastEntranceSecondRoom_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It’s a replica of an ancient Pokémon.")

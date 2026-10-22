@@ -1,12 +1,12 @@
 #ifndef SCR_SEQ_T07R0701_H_
 #define SCR_SEQ_T07R0701_H_
 
-#define _EV_scr_seq_T07R0701_000 0
-#define _EV_scr_seq_T07R0701_001 1
-#define _EV_scr_seq_T07R0701_002 2
-#define _EV_scr_seq_T07R0701_003 3
-#define _EV_scr_seq_T07R0701_004 4
-#define _EV_scr_seq_T07R0701_005 5
+#define _EV_Celadon_Restaurant_EventScript_Man 0
+#define _EV_Celadon_Restaurant_EventScript_FatMan1 1
+#define _EV_Celadon_Restaurant_EventScript_FatMan2 2
+#define _EV_Celadon_Restaurant_EventScript_FatMan3 3
+#define _EV_Celadon_Restaurant_EventScript_Woman 4
+#define _EV_Celadon_Restaurant_EventScript_Maylene 5
 #define _EV_scr_seq_T07R0701_006 6
 
 #define obj_T07R0701_gsman1     0

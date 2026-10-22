@@ -1,14 +1,14 @@
 #ifndef SCR_SEQ_T04GYM0101_H_
 #define SCR_SEQ_T04GYM0101_H_
 
-#define _EV_scr_seq_T04GYM0101_000 0
-#define _EV_scr_seq_T04GYM0101_001 1
-#define _EV_scr_seq_T04GYM0101_002 2
-#define _EV_scr_seq_T04GYM0101_003 3
-#define _EV_scr_seq_T04GYM0101_004 4
-#define _EV_scr_seq_T04GYM0101_005 5
-#define _EV_scr_seq_T04GYM0101_006 6
-#define _EV_scr_seq_T04GYM0101_007 7
+#define _EV_Cerulean_Gym_EventScript_Misty 0
+#define _EV_Cerulean_Gym_EventScript_GymGuide 1
+#define _EV_Cerulean_Gym_EventScript_GymSign1 2
+#define _EV_Cerulean_Gym_EventScript_GymSign2 3
+#define _EV_Cerulean_Gym_EventScript_RocketGruntScene 4
+#define _EV_Cerulean_Gym_EventScript_InvisibleObject 5
+#define _EV_Cerulean_Gym_OnLoad 6
+#define _EV_Cerulean_Gym_OnTransition 7
 
 #define obj_T04GYM0101_sunglasses   0
 #define obj_T04GYM0101_gsswimmerw   1

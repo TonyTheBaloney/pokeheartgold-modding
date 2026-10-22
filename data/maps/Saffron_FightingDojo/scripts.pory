@@ -3,29 +3,29 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T11R0101_000
-    scr_seq_T11R0101_001
-    scr_seq_T11R0101_002
-    scr_seq_T11R0101_003
-    scr_seq_T11R0101_004
-    scr_seq_T11R0101_005
-    scr_seq_T11R0101_006
-    scr_seq_T11R0101_007
-    scr_seq_T11R0101_008
-    scr_seq_T11R0101_009
-    scr_seq_T11R0101_010
-    scr_seq_T11R0101_011
-    scr_seq_T11R0101_012
-    scr_seq_T11R0101_013
-    scr_seq_T11R0101_014
-    scr_seq_T11R0101_015
-    scr_seq_T11R0101_016
-    scr_seq_T11R0101_017
-    scr_seq_T11R0101_018
-    scr_seq_T11R0101_019
+    Saffron_FightingDojo_EventScript_BlackBelt
+    Saffron_FightingDojo_EventScript_Sign1
+    Saffron_FightingDojo_EventScript_Sign2
+    Saffron_FightingDojo_OnTransition
+    Saffron_FightingDojo_EventScript_Whitney
+    Saffron_FightingDojo_EventScript_Janine
+    Saffron_FightingDojo_EventScript_Clair
+    Saffron_FightingDojo_EventScript_Erika
+    Saffron_FightingDojo_EventScript_Misty
+    Saffron_FightingDojo_EventScript_Blaine
+    Saffron_FightingDojo_EventScript_Blue
+    Saffron_FightingDojo_EventScript_Chuck
+    Saffron_FightingDojo_EventScript_Brock
+    Saffron_FightingDojo_EventScript_Bugsy
+    Saffron_FightingDojo_EventScript_Sabrina
+    Saffron_FightingDojo_EventScript_Falkner
+    Saffron_FightingDojo_EventScript_LtSurge
+    Saffron_FightingDojo_EventScript_Morty
+    Saffron_FightingDojo_EventScript_Jasmine
+    Saffron_FightingDojo_EventScript_Pryce
 }
 
-script scr_seq_T11R0101_003 {
+script Saffron_FightingDojo_OnTransition {
     getphonebookrematch(PHONE_CONTACT_WHITNEY, VAR_TEMP_x4000)
     getphonebookrematch(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
     getphonebookrematch(PHONE_CONTACT_CLAIR, VAR_TEMP_x4002)
@@ -125,7 +125,7 @@ script scr_seq_T11R0101_003 {
     end
 }
 
-script scr_seq_T11R0101_004 {
+script Saffron_FightingDojo_EventScript_Whitney {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -156,7 +156,7 @@ script scr_seq_T11R0101_004 {
     end
 }
 
-script scr_seq_T11R0101_005 {
+script Saffron_FightingDojo_EventScript_Janine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -187,7 +187,7 @@ script scr_seq_T11R0101_005 {
     end
 }
 
-script scr_seq_T11R0101_006 {
+script Saffron_FightingDojo_EventScript_Clair {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -219,7 +219,7 @@ script scr_seq_T11R0101_006 {
     end
 }
 
-script scr_seq_T11R0101_007 {
+script Saffron_FightingDojo_EventScript_Erika {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -251,7 +251,7 @@ script scr_seq_T11R0101_007 {
     end
 }
 
-script scr_seq_T11R0101_008 {
+script Saffron_FightingDojo_EventScript_Misty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -286,7 +286,7 @@ script scr_seq_T11R0101_008 {
     end
 }
 
-script scr_seq_T11R0101_009 {
+script Saffron_FightingDojo_EventScript_Blaine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -320,7 +320,7 @@ script scr_seq_T11R0101_009 {
     end
 }
 
-script scr_seq_T11R0101_010 {
+script Saffron_FightingDojo_EventScript_Blue {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -352,7 +352,7 @@ script scr_seq_T11R0101_010 {
     end
 }
 
-script scr_seq_T11R0101_011 {
+script Saffron_FightingDojo_EventScript_Chuck {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -383,7 +383,7 @@ script scr_seq_T11R0101_011 {
     end
 }
 
-script scr_seq_T11R0101_012 {
+script Saffron_FightingDojo_EventScript_Brock {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -416,7 +416,7 @@ script scr_seq_T11R0101_012 {
     end
 }
 
-script scr_seq_T11R0101_013 {
+script Saffron_FightingDojo_EventScript_Bugsy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -447,7 +447,7 @@ script scr_seq_T11R0101_013 {
     end
 }
 
-script scr_seq_T11R0101_014 {
+script Saffron_FightingDojo_EventScript_Sabrina {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -481,7 +481,7 @@ script scr_seq_T11R0101_014 {
     end
 }
 
-script scr_seq_T11R0101_015 {
+script Saffron_FightingDojo_EventScript_Falkner {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -514,7 +514,7 @@ script scr_seq_T11R0101_015 {
     end
 }
 
-script scr_seq_T11R0101_016 {
+script Saffron_FightingDojo_EventScript_LtSurge {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -547,7 +547,7 @@ script scr_seq_T11R0101_016 {
     end
 }
 
-script scr_seq_T11R0101_017 {
+script Saffron_FightingDojo_EventScript_Morty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -579,7 +579,7 @@ script scr_seq_T11R0101_017 {
     end
 }
 
-script scr_seq_T11R0101_018 {
+script Saffron_FightingDojo_EventScript_Jasmine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -609,7 +609,7 @@ script scr_seq_T11R0101_018 {
     end
 }
 
-script scr_seq_T11R0101_019 {
+script Saffron_FightingDojo_EventScript_Pryce {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -642,7 +642,7 @@ script scr_seq_T11R0101_019 {
     end
 }
 
-script scr_seq_T11R0101_000 {
+script Saffron_FightingDojo_EventScript_BlackBelt {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -670,16 +670,16 @@ script scr_seq_T11R0101_000 {
     end
 }
 
-script scr_seq_T11R0101_001 {
+script Saffron_FightingDojo_EventScript_Sign1 {
     simplenpcmsg("“Struggle for vengeance”")
     end
 }
 
-script scr_seq_T11R0101_002 {
+script Saffron_FightingDojo_EventScript_Sign2 {
     simplenpcmsg("“A complicated fracture”")
     end
 }
 
 mapscripts Saffron_FightingDojo_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11R0101_003
+    INIT_SCRIPT_ON_TRANSITION: Saffron_FightingDojo_OnTransition
 }

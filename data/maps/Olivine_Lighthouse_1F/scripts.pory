@@ -3,24 +3,24 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D27R0101_000
-    scr_seq_D27R0101_001
-    scr_seq_D27R0101_002
+    Olivine_Lighthouse_1F_EventScript_Sailor
+    Olivine_Lighthouse_1F_EventScript_PokefanF
+    Olivine_Lighthouse_1F_OnTransition
 }
 
-script scr_seq_D27R0101_002 {
+script Olivine_Lighthouse_1F_OnTransition {
     setvar(VAR_UNK_4125, 0)
     end
 }
 
-script scr_seq_D27R0101_000 {
+script Olivine_Lighthouse_1F_EventScript_Sailor {
     simplenpcmsg("People train at this Lighthouse.\r"
                  "It’s not easy to climb because of\n"
                  "all the Trainers.")
     end
 }
 
-script scr_seq_D27R0101_001 {
+script Olivine_Lighthouse_1F_EventScript_PokefanF {
     simplenpcmsg("In the past, Pokémon used to light\n"
                  "the sea around Olivine at night.\r"
                  "The Lighthouse was made to pay tribute\n"
@@ -29,5 +29,5 @@ script scr_seq_D27R0101_001 {
 }
 
 mapscripts Olivine_Lighthouse_1F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D27R0101_002
+    INIT_SCRIPT_ON_TRANSITION: Olivine_Lighthouse_1F_OnTransition
 }

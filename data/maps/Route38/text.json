@@ -63,11 +63,11 @@
     },
     {
       "id": "msg_0394_R38_00015",
-      "from": "scr_seq_R38_001#0"
+      "from": "Route38_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0394_R38_00016",
-      "from": "scr_seq_R38_002#0"
+      "from": "Route38_EventScript_TrainerTips#0"
     }
   ]
 }

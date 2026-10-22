@@ -27,11 +27,11 @@
     },
     {
       "id": "msg_0109_D32R0501_00006",
-      "from": "scr_seq_D32R0501_005#4"
+      "from": "BattleFrontier_BattleCastle_EventScript_Attendant2#4"
     },
     {
       "id": "msg_0109_D32R0501_00007",
-      "from": "scr_seq_D32R0501_005#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_Attendant2#0"
     },
     {
       "id": "msg_0109_D32R0501_00008",
@@ -242,7 +242,7 @@
     },
     {
       "id": "msg_0109_D32R0501_00030",
-      "from": "scr_seq_D32R0501_005#3"
+      "from": "BattleFrontier_BattleCastle_EventScript_Attendant2#3"
     },
     {
       "id": "msg_0109_D32R0501_00031",
@@ -257,11 +257,11 @@
     },
     {
       "id": "msg_0109_D32R0501_00033",
-      "from": "scr_seq_D32R0501_001#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_Scene1#0"
     },
     {
       "id": "msg_0109_D32R0501_00034",
-      "from": "scr_seq_D32R0501_002#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_Scene2#0"
     },
     {
       "id": "msg_0109_D32R0501_00035",
@@ -269,11 +269,11 @@
     },
     {
       "id": "msg_0109_D32R0501_00036",
-      "from": "scr_seq_D32R0501_003#1"
+      "from": "BattleFrontier_BattleCastle_EventScript_Scene3#1"
     },
     {
       "id": "msg_0109_D32R0501_00037",
-      "from": "scr_seq_D32R0501_003#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_Scene3#0"
     },
     {
       "id": "msg_0109_D32R0501_00038",
@@ -297,7 +297,7 @@
     },
     {
       "id": "msg_0109_D32R0501_00043",
-      "from": "scr_seq_D32R0501_005#1"
+      "from": "BattleFrontier_BattleCastle_EventScript_Attendant2#1"
     },
     {
       "id": "msg_0109_D32R0501_00044",
@@ -305,35 +305,35 @@
     },
     {
       "id": "msg_0109_D32R0501_00045",
-      "from": "scr_seq_D32R0501_005#2"
+      "from": "BattleFrontier_BattleCastle_EventScript_Attendant2#2"
     },
     {
       "id": "msg_0109_D32R0501_00046",
-      "from": "scr_seq_D32R0501_006#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0109_D32R0501_00047",
-      "from": "scr_seq_D32R0501_007#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_Lady#0"
     },
     {
       "id": "msg_0109_D32R0501_00048",
-      "from": "scr_seq_D32R0501_008#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_FatMan#0"
     },
     {
       "id": "msg_0109_D32R0501_00049",
-      "from": "scr_seq_D32R0501_009#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_Woman#0"
     },
     {
       "id": "msg_0109_D32R0501_00050",
-      "from": "scr_seq_D32R0501_010#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_Roughneck#0"
     },
     {
       "id": "msg_0109_D32R0501_00051",
-      "from": "scr_seq_D32R0501_011#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_Gentleman#0"
     },
     {
       "id": "msg_0109_D32R0501_00052",
-      "from": "scr_seq_D32R0501_012#0"
+      "from": "BattleFrontier_BattleCastle_EventScript_BlackBelt#0"
     }
   ]
 }

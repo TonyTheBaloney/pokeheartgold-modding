@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T05_001 + 1",
+            "script": "Lavender_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T05_003 + 1",
+            "script": "Lavender_EventScript_SchoolKidM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T05_002 + 1",
+            "script": "Lavender_EventScript_OldMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T05_000 + 1",
+            "script": "Lavender_EventScript_PokefanM",
             "flag": "FLAG_NOTHING"
         }
     ],
@@ -155,7 +155,7 @@
             "y": 235,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T05_004 + 1"
+            "script": "Lavender_EventScript_TownSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -163,7 +163,7 @@
             "y": 236,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T05_005 + 1"
+            "script": "Lavender_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -171,7 +171,7 @@
             "y": 246,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T05_007 + 1"
+            "script": "Lavender_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -179,7 +179,7 @@
             "y": 242,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T05_006 + 1"
+            "script": "Lavender_EventScript_TrainerTips2"
         }
     ]
 }

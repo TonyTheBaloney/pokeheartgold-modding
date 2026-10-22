@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D24R0205_004 + 1",
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Woman",
             "flag": "FLAG_HIDE_RUINS_OF_ALPH_TOURISTS"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D24R0205_003 + 1",
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_FatMan",
             "flag": "FLAG_HIDE_RUINS_OF_ALPH_TOURISTS"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D24R0205_005 + 1",
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_OldMan",
             "flag": "FLAG_HIDE_RUINS_OF_ALPH_TOURISTS"
         },
         {
@@ -188,7 +188,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -196,7 +196,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -204,7 +204,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -212,7 +212,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -220,7 +220,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -228,7 +228,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -236,7 +236,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -244,7 +244,7 @@
             "y": 15,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -252,7 +252,7 @@
             "y": 15,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -260,7 +260,7 @@
             "y": 15,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -268,7 +268,7 @@
             "y": 15,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -276,7 +276,7 @@
             "y": 24,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -284,7 +284,7 @@
             "y": 15,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -292,7 +292,7 @@
             "y": 15,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -300,7 +300,7 @@
             "y": 15,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -308,7 +308,7 @@
             "y": 24,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -316,7 +316,7 @@
             "y": 33,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -324,7 +324,7 @@
             "y": 33,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -332,7 +332,7 @@
             "y": 33,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -340,7 +340,7 @@
             "y": 33,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -348,7 +348,7 @@
             "y": 33,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -356,7 +356,7 @@
             "y": 33,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -364,7 +364,7 @@
             "y": 33,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -372,7 +372,7 @@
             "y": 42,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -380,7 +380,7 @@
             "y": 42,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -388,7 +388,7 @@
             "y": 42,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -396,7 +396,7 @@
             "y": 42,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -404,7 +404,7 @@
             "y": 42,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -412,7 +412,7 @@
             "y": 42,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -420,7 +420,7 @@
             "y": 42,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0205_002 + 1"
+            "script": "RuinsOfAlph_UndergroundHall_EventScript_Sign"
         }
     ]
 }

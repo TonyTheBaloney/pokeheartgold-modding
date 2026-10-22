@@ -27,7 +27,7 @@
     },
     {
       "id": "msg_0108_D32R0401_00006",
-      "from": "scr_seq_D32R0401_005#7"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant2#7"
     },
     {
       "id": "msg_0108_D32R0401_00007",
@@ -53,11 +53,11 @@
     },
     {
       "id": "msg_0108_D32R0401_00011",
-      "from": "scr_seq_D32R0401_001#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Scene1#0"
     },
     {
       "id": "msg_0108_D32R0401_00012",
-      "from": "scr_seq_D32R0401_002#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Scene2#0"
     },
     {
       "id": "msg_0108_D32R0401_00013",
@@ -65,11 +65,11 @@
     },
     {
       "id": "msg_0108_D32R0401_00014",
-      "from": "scr_seq_D32R0401_003#1"
+      "from": "BattleFrontier_BattleHall_EventScript_Scene3#1"
     },
     {
       "id": "msg_0108_D32R0401_00015",
-      "from": "scr_seq_D32R0401_003#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Scene3#0"
     },
     {
       "id": "msg_0108_D32R0401_00016",
@@ -161,7 +161,7 @@
     },
     {
       "id": "msg_0108_D32R0401_00030",
-      "from": "scr_seq_D32R0401_005#3"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant2#3"
     },
     {
       "id": "msg_0108_D32R0401_00031",
@@ -169,23 +169,23 @@
     },
     {
       "id": "msg_0108_D32R0401_00032",
-      "from": "scr_seq_D32R0401_005#5"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant2#5"
     },
     {
       "id": "msg_0108_D32R0401_00033",
-      "from": "scr_seq_D32R0401_005#1"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant2#1"
     },
     {
       "id": "msg_0108_D32R0401_00034",
-      "from": "scr_seq_D32R0401_005#2"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant2#2"
     },
     {
       "id": "msg_0108_D32R0401_00035",
-      "from": "scr_seq_D32R0401_005#6"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant2#6"
     },
     {
       "id": "msg_0108_D32R0401_00036",
-      "from": "scr_seq_D32R0401_005#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant2#0"
     },
     {
       "id": "msg_0108_D32R0401_00037",
@@ -388,7 +388,7 @@
     },
     {
       "id": "msg_0108_D32R0401_00057",
-      "from": "scr_seq_D32R0401_005#4"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant2#4"
     },
     {
       "id": "msg_0108_D32R0401_00058",
@@ -396,39 +396,39 @@
     },
     {
       "id": "msg_0108_D32R0401_00059",
-      "from": "scr_seq_D32R0401_006#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Hiker#0"
     },
     {
       "id": "msg_0108_D32R0401_00060",
-      "from": "scr_seq_D32R0401_007#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Lass#0"
     },
     {
       "id": "msg_0108_D32R0401_00061",
-      "from": "scr_seq_D32R0401_008#0"
+      "from": "BattleFrontier_BattleHall_EventScript_LittleGirl#0"
     },
     {
       "id": "msg_0108_D32R0401_00062",
-      "from": "scr_seq_D32R0401_009#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Slowbro#0"
     },
     {
       "id": "msg_0108_D32R0401_00063",
-      "from": "scr_seq_D32R0401_010#0"
+      "from": "BattleFrontier_BattleHall_EventScript_OldMan#0"
     },
     {
       "id": "msg_0108_D32R0401_00064",
-      "from": "scr_seq_D32R0401_011#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Idol#0"
     },
     {
       "id": "msg_0108_D32R0401_00065",
-      "from": "scr_seq_D32R0401_012#0"
+      "from": "BattleFrontier_BattleHall_EventScript_PokefanF#0"
     },
     {
       "id": "msg_0108_D32R0401_00066",
-      "from": "scr_seq_D32R0401_013#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Beauty#0"
     },
     {
       "id": "msg_0108_D32R0401_00067",
-      "from": "scr_seq_D32R0401_014#0"
+      "from": "BattleFrontier_BattleHall_EventScript_BugCatcher#0"
     },
     {
       "id": "msg_0108_D32R0401_00068",
@@ -436,67 +436,67 @@
     },
     {
       "id": "msg_0108_D32R0401_00069",
-      "from": "scr_seq_D32R0401_016#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant3#0"
     },
     {
       "id": "msg_0108_D32R0401_00070",
-      "from": "scr_seq_D32R0401_016#1"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant3#1"
     },
     {
       "id": "msg_0108_D32R0401_00071",
-      "from": "scr_seq_D32R0401_016#4"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant3#4"
     },
     {
       "id": "msg_0108_D32R0401_00072",
-      "from": "scr_seq_D32R0401_016#2"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant3#2"
     },
     {
       "id": "msg_0108_D32R0401_00073",
-      "from": "scr_seq_D32R0401_016#3"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant3#3"
     },
     {
       "id": "msg_0108_D32R0401_00074",
-      "from": "scr_seq_D32R0401_016#5"
+      "from": "BattleFrontier_BattleHall_EventScript_Attendant3#5"
     },
     {
       "id": "msg_0108_D32R0401_00075",
-      "from": "scr_seq_D32R0401_017#9"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#9"
     },
     {
       "id": "msg_0108_D32R0401_00076",
-      "from": "scr_seq_D32R0401_017#8"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#8"
     },
     {
       "id": "msg_0108_D32R0401_00077",
-      "from": "scr_seq_D32R0401_017#7"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#7"
     },
     {
       "id": "msg_0108_D32R0401_00078",
-      "from": "scr_seq_D32R0401_017#6"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#6"
     },
     {
       "id": "msg_0108_D32R0401_00079",
-      "from": "scr_seq_D32R0401_017#5"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#5"
     },
     {
       "id": "msg_0108_D32R0401_00080",
-      "from": "scr_seq_D32R0401_017#4"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#4"
     },
     {
       "id": "msg_0108_D32R0401_00081",
-      "from": "scr_seq_D32R0401_017#3"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#3"
     },
     {
       "id": "msg_0108_D32R0401_00082",
-      "from": "scr_seq_D32R0401_017#2"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#2"
     },
     {
       "id": "msg_0108_D32R0401_00083",
-      "from": "scr_seq_D32R0401_017#1"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#1"
     },
     {
       "id": "msg_0108_D32R0401_00084",
-      "from": "scr_seq_D32R0401_017#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Winston#0"
     },
     {
       "id": "msg_0108_D32R0401_00085",
@@ -540,23 +540,23 @@
     },
     {
       "id": "msg_0108_D32R0401_00095",
-      "from": "scr_seq_D32R0401_019#1"
+      "from": "BattleFrontier_BattleHall_EventScript_Ethan#1"
     },
     {
       "id": "msg_0108_D32R0401_00096",
-      "from": "scr_seq_D32R0401_019#0"
+      "from": "BattleFrontier_BattleHall_EventScript_Ethan#0"
     },
     {
       "id": "msg_0108_D32R0401_00097",
-      "from": "scr_seq_D32R0401_019#2"
+      "from": "BattleFrontier_BattleHall_EventScript_Ethan#2"
     },
     {
       "id": "msg_0108_D32R0401_00098",
-      "from": "scr_seq_D32R0401_019#3"
+      "from": "BattleFrontier_BattleHall_EventScript_Ethan#3"
     },
     {
       "id": "msg_0108_D32R0401_00099",
-      "from": "scr_seq_D32R0401_019#4"
+      "from": "BattleFrontier_BattleHall_EventScript_Ethan#4"
     }
   ]
 }

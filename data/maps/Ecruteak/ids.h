@@ -1,23 +1,23 @@
 #ifndef SCR_SEQ_T27_H_
 #define SCR_SEQ_T27_H_
 
-#define _EV_scr_seq_T27_000 0
-#define _EV_scr_seq_T27_001 1
-#define _EV_scr_seq_T27_002 2
-#define _EV_scr_seq_T27_003 3
-#define _EV_scr_seq_T27_004 4
-#define _EV_scr_seq_T27_005 5
-#define _EV_scr_seq_T27_006 6
-#define _EV_scr_seq_T27_007 7
-#define _EV_scr_seq_T27_008 8
-#define _EV_scr_seq_T27_009 9
-#define _EV_scr_seq_T27_010 10
-#define _EV_scr_seq_T27_011 11
-#define _EV_scr_seq_T27_012 12
-#define _EV_scr_seq_T27_013 13
-#define _EV_scr_seq_T27_014 14
-#define _EV_scr_seq_T27_015 15
-#define _EV_scr_seq_T27_016 16
+#define _EV_Ecruteak_OnResume 0
+#define _EV_Ecruteak_EventScript_CitySign 1
+#define _EV_Ecruteak_EventScript_TrainerTips1 2
+#define _EV_Ecruteak_EventScript_TrainerTips2 3
+#define _EV_Ecruteak_EventScript_TrainerTips3 4
+#define _EV_Ecruteak_EventScript_RivalTrigger 5
+#define _EV_Ecruteak_EventScript_Lass 6
+#define _EV_Ecruteak_EventScript_SchoolKidM 7
+#define _EV_Ecruteak_EventScript_FatMan 8
+#define _EV_Ecruteak_EventScript_OldMan1 9
+#define _EV_Ecruteak_EventScript_OldMan2 10
+#define _EV_Ecruteak_EventScript_Girl 11
+#define _EV_Ecruteak_EventScript_Scene 12
+#define _EV_Ecruteak_EventScript_OldMan3 13
+#define _EV_Ecruteak_EventScript_PokefanM 14
+#define _EV_Ecruteak_OnTransition 15
+#define _EV_Ecruteak_EventScript_TrainerTips4 16
 
 #define obj_T27_gsgirl1      0
 #define obj_T27_gsboy1       1

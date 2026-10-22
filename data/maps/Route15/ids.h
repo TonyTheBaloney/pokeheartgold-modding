@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_R15_H_
 #define SCR_SEQ_R15_H_
 
-#define _EV_scr_seq_R15_000 0
+#define _EV_Route15_EventScript_RouteSign 0
 
 #define obj_R15_gsboy1           0
 #define obj_R15_gsboy1_2         1

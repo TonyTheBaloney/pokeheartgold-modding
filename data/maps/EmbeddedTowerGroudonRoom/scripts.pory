@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D52R0101_000
-    scr_seq_D52R0101_001
-    scr_seq_D52R0101_002
+    EmbeddedTowerGroudonRoom_EventScript_Groudon
+    EmbeddedTowerGroudonRoom_OnTransition
+    EmbeddedTowerGroudonRoom_OnLoad
 }
 
-script scr_seq_D52R0101_001 {
+script EmbeddedTowerGroudonRoom_OnTransition {
     if (var(VAR_SCENE_EMBEDDED_TOWER) >= 4) { goto(_007C) }
     getgameversion(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) != 7) {
@@ -36,7 +36,7 @@ script scr_seq_D52R0101_001 {
     goto(_003E)
 }
 
-script scr_seq_D52R0101_002 {
+script EmbeddedTowerGroudonRoom_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_EMBEDDED_TOWER_GROUDON)
         removeobject(obj_D52R0101_tsure_poke_static_groudon)
@@ -46,7 +46,7 @@ script scr_seq_D52R0101_002 {
     end
 }
 
-script scr_seq_D52R0101_000 {
+script EmbeddedTowerGroudonRoom_EventScript_Groudon {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -83,14 +83,14 @@ _00FB:
     followingpokemonmovement(55)
     getplayerfacing(VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 0) {
-        applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01A4)
+        applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_HikerWalkUp1)
         waitmovement
-        applymovement(obj_player, EmbeddedTowerGroudonRoom_Movement_01B0)
+        applymovement(obj_player, EmbeddedTowerGroudonRoom_Movement_PlayerWalkDown)
         waitmovement
     } else {
-        applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01BC)
+        applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_HikerWalkUp2)
         waitmovement
-        applymovement(obj_player, EmbeddedTowerGroudonRoom_Movement_01C8)
+        applymovement(obj_player, EmbeddedTowerGroudonRoom_Movement_PlayerFaceDown)
         waitmovement
     }
     waitfollowingpokemonmovement
@@ -106,7 +106,7 @@ _00FB:
            "The Embedded Tower was built\n"
            "by the people from Hoenn.\r")
     closemessage
-    applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01D0)
+    applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_HikerWalkDown1)
     waitmovement
     npcmsg("The Tower that binds together\n"
            "the sea, the land, and the sky...\r"
@@ -115,7 +115,7 @@ _00FB:
            "This place may still be hiding\n"
            "its secrets...\r")
     closemessage
-    applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01E0)
+    applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_HikerWalkUp3)
     waitmovement
     npcmsg("The knowledgeable Pokémon Professor\n"
            "may be able to tell you more when you\f"
@@ -125,7 +125,7 @@ _00FB:
            "Pokémon and myths.\r"
            "See you around.\r")
     closemessage
-    applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01EC)
+    applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_HikerWalkDown2)
     waitmovement
     removeobject(obj_D52R0101_mount_2)
     setflag(FLAG_HIDE_EMBEDDED_TOWER_GROUDON_HIKER)
@@ -134,41 +134,41 @@ _00FB:
     end
 }
 
-movement EmbeddedTowerGroudonRoom_Movement_01A4 {
+movement EmbeddedTowerGroudonRoom_Movement_HikerWalkUp1 {
     walk_up * 8
     walk_in_place_up
 }
 
-movement EmbeddedTowerGroudonRoom_Movement_01B0 {
+movement EmbeddedTowerGroudonRoom_Movement_PlayerWalkDown {
     walk_in_place_down
     walk_down
 }
 
-movement EmbeddedTowerGroudonRoom_Movement_01BC {
+movement EmbeddedTowerGroudonRoom_Movement_HikerWalkUp2 {
     walk_up * 10
     walk_in_place_up
 }
 
-movement EmbeddedTowerGroudonRoom_Movement_01C8 {
+movement EmbeddedTowerGroudonRoom_Movement_PlayerFaceDown {
     walk_in_place_down
 }
 
-movement EmbeddedTowerGroudonRoom_Movement_01D0 {
+movement EmbeddedTowerGroudonRoom_Movement_HikerWalkDown1 {
     walk_in_place_down
     walk_slow_down * 2
     walk_in_place_up
 }
 
-movement EmbeddedTowerGroudonRoom_Movement_01E0 {
+movement EmbeddedTowerGroudonRoom_Movement_HikerWalkUp3 {
     walk_up * 2
     walk_in_place_up
 }
 
-movement EmbeddedTowerGroudonRoom_Movement_01EC {
+movement EmbeddedTowerGroudonRoom_Movement_HikerWalkDown2 {
     walk_down * 8
 }
 
 mapscripts EmbeddedTowerGroudonRoom_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D52R0101_001
-    INIT_SCRIPT_ON_LOAD: scr_seq_D52R0101_002
+    INIT_SCRIPT_ON_TRANSITION: EmbeddedTowerGroudonRoom_OnTransition
+    INIT_SCRIPT_ON_LOAD: EmbeddedTowerGroudonRoom_OnLoad
 }

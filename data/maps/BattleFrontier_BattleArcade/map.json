@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_000 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_Attendant1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_005 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_Attendant2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_008 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_Psychic",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_010 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_Beauty1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_011 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_Camper",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_012 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_Beauty2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_006 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_Worker",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_009 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_BugCatcher",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_013 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_LittleGirl",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_007 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_AceTrainerF",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_015 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_Hiker1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0601_016 + 1",
+            "script": "BattleFrontier_BattleArcade_EventScript_Hiker2",
             "flag": "FLAG_NOTHING"
         }
     ],

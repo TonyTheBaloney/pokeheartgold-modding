@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0501_000 + 1",
+            "script": "BattleFrontier_BattleCastle_EventScript_Attendant1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0501_005 + 1",
+            "script": "BattleFrontier_BattleCastle_EventScript_Attendant2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0501_010 + 1",
+            "script": "BattleFrontier_BattleCastle_EventScript_Roughneck",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0501_012 + 1",
+            "script": "BattleFrontier_BattleCastle_EventScript_BlackBelt",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0501_011 + 1",
+            "script": "BattleFrontier_BattleCastle_EventScript_Gentleman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0501_008 + 1",
+            "script": "BattleFrontier_BattleCastle_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0501_006 + 1",
+            "script": "BattleFrontier_BattleCastle_EventScript_PokefanM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0501_007 + 1",
+            "script": "BattleFrontier_BattleCastle_EventScript_Lady",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0501_009 + 1",
+            "script": "BattleFrontier_BattleCastle_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         }
     ],

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R33_000 {
+script Route33_EventScript_Lass {
     simplenpcmsg("Pant, pant...\n"
                  "I finally got through that cave.\r"
                  "It was much bigger than I’d expected.\n"
@@ -10,7 +10,7 @@ script scr_seq_R33_000 {
     end
 }
 
-script scr_seq_R33_001 {
+script Route33_EventScript_RouteSign {
     directionsignpostex(1, 2, "Rt. 33\n"
                               "West to Azalea Town")
     end

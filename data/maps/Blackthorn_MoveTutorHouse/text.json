@@ -3,67 +3,67 @@
   "messages": [
     {
       "id": "msg_0635_T30R0601_00000",
-      "from": "scr_seq_T30R0601_000#0"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0635_T30R0601_00001",
-      "from": "scr_seq_T30R0601_000#1"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_PokefanM#1"
     },
     {
       "id": "msg_0635_T30R0601_00002",
-      "from": "scr_seq_T30R0601_000#2"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_PokefanM#2"
     },
     {
       "id": "msg_0635_T30R0601_00003",
-      "from": "scr_seq_T30R0601_000#5"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_PokefanM#5"
     },
     {
       "id": "msg_0635_T30R0601_00004",
-      "from": "scr_seq_T30R0601_000#4"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_PokefanM#4"
     },
     {
       "id": "msg_0635_T30R0601_00005",
-      "from": "scr_seq_T30R0601_000#3"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_PokefanM#3"
     },
     {
       "id": "msg_0635_T30R0601_00006",
-      "from": "scr_seq_T30R0601_000#6"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_PokefanM#6"
     },
     {
       "id": "msg_0635_T30R0601_00007",
-      "from": "scr_seq_T30R0601_000#7"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_PokefanM#7"
     },
     {
       "id": "msg_0635_T30R0601_00008",
-      "from": "scr_seq_T30R0601_000#8"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_PokefanM#8"
     },
     {
       "id": "msg_0635_T30R0601_00009",
-      "from": "scr_seq_T30R0601_001#0"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_FatMan#0"
     },
     {
       "id": "msg_0635_T30R0601_00010",
-      "from": "scr_seq_T30R0601_001#1"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_FatMan#1"
     },
     {
       "id": "msg_0635_T30R0601_00011",
-      "from": "scr_seq_T30R0601_001#7"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_FatMan#7"
     },
     {
       "id": "msg_0635_T30R0601_00012",
-      "from": "scr_seq_T30R0601_001#2"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_FatMan#2"
     },
     {
       "id": "msg_0635_T30R0601_00013",
-      "from": "scr_seq_T30R0601_001#4"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_FatMan#4"
     },
     {
       "id": "msg_0635_T30R0601_00014",
-      "from": "scr_seq_T30R0601_001#6"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_FatMan#6"
     },
     {
       "id": "msg_0635_T30R0601_00015",
-      "from": "scr_seq_T30R0601_001#3"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_FatMan#3"
     },
     {
       "id": "msg_0635_T30R0601_00016",
@@ -103,43 +103,43 @@
     },
     {
       "id": "msg_0635_T30R0601_00025",
-      "from": "scr_seq_T30R0601_001#5"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_FatMan#5"
     },
     {
       "id": "msg_0635_T30R0601_00026",
-      "from": "scr_seq_T30R0601_002#10"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#10"
     },
     {
       "id": "msg_0635_T30R0601_00027",
-      "from": "scr_seq_T30R0601_002#0"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#0"
     },
     {
       "id": "msg_0635_T30R0601_00028",
-      "from": "scr_seq_T30R0601_002#1"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#1"
     },
     {
       "id": "msg_0635_T30R0601_00029",
-      "from": "scr_seq_T30R0601_002#2"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#2"
     },
     {
       "id": "msg_0635_T30R0601_00030",
-      "from": "scr_seq_T30R0601_002#7"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#7"
     },
     {
       "id": "msg_0635_T30R0601_00031",
-      "from": "scr_seq_T30R0601_002#6"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#6"
     },
     {
       "id": "msg_0635_T30R0601_00032",
-      "from": "scr_seq_T30R0601_002#3"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#3"
     },
     {
       "id": "msg_0635_T30R0601_00033",
-      "from": "scr_seq_T30R0601_002#4"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#4"
     },
     {
       "id": "msg_0635_T30R0601_00034",
-      "from": "scr_seq_T30R0601_002#5"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#5"
     },
     {
       "id": "msg_0635_T30R0601_00035",
@@ -171,23 +171,23 @@
     },
     {
       "id": "msg_0635_T30R0601_00042",
-      "from": "scr_seq_T30R0601_002#9"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#9"
     },
     {
       "id": "msg_0635_T30R0601_00043",
-      "from": "scr_seq_T30R0601_003#10"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#10"
     },
     {
       "id": "msg_0635_T30R0601_00044",
-      "from": "scr_seq_T30R0601_003#0"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#0"
     },
     {
       "id": "msg_0635_T30R0601_00045",
-      "from": "scr_seq_T30R0601_003#1"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#1"
     },
     {
       "id": "msg_0635_T30R0601_00046",
-      "from": "scr_seq_T30R0601_003#8"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#8"
     },
     {
       "id": "msg_0635_T30R0601_00047",
@@ -195,31 +195,31 @@
     },
     {
       "id": "msg_0635_T30R0601_00048",
-      "from": "scr_seq_T30R0601_003#9"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#9"
     },
     {
       "id": "msg_0635_T30R0601_00049",
-      "from": "scr_seq_T30R0601_003#2"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#2"
     },
     {
       "id": "msg_0635_T30R0601_00050",
-      "from": "scr_seq_T30R0601_003#3"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#3"
     },
     {
       "id": "msg_0635_T30R0601_00051",
-      "from": "scr_seq_T30R0601_003#4"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#4"
     },
     {
       "id": "msg_0635_T30R0601_00052",
-      "from": "scr_seq_T30R0601_003#5"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#5"
     },
     {
       "id": "msg_0635_T30R0601_00053",
-      "from": "scr_seq_T30R0601_003#6"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#6"
     },
     {
       "id": "msg_0635_T30R0601_00054",
-      "from": "scr_seq_T30R0601_003#7"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldMan#7"
     },
     {
       "id": "msg_0635_T30R0601_00055",
@@ -247,11 +247,11 @@
     },
     {
       "id": "msg_0635_T30R0601_00061",
-      "from": "scr_seq_T30R0601_004#0"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_LittleBoy#0"
     },
     {
       "id": "msg_0635_T30R0601_00062",
-      "from": "scr_seq_T30R0601_002#8"
+      "from": "Blackthorn_MoveTutorHouse_EventScript_OldWoman#8"
     }
   ]
 }

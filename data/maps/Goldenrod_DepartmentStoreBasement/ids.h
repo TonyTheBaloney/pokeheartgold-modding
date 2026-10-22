@@ -1,10 +1,10 @@
 #ifndef SCR_SEQ_D37R0103_H_
 #define SCR_SEQ_D37R0103_H_
 
-#define _EV_scr_seq_D37R0103_000 0
-#define _EV_scr_seq_D37R0103_001 1
-#define _EV_scr_seq_D37R0103_002 2
-#define _EV_scr_seq_D37R0103_003 3
+#define _EV_Goldenrod_DepartmentStoreBasement_EventScript_BlackBelt1 0
+#define _EV_Goldenrod_DepartmentStoreBasement_EventScript_BlackBelt2 1
+#define _EV_Goldenrod_DepartmentStoreBasement_EventScript_Machoke 2
+#define _EV_Goldenrod_DepartmentStoreBasement_OnResume 3
 
 #define obj_D37R0103_gsfighter                   0
 #define obj_D37R0103_tsure_poke_static_machoke   1

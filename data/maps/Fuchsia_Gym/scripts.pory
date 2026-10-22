@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T08GYM0101_000
-    scr_seq_T08GYM0101_001
-    scr_seq_T08GYM0101_002
-    scr_seq_T08GYM0101_003
-    scr_seq_T08GYM0101_004
-    scr_seq_T08GYM0101_005
-    scr_seq_T08GYM0101_006
-    scr_seq_T08GYM0101_007
-    scr_seq_T08GYM0101_008
+    Fuchsia_Gym_OnTransition
+    Fuchsia_Gym_EventScript_Janine
+    Fuchsia_Gym_EventScript_GymGuide
+    Fuchsia_Gym_EventScript_Linda
+    Fuchsia_Gym_EventScript_Barry
+    Fuchsia_Gym_EventScript_Alice
+    Fuchsia_Gym_EventScript_Cindy
+    Fuchsia_Gym_EventScript_GymSign
+    Fuchsia_Gym_OnLoad
 }
 
-script scr_seq_T08GYM0101_000 {
+script Fuchsia_Gym_OnTransition {
     fuchsiagyminit
     getphonebookrematch(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
@@ -56,7 +56,7 @@ _00E9:
     end
 }
 
-script scr_seq_T08GYM0101_008 {
+script Fuchsia_Gym_OnLoad {
     if (var(VAR_TEMP_x400B) == 111) {
         callifnotdefeated(TRAINER_LASS_LINDA, _0130)
         callifnotdefeated(TRAINER_CAMPER_BARRY, _0142)
@@ -90,20 +90,20 @@ _0166:
     return
 }
 
-script scr_seq_T08GYM0101_003 {
+script Fuchsia_Gym_EventScript_Linda {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     if (!defeated(TRAINER_LASS_LINDA)) {
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_0620)
+            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_JanineSpin3)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_05E4)
+            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_JanineSpin1)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_0604)
+            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_JanineSpin2)
         } else {
-            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_0638)
+            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_JanineSpin4)
         }
         waitmovement
         clearflag(FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_REVEALED)
@@ -111,13 +111,13 @@ script scr_seq_T08GYM0101_003 {
         setflag(FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_DISGUISED)
         removeobject(obj_T08GYM0101_gsleader13_4)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_0698)
+            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_LindaSpin3)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_065C)
+            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_LindaSpin1)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_0680)
+            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_LindaSpin2)
         } else {
-            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_06B4)
+            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_LindaSpin4)
         }
         waitmovement
         npcmsg("Fooled you!\n"
@@ -141,20 +141,20 @@ script scr_seq_T08GYM0101_003 {
     end
 }
 
-script scr_seq_T08GYM0101_004 {
+script Fuchsia_Gym_EventScript_Barry {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     if (!defeated(TRAINER_CAMPER_BARRY)) {
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_0620)
+            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_JanineSpin3)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_05E4)
+            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_JanineSpin1)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_0604)
+            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_JanineSpin2)
         } else {
-            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_0638)
+            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_JanineSpin4)
         }
         waitmovement
         clearflag(FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_REVEALED)
@@ -162,13 +162,13 @@ script scr_seq_T08GYM0101_004 {
         setflag(FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_DISGUISED)
         removeobject(obj_T08GYM0101_gsleader13_3)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_0698)
+            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_LindaSpin3)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_065C)
+            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_LindaSpin1)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_0680)
+            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_LindaSpin2)
         } else {
-            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_06B4)
+            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_LindaSpin4)
         }
         waitmovement
         npcmsg("Wahahaha!\r"
@@ -194,7 +194,7 @@ script scr_seq_T08GYM0101_004 {
     end
 }
 
-script scr_seq_T08GYM0101_005 {
+script Fuchsia_Gym_EventScript_Alice {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -205,13 +205,13 @@ script scr_seq_T08GYM0101_005 {
         closemessage
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_0620)
+            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_JanineSpin3)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_05E4)
+            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_JanineSpin1)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_0604)
+            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_JanineSpin2)
         } else {
-            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_0638)
+            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_JanineSpin4)
         }
         waitmovement
         clearflag(FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_REVEALED)
@@ -219,13 +219,13 @@ script scr_seq_T08GYM0101_005 {
         setflag(FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_DISGUISED)
         removeobject(obj_T08GYM0101_gsleader13_5)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_0698)
+            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_LindaSpin3)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_065C)
+            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_LindaSpin1)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_0680)
+            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_LindaSpin2)
         } else {
-            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_06B4)
+            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_LindaSpin4)
         }
         waitmovement
         npcmsg("Fooled you!\n"
@@ -250,7 +250,7 @@ script scr_seq_T08GYM0101_005 {
     end
 }
 
-script scr_seq_T08GYM0101_006 {
+script Fuchsia_Gym_EventScript_Cindy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -261,13 +261,13 @@ script scr_seq_T08GYM0101_006 {
         closemessage
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_0620)
+            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_JanineSpin3)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_05E4)
+            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_JanineSpin1)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_0604)
+            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_JanineSpin2)
         } else {
-            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_0638)
+            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_JanineSpin4)
         }
         waitmovement
         clearflag(FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_REVEALED)
@@ -275,13 +275,13 @@ script scr_seq_T08GYM0101_006 {
         setflag(FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_DISGUISED)
         removeobject(obj_T08GYM0101_gsleader13_2)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_0698)
+            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_LindaSpin3)
         } elif (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_065C)
+            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_LindaSpin1)
         } elif (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_0680)
+            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_LindaSpin2)
         } else {
-            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_06B4)
+            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_LindaSpin4)
         }
         waitmovement
         npcmsg("Or not!\r")
@@ -304,7 +304,7 @@ script scr_seq_T08GYM0101_006 {
     end
 }
 
-movement Fuchsia_Gym_Movement_05E4 {
+movement Fuchsia_Gym_Movement_JanineSpin1 {
     face_right
     face_down
     face_left
@@ -314,7 +314,7 @@ movement Fuchsia_Gym_Movement_05E4 {
     face_left
 }
 
-movement Fuchsia_Gym_Movement_0604 {
+movement Fuchsia_Gym_Movement_JanineSpin2 {
     face_down
     face_left
     face_up
@@ -323,7 +323,7 @@ movement Fuchsia_Gym_Movement_0604 {
     face_left
 }
 
-movement Fuchsia_Gym_Movement_0620 {
+movement Fuchsia_Gym_Movement_JanineSpin3 {
     face_left
     face_up
     face_right
@@ -331,46 +331,8 @@ movement Fuchsia_Gym_Movement_0620 {
     face_left
 }
 
-movement Fuchsia_Gym_Movement_0638 {
+movement Fuchsia_Gym_Movement_JanineSpin4 {
     face_up
-    face_right
-    face_down
-    face_left
-    face_up
-    face_right
-    face_down
-    face_left
-}
-
-movement Fuchsia_Gym_Movement_065C {
-    face_right
-    face_down
-    face_left
-    face_up
-    face_right
-    face_down
-    face_left
-    face_up
-}
-
-movement Fuchsia_Gym_Movement_0680 {
-    face_right
-    face_down
-    face_left
-    face_up
-    face_right
-}
-
-movement Fuchsia_Gym_Movement_0698 {
-    face_right
-    face_down
-    face_left
-    face_up
-    face_right
-    face_down
-}
-
-movement Fuchsia_Gym_Movement_06B4 {
     face_right
     face_down
     face_left
@@ -380,7 +342,45 @@ movement Fuchsia_Gym_Movement_06B4 {
     face_left
 }
 
-script scr_seq_T08GYM0101_001 {
+movement Fuchsia_Gym_Movement_LindaSpin1 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+}
+
+movement Fuchsia_Gym_Movement_LindaSpin2 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+}
+
+movement Fuchsia_Gym_Movement_LindaSpin3 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Fuchsia_Gym_Movement_LindaSpin4 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+script Fuchsia_Gym_EventScript_Janine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -444,7 +444,7 @@ _0778:
     end
 }
 
-script scr_seq_T08GYM0101_002 {
+script Fuchsia_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -468,7 +468,7 @@ script scr_seq_T08GYM0101_002 {
     end
 }
 
-script scr_seq_T08GYM0101_007 {
+script Fuchsia_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -489,6 +489,6 @@ script scr_seq_T08GYM0101_007 {
 }
 
 mapscripts Fuchsia_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T08GYM0101_000
-    INIT_SCRIPT_ON_LOAD: scr_seq_T08GYM0101_008
+    INIT_SCRIPT_ON_TRANSITION: Fuchsia_Gym_OnTransition
+    INIT_SCRIPT_ON_LOAD: Fuchsia_Gym_OnLoad
 }

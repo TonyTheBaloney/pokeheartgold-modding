@@ -3,24 +3,24 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R36_000
-    scr_seq_R36_001
-    scr_seq_R36_002
-    scr_seq_R36_003
-    scr_seq_R36_004
-    scr_seq_R36_005
-    scr_seq_R36_006
-    scr_seq_R36_007
-    scr_seq_R36_008
-    scr_seq_R36_009
-    scr_seq_R36_010
+    Route36_EventScript_Usokky
+    Route36_EventScript_SchoolKidM
+    Route36_OnTransition
+    Route36_EventScript_RouteSign
+    Route36_EventScript_TrainerTips1
+    Route36_EventScript_TrainerTips2
+    Route36_EventScript_TrainerTips3
+    Route36_EventScript_Lass1
+    Route36_EventScript_FatMan
+    Route36_EventScript_Lass2
+    Route36_OnLoad
 }
 
 raw `
 #include "constants/battle.h"
 `
 
-script scr_seq_R36_002 {
+script Route36_OnTransition {
     getweekday(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 4) {
         clearflag(FLAG_UNK_1C4)
@@ -30,7 +30,7 @@ script scr_seq_R36_002 {
     end
 }
 
-script scr_seq_R36_010 {
+script Route36_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_ROUTE_36_SUDOWOODO)
         removeobject(obj_R36_usokky)
@@ -40,12 +40,12 @@ script scr_seq_R36_010 {
     end
 }
 
-script scr_seq_R36_000 {
+script Route36_EventScript_Usokky {
     playse(SEQ_SE_DP_SELECT)
     lockall
     if (!flag(FLAG_HIDE_GOLDENROD_FLOWERSHOP_GIRL)) {
         playse(SEQ_SE_GS_KI_UGOKU)
-        applymovement(obj_R36_usokky, Route36_Movement_038C)
+        applymovement(obj_R36_usokky, Route36_Movement_UsokkyFaceUp1)
         waitmovement
         npcmsg(msg_0390_R36_00000)
         touchscreenmenuhide
@@ -57,17 +57,17 @@ script scr_seq_R36_000 {
             playse(SEQ_SE_GS_ZENIGAME_JOURO)
             getplayerfacing(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 2) {
-                applymovement(obj_player, Route36_Movement_039C)
+                applymovement(obj_player, Route36_Movement_PlayerFaceLeft)
             } elif (var(VAR_SPECIAL_RESULT) == 1) {
-                applymovement(obj_player, Route36_Movement_03AC)
+                applymovement(obj_player, Route36_Movement_PlayerFaceDown)
             } else {
-                applymovement(obj_player, Route36_Movement_03A4)
+                applymovement(obj_player, Route36_Movement_PlayerFaceUp)
             }
             waitmovement
             npcmsg(msg_0390_R36_00002)
             closemessage
             playse(SEQ_SE_GS_KI_UGOKU)
-            applymovement(obj_R36_usokky, Route36_Movement_0394)
+            applymovement(obj_R36_usokky, Route36_Movement_UsokkyFaceUp2)
             waitmovement
             setflag(FLAG_ENGAGING_STATIC_POKEMON)
             wildbattle(SPECIES_SUDOWOODO, 20, 0)
@@ -87,11 +87,11 @@ script scr_seq_R36_000 {
     }
     hasitem(ITEM_SQUIRTBOTTLE, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_R36_gsgirl1_2, Route36_Movement_053C)
+        applymovement(obj_R36_gsgirl1_2, Route36_Movement_LassFaceUp)
         waitmovement
     }
     playse(SEQ_SE_GS_KI_UGOKU)
-    applymovement(obj_R36_usokky, Route36_Movement_038C)
+    applymovement(obj_R36_usokky, Route36_Movement_UsokkyFaceUp1)
     waitmovement
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00B9) }
     releaseall
@@ -110,18 +110,18 @@ _00E0:
     playse(SEQ_SE_GS_ZENIGAME_JOURO)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == DIR_WEST) {
-        applymovement(obj_player, Route36_Movement_039C)
+        applymovement(obj_player, Route36_Movement_PlayerFaceLeft)
     } elif (var(VAR_SPECIAL_RESULT) == DIR_SOUTH) {
-        applymovement(obj_player, Route36_Movement_03AC)
+        applymovement(obj_player, Route36_Movement_PlayerFaceDown)
     } else {
-        applymovement(obj_player, Route36_Movement_03A4)
+        applymovement(obj_player, Route36_Movement_PlayerFaceUp)
     }
     waitmovement
     setflag(FLAG_UNK_0B4)
     npcmsg(msg_0390_R36_00002)
     closemessage
     playse(SEQ_SE_GS_KI_UGOKU)
-    applymovement(obj_R36_usokky, Route36_Movement_0394)
+    applymovement(obj_R36_usokky, Route36_Movement_UsokkyFaceUp2)
     waitmovement
     setflag(FLAG_ENGAGING_STATIC_POKEMON)
     wildbattle(SPECIES_SUDOWOODO, 20, 0)
@@ -138,13 +138,13 @@ _00E0:
         togglefollowingpokemonmovement(FALSE)
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
-        applymovement(obj_player, Route36_Movement_03B4)
+        applymovement(obj_player, Route36_Movement_PlayerWalkDown)
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(TRUE)
         followingpokemonmovement(48)
     } else {
-        applymovement(obj_R36_gsgirl1_2, Route36_Movement_0360)
+        applymovement(obj_R36_gsgirl1_2, Route36_Movement_LassWalkUp)
         waitmovement
     }
     npcmsg("That was fun!\r"
@@ -171,10 +171,10 @@ _00E0:
 _0200:
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_R36_gsgirl1_2, Route36_Movement_0378)
+        applymovement(obj_R36_gsgirl1_2, Route36_Movement_LassWalkLeft)
         waitmovement
     } else {
-        applymovement(obj_R36_gsgirl1_2, Route36_Movement_0380)
+        applymovement(obj_R36_gsgirl1_2, Route36_Movement_LassWalkDownLeft)
         waitmovement
     }
     removeobject(obj_R36_gsgirl1_2)
@@ -231,7 +231,7 @@ movement Route36_Movement_0358 {
     walk_up
 }
 
-movement Route36_Movement_0360 {
+movement Route36_Movement_LassWalkUp {
     walk_up * 3
     face_right
 }
@@ -241,40 +241,40 @@ movement Route36_Movement_036C {
     face_down
 }
 
-movement Route36_Movement_0378 {
+movement Route36_Movement_LassWalkLeft {
     walk_left * 10
 }
 
-movement Route36_Movement_0380 {
+movement Route36_Movement_LassWalkDownLeft {
     walk_down * 2
     walk_left * 10
 }
 
-movement Route36_Movement_038C {
+movement Route36_Movement_UsokkyFaceUp1 {
     walk_in_place_up * 3
 }
 
-movement Route36_Movement_0394 {
+movement Route36_Movement_UsokkyFaceUp2 {
     walk_in_place_fast_up * 6
 }
 
-movement Route36_Movement_039C {
+movement Route36_Movement_PlayerFaceLeft {
     walk_in_place_slow_left * 4
 }
 
-movement Route36_Movement_03A4 {
+movement Route36_Movement_PlayerFaceUp {
     walk_in_place_slow_up * 4
 }
 
-movement Route36_Movement_03AC {
+movement Route36_Movement_PlayerFaceDown {
     walk_in_place_slow_down * 4
 }
 
-movement Route36_Movement_03B4 {
+movement Route36_Movement_PlayerWalkDown {
     walk_down
 }
 
-script scr_seq_R36_001 {
+script Route36_EventScript_SchoolKidM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -350,7 +350,7 @@ _04B3:
     end
 }
 
-script scr_seq_R36_007 {
+script Route36_EventScript_Lass1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -378,11 +378,11 @@ script scr_seq_R36_007 {
     end
 }
 
-movement Route36_Movement_053C {
+movement Route36_Movement_LassFaceUp {
     face_up
 }
 
-script scr_seq_R36_008 {
+script Route36_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -424,7 +424,7 @@ text msg_0390_R36_00005 {
     "Pokémon should learn it."
 }
 
-script scr_seq_R36_009 {
+script Route36_EventScript_Lass2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -449,19 +449,19 @@ script scr_seq_R36_009 {
     end
 }
 
-script scr_seq_R36_003 {
+script Route36_EventScript_RouteSign {
     directionsignpostex(1, 15, "Rt. 36\n"
                                "North to Ecruteak City")
     end
 }
 
-script scr_seq_R36_004 {
+script Route36_EventScript_TrainerTips1 {
     trainertipsex(2, "Ruins of Alph\n"
                      "North Entrance")
     end
 }
 
-script scr_seq_R36_005 {
+script Route36_EventScript_TrainerTips2 {
     trainertipsex(3, "Trainer Tips\r"
                      "The same kind of Pokémon may look the\n"
                      "same, but they can grow differently.\r"
@@ -471,7 +471,7 @@ script scr_seq_R36_005 {
     end
 }
 
-script scr_seq_R36_006 {
+script Route36_EventScript_TrainerTips3 {
     trainertipsex(3, "Trainer Tips\r"
                      "The move Dig can take you back to\n"
                      "the entrance when you use it.\r"
@@ -482,6 +482,6 @@ script scr_seq_R36_006 {
 }
 
 mapscripts Route36_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_R36_010
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R36_002
+    INIT_SCRIPT_ON_LOAD: Route36_OnLoad
+    INIT_SCRIPT_ON_TRANSITION: Route36_OnTransition
 }

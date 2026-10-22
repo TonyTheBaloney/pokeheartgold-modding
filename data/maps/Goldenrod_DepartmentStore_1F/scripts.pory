@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R1001_000 {
+script Goldenrod_DepartmentStore_1F_EventScript_Receptionist {
     simplenpcmsg("Welcome to the Goldenrod\n"
                  "Department Store.")
     end
 }
 
-script scr_seq_T25R1001_001 {
+script Goldenrod_DepartmentStore_1F_EventScript_Gentleman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -27,7 +27,7 @@ script scr_seq_T25R1001_001 {
     end
 }
 
-script scr_seq_T25R1001_002 {
+script Goldenrod_DepartmentStore_1F_EventScript_PokefanF {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -45,7 +45,7 @@ script scr_seq_T25R1001_002 {
     end
 }
 
-script scr_seq_T25R1001_003 {
+script Goldenrod_DepartmentStore_1F_EventScript_SchoolKidM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -62,7 +62,7 @@ script scr_seq_T25R1001_003 {
     end
 }
 
-script scr_seq_T25R1001_004 {
+script Goldenrod_DepartmentStore_1F_EventScript_1FServiceCounterSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("1F Service Counter\n"

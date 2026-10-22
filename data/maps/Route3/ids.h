@@ -1,11 +1,11 @@
 #ifndef SCR_SEQ_R03_H_
 #define SCR_SEQ_R03_H_
 
-#define _EV_scr_seq_R03_000 0
-#define _EV_scr_seq_R03_001 1
-#define _EV_scr_seq_R03_002 2
-#define _EV_scr_seq_R03_003 3
-#define _EV_scr_seq_R03_004 4
+#define _EV_Route3_EventScript_TrainerTips 0
+#define _EV_Route3_EventScript_TouchingTheMeteoriteBoostedSign 1
+#define _EV_Route3_EventScript_TouchingTheMeteoriteHeightenedSign1 2
+#define _EV_Route3_EventScript_TouchingTheMeteoriteHeightenedSign2 3
+#define _EV_Route3_EventScript_Meteorite 4
 
 #define obj_R03_gsboy2      0
 #define obj_R03_fire        1

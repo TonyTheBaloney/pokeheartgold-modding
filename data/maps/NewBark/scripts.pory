@@ -3,27 +3,27 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T20_000
-    scr_seq_T20_001
-    scr_seq_T20_002
-    scr_seq_T20_003
-    scr_seq_T20_004
-    scr_seq_T20_005
-    scr_seq_T20_006
-    scr_seq_T20_007
-    scr_seq_T20_008
-    scr_seq_T20_009
-    scr_seq_T20_010
-    scr_seq_T20_011
-    scr_seq_T20_012
-    scr_seq_T20_013
-    scr_seq_T20_014
-    scr_seq_T20_015
-    scr_seq_T20_016
-    scr_seq_T20_017
+    NewBark_EventScript_Rival
+    NewBark_EventScript_Woman
+    NewBark_EventScript_ProfElmTrigger
+    NewBark_EventScript_MarillScene
+    NewBark_EventScript_Lyra
+    NewBark_EventScript_Marill
+    NewBark_OnTransition
+    NewBark_EventScript_TrainerTips1
+    NewBark_EventScript_LyraScene
+    NewBark_OnResume
+    NewBark_EventScript_WarpToNewBarkElmsLab2F
+    NewBark_EventScript_MomTrigger
+    NewBark_EventScript_LyraTrigger
+    NewBark_EventScript_TrainerTips2
+    NewBark_EventScript_TownSign
+    NewBark_EventScript_FatMan
+    NewBark_EventScript_TrainerTips3
+    NewBark_EventScript_PokefanM
 }
 
-script scr_seq_T20_006 {
+script NewBark_OnTransition {
     getfriendsprite(VAR_OBJ_0)
     if (!flag(FLAG_UNK_189)) {
         setvar(VAR_TEMP_x4007, 0)
@@ -42,7 +42,7 @@ script scr_seq_T20_006 {
     end
 }
 
-script scr_seq_T20_009 {
+script NewBark_OnResume {
     if (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 1) {
         clearflag(FLAG_HIDE_NEW_BARK_FRIEND)
         addobject(obj_T20_var_1)
@@ -55,7 +55,7 @@ script scr_seq_T20_009 {
     end
 }
 
-script scr_seq_T20_000 {
+script NewBark_EventScript_Rival {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("...\r"
@@ -63,11 +63,11 @@ script scr_seq_T20_000 {
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_T20_gsrivel, NewBark_Movement_024C)
+        applymovement(obj_T20_gsrivel, NewBark_Movement_RivalFaceDown)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_T20_gsrivel, NewBark_Movement_0244)
+        applymovement(obj_T20_gsrivel, NewBark_Movement_RivalFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_T20_gsrivel, NewBark_Movement_0254)
+        applymovement(obj_T20_gsrivel, NewBark_Movement_RivalFaceLeft)
     }
     waitmovement
     npcmsg("...What are you staring at?\r")
@@ -81,36 +81,36 @@ script scr_seq_T20_000 {
             if (var(VAR_SPECIAL_RESULT) != 3) { goto(_0192) }
             goto(_01E2)
         _0192:
-            applymovement(obj_T20_gsrivel, NewBark_Movement_0264)
-            applymovement(obj_partner_poke, NewBark_Movement_0224)
-            applymovement(obj_player, NewBark_Movement_0288)
+            applymovement(obj_T20_gsrivel, NewBark_Movement_RivalWalkLeftDown)
+            applymovement(obj_partner_poke, NewBark_Movement_FollowMonWalkDown1)
+            applymovement(obj_player, NewBark_Movement_PlayerWalkDown)
             waitmovement
-            applymovement(obj_T20_gsrivel, NewBark_Movement_0274)
+            applymovement(obj_T20_gsrivel, NewBark_Movement_RivalWalkUpRight)
             waitmovement
             releaseall
             end
         _01BA:
-            applymovement(obj_T20_gsrivel, NewBark_Movement_02A0)
-            applymovement(obj_partner_poke, NewBark_Movement_0234)
-            applymovement(obj_player, NewBark_Movement_02B8)
+            applymovement(obj_T20_gsrivel, NewBark_Movement_RivalWalkUpLeft)
+            applymovement(obj_partner_poke, NewBark_Movement_FollowMonWalkDown2)
+            applymovement(obj_player, NewBark_Movement_PlayerWalkLeftDown)
             waitmovement
-            applymovement(obj_T20_gsrivel, NewBark_Movement_0274)
+            applymovement(obj_T20_gsrivel, NewBark_Movement_RivalWalkUpRight)
             waitmovement
             releaseall
             end
         _01E2:
-            applymovement(obj_T20_gsrivel, NewBark_Movement_0264)
-            applymovement(obj_player, NewBark_Movement_0288)
+            applymovement(obj_T20_gsrivel, NewBark_Movement_RivalWalkLeftDown)
+            applymovement(obj_player, NewBark_Movement_PlayerWalkDown)
             waitmovement
-            applymovement(obj_T20_gsrivel, NewBark_Movement_0274)
+            applymovement(obj_T20_gsrivel, NewBark_Movement_RivalWalkUpRight)
             waitmovement
             releaseall
             end
         _0202:
-            applymovement(obj_T20_gsrivel, NewBark_Movement_02A0)
-            applymovement(obj_player, NewBark_Movement_02B8)
+            applymovement(obj_T20_gsrivel, NewBark_Movement_RivalWalkUpLeft)
+            applymovement(obj_player, NewBark_Movement_PlayerWalkLeftDown)
             waitmovement
-            applymovement(obj_T20_gsrivel, NewBark_Movement_0274)
+            applymovement(obj_T20_gsrivel, NewBark_Movement_RivalWalkUpRight)
             waitmovement
             releaseall
             end
@@ -122,27 +122,27 @@ script scr_seq_T20_000 {
     goto(_0166)
 }
 
-movement NewBark_Movement_0224 {
+movement NewBark_Movement_FollowMonWalkDown1 {
     lock_dir
     walk_slightly_fast_down * 4
     unlock_dir
 }
 
-movement NewBark_Movement_0234 {
+movement NewBark_Movement_FollowMonWalkDown2 {
     lock_dir
     walk_slightly_fast_down * 6
     unlock_dir
 }
 
-movement NewBark_Movement_0244 {
+movement NewBark_Movement_RivalFaceUp {
     walk_in_place_up
 }
 
-movement NewBark_Movement_024C {
+movement NewBark_Movement_RivalFaceDown {
     walk_in_place_down
 }
 
-movement NewBark_Movement_0254 {
+movement NewBark_Movement_RivalFaceLeft {
     walk_in_place_left
 }
 
@@ -150,20 +150,20 @@ movement NewBark_Movement_025C {
     walk_in_place_right
 }
 
-movement NewBark_Movement_0264 {
+movement NewBark_Movement_RivalWalkLeftDown {
     walk_slightly_fast_left
     face_down
     walk_slightly_fast_down * 2
 }
 
-movement NewBark_Movement_0274 {
+movement NewBark_Movement_RivalWalkUpRight {
     face_up
     walk_up * 2
     face_right
     walk_right
 }
 
-movement NewBark_Movement_0288 {
+movement NewBark_Movement_PlayerWalkDown {
     face_up
     lock_dir
     walk_slightly_fast_down * 2
@@ -171,7 +171,7 @@ movement NewBark_Movement_0288 {
     unlock_dir
 }
 
-movement NewBark_Movement_02A0 {
+movement NewBark_Movement_RivalWalkUpLeft {
     walk_slightly_fast_up
     face_left
     walk_slightly_fast_left
@@ -179,7 +179,7 @@ movement NewBark_Movement_02A0 {
     walk_slightly_fast_down * 3
 }
 
-movement NewBark_Movement_02B8 {
+movement NewBark_Movement_PlayerWalkLeftDown {
     face_right
     lock_dir
     walk_slightly_fast_left
@@ -191,7 +191,7 @@ movement NewBark_Movement_02B8 {
     unlock_dir
 }
 
-script scr_seq_T20_001 {
+script NewBark_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -224,7 +224,7 @@ text msg_0542_T20_00005 {
     "I wish I had one!"
 }
 
-script scr_seq_T20_002 {
+script NewBark_EventScript_ProfElmTrigger {
     followmonresetmovement
     lockall
     if (flag(FLAG_GOT_POKEGEAR)) {
@@ -233,37 +233,37 @@ script scr_seq_T20_002 {
         dooranimationwait(77)
         addobject(obj_T20_doctor)
         movepersonfacing(obj_T20_doctor, 684, 0, 393, DIR_SOUTH)
-        applymovement(obj_T20_doctor, NewBark_Movement_0D08)
+        applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkDown)
         waitmovement
         dooranimationclose(77)
         dooranimationwait(77)
         dooranimationunload(77)
         npcmsg("Professor Elm: Wait one second!\r")
         closemessage
-        applymovement(obj_player, NewBark_Movement_09C8)
+        applymovement(obj_player, NewBark_Movement_PlayerExclamation)
         waitmovement
         getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 396) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0C98)
-            applymovement(obj_player, NewBark_Movement_09FC)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkDownLeft1)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceDown2)
         } elif (var(VAR_TEMP_x4001) == 397) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0CA8)
-            applymovement(obj_player, NewBark_Movement_0A0C)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkDownLeft2)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceUp3)
         } elif (var(VAR_TEMP_x4001) == 398) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0CB8)
-            applymovement(obj_player, NewBark_Movement_0A0C)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkDownLeft3)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceUp3)
         } elif (var(VAR_TEMP_x4001) == 399) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0CC8)
-            applymovement(obj_player, NewBark_Movement_0A0C)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkDownLeft4)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceUp3)
         } elif (var(VAR_TEMP_x4001) == 400) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0CD8)
-            applymovement(obj_player, NewBark_Movement_0A0C)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkDownLeft5)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceUp3)
         } elif (var(VAR_TEMP_x4001) == 401) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0CE8)
-            applymovement(obj_player, NewBark_Movement_09F4)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkDownLeft6)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceUp2)
         } elif (var(VAR_TEMP_x4001) == 402) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0CF8)
-            applymovement(obj_player, NewBark_Movement_09F4)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkDownLeft7)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceUp2)
         }
         waitmovement
         npcmsg("I almost completely forgot\n"
@@ -280,28 +280,28 @@ script scr_seq_T20_002 {
         closemessage
         getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 396) {
-            applymovement(obj_player, NewBark_Movement_09D4)
-            applymovement(obj_T20_doctor, NewBark_Movement_0D18)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceRight)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkRightUp1)
         } elif (var(VAR_TEMP_x4001) == 397) {
-            applymovement(obj_player, NewBark_Movement_09D4)
-            applymovement(obj_T20_doctor, NewBark_Movement_0D24)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceRight)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkRightUp2)
         } elif (var(VAR_TEMP_x4001) == 398) {
-            applymovement(obj_player, NewBark_Movement_09F4)
-            applymovement(obj_T20_doctor, NewBark_Movement_0D30)
+            applymovement(obj_player, NewBark_Movement_PlayerFaceUp2)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkUpRight1)
         } elif (var(VAR_TEMP_x4001) == 399) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0D40)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkUpRight2)
         } elif (var(VAR_TEMP_x4001) == 400) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0D50)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkUpRight3)
         } elif (var(VAR_TEMP_x4001) == 401) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0D60)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkUpRight4)
         } elif (var(VAR_TEMP_x4001) == 402) {
-            applymovement(obj_T20_doctor, NewBark_Movement_0D70)
+            applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkUpRight5)
         }
         waitmovement
         dooranimationload(21, 12, 12, 9, 77)
         dooranimationopen(77)
         dooranimationwait(77)
-        applymovement(obj_T20_doctor, NewBark_Movement_0D10)
+        applymovement(obj_T20_doctor, NewBark_Movement_ProfElmWalkUp)
         waitmovement
         removeobject(obj_T20_doctor)
         dooranimationclose(77)
@@ -311,55 +311,55 @@ script scr_seq_T20_002 {
         releaseall
         end
     }
-    applymovement(obj_T20_gswoman1, NewBark_Movement_09B8)
+    applymovement(obj_T20_gswoman1, NewBark_Movement_WomanExclamation)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Wait, {STRVAR_1 3, 0, 0}!", "Wait, {STRVAR_1 3, 0, 0}!")
     wait(20, VAR_SPECIAL_RESULT)
     closemessage
-    applymovement(obj_player, NewBark_Movement_09D4)
+    applymovement(obj_player, NewBark_Movement_PlayerFaceRight)
     waitmovement
     if (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 2) { goto(_054E) }
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 396) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A1C)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftUp1)
     } elif (var(VAR_TEMP_x4001) == 397) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A2C)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftUp2)
     } elif (var(VAR_TEMP_x4001) == 398) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A3C)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftUp3)
     } elif (var(VAR_TEMP_x4001) == 399) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A4C)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeft1)
     } elif (var(VAR_TEMP_x4001) == 400) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A54)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftDown1)
     } elif (var(VAR_TEMP_x4001) == 401) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A64)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftDown2)
     } elif (var(VAR_TEMP_x4001) == 402) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A74)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftDown3)
     }
     waitmovement
     npcmsg("What do you think you’re doing?\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 396) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0AEC)
-        applymovement(obj_player, NewBark_Movement_0BD4)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkRightDown1)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkRightDown1)
     } elif (var(VAR_TEMP_x4001) == 397) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B00)
-        applymovement(obj_player, NewBark_Movement_0BE4)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkRightDown2)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkRightDown2)
     } elif (var(VAR_TEMP_x4001) == 398) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B14)
-        applymovement(obj_player, NewBark_Movement_0BF4)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkRightDown3)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkRightDown3)
     } elif (var(VAR_TEMP_x4001) == 399) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B28)
-        applymovement(obj_player, NewBark_Movement_0C04)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkRight1)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkRight)
     } elif (var(VAR_TEMP_x4001) == 400) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B34)
-        applymovement(obj_player, NewBark_Movement_0C0C)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkRightUp)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkRightUp1)
     } elif (var(VAR_TEMP_x4001) == 401) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B48)
-        applymovement(obj_player, NewBark_Movement_0C1C)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkUpRight1)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkRightUp2)
     } elif (var(VAR_TEMP_x4001) == 402) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B58)
-        applymovement(obj_player, NewBark_Movement_0C2C)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkUpRight2)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkRightUp3)
     }
     waitmovement
     npcmsg("It’s dangerous to go out without\n"
@@ -373,26 +373,26 @@ script scr_seq_T20_002 {
 _054E:
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 396) {
-        applymovement(obj_player, NewBark_Movement_09E8)
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A84)
+        applymovement(obj_player, NewBark_Movement_PlayerFaceDown1)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftUp4)
     } elif (var(VAR_TEMP_x4001) == 397) {
-        applymovement(obj_player, NewBark_Movement_09E8)
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A90)
+        applymovement(obj_player, NewBark_Movement_PlayerFaceDown1)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftUp5)
     } elif (var(VAR_TEMP_x4001) == 398) {
-        applymovement(obj_player, NewBark_Movement_09E8)
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0A9C)
+        applymovement(obj_player, NewBark_Movement_PlayerFaceDown1)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeft2)
     } elif (var(VAR_TEMP_x4001) == 399) {
-        applymovement(obj_player, NewBark_Movement_09DC)
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0AA8)
+        applymovement(obj_player, NewBark_Movement_PlayerFaceUp1)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftUp6)
     } elif (var(VAR_TEMP_x4001) == 400) {
-        applymovement(obj_player, NewBark_Movement_09DC)
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0ABC)
+        applymovement(obj_player, NewBark_Movement_PlayerFaceUp1)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeft3)
     } elif (var(VAR_TEMP_x4001) == 401) {
-        applymovement(obj_player, NewBark_Movement_09DC)
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0AC8)
+        applymovement(obj_player, NewBark_Movement_PlayerFaceUp1)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftDown4)
     } elif (var(VAR_TEMP_x4001) == 402) {
-        applymovement(obj_player, NewBark_Movement_09DC)
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0AD4)
+        applymovement(obj_player, NewBark_Movement_PlayerFaceUp1)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkLeftDown5)
     }
     waitmovement
     npcmsg("Wait a sec!\r")
@@ -401,26 +401,26 @@ _054E:
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_TEMP_x4001) == 396) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B68)
-        applymovement(obj_player, NewBark_Movement_0C3C)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkDownRight1)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkDownRight1)
     } elif (var(VAR_TEMP_x4001) == 397) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B78)
-        applymovement(obj_player, NewBark_Movement_0C48)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkDownRight2)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkDownRight2)
     } elif (var(VAR_TEMP_x4001) == 398) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B88)
-        applymovement(obj_player, NewBark_Movement_0C54)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkRight2)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkDownRight3)
     } elif (var(VAR_TEMP_x4001) == 399) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0B94)
-        applymovement(obj_player, NewBark_Movement_0C60)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkRightDown4)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkUpRight1)
     } elif (var(VAR_TEMP_x4001) == 400) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0BA8)
-        applymovement(obj_player, NewBark_Movement_0C74)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkRight3)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkUpRight2)
     } elif (var(VAR_TEMP_x4001) == 401) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0BB4)
-        applymovement(obj_player, NewBark_Movement_0C80)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkUpRight3)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkUpRight3)
     } elif (var(VAR_TEMP_x4001) == 402) {
-        applymovement(obj_T20_gswoman1, NewBark_Movement_0BC4)
-        applymovement(obj_player, NewBark_Movement_0C8C)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_WomanWalkUpRight4)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkUpRight4)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -434,120 +434,120 @@ _054E:
     end
 }
 
-movement NewBark_Movement_09B8 {
+movement NewBark_Movement_WomanExclamation {
     walk_in_place_left
     emote_exclamation_mark
     delay_8
 }
 
-movement NewBark_Movement_09C8 {
+movement NewBark_Movement_PlayerExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement NewBark_Movement_09D4 {
+movement NewBark_Movement_PlayerFaceRight {
     face_right
 }
 
-movement NewBark_Movement_09DC {
+movement NewBark_Movement_PlayerFaceUp1 {
     delay_32 * 2
     walk_in_place_up
 }
 
-movement NewBark_Movement_09E8 {
+movement NewBark_Movement_PlayerFaceDown1 {
     delay_32 * 2
     walk_in_place_down
 }
 
-movement NewBark_Movement_09F4 {
+movement NewBark_Movement_PlayerFaceUp2 {
     face_up
 }
 
-movement NewBark_Movement_09FC {
+movement NewBark_Movement_PlayerFaceDown2 {
     face_right
     delay_32 * 2
     face_down
 }
 
-movement NewBark_Movement_0A0C {
+movement NewBark_Movement_PlayerFaceUp3 {
     face_right
     delay_32 * 2
     face_up
 }
 
-movement NewBark_Movement_0A1C {
+movement NewBark_Movement_WomanWalkLeftUp1 {
     walk_left * 3
     walk_up * 3
     walk_left * 3
 }
 
-movement NewBark_Movement_0A2C {
+movement NewBark_Movement_WomanWalkLeftUp2 {
     walk_left * 3
     walk_up * 2
     walk_left * 3
 }
 
-movement NewBark_Movement_0A3C {
+movement NewBark_Movement_WomanWalkLeftUp3 {
     walk_left * 3
     walk_up
     walk_left * 3
 }
 
-movement NewBark_Movement_0A4C {
+movement NewBark_Movement_WomanWalkLeft1 {
     walk_left * 6
 }
 
-movement NewBark_Movement_0A54 {
+movement NewBark_Movement_WomanWalkLeftDown1 {
     walk_left * 3
     walk_down
     walk_left * 3
 }
 
-movement NewBark_Movement_0A64 {
+movement NewBark_Movement_WomanWalkLeftDown2 {
     walk_left * 6
     walk_down * 2
     face_left
 }
 
-movement NewBark_Movement_0A74 {
+movement NewBark_Movement_WomanWalkLeftDown3 {
     walk_left * 6
     walk_down * 3
     face_left
 }
 
-movement NewBark_Movement_0A84 {
+movement NewBark_Movement_WomanWalkLeftUp4 {
     walk_left * 7
     walk_up * 2
 }
 
-movement NewBark_Movement_0A90 {
+movement NewBark_Movement_WomanWalkLeftUp5 {
     walk_left * 7
     walk_up
 }
 
-movement NewBark_Movement_0A9C {
+movement NewBark_Movement_WomanWalkLeft2 {
     walk_left * 7
     walk_in_place_up
 }
 
-movement NewBark_Movement_0AA8 {
+movement NewBark_Movement_WomanWalkLeftUp6 {
     walk_left * 3
     walk_up
     walk_left * 4
     walk_in_place_down
 }
 
-movement NewBark_Movement_0ABC {
+movement NewBark_Movement_WomanWalkLeft3 {
     walk_left * 7
     walk_in_place_down
 }
 
-movement NewBark_Movement_0AC8 {
+movement NewBark_Movement_WomanWalkLeftDown4 {
     walk_left * 7
     walk_down
 }
 
-movement NewBark_Movement_0AD4 {
+movement NewBark_Movement_WomanWalkLeftDown5 {
     walk_left * 7
     walk_down * 2
 }
@@ -557,281 +557,281 @@ movement NewBark_Movement_0AE0 {
     walk_in_place_left
 }
 
-movement NewBark_Movement_0AEC {
+movement NewBark_Movement_WomanWalkRightDown1 {
     walk_right * 3
     walk_down * 3
     walk_right * 3
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B00 {
+movement NewBark_Movement_WomanWalkRightDown2 {
     walk_right * 3
     walk_down * 2
     walk_right * 3
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B14 {
+movement NewBark_Movement_WomanWalkRightDown3 {
     walk_right * 3
     walk_down
     walk_right * 3
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B28 {
+movement NewBark_Movement_WomanWalkRight1 {
     walk_right * 6
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B34 {
+movement NewBark_Movement_WomanWalkRightUp {
     walk_right * 3
     walk_up
     walk_right * 3
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B48 {
+movement NewBark_Movement_WomanWalkUpRight1 {
     walk_up * 2
     walk_right * 6
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B58 {
+movement NewBark_Movement_WomanWalkUpRight2 {
     walk_up * 3
     walk_right * 6
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B68 {
+movement NewBark_Movement_WomanWalkDownRight1 {
     walk_down * 2
     walk_right * 7
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B78 {
+movement NewBark_Movement_WomanWalkDownRight2 {
     walk_down
     walk_right * 7
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B88 {
+movement NewBark_Movement_WomanWalkRight2 {
     walk_right * 7
     walk_in_place_left
 }
 
-movement NewBark_Movement_0B94 {
+movement NewBark_Movement_WomanWalkRightDown4 {
     walk_right * 3
     walk_down
     walk_right * 4
     walk_in_place_left
 }
 
-movement NewBark_Movement_0BA8 {
+movement NewBark_Movement_WomanWalkRight3 {
     walk_right * 7
     walk_in_place_left
 }
 
-movement NewBark_Movement_0BB4 {
+movement NewBark_Movement_WomanWalkUpRight3 {
     walk_up
     walk_right * 7
     walk_in_place_left
 }
 
-movement NewBark_Movement_0BC4 {
+movement NewBark_Movement_WomanWalkUpRight4 {
     walk_up * 2
     walk_right * 7
     walk_in_place_left
 }
 
-movement NewBark_Movement_0BD4 {
+movement NewBark_Movement_PlayerWalkRightDown1 {
     walk_right * 4
     walk_down * 3
     walk_right * 2
 }
 
-movement NewBark_Movement_0BE4 {
+movement NewBark_Movement_PlayerWalkRightDown2 {
     walk_right * 4
     walk_down * 2
     walk_right * 2
 }
 
-movement NewBark_Movement_0BF4 {
+movement NewBark_Movement_PlayerWalkRightDown3 {
     walk_right * 4
     walk_down
     walk_right * 2
 }
 
-movement NewBark_Movement_0C04 {
+movement NewBark_Movement_PlayerWalkRight {
     walk_right * 6
 }
 
-movement NewBark_Movement_0C0C {
+movement NewBark_Movement_PlayerWalkRightUp1 {
     walk_right * 4
     walk_up
     walk_right * 2
 }
 
-movement NewBark_Movement_0C1C {
+movement NewBark_Movement_PlayerWalkRightUp2 {
     walk_right
     walk_up * 2
     walk_right * 5
 }
 
-movement NewBark_Movement_0C2C {
+movement NewBark_Movement_PlayerWalkRightUp3 {
     walk_right
     walk_up * 3
     walk_right * 5
 }
 
-movement NewBark_Movement_0C3C {
+movement NewBark_Movement_PlayerWalkDownRight1 {
     walk_down * 3
     walk_right * 6
 }
 
-movement NewBark_Movement_0C48 {
+movement NewBark_Movement_PlayerWalkDownRight2 {
     walk_down * 2
     walk_right * 6
 }
 
-movement NewBark_Movement_0C54 {
+movement NewBark_Movement_PlayerWalkDownRight3 {
     walk_down
     walk_right * 6
 }
 
-movement NewBark_Movement_0C60 {
+movement NewBark_Movement_PlayerWalkUpRight1 {
     walk_up
     walk_right * 3
     walk_down
     walk_right * 3
 }
 
-movement NewBark_Movement_0C74 {
+movement NewBark_Movement_PlayerWalkUpRight2 {
     walk_up
     walk_right * 6
 }
 
-movement NewBark_Movement_0C80 {
+movement NewBark_Movement_PlayerWalkUpRight3 {
     walk_up * 2
     walk_right * 6
 }
 
-movement NewBark_Movement_0C8C {
+movement NewBark_Movement_PlayerWalkUpRight4 {
     walk_up * 3
     walk_right * 6
 }
 
-movement NewBark_Movement_0C98 {
+movement NewBark_Movement_ProfElmWalkDownLeft1 {
     walk_down * 3
     walk_left * 8
     walk_in_place_up
 }
 
-movement NewBark_Movement_0CA8 {
+movement NewBark_Movement_ProfElmWalkDownLeft2 {
     walk_down * 2
     walk_left * 8
     walk_in_place_down
 }
 
-movement NewBark_Movement_0CB8 {
+movement NewBark_Movement_ProfElmWalkDownLeft3 {
     walk_down * 2
     walk_left * 8
     walk_down
 }
 
-movement NewBark_Movement_0CC8 {
+movement NewBark_Movement_ProfElmWalkDownLeft4 {
     walk_down * 2
     walk_left * 8
     walk_down * 2
 }
 
-movement NewBark_Movement_0CD8 {
+movement NewBark_Movement_ProfElmWalkDownLeft5 {
     walk_down * 2
     walk_left * 8
     walk_down * 3
 }
 
-movement NewBark_Movement_0CE8 {
+movement NewBark_Movement_ProfElmWalkDownLeft6 {
     walk_down * 2
     walk_left * 8
     walk_down * 4
 }
 
-movement NewBark_Movement_0CF8 {
+movement NewBark_Movement_ProfElmWalkDownLeft7 {
     walk_down * 2
     walk_left * 8
     walk_down * 5
 }
 
-movement NewBark_Movement_0D08 {
+movement NewBark_Movement_ProfElmWalkDown {
     walk_down
 }
 
-movement NewBark_Movement_0D10 {
+movement NewBark_Movement_ProfElmWalkUp {
     walk_up
 }
 
-movement NewBark_Movement_0D18 {
+movement NewBark_Movement_ProfElmWalkRightUp1 {
     walk_right * 8
     walk_up * 3
 }
 
-movement NewBark_Movement_0D24 {
+movement NewBark_Movement_ProfElmWalkRightUp2 {
     walk_right * 8
     walk_up * 2
 }
 
-movement NewBark_Movement_0D30 {
+movement NewBark_Movement_ProfElmWalkUpRight1 {
     walk_up
     walk_right * 8
     walk_up * 2
 }
 
-movement NewBark_Movement_0D40 {
+movement NewBark_Movement_ProfElmWalkUpRight2 {
     walk_up * 2
     walk_right * 8
     walk_up * 2
 }
 
-movement NewBark_Movement_0D50 {
+movement NewBark_Movement_ProfElmWalkUpRight3 {
     walk_up * 2
     walk_right * 8
     walk_up * 3
 }
 
-movement NewBark_Movement_0D60 {
+movement NewBark_Movement_ProfElmWalkUpRight4 {
     walk_up * 2
     walk_right * 8
     walk_up * 4
 }
 
-movement NewBark_Movement_0D70 {
+movement NewBark_Movement_ProfElmWalkUpRight5 {
     walk_up * 5
     walk_right * 8
     walk_up * 2
 }
 
-script scr_seq_T20_003 {
+script NewBark_EventScript_MarillScene {
     followmonresetmovement
     lockall
     release(obj_T20_tsure_poke_static_marill)
-    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0E08)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_MarillWalkUp)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     clearflag(FLAG_HIDE_NEW_BARK_FRIEND)
     addobject(obj_T20_var_1)
     waitse(SEQ_SE_DP_KAIDAN2)
     callstd(std_play_friend_music)
-    applymovement(obj_T20_var_1, NewBark_Movement_0EA4)
+    applymovement(obj_T20_var_1, NewBark_Movement_LyraWalkDown1)
     waitmovement
-    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0E38)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_MarillWalkLeft)
     waitmovement
-    applymovement(obj_player, NewBark_Movement_0E9C)
-    applymovement(obj_T20_var_1, NewBark_Movement_0EB8)
+    applymovement(obj_player, NewBark_Movement_PlayerFaceLeft)
+    applymovement(obj_T20_var_1, NewBark_Movement_LyraFaceRight1)
     waitmovement
-    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0E60)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_MarillFaceLeft)
     waitmovement
-    applymovement(obj_T20_var_1, NewBark_Movement_0EC0)
-    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0E68)
+    applymovement(obj_T20_var_1, NewBark_Movement_LyraWalkDownLeft1)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_MarillWalkLeftDown1)
     waitmovement
     callstd(std_fade_end_friend_music)
     setvar(VAR_SCENE_PLAYERS_HOUSE_1F, 2)
@@ -843,7 +843,7 @@ script scr_seq_T20_003 {
     end
 }
 
-movement NewBark_Movement_0E08 {
+movement NewBark_Movement_MarillWalkUp {
     delay_32
     walk_fast_up * 8
     lock_dir
@@ -857,7 +857,7 @@ movement NewBark_Movement_0E08 {
     delay_32
 }
 
-movement NewBark_Movement_0E38 {
+movement NewBark_Movement_MarillWalkLeft {
     face_left
     emote_exclamation_mark
     walk_in_place_fast_up * 4
@@ -869,11 +869,11 @@ movement NewBark_Movement_0E38 {
     walk_fast_left * 6
 }
 
-movement NewBark_Movement_0E60 {
+movement NewBark_Movement_MarillFaceLeft {
     jump_in_place_fast_left * 4
 }
 
-movement NewBark_Movement_0E68 {
+movement NewBark_Movement_MarillWalkLeftDown1 {
     face_left
     walk_left
     face_down
@@ -890,29 +890,29 @@ movement NewBark_Movement_0E84 {
     walk_left * 6
 }
 
-movement NewBark_Movement_0E9C {
+movement NewBark_Movement_PlayerFaceLeft {
     face_left * 4
 }
 
-movement NewBark_Movement_0EA4 {
+movement NewBark_Movement_LyraWalkDown1 {
     delay_16
     walk_down * 6
     face_right
     emote_exclamation_mark
 }
 
-movement NewBark_Movement_0EB8 {
+movement NewBark_Movement_LyraFaceRight1 {
     walk_in_place_fast_right * 4
 }
 
-movement NewBark_Movement_0EC0 {
+movement NewBark_Movement_LyraWalkDownLeft1 {
     face_down
     walk_down * 4
     face_left
     walk_left * 2
 }
 
-script scr_seq_T20_007 {
+script NewBark_EventScript_TrainerTips1 {
     bufferplayersname(0)
     trainertipsex(2, msg_0542_T20_00035)
     end
@@ -922,18 +922,18 @@ text msg_0542_T20_00035 {
     "{STRVAR_1 3, 0, 0}’s House"
 }
 
-script scr_seq_T20_008 {
+script NewBark_EventScript_LyraScene {
     followmonresetmovement
     lockall
     callstd(std_play_friend_music)
-    applymovement(obj_T20_var_1, NewBark_Movement_0F84)
-    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0FBC)
+    applymovement(obj_T20_var_1, NewBark_Movement_LyraExclamation1)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_MarillWalkDownRight)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, NewBark_Movement_0FE8)
-    applymovement(obj_T20_var_1, NewBark_Movement_0FF4)
+    applymovement(obj_player, NewBark_Movement_PlayerWalkDownRight4)
+    applymovement(obj_T20_var_1, NewBark_Movement_LyraFaceLeft1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -962,12 +962,12 @@ script scr_seq_T20_008 {
                               "Why don’t you show it to your mom?\f"
                               "See ya!\r")
     closemessage
-    applymovement(obj_T20_var_1, NewBark_Movement_1000)
-    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_1014)
-    applymovement(obj_player, NewBark_Movement_1038)
+    applymovement(obj_T20_var_1, NewBark_Movement_LyraWalkDownLeft2)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_MarillWalkLeftDown2)
+    applymovement(obj_player, NewBark_Movement_PlayerFaceDown3)
     waitmovement
-    applymovement(obj_T20_var_1, NewBark_Movement_1044)
-    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_104C)
+    applymovement(obj_T20_var_1, NewBark_Movement_LyraWalkDown2)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_MarillWalkDown)
     waitmovement
     removeobject(obj_T20_tsure_poke_static_marill)
     removeobject(obj_T20_var_1)
@@ -979,7 +979,7 @@ script scr_seq_T20_008 {
     end
 }
 
-movement NewBark_Movement_0F84 {
+movement NewBark_Movement_LyraExclamation1 {
     delay_4 * 4
     delay_4 * 2
     walk_in_place_fast_down
@@ -995,7 +995,7 @@ movement NewBark_Movement_0F84 {
     emote_exclamation_mark
 }
 
-movement NewBark_Movement_0FBC {
+movement NewBark_Movement_MarillWalkDownRight {
     jump_in_place_fast_right * 3
     walk_fast_down
     walk_fast_right * 2
@@ -1008,24 +1008,24 @@ movement NewBark_Movement_0FBC {
     walk_in_place_left
 }
 
-movement NewBark_Movement_0FE8 {
+movement NewBark_Movement_PlayerWalkDownRight4 {
     walk_down * 2
     walk_right
 }
 
-movement NewBark_Movement_0FF4 {
+movement NewBark_Movement_LyraFaceLeft1 {
     delay_8
     walk_in_place_left
 }
 
-movement NewBark_Movement_1000 {
+movement NewBark_Movement_LyraWalkDownLeft2 {
     walk_down
     walk_left * 2
     walk_down * 5
     walk_in_place_up
 }
 
-movement NewBark_Movement_1014 {
+movement NewBark_Movement_MarillWalkLeftDown2 {
     walk_left
     walk_down
     walk_left * 2
@@ -1036,20 +1036,20 @@ movement NewBark_Movement_1014 {
     jump_in_place_fast_down * 2
 }
 
-movement NewBark_Movement_1038 {
+movement NewBark_Movement_PlayerFaceDown3 {
     delay_8 * 2
     walk_in_place_down
 }
 
-movement NewBark_Movement_1044 {
+movement NewBark_Movement_LyraWalkDown2 {
     walk_down * 3
 }
 
-movement NewBark_Movement_104C {
+movement NewBark_Movement_MarillWalkDown {
     walk_down * 4
 }
 
-script scr_seq_T20_010 {
+script NewBark_EventScript_WarpToNewBarkElmsLab2F {
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
         followmonislarge(VAR_SPECIAL_RESULT)
@@ -1073,13 +1073,13 @@ movement NewBark_Movement_10B4 {
     walk_down
 }
 
-script scr_seq_T20_016 {
+script NewBark_EventScript_TrainerTips3 {
     bufferfriendsname(0)
     trainertipsex(2, msg_0542_T20_00035)
     end
 }
 
-script scr_seq_T20_017 {
+script NewBark_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1119,16 +1119,16 @@ script scr_seq_T20_017 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, NewBark_Movement_1238)
-        applymovement(obj_T20_gsmiddleman1, NewBark_Movement_1284)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkRightUp4)
+        applymovement(obj_T20_gsmiddleman1, NewBark_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, NewBark_Movement_1250)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, NewBark_Movement_1270)
-        applymovement(obj_T20_gsmiddleman1, NewBark_Movement_1284)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkUpRight5)
+        applymovement(obj_T20_gsmiddleman1, NewBark_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, NewBark_Movement_125C)
-        applymovement(obj_T20_gsmiddleman1, NewBark_Movement_1284)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T20_gsmiddleman1, NewBark_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -1136,7 +1136,7 @@ script scr_seq_T20_017 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, NewBark_Movement_1290)
+        applymovement(obj_partner_poke, NewBark_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -1155,7 +1155,7 @@ script scr_seq_T20_017 {
     end
 }
 
-movement NewBark_Movement_1238 {
+movement NewBark_Movement_PlayerWalkRightUp4 {
     walk_right
     walk_up * 2
     walk_left
@@ -1163,37 +1163,37 @@ movement NewBark_Movement_1238 {
     walk_in_place_down
 }
 
-movement NewBark_Movement_1250 {
+movement NewBark_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement NewBark_Movement_125C {
+movement NewBark_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement NewBark_Movement_1270 {
+movement NewBark_Movement_PlayerWalkUpRight5 {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement NewBark_Movement_1284 {
+movement NewBark_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement NewBark_Movement_1290 {
+movement NewBark_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T20_011 {
+script NewBark_EventScript_MomTrigger {
     followmonresetmovement
     lockall
     if (var(VAR_TEMP_x4007) == 2) {
@@ -1202,7 +1202,7 @@ script scr_seq_T20_011 {
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
-        applymovement(obj_player, NewBark_Movement_1508)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkLeft4)
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
@@ -1217,7 +1217,7 @@ script scr_seq_T20_011 {
     clearflag(FLAG_HIDE_NEW_BARK_MOM)
     addobject(obj_T20_gsmama)
     waitse(SEQ_SE_DP_KAIDAN2)
-    applymovement(obj_T20_gsmama, NewBark_Movement_1478)
+    applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkDown1)
     waitmovement
     if (var(VAR_TEMP_x4007) == 0) {
         bufferplayersname(0)
@@ -1232,20 +1232,20 @@ script scr_seq_T20_011 {
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_SPECIAL_x8005) == 398) {
-        applymovement(obj_T20_gsmama, NewBark_Movement_1480)
-        applymovement(obj_player, NewBark_Movement_14A4)
+        applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkDown2)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkLeft1)
     } elif (var(VAR_SPECIAL_x8005) == 399) {
-        applymovement(obj_T20_gsmama, NewBark_Movement_148C)
-        applymovement(obj_player, NewBark_Movement_14B0)
+        applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkDown3)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkLeft2)
     } elif (var(VAR_SPECIAL_x8005) == 400) {
-        applymovement(obj_T20_gsmama, NewBark_Movement_1498)
-        applymovement(obj_player, NewBark_Movement_14BC)
+        applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkDown4)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkLeft3)
     } elif (var(VAR_SPECIAL_x8005) == 401) {
-        applymovement(obj_T20_gsmama, NewBark_Movement_1498)
-        applymovement(obj_player, NewBark_Movement_14C8)
+        applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkDown4)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkLeftUp1)
     } else {
-        applymovement(obj_T20_gsmama, NewBark_Movement_1498)
-        applymovement(obj_player, NewBark_Movement_14D8)
+        applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkDown4)
+        applymovement(obj_player, NewBark_Movement_PlayerWalkLeftUp2)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -1260,19 +1260,19 @@ script scr_seq_T20_011 {
     }
     closemessage
     if (var(VAR_SPECIAL_x8005) == 398) {
-        applymovement(obj_T20_gsmama, NewBark_Movement_14E8)
+        applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkUp1)
         waitmovement
     } elif (var(VAR_SPECIAL_x8005) == 399) {
-        applymovement(obj_T20_gsmama, NewBark_Movement_14F0)
+        applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkUp2)
         waitmovement
     } else {
-        applymovement(obj_T20_gsmama, NewBark_Movement_14F8)
+        applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkUp3)
         waitmovement
     }
     dooranimationload(21, 12, 23, 12, 77)
     dooranimationopen(77)
     dooranimationwait(77)
-    applymovement(obj_T20_gsmama, NewBark_Movement_1500)
+    applymovement(obj_T20_gsmama, NewBark_Movement_MomWalkUp4)
     waitmovement
     setflag(FLAG_HIDE_NEW_BARK_MOM)
     playse(SEQ_SE_DP_KAIDAN2)
@@ -1286,76 +1286,76 @@ script scr_seq_T20_011 {
     end
 }
 
-movement NewBark_Movement_1478 {
+movement NewBark_Movement_MomWalkDown1 {
     walk_down
 }
 
-movement NewBark_Movement_1480 {
+movement NewBark_Movement_MomWalkDown2 {
     walk_down
     walk_in_place_right
 }
 
-movement NewBark_Movement_148C {
+movement NewBark_Movement_MomWalkDown3 {
     walk_down * 2
     walk_in_place_right
 }
 
-movement NewBark_Movement_1498 {
+movement NewBark_Movement_MomWalkDown4 {
     walk_down * 3
     walk_in_place_right
 }
 
-movement NewBark_Movement_14A4 {
+movement NewBark_Movement_PlayerWalkLeft1 {
     walk_in_place_left
     walk_left * 4
 }
 
-movement NewBark_Movement_14B0 {
+movement NewBark_Movement_PlayerWalkLeft2 {
     walk_in_place_left
     walk_left * 4
 }
 
-movement NewBark_Movement_14BC {
+movement NewBark_Movement_PlayerWalkLeft3 {
     walk_in_place_left
     walk_left * 4
 }
 
-movement NewBark_Movement_14C8 {
+movement NewBark_Movement_PlayerWalkLeftUp1 {
     walk_left * 2
     walk_up
     walk_left * 2
 }
 
-movement NewBark_Movement_14D8 {
+movement NewBark_Movement_PlayerWalkLeftUp2 {
     walk_left * 2
     walk_up * 2
     walk_left * 2
 }
 
-movement NewBark_Movement_14E8 {
+movement NewBark_Movement_MomWalkUp1 {
     walk_up
 }
 
-movement NewBark_Movement_14F0 {
+movement NewBark_Movement_MomWalkUp2 {
     walk_up * 2
 }
 
-movement NewBark_Movement_14F8 {
+movement NewBark_Movement_MomWalkUp3 {
     walk_up * 3
 }
 
-movement NewBark_Movement_1500 {
+movement NewBark_Movement_MomWalkUp4 {
     walk_up
 }
 
-movement NewBark_Movement_1508 {
+movement NewBark_Movement_PlayerWalkLeft4 {
     walk_left
 }
 
-script scr_seq_T20_012 {
+script NewBark_EventScript_LyraTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_T20_var_1_2, NewBark_Movement_1644)
+    applymovement(obj_T20_var_1_2, NewBark_Movement_LyraExclamation2)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\r", "Ethan: Hey, {STRVAR_1 3, 0, 0}!\r")
@@ -1365,17 +1365,17 @@ script scr_seq_T20_012 {
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_SPECIAL_x8005) == 398) {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_1650)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceRight2)
     } elif (var(VAR_SPECIAL_x8005) == 399) {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_1658)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceRight3)
     } elif (var(VAR_SPECIAL_x8005) == 399) {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_1660)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraWalkRight)
     } elif (var(VAR_SPECIAL_x8005) == 399) {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_1668)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceRight4)
     } else {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_1670)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceRight5)
     }
-    applymovement(obj_player, NewBark_Movement_1678)
+    applymovement(obj_player, NewBark_Movement_PlayerWalkLeft5)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -1386,71 +1386,71 @@ script scr_seq_T20_012 {
                                           "{STRVAR_1 3, 0, 0}?\r")
     closemessage
     if (var(VAR_SPECIAL_x8005) == 398) {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_1680)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceLeft2)
     } elif (var(VAR_SPECIAL_x8005) == 399) {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_1688)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceLeft3)
     } elif (var(VAR_SPECIAL_x8005) == 399) {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_1690)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceLeft4)
     } elif (var(VAR_SPECIAL_x8005) == 399) {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_1698)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceLeft5)
     } else {
-        applymovement(obj_T20_var_1_2, NewBark_Movement_16A0)
+        applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceLeft6)
     }
     waitmovement
     releaseall
     end
 }
 
-movement NewBark_Movement_1644 {
+movement NewBark_Movement_LyraExclamation2 {
     face_right
     emote_exclamation_mark
 }
 
-movement NewBark_Movement_1650 {
+movement NewBark_Movement_LyraFaceRight2 {
     walk_in_place_right
 }
 
-movement NewBark_Movement_1658 {
+movement NewBark_Movement_LyraFaceRight3 {
     walk_in_place_right
 }
 
-movement NewBark_Movement_1660 {
+movement NewBark_Movement_LyraWalkRight {
     walk_right
 }
 
-movement NewBark_Movement_1668 {
+movement NewBark_Movement_LyraFaceRight4 {
     walk_in_place_right
 }
 
-movement NewBark_Movement_1670 {
+movement NewBark_Movement_LyraFaceRight5 {
     walk_in_place_right
 }
 
-movement NewBark_Movement_1678 {
+movement NewBark_Movement_PlayerWalkLeft5 {
     walk_left * 2
 }
 
-movement NewBark_Movement_1680 {
+movement NewBark_Movement_LyraFaceLeft2 {
     walk_in_place_left
 }
 
-movement NewBark_Movement_1688 {
+movement NewBark_Movement_LyraFaceLeft3 {
     walk_in_place_left
 }
 
-movement NewBark_Movement_1690 {
+movement NewBark_Movement_LyraFaceLeft4 {
     walk_in_place_left
 }
 
-movement NewBark_Movement_1698 {
+movement NewBark_Movement_LyraFaceLeft5 {
     walk_in_place_left
 }
 
-movement NewBark_Movement_16A0 {
+movement NewBark_Movement_LyraFaceLeft6 {
     walk_in_place_left
 }
 
-script scr_seq_T20_004 {
+script NewBark_EventScript_Lyra {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1463,7 +1463,7 @@ script scr_seq_T20_004 {
     end
 }
 
-script scr_seq_T20_005 {
+script NewBark_EventScript_Marill {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1471,9 +1471,9 @@ script scr_seq_T20_005 {
     npcmsg("MARILL: Murfu.\r")
     waitcry
     closemessage
-    applymovement(obj_T20_tsure_poke_static_marill_2, NewBark_Movement_16F4)
+    applymovement(obj_T20_tsure_poke_static_marill_2, NewBark_Movement_MarillFaceRight)
     waitmovement
-    applymovement(obj_T20_var_1_2, NewBark_Movement_1700)
+    applymovement(obj_T20_var_1_2, NewBark_Movement_LyraFaceLeft7)
     waitmovement
     gendermsgbox("Lyra: Hmm... My Pokémon may be\n"
                  "putting on some weight lately...", "Ethan: Hmm... My Pokémon may be\n"
@@ -1484,27 +1484,27 @@ script scr_seq_T20_005 {
     end
 }
 
-movement NewBark_Movement_16F4 {
+movement NewBark_Movement_MarillFaceRight {
     jump_in_place_slow_right
     jump_in_place_slow_right
 }
 
-movement NewBark_Movement_1700 {
+movement NewBark_Movement_LyraFaceLeft7 {
     walk_in_place_left
 }
 
-script scr_seq_T20_013 {
+script NewBark_EventScript_TrainerTips2 {
     trainertipsex(2, "Elm Pokémon Lab")
     end
 }
 
-script scr_seq_T20_014 {
+script NewBark_EventScript_TownSign {
     directionsignpostex(0, 11, "New Bark Town\n"
                                "Winds of a New Beginning")
     end
 }
 
-script scr_seq_T20_015 {
+script NewBark_EventScript_FatMan {
     bufferplayersname(0)
     simplenpcmsg("Yo, {STRVAR_1 3, 0, 0}!\r"
                  "I hear Professor Elm discovered some\n"
@@ -1514,9 +1514,9 @@ script scr_seq_T20_015 {
 
 mapscripts NewBark_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_PLAYERS_HOUSE_1F, 1: scr_seq_T20_003
-        VAR_SCENE_NEW_BARK_TOWN_OW, 1: scr_seq_T20_008
+        VAR_SCENE_PLAYERS_HOUSE_1F, 1: NewBark_EventScript_MarillScene
+        VAR_SCENE_NEW_BARK_TOWN_OW, 1: NewBark_EventScript_LyraScene
     ]
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T20_006
-    INIT_SCRIPT_ON_RESUME: scr_seq_T20_009
+    INIT_SCRIPT_ON_TRANSITION: NewBark_OnTransition
+    INIT_SCRIPT_ON_RESUME: NewBark_OnResume
 }

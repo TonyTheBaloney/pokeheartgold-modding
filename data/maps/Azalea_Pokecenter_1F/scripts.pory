@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T23PC0101_000 {
+script Azalea_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 6)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T23PC0101_001 {
+script Azalea_Pokecenter_1F_EventScript_PokefanF {
     simplenpcmsg("Do you know what an Apricorn is?\r"
                  "You crack it open to discard the core\n"
                  "and put it in this special machine...\f"
@@ -18,13 +18,13 @@ script scr_seq_T23PC0101_001 {
     end
 }
 
-script scr_seq_T23PC0101_002 {
+script Azalea_Pokecenter_1F_EventScript_Fisherman {
     simplenpcmsg("Bill’s PC can store up to 30\n"
                  "Pokémon per Box.")
     end
 }
 
-script scr_seq_T23PC0101_003 {
+script Azalea_Pokecenter_1F_EventScript_Gentleman {
     simplenpcmsg("Do any of your Pokémon know...\n"
                  "what they call the hidden moves?\r"
                  "When a Pokémon faints, it just means\n"

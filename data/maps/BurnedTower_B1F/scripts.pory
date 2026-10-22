@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D18R0102_000
-    scr_seq_D18R0102_001
-    scr_seq_D18R0102_002
+    BurnedTower_B1F_EventScript_EusineTrigger
+    BurnedTower_B1F_EventScript_Suicune
+    BurnedTower_B1F_OnLoad
 }
 
-script scr_seq_D18R0102_002 {
+script BurnedTower_B1F_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_BURNED_TOWER_STATIC_SUICUNE)
         removeobject(obj_D18R0102_tsure_poke_static_suicune_2)
@@ -18,7 +18,7 @@ script scr_seq_D18R0102_002 {
     end
 }
 
-script scr_seq_D18R0102_000 {
+script BurnedTower_B1F_EventScript_EusineTrigger {
     followmonresetmovement
     lockall
     playcry(SPECIES_RAIKOU, 0)
@@ -36,29 +36,29 @@ script scr_seq_D18R0102_000 {
     spinobject(obj_D18R0102_tsure_poke_static_suicune, 2, 90, 2, 0)
     lock(obj_D18R0102_tsure_poke_static_suicune)
     waitcry
-    applymovement(obj_D18R0102_tsure_poke_static_raikou, BurnedTower_B1F_Movement_0224)
+    applymovement(obj_D18R0102_tsure_poke_static_raikou, BurnedTower_B1F_Movement_RaikouExit)
     waitmovement
-    applymovement(obj_D18R0102_tsure_poke_static_entei, BurnedTower_B1F_Movement_0234)
+    applymovement(obj_D18R0102_tsure_poke_static_entei, BurnedTower_B1F_Movement_EnteiExit)
     waitmovement
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 16) {
-        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_0244)
+        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_SuicuneMove1)
         waitmovement
         playcry(SPECIES_SUICUNE, 0)
-        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_0254)
+        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_SuicuneExit1)
         waitcry
     } else {
-        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_0268)
+        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_SuicuneMove2)
         waitmovement
         playcry(SPECIES_SUICUNE, 0)
-        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_0278)
+        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_SuicuneExit2)
         waitcry
     }
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, BurnedTower_B1F_Movement_028C)
+    applymovement(obj_player, BurnedTower_B1F_Movement_PlayerWalkLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -79,10 +79,10 @@ script scr_seq_D18R0102_000 {
     waitse(SEQ_SE_DP_KAIDAN2)
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 16) {
-        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_029C)
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_EusineWalkDownLeft)
     } else {
-        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02B0)
-        applymovement(obj_player, BurnedTower_B1F_Movement_02D8)
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_EusineWalkLeftDown)
+        applymovement(obj_player, BurnedTower_B1F_Movement_PlayerFaceLeft)
     }
     waitmovement
     npcmsg("Eusine: Did you see it?\r"
@@ -93,10 +93,10 @@ script scr_seq_D18R0102_000 {
            "close! I’m all choked up!\r")
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 16) {
-        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02C4)
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_EusineWalkLeft)
     } else {
-        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02D0)
-        applymovement(obj_player, BurnedTower_B1F_Movement_02D8)
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_EusineFaceRight)
+        applymovement(obj_player, BurnedTower_B1F_Movement_PlayerFaceLeft)
     }
     waitmovement
     bufferplayersname(0)
@@ -113,9 +113,9 @@ script scr_seq_D18R0102_000 {
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 16) {
-        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02E8)
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_EusineWalkRightUp)
     } else {
-        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02F8)
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_EusineWalkUpRight)
     }
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
@@ -138,7 +138,7 @@ script scr_seq_D18R0102_000 {
     end
 }
 
-movement BurnedTower_B1F_Movement_0224 {
+movement BurnedTower_B1F_Movement_RaikouExit {
     move_action_105
     set_invisible
 }
@@ -147,7 +147,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_0234 {
+movement BurnedTower_B1F_Movement_EnteiExit {
     move_action_106
     set_invisible
 }
@@ -156,7 +156,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_0244 {
+movement BurnedTower_B1F_Movement_SuicuneMove1 {
     move_action_107
     face_right
 }
@@ -165,7 +165,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_0254 {
+movement BurnedTower_B1F_Movement_SuicuneExit1 {
     delay_4 * 6
     move_action_108
     set_invisible
@@ -175,7 +175,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_0268 {
+movement BurnedTower_B1F_Movement_SuicuneMove2 {
     move_action_109
     face_right
 }
@@ -184,7 +184,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_0278 {
+movement BurnedTower_B1F_Movement_SuicuneExit2 {
     delay_4 * 6
     move_action_110
     set_invisible
@@ -194,7 +194,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_028C {
+movement BurnedTower_B1F_Movement_PlayerWalkLeft {
     walk_left
     face_down
 }
@@ -203,7 +203,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_029C {
+movement BurnedTower_B1F_Movement_EusineWalkDownLeft {
     walk_fast_down
     walk_fast_left * 3
     face_down
@@ -213,7 +213,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_02B0 {
+movement BurnedTower_B1F_Movement_EusineWalkLeftDown {
     walk_fast_left * 5
     walk_fast_down
     face_down
@@ -223,16 +223,16 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_02C4 {
+movement BurnedTower_B1F_Movement_EusineWalkLeft {
     walk_fast_left
     face_up
 }
 
-movement BurnedTower_B1F_Movement_02D0 {
+movement BurnedTower_B1F_Movement_EusineFaceRight {
     face_right
 }
 
-movement BurnedTower_B1F_Movement_02D8 {
+movement BurnedTower_B1F_Movement_PlayerFaceLeft {
     delay_4 * 6
     face_left
 }
@@ -241,7 +241,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_02E8 {
+movement BurnedTower_B1F_Movement_EusineWalkRightUp {
     walk_fast_right * 4
     walk_fast_up
 }
@@ -250,7 +250,7 @@ raw `
 	End
 `
 
-movement BurnedTower_B1F_Movement_02F8 {
+movement BurnedTower_B1F_Movement_EusineWalkUpRight {
     walk_fast_up
     walk_fast_right * 5
     face_up
@@ -260,7 +260,7 @@ raw `
 	End
 `
 
-script scr_seq_D18R0102_001 {
+script BurnedTower_B1F_EventScript_Suicune {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -288,5 +288,5 @@ script scr_seq_D18R0102_001 {
 }
 
 mapscripts BurnedTower_B1F_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_D18R0102_002
+    INIT_SCRIPT_ON_LOAD: BurnedTower_B1F_OnLoad
 }

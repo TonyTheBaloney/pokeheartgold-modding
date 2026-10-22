@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R05_000 + 1",
+            "script": "Route5_EventScript_PokefanM",
             "flag": "FLAG_UNK_258"
         }
     ],
@@ -83,7 +83,7 @@
             "y": 186,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R05_001 + 1"
+            "script": "Route5_EventScript_TrainerTips"
         }
     ]
 }

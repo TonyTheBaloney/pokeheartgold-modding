@@ -1,9 +1,9 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D39R0103_000 {
+script IcePath_B2F_EventScript_Scene {
     playse(SEQ_SE_GS_RAKKA01)
-    applymovement(obj_player, IcePath_B2F_Movement_0050)
+    applymovement(obj_player, IcePath_B2F_Movement_PlayerWarpIn)
     wait(1, VAR_SPECIAL_RESULT)
     makeobjectinvisible(obj_player)
     waitmovement
@@ -13,25 +13,25 @@ script scr_seq_D39R0103_000 {
     end
 }
 
-script scr_seq_D39R0103_001 {
+script IcePath_B2F_OnResume {
     if (var(VAR_UNK_40AB) == 1) {
         makeobjectvisible(obj_player)
     }
     end
 }
 
-movement IcePath_B2F_Movement_0050 {
+movement IcePath_B2F_Movement_PlayerWarpIn {
     warp_in
 }
 
-script scr_seq_D39R0103_002 {
+script IcePath_B2F_EventScript_Boulder {
     simplenpcmsg("It has sunk in and cannot be moved.")
     end
 }
 
 mapscripts IcePath_B2F_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40AB, 1: scr_seq_D39R0103_000
+        VAR_UNK_40AB, 1: IcePath_B2F_EventScript_Scene
     ]
-    INIT_SCRIPT_ON_RESUME: scr_seq_D39R0103_001
+    INIT_SCRIPT_ON_RESUME: IcePath_B2F_OnResume
 }

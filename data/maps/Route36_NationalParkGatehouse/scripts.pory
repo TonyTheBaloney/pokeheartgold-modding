@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R36R0201_000
-    scr_seq_R36R0201_001
-    scr_seq_R36R0201_002
+    Route36_NationalParkGatehouse_OnTransition
+    Route36_NationalParkGatehouse_EventScript_Attendant
+    Route36_NationalParkGatehouse_EventScript_WarpToNationalParkBugCatchingContest
 }
 
-script scr_seq_R36R0201_000 {
+script Route36_NationalParkGatehouse_OnTransition {
     getweekday(VAR_TEMP_x4000)
     if (var(VAR_UNK_4118) == 1) {
         clearflag(FLAG_UNK_1C4)
@@ -29,17 +29,17 @@ script scr_seq_R36R0201_000 {
     end
 }
 
-script scr_seq_R36R0201_002 {
+script Route36_NationalParkGatehouse_EventScript_WarpToNationalParkBugCatchingContest {
     followmonresetmovement
     lockall
-    applymovement(obj_player, Route36_NationalParkGatehouse_Movement_0120)
+    applymovement(obj_player, Route36_NationalParkGatehouse_Movement_PlayerFaceUp)
     waitmovement
     callstd(std_bug_contest_guard_ask_end)
     if (var(VAR_UNK_4118) == 1) {
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
-        applymovement(obj_player, Route36_NationalParkGatehouse_Movement_0128)
+        applymovement(obj_player, Route36_NationalParkGatehouse_Movement_PlayerFaceLeft1)
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
@@ -57,7 +57,7 @@ script scr_seq_R36R0201_002 {
         } else {
             followmonmovetoplayer
         }
-        applymovement(obj_partner_poke, Route36_NationalParkGatehouse_Movement_0130)
+        applymovement(obj_partner_poke, Route36_NationalParkGatehouse_Movement_FollowMonFaceLeft)
         waitmovement
         release(obj_partner_poke)
     }
@@ -65,19 +65,19 @@ script scr_seq_R36R0201_002 {
     end
 }
 
-movement Route36_NationalParkGatehouse_Movement_0120 {
+movement Route36_NationalParkGatehouse_Movement_PlayerFaceUp {
     face_up
 }
 
-movement Route36_NationalParkGatehouse_Movement_0128 {
+movement Route36_NationalParkGatehouse_Movement_PlayerFaceLeft1 {
     walk_in_place_left
 }
 
-movement Route36_NationalParkGatehouse_Movement_0130 {
+movement Route36_NationalParkGatehouse_Movement_FollowMonFaceLeft {
     face_left
 }
 
-script scr_seq_R36R0201_001 {
+script Route36_NationalParkGatehouse_EventScript_Attendant {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -89,11 +89,11 @@ script scr_seq_R36R0201_001 {
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
             if (var(VAR_SPECIAL_RESULT) == 0) {
-                applymovement(obj_player, Route36_NationalParkGatehouse_Movement_0238)
+                applymovement(obj_player, Route36_NationalParkGatehouse_Movement_PlayerFaceLeft2)
             } elif (var(VAR_SPECIAL_RESULT) == 2) {
-                applymovement(obj_player, Route36_NationalParkGatehouse_Movement_0240)
+                applymovement(obj_player, Route36_NationalParkGatehouse_Movement_PlayerWalkDownLeft1)
             } else {
-                applymovement(obj_player, Route36_NationalParkGatehouse_Movement_024C)
+                applymovement(obj_player, Route36_NationalParkGatehouse_Movement_PlayerWalkRightDown)
             }
             waitmovement
             waitfollowingpokemonmovement
@@ -104,7 +104,7 @@ script scr_seq_R36R0201_001 {
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_player, Route36_NationalParkGatehouse_Movement_025C)
+            applymovement(obj_player, Route36_NationalParkGatehouse_Movement_PlayerWalkDownLeft2)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -123,7 +123,7 @@ script scr_seq_R36R0201_001 {
         } else {
             followmonmovetoplayer
         }
-        applymovement(obj_partner_poke, Route36_NationalParkGatehouse_Movement_0130)
+        applymovement(obj_partner_poke, Route36_NationalParkGatehouse_Movement_FollowMonFaceLeft)
         waitmovement
         release(obj_partner_poke)
     }
@@ -131,29 +131,29 @@ script scr_seq_R36R0201_001 {
     end
 }
 
-movement Route36_NationalParkGatehouse_Movement_0238 {
+movement Route36_NationalParkGatehouse_Movement_PlayerFaceLeft2 {
     face_left
 }
 
-movement Route36_NationalParkGatehouse_Movement_0240 {
+movement Route36_NationalParkGatehouse_Movement_PlayerWalkDownLeft1 {
     walk_down
     walk_left
 }
 
-movement Route36_NationalParkGatehouse_Movement_024C {
+movement Route36_NationalParkGatehouse_Movement_PlayerWalkRightDown {
     walk_right
     walk_down * 2
     walk_left * 2
 }
 
-movement Route36_NationalParkGatehouse_Movement_025C {
+movement Route36_NationalParkGatehouse_Movement_PlayerWalkDownLeft2 {
     walk_down
     walk_left * 4
 }
 
 mapscripts Route36_NationalParkGatehouse_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4118, 1: scr_seq_R36R0201_002
+        VAR_UNK_4118, 1: Route36_NationalParkGatehouse_EventScript_WarpToNationalParkBugCatchingContest
     ]
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R36R0201_000
+    INIT_SCRIPT_ON_TRANSITION: Route36_NationalParkGatehouse_OnTransition
 }

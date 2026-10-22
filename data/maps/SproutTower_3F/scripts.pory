@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D15R0103_000 {
+script SproutTower_3F_OnTransition {
     clearflag(FLAG_UNK_1A3)
     if (flag(FLAG_UNK_078)) {
         setflag(FLAG_UNK_1A3)
@@ -10,17 +10,17 @@ script scr_seq_D15R0103_000 {
     end
 }
 
-script scr_seq_D15R0103_001 {
+script SproutTower_3F_EventScript_ElderTrigger {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_40A4, 1)
-    applymovement(obj_player, SproutTower_3F_Movement_00B4)
+    applymovement(obj_player, SproutTower_3F_Movement_PlayerExclamation)
     waitmovement
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
-    applymovement(241, SproutTower_3F_Movement_00C0)
+    applymovement(241, SproutTower_3F_Movement_ObjectWalkUp)
     waitmovement
-    applymovement(obj_D15R0103_chourou, SproutTower_3F_Movement_00D0)
+    applymovement(obj_D15R0103_chourou, SproutTower_3F_Movement_ElderFaceDown)
     waitmovement
     npcmsg("Elder: You showed us what you’ve got,\n"
            "and it is indeed good...\r"
@@ -35,7 +35,7 @@ script scr_seq_D15R0103_001 {
     wait(15, VAR_SPECIAL_RESULT)
     callstd(std_play_rival_outro_music)
     bufferrivalsname(0)
-    applymovement(obj_D15R0103_gsrivel, SproutTower_3F_Movement_00D8)
+    applymovement(obj_D15R0103_gsrivel, SproutTower_3F_Movement_RivalWalkDown)
     waitmovement
     npcmsg("{STRVAR_1 3, 0, 0}: ...\r"
            "...Humph!\n"
@@ -56,40 +56,40 @@ script scr_seq_D15R0103_001 {
     waitabpress
     closemessage
     playse(SEQ_SE_DP_KAIDAN2)
-    applymovement(obj_D15R0103_gsrivel, SproutTower_3F_Movement_00E0)
+    applymovement(obj_D15R0103_gsrivel, SproutTower_3F_Movement_RivalSpin)
     waitmovement
     removeobject(obj_D15R0103_gsrivel)
     setflag(FLAG_UNK_078)
     callstd(std_fade_end_rival_outro_music)
-    applymovement(241, SproutTower_3F_Movement_00C8)
+    applymovement(241, SproutTower_3F_Movement_ObjectWalkDown)
     waitmovement
     removecameratarget
     releaseall
     end
 }
 
-movement SproutTower_3F_Movement_00B4 {
+movement SproutTower_3F_Movement_PlayerExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement SproutTower_3F_Movement_00C0 {
+movement SproutTower_3F_Movement_ObjectWalkUp {
     walk_up * 5
 }
 
-movement SproutTower_3F_Movement_00C8 {
+movement SproutTower_3F_Movement_ObjectWalkDown {
     walk_down * 5
 }
 
-movement SproutTower_3F_Movement_00D0 {
+movement SproutTower_3F_Movement_ElderFaceDown {
     walk_in_place_down * 2
 }
 
-movement SproutTower_3F_Movement_00D8 {
+movement SproutTower_3F_Movement_RivalWalkDown {
     walk_down
 }
 
-movement SproutTower_3F_Movement_00E0 {
+movement SproutTower_3F_Movement_RivalSpin {
     face_left * 4
     face_up * 4
     face_right * 4
@@ -114,7 +114,7 @@ movement SproutTower_3F_Movement_00E0 {
     face_up
 }
 
-script scr_seq_D15R0103_002 {
+script SproutTower_3F_EventScript_Elder {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -165,5 +165,5 @@ script scr_seq_D15R0103_002 {
 }
 
 mapscripts SproutTower_3F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D15R0103_000
+    INIT_SCRIPT_ON_TRANSITION: SproutTower_3F_OnTransition
 }

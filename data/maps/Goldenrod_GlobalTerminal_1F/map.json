@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_000 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Receptionist1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_003 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_004 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_BugCatcher",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_005 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Man1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_006 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_OldMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_007 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_AceTrainerM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_008 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Beauty",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_013 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Receptionist2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_014 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Receptionist3",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_009 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Girl",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_010 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Youngster",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_015 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -245,7 +245,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1201_016 + 1",
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Man2",
             "flag": "FLAG_NOTHING"
         }
     ],
@@ -296,7 +296,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25R1201_011 + 1"
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -304,7 +304,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25R1201_011 + 1"
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -312,7 +312,7 @@
             "y": 14,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25R1201_012 + 1"
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -320,7 +320,7 @@
             "y": 15,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25R1201_012 + 1"
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -328,7 +328,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25R1201_011 + 1"
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -336,7 +336,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25R1201_011 + 1"
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -344,7 +344,7 @@
             "y": 15,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25R1201_012 + 1"
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -352,7 +352,7 @@
             "y": 14,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25R1201_012 + 1"
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -360,7 +360,7 @@
             "y": 2,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T25R1201_017 + 1"
+            "script": "Goldenrod_GlobalTerminal_1F_EventScript_Sign3"
         }
     ]
 }

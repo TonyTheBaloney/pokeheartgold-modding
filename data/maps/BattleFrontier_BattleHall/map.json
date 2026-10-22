@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_000 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Attendant1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_005 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Attendant2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_013 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Beauty",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_012 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_PokefanF",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_008 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_LittleGirl",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_009 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Slowbro",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_007 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Lass",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_006 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Hiker",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_010 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_OldMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_011 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Idol",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_014 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_BugCatcher",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_017 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Winston",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -245,7 +245,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_019 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Ethan",
             "flag": "FLAG_UNK_234"
         },
         {
@@ -262,7 +262,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D32R0401_016 + 1",
+            "script": "BattleFrontier_BattleHall_EventScript_Attendant3",
             "flag": "FLAG_NOTHING"
         }
     ],

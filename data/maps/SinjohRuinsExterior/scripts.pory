@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D51R0101_000
-    scr_seq_D51R0101_001
-    scr_seq_D51R0101_002
-    scr_seq_D51R0101_003
+    SinjohRuinsExterior_EventScript_HikerScene
+    SinjohRuinsExterior_EventScript_Hiker
+    SinjohRuinsExterior_OnResume
+    SinjohRuinsExterior_EventScript_TrainerTips
 }
 
-script scr_seq_D51R0101_002 {
+script SinjohRuinsExterior_OnResume {
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 5) {
         movepersonfacing(obj_D51R0101_mount_2, 13, 1, 28, DIR_NORTH)
         end
@@ -17,12 +17,12 @@ script scr_seq_D51R0101_002 {
     end
 }
 
-script scr_seq_D51R0101_000 {
+script SinjohRuinsExterior_EventScript_HikerScene {
     followmonresetmovement
     lockall
-    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_007C)
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_HikerWalkUp1)
     waitmovement
-    applymovement(obj_player, SinjohRuinsExterior_Movement_0094)
+    applymovement(obj_player, SinjohRuinsExterior_Movement_PlayerFaceRight)
     waitmovement
     npcmsg("Well, hello!\r"
            "It’s so freezing, isn’t it?\r"
@@ -35,14 +35,14 @@ script scr_seq_D51R0101_000 {
            "cultures of Sinnoh and Johto\f"
            "have blended.\r")
     closemessage
-    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_009C)
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_HikerExclamation)
     waitmovement
     npcmsg("What was I thinking?\r"
            "We don’t need to be standing here.\n"
            "Why don’t you come to the cabin\f"
            "around the corner for more discussion?\r")
     closemessage
-    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_00A8)
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_HikerWalkDownLeft)
     waitmovement
     movepersonfacing(obj_D51R0101_mount_2, 13, 1, 28, DIR_NORTH)
     setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 5)
@@ -50,7 +50,7 @@ script scr_seq_D51R0101_000 {
     end
 }
 
-movement SinjohRuinsExterior_Movement_007C {
+movement SinjohRuinsExterior_Movement_HikerWalkUp1 {
     walk_in_place_up
     emote_exclamation_mark
     delay_8
@@ -58,22 +58,22 @@ movement SinjohRuinsExterior_Movement_007C {
     walk_in_place_left
 }
 
-movement SinjohRuinsExterior_Movement_0094 {
+movement SinjohRuinsExterior_Movement_PlayerFaceRight {
     walk_in_place_right
 }
 
-movement SinjohRuinsExterior_Movement_009C {
+movement SinjohRuinsExterior_Movement_HikerExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement SinjohRuinsExterior_Movement_00A8 {
+movement SinjohRuinsExterior_Movement_HikerWalkDownLeft {
     walk_down * 4
     walk_left
     walk_down * 4
 }
 
-script scr_seq_D51R0101_001 {
+script SinjohRuinsExterior_EventScript_Hiker {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -85,12 +85,12 @@ script scr_seq_D51R0101_001 {
            "myths and ancient ruins.\f"
            "Isn’t that something?\r")
     closemessage
-    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_0108)
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_HikerWalkRightUp)
     waitmovement
     dooranimationload(0, 0, 20, 25, 77)
     dooranimationopen(77)
     dooranimationwait(77)
-    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_0114)
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_HikerWalkUp2)
     waitmovement
     removeobject(obj_D51R0101_mount_2)
     setflag(FLAG_UNK_2DB)
@@ -102,23 +102,23 @@ script scr_seq_D51R0101_001 {
     end
 }
 
-movement SinjohRuinsExterior_Movement_0108 {
+movement SinjohRuinsExterior_Movement_HikerWalkRightUp {
     walk_right * 7
     walk_up * 2
 }
 
-movement SinjohRuinsExterior_Movement_0114 {
+movement SinjohRuinsExterior_Movement_HikerWalkUp2 {
     walk_up
 }
 
-script scr_seq_D51R0101_003 {
+script SinjohRuinsExterior_EventScript_TrainerTips {
     trainertipsex(2, "The Sinjoh Ruins")
     end
 }
 
 mapscripts SinjohRuinsExterior_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_SINJOH_MYSTRI_ROOM, 4: scr_seq_D51R0101_000
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 4: SinjohRuinsExterior_EventScript_HikerScene
     ]
-    INIT_SCRIPT_ON_RESUME: scr_seq_D51R0101_002
+    INIT_SCRIPT_ON_RESUME: SinjohRuinsExterior_OnResume
 }

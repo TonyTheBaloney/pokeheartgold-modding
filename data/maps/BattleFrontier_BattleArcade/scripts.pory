@@ -3,30 +3,30 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D32R0601_000
-    scr_seq_D32R0601_001
-    scr_seq_D32R0601_002
-    scr_seq_D32R0601_003
-    scr_seq_D32R0601_004
-    scr_seq_D32R0601_005
-    scr_seq_D32R0601_006
-    scr_seq_D32R0601_007
-    scr_seq_D32R0601_008
-    scr_seq_D32R0601_009
-    scr_seq_D32R0601_010
-    scr_seq_D32R0601_011
-    scr_seq_D32R0601_012
-    scr_seq_D32R0601_013
-    scr_seq_D32R0601_014
-    scr_seq_D32R0601_015
-    scr_seq_D32R0601_016
+    BattleFrontier_BattleArcade_EventScript_Attendant1
+    BattleFrontier_BattleArcade_EventScript_Scene1
+    BattleFrontier_BattleArcade_EventScript_Scene2
+    BattleFrontier_BattleArcade_EventScript_Scene3
+    BattleFrontier_BattleArcade_EventScript_Scene4
+    BattleFrontier_BattleArcade_EventScript_Attendant2
+    BattleFrontier_BattleArcade_EventScript_Worker
+    BattleFrontier_BattleArcade_EventScript_AceTrainerF
+    BattleFrontier_BattleArcade_EventScript_Psychic
+    BattleFrontier_BattleArcade_EventScript_BugCatcher
+    BattleFrontier_BattleArcade_EventScript_Beauty1
+    BattleFrontier_BattleArcade_EventScript_Camper
+    BattleFrontier_BattleArcade_EventScript_Beauty2
+    BattleFrontier_BattleArcade_EventScript_LittleGirl
+    BattleFrontier_BattleArcade_OnTransition
+    BattleFrontier_BattleArcade_EventScript_Hiker1
+    BattleFrontier_BattleArcade_EventScript_Hiker2
 }
 
-script scr_seq_D32R0601_014 {
+script BattleFrontier_BattleArcade_OnTransition {
     end
 }
 
-script scr_seq_D32R0601_000 {
+script BattleFrontier_BattleArcade_EventScript_Attendant1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -36,7 +36,7 @@ script scr_seq_D32R0601_000 {
     end
 }
 
-script scr_seq_D32R0601_005 {
+script BattleFrontier_BattleArcade_EventScript_Attendant2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -272,16 +272,16 @@ _00A6:
                         npcmsg(msg_0110_D32R0601_00032)
                         waitabpress
                         closemessage
-                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0618)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0638)
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_PlayerExit1)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_ObjectExit1)
                         waitmovement
                         return
                     _058A:
                         npcmsg(msg_0110_D32R0601_00032)
                         waitabpress
                         closemessage
-                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0618)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0638)
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_PlayerExit1)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_ObjectExit1)
                         waitmovement
                         return
                     _05A5:
@@ -290,23 +290,23 @@ _00A6:
                         linksyncclearpackets
                         linksyncandwait(155)
                         closemessage
-                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_062C)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_064C)
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_PlayerExit2)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_ObjectExit2)
                         waitmovement
                         return
                     _05CB:
-                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0658)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0680)
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_PlayerWalkDownLeft)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_ObjectWalkDownLeft)
                         waitmovement
                         return
                     _05DF:
-                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0658)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0680)
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_PlayerWalkDownLeft)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_ObjectWalkDownLeft)
                         waitmovement
                         return
                     _05F3:
-                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0670)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0694)
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_PlayerWalkDown)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_ObjectWalkDown)
                         waitmovement
                         return
                     _0607:
@@ -378,31 +378,31 @@ text msg_0110_D32R0601_00032 {
     "Right this way, please!"
 }
 
-movement BattleFrontier_BattleArcade_Movement_0618 {
+movement BattleFrontier_BattleArcade_Movement_PlayerExit1 {
     walk_up * 2
     walk_right
     walk_up * 2
     set_invisible
 }
 
-movement BattleFrontier_BattleArcade_Movement_062C {
+movement BattleFrontier_BattleArcade_Movement_PlayerExit2 {
     walk_up * 4
     set_invisible
 }
 
-movement BattleFrontier_BattleArcade_Movement_0638 {
+movement BattleFrontier_BattleArcade_Movement_ObjectExit1 {
     walk_up
     walk_right
     walk_up * 2
     set_invisible
 }
 
-movement BattleFrontier_BattleArcade_Movement_064C {
+movement BattleFrontier_BattleArcade_Movement_ObjectExit2 {
     walk_up * 3
     set_invisible
 }
 
-movement BattleFrontier_BattleArcade_Movement_0658 {
+movement BattleFrontier_BattleArcade_Movement_PlayerWalkDownLeft {
     walk_faster_down * 2
     walk_faster_left
     walk_faster_down * 2
@@ -410,20 +410,20 @@ movement BattleFrontier_BattleArcade_Movement_0658 {
     set_visible
 }
 
-movement BattleFrontier_BattleArcade_Movement_0670 {
+movement BattleFrontier_BattleArcade_Movement_PlayerWalkDown {
     walk_faster_down * 4
     face_up
     set_visible
 }
 
-movement BattleFrontier_BattleArcade_Movement_0680 {
+movement BattleFrontier_BattleArcade_Movement_ObjectWalkDownLeft {
     walk_faster_down
     walk_faster_left
     walk_faster_down * 2
     set_visible
 }
 
-movement BattleFrontier_BattleArcade_Movement_0694 {
+movement BattleFrontier_BattleArcade_Movement_ObjectWalkDown {
     walk_faster_down * 3
     set_visible
 }
@@ -498,7 +498,7 @@ _06E5:
     return
 }
 
-script scr_seq_D32R0601_001 {
+script BattleFrontier_BattleArcade_EventScript_Scene1 {
     checkfieldheapfreesize(0)
     setvar(VAR_TEMP_x4003, 1)
     setvar(VAR_UNK_414A, 0)
@@ -518,7 +518,7 @@ _0711:
     return
 }
 
-script scr_seq_D32R0601_002 {
+script BattleFrontier_BattleArcade_EventScript_Scene2 {
     npcmsg("Excuse me!\r"
            "You didn’t save before you quit your\n"
            "challenge last time.\r"
@@ -539,7 +539,7 @@ _0754:
     return
 }
 
-script scr_seq_D32R0601_003 {
+script BattleFrontier_BattleArcade_EventScript_Scene3 {
     compare(VAR_UNK_4149, 0)
     callifeq(_0798)
     compare(VAR_UNK_4149, 1)
@@ -580,7 +580,7 @@ text msg_0110_D32R0601_00035 {
     "you with this commemorative print!\r"
 }
 
-script scr_seq_D32R0601_004 {
+script BattleFrontier_BattleArcade_EventScript_Scene4 {
     goto(_0132)
     end
 }
@@ -597,7 +597,7 @@ movement BattleFrontier_BattleArcade_Movement_07E8 {
     walk_up
 }
 
-script scr_seq_D32R0601_006 {
+script BattleFrontier_BattleArcade_EventScript_Worker {
     simplenpcmsg("The game board is like your life.\r"
                  "It goes round and round\n"
                  "as your fortune goes up and down...\f"
@@ -607,7 +607,7 @@ script scr_seq_D32R0601_006 {
     end
 }
 
-script scr_seq_D32R0601_007 {
+script BattleFrontier_BattleArcade_EventScript_AceTrainerF {
     simplenpcmsg("There’s an aspect of luck in\n"
                  "Pokémon battles...\r"
                  "The Battle Arcade reminds me of that,\n"
@@ -615,7 +615,7 @@ script scr_seq_D32R0601_007 {
     end
 }
 
-script scr_seq_D32R0601_008 {
+script BattleFrontier_BattleArcade_EventScript_Psychic {
     simplenpcmsg("What quality is most needed here?\n"
                  "Is it strength?\f"
                  "Wisdom?\f"
@@ -625,7 +625,7 @@ script scr_seq_D32R0601_008 {
     end
 }
 
-script scr_seq_D32R0601_009 {
+script BattleFrontier_BattleArcade_EventScript_BugCatcher {
     simplenpcmsg("Do you know what I mean by\n"
                  "“stop on the spot”?\r"
                  "It’s the skill of stopping the\n"
@@ -636,7 +636,7 @@ script scr_seq_D32R0601_009 {
     end
 }
 
-script scr_seq_D32R0601_010 {
+script BattleFrontier_BattleArcade_EventScript_Beauty1 {
     simplenpcmsg("I thought I was fully prepared with my\n"
                  "prized Pokémon, but I had to swap them\f"
                  "and use my opponent’s instead!\f"
@@ -644,7 +644,7 @@ script scr_seq_D32R0601_010 {
     end
 }
 
-script scr_seq_D32R0601_011 {
+script BattleFrontier_BattleArcade_EventScript_Camper {
     simplenpcmsg("I chose Pokémon that are good at\n"
                  "attacking.\f"
                  "But my opponent went for speed!\r"
@@ -653,7 +653,7 @@ script scr_seq_D32R0601_011 {
     end
 }
 
-script scr_seq_D32R0601_012 {
+script BattleFrontier_BattleArcade_EventScript_Beauty2 {
     simplenpcmsg("There are advantages to be gained from\n"
                  "“stop on the spot” skills!\r"
                  "But there’s a lot of fun in letting the\n"
@@ -661,14 +661,14 @@ script scr_seq_D32R0601_012 {
     end
 }
 
-script scr_seq_D32R0601_013 {
+script BattleFrontier_BattleArcade_EventScript_LittleGirl {
     simplenpcmsg("The game board shows better choices\n"
                  "the greater the wins you achieve...\r"
                  "Could this board be alive...?")
     end
 }
 
-script scr_seq_D32R0601_015 {
+script BattleFrontier_BattleArcade_EventScript_Hiker1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Did you figure this one out?\r"
@@ -681,7 +681,7 @@ script scr_seq_D32R0601_015 {
     end
 }
 
-script scr_seq_D32R0601_016 {
+script BattleFrontier_BattleArcade_EventScript_Hiker2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("I’ll tell you something.\r"
@@ -697,11 +697,11 @@ script scr_seq_D32R0601_016 {
 }
 
 mapscripts BattleFrontier_BattleArcade_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0601_014
+    INIT_SCRIPT_ON_TRANSITION: BattleFrontier_BattleArcade_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_414A, 1: scr_seq_D32R0601_003
-        VAR_UNK_414A, 2: scr_seq_D32R0601_001
-        VAR_UNK_414A, 3: scr_seq_D32R0601_004
-        VAR_UNK_414A, 255: scr_seq_D32R0601_002
+        VAR_UNK_414A, 1: BattleFrontier_BattleArcade_EventScript_Scene3
+        VAR_UNK_414A, 2: BattleFrontier_BattleArcade_EventScript_Scene1
+        VAR_UNK_414A, 3: BattleFrontier_BattleArcade_EventScript_Scene4
+        VAR_UNK_414A, 255: BattleFrontier_BattleArcade_EventScript_Scene2
     ]
 }

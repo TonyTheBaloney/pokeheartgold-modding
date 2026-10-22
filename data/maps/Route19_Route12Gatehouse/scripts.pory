@@ -1,12 +1,12 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R11R0101_000 {
+script Route19_Route12Gatehouse_OnTransition {
     setvar(VAR_UNK_4085, 0)
     end
 }
 
-script scr_seq_R11R0101_001 {
+script Route19_Route12Gatehouse_EventScript_Attendant {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -32,5 +32,5 @@ _0028:
 }
 
 mapscripts Route19_Route12Gatehouse_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R11R0101_000
+    INIT_SCRIPT_ON_TRANSITION: Route19_Route12Gatehouse_OnTransition
 }

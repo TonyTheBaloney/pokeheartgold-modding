@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D02R0103_000
-    scr_seq_D02R0103_001
-    scr_seq_D02R0103_002
+    MountMoon_Square_EventScript_TrainerTips
+    MountMoon_Square_EventScript_InvisibleObject
+    MountMoon_Square_OnResume
 }
 
-script scr_seq_D02R0103_002 {
+script MountMoon_Square_OnResume {
     makeobjectvisible(obj_D02R0103_stop)
     getcurrenttimeofday(VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 3) {
@@ -21,18 +21,18 @@ script scr_seq_D02R0103_002 {
     end
 }
 
-script scr_seq_D02R0103_000 {
+script MountMoon_Square_EventScript_TrainerTips {
     trainertipsex(2, "This is Mt. Moon Square.\r"
                      "Please don’t litter. Put trash\n"
                      "where it belongs!")
     end
 }
 
-script scr_seq_D02R0103_001 {
+script MountMoon_Square_EventScript_InvisibleObject {
     simplenpcmsg("We are closed for the day.")
     end
 }
 
 mapscripts MountMoon_Square_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D02R0103_002
+    INIT_SCRIPT_ON_RESUME: MountMoon_Square_OnResume
 }

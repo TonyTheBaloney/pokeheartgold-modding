@@ -3,15 +3,15 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D44R0102_000
-    scr_seq_D44R0102_001
-    scr_seq_D44R0102_002
-    scr_seq_D44R0102_003
-    scr_seq_D44R0102_004
-    scr_seq_D44R0102_005
+    DragonsDen_EventScript_ClairTrigger
+    DragonsDen_EventScript_Rival
+    DragonsDen_OnTransition
+    DragonsDen_EventScript_Clair
+    DragonsDen_EventScript_LanceTrigger
+    DragonsDen_EventScript_TrainerTips
 }
 
-script scr_seq_D44R0102_002 {
+script DragonsDen_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         if (var(VAR_UNK_40FC) >= 2) {
             getweekday(VAR_TEMP_x4000)
@@ -73,21 +73,21 @@ script scr_seq_D44R0102_002 {
     end
 }
 
-script scr_seq_D44R0102_000 {
+script DragonsDen_EventScript_ClairTrigger {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, DragonsDen_Movement_02C0)
+    applymovement(obj_player, DragonsDen_Movement_PlayerWalkLeft)
     waitmovement
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 26) {
-        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02C8)
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_ClairWalkRight1)
     } elif (var(VAR_TEMP_x4000) == 27) {
-        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02D0)
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_ClairWalkRight2)
     } else {
-        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02D8)
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_ClairWalkRight3)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -128,14 +128,14 @@ _0236:
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 26) {
-        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02E0)
-        applymovement(obj_player, DragonsDen_Movement_0310)
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_ClairWalkUpRight1)
+        applymovement(obj_player, DragonsDen_Movement_PlayerFaceUp)
     } elif (var(VAR_TEMP_x4000) == 27) {
-        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02F0)
-        applymovement(obj_player, DragonsDen_Movement_0310)
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_ClairWalkUpRight2)
+        applymovement(obj_player, DragonsDen_Movement_PlayerFaceUp)
     } else {
-        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_0300)
-        applymovement(obj_player, DragonsDen_Movement_0310)
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_ClairWalkUpRight3)
+        applymovement(obj_player, DragonsDen_Movement_PlayerFaceUp)
     }
     waitmovement
     removeobject(obj_D44R0102_gsleader8)
@@ -149,45 +149,45 @@ movement DragonsDen_Movement_02B4 {
     face_left
 }
 
-movement DragonsDen_Movement_02C0 {
+movement DragonsDen_Movement_PlayerWalkLeft {
     walk_left
 }
 
-movement DragonsDen_Movement_02C8 {
+movement DragonsDen_Movement_ClairWalkRight1 {
     walk_right
 }
 
-movement DragonsDen_Movement_02D0 {
+movement DragonsDen_Movement_ClairWalkRight2 {
     walk_right * 2
 }
 
-movement DragonsDen_Movement_02D8 {
+movement DragonsDen_Movement_ClairWalkRight3 {
     walk_right * 3
 }
 
-movement DragonsDen_Movement_02E0 {
+movement DragonsDen_Movement_ClairWalkUpRight1 {
     walk_up
     walk_right * 3
     walk_up * 7
 }
 
-movement DragonsDen_Movement_02F0 {
+movement DragonsDen_Movement_ClairWalkUpRight2 {
     walk_up
     walk_right * 2
     walk_up * 7
 }
 
-movement DragonsDen_Movement_0300 {
+movement DragonsDen_Movement_ClairWalkUpRight3 {
     walk_up
     walk_right
     walk_up * 7
 }
 
-movement DragonsDen_Movement_0310 {
+movement DragonsDen_Movement_PlayerFaceUp {
     face_up
 }
 
-script scr_seq_D44R0102_001 {
+script DragonsDen_EventScript_Rival {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -220,7 +220,7 @@ script scr_seq_D44R0102_001 {
     end
 }
 
-script scr_seq_D44R0102_003 {
+script DragonsDen_EventScript_Clair {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -315,18 +315,18 @@ _03F1:
     end
 }
 
-script scr_seq_D44R0102_004 {
+script DragonsDen_EventScript_LanceTrigger {
     followmonresetmovement
     lockall
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0674)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_RivalExclamation1)
     if (var(VAR_TEMP_x4000) == 24) {
-        applymovement(obj_player, DragonsDen_Movement_0688)
+        applymovement(obj_player, DragonsDen_Movement_PlayerWalkDown)
     } else {
-        applymovement(obj_player, DragonsDen_Movement_0694)
+        applymovement(obj_player, DragonsDen_Movement_PlayerWalkDownLeft)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -347,11 +347,11 @@ script scr_seq_D44R0102_004 {
     movepersonfacing(obj_D44R0102_wataru, 28, 0, 34, DIR_SOUTH)
     movepersonfacing(obj_D44R0102_gsleader8_2, 28, 0, 33, DIR_SOUTH)
     callstd(std_fade_end_rival_intro_music)
-    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0674)
-    applymovement(obj_player, DragonsDen_Movement_06A8)
-    applymovement(obj_D44R0102_wataru, DragonsDen_Movement_06E4)
-    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0704)
-    applymovement(obj_partner_poke, DragonsDen_Movement_06C8)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_RivalExclamation1)
+    applymovement(obj_player, DragonsDen_Movement_PlayerWalkRightDown)
+    applymovement(obj_D44R0102_wataru, DragonsDen_Movement_LanceWalkDownLeft)
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_ClairWalkDownLeft)
+    applymovement(obj_partner_poke, DragonsDen_Movement_FollowMonWalkRightDown)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lance: Hi, {STRVAR_1 3, 0, 0}!\n"
@@ -359,7 +359,7 @@ script scr_seq_D44R0102_004 {
                  "We met at the Team Rocket hideout.\r", "Lance: Hi, {STRVAR_1 3, 0, 0}!\n"
                                                          "And...you.\f"
                                                          "We met at the Team Rocket hideout.\r")
-    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0680)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_RivalExclamation2)
     waitmovement
     bufferrivalsname(1)
     npcmsg("{STRVAR_1 3, 1, 0}: You!\n"
@@ -372,7 +372,7 @@ script scr_seq_D44R0102_004 {
            "But...I always welcome challengers!\r"
            "Hey!\n"
            "How about a Double Battle?\r")
-    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_073C)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_RivalFaceUp1)
     waitmovement
     bufferplayersname(0)
     bufferrivalsname(1)
@@ -383,7 +383,7 @@ script scr_seq_D44R0102_004 {
                  "{STRVAR_1 3, 0, 0}, you’ll be on my side!\r", "Lance: Come on.\n"
                                                                 "A Double Battle is really not bad.\f"
                                                                 "{STRVAR_1 3, 0, 0}, you’ll be on my side!\r")
-    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0718)
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_ClairWalkDown)
     waitmovement
     npcmsg("Clair: Well then, you over there!\n"
            "Will you team up with me?\r")
@@ -392,18 +392,18 @@ script scr_seq_D44R0102_004 {
            "That embarrassing one in the weird\n"
            "costume for me?\f"
            "No way I can battle with her!\r")
-    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0744)
-    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0758)
-    applymovement(obj_player, DragonsDen_Movement_0764)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_RivalWalkUpDown)
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_ClairWalkUp)
+    applymovement(obj_player, DragonsDen_Movement_PlayerFaceLeft1)
     waitmovement
     bufferplayersname(0)
     npcmsg("{STRVAR_1 3, 0, 0}!\n"
            "Come to my side!\f"
            "We’ll beat Lance together!\r")
     closemessage
-    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0770)
-    applymovement(obj_player, DragonsDen_Movement_0770)
-    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0718)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_RivalFaceUp2)
+    applymovement(obj_player, DragonsDen_Movement_RivalFaceUp2)
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_ClairWalkDown)
     waitmovement
     if (var(VAR_OBJ_0) == 1048) {
         multibattle(TRAINER_PARTNER_RIVAL_2, TRAINER_CHAMPION_LANCE_3, TRAINER_LEADER_CLAIR_CLAIR_3, 1)
@@ -437,7 +437,7 @@ script scr_seq_D44R0102_004 {
                                     "See you, {STRVAR_1 3, 0, 0},\n"
                                     "another time!\r")
     closemessage
-    applymovement(obj_D44R0102_wataru, DragonsDen_Movement_06F4)
+    applymovement(obj_D44R0102_wataru, DragonsDen_Movement_LanceWalkUpRight)
     waitmovement
     removeobject(obj_D44R0102_wataru)
     bufferplayersname(0)
@@ -445,11 +445,11 @@ script scr_seq_D44R0102_004 {
            "...{STRVAR_1 3, 0, 0}, it was a fun battle.\r"
            "That goes for you, too, wise guy.\r")
     closemessage
-    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0720)
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_ClairWalkUpRight4)
     waitmovement
     removeobject(obj_D44R0102_gsleader8_2)
-    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0778)
-    applymovement(obj_player, DragonsDen_Movement_0780)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_RivalFaceRight)
+    applymovement(obj_player, DragonsDen_Movement_PlayerFaceLeft2)
     waitmovement
     bufferplayersname(0)
     bufferrivalsname(1)
@@ -468,7 +468,7 @@ script scr_seq_D44R0102_004 {
     wait(20, VAR_SPECIAL_x8004)
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
-    applymovement(obj_partner_poke, DragonsDen_Movement_06DC)
+    applymovement(obj_partner_poke, DragonsDen_Movement_FollowMonWalkUp)
     waitmovement
     setvar(VAR_UNK_40FC, 2)
     setvar(VAR_UNK_4119, 1)
@@ -476,28 +476,28 @@ script scr_seq_D44R0102_004 {
     end
 }
 
-movement DragonsDen_Movement_0674 {
+movement DragonsDen_Movement_RivalExclamation1 {
     face_up
     emote_exclamation_mark
 }
 
-movement DragonsDen_Movement_0680 {
+movement DragonsDen_Movement_RivalExclamation2 {
     emote_exclamation_mark
 }
 
-movement DragonsDen_Movement_0688 {
+movement DragonsDen_Movement_PlayerWalkDown {
     delay_16 * 2
     walk_down * 2
 }
 
-movement DragonsDen_Movement_0694 {
+movement DragonsDen_Movement_PlayerWalkDownLeft {
     delay_16
     walk_down
     walk_left
     walk_down
 }
 
-movement DragonsDen_Movement_06A8 {
+movement DragonsDen_Movement_PlayerWalkRightDown {
     delay_16
     face_up
     emote_exclamation_mark
@@ -507,41 +507,41 @@ movement DragonsDen_Movement_06A8 {
     face_up
 }
 
-movement DragonsDen_Movement_06C8 {
+movement DragonsDen_Movement_FollowMonWalkRightDown {
     delay_16 * 4
     walk_fast_right
     walk_fast_down * 5
     face_up
 }
 
-movement DragonsDen_Movement_06DC {
+movement DragonsDen_Movement_FollowMonWalkUp {
     walk_up
 }
 
-movement DragonsDen_Movement_06E4 {
+movement DragonsDen_Movement_LanceWalkDownLeft {
     walk_down * 7
     walk_left * 3
     walk_down * 3
 }
 
-movement DragonsDen_Movement_06F4 {
+movement DragonsDen_Movement_LanceWalkUpRight {
     walk_up * 4
     walk_right * 3
     walk_up * 7
 }
 
-movement DragonsDen_Movement_0704 {
+movement DragonsDen_Movement_ClairWalkDownLeft {
     delay_8
     walk_down * 7
     walk_left * 4
     walk_down * 4
 }
 
-movement DragonsDen_Movement_0718 {
+movement DragonsDen_Movement_ClairWalkDown {
     walk_down
 }
 
-movement DragonsDen_Movement_0720 {
+movement DragonsDen_Movement_ClairWalkUpRight4 {
     lock_dir
     walk_slow_up
     unlock_dir
@@ -550,40 +550,40 @@ movement DragonsDen_Movement_0720 {
     walk_fast_up * 7
 }
 
-movement DragonsDen_Movement_073C {
+movement DragonsDen_Movement_RivalFaceUp1 {
     walk_in_place_fast_up * 2
 }
 
-movement DragonsDen_Movement_0744 {
+movement DragonsDen_Movement_RivalWalkUpDown {
     walk_faster_up
     delay_8
     walk_down
     walk_in_place_right
 }
 
-movement DragonsDen_Movement_0758 {
+movement DragonsDen_Movement_ClairWalkUp {
     lock_dir
     walk_faster_up * 2
 }
 
-movement DragonsDen_Movement_0764 {
+movement DragonsDen_Movement_PlayerFaceLeft1 {
     delay_16 * 2
     walk_in_place_left
 }
 
-movement DragonsDen_Movement_0770 {
+movement DragonsDen_Movement_RivalFaceUp2 {
     walk_in_place_up
 }
 
-movement DragonsDen_Movement_0778 {
+movement DragonsDen_Movement_RivalFaceRight {
     face_right
 }
 
-movement DragonsDen_Movement_0780 {
+movement DragonsDen_Movement_PlayerFaceLeft2 {
     face_left
 }
 
-script scr_seq_D44R0102_005 {
+script DragonsDen_EventScript_TrainerTips {
     trainertipsex(2, "Dragon Shrine\r"
                      "A shrine revering the Dragon Pokémon\n"
                      "said to have lived in Dragon’s Den.")
@@ -591,5 +591,5 @@ script scr_seq_D44R0102_005 {
 }
 
 mapscripts DragonsDen_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D44R0102_002
+    INIT_SCRIPT_ON_TRANSITION: DragonsDen_OnTransition
 }

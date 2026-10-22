@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R1002_000 {
+script Goldenrod_DepartmentStore_2F_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T25R1002_000 {
     end
 }
 
-script scr_seq_T25R1002_001 {
+script Goldenrod_DepartmentStore_2F_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,7 +25,7 @@ script scr_seq_T25R1002_001 {
     end
 }
 
-script scr_seq_T25R1002_002 {
+script Goldenrod_DepartmentStore_2F_EventScript_Camper {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -46,7 +46,7 @@ script scr_seq_T25R1002_002 {
     end
 }
 
-script scr_seq_T25R1002_003 {
+script Goldenrod_DepartmentStore_2F_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -63,7 +63,7 @@ script scr_seq_T25R1002_003 {
     end
 }
 
-script scr_seq_T25R1002_004 {
+script Goldenrod_DepartmentStore_2F_EventScript_Gentleman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -83,7 +83,7 @@ script scr_seq_T25R1002_004 {
     end
 }
 
-script scr_seq_T25R1002_005 {
+script Goldenrod_DepartmentStore_2F_EventScript_YourTravelCompanionSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Your Travel Companion\n"

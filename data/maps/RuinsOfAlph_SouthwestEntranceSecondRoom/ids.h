@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_D24R0215_H_
 #define SCR_SEQ_D24R0215_H_
 
-#define _EV_scr_seq_D24R0215_000 0
-#define _EV_scr_seq_D24R0215_001 1
+#define _EV_RuinsOfAlph_SouthwestEntranceSecondRoom_EventScript_WarpToRuinsOfAlphSouthwestHiddenRoom 0
+#define _EV_RuinsOfAlph_SouthwestEntranceSecondRoom_EventScript_Sign 1
 
 #define obj_D24R0215_monstarball   0
 #define obj_D24R0215_monstarball_2 1

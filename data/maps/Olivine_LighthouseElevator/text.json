@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0095_D27R0108_00000",
-      "from": "scr_seq_D27R0108_000#0"
+      "from": "Olivine_LighthouseElevator_EventScript_Scene#0"
     },
     {
       "id": "msg_0095_D27R0108_00001",
-      "from": "scr_seq_D27R0108_000#1"
+      "from": "Olivine_LighthouseElevator_EventScript_Scene#1"
     },
     {
       "id": "msg_0095_D27R0108_00002",
-      "from": "scr_seq_D27R0108_000#2"
+      "from": "Olivine_LighthouseElevator_EventScript_Scene#2"
     },
     {
       "id": "msg_0095_D27R0108_00003",
-      "from": "scr_seq_D27R0108_000#3"
+      "from": "Olivine_LighthouseElevator_EventScript_Scene#3"
     }
   ]
 }

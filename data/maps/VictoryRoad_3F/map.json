@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D43R0103_001 + 1",
+            "script": "VictoryRoad_3F_EventScript_Rival",
             "flag": "FLAG_HIDE_VICTORY_ROAD_RIVAL"
         },
         {
@@ -268,7 +268,7 @@
             "height": 1,
             "var": "VAR_UNK_40C5",
             "var_value": 0,
-            "script": "_EV_scr_seq_D43R0103_000 + 1"
+            "script": "VictoryRoad_3F_EventScript_RivalTrigger"
         },
         {
             "x": 55,
@@ -278,7 +278,7 @@
             "height": 1,
             "var": "VAR_UNK_40C9",
             "var_value": 0,
-            "script": "_EV_scr_seq_D43R0103_002 + 1"
+            "script": "VictoryRoad_3F_EventScript_Trigger1"
         },
         {
             "x": 26,
@@ -288,7 +288,7 @@
             "height": 1,
             "var": "VAR_UNK_40C9",
             "var_value": 0,
-            "script": "_EV_scr_seq_D43R0103_003 + 1"
+            "script": "VictoryRoad_3F_EventScript_Trigger2"
         },
         {
             "x": 29,
@@ -298,7 +298,7 @@
             "height": 1,
             "var": "VAR_UNK_40C9",
             "var_value": 0,
-            "script": "_EV_scr_seq_D43R0103_004 + 1"
+            "script": "VictoryRoad_3F_EventScript_Trigger3"
         },
         {
             "x": 20,
@@ -308,7 +308,7 @@
             "height": 1,
             "var": "VAR_UNK_40C9",
             "var_value": 0,
-            "script": "_EV_scr_seq_D43R0103_005 + 1"
+            "script": "VictoryRoad_3F_EventScript_Trigger4"
         },
         {
             "x": 56,
@@ -318,7 +318,7 @@
             "height": 1,
             "var": "VAR_UNK_40C9",
             "var_value": 0,
-            "script": "_EV_scr_seq_D43R0103_006 + 1"
+            "script": "VictoryRoad_3F_EventScript_WarpToVictoryRoad2F"
         }
     ],
     "bg_events": [

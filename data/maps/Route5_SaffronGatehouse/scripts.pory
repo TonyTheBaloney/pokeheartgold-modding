@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R05R0301_000 {
+script Route5_SaffronGatehouse_EventScript_Attendant {
     simplenpcmsg("You are from Johto, aren’t you?\n"
                  "How do you like Kanto?\f"
                  "It’s nice, don’t you agree?\f"

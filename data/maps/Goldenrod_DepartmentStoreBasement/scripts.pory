@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D37R0103_000
-    scr_seq_D37R0103_001
-    scr_seq_D37R0103_002
-    scr_seq_D37R0103_003
+    Goldenrod_DepartmentStoreBasement_EventScript_BlackBelt1
+    Goldenrod_DepartmentStoreBasement_EventScript_BlackBelt2
+    Goldenrod_DepartmentStoreBasement_EventScript_Machoke
+    Goldenrod_DepartmentStoreBasement_OnResume
 }
 
-script scr_seq_D37R0103_003 {
+script Goldenrod_DepartmentStoreBasement_OnResume {
     makeobjectvisible(obj_D37R0103_stop)
     makeobjectvisible(obj_D37R0103_stop_2)
     makeobjectvisible(obj_D37R0103_stop_3)
@@ -107,17 +107,17 @@ _02BF:
     end
 }
 
-script scr_seq_D37R0103_000 {
+script Goldenrod_DepartmentStoreBasement_EventScript_BlackBelt1 {
     if (flag(FLAG_UNK_096)) { goto(_03C9) }
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg(msg_0118_D37R0103_00000)
     closemessage
-    applymovement(obj_D37R0103_tsure_poke_static_machoke, Goldenrod_DepartmentStoreBasement_Movement_0504)
-    applymovement(obj_D37R0103_babyboy1_5_3, Goldenrod_DepartmentStoreBasement_Movement_0504)
-    applymovement(obj_D37R0103_stop, Goldenrod_DepartmentStoreBasement_Movement_0504)
-    applymovement(obj_D37R0103_stop_2, Goldenrod_DepartmentStoreBasement_Movement_0504)
-    applymovement(obj_D37R0103_stop_3, Goldenrod_DepartmentStoreBasement_Movement_0504)
+    applymovement(obj_D37R0103_tsure_poke_static_machoke, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkDown)
+    applymovement(obj_D37R0103_babyboy1_5_3, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkDown)
+    applymovement(obj_D37R0103_stop, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkDown)
+    applymovement(obj_D37R0103_stop_2, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkDown)
+    applymovement(obj_D37R0103_stop_3, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkDown)
     waitmovement
     setflag(FLAG_UNK_096)
     changeobjectmovement(0, 9)
@@ -135,7 +135,7 @@ text msg_0118_D37R0103_00000 {
     "MACHOKE, help us move the container!\r"
 }
 
-script scr_seq_D37R0103_001 {
+script Goldenrod_DepartmentStoreBasement_EventScript_BlackBelt2 {
     getpersoncoords(4, VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 15) {
         if (var(VAR_TEMP_x4001) != 16) {
@@ -151,11 +151,11 @@ script scr_seq_D37R0103_001 {
             lockall
             npcmsg(msg_0118_D37R0103_00000)
             closemessage
-            applymovement(obj_D37R0103_tsure_poke_static_machoke_2, Goldenrod_DepartmentStoreBasement_Movement_050C)
-            applymovement(obj_D37R0103_babyboy1_5_2, Goldenrod_DepartmentStoreBasement_Movement_050C)
-            applymovement(obj_D37R0103_stop_4, Goldenrod_DepartmentStoreBasement_Movement_050C)
-            applymovement(obj_D37R0103_stop_5, Goldenrod_DepartmentStoreBasement_Movement_050C)
-            applymovement(obj_D37R0103_stop_6, Goldenrod_DepartmentStoreBasement_Movement_050C)
+            applymovement(obj_D37R0103_tsure_poke_static_machoke_2, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkLeft)
+            applymovement(obj_D37R0103_babyboy1_5_2, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkLeft)
+            applymovement(obj_D37R0103_stop_4, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkLeft)
+            applymovement(obj_D37R0103_stop_5, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkLeft)
+            applymovement(obj_D37R0103_stop_6, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkLeft)
             waitmovement
             setflag(FLAG_UNK_097)
             releaseall
@@ -171,11 +171,11 @@ script scr_seq_D37R0103_001 {
             lockall
             npcmsg(msg_0118_D37R0103_00000)
             closemessage
-            applymovement(obj_D37R0103_tsure_poke_static_machoke_3, Goldenrod_DepartmentStoreBasement_Movement_0514)
-            applymovement(obj_D37R0103_babyboy1_5, Goldenrod_DepartmentStoreBasement_Movement_0514)
-            applymovement(obj_D37R0103_stop_7, Goldenrod_DepartmentStoreBasement_Movement_0514)
-            applymovement(obj_D37R0103_stop_8, Goldenrod_DepartmentStoreBasement_Movement_0514)
-            applymovement(obj_D37R0103_stop_9, Goldenrod_DepartmentStoreBasement_Movement_0514)
+            applymovement(obj_D37R0103_tsure_poke_static_machoke_3, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkRight)
+            applymovement(obj_D37R0103_babyboy1_5, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkRight)
+            applymovement(obj_D37R0103_stop_7, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkRight)
+            applymovement(obj_D37R0103_stop_8, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkRight)
+            applymovement(obj_D37R0103_stop_9, Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkRight)
             waitmovement
             setflag(FLAG_UNK_098)
             releaseall
@@ -188,7 +188,7 @@ script scr_seq_D37R0103_001 {
     goto(_041C)
 }
 
-script scr_seq_D37R0103_002 {
+script Goldenrod_DepartmentStoreBasement_EventScript_Machoke {
     playse(SEQ_SE_DP_SELECT)
     lockall
     playcry(SPECIES_MACHOKE, 0)
@@ -200,18 +200,18 @@ script scr_seq_D37R0103_002 {
     end
 }
 
-movement Goldenrod_DepartmentStoreBasement_Movement_0504 {
+movement Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkDown {
     walk_slow_down * 2
 }
 
-movement Goldenrod_DepartmentStoreBasement_Movement_050C {
+movement Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkLeft {
     walk_slow_left * 2
 }
 
-movement Goldenrod_DepartmentStoreBasement_Movement_0514 {
+movement Goldenrod_DepartmentStoreBasement_Movement_MachokeWalkRight {
     walk_slow_right * 2
 }
 
 mapscripts Goldenrod_DepartmentStoreBasement_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D37R0103_003
+    INIT_SCRIPT_ON_RESUME: Goldenrod_DepartmentStoreBasement_OnResume
 }

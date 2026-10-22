@@ -1,16 +1,16 @@
 #ifndef SCR_SEQ_T08_H_
 #define SCR_SEQ_T08_H_
 
-#define _EV_scr_seq_T08_000 0
-#define _EV_scr_seq_T08_001 1
-#define _EV_scr_seq_T08_002 2
-#define _EV_scr_seq_T08_003 3
-#define _EV_scr_seq_T08_004 4
-#define _EV_scr_seq_T08_005 5
-#define _EV_scr_seq_T08_006 6
-#define _EV_scr_seq_T08_007 7
-#define _EV_scr_seq_T08_008 8
-#define _EV_scr_seq_T08_009 9
+#define _EV_Fuchsia_EventScript_Youngster 0
+#define _EV_Fuchsia_EventScript_PokefanM1 1
+#define _EV_Fuchsia_EventScript_Woman 2
+#define _EV_Fuchsia_EventScript_TrainerTips1 3
+#define _EV_Fuchsia_EventScript_TrainerTips2 4
+#define _EV_Fuchsia_EventScript_TrainerTips3 5
+#define _EV_Fuchsia_EventScript_PokefanM2 6
+#define _EV_Fuchsia_OnTransition 7
+#define _EV_Fuchsia_EventScript_Juggler 8
+#define _EV_Fuchsia_EventScript_CitySign 9
 
 #define obj_T08_gsmiddleman1   0
 #define obj_T08_gswoman1       1

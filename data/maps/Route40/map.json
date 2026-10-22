@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_W40_001 + 1",
+            "script": "Route40_EventScript_Woman",
             "flag": "FLAG_UNK_206"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_W40_007 + 1",
+            "script": "Route40_EventScript_PokefanM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -172,7 +172,7 @@
             "height": 1,
             "var": "VAR_UNK_4090",
             "var_value": 0,
-            "script": "_EV_scr_seq_W40_008 + 1"
+            "script": "Route40_EventScript_PokefanMTrigger"
         }
     ],
     "bg_events": [
@@ -182,7 +182,7 @@
             "y": 272,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_W40_002 + 1"
+            "script": "Route40_EventScript_RouteSign"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",
@@ -198,7 +198,7 @@
             "y": 267,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_W40_009 + 1"
+            "script": "Route40_EventScript_TrainerTips"
         }
     ]
 }

@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0146_D51R0201_00000",
-      "from": "scr_seq_D51R0201_001#9"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#9"
     },
     {
       "id": "msg_0146_D51R0201_00001",
@@ -20,7 +20,7 @@
     },
     {
       "id": "msg_0146_D51R0201_00002",
-      "from": "scr_seq_D51R0201_001#11"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#11"
     },
     {
       "id": "msg_0146_D51R0201_00003",
@@ -33,67 +33,67 @@
     },
     {
       "id": "msg_0146_D51R0201_00004",
-      "from": "scr_seq_D51R0201_001#1"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#1"
     },
     {
       "id": "msg_0146_D51R0201_00005",
-      "from": "scr_seq_D51R0201_001#2"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#2"
     },
     {
       "id": "msg_0146_D51R0201_00006",
-      "from": "scr_seq_D51R0201_001#10"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#10"
     },
     {
       "id": "msg_0146_D51R0201_00007",
-      "from": "scr_seq_D51R0201_001#3"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#3"
     },
     {
       "id": "msg_0146_D51R0201_00008",
-      "from": "scr_seq_D51R0201_001#4"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#4"
     },
     {
       "id": "msg_0146_D51R0201_00009",
-      "from": "scr_seq_D51R0201_001#5"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#5"
     },
     {
       "id": "msg_0146_D51R0201_00010",
-      "from": "scr_seq_D51R0201_001#6"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#6"
     },
     {
       "id": "msg_0146_D51R0201_00011",
-      "from": "scr_seq_D51R0201_001#7"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#7"
     },
     {
       "id": "msg_0146_D51R0201_00012",
-      "from": "scr_seq_D51R0201_001#0"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#0"
     },
     {
       "id": "msg_0146_D51R0201_00013",
-      "from": "scr_seq_D51R0201_004#1"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger2#1"
     },
     {
       "id": "msg_0146_D51R0201_00014",
-      "from": "scr_seq_D51R0201_003#1"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger1#1"
     },
     {
       "id": "msg_0146_D51R0201_00015",
-      "from": "scr_seq_D51R0201_005#1"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#1"
     },
     {
       "id": "msg_0146_D51R0201_00016",
-      "from": "scr_seq_D51R0201_005#5"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#5"
     },
     {
       "id": "msg_0146_D51R0201_00017",
-      "from": "scr_seq_D51R0201_005#6"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#6"
     },
     {
       "id": "msg_0146_D51R0201_00018",
-      "from": "scr_seq_D51R0201_005#7"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#7"
     },
     {
       "id": "msg_0146_D51R0201_00019",
-      "from": "scr_seq_D51R0201_005#8"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#8"
     },
     {
       "id": "msg_0146_D51R0201_00020",
@@ -135,27 +135,27 @@
     },
     {
       "id": "msg_0146_D51R0201_00024",
-      "from": "scr_seq_D51R0201_001#8"
+      "from": "SinjohRuinsMystriStage_EventScript_Cynthia#8"
     },
     {
       "id": "msg_0146_D51R0201_00025",
-      "from": "scr_seq_D51R0201_005#2"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#2"
     },
     {
       "id": "msg_0146_D51R0201_00026",
-      "from": "scr_seq_D51R0201_005#3"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#3"
     },
     {
       "id": "msg_0146_D51R0201_00027",
-      "from": "scr_seq_D51R0201_004#0"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger2#0"
     },
     {
       "id": "msg_0146_D51R0201_00028",
-      "from": "scr_seq_D51R0201_003#0"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger1#0"
     },
     {
       "id": "msg_0146_D51R0201_00029",
-      "from": "scr_seq_D51R0201_005#0"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#0"
     },
     {
       "id": "msg_0146_D51R0201_00030",
@@ -163,15 +163,15 @@
     },
     {
       "id": "msg_0146_D51R0201_00031",
-      "from": "scr_seq_D51R0201_005#9"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#9"
     },
     {
       "id": "msg_0146_D51R0201_00032",
-      "from": "scr_seq_D51R0201_005#4"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#4"
     },
     {
       "id": "msg_0146_D51R0201_00033",
-      "from": "scr_seq_D51R0201_005#10"
+      "from": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3#10"
     }
   ]
 }

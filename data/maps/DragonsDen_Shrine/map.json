@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D44R0103_000 + 1",
+            "script": "DragonsDen_Shrine_EventScript_Elder",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D44R0103_001 + 1",
+            "script": "DragonsDen_Shrine_EventScript_OldMan1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D44R0103_002 + 1",
+            "script": "DragonsDen_Shrine_EventScript_OldMan2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D44R0103_005 + 1",
+            "script": "DragonsDen_Shrine_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         }
     ],

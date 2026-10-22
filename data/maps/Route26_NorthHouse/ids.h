@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_R26R0101_H_
 #define SCR_SEQ_R26R0101_H_
 
-#define _EV_scr_seq_R26R0101_000 0
+#define _EV_Route26_NorthHouse_EventScript_Woman 0
 #define _EV_scr_seq_R26R0101_001 1
 
 #define obj_R26R0101_gswoman1 0

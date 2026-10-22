@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0107_000 + 1",
+            "script": "PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Magnus",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -96,7 +96,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0107_001 + 1"
+            "script": "PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_ItsYourStatueSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -104,7 +104,7 @@
             "y": 5,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0107_002 + 1"
+            "script": "PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Statue1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -112,7 +112,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0107_003 + 1"
+            "script": "PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Statue2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -120,7 +120,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0107_004 + 1"
+            "script": "PokeathlonDome_Interior_B1FFriendshipRoom_EventScript_Statue3"
         }
     ]
 }

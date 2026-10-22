@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0383_R33_00000",
-      "from": "scr_seq_R33_000#0"
+      "from": "Route33_EventScript_Lass#0"
     },
     {
       "id": "msg_0383_R33_00001",
-      "from": "scr_seq_R33_001#0"
+      "from": "Route33_EventScript_RouteSign#0"
     }
   ]
 }

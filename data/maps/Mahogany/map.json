@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T28_000 + 1",
+            "script": "Mahogany_EventScript_PokefanM",
             "flag": "FLAG_UNK_205"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T28_002 + 1",
+            "script": "Mahogany_EventScript_OldMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T28_004 + 1",
+            "script": "Mahogany_EventScript_FatMan",
             "flag": "FLAG_UNK_1F9"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T28_003 + 1",
+            "script": "Mahogany_EventScript_Lass",
             "flag": "FLAG_HIDE_MAHOGANY_SHOP_SALESWOMAN"
         }
     ],
@@ -149,7 +149,7 @@
             "height": 2,
             "var": "VAR_UNK_407A",
             "var_value": 0,
-            "script": "_EV_scr_seq_T28_001 + 1"
+            "script": "Mahogany_EventScript_PokefanMTrigger"
         }
     ],
     "bg_events": [
@@ -159,7 +159,7 @@
             "y": 172,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T28_006 + 1"
+            "script": "Mahogany_EventScript_TownSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -167,7 +167,7 @@
             "y": 174,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T28_007 + 1"
+            "script": "Mahogany_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -175,7 +175,7 @@
             "y": 184,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T28_008 + 1"
+            "script": "Mahogany_EventScript_TrainerTips2"
         }
     ]
 }

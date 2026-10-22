@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_P01R0102_000
-    scr_seq_P01R0102_001
-    scr_seq_P01R0102_002
-    scr_seq_P01R0102_003
-    scr_seq_P01R0102_004
-    scr_seq_P01R0102_005
-    scr_seq_P01R0102_006
+    SsAquaOlivinePortExterior_EventScript_Sailor1
+    SsAquaOlivinePortExterior_OnResume
+    SsAquaOlivinePortExterior_EventScript_SailorScene
+    SsAquaOlivinePortExterior_EventScript_Sailor2
+    SsAquaOlivinePortExterior_EventScript_Beauty
+    SsAquaOlivinePortExterior_OnTransition
+    SsAquaOlivinePortExterior_EventScript_Sabrina
 }
 
-script scr_seq_P01R0102_001 {
+script SsAquaOlivinePortExterior_OnResume {
     if (var(VAR_BOAT_DIRECTION) == 2) {
         movepersonfacing(obj_P01R0102_seaman_2, 28, 0, 22, DIR_WEST)
         end
@@ -20,7 +20,7 @@ script scr_seq_P01R0102_001 {
     end
 }
 
-script scr_seq_P01R0102_005 {
+script SsAquaOlivinePortExterior_OnTransition {
     setspecialspawnwarp(MAP_OLIVINE, 279, 276)
     if (!flag(FLAG_UNK_189)) { goto(_0054) }
     clearflag(FLAG_UNK_189)
@@ -48,15 +48,15 @@ _00C1:
     end
 }
 
-script scr_seq_P01R0102_002 {
+script SsAquaOlivinePortExterior_EventScript_SailorScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, SsAquaOlivinePortExterior_Movement_0104)
+    applymovement(obj_player, SsAquaOlivinePortExterior_Movement_PlayerWalkDown)
     waitmovement
-    applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_010C)
+    applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_SailorWalkLeft1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -67,16 +67,16 @@ script scr_seq_P01R0102_002 {
     end
 }
 
-movement SsAquaOlivinePortExterior_Movement_0104 {
+movement SsAquaOlivinePortExterior_Movement_PlayerWalkDown {
     walk_down * 3
 }
 
-movement SsAquaOlivinePortExterior_Movement_010C {
+movement SsAquaOlivinePortExterior_Movement_SailorWalkLeft1 {
     walk_left
     walk_in_place_down
 }
 
-script scr_seq_P01R0102_003 {
+script SsAquaOlivinePortExterior_EventScript_Sailor2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("If I manage to come back safely from\n"
@@ -89,7 +89,7 @@ script scr_seq_P01R0102_003 {
     end
 }
 
-script scr_seq_P01R0102_004 {
+script SsAquaOlivinePortExterior_EventScript_Beauty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -97,17 +97,17 @@ script scr_seq_P01R0102_004 {
            "pleasure cruise.\f"
            "He has a way of exaggerating things.\r")
     closemessage
-    applymovement(obj_P01R0102_gswoman2, SsAquaOlivinePortExterior_Movement_0144)
+    applymovement(obj_P01R0102_gswoman2, SsAquaOlivinePortExterior_Movement_BeautyFaceUp)
     waitmovement
     releaseall
     end
 }
 
-movement SsAquaOlivinePortExterior_Movement_0144 {
+movement SsAquaOlivinePortExterior_Movement_BeautyFaceUp {
     walk_in_place_up
 }
 
-script scr_seq_P01R0102_000 {
+script SsAquaOlivinePortExterior_EventScript_Sailor1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -128,21 +128,21 @@ script scr_seq_P01R0102_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 2) {
-        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_021C)
+        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_SailorWalkLeft2)
         waitmovement
-        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_024C)
+        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_PlayerWalkLeftUp)
     } elif (var(VAR_TEMP_x4000) == 3) {
-        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_022C)
+        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_SailorWalkRight1)
         waitmovement
-        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_025C)
+        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_PlayerWalkRightUp)
     } elif (var(VAR_TEMP_x4000) == 0) {
-        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_023C)
+        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_SailorWalkRight2)
         waitmovement
-        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_026C)
+        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_023C)
+        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_SailorWalkRight2)
         waitmovement
-        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_026C)
+        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_PlayerWalkUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -154,41 +154,41 @@ script scr_seq_P01R0102_000 {
     end
 }
 
-movement SsAquaOlivinePortExterior_Movement_021C {
+movement SsAquaOlivinePortExterior_Movement_SailorWalkLeft2 {
     face_left
     walk_left
     walk_in_place_right
 }
 
-movement SsAquaOlivinePortExterior_Movement_022C {
+movement SsAquaOlivinePortExterior_Movement_SailorWalkRight1 {
     face_right
     walk_right
     walk_in_place_left
 }
 
-movement SsAquaOlivinePortExterior_Movement_023C {
+movement SsAquaOlivinePortExterior_Movement_SailorWalkRight2 {
     face_right
     walk_right
     walk_in_place_left
 }
 
-movement SsAquaOlivinePortExterior_Movement_024C {
+movement SsAquaOlivinePortExterior_Movement_PlayerWalkLeftUp {
     walk_left
     face_up
     walk_up * 2
 }
 
-movement SsAquaOlivinePortExterior_Movement_025C {
+movement SsAquaOlivinePortExterior_Movement_PlayerWalkRightUp {
     walk_right
     face_up
     walk_up * 2
 }
 
-movement SsAquaOlivinePortExterior_Movement_026C {
+movement SsAquaOlivinePortExterior_Movement_PlayerWalkUp {
     walk_up * 2
 }
 
-script scr_seq_P01R0102_006 {
+script SsAquaOlivinePortExterior_EventScript_Sabrina {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -287,9 +287,9 @@ _0317:
 }
 
 mapscripts SsAquaOlivinePortExterior_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_P01R0102_001
+    INIT_SCRIPT_ON_RESUME: SsAquaOlivinePortExterior_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_BOAT_DIRECTION, 2: scr_seq_P01R0102_002
+        VAR_BOAT_DIRECTION, 2: SsAquaOlivinePortExterior_EventScript_SailorScene
     ]
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0102_005
+    INIT_SCRIPT_ON_TRANSITION: SsAquaOlivinePortExterior_OnTransition
 }

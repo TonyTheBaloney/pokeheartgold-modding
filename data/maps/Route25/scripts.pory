@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R25_000
-    scr_seq_R25_001
-    scr_seq_R25_002
-    scr_seq_R25_003
-    scr_seq_R25_004
-    scr_seq_R25_005
-    scr_seq_R25_006
-    scr_seq_R25_007
-    scr_seq_R25_008
-    scr_seq_R25_009
+    Route25_EventScript_MistyTrigger
+    Route25_EventScript_Kevin
+    Route25_EventScript_TrainerTips
+    Route25_OnTransition
+    Route25_EventScript_EusineTrigger
+    Route25_EventScript_Eusine1
+    Route25_EventScript_Eusine2
+    Route25_EventScript_Eusine3
+    Route25_OnLoad
+    Route25_EventScript_Misty
 }
 
-script scr_seq_R25_003 {
+script Route25_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         if (var(VAR_SCENE_ROUTE_25) == 2) {
             clearflag(FLAG_HIDE_ROUTE_25_EUSINE_2)
@@ -59,7 +59,7 @@ script scr_seq_R25_003 {
     end
 }
 
-script scr_seq_R25_008 {
+script Route25_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_ROUTE_25_SUICUNE)
         removeobject(obj_R25_tsure_poke_static_suicune)
@@ -69,35 +69,35 @@ script scr_seq_R25_008 {
     end
 }
 
-script scr_seq_R25_000 {
+script Route25_EventScript_MistyTrigger {
     followmonresetmovement
     lockall
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 40) {
-        applymovement(obj_R25_gsleader11, Route25_Movement_029C)
-        applymovement(obj_R25_gsman1, Route25_Movement_02B0)
-        applymovement(obj_player, Route25_Movement_0304)
+        applymovement(obj_R25_gsleader11, Route25_Movement_MistyFaceUp)
+        applymovement(obj_R25_gsman1, Route25_Movement_ManWalkUpLeft1)
+        applymovement(obj_player, Route25_Movement_PlayerFaceDown1)
     } elif (var(VAR_TEMP_x4001) == 41) {
-        applymovement(obj_R25_gsleader11, Route25_Movement_029C)
-        applymovement(obj_R25_gsman1, Route25_Movement_02CC)
-        applymovement(obj_player, Route25_Movement_0304)
+        applymovement(obj_R25_gsleader11, Route25_Movement_MistyFaceUp)
+        applymovement(obj_R25_gsman1, Route25_Movement_ManWalkUpLeft2)
+        applymovement(obj_player, Route25_Movement_PlayerFaceDown1)
     } else {
-        applymovement(obj_R25_gsleader11, Route25_Movement_029C)
-        applymovement(obj_R25_gsman1, Route25_Movement_02E8)
-        applymovement(obj_player, Route25_Movement_0310)
+        applymovement(obj_R25_gsleader11, Route25_Movement_MistyFaceUp)
+        applymovement(obj_R25_gsman1, Route25_Movement_ManWalkUpLeft3)
+        applymovement(obj_player, Route25_Movement_PlayerSpin)
     }
     waitmovement
     stopbgm(SEQ_GS_R_12_24)
     playbgm(SEQ_GS_EYE_K_SHOUJO)
     if (var(VAR_TEMP_x4001) == 40) {
-        applymovement(obj_R25_gsleader11, Route25_Movement_032C)
-        applymovement(obj_player, Route25_Movement_0350)
+        applymovement(obj_R25_gsleader11, Route25_Movement_MistyWalkUpLeft1)
+        applymovement(obj_player, Route25_Movement_PlayerFaceRight)
     } elif (var(VAR_TEMP_x4001) == 41) {
-        applymovement(obj_R25_gsleader11, Route25_Movement_0338)
-        applymovement(obj_player, Route25_Movement_0350)
+        applymovement(obj_R25_gsleader11, Route25_Movement_MistyWalkUpLeft2)
+        applymovement(obj_player, Route25_Movement_PlayerFaceRight)
     } else {
-        applymovement(obj_R25_gsleader11, Route25_Movement_0344)
-        applymovement(obj_player, Route25_Movement_0350)
+        applymovement(obj_R25_gsleader11, Route25_Movement_MistyWalkUpLeft3)
+        applymovement(obj_player, Route25_Movement_PlayerFaceRight)
     }
     waitmovement
     npcmsg("Misty: Aww! Why did you have to\n"
@@ -115,14 +115,14 @@ script scr_seq_R25_000 {
            "in Cerulean.\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 40) {
-        applymovement(obj_R25_gsleader11, Route25_Movement_035C)
-        applymovement(obj_player, Route25_Movement_0380)
+        applymovement(obj_R25_gsleader11, Route25_Movement_MistyWalkDownLeft1)
+        applymovement(obj_player, Route25_Movement_PlayerFaceLeft1)
     } elif (var(VAR_TEMP_x4001) == 41) {
-        applymovement(obj_R25_gsleader11, Route25_Movement_0368)
-        applymovement(obj_player, Route25_Movement_0380)
+        applymovement(obj_R25_gsleader11, Route25_Movement_MistyWalkDownLeft2)
+        applymovement(obj_player, Route25_Movement_PlayerFaceLeft1)
     } else {
-        applymovement(obj_R25_gsleader11, Route25_Movement_0374)
-        applymovement(obj_player, Route25_Movement_0394)
+        applymovement(obj_R25_gsleader11, Route25_Movement_MistyWalkUpLeft4)
+        applymovement(obj_player, Route25_Movement_PlayerFaceLeft2)
     }
     waitmovement
     removeobject(obj_R25_gsman1)
@@ -137,14 +137,14 @@ script scr_seq_R25_000 {
     end
 }
 
-movement Route25_Movement_029C {
+movement Route25_Movement_MistyFaceUp {
     delay_8
     face_left
     delay_32 * 2
     face_up
 }
 
-movement Route25_Movement_02B0 {
+movement Route25_Movement_ManWalkUpLeft1 {
     delay_32
     face_up
     emote_exclamation_mark
@@ -153,7 +153,7 @@ movement Route25_Movement_02B0 {
     walk_fast_down * 8
 }
 
-movement Route25_Movement_02CC {
+movement Route25_Movement_ManWalkUpLeft2 {
     delay_32
     face_up
     emote_exclamation_mark
@@ -162,7 +162,7 @@ movement Route25_Movement_02CC {
     walk_fast_down * 8
 }
 
-movement Route25_Movement_02E8 {
+movement Route25_Movement_ManWalkUpLeft3 {
     delay_32
     face_up
     emote_exclamation_mark
@@ -171,12 +171,12 @@ movement Route25_Movement_02E8 {
     walk_fast_down * 9
 }
 
-movement Route25_Movement_0304 {
+movement Route25_Movement_PlayerFaceDown1 {
     delay_16 * 6
     face_down
 }
 
-movement Route25_Movement_0310 {
+movement Route25_Movement_PlayerSpin {
     delay_16 * 6
     face_up
     delay_8
@@ -185,56 +185,56 @@ movement Route25_Movement_0310 {
     face_down
 }
 
-movement Route25_Movement_032C {
+movement Route25_Movement_MistyWalkUpLeft1 {
     walk_up * 7
     walk_left * 2
 }
 
-movement Route25_Movement_0338 {
+movement Route25_Movement_MistyWalkUpLeft2 {
     walk_up * 6
     walk_left * 2
 }
 
-movement Route25_Movement_0344 {
+movement Route25_Movement_MistyWalkUpLeft3 {
     walk_up * 5
     walk_left * 2
 }
 
-movement Route25_Movement_0350 {
+movement Route25_Movement_PlayerFaceRight {
     delay_16 * 3
     face_right
 }
 
-movement Route25_Movement_035C {
+movement Route25_Movement_MistyWalkDownLeft1 {
     walk_down
     walk_left * 11
 }
 
-movement Route25_Movement_0368 {
+movement Route25_Movement_MistyWalkDownLeft2 {
     walk_down
     walk_left * 11
 }
 
-movement Route25_Movement_0374 {
+movement Route25_Movement_MistyWalkUpLeft4 {
     walk_up
     walk_left * 11
 }
 
-movement Route25_Movement_0380 {
+movement Route25_Movement_PlayerFaceLeft1 {
     delay_8
     face_down
     delay_8
     face_left
 }
 
-movement Route25_Movement_0394 {
+movement Route25_Movement_PlayerFaceLeft2 {
     delay_8
     face_up
     delay_4
     face_left
 }
 
-script scr_seq_R25_009 {
+script Route25_EventScript_Misty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -344,7 +344,7 @@ text msg_0363_R25_00003 {
     "battle with me!"
 }
 
-script scr_seq_R25_001 {
+script Route25_EventScript_Kevin {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -382,13 +382,13 @@ script scr_seq_R25_001 {
     end
 }
 
-script scr_seq_R25_004 {
+script Route25_EventScript_EusineTrigger {
     followmonresetmovement
     lockall
     setflag(FLAG_HIDE_ROUTE_14_EUSINE_2)
     clearflag(FLAG_HIDE_ROUTE_25_EUSINE)
     addobject(obj_R25_minaki)
-    applymovement(obj_player, Route25_Movement_0648)
+    applymovement(obj_player, Route25_Movement_PlayerExclamation)
     waitmovement
     playcry(SPECIES_SUICUNE, 0)
     release(obj_R25_tsure_poke_static_suicune)
@@ -400,19 +400,19 @@ script scr_seq_R25_004 {
     followingpokemonmovement(55)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 40) {
-        applymovement(obj_player, Route25_Movement_0650)
+        applymovement(obj_player, Route25_Movement_PlayerWalkRight)
     } elif (var(VAR_TEMP_x4001) == 41) {
-        applymovement(obj_player, Route25_Movement_065C)
+        applymovement(obj_player, Route25_Movement_PlayerWalkRightUp1)
     } else {
-        applymovement(obj_player, Route25_Movement_0670)
+        applymovement(obj_player, Route25_Movement_PlayerWalkRightUp2)
     }
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     callstd(std_play_eusine_music)
-    applymovement(obj_R25_minaki, Route25_Movement_069C)
-    applymovement(obj_player, Route25_Movement_0690)
+    applymovement(obj_R25_minaki, Route25_Movement_EusineWalkRight)
+    applymovement(obj_player, Route25_Movement_PlayerFaceDown2)
     waitmovement
     npcmsg("Eusine: Puff, puff...\n"
            "I am...no match for you.\f"
@@ -423,8 +423,8 @@ script scr_seq_R25_004 {
            "at Ecruteak City, I’ve sort of known\f"
            "that SUICUNE would choose you.\r")
     closemessage
-    applymovement(obj_R25_minaki, Route25_Movement_06B0)
-    applymovement(obj_player, Route25_Movement_0684)
+    applymovement(obj_R25_minaki, Route25_Movement_EusineWalkRightUp)
+    applymovement(obj_player, Route25_Movement_PlayerFaceUp)
     waitmovement
     npcmsg(msg_0363_R25_00017)
     waitbuttonpress
@@ -443,52 +443,52 @@ text msg_0363_R25_00017 {
     "it can entrust itself!"
 }
 
-movement Route25_Movement_0648 {
+movement Route25_Movement_PlayerExclamation {
     emote_exclamation_mark
 }
 
-movement Route25_Movement_0650 {
+movement Route25_Movement_PlayerWalkRight {
     walk_right * 3
     face_up
 }
 
-movement Route25_Movement_065C {
+movement Route25_Movement_PlayerWalkRightUp1 {
     walk_right
     walk_up
     walk_right * 2
     face_up
 }
 
-movement Route25_Movement_0670 {
+movement Route25_Movement_PlayerWalkRightUp2 {
     walk_right
     walk_up * 2
     walk_right * 2
     face_up
 }
 
-movement Route25_Movement_0684 {
+movement Route25_Movement_PlayerFaceUp {
     delay_16
     face_up
 }
 
-movement Route25_Movement_0690 {
+movement Route25_Movement_PlayerFaceDown2 {
     delay_8 * 2
     face_down
 }
 
-movement Route25_Movement_069C {
+movement Route25_Movement_EusineWalkRight {
     walk_fast_right * 8
     walk_right * 3
     walk_slower_right
     face_up
 }
 
-movement Route25_Movement_06B0 {
+movement Route25_Movement_EusineWalkRightUp {
     walk_right
     walk_up * 2
 }
 
-script scr_seq_R25_005 {
+script Route25_EventScript_Eusine1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg(msg_0363_R25_00017)
@@ -498,7 +498,7 @@ script scr_seq_R25_005 {
     end
 }
 
-script scr_seq_R25_006 {
+script Route25_EventScript_Eusine2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg(msg_0363_R25_00017)
@@ -508,7 +508,7 @@ script scr_seq_R25_006 {
     end
 }
 
-script scr_seq_R25_007 {
+script Route25_EventScript_Eusine3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -535,7 +535,7 @@ script scr_seq_R25_007 {
         callifeq(_07B0)
         if (var(VAR_TEMP_x4002) == 5) {
             wait(20, VAR_SPECIAL_x8004)
-            applymovement(obj_player, Route25_Movement_07EC)
+            applymovement(obj_player, Route25_Movement_PlayerFaceDown3)
             waitmovement
             bufferplayersname(0)
             npcmsg("Eusine: {STRVAR_1 3, 0, 0}...\n"
@@ -562,16 +562,16 @@ script scr_seq_R25_007 {
         if (!flag(FLAG_HIDE_ROUTE_25_EUSINE_2)) {
         } else {
         _0766:
-            applymovement(obj_player, Route25_Movement_07F4)
-            applymovement(obj_R25_minaki, Route25_Movement_0800)
+            applymovement(obj_player, Route25_Movement_PlayerFaceLeft3)
+            applymovement(obj_R25_minaki, Route25_Movement_EusineWalkLeft)
             waitmovement
             removeobject(obj_R25_minaki)
             setflag(FLAG_HIDE_ROUTE_25_EUSINE)
             goto(_07A0)
         }
     _0786:
-        applymovement(obj_player, Route25_Movement_07F4)
-        applymovement(obj_R25_minaki_2, Route25_Movement_0800)
+        applymovement(obj_player, Route25_Movement_PlayerFaceLeft3)
+        applymovement(obj_R25_minaki_2, Route25_Movement_EusineWalkLeft)
         waitmovement
         removeobject(obj_R25_minaki_2)
         setflag(FLAG_HIDE_ROUTE_25_EUSINE_2)
@@ -587,26 +587,26 @@ movement Route25_Movement_07E0 {
     delay_8 * 2
 }
 
-movement Route25_Movement_07EC {
+movement Route25_Movement_PlayerFaceDown3 {
     face_down
 }
 
-movement Route25_Movement_07F4 {
+movement Route25_Movement_PlayerFaceLeft3 {
     delay_8 * 2
     face_left
 }
 
-movement Route25_Movement_0800 {
+movement Route25_Movement_EusineWalkLeft {
     walk_left * 11
 }
 
-script scr_seq_R25_002 {
+script Route25_EventScript_TrainerTips {
     trainertipsex(2, "Sea Cottage\n"
                      "Bill’s House")
     end
 }
 
 mapscripts Route25_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R25_003
-    INIT_SCRIPT_ON_LOAD: scr_seq_R25_008
+    INIT_SCRIPT_ON_TRANSITION: Route25_OnTransition
+    INIT_SCRIPT_ON_LOAD: Route25_OnLoad
 }

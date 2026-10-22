@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_T28GYM0101_H_
 #define SCR_SEQ_T28GYM0101_H_
 
-#define _EV_scr_seq_T28GYM0101_000 0
-#define _EV_scr_seq_T28GYM0101_001 1
+#define _EV_Mahogany_GymLeaderRoom_EventScript_Pryce 0
+#define _EV_Mahogany_GymLeaderRoom_OnTransition 1
 
 #define obj_T28GYM0101_gsleader7 0
 #define obj_T28GYM0101_ice       1

@@ -3,15 +3,15 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T22GYM0101_000
-    scr_seq_T22GYM0101_001
-    scr_seq_T22GYM0101_002
-    scr_seq_T22GYM0101_003
-    scr_seq_T22GYM0101_004
-    scr_seq_T22GYM0101_005
+    Violet_Gym_OnTransition
+    Violet_Gym_EventScript_Falkner
+    Violet_Gym_EventScript_GymGuide1
+    Violet_Gym_EventScript_GymSign
+    Violet_Gym_EventScript_Trigger
+    Violet_Gym_EventScript_GymGuide2
 }
 
-script scr_seq_T22GYM0101_000 {
+script Violet_Gym_OnTransition {
     violetgyminit
     getphonebookrematch(PHONE_CONTACT_FALKNER, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
@@ -44,7 +44,7 @@ _00A1:
     end
 }
 
-script scr_seq_T22GYM0101_001 {
+script Violet_Gym_EventScript_Falkner {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -135,7 +135,7 @@ _015E:
     end
 }
 
-script scr_seq_T22GYM0101_002 {
+script Violet_Gym_EventScript_GymGuide1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -164,7 +164,7 @@ script scr_seq_T22GYM0101_002 {
     end
 }
 
-script scr_seq_T22GYM0101_005 {
+script Violet_Gym_EventScript_GymGuide2 {
     simplenpcmsg("Yo! Champ in the making!\n"
                  "You must be here to challenge\f"
                  "Falkner, the Gym Leader, right?\r"
@@ -180,7 +180,7 @@ script scr_seq_T22GYM0101_005 {
     end
 }
 
-script scr_seq_T22GYM0101_003 {
+script Violet_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -200,12 +200,12 @@ script scr_seq_T22GYM0101_003 {
     end
 }
 
-script scr_seq_T22GYM0101_004 {
+script Violet_Gym_EventScript_Trigger {
     setvar(VAR_TEMP_x4000, 0)
     violetgymelevator
     end
 }
 
 mapscripts Violet_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T22GYM0101_000
+    INIT_SCRIPT_ON_TRANSITION: Violet_Gym_OnTransition
 }

@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0561_T22R0401_00000",
-      "from": "scr_seq_T22R0401_001#0"
+      "from": "Violet_NorthwestHouse_EventScript_Woman#0"
     },
     {
       "id": "msg_0561_T22R0401_00001",
-      "from": "scr_seq_T22R0401_002#0"
+      "from": "Violet_NorthwestHouse_EventScript_Lass#0"
     },
     {
       "id": "msg_0561_T22R0401_00002",
-      "from": "scr_seq_T22R0401_003#0"
+      "from": "Violet_NorthwestHouse_EventScript_Strawberry#0"
     }
   ]
 }

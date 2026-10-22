@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0406_R46_00000",
-      "from": "scr_seq_R46_001#0"
+      "from": "Route46_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0406_R46_00001",
-      "from": "scr_seq_R46_002#0"
+      "from": "Route46_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0406_R46_00002",
-      "from": "scr_seq_R46_000#1"
+      "from": "Route46_EventScript_Man#1"
     },
     {
       "id": "msg_0406_R46_00003",
-      "from": "scr_seq_R46_000#0"
+      "from": "Route46_EventScript_Man#0"
     }
   ]
 }

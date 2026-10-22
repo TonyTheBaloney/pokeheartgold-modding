@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D49R0102_000 {
+script PokeathlonDome_Interior_2F_EventScript_Maximo {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -330,7 +330,7 @@ text msg_0139_D49R0102_00004 {
     "know about? {YESNO 0}"
 }
 
-script scr_seq_D49R0102_001 {
+script PokeathlonDome_Interior_2F_EventScript_Youngster {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -354,7 +354,7 @@ script scr_seq_D49R0102_001 {
     end
 }
 
-script scr_seq_D49R0102_002 {
+script PokeathlonDome_Interior_2F_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -377,7 +377,7 @@ script scr_seq_D49R0102_002 {
     end
 }
 
-script scr_seq_D49R0102_003 {
+script PokeathlonDome_Interior_2F_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -397,7 +397,7 @@ script scr_seq_D49R0102_003 {
     end
 }
 
-script scr_seq_D49R0102_004 {
+script PokeathlonDome_Interior_2F_EventScript_AceTrainerM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -420,7 +420,7 @@ script scr_seq_D49R0102_004 {
     end
 }
 
-script scr_seq_D49R0102_005 {
+script PokeathlonDome_Interior_2F_EventScript_SchoolKidM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -445,7 +445,7 @@ script scr_seq_D49R0102_005 {
     end
 }
 
-script scr_seq_D49R0102_006 {
+script PokeathlonDome_Interior_2F_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -465,7 +465,7 @@ script scr_seq_D49R0102_006 {
     end
 }
 
-script scr_seq_D49R0102_007 {
+script PokeathlonDome_Interior_2F_EventScript_OldWoman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -488,7 +488,7 @@ script scr_seq_D49R0102_007 {
     end
 }
 
-script scr_seq_D49R0102_008 {
+script PokeathlonDome_Interior_2F_EventScript_Beauty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -511,7 +511,7 @@ script scr_seq_D49R0102_008 {
     end
 }
 
-script scr_seq_D49R0102_009 {
+script PokeathlonDome_Interior_2F_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -533,7 +533,7 @@ script scr_seq_D49R0102_009 {
     end
 }
 
-script scr_seq_D49R0102_010 {
+script PokeathlonDome_Interior_2F_EventScript_LittleBoy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -548,7 +548,7 @@ script scr_seq_D49R0102_010 {
                "never exercises.\r")
     }
     closemessage
-    applymovement(obj_D49R0102_gsmiddleman1, PokeathlonDome_Interior_2F_Movement_0610)
+    applymovement(obj_D49R0102_gsmiddleman1, PokeathlonDome_Interior_2F_Movement_PokefanMFaceRight)
     waitmovement
     if (var(VAR_TEMP_x4000) >= 800) {
         npcmsg("Ahh... My son!\n"
@@ -562,21 +562,21 @@ script scr_seq_D49R0102_010 {
                "It still gives me shivers!\r")
     }
     closemessage
-    applymovement(obj_D49R0102_gsmiddleman1, PokeathlonDome_Interior_2F_Movement_0618)
+    applymovement(obj_D49R0102_gsmiddleman1, PokeathlonDome_Interior_2F_Movement_PokefanMFaceUp)
     waitmovement
     releaseall
     end
 }
 
-movement PokeathlonDome_Interior_2F_Movement_0610 {
+movement PokeathlonDome_Interior_2F_Movement_PokefanMFaceRight {
     walk_in_place_right
 }
 
-movement PokeathlonDome_Interior_2F_Movement_0618 {
+movement PokeathlonDome_Interior_2F_Movement_PokefanMFaceUp {
     walk_in_place_up
 }
 
-script scr_seq_D49R0102_011 {
+script PokeathlonDome_Interior_2F_EventScript_LittleGirl1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -595,7 +595,7 @@ script scr_seq_D49R0102_011 {
     end
 }
 
-script scr_seq_D49R0102_012 {
+script PokeathlonDome_Interior_2F_EventScript_LittleGirl2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -614,7 +614,7 @@ script scr_seq_D49R0102_012 {
     end
 }
 
-script scr_seq_D49R0102_013 {
+script PokeathlonDome_Interior_2F_EventScript_PokefanF {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -643,7 +643,7 @@ script scr_seq_D49R0102_013 {
     end
 }
 
-script scr_seq_D49R0102_014 {
+script PokeathlonDome_Interior_2F_EventScript_Rattata {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -662,7 +662,7 @@ script scr_seq_D49R0102_014 {
     end
 }
 
-script scr_seq_D49R0102_015 {
+script PokeathlonDome_Interior_2F_EventScript_Machop {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -681,7 +681,7 @@ script scr_seq_D49R0102_015 {
     end
 }
 
-script scr_seq_D49R0102_016 {
+script PokeathlonDome_Interior_2F_EventScript_Butterfree {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D37R0104_000
-    scr_seq_D37R0104_001
-    scr_seq_D37R0104_002
-    scr_seq_D37R0104_003
-    scr_seq_D37R0104_004
-    scr_seq_D37R0104_005
-    scr_seq_D37R0104_006
+    Goldenrod_Tunnel_B2F_EventScript_Sign1
+    Goldenrod_Tunnel_B2F_EventScript_Sign2
+    Goldenrod_Tunnel_B2F_EventScript_Sign3
+    Goldenrod_Tunnel_B2F_EventScript_Sign4
+    Goldenrod_Tunnel_B2F_EventScript_RivalTrigger
+    Goldenrod_Tunnel_B2F_OnResume
+    Goldenrod_Tunnel_B2F_OnTransition
 }
 
-script scr_seq_D37R0104_006 {
+script Goldenrod_Tunnel_B2F_OnTransition {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
         clearflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
@@ -30,7 +30,7 @@ script scr_seq_D37R0104_006 {
     end
 }
 
-script scr_seq_D37R0104_005 {
+script Goldenrod_Tunnel_B2F_OnResume {
     makeobjectvisible(obj_D37R0104_stop_3)
     makeobjectvisible(obj_D37R0104_stop_2)
     makeobjectvisible(obj_D37R0104_stop)
@@ -46,68 +46,68 @@ script scr_seq_D37R0104_005 {
     end
 }
 
-script scr_seq_D37R0104_002 {
+script Goldenrod_Tunnel_B2F_EventScript_Sign3 {
     followmonresetmovement
     lockall
     playse(SEQ_SE_GS_ZUKAN06)
     if (var(VAR_TEMP_x4001) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate1_left, Goldenrod_Tunnel_B2F_Movement_05CC)
-        applymovement(obj_D37R0104_gate1_right, Goldenrod_Tunnel_B2F_Movement_05D4)
-        applymovement(obj_D37R0104_stop_2, Goldenrod_Tunnel_B2F_Movement_060C)
+        applymovement(obj_D37R0104_gate1_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkRight)
+        applymovement(obj_D37R0104_gate1_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkLeft)
+        applymovement(obj_D37R0104_stop_2, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkRight)
         setvar(VAR_TEMP_x4001, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate1_left, Goldenrod_Tunnel_B2F_Movement_05DC)
-        applymovement(obj_D37R0104_gate1_right, Goldenrod_Tunnel_B2F_Movement_05E4)
-        applymovement(obj_D37R0104_stop_2, Goldenrod_Tunnel_B2F_Movement_0614)
+        applymovement(obj_D37R0104_gate1_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft)
+        applymovement(obj_D37R0104_gate1_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight)
+        applymovement(obj_D37R0104_stop_2, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft)
         setvar(VAR_TEMP_x4001, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4003) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_05EC)
-        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown)
+        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp)
         setvar(VAR_TEMP_x4003, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_05FC)
-        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp)
+        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown)
         setvar(VAR_TEMP_x4003, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4005) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_05CC)
-        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_05D4)
-        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_060C)
+        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkRight)
+        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkLeft)
+        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkRight)
         setvar(VAR_TEMP_x4005, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_05DC)
-        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_05E4)
-        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_0614)
+        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft)
+        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight)
+        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft)
         setvar(VAR_TEMP_x4005, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4006) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_05CC)
-        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_05D4)
-        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_060C)
+        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkRight)
+        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkLeft)
+        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkRight)
         setvar(VAR_TEMP_x4006, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_05DC)
-        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_05E4)
-        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_0614)
+        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft)
+        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight)
+        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft)
         setvar(VAR_TEMP_x4006, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4007) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_05EC)
-        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown)
+        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp)
         setvar(VAR_TEMP_x4007, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_05FC)
-        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp)
+        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown)
         setvar(VAR_TEMP_x4007, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4008) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_05EC)
-        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown)
+        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp)
         setvar(VAR_TEMP_x4008, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_05FC)
-        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp)
+        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown)
         setvar(VAR_TEMP_x4008, GATE_OPEN)
     }
     waitmovement
@@ -115,68 +115,68 @@ script scr_seq_D37R0104_002 {
     end
 }
 
-script scr_seq_D37R0104_001 {
+script Goldenrod_Tunnel_B2F_EventScript_Sign2 {
     followmonresetmovement
     lockall
     playse(SEQ_SE_GS_ZUKAN06)
     if (var(VAR_TEMP_x4000) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate0_left, Goldenrod_Tunnel_B2F_Movement_05CC)
-        applymovement(obj_D37R0104_gate0_right, Goldenrod_Tunnel_B2F_Movement_05D4)
-        applymovement(obj_D37R0104_stop_3, Goldenrod_Tunnel_B2F_Movement_060C)
+        applymovement(obj_D37R0104_gate0_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkRight)
+        applymovement(obj_D37R0104_gate0_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkLeft)
+        applymovement(obj_D37R0104_stop_3, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkRight)
         setvar(VAR_TEMP_x4000, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate0_left, Goldenrod_Tunnel_B2F_Movement_05DC)
-        applymovement(obj_D37R0104_gate0_right, Goldenrod_Tunnel_B2F_Movement_05E4)
-        applymovement(obj_D37R0104_stop_3, Goldenrod_Tunnel_B2F_Movement_0614)
+        applymovement(obj_D37R0104_gate0_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft)
+        applymovement(obj_D37R0104_gate0_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight)
+        applymovement(obj_D37R0104_stop_3, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft)
         setvar(VAR_TEMP_x4000, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4002) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_05EC)
-        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown)
+        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp)
         setvar(VAR_TEMP_x4002, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_05FC)
-        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp)
+        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown)
         setvar(VAR_TEMP_x4002, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4004) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_05CC)
-        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_05D4)
-        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_060C)
+        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkRight)
+        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkLeft)
+        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkRight)
         setvar(VAR_TEMP_x4004, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_05DC)
-        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_05E4)
-        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_0614)
+        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft)
+        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight)
+        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft)
         setvar(VAR_TEMP_x4004, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4006) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_05CC)
-        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_05D4)
-        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_060C)
+        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkRight)
+        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkLeft)
+        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkRight)
         setvar(VAR_TEMP_x4006, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_05DC)
-        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_05E4)
-        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_0614)
+        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft)
+        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight)
+        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft)
         setvar(VAR_TEMP_x4006, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4008) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_05EC)
-        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown)
+        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp)
         setvar(VAR_TEMP_x4008, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_05FC)
-        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp)
+        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown)
         setvar(VAR_TEMP_x4008, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4009) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate9_top, Goldenrod_Tunnel_B2F_Movement_05EC)
-        applymovement(obj_D37R0104_gate9_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        applymovement(obj_D37R0104_gate9_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown)
+        applymovement(obj_D37R0104_gate9_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp)
         setvar(VAR_TEMP_x4009, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate9_top, Goldenrod_Tunnel_B2F_Movement_05FC)
-        applymovement(obj_D37R0104_gate9_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        applymovement(obj_D37R0104_gate9_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp)
+        applymovement(obj_D37R0104_gate9_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown)
         setvar(VAR_TEMP_x4009, GATE_OPEN)
     }
     waitmovement
@@ -184,57 +184,57 @@ script scr_seq_D37R0104_001 {
     end
 }
 
-script scr_seq_D37R0104_000 {
+script Goldenrod_Tunnel_B2F_EventScript_Sign1 {
     followmonresetmovement
     lockall
     playse(SEQ_SE_GS_ZUKAN06)
     if (var(VAR_TEMP_x4002) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_05EC)
-        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown)
+        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp)
         setvar(VAR_TEMP_x4002, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_05FC)
-        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp)
+        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown)
         setvar(VAR_TEMP_x4002, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4003) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_05EC)
-        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown)
+        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp)
         setvar(VAR_TEMP_x4003, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_05FC)
-        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp)
+        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown)
         setvar(VAR_TEMP_x4003, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4004) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_05CC)
-        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_05D4)
-        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_060C)
+        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkRight)
+        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkLeft)
+        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkRight)
         setvar(VAR_TEMP_x4004, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_05DC)
-        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_05E4)
-        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_0614)
+        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft)
+        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight)
+        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft)
         setvar(VAR_TEMP_x4004, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4005) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_05CC)
-        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_05D4)
-        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_060C)
+        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkRight)
+        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkLeft)
+        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkRight)
         setvar(VAR_TEMP_x4005, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_05DC)
-        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_05E4)
-        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_0614)
+        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft)
+        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight)
+        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft)
         setvar(VAR_TEMP_x4005, GATE_OPEN)
     }
     if (var(VAR_TEMP_x4007) == GATE_OPEN) {
-        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_05EC)
-        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown)
+        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp)
         setvar(VAR_TEMP_x4007, GATE_CLOSED)
     } else {
-        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_05FC)
-        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp)
+        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown)
         setvar(VAR_TEMP_x4007, GATE_OPEN)
     }
     waitmovement
@@ -242,63 +242,63 @@ script scr_seq_D37R0104_000 {
     end
 }
 
-script scr_seq_D37R0104_003 {
+script Goldenrod_Tunnel_B2F_EventScript_Sign4 {
     if (flag(FLAG_OPENED_GOLDENROD_PURPLE_GATE)) {
         end
     }
     followmonresetmovement
     lockall
     playse(SEQ_SE_GS_ZUKAN06)
-    applymovement(obj_D37R0104_purplegate_left, Goldenrod_Tunnel_B2F_Movement_05DC)
-    applymovement(obj_D37R0104_purplegate_right, Goldenrod_Tunnel_B2F_Movement_05E4)
-    applymovement(obj_D37R0104_stop_6, Goldenrod_Tunnel_B2F_Movement_0614)
+    applymovement(obj_D37R0104_purplegate_left, Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft)
+    applymovement(obj_D37R0104_purplegate_right, Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight)
+    applymovement(obj_D37R0104_stop_6, Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft)
     waitmovement
     setflag(FLAG_OPENED_GOLDENROD_PURPLE_GATE)
     releaseall
     end
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_05CC {
+movement Goldenrod_Tunnel_B2F_Movement_GateLeftWalkRight {
     walk_right * 2
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_05D4 {
+movement Goldenrod_Tunnel_B2F_Movement_GateRightWalkLeft {
     walk_left * 2
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_05DC {
+movement Goldenrod_Tunnel_B2F_Movement_GateLeftWalkLeft {
     walk_left * 2
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_05E4 {
+movement Goldenrod_Tunnel_B2F_Movement_GateRightWalkRight {
     walk_right * 2
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_05EC {
+movement Goldenrod_Tunnel_B2F_Movement_GateTopWalkDown {
     walk_down * 2
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_05F4 {
+movement Goldenrod_Tunnel_B2F_Movement_GateBottomWalkUp {
     walk_up * 2
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_05FC {
+movement Goldenrod_Tunnel_B2F_Movement_GateTopWalkUp {
     walk_up * 2
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_0604 {
+movement Goldenrod_Tunnel_B2F_Movement_GateBottomWalkDown {
     walk_down * 2
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_060C {
+movement Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkRight {
     walk_right * 2
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_0614 {
+movement Goldenrod_Tunnel_B2F_Movement_InvisibleObjectWalkLeft {
     walk_left * 2
 }
 
-script scr_seq_D37R0104_004 {
+script Goldenrod_Tunnel_B2F_EventScript_RivalTrigger {
     followmonresetmovement
     lockall
     callstd(std_play_rival_intro_music)
@@ -306,8 +306,8 @@ script scr_seq_D37R0104_004 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D37R0104_gsrivel, Goldenrod_Tunnel_B2F_Movement_06E0)
-    applymovement(obj_player, Goldenrod_Tunnel_B2F_Movement_06F4)
+    applymovement(obj_D37R0104_gsrivel, Goldenrod_Tunnel_B2F_Movement_RivalWalkLeftDown)
+    applymovement(obj_player, Goldenrod_Tunnel_B2F_Movement_PlayerWalkRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -353,7 +353,7 @@ script scr_seq_D37R0104_004 {
            "the world’s best Pokémon Trainer!\r")
     closemessage
     setvar(VAR_UNK_40A0, 1)
-    applymovement(obj_D37R0104_gsrivel, Goldenrod_Tunnel_B2F_Movement_0700)
+    applymovement(obj_D37R0104_gsrivel, Goldenrod_Tunnel_B2F_Movement_RivalWalkRightUp)
     waitmovement
     removeobject(obj_D37R0104_gsrivel)
     callstd(std_fade_end_rival_outro_music)
@@ -361,25 +361,25 @@ script scr_seq_D37R0104_004 {
     end
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_06E0 {
+movement Goldenrod_Tunnel_B2F_Movement_RivalWalkLeftDown {
     delay_4 * 6
     walk_left * 3
     walk_down
     walk_left * 4
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_06F4 {
+movement Goldenrod_Tunnel_B2F_Movement_PlayerWalkRight {
     emote_exclamation_mark
     walk_right
 }
 
-movement Goldenrod_Tunnel_B2F_Movement_0700 {
+movement Goldenrod_Tunnel_B2F_Movement_RivalWalkRightUp {
     walk_right * 4
     walk_up
     walk_right * 4
 }
 
 mapscripts Goldenrod_Tunnel_B2F_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D37R0104_005
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D37R0104_006
+    INIT_SCRIPT_ON_RESUME: Goldenrod_Tunnel_B2F_OnResume
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_Tunnel_B2F_OnTransition
 }

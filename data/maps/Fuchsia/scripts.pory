@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T08_000
-    scr_seq_T08_001
-    scr_seq_T08_002
-    scr_seq_T08_003
-    scr_seq_T08_004
-    scr_seq_T08_005
-    scr_seq_T08_006
-    scr_seq_T08_007
-    scr_seq_T08_008
-    scr_seq_T08_009
+    Fuchsia_EventScript_Youngster
+    Fuchsia_EventScript_PokefanM1
+    Fuchsia_EventScript_Woman
+    Fuchsia_EventScript_TrainerTips1
+    Fuchsia_EventScript_TrainerTips2
+    Fuchsia_EventScript_TrainerTips3
+    Fuchsia_EventScript_PokefanM2
+    Fuchsia_OnTransition
+    Fuchsia_EventScript_Juggler
+    Fuchsia_EventScript_CitySign
 }
 
-script scr_seq_T08_007 {
+script Fuchsia_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         clearflag(FLAG_UNK_149)
         getweekday(VAR_TEMP_x4000)
@@ -31,7 +31,7 @@ script scr_seq_T08_007 {
     end
 }
 
-script scr_seq_T08_006 {
+script Fuchsia_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -65,10 +65,10 @@ script scr_seq_T08_006 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Fuchsia_Movement_0174)
+        applymovement(obj_player, Fuchsia_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Fuchsia_Movement_0180)
-        applymovement(obj_T08_gsmiddleman1_2, Fuchsia_Movement_0194)
+        applymovement(obj_player, Fuchsia_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T08_gsmiddleman1_2, Fuchsia_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -76,7 +76,7 @@ script scr_seq_T08_006 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Fuchsia_Movement_01A0)
+        applymovement(obj_partner_poke, Fuchsia_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -95,30 +95,30 @@ script scr_seq_T08_006 {
     end
 }
 
-movement Fuchsia_Movement_0174 {
+movement Fuchsia_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Fuchsia_Movement_0180 {
+movement Fuchsia_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Fuchsia_Movement_0194 {
+movement Fuchsia_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Fuchsia_Movement_01A0 {
+movement Fuchsia_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T08_008 {
+script Fuchsia_EventScript_Juggler {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -251,13 +251,13 @@ script scr_seq_T08_008 {
         _0601:
             getplayerfacing(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 0) {
-                applymovement(obj_T08_juggrer, Fuchsia_Movement_064C)
+                applymovement(obj_T08_juggrer, Fuchsia_Movement_JugglerSpin1)
                 waitmovement
             } elif (var(VAR_SPECIAL_RESULT) == 2) {
-                applymovement(obj_T08_juggrer, Fuchsia_Movement_0690)
+                applymovement(obj_T08_juggrer, Fuchsia_Movement_JugglerSpin2)
                 waitmovement
             } else {
-                applymovement(obj_T08_juggrer, Fuchsia_Movement_06D4)
+                applymovement(obj_T08_juggrer, Fuchsia_Movement_JugglerSpin3)
                 waitmovement
             }
             return
@@ -278,7 +278,7 @@ script scr_seq_T08_008 {
     end
 }
 
-movement Fuchsia_Movement_064C {
+movement Fuchsia_Movement_JugglerSpin1 {
     face_right
     face_up
     face_left
@@ -297,7 +297,7 @@ movement Fuchsia_Movement_064C {
     face_down
 }
 
-movement Fuchsia_Movement_0690 {
+movement Fuchsia_Movement_JugglerSpin2 {
     face_up
     face_left
     face_down
@@ -316,7 +316,7 @@ movement Fuchsia_Movement_0690 {
     face_right
 }
 
-movement Fuchsia_Movement_06D4 {
+movement Fuchsia_Movement_JugglerSpin3 {
     face_down
     face_right
     face_up
@@ -335,20 +335,20 @@ movement Fuchsia_Movement_06D4 {
     face_left
 }
 
-script scr_seq_T08_000 {
+script Fuchsia_EventScript_Youngster {
     simplenpcmsg("One of the Elite Four used to be\n"
                  "the Leader of Fuchsia’s Gym.")
     end
 }
 
-script scr_seq_T08_001 {
+script Fuchsia_EventScript_PokefanM1 {
     simplenpcmsg("Koga’s daughter succeeded him as\n"
                  "the Gym Leader after he joined\f"
                  "the Elite Four.")
     end
 }
 
-script scr_seq_T08_002 {
+script Fuchsia_EventScript_Woman {
     simplenpcmsg("The Safari Zone wasn’t open\n"
                  "for a while.\r"
                  "Then it moved to Johto before\n"
@@ -358,31 +358,31 @@ script scr_seq_T08_002 {
     end
 }
 
-script scr_seq_T08_009 {
+script Fuchsia_EventScript_CitySign {
     directionsignpostex(0, 8, "Fuchsia City\n"
                               "Happening and Passing City")
     end
 }
 
-script scr_seq_T08_003 {
+script Fuchsia_EventScript_TrainerTips1 {
     trainertipsex(2, "Fuchsia City Pokémon Gym\n"
                      "Leader: Janine\f"
                      "The Poisonous Ninja Master")
     end
 }
 
-script scr_seq_T08_004 {
+script Fuchsia_EventScript_TrainerTips2 {
     trainertipsex(2, "There’s a notice here...\r"
                      "The Safari Zone is closed.\f"
                      "Instead, we have Pal Park.")
     end
 }
 
-script scr_seq_T08_005 {
+script Fuchsia_EventScript_TrainerTips3 {
     trainertipsex(2, "Home of the Pal Park Warden")
     end
 }
 
 mapscripts Fuchsia_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T08_007
+    INIT_SCRIPT_ON_TRANSITION: Fuchsia_OnTransition
 }

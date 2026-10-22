@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_W21_H_
 #define SCR_SEQ_W21_H_
 
-#define _EV_scr_seq_W21_000 0
-#define _EV_scr_seq_W21_001 1
+#define _EV_Route21_EventScript_PokefanM 0
+#define _EV_Route21_OnTransition 1
 
 #define obj_W21_fishing_2    0
 #define obj_W21_fishing_2_2  1

@@ -3,47 +3,47 @@
   "messages": [
     {
       "id": "msg_0388_R35R0101_00000",
-      "from": "scr_seq_R35R0101_000#3"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#3"
     },
     {
       "id": "msg_0388_R35R0101_00001",
-      "from": "scr_seq_R35R0101_000#9"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#9"
     },
     {
       "id": "msg_0388_R35R0101_00002",
-      "from": "scr_seq_R35R0101_000#10"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#10"
     },
     {
       "id": "msg_0388_R35R0101_00003",
-      "from": "scr_seq_R35R0101_000#4"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#4"
     },
     {
       "id": "msg_0388_R35R0101_00004",
-      "from": "scr_seq_R35R0101_000#5"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#5"
     },
     {
       "id": "msg_0388_R35R0101_00005",
-      "from": "scr_seq_R35R0101_000#8"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#8"
     },
     {
       "id": "msg_0388_R35R0101_00006",
-      "from": "scr_seq_R35R0101_000#7"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#7"
     },
     {
       "id": "msg_0388_R35R0101_00007",
-      "from": "scr_seq_R35R0101_000#0"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#0"
     },
     {
       "id": "msg_0388_R35R0101_00008",
-      "from": "scr_seq_R35R0101_000#1"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#1"
     },
     {
       "id": "msg_0388_R35R0101_00009",
-      "from": "scr_seq_R35R0101_000#6"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#6"
     },
     {
       "id": "msg_0388_R35R0101_00010",
-      "from": "scr_seq_R35R0101_000#2"
+      "from": "Route35_GoldenrodGatehouse_EventScript_Attendant#2"
     },
     {
       "id": "msg_0388_R35R0101_00011",
@@ -63,19 +63,19 @@
     },
     {
       "id": "msg_0388_R35R0101_00013",
-      "from": "scr_seq_R35R0101_001#3"
+      "from": "Route35_GoldenrodGatehouse_EventScript_PokefanF#3"
     },
     {
       "id": "msg_0388_R35R0101_00014",
-      "from": "scr_seq_R35R0101_001#0"
+      "from": "Route35_GoldenrodGatehouse_EventScript_PokefanF#0"
     },
     {
       "id": "msg_0388_R35R0101_00015",
-      "from": "scr_seq_R35R0101_001#2"
+      "from": "Route35_GoldenrodGatehouse_EventScript_PokefanF#2"
     },
     {
       "id": "msg_0388_R35R0101_00016",
-      "from": "scr_seq_R35R0101_001#1"
+      "from": "Route35_GoldenrodGatehouse_EventScript_PokefanF#1"
     }
   ]
 }

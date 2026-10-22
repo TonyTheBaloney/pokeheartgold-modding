@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R45_000
-    scr_seq_R45_001
-    scr_seq_R45_002
-    scr_seq_R45_003
-    scr_seq_R45_004
+    Route45_EventScript_RouteSign
+    Route45_EventScript_PokefanM
+    Route45_OnTransition
+    Route45_EventScript_Man
+    Route45_EventScript_TrainerTips
 }
 
-script scr_seq_R45_002 {
+script Route45_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 3) { goto(_004B) }
@@ -25,7 +25,7 @@ script scr_seq_R45_002 {
     end
 }
 
-script scr_seq_R45_001 {
+script Route45_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -59,10 +59,10 @@ script scr_seq_R45_001 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route45_Movement_015C)
+        applymovement(obj_player, Route45_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Route45_Movement_0168)
-        applymovement(obj_R45_gsmiddleman1, Route45_Movement_017C)
+        applymovement(obj_player, Route45_Movement_PlayerWalkUpLeft)
+        applymovement(obj_R45_gsmiddleman1, Route45_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -70,7 +70,7 @@ script scr_seq_R45_001 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route45_Movement_0188)
+        applymovement(obj_partner_poke, Route45_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -89,30 +89,30 @@ script scr_seq_R45_001 {
     end
 }
 
-movement Route45_Movement_015C {
+movement Route45_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route45_Movement_0168 {
+movement Route45_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route45_Movement_017C {
+movement Route45_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route45_Movement_0188 {
+movement Route45_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R45_003 {
+script Route45_EventScript_Man {
     simplenpcmsg("Have you heard of a place called\n"
                  "the Battle Frontier?\r"
                  "It’s a huge place with many battle\n"
@@ -125,17 +125,17 @@ script scr_seq_R45_003 {
     end
 }
 
-script scr_seq_R45_000 {
+script Route45_EventScript_RouteSign {
     directionsignpostex(1, 4, "Rt. 45\n"
                               "Mountain Road ahead")
     end
 }
 
-script scr_seq_R45_004 {
+script Route45_EventScript_TrainerTips {
     trainertipsex(2, "Dark Cave")
     end
 }
 
 mapscripts Route45_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R45_002
+    INIT_SCRIPT_ON_TRANSITION: Route45_OnTransition
 }

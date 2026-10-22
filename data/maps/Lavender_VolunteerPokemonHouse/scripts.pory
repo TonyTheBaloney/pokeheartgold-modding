@@ -1,14 +1,14 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T05R0201_000 {
+script Lavender_VolunteerPokemonHouse_EventScript_Man {
     simplenpcmsg("Mr. Fuji does live here, but he’s\n"
                  "away now.\r"
                  "He should be at the House of Memories.")
     end
 }
 
-script scr_seq_T05R0201_001 {
+script Lavender_VolunteerPokemonHouse_EventScript_Lass {
     simplenpcmsg("Can you believe it?\r"
                  "Some people get bored with taking\n"
                  "care of Pokémon.\r"
@@ -17,21 +17,21 @@ script scr_seq_T05R0201_001 {
     end
 }
 
-script scr_seq_T05R0201_002 {
+script Lavender_VolunteerPokemonHouse_EventScript_Psyduck {
     playcry(SPECIES_PSYDUCK, 0)
     simplenpcmsg("PSYDUCK: Gu-guwa?")
     waitcry
     end
 }
 
-script scr_seq_T05R0201_003 {
+script Lavender_VolunteerPokemonHouse_EventScript_Nidorino {
     playcry(SPECIES_NIDORINO, 0)
     simplenpcmsg("NIDORINO: Gyun!")
     waitcry
     end
 }
 
-script scr_seq_T05R0201_004 {
+script Lavender_VolunteerPokemonHouse_EventScript_Pidgey {
     playcry(SPECIES_PIDGEY, 0)
     simplenpcmsg("PIDGEY: Pijji!")
     waitcry

@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_P01R0302_000
-    scr_seq_P01R0302_001
-    scr_seq_P01R0302_002
+    SsAquaCaptainRoom_EventScript_Captain
+    SsAquaCaptainRoom_EventScript_LittleGirl
+    SsAquaCaptainRoom_OnTransition
 }
 
-script scr_seq_P01R0302_002 {
+script SsAquaCaptainRoom_OnTransition {
     if (var(VAR_SCENE_SS_AQUA) >= 4) {
         setflag(FLAG_HIDE_SS_AQUA_CAPTAINS_ROOM_GRANDDAUGHTER)
         end
@@ -16,7 +16,7 @@ script scr_seq_P01R0302_002 {
     end
 }
 
-script scr_seq_P01R0302_000 {
+script SsAquaCaptainRoom_EventScript_Captain {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -141,7 +141,7 @@ _0050:
     end
 }
 
-script scr_seq_P01R0302_001 {
+script SsAquaCaptainRoom_EventScript_LittleGirl {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Captain, play with me, please?\r"
@@ -149,9 +149,9 @@ script scr_seq_P01R0302_001 {
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_P01R0302_gsbabygirl1, SsAquaCaptainRoom_Movement_0340)
+        applymovement(obj_P01R0302_gsbabygirl1, SsAquaCaptainRoom_Movement_LittleGirlExclamation1)
     } else {
-        applymovement(obj_P01R0302_gsbabygirl1, SsAquaCaptainRoom_Movement_0350)
+        applymovement(obj_P01R0302_gsbabygirl1, SsAquaCaptainRoom_Movement_LittleGirlExclamation2)
     }
     waitmovement
     gendermsgbox("Wow, you are going to play with me?\r"
@@ -173,18 +173,18 @@ script scr_seq_P01R0302_001 {
     end
 }
 
-movement SsAquaCaptainRoom_Movement_0340 {
+movement SsAquaCaptainRoom_Movement_LittleGirlExclamation1 {
     emote_exclamation_mark
     delay_8
     face_up * 2
 }
 
-movement SsAquaCaptainRoom_Movement_0350 {
+movement SsAquaCaptainRoom_Movement_LittleGirlExclamation2 {
     emote_exclamation_mark
     delay_8
     face_right * 2
 }
 
 mapscripts SsAquaCaptainRoom_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0302_002
+    INIT_SCRIPT_ON_TRANSITION: SsAquaCaptainRoom_OnTransition
 }

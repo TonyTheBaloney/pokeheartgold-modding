@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0742_W20_00000",
-      "from": "scr_seq_W20_000#0"
+      "from": "Route20_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0742_W20_00001",
-      "from": "scr_seq_W20_001#0"
+      "from": "Route20_EventScript_TrainerTips2#0"
     }
   ]
 }

@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T04GYM0101_000
-    scr_seq_T04GYM0101_001
-    scr_seq_T04GYM0101_002
-    scr_seq_T04GYM0101_003
-    scr_seq_T04GYM0101_004
-    scr_seq_T04GYM0101_005
-    scr_seq_T04GYM0101_006
-    scr_seq_T04GYM0101_007
+    Cerulean_Gym_EventScript_Misty
+    Cerulean_Gym_EventScript_GymGuide
+    Cerulean_Gym_EventScript_GymSign1
+    Cerulean_Gym_EventScript_GymSign2
+    Cerulean_Gym_EventScript_RocketGruntScene
+    Cerulean_Gym_EventScript_InvisibleObject
+    Cerulean_Gym_OnLoad
+    Cerulean_Gym_OnTransition
 }
 
-script scr_seq_T04GYM0101_007 {
+script Cerulean_Gym_OnTransition {
     getphonebookrematch(PHONE_CONTACT_MISTY, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
         setflag(FLAG_HIDE_CERULEAN_GYM_POPULATION)
@@ -51,27 +51,27 @@ _00E7:
     end
 }
 
-script scr_seq_T04GYM0101_004 {
+script Cerulean_Gym_EventScript_RocketGruntScene {
     followmonresetmovement
     lockall
     stopbgm(SEQ_GS_GYM)
     playbgm(SEQ_GS_EYE_ROCKET)
-    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01C8)
+    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_RocketGruntWalkDown1)
     waitmovement
     playse(SEQ_SE_DP_WALL_HIT2)
     npcmsg("{SIZE 200}Bump!{SIZE 100}\r")
-    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01D0)
+    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_RocketGruntWalkDown2)
     waitmovement
     npcmsg("Oops! I so sorry!\n"
            "You not hurt, OK?\f"
            "I very busy.\f"
            "No time for talking with you.\f"
            "Not good for me if seen by somebody.\r")
-    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01E4)
+    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_RocketGruntWalkUp)
     waitmovement
     npcmsg("Oh no! You seen me already!\f"
            "I make big mistake!\r")
-    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01F4)
+    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_RocketGruntWalkDown3)
     waitmovement
     npcmsg("Hey, you! Forget you see me, OK?\n"
            "You seen, heard, known nothing, OK?\f"
@@ -80,8 +80,8 @@ script scr_seq_T04GYM0101_004 {
     closemessage
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01FC)
-        applymovement(obj_player, Cerulean_Gym_Movement_0204)
+        applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_RocketGruntWalkDown4)
+        applymovement(obj_player, Cerulean_Gym_Movement_PlayerWalkLeft)
         waitmovement
     _018B:
         playse(SEQ_SE_DP_KAIDAN2)
@@ -102,48 +102,48 @@ script scr_seq_T04GYM0101_004 {
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0159) }
     end
 _0159:
-    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_01FC)
-    applymovement(obj_player, Cerulean_Gym_Movement_0204)
-    applymovement(obj_partner_poke, Cerulean_Gym_Movement_0210)
+    applymovement(obj_T04GYM0101_rocketm, Cerulean_Gym_Movement_RocketGruntWalkDown4)
+    applymovement(obj_player, Cerulean_Gym_Movement_PlayerWalkLeft)
+    applymovement(obj_partner_poke, Cerulean_Gym_Movement_FollowMonWalkLeft)
     waitmovement
     goto(_018B)
 }
 
-movement Cerulean_Gym_Movement_01C8 {
+movement Cerulean_Gym_Movement_RocketGruntWalkDown1 {
     walk_faster_down * 5
 }
 
-movement Cerulean_Gym_Movement_01D0 {
+movement Cerulean_Gym_Movement_RocketGruntWalkDown2 {
     lock_dir
     jump_far_up
     delay_8 * 2
     walk_fast_down * 2
 }
 
-movement Cerulean_Gym_Movement_01E4 {
+movement Cerulean_Gym_Movement_RocketGruntWalkUp {
     emote_exclamation_mark
     lock_dir
     walk_up * 2
 }
 
-movement Cerulean_Gym_Movement_01F4 {
+movement Cerulean_Gym_Movement_RocketGruntWalkDown3 {
     walk_down * 2
 }
 
-movement Cerulean_Gym_Movement_01FC {
+movement Cerulean_Gym_Movement_RocketGruntWalkDown4 {
     walk_fast_down
 }
 
-movement Cerulean_Gym_Movement_0204 {
+movement Cerulean_Gym_Movement_PlayerWalkLeft {
     walk_fast_left
     face_right
 }
 
-movement Cerulean_Gym_Movement_0210 {
+movement Cerulean_Gym_Movement_FollowMonWalkLeft {
     walk_fast_left
 }
 
-script scr_seq_T04GYM0101_006 {
+script Cerulean_Gym_OnLoad {
     setflag99a
     if (flag(FLAG_HIDE_CERULEAN_GYM_MACHINE_PART)) {
         end
@@ -153,7 +153,7 @@ script scr_seq_T04GYM0101_006 {
     end
 }
 
-script scr_seq_T04GYM0101_005 {
+script Cerulean_Gym_EventScript_InvisibleObject {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -178,7 +178,7 @@ script scr_seq_T04GYM0101_005 {
     end
 }
 
-script scr_seq_T04GYM0101_000 {
+script Cerulean_Gym_EventScript_Misty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -256,7 +256,7 @@ _033E:
     end
 }
 
-script scr_seq_T04GYM0101_002 {
+script Cerulean_Gym_EventScript_GymSign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -286,7 +286,7 @@ text msg_0469_T04GYM0101_00007 {
     "{STRVAR_1 3, 0, 0}"
 }
 
-script scr_seq_T04GYM0101_003 {
+script Cerulean_Gym_EventScript_GymSign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -309,7 +309,7 @@ _03F6:
     end
 }
 
-script scr_seq_T04GYM0101_001 {
+script Cerulean_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -334,8 +334,8 @@ script scr_seq_T04GYM0101_001 {
 
 mapscripts Cerulean_Gym_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_411C, 1: scr_seq_T04GYM0101_004
+        VAR_UNK_411C, 1: Cerulean_Gym_EventScript_RocketGruntScene
     ]
-    INIT_SCRIPT_ON_LOAD: scr_seq_T04GYM0101_006
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T04GYM0101_007
+    INIT_SCRIPT_ON_LOAD: Cerulean_Gym_OnLoad
+    INIT_SCRIPT_ON_TRANSITION: Cerulean_Gym_OnTransition
 }

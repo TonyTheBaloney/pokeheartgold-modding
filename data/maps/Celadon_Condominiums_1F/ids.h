@@ -1,12 +1,12 @@
 #ifndef SCR_SEQ_T07R0201_H_
 #define SCR_SEQ_T07R0201_H_
 
-#define _EV_scr_seq_T07R0201_000 0
-#define _EV_scr_seq_T07R0201_001 1
-#define _EV_scr_seq_T07R0201_002 2
-#define _EV_scr_seq_T07R0201_003 3
-#define _EV_scr_seq_T07R0201_004 4
-#define _EV_scr_seq_T07R0201_005 5
+#define _EV_Celadon_Condominiums_1F_EventScript_OldWoman 0
+#define _EV_Celadon_Condominiums_1F_EventScript_Meowth 1
+#define _EV_Celadon_Condominiums_1F_EventScript_Clefairy 2
+#define _EV_Celadon_Condominiums_1F_EventScript_NidoranF 3
+#define _EV_Celadon_Condominiums_1F_EventScript_PleaseTakeThisElevatorSign 4
+#define _EV_Celadon_Condominiums_1F_OnTransition 5
 
 #define obj_T07R0201_gsoldwoman1                 0
 #define obj_T07R0201_tsure_poke_static_meowth    1

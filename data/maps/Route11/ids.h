@@ -1,10 +1,10 @@
 #ifndef SCR_SEQ_R11_H_
 #define SCR_SEQ_R11_H_
 
-#define _EV_scr_seq_R11_000 0
-#define _EV_scr_seq_R11_001 1
-#define _EV_scr_seq_R11_002 2
-#define _EV_scr_seq_R11_003 3
+#define _EV_Route11_EventScript_Kabigon 0
+#define _EV_Route11_OnLoad 1
+#define _EV_Route11_EventScript_RouteSign 2
+#define _EV_Route11_EventScript_TrainerTips 3
 
 #define obj_R11_mystery_2    0
 #define obj_R11_mystery_2_2  1

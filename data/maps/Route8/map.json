@@ -273,7 +273,7 @@
             "y": 238,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R08_001 + 1"
+            "script": "Route8_EventScript_TrainerTips"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -281,7 +281,7 @@
             "y": 237,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R08_000 + 1"
+            "script": "Route8_EventScript_ItWontOpenSign"
         }
     ]
 }

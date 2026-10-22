@@ -1,18 +1,18 @@
 #ifndef SCR_SEQ_D47R0101_H_
 #define SCR_SEQ_D47R0101_H_
 
-#define _EV_scr_seq_D47R0101_000 0
-#define _EV_scr_seq_D47R0101_001 1
-#define _EV_scr_seq_D47R0101_002 2
-#define _EV_scr_seq_D47R0101_003 3
-#define _EV_scr_seq_D47R0101_004 4
-#define _EV_scr_seq_D47R0101_005 5
-#define _EV_scr_seq_D47R0101_006 6
-#define _EV_scr_seq_D47R0101_007 7
-#define _EV_scr_seq_D47R0101_008 8
-#define _EV_scr_seq_D47R0101_009 9
-#define _EV_scr_seq_D47R0101_010 10
-#define _EV_scr_seq_D47R0101_011 11
+#define _EV_SafariZoneEntranceInterior_EventScript_Attendant1 0
+#define _EV_SafariZoneEntranceInterior_EventScript_Attendant2 1
+#define _EV_SafariZoneEntranceInterior_EventScript_Attendant3 2
+#define _EV_SafariZoneEntranceInterior_EventScript_Attendant4 3
+#define _EV_SafariZoneEntranceInterior_EventScript_Attendant5 4
+#define _EV_SafariZoneEntranceInterior_EventScript_Sign 5
+#define _EV_SafariZoneEntranceInterior_EventScript_AttendantScene 6
+#define _EV_SafariZoneEntranceInterior_EventScript_Scene 7
+#define _EV_SafariZoneEntranceInterior_EventScript_GentlemanScene1 8
+#define _EV_SafariZoneEntranceInterior_EventScript_GentlemanScene2 9
+#define _EV_SafariZoneEntranceInterior_EventScript_Gentleman 10
+#define _EV_SafariZoneEntranceInterior_EventScript_Attendant6 11
 
 #define obj_D47R0101_counterm    0
 #define obj_D47R0101_counterm_2  1

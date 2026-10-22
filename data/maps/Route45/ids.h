@@ -1,11 +1,11 @@
 #ifndef SCR_SEQ_R45_H_
 #define SCR_SEQ_R45_H_
 
-#define _EV_scr_seq_R45_000 0
-#define _EV_scr_seq_R45_001 1
-#define _EV_scr_seq_R45_002 2
-#define _EV_scr_seq_R45_003 3
-#define _EV_scr_seq_R45_004 4
+#define _EV_Route45_EventScript_RouteSign 0
+#define _EV_Route45_EventScript_PokefanM 1
+#define _EV_Route45_OnTransition 2
+#define _EV_Route45_EventScript_Man 3
+#define _EV_Route45_EventScript_TrainerTips 4
 
 #define obj_R45_mount_2       0
 #define obj_R45_gsman3        1

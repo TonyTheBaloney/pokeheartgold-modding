@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_R06_H_
 #define SCR_SEQ_R06_H_
 
-#define _EV_scr_seq_R06_000 0
-#define _EV_scr_seq_R06_001 1
+#define _EV_Route6_EventScript_PokefanM 0
+#define _EV_Route6_EventScript_TrainerTips 1
 
 #define obj_R06_campboy_2     0
 #define obj_R06_picnicgirl_2  1

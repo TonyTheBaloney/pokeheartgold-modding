@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0455_T02PC0101_00000",
-      "from": "scr_seq_T02PC0101_001#0"
+      "from": "Viridian_Pokecenter_1F_EventScript_AceTrainerM#0"
     },
     {
       "id": "msg_0455_T02PC0101_00001",
-      "from": "scr_seq_T02PC0101_001#1"
+      "from": "Viridian_Pokecenter_1F_EventScript_AceTrainerM#1"
     },
     {
       "id": "msg_0455_T02PC0101_00002",
-      "from": "scr_seq_T02PC0101_002#0"
+      "from": "Viridian_Pokecenter_1F_EventScript_AceTrainerF#0"
     },
     {
       "id": "msg_0455_T02PC0101_00003",
-      "from": "scr_seq_T02PC0101_003#0"
+      "from": "Viridian_Pokecenter_1F_EventScript_LittleBoy#0"
     }
   ]
 }

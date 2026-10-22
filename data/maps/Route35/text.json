@@ -87,7 +87,7 @@
     },
     {
       "id": "msg_0387_R35_00021",
-      "from": "scr_seq_R35_002#0"
+      "from": "Route35_EventScript_Policeman#0"
     },
     {
       "id": "msg_0387_R35_00022",
@@ -115,11 +115,11 @@
     },
     {
       "id": "msg_0387_R35_00028",
-      "from": "scr_seq_R35_000#0"
+      "from": "Route35_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0387_R35_00029",
-      "from": "scr_seq_R35_004#0"
+      "from": "Route35_EventScript_NorthToTheNationalParkSign#0"
     }
   ]
 }

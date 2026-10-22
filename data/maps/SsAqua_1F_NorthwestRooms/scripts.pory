@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_P01R0306_000
-    scr_seq_P01R0306_001
-    scr_seq_P01R0306_002
-    scr_seq_P01R0306_003
+    SsAqua_1F_NorthwestRooms_EventScript_Gentleman
+    SsAqua_1F_NorthwestRooms_OnTransition
+    SsAqua_1F_NorthwestRooms_EventScript_LittleGirl
+    SsAqua_1F_NorthwestRooms_EventScript_LittleGirlScene
 }
 
-script scr_seq_P01R0306_001 {
+script SsAqua_1F_NorthwestRooms_OnTransition {
     if (var(VAR_SCENE_SS_AQUA) >= 7) {
         setflag(FLAG_UNK_216)
         setflag(FLAG_UNK_218)
@@ -23,12 +23,12 @@ script scr_seq_P01R0306_001 {
     end
 }
 
-script scr_seq_P01R0306_000 {
+script SsAqua_1F_NorthwestRooms_EventScript_Gentleman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     if (var(VAR_SCENE_SS_AQUA) <= 3) {
-        applymovement(obj_P01R0306_gsgentleman, SsAqua_1F_NorthwestRooms_Movement_0090)
+        applymovement(obj_P01R0306_gsgentleman, SsAqua_1F_NorthwestRooms_Movement_GentlemanFaceDown)
         waitmovement
         npcmsg("Oh, hello...\r"
                "My granddaughter is still missing.\n"
@@ -50,14 +50,14 @@ script scr_seq_P01R0306_000 {
     end
 }
 
-movement SsAqua_1F_NorthwestRooms_Movement_0090 {
+movement SsAqua_1F_NorthwestRooms_Movement_GentlemanFaceDown {
     jump_in_place_fast_down * 2
 }
 
-script scr_seq_P01R0306_003 {
+script SsAqua_1F_NorthwestRooms_EventScript_LittleGirlScene {
     followmonresetmovement
     lockall
-    applymovement(obj_P01R0306_gsbabygirl1_3, SsAqua_1F_NorthwestRooms_Movement_0110)
+    applymovement(obj_P01R0306_gsbabygirl1_3, SsAqua_1F_NorthwestRooms_Movement_LittleGirlFaceRight)
     waitmovement
     gendermsgbox("Grandpa, here I am!\r"
                  "I was playing hide-and-seek\n"
@@ -65,7 +65,7 @@ script scr_seq_P01R0306_003 {
                                      "I was playing hide-and-seek\n"
                                      "with this girl!\r")
     closemessage
-    applymovement(obj_P01R0306_gsgentleman, SsAqua_1F_NorthwestRooms_Movement_0118)
+    applymovement(obj_P01R0306_gsgentleman, SsAqua_1F_NorthwestRooms_Movement_GentlemanWalkDown)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("{STRVAR_1 3, 0, 0}, was it?\n"
@@ -97,22 +97,22 @@ _00E2:
     end
 }
 
-movement SsAqua_1F_NorthwestRooms_Movement_0110 {
+movement SsAqua_1F_NorthwestRooms_Movement_LittleGirlFaceRight {
     jump_in_place_fast_right * 3
 }
 
-movement SsAqua_1F_NorthwestRooms_Movement_0118 {
+movement SsAqua_1F_NorthwestRooms_Movement_GentlemanWalkDown {
     walk_slow_down
 }
 
-script scr_seq_P01R0306_002 {
+script SsAqua_1F_NorthwestRooms_EventScript_LittleGirl {
     simplenpcmsg("I had lots of fun!")
     end
 }
 
 mapscripts SsAqua_1F_NorthwestRooms_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0306_001
+    INIT_SCRIPT_ON_TRANSITION: SsAqua_1F_NorthwestRooms_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_SS_AQUA, 5: scr_seq_P01R0306_003
+        VAR_SCENE_SS_AQUA, 5: SsAqua_1F_NorthwestRooms_EventScript_LittleGirlScene
     ]
 }

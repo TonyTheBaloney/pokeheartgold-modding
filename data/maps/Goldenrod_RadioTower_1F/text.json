@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0065_D23R0101_00000",
-      "from": "scr_seq_D23R0101_000#1"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist1#1"
     },
     {
       "id": "msg_0065_D23R0101_00001",
@@ -11,143 +11,143 @@
     },
     {
       "id": "msg_0065_D23R0101_00002",
-      "from": "scr_seq_D23R0101_000#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist1#0"
     },
     {
       "id": "msg_0065_D23R0101_00003",
-      "from": "scr_seq_D23R0101_002#1"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#1"
     },
     {
       "id": "msg_0065_D23R0101_00004",
-      "from": "scr_seq_D23R0101_002#2"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#2"
     },
     {
       "id": "msg_0065_D23R0101_00005",
-      "from": "scr_seq_D23R0101_002#3"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#3"
     },
     {
       "id": "msg_0065_D23R0101_00006",
-      "from": "scr_seq_D23R0101_002#4"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#4"
     },
     {
       "id": "msg_0065_D23R0101_00007",
-      "from": "scr_seq_D23R0101_002#5"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#5"
     },
     {
       "id": "msg_0065_D23R0101_00008",
-      "from": "scr_seq_D23R0101_002#6"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#6"
     },
     {
       "id": "msg_0065_D23R0101_00009",
-      "from": "scr_seq_D23R0101_002#7"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#7"
     },
     {
       "id": "msg_0065_D23R0101_00010",
-      "from": "scr_seq_D23R0101_002#8"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#8"
     },
     {
       "id": "msg_0065_D23R0101_00011",
-      "from": "scr_seq_D23R0101_002#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#0"
     },
     {
       "id": "msg_0065_D23R0101_00012",
-      "from": "scr_seq_D23R0101_002#11"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#11"
     },
     {
       "id": "msg_0065_D23R0101_00013",
-      "from": "scr_seq_D23R0101_002#10"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#10"
     },
     {
       "id": "msg_0065_D23R0101_00014",
-      "from": "scr_seq_D23R0101_010#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney2#0"
     },
     {
       "id": "msg_0065_D23R0101_00015",
-      "from": "scr_seq_D23R0101_002#9"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Whitney1#9"
     },
     {
       "id": "msg_0065_D23R0101_00016",
-      "from": "scr_seq_D23R0101_003#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Girl#0"
     },
     {
       "id": "msg_0065_D23R0101_00017",
-      "from": "scr_seq_D23R0101_004#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Man#0"
     },
     {
       "id": "msg_0065_D23R0101_00018",
-      "from": "scr_seq_D23R0101_005#2"
+      "from": "Goldenrod_RadioTower_1F_EventScript_RocketGrunt#2"
     },
     {
       "id": "msg_0065_D23R0101_00019",
-      "from": "scr_seq_D23R0101_005#1"
+      "from": "Goldenrod_RadioTower_1F_EventScript_RocketGrunt#1"
     },
     {
       "id": "msg_0065_D23R0101_00020",
-      "from": "scr_seq_D23R0101_005#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_RocketGrunt#0"
     },
     {
       "id": "msg_0065_D23R0101_00021",
-      "from": "scr_seq_D23R0101_009#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_RivalTrigger#0"
     },
     {
       "id": "msg_0065_D23R0101_00022",
-      "from": "scr_seq_D23R0101_009#1"
+      "from": "Goldenrod_RadioTower_1F_EventScript_RivalTrigger#1"
     },
     {
       "id": "msg_0065_D23R0101_00023",
-      "from": "scr_seq_D23R0101_009#2"
+      "from": "Goldenrod_RadioTower_1F_EventScript_RivalTrigger#2"
     },
     {
       "id": "msg_0065_D23R0101_00024",
-      "from": "scr_seq_D23R0101_009#3"
+      "from": "Goldenrod_RadioTower_1F_EventScript_RivalTrigger#3"
     },
     {
       "id": "msg_0065_D23R0101_00025",
-      "from": "scr_seq_D23R0101_009#4"
+      "from": "Goldenrod_RadioTower_1F_EventScript_RivalTrigger#4"
     },
     {
       "id": "msg_0065_D23R0101_00026",
-      "from": "scr_seq_D23R0101_006#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_1FReceptionSign#0"
     },
     {
       "id": "msg_0065_D23R0101_00027",
-      "from": "scr_seq_D23R0101_007#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_LuckyChannelSign#0"
     },
     {
       "id": "msg_0065_D23R0101_00028",
-      "from": "scr_seq_D23R0101_001#0"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#0"
     },
     {
       "id": "msg_0065_D23R0101_00029",
-      "from": "scr_seq_D23R0101_001#2"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#2"
     },
     {
       "id": "msg_0065_D23R0101_00030",
-      "from": "scr_seq_D23R0101_001#3"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#3"
     },
     {
       "id": "msg_0065_D23R0101_00031",
-      "from": "scr_seq_D23R0101_001#4"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#4"
     },
     {
       "id": "msg_0065_D23R0101_00032",
-      "from": "scr_seq_D23R0101_001#5"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#5"
     },
     {
       "id": "msg_0065_D23R0101_00033",
-      "from": "scr_seq_D23R0101_001#7"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#7"
     },
     {
       "id": "msg_0065_D23R0101_00034",
-      "from": "scr_seq_D23R0101_001#8"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#8"
     },
     {
       "id": "msg_0065_D23R0101_00035",
-      "from": "scr_seq_D23R0101_001#6"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#6"
     },
     {
       "id": "msg_0065_D23R0101_00036",
-      "from": "scr_seq_D23R0101_001#9"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#9"
     },
     {
       "id": "msg_0065_D23R0101_00037",
@@ -158,35 +158,35 @@
     },
     {
       "id": "msg_0065_D23R0101_00038",
-      "from": "scr_seq_D23R0101_001#10"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#10"
     },
     {
       "id": "msg_0065_D23R0101_00039",
-      "from": "scr_seq_D23R0101_001#11"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#11"
     },
     {
       "id": "msg_0065_D23R0101_00040",
-      "from": "scr_seq_D23R0101_001#12"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#12"
     },
     {
       "id": "msg_0065_D23R0101_00041",
-      "from": "scr_seq_D23R0101_001#13"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#13"
     },
     {
       "id": "msg_0065_D23R0101_00042",
-      "from": "scr_seq_D23R0101_001#14"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#14"
     },
     {
       "id": "msg_0065_D23R0101_00043",
-      "from": "scr_seq_D23R0101_001#15"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#15"
     },
     {
       "id": "msg_0065_D23R0101_00044",
-      "from": "scr_seq_D23R0101_001#16"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#16"
     },
     {
       "id": "msg_0065_D23R0101_00045",
-      "from": "scr_seq_D23R0101_001#1"
+      "from": "Goldenrod_RadioTower_1F_EventScript_Receptionist2#1"
     }
   ]
 }

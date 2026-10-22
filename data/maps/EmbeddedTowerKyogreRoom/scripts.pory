@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D52R0102_000
-    scr_seq_D52R0102_001
-    scr_seq_D52R0102_002
+    EmbeddedTowerKyogreRoom_EventScript_Kyogre
+    EmbeddedTowerKyogreRoom_OnTransition
+    EmbeddedTowerKyogreRoom_OnLoad
 }
 
-script scr_seq_D52R0102_001 {
+script EmbeddedTowerKyogreRoom_OnTransition {
     if (var(VAR_SCENE_EMBEDDED_TOWER) >= 4) { goto(_007C) }
     getgameversion(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) != 7) {
@@ -36,7 +36,7 @@ script scr_seq_D52R0102_001 {
     goto(_003E)
 }
 
-script scr_seq_D52R0102_002 {
+script EmbeddedTowerKyogreRoom_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_EMBEDDED_TOWER_KYOGRE)
         removeobject(obj_D52R0102_tsure_poke_static_kyogre)
@@ -46,7 +46,7 @@ script scr_seq_D52R0102_002 {
     end
 }
 
-script scr_seq_D52R0102_000 {
+script EmbeddedTowerKyogreRoom_EventScript_Kyogre {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -83,14 +83,14 @@ _00FB:
     followingpokemonmovement(55)
     getplayerfacing(VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 0) {
-        applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_01A4)
+        applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_HikerWalkUp1)
         waitmovement
-        applymovement(obj_player, EmbeddedTowerKyogreRoom_Movement_01B0)
+        applymovement(obj_player, EmbeddedTowerKyogreRoom_Movement_PlayerWalkDown)
         waitmovement
     } else {
-        applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_01BC)
+        applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_HikerWalkUp2)
         waitmovement
-        applymovement(obj_player, EmbeddedTowerKyogreRoom_Movement_01C8)
+        applymovement(obj_player, EmbeddedTowerKyogreRoom_Movement_PlayerFaceDown)
         waitmovement
     }
     waitfollowingpokemonmovement
@@ -107,7 +107,7 @@ _00FB:
            "The Embedded Tower was built\n"
            "by the people from Hoenn.\r")
     closemessage
-    applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_01D0)
+    applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_HikerWalkDown1)
     waitmovement
     npcmsg("The Tower that binds together\n"
            "the sea, the land, and the sky...\r"
@@ -116,7 +116,7 @@ _00FB:
            "This place may still be hiding\n"
            "its secrets.\r")
     closemessage
-    applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_01E0)
+    applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_HikerWalkUp3)
     waitmovement
     npcmsg("The knowledgeable Pokémon Professor\n"
            "may be able to tell you more when you\f"
@@ -126,7 +126,7 @@ _00FB:
            "Pokémon and myths.\r"
            "See you around.\r")
     closemessage
-    applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_01EC)
+    applymovement(obj_D52R0102_mount_2, EmbeddedTowerKyogreRoom_Movement_HikerWalkDown2)
     waitmovement
     removeobject(obj_D52R0102_mount_2)
     setflag(FLAG_HIDE_EMBEDDED_TOWER_KYOGRE_HIKER)
@@ -135,41 +135,41 @@ _00FB:
     end
 }
 
-movement EmbeddedTowerKyogreRoom_Movement_01A4 {
+movement EmbeddedTowerKyogreRoom_Movement_HikerWalkUp1 {
     walk_up * 8
     walk_in_place_up
 }
 
-movement EmbeddedTowerKyogreRoom_Movement_01B0 {
+movement EmbeddedTowerKyogreRoom_Movement_PlayerWalkDown {
     walk_in_place_down
     walk_down
 }
 
-movement EmbeddedTowerKyogreRoom_Movement_01BC {
+movement EmbeddedTowerKyogreRoom_Movement_HikerWalkUp2 {
     walk_up * 10
     walk_in_place_up
 }
 
-movement EmbeddedTowerKyogreRoom_Movement_01C8 {
+movement EmbeddedTowerKyogreRoom_Movement_PlayerFaceDown {
     walk_in_place_down
 }
 
-movement EmbeddedTowerKyogreRoom_Movement_01D0 {
+movement EmbeddedTowerKyogreRoom_Movement_HikerWalkDown1 {
     walk_in_place_down
     walk_slow_down * 2
     walk_in_place_up
 }
 
-movement EmbeddedTowerKyogreRoom_Movement_01E0 {
+movement EmbeddedTowerKyogreRoom_Movement_HikerWalkUp3 {
     walk_up * 2
     walk_in_place_up
 }
 
-movement EmbeddedTowerKyogreRoom_Movement_01EC {
+movement EmbeddedTowerKyogreRoom_Movement_HikerWalkDown2 {
     walk_down * 8
 }
 
 mapscripts EmbeddedTowerKyogreRoom_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D52R0102_001
-    INIT_SCRIPT_ON_LOAD: scr_seq_D52R0102_002
+    INIT_SCRIPT_ON_TRANSITION: EmbeddedTowerKyogreRoom_OnTransition
+    INIT_SCRIPT_ON_LOAD: EmbeddedTowerKyogreRoom_OnLoad
 }

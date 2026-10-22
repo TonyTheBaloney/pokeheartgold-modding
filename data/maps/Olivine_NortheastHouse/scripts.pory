@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T26R0501_000 {
+script Olivine_NortheastHouse_EventScript_PokefanM {
     simplenpcmsg("Along the way to Cianwood, there are\n"
                  "four deserted islands.\r"
                  "Bad kids are taken to the islands\n"
@@ -9,13 +9,13 @@ script scr_seq_T26R0501_000 {
     end
 }
 
-script scr_seq_T26R0501_001 {
+script Olivine_NortheastHouse_EventScript_Lass {
     simplenpcmsg("Whenever I get in trouble, Daddy\n"
                  "always scares me.")
     end
 }
 
-script scr_seq_T26R0501_002 {
+script Olivine_NortheastHouse_EventScript_LittleGirl {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

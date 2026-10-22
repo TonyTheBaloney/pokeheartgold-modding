@@ -1,9 +1,9 @@
 #ifndef SCR_SEQ_T07GYM0101_H_
 #define SCR_SEQ_T07GYM0101_H_
 
-#define _EV_scr_seq_T07GYM0101_000 0
-#define _EV_scr_seq_T07GYM0101_001 1
-#define _EV_scr_seq_T07GYM0101_002 2
+#define _EV_Celadon_Gym_EventScript_Erika 0
+#define _EV_Celadon_Gym_EventScript_GymSign 1
+#define _EV_Celadon_Gym_OnTransition 2
 
 #define obj_T07GYM0101_tree          0
 #define obj_T07GYM0101_tree_2        1

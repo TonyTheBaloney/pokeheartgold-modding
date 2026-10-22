@@ -1,28 +1,28 @@
 #ifndef SCR_SEQ_D32R0401_H_
 #define SCR_SEQ_D32R0401_H_
 
-#define _EV_scr_seq_D32R0401_000 0
-#define _EV_scr_seq_D32R0401_001 1
-#define _EV_scr_seq_D32R0401_002 2
-#define _EV_scr_seq_D32R0401_003 3
-#define _EV_scr_seq_D32R0401_004 4
-#define _EV_scr_seq_D32R0401_005 5
-#define _EV_scr_seq_D32R0401_006 6
-#define _EV_scr_seq_D32R0401_007 7
-#define _EV_scr_seq_D32R0401_008 8
-#define _EV_scr_seq_D32R0401_009 9
-#define _EV_scr_seq_D32R0401_010 10
-#define _EV_scr_seq_D32R0401_011 11
-#define _EV_scr_seq_D32R0401_012 12
-#define _EV_scr_seq_D32R0401_013 13
-#define _EV_scr_seq_D32R0401_014 14
-#define _EV_scr_seq_D32R0401_015 15
-#define _EV_scr_seq_D32R0401_016 16
-#define _EV_scr_seq_D32R0401_017 17
+#define _EV_BattleFrontier_BattleHall_EventScript_Attendant1 0
+#define _EV_BattleFrontier_BattleHall_EventScript_Scene1 1
+#define _EV_BattleFrontier_BattleHall_EventScript_Scene2 2
+#define _EV_BattleFrontier_BattleHall_EventScript_Scene3 3
+#define _EV_BattleFrontier_BattleHall_EventScript_Scene4 4
+#define _EV_BattleFrontier_BattleHall_EventScript_Attendant2 5
+#define _EV_BattleFrontier_BattleHall_EventScript_Hiker 6
+#define _EV_BattleFrontier_BattleHall_EventScript_Lass 7
+#define _EV_BattleFrontier_BattleHall_EventScript_LittleGirl 8
+#define _EV_BattleFrontier_BattleHall_EventScript_Slowbro 9
+#define _EV_BattleFrontier_BattleHall_EventScript_OldMan 10
+#define _EV_BattleFrontier_BattleHall_EventScript_Idol 11
+#define _EV_BattleFrontier_BattleHall_EventScript_PokefanF 12
+#define _EV_BattleFrontier_BattleHall_EventScript_Beauty 13
+#define _EV_BattleFrontier_BattleHall_EventScript_BugCatcher 14
+#define _EV_BattleFrontier_BattleHall_OnTransition 15
+#define _EV_BattleFrontier_BattleHall_EventScript_Attendant3 16
+#define _EV_BattleFrontier_BattleHall_EventScript_Winston 17
 #define _EV_scr_seq_D32R0401_018 18
-#define _EV_scr_seq_D32R0401_019 19
-#define _EV_scr_seq_D32R0401_020 20
-#define _EV_scr_seq_D32R0401_021 21
+#define _EV_BattleFrontier_BattleHall_EventScript_Ethan 19
+#define _EV_BattleFrontier_BattleHall_OnLoad 20
+#define _EV_BattleFrontier_BattleHall_OnResume 21
 
 #define obj_D32R0401_bfsm                      0
 #define obj_D32R0401_bfsw1                     1

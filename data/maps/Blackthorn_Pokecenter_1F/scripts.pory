@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T30PC0101_000 {
+script Blackthorn_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 3)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T30PC0101_001 {
+script Blackthorn_Pokecenter_1F_EventScript_Gentleman {
     simplenpcmsg("Deep inside far-off Indigo Plateau is\n"
                  "the Pokémon League.\r"
                  "I hear the best Trainers gather there\n"
@@ -15,7 +15,7 @@ script scr_seq_T30PC0101_001 {
     end
 }
 
-script scr_seq_T30PC0101_002 {
+script Blackthorn_Pokecenter_1F_EventScript_LittleGirl {
     simplenpcmsg("There was this move I just had\n"
                  "to teach my Pokémon.\r"
                  "So I got the Move Deleter to make it\n"
@@ -23,7 +23,7 @@ script scr_seq_T30PC0101_002 {
     end
 }
 
-script scr_seq_T30PC0101_003 {
+script Blackthorn_Pokecenter_1F_EventScript_AceTrainerM {
     simplenpcmsg("They say that behind the Pokémon Gym is\n"
                  "a special cave for Gym Leaders to train\f"
                  "themselves.")

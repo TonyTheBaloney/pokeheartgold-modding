@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D40R0107_003 + 1",
+            "script": "WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl2",
             "flag": "FLAG_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D40R0107_003 + 1",
+            "script": "WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl2",
             "flag": "FLAG_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D40R0107_003 + 1",
+            "script": "WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl2",
             "flag": "FLAG_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D40R0107_003 + 1",
+            "script": "WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl2",
             "flag": "FLAG_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D40R0107_001 + 1",
+            "script": "WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl1",
             "flag": "FLAG_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D40R0107_000 + 1",
+            "script": "WhirlIslands_B3F_LugiaCave_EventScript_Lugia",
             "flag": "FLAG_HIDE_WHIRL_ISLAND_LUGIA"
         },
         {
@@ -233,7 +233,7 @@
             "height": 1,
             "var": "VAR_UNK_40FA",
             "var_value": 1,
-            "script": "_EV_scr_seq_D40R0107_005 + 1"
+            "script": "WhirlIslands_B3F_LugiaCave_EventScript_ZukiTrigger"
         }
     ],
     "bg_events": []

@@ -1,10 +1,10 @@
 #ifndef SCR_SEQ_P01R0306_H_
 #define SCR_SEQ_P01R0306_H_
 
-#define _EV_scr_seq_P01R0306_000 0
-#define _EV_scr_seq_P01R0306_001 1
-#define _EV_scr_seq_P01R0306_002 2
-#define _EV_scr_seq_P01R0306_003 3
+#define _EV_SsAqua_1F_NorthwestRooms_EventScript_Gentleman 0
+#define _EV_SsAqua_1F_NorthwestRooms_OnTransition 1
+#define _EV_SsAqua_1F_NorthwestRooms_EventScript_LittleGirl 2
+#define _EV_SsAqua_1F_NorthwestRooms_EventScript_LittleGirlScene 3
 
 #define obj_P01R0306_gsgentleman    0
 #define obj_P01R0306_gsmiddleman1   1

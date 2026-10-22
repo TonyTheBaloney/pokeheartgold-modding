@@ -3,15 +3,15 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D44R0103_000
-    scr_seq_D44R0103_001
-    scr_seq_D44R0103_002
-    scr_seq_D44R0103_003
-    scr_seq_D44R0103_004
-    scr_seq_D44R0103_005
+    DragonsDen_Shrine_EventScript_Elder
+    DragonsDen_Shrine_EventScript_OldMan1
+    DragonsDen_Shrine_EventScript_OldMan2
+    DragonsDen_Shrine_EventScript_ClairScene
+    DragonsDen_Shrine_OnTransition
+    DragonsDen_Shrine_EventScript_PokefanM
 }
 
-script scr_seq_D44R0103_004 {
+script DragonsDen_Shrine_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         if (!flag(FLAG_UNK_0EA)) {
         } else {
@@ -34,13 +34,13 @@ script scr_seq_D44R0103_004 {
     end
 }
 
-script scr_seq_D44R0103_003 {
+script DragonsDen_Shrine_EventScript_ClairScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, DragonsDen_Shrine_Movement_0370)
+    applymovement(obj_player, DragonsDen_Shrine_Movement_PlayerWalkUp1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -129,22 +129,22 @@ _019C:
     playse(SEQ_SE_DP_DOOR)
     wait(5, VAR_SPECIAL_x8004)
     callstd(std_play_clair_music)
-    applymovement(obj_player, DragonsDen_Shrine_Movement_0390)
-    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03A8)
+    applymovement(obj_player, DragonsDen_Shrine_Movement_PlayerExclamation)
+    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_ClairWalkUpLeft)
     waitmovement
     npcmsg("So how did it go?\r"
            "I guess there’s no point in asking.\n"
            "You did fail?\f"
            "...\f"
            "...What? You passed?\r")
-    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03C0)
+    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_ClairWalkLeft1)
     waitmovement
     npcmsg("{SIZE 200}That can’t be!{SIZE 100}\r")
-    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03D0)
+    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_ClairWalkLeft2)
     waitmovement
     npcmsg("You’re lying!\n"
            "Even I haven’t been approved!\r")
-    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_03DC)
+    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_ElderWalkDownLeft)
     waitmovement
     npcmsg("Clair!\r"
            "This child is impeccable,\n"
@@ -152,11 +152,11 @@ _019C:
            "Admit defeat and confer the\n"
            "Rising Badge!\r"
            "...Or must I inform Lance of this?\r")
-    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03EC)
+    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_ClairExclamation)
     waitmovement
     npcmsg("I... I understand...\r")
-    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_03F4)
-    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_03FC)
+    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_ClairWalkRight)
+    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_ElderFaceRight2)
     waitmovement
     npcmsg("Here, this is the Rising Badge...\n"
            "Hurry up! Take it!\r")
@@ -172,9 +172,9 @@ _019C:
            "Also, all Pokémon will know you as\n"
            "a Trainer and obey your every\f"
            "command without question.\r")
-    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_0408)
-    applymovement(obj_player, DragonsDen_Shrine_Movement_0418)
-    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_0424)
+    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_ElderWalkUpRight)
+    applymovement(obj_player, DragonsDen_Shrine_Movement_PlayerFaceUp)
+    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_ClairMove)
     waitmovement
     npcmsg("Clair...\r"
            "Reflect upon what it is that you\n"
@@ -184,12 +184,12 @@ _019C:
     npcmsg("...\n"
            "...\r")
     closemessage
-    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_0434)
+    applymovement(obj_D44R0103_gsleader8, DragonsDen_Shrine_Movement_ClairWalkDownRight)
     waitmovement
     removeobject(obj_D44R0103_gsleader8)
     callstd(std_fade_end_clair_music)
     waitfanfare
-    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_0450)
+    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_ElderFaceDown2)
     waitmovement
     getgameversion(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 7) {
@@ -223,10 +223,10 @@ _019C:
     end
 _0310:
     setflag(FLAG_FAILED_DRAGONS_DEN_QUIZ)
-    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_0378)
+    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_ElderFaceRight1)
     waitmovement
     npcmsg("Hah? I didn’t quite catch that...\r")
-    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_0388)
+    applymovement(obj_D44R0103_chourou, DragonsDen_Shrine_Movement_ElderFaceDown1)
     waitmovement
     npcmsg("What was it you said?")
     waitabpress
@@ -251,21 +251,21 @@ text msg_0130_D44R0103_00020 {
     "Just mad words of the old.\n"
 }
 
-movement DragonsDen_Shrine_Movement_0370 {
+movement DragonsDen_Shrine_Movement_PlayerWalkUp1 {
     walk_up * 8
 }
 
-movement DragonsDen_Shrine_Movement_0378 {
+movement DragonsDen_Shrine_Movement_ElderFaceRight1 {
     delay_8 * 2
     face_right
     delay_8 * 2
 }
 
-movement DragonsDen_Shrine_Movement_0388 {
+movement DragonsDen_Shrine_Movement_ElderFaceDown1 {
     face_down
 }
 
-movement DragonsDen_Shrine_Movement_0390 {
+movement DragonsDen_Shrine_Movement_PlayerExclamation {
     delay_8
     emote_exclamation_mark
     face_down
@@ -273,7 +273,7 @@ movement DragonsDen_Shrine_Movement_0390 {
     face_left
 }
 
-movement DragonsDen_Shrine_Movement_03A8 {
+movement DragonsDen_Shrine_Movement_ClairWalkUpLeft {
     delay_8 * 4
     walk_up * 8
     walk_left
@@ -281,54 +281,54 @@ movement DragonsDen_Shrine_Movement_03A8 {
     face_right
 }
 
-movement DragonsDen_Shrine_Movement_03C0 {
+movement DragonsDen_Shrine_Movement_ClairWalkLeft1 {
     delay_8
     lock_dir
     walk_fast_left
 }
 
-movement DragonsDen_Shrine_Movement_03D0 {
+movement DragonsDen_Shrine_Movement_ClairWalkLeft2 {
     delay_8
     walk_slow_left
 }
 
-movement DragonsDen_Shrine_Movement_03DC {
+movement DragonsDen_Shrine_Movement_ElderWalkDownLeft {
     delay_8
     walk_slow_down
     walk_slow_left
 }
 
-movement DragonsDen_Shrine_Movement_03EC {
+movement DragonsDen_Shrine_Movement_ClairExclamation {
     emote_exclamation_mark
 }
 
-movement DragonsDen_Shrine_Movement_03F4 {
+movement DragonsDen_Shrine_Movement_ClairWalkRight {
     walk_right * 2
 }
 
-movement DragonsDen_Shrine_Movement_03FC {
+movement DragonsDen_Shrine_Movement_ElderFaceRight2 {
     delay_8 * 2
     face_right
 }
 
-movement DragonsDen_Shrine_Movement_0408 {
+movement DragonsDen_Shrine_Movement_ElderWalkUpRight {
     walk_slow_up
     walk_slow_right
     face_down
 }
 
-movement DragonsDen_Shrine_Movement_0418 {
+movement DragonsDen_Shrine_Movement_PlayerFaceUp {
     delay_16 * 2
     face_up
 }
 
-movement DragonsDen_Shrine_Movement_0424 {
+movement DragonsDen_Shrine_Movement_ClairMove {
     unlock_dir
     delay_16 * 2
     face_up
 }
 
-movement DragonsDen_Shrine_Movement_0434 {
+movement DragonsDen_Shrine_Movement_ClairWalkDownRight {
     lock_dir
     walk_down
     unlock_dir
@@ -337,11 +337,11 @@ movement DragonsDen_Shrine_Movement_0434 {
     walk_faster_down * 4
 }
 
-movement DragonsDen_Shrine_Movement_0450 {
+movement DragonsDen_Shrine_Movement_ElderFaceDown2 {
     walk_in_place_down
 }
 
-script scr_seq_D44R0103_000 {
+script DragonsDen_Shrine_EventScript_Elder {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -422,7 +422,7 @@ _0548:
     end
 }
 
-script scr_seq_D44R0103_001 {
+script DragonsDen_Shrine_EventScript_OldMan1 {
     simplenpcmsg("It’s been quite some time since a\n"
                  "Trainer has gained our Master’s\f"
                  "rare approval.\r"
@@ -430,7 +430,7 @@ script scr_seq_D44R0103_001 {
     end
 }
 
-script scr_seq_D44R0103_002 {
+script DragonsDen_Shrine_EventScript_OldMan2 {
     simplenpcmsg("You know young Master Lance?\r"
                  "He looks so much like our Master\n"
                  "did in his youth.\f"
@@ -438,7 +438,7 @@ script scr_seq_D44R0103_002 {
     end
 }
 
-script scr_seq_D44R0103_005 {
+script DragonsDen_Shrine_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -472,16 +472,16 @@ script scr_seq_D44R0103_005 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, DragonsDen_Shrine_Movement_06C8)
-        applymovement(obj_D44R0103_gsmiddleman1, DragonsDen_Shrine_Movement_0714)
+        applymovement(obj_player, DragonsDen_Shrine_Movement_PlayerWalkRightUp)
+        applymovement(obj_D44R0103_gsmiddleman1, DragonsDen_Shrine_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, DragonsDen_Shrine_Movement_06E0)
+        applymovement(obj_player, DragonsDen_Shrine_Movement_PlayerWalkUp2)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, DragonsDen_Shrine_Movement_0700)
-        applymovement(obj_D44R0103_gsmiddleman1, DragonsDen_Shrine_Movement_0714)
+        applymovement(obj_player, DragonsDen_Shrine_Movement_PlayerWalkUpRight)
+        applymovement(obj_D44R0103_gsmiddleman1, DragonsDen_Shrine_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, DragonsDen_Shrine_Movement_06EC)
-        applymovement(obj_D44R0103_gsmiddleman1, DragonsDen_Shrine_Movement_0714)
+        applymovement(obj_player, DragonsDen_Shrine_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D44R0103_gsmiddleman1, DragonsDen_Shrine_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -489,7 +489,7 @@ script scr_seq_D44R0103_005 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, DragonsDen_Shrine_Movement_0720)
+        applymovement(obj_partner_poke, DragonsDen_Shrine_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -508,7 +508,7 @@ script scr_seq_D44R0103_005 {
     end
 }
 
-movement DragonsDen_Shrine_Movement_06C8 {
+movement DragonsDen_Shrine_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -516,31 +516,31 @@ movement DragonsDen_Shrine_Movement_06C8 {
     walk_in_place_down
 }
 
-movement DragonsDen_Shrine_Movement_06E0 {
+movement DragonsDen_Shrine_Movement_PlayerWalkUp2 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement DragonsDen_Shrine_Movement_06EC {
+movement DragonsDen_Shrine_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement DragonsDen_Shrine_Movement_0700 {
+movement DragonsDen_Shrine_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement DragonsDen_Shrine_Movement_0714 {
+movement DragonsDen_Shrine_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement DragonsDen_Shrine_Movement_0720 {
+movement DragonsDen_Shrine_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
@@ -548,7 +548,7 @@ movement DragonsDen_Shrine_Movement_0720 {
 
 mapscripts DragonsDen_Shrine_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40C3, 0: scr_seq_D44R0103_003
+        VAR_UNK_40C3, 0: DragonsDen_Shrine_EventScript_ClairScene
     ]
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D44R0103_004
+    INIT_SCRIPT_ON_TRANSITION: DragonsDen_Shrine_OnTransition
 }

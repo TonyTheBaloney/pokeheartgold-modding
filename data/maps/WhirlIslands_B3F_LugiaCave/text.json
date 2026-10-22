@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0125_D40R0107_00000",
-      "from": "scr_seq_D40R0107_005#0"
+      "from": "WhirlIslands_B3F_LugiaCave_EventScript_ZukiTrigger#0"
     },
     {
       "id": "msg_0125_D40R0107_00001",
@@ -11,27 +11,27 @@
     },
     {
       "id": "msg_0125_D40R0107_00002",
-      "from": "scr_seq_D40R0107_005#1"
+      "from": "WhirlIslands_B3F_LugiaCave_EventScript_ZukiTrigger#1"
     },
     {
       "id": "msg_0125_D40R0107_00003",
-      "from": "scr_seq_D40R0107_005#2"
+      "from": "WhirlIslands_B3F_LugiaCave_EventScript_ZukiTrigger#2"
     },
     {
       "id": "msg_0125_D40R0107_00004",
-      "from": "scr_seq_D40R0107_000#0"
+      "from": "WhirlIslands_B3F_LugiaCave_EventScript_Lugia#0"
     },
     {
       "id": "msg_0125_D40R0107_00005",
-      "from": "scr_seq_D40R0107_003#0"
+      "from": "WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl2#0"
     },
     {
       "id": "msg_0125_D40R0107_00006",
-      "from": "scr_seq_D40R0107_001#0"
+      "from": "WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl1#0"
     },
     {
       "id": "msg_0125_D40R0107_00007",
-      "from": "scr_seq_D40R0107_001#1"
+      "from": "WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl1#1"
     },
     {
       "id": "msg_0125_D40R0107_00008",

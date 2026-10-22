@@ -1,12 +1,12 @@
 #ifndef SCR_SEQ_T30GYM0101_H_
 #define SCR_SEQ_T30GYM0101_H_
 
-#define _EV_scr_seq_T30GYM0101_000 0
-#define _EV_scr_seq_T30GYM0101_001 1
-#define _EV_scr_seq_T30GYM0101_002 2
-#define _EV_scr_seq_T30GYM0101_003 3
-#define _EV_scr_seq_T30GYM0101_004 4
-#define _EV_scr_seq_T30GYM0101_005 5
+#define _EV_Blackthorn_Gym_EventScript_Clair 0
+#define _EV_Blackthorn_Gym_OnTransition 1
+#define _EV_Blackthorn_Gym_EventScript_WarpToBlackthornGym 2
+#define _EV_Blackthorn_Gym_EventScript_GymGuide 3
+#define _EV_Blackthorn_Gym_EventScript_GymGuideTrigger 4
+#define _EV_Blackthorn_Gym_EventScript_GymSign 5
 
 #define obj_T30GYM0101_gsleader8  0
 #define obj_T30GYM0101_gsman3     1

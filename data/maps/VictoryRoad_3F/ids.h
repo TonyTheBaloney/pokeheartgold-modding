@@ -1,13 +1,13 @@
 #ifndef SCR_SEQ_D43R0103_H_
 #define SCR_SEQ_D43R0103_H_
 
-#define _EV_scr_seq_D43R0103_000 0
-#define _EV_scr_seq_D43R0103_001 1
-#define _EV_scr_seq_D43R0103_002 2
-#define _EV_scr_seq_D43R0103_003 3
-#define _EV_scr_seq_D43R0103_004 4
-#define _EV_scr_seq_D43R0103_005 5
-#define _EV_scr_seq_D43R0103_006 6
+#define _EV_VictoryRoad_3F_EventScript_RivalTrigger 0
+#define _EV_VictoryRoad_3F_EventScript_Rival 1
+#define _EV_VictoryRoad_3F_EventScript_Trigger1 2
+#define _EV_VictoryRoad_3F_EventScript_Trigger2 3
+#define _EV_VictoryRoad_3F_EventScript_Trigger3 4
+#define _EV_VictoryRoad_3F_EventScript_Trigger4 5
+#define _EV_VictoryRoad_3F_EventScript_WarpToVictoryRoad2F 6
 
 #define obj_D43R0103_gsrivel       0
 #define obj_D43R0103_monstarball   1

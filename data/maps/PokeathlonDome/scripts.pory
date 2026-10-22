@@ -3,33 +3,33 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D49_000
-    scr_seq_D49_001
-    scr_seq_D49_002
-    scr_seq_D49_003
-    scr_seq_D49_004
-    scr_seq_D49_005
-    scr_seq_D49_006
-    scr_seq_D49_007
-    scr_seq_D49_008
-    scr_seq_D49_009
-    scr_seq_D49_010
-    scr_seq_D49_011
-    scr_seq_D49_012
-    scr_seq_D49_013
-    scr_seq_D49_014
-    scr_seq_D49_015
-    scr_seq_D49_016
-    scr_seq_D49_017
-    scr_seq_D49_018
-    scr_seq_D49_019
-    scr_seq_D49_020
-    scr_seq_D49_021
-    scr_seq_D49_022
-    scr_seq_D49_023
+    PokeathlonDome_EventScript_OddishTrigger
+    PokeathlonDome_EventScript_Youngster
+    PokeathlonDome_EventScript_Lass
+    PokeathlonDome_EventScript_PokefanF
+    PokeathlonDome_EventScript_Woman
+    PokeathlonDome_EventScript_AceTrainerM1
+    PokeathlonDome_EventScript_AceTrainerM2
+    PokeathlonDome_EventScript_Oddish
+    PokeathlonDome_EventScript_Meowth
+    PokeathlonDome_EventScript_Pidgey
+    PokeathlonDome_EventScript_Slowbro
+    PokeathlonDome_EventScript_Machop
+    PokeathlonDome_EventScript_Slowpoke
+    PokeathlonDome_EventScript_Farfetchd
+    PokeathlonDome_EventScript_Psyduck
+    PokeathlonDome_EventScript_Clerk
+    PokeathlonDome_EventScript_PokefanM1
+    PokeathlonDome_EventScript_PokefanM2
+    PokeathlonDome_OnTransition
+    PokeathlonDome_EventScript_Sign1
+    PokeathlonDome_EventScript_Sign2
+    PokeathlonDome_EventScript_Sign3
+    PokeathlonDome_EventScript_ItImprovesYourPokemonsSign
+    PokeathlonDome_EventScript_TrainerTips
 }
 
-script scr_seq_D49_018 {
+script PokeathlonDome_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 1) { goto(_00C2) }
@@ -53,43 +53,43 @@ script scr_seq_D49_018 {
     end
 }
 
-script scr_seq_D49_000 {
+script PokeathlonDome_EventScript_OddishTrigger {
     followmonresetmovement
     lockall
     release(obj_D49_tsure_poke_static_oddish)
     release(obj_D49_gsboy2)
-    applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0414)
+    applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusExclamation)
     waitmovement
     npcmsg("Muhaha!\r")
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 40) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_043C)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_04A8)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkDownLeft2)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkRightDown2)
     } elif (var(VAR_TEMP_x4000) == 41) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_044C)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_04BC)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkDownLeft3)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkRightDown3)
     } elif (var(VAR_TEMP_x4000) == 42) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_045C)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_04D0)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkDown2)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkRightDown4)
     } elif (var(VAR_TEMP_x4000) == 43) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0464)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_04DC)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkDownRight1)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkRightDown5)
     } elif (var(VAR_TEMP_x4000) == 44) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0474)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_04F0)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkDownRight2)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkRightDown6)
     } elif (var(VAR_TEMP_x4000) == 39) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_042C)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_0494)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkDownLeft1)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkRightDown1)
     } else {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0484)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_0504)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkDownRight3)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkRightDown7)
     }
     waitmovement
     npcmsg("Hmmm...\r")
     closemessage
-    applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0424)
-    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_0424)
+    applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkDown1)
+    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_MagnusWalkDown1)
     waitmovement
     playeronbikecheck(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
@@ -122,33 +122,33 @@ script scr_seq_D49_000 {
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_TEMP_x4000) == 40) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0528)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_05A0)
-        applymovement(obj_player, PokeathlonDome_Movement_0658)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkRightUp2)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkDownRight2)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpRight2)
     } elif (var(VAR_TEMP_x4000) == 41) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0538)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_05BC)
-        applymovement(obj_player, PokeathlonDome_Movement_066C)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkRightUp3)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkDownRight3)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpRight3)
     } elif (var(VAR_TEMP_x4000) == 42) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0548)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_05D8)
-        applymovement(obj_player, PokeathlonDome_Movement_0680)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkUp1)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkDownUp)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUp1)
     } elif (var(VAR_TEMP_x4000) == 43) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0554)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_05F0)
-        applymovement(obj_player, PokeathlonDome_Movement_068C)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkLeftUp1)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkDownLeft1)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpLeft1)
     } elif (var(VAR_TEMP_x4000) == 44) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0564)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_060C)
-        applymovement(obj_player, PokeathlonDome_Movement_06A0)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkLeftUp2)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkDownLeft2)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpLeft2)
     } elif (var(VAR_TEMP_x4000) == 39) {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0518)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_0584)
-        applymovement(obj_player, PokeathlonDome_Movement_0644)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkRightUp1)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkDownRight1)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpRight1)
     } else {
-        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_0574)
-        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_0628)
-        applymovement(obj_player, PokeathlonDome_Movement_06B4)
+        applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkLeftUp3)
+        applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkDownLeft3)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpLeft3)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -159,7 +159,7 @@ script scr_seq_D49_000 {
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
-    applymovement(241, PokeathlonDome_Movement_0400)
+    applymovement(241, PokeathlonDome_Movement_ObjectWalkUp)
     waitmovement
     npcmsg("Pokéathlon is a sports festival for\n"
            "Trainers and Pokémon!\r"
@@ -168,7 +168,7 @@ script scr_seq_D49_000 {
            "their friendship.\f"
            "Why don’t you try it?\r")
     closemessage
-    applymovement(241, PokeathlonDome_Movement_0408)
+    applymovement(241, PokeathlonDome_Movement_ObjectWalkDown)
     waitmovement
     removecameratarget
     npcmsg("You’re amazing, bud!\n"
@@ -180,23 +180,23 @@ script scr_seq_D49_000 {
            "We shall meet again, bud.\r"
            "Magnus: See you, young Pokéathlete!\r")
     closemessage
-    applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_06C8)
-    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_06D0)
+    applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkUp2)
+    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkRightUp)
     waitmovement
     dooranimationload(1, 0, 10, 22, 77)
     dooranimationopen(77)
     dooranimationwait(77)
-    applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_06DC)
-    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_06E4)
+    applymovement(obj_D49_thlonowner, PokeathlonDome_Movement_MagnusWalkUp3)
+    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkUp)
     waitmovement
     removeobject(obj_D49_thlonowner)
     playse(SEQ_SE_DP_KAIDAN2)
     waitse(SEQ_SE_DP_KAIDAN2)
-    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_041C)
+    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathFaceDown)
     waitmovement
     playcry(SPECIES_POLIWRATH, 0)
     waitcry
-    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_06E4)
+    applymovement(obj_D49_tsure_poke_static_poliwrath, PokeathlonDome_Movement_PoliwrathWalkUp)
     waitmovement
     removeobject(obj_D49_tsure_poke_static_poliwrath)
     playse(SEQ_SE_DP_KAIDAN2)
@@ -211,156 +211,156 @@ script scr_seq_D49_000 {
     end
 }
 
-movement PokeathlonDome_Movement_0400 {
+movement PokeathlonDome_Movement_ObjectWalkUp {
     walk_up * 10
 }
 
-movement PokeathlonDome_Movement_0408 {
+movement PokeathlonDome_Movement_ObjectWalkDown {
     delay_32
     walk_slightly_fast_down * 10
 }
 
-movement PokeathlonDome_Movement_0414 {
+movement PokeathlonDome_Movement_MagnusExclamation {
     emote_exclamation_mark
 }
 
-movement PokeathlonDome_Movement_041C {
+movement PokeathlonDome_Movement_PoliwrathFaceDown {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0424 {
+movement PokeathlonDome_Movement_MagnusWalkDown1 {
     walk_fast_down
 }
 
-movement PokeathlonDome_Movement_042C {
+movement PokeathlonDome_Movement_MagnusWalkDownLeft1 {
     walk_slightly_fast_down * 2
     walk_slightly_fast_left * 3
     walk_slightly_fast_down
 }
 
-movement PokeathlonDome_Movement_043C {
+movement PokeathlonDome_Movement_MagnusWalkDownLeft2 {
     walk_slightly_fast_down * 2
     walk_slightly_fast_left * 2
     walk_slightly_fast_down
 }
 
-movement PokeathlonDome_Movement_044C {
+movement PokeathlonDome_Movement_MagnusWalkDownLeft3 {
     walk_slightly_fast_down * 2
     walk_slightly_fast_left
     walk_slightly_fast_down
 }
 
-movement PokeathlonDome_Movement_045C {
+movement PokeathlonDome_Movement_MagnusWalkDown2 {
     walk_slightly_fast_down * 3
 }
 
-movement PokeathlonDome_Movement_0464 {
+movement PokeathlonDome_Movement_MagnusWalkDownRight1 {
     walk_slightly_fast_down * 2
     walk_slightly_fast_right
     walk_slightly_fast_down
 }
 
-movement PokeathlonDome_Movement_0474 {
+movement PokeathlonDome_Movement_MagnusWalkDownRight2 {
     walk_slightly_fast_down * 2
     walk_slightly_fast_right * 2
     walk_slightly_fast_down
 }
 
-movement PokeathlonDome_Movement_0484 {
+movement PokeathlonDome_Movement_MagnusWalkDownRight3 {
     walk_slightly_fast_down * 2
     walk_slightly_fast_right * 3
     walk_slightly_fast_down
 }
 
-movement PokeathlonDome_Movement_0494 {
+movement PokeathlonDome_Movement_PoliwrathWalkRightDown1 {
     walk_slightly_fast_right
     walk_slightly_fast_down * 2
     walk_slightly_fast_left * 3
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_04A8 {
+movement PokeathlonDome_Movement_PoliwrathWalkRightDown2 {
     walk_slightly_fast_right
     walk_slightly_fast_down * 2
     walk_slightly_fast_left * 2
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_04BC {
+movement PokeathlonDome_Movement_PoliwrathWalkRightDown3 {
     walk_slightly_fast_right
     walk_slightly_fast_down * 2
     walk_slightly_fast_left
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_04D0 {
+movement PokeathlonDome_Movement_PoliwrathWalkRightDown4 {
     walk_slightly_fast_right
     walk_slightly_fast_down * 2
 }
 
-movement PokeathlonDome_Movement_04DC {
+movement PokeathlonDome_Movement_PoliwrathWalkRightDown5 {
     walk_slightly_fast_right
     walk_slightly_fast_down * 2
     walk_slightly_fast_right
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_04F0 {
+movement PokeathlonDome_Movement_PoliwrathWalkRightDown6 {
     walk_slightly_fast_right
     walk_slightly_fast_down * 2
     walk_slightly_fast_right * 2
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0504 {
+movement PokeathlonDome_Movement_PoliwrathWalkRightDown7 {
     walk_slightly_fast_right
     walk_slightly_fast_down * 2
     walk_slightly_fast_right * 3
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0518 {
+movement PokeathlonDome_Movement_MagnusWalkRightUp1 {
     walk_right * 3
     walk_up * 21
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0528 {
+movement PokeathlonDome_Movement_MagnusWalkRightUp2 {
     walk_right * 2
     walk_up * 21
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0538 {
+movement PokeathlonDome_Movement_MagnusWalkRightUp3 {
     walk_right
     walk_up * 21
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0548 {
+movement PokeathlonDome_Movement_MagnusWalkUp1 {
     walk_up * 21
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0554 {
+movement PokeathlonDome_Movement_MagnusWalkLeftUp1 {
     walk_left
     walk_up * 21
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0564 {
+movement PokeathlonDome_Movement_MagnusWalkLeftUp2 {
     walk_left * 2
     walk_up * 21
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0574 {
+movement PokeathlonDome_Movement_MagnusWalkLeftUp3 {
     walk_left * 3
     walk_up * 21
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0584 {
+movement PokeathlonDome_Movement_PoliwrathWalkDownRight1 {
     walk_down
     walk_right * 3
     walk_up * 20
@@ -369,7 +369,7 @@ movement PokeathlonDome_Movement_0584 {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_05A0 {
+movement PokeathlonDome_Movement_PoliwrathWalkDownRight2 {
     walk_down
     walk_right * 2
     walk_up * 20
@@ -378,7 +378,7 @@ movement PokeathlonDome_Movement_05A0 {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_05BC {
+movement PokeathlonDome_Movement_PoliwrathWalkDownRight3 {
     walk_down
     walk_right
     walk_up * 20
@@ -387,7 +387,7 @@ movement PokeathlonDome_Movement_05BC {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_05D8 {
+movement PokeathlonDome_Movement_PoliwrathWalkDownUp {
     walk_down
     walk_up * 20
     walk_left
@@ -395,7 +395,7 @@ movement PokeathlonDome_Movement_05D8 {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_05F0 {
+movement PokeathlonDome_Movement_PoliwrathWalkDownLeft1 {
     walk_down
     walk_left
     walk_up * 20
@@ -404,7 +404,7 @@ movement PokeathlonDome_Movement_05F0 {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_060C {
+movement PokeathlonDome_Movement_PoliwrathWalkDownLeft2 {
     walk_down
     walk_left * 2
     walk_up * 20
@@ -413,7 +413,7 @@ movement PokeathlonDome_Movement_060C {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0628 {
+movement PokeathlonDome_Movement_PoliwrathWalkDownLeft3 {
     walk_down
     walk_left * 3
     walk_up * 20
@@ -422,78 +422,78 @@ movement PokeathlonDome_Movement_0628 {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0644 {
+movement PokeathlonDome_Movement_PlayerWalkUpRight1 {
     delay_8 * 2
     walk_up
     walk_right * 3
     walk_up * 19
 }
 
-movement PokeathlonDome_Movement_0658 {
+movement PokeathlonDome_Movement_PlayerWalkUpRight2 {
     delay_8 * 2
     walk_up
     walk_right * 2
     walk_up * 19
 }
 
-movement PokeathlonDome_Movement_066C {
+movement PokeathlonDome_Movement_PlayerWalkUpRight3 {
     delay_8 * 2
     walk_up
     walk_right
     walk_up * 19
 }
 
-movement PokeathlonDome_Movement_0680 {
+movement PokeathlonDome_Movement_PlayerWalkUp1 {
     delay_8 * 2
     walk_up * 20
 }
 
-movement PokeathlonDome_Movement_068C {
+movement PokeathlonDome_Movement_PlayerWalkUpLeft1 {
     delay_8 * 2
     walk_up
     walk_left
     walk_up * 19
 }
 
-movement PokeathlonDome_Movement_06A0 {
+movement PokeathlonDome_Movement_PlayerWalkUpLeft2 {
     delay_8 * 2
     walk_up
     walk_left * 2
     walk_up * 19
 }
 
-movement PokeathlonDome_Movement_06B4 {
+movement PokeathlonDome_Movement_PlayerWalkUpLeft3 {
     delay_8 * 2
     walk_up
     walk_left * 3
     walk_up * 19
 }
 
-movement PokeathlonDome_Movement_06C8 {
+movement PokeathlonDome_Movement_MagnusWalkUp2 {
     walk_up * 2
 }
 
-movement PokeathlonDome_Movement_06D0 {
+movement PokeathlonDome_Movement_PoliwrathWalkRightUp {
     walk_right
     walk_up
 }
 
-movement PokeathlonDome_Movement_06DC {
+movement PokeathlonDome_Movement_MagnusWalkUp3 {
     walk_up
 }
 
-movement PokeathlonDome_Movement_06E4 {
+movement PokeathlonDome_Movement_PoliwrathWalkUp {
     walk_up
 }
 
-script scr_seq_D49_001 {
+script PokeathlonDome_EventScript_Youngster {
     simplenpcmsg("Running and jumping and...\n"
                  "There are so many events for Pokémon\f"
                  "to choose from. Which one should I try?")
     end
 }
 
-script scr_seq_D49_007 {
+script PokeathlonDome_EventScript_Oddish {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -506,12 +506,12 @@ script scr_seq_D49_007 {
     end
 }
 
-script scr_seq_D49_002 {
+script PokeathlonDome_EventScript_Lass {
     simplenpcmsg("There is more to Pokémon than battling!")
     end
 }
 
-script scr_seq_D49_008 {
+script PokeathlonDome_EventScript_Meowth {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -524,7 +524,7 @@ script scr_seq_D49_008 {
     end
 }
 
-script scr_seq_D49_003 {
+script PokeathlonDome_EventScript_PokefanF {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -578,7 +578,7 @@ script scr_seq_D49_003 {
     end
 }
 
-script scr_seq_D49_009 {
+script PokeathlonDome_EventScript_Pidgey {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -591,7 +591,7 @@ script scr_seq_D49_009 {
     end
 }
 
-script scr_seq_D49_004 {
+script PokeathlonDome_EventScript_Woman {
     simplenpcmsg("Have you heard of Aprijuice?\r"
                  "Pokémon can increase their Performance\n"
                  "with food and drink.\r"
@@ -604,7 +604,7 @@ script scr_seq_D49_004 {
     end
 }
 
-script scr_seq_D49_010 {
+script PokeathlonDome_EventScript_Slowbro {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -617,7 +617,7 @@ script scr_seq_D49_010 {
     end
 }
 
-script scr_seq_D49_005 {
+script PokeathlonDome_EventScript_AceTrainerM1 {
     simplenpcmsg("Each Pokémon has its unique traits.\r"
                  "A true Pokéathlete knows them and lets\n"
                  "the true Performance of his or her\f"
@@ -625,7 +625,7 @@ script scr_seq_D49_005 {
     end
 }
 
-script scr_seq_D49_011 {
+script PokeathlonDome_EventScript_Machop {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -638,7 +638,7 @@ script scr_seq_D49_011 {
     end
 }
 
-script scr_seq_D49_006 {
+script PokeathlonDome_EventScript_AceTrainerM2 {
     simplenpcmsg("Oh!\n"
                  "They look good today!\r"
                  "They weren’t so well yesterday, but\n"
@@ -646,7 +646,7 @@ script scr_seq_D49_006 {
     end
 }
 
-script scr_seq_D49_012 {
+script PokeathlonDome_EventScript_Slowpoke {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -659,7 +659,7 @@ script scr_seq_D49_012 {
     end
 }
 
-script scr_seq_D49_013 {
+script PokeathlonDome_EventScript_Farfetchd {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -672,7 +672,7 @@ script scr_seq_D49_013 {
     end
 }
 
-script scr_seq_D49_014 {
+script PokeathlonDome_EventScript_Psyduck {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -685,7 +685,7 @@ script scr_seq_D49_014 {
     end
 }
 
-script scr_seq_D49_015 {
+script PokeathlonDome_EventScript_Clerk {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -772,7 +772,7 @@ _08D1:
         goto(_08D1)
         end
     _095F:
-        applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_09D4)
+        applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_ClerkExclamation)
         waitmovement
         npcmsg("Hi! What can I do for you?\r")
         closemessage
@@ -780,17 +780,17 @@ _08D1:
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
         if (var(VAR_TEMP_x4007) == 0) {
-            applymovement(obj_player, PokeathlonDome_Movement_09E0)
+            applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkRight1)
         } elif (var(VAR_TEMP_x4007) == 1) {
-            applymovement(obj_player, PokeathlonDome_Movement_09EC)
+            applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkRight2)
         } else {
-            applymovement(obj_player, PokeathlonDome_Movement_09F8)
+            applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkRight3)
         }
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
         followingpokemonmovement(48)
-        applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_0BF4)
+        applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_ClerkFaceDown)
         waitmovement
         goto(_093E)
         end
@@ -801,27 +801,27 @@ _08D1:
     end
 }
 
-movement PokeathlonDome_Movement_09D4 {
+movement PokeathlonDome_Movement_ClerkExclamation {
     face_left
     emote_exclamation_mark
 }
 
-movement PokeathlonDome_Movement_09E0 {
+movement PokeathlonDome_Movement_PlayerWalkRight1 {
     walk_right * 3
     walk_in_place_up
 }
 
-movement PokeathlonDome_Movement_09EC {
+movement PokeathlonDome_Movement_PlayerWalkRight2 {
     walk_right * 2
     walk_in_place_up
 }
 
-movement PokeathlonDome_Movement_09F8 {
+movement PokeathlonDome_Movement_PlayerWalkRight3 {
     walk_right
     walk_in_place_up
 }
 
-script scr_seq_D49_019 {
+script PokeathlonDome_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -830,7 +830,7 @@ script scr_seq_D49_019 {
 _0A1D:
     showmoneybox(21, 1)
     getapricornjuiceoffer(VAR_TEMP_x4007, VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_x8002)
-    applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_0BEC)
+    applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_ClerkFaceLeft)
     waitmovement
     npcmsg("So discerning of you!\n"
            "{STRVAR_1 3, 0, 0}’s {STRVAR_1 8, 1, 0}!\f"
@@ -944,7 +944,7 @@ _0A3A:
 _0AD9:
     closemessage
     hidemoneybox
-    applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_0BF4)
+    applymovement(obj_D49_shopm1_2, PokeathlonDome_Movement_ClerkFaceDown)
     waitmovement
     releaseall
     end
@@ -954,7 +954,7 @@ _0AEB:
     end
 }
 
-script scr_seq_D49_020 {
+script PokeathlonDome_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -964,7 +964,7 @@ script scr_seq_D49_020 {
     end
 }
 
-script scr_seq_D49_021 {
+script PokeathlonDome_EventScript_Sign3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -974,22 +974,22 @@ script scr_seq_D49_021 {
     end
 }
 
-script scr_seq_D49_022 {
+script PokeathlonDome_EventScript_ItImprovesYourPokemonsSign {
     simplenpcmsg("It improves your Pokémon’s\n"
                  "Performance!\r"
                  "Let it shine its best with Aprijuice!")
     end
 }
 
-movement PokeathlonDome_Movement_0BEC {
+movement PokeathlonDome_Movement_ClerkFaceLeft {
     walk_in_place_left
 }
 
-movement PokeathlonDome_Movement_0BF4 {
+movement PokeathlonDome_Movement_ClerkFaceDown {
     walk_in_place_down
 }
 
-script scr_seq_D49_016 {
+script PokeathlonDome_EventScript_PokefanM1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1009,16 +1009,16 @@ script scr_seq_D49_016 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, PokeathlonDome_Movement_0E6C)
-        applymovement(obj_D49_gsmiddleman1, PokeathlonDome_Movement_0EB8)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkRightUp)
+        applymovement(obj_D49_gsmiddleman1, PokeathlonDome_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, PokeathlonDome_Movement_0E84)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUp2)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, PokeathlonDome_Movement_0EA4)
-        applymovement(obj_D49_gsmiddleman1, PokeathlonDome_Movement_0EB8)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpRight4)
+        applymovement(obj_D49_gsmiddleman1, PokeathlonDome_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, PokeathlonDome_Movement_0E90)
-        applymovement(obj_D49_gsmiddleman1, PokeathlonDome_Movement_0EB8)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpLeft4)
+        applymovement(obj_D49_gsmiddleman1, PokeathlonDome_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -1026,7 +1026,7 @@ script scr_seq_D49_016 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, PokeathlonDome_Movement_0EC4)
+        applymovement(obj_partner_poke, PokeathlonDome_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -1045,7 +1045,7 @@ script scr_seq_D49_016 {
     end
 }
 
-script scr_seq_D49_017 {
+script PokeathlonDome_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1065,16 +1065,16 @@ script scr_seq_D49_017 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, PokeathlonDome_Movement_0E6C)
-        applymovement(obj_D49_gsmiddleman1_2, PokeathlonDome_Movement_0EB8)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkRightUp)
+        applymovement(obj_D49_gsmiddleman1_2, PokeathlonDome_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, PokeathlonDome_Movement_0E84)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUp2)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, PokeathlonDome_Movement_0EA4)
-        applymovement(obj_D49_gsmiddleman1_2, PokeathlonDome_Movement_0EB8)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpRight4)
+        applymovement(obj_D49_gsmiddleman1_2, PokeathlonDome_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, PokeathlonDome_Movement_0E90)
-        applymovement(obj_D49_gsmiddleman1_2, PokeathlonDome_Movement_0EB8)
+        applymovement(obj_player, PokeathlonDome_Movement_PlayerWalkUpLeft4)
+        applymovement(obj_D49_gsmiddleman1_2, PokeathlonDome_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -1082,7 +1082,7 @@ script scr_seq_D49_017 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, PokeathlonDome_Movement_0EC4)
+        applymovement(obj_partner_poke, PokeathlonDome_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -1113,7 +1113,7 @@ _0E58:
     end
 }
 
-movement PokeathlonDome_Movement_0E6C {
+movement PokeathlonDome_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -1121,42 +1121,42 @@ movement PokeathlonDome_Movement_0E6C {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0E84 {
+movement PokeathlonDome_Movement_PlayerWalkUp2 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0E90 {
+movement PokeathlonDome_Movement_PlayerWalkUpLeft4 {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0EA4 {
+movement PokeathlonDome_Movement_PlayerWalkUpRight4 {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement PokeathlonDome_Movement_0EB8 {
+movement PokeathlonDome_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement PokeathlonDome_Movement_0EC4 {
+movement PokeathlonDome_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_D49_023 {
+script PokeathlonDome_EventScript_TrainerTips {
     trainertipsex(2, "The Pokéathlon Dome\n"
                      "The Place for True Pokéathletes!")
     end
 }
 
 mapscripts PokeathlonDome_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D49_018
+    INIT_SCRIPT_ON_TRANSITION: PokeathlonDome_OnTransition
 }

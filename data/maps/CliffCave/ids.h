@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_D50R0101_H_
 #define SCR_SEQ_D50R0101_H_
 
-#define _EV_scr_seq_D50R0101_000 0
-#define _EV_scr_seq_D50R0101_001 1
+#define _EV_CliffCave_EventScript_PokefanM 0
+#define _EV_CliffCave_OnResume 1
 
 #define obj_D50R0101_gsmiddleman1 0
 #define obj_D50R0101_breakrock    1

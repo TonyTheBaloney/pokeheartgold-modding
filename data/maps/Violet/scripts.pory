@@ -3,24 +3,24 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T22_000
-    scr_seq_T22_001
-    scr_seq_T22_002
-    scr_seq_T22_003
-    scr_seq_T22_004
-    scr_seq_T22_005
-    scr_seq_T22_006
-    scr_seq_T22_007
-    scr_seq_T22_008
-    scr_seq_T22_009
-    scr_seq_T22_010
-    scr_seq_T22_011
-    scr_seq_T22_012
-    scr_seq_T22_013
-    scr_seq_T22_014
+    Violet_EventScript_ProfElmCall
+    Violet_EventScript_FatMan
+    Violet_EventScript_Trigger
+    Violet_EventScript_Juggler
+    Violet_EventScript_KimonoGirlScene
+    Violet_EventScript_AceTrainerF
+    Violet_EventScript_LittleBoy
+    Violet_EventScript_TrainerTips1
+    Violet_EventScript_CitySign
+    Violet_EventScript_TrainerTips2
+    Violet_EventScript_TrainerTips3
+    Violet_EventScript_Girl
+    Violet_EventScript_Man
+    Violet_EventScript_OldWoman
+    Violet_EventScript_Youngster
 }
 
-script scr_seq_T22_000 {
+script Violet_EventScript_ProfElmCall {
     setflag(FLAG_GOT_PICK_UP_EGG_CALL_FROM_ELM)
     phonecall(PHONE_CONTACT_PROF__ELM, 2, 1)
     setvar(VAR_SCENE_VIOLET_CITY_OW, 2)
@@ -29,16 +29,16 @@ script scr_seq_T22_000 {
     end
 }
 
-script scr_seq_T22_004 {
+script Violet_EventScript_KimonoGirlScene {
     followmonresetmovement
     lockall
     callstd(std_play_kimono_girl_music)
-    applymovement(obj_T22_dancer, Violet_Movement_00CC)
+    applymovement(obj_T22_dancer, Violet_Movement_KimonoGirlWalkLeftUp)
     waitmovement
     npcmsg("Me oh my...\n"
            "That Egg must be...!\r")
     closemessage
-    applymovement(obj_T22_dancer, Violet_Movement_00DC)
+    applymovement(obj_T22_dancer, Violet_Movement_KimonoGirlWalkUp)
     waitmovement
     npcmsg("I see...\n"
            "So it was handed from Mr. Pokémon to\f"
@@ -46,17 +46,17 @@ script scr_seq_T22_004 {
            "to you.\r"
            "Now I get it...\r")
     closemessage
-    applymovement(obj_T22_dancer, Violet_Movement_00E4)
+    applymovement(obj_T22_dancer, Violet_Movement_KimonoGirlWalkDown)
     waitmovement
     npcmsg("That Egg is truly an important Egg.\n"
            "Please do take good care of it for me.\r"
            "Is that understood?\r")
     closemessage
-    applymovement(obj_T22_dancer, Violet_Movement_0104)
+    applymovement(obj_T22_dancer, Violet_Movement_KimonoGirlSpin)
     waitmovement
     npcmsg("I am counting on you.\r")
     closemessage
-    applymovement(obj_T22_dancer, Violet_Movement_00F4)
+    applymovement(obj_T22_dancer, Violet_Movement_KimonoGirlWalkDownLeft)
     waitmovement
     callstd(std_fade_end_kimono_girl_music)
     removeobject(obj_T22_dancer)
@@ -66,29 +66,29 @@ script scr_seq_T22_004 {
     end
 }
 
-movement Violet_Movement_00CC {
+movement Violet_Movement_KimonoGirlWalkLeftUp {
     emote_exclamation_mark
     walk_left * 5
     walk_up
 }
 
-movement Violet_Movement_00DC {
+movement Violet_Movement_KimonoGirlWalkUp {
     walk_up
 }
 
-movement Violet_Movement_00E4 {
+movement Violet_Movement_KimonoGirlWalkDown {
     lock_dir
     walk_slow_down
     unlock_dir
 }
 
-movement Violet_Movement_00F4 {
+movement Violet_Movement_KimonoGirlWalkDownLeft {
     walk_down * 2
     walk_left
     walk_down * 7
 }
 
-movement Violet_Movement_0104 {
+movement Violet_Movement_KimonoGirlSpin {
     face_right
     delay_2
     face_down
@@ -107,7 +107,7 @@ movement Violet_Movement_0104 {
     delay_2
 }
 
-script scr_seq_T22_005 {
+script Violet_EventScript_AceTrainerF {
     simplenpcmsg("We care about the traditional buildings\n"
                  "around here. That’s why even the\f"
                  "Poké Mart and Pokémon Center are\f"
@@ -115,19 +115,19 @@ script scr_seq_T22_005 {
     end
 }
 
-script scr_seq_T22_001 {
+script Violet_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 2) {
-        applymovement(obj_T22_gsbigman, Violet_Movement_0388)
+        applymovement(obj_T22_gsbigman, Violet_Movement_FatManSpin1)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_T22_gsbigman, Violet_Movement_03AC)
+        applymovement(obj_T22_gsbigman, Violet_Movement_FatManSpin2)
     } elif (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_T22_gsbigman, Violet_Movement_03D0)
+        applymovement(obj_T22_gsbigman, Violet_Movement_FatManSpin3)
     } else {
-        applymovement(obj_T22_gsbigman, Violet_Movement_03F4)
+        applymovement(obj_T22_gsbigman, Violet_Movement_FatManSpin4)
     }
     waitmovement
     npcmsg("Bonjour!\n"
@@ -150,13 +150,13 @@ script scr_seq_T22_001 {
         closemessage
         getplayerfacing(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 2) {
-            applymovement(obj_T22_gsbigman, Violet_Movement_0418)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManSpin5)
         } elif (var(VAR_SPECIAL_RESULT) == 3) {
-            applymovement(obj_T22_gsbigman, Violet_Movement_0440)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManSpin6)
         } elif (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_T22_gsbigman, Violet_Movement_0460)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManSpin7)
         } else {
-            applymovement(obj_T22_gsbigman, Violet_Movement_0484)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManSpin8)
         }
         waitmovement
         getplayerfacing(VAR_SPECIAL_RESULT)
@@ -164,8 +164,8 @@ script scr_seq_T22_001 {
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_T22_gsbigman, Violet_Movement_04B0)
-            applymovement(obj_player, Violet_Movement_05FC)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManWalkDownRight)
+            applymovement(obj_player, Violet_Movement_PlayerWalkLeftDown)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -177,8 +177,8 @@ script scr_seq_T22_001 {
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_T22_gsbigman, Violet_Movement_04B0)
-            applymovement(obj_player, Violet_Movement_061C)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManWalkDownRight)
+            applymovement(obj_player, Violet_Movement_PlayerWalkRightDown)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -190,8 +190,8 @@ script scr_seq_T22_001 {
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_T22_gsbigman, Violet_Movement_04FC)
-            applymovement(obj_player, Violet_Movement_063C)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManWalkLeftDown)
+            applymovement(obj_player, Violet_Movement_PlayerWalkDownRight1)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -202,8 +202,8 @@ script scr_seq_T22_001 {
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_T22_gsbigman, Violet_Movement_04B0)
-            applymovement(obj_player, Violet_Movement_0670)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManWalkDownRight)
+            applymovement(obj_player, Violet_Movement_PlayerWalkDownRight2)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -214,12 +214,12 @@ script scr_seq_T22_001 {
             npcmsg("Here, teacher I am.\n"
                    "Good it is you study here!\r")
             closemessage
-            applymovement(obj_T22_gsbigman, Violet_Movement_05EC)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManWalkUp1)
             waitmovement
             dooranimationload(15, 8, 15, 1, 77)
             dooranimationopen(77)
             dooranimationwait(77)
-            applymovement(obj_T22_gsbigman, Violet_Movement_05F4)
+            applymovement(obj_T22_gsbigman, Violet_Movement_FatManWalkUp2)
             waitmovement
             dooranimationclose(77)
             dooranimationwait(77)
@@ -236,7 +236,7 @@ script scr_seq_T22_001 {
     end
 }
 
-movement Violet_Movement_0388 {
+movement Violet_Movement_FatManSpin1 {
     face_down
     face_left
     face_up
@@ -247,7 +247,7 @@ movement Violet_Movement_0388 {
     face_right
 }
 
-movement Violet_Movement_03AC {
+movement Violet_Movement_FatManSpin2 {
     face_up
     face_right
     face_down
@@ -258,7 +258,7 @@ movement Violet_Movement_03AC {
     face_left
 }
 
-movement Violet_Movement_03D0 {
+movement Violet_Movement_FatManSpin3 {
     face_left
     face_up
     face_right
@@ -269,7 +269,7 @@ movement Violet_Movement_03D0 {
     face_down
 }
 
-movement Violet_Movement_03F4 {
+movement Violet_Movement_FatManSpin4 {
     face_right
     face_down
     face_left
@@ -280,41 +280,7 @@ movement Violet_Movement_03F4 {
     face_up
 }
 
-movement Violet_Movement_0418 {
-    face_down
-    face_left
-    face_up
-    face_right
-    face_down
-    face_left
-    face_up
-    face_right
-    face_down
-}
-
-movement Violet_Movement_0440 {
-    face_up
-    face_right
-    face_down
-    face_left
-    face_up
-    face_right
-    face_down
-}
-
-movement Violet_Movement_0460 {
-    face_left
-    face_up
-    face_right
-    face_down
-    face_left
-    face_up
-    face_right
-    face_down
-}
-
-movement Violet_Movement_0484 {
-    face_right
+movement Violet_Movement_FatManSpin5 {
     face_down
     face_left
     face_up
@@ -326,7 +292,41 @@ movement Violet_Movement_0484 {
     face_down
 }
 
-movement Violet_Movement_04B0 {
+movement Violet_Movement_FatManSpin6 {
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_Movement_FatManSpin7 {
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_Movement_FatManSpin8 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_Movement_FatManWalkDownRight {
     walk_fast_down * 8
     face_left
     face_up
@@ -347,7 +347,7 @@ movement Violet_Movement_04B0 {
     walk_in_place_down
 }
 
-movement Violet_Movement_04FC {
+movement Violet_Movement_FatManWalkLeftDown {
     walk_fast_left * 2
     face_down
     face_left
@@ -409,15 +409,15 @@ movement Violet_Movement_04FC {
     face_down
 }
 
-movement Violet_Movement_05EC {
+movement Violet_Movement_FatManWalkUp1 {
     walk_up * 2
 }
 
-movement Violet_Movement_05F4 {
+movement Violet_Movement_FatManWalkUp2 {
     walk_up
 }
 
-movement Violet_Movement_05FC {
+movement Violet_Movement_PlayerWalkLeftDown {
     delay_8
     run_left
     run_down * 8
@@ -427,7 +427,7 @@ movement Violet_Movement_05FC {
     walk_in_place_up
 }
 
-movement Violet_Movement_061C {
+movement Violet_Movement_PlayerWalkRightDown {
     delay_8
     run_right
     run_down * 8
@@ -437,7 +437,7 @@ movement Violet_Movement_061C {
     walk_in_place_up
 }
 
-movement Violet_Movement_063C {
+movement Violet_Movement_PlayerWalkDownRight1 {
     walk_fast_down
     walk_fast_right
     walk_in_place_fast_left
@@ -452,7 +452,7 @@ movement Violet_Movement_063C {
     walk_in_place_up
 }
 
-movement Violet_Movement_0670 {
+movement Violet_Movement_PlayerWalkDownRight2 {
     delay_8
     run_down * 9
     walk_in_place_right
@@ -461,7 +461,7 @@ movement Violet_Movement_0670 {
     walk_in_place_up
 }
 
-script scr_seq_T22_003 {
+script Violet_EventScript_Juggler {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -594,13 +594,13 @@ script scr_seq_T22_003 {
         _0ADD:
             getplayerfacing(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 0) {
-                applymovement(obj_T22_juggrer, Violet_Movement_0B28)
+                applymovement(obj_T22_juggrer, Violet_Movement_JugglerSpin1)
                 waitmovement
             } elif (var(VAR_SPECIAL_RESULT) == 2) {
-                applymovement(obj_T22_juggrer, Violet_Movement_0B6C)
+                applymovement(obj_T22_juggrer, Violet_Movement_JugglerSpin2)
                 waitmovement
             } else {
-                applymovement(obj_T22_juggrer, Violet_Movement_0BB0)
+                applymovement(obj_T22_juggrer, Violet_Movement_JugglerSpin3)
                 waitmovement
             }
             return
@@ -621,7 +621,7 @@ script scr_seq_T22_003 {
     end
 }
 
-movement Violet_Movement_0B28 {
+movement Violet_Movement_JugglerSpin1 {
     face_right
     face_up
     face_left
@@ -640,7 +640,7 @@ movement Violet_Movement_0B28 {
     face_down
 }
 
-movement Violet_Movement_0B6C {
+movement Violet_Movement_JugglerSpin2 {
     face_up
     face_left
     face_down
@@ -659,7 +659,7 @@ movement Violet_Movement_0B6C {
     face_right
 }
 
-movement Violet_Movement_0BB0 {
+movement Violet_Movement_JugglerSpin3 {
     face_down
     face_right
     face_up
@@ -678,11 +678,11 @@ movement Violet_Movement_0BB0 {
     face_left
 }
 
-script scr_seq_T22_002 {
+script Violet_EventScript_Trigger {
     end
 }
 
-script scr_seq_T22_006 {
+script Violet_EventScript_LittleBoy {
     simplenpcmsg("Did you know that Pokégear allows you\n"
                  "to put marks and memos on its Map?\r"
                  "I’d love to have one of those\n"
@@ -690,34 +690,34 @@ script scr_seq_T22_006 {
     end
 }
 
-script scr_seq_T22_007 {
+script Violet_EventScript_TrainerTips1 {
     trainertipsex(2, "Pokémon School\r"
                      "Earl will show you all\n"
                      "there is to Pokémon!")
     end
 }
 
-script scr_seq_T22_008 {
+script Violet_EventScript_CitySign {
     directionsignpostex(0, 13, "Violet City\n"
                                "The City of Nostalgic Scents")
     end
 }
 
-script scr_seq_T22_009 {
+script Violet_EventScript_TrainerTips2 {
     trainertipsex(2, "Violet City Pokémon Gym\n"
                      "Leader: Falkner\f"
                      "The Elegant Master of Flying Pokémon")
     end
 }
 
-script scr_seq_T22_010 {
+script Violet_EventScript_TrainerTips3 {
     trainertipsex(2, "Sprout Tower\r"
                      "Experience the Way of Pokémon\n"
                      "to Cast Aside Your Doubts.")
     end
 }
 
-script scr_seq_T22_011 {
+script Violet_EventScript_Girl {
     simplenpcmsg("There have been reports of Ghost-type\n"
                  "Pokémon appearing in Sprout Tower.\r"
                  "They say Normal-type Pokémon moves\n"
@@ -725,14 +725,14 @@ script scr_seq_T22_011 {
     end
 }
 
-script scr_seq_T22_012 {
+script Violet_EventScript_Man {
     simplenpcmsg("Hey, you’re a Pokémon Trainer?\r"
                  "If you beat the Gym Leader here,\n"
                  "you’ll be ready for prime time!")
     end
 }
 
-script scr_seq_T22_013 {
+script Violet_EventScript_OldWoman {
     simplenpcmsg("Falkner, from the Violet City Pokémon\n"
                  "Gym, is a fine Trainer!\r"
                  "He inherited his father’s Gym and\n"
@@ -740,7 +740,7 @@ script scr_seq_T22_013 {
     end
 }
 
-script scr_seq_T22_014 {
+script Violet_EventScript_Youngster {
     simplenpcmsg("You cannot have your Pokémon out\n"
                  "walking with you in some places.\r"
                  "Places like buildings, caves, and\n"
@@ -752,7 +752,7 @@ script scr_seq_T22_014 {
 
 mapscripts Violet_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_VIOLET_CITY_OW, 1: scr_seq_T22_000
-        VAR_SCENE_VIOLET_CITY_OW, 3: scr_seq_T22_004
+        VAR_SCENE_VIOLET_CITY_OW, 1: Violet_EventScript_ProfElmCall
+        VAR_SCENE_VIOLET_CITY_OW, 3: Violet_EventScript_KimonoGirlScene
     ]
 }

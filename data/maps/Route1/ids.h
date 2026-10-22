@@ -1,9 +1,9 @@
 #ifndef SCR_SEQ_R01_H_
 #define SCR_SEQ_R01_H_
 
-#define _EV_scr_seq_R01_000 0
-#define _EV_scr_seq_R01_001 1
-#define _EV_scr_seq_R01_002 2
+#define _EV_Route1_EventScript_PokefanM 0
+#define _EV_Route1_OnTransition 1
+#define _EV_Route1_EventScript_RouteSign 2
 
 #define obj_R01_gswoman3     0
 #define obj_R01_gsman3       1

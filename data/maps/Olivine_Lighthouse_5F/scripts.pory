@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D27R0106_000
-    scr_seq_D27R0106_001
+    Olivine_Lighthouse_5F_EventScript_PokefanM
+    Olivine_Lighthouse_5F_OnTransition
 }
 
-script scr_seq_D27R0106_001 {
+script Olivine_Lighthouse_5F_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 3) { goto(_003F) }
@@ -22,7 +22,7 @@ script scr_seq_D27R0106_001 {
     end
 }
 
-script scr_seq_D27R0106_000 {
+script Olivine_Lighthouse_5F_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -56,10 +56,10 @@ script scr_seq_D27R0106_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Olivine_Lighthouse_5F_Movement_0150)
+        applymovement(obj_player, Olivine_Lighthouse_5F_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Olivine_Lighthouse_5F_Movement_015C)
-        applymovement(obj_D27R0106_gsmiddleman1, Olivine_Lighthouse_5F_Movement_0170)
+        applymovement(obj_player, Olivine_Lighthouse_5F_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D27R0106_gsmiddleman1, Olivine_Lighthouse_5F_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -67,7 +67,7 @@ script scr_seq_D27R0106_000 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Olivine_Lighthouse_5F_Movement_017C)
+        applymovement(obj_partner_poke, Olivine_Lighthouse_5F_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -86,29 +86,29 @@ script scr_seq_D27R0106_000 {
     end
 }
 
-movement Olivine_Lighthouse_5F_Movement_0150 {
+movement Olivine_Lighthouse_5F_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Olivine_Lighthouse_5F_Movement_015C {
+movement Olivine_Lighthouse_5F_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Olivine_Lighthouse_5F_Movement_0170 {
+movement Olivine_Lighthouse_5F_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Olivine_Lighthouse_5F_Movement_017C {
+movement Olivine_Lighthouse_5F_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
 mapscripts Olivine_Lighthouse_5F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D27R0106_001
+    INIT_SCRIPT_ON_TRANSITION: Olivine_Lighthouse_5F_OnTransition
 }

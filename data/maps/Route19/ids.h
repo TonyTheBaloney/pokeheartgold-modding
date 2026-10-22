@@ -1,12 +1,12 @@
 #ifndef SCR_SEQ_W19_H_
 #define SCR_SEQ_W19_H_
 
-#define _EV_scr_seq_W19_000 0
-#define _EV_scr_seq_W19_001 1
-#define _EV_scr_seq_W19_002 2
-#define _EV_scr_seq_W19_003 3
-#define _EV_scr_seq_W19_004 4
-#define _EV_scr_seq_W19_005 5
+#define _EV_Route19_EventScript_Worker1 0
+#define _EV_Route19_EventScript_Worker2 1
+#define _EV_Route19_EventScript_Worker3 2
+#define _EV_Route19_EventScript_Worker4 3
+#define _EV_Route19_EventScript_RouteSignFuchsia 4
+#define _EV_Route19_EventScript_TrainerTips 5
 
 #define obj_W19_gsswimmerm   0
 #define obj_W19_gsswimmerm_2 1

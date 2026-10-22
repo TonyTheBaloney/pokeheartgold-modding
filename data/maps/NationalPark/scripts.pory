@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D22R0101_000
-    scr_seq_D22R0101_001
-    scr_seq_D22R0101_002
-    scr_seq_D22R0101_003
-    scr_seq_D22R0101_004
-    scr_seq_D22R0101_005
-    scr_seq_D22R0101_006
-    scr_seq_D22R0101_007
-    scr_seq_D22R0101_008
-    scr_seq_D22R0101_009
-    scr_seq_D22R0101_010
-    scr_seq_D22R0101_011
+    NationalPark_EventScript_Woman
+    NationalPark_EventScript_TrainerTips1
+    NationalPark_EventScript_TrainerTips2
+    NationalPark_EventScript_TrainerTips3
+    NationalPark_EventScript_Lass
+    NationalPark_EventScript_PokefanF
+    NationalPark_EventScript_SchoolKidM1
+    NationalPark_EventScript_SchoolKidM2
+    NationalPark_EventScript_Boy
+    NationalPark_EventScript_Beauty
+    NationalPark_EventScript_Persian
+    NationalPark_OnResume
     scr_seq_D22R0101_012
     scr_seq_D22R0101_013
     scr_seq_D22R0101_014
@@ -26,13 +26,13 @@ scrdefs {
     scr_seq_D22R0101_020
     scr_seq_D22R0101_021
     scr_seq_D22R0101_022
-    scr_seq_D22R0101_023
-    scr_seq_D22R0101_024
-    scr_seq_D22R0101_025
-    scr_seq_D22R0101_026
+    NationalPark_EventScript_PokefanM1
+    NationalPark_EventScript_PokefanM2
+    NationalPark_OnTransition
+    NationalPark_EventScript_Bugsy
 }
 
-script scr_seq_D22R0101_011 {
+script NationalPark_OnResume {
     compare(VAR_UNK_40F7, 1)
     callifeq(_007D)
     end
@@ -55,7 +55,7 @@ _009F:
     return
 }
 
-script scr_seq_D22R0101_025 {
+script NationalPark_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         if (var(VAR_UNK_40F7) == 1) { goto(_0162) }
         getweekday(VAR_TEMP_x4000)
@@ -170,7 +170,7 @@ script scr_seq_D22R0101_022 {
     end
 }
 
-script scr_seq_D22R0101_026 {
+script NationalPark_EventScript_Bugsy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -239,7 +239,7 @@ script scr_seq_D22R0101_026 {
     end
 }
 
-script scr_seq_D22R0101_000 {
+script NationalPark_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -268,7 +268,7 @@ script scr_seq_D22R0101_000 {
     end
 }
 
-script scr_seq_D22R0101_023 {
+script NationalPark_EventScript_PokefanM1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -288,16 +288,16 @@ script scr_seq_D22R0101_023 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, NationalPark_Movement_04C0)
-        applymovement(obj_D22R0101_gsmiddleman1_3, NationalPark_Movement_050C)
+        applymovement(obj_player, NationalPark_Movement_PlayerWalkRightUp)
+        applymovement(obj_D22R0101_gsmiddleman1_3, NationalPark_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, NationalPark_Movement_04D8)
+        applymovement(obj_player, NationalPark_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, NationalPark_Movement_04F8)
-        applymovement(obj_D22R0101_gsmiddleman1_3, NationalPark_Movement_050C)
+        applymovement(obj_player, NationalPark_Movement_PlayerWalkUpRight)
+        applymovement(obj_D22R0101_gsmiddleman1_3, NationalPark_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, NationalPark_Movement_04E4)
-        applymovement(obj_D22R0101_gsmiddleman1_3, NationalPark_Movement_050C)
+        applymovement(obj_player, NationalPark_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D22R0101_gsmiddleman1_3, NationalPark_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -305,7 +305,7 @@ script scr_seq_D22R0101_023 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, NationalPark_Movement_0518)
+        applymovement(obj_partner_poke, NationalPark_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -324,7 +324,7 @@ script scr_seq_D22R0101_023 {
     end
 }
 
-movement NationalPark_Movement_04C0 {
+movement NationalPark_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -332,37 +332,37 @@ movement NationalPark_Movement_04C0 {
     walk_in_place_down
 }
 
-movement NationalPark_Movement_04D8 {
+movement NationalPark_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement NationalPark_Movement_04E4 {
+movement NationalPark_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement NationalPark_Movement_04F8 {
+movement NationalPark_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement NationalPark_Movement_050C {
+movement NationalPark_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement NationalPark_Movement_0518 {
+movement NationalPark_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_D22R0101_024 {
+script NationalPark_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -382,16 +382,16 @@ script scr_seq_D22R0101_024 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, NationalPark_Movement_04C0)
-        applymovement(obj_D22R0101_gsmiddleman1_4, NationalPark_Movement_050C)
+        applymovement(obj_player, NationalPark_Movement_PlayerWalkRightUp)
+        applymovement(obj_D22R0101_gsmiddleman1_4, NationalPark_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, NationalPark_Movement_04D8)
+        applymovement(obj_player, NationalPark_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, NationalPark_Movement_0678)
-        applymovement(obj_D22R0101_gsmiddleman1_4, NationalPark_Movement_050C)
+        applymovement(obj_player, NationalPark_Movement_PlayerWalkDownRight)
+        applymovement(obj_D22R0101_gsmiddleman1_4, NationalPark_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, NationalPark_Movement_04E4)
-        applymovement(obj_D22R0101_gsmiddleman1_4, NationalPark_Movement_050C)
+        applymovement(obj_player, NationalPark_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D22R0101_gsmiddleman1_4, NationalPark_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -399,7 +399,7 @@ script scr_seq_D22R0101_024 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, NationalPark_Movement_0518)
+        applymovement(obj_partner_poke, NationalPark_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -432,7 +432,7 @@ _0664:
     end
 }
 
-movement NationalPark_Movement_0678 {
+movement NationalPark_Movement_PlayerWalkDownRight {
     walk_down
     walk_right * 2
     walk_up * 2
@@ -441,13 +441,13 @@ movement NationalPark_Movement_0678 {
     walk_in_place_down
 }
 
-script scr_seq_D22R0101_001 {
+script NationalPark_EventScript_TrainerTips1 {
     trainertipsex(2, "Relaxation Square for Everyone\n"
                      "National Park")
     end
 }
 
-script scr_seq_D22R0101_002 {
+script NationalPark_EventScript_TrainerTips2 {
     trainertipsex(3, "What is this notice?\r"
                      "Please battle only in the park grass.\r"
                      "           National Park\n"
@@ -455,7 +455,7 @@ script scr_seq_D22R0101_002 {
     end
 }
 
-script scr_seq_D22R0101_003 {
+script NationalPark_EventScript_TrainerTips3 {
     trainertipsex(3, "What is this notice?\r"
                      "No ball playing allowed\n"
                      "other than Poké Balls.\r"
@@ -464,14 +464,14 @@ script scr_seq_D22R0101_003 {
     end
 }
 
-script scr_seq_D22R0101_004 {
+script NationalPark_EventScript_Lass {
     simplenpcmsg("Only one Pokémon can Stroll with you\n"
                  "in a Pokéwalker...\r"
                  "I can’t decide which one!")
     end
 }
 
-script scr_seq_D22R0101_005 {
+script NationalPark_EventScript_PokefanF {
     simplenpcmsg("I may not look like it, but I have\n"
                  "many Pokéwalkers on me!\f"
                  "They make loud noises as I walk.\r"
@@ -480,7 +480,7 @@ script scr_seq_D22R0101_005 {
     end
 }
 
-script scr_seq_D22R0101_006 {
+script NationalPark_EventScript_SchoolKidM1 {
     simplenpcmsg("It’s fun having a Pokémon out of its\n"
                  "Poké Ball to walk with it,\f"
                  "but the Pokéwalker is a whole\f"
@@ -488,7 +488,7 @@ script scr_seq_D22R0101_006 {
     end
 }
 
-script scr_seq_D22R0101_007 {
+script NationalPark_EventScript_SchoolKidM2 {
     simplenpcmsg("My mom can’t take my Pokémon and tells\n"
                  "me not to play with it indoors.\f"
                  "But, hey!\r"
@@ -497,7 +497,7 @@ script scr_seq_D22R0101_007 {
     end
 }
 
-script scr_seq_D22R0101_008 {
+script NationalPark_EventScript_Boy {
     simplenpcmsg("Huff, puff, huff...\r"
                  "I am...out of...breath!\n"
                  "I’ve been running to try\f"
@@ -505,14 +505,14 @@ script scr_seq_D22R0101_008 {
     end
 }
 
-script scr_seq_D22R0101_009 {
+script NationalPark_EventScript_Beauty {
     simplenpcmsg("I take walks in the park, but I\n"
                  "never go into the grass.\r"
                  "Trainers always want to battle...")
     end
 }
 
-script scr_seq_D22R0101_010 {
+script NationalPark_EventScript_Persian {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -530,6 +530,6 @@ mapscripts NationalPark_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
         VAR_UNK_40F7, 1: std_bug_contest_judging
     ]
-    INIT_SCRIPT_ON_RESUME: scr_seq_D22R0101_011
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D22R0101_025
+    INIT_SCRIPT_ON_RESUME: NationalPark_OnResume
+    INIT_SCRIPT_ON_TRANSITION: NationalPark_OnTransition
 }

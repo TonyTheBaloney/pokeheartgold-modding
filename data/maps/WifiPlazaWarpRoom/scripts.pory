@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_HIROBA_000 {
+script WifiPlazaWarpRoom_EventScript_WifisfScene {
     followmonresetmovement
     lockall
     random(VAR_SPECIAL_x8000, 5)
@@ -13,32 +13,32 @@ script scr_seq_HIROBA_000 {
     Case(4, _00C1)
     end
 _0059:
-    applymovement(obj_player, WifiPlazaWarpRoom_Movement_014C)
-    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_01F4)
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft1)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft1)
     waitmovement
     goto(_00DB)
     end
 _0073:
-    applymovement(obj_player, WifiPlazaWarpRoom_Movement_0158)
-    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0204)
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft2)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft2)
     waitmovement
     goto(_00DB)
     end
 _008D:
-    applymovement(obj_player, WifiPlazaWarpRoom_Movement_0164)
-    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0214)
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft3)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft3)
     waitmovement
     goto(_00DB)
     end
 _00A7:
-    applymovement(obj_player, WifiPlazaWarpRoom_Movement_0170)
-    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0224)
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft4)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft4)
     waitmovement
     goto(_00DB)
     end
 _00C1:
-    applymovement(obj_player, WifiPlazaWarpRoom_Movement_017C)
-    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0234)
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft5)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft5)
     waitmovement
     goto(_00DB)
     end
@@ -46,11 +46,11 @@ _00DB:
     npcmsg("Have a good time!")
     waitabpress
     closemessage
-    applymovement(obj_player, WifiPlazaWarpRoom_Movement_0188)
-    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0244)
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_PlayerWalkUp)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_WifisfFaceUp)
     waitmovement
     playse(SEQ_SE_DP_TELE2)
-    applymovement(obj_player, WifiPlazaWarpRoom_Movement_01EC)
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_PlayerWarpOut)
     waitmovement
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -69,32 +69,32 @@ _00DB:
     end
 }
 
-movement WifiPlazaWarpRoom_Movement_014C {
+movement WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft1 {
     walk_up * 7
     walk_left * 11
 }
 
-movement WifiPlazaWarpRoom_Movement_0158 {
+movement WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft2 {
     walk_up * 7
     walk_left * 9
 }
 
-movement WifiPlazaWarpRoom_Movement_0164 {
+movement WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft3 {
     walk_up * 7
     walk_left * 7
 }
 
-movement WifiPlazaWarpRoom_Movement_0170 {
+movement WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft4 {
     walk_up * 7
     walk_left * 5
 }
 
-movement WifiPlazaWarpRoom_Movement_017C {
+movement WifiPlazaWarpRoom_Movement_PlayerWalkUpLeft5 {
     walk_up * 7
     walk_left * 3
 }
 
-movement WifiPlazaWarpRoom_Movement_0188 {
+movement WifiPlazaWarpRoom_Movement_PlayerWalkUp {
     walk_up
     face_left
     delay_2
@@ -121,46 +121,46 @@ movement WifiPlazaWarpRoom_Movement_0188 {
     face_up
 }
 
-movement WifiPlazaWarpRoom_Movement_01EC {
+movement WifiPlazaWarpRoom_Movement_PlayerWarpOut {
     warp_out
 }
 
-movement WifiPlazaWarpRoom_Movement_01F4 {
+movement WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft1 {
     walk_up * 6
     walk_left * 12
     walk_in_place_right
 }
 
-movement WifiPlazaWarpRoom_Movement_0204 {
+movement WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft2 {
     walk_up * 6
     walk_left * 10
     walk_in_place_right
 }
 
-movement WifiPlazaWarpRoom_Movement_0214 {
+movement WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft3 {
     walk_up * 6
     walk_left * 8
     walk_in_place_right
 }
 
-movement WifiPlazaWarpRoom_Movement_0224 {
+movement WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft4 {
     walk_up * 6
     walk_left * 6
     walk_in_place_right
 }
 
-movement WifiPlazaWarpRoom_Movement_0234 {
+movement WifiPlazaWarpRoom_Movement_WifisfWalkUpLeft5 {
     walk_up * 6
     walk_left * 4
     walk_in_place_right
 }
 
-movement WifiPlazaWarpRoom_Movement_0244 {
+movement WifiPlazaWarpRoom_Movement_WifisfFaceUp {
     walk_in_place_up
 }
 
 mapscripts WifiPlazaWarpRoom_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_TEMP_x4003, 0: scr_seq_HIROBA_000
+        VAR_TEMP_x4003, 0: WifiPlazaWarpRoom_EventScript_WifisfScene
     ]
 }

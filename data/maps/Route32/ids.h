@@ -1,16 +1,16 @@
 #ifndef SCR_SEQ_R32_H_
 #define SCR_SEQ_R32_H_
 
-#define _EV_scr_seq_R32_000 0
-#define _EV_scr_seq_R32_001 1
-#define _EV_scr_seq_R32_002 2
-#define _EV_scr_seq_R32_003 3
-#define _EV_scr_seq_R32_004 4
-#define _EV_scr_seq_R32_005 5
-#define _EV_scr_seq_R32_006 6
-#define _EV_scr_seq_R32_007 7
-#define _EV_scr_seq_R32_008 8
-#define _EV_scr_seq_R32_009 9
+#define _EV_Route32_EventScript_FatMan1 0
+#define _EV_Route32_EventScript_PokefanM1 1
+#define _EV_Route32_EventScript_PokefanMTrigger 2
+#define _EV_Route32_EventScript_FatMan2 3
+#define _EV_Route32_OnTransition 4
+#define _EV_Route32_EventScript_Lass 5
+#define _EV_Route32_EventScript_RuinsOfAlphSign 6
+#define _EV_Route32_EventScript_RouteSign 7
+#define _EV_Route32_EventScript_UnionCaveAheadSign 8
+#define _EV_Route32_EventScript_PokefanM2 9
 
 #define obj_R32_gsbigman       0
 #define obj_R32_gsmiddleman1   1

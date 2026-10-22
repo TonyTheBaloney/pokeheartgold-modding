@@ -3,21 +3,21 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T20R0402_000
-    scr_seq_T20R0402_001
-    scr_seq_T20R0402_002
-    scr_seq_T20R0402_003
-    scr_seq_T20R0402_004
+    NewBark_RivalHouse_2F_EventScript_Lyra
+    NewBark_RivalHouse_2F_EventScript_Marill
+    NewBark_RivalHouse_2F_OnTransition
+    NewBark_RivalHouse_2F_EventScript_ItsAWiiSign
+    NewBark_RivalHouse_2F_EventScript_PC
 }
 
-script scr_seq_T20R0402_002 {
+script NewBark_RivalHouse_2F_OnTransition {
     if (!flag(FLAG_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND)) {
         getfriendsprite(VAR_OBJ_0)
     }
     end
 }
 
-script scr_seq_T20R0402_000 {
+script NewBark_RivalHouse_2F_EventScript_Lyra {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -220,7 +220,7 @@ _005C:
     end
 }
 
-script scr_seq_T20R0402_001 {
+script NewBark_RivalHouse_2F_EventScript_Marill {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -233,7 +233,7 @@ script scr_seq_T20R0402_001 {
     end
 }
 
-script scr_seq_T20R0402_003 {
+script NewBark_RivalHouse_2F_EventScript_ItsAWiiSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It’s a Wii!\r"
@@ -244,7 +244,7 @@ script scr_seq_T20R0402_003 {
     end
 }
 
-script scr_seq_T20R0402_004 {
+script NewBark_RivalHouse_2F_EventScript_PC {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("You shouldn’t mess with someone\n"
@@ -256,5 +256,5 @@ script scr_seq_T20R0402_004 {
 }
 
 mapscripts NewBark_RivalHouse_2F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T20R0402_002
+    INIT_SCRIPT_ON_TRANSITION: NewBark_RivalHouse_2F_OnTransition
 }

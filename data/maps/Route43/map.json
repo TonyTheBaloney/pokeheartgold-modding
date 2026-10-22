@@ -233,7 +233,7 @@
             "y": 154,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R43_001 + 1"
+            "script": "Route43_EventScript_RouteSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -241,7 +241,7 @@
             "y": 146,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R43_002 + 1"
+            "script": "Route43_EventScript_TrainerTips"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -249,7 +249,7 @@
             "y": 99,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R43_003 + 1"
+            "script": "Route43_EventScript_NorthToLakeOfRageSign"
         }
     ]
 }

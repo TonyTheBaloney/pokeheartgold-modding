@@ -3,79 +3,79 @@
   "messages": [
     {
       "id": "msg_0497_T07R0104_00000",
-      "from": "scr_seq_T07R0104_004#0"
+      "from": "Celadon_DepartmentStore_4F_OnTransition#0"
     },
     {
       "id": "msg_0497_T07R0104_00001",
-      "from": "scr_seq_T07R0104_004#1"
+      "from": "Celadon_DepartmentStore_4F_OnTransition#1"
     },
     {
       "id": "msg_0497_T07R0104_00002",
-      "from": "scr_seq_T07R0104_004#2"
+      "from": "Celadon_DepartmentStore_4F_OnTransition#2"
     },
     {
       "id": "msg_0497_T07R0104_00003",
-      "from": "scr_seq_T07R0104_004#3"
+      "from": "Celadon_DepartmentStore_4F_OnTransition#3"
     },
     {
       "id": "msg_0497_T07R0104_00004",
-      "from": "scr_seq_T07R0104_004#4"
+      "from": "Celadon_DepartmentStore_4F_OnTransition#4"
     },
     {
       "id": "msg_0497_T07R0104_00005",
-      "from": "scr_seq_T07R0104_004#5"
+      "from": "Celadon_DepartmentStore_4F_OnTransition#5"
     },
     {
       "id": "msg_0497_T07R0104_00006",
-      "from": "scr_seq_T07R0104_004#6"
+      "from": "Celadon_DepartmentStore_4F_OnTransition#6"
     },
     {
       "id": "msg_0497_T07R0104_00007",
-      "from": "scr_seq_T07R0104_004#7"
+      "from": "Celadon_DepartmentStore_4F_OnTransition#7"
     },
     {
       "id": "msg_0497_T07R0104_00008",
-      "from": "scr_seq_T07R0104_004#8"
+      "from": "Celadon_DepartmentStore_4F_OnTransition#8"
     },
     {
       "id": "msg_0497_T07R0104_00009",
-      "from": "scr_seq_T07R0104_005#5"
+      "from": "Celadon_DepartmentStore_4F_EventScript_Falkner#5"
     },
     {
       "id": "msg_0497_T07R0104_00010",
-      "from": "scr_seq_T07R0104_005#0"
+      "from": "Celadon_DepartmentStore_4F_EventScript_Falkner#0"
     },
     {
       "id": "msg_0497_T07R0104_00011",
-      "from": "scr_seq_T07R0104_005#3"
+      "from": "Celadon_DepartmentStore_4F_EventScript_Falkner#3"
     },
     {
       "id": "msg_0497_T07R0104_00012",
-      "from": "scr_seq_T07R0104_005#4"
+      "from": "Celadon_DepartmentStore_4F_EventScript_Falkner#4"
     },
     {
       "id": "msg_0497_T07R0104_00013",
-      "from": "scr_seq_T07R0104_005#1"
+      "from": "Celadon_DepartmentStore_4F_EventScript_Falkner#1"
     },
     {
       "id": "msg_0497_T07R0104_00014",
-      "from": "scr_seq_T07R0104_005#2"
+      "from": "Celadon_DepartmentStore_4F_EventScript_Falkner#2"
     },
     {
       "id": "msg_0497_T07R0104_00015",
-      "from": "scr_seq_T07R0104_006#0"
+      "from": "Celadon_DepartmentStore_4F_EventScript_Janine#0"
     },
     {
       "id": "msg_0497_T07R0104_00016",
-      "from": "scr_seq_T07R0104_001#0"
+      "from": "Celadon_DepartmentStore_4F_EventScript_Man#0"
     },
     {
       "id": "msg_0497_T07R0104_00017",
-      "from": "scr_seq_T07R0104_002#0"
+      "from": "Celadon_DepartmentStore_4F_EventScript_SchoolKidM#0"
     },
     {
       "id": "msg_0497_T07R0104_00018",
-      "from": "scr_seq_T07R0104_003#0"
+      "from": "Celadon_DepartmentStore_4F_EventScript_GiftsToExpressYourselfSign#0"
     }
   ]
 }

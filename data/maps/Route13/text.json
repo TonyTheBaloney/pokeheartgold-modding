@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0350_R13_00000",
-      "from": "scr_seq_R13_000#0"
+      "from": "Route13_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0350_R13_00001",
-      "from": "scr_seq_R13_001#0"
+      "from": "Route13_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0350_R13_00002",
-      "from": "scr_seq_R13_002#0"
+      "from": "Route13_EventScript_NorthToLavenderTownSign#0"
     }
   ]
 }

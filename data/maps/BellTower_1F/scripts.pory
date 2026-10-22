@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D17R0101_000 {
+script BellTower_1F_EventScript_Sage {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -48,14 +48,14 @@ text msg_0057_D17R0101_00003 {
     "Please come through."
 }
 
-script scr_seq_D17R0101_001 {
+script BellTower_1F_EventScript_SageTrigger {
     followmonresetmovement
     lockall
     getplayerfacing(VAR_TEMP_x400A)
     if (var(VAR_TEMP_x400A) == 0) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_02D8)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageExclamation1)
     } else {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_02E0)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageExclamation2)
     }
     waitmovement
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
@@ -75,10 +75,10 @@ script scr_seq_D17R0101_001 {
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
     if (var(VAR_TEMP_x400A) == 0) {
-        applymovement(obj_player, BellTower_1F_Movement_0344)
+        applymovement(obj_player, BellTower_1F_Movement_PlayerWalkDown)
     } else {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_0354)
-        applymovement(obj_player, BellTower_1F_Movement_0354)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkRight2)
+        applymovement(obj_player, BellTower_1F_Movement_SageWalkRight2)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -120,45 +120,45 @@ script scr_seq_D17R0101_001 {
     end
 _0150:
     if (var(VAR_SPECIAL_x8004) == 7) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_02EC)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkDownLeft)
     } elif (var(VAR_SPECIAL_x8004) == 8) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_02FC)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkDown)
     } else {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_0304)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkDownRight1)
     }
     waitmovement
     return
 _0192:
     if (var(VAR_SPECIAL_x8005) == 7) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_0314)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkUpRight1)
     } elif (var(VAR_SPECIAL_x8005) == 8) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_0324)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkRight1)
     } elif (var(VAR_SPECIAL_x8005) == 9) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_032C)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkDownRight2)
     } else {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_0338)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkDownRight3)
     }
     waitmovement
     return
 _01EF:
     if (var(VAR_SPECIAL_x8004) == 7) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_0364)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkUpRight2)
     } elif (var(VAR_SPECIAL_x8004) == 8) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_0378)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkUp1)
     } else {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_0384)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkUpLeft)
     }
     waitmovement
     return
 _0231:
     if (var(VAR_SPECIAL_x8005) == 7) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_0398)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkLeftDown)
     } elif (var(VAR_SPECIAL_x8005) == 8) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_03A4)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkLeft1)
     } elif (var(VAR_SPECIAL_x8005) == 9) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_03B0)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkLeftUp1)
     } else {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_03C0)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkLeftUp2)
     }
     waitmovement
     return
@@ -167,9 +167,9 @@ _0231:
 script scr_seq_D17R0101_002 {
     wait(30, VAR_SPECIAL_RESULT)
     if (var(VAR_TEMP_x400A) == 0) {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_03D0)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkUp2)
     } else {
-        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_03E0)
+        applymovement(obj_D17R0101_bozu, BellTower_1F_Movement_SageWalkLeft2)
     }
     waitmovement
     npcmsg(msg_0057_D17R0101_00003)
@@ -178,111 +178,111 @@ script scr_seq_D17R0101_002 {
     end
 }
 
-movement BellTower_1F_Movement_02D8 {
+movement BellTower_1F_Movement_SageExclamation1 {
     emote_exclamation_mark
 }
 
-movement BellTower_1F_Movement_02E0 {
+movement BellTower_1F_Movement_SageExclamation2 {
     face_right
     emote_exclamation_mark
 }
 
-movement BellTower_1F_Movement_02EC {
+movement BellTower_1F_Movement_SageWalkDownLeft {
     walk_down * 2
     walk_left
     walk_down
 }
 
-movement BellTower_1F_Movement_02FC {
+movement BellTower_1F_Movement_SageWalkDown {
     walk_down * 3
 }
 
-movement BellTower_1F_Movement_0304 {
+movement BellTower_1F_Movement_SageWalkDownRight1 {
     walk_down * 2
     walk_right
     walk_down
 }
 
-movement BellTower_1F_Movement_0314 {
+movement BellTower_1F_Movement_SageWalkUpRight1 {
     walk_up
     walk_right * 2
     walk_right
 }
 
-movement BellTower_1F_Movement_0324 {
+movement BellTower_1F_Movement_SageWalkRight1 {
     walk_right * 3
 }
 
-movement BellTower_1F_Movement_032C {
+movement BellTower_1F_Movement_SageWalkDownRight2 {
     walk_down
     walk_right * 3
 }
 
-movement BellTower_1F_Movement_0338 {
+movement BellTower_1F_Movement_SageWalkDownRight3 {
     walk_down * 2
     walk_right * 3
 }
 
-movement BellTower_1F_Movement_0344 {
+movement BellTower_1F_Movement_PlayerWalkDown {
     lock_dir
     walk_down
     unlock_dir
 }
 
-movement BellTower_1F_Movement_0354 {
+movement BellTower_1F_Movement_SageWalkRight2 {
     lock_dir
     walk_right
     unlock_dir
 }
 
-movement BellTower_1F_Movement_0364 {
+movement BellTower_1F_Movement_SageWalkUpRight2 {
     walk_up
     walk_right
     walk_up * 2
     walk_in_place_down
 }
 
-movement BellTower_1F_Movement_0378 {
+movement BellTower_1F_Movement_SageWalkUp1 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement BellTower_1F_Movement_0384 {
+movement BellTower_1F_Movement_SageWalkUpLeft {
     walk_up
     walk_left
     walk_up * 2
     walk_in_place_down
 }
 
-movement BellTower_1F_Movement_0398 {
+movement BellTower_1F_Movement_SageWalkLeftDown {
     walk_left * 4
     walk_down
 }
 
-movement BellTower_1F_Movement_03A4 {
+movement BellTower_1F_Movement_SageWalkLeft1 {
     walk_left * 4
     walk_in_place_down
 }
 
-movement BellTower_1F_Movement_03B0 {
+movement BellTower_1F_Movement_SageWalkLeftUp1 {
     walk_left * 4
     walk_up
     walk_in_place_down
 }
 
-movement BellTower_1F_Movement_03C0 {
+movement BellTower_1F_Movement_SageWalkLeftUp2 {
     walk_left * 4
     walk_up * 2
     walk_in_place_down
 }
 
-movement BellTower_1F_Movement_03D0 {
+movement BellTower_1F_Movement_SageWalkUp2 {
     lock_dir
     walk_slower_up
     unlock_dir
 }
 
-movement BellTower_1F_Movement_03E0 {
+movement BellTower_1F_Movement_SageWalkLeft2 {
     lock_dir
     walk_slower_left
     unlock_dir

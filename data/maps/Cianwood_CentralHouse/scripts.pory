@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T24R0701_000 {
+script Cianwood_CentralHouse_EventScript_Woman {
     simplenpcmsg("You came from Olivine?\r"
                  "Do you remember the four islands\n"
                  "along the way?\r"
@@ -10,7 +10,7 @@ script scr_seq_T24R0701_000 {
     end
 }
 
-script scr_seq_T24R0701_001 {
+script Cianwood_CentralHouse_EventScript_Lass {
     simplenpcmsg("I heard that you can only see it if\n"
                  "you have a Silver Wing.\r"
                  "It must have the same scent as\n"
@@ -18,7 +18,7 @@ script scr_seq_T24R0701_001 {
     end
 }
 
-script scr_seq_T24R0701_002 {
+script Cianwood_CentralHouse_EventScript_LittleGirl {
     simplenpcmsg("I’ve heard that the whirlpools around\n"
                  "the islands are caused by the\f"
                  "sea creature.\r"

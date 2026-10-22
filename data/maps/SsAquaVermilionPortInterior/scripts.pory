@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_P01R0103_000
-    scr_seq_P01R0103_001
-    scr_seq_P01R0103_002
+    SsAquaVermilionPortInterior_EventScript_Sailor
+    SsAquaVermilionPortInterior_OnTransition
+    SsAquaVermilionPortInterior_EventScript_Man
 }
 
-script scr_seq_P01R0103_001 {
+script SsAquaVermilionPortInterior_OnTransition {
     getpreviousmapid(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 387) {
         setobjectfacing(obj_P01R0103_seaman_2, DIR_SOUTH)
@@ -17,7 +17,7 @@ script scr_seq_P01R0103_001 {
     end
 }
 
-script scr_seq_P01R0103_000 {
+script SsAquaVermilionPortInterior_EventScript_Sailor {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -32,17 +32,17 @@ script scr_seq_P01R0103_000 {
     }
     getplayerfacing(VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 0) {
-        applymovement(obj_P01R0103_seaman_2, SsAquaVermilionPortInterior_Movement_01B8)
+        applymovement(obj_P01R0103_seaman_2, SsAquaVermilionPortInterior_Movement_SailorWalkUpRight)
         waitmovement
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
-        applymovement(obj_player, SsAquaVermilionPortInterior_Movement_01D8)
+        applymovement(obj_player, SsAquaVermilionPortInterior_Movement_PlayerWalkUp)
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
         followingpokemonmovement(48)
-        applymovement(obj_P01R0103_seaman_2, SsAquaVermilionPortInterior_Movement_01E4)
+        applymovement(obj_P01R0103_seaman_2, SsAquaVermilionPortInterior_Movement_SailorWalkLeftDown)
         waitmovement
         releaseall
         end
@@ -78,12 +78,12 @@ _00EF:
            "Your Ticket is...right there.\n"
            "Please come through.\r")
     closemessage
-    applymovement(obj_P01R0103_seaman_2, SsAquaVermilionPortInterior_Movement_0190)
+    applymovement(obj_P01R0103_seaman_2, SsAquaVermilionPortInterior_Movement_SailorWalkDownRight)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, SsAquaVermilionPortInterior_Movement_01B0)
+    applymovement(obj_player, SsAquaVermilionPortInterior_Movement_PlayerWalkDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -108,7 +108,7 @@ _0142:
     end
 }
 
-movement SsAquaVermilionPortInterior_Movement_0190 {
+movement SsAquaVermilionPortInterior_Movement_SailorWalkDownRight {
     lock_dir
     walk_down
     unlock_dir
@@ -118,11 +118,11 @@ movement SsAquaVermilionPortInterior_Movement_0190 {
     unlock_dir
 }
 
-movement SsAquaVermilionPortInterior_Movement_01B0 {
+movement SsAquaVermilionPortInterior_Movement_PlayerWalkDown {
     walk_down * 2
 }
 
-movement SsAquaVermilionPortInterior_Movement_01B8 {
+movement SsAquaVermilionPortInterior_Movement_SailorWalkUpRight {
     lock_dir
     walk_up
     unlock_dir
@@ -132,19 +132,19 @@ movement SsAquaVermilionPortInterior_Movement_01B8 {
     unlock_dir
 }
 
-movement SsAquaVermilionPortInterior_Movement_01D8 {
+movement SsAquaVermilionPortInterior_Movement_PlayerWalkUp {
     delay_8
     walk_up * 4
 }
 
-movement SsAquaVermilionPortInterior_Movement_01E4 {
+movement SsAquaVermilionPortInterior_Movement_SailorWalkLeftDown {
     walk_left
     face_down * 2
     walk_down
     walk_in_place_up
 }
 
-script scr_seq_P01R0103_002 {
+script SsAquaVermilionPortInterior_EventScript_Man {
     simplenpcmsg("You came from Johto?\r"
                  "I envy you!\n"
                  "I hear many rare Pokémon live\f"
@@ -153,5 +153,5 @@ script scr_seq_P01R0103_002 {
 }
 
 mapscripts SsAquaVermilionPortInterior_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0103_001
+    INIT_SCRIPT_ON_TRANSITION: SsAquaVermilionPortInterior_OnTransition
 }

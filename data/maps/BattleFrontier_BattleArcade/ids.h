@@ -1,23 +1,23 @@
 #ifndef SCR_SEQ_D32R0601_H_
 #define SCR_SEQ_D32R0601_H_
 
-#define _EV_scr_seq_D32R0601_000 0
-#define _EV_scr_seq_D32R0601_001 1
-#define _EV_scr_seq_D32R0601_002 2
-#define _EV_scr_seq_D32R0601_003 3
-#define _EV_scr_seq_D32R0601_004 4
-#define _EV_scr_seq_D32R0601_005 5
-#define _EV_scr_seq_D32R0601_006 6
-#define _EV_scr_seq_D32R0601_007 7
-#define _EV_scr_seq_D32R0601_008 8
-#define _EV_scr_seq_D32R0601_009 9
-#define _EV_scr_seq_D32R0601_010 10
-#define _EV_scr_seq_D32R0601_011 11
-#define _EV_scr_seq_D32R0601_012 12
-#define _EV_scr_seq_D32R0601_013 13
-#define _EV_scr_seq_D32R0601_014 14
-#define _EV_scr_seq_D32R0601_015 15
-#define _EV_scr_seq_D32R0601_016 16
+#define _EV_BattleFrontier_BattleArcade_EventScript_Attendant1 0
+#define _EV_BattleFrontier_BattleArcade_EventScript_Scene1 1
+#define _EV_BattleFrontier_BattleArcade_EventScript_Scene2 2
+#define _EV_BattleFrontier_BattleArcade_EventScript_Scene3 3
+#define _EV_BattleFrontier_BattleArcade_EventScript_Scene4 4
+#define _EV_BattleFrontier_BattleArcade_EventScript_Attendant2 5
+#define _EV_BattleFrontier_BattleArcade_EventScript_Worker 6
+#define _EV_BattleFrontier_BattleArcade_EventScript_AceTrainerF 7
+#define _EV_BattleFrontier_BattleArcade_EventScript_Psychic 8
+#define _EV_BattleFrontier_BattleArcade_EventScript_BugCatcher 9
+#define _EV_BattleFrontier_BattleArcade_EventScript_Beauty1 10
+#define _EV_BattleFrontier_BattleArcade_EventScript_Camper 11
+#define _EV_BattleFrontier_BattleArcade_EventScript_Beauty2 12
+#define _EV_BattleFrontier_BattleArcade_EventScript_LittleGirl 13
+#define _EV_BattleFrontier_BattleArcade_OnTransition 14
+#define _EV_BattleFrontier_BattleArcade_EventScript_Hiker1 15
+#define _EV_BattleFrontier_BattleArcade_EventScript_Hiker2 16
 
 #define obj_D32R0601_bfsm        0
 #define obj_D32R0601_bfsw1       1

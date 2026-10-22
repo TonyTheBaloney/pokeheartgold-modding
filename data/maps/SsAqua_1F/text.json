@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0259_P01R0301_00000",
-      "from": "scr_seq_P01R0301_000#5"
+      "from": "SsAqua_1F_EventScript_Sailor1#5"
     },
     {
       "id": "msg_0259_P01R0301_00001",
-      "from": "scr_seq_P01R0301_000#3"
+      "from": "SsAqua_1F_EventScript_Sailor1#3"
     },
     {
       "id": "msg_0259_P01R0301_00002",
-      "from": "scr_seq_P01R0301_000#4"
+      "from": "SsAqua_1F_EventScript_Sailor1#4"
     },
     {
       "id": "msg_0259_P01R0301_00003",
-      "from": "scr_seq_P01R0301_000#0"
+      "from": "SsAqua_1F_EventScript_Sailor1#0"
     },
     {
       "id": "msg_0259_P01R0301_00004",
@@ -26,27 +26,27 @@
     },
     {
       "id": "msg_0259_P01R0301_00005",
-      "from": "scr_seq_P01R0301_000#2"
+      "from": "SsAqua_1F_EventScript_Sailor1#2"
     },
     {
       "id": "msg_0259_P01R0301_00006",
-      "from": "scr_seq_P01R0301_000#1"
+      "from": "SsAqua_1F_EventScript_Sailor1#1"
     },
     {
       "id": "msg_0259_P01R0301_00007",
-      "from": "scr_seq_P01R0301_004#0"
+      "from": "SsAqua_1F_EventScript_GentlemanTrigger#0"
     },
     {
       "id": "msg_0259_P01R0301_00008",
-      "from": "scr_seq_P01R0301_001#1"
+      "from": "SsAqua_1F_EventScript_Sailor2#1"
     },
     {
       "id": "msg_0259_P01R0301_00009",
-      "from": "scr_seq_P01R0301_001#0"
+      "from": "SsAqua_1F_EventScript_Sailor2#0"
     },
     {
       "id": "msg_0259_P01R0301_00010",
-      "from": "scr_seq_P01R0301_002#0"
+      "from": "SsAqua_1F_EventScript_Sailor3#0"
     }
   ]
 }

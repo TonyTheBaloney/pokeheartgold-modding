@@ -1,9 +1,9 @@
 #ifndef SCR_SEQ_R34R0201_H_
 #define SCR_SEQ_R34R0201_H_
 
-#define _EV_scr_seq_R34R0201_000 0
-#define _EV_scr_seq_R34R0201_001 1
-#define _EV_scr_seq_R34R0201_002 2
+#define _EV_Route34_IlexForestGatehouse_EventScript_Woman 0
+#define _EV_Route34_IlexForestGatehouse_EventScript_Butterfree 1
+#define _EV_Route34_IlexForestGatehouse_EventScript_Lass 2
 
 #define obj_R34R0201_gsgirl1                      0
 #define obj_R34R0201_gswoman1                     1

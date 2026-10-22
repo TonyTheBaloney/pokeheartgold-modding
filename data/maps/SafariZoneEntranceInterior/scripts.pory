@@ -3,25 +3,25 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D47R0101_000
-    scr_seq_D47R0101_001
-    scr_seq_D47R0101_002
-    scr_seq_D47R0101_003
-    scr_seq_D47R0101_004
-    scr_seq_D47R0101_005
-    scr_seq_D47R0101_006
-    scr_seq_D47R0101_007
-    scr_seq_D47R0101_008
-    scr_seq_D47R0101_009
-    scr_seq_D47R0101_010
-    scr_seq_D47R0101_011
+    SafariZoneEntranceInterior_EventScript_Attendant1
+    SafariZoneEntranceInterior_EventScript_Attendant2
+    SafariZoneEntranceInterior_EventScript_Attendant3
+    SafariZoneEntranceInterior_EventScript_Attendant4
+    SafariZoneEntranceInterior_EventScript_Attendant5
+    SafariZoneEntranceInterior_EventScript_Sign
+    SafariZoneEntranceInterior_EventScript_AttendantScene
+    SafariZoneEntranceInterior_EventScript_Scene
+    SafariZoneEntranceInterior_EventScript_GentlemanScene1
+    SafariZoneEntranceInterior_EventScript_GentlemanScene2
+    SafariZoneEntranceInterior_EventScript_Gentleman
+    SafariZoneEntranceInterior_EventScript_Attendant6
 }
 
-script scr_seq_D47R0101_006 {
+script SafariZoneEntranceInterior_EventScript_AttendantScene {
     followmonresetmovement
     lockall
-    applymovement(obj_D47R0101_counterm_3, SafariZoneEntranceInterior_Movement_01EC)
-    applymovement(obj_D47R0101_counterm_5, SafariZoneEntranceInterior_Movement_01EC)
+    applymovement(obj_D47R0101_counterm_3, SafariZoneEntranceInterior_Movement_AttendantFaceRight)
+    applymovement(obj_D47R0101_counterm_5, SafariZoneEntranceInterior_Movement_AttendantFaceRight)
     waitmovement
     npcmsg("You still have Safari Balls left.\n"
            "Leave the Safari Zone? {YESNO 0}")
@@ -41,13 +41,13 @@ script scr_seq_D47R0101_006 {
             setvar(VAR_TEMP_x4002, 19)
             setvar(VAR_TEMP_x4003, 5)
         }
-        applymovement(obj_player, SafariZoneEntranceInterior_Movement_01DC)
+        applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkDown1)
         waitmovement
         dooranimationload(0, 0, VAR_TEMP_x4002, VAR_TEMP_x4003, 77)
         call(_08AF)
-        applymovement(obj_player, SafariZoneEntranceInterior_Movement_01BC)
-        applymovement(obj_D47R0101_counterm_3, SafariZoneEntranceInterior_Movement_01F4)
-        applymovement(obj_D47R0101_counterm_5, SafariZoneEntranceInterior_Movement_01F4)
+        applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkDownLeft)
+        applymovement(obj_D47R0101_counterm_3, SafariZoneEntranceInterior_Movement_AttendantFaceDown)
+        applymovement(obj_D47R0101_counterm_5, SafariZoneEntranceInterior_Movement_AttendantFaceDown)
         waitmovement
         call(_08B7)
         setvar(VAR_SCENE_SAFARI_ZONE_ENTRANCE, 0)
@@ -61,7 +61,7 @@ script scr_seq_D47R0101_006 {
         releaseall
         end
     }
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_01B4)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkUp1)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -71,7 +71,7 @@ script scr_seq_D47R0101_006 {
     waitfade
     lock(obj_partner_poke)
     followmonreleasenexttoplayer
-    applymovement(obj_partner_poke, SafariZoneEntranceInterior_Movement_0200)
+    applymovement(obj_partner_poke, SafariZoneEntranceInterior_Movement_FollowMonFaceUp)
     waitmovement
     release(obj_partner_poke)
     releaseall
@@ -83,10 +83,10 @@ text msg_0135_D47R0101_00009 {
     "Please come again!"
 }
 
-script scr_seq_D47R0101_007 {
+script SafariZoneEntranceInterior_EventScript_Scene {
     followmonresetmovement
     lockall
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_01E4)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkDown2)
     waitmovement
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 5) {
@@ -98,7 +98,7 @@ script scr_seq_D47R0101_007 {
     }
     dooranimationload(0, 0, VAR_TEMP_x4002, VAR_TEMP_x4003, 77)
     call(_08AF)
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_01BC)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkDownLeft)
     waitmovement
     call(_08B7)
     setvar(VAR_SCENE_SAFARI_ZONE_ENTRANCE, 0)
@@ -110,11 +110,11 @@ script scr_seq_D47R0101_007 {
     end
 }
 
-movement SafariZoneEntranceInterior_Movement_01B4 {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkUp1 {
     walk_up
 }
 
-movement SafariZoneEntranceInterior_Movement_01BC {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkDownLeft {
     walk_down * 2
     walk_left
     walk_in_place_up
@@ -126,35 +126,35 @@ movement SafariZoneEntranceInterior_Movement_01CC {
     walk_in_place_up
 }
 
-movement SafariZoneEntranceInterior_Movement_01DC {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkDown1 {
     walk_down
 }
 
-movement SafariZoneEntranceInterior_Movement_01E4 {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkDown2 {
     walk_down * 2
 }
 
-movement SafariZoneEntranceInterior_Movement_01EC {
+movement SafariZoneEntranceInterior_Movement_AttendantFaceRight {
     face_right
 }
 
-movement SafariZoneEntranceInterior_Movement_01F4 {
+movement SafariZoneEntranceInterior_Movement_AttendantFaceDown {
     delay_8
     face_down
 }
 
-movement SafariZoneEntranceInterior_Movement_0200 {
+movement SafariZoneEntranceInterior_Movement_FollowMonFaceUp {
     face_up
 }
 
-script scr_seq_D47R0101_008 {
+script SafariZoneEntranceInterior_EventScript_GentlemanScene1 {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0310)
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_03B8)
+    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_GentlemanWalkLeft)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkUp2)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -200,14 +200,14 @@ _025B:
     goto(_024A)
 }
 
-script scr_seq_D47R0101_009 {
+script SafariZoneEntranceInterior_EventScript_GentlemanScene2 {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0310)
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_03B8)
+    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_GentlemanWalkLeft)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkUp2)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -224,8 +224,8 @@ script scr_seq_D47R0101_009 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0324)
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_03C8)
+    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_GentlemanWalkUpRight1)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkUpRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -243,8 +243,8 @@ script scr_seq_D47R0101_009 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0334)
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_03D8)
+    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_GentlemanWalkDownLeft)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerFaceDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -266,20 +266,20 @@ script scr_seq_D47R0101_009 {
     end
 }
 
-movement SafariZoneEntranceInterior_Movement_0310 {
+movement SafariZoneEntranceInterior_Movement_GentlemanWalkLeft {
     face_down
     emote_exclamation_mark
     delay_16
     walk_left
 }
 
-movement SafariZoneEntranceInterior_Movement_0324 {
+movement SafariZoneEntranceInterior_Movement_GentlemanWalkUpRight1 {
     walk_up * 2
     walk_right * 3
     walk_up
 }
 
-movement SafariZoneEntranceInterior_Movement_0334 {
+movement SafariZoneEntranceInterior_Movement_GentlemanWalkDownLeft {
     walk_down * 2
     walk_left * 2
     walk_down
@@ -287,20 +287,20 @@ movement SafariZoneEntranceInterior_Movement_0334 {
     face_up
 }
 
-movement SafariZoneEntranceInterior_Movement_034C {
+movement SafariZoneEntranceInterior_Movement_GentlemanWalkLeftUp {
     walk_left * 2
     walk_up * 4
     walk_right * 4
     face_down
 }
 
-movement SafariZoneEntranceInterior_Movement_0360 {
+movement SafariZoneEntranceInterior_Movement_GentlemanWalkUpRight2 {
     walk_up * 4
     walk_right * 2
     face_down
 }
 
-movement SafariZoneEntranceInterior_Movement_0370 {
+movement SafariZoneEntranceInterior_Movement_GentlemanWalkDownRight {
     walk_down * 2
     walk_right
     walk_down * 2
@@ -328,23 +328,23 @@ movement SafariZoneEntranceInterior_Movement_03AC {
     emote_exclamation_mark
 }
 
-movement SafariZoneEntranceInterior_Movement_03B8 {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkUp2 {
     delay_16
     walk_up * 3
     face_right
 }
 
-movement SafariZoneEntranceInterior_Movement_03C8 {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkUpRight {
     walk_up * 2
     walk_right * 4
     walk_up
 }
 
-movement SafariZoneEntranceInterior_Movement_03D8 {
+movement SafariZoneEntranceInterior_Movement_PlayerFaceDown {
     face_down
 }
 
-movement SafariZoneEntranceInterior_Movement_03E0 {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkDown3 {
     delay_16
     face_up
     delay_16
@@ -352,16 +352,16 @@ movement SafariZoneEntranceInterior_Movement_03E0 {
     face_up
 }
 
-movement SafariZoneEntranceInterior_Movement_03F8 {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkRight1 {
     walk_right
     face_up
 }
 
-movement SafariZoneEntranceInterior_Movement_0404 {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkUp3 {
     walk_up
 }
 
-movement SafariZoneEntranceInterior_Movement_040C {
+movement SafariZoneEntranceInterior_Movement_PlayerFaceRight {
     delay_16 * 3
     face_right
 }
@@ -375,7 +375,7 @@ movement SafariZoneEntranceInterior_Movement_0420 {
     face_right
 }
 
-script scr_seq_D47R0101_010 {
+script SafariZoneEntranceInterior_EventScript_Gentleman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -423,16 +423,16 @@ script scr_seq_D47R0101_010 {
             followingpokemonmovement(55)
             getplayerfacing(VAR_SPECIAL_RESULT)
             if (var(VAR_SPECIAL_RESULT) == 1) {
-                applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_034C)
-                applymovement(obj_player, SafariZoneEntranceInterior_Movement_03E0)
+                applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_GentlemanWalkLeftUp)
+                applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkDown3)
                 waitmovement
             } elif (var(VAR_SPECIAL_RESULT) == 3) {
-                applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0360)
-                applymovement(obj_player, SafariZoneEntranceInterior_Movement_03F8)
+                applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_GentlemanWalkUpRight2)
+                applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkRight1)
                 waitmovement
             } else {
-                applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0360)
-                applymovement(obj_player, SafariZoneEntranceInterior_Movement_0404)
+                applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_GentlemanWalkUpRight2)
+                applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkUp3)
                 waitmovement
             }
             npcmsg("I’ve always wanted to see young people\n"
@@ -442,8 +442,8 @@ script scr_seq_D47R0101_010 {
                    "Pokédex.\r"
                    "That’s what I have been thinking.\r")
             closemessage
-            applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0370)
-            applymovement(obj_player, SafariZoneEntranceInterior_Movement_040C)
+            applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_GentlemanWalkDownRight)
+            applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerFaceRight)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -600,7 +600,7 @@ text msg_0135_D47R0101_00042 {
     "Give me some time, OK?"
 }
 
-script scr_seq_D47R0101_000 {
+script SafariZoneEntranceInterior_EventScript_Attendant1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -643,7 +643,7 @@ script scr_seq_D47R0101_000 {
     end
 }
 
-script scr_seq_D47R0101_001 {
+script SafariZoneEntranceInterior_EventScript_Attendant2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -718,11 +718,11 @@ _0707:
     closemessage
     hidemoneybox
     followmonrecall
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_08C4)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkRight2)
     waitmovement
     dooranimationload(0, 0, 5, 5, 77)
     call(_08AF)
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_08D0)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkUp4)
     waitmovement
     call(_08B7)
     setvar(VAR_SCENE_SAFARI_ZONE_ENTRANCE, 1)
@@ -736,7 +736,7 @@ _0707:
     waitfade
     lock(obj_partner_poke)
     followmonreleasenexttoplayer
-    applymovement(obj_partner_poke, SafariZoneEntranceInterior_Movement_0200)
+    applymovement(obj_partner_poke, SafariZoneEntranceInterior_Movement_FollowMonFaceUp)
     waitmovement
     release(obj_partner_poke)
     releaseall
@@ -808,16 +808,16 @@ text msg_0135_D47R0101_00010 {
     "I hope you will drop by again."
 }
 
-movement SafariZoneEntranceInterior_Movement_08C4 {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkRight2 {
     walk_right
     face_up
 }
 
-movement SafariZoneEntranceInterior_Movement_08D0 {
+movement SafariZoneEntranceInterior_Movement_PlayerWalkUp4 {
     walk_up * 4
 }
 
-script scr_seq_D47R0101_002 {
+script SafariZoneEntranceInterior_EventScript_Attendant3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -901,7 +901,7 @@ _09DC:
     end
 }
 
-script scr_seq_D47R0101_003 {
+script SafariZoneEntranceInterior_EventScript_Attendant4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1087,7 +1087,7 @@ text msg_0135_D47R0101_00085 {
     "Please come again."
 }
 
-script scr_seq_D47R0101_004 {
+script SafariZoneEntranceInterior_EventScript_Attendant5 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1155,11 +1155,11 @@ _0C4C:
     closemessage
     hidemoneybox
     followmonrecall
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_08C4)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkRight2)
     waitmovement
     dooranimationload(0, 0, 19, 5, 77)
     call(_08AF)
-    applymovement(obj_player, SafariZoneEntranceInterior_Movement_08D0)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_PlayerWalkUp4)
     waitmovement
     call(_08B7)
     setvar(VAR_SCENE_SAFARI_ZONE_ENTRANCE, 3)
@@ -1173,7 +1173,7 @@ _0C4C:
     waitfade
     lock(obj_partner_poke)
     followmonreleasenexttoplayer
-    applymovement(obj_partner_poke, SafariZoneEntranceInterior_Movement_0200)
+    applymovement(obj_partner_poke, SafariZoneEntranceInterior_Movement_FollowMonFaceUp)
     waitmovement
     release(obj_partner_poke)
     releaseall
@@ -1215,7 +1215,7 @@ _0DF2:
     end
 }
 
-script scr_seq_D47R0101_011 {
+script SafariZoneEntranceInterior_EventScript_Attendant6 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1272,7 +1272,7 @@ _0E68:
     end
 }
 
-script scr_seq_D47R0101_005 {
+script SafariZoneEntranceInterior_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1313,10 +1313,10 @@ _0EF1:
 
 mapscripts SafariZoneEntranceInterior_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_SAFARI_ZONE_ENTRANCE, 1: scr_seq_D47R0101_006
-        VAR_SCENE_SAFARI_ZONE_ENTRANCE, 3: scr_seq_D47R0101_006
-        VAR_SCENE_SAFARI_ZONE_ENTRANCE, 2: scr_seq_D47R0101_007
-        VAR_UNK_4057, 1: scr_seq_D47R0101_008
-        VAR_UNK_4057, 4: scr_seq_D47R0101_009
+        VAR_SCENE_SAFARI_ZONE_ENTRANCE, 1: SafariZoneEntranceInterior_EventScript_AttendantScene
+        VAR_SCENE_SAFARI_ZONE_ENTRANCE, 3: SafariZoneEntranceInterior_EventScript_AttendantScene
+        VAR_SCENE_SAFARI_ZONE_ENTRANCE, 2: SafariZoneEntranceInterior_EventScript_Scene
+        VAR_UNK_4057, 1: SafariZoneEntranceInterior_EventScript_GentlemanScene1
+        VAR_UNK_4057, 4: SafariZoneEntranceInterior_EventScript_GentlemanScene2
     ]
 }

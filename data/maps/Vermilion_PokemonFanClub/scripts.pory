@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T06R0301_000
-    scr_seq_T06R0301_001
-    scr_seq_T06R0301_002
-    scr_seq_T06R0301_003
-    scr_seq_T06R0301_004
-    scr_seq_T06R0301_005
-    scr_seq_T06R0301_006
-    scr_seq_T06R0301_007
+    Vermilion_PokemonFanClub_EventScript_Gentleman
+    Vermilion_PokemonFanClub_EventScript_Beauty
+    Vermilion_PokemonFanClub_EventScript_FatMan
+    Vermilion_PokemonFanClub_EventScript_Woman
+    Vermilion_PokemonFanClub_EventScript_Bayleef
+    Vermilion_PokemonFanClub_EventScript_Sign1
+    Vermilion_PokemonFanClub_EventScript_Sign2
+    Vermilion_PokemonFanClub_EventScript_ItsAClefairySign
 }
 
-script scr_seq_T06R0301_000 {
+script Vermilion_PokemonFanClub_EventScript_Gentleman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -83,13 +83,13 @@ script scr_seq_T06R0301_000 {
     end
 }
 
-script scr_seq_T06R0301_001 {
+script Vermilion_PokemonFanClub_EventScript_Beauty {
     simplenpcmsg("Our Chairman is very vocal when it\n"
                  "comes to Pokémon...")
     end
 }
 
-script scr_seq_T06R0301_002 {
+script Vermilion_PokemonFanClub_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -143,14 +143,14 @@ _010B:
     end
 }
 
-script scr_seq_T06R0301_003 {
+script Vermilion_PokemonFanClub_EventScript_Woman {
     simplenpcmsg("Look at my darling BAYLEEF!\r"
                  "The leaf on its head is so cute\n"
                  "and fashionable!")
     end
 }
 
-script scr_seq_T06R0301_004 {
+script Vermilion_PokemonFanClub_EventScript_Bayleef {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -163,7 +163,7 @@ script scr_seq_T06R0301_004 {
     end
 }
 
-script scr_seq_T06R0301_007 {
+script Vermilion_PokemonFanClub_EventScript_ItsAClefairySign {
     if (flag(FLAG_HIDE_VERMILION_FAN_CLUB_LOST_ITEM)) {
         end
     }
@@ -173,13 +173,13 @@ script scr_seq_T06R0301_007 {
     end
 }
 
-script scr_seq_T06R0301_005 {
+script Vermilion_PokemonFanClub_EventScript_Sign1 {
     simplenpcmsg("Let’s all listen politely to\n"
                  "other Trainers.")
     end
 }
 
-script scr_seq_T06R0301_006 {
+script Vermilion_PokemonFanClub_EventScript_Sign2 {
     simplenpcmsg("If someone brags, brag right back!")
     end
 }

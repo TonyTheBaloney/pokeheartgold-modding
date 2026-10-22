@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T06FS0101_000 {
+script Vermilion_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T06FS0101_000 {
     end
 }
 
-script scr_seq_T06FS0101_001 {
+script Vermilion_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,13 +25,13 @@ script scr_seq_T06FS0101_001 {
     end
 }
 
-script scr_seq_T06FS0101_002 {
+script Vermilion_Pokemart_EventScript_Man {
     simplenpcmsg("Team Rocket is no longer in Kanto.\n"
                  "That alone makes me happy.")
     end
 }
 
-script scr_seq_T06FS0101_003 {
+script Vermilion_Pokemart_EventScript_Woman {
     simplenpcmsg("I’m thinking about going shopping\n"
                  "in Saffron.\r"
                  "Follow the northern route, and you’ll\n"

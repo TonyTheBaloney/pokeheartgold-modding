@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0378_R31_00000",
-      "from": "scr_seq_R31_001#0"
+      "from": "Route31_EventScript_FatMan#0"
     },
     {
       "id": "msg_0378_R31_00001",
@@ -11,59 +11,59 @@
     },
     {
       "id": "msg_0378_R31_00002",
-      "from": "scr_seq_R31_001#6"
+      "from": "Route31_EventScript_FatMan#6"
     },
     {
       "id": "msg_0378_R31_00003",
-      "from": "scr_seq_R31_001#7"
+      "from": "Route31_EventScript_FatMan#7"
     },
     {
       "id": "msg_0378_R31_00004",
-      "from": "scr_seq_R31_001#8"
+      "from": "Route31_EventScript_FatMan#8"
     },
     {
       "id": "msg_0378_R31_00005",
-      "from": "scr_seq_R31_001#1"
+      "from": "Route31_EventScript_FatMan#1"
     },
     {
       "id": "msg_0378_R31_00006",
-      "from": "scr_seq_R31_001#9"
+      "from": "Route31_EventScript_FatMan#9"
     },
     {
       "id": "msg_0378_R31_00007",
-      "from": "scr_seq_R31_001#2"
+      "from": "Route31_EventScript_FatMan#2"
     },
     {
       "id": "msg_0378_R31_00008",
-      "from": "scr_seq_R31_001#3"
+      "from": "Route31_EventScript_FatMan#3"
     },
     {
       "id": "msg_0378_R31_00009",
-      "from": "scr_seq_R31_001#4"
+      "from": "Route31_EventScript_FatMan#4"
     },
     {
       "id": "msg_0378_R31_00010",
-      "from": "scr_seq_R31_001#10"
+      "from": "Route31_EventScript_FatMan#10"
     },
     {
       "id": "msg_0378_R31_00011",
-      "from": "scr_seq_R31_005#0"
+      "from": "Route31_EventScript_SchoolKidM#0"
     },
     {
       "id": "msg_0378_R31_00012",
-      "from": "scr_seq_R31_004#0"
+      "from": "Route31_EventScript_Man#0"
     },
     {
       "id": "msg_0378_R31_00013",
-      "from": "scr_seq_R31_002#0"
+      "from": "Route31_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0378_R31_00014",
-      "from": "scr_seq_R31_003#0"
+      "from": "Route31_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0378_R31_00015",
-      "from": "scr_seq_R31_001#5"
+      "from": "Route31_EventScript_FatMan#5"
     }
   ]
 }

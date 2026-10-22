@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_D03R0103_H_
 #define SCR_SEQ_D03R0103_H_
 
-#define _EV_scr_seq_D03R0103_000 0
-#define _EV_scr_seq_D03R0103_001 1
+#define _EV_Cerulean_Cave_B1F_EventScript_Mewtwo 0
+#define _EV_Cerulean_Cave_B1F_OnLoad 1
 
 #define obj_D03R0103_monstarball              0
 #define obj_D03R0103_monstarball_2            1

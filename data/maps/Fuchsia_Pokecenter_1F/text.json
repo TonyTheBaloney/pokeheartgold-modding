@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0515_T08PC0101_00000",
-      "from": "scr_seq_T08PC0101_001#0"
+      "from": "Fuchsia_Pokecenter_1F_EventScript_AceTrainerM#0"
     },
     {
       "id": "msg_0515_T08PC0101_00001",
-      "from": "scr_seq_T08PC0101_002#0"
+      "from": "Fuchsia_Pokecenter_1F_EventScript_AceTrainerF#0"
     },
     {
       "id": "msg_0515_T08PC0101_00002",
-      "from": "scr_seq_T08PC0101_003#0"
+      "from": "Fuchsia_Pokecenter_1F_EventScript_Lass#0"
     },
     {
       "id": "msg_0515_T08PC0101_00003",
-      "from": "scr_seq_T08PC0101_003#1"
+      "from": "Fuchsia_Pokecenter_1F_EventScript_Lass#1"
     }
   ]
 }

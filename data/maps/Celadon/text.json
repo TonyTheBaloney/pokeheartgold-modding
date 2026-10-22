@@ -3,87 +3,87 @@
   "messages": [
     {
       "id": "msg_0491_T07_00000",
-      "from": "scr_seq_T07_000#0"
+      "from": "Celadon_EventScript_FatMan#0"
     },
     {
       "id": "msg_0491_T07_00001",
-      "from": "scr_seq_T07_001#0"
+      "from": "Celadon_EventScript_Poliwrath#0"
     },
     {
       "id": "msg_0491_T07_00002",
-      "from": "scr_seq_T07_002#0"
+      "from": "Celadon_EventScript_Woman#0"
     },
     {
       "id": "msg_0491_T07_00003",
-      "from": "scr_seq_T07_003#0"
+      "from": "Celadon_EventScript_OldMan1#0"
     },
     {
       "id": "msg_0491_T07_00004",
-      "from": "scr_seq_T07_004#0"
+      "from": "Celadon_EventScript_OldMan2#0"
     },
     {
       "id": "msg_0491_T07_00005",
-      "from": "scr_seq_T07_005#0"
+      "from": "Celadon_EventScript_SchoolKidM#0"
     },
     {
       "id": "msg_0491_T07_00006",
-      "from": "scr_seq_T07_006#0"
+      "from": "Celadon_EventScript_Youngster#0"
     },
     {
       "id": "msg_0491_T07_00007",
-      "from": "scr_seq_T07_007#0"
+      "from": "Celadon_EventScript_Beauty#0"
     },
     {
       "id": "msg_0491_T07_00008",
-      "from": "scr_seq_T07_008#0"
+      "from": "Celadon_EventScript_Lass#0"
     },
     {
       "id": "msg_0491_T07_00009",
-      "from": "scr_seq_T07_016#1"
+      "from": "Celadon_EventScript_Erika#1"
     },
     {
       "id": "msg_0491_T07_00010",
-      "from": "scr_seq_T07_016#2"
+      "from": "Celadon_EventScript_Erika#2"
     },
     {
       "id": "msg_0491_T07_00011",
-      "from": "scr_seq_T07_016#3"
+      "from": "Celadon_EventScript_Erika#3"
     },
     {
       "id": "msg_0491_T07_00012",
-      "from": "scr_seq_T07_016#4"
+      "from": "Celadon_EventScript_Erika#4"
     },
     {
       "id": "msg_0491_T07_00013",
-      "from": "scr_seq_T07_016#5"
+      "from": "Celadon_EventScript_Erika#5"
     },
     {
       "id": "msg_0491_T07_00014",
-      "from": "scr_seq_T07_016#6"
+      "from": "Celadon_EventScript_Erika#6"
     },
     {
       "id": "msg_0491_T07_00015",
-      "from": "scr_seq_T07_016#7"
+      "from": "Celadon_EventScript_Erika#7"
     },
     {
       "id": "msg_0491_T07_00016",
-      "from": "scr_seq_T07_016#8"
+      "from": "Celadon_EventScript_Erika#8"
     },
     {
       "id": "msg_0491_T07_00017",
-      "from": "scr_seq_T07_016#9"
+      "from": "Celadon_EventScript_Erika#9"
     },
     {
       "id": "msg_0491_T07_00018",
-      "from": "scr_seq_T07_016#10"
+      "from": "Celadon_EventScript_Erika#10"
     },
     {
       "id": "msg_0491_T07_00019",
-      "from": "scr_seq_T07_016#11"
+      "from": "Celadon_EventScript_Erika#11"
     },
     {
       "id": "msg_0491_T07_00020",
-      "from": "scr_seq_T07_016#12"
+      "from": "Celadon_EventScript_Erika#12"
     },
     {
       "id": "msg_0491_T07_00021",
@@ -91,11 +91,11 @@
     },
     {
       "id": "msg_0491_T07_00022",
-      "from": "scr_seq_T07_016#13"
+      "from": "Celadon_EventScript_Erika#13"
     },
     {
       "id": "msg_0491_T07_00023",
-      "from": "scr_seq_T07_016#0"
+      "from": "Celadon_EventScript_Erika#0"
     },
     {
       "id": "msg_0491_T07_00024",
@@ -119,31 +119,31 @@
     },
     {
       "id": "msg_0491_T07_00029",
-      "from": "scr_seq_T07_017#0"
+      "from": "Celadon_EventScript_Jasmine#0"
     },
     {
       "id": "msg_0491_T07_00030",
-      "from": "scr_seq_T07_009#0"
+      "from": "Celadon_EventScript_CitySign#0"
     },
     {
       "id": "msg_0491_T07_00031",
-      "from": "scr_seq_T07_010#0"
+      "from": "Celadon_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0491_T07_00032",
-      "from": "scr_seq_T07_011#0"
+      "from": "Celadon_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0491_T07_00033",
-      "from": "scr_seq_T07_012#0"
+      "from": "Celadon_EventScript_TrainerTips3#0"
     },
     {
       "id": "msg_0491_T07_00034",
-      "from": "scr_seq_T07_013#0"
+      "from": "Celadon_EventScript_TrainerTips4#0"
     },
     {
       "id": "msg_0491_T07_00035",
-      "from": "scr_seq_T07_014#0"
+      "from": "Celadon_EventScript_TrainerTips5#0"
     }
   ]
 }

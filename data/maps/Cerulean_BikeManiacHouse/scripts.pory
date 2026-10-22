@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T04R0401_000 {
+script Cerulean_BikeManiacHouse_EventScript_PokefanM {
     simplenpcmsg("A long time ago, this cool boy rode my\n"
                  "Bike around, and that started this\f"
                  "entire Bike boom.\r"

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R1202_000 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Psychic {
     simplenpcmsg("Why? It’s not fair!\n"
                  "Why are there only shots of Pokémon?\r"
                  "Why aren’t there any shots of ladies?\n"
@@ -9,7 +9,7 @@ script scr_seq_T25R1202_000 {
     end
 }
 
-script scr_seq_T25R1202_001 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Hiker {
     simplenpcmsg("Climbing the mountain to enjoy\n"
                  "its great view is one thing...\r"
                  "But sneaking a peek at other people’s\n"
@@ -17,7 +17,7 @@ script scr_seq_T25R1202_001 {
     end
 }
 
-script scr_seq_T25R1202_002 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Girl {
     simplenpcmsg("Did you know?\n"
                  "About my PC Box, I mean.\r"
                  "It’s full of Pokémon everyone longs\n"
@@ -29,7 +29,7 @@ script scr_seq_T25R1202_002 {
     end
 }
 
-script scr_seq_T25R1202_003 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Beauty {
     simplenpcmsg("I visit every day to check on other\n"
                  "people’s Dress-Up Data.\r"
                  "For me, it’s like the first step to\n"
@@ -37,20 +37,20 @@ script scr_seq_T25R1202_003 {
     end
 }
 
-script scr_seq_T25R1202_004 {
+script Goldenrod_GlobalTerminal_2F_EventScript_OldWoman {
     simplenpcmsg("Oh, dear me! Gracious!\n"
                  "This is almost scandalous!")
     end
 }
 
-script scr_seq_T25R1202_005 {
+script Goldenrod_GlobalTerminal_2F_EventScript_PokefanF {
     simplenpcmsg("For combinations of Pokémon and\n"
                  "Accessories, you can get ideas from\f"
                  "others by observing what they do.")
     end
 }
 
-script scr_seq_T25R1202_006 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Woman {
     simplenpcmsg("The same kind of Accessory can create\n"
                  "entirely different impressions.\r"
                  "It really depends on where and how\n"
@@ -58,20 +58,20 @@ script scr_seq_T25R1202_006 {
     end
 }
 
-script scr_seq_T25R1202_007 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Lass {
     simplenpcmsg("I won a Backdrop drawing for\n"
                  "Accessories in the Goldenrod Tunnel.")
     end
 }
 
-script scr_seq_T25R1202_008 {
+script Goldenrod_GlobalTerminal_2F_EventScript_LittleGirl {
     simplenpcmsg("What I like to do...\r"
                  "I like sneaking glances at the people\n"
                  "checking out Dress-Up Data.")
     end
 }
 
-script scr_seq_T25R1202_009 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Warps to the GTS and the Trainer\n"
@@ -82,7 +82,7 @@ script scr_seq_T25R1202_009 {
     end
 }
 
-script scr_seq_T25R1202_010 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Warps to the Battle Video Gallery on 3F.")
@@ -92,7 +92,7 @@ script scr_seq_T25R1202_010 {
     end
 }
 
-script scr_seq_T25R1202_011 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Sign3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8005, 6)
@@ -140,7 +140,7 @@ _0193:
     end
 }
 
-script scr_seq_T25R1202_012 {
+script Goldenrod_GlobalTerminal_2F_EventScript_Sign4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_SPECIAL_x8005, 5)

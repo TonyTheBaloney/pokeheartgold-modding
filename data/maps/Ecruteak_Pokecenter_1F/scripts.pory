@@ -1,20 +1,20 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T27PC0101_000 {
+script Ecruteak_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T27PC0101_001 {
+script Ecruteak_Pokecenter_1F_EventScript_BillScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_T27PC0101_masaki, Ecruteak_Pokecenter_1F_Movement_0084)
-    applymovement(obj_player, Ecruteak_Pokecenter_1F_Movement_00A0)
+    applymovement(obj_T27PC0101_masaki, Ecruteak_Pokecenter_1F_Movement_BillWalkDownRight)
+    applymovement(obj_player, Ecruteak_Pokecenter_1F_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -39,8 +39,8 @@ script scr_seq_T27PC0101_001 {
            "and see my folks.\f"
            "Buh-bye!\r")
     closemessage
-    applymovement(obj_T27PC0101_masaki, Ecruteak_Pokecenter_1F_Movement_00AC)
-    applymovement(obj_player, Ecruteak_Pokecenter_1F_Movement_00C0)
+    applymovement(obj_T27PC0101_masaki, Ecruteak_Pokecenter_1F_Movement_BillWalkRightDown)
+    applymovement(obj_player, Ecruteak_Pokecenter_1F_Movement_PlayerFaceDown)
     waitmovement
     removeobject(obj_T27PC0101_masaki)
     setflag(FLAG_UNK_1C5)
@@ -51,7 +51,7 @@ script scr_seq_T27PC0101_001 {
     end
 }
 
-movement Ecruteak_Pokecenter_1F_Movement_0084 {
+movement Ecruteak_Pokecenter_1F_Movement_BillWalkDownRight {
     walk_down * 4
     walk_right * 6
     walk_up * 2
@@ -60,24 +60,24 @@ movement Ecruteak_Pokecenter_1F_Movement_0084 {
     delay_4 * 4
 }
 
-movement Ecruteak_Pokecenter_1F_Movement_00A0 {
+movement Ecruteak_Pokecenter_1F_Movement_PlayerWalkUp {
     delay_4 * 20
     walk_up * 4
 }
 
-movement Ecruteak_Pokecenter_1F_Movement_00AC {
+movement Ecruteak_Pokecenter_1F_Movement_BillWalkRightDown {
     walk_right
     walk_down * 4
     walk_left
     walk_down * 2
 }
 
-movement Ecruteak_Pokecenter_1F_Movement_00C0 {
+movement Ecruteak_Pokecenter_1F_Movement_PlayerFaceDown {
     delay_4 * 6
     face_down
 }
 
-script scr_seq_T27PC0101_002 {
+script Ecruteak_Pokecenter_1F_EventScript_PokefanM {
     simplenpcmsg("Kimono Girls are so pretty.\r"
                  "The way the Kimono Girls dance and\n"
                  "the way they use their Pokémon are\f"
@@ -85,13 +85,13 @@ script scr_seq_T27PC0101_002 {
     end
 }
 
-script scr_seq_T27PC0101_003 {
+script Ecruteak_Pokecenter_1F_EventScript_AceTrainerF {
     simplenpcmsg("Morty, the Gym Leader, is soooo cool.\r"
                  "His Pokémon are really tough, too.")
     end
 }
 
-script scr_seq_T27PC0101_004 {
+script Ecruteak_Pokecenter_1F_EventScript_SuperNerd {
     simplenpcmsg("Lake of Rage...\n"
                  "The appearance of a red GYARADOS...\f"
                  "I smell a conspiracy. I know it!")
@@ -103,6 +103,6 @@ mapscripts Ecruteak_Pokecenter_1F_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
         VAR_UNK_4133, 2: std_union_room_return
         VAR_UNK_4133, 1: std_wireless_colosseum_return
-        VAR_UNK_410D, 0: scr_seq_T27PC0101_001
+        VAR_UNK_410D, 0: Ecruteak_Pokecenter_1F_EventScript_BillScene
     ]
 }

@@ -3,23 +3,23 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T06_000
-    scr_seq_T06_001
-    scr_seq_T06_002
-    scr_seq_T06_003
-    scr_seq_T06_004
-    scr_seq_T06_005
-    scr_seq_T06_006
-    scr_seq_T06_007
-    scr_seq_T06_008
-    scr_seq_T06_009
-    scr_seq_T06_010
-    scr_seq_T06_011
-    scr_seq_T06_012
-    scr_seq_T06_013
+    Vermilion_EventScript_PokefanM1
+    Vermilion_EventScript_Woman
+    Vermilion_EventScript_Man
+    Vermilion_EventScript_OldMan
+    Vermilion_EventScript_Machop
+    Vermilion_EventScript_CitySign
+    Vermilion_EventScript_TrainerTips1
+    Vermilion_EventScript_TrainerTips2
+    Vermilion_EventScript_TrainerTips3
+    Vermilion_OnTransition
+    Vermilion_EventScript_PokefanM2
+    Vermilion_EventScript_EusineTrigger1
+    Vermilion_EventScript_EusineTrigger2
+    Vermilion_EventScript_StevenScene
 }
 
-script scr_seq_T06_009 {
+script Vermilion_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 4) {
@@ -36,14 +36,14 @@ script scr_seq_T06_009 {
     end
 }
 
-script scr_seq_T06_013 {
+script Vermilion_EventScript_StevenScene {
     followmonresetmovement
     lockall
-    applymovement(obj_T06_daigo, Vermilion_Movement_016C)
+    applymovement(obj_T06_daigo, Vermilion_Movement_StevenWalkLeft)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Vermilion_Movement_0190)
+    applymovement(obj_player, Vermilion_Movement_PlayerWalkDown1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -58,7 +58,7 @@ script scr_seq_T06_013 {
            "Especially the ones who gave me\n"
            "tough battles...\r")
     closemessage
-    applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+    applymovement(obj_T06_daigo, Vermilion_Movement_StevenFaceLeft)
     waitmovement
     getgameversion(VAR_TEMP_x4004)
     if (var(VAR_TEMP_x4004) == 8) {
@@ -71,7 +71,7 @@ script scr_seq_T06_013 {
         closemessage
         createroamer(3)
         closepokemonpicwindow
-        applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+        applymovement(obj_T06_daigo, Vermilion_Movement_StevenFaceLeft)
         waitmovement
         npcmsg("LATIOS is a Pokémon that has a lot\n"
                "to do with Soul Dew, a gemlike Orb.\r"
@@ -79,7 +79,7 @@ script scr_seq_T06_013 {
                "in Kanto, it is possible to assume that\f"
                "this has to do with Soul Dew.\r")
         closemessage
-        applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+        applymovement(obj_T06_daigo, Vermilion_Movement_StevenFaceLeft)
         waitmovement
         npcmsg("LATIOS is a Pokémon that travels\n"
                "a great distance.\r"
@@ -91,12 +91,12 @@ script scr_seq_T06_013 {
         goto(_013F)
         end
     _013F:
-        applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+        applymovement(obj_T06_daigo, Vermilion_Movement_StevenFaceLeft)
         waitmovement
         npcmsg("Steven: I must go.\n"
                "May our journeys cross again.\r")
         closemessage
-        applymovement(obj_T06_daigo, Vermilion_Movement_0188)
+        applymovement(obj_T06_daigo, Vermilion_Movement_StevenWalkRight)
         waitmovement
         setvar(VAR_UNK_4130, 2)
         removeobject(obj_T06_daigo)
@@ -113,7 +113,7 @@ script scr_seq_T06_013 {
     closemessage
     createroamer(2)
     closepokemonpicwindow
-    applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+    applymovement(obj_T06_daigo, Vermilion_Movement_StevenFaceLeft)
     waitmovement
     npcmsg("LATIAS is a Pokémon that has a lot\n"
            "to do with Soul Dew, a gemlike Orb.\r"
@@ -121,7 +121,7 @@ script scr_seq_T06_013 {
            "in Kanto, it is possible to assume that\f"
            "this has to do with the Soul Dew.\r")
     closemessage
-    applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+    applymovement(obj_T06_daigo, Vermilion_Movement_StevenFaceLeft)
     waitmovement
     npcmsg("LATIAS is a Pokémon that travels\n"
            "a great distance.\r"
@@ -134,28 +134,28 @@ script scr_seq_T06_013 {
     end
 }
 
-movement Vermilion_Movement_016C {
+movement Vermilion_Movement_StevenWalkLeft {
     emote_exclamation_mark
     delay_8
     walk_left * 4
     walk_in_place_left
 }
 
-movement Vermilion_Movement_0180 {
+movement Vermilion_Movement_StevenFaceLeft {
     walk_in_place_left
 }
 
-movement Vermilion_Movement_0188 {
+movement Vermilion_Movement_StevenWalkRight {
     walk_right * 10
 }
 
-movement Vermilion_Movement_0190 {
+movement Vermilion_Movement_PlayerWalkDown1 {
     delay_16 * 4
     walk_down
     walk_in_place_right
 }
 
-script scr_seq_T06_000 {
+script Vermilion_EventScript_PokefanM1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -218,7 +218,7 @@ _01F4:
     end
 }
 
-script scr_seq_T06_011 {
+script Vermilion_EventScript_EusineTrigger1 {
     followmonresetmovement
     lockall
     clearflag(FLAG_HIDE_VERMILION_EUSINE)
@@ -226,7 +226,7 @@ script scr_seq_T06_011 {
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 1334) {
     } else {
-        applymovement(obj_player, Vermilion_Movement_040C)
+        applymovement(obj_player, Vermilion_Movement_PlayerExclamation)
         waitmovement
         playcry(SPECIES_SUICUNE, 0)
         release(obj_T06_tsure_poke_static_suicune)
@@ -239,17 +239,17 @@ script scr_seq_T06_011 {
         followingpokemonmovement(55)
         getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 331) {
-            applymovement(obj_player, Vermilion_Movement_0460)
-            applymovement(obj_T06_minaki, Vermilion_Movement_0490)
-            applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0414)
+            applymovement(obj_player, Vermilion_Movement_PlayerWalkRightUp1)
+            applymovement(obj_T06_minaki, Vermilion_Movement_EusineWalkDownRight1)
+            applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_SuicuneMove1)
         } elif (var(VAR_TEMP_x4001) == 332) {
-            applymovement(obj_player, Vermilion_Movement_0470)
-            applymovement(obj_T06_minaki, Vermilion_Movement_04A0)
-            applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0420)
+            applymovement(obj_player, Vermilion_Movement_PlayerWalkRightUp2)
+            applymovement(obj_T06_minaki, Vermilion_Movement_EusineWalkDownRight2)
+            applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_SuicuneMove2)
         } else {
-            applymovement(obj_player, Vermilion_Movement_0480)
-            applymovement(obj_T06_minaki, Vermilion_Movement_04B0)
-            applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_042C)
+            applymovement(obj_player, Vermilion_Movement_PlayerWalkRightUp3)
+            applymovement(obj_T06_minaki, Vermilion_Movement_EusineWalkDownRight3)
+            applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_SuicuneMove3)
         }
         waitmovement
         waitfollowingpokemonmovement
@@ -257,13 +257,13 @@ script scr_seq_T06_011 {
         followingpokemonmovement(48)
         npcmsg(msg_0483_T06_00014)
         closemessage
-        applymovement(obj_T06_minaki, Vermilion_Movement_04D0)
+        applymovement(obj_T06_minaki, Vermilion_Movement_EusineFaceDown1)
         waitmovement
         bufferplayersname(0)
         npcmsg(msg_0483_T06_00015)
         closemessage
-        applymovement(obj_T06_minaki, Vermilion_Movement_04E8)
-        applymovement(obj_player, Vermilion_Movement_04F0)
+        applymovement(obj_T06_minaki, Vermilion_Movement_EusineWalkUp)
+        applymovement(obj_player, Vermilion_Movement_PlayerFaceUp1)
         waitmovement
     _034D:
         callstd(std_fade_end_eusine_music)
@@ -279,8 +279,8 @@ script scr_seq_T06_011 {
         releaseall
         end
     }
-    applymovement(obj_player, Vermilion_Movement_040C)
-    applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0458)
+    applymovement(obj_player, Vermilion_Movement_PlayerExclamation)
+    applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_SuicuneFaceRight)
     waitmovement
     playcry(SPECIES_SUICUNE, 0)
     release(obj_T06_tsure_poke_static_suicune)
@@ -288,21 +288,21 @@ script scr_seq_T06_011 {
     lock(obj_T06_tsure_poke_static_suicune)
     waitcry
     callstd(std_play_eusine_music)
-    applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0438)
-    applymovement(obj_T06_minaki, Vermilion_Movement_04C0)
-    applymovement(obj_player, Vermilion_Movement_04F8)
+    applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_SuicuneWalkDown)
+    applymovement(obj_T06_minaki, Vermilion_Movement_EusineWalkRightDown)
+    applymovement(obj_player, Vermilion_Movement_PlayerFaceDown1)
     waitmovement
-    applymovement(obj_T06_minaki, Vermilion_Movement_04E0)
-    applymovement(obj_player, Vermilion_Movement_0504)
+    applymovement(obj_T06_minaki, Vermilion_Movement_EusineFaceDown2)
+    applymovement(obj_player, Vermilion_Movement_PlayerFaceLeft)
     waitmovement
     npcmsg(msg_0483_T06_00014)
     closemessage
-    applymovement(obj_T06_minaki, Vermilion_Movement_04D8)
+    applymovement(obj_T06_minaki, Vermilion_Movement_EusineFaceRight)
     waitmovement
     npcmsg(msg_0483_T06_00015)
     closemessage
-    applymovement(obj_T06_minaki, Vermilion_Movement_04E8)
-    applymovement(obj_player, Vermilion_Movement_04F0)
+    applymovement(obj_T06_minaki, Vermilion_Movement_EusineWalkUp)
+    applymovement(obj_player, Vermilion_Movement_PlayerFaceUp1)
     waitmovement
     goto(_034D)
 }
@@ -323,26 +323,26 @@ text msg_0483_T06_00015 {
     "I’ve got to go!\r"
 }
 
-movement Vermilion_Movement_040C {
+movement Vermilion_Movement_PlayerExclamation {
     emote_exclamation_mark
 }
 
-movement Vermilion_Movement_0414 {
+movement Vermilion_Movement_SuicuneMove1 {
     delay_4 * 9
     move_action_112
 }
 
-movement Vermilion_Movement_0420 {
+movement Vermilion_Movement_SuicuneMove2 {
     delay_4 * 11
     move_action_112
 }
 
-movement Vermilion_Movement_042C {
+movement Vermilion_Movement_SuicuneMove3 {
     delay_4 * 13
     move_action_112
 }
 
-movement Vermilion_Movement_0438 {
+movement Vermilion_Movement_SuicuneWalkDown {
     delay_4 * 4
     walk_faster_down * 2
     jump_near_fast_down
@@ -352,87 +352,87 @@ movement Vermilion_Movement_0438 {
     jump_far_down * 2
 }
 
-movement Vermilion_Movement_0458 {
+movement Vermilion_Movement_SuicuneFaceRight {
     walk_in_place_right
 }
 
-movement Vermilion_Movement_0460 {
+movement Vermilion_Movement_PlayerWalkRightUp1 {
     walk_right * 2
     walk_up * 2
     walk_right
 }
 
-movement Vermilion_Movement_0470 {
+movement Vermilion_Movement_PlayerWalkRightUp2 {
     walk_right * 2
     walk_up * 3
     walk_right
 }
 
-movement Vermilion_Movement_0480 {
+movement Vermilion_Movement_PlayerWalkRightUp3 {
     walk_right * 2
     walk_up * 4
     walk_right
 }
 
-movement Vermilion_Movement_0490 {
+movement Vermilion_Movement_EusineWalkDownRight1 {
     delay_8
     walk_fast_down * 6
     walk_fast_right
 }
 
-movement Vermilion_Movement_04A0 {
+movement Vermilion_Movement_EusineWalkDownRight2 {
     delay_4 * 3
     walk_fast_down * 6
     walk_fast_right
 }
 
-movement Vermilion_Movement_04B0 {
+movement Vermilion_Movement_EusineWalkDownRight3 {
     delay_4 * 5
     walk_fast_down * 6
     walk_fast_right
 }
 
-movement Vermilion_Movement_04C0 {
+movement Vermilion_Movement_EusineWalkRightDown {
     delay_4 * 2
     walk_fast_right
     walk_fast_down * 2
 }
 
-movement Vermilion_Movement_04D0 {
+movement Vermilion_Movement_EusineFaceDown1 {
     face_down
 }
 
-movement Vermilion_Movement_04D8 {
+movement Vermilion_Movement_EusineFaceRight {
     face_right
 }
 
-movement Vermilion_Movement_04E0 {
+movement Vermilion_Movement_EusineFaceDown2 {
     jump_in_place_fast_down * 3
 }
 
-movement Vermilion_Movement_04E8 {
+movement Vermilion_Movement_EusineWalkUp {
     walk_up * 8
 }
 
-movement Vermilion_Movement_04F0 {
+movement Vermilion_Movement_PlayerFaceUp1 {
     face_up
 }
 
-movement Vermilion_Movement_04F8 {
+movement Vermilion_Movement_PlayerFaceDown1 {
     delay_4 * 4
     face_down
 }
 
-movement Vermilion_Movement_0504 {
+movement Vermilion_Movement_PlayerFaceLeft {
     face_left
 }
 
-script scr_seq_T06_012 {
+script Vermilion_EventScript_EusineTrigger2 {
     followmonresetmovement
     lockall
     clearflag(FLAG_HIDE_VERMILION_EUSINE_2)
     addobject(obj_T06_minaki_2)
-    applymovement(obj_player, Vermilion_Movement_040C)
+    applymovement(obj_player, Vermilion_Movement_PlayerExclamation)
     waitmovement
     playcry(SPECIES_SUICUNE, 0)
     release(obj_T06_tsure_poke_static_suicune)
@@ -445,17 +445,17 @@ script scr_seq_T06_012 {
     followingpokemonmovement(55)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 1324) {
-        applymovement(obj_T06_minaki_2, Vermilion_Movement_0654)
-        applymovement(obj_player, Vermilion_Movement_0630)
-        applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0414)
+        applymovement(obj_T06_minaki_2, Vermilion_Movement_EusineWalkRightUp1)
+        applymovement(obj_player, Vermilion_Movement_PlayerWalkDownRight1)
+        applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_SuicuneMove1)
     } elif (var(VAR_TEMP_x4000) == 1325) {
-        applymovement(obj_T06_minaki_2, Vermilion_Movement_0668)
-        applymovement(obj_player, Vermilion_Movement_063C)
-        applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0420)
+        applymovement(obj_T06_minaki_2, Vermilion_Movement_EusineWalkRightUp2)
+        applymovement(obj_player, Vermilion_Movement_PlayerWalkDownRight2)
+        applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_SuicuneMove2)
     } else {
-        applymovement(obj_T06_minaki_2, Vermilion_Movement_067C)
-        applymovement(obj_player, Vermilion_Movement_0648)
-        applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_042C)
+        applymovement(obj_T06_minaki_2, Vermilion_Movement_EusineWalkRightUp3)
+        applymovement(obj_player, Vermilion_Movement_PlayerWalkDown2)
+        applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_SuicuneMove3)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -463,14 +463,14 @@ script scr_seq_T06_012 {
     followingpokemonmovement(48)
     npcmsg(msg_0483_T06_00014)
     closemessage
-    applymovement(obj_T06_minaki_2, Vermilion_Movement_0690)
-    applymovement(obj_player, Vermilion_Movement_06A4)
+    applymovement(obj_T06_minaki_2, Vermilion_Movement_EusineFaceUp)
+    applymovement(obj_player, Vermilion_Movement_PlayerFaceDown2)
     waitmovement
     bufferplayersname(0)
     npcmsg(msg_0483_T06_00015)
     closemessage
-    applymovement(obj_T06_minaki_2, Vermilion_Movement_0698)
-    applymovement(obj_player, Vermilion_Movement_06AC)
+    applymovement(obj_T06_minaki_2, Vermilion_Movement_EusineWalkLeftUp)
+    applymovement(obj_player, Vermilion_Movement_PlayerFaceUp2)
     waitmovement
     callstd(std_fade_end_eusine_music)
     removeobject(obj_T06_minaki_2)
@@ -486,63 +486,63 @@ script scr_seq_T06_012 {
     end
 }
 
-movement Vermilion_Movement_0630 {
+movement Vermilion_Movement_PlayerWalkDownRight1 {
     walk_down * 4
     walk_right * 2
 }
 
-movement Vermilion_Movement_063C {
+movement Vermilion_Movement_PlayerWalkDownRight2 {
     walk_down * 4
     walk_right
 }
 
-movement Vermilion_Movement_0648 {
+movement Vermilion_Movement_PlayerWalkDown2 {
     walk_down * 4
     face_right
 }
 
-movement Vermilion_Movement_0654 {
+movement Vermilion_Movement_EusineWalkRightUp1 {
     delay_8
     walk_fast_right * 7
     walk_fast_up * 3
     walk_fast_right
 }
 
-movement Vermilion_Movement_0668 {
+movement Vermilion_Movement_EusineWalkRightUp2 {
     delay_8 * 2
     walk_fast_right * 7
     walk_fast_up * 3
     walk_fast_right
 }
 
-movement Vermilion_Movement_067C {
+movement Vermilion_Movement_EusineWalkRightUp3 {
     delay_8 * 3
     walk_fast_right * 7
     walk_fast_up * 3
     walk_fast_right
 }
 
-movement Vermilion_Movement_0690 {
+movement Vermilion_Movement_EusineFaceUp {
     face_up
 }
 
-movement Vermilion_Movement_0698 {
+movement Vermilion_Movement_EusineWalkLeftUp {
     walk_left * 2
     walk_up * 13
 }
 
-movement Vermilion_Movement_06A4 {
+movement Vermilion_Movement_PlayerFaceDown2 {
     face_down
 }
 
-movement Vermilion_Movement_06AC {
+movement Vermilion_Movement_PlayerFaceUp2 {
     delay_8 * 2
     face_left
     delay_8
     face_up
 }
 
-script scr_seq_T06_001 {
+script Vermilion_EventScript_Woman {
     simplenpcmsg("Vermilion Port is Kanto’s\n"
                  "seaside gateway.\r"
                  "Luxury liners from around the world\n"
@@ -550,14 +550,14 @@ script scr_seq_T06_001 {
     end
 }
 
-script scr_seq_T06_002 {
+script Vermilion_EventScript_Man {
     simplenpcmsg("There are eight Gyms in Kanto.\r"
                  "That big building is Vermilion’s\n"
                  "Pokémon Gym.")
     end
 }
 
-script scr_seq_T06_003 {
+script Vermilion_EventScript_OldMan {
     simplenpcmsg("My Pokémon is preparing the land\n"
                  "for construction.\r"
                  "But I have no money to start\n"
@@ -565,7 +565,7 @@ script scr_seq_T06_003 {
     end
 }
 
-script scr_seq_T06_004 {
+script Vermilion_EventScript_Machop {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -578,31 +578,31 @@ script scr_seq_T06_004 {
     end
 }
 
-script scr_seq_T06_005 {
+script Vermilion_EventScript_CitySign {
     directionsignpostex(0, 6, "Vermilion City\n"
                               "The Port of Exquisite Sunsets")
     end
 }
 
-script scr_seq_T06_006 {
+script Vermilion_EventScript_TrainerTips1 {
     trainertipsex(2, "Vermilion City Pokémon Gym\n"
                      "Leader: Lt. Surge\f"
                      "The Lightning American")
     end
 }
 
-script scr_seq_T06_007 {
+script Vermilion_EventScript_TrainerTips2 {
     trainertipsex(2, "Pokémon Fan Club\n"
                      "All Pokémon Fans Welcome!")
     end
 }
 
-script scr_seq_T06_008 {
+script Vermilion_EventScript_TrainerTips3 {
     trainertipsex(2, "Vermilion Port Entrance")
     end
 }
 
-script scr_seq_T06_010 {
+script Vermilion_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -636,13 +636,13 @@ script scr_seq_T06_010 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Vermilion_Movement_0898)
+        applymovement(obj_player, Vermilion_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Vermilion_Movement_08B8)
-        applymovement(obj_T06_gsmiddleman1_2, Vermilion_Movement_08CC)
+        applymovement(obj_player, Vermilion_Movement_PlayerWalkUpRight)
+        applymovement(obj_T06_gsmiddleman1_2, Vermilion_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Vermilion_Movement_08A4)
-        applymovement(obj_T06_gsmiddleman1_2, Vermilion_Movement_08CC)
+        applymovement(obj_player, Vermilion_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T06_gsmiddleman1_2, Vermilion_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -650,7 +650,7 @@ script scr_seq_T06_010 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Vermilion_Movement_08D8)
+        applymovement(obj_partner_poke, Vermilion_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -669,39 +669,39 @@ script scr_seq_T06_010 {
     end
 }
 
-movement Vermilion_Movement_0898 {
+movement Vermilion_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Vermilion_Movement_08A4 {
+movement Vermilion_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Vermilion_Movement_08B8 {
+movement Vermilion_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Vermilion_Movement_08CC {
+movement Vermilion_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Vermilion_Movement_08D8 {
+movement Vermilion_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
 mapscripts Vermilion_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T06_009
+    INIT_SCRIPT_ON_TRANSITION: Vermilion_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4130, 1: scr_seq_T06_013
+        VAR_UNK_4130, 1: Vermilion_EventScript_StevenScene
     ]
 }

@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D24R0101_004 + 1",
+            "script": "RuinsOfAlph_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         },
         {
@@ -328,7 +328,7 @@
             "height": 1,
             "var": "VAR_SCENE_SINJOH_MYSTRI_ROOM",
             "var_value": 1,
-            "script": "_EV_scr_seq_D24R0101_007 + 1"
+            "script": "RuinsOfAlph_EventScript_BusinessmanTrigger"
         }
     ],
     "bg_events": [
@@ -338,7 +338,7 @@
             "y": 266,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0101_002 + 1"
+            "script": "RuinsOfAlph_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -346,7 +346,7 @@
             "y": 286,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0101_000 + 1"
+            "script": "RuinsOfAlph_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -354,7 +354,7 @@
             "y": 287,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0101_001 + 1"
+            "script": "RuinsOfAlph_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -362,7 +362,7 @@
             "y": 292,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D24R0101_003 + 1"
+            "script": "RuinsOfAlph_EventScript_TrainerTips4"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

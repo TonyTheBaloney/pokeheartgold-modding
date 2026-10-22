@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0135_D47R0101_00000",
-      "from": "scr_seq_D47R0101_001#1"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant2#1"
     },
     {
       "id": "msg_0135_D47R0101_00001",
-      "from": "scr_seq_D47R0101_001#0"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant2#0"
     },
     {
       "id": "msg_0135_D47R0101_00002",
-      "from": "scr_seq_D47R0101_001#2"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant2#2"
     },
     {
       "id": "msg_0135_D47R0101_00003",
@@ -19,23 +19,23 @@
     },
     {
       "id": "msg_0135_D47R0101_00004",
-      "from": "scr_seq_D47R0101_001#3"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant2#3"
     },
     {
       "id": "msg_0135_D47R0101_00005",
-      "from": "scr_seq_D47R0101_001#4"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant2#4"
     },
     {
       "id": "msg_0135_D47R0101_00006",
-      "from": "scr_seq_D47R0101_001#5"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant2#5"
     },
     {
       "id": "msg_0135_D47R0101_00007",
-      "from": "scr_seq_D47R0101_006#0"
+      "from": "SafariZoneEntranceInterior_EventScript_AttendantScene#0"
     },
     {
       "id": "msg_0135_D47R0101_00008",
-      "from": "scr_seq_D47R0101_006#1"
+      "from": "SafariZoneEntranceInterior_EventScript_AttendantScene#1"
     },
     {
       "id": "msg_0135_D47R0101_00009",
@@ -59,19 +59,19 @@
     },
     {
       "id": "msg_0135_D47R0101_00014",
-      "from": "scr_seq_D47R0101_000#1"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant1#1"
     },
     {
       "id": "msg_0135_D47R0101_00015",
-      "from": "scr_seq_D47R0101_000#0"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant1#0"
     },
     {
       "id": "msg_0135_D47R0101_00016",
-      "from": "scr_seq_D47R0101_000#3"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant1#3"
     },
     {
       "id": "msg_0135_D47R0101_00017",
-      "from": "scr_seq_D47R0101_000#2"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant1#2"
     },
     {
       "id": "msg_0135_D47R0101_00018",
@@ -79,95 +79,95 @@
     },
     {
       "id": "msg_0135_D47R0101_00019",
-      "from": "scr_seq_D47R0101_002#0"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant3#0"
     },
     {
       "id": "msg_0135_D47R0101_00020",
-      "from": "scr_seq_D47R0101_002#1"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant3#1"
     },
     {
       "id": "msg_0135_D47R0101_00021",
-      "from": "scr_seq_D47R0101_002#2"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant3#2"
     },
     {
       "id": "msg_0135_D47R0101_00022",
-      "from": "scr_seq_D47R0101_002#3"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant3#3"
     },
     {
       "id": "msg_0135_D47R0101_00023",
-      "from": "scr_seq_D47R0101_002#4"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant3#4"
     },
     {
       "id": "msg_0135_D47R0101_00024",
-      "from": "scr_seq_D47R0101_002#5"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant3#5"
     },
     {
       "id": "msg_0135_D47R0101_00025",
-      "from": "scr_seq_D47R0101_002#7"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant3#7"
     },
     {
       "id": "msg_0135_D47R0101_00026",
-      "from": "scr_seq_D47R0101_002#6"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant3#6"
     },
     {
       "id": "msg_0135_D47R0101_00027",
-      "from": "scr_seq_D47R0101_005#0"
+      "from": "SafariZoneEntranceInterior_EventScript_Sign#0"
     },
     {
       "id": "msg_0135_D47R0101_00028",
-      "from": "scr_seq_D47R0101_005#2"
+      "from": "SafariZoneEntranceInterior_EventScript_Sign#2"
     },
     {
       "id": "msg_0135_D47R0101_00029",
-      "from": "scr_seq_D47R0101_008#0"
+      "from": "SafariZoneEntranceInterior_EventScript_GentlemanScene1#0"
     },
     {
       "id": "msg_0135_D47R0101_00030",
-      "from": "scr_seq_D47R0101_008#1"
+      "from": "SafariZoneEntranceInterior_EventScript_GentlemanScene1#1"
     },
     {
       "id": "msg_0135_D47R0101_00031",
-      "from": "scr_seq_D47R0101_008#2"
+      "from": "SafariZoneEntranceInterior_EventScript_GentlemanScene1#2"
     },
     {
       "id": "msg_0135_D47R0101_00032",
-      "from": "scr_seq_D47R0101_010#1"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#1"
     },
     {
       "id": "msg_0135_D47R0101_00033",
-      "from": "scr_seq_D47R0101_010#0"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#0"
     },
     {
       "id": "msg_0135_D47R0101_00034",
-      "from": "scr_seq_D47R0101_009#0"
+      "from": "SafariZoneEntranceInterior_EventScript_GentlemanScene2#0"
     },
     {
       "id": "msg_0135_D47R0101_00035",
-      "from": "scr_seq_D47R0101_009#1"
+      "from": "SafariZoneEntranceInterior_EventScript_GentlemanScene2#1"
     },
     {
       "id": "msg_0135_D47R0101_00036",
-      "from": "scr_seq_D47R0101_009#2"
+      "from": "SafariZoneEntranceInterior_EventScript_GentlemanScene2#2"
     },
     {
       "id": "msg_0135_D47R0101_00037",
-      "from": "scr_seq_D47R0101_010#2"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#2"
     },
     {
       "id": "msg_0135_D47R0101_00038",
-      "from": "scr_seq_D47R0101_010#3"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#3"
     },
     {
       "id": "msg_0135_D47R0101_00039",
-      "from": "scr_seq_D47R0101_010#4"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#4"
     },
     {
       "id": "msg_0135_D47R0101_00040",
-      "from": "scr_seq_D47R0101_010#16"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#16"
     },
     {
       "id": "msg_0135_D47R0101_00041",
-      "from": "scr_seq_D47R0101_010#5"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#5"
     },
     {
       "id": "msg_0135_D47R0101_00042",
@@ -175,15 +175,15 @@
     },
     {
       "id": "msg_0135_D47R0101_00043",
-      "from": "scr_seq_D47R0101_010#6"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#6"
     },
     {
       "id": "msg_0135_D47R0101_00044",
-      "from": "scr_seq_D47R0101_010#7"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#7"
     },
     {
       "id": "msg_0135_D47R0101_00045",
-      "from": "scr_seq_D47R0101_010#8"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#8"
     },
     {
       "id": "msg_0135_D47R0101_00046",
@@ -194,39 +194,39 @@
     },
     {
       "id": "msg_0135_D47R0101_00047",
-      "from": "scr_seq_D47R0101_010#9"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#9"
     },
     {
       "id": "msg_0135_D47R0101_00048",
-      "from": "scr_seq_D47R0101_010#10"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#10"
     },
     {
       "id": "msg_0135_D47R0101_00049",
-      "from": "scr_seq_D47R0101_010#11"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#11"
     },
     {
       "id": "msg_0135_D47R0101_00050",
-      "from": "scr_seq_D47R0101_010#12"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#12"
     },
     {
       "id": "msg_0135_D47R0101_00051",
-      "from": "scr_seq_D47R0101_010#13"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#13"
     },
     {
       "id": "msg_0135_D47R0101_00052",
-      "from": "scr_seq_D47R0101_010#14"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#14"
     },
     {
       "id": "msg_0135_D47R0101_00053",
-      "from": "scr_seq_D47R0101_010#15"
+      "from": "SafariZoneEntranceInterior_EventScript_Gentleman#15"
     },
     {
       "id": "msg_0135_D47R0101_00054",
-      "from": "scr_seq_D47R0101_004#0"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant5#0"
     },
     {
       "id": "msg_0135_D47R0101_00055",
-      "from": "scr_seq_D47R0101_004#2"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant5#2"
     },
     {
       "id": "msg_0135_D47R0101_00056",
@@ -237,19 +237,19 @@
     },
     {
       "id": "msg_0135_D47R0101_00057",
-      "from": "scr_seq_D47R0101_004#3"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant5#3"
     },
     {
       "id": "msg_0135_D47R0101_00058",
-      "from": "scr_seq_D47R0101_004#4"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant5#4"
     },
     {
       "id": "msg_0135_D47R0101_00059",
-      "from": "scr_seq_D47R0101_004#5"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant5#5"
     },
     {
       "id": "msg_0135_D47R0101_00060",
-      "from": "scr_seq_D47R0101_004#1"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant5#1"
     },
     {
       "id": "msg_0135_D47R0101_00061",
@@ -283,11 +283,11 @@
     },
     {
       "id": "msg_0135_D47R0101_00065",
-      "from": "scr_seq_D47R0101_003#0"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant4#0"
     },
     {
       "id": "msg_0135_D47R0101_00066",
-      "from": "scr_seq_D47R0101_003#1"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant4#1"
     },
     {
       "id": "msg_0135_D47R0101_00067",
@@ -313,7 +313,7 @@
     },
     {
       "id": "msg_0135_D47R0101_00071",
-      "from": "scr_seq_D47R0101_003#2"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant4#2"
     },
     {
       "id": "msg_0135_D47R0101_00072",
@@ -363,19 +363,19 @@
     },
     {
       "id": "msg_0135_D47R0101_00081",
-      "from": "scr_seq_D47R0101_003#3"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant4#3"
     },
     {
       "id": "msg_0135_D47R0101_00082",
-      "from": "scr_seq_D47R0101_003#4"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant4#4"
     },
     {
       "id": "msg_0135_D47R0101_00083",
-      "from": "scr_seq_D47R0101_003#7"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant4#7"
     },
     {
       "id": "msg_0135_D47R0101_00084",
-      "from": "scr_seq_D47R0101_004#6"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant5#6"
     },
     {
       "id": "msg_0135_D47R0101_00085",
@@ -391,11 +391,11 @@
     },
     {
       "id": "msg_0135_D47R0101_00088",
-      "from": "scr_seq_D47R0101_003#5"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant4#5"
     },
     {
       "id": "msg_0135_D47R0101_00089",
-      "from": "scr_seq_D47R0101_003#6"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant4#6"
     },
     {
       "id": "msg_0135_D47R0101_00090",
@@ -403,27 +403,27 @@
     },
     {
       "id": "msg_0135_D47R0101_00091",
-      "from": "scr_seq_D47R0101_005#1"
+      "from": "SafariZoneEntranceInterior_EventScript_Sign#1"
     },
     {
       "id": "msg_0135_D47R0101_00092",
-      "from": "scr_seq_D47R0101_011#0"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant6#0"
     },
     {
       "id": "msg_0135_D47R0101_00093",
-      "from": "scr_seq_D47R0101_011#1"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant6#1"
     },
     {
       "id": "msg_0135_D47R0101_00094",
-      "from": "scr_seq_D47R0101_011#2"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant6#2"
     },
     {
       "id": "msg_0135_D47R0101_00095",
-      "from": "scr_seq_D47R0101_011#3"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant6#3"
     },
     {
       "id": "msg_0135_D47R0101_00096",
-      "from": "scr_seq_D47R0101_011#4"
+      "from": "SafariZoneEntranceInterior_EventScript_Attendant6#4"
     }
   ]
 }

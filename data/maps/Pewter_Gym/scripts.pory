@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T03GYM0101_000
-    scr_seq_T03GYM0101_001
-    scr_seq_T03GYM0101_002
-    scr_seq_T03GYM0101_003
+    Pewter_Gym_EventScript_Brock
+    Pewter_Gym_EventScript_GymGuide
+    Pewter_Gym_EventScript_GymSign
+    Pewter_Gym_OnTransition
 }
 
-script scr_seq_T03GYM0101_003 {
+script Pewter_Gym_OnTransition {
     getphonebookrematch(PHONE_CONTACT_BROCK, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
         setflag(FLAG_HIDE_PEWTER_GYM_BROCK)
@@ -50,7 +50,7 @@ _00F5:
     end
 }
 
-script scr_seq_T03GYM0101_000 {
+script Pewter_Gym_EventScript_Brock {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -123,7 +123,7 @@ _01AE:
     end
 }
 
-script scr_seq_T03GYM0101_001 {
+script Pewter_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -151,7 +151,7 @@ script scr_seq_T03GYM0101_001 {
     end
 }
 
-script scr_seq_T03GYM0101_002 {
+script Pewter_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -172,5 +172,5 @@ script scr_seq_T03GYM0101_002 {
 }
 
 mapscripts Pewter_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T03GYM0101_003
+    INIT_SCRIPT_ON_TRANSITION: Pewter_Gym_OnTransition
 }

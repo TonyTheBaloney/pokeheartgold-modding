@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R16R0101_000
-    scr_seq_R16R0101_001
+    Route16_House_EventScript_Man
+    Route16_House_EventScript_OldMan
 }
 
-script scr_seq_R16R0101_001 {
+script Route16_House_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -56,7 +56,7 @@ script scr_seq_R16R0101_001 {
     end
 }
 
-script scr_seq_R16R0101_000 {
+script Route16_House_EventScript_Man {
     simplenpcmsg("If you cruise down the Cycling Road,\n"
                  "you will end up in Fuchsia City.")
     end

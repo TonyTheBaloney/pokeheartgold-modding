@@ -3,31 +3,31 @@
   "messages": [
     {
       "id": "msg_0541_T11R0802_00000",
-      "from": "scr_seq_T11R0802_000#3"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#3"
     },
     {
       "id": "msg_0541_T11R0802_00001",
-      "from": "scr_seq_T11R0802_000#4"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#4"
     },
     {
       "id": "msg_0541_T11R0802_00002",
-      "from": "scr_seq_T11R0802_000#5"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#5"
     },
     {
       "id": "msg_0541_T11R0802_00003",
-      "from": "scr_seq_T11R0802_000#6"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#6"
     },
     {
       "id": "msg_0541_T11R0802_00004",
-      "from": "scr_seq_T11R0802_000#7"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#7"
     },
     {
       "id": "msg_0541_T11R0802_00005",
-      "from": "scr_seq_T11R0802_000#8"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#8"
     },
     {
       "id": "msg_0541_T11R0802_00006",
-      "from": "scr_seq_T11R0802_000#9"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#9"
     },
     {
       "id": "msg_0541_T11R0802_00007",
@@ -35,43 +35,43 @@
     },
     {
       "id": "msg_0541_T11R0802_00008",
-      "from": "scr_seq_T11R0802_000#10"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#10"
     },
     {
       "id": "msg_0541_T11R0802_00009",
-      "from": "scr_seq_T11R0802_000#0"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#0"
     },
     {
       "id": "msg_0541_T11R0802_00010",
-      "from": "scr_seq_T11R0802_000#1"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#1"
     },
     {
       "id": "msg_0541_T11R0802_00011",
-      "from": "scr_seq_T11R0802_000#2"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Copycat#2"
     },
     {
       "id": "msg_0541_T11R0802_00012",
-      "from": "scr_seq_T11R0802_003#1"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Banette#1"
     },
     {
       "id": "msg_0541_T11R0802_00013",
-      "from": "scr_seq_T11R0802_003#0"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Banette#0"
     },
     {
       "id": "msg_0541_T11R0802_00014",
-      "from": "scr_seq_T11R0802_002#0"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Sign2#0"
     },
     {
       "id": "msg_0541_T11R0802_00015",
-      "from": "scr_seq_T11R0802_001#0"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Sign1#0"
     },
     {
       "id": "msg_0541_T11R0802_00016",
-      "from": "scr_seq_T11R0802_006#1"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Sign3#1"
     },
     {
       "id": "msg_0541_T11R0802_00017",
-      "from": "scr_seq_T11R0802_006#0"
+      "from": "Saffron_CopycatHouse_2F_EventScript_Sign3#0"
     }
   ]
 }

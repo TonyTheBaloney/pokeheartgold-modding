@@ -1,10 +1,10 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R0502_000 {
+script Goldenrod_MagnetTrainStation_2F_EventScript_WarpToGoldenrodMagnetTrainStation1F {
     followmonresetmovement
     lockall
-    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Movement_008C)
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Movement_PlayerWalkDownLeft)
     waitmovement
     waitse(SEQ_SE_DP_KAIDAN2)
     playse(SEQ_SE_DP_KAIDAN2)
@@ -18,7 +18,7 @@ script scr_seq_T25R0502_000 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Movement_0098)
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Movement_PlayerWalkRightDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -29,7 +29,7 @@ script scr_seq_T25R0502_000 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Movement_00A4)
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Movement_PlayerWalkDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -38,17 +38,17 @@ script scr_seq_T25R0502_000 {
     end
 }
 
-movement Goldenrod_MagnetTrainStation_2F_Movement_008C {
+movement Goldenrod_MagnetTrainStation_2F_Movement_PlayerWalkDownLeft {
     walk_down * 3
     walk_left * 8
 }
 
-movement Goldenrod_MagnetTrainStation_2F_Movement_0098 {
+movement Goldenrod_MagnetTrainStation_2F_Movement_PlayerWalkRightDown {
     walk_right * 3
     walk_down * 3
 }
 
-movement Goldenrod_MagnetTrainStation_2F_Movement_00A4 {
+movement Goldenrod_MagnetTrainStation_2F_Movement_PlayerWalkDown {
     walk_down * 2
 }
 
@@ -58,6 +58,6 @@ script(local) _00AC {
 
 mapscripts Goldenrod_MagnetTrainStation_2F_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_411E, 0: scr_seq_T25R0502_000
+        VAR_UNK_411E, 0: Goldenrod_MagnetTrainStation_2F_EventScript_WarpToGoldenrodMagnetTrainStation1F
     ]
 }

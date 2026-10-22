@@ -455,7 +455,7 @@ static BOOL Task_UseFlashInField(TaskManager *taskManager) {
     FieldUseMoveEnvironment *useMoveEnvironment = TaskManager_GetEnvironment(taskManager);
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     if (CheckUseFlashInAlphChamber(fieldSystem)) {
-        StartScriptFromMenu(taskManager, _EV_scr_seq_D24R0204_003, NULL);
+        StartScriptFromMenu(taskManager, _EV_RuinsOfAlph_SoutheastEntranceFirstRoom_EventScript_WarpToRuinsOfAlphUndergroundHallSinjohEvent2, NULL);
     } else {
         StartScriptFromMenu(taskManager, std_menu_flash, NULL);
     }

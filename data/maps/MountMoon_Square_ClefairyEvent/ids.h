@@ -1,12 +1,12 @@
 #ifndef SCR_SEQ_D02R0104_H_
 #define SCR_SEQ_D02R0104_H_
 
-#define _EV_scr_seq_D02R0104_000 0
-#define _EV_scr_seq_D02R0104_001 1
-#define _EV_scr_seq_D02R0104_002 2
-#define _EV_scr_seq_D02R0104_003 3
-#define _EV_scr_seq_D02R0104_004 4
-#define _EV_scr_seq_D02R0104_005 5
+#define _EV_MountMoon_Square_ClefairyEvent_OnTransition 0
+#define _EV_MountMoon_Square_ClefairyEvent_EventScript_TrainerTips 1
+#define _EV_MountMoon_Square_ClefairyEvent_EventScript_ClefairyTrigger 2
+#define _EV_MountMoon_Square_ClefairyEvent_EventScript_ItemBall 3
+#define _EV_MountMoon_Square_ClefairyEvent_EventScript_Sign 4
+#define _EV_MountMoon_Square_ClefairyEvent_OnLoad 5
 
 #define obj_D02R0104_tsure_poke_static_clefairy   0
 #define obj_D02R0104_tsure_poke_static_clefairy_2 1

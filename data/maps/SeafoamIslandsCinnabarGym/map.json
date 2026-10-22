@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D11R0106_000 + 1",
+            "script": "SeafoamIslandsCinnabarGym_EventScript_Blaine",
             "flag": "FLAG_HIDE_SEAFOAM_GYM_BLAINE"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D11R0106_001 + 1",
+            "script": "SeafoamIslandsCinnabarGym_EventScript_GymGuide",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D11R0106_005 + 1",
+            "script": "SeafoamIslandsCinnabarGym_EventScript_Lowell",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D11R0106_006 + 1",
+            "script": "SeafoamIslandsCinnabarGym_EventScript_Linden",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D11R0106_007 + 1",
+            "script": "SeafoamIslandsCinnabarGym_EventScript_Daniel",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D11R0106_002 + 1",
+            "script": "SeafoamIslandsCinnabarGym_EventScript_Cary",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D11R0106_003 + 1",
+            "script": "SeafoamIslandsCinnabarGym_EventScript_Waldo",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D11R0106_004 + 1",
+            "script": "SeafoamIslandsCinnabarGym_EventScript_Merle",
             "flag": "FLAG_NOTHING"
         }
     ],

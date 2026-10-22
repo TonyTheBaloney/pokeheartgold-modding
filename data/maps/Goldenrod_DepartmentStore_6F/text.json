@@ -3,23 +3,23 @@
   "messages": [
     {
       "id": "msg_0597_T25R1006_00000",
-      "from": "scr_seq_T25R1006_001#1"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Girl#1"
     },
     {
       "id": "msg_0597_T25R1006_00001",
-      "from": "scr_seq_T25R1006_001#0"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Girl#0"
     },
     {
       "id": "msg_0597_T25R1006_00002",
-      "from": "scr_seq_T25R1006_000#1"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Man#1"
     },
     {
       "id": "msg_0597_T25R1006_00003",
-      "from": "scr_seq_T25R1006_000#0"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Man#0"
     },
     {
       "id": "msg_0597_T25R1006_00004",
-      "from": "scr_seq_T25R1006_002#0"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Sign#0"
     },
     {
       "id": "msg_0597_T25R1006_00005",
@@ -27,27 +27,27 @@
     },
     {
       "id": "msg_0597_T25R1006_00006",
-      "from": "scr_seq_T25R1006_003#2"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Machine#2"
     },
     {
       "id": "msg_0597_T25R1006_00007",
-      "from": "scr_seq_T25R1006_003#3"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Machine#3"
     },
     {
       "id": "msg_0597_T25R1006_00008",
-      "from": "scr_seq_T25R1006_003#1"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Machine#1"
     },
     {
       "id": "msg_0597_T25R1006_00009",
-      "from": "scr_seq_T25R1006_003#0"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Machine#0"
     },
     {
       "id": "msg_0597_T25R1006_00010",
-      "from": "scr_seq_T25R1006_004#0"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist1#0"
     },
     {
       "id": "msg_0597_T25R1006_00011",
-      "from": "scr_seq_T25R1006_004#5"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist1#5"
     },
     {
       "id": "msg_0597_T25R1006_00012",
@@ -59,87 +59,87 @@
     },
     {
       "id": "msg_0597_T25R1006_00014",
-      "from": "scr_seq_T25R1006_004#1"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist1#1"
     },
     {
       "id": "msg_0597_T25R1006_00015",
-      "from": "scr_seq_T25R1006_004#2"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist1#2"
     },
     {
       "id": "msg_0597_T25R1006_00016",
-      "from": "scr_seq_T25R1006_004#4"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist1#4"
     },
     {
       "id": "msg_0597_T25R1006_00017",
-      "from": "scr_seq_T25R1006_004#3"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist1#3"
     },
     {
       "id": "msg_0597_T25R1006_00018",
-      "from": "scr_seq_T25R1006_005#0"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist2#0"
     },
     {
       "id": "msg_0597_T25R1006_00019",
-      "from": "scr_seq_T25R1006_005#1"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist2#1"
     },
     {
       "id": "msg_0597_T25R1006_00020",
-      "from": "scr_seq_T25R1006_005#2"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist2#2"
     },
     {
       "id": "msg_0597_T25R1006_00021",
-      "from": "scr_seq_T25R1006_005#3"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist2#3"
     },
     {
       "id": "msg_0597_T25R1006_00022",
-      "from": "scr_seq_T25R1006_005#4"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist2#4"
     },
     {
       "id": "msg_0597_T25R1006_00023",
-      "from": "scr_seq_T25R1006_005#5"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist2#5"
     },
     {
       "id": "msg_0597_T25R1006_00024",
-      "from": "scr_seq_T25R1006_005#6"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Receptionist2#6"
     },
     {
       "id": "msg_0597_T25R1006_00025",
-      "from": "scr_seq_T25R1006_007#5"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#5"
     },
     {
       "id": "msg_0597_T25R1006_00026",
-      "from": "scr_seq_T25R1006_007#6"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#6"
     },
     {
       "id": "msg_0597_T25R1006_00027",
-      "from": "scr_seq_T25R1006_007#7"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#7"
     },
     {
       "id": "msg_0597_T25R1006_00028",
-      "from": "scr_seq_T25R1006_007#8"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#8"
     },
     {
       "id": "msg_0597_T25R1006_00029",
-      "from": "scr_seq_T25R1006_007#9"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#9"
     },
     {
       "id": "msg_0597_T25R1006_00030",
-      "from": "scr_seq_T25R1006_007#0"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#0"
     },
     {
       "id": "msg_0597_T25R1006_00031",
-      "from": "scr_seq_T25R1006_007#3"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#3"
     },
     {
       "id": "msg_0597_T25R1006_00032",
-      "from": "scr_seq_T25R1006_007#4"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#4"
     },
     {
       "id": "msg_0597_T25R1006_00033",
-      "from": "scr_seq_T25R1006_007#1"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#1"
     },
     {
       "id": "msg_0597_T25R1006_00034",
-      "from": "scr_seq_T25R1006_007#2"
+      "from": "Goldenrod_DepartmentStore_6F_EventScript_Whitney#2"
     }
   ]
 }

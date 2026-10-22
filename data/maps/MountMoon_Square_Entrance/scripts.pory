@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D02R0102_000 {
+script MountMoon_Square_Entrance_OnLoad {
     if (flag(FLAG_UNK_AB5)) { goto(_004D) }
     getweekday(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) != 1) {
@@ -41,5 +41,5 @@ script scr_seq_D02R0102_000 {
 }
 
 mapscripts MountMoon_Square_Entrance_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_D02R0102_000
+    INIT_SCRIPT_ON_LOAD: MountMoon_Square_Entrance_OnLoad
 }

@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_D41R0108_H_
 #define SCR_SEQ_D41R0108_H_
 
-#define _EV_scr_seq_D41R0108_000 0
+#define _EV_MountSilver_CaveSummit_EventScript_Red 0
 
 #define obj_D41R0108_red 0
 

@@ -22,67 +22,67 @@
     },
     {
       "id": "msg_0133_D47_00002",
-      "from": "scr_seq_D47_000#0"
+      "from": "SafariZoneGate_EventScript_Man#0"
     },
     {
       "id": "msg_0133_D47_00003",
-      "from": "scr_seq_D47_001#0"
+      "from": "SafariZoneGate_EventScript_PokefanF#0"
     },
     {
       "id": "msg_0133_D47_00004",
-      "from": "scr_seq_D47_002#0"
+      "from": "SafariZoneGate_EventScript_Kangaskhan#0"
     },
     {
       "id": "msg_0133_D47_00005",
-      "from": "scr_seq_D47_003#0"
+      "from": "SafariZoneGate_EventScript_Gentleman#0"
     },
     {
       "id": "msg_0133_D47_00006",
-      "from": "scr_seq_D47_004#0"
+      "from": "SafariZoneGate_EventScript_Jigglypuff#0"
     },
     {
       "id": "msg_0133_D47_00007",
-      "from": "scr_seq_D47_005#0"
+      "from": "SafariZoneGate_EventScript_LittleBoy#0"
     },
     {
       "id": "msg_0133_D47_00008",
-      "from": "scr_seq_D47_005#1"
+      "from": "SafariZoneGate_EventScript_LittleBoy#1"
     },
     {
       "id": "msg_0133_D47_00009",
-      "from": "scr_seq_D47_006#0"
+      "from": "SafariZoneGate_EventScript_OldMan#0"
     },
     {
       "id": "msg_0133_D47_00010",
-      "from": "scr_seq_D47_007#0"
+      "from": "SafariZoneGate_EventScript_Woman#0"
     },
     {
       "id": "msg_0133_D47_00011",
-      "from": "scr_seq_D47_008#0"
+      "from": "SafariZoneGate_EventScript_Butterfree#0"
     },
     {
       "id": "msg_0133_D47_00012",
-      "from": "scr_seq_D47_009#0"
+      "from": "SafariZoneGate_EventScript_Beauty#0"
     },
     {
       "id": "msg_0133_D47_00013",
-      "from": "scr_seq_D47_010#0"
+      "from": "SafariZoneGate_EventScript_Slowpoke#0"
     },
     {
       "id": "msg_0133_D47_00014",
-      "from": "scr_seq_D47_012#0"
+      "from": "SafariZoneGate_EventScript_LittleGirl#0"
     },
     {
       "id": "msg_0133_D47_00015",
-      "from": "scr_seq_D47_015#0"
+      "from": "SafariZoneGate_EventScript_Worker1#0"
     },
     {
       "id": "msg_0133_D47_00016",
-      "from": "scr_seq_D47_016#0"
+      "from": "SafariZoneGate_EventScript_Worker2#0"
     },
     {
       "id": "msg_0133_D47_00017",
-      "from": "scr_seq_D47_011#0"
+      "from": "SafariZoneGate_EventScript_TrainerTips#0"
     }
   ]
 }

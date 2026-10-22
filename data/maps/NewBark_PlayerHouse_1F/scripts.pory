@@ -3,24 +3,24 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T20R0201_000
-    scr_seq_T20R0201_001
-    scr_seq_T20R0201_002
-    scr_seq_T20R0201_003
-    scr_seq_T20R0201_004
-    scr_seq_T20R0201_005
-    scr_seq_T20R0201_006
+    NewBark_PlayerHouse_1F_EventScript_MomScene1
+    NewBark_PlayerHouse_1F_EventScript_Mom
+    NewBark_PlayerHouse_1F_EventScript_TV
+    NewBark_PlayerHouse_1F_EventScript_CinnabarVolcanoBurgerSign
+    NewBark_PlayerHouse_1F_EventScript_ASqueakyCleanSinkSign
+    NewBark_PlayerHouse_1F_EventScript_Fridge
+    NewBark_PlayerHouse_1F_EventScript_MomScene2
 }
 
-script scr_seq_T20R0201_000 {
+script NewBark_PlayerHouse_1F_EventScript_MomScene1 {
     followmonresetmovement
     lockall
-    applymovement(obj_player, NewBark_PlayerHouse_1F_Movement_00A4)
-    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B0)
+    applymovement(obj_player, NewBark_PlayerHouse_1F_Movement_PlayerFaceDown)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_MomFaceUp)
     waitmovement
     callstd(std_play_mom_music)
     wait(30, VAR_SPECIAL_RESULT)
-    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B8)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_MomWalkUpLeft)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Hi, {STRVAR_1 3, 0, 0}!\n"
@@ -68,7 +68,7 @@ script scr_seq_T20R0201_000 {
            "you’ll know what to do in no time.\r")
     closemessage
     wait(15, VAR_SPECIAL_RESULT)
-    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00C8)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_MomWalkDownRight)
     waitmovement
     callstd(std_fade_end_mom_music)
     setvar(VAR_SCENE_PLAYERS_HOUSE_1F, 1)
@@ -76,44 +76,44 @@ script scr_seq_T20R0201_000 {
     end
 }
 
-movement NewBark_PlayerHouse_1F_Movement_00A4 {
+movement NewBark_PlayerHouse_1F_Movement_PlayerFaceDown {
     delay_4
     walk_in_place_down
 }
 
-movement NewBark_PlayerHouse_1F_Movement_00B0 {
+movement NewBark_PlayerHouse_1F_Movement_MomFaceUp {
     walk_in_place_up
 }
 
-movement NewBark_PlayerHouse_1F_Movement_00B8 {
+movement NewBark_PlayerHouse_1F_Movement_MomWalkUpLeft {
     walk_up * 2
     walk_left * 3
     walk_up
 }
 
-movement NewBark_PlayerHouse_1F_Movement_00C8 {
+movement NewBark_PlayerHouse_1F_Movement_MomWalkDownRight {
     walk_in_place_down
     walk_down * 3
     walk_right * 3
     walk_in_place_up
 }
 
-script scr_seq_T20R0201_006 {
+script NewBark_PlayerHouse_1F_EventScript_MomScene2 {
     followmonresetmovement
     lockall
-    applymovement(obj_player, NewBark_PlayerHouse_1F_Movement_00A4)
-    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B0)
+    applymovement(obj_player, NewBark_PlayerHouse_1F_Movement_PlayerFaceDown)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_MomFaceUp)
     waitmovement
     callstd(std_play_mom_music)
     wait(30, VAR_SPECIAL_RESULT)
-    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B8)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_MomWalkUpLeft)
     waitmovement
     bufferplayersname(0)
     npcmsg("Hi, {STRVAR_1 3, 0, 0}!\n"
            "Professor Elm told me that\f"
            "he has something to give you!\r")
     closemessage
-    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00C8)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_MomWalkDownRight)
     waitmovement
     callstd(std_fade_end_mom_music)
     setvar(VAR_SCENE_PLAYERS_HOUSE_1F, 4)
@@ -121,7 +121,7 @@ script scr_seq_T20R0201_006 {
     end
 }
 
-script scr_seq_T20R0201_001 {
+script NewBark_PlayerHouse_1F_EventScript_Mom {
     if (flag(FLAG_GAME_CLEAR)) {
         hasitem(ITEM_S_S__TICKET, 1, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
@@ -418,7 +418,7 @@ text msg_0545_T20R0201_00007 {
     "Here you go!\r"
 }
 
-script scr_seq_T20R0201_002 {
+script NewBark_PlayerHouse_1F_EventScript_TV {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("The TV is playing a movie!\r"
@@ -431,7 +431,7 @@ script scr_seq_T20R0201_002 {
     end
 }
 
-script scr_seq_T20R0201_003 {
+script NewBark_PlayerHouse_1F_EventScript_CinnabarVolcanoBurgerSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Cinnabar Volcano Burger!\n"
@@ -442,7 +442,7 @@ script scr_seq_T20R0201_003 {
     end
 }
 
-script scr_seq_T20R0201_004 {
+script NewBark_PlayerHouse_1F_EventScript_ASqueakyCleanSinkSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("A squeaky-clean sink!\n"
@@ -453,7 +453,7 @@ script scr_seq_T20R0201_004 {
     end
 }
 
-script scr_seq_T20R0201_005 {
+script NewBark_PlayerHouse_1F_EventScript_Fridge {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("What’s in the fridge...?\r"
@@ -467,7 +467,7 @@ script scr_seq_T20R0201_005 {
 
 mapscripts NewBark_PlayerHouse_1F_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_PLAYERS_HOUSE_1F, 3: scr_seq_T20R0201_006
-        VAR_SCENE_PLAYERS_HOUSE_1F, 0: scr_seq_T20R0201_000
+        VAR_SCENE_PLAYERS_HOUSE_1F, 3: NewBark_PlayerHouse_1F_EventScript_MomScene2
+        VAR_SCENE_PLAYERS_HOUSE_1F, 0: NewBark_PlayerHouse_1F_EventScript_MomScene1
     ]
 }

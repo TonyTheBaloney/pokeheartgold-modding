@@ -1,12 +1,12 @@
 #ifndef SCR_SEQ_T25R1002_H_
 #define SCR_SEQ_T25R1002_H_
 
-#define _EV_scr_seq_T25R1002_000 0
-#define _EV_scr_seq_T25R1002_001 1
-#define _EV_scr_seq_T25R1002_002 2
-#define _EV_scr_seq_T25R1002_003 3
-#define _EV_scr_seq_T25R1002_004 4
-#define _EV_scr_seq_T25R1002_005 5
+#define _EV_Goldenrod_DepartmentStore_2F_EventScript_Clerk1 0
+#define _EV_Goldenrod_DepartmentStore_2F_EventScript_Clerk2 1
+#define _EV_Goldenrod_DepartmentStore_2F_EventScript_Camper 2
+#define _EV_Goldenrod_DepartmentStore_2F_EventScript_Lass 3
+#define _EV_Goldenrod_DepartmentStore_2F_EventScript_Gentleman 4
+#define _EV_Goldenrod_DepartmentStore_2F_EventScript_YourTravelCompanionSign 5
 
 #define obj_T25R1002_shopm1_2    0
 #define obj_T25R1002_shopm1_2_2  1

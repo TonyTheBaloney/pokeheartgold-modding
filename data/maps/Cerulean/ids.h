@@ -1,20 +1,20 @@
 #ifndef SCR_SEQ_T04_H_
 #define SCR_SEQ_T04_H_
 
-#define _EV_scr_seq_T04_000 0
-#define _EV_scr_seq_T04_001 1
-#define _EV_scr_seq_T04_002 2
-#define _EV_scr_seq_T04_003 3
-#define _EV_scr_seq_T04_004 4
-#define _EV_scr_seq_T04_005 5
-#define _EV_scr_seq_T04_006 6
-#define _EV_scr_seq_T04_007 7
-#define _EV_scr_seq_T04_008 8
-#define _EV_scr_seq_T04_009 9
-#define _EV_scr_seq_T04_010 10
-#define _EV_scr_seq_T04_011 11
-#define _EV_scr_seq_T04_012 12
-#define _EV_scr_seq_T04_013 13
+#define _EV_Cerulean_EventScript_Man1 0
+#define _EV_Cerulean_EventScript_Man2 1
+#define _EV_Cerulean_EventScript_Woman 2
+#define _EV_Cerulean_EventScript_Slowbro 3
+#define _EV_Cerulean_EventScript_FatMan 4
+#define _EV_Cerulean_EventScript_SchoolKidM 5
+#define _EV_Cerulean_EventScript_CitySign 6
+#define _EV_Cerulean_EventScript_TrainerTips1 7
+#define _EV_Cerulean_EventScript_TrainerTips2 8
+#define _EV_Cerulean_EventScript_TrainerTips3 9
+#define _EV_Cerulean_EventScript_Route24AheadSign 10
+#define _EV_Cerulean_EventScript_PokefanM 11
+#define _EV_Cerulean_OnTransition 12
+#define _EV_Cerulean_EventScript_Man3 13
 
 #define obj_T04_gsman1                    0
 #define obj_T04_gswoman1                  1

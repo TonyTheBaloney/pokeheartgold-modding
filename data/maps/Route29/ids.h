@@ -1,15 +1,15 @@
 #ifndef SCR_SEQ_R29_H_
 #define SCR_SEQ_R29_H_
 
-#define _EV_scr_seq_R29_000 0
-#define _EV_scr_seq_R29_001 1
-#define _EV_scr_seq_R29_002 2
-#define _EV_scr_seq_R29_003 3
-#define _EV_scr_seq_R29_004 4
-#define _EV_scr_seq_R29_005 5
-#define _EV_scr_seq_R29_006 6
-#define _EV_scr_seq_R29_007 7
-#define _EV_scr_seq_R29_008 8
+#define _EV_Route29_OnTransition 0
+#define _EV_Route29_EventScript_LyraTrigger 1
+#define _EV_Route29_EventScript_Man 2
+#define _EV_Route29_EventScript_Beauty1 3
+#define _EV_Route29_EventScript_RouteSign1 4
+#define _EV_Route29_EventScript_RouteSign2 5
+#define _EV_Route29_EventScript_Youngster 6
+#define _EV_Route29_EventScript_FatMan 7
+#define _EV_Route29_EventScript_Beauty2 8
 
 #define obj_R29_gsboy2                   0
 #define obj_R29_gsbigman                 1

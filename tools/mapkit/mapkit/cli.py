@@ -316,6 +316,22 @@ def cmd_pory(repo, args):
             if stats:
                 print("scripts: " + ", ".join("%d %s" % (v, k) for k, v in sorted(stats.items(), key=lambda kv: -kv[1])))
             return 0
+        if args.action == "name-scripts":
+            from .pory import naming
+            maps = None if args.all else [_map(repo, q) for q in args.maps]
+            if maps == []:
+                raise edit.EditError("name the maps, or pass --all")
+            plans = naming.plan_all(repo, maps)
+            for d, p in plans.items():
+                for old, new in p.items():
+                    print("%s: %s -> %s" % (d, old, new))
+            n = sum(len(p) for p in plans.values())
+            if args.dry_run:
+                print("%d renames (dry run)" % n)
+                return 0
+            changed = naming.apply(repo, plans)
+            print("%d renames; %d files changed" % (n, len(changed)))
+            return 0
         if args.action == "inline-text":
             from .pory import inline_text
             if args.all:
@@ -450,6 +466,10 @@ def main(argv=None):
     p = ps.add_parser("inline-text", help="move dialog from text.json into scripts.pory (ROM unchanged)")
     p.add_argument("maps", nargs="*")
     p.add_argument("--all", action="store_true")
+    p = ps.add_parser("name-scripts", help="pokeemerald-style names for generated script and movement labels")
+    p.add_argument("maps", nargs="*")
+    p.add_argument("--all", action="store_true")
+    p.add_argument("--dry-run", action="store_true", help="print the renames only")
     p = ps.add_parser("show", help="print what a map's scripts.pory compiles to")
     p.add_argument("map")
     p = ps.add_parser("sync", help="update the _EV_ defines in ids.h to the compiled script order")

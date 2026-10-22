@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T07R0103_000 {
+script Celadon_DepartmentStore_3F_EventScript_Clerk {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,19 +13,19 @@ script scr_seq_T07R0103_000 {
     end
 }
 
-script scr_seq_T07R0103_001 {
+script Celadon_DepartmentStore_3F_EventScript_SchoolKidM {
     simplenpcmsg("I can’t decide which Pokémon I\n"
                  "should use this TM on...")
     end
 }
 
-script scr_seq_T07R0103_002 {
+script Celadon_DepartmentStore_3F_EventScript_Boy1 {
     simplenpcmsg("Uh-oh! I traded my Pokémon without\n"
                  "removing the Up-Grade from it.")
     end
 }
 
-script scr_seq_T07R0103_003 {
+script Celadon_DepartmentStore_3F_EventScript_Boy2 {
     simplenpcmsg("Yeah! I’m finally getting a PORYGON!\r"
                  "I’m no good at the Coin game,\n"
                  "so I could never get enough Coins...\r"
@@ -35,13 +35,13 @@ script scr_seq_T07R0103_003 {
     end
 }
 
-script scr_seq_T07R0103_004 {
+script Celadon_DepartmentStore_3F_EventScript_Man {
     simplenpcmsg("The TM Shop sells\n"
                  "some rare moves.")
     end
 }
 
-script scr_seq_T07R0103_005 {
+script Celadon_DepartmentStore_3F_EventScript_MakeYourPokemonStrongerSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Make Your Pokémon Stronger!\n"

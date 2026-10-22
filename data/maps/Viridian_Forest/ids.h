@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_D46R0101_H_
 #define SCR_SEQ_D46R0101_H_
 
-#define _EV_scr_seq_D46R0101_000 0
-#define _EV_scr_seq_D46R0101_001 1
+#define _EV_Viridian_Forest_EventScript_Bugsy 0
+#define _EV_Viridian_Forest_OnTransition 1
 
 #define obj_D46R0101_gsleader2     0
 #define obj_D46R0101_monstarball   1

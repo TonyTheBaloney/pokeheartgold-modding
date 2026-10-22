@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0079_D24R0211_00000",
-      "from": "scr_seq_D24R0211_000#0"
+      "from": "RuinsOfAlph_HallEntrance_EventScript_Sign1#0"
     },
     {
       "id": "msg_0079_D24R0211_00001",
-      "from": "scr_seq_D24R0211_001#0"
+      "from": "RuinsOfAlph_HallEntrance_EventScript_Sign2#0"
     },
     {
       "id": "msg_0079_D24R0211_00002",
-      "from": "scr_seq_D24R0211_001#1"
+      "from": "RuinsOfAlph_HallEntrance_EventScript_Sign2#1"
     },
     {
       "id": "msg_0079_D24R0211_00003",
-      "from": "scr_seq_D24R0211_001#2"
+      "from": "RuinsOfAlph_HallEntrance_EventScript_Sign2#2"
     },
     {
       "id": "msg_0079_D24R0211_00004",
@@ -27,11 +27,11 @@
     },
     {
       "id": "msg_0079_D24R0211_00005",
-      "from": "scr_seq_D24R0211_001#3"
+      "from": "RuinsOfAlph_HallEntrance_EventScript_Sign2#3"
     },
     {
       "id": "msg_0079_D24R0211_00006",
-      "from": "scr_seq_D24R0211_001#4"
+      "from": "RuinsOfAlph_HallEntrance_EventScript_Sign2#4"
     }
   ]
 }

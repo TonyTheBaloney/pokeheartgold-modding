@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T28R0201_000 {
+script Mahogany_EastHouse_EventScript_BlackBelt {
     simplenpcmsg("I heard that a red GYARADOS appeared\n"
                  "at the Lake of Rage.\r"
                  "That’s odd, since even ordinary\n"
@@ -9,7 +9,7 @@ script scr_seq_T28R0201_000 {
     end
 }
 
-script scr_seq_T28R0201_001 {
+script Mahogany_EastHouse_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

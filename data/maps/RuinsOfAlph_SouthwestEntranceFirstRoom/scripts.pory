@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D24R0206_000
-    scr_seq_D24R0206_001
+    RuinsOfAlph_SouthwestEntranceFirstRoom_EventScript_Sign
+    RuinsOfAlph_SouthwestEntranceFirstRoom_EventScript_LittleBoy
     scr_seq_D24R0206_002
-    scr_seq_D24R0206_003
+    RuinsOfAlph_SouthwestEntranceFirstRoom_EventScript_WarpToRuinsOfAlphUndergroundHallSinjohEvent2
 }
 
-script scr_seq_D24R0206_000 {
+script RuinsOfAlph_SouthwestEntranceFirstRoom_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -23,7 +23,7 @@ script scr_seq_D24R0206_000 {
         wait(2, VAR_SPECIAL_x8004)
         screenshake(0, 2, 10, 6)
         wait(10, VAR_SPECIAL_x8004)
-        applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_02A4)
+        applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_PlayerExclamation)
         waitmovement
         removeobject(obj_D24R0206_babyboy1_13)
         playse(SEQ_SE_DP_KI_GASYAN)
@@ -32,13 +32,13 @@ script scr_seq_D24R0206_000 {
         clearflag(FLAG_HIDE_RUINS_OF_ALPH_ASSISTANTS)
         followmonisactive(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) {
-            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C)
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_PlayerExit)
             waitmovement
             goto(_00BC)
         }
         if (var(VAR_SPECIAL_RESULT) == 1) {
-            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C)
-            applymovement(obj_partner_poke, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_0238)
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_PlayerExit)
+            applymovement(obj_partner_poke, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_FollowMonExit)
             waitmovement
         _00BC:
             setvar(VAR_UNK_40CE, 1)
@@ -72,18 +72,18 @@ script scr_seq_D24R0206_000 {
     end
 }
 
-script scr_seq_D24R0206_003 {
+script RuinsOfAlph_SouthwestEntranceFirstRoom_EventScript_WarpToRuinsOfAlphUndergroundHallSinjohEvent2 {
     followmonresetmovement
     lockall
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C)
+        applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_PlayerExit)
         waitmovement
         goto(_0189)
     }
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C)
-        applymovement(obj_partner_poke, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_0238)
+        applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_PlayerExit)
+        applymovement(obj_partner_poke, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_FollowMonExit)
         waitmovement
     _0189:
         setvar(VAR_UNK_40CE, 1)
@@ -116,18 +116,18 @@ script scr_seq_D24R0206_003 {
     end
 }
 
-movement RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C {
+movement RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_PlayerExit {
     walk_in_place_faster_up * 4
     set_invisible
 }
 
-movement RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_0238 {
+movement RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_FollowMonExit {
     delay_4 * 3
     walk_faster_up
     set_invisible
 }
 
-script scr_seq_D24R0206_001 {
+script RuinsOfAlph_SouthwestEntranceFirstRoom_EventScript_LittleBoy {
     followmonresetmovement
     lockall
     openalphhiddenroom(2)
@@ -149,7 +149,7 @@ script scr_seq_D24R0206_002 {
     wait(2, VAR_SPECIAL_x8004)
     screenshake(0, 2, 10, 6)
     wait(10, VAR_SPECIAL_x8004)
-    applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_02A4)
+    applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_PlayerExclamation)
     waitmovement
     removeobject(obj_D24R0206_babyboy1_12)
     setflag(FLAG_OPENED_ALPH_WATER_STONE_SECRET_ROOM)
@@ -158,7 +158,7 @@ script scr_seq_D24R0206_002 {
     end
 }
 
-movement RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_02A4 {
+movement RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_PlayerExclamation {
     emote_exclamation_mark
 }
 

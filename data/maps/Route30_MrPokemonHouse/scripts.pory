@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R30R0201_000
-    scr_seq_R30R0201_001
-    scr_seq_R30R0201_002
-    scr_seq_R30R0201_003
+    Route30_MrPokemonHouse_EventScript_Gentleman
+    Route30_MrPokemonHouse_EventScript_GentlemanScene1
+    Route30_MrPokemonHouse_EventScript_GentlemanScene2
+    Route30_MrPokemonHouse_OnResume
 }
 
-script scr_seq_R30R0201_003 {
+script Route30_MrPokemonHouse_OnResume {
     if (var(VAR_SCENE_EMBEDDED_TOWER) == 1) {
         movepersonfacing(obj_R30R0201_gsgentleman, 5, 0, 6, DIR_EAST)
         end
@@ -17,13 +17,13 @@ script scr_seq_R30R0201_003 {
     end
 }
 
-script scr_seq_R30R0201_001 {
+script Route30_MrPokemonHouse_EventScript_GentlemanScene1 {
     followmonresetmovement
     lockall
-    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03AC)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanExclamation)
     waitmovement
-    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_041C)
-    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03B4)
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_ProfOakFaceLeft)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanWalkDownLeft2)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("You must be {STRVAR_1 3, 0, 0}.\r"
@@ -35,13 +35,13 @@ script scr_seq_R30R0201_001 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03C4)
-    applymovement(obj_player, Route30_MrPokemonHouse_Movement_0404)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanWalkRightUp)
+    applymovement(obj_player, Route30_MrPokemonHouse_Movement_PlayerWalkUpRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03E4)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanWalkLeftUp)
     waitmovement
     npcmsg("This is what I want Professor Elm\n"
            "to examine.\r")
@@ -72,7 +72,7 @@ script scr_seq_R30R0201_001 {
     end
 }
 
-script scr_seq_R30R0201_000 {
+script Route30_MrPokemonHouse_EventScript_Gentleman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -87,11 +87,11 @@ script scr_seq_R30R0201_000 {
         closemessage
         getplayerfacing(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 2) {
-            applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_01F8)
+            applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanSpin1)
         } elif (var(VAR_TEMP_x4000) == 3) {
-            applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_020C)
+            applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanSpin2)
         } else {
-            applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_0220)
+            applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanSpin3)
         }
         waitmovement
         releaseall
@@ -155,34 +155,34 @@ _0194:
     end
 }
 
-movement Route30_MrPokemonHouse_Movement_01F8 {
+movement Route30_MrPokemonHouse_Movement_GentlemanSpin1 {
     face_down * 3
     face_left * 3
     face_up * 3
     face_right * 3
 }
 
-movement Route30_MrPokemonHouse_Movement_020C {
+movement Route30_MrPokemonHouse_Movement_GentlemanSpin2 {
     face_down * 3
     face_right * 3
     face_up * 3
     face_left * 3
 }
 
-movement Route30_MrPokemonHouse_Movement_0220 {
+movement Route30_MrPokemonHouse_Movement_GentlemanSpin3 {
     face_right * 3
     face_up * 3
     face_left * 3
     face_down * 3
 }
 
-script scr_seq_R30R0201_002 {
+script Route30_MrPokemonHouse_EventScript_GentlemanScene2 {
     followmonresetmovement
     lockall
     setvar(VAR_SCENE_EMBEDDED_TOWER, 2)
-    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03AC)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanExclamation)
     waitmovement
-    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_02D8)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanWalkDownLeft1)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Hi, {STRVAR_1 3, 0, 0}!\r"
@@ -196,8 +196,8 @@ script scr_seq_R30R0201_002 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03C4)
-    applymovement(obj_player, Route30_MrPokemonHouse_Movement_0404)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanWalkRightUp)
+    applymovement(obj_player, Route30_MrPokemonHouse_Movement_PlayerWalkUpRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -206,7 +206,7 @@ script scr_seq_R30R0201_002 {
            "A friend of mine from Hoenn\f"
            "came over to give this to me.\r")
     closemessage
-    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03E4)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_GentlemanWalkLeftUp)
     waitmovement
     bufferplayersname(0)
     getgameversion(VAR_SPECIAL_RESULT)
@@ -246,7 +246,7 @@ _02CD:
     end
 }
 
-movement Route30_MrPokemonHouse_Movement_02D8 {
+movement Route30_MrPokemonHouse_Movement_GentlemanWalkDownLeft1 {
     walk_down
     walk_left
     walk_down
@@ -254,9 +254,9 @@ movement Route30_MrPokemonHouse_Movement_02D8 {
 
 script(local) _02E8 {
     playbgm(SEQ_GS_OHKIDO)
-    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0424)
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_ProfOakWalkDownLeft)
     waitmovement
-    applymovement(obj_player, Route30_MrPokemonHouse_Movement_0414)
+    applymovement(obj_player, Route30_MrPokemonHouse_Movement_PlayerFaceLeft)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Professor Oak: And with that...\r"
@@ -275,7 +275,7 @@ script(local) _02E8 {
                                                            "I heard you were running an errand\n"
                                                            "for Professor Elm, so I waited here.\r")
     closemessage
-    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0438)
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_ProfOakWalkDown1)
     waitmovement
     npcmsg("Professor Oak: Oh! What’s this?\n"
            "A rare Pokémon!\r"
@@ -286,7 +286,7 @@ script(local) _02E8 {
            "You will treat your Pokémon with love\n"
            "and care, it seems.\r")
     closemessage
-    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0444)
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_ProfOakWalkUp)
     waitmovement
     npcmsg("Professor Oak: ...Ah!\r"
            "You seem to be dependable.\n"
@@ -330,7 +330,7 @@ script(local) _02E8 {
     playfanfare(SEQ_ME_POKEGEAR_REGIST)
     waitfanfare
     closemessage
-    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0450)
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_ProfOakWalkDown2)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     removeobject(obj_R30R0201_ookido)
@@ -353,17 +353,17 @@ script(local) _02E8 {
     end
 }
 
-movement Route30_MrPokemonHouse_Movement_03AC {
+movement Route30_MrPokemonHouse_Movement_GentlemanExclamation {
     emote_exclamation_mark
 }
 
-movement Route30_MrPokemonHouse_Movement_03B4 {
+movement Route30_MrPokemonHouse_Movement_GentlemanWalkDownLeft2 {
     walk_fast_down
     walk_fast_left * 5
     walk_in_place_down
 }
 
-movement Route30_MrPokemonHouse_Movement_03C4 {
+movement Route30_MrPokemonHouse_Movement_GentlemanWalkRightUp {
     walk_right
     walk_up * 3
     walk_in_place_down
@@ -375,7 +375,7 @@ movement Route30_MrPokemonHouse_Movement_03D4 {
     walk_in_place_left
 }
 
-movement Route30_MrPokemonHouse_Movement_03E4 {
+movement Route30_MrPokemonHouse_Movement_GentlemanWalkLeftUp {
     walk_fast_left * 3
     walk_fast_up
     delay_8
@@ -385,46 +385,46 @@ movement Route30_MrPokemonHouse_Movement_03E4 {
     walk_in_place_slow_down
 }
 
-movement Route30_MrPokemonHouse_Movement_0404 {
+movement Route30_MrPokemonHouse_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 2
 }
 
-movement Route30_MrPokemonHouse_Movement_0414 {
+movement Route30_MrPokemonHouse_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-movement Route30_MrPokemonHouse_Movement_041C {
+movement Route30_MrPokemonHouse_Movement_ProfOakFaceLeft {
     walk_in_place_left
 }
 
-movement Route30_MrPokemonHouse_Movement_0424 {
+movement Route30_MrPokemonHouse_Movement_ProfOakWalkDownLeft {
     walk_slow_down
     walk_slow_left * 4
     walk_slow_up * 2
     walk_in_place_slow_right
 }
 
-movement Route30_MrPokemonHouse_Movement_0438 {
+movement Route30_MrPokemonHouse_Movement_ProfOakWalkDown1 {
     walk_slow_down
     walk_in_place_slow_right
 }
 
-movement Route30_MrPokemonHouse_Movement_0444 {
+movement Route30_MrPokemonHouse_Movement_ProfOakWalkUp {
     walk_slow_up
     walk_in_place_slow_right
 }
 
-movement Route30_MrPokemonHouse_Movement_0450 {
+movement Route30_MrPokemonHouse_Movement_ProfOakWalkDown2 {
     walk_slow_down * 3
     delay_8
 }
 
 mapscripts Route30_MrPokemonHouse_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_EMBEDDED_TOWER, 1: scr_seq_R30R0201_002
-        VAR_SCENE_MR_POKEMONS_HOUSE, 0: scr_seq_R30R0201_001
+        VAR_SCENE_EMBEDDED_TOWER, 1: Route30_MrPokemonHouse_EventScript_GentlemanScene2
+        VAR_SCENE_MR_POKEMONS_HOUSE, 0: Route30_MrPokemonHouse_EventScript_GentlemanScene1
     ]
-    INIT_SCRIPT_ON_RESUME: scr_seq_R30R0201_003
+    INIT_SCRIPT_ON_RESUME: Route30_MrPokemonHouse_OnResume
 }

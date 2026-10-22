@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T10R0201_000
-    scr_seq_T10R0201_001
-    scr_seq_T10R0201_002
+    PokemonLeagueWillRoom_EventScript_LittleBoyScene
+    PokemonLeagueWillRoom_EventScript_Will
+    PokemonLeagueWillRoom_OnLoad
 }
 
-script scr_seq_T10R0201_002 {
+script PokemonLeagueWillRoom_OnLoad {
     if (flag(FLAG_DEFEATED_WILL)) {
         end
     }
@@ -17,13 +17,13 @@ script scr_seq_T10R0201_002 {
     end
 }
 
-script scr_seq_T10R0201_000 {
+script PokemonLeagueWillRoom_EventScript_LittleBoyScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, PokemonLeagueWillRoom_Movement_0060)
+    applymovement(obj_player, PokemonLeagueWillRoom_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -36,11 +36,11 @@ script scr_seq_T10R0201_000 {
     end
 }
 
-movement PokemonLeagueWillRoom_Movement_0060 {
+movement PokemonLeagueWillRoom_Movement_PlayerWalkUp {
     walk_up * 6
 }
 
-script scr_seq_T10R0201_001 {
+script PokemonLeagueWillRoom_EventScript_Will {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -96,7 +96,7 @@ script scr_seq_T10R0201_001 {
 
 mapscripts PokemonLeagueWillRoom_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_TEMP_x4001, 0: scr_seq_T10R0201_000
+        VAR_TEMP_x4001, 0: PokemonLeagueWillRoom_EventScript_LittleBoyScene
     ]
-    INIT_SCRIPT_ON_LOAD: scr_seq_T10R0201_002
+    INIT_SCRIPT_ON_LOAD: PokemonLeagueWillRoom_OnLoad
 }

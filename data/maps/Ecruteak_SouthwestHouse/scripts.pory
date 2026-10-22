@@ -5,7 +5,7 @@ script(local) _000A {
     end
 }
 
-script scr_seq_T27R0401_000 {
+script Ecruteak_SouthwestHouse_EventScript_OldMan {
     simplenpcmsg("This happened when I was young.\r"
                  "The sky suddenly turned black.\n"
                  "A giant Flying-type Pokémon was\f"
@@ -15,7 +15,7 @@ script scr_seq_T27R0401_000 {
     end
 }
 
-script scr_seq_T27R0401_001 {
+script Ecruteak_SouthwestHouse_EventScript_SchoolKidM {
     simplenpcmsg("Is there really a Pokémon that big?\f"
                  "If it exists, it must be powerful.")
     end

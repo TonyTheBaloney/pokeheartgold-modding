@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R29_000
-    scr_seq_R29_001
-    scr_seq_R29_002
-    scr_seq_R29_003
-    scr_seq_R29_004
-    scr_seq_R29_005
-    scr_seq_R29_006
-    scr_seq_R29_007
-    scr_seq_R29_008
+    Route29_OnTransition
+    Route29_EventScript_LyraTrigger
+    Route29_EventScript_Man
+    Route29_EventScript_Beauty1
+    Route29_EventScript_RouteSign1
+    Route29_EventScript_RouteSign2
+    Route29_EventScript_Youngster
+    Route29_EventScript_FatMan
+    Route29_EventScript_Beauty2
 }
 
-script scr_seq_R29_000 {
+script Route29_OnTransition {
     getfriendsprite(VAR_OBJ_1)
     checkbadge(BADGE_ZEPHYR, VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 1) {
@@ -30,7 +30,7 @@ script scr_seq_R29_000 {
     end
 }
 
-script scr_seq_R29_003 {
+script Route29_EventScript_Beauty1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -106,14 +106,14 @@ _015B:
     end
 }
 
-script scr_seq_R29_001 {
+script Route29_EventScript_LyraTrigger {
     followmonresetmovement
     lockall
     playcry(SPECIES_MARILL, 0)
     waitcry
-    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_05C4)
+    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkDownRight)
     waitmovement
-    applymovement(obj_R29_var_2, Route29_Movement_05D8)
+    applymovement(obj_R29_var_2, Route29_Movement_FriendExclamation2)
     waitmovement
     callstd(std_play_friend_music)
     gendermsgbox("Lyra: There you are!\r", "Ethan: There you are!\r")
@@ -121,26 +121,26 @@ script scr_seq_R29_001 {
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     release(obj_R29_tsure_poke_static_marill)
     if (var(VAR_TEMP_x4001) == 396) {
-        applymovement(obj_R29_var_2, Route29_Movement_0660)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_06D4)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkUpRight)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkLeftUp)
     } elif (var(VAR_TEMP_x4001) == 397) {
-        applymovement(obj_R29_var_2, Route29_Movement_067C)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_06F4)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkRightUp1)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkLeftRight1)
     } elif (var(VAR_TEMP_x4001) == 398) {
-        applymovement(obj_R29_var_2, Route29_Movement_068C)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_0708)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkRightUp2)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkLeftRight2)
     } elif (var(VAR_TEMP_x4001) == 399) {
-        applymovement(obj_R29_var_2, Route29_Movement_069C)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_071C)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkRightUp3)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkLeftRight3)
     } elif (var(VAR_TEMP_x4001) == 400) {
-        applymovement(obj_R29_var_2, Route29_Movement_06AC)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_0730)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkRight3)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkLeftRight4)
     } elif (var(VAR_TEMP_x4001) == 401) {
-        applymovement(obj_R29_var_2, Route29_Movement_06B4)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_073C)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkRightDown1)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkLeftRight5)
     } elif (var(VAR_TEMP_x4001) == 402) {
-        applymovement(obj_R29_var_2, Route29_Movement_06C4)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_0750)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkRightDown2)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkLeftRight6)
     }
     waitmovement
     lock(obj_R29_tsure_poke_static_marill)
@@ -159,60 +159,60 @@ script scr_seq_R29_001 {
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_TEMP_x4001) == 396) {
-        applymovement(obj_R29_var_2, Route29_Movement_0764)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_07B4)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkDownLeft1)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRightDown1)
         if (var(VAR_TEMP_x4002) == 0) {
-            applymovement(obj_player, Route29_Movement_0820)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown1)
         } else {
-            applymovement(obj_player, Route29_Movement_08A4)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown7)
         }
     } elif (var(VAR_TEMP_x4001) == 397) {
-        applymovement(obj_R29_var_2, Route29_Movement_0770)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_07C4)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkDownLeft2)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRightDown2)
         if (var(VAR_TEMP_x4002) == 0) {
-            applymovement(obj_player, Route29_Movement_0834)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown2)
         } else {
-            applymovement(obj_player, Route29_Movement_08B8)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown8)
         }
     } elif (var(VAR_TEMP_x4001) == 398) {
-        applymovement(obj_R29_var_2, Route29_Movement_077C)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_07D4)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkDownLeft3)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRightDown3)
         if (var(VAR_TEMP_x4002) == 0) {
-            applymovement(obj_player, Route29_Movement_0848)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown3)
         } else {
-            applymovement(obj_player, Route29_Movement_08CC)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown9)
         }
     } elif (var(VAR_TEMP_x4001) == 399) {
-        applymovement(obj_R29_var_2, Route29_Movement_0788)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_07E4)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkDownLeft4)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRightDown4)
         if (var(VAR_TEMP_x4002) == 0) {
-            applymovement(obj_player, Route29_Movement_085C)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown4)
         } else {
-            applymovement(obj_player, Route29_Movement_08E0)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown10)
         }
     } elif (var(VAR_TEMP_x4001) == 400) {
-        applymovement(obj_R29_var_2, Route29_Movement_0794)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_07F4)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkDownLeft5)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRightDown5)
         if (var(VAR_TEMP_x4002) == 0) {
-            applymovement(obj_player, Route29_Movement_0870)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown5)
         } else {
-            applymovement(obj_player, Route29_Movement_08F4)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown11)
         }
     } elif (var(VAR_TEMP_x4001) == 401) {
-        applymovement(obj_R29_var_2, Route29_Movement_07A0)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_0804)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkDownLeft6)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRightDown6)
         if (var(VAR_TEMP_x4002) == 0) {
-            applymovement(obj_player, Route29_Movement_0884)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown6)
         } else {
-            applymovement(obj_player, Route29_Movement_0908)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeftDown12)
         }
     } elif (var(VAR_TEMP_x4001) == 402) {
-        applymovement(obj_R29_var_2, Route29_Movement_07AC)
-        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_0814)
+        applymovement(obj_R29_var_2, Route29_Movement_FriendWalkLeft2)
+        applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRightLeft2)
         if (var(VAR_TEMP_x4002) == 0) {
-            applymovement(obj_player, Route29_Movement_0898)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeft2)
         } else {
-            applymovement(obj_player, Route29_Movement_091C)
+            applymovement(obj_player, Route29_Movement_PlayerWalkLeft3)
         }
     }
     waitmovement
@@ -223,8 +223,8 @@ script scr_seq_R29_001 {
     callifeq(_0559)
     wait(10, VAR_SPECIAL_RESULT)
     catchingtutorial
-    applymovement(obj_R29_var_2, Route29_Movement_064C)
-    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_0654)
+    applymovement(obj_R29_var_2, Route29_Movement_FriendWalkRight2)
+    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkLeft)
     waitmovement
     gendermsgbox("See? Just like that!\r"
                  "It’s better to lower your\n"
@@ -242,8 +242,8 @@ script scr_seq_R29_001 {
     giveitemnocheck(ITEM_POKE_BALL, 5)
     gendermsgbox("Lyra: See you!\r", "Ethan: See ya!\r")
     closemessage
-    applymovement(obj_R29_var_2, Route29_Movement_0928)
-    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_093C)
+    applymovement(obj_R29_var_2, Route29_Movement_FriendWalkDownLeft7)
+    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRightDown7)
     waitmovement
     removeobject(obj_R29_var_2)
     removeobject(obj_R29_tsure_poke_static_marill)
@@ -254,13 +254,13 @@ script scr_seq_R29_001 {
     releaseall
     end
 _0559:
-    applymovement(obj_R29_var_2, Route29_Movement_05BC)
+    applymovement(obj_R29_var_2, Route29_Movement_FriendExclamation1)
     waitmovement
-    applymovement(obj_R29_var_2, Route29_Movement_05E4)
-    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_0600)
+    applymovement(obj_R29_var_2, Route29_Movement_FriendFaceLeft)
+    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillJumpLeft)
     waitmovement
-    applymovement(obj_R29_var_2, Route29_Movement_061C)
-    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_0624)
+    applymovement(obj_R29_var_2, Route29_Movement_FriendWalkRight1)
+    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRight)
     waitmovement
     npcmsg("...Just like that!\r"
            "...\n"
@@ -270,9 +270,9 @@ _0559:
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_R29_var_2, Route29_Movement_062C)
-    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_0634)
-    applymovement(obj_player, Route29_Movement_0640)
+    applymovement(obj_R29_var_2, Route29_Movement_FriendWalkLeft1)
+    applymovement(obj_R29_tsure_poke_static_marill, Route29_Movement_MarillWalkRightLeft1)
+    applymovement(obj_player, Route29_Movement_PlayerWalkLeft1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -280,23 +280,23 @@ _0559:
     return
 }
 
-movement Route29_Movement_05BC {
+movement Route29_Movement_FriendExclamation1 {
     emote_exclamation_mark
 }
 
-movement Route29_Movement_05C4 {
+movement Route29_Movement_MarillWalkDownRight {
     walk_fast_down
     walk_fast_right * 2
     walk_fast_up
     jump_in_place_fast_left * 2
 }
 
-movement Route29_Movement_05D8 {
+movement Route29_Movement_FriendExclamation2 {
     walk_in_place_right
     emote_exclamation_mark
 }
 
-movement Route29_Movement_05E4 {
+movement Route29_Movement_FriendFaceLeft {
     jump_in_place_fast_left * 3
     delay_16
     jump_in_place_fast_left * 3
@@ -305,7 +305,7 @@ movement Route29_Movement_05E4 {
     delay_8 * 3
 }
 
-movement Route29_Movement_0600 {
+movement Route29_Movement_MarillJumpLeft {
     delay_8 * 3
     jump_far_left
     delay_8 * 3
@@ -314,38 +314,38 @@ movement Route29_Movement_0600 {
     jump_in_place_fast_left * 3
 }
 
-movement Route29_Movement_061C {
+movement Route29_Movement_FriendWalkRight1 {
     walk_right * 3
 }
 
-movement Route29_Movement_0624 {
+movement Route29_Movement_MarillWalkRight {
     walk_right * 3
 }
 
-movement Route29_Movement_062C {
+movement Route29_Movement_FriendWalkLeft1 {
     walk_left * 3
 }
 
-movement Route29_Movement_0634 {
+movement Route29_Movement_MarillWalkRightLeft1 {
     walk_right
     walk_left * 2
 }
 
-movement Route29_Movement_0640 {
+movement Route29_Movement_PlayerWalkLeft1 {
     delay_8
     walk_left * 2
 }
 
-movement Route29_Movement_064C {
+movement Route29_Movement_FriendWalkRight2 {
     walk_right
 }
 
-movement Route29_Movement_0654 {
+movement Route29_Movement_MarillWalkLeft {
     walk_left
     walk_in_place_right
 }
 
-movement Route29_Movement_0660 {
+movement Route29_Movement_FriendWalkUpRight {
     walk_fast_up * 4
     walk_fast_right * 2
     walk_fast_down * 2
@@ -354,41 +354,41 @@ movement Route29_Movement_0660 {
     walk_fast_right * 4
 }
 
-movement Route29_Movement_067C {
+movement Route29_Movement_FriendWalkRightUp1 {
     walk_right * 2
     walk_up * 3
     walk_right * 2
 }
 
-movement Route29_Movement_068C {
+movement Route29_Movement_FriendWalkRightUp2 {
     walk_right * 2
     walk_up * 2
     walk_right * 2
 }
 
-movement Route29_Movement_069C {
+movement Route29_Movement_FriendWalkRightUp3 {
     walk_right * 2
     walk_up
     walk_right * 2
 }
 
-movement Route29_Movement_06AC {
+movement Route29_Movement_FriendWalkRight3 {
     walk_right * 4
 }
 
-movement Route29_Movement_06B4 {
+movement Route29_Movement_FriendWalkRightDown1 {
     walk_right * 2
     walk_down
     walk_right * 2
 }
 
-movement Route29_Movement_06C4 {
+movement Route29_Movement_FriendWalkRightDown2 {
     walk_right * 2
     walk_down * 2
     walk_right * 2
 }
 
-movement Route29_Movement_06D4 {
+movement Route29_Movement_MarillWalkLeftUp {
     walk_fast_left
     walk_fast_up * 4
     walk_fast_right * 2
@@ -398,223 +398,223 @@ movement Route29_Movement_06D4 {
     walk_fast_right * 3
 }
 
-movement Route29_Movement_06F4 {
+movement Route29_Movement_MarillWalkLeftRight1 {
     walk_left
     walk_right * 2
     walk_up * 3
     walk_right
 }
 
-movement Route29_Movement_0708 {
+movement Route29_Movement_MarillWalkLeftRight2 {
     walk_left
     walk_right * 2
     walk_up * 2
     walk_right
 }
 
-movement Route29_Movement_071C {
+movement Route29_Movement_MarillWalkLeftRight3 {
     walk_left
     walk_right * 2
     walk_up
     walk_right
 }
 
-movement Route29_Movement_0730 {
+movement Route29_Movement_MarillWalkLeftRight4 {
     walk_left
     walk_right * 3
 }
 
-movement Route29_Movement_073C {
+movement Route29_Movement_MarillWalkLeftRight5 {
     walk_left
     walk_right * 2
     walk_down
     walk_right
 }
 
-movement Route29_Movement_0750 {
+movement Route29_Movement_MarillWalkLeftRight6 {
     walk_left
     walk_right * 2
     walk_down * 2
     walk_right
 }
 
-movement Route29_Movement_0764 {
+movement Route29_Movement_FriendWalkDownLeft1 {
     walk_down * 6
     walk_left * 9
 }
 
-movement Route29_Movement_0770 {
+movement Route29_Movement_FriendWalkDownLeft2 {
     walk_down * 5
     walk_left * 9
 }
 
-movement Route29_Movement_077C {
+movement Route29_Movement_FriendWalkDownLeft3 {
     walk_down * 4
     walk_left * 9
 }
 
-movement Route29_Movement_0788 {
+movement Route29_Movement_FriendWalkDownLeft4 {
     walk_down * 3
     walk_left * 9
 }
 
-movement Route29_Movement_0794 {
+movement Route29_Movement_FriendWalkDownLeft5 {
     walk_down * 2
     walk_left * 9
 }
 
-movement Route29_Movement_07A0 {
+movement Route29_Movement_FriendWalkDownLeft6 {
     walk_down
     walk_left * 9
 }
 
-movement Route29_Movement_07AC {
+movement Route29_Movement_FriendWalkLeft2 {
     walk_left * 9
 }
 
-movement Route29_Movement_07B4 {
+movement Route29_Movement_MarillWalkRightDown1 {
     walk_right
     walk_down * 6
     walk_left * 8
 }
 
-movement Route29_Movement_07C4 {
+movement Route29_Movement_MarillWalkRightDown2 {
     walk_right
     walk_down * 5
     walk_left * 8
 }
 
-movement Route29_Movement_07D4 {
+movement Route29_Movement_MarillWalkRightDown3 {
     walk_right
     walk_down * 4
     walk_left * 8
 }
 
-movement Route29_Movement_07E4 {
+movement Route29_Movement_MarillWalkRightDown4 {
     walk_right
     walk_down * 3
     walk_left * 8
 }
 
-movement Route29_Movement_07F4 {
+movement Route29_Movement_MarillWalkRightDown5 {
     walk_right
     walk_down * 2
     walk_left * 8
 }
 
-movement Route29_Movement_0804 {
+movement Route29_Movement_MarillWalkRightDown6 {
     walk_right
     walk_down
     walk_left * 8
 }
 
-movement Route29_Movement_0814 {
+movement Route29_Movement_MarillWalkRightLeft2 {
     walk_right
     walk_left * 8
 }
 
-movement Route29_Movement_0820 {
+movement Route29_Movement_PlayerWalkLeftDown1 {
     delay_8
     walk_left
     walk_down * 6
     walk_left * 5
 }
 
-movement Route29_Movement_0834 {
+movement Route29_Movement_PlayerWalkLeftDown2 {
     delay_8
     walk_left
     walk_down * 5
     walk_left * 5
 }
 
-movement Route29_Movement_0848 {
+movement Route29_Movement_PlayerWalkLeftDown3 {
     delay_8
     walk_left
     walk_down * 4
     walk_left * 5
 }
 
-movement Route29_Movement_085C {
+movement Route29_Movement_PlayerWalkLeftDown4 {
     delay_8
     walk_left
     walk_down * 3
     walk_left * 5
 }
 
-movement Route29_Movement_0870 {
+movement Route29_Movement_PlayerWalkLeftDown5 {
     delay_8
     walk_left
     walk_down * 2
     walk_left * 5
 }
 
-movement Route29_Movement_0884 {
+movement Route29_Movement_PlayerWalkLeftDown6 {
     delay_8
     walk_left
     walk_down
     walk_left * 5
 }
 
-movement Route29_Movement_0898 {
+movement Route29_Movement_PlayerWalkLeft2 {
     delay_8
     walk_left * 6
 }
 
-movement Route29_Movement_08A4 {
+movement Route29_Movement_PlayerWalkLeftDown7 {
     delay_8
     walk_left
     walk_down * 6
     walk_left * 7
 }
 
-movement Route29_Movement_08B8 {
+movement Route29_Movement_PlayerWalkLeftDown8 {
     delay_8
     walk_left
     walk_down * 5
     walk_left * 7
 }
 
-movement Route29_Movement_08CC {
+movement Route29_Movement_PlayerWalkLeftDown9 {
     delay_8
     walk_left
     walk_down * 4
     walk_left * 7
 }
 
-movement Route29_Movement_08E0 {
+movement Route29_Movement_PlayerWalkLeftDown10 {
     delay_8
     walk_left
     walk_down * 3
     walk_left * 7
 }
 
-movement Route29_Movement_08F4 {
+movement Route29_Movement_PlayerWalkLeftDown11 {
     delay_8
     walk_left
     walk_down * 2
     walk_left * 7
 }
 
-movement Route29_Movement_0908 {
+movement Route29_Movement_PlayerWalkLeftDown12 {
     delay_8
     walk_left
     walk_down
     walk_left * 7
 }
 
-movement Route29_Movement_091C {
+movement Route29_Movement_PlayerWalkLeft3 {
     delay_8
     walk_left * 8
 }
 
-movement Route29_Movement_0928 {
+movement Route29_Movement_FriendWalkDownLeft7 {
     walk_down * 2
     walk_left * 4
     walk_down * 4
     walk_left * 3
 }
 
-movement Route29_Movement_093C {
+movement Route29_Movement_MarillWalkRightDown7 {
     walk_right
     walk_down * 2
     walk_left * 4
@@ -622,7 +622,7 @@ movement Route29_Movement_093C {
     walk_left * 2
 }
 
-script scr_seq_R29_002 {
+script Route29_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -649,32 +649,32 @@ text msg_0373_R29_00013 {
     "appear only at night."
 }
 
-script scr_seq_R29_004 {
+script Route29_EventScript_RouteSign1 {
     directionsignpostex(1, 1, "Rt. 29\n"
                               "East to New Bark Town")
     end
 }
 
-script scr_seq_R29_005 {
+script Route29_EventScript_RouteSign2 {
     directionsignpostex(1, 2, "Rt. 29\n"
                               "West to Cherrygrove City")
     end
 }
 
-script scr_seq_R29_006 {
+script Route29_EventScript_Youngster {
     simplenpcmsg("Hey, how are your Pokémon?\r"
                  "If they’re weak and not ready for\n"
                  "battle, keep out of the tall grass.")
     end
 }
 
-script scr_seq_R29_007 {
+script Route29_EventScript_FatMan {
     simplenpcmsg("I wanted to take a break, so I\n"
                  "saved to record my progress.")
     end
 }
 
-script scr_seq_R29_008 {
+script Route29_EventScript_Beauty2 {
     simplenpcmsg("Do you see those ledges?\n"
                  "It’s scary to jump off them.\r"
                  "But you can go to New Bark Town\n"
@@ -683,5 +683,5 @@ script scr_seq_R29_008 {
 }
 
 mapscripts Route29_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R29_000
+    INIT_SCRIPT_ON_TRANSITION: Route29_OnTransition
 }

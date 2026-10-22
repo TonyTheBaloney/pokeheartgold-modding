@@ -1,14 +1,14 @@
 #ifndef SCR_SEQ_UNION_H_
 #define SCR_SEQ_UNION_H_
 
-#define _EV_scr_seq_UNION_000 0
-#define _EV_scr_seq_UNION_001 1
-#define _EV_scr_seq_UNION_002 2
-#define _EV_scr_seq_UNION_003 3
+#define _EV_Union_OnTransition 0
+#define _EV_Union_OnLoad 1
+#define _EV_Union_OnResume 2
+#define _EV_Union_EventScript_Boy1 3
 #define _EV_scr_seq_UNION_004 4
 #define _EV_scr_seq_UNION_005 5
-#define _EV_scr_seq_UNION_006 6
-#define _EV_scr_seq_UNION_007 7
+#define _EV_Union_EventScript_Boy2 6
+#define _EV_Union_EventScript_Receptionist 7
 
 #define obj_UNION_pcwoman3   0
 #define obj_UNION_boy1       1

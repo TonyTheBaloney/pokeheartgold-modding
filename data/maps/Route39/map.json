@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39_000 + 1",
+            "script": "Route39_EventScript_Miltank",
             "flag": "FLAG_UNK_226"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39_000 + 1",
+            "script": "Route39_EventScript_Miltank",
             "flag": "FLAG_UNK_226"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39_000 + 1",
+            "script": "Route39_EventScript_Miltank",
             "flag": "FLAG_UNK_226"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39_000 + 1",
+            "script": "Route39_EventScript_Miltank",
             "flag": "FLAG_UNK_226"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39_006 + 1",
+            "script": "Route39_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         },
         {
@@ -245,7 +245,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R39_007 + 1",
+            "script": "Route39_EventScript_LtSurge",
             "flag": "FLAG_HIDE_ROUTE_39_LT_SURGE"
         }
     ],
@@ -274,7 +274,7 @@
             "height": 3,
             "var": "VAR_UNK_408F",
             "var_value": 0,
-            "script": "_EV_scr_seq_R39_002 + 1"
+            "script": "Route39_EventScript_BaobaTrigger"
         }
     ],
     "bg_events": [
@@ -284,7 +284,7 @@
             "y": 170,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R39_003 + 1"
+            "script": "Route39_EventScript_RouteSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -292,7 +292,7 @@
             "y": 166,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R39_004 + 1"
+            "script": "Route39_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -300,7 +300,7 @@
             "y": 210,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R39_005 + 1"
+            "script": "Route39_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

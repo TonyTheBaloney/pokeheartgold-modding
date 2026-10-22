@@ -1,14 +1,14 @@
 #ifndef SCR_SEQ_D24R0101_H_
 #define SCR_SEQ_D24R0101_H_
 
-#define _EV_scr_seq_D24R0101_000 0
-#define _EV_scr_seq_D24R0101_001 1
-#define _EV_scr_seq_D24R0101_002 2
-#define _EV_scr_seq_D24R0101_003 3
-#define _EV_scr_seq_D24R0101_004 4
-#define _EV_scr_seq_D24R0101_005 5
-#define _EV_scr_seq_D24R0101_006 6
-#define _EV_scr_seq_D24R0101_007 7
+#define _EV_RuinsOfAlph_EventScript_TrainerTips1 0
+#define _EV_RuinsOfAlph_EventScript_TrainerTips2 1
+#define _EV_RuinsOfAlph_EventScript_TrainerTips3 2
+#define _EV_RuinsOfAlph_EventScript_TrainerTips4 3
+#define _EV_RuinsOfAlph_EventScript_PokefanM 4
+#define _EV_RuinsOfAlph_OnTransition 5
+#define _EV_RuinsOfAlph_OnLoad 6
+#define _EV_RuinsOfAlph_EventScript_BusinessmanTrigger 7
 
 #define obj_D24R0101_mystery_2     0
 #define obj_D24R0101_monstarball   1

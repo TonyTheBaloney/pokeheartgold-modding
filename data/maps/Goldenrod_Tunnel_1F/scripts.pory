@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D37R0101_000
-    scr_seq_D37R0101_001
-    scr_seq_D37R0101_002
-    scr_seq_D37R0101_003
+    Goldenrod_Tunnel_1F_EventScript_Man
+    Goldenrod_Tunnel_1F_EventScript_Woman
+    Goldenrod_Tunnel_1F_EventScript_LyraScene
+    Goldenrod_Tunnel_1F_OnTransition
 }
 
-script scr_seq_D37R0101_003 {
+script Goldenrod_Tunnel_1F_OnTransition {
     getfriendsprite(VAR_OBJ_0)
     end
 }
 
-script scr_seq_D37R0101_002 {
+script Goldenrod_Tunnel_1F_EventScript_LyraScene {
     followmonresetmovement
     lockall
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
@@ -25,7 +25,7 @@ script scr_seq_D37R0101_002 {
         movepersonfacing(obj_D37R0101_tsure_poke_static_marill, 9, 0, 25, DIR_WEST)
     }
     playse(SEQ_SE_DP_KAIDAN2)
-    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0174)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_MarillWalkLeft)
     waitmovement
     wait(8, VAR_SPECIAL_RESULT)
     playcry(SPECIES_MARILL, 0)
@@ -33,7 +33,7 @@ script scr_seq_D37R0101_002 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_01BC)
+    applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -45,32 +45,32 @@ script scr_seq_D37R0101_002 {
     }
     playse(SEQ_SE_DP_KAIDAN2)
     callstd(std_play_friend_music)
-    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_01C4)
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_FriendWalkLeft)
     waitmovement
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
-        applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0218)
-        applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_0218)
-        applymovement(obj_partner_poke, Goldenrod_Tunnel_1F_Movement_0218)
+        applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_MarillFaceRight)
+        applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_MarillFaceRight)
+        applymovement(obj_partner_poke, Goldenrod_Tunnel_1F_Movement_MarillFaceRight)
         waitmovement
     } else {
-        applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0218)
-        applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_0218)
+        applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_MarillFaceRight)
+        applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_MarillFaceRight)
         waitmovement
     }
     bufferplayersname(0)
     gendermsgbox(msg_0116_D37R0101_00006, msg_0116_D37R0101_00009)
     closemessage
-    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_01D0)
-    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_01E0)
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_FriendWalkLeftDown)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_MarillWalkRightDown)
     waitmovement
     gendermsgbox(msg_0116_D37R0101_00007, msg_0116_D37R0101_00010)
     giveitemnocheck(ITEM_FASHION_CASE, 1)
     call(_0354)
     gendermsgbox(msg_0116_D37R0101_00008, msg_0116_D37R0101_00011)
     closemessage
-    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_01F0)
-    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0204)
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_FriendExit1)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_MarillExit1)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     setflag(FLAG_HIDE_GOLDENROD_UNDERGROUND_FRIEND)
@@ -132,7 +132,7 @@ text msg_0116_D37R0101_00011 {
     "See you!\r"
 }
 
-movement Goldenrod_Tunnel_1F_Movement_0174 {
+movement Goldenrod_Tunnel_1F_Movement_MarillWalkLeft {
     walk_slightly_fast_left
     walk_in_place_fast_right
     jump_in_place_fast_left * 2
@@ -152,46 +152,46 @@ movement Goldenrod_Tunnel_1F_Movement_0174 {
     face_down
 }
 
-movement Goldenrod_Tunnel_1F_Movement_01BC {
+movement Goldenrod_Tunnel_1F_Movement_PlayerWalkUp {
     walk_up * 3
 }
 
-movement Goldenrod_Tunnel_1F_Movement_01C4 {
+movement Goldenrod_Tunnel_1F_Movement_FriendWalkLeft {
     walk_left
     emote_exclamation_mark
 }
 
-movement Goldenrod_Tunnel_1F_Movement_01D0 {
+movement Goldenrod_Tunnel_1F_Movement_FriendWalkLeftDown {
     walk_left
     walk_down * 2
     walk_left
 }
 
-movement Goldenrod_Tunnel_1F_Movement_01E0 {
+movement Goldenrod_Tunnel_1F_Movement_MarillWalkRightDown {
     delay_8 * 3
     walk_right
     walk_down
 }
 
-movement Goldenrod_Tunnel_1F_Movement_01F0 {
+movement Goldenrod_Tunnel_1F_Movement_FriendExit1 {
     walk_down * 2
     walk_left
     walk_down
     set_invisible
 }
 
-movement Goldenrod_Tunnel_1F_Movement_0204 {
+movement Goldenrod_Tunnel_1F_Movement_MarillExit1 {
     walk_down * 3
     walk_left
     walk_down
     set_invisible
 }
 
-movement Goldenrod_Tunnel_1F_Movement_0218 {
+movement Goldenrod_Tunnel_1F_Movement_MarillFaceRight {
     walk_in_place_right
 }
 
-movement Goldenrod_Tunnel_1F_Movement_0220 {
+movement Goldenrod_Tunnel_1F_Movement_PlayerFaceDown {
     walk_in_place_down
 }
 
@@ -205,17 +205,17 @@ script(local) _0228 {
     movepersonfacing(obj_D37R0101_var_1, 25, 0, 9, DIR_NORTH)
     playse(SEQ_SE_DP_KAIDAN2)
     waitse(SEQ_SE_DP_KAIDAN2)
-    applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_0220)
-    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_0308)
+    applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_PlayerFaceDown)
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_FriendExclamation)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_0310)
-    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_0318)
+    applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_PlayerWalkDown)
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_FriendWalkUp)
     wait(8, VAR_SPECIAL_RESULT)
     movepersonfacing(obj_D37R0101_tsure_poke_static_marill, 25, 0, 9, DIR_NORTH)
-    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0320)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_MarillWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -227,8 +227,8 @@ script(local) _0228 {
     call(_0354)
     gendermsgbox(msg_0116_D37R0101_00008, msg_0116_D37R0101_00011)
     closemessage
-    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_0328)
-    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_033C)
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_FriendExit2)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_MarillExit2)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     setflag(FLAG_HIDE_GOLDENROD_UNDERGROUND_FRIEND)
@@ -242,30 +242,30 @@ script(local) _0228 {
     end
 }
 
-movement Goldenrod_Tunnel_1F_Movement_0308 {
+movement Goldenrod_Tunnel_1F_Movement_FriendExclamation {
     emote_exclamation_mark
 }
 
-movement Goldenrod_Tunnel_1F_Movement_0310 {
+movement Goldenrod_Tunnel_1F_Movement_PlayerWalkDown {
     walk_down * 2
 }
 
-movement Goldenrod_Tunnel_1F_Movement_0318 {
+movement Goldenrod_Tunnel_1F_Movement_FriendWalkUp {
     walk_up * 2
 }
 
-movement Goldenrod_Tunnel_1F_Movement_0320 {
+movement Goldenrod_Tunnel_1F_Movement_MarillWalkUp {
     walk_up
 }
 
-movement Goldenrod_Tunnel_1F_Movement_0328 {
+movement Goldenrod_Tunnel_1F_Movement_FriendExit2 {
     walk_right
     walk_up * 4
     walk_left * 2
     set_invisible
 }
 
-movement Goldenrod_Tunnel_1F_Movement_033C {
+movement Goldenrod_Tunnel_1F_Movement_MarillExit2 {
     walk_up
     walk_right
     walk_up * 4
@@ -311,7 +311,7 @@ _03DC:
     return
 }
 
-script scr_seq_D37R0101_000 {
+script Goldenrod_Tunnel_1F_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -340,7 +340,7 @@ text msg_0116_D37R0101_00002 {
     "people, do they?"
 }
 
-script scr_seq_D37R0101_001 {
+script Goldenrod_Tunnel_1F_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -369,8 +369,8 @@ text msg_0116_D37R0101_00005 {
 }
 
 mapscripts Goldenrod_Tunnel_1F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D37R0101_003
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_Tunnel_1F_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40F8, 0: scr_seq_D37R0101_002
+        VAR_UNK_40F8, 0: Goldenrod_Tunnel_1F_EventScript_LyraScene
     ]
 }

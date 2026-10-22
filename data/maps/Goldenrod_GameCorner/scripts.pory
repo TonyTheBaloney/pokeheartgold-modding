@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25SP0101_000 {
+script Goldenrod_GameCorner_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -9,12 +9,12 @@ script scr_seq_T25SP0101_000 {
     if (var(VAR_SPECIAL_RESULT) == 0) {
         npcmsg("It seems you need a Coin Case\n"
                "to play...\r")
-        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0080)
+        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_BusinessmanFaceDown)
         waitmovement
         npcmsg(msg_0603_T25SP0101_00039)
         goto(_00E8)
     }
-    applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0080)
+    applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_BusinessmanFaceDown)
     waitmovement
     npcmsg("Mr. Game: Show me how you play and\n"
            "make my heart pound with excitement!\r")
@@ -36,19 +36,19 @@ text msg_0603_T25SP0101_00039 {
     "Come here and I’ll give you a Coin Case!"
 }
 
-movement Goldenrod_GameCorner_Movement_0080 {
+movement Goldenrod_GameCorner_Movement_BusinessmanFaceDown {
     face_down
 }
 
-movement Goldenrod_GameCorner_Movement_0088 {
+movement Goldenrod_GameCorner_Movement_BusinessmanFaceLeft {
     face_left
 }
 
-movement Goldenrod_GameCorner_Movement_0090 {
+movement Goldenrod_GameCorner_Movement_BusinessmanFaceRight {
     face_right
 }
 
-script scr_seq_T25SP0101_001 {
+script Goldenrod_GameCorner_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -56,7 +56,7 @@ script scr_seq_T25SP0101_001 {
     if (var(VAR_TEMP_x4002) == 1) {
         call(_00F0)
     } else {
-        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0080)
+        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_BusinessmanFaceDown)
     }
     waitmovement
     hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
@@ -75,14 +75,14 @@ _00E8:
 _00F0:
     getplayercoords(VAR_TEMP_x4002, VAR_TEMP_x4003)
     if (var(VAR_TEMP_x4002) == 6) {
-        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0088)
+        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_BusinessmanFaceLeft)
     } else {
-        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0090)
+        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_BusinessmanFaceRight)
     }
     return
 }
 
-script scr_seq_T25SP0101_002 {
+script Goldenrod_GameCorner_EventScript_Businessman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -145,7 +145,7 @@ script scr_seq_T25SP0101_002 {
     end
 }
 
-script scr_seq_T25SP0101_003 {
+script Goldenrod_GameCorner_EventScript_Gentleman1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -432,7 +432,7 @@ text msg_0603_T25SP0101_00010 {
     "in the {STRVAR_1 18, 1, 0} Pocket. {YESNO 0}"
 }
 
-script scr_seq_T25SP0101_004 {
+script Goldenrod_GameCorner_EventScript_Gentleman2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

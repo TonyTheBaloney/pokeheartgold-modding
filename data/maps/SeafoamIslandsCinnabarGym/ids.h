@@ -1,16 +1,16 @@
 #ifndef SCR_SEQ_D11R0106_H_
 #define SCR_SEQ_D11R0106_H_
 
-#define _EV_scr_seq_D11R0106_000 0
-#define _EV_scr_seq_D11R0106_001 1
-#define _EV_scr_seq_D11R0106_002 2
-#define _EV_scr_seq_D11R0106_003 3
-#define _EV_scr_seq_D11R0106_004 4
-#define _EV_scr_seq_D11R0106_005 5
-#define _EV_scr_seq_D11R0106_006 6
-#define _EV_scr_seq_D11R0106_007 7
-#define _EV_scr_seq_D11R0106_008 8
-#define _EV_scr_seq_D11R0106_009 9
+#define _EV_SeafoamIslandsCinnabarGym_EventScript_Blaine 0
+#define _EV_SeafoamIslandsCinnabarGym_EventScript_GymGuide 1
+#define _EV_SeafoamIslandsCinnabarGym_EventScript_Cary 2
+#define _EV_SeafoamIslandsCinnabarGym_EventScript_Waldo 3
+#define _EV_SeafoamIslandsCinnabarGym_EventScript_Merle 4
+#define _EV_SeafoamIslandsCinnabarGym_EventScript_Lowell 5
+#define _EV_SeafoamIslandsCinnabarGym_EventScript_Linden 6
+#define _EV_SeafoamIslandsCinnabarGym_EventScript_Daniel 7
+#define _EV_SeafoamIslandsCinnabarGym_OnResume 8
+#define _EV_SeafoamIslandsCinnabarGym_OnTransition 9
 
 #define obj_D11R0106_gsleader15     0
 #define obj_D11R0106_sunglasses     1

@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_W40R0101_000 + 1",
+            "script": "Route40_BattleFrontierGatehouse_EventScript_PokefanM",
             "flag": "FLAG_UNK_25B"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_W40R0101_002 + 1",
+            "script": "Route40_BattleFrontierGatehouse_EventScript_Attendant",
             "flag": "FLAG_NOTHING"
         }
     ],

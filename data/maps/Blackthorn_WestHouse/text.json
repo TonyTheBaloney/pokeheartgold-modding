@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0633_T30R0201_00000",
-      "from": "scr_seq_T30R0201_000#0"
+      "from": "Blackthorn_WestHouse_EventScript_OldWoman#0"
     },
     {
       "id": "msg_0633_T30R0201_00001",
@@ -14,7 +14,7 @@
     },
     {
       "id": "msg_0633_T30R0201_00002",
-      "from": "scr_seq_T30R0201_001#0"
+      "from": "Blackthorn_WestHouse_EventScript_Dratini#0"
     }
   ]
 }

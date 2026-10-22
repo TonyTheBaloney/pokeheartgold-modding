@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0050_D02R0103_00000",
-      "from": "scr_seq_D02R0103_000#0"
+      "from": "MountMoon_Square_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0050_D02R0103_00001",
-      "from": "scr_seq_D02R0103_001#0"
+      "from": "MountMoon_Square_EventScript_InvisibleObject#0"
     }
   ]
 }

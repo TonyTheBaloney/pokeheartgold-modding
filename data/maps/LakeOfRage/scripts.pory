@@ -3,28 +3,28 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T29_000
-    scr_seq_T29_001
-    scr_seq_T29_002
-    scr_seq_T29_003
-    scr_seq_T29_004
-    scr_seq_T29_005
-    scr_seq_T29_006
-    scr_seq_T29_007
-    scr_seq_T29_008
-    scr_seq_T29_009
+    LakeOfRage_OnTransition
+    LakeOfRage_EventScript_Gyarados1
+    LakeOfRage_OnLoad
+    LakeOfRage_EventScript_Lance
+    LakeOfRage_EventScript_OldMan
+    LakeOfRage_EventScript_Man
+    LakeOfRage_EventScript_TrainerTips1
+    LakeOfRage_EventScript_TrainerTips2
+    LakeOfRage_EventScript_Woman
+    LakeOfRage_EventScript_Gyarados2
     scr_seq_T29_010
     scr_seq_T29_011
     scr_seq_T29_012
     scr_seq_T29_013
-    scr_seq_T29_014
-    scr_seq_T29_015
-    scr_seq_T29_016
-    scr_seq_T29_017
-    scr_seq_T29_018
+    LakeOfRage_EventScript_ItemBall1
+    LakeOfRage_EventScript_ItemBall2
+    LakeOfRage_EventScript_ItemBall3
+    LakeOfRage_EventScript_Pryce
+    LakeOfRage_EventScript_Dragonite
 }
 
-script scr_seq_T29_000 {
+script LakeOfRage_OnTransition {
     if (flag(FLAG_GOT_RED_SCALE)) {
         goto(_0115)
     _0085:
@@ -97,7 +97,7 @@ script scr_seq_T29_000 {
     end
 }
 
-script scr_seq_T29_002 {
+script LakeOfRage_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_LAKE_OF_RAGE_RED_GYARADOS)
         removeobject(obj_T29_rgyaradosu)
@@ -110,7 +110,7 @@ script scr_seq_T29_002 {
     end
 }
 
-script scr_seq_T29_017 {
+script LakeOfRage_EventScript_Pryce {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -169,7 +169,7 @@ _0259:
     end
 }
 
-script scr_seq_T29_005 {
+script LakeOfRage_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -245,7 +245,7 @@ _036C:
     end
 }
 
-script scr_seq_T29_001 {
+script LakeOfRage_EventScript_Gyarados1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -296,7 +296,7 @@ text msg_0626_T29_00000 {
     "GYARADOS: Gyashaa!"
 }
 
-script scr_seq_T29_003 {
+script LakeOfRage_EventScript_Lance {
     if (flag(FLAG_UNK_0C3)) {
         playse(SEQ_SE_DP_SELECT)
         lockall
@@ -364,9 +364,9 @@ _04BB:
                                         "I’ll be waiting for you, {STRVAR_1 3, 0, 0}.")
     waitbuttonpress
     closemessage
-    applymovement(obj_T29_tsure_poke_static_dragonite, LakeOfRage_Movement_0538)
+    applymovement(obj_T29_tsure_poke_static_dragonite, LakeOfRage_Movement_DragoniteFaceLeft)
     waitmovement
-    applymovement(obj_T29_wataru, LakeOfRage_Movement_0544)
+    applymovement(obj_T29_wataru, LakeOfRage_Movement_LanceFaceDown)
     waitmovement
     lanceflyaway(8, 10)
     setflag(FLAG_HIDE_LAKE_OF_RAGE_LANCE)
@@ -386,16 +386,16 @@ _04FA:
     end
 }
 
-movement LakeOfRage_Movement_0538 {
+movement LakeOfRage_Movement_DragoniteFaceLeft {
     walk_in_place_left
     jump_in_place_fast_left * 2
 }
 
-movement LakeOfRage_Movement_0544 {
+movement LakeOfRage_Movement_LanceFaceDown {
     walk_in_place_down
 }
 
-script scr_seq_T29_004 {
+script LakeOfRage_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -419,7 +419,7 @@ text msg_0626_T29_00009 {
     "It’s a bad omen!"
 }
 
-script scr_seq_T29_006 {
+script LakeOfRage_EventScript_TrainerTips1 {
     if (flag(FLAG_UNK_139)) {
         playse(SEQ_SE_DP_SELECT)
         lockall
@@ -440,7 +440,7 @@ script scr_seq_T29_006 {
     end
 }
 
-script scr_seq_T29_014 {
+script LakeOfRage_EventScript_ItemBall1 {
     setvar(VAR_TEMP_x4001, 1)
     setvar(VAR_SPECIAL_x8008, 27)
     setvar(VAR_SPECIAL_x8009, 1)
@@ -448,7 +448,7 @@ script scr_seq_T29_014 {
     end
 }
 
-script scr_seq_T29_015 {
+script LakeOfRage_EventScript_ItemBall2 {
     setvar(VAR_TEMP_x4001, 2)
     setvar(VAR_SPECIAL_x8008, 29)
     setvar(VAR_SPECIAL_x8009, 1)
@@ -456,7 +456,7 @@ script scr_seq_T29_015 {
     end
 }
 
-script scr_seq_T29_016 {
+script LakeOfRage_EventScript_ItemBall3 {
     setvar(VAR_TEMP_x4001, 3)
     setvar(VAR_SPECIAL_x8008, 23)
     setvar(VAR_SPECIAL_x8009, 1)
@@ -512,7 +512,7 @@ _061B:
     end
 }
 
-script scr_seq_T29_018 {
+script LakeOfRage_EventScript_Dragonite {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -524,7 +524,7 @@ script scr_seq_T29_018 {
     end
 }
 
-script scr_seq_T29_007 {
+script LakeOfRage_EventScript_TrainerTips2 {
     trainertipsex(2, "Lake of Rage\n"
                      "Also Known As GYARADOS Lake")
     end
@@ -532,7 +532,7 @@ script scr_seq_T29_007 {
     end
 }
 
-script scr_seq_T29_008 {
+script LakeOfRage_EventScript_Woman {
     simplenpcmsg("Did my eyes deceive me? I saw a \n"
                  "red GYARADOS in the Lake of Rage...\r"
                  "But I thought GYARADOS were\n"
@@ -540,7 +540,7 @@ script scr_seq_T29_008 {
     end
 }
 
-script scr_seq_T29_009 {
+script LakeOfRage_EventScript_Gyarados2 {
     simplenpcmsg("I heard this lake was made by rampaging\n"
                  "GYARADOS.\r"
                  "I wonder if there is any connection\n"
@@ -578,6 +578,6 @@ script scr_seq_T29_013 {
 }
 
 mapscripts LakeOfRage_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_T29_002
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T29_000
+    INIT_SCRIPT_ON_LOAD: LakeOfRage_OnLoad
+    INIT_SCRIPT_ON_TRANSITION: LakeOfRage_OnTransition
 }

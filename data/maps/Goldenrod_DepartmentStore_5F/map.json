@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1005_000 + 1",
+            "script": "Goldenrod_DepartmentStore_5F_EventScript_Clerk",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1005_001 + 1",
+            "script": "Goldenrod_DepartmentStore_5F_EventScript_PokefanM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1005_003 + 1",
+            "script": "Goldenrod_DepartmentStore_5F_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1005_002 + 1",
+            "script": "Goldenrod_DepartmentStore_5F_EventScript_Girl",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1005_006 + 1",
+            "script": "Goldenrod_DepartmentStore_5F_EventScript_Woman",
             "flag": "FLAG_HIDE_GOLDENROD_DEPT_STORE_5F_RETURN_FRUSTRATION_LADY"
         }
     ],
@@ -144,7 +144,7 @@
             "y": 2,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T25R1005_004 + 1"
+            "script": "Goldenrod_DepartmentStore_5F_EventScript_ModifyYourPokemonSign"
         }
     ]
 }

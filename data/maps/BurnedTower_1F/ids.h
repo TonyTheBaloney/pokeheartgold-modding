@@ -1,10 +1,10 @@
 #ifndef SCR_SEQ_D18R0101_H_
 #define SCR_SEQ_D18R0101_H_
 
-#define _EV_scr_seq_D18R0101_000 0
-#define _EV_scr_seq_D18R0101_001 1
-#define _EV_scr_seq_D18R0101_002 2
-#define _EV_scr_seq_D18R0101_003 3
+#define _EV_BurnedTower_1F_EventScript_EusineTrigger 0
+#define _EV_BurnedTower_1F_EventScript_Eusine 1
+#define _EV_BurnedTower_1F_EventScript_Morty 2
+#define _EV_BurnedTower_1F_EventScript_RivalTrigger 3
 
 #define obj_D18R0101_gsrivel                     0
 #define obj_D18R0101_minaki                      1

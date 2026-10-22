@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T23R0501_000
-    scr_seq_T23R0501_001
-    scr_seq_T23R0501_002
-    scr_seq_T23R0501_003
-    scr_seq_T23R0501_004
-    scr_seq_T23R0501_005
-    scr_seq_T23R0501_006
+    Azalea_KurtHouse_OnTransition
+    Azalea_KurtHouse_EventScript_Kurt
+    Azalea_KurtHouse_EventScript_LittleGirl
+    Azalea_KurtHouse_EventScript_Slowpoke
+    Azalea_KurtHouse_EventScript_Sign
+    Azalea_KurtHouse_EventScript_KurtScene
+    Azalea_KurtHouse_EventScript_Radio
 }
 
-script scr_seq_T23R0501_000 {
+script Azalea_KurtHouse_OnTransition {
     if (flag(FLAG_BEAT_AZALEA_ROCKETS)) {
         clearflag(FLAG_HIDE_AZALEA_SLOWPOKES)
         end
@@ -21,11 +21,11 @@ script scr_seq_T23R0501_000 {
     end
 }
 
-script scr_seq_T23R0501_005 {
+script Azalea_KurtHouse_EventScript_KurtScene {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_4080, 3)
-    applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02B0)
+    applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_KurtFaceDown)
     waitmovement
     bufferplayersname(0)
     npcmsg("Kurt: Hi, {STRVAR_1 3, 0, 0}!\n"
@@ -48,7 +48,7 @@ script scr_seq_T23R0501_005 {
     end
 }
 
-script scr_seq_T23R0501_001 {
+script Azalea_KurtHouse_EventScript_Kurt {
     if (flag(FLAG_UNK_07C)) { goto(_011A) }
     playse(SEQ_SE_DP_SELECT)
     lockall
@@ -74,7 +74,7 @@ script scr_seq_T23R0501_001 {
     closemessage
     getplayerfacing(VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
-        applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02E0)
+        applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_KurtWalkDown)
     _00AF:
         waitmovement
     _00B1:
@@ -91,11 +91,11 @@ script scr_seq_T23R0501_001 {
         followingpokemonmovement(56)
         getpersoncoords(253, VAR_TEMP_x4002, VAR_TEMP_x4003)
         if (var(VAR_TEMP_x4002) == 5) {
-            applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02E8)
+            applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_KurtWalkLeftDown)
         } else {
             playse(SEQ_SE_DP_WALL_HIT)
-            applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02E0)
-            applymovement(obj_player, Azalea_KurtHouse_Movement_02C8)
+            applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_KurtWalkDown)
+            applymovement(obj_player, Azalea_KurtHouse_Movement_PlayerWalkLeft)
         }
         waitmovement
         waitfollowingpokemonmovement
@@ -153,9 +153,9 @@ script scr_seq_T23R0501_001 {
             return
         _022D:
             setvar(VAR_UNK_4080, 4)
-            applymovement(obj_T23R0501_gsbabygirl1, Azalea_KurtHouse_Movement_02FC)
+            applymovement(obj_T23R0501_gsbabygirl1, Azalea_KurtHouse_Movement_LittleGirlWalkLeft)
             waitmovement
-            applymovement(obj_player, Azalea_KurtHouse_Movement_02D4)
+            applymovement(obj_player, Azalea_KurtHouse_Movement_PlayerFaceRight)
             waitmovement
             npcmsg("That’s right!\n"
                    "I’ll give you my grandpa’s number. {YESNO 0}")
@@ -184,7 +184,7 @@ script scr_seq_T23R0501_001 {
                 closemessage
                 releaseall
                 end
-                applymovement(1, Azalea_KurtHouse_Movement_0304)
+                applymovement(1, Azalea_KurtHouse_Movement_ObjectWalkRight)
                 waitmovement
                 releaseall
                 end
@@ -196,7 +196,7 @@ script scr_seq_T23R0501_001 {
             }
             end
         }
-        applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02BC)
+        applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_KurtExclamation)
         waitmovement
         npcmsg("Kurt: You have Apricorns for me?\f"
                "Fine! I’ll turn them into Poké Balls.\r")
@@ -226,48 +226,48 @@ script scr_seq_T23R0501_001 {
     goto(_00AF)
 }
 
-movement Azalea_KurtHouse_Movement_02B0 {
+movement Azalea_KurtHouse_Movement_KurtFaceDown {
     delay_16
     walk_in_place_fast_down
 }
 
-movement Azalea_KurtHouse_Movement_02BC {
+movement Azalea_KurtHouse_Movement_KurtExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement Azalea_KurtHouse_Movement_02C8 {
+movement Azalea_KurtHouse_Movement_PlayerWalkLeft {
     walk_fast_left
     delay_16
 }
 
-movement Azalea_KurtHouse_Movement_02D4 {
+movement Azalea_KurtHouse_Movement_PlayerFaceRight {
     walk_in_place_fast_right
     face_right
 }
 
-movement Azalea_KurtHouse_Movement_02E0 {
+movement Azalea_KurtHouse_Movement_KurtWalkDown {
     walk_fast_down * 5
 }
 
-movement Azalea_KurtHouse_Movement_02E8 {
+movement Azalea_KurtHouse_Movement_KurtWalkLeftDown {
     walk_fast_left
     walk_fast_down * 2
     walk_fast_right
     walk_fast_down * 3
 }
 
-movement Azalea_KurtHouse_Movement_02FC {
+movement Azalea_KurtHouse_Movement_LittleGirlWalkLeft {
     walk_left
 }
 
-movement Azalea_KurtHouse_Movement_0304 {
+movement Azalea_KurtHouse_Movement_ObjectWalkRight {
     walk_in_place_fast_right
     walk_right
     walk_in_place_fast_left
 }
 
-script scr_seq_T23R0501_002 {
+script Azalea_KurtHouse_EventScript_LittleGirl {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -307,7 +307,7 @@ script scr_seq_T23R0501_002 {
     end
 }
 
-script scr_seq_T23R0501_003 {
+script Azalea_KurtHouse_EventScript_Slowpoke {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -321,7 +321,7 @@ script scr_seq_T23R0501_003 {
     end
 }
 
-script scr_seq_T23R0501_004 {
+script Azalea_KurtHouse_EventScript_Sign {
     simplenpcmsg("You see three people, with landscape\n"
                  "in the background.\r"
                  "It’s Kurt, Professor Oak, and...\n"
@@ -330,7 +330,7 @@ script scr_seq_T23R0501_004 {
     end
 }
 
-script scr_seq_T23R0501_006 {
+script Azalea_KurtHouse_EventScript_Radio {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -356,8 +356,8 @@ text msg_0571_T23R0501_00024 {
 }
 
 mapscripts Azalea_KurtHouse_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T23R0501_000
+    INIT_SCRIPT_ON_TRANSITION: Azalea_KurtHouse_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4080, 2: scr_seq_T23R0501_005
+        VAR_UNK_4080, 2: Azalea_KurtHouse_EventScript_KurtScene
     ]
 }

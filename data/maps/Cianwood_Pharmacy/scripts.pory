@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T24R0501_000 {
+script Cianwood_Pharmacy_EventScript_GymGuide {
     if (flag(FLAG_GOT_SECRETPOTION)) { goto(_0024) }
     if (var(VAR_SCENE_LIGHTHOUSE_JASMINE) == 1) {
         playse(SEQ_SE_DP_SELECT)
@@ -27,7 +27,7 @@ script scr_seq_T24R0501_000 {
                "I only offer it in an emergency.")
         waitabpress
         closemessage
-        applymovement(obj_T24R0501_sunglasses, Cianwood_Pharmacy_Movement_00A8)
+        applymovement(obj_T24R0501_sunglasses, Cianwood_Pharmacy_Movement_GymGuideFaceUp)
         waitmovement
         releaseall
         end
@@ -43,14 +43,14 @@ _0024:
     holdmsg
     setvar(VAR_SPECIAL_x8004, 11)
     callstd(std_special_mart)
-    applymovement(obj_T24R0501_sunglasses, Cianwood_Pharmacy_Movement_00A8)
+    applymovement(obj_T24R0501_sunglasses, Cianwood_Pharmacy_Movement_GymGuideFaceUp)
     waitmovement
     clearflag(FLAG_SPECIAL_MART_PHARMACY)
     releaseall
     end
 }
 
-movement Cianwood_Pharmacy_Movement_00A8 {
+movement Cianwood_Pharmacy_Movement_GymGuideFaceUp {
     face_up
 }
 

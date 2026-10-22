@@ -1,44 +1,44 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R10R0201_000 {
+script Route10_PowerPlantRepaired_EventScript_Manager {
     simplenpcmsg("Manager: My beloved generator!\r"
                  "Keep pumping the electricity out to\n"
                  "provide a pleasant life for Kanto!")
     end
 }
 
-script scr_seq_R10R0201_001 {
+script Route10_PowerPlantRepaired_EventScript_Policeman1 {
     simplenpcmsg("We’ll have to beef up our security\n"
                  "presence so something like this will\f"
                  "never happen again!")
     end
 }
 
-script scr_seq_R10R0201_002 {
+script Route10_PowerPlantRepaired_EventScript_SuperNerd1 {
     simplenpcmsg("The generator’s up and running.\n"
                  "It’s making electricity to spare.")
     end
 }
 
-script scr_seq_R10R0201_003 {
+script Route10_PowerPlantRepaired_EventScript_SuperNerd2 {
     simplenpcmsg("The generator’s running again!")
     end
 }
 
-script scr_seq_R10R0201_004 {
+script Route10_PowerPlantRepaired_EventScript_Policeman2 {
     simplenpcmsg("Since the generator’s been fixed, the\n"
                  "Manager has been cheerful.")
     end
 }
 
-script scr_seq_R10R0201_005 {
+script Route10_PowerPlantRepaired_EventScript_SuperNerd3 {
     simplenpcmsg("All right! We can finally get the\n"
                  "Magnet Train running again.")
     end
 }
 
-script scr_seq_R10R0201_006 {
+script Route10_PowerPlantRepaired_EventScript_SuperNerd4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -95,7 +95,7 @@ _0134:
     end
 }
 
-script scr_seq_R10R0201_007 {
+script Route10_PowerPlantRepaired_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Staff Mottos:\r"
@@ -111,7 +111,7 @@ script scr_seq_R10R0201_007 {
     end
 }
 
-script scr_seq_R10R0201_008 {
+script Route10_PowerPlantRepaired_EventScript_UseElectricityWiselySign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Use electricity wisely\n"

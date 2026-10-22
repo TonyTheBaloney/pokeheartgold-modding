@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0120_D37R0105_00000",
-      "from": "scr_seq_D37R0105_001#0"
+      "from": "Goldenrod_TunnelWarehouse_EventScript_Director#0"
     },
     {
       "id": "msg_0120_D37R0105_00001",
@@ -11,11 +11,11 @@
     },
     {
       "id": "msg_0120_D37R0105_00002",
-      "from": "scr_seq_D37R0105_001#1"
+      "from": "Goldenrod_TunnelWarehouse_EventScript_Director#1"
     },
     {
       "id": "msg_0120_D37R0105_00003",
-      "from": "scr_seq_D37R0105_001#2"
+      "from": "Goldenrod_TunnelWarehouse_EventScript_Director#2"
     }
   ]
 }

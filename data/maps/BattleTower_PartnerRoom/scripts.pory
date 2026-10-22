@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D31R0207_000
-    scr_seq_D31R0207_001
-    scr_seq_D31R0207_002
-    scr_seq_D31R0207_003
-    scr_seq_D31R0207_004
-    scr_seq_D31R0207_005
-    scr_seq_D31R0207_006
-    scr_seq_D31R0207_007
-    scr_seq_D31R0207_008
-    scr_seq_D31R0207_009
+    BattleTower_PartnerRoom_EventScript_Attendant
+    BattleTower_PartnerRoom_EventScript_Cheryl
+    BattleTower_PartnerRoom_EventScript_Mira
+    BattleTower_PartnerRoom_EventScript_Riley
+    BattleTower_PartnerRoom_EventScript_Marley
+    BattleTower_PartnerRoom_EventScript_Buck
+    BattleTower_PartnerRoom_OnTransition
+    BattleTower_PartnerRoom_OnResume
+    BattleTower_PartnerRoom_EventScript_Scene
+    BattleTower_PartnerRoom_EventScript_WarpToBattleTowerElevator
 }
 
-script scr_seq_D31R0207_006 {
+script BattleTower_PartnerRoom_OnTransition {
     if (var(VAR_UNK_4151) == 2) {
         battletoweraction(55, 2, VAR_TEMP_x4009)
         if (var(VAR_TEMP_x4009) == 0) {
@@ -69,7 +69,7 @@ _00E8:
     end
 }
 
-script scr_seq_D31R0207_007 {
+script BattleTower_PartnerRoom_OnResume {
     compare(VAR_UNK_4151, 1)
     callifeq(_0142)
     if (var(VAR_UNK_4151) == 2) {
@@ -82,7 +82,7 @@ _0142:
     return
 }
 
-script scr_seq_D31R0207_008 {
+script BattleTower_PartnerRoom_EventScript_Scene {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_4151, 0)
@@ -99,7 +99,7 @@ text msg_0099_D31R0207_00000 {
     "that are gathered here.\r"
 }
 
-script scr_seq_D31R0207_000 {
+script BattleTower_PartnerRoom_EventScript_Attendant {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -128,7 +128,7 @@ script scr_seq_D31R0207_000 {
     end
 }
 
-script scr_seq_D31R0207_009 {
+script BattleTower_PartnerRoom_EventScript_WarpToBattleTowerElevator {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_4151, 0)
@@ -155,7 +155,7 @@ _0216:
     return
 }
 
-script scr_seq_D31R0207_001 {
+script BattleTower_PartnerRoom_EventScript_Cheryl {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -194,7 +194,7 @@ script scr_seq_D31R0207_001 {
     end
 }
 
-script scr_seq_D31R0207_002 {
+script BattleTower_PartnerRoom_EventScript_Mira {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -232,7 +232,7 @@ script scr_seq_D31R0207_002 {
     end
 }
 
-script scr_seq_D31R0207_003 {
+script BattleTower_PartnerRoom_EventScript_Riley {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -268,7 +268,7 @@ script scr_seq_D31R0207_003 {
     end
 }
 
-script scr_seq_D31R0207_004 {
+script BattleTower_PartnerRoom_EventScript_Marley {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -302,7 +302,7 @@ script scr_seq_D31R0207_004 {
     end
 }
 
-script scr_seq_D31R0207_005 {
+script BattleTower_PartnerRoom_EventScript_Buck {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -341,34 +341,34 @@ script scr_seq_D31R0207_005 {
             return
         _048B:
             call(_046D)
-            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06AC)
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_AttendantWalkDownLeft)
             waitmovement
             makeobjectinvisible(obj_player)
-            applymovement(obj_player, BattleTower_PartnerRoom_Movement_069C)
+            applymovement(obj_player, BattleTower_PartnerRoom_Movement_PlayerWalkDown)
             waitmovement
             call(_0480)
-            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06BC)
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_AttendantWalkRight1)
             waitmovement
-            applymovement(obj_player, BattleTower_PartnerRoom_Movement_06A4)
+            applymovement(obj_player, BattleTower_PartnerRoom_Movement_PlayerFaceUp)
             waitmovement
             return
         _04C5:
             call(_046D)
-            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06F0)
-            applymovement(obj_player, BattleTower_PartnerRoom_Movement_06E4)
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_AttendantExit)
+            applymovement(obj_player, BattleTower_PartnerRoom_Movement_PlayerExit)
             waitmovement
             call(_0480)
             return
         _04E5:
-            applymovement(VAR_TEMP_x4000, BattleTower_PartnerRoom_Movement_06FC)
+            applymovement(VAR_TEMP_x4000, BattleTower_PartnerRoom_Movement_ObjectFaceUp)
             waitmovement
-            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06C8)
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_AttendantWalkLeft)
             waitmovement
             call(_046D)
-            applymovement(VAR_TEMP_x4000, BattleTower_PartnerRoom_Movement_0704)
+            applymovement(VAR_TEMP_x4000, BattleTower_PartnerRoom_Movement_ObjectExit)
             waitmovement
             call(_0480)
-            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06D8)
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_AttendantWalkRight2)
             waitmovement
             fadescreen(6, 1, 0, RGB_BLACK)
             waitfade
@@ -381,12 +381,12 @@ script scr_seq_D31R0207_005 {
             setvar(VAR_TEMP_x4000, 1)
             getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
             if (var(VAR_SPECIAL_x8000) == 12) {
-                applymovement(obj_D31R0207_seven1, BattleTower_PartnerRoom_Movement_0710)
+                applymovement(obj_D31R0207_seven1, BattleTower_PartnerRoom_Movement_CherylWalkDownLeft)
                 waitmovement
                 goto(_04E5)
                 end
             _0574:
-                applymovement(obj_D31R0207_seven1, BattleTower_PartnerRoom_Movement_0724)
+                applymovement(obj_D31R0207_seven1, BattleTower_PartnerRoom_Movement_CherylWalkLeftUp)
                 waitmovement
                 goto(_04E5)
                 end
@@ -394,12 +394,12 @@ script scr_seq_D31R0207_005 {
                 setvar(VAR_TEMP_x4000, 2)
                 getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
                 if (var(VAR_SPECIAL_x8000) == 4) {
-                    applymovement(obj_D31R0207_seven5, BattleTower_PartnerRoom_Movement_073C)
+                    applymovement(obj_D31R0207_seven5, BattleTower_PartnerRoom_Movement_MiraWalkRightUp)
                     waitmovement
                     goto(_04E5)
                     end
                 _05B9:
-                    applymovement(obj_D31R0207_seven5, BattleTower_PartnerRoom_Movement_074C)
+                    applymovement(obj_D31R0207_seven5, BattleTower_PartnerRoom_Movement_MiraWalkUpRight)
                     waitmovement
                     goto(_04E5)
                     end
@@ -407,12 +407,12 @@ script scr_seq_D31R0207_005 {
                     setvar(VAR_TEMP_x4000, 3)
                     getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
                     if (var(VAR_SPECIAL_x8001) == 7) {
-                        applymovement(obj_D31R0207_seven2, BattleTower_PartnerRoom_Movement_0758)
+                        applymovement(obj_D31R0207_seven2, BattleTower_PartnerRoom_Movement_RileyWalkLeftUp)
                         waitmovement
                         goto(_04E5)
                         end
                     _05FE:
-                        applymovement(obj_D31R0207_seven2, BattleTower_PartnerRoom_Movement_0768)
+                        applymovement(obj_D31R0207_seven2, BattleTower_PartnerRoom_Movement_RileyWalkUpLeft)
                         waitmovement
                         goto(_04E5)
                         end
@@ -420,12 +420,12 @@ script scr_seq_D31R0207_005 {
                         setvar(VAR_TEMP_x4000, 4)
                         getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
                         if (var(VAR_SPECIAL_x8001) == 9) {
-                            applymovement(obj_D31R0207_seven3, BattleTower_PartnerRoom_Movement_0774)
+                            applymovement(obj_D31R0207_seven3, BattleTower_PartnerRoom_Movement_MarleyWalkDownRight)
                             waitmovement
                             goto(_04E5)
                             end
                         _0643:
-                            applymovement(obj_D31R0207_seven3, BattleTower_PartnerRoom_Movement_0788)
+                            applymovement(obj_D31R0207_seven3, BattleTower_PartnerRoom_Movement_MarleyWalkUpRight)
                             waitmovement
                             goto(_04E5)
                             end
@@ -433,12 +433,12 @@ script scr_seq_D31R0207_005 {
                             setvar(VAR_TEMP_x4000, 5)
                             getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
                             if (var(VAR_SPECIAL_x8000) == 8) {
-                                applymovement(obj_D31R0207_seven4, BattleTower_PartnerRoom_Movement_079C)
+                                applymovement(obj_D31R0207_seven4, BattleTower_PartnerRoom_Movement_BuckWalkLeftUp)
                                 waitmovement
                                 goto(_04E5)
                                 end
                             _0688:
-                                applymovement(obj_D31R0207_seven4, BattleTower_PartnerRoom_Movement_07AC)
+                                applymovement(obj_D31R0207_seven4, BattleTower_PartnerRoom_Movement_BuckWalkRightUp)
                                 waitmovement
                                 goto(_04E5)
                                 end
@@ -467,63 +467,63 @@ script scr_seq_D31R0207_005 {
     end
 }
 
-movement BattleTower_PartnerRoom_Movement_069C {
+movement BattleTower_PartnerRoom_Movement_PlayerWalkDown {
     walk_down * 2
 }
 
-movement BattleTower_PartnerRoom_Movement_06A4 {
+movement BattleTower_PartnerRoom_Movement_PlayerFaceUp {
     face_up
 }
 
-movement BattleTower_PartnerRoom_Movement_06AC {
+movement BattleTower_PartnerRoom_Movement_AttendantWalkDownLeft {
     walk_down * 2
     walk_left
     face_right
 }
 
-movement BattleTower_PartnerRoom_Movement_06BC {
+movement BattleTower_PartnerRoom_Movement_AttendantWalkRight1 {
     walk_right
     face_down
 }
 
-movement BattleTower_PartnerRoom_Movement_06C8 {
+movement BattleTower_PartnerRoom_Movement_AttendantWalkLeft {
     face_down
     walk_fast_left
     face_right
 }
 
-movement BattleTower_PartnerRoom_Movement_06D8 {
+movement BattleTower_PartnerRoom_Movement_AttendantWalkRight2 {
     walk_fast_right
     face_down
 }
 
-movement BattleTower_PartnerRoom_Movement_06E4 {
+movement BattleTower_PartnerRoom_Movement_PlayerExit {
     walk_up * 2
     set_invisible
 }
 
-movement BattleTower_PartnerRoom_Movement_06F0 {
+movement BattleTower_PartnerRoom_Movement_AttendantExit {
     walk_up
     set_invisible
 }
 
-movement BattleTower_PartnerRoom_Movement_06FC {
+movement BattleTower_PartnerRoom_Movement_ObjectFaceUp {
     face_up
 }
 
-movement BattleTower_PartnerRoom_Movement_0704 {
+movement BattleTower_PartnerRoom_Movement_ObjectExit {
     walk_fast_up * 2
     set_invisible
 }
 
-movement BattleTower_PartnerRoom_Movement_0710 {
+movement BattleTower_PartnerRoom_Movement_CherylWalkDownLeft {
     walk_fast_down
     walk_fast_left * 3
     walk_fast_up * 7
     walk_fast_left * 2
 }
 
-movement BattleTower_PartnerRoom_Movement_0724 {
+movement BattleTower_PartnerRoom_Movement_CherylWalkLeftUp {
     walk_fast_left
     walk_fast_up
     walk_fast_left * 2
@@ -531,59 +531,59 @@ movement BattleTower_PartnerRoom_Movement_0724 {
     walk_fast_left * 2
 }
 
-movement BattleTower_PartnerRoom_Movement_073C {
+movement BattleTower_PartnerRoom_Movement_MiraWalkRightUp {
     walk_fast_right
     walk_fast_up * 2
     walk_fast_right * 3
 }
 
-movement BattleTower_PartnerRoom_Movement_074C {
+movement BattleTower_PartnerRoom_Movement_MiraWalkUpRight {
     walk_fast_up * 2
     walk_fast_right * 4
 }
 
-movement BattleTower_PartnerRoom_Movement_0758 {
+movement BattleTower_PartnerRoom_Movement_RileyWalkLeftUp {
     walk_fast_left
     walk_fast_up * 4
     walk_fast_left * 2
 }
 
-movement BattleTower_PartnerRoom_Movement_0768 {
+movement BattleTower_PartnerRoom_Movement_RileyWalkUpLeft {
     walk_fast_up * 4
     walk_fast_left * 3
 }
 
-movement BattleTower_PartnerRoom_Movement_0774 {
+movement BattleTower_PartnerRoom_Movement_MarleyWalkDownRight {
     walk_fast_down
     walk_fast_right * 4
     walk_fast_up * 7
     walk_fast_right * 2
 }
 
-movement BattleTower_PartnerRoom_Movement_0788 {
+movement BattleTower_PartnerRoom_Movement_MarleyWalkUpRight {
     walk_fast_up
     walk_fast_right * 4
     walk_fast_up * 5
     walk_fast_right * 2
 }
 
-movement BattleTower_PartnerRoom_Movement_079C {
+movement BattleTower_PartnerRoom_Movement_BuckWalkLeftUp {
     walk_fast_left
     walk_fast_up * 5
     walk_fast_right * 2
 }
 
-movement BattleTower_PartnerRoom_Movement_07AC {
+movement BattleTower_PartnerRoom_Movement_BuckWalkRightUp {
     walk_fast_right * 3
     walk_fast_up * 5
     walk_fast_left * 2
 }
 
 mapscripts BattleTower_PartnerRoom_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D31R0207_006
-    INIT_SCRIPT_ON_RESUME: scr_seq_D31R0207_007
+    INIT_SCRIPT_ON_TRANSITION: BattleTower_PartnerRoom_OnTransition
+    INIT_SCRIPT_ON_RESUME: BattleTower_PartnerRoom_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4151, 1: scr_seq_D31R0207_008
-        VAR_UNK_4151, 2: scr_seq_D31R0207_009
+        VAR_UNK_4151, 1: BattleTower_PartnerRoom_EventScript_Scene
+        VAR_UNK_4151, 2: BattleTower_PartnerRoom_EventScript_WarpToBattleTowerElevator
     ]
 }

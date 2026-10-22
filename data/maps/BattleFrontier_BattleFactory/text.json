@@ -27,11 +27,11 @@
     },
     {
       "id": "msg_0107_D32R0301_00006",
-      "from": "scr_seq_D32R0301_005#3"
+      "from": "BattleFrontier_BattleFactory_EventScript_Attendant2#3"
     },
     {
       "id": "msg_0107_D32R0301_00007",
-      "from": "scr_seq_D32R0301_005#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Attendant2#0"
     },
     {
       "id": "msg_0107_D32R0301_00008",
@@ -50,11 +50,11 @@
     },
     {
       "id": "msg_0107_D32R0301_00011",
-      "from": "scr_seq_D32R0301_001#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Scene1#0"
     },
     {
       "id": "msg_0107_D32R0301_00012",
-      "from": "scr_seq_D32R0301_002#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Scene2#0"
     },
     {
       "id": "msg_0107_D32R0301_00013",
@@ -62,11 +62,11 @@
     },
     {
       "id": "msg_0107_D32R0301_00014",
-      "from": "scr_seq_D32R0301_003#1"
+      "from": "BattleFrontier_BattleFactory_EventScript_Scene3#1"
     },
     {
       "id": "msg_0107_D32R0301_00015",
-      "from": "scr_seq_D32R0301_003#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Scene3#0"
     },
     {
       "id": "msg_0107_D32R0301_00016",
@@ -102,7 +102,7 @@
     },
     {
       "id": "msg_0107_D32R0301_00024",
-      "from": "scr_seq_D32R0301_005#1"
+      "from": "BattleFrontier_BattleFactory_EventScript_Attendant2#1"
     },
     {
       "id": "msg_0107_D32R0301_00025",
@@ -110,35 +110,35 @@
     },
     {
       "id": "msg_0107_D32R0301_00026",
-      "from": "scr_seq_D32R0301_005#2"
+      "from": "BattleFrontier_BattleFactory_EventScript_Attendant2#2"
     },
     {
       "id": "msg_0107_D32R0301_00027",
-      "from": "scr_seq_D32R0301_006#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Woman#0"
     },
     {
       "id": "msg_0107_D32R0301_00028",
-      "from": "scr_seq_D32R0301_007#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Sailor#0"
     },
     {
       "id": "msg_0107_D32R0301_00029",
-      "from": "scr_seq_D32R0301_008#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Beauty#0"
     },
     {
       "id": "msg_0107_D32R0301_00030",
-      "from": "scr_seq_D32R0301_009#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Youngster#0"
     },
     {
       "id": "msg_0107_D32R0301_00031",
-      "from": "scr_seq_D32R0301_010#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Gentleman#0"
     },
     {
       "id": "msg_0107_D32R0301_00032",
-      "from": "scr_seq_D32R0301_011#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Lady#0"
     },
     {
       "id": "msg_0107_D32R0301_00033",
-      "from": "scr_seq_D32R0301_012#0"
+      "from": "BattleFrontier_BattleFactory_EventScript_Policeman#0"
     }
   ]
 }

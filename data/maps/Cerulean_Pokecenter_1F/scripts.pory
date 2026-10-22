@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T04PC0101_000 {
+script Cerulean_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T04PC0101_001 {
+script Cerulean_Pokecenter_1F_EventScript_Man {
     simplenpcmsg("For battles, I’d much rather use\n"
                  "Pokémon I’ve been raising, even if\r"
                  "they’re weaker than some newly\n"
@@ -15,7 +15,7 @@ script scr_seq_T04PC0101_001 {
     end
 }
 
-script scr_seq_T04PC0101_002 {
+script Cerulean_Pokecenter_1F_EventScript_FatMan {
     simplenpcmsg("The Magnet Train travels at over\n"
                  "340 mph. It goes between Kanto and\f"
                  "Johto in almost no time at all.\r"

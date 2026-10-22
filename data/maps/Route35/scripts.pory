@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R35_000
-    scr_seq_R35_001
-    scr_seq_R35_002
-    scr_seq_R35_003
-    scr_seq_R35_004
+    Route35_EventScript_RouteSign
+    Route35_OnTransition
+    Route35_EventScript_Policeman
+    Route35_EventScript_PokefanM
+    Route35_EventScript_NorthToTheNationalParkSign
 }
 
-script scr_seq_R35_001 {
+script Route35_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) != 1) {
@@ -36,7 +36,7 @@ script scr_seq_R35_001 {
     end
 }
 
-script scr_seq_R35_003 {
+script Route35_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -70,13 +70,13 @@ script scr_seq_R35_003 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Route35_Movement_01C0)
-        applymovement(obj_R35_gsmiddleman1, Route35_Movement_01F4)
+        applymovement(obj_player, Route35_Movement_PlayerWalkUpRight)
+        applymovement(obj_R35_gsmiddleman1, Route35_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route35_Movement_01D4)
+        applymovement(obj_player, Route35_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Route35_Movement_01E0)
-        applymovement(obj_R35_gsmiddleman1, Route35_Movement_01F4)
+        applymovement(obj_player, Route35_Movement_PlayerWalkUpLeft)
+        applymovement(obj_R35_gsmiddleman1, Route35_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -84,7 +84,7 @@ script scr_seq_R35_003 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route35_Movement_0200)
+        applymovement(obj_partner_poke, Route35_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -103,54 +103,54 @@ script scr_seq_R35_003 {
     end
 }
 
-movement Route35_Movement_01C0 {
+movement Route35_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route35_Movement_01D4 {
+movement Route35_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route35_Movement_01E0 {
+movement Route35_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route35_Movement_01F4 {
+movement Route35_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route35_Movement_0200 {
+movement Route35_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R35_000 {
+script Route35_EventScript_RouteSign {
     directionsignpostex(1, 4, "Rt. 35\n"
                               "South to Goldenrod City")
     end
 }
 
-script scr_seq_R35_004 {
+script Route35_EventScript_NorthToTheNationalParkSign {
     directionsignpostex(1, 19, "North to the National Park\n"
                                "West to the Pokéathlon Dome")
     end
 }
 
-script scr_seq_R35_002 {
+script Route35_EventScript_Policeman {
     simplenpcmsg("Your Pokémon look pretty tough.\n"
                  "You could go anywhere safely.")
     end
 }
 
 mapscripts Route35_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R35_001
+    INIT_SCRIPT_ON_TRANSITION: Route35_OnTransition
 }

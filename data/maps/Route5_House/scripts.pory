@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R05R0401_000 {
+script Route5_House_EventScript_OldWoman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -27,7 +27,7 @@ script scr_seq_R05R0401_000 {
     end
 }
 
-script scr_seq_R05R0401_001 {
+script Route5_House_EventScript_Woman {
     simplenpcmsg("My grandma is into warding off what she\n"
                  "believes to be evil spirits.\f"
                  "I’m sorry that she startled you.")

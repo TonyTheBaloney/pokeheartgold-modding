@@ -1,17 +1,17 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R28_000 {
+script Route28_OnTransition {
     setvar(VAR_UNK_4126, 0)
     end
 }
 
-script scr_seq_R28_001 {
+script Route28_EventScript_RouteSign {
     directionsignpostex(1, 2, "Rt. 28\n"
                               "West to Mt. Silver")
     end
 }
 
 mapscripts Route28_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R28_000
+    INIT_SCRIPT_ON_TRANSITION: Route28_OnTransition
 }

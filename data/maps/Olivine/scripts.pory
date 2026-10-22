@@ -3,22 +3,22 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T26_000
-    scr_seq_T26_001
-    scr_seq_T26_002
-    scr_seq_T26_003
-    scr_seq_T26_004
-    scr_seq_T26_005
-    scr_seq_T26_006
-    scr_seq_T26_007
-    scr_seq_T26_008
-    scr_seq_T26_009
-    scr_seq_T26_010
-    scr_seq_T26_011
-    scr_seq_T26_012
+    Olivine_EventScript_Rival
+    Olivine_EventScript_RivalTrigger
+    Olivine_EventScript_ProfElmCall
+    Olivine_EventScript_BaobaCall
+    Olivine_EventScript_TrainerTips1
+    Olivine_EventScript_CitySign
+    Olivine_EventScript_TrainerTips2
+    Olivine_EventScript_TrainerTips3
+    Olivine_EventScript_Sailor1
+    Olivine_EventScript_SchoolKidM
+    Olivine_EventScript_Sailor2
+    Olivine_EventScript_PokefanM
+    Olivine_OnTransition
 }
 
-script scr_seq_T26_002 {
+script Olivine_EventScript_ProfElmCall {
     setvar(VAR_SCENE_ROCKET_TAKEOVER, 2)
     setflag(FLAG_UNK_0C5)
     setflag(FLAG_ROCKET_TAKEOVER_ACTIVE)
@@ -30,7 +30,7 @@ script scr_seq_T26_002 {
     end
 }
 
-script scr_seq_T26_003 {
+script Olivine_EventScript_BaobaCall {
     setflag(FLAG_UNK_0F5)
     setvar(VAR_UNK_4057, 1)
     phonecall(PHONE_CONTACT_BAOBA, 2, 0)
@@ -39,7 +39,7 @@ script scr_seq_T26_003 {
     end
 }
 
-script scr_seq_T26_012 {
+script Olivine_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 1) {
@@ -59,11 +59,11 @@ movement Olivine_Movement_00EC {
     emote_exclamation_mark
 }
 
-script scr_seq_T26_000 {
+script Olivine_EventScript_Rival {
     end
 }
 
-script scr_seq_T26_001 {
+script Olivine_EventScript_RivalTrigger {
     followmonresetmovement
     lockall
     fadeoutbgm(0, 3)
@@ -72,25 +72,25 @@ script scr_seq_T26_001 {
     dooranimationwait(77)
     clearflag(FLAG_HIDE_OLIVINE_RIVAL)
     addobject(obj_T26_gsrivel)
-    applymovement(obj_T26_gsrivel, Olivine_Movement_02B4)
+    applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkDown)
     waitmovement
     dooranimationclose(77)
     dooranimationwait(77)
     dooranimationunload(77)
-    applymovement(obj_player, Olivine_Movement_02C0)
+    applymovement(obj_player, Olivine_Movement_PlayerExclamation)
     waitmovement
     callstd(std_play_rival_intro_music)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 239) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_02CC)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkRight)
     } elif (var(VAR_TEMP_x4001) == 240) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_02DC)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkDownRight1)
     } elif (var(VAR_TEMP_x4001) == 241) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_02F0)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkDownRight2)
     } elif (var(VAR_TEMP_x4001) == 242) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_0304)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkDownRight3)
     } elif (var(VAR_TEMP_x4001) == 243) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_0318)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkDownRight4)
     }
     waitmovement
     bufferrivalsname(0)
@@ -112,25 +112,25 @@ script scr_seq_T26_001 {
            "of a better Trainer!\r")
     closemessage
     if (var(VAR_TEMP_x4001) == 239) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_032C)
-        applymovement(obj_player, Olivine_Movement_037C)
-        applymovement(obj_partner_poke, Olivine_Movement_03C4)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkRightUp1)
+        applymovement(obj_player, Olivine_Movement_PlayerWalkDown)
+        applymovement(obj_partner_poke, Olivine_Movement_FollowMonWalkDown)
     } elif (var(VAR_TEMP_x4001) == 240) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_033C)
-        applymovement(obj_player, Olivine_Movement_037C)
-        applymovement(obj_partner_poke, Olivine_Movement_03C4)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkRightUp2)
+        applymovement(obj_player, Olivine_Movement_PlayerWalkDown)
+        applymovement(obj_partner_poke, Olivine_Movement_FollowMonWalkDown)
     } elif (var(VAR_TEMP_x4001) == 241) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_034C)
-        applymovement(obj_player, Olivine_Movement_037C)
-        applymovement(obj_partner_poke, Olivine_Movement_03C4)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkRightUp3)
+        applymovement(obj_player, Olivine_Movement_PlayerWalkDown)
+        applymovement(obj_partner_poke, Olivine_Movement_FollowMonWalkDown)
     } elif (var(VAR_TEMP_x4001) == 242) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_035C)
-        applymovement(obj_player, Olivine_Movement_037C)
-        applymovement(obj_partner_poke, Olivine_Movement_03C4)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkRightUp4)
+        applymovement(obj_player, Olivine_Movement_PlayerWalkDown)
+        applymovement(obj_partner_poke, Olivine_Movement_FollowMonWalkDown)
     } elif (var(VAR_TEMP_x4001) == 243) {
-        applymovement(obj_T26_gsrivel, Olivine_Movement_036C)
-        applymovement(obj_player, Olivine_Movement_03A0)
-        applymovement(obj_partner_poke, Olivine_Movement_03E0)
+        applymovement(obj_T26_gsrivel, Olivine_Movement_RivalWalkRightUp5)
+        applymovement(obj_player, Olivine_Movement_PlayerWalkUp1)
+        applymovement(obj_partner_poke, Olivine_Movement_FollowMonWalkUp)
     }
     waitmovement
     setvar(VAR_UNK_4078, 1)
@@ -141,81 +141,81 @@ script scr_seq_T26_001 {
     end
 }
 
-movement Olivine_Movement_02B4 {
+movement Olivine_Movement_RivalWalkDown {
     walk_down
     delay_15
 }
 
-movement Olivine_Movement_02C0 {
+movement Olivine_Movement_PlayerExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement Olivine_Movement_02CC {
+movement Olivine_Movement_RivalWalkRight {
     face_down * 2
     walk_right * 2
     delay_15
 }
 
-movement Olivine_Movement_02DC {
+movement Olivine_Movement_RivalWalkDownRight1 {
     walk_down
     face_down * 2
     walk_right * 2
     delay_15
 }
 
-movement Olivine_Movement_02F0 {
+movement Olivine_Movement_RivalWalkDownRight2 {
     walk_down * 2
     face_down * 2
     walk_right * 2
     delay_15
 }
 
-movement Olivine_Movement_0304 {
+movement Olivine_Movement_RivalWalkDownRight3 {
     walk_down * 3
     face_down * 2
     walk_right * 2
     delay_15
 }
 
-movement Olivine_Movement_0318 {
+movement Olivine_Movement_RivalWalkDownRight4 {
     walk_down * 4
     face_down * 2
     walk_right * 2
     delay_15
 }
 
-movement Olivine_Movement_032C {
+movement Olivine_Movement_RivalWalkRightUp1 {
     walk_right * 6
     face_up * 2
     walk_up * 10
 }
 
-movement Olivine_Movement_033C {
+movement Olivine_Movement_RivalWalkRightUp2 {
     walk_right * 6
     face_up * 2
     walk_up * 11
 }
 
-movement Olivine_Movement_034C {
+movement Olivine_Movement_RivalWalkRightUp3 {
     walk_right * 6
     face_up * 2
     walk_up * 12
 }
 
-movement Olivine_Movement_035C {
+movement Olivine_Movement_RivalWalkRightUp4 {
     walk_right * 6
     face_up * 2
     walk_up * 13
 }
 
-movement Olivine_Movement_036C {
+movement Olivine_Movement_RivalWalkRightUp5 {
     walk_right * 6
     face_up * 2
     walk_up * 14
 }
 
-movement Olivine_Movement_037C {
+movement Olivine_Movement_PlayerWalkDown {
     face_up * 2
     lock_dir
     walk_slightly_fast_down
@@ -226,7 +226,7 @@ movement Olivine_Movement_037C {
     walk_in_place_up
 }
 
-movement Olivine_Movement_03A0 {
+movement Olivine_Movement_PlayerWalkUp1 {
     face_down * 2
     lock_dir
     walk_slightly_fast_up
@@ -237,7 +237,7 @@ movement Olivine_Movement_03A0 {
     walk_in_place_up
 }
 
-movement Olivine_Movement_03C4 {
+movement Olivine_Movement_FollowMonWalkDown {
     face_up * 2
     lock_dir
     walk_slightly_fast_down
@@ -246,14 +246,14 @@ movement Olivine_Movement_03C4 {
     walk_in_place_left
 }
 
-movement Olivine_Movement_03E0 {
+movement Olivine_Movement_FollowMonWalkUp {
     face_down * 2
     lock_dir
     walk_slightly_fast_up
     unlock_dir
 }
 
-script scr_seq_T26_011 {
+script Olivine_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -287,16 +287,16 @@ script scr_seq_T26_011 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Olivine_Movement_0544)
-        applymovement(obj_T26_gsmiddleman1, Olivine_Movement_0590)
+        applymovement(obj_player, Olivine_Movement_PlayerWalkRightUp)
+        applymovement(obj_T26_gsmiddleman1, Olivine_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Olivine_Movement_055C)
+        applymovement(obj_player, Olivine_Movement_PlayerWalkUp2)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Olivine_Movement_057C)
-        applymovement(obj_T26_gsmiddleman1, Olivine_Movement_0590)
+        applymovement(obj_player, Olivine_Movement_PlayerWalkUpRight)
+        applymovement(obj_T26_gsmiddleman1, Olivine_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Olivine_Movement_0568)
-        applymovement(obj_T26_gsmiddleman1, Olivine_Movement_0590)
+        applymovement(obj_player, Olivine_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T26_gsmiddleman1, Olivine_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -304,7 +304,7 @@ script scr_seq_T26_011 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Olivine_Movement_059C)
+        applymovement(obj_partner_poke, Olivine_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -323,7 +323,7 @@ script scr_seq_T26_011 {
     end
 }
 
-movement Olivine_Movement_0544 {
+movement Olivine_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -331,63 +331,63 @@ movement Olivine_Movement_0544 {
     walk_in_place_down
 }
 
-movement Olivine_Movement_055C {
+movement Olivine_Movement_PlayerWalkUp2 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Olivine_Movement_0568 {
+movement Olivine_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Olivine_Movement_057C {
+movement Olivine_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Olivine_Movement_0590 {
+movement Olivine_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Olivine_Movement_059C {
+movement Olivine_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T26_004 {
+script Olivine_EventScript_TrainerTips1 {
     trainertipsex(2, "Olivine City Pokémon Gym\n"
                      "Leader: Jasmine\f"
                      "The Steel-Clad Defense Girl")
     end
 }
 
-script scr_seq_T26_005 {
+script Olivine_EventScript_CitySign {
     directionsignpostex(0, 17, "Olivine City\n"
                                "The Port with Sea Breezes")
     end
 }
 
-script scr_seq_T26_006 {
+script Olivine_EventScript_TrainerTips2 {
     trainertipsex(2, "Olivine Port\n"
                      "Fast-Ship Pier")
     end
 }
 
-script scr_seq_T26_007 {
+script Olivine_EventScript_TrainerTips3 {
     trainertipsex(2, "Olivine’s Lighthouse\r"
                      "It is also known as\n"
                      "the Glitter Lighthouse.")
     end
 }
 
-script scr_seq_T26_008 {
+script Olivine_EventScript_Sailor1 {
     simplenpcmsg("Dark roads are dangerous at night.\r"
                  "But, in the pitch-black night,\n"
                  "the sea is even more treacherous!\r"
@@ -396,14 +396,14 @@ script scr_seq_T26_008 {
     end
 }
 
-script scr_seq_T26_009 {
+script Olivine_EventScript_SchoolKidM {
     simplenpcmsg("That thing you have--\n"
                  "it’s a Pokégear, right?\f"
                  "Wow, that’s cool.")
     end
 }
 
-script scr_seq_T26_010 {
+script Olivine_EventScript_Sailor2 {
     simplenpcmsg("You, young Trainer!\n"
                  "The sea is sweet!\r"
                  "Sing with me!\f"
@@ -413,9 +413,9 @@ script scr_seq_T26_010 {
 }
 
 mapscripts Olivine_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T26_012
+    INIT_SCRIPT_ON_TRANSITION: Olivine_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_MIDGAME_BADGES, 4: scr_seq_T26_002
-        VAR_SCENE_LIGHTHOUSE_JASMINE, 2: scr_seq_T26_003
+        VAR_MIDGAME_BADGES, 4: Olivine_EventScript_ProfElmCall
+        VAR_SCENE_LIGHTHOUSE_JASMINE, 2: Olivine_EventScript_BaobaCall
     ]
 }

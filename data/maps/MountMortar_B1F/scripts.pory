@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D38R0104_000 {
+script MountMortar_B1F_EventScript_Kiyo {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

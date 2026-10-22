@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D41R0108_000 {
+script MountSilver_CaveSummit_EventScript_Red {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

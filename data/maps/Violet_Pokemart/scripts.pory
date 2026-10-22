@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T22FS0101_000 {
+script Violet_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T22FS0101_000 {
     end
 }
 
-script scr_seq_T22FS0101_001 {
+script Violet_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,7 +25,7 @@ script scr_seq_T22FS0101_001 {
     end
 }
 
-script scr_seq_T22FS0101_002 {
+script Violet_Pokemart_EventScript_Scientist {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -99,9 +99,9 @@ _007D:
     closemessage
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_T22FS0101_assistantm, Violet_Pokemart_Movement_014C)
+        applymovement(obj_T22FS0101_assistantm, Violet_Pokemart_Movement_ScientistWalkDownLeft)
     } else {
-        applymovement(obj_T22FS0101_assistantm, Violet_Pokemart_Movement_0140)
+        applymovement(obj_T22FS0101_assistantm, Violet_Pokemart_Movement_ScientistWalkLeftDown)
     }
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
@@ -137,18 +137,18 @@ _0106:
     end
 }
 
-movement Violet_Pokemart_Movement_0140 {
+movement Violet_Pokemart_Movement_ScientistWalkLeftDown {
     walk_left * 2
     walk_down * 3
 }
 
-movement Violet_Pokemart_Movement_014C {
+movement Violet_Pokemart_Movement_ScientistWalkDownLeft {
     walk_down * 2
     walk_left * 2
     walk_down
 }
 
-script scr_seq_T22FS0101_003 {
+script Violet_Pokemart_EventScript_OldWoman {
     simplenpcmsg("When you first catch a Pokémon,\n"
                  "it may be weak.\r"
                  "But it will eventually grow to\n"
@@ -158,7 +158,7 @@ script scr_seq_T22FS0101_003 {
     end
 }
 
-script scr_seq_T22FS0101_004 {
+script Violet_Pokemart_EventScript_AceTrainerM {
     simplenpcmsg("Pokémon can hold items like a Potion\n"
                  "or an Antidote.\r"
                  "But they don’t appear to know how\n"

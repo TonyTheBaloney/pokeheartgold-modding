@@ -3,27 +3,27 @@
   "messages": [
     {
       "id": "msg_0355_R16R0101_00000",
-      "from": "scr_seq_R16R0101_000#0"
+      "from": "Route16_House_EventScript_Man#0"
     },
     {
       "id": "msg_0355_R16R0101_00001",
-      "from": "scr_seq_R16R0101_001#1"
+      "from": "Route16_House_EventScript_OldMan#1"
     },
     {
       "id": "msg_0355_R16R0101_00002",
-      "from": "scr_seq_R16R0101_001#4"
+      "from": "Route16_House_EventScript_OldMan#4"
     },
     {
       "id": "msg_0355_R16R0101_00003",
-      "from": "scr_seq_R16R0101_001#2"
+      "from": "Route16_House_EventScript_OldMan#2"
     },
     {
       "id": "msg_0355_R16R0101_00004",
-      "from": "scr_seq_R16R0101_001#0"
+      "from": "Route16_House_EventScript_OldMan#0"
     },
     {
       "id": "msg_0355_R16R0101_00005",
-      "from": "scr_seq_R16R0101_001#3"
+      "from": "Route16_House_EventScript_OldMan#3"
     }
   ]
 }

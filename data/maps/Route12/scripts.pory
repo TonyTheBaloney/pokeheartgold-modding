@@ -3,15 +3,15 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R12_000
-    scr_seq_R12_001
-    scr_seq_R12_002
-    scr_seq_R12_003
-    scr_seq_R12_004
-    scr_seq_R12_005
+    Route12_EventScript_PokefanM
+    Route12_OnTransition
+    Route12_EventScript_RouteSign
+    Route12_EventScript_TrainerTips
+    Route12_OnLoad
+    Route12_EventScript_Kabigon
 }
 
-script scr_seq_R12_001 {
+script Route12_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 1) { goto(_004F) }
@@ -26,7 +26,7 @@ script scr_seq_R12_001 {
     end
 }
 
-script scr_seq_R12_004 {
+script Route12_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_ROUTE_12_SNORLAX)
         removeobject(obj_R12_kabigon)
@@ -42,7 +42,7 @@ script scr_seq_R12_004 {
     end
 }
 
-script scr_seq_R12_000 {
+script Route12_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -76,16 +76,16 @@ script scr_seq_R12_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Route12_Movement_01DC)
-        applymovement(obj_R12_gsmiddleman1, Route12_Movement_0228)
+        applymovement(obj_player, Route12_Movement_PlayerWalkRightUp)
+        applymovement(obj_R12_gsmiddleman1, Route12_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route12_Movement_01F4)
+        applymovement(obj_player, Route12_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Route12_Movement_0214)
-        applymovement(obj_R12_gsmiddleman1, Route12_Movement_0228)
+        applymovement(obj_player, Route12_Movement_PlayerWalkUpRight)
+        applymovement(obj_R12_gsmiddleman1, Route12_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Route12_Movement_0200)
-        applymovement(obj_R12_gsmiddleman1, Route12_Movement_0228)
+        applymovement(obj_player, Route12_Movement_PlayerWalkUpLeft)
+        applymovement(obj_R12_gsmiddleman1, Route12_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -93,7 +93,7 @@ script scr_seq_R12_000 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route12_Movement_0234)
+        applymovement(obj_partner_poke, Route12_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -112,7 +112,7 @@ script scr_seq_R12_000 {
     end
 }
 
-movement Route12_Movement_01DC {
+movement Route12_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -120,37 +120,37 @@ movement Route12_Movement_01DC {
     walk_in_place_down
 }
 
-movement Route12_Movement_01F4 {
+movement Route12_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route12_Movement_0200 {
+movement Route12_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route12_Movement_0214 {
+movement Route12_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route12_Movement_0228 {
+movement Route12_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route12_Movement_0234 {
+movement Route12_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R12_005 {
+script Route12_EventScript_Kabigon {
     playse(SEQ_SE_DP_SELECT)
     lockall
     radiomusicisplaying(5, VAR_SPECIAL_RESULT)
@@ -190,13 +190,13 @@ script scr_seq_R12_005 {
     end
 }
 
-script scr_seq_R12_002 {
+script Route12_EventScript_RouteSign {
     directionsignpostex(1, 3, "Rt. 12\n"
                               "North to Lavender Town")
     end
 }
 
-script scr_seq_R12_003 {
+script Route12_EventScript_TrainerTips {
     trainertipsex(2, "Fishing Spot\r"
                      "It’s called the Silence Bridge, because\n"
                      "everyone walks on tiptoe to avoid\f"
@@ -206,6 +206,6 @@ script scr_seq_R12_003 {
 }
 
 mapscripts Route12_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R12_001
-    INIT_SCRIPT_ON_LOAD: scr_seq_R12_004
+    INIT_SCRIPT_ON_TRANSITION: Route12_OnTransition
+    INIT_SCRIPT_ON_LOAD: Route12_OnLoad
 }

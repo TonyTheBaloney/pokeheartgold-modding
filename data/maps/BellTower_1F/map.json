@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D17R0101_000 + 1",
+            "script": "BellTower_1F_EventScript_Sage",
             "flag": "FLAG_NOTHING"
         }
     ],
@@ -77,7 +77,7 @@
             "height": 1,
             "var": "VAR_UNK_40F3",
             "var_value": 0,
-            "script": "_EV_scr_seq_D17R0101_001 + 1"
+            "script": "BellTower_1F_EventScript_SageTrigger"
         },
         {
             "x": 12,
@@ -87,7 +87,7 @@
             "height": 4,
             "var": "VAR_UNK_40F3",
             "var_value": 0,
-            "script": "_EV_scr_seq_D17R0101_001 + 1"
+            "script": "BellTower_1F_EventScript_SageTrigger"
         }
     ],
     "bg_events": []

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R02R0101_000 {
+script Route2_East_EventScript_TrainerTips {
     trainertipsex(2, "This is DIGLETT’s Cave.")
     end
 }

@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T25R1005_000
-    scr_seq_T25R1005_001
-    scr_seq_T25R1005_002
-    scr_seq_T25R1005_003
-    scr_seq_T25R1005_004
-    scr_seq_T25R1005_005
-    scr_seq_T25R1005_006
+    Goldenrod_DepartmentStore_5F_EventScript_Clerk
+    Goldenrod_DepartmentStore_5F_EventScript_PokefanM
+    Goldenrod_DepartmentStore_5F_EventScript_Girl
+    Goldenrod_DepartmentStore_5F_EventScript_FatMan
+    Goldenrod_DepartmentStore_5F_EventScript_ModifyYourPokemonSign
+    Goldenrod_DepartmentStore_5F_OnTransition
+    Goldenrod_DepartmentStore_5F_EventScript_Woman
 }
 
-script scr_seq_T25R1005_005 {
+script Goldenrod_DepartmentStore_5F_OnTransition {
     setflag(FLAG_HIDE_GOLDENROD_DEPT_STORE_5F_RETURN_FRUSTRATION_LADY)
     getweekday(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 0) {
@@ -25,7 +25,7 @@ script scr_seq_T25R1005_005 {
     end
 }
 
-script scr_seq_T25R1005_000 {
+script Goldenrod_DepartmentStore_5F_EventScript_Clerk {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -37,7 +37,7 @@ script scr_seq_T25R1005_000 {
     end
 }
 
-script scr_seq_T25R1005_001 {
+script Goldenrod_DepartmentStore_5F_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -58,7 +58,7 @@ script scr_seq_T25R1005_001 {
     end
 }
 
-script scr_seq_T25R1005_002 {
+script Goldenrod_DepartmentStore_5F_EventScript_Girl {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -76,7 +76,7 @@ script scr_seq_T25R1005_002 {
     end
 }
 
-script scr_seq_T25R1005_003 {
+script Goldenrod_DepartmentStore_5F_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -143,7 +143,7 @@ _0172:
     end
 }
 
-script scr_seq_T25R1005_004 {
+script Goldenrod_DepartmentStore_5F_EventScript_ModifyYourPokemonSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Modify Your Pokémon\n"
@@ -154,7 +154,7 @@ script scr_seq_T25R1005_004 {
     end
 }
 
-script scr_seq_T25R1005_006 {
+script Goldenrod_DepartmentStore_5F_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -199,5 +199,5 @@ script scr_seq_T25R1005_006 {
 }
 
 mapscripts Goldenrod_DepartmentStore_5F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25R1005_005
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_DepartmentStore_5F_OnTransition
 }

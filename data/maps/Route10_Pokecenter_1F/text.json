@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0342_R10PC0101_00000",
-      "from": "scr_seq_R10PC0101_001#0"
+      "from": "Route10_Pokecenter_1F_EventScript_Gentleman#0"
     },
     {
       "id": "msg_0342_R10PC0101_00001",
-      "from": "scr_seq_R10PC0101_002#1"
+      "from": "Route10_Pokecenter_1F_EventScript_SuperNerd#1"
     },
     {
       "id": "msg_0342_R10PC0101_00002",
-      "from": "scr_seq_R10PC0101_002#0"
+      "from": "Route10_Pokecenter_1F_EventScript_SuperNerd#0"
     },
     {
       "id": "msg_0342_R10PC0101_00003",
-      "from": "scr_seq_R10PC0101_003#0"
+      "from": "Route10_Pokecenter_1F_EventScript_AceTrainerF#0"
     }
   ]
 }

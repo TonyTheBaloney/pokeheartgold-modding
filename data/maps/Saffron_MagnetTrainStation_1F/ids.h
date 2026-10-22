@@ -1,15 +1,15 @@
 #ifndef SCR_SEQ_T11R0601_H_
 #define SCR_SEQ_T11R0601_H_
 
-#define _EV_scr_seq_T11R0601_000 0
-#define _EV_scr_seq_T11R0601_001 1
-#define _EV_scr_seq_T11R0601_002 2
-#define _EV_scr_seq_T11R0601_003 3
-#define _EV_scr_seq_T11R0601_004 4
-#define _EV_scr_seq_T11R0601_005 5
-#define _EV_scr_seq_T11R0601_006 6
-#define _EV_scr_seq_T11R0601_007 7
-#define _EV_scr_seq_T11R0601_008 8
+#define _EV_Saffron_MagnetTrainStation_1F_EventScript_Policeman 0
+#define _EV_Saffron_MagnetTrainStation_1F_EventScript_FatMan 1
+#define _EV_Saffron_MagnetTrainStation_1F_EventScript_Woman 2
+#define _EV_Saffron_MagnetTrainStation_1F_EventScript_Lass 3
+#define _EV_Saffron_MagnetTrainStation_1F_EventScript_Trigger 4
+#define _EV_Saffron_MagnetTrainStation_1F_OnResume 5
+#define _EV_Saffron_MagnetTrainStation_1F_OnTransition 6
+#define _EV_Saffron_MagnetTrainStation_1F_EventScript_LtSurge 7
+#define _EV_Saffron_MagnetTrainStation_1F_EventScript_Sign 8
 
 #define obj_T11R0601_policeman 0
 #define obj_T11R0601_gsbigman  1

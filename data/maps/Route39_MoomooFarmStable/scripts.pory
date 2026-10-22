@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R39R0201_000
-    scr_seq_R39R0201_001
-    scr_seq_R39R0201_002
-    scr_seq_R39R0201_003
-    scr_seq_R39R0201_004
+    Route39_MoomooFarmStable_EventScript_LittleGirl1
+    Route39_MoomooFarmStable_EventScript_LittleGirl2
+    Route39_MoomooFarmStable_EventScript_Miltank1
+    Route39_MoomooFarmStable_EventScript_Miltank2
+    Route39_MoomooFarmStable_OnTransition
 }
 
-script scr_seq_R39R0201_004 {
+script Route39_MoomooFarmStable_OnTransition {
     getcurrenttimeofday(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 0) { goto(_0047) }
     if (var(VAR_TEMP_x4000) == 1) { goto(_0047) }
@@ -22,7 +22,7 @@ _0047:
     end
 }
 
-script scr_seq_R39R0201_000 {
+script Route39_MoomooFarmStable_EventScript_LittleGirl1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -38,7 +38,7 @@ script scr_seq_R39R0201_000 {
            "She needs lots of Oran Berries.\r")
     closemessage
 _0070:
-    applymovement(obj_R39R0201_gsbabygirl1, Route39_MoomooFarmStable_Movement_021C)
+    applymovement(obj_R39R0201_gsbabygirl1, Route39_MoomooFarmStable_Movement_LittleGirlFaceRight)
     waitmovement
     releaseall
     end
@@ -61,7 +61,7 @@ _007E:
     end
 }
 
-script scr_seq_R39R0201_001 {
+script Route39_MoomooFarmStable_EventScript_LittleGirl2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -144,7 +144,7 @@ script scr_seq_R39R0201_001 {
            "She needs lots of Oran Berries.\r")
     closemessage
 _00D2:
-    applymovement(obj_R39R0201_gsbabygirl1_2, Route39_MoomooFarmStable_Movement_0224)
+    applymovement(obj_R39R0201_gsbabygirl1_2, Route39_MoomooFarmStable_Movement_LittleGirlFaceLeft)
     waitmovement
     releaseall
     end
@@ -155,15 +155,15 @@ text msg_0398_R39R0201_00020 {
     "put away in the Seal Case!"
 }
 
-movement Route39_MoomooFarmStable_Movement_021C {
+movement Route39_MoomooFarmStable_Movement_LittleGirlFaceRight {
     walk_in_place_right
 }
 
-movement Route39_MoomooFarmStable_Movement_0224 {
+movement Route39_MoomooFarmStable_Movement_LittleGirlFaceLeft {
     walk_in_place_left
 }
 
-script scr_seq_R39R0201_002 {
+script Route39_MoomooFarmStable_EventScript_Miltank1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -281,7 +281,7 @@ text msg_0398_R39R0201_00010 {
     "Its cry is weak..."
 }
 
-script scr_seq_R39R0201_003 {
+script Route39_MoomooFarmStable_EventScript_Miltank2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -296,5 +296,5 @@ script scr_seq_R39R0201_003 {
 }
 
 mapscripts Route39_MoomooFarmStable_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R39R0201_004
+    INIT_SCRIPT_ON_TRANSITION: Route39_MoomooFarmStable_OnTransition
 }

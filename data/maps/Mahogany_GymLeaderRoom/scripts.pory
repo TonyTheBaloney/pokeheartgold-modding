@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T28GYM0101_000
-    scr_seq_T28GYM0101_001
+    Mahogany_GymLeaderRoom_EventScript_Pryce
+    Mahogany_GymLeaderRoom_OnTransition
 }
 
-script scr_seq_T28GYM0101_001 {
+script Mahogany_GymLeaderRoom_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getphonebookrematch(PHONE_CONTACT_PRYCE, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) != 0) {
@@ -38,7 +38,7 @@ script scr_seq_T28GYM0101_001 {
     end
 }
 
-script scr_seq_T28GYM0101_000 {
+script Mahogany_GymLeaderRoom_EventScript_Pryce {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -165,5 +165,5 @@ _0172:
 }
 
 mapscripts Mahogany_GymLeaderRoom_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T28GYM0101_001
+    INIT_SCRIPT_ON_TRANSITION: Mahogany_GymLeaderRoom_OnTransition
 }

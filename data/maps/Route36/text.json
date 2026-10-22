@@ -15,7 +15,7 @@
     },
     {
       "id": "msg_0390_R36_00003",
-      "from": "scr_seq_R36_008#0"
+      "from": "Route36_EventScript_FatMan#0"
     },
     {
       "id": "msg_0390_R36_00004",
@@ -36,51 +36,51 @@
     },
     {
       "id": "msg_0390_R36_00007",
-      "from": "scr_seq_R36_009#0"
+      "from": "Route36_EventScript_Lass2#0"
     },
     {
       "id": "msg_0390_R36_00008",
-      "from": "scr_seq_R36_009#1"
+      "from": "Route36_EventScript_Lass2#1"
     },
     {
       "id": "msg_0390_R36_00009",
-      "from": "scr_seq_R36_003#0"
+      "from": "Route36_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0390_R36_00010",
-      "from": "scr_seq_R36_004#0"
+      "from": "Route36_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0390_R36_00011",
-      "from": "scr_seq_R36_005#0"
+      "from": "Route36_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0390_R36_00012",
-      "from": "scr_seq_R36_006#0"
+      "from": "Route36_EventScript_TrainerTips3#0"
     },
     {
       "id": "msg_0390_R36_00013",
-      "from": "scr_seq_R36_007#0"
+      "from": "Route36_EventScript_Lass1#0"
     },
     {
       "id": "msg_0390_R36_00014",
-      "from": "scr_seq_R36_007#1"
+      "from": "Route36_EventScript_Lass1#1"
     },
     {
       "id": "msg_0390_R36_00015",
-      "from": "scr_seq_R36_000#0"
+      "from": "Route36_EventScript_Usokky#0"
     },
     {
       "id": "msg_0390_R36_00016",
-      "from": "scr_seq_R36_000#1"
+      "from": "Route36_EventScript_Usokky#1"
     },
     {
       "id": "msg_0390_R36_00017",
-      "from": "scr_seq_R36_000#2"
+      "from": "Route36_EventScript_Usokky#2"
     },
     {
       "id": "msg_0390_R36_00018",
-      "from": "scr_seq_R36_000#3"
+      "from": "Route36_EventScript_Usokky#3"
     }
   ]
 }

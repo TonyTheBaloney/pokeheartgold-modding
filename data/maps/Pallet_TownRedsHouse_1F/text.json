@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0447_T01R0101_00000",
-      "from": "scr_seq_T01R0101_000#0"
+      "from": "Pallet_TownRedsHouse_1F_EventScript_Mom#0"
     },
     {
       "id": "msg_0447_T01R0101_00001",
@@ -15,7 +15,7 @@
     },
     {
       "id": "msg_0447_T01R0101_00002",
-      "from": "scr_seq_T01R0101_001#0"
+      "from": "Pallet_TownRedsHouse_1F_EventScript_Sign#0"
     }
   ]
 }

@@ -3,35 +3,35 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T06GYM0101_000
-    scr_seq_T06GYM0101_001
-    scr_seq_T06GYM0101_002
-    scr_seq_T06GYM0101_003
-    scr_seq_T06GYM0101_004
-    scr_seq_T06GYM0101_005
-    scr_seq_T06GYM0101_006
-    scr_seq_T06GYM0101_007
-    scr_seq_T06GYM0101_008
-    scr_seq_T06GYM0101_009
-    scr_seq_T06GYM0101_010
-    scr_seq_T06GYM0101_011
-    scr_seq_T06GYM0101_012
-    scr_seq_T06GYM0101_013
-    scr_seq_T06GYM0101_014
-    scr_seq_T06GYM0101_015
-    scr_seq_T06GYM0101_016
-    scr_seq_T06GYM0101_017
-    scr_seq_T06GYM0101_018
-    scr_seq_T06GYM0101_019
-    scr_seq_T06GYM0101_020
-    scr_seq_T06GYM0101_021
-    scr_seq_T06GYM0101_022
-    scr_seq_T06GYM0101_023
-    scr_seq_T06GYM0101_024
-    scr_seq_T06GYM0101_025
+    Vermilion_Gym_EventScript_Sign1
+    Vermilion_Gym_EventScript_Sign2
+    Vermilion_Gym_EventScript_Sign3
+    Vermilion_Gym_EventScript_Sign4
+    Vermilion_Gym_EventScript_Sign5
+    Vermilion_Gym_EventScript_Sign6
+    Vermilion_Gym_EventScript_Sign7
+    Vermilion_Gym_EventScript_Sign8
+    Vermilion_Gym_EventScript_Sign9
+    Vermilion_Gym_EventScript_Sign10
+    Vermilion_Gym_EventScript_Sign11
+    Vermilion_Gym_EventScript_Sign12
+    Vermilion_Gym_EventScript_Sign13
+    Vermilion_Gym_EventScript_Sign14
+    Vermilion_Gym_EventScript_TrashCan
+    Vermilion_Gym_EventScript_InvisibleObject1
+    Vermilion_Gym_EventScript_InvisibleObject2
+    Vermilion_Gym_EventScript_InvisibleObject3
+    Vermilion_Gym_EventScript_InvisibleObject4
+    Vermilion_Gym_EventScript_InvisibleObject5
+    Vermilion_Gym_EventScript_InvisibleObject6
+    Vermilion_Gym_OnTransition
+    Vermilion_Gym_OnResume
+    Vermilion_Gym_EventScript_LtSurge
+    Vermilion_Gym_EventScript_GymGuide
+    Vermilion_Gym_EventScript_GymSign
 }
 
-script scr_seq_T06GYM0101_021 {
+script Vermilion_Gym_OnTransition {
     if (!flag(FLAG_HIDE_VERMILION_GYM_STOPS)) {
         clearflag(FLAG_SYS_SOLVED_LT_SURGE_GYM)
     }
@@ -74,7 +74,7 @@ _0144:
     end
 }
 
-script scr_seq_T06GYM0101_022 {
+script Vermilion_Gym_OnResume {
     if (flag(FLAG_HIDE_VERMILION_GYM_STOPS)) {
         end
     }
@@ -87,91 +87,91 @@ script scr_seq_T06GYM0101_022 {
     end
 }
 
-script scr_seq_T06GYM0101_000 {
+script Vermilion_Gym_EventScript_Sign1 {
     vermiliongymcancheck(0, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_001 {
+script Vermilion_Gym_EventScript_Sign2 {
     vermiliongymcancheck(1, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_002 {
+script Vermilion_Gym_EventScript_Sign3 {
     vermiliongymcancheck(2, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_003 {
+script Vermilion_Gym_EventScript_Sign4 {
     vermiliongymcancheck(3, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_004 {
+script Vermilion_Gym_EventScript_Sign5 {
     vermiliongymcancheck(4, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_005 {
+script Vermilion_Gym_EventScript_Sign6 {
     vermiliongymcancheck(5, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_006 {
+script Vermilion_Gym_EventScript_Sign7 {
     vermiliongymcancheck(6, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_007 {
+script Vermilion_Gym_EventScript_Sign8 {
     vermiliongymcancheck(7, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_008 {
+script Vermilion_Gym_EventScript_Sign9 {
     vermiliongymcancheck(8, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_009 {
+script Vermilion_Gym_EventScript_Sign10 {
     vermiliongymcancheck(9, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_010 {
+script Vermilion_Gym_EventScript_Sign11 {
     vermiliongymcancheck(10, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_011 {
+script Vermilion_Gym_EventScript_Sign12 {
     vermiliongymcancheck(11, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_012 {
+script Vermilion_Gym_EventScript_Sign13 {
     vermiliongymcancheck(12, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_013 {
+script Vermilion_Gym_EventScript_Sign14 {
     vermiliongymcancheck(13, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
 }
 
-script scr_seq_T06GYM0101_014 {
+script Vermilion_Gym_EventScript_TrashCan {
     vermiliongymcancheck(14, VAR_SPECIAL_RESULT)
     goto(_023A)
     end
@@ -251,31 +251,31 @@ text msg_0485_T06GYM0101_00009 {
     "Better press it."
 }
 
-script scr_seq_T06GYM0101_015 {
+script Vermilion_Gym_EventScript_InvisibleObject1 {
     end
 }
 
-script scr_seq_T06GYM0101_016 {
+script Vermilion_Gym_EventScript_InvisibleObject2 {
     end
 }
 
-script scr_seq_T06GYM0101_017 {
+script Vermilion_Gym_EventScript_InvisibleObject3 {
     end
 }
 
-script scr_seq_T06GYM0101_018 {
+script Vermilion_Gym_EventScript_InvisibleObject4 {
     end
 }
 
-script scr_seq_T06GYM0101_019 {
+script Vermilion_Gym_EventScript_InvisibleObject5 {
     end
 }
 
-script scr_seq_T06GYM0101_020 {
+script Vermilion_Gym_EventScript_InvisibleObject6 {
     end
 }
 
-script scr_seq_T06GYM0101_023 {
+script Vermilion_Gym_EventScript_LtSurge {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -355,7 +355,7 @@ _03BD:
     end
 }
 
-script scr_seq_T06GYM0101_024 {
+script Vermilion_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -384,7 +384,7 @@ script scr_seq_T06GYM0101_024 {
     end
 }
 
-script scr_seq_T06GYM0101_025 {
+script Vermilion_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -405,6 +405,6 @@ script scr_seq_T06GYM0101_025 {
 }
 
 mapscripts Vermilion_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T06GYM0101_021
-    INIT_SCRIPT_ON_RESUME: scr_seq_T06GYM0101_022
+    INIT_SCRIPT_ON_TRANSITION: Vermilion_Gym_OnTransition
+    INIT_SCRIPT_ON_RESUME: Vermilion_Gym_OnResume
 }

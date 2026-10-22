@@ -3,20 +3,20 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0201_000
-    scr_seq_T07R0201_001
-    scr_seq_T07R0201_002
-    scr_seq_T07R0201_003
-    scr_seq_T07R0201_004
-    scr_seq_T07R0201_005
+    Celadon_Condominiums_1F_EventScript_OldWoman
+    Celadon_Condominiums_1F_EventScript_Meowth
+    Celadon_Condominiums_1F_EventScript_Clefairy
+    Celadon_Condominiums_1F_EventScript_NidoranF
+    Celadon_Condominiums_1F_EventScript_PleaseTakeThisElevatorSign
+    Celadon_Condominiums_1F_OnTransition
 }
 
-script scr_seq_T07R0201_005 {
+script Celadon_Condominiums_1F_OnTransition {
     setvar(VAR_UNK_4125, 0)
     end
 }
 
-script scr_seq_T07R0201_000 {
+script Celadon_Condominiums_1F_EventScript_OldWoman {
     simplenpcmsg("Do you need anything?\n"
                  "I am the manager of the condominiums.\r"
                  "It’s pretty safe around here, so I\n"
@@ -29,7 +29,7 @@ script scr_seq_T07R0201_000 {
     end
 }
 
-script scr_seq_T07R0201_001 {
+script Celadon_Condominiums_1F_EventScript_Meowth {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -42,7 +42,7 @@ script scr_seq_T07R0201_001 {
     end
 }
 
-script scr_seq_T07R0201_002 {
+script Celadon_Condominiums_1F_EventScript_Clefairy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -55,7 +55,7 @@ script scr_seq_T07R0201_002 {
     end
 }
 
-script scr_seq_T07R0201_003 {
+script Celadon_Condominiums_1F_EventScript_NidoranF {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -68,7 +68,7 @@ script scr_seq_T07R0201_003 {
     end
 }
 
-script scr_seq_T07R0201_004 {
+script Celadon_Condominiums_1F_EventScript_PleaseTakeThisElevatorSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Please take this elevator\n"
@@ -80,5 +80,5 @@ script scr_seq_T07R0201_004 {
 }
 
 mapscripts Celadon_Condominiums_1F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07R0201_005
+    INIT_SCRIPT_ON_TRANSITION: Celadon_Condominiums_1F_OnTransition
 }

@@ -41,20 +41,20 @@ script Cherrygrove_EventScript_GuideGent {
 
 script Cherrygrove_EventScript_GuideGentTour {
     lock(obj_T21_gsoldman1)
-    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0350)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentExclamation)
     waitmovement
     callstd(std_play_follow_music)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 397) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0358)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentDelay)
     } elif (var(VAR_TEMP_x4001) == 398) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0360)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkDown1)
     } elif (var(VAR_TEMP_x4001) == 399) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0368)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkDown2)
     } elif (var(VAR_TEMP_x4001) == 400) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0370)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkDown3)
     }
-    applymovement(obj_player, Cherrygrove_Movement_0378)
+    applymovement(obj_player, Cherrygrove_Movement_PlayerFaceUp)
     waitmovement
     npcmsg("You’re a rookie Trainer, aren’t you?\n"
            "I can tell!\r"
@@ -67,16 +67,16 @@ script Cherrygrove_EventScript_GuideGentTour {
     bufferplayersname(0)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 397) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0390)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp1)
     } elif (var(VAR_TEMP_x4001) == 398) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_03AC)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp2)
     } elif (var(VAR_TEMP_x4001) == 399) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_03D0)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp3)
     } elif (var(VAR_TEMP_x4001) == 400) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_03F4)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp4)
     }
     waitmovement
-    applymovement(obj_player, Cherrygrove_Movement_0380)
+    applymovement(obj_player, Cherrygrove_Movement_PlayerFaceLeft1)
     waitmovement
     npcmsg("Ohh... I’m sorry.\n"
            "I forgot that you weren’t wearing the\f"
@@ -88,17 +88,17 @@ script Cherrygrove_EventScript_GuideGentTour {
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_TEMP_x4001) == 397) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0418)
-        applymovement(obj_player, Cherrygrove_Movement_0478)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp5)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkLeftUp1)
     } elif (var(VAR_TEMP_x4001) == 398) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0430)
-        applymovement(obj_player, Cherrygrove_Movement_0488)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp6)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkLeftUp2)
     } elif (var(VAR_TEMP_x4001) == 399) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0448)
-        applymovement(obj_player, Cherrygrove_Movement_0498)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp7)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkLeftUp3)
     } elif (var(VAR_TEMP_x4001) == 400) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0460)
-        applymovement(obj_player, Cherrygrove_Movement_04A8)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp8)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkLeftUp4)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -112,8 +112,8 @@ script Cherrygrove_EventScript_GuideGentTour {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_04B8)
-    applymovement(obj_player, Cherrygrove_Movement_04CC)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeft)
+    applymovement(obj_player, Cherrygrove_Movement_PlayerWalkUpLeft1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -125,8 +125,8 @@ script Cherrygrove_EventScript_GuideGentTour {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_04E0)
-    applymovement(obj_player, Cherrygrove_Movement_04FC)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp9)
+    applymovement(obj_player, Cherrygrove_Movement_PlayerWalkLeftUp5)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -140,8 +140,8 @@ script Cherrygrove_EventScript_GuideGentTour {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_050C)
-    applymovement(obj_player, Cherrygrove_Movement_052C)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkDownLeft)
+    applymovement(obj_player, Cherrygrove_Movement_PlayerWalkLeftDown)
     waitmovement
     playse(SEQ_SE_GS_N_UMIBE)
     waitfollowingpokemonmovement
@@ -154,8 +154,8 @@ script Cherrygrove_EventScript_GuideGentTour {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_054C)
-    applymovement(obj_player, Cherrygrove_Movement_0568)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkRightDown)
+    applymovement(obj_player, Cherrygrove_Movement_PlayerWalkDownRight1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -181,12 +181,12 @@ script Cherrygrove_EventScript_GuideGentTour {
            "It also says,\n"
            "“Hold the B Button down to sprint.”\r")
     closemessage
-    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0580)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkUp)
     waitmovement
     dooranimationload(17, 12, 14, 17, 77)
     dooranimationopen(77)
     dooranimationwait(77)
-    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0580)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkUp)
     waitmovement
     release(obj_T21_gsoldman1)
     release(obj_partner_poke)
@@ -202,39 +202,39 @@ script Cherrygrove_EventScript_GuideGentTour {
     end
 }
 
-movement Cherrygrove_Movement_0350 {
+movement Cherrygrove_Movement_GuideGentExclamation {
     emote_exclamation_mark
 }
 
-movement Cherrygrove_Movement_0358 {
+movement Cherrygrove_Movement_GuideGentDelay {
     delay_4
 }
 
-movement Cherrygrove_Movement_0360 {
+movement Cherrygrove_Movement_GuideGentWalkDown1 {
     walk_down
 }
 
-movement Cherrygrove_Movement_0368 {
+movement Cherrygrove_Movement_GuideGentWalkDown2 {
     walk_down * 2
 }
 
-movement Cherrygrove_Movement_0370 {
+movement Cherrygrove_Movement_GuideGentWalkDown3 {
     walk_down * 3
 }
 
-movement Cherrygrove_Movement_0378 {
+movement Cherrygrove_Movement_PlayerFaceUp {
     walk_in_place_up
 }
 
-movement Cherrygrove_Movement_0380 {
+movement Cherrygrove_Movement_PlayerFaceLeft1 {
     walk_in_place_left
 }
 
-movement Cherrygrove_Movement_0388 {
+movement Cherrygrove_Movement_PlayerFaceRight {
     walk_in_place_right
 }
 
-movement Cherrygrove_Movement_0390 {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp1 {
     walk_fast_left * 2
     walk_fast_up * 2
     emote_exclamation_mark
@@ -243,7 +243,7 @@ movement Cherrygrove_Movement_0390 {
     walk_fast_right
 }
 
-movement Cherrygrove_Movement_03AC {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp2 {
     walk_fast_left * 2
     walk_fast_up * 3
     delay_8
@@ -254,7 +254,7 @@ movement Cherrygrove_Movement_03AC {
     walk_fast_right
 }
 
-movement Cherrygrove_Movement_03D0 {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp3 {
     walk_fast_left * 2
     walk_fast_up * 4
     delay_8
@@ -265,7 +265,7 @@ movement Cherrygrove_Movement_03D0 {
     walk_fast_right
 }
 
-movement Cherrygrove_Movement_03F4 {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp4 {
     walk_fast_left * 2
     walk_fast_up * 4
     delay_8
@@ -276,7 +276,7 @@ movement Cherrygrove_Movement_03F4 {
     walk_fast_right
 }
 
-movement Cherrygrove_Movement_0418 {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp5 {
     walk_fast_left
     walk_fast_up * 3
     walk_in_place_fast_down
@@ -284,7 +284,7 @@ movement Cherrygrove_Movement_0418 {
     walk_in_place_fast_up
 }
 
-movement Cherrygrove_Movement_0430 {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp6 {
     walk_fast_left
     walk_fast_up * 4
     walk_in_place_fast_down
@@ -292,7 +292,7 @@ movement Cherrygrove_Movement_0430 {
     walk_in_place_fast_up
 }
 
-movement Cherrygrove_Movement_0448 {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp7 {
     walk_fast_left
     walk_fast_up * 5
     walk_in_place_fast_down
@@ -300,7 +300,7 @@ movement Cherrygrove_Movement_0448 {
     walk_in_place_fast_up
 }
 
-movement Cherrygrove_Movement_0460 {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp8 {
     walk_fast_left
     walk_fast_up * 6
     walk_in_place_fast_down
@@ -308,45 +308,45 @@ movement Cherrygrove_Movement_0460 {
     walk_in_place_fast_up
 }
 
-movement Cherrygrove_Movement_0478 {
+movement Cherrygrove_Movement_PlayerWalkLeftUp1 {
     walk_left * 2
     walk_up * 2
     delay_8
 }
 
-movement Cherrygrove_Movement_0488 {
+movement Cherrygrove_Movement_PlayerWalkLeftUp2 {
     walk_left * 2
     walk_up * 3
     delay_8
 }
 
-movement Cherrygrove_Movement_0498 {
+movement Cherrygrove_Movement_PlayerWalkLeftUp3 {
     walk_left * 2
     walk_up * 4
     delay_8
 }
 
-movement Cherrygrove_Movement_04A8 {
+movement Cherrygrove_Movement_PlayerWalkLeftUp4 {
     walk_left * 2
     walk_up * 5
     delay_8
 }
 
-movement Cherrygrove_Movement_04B8 {
+movement Cherrygrove_Movement_GuideGentWalkLeft {
     walk_fast_left * 9
     walk_in_place_fast_right
     delay_4 * 7
     walk_in_place_fast_up
 }
 
-movement Cherrygrove_Movement_04CC {
+movement Cherrygrove_Movement_PlayerWalkUpLeft1 {
     walk_up
     walk_left * 8
     delay_8 * 2
     walk_in_place_up
 }
 
-movement Cherrygrove_Movement_04E0 {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp9 {
     walk_fast_left * 6
     walk_fast_up * 2
     walk_fast_left
@@ -355,13 +355,13 @@ movement Cherrygrove_Movement_04E0 {
     walk_in_place_fast_up
 }
 
-movement Cherrygrove_Movement_04FC {
+movement Cherrygrove_Movement_PlayerWalkLeftUp5 {
     walk_left * 7
     walk_up * 2
     delay_8
 }
 
-movement Cherrygrove_Movement_050C {
+movement Cherrygrove_Movement_GuideGentWalkDownLeft {
     walk_fast_down * 2
     walk_fast_left * 6
     walk_fast_down * 8
@@ -371,7 +371,7 @@ movement Cherrygrove_Movement_050C {
     walk_in_place_fast_left
 }
 
-movement Cherrygrove_Movement_052C {
+movement Cherrygrove_Movement_PlayerWalkLeftDown {
     walk_left
     walk_down * 2
     walk_left * 6
@@ -381,7 +381,7 @@ movement Cherrygrove_Movement_052C {
     walk_in_place_left
 }
 
-movement Cherrygrove_Movement_054C {
+movement Cherrygrove_Movement_GuideGentWalkRightDown {
     walk_fast_right * 16
     walk_in_place_fast_left
     delay_4 * 6
@@ -390,7 +390,7 @@ movement Cherrygrove_Movement_054C {
     walk_in_place_fast_left
 }
 
-movement Cherrygrove_Movement_0568 {
+movement Cherrygrove_Movement_PlayerWalkDownRight1 {
     delay_4
     walk_down
     walk_right * 16
@@ -398,7 +398,7 @@ movement Cherrygrove_Movement_0568 {
     walk_right * 5
 }
 
-movement Cherrygrove_Movement_0580 {
+movement Cherrygrove_Movement_GuideGentWalkUp {
     walk_up * 2
 }
 
@@ -409,7 +409,7 @@ movement Cherrygrove_Movement_0588 {
 script Cherrygrove_EventScript_GuideGentMapCard {
     followmonresetmovement
     lockall
-    applymovement(obj_player, Cherrygrove_Movement_0680)
+    applymovement(obj_player, Cherrygrove_Movement_PlayerExclamation)
     waitmovement
     callstd(std_play_follow_music)
     clearflag(FLAG_HIDE_CHERRYGROVE_GUIDE_GENT)
@@ -418,19 +418,19 @@ script Cherrygrove_EventScript_GuideGentMapCard {
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     movepersonfacing(obj_T21_gsoldman1, VAR_TEMP_x4000, 1, 394, DIR_NORTH)
     if (var(VAR_TEMP_x4000) == 549) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_068C)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp10)
     } elif (var(VAR_TEMP_x4000) == 550) {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_068C)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp10)
     } else {
-        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_069C)
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkRightUp)
     }
     waitmovement
     if (var(VAR_TEMP_x4000) == 549) {
-        applymovement(obj_player, Cherrygrove_Movement_0380)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerFaceLeft1)
     } elif (var(VAR_TEMP_x4000) == 550) {
-        applymovement(obj_player, Cherrygrove_Movement_0380)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerFaceLeft1)
     } else {
-        applymovement(obj_player, Cherrygrove_Movement_0388)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerFaceRight)
     }
     waitmovement
     npcmsg("...Hffp... Hffp...\n"
@@ -454,7 +454,7 @@ script Cherrygrove_EventScript_GuideGentMapCard {
            "you add Cards.\r"
            "I wish you luck on your journey!\r")
     closemessage
-    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_06AC)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkDown4)
     waitmovement
     callstd(std_fade_end_mom_music)
     release(obj_T21_gsoldman1)
@@ -466,24 +466,24 @@ script Cherrygrove_EventScript_GuideGentMapCard {
     end
 }
 
-movement Cherrygrove_Movement_0680 {
+movement Cherrygrove_Movement_PlayerExclamation {
     emote_exclamation_mark
     walk_in_place_fast_down
 }
 
-movement Cherrygrove_Movement_068C {
+movement Cherrygrove_Movement_GuideGentWalkLeftUp10 {
     walk_fast_left
     walk_fast_up * 9
     walk_in_place_right
 }
 
-movement Cherrygrove_Movement_069C {
+movement Cherrygrove_Movement_GuideGentWalkRightUp {
     walk_fast_right
     walk_fast_up * 9
     walk_in_place_left
 }
 
-movement Cherrygrove_Movement_06AC {
+movement Cherrygrove_Movement_GuideGentWalkDown4 {
     walk_fast_down * 9
 }
 
@@ -491,12 +491,12 @@ script Cherrygrove_EventScript_RivalBattle {
     followmonresetmovement
     lockall
     fadeoutbgm(0, 3)
-    applymovement(obj_player, Cherrygrove_Movement_0350)
+    applymovement(obj_player, Cherrygrove_Movement_GuideGentExclamation)
     waitmovement
     callstd(std_play_rival_intro_music)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     movepersonfacing(obj_T21_gsrivel, 583, 0, VAR_TEMP_x4001, DIR_WEST)
-    applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0808)
+    applymovement(obj_T21_gsrivel, Cherrygrove_Movement_RivalWalkLeft1)
     waitmovement
     npcmsg("...\r"
            "You got a Pokémon at the Lab.\n"
@@ -530,18 +530,18 @@ script Cherrygrove_EventScript_RivalBattle {
     followingpokemonmovement(56)
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 398) {
-        applymovement(obj_player, Cherrygrove_Movement_0890)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkDown)
     } else {
-        applymovement(obj_player, Cherrygrove_Movement_08A4)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkUp1)
     }
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     if (var(VAR_SPECIAL_x8005) == 398) {
-        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0810)
+        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_RivalWalkLeftRight1)
     } else {
-        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0844)
+        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_RivalWalkLeftRight2)
     }
     waitmovement
     npcmsg("Give it back!\n"
@@ -551,11 +551,11 @@ script Cherrygrove_EventScript_RivalBattle {
     closemessage
     getpersoncoords(4, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     if (var(VAR_SPECIAL_x8005) == 401) {
-        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0880)
-        applymovement(obj_player, Cherrygrove_Movement_08B8)
+        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_RivalWalkLeftUp)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerFaceLeft2)
     } else {
-        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0878)
-        applymovement(obj_player, Cherrygrove_Movement_08B8)
+        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_RivalWalkLeft2)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerFaceLeft2)
     }
     waitmovement
     removeobject(obj_T21_gsrivel)
@@ -570,11 +570,11 @@ script Cherrygrove_EventScript_RivalBattle {
     end
 }
 
-movement Cherrygrove_Movement_0808 {
+movement Cherrygrove_Movement_RivalWalkLeft1 {
     walk_left * 7
 }
 
-movement Cherrygrove_Movement_0810 {
+movement Cherrygrove_Movement_RivalWalkLeftRight1 {
     walk_left * 6
     emote_exclamation_mark
     walk_in_place_fast_down
@@ -589,7 +589,7 @@ movement Cherrygrove_Movement_0810 {
     walk_in_place_down
 }
 
-movement Cherrygrove_Movement_0844 {
+movement Cherrygrove_Movement_RivalWalkLeftRight2 {
     walk_left * 6
     emote_exclamation_mark
     walk_in_place_fast_down
@@ -604,31 +604,31 @@ movement Cherrygrove_Movement_0844 {
     walk_in_place_up
 }
 
-movement Cherrygrove_Movement_0878 {
+movement Cherrygrove_Movement_RivalWalkLeft2 {
     walk_left * 11
 }
 
-movement Cherrygrove_Movement_0880 {
+movement Cherrygrove_Movement_RivalWalkLeftUp {
     walk_left * 5
     walk_up
     walk_left * 6
 }
 
-movement Cherrygrove_Movement_0890 {
+movement Cherrygrove_Movement_PlayerWalkDown {
     face_up
     lock_dir
     walk_fast_down
     unlock_dir
 }
 
-movement Cherrygrove_Movement_08A4 {
+movement Cherrygrove_Movement_PlayerWalkUp1 {
     face_down
     lock_dir
     walk_fast_up
     unlock_dir
 }
 
-movement Cherrygrove_Movement_08B8 {
+movement Cherrygrove_Movement_PlayerFaceLeft2 {
     delay_8 * 2
     walk_in_place_left
 }
@@ -692,16 +692,16 @@ script Cherrygrove_EventScript_Cameron {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Cherrygrove_Movement_0A6C)
-        applymovement(obj_T21_gsmiddleman1, Cherrygrove_Movement_0AC0)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkRightUp)
+        applymovement(obj_T21_gsmiddleman1, Cherrygrove_Movement_CameronFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Cherrygrove_Movement_0A84)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkUp2)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Cherrygrove_Movement_0AA4)
-        applymovement(obj_T21_gsmiddleman1, Cherrygrove_Movement_0AC0)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkDownRight2)
+        applymovement(obj_T21_gsmiddleman1, Cherrygrove_Movement_CameronFaceUp)
     } else {
-        applymovement(obj_player, Cherrygrove_Movement_0A90)
-        applymovement(obj_T21_gsmiddleman1, Cherrygrove_Movement_0AC0)
+        applymovement(obj_player, Cherrygrove_Movement_PlayerWalkUpLeft2)
+        applymovement(obj_T21_gsmiddleman1, Cherrygrove_Movement_CameronFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -709,7 +709,7 @@ script Cherrygrove_EventScript_Cameron {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Cherrygrove_Movement_0ACC)
+        applymovement(obj_partner_poke, Cherrygrove_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -728,7 +728,7 @@ script Cherrygrove_EventScript_Cameron {
     end
 }
 
-movement Cherrygrove_Movement_0A6C {
+movement Cherrygrove_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -736,19 +736,19 @@ movement Cherrygrove_Movement_0A6C {
     walk_in_place_down
 }
 
-movement Cherrygrove_Movement_0A84 {
+movement Cherrygrove_Movement_PlayerWalkUp2 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Cherrygrove_Movement_0A90 {
+movement Cherrygrove_Movement_PlayerWalkUpLeft2 {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Cherrygrove_Movement_0AA4 {
+movement Cherrygrove_Movement_PlayerWalkDownRight2 {
     walk_down
     walk_right * 2
     walk_up * 2
@@ -757,12 +757,12 @@ movement Cherrygrove_Movement_0AA4 {
     walk_in_place_down
 }
 
-movement Cherrygrove_Movement_0AC0 {
+movement Cherrygrove_Movement_CameronFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Cherrygrove_Movement_0ACC {
+movement Cherrygrove_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down

@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T21FS0101_000
-    scr_seq_T21FS0101_001
-    scr_seq_T21FS0101_002
-    scr_seq_T21FS0101_003
+    Cherrygrove_Pokemart_EventScript_Clerk1
+    Cherrygrove_Pokemart_EventScript_SchoolKidM
+    Cherrygrove_Pokemart_EventScript_AceTrainerM
+    Cherrygrove_Pokemart_EventScript_Clerk2
 }
 
-script scr_seq_T21FS0101_000 {
+script Cherrygrove_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -21,7 +21,7 @@ script scr_seq_T21FS0101_000 {
     end
 }
 
-script scr_seq_T21FS0101_003 {
+script Cherrygrove_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -33,7 +33,7 @@ script scr_seq_T21FS0101_003 {
     end
 }
 
-script scr_seq_T21FS0101_002 {
+script Cherrygrove_Pokemart_EventScript_AceTrainerM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -50,7 +50,7 @@ script scr_seq_T21FS0101_002 {
     end
 }
 
-script scr_seq_T21FS0101_001 {
+script Cherrygrove_Pokemart_EventScript_SchoolKidM {
     simplenpcmsg("When I was walking in the tall grass,\n"
                  "a Bug-type Pokémon poisoned\f"
                  "my Pokémon!\r"

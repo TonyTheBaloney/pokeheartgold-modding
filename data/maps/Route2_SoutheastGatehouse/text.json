@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0323_R02R0301_00000",
-      "from": "scr_seq_R02R0301_000#0"
+      "from": "Route2_SoutheastGatehouse_EventScript_Scientist#0"
     },
     {
       "id": "msg_0323_R02R0301_00001",
-      "from": "scr_seq_R02R0301_000#1"
+      "from": "Route2_SoutheastGatehouse_EventScript_Scientist#1"
     },
     {
       "id": "msg_0323_R02R0301_00002",
-      "from": "scr_seq_R02R0301_000#2"
+      "from": "Route2_SoutheastGatehouse_EventScript_Scientist#2"
     },
     {
       "id": "msg_0323_R02R0301_00003",
-      "from": "scr_seq_R02R0301_001#0"
+      "from": "Route2_SoutheastGatehouse_EventScript_Attendant#0"
     }
   ]
 }

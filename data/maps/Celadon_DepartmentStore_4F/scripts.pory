@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0104_000
-    scr_seq_T07R0104_001
-    scr_seq_T07R0104_002
-    scr_seq_T07R0104_003
-    scr_seq_T07R0104_004
-    scr_seq_T07R0104_005
-    scr_seq_T07R0104_006
+    Celadon_DepartmentStore_4F_EventScript_Clerk
+    Celadon_DepartmentStore_4F_EventScript_Man
+    Celadon_DepartmentStore_4F_EventScript_SchoolKidM
+    Celadon_DepartmentStore_4F_EventScript_GiftsToExpressYourselfSign
+    Celadon_DepartmentStore_4F_OnTransition
+    Celadon_DepartmentStore_4F_EventScript_Falkner
+    Celadon_DepartmentStore_4F_EventScript_Janine
 }
 
-script scr_seq_T07R0104_004 {
+script Celadon_DepartmentStore_4F_OnTransition {
     if (!flag(FLAG_UNK_189)) { goto(_002F) }
     clearflag(FLAG_UNK_189)
     end
@@ -50,13 +50,13 @@ _00C2:
 _00CC:
     playse(SEQ_SE_DP_SELECT)
     lockall
-    applymovement(obj_T07R0104_gsleader1, Celadon_DepartmentStore_4F_Movement_026C)
+    applymovement(obj_T07R0104_gsleader1, Celadon_DepartmentStore_4F_Movement_FalknerFaceLeft)
     waitmovement
     npcmsg("Falkner: Out of all the Trainers\n"
            "out there, the best Trainer would\f"
            "have to be my dad.\r")
     closemessage
-    applymovement(obj_T07R0104_gsleader13, Celadon_DepartmentStore_4F_Movement_0274)
+    applymovement(obj_T07R0104_gsleader13, Celadon_DepartmentStore_4F_Movement_JanineFaceRight)
     waitmovement
     npcmsg("Janine: Ha!\n"
            "You don’t know a thing!\r"
@@ -64,18 +64,18 @@ _00CC:
            "one of the Elite Four!\f"
            "Namely--my dad!\r")
     closemessage
-    applymovement(obj_T07R0104_gsleader1, Celadon_DepartmentStore_4F_Movement_026C)
+    applymovement(obj_T07R0104_gsleader1, Celadon_DepartmentStore_4F_Movement_FalknerFaceLeft)
     waitmovement
     npcmsg("Falkner: You are mistaken.\n"
            "My dad treats Poké...\r")
     closemessage
-    applymovement(obj_T07R0104_gsleader13, Celadon_DepartmentStore_4F_Movement_0274)
+    applymovement(obj_T07R0104_gsleader13, Celadon_DepartmentStore_4F_Movement_JanineFaceRight)
     waitmovement
     npcmsg("Janine: Please stop this!\n"
            "Why don’t you just admit that my dad\f"
            "is the true Trainer!\r")
     closemessage
-    applymovement(obj_T07R0104_gsleader1, Celadon_DepartmentStore_4F_Movement_027C)
+    applymovement(obj_T07R0104_gsleader1, Celadon_DepartmentStore_4F_Movement_FalknerFaceDown)
     waitmovement
     npcmsg("Falkner: You were listening, right?\n"
            "You agree my dad is\f"
@@ -128,7 +128,7 @@ _0189:
     end
 }
 
-script scr_seq_T07R0104_005 {
+script Celadon_DepartmentStore_4F_EventScript_Falkner {
     checkregisteredphonenumber(PHONE_CONTACT_FALKNER, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 1) {
         playse(SEQ_SE_DP_SELECT)
@@ -187,25 +187,25 @@ script scr_seq_T07R0104_005 {
     end
 }
 
-script scr_seq_T07R0104_006 {
+script Celadon_DepartmentStore_4F_EventScript_Janine {
     if (var(VAR_TEMP_x4004) != 1) { goto(_00CC) }
     simplenpcmsg("Janine: Bah!")
     end
 }
 
-movement Celadon_DepartmentStore_4F_Movement_026C {
+movement Celadon_DepartmentStore_4F_Movement_FalknerFaceLeft {
     walk_in_place_left
 }
 
-movement Celadon_DepartmentStore_4F_Movement_0274 {
+movement Celadon_DepartmentStore_4F_Movement_JanineFaceRight {
     walk_in_place_right
 }
 
-movement Celadon_DepartmentStore_4F_Movement_027C {
+movement Celadon_DepartmentStore_4F_Movement_FalknerFaceDown {
     walk_in_place_down
 }
 
-script scr_seq_T07R0104_000 {
+script Celadon_DepartmentStore_4F_EventScript_Clerk {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -217,13 +217,13 @@ script scr_seq_T07R0104_000 {
     end
 }
 
-script scr_seq_T07R0104_001 {
+script Celadon_DepartmentStore_4F_EventScript_Man {
     simplenpcmsg("I’m here to buy Bloom Mail to send\n"
                  "to my girlfriend.")
     end
 }
 
-script scr_seq_T07R0104_002 {
+script Celadon_DepartmentStore_4F_EventScript_SchoolKidM {
     simplenpcmsg("You know what?\r"
                  "Tunnel Mail is finally available\n"
                  "at this department store!\r"
@@ -232,7 +232,7 @@ script scr_seq_T07R0104_002 {
     end
 }
 
-script scr_seq_T07R0104_003 {
+script Celadon_DepartmentStore_4F_EventScript_GiftsToExpressYourselfSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Gifts to Express Yourself!\n"
@@ -244,5 +244,5 @@ script scr_seq_T07R0104_003 {
 }
 
 mapscripts Celadon_DepartmentStore_4F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07R0104_004
+    INIT_SCRIPT_ON_TRANSITION: Celadon_DepartmentStore_4F_OnTransition
 }

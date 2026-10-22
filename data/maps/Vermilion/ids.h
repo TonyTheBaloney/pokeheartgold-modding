@@ -1,20 +1,20 @@
 #ifndef SCR_SEQ_T06_H_
 #define SCR_SEQ_T06_H_
 
-#define _EV_scr_seq_T06_000 0
-#define _EV_scr_seq_T06_001 1
-#define _EV_scr_seq_T06_002 2
-#define _EV_scr_seq_T06_003 3
-#define _EV_scr_seq_T06_004 4
-#define _EV_scr_seq_T06_005 5
-#define _EV_scr_seq_T06_006 6
-#define _EV_scr_seq_T06_007 7
-#define _EV_scr_seq_T06_008 8
-#define _EV_scr_seq_T06_009 9
-#define _EV_scr_seq_T06_010 10
-#define _EV_scr_seq_T06_011 11
-#define _EV_scr_seq_T06_012 12
-#define _EV_scr_seq_T06_013 13
+#define _EV_Vermilion_EventScript_PokefanM1 0
+#define _EV_Vermilion_EventScript_Woman 1
+#define _EV_Vermilion_EventScript_Man 2
+#define _EV_Vermilion_EventScript_OldMan 3
+#define _EV_Vermilion_EventScript_Machop 4
+#define _EV_Vermilion_EventScript_CitySign 5
+#define _EV_Vermilion_EventScript_TrainerTips1 6
+#define _EV_Vermilion_EventScript_TrainerTips2 7
+#define _EV_Vermilion_EventScript_TrainerTips3 8
+#define _EV_Vermilion_OnTransition 9
+#define _EV_Vermilion_EventScript_PokefanM2 10
+#define _EV_Vermilion_EventScript_EusineTrigger1 11
+#define _EV_Vermilion_EventScript_EusineTrigger2 12
+#define _EV_Vermilion_EventScript_StevenScene 13
 
 #define obj_T06_gsoldman1                 0
 #define obj_T06_gsmiddleman1              1

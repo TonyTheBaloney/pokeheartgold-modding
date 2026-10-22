@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0498_T07R0105_00000",
-      "from": "scr_seq_T07R0105_002#0"
+      "from": "Celadon_DepartmentStore_5F_EventScript_Gentleman#0"
     },
     {
       "id": "msg_0498_T07R0105_00001",
-      "from": "scr_seq_T07R0105_003#0"
+      "from": "Celadon_DepartmentStore_5F_EventScript_Sailor#0"
     },
     {
       "id": "msg_0498_T07R0105_00002",
-      "from": "scr_seq_T07R0105_004#0"
+      "from": "Celadon_DepartmentStore_5F_EventScript_Woman#0"
     },
     {
       "id": "msg_0498_T07R0105_00003",
-      "from": "scr_seq_T07R0105_005#0"
+      "from": "Celadon_DepartmentStore_5F_EventScript_BringOutPokemonPotentialSign#0"
     }
   ]
 }

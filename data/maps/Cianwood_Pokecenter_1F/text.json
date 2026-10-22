@@ -3,31 +3,31 @@
   "messages": [
     {
       "id": "msg_0575_T24PC0101_00000",
-      "from": "scr_seq_T24PC0101_001#0"
+      "from": "Cianwood_Pokecenter_1F_EventScript_Lass#0"
     },
     {
       "id": "msg_0575_T24PC0101_00001",
-      "from": "scr_seq_T24PC0101_002#3"
+      "from": "Cianwood_Pokecenter_1F_EventScript_Man#3"
     },
     {
       "id": "msg_0575_T24PC0101_00002",
-      "from": "scr_seq_T24PC0101_003#1"
+      "from": "Cianwood_Pokecenter_1F_EventScript_GymGuide#1"
     },
     {
       "id": "msg_0575_T24PC0101_00003",
-      "from": "scr_seq_T24PC0101_003#0"
+      "from": "Cianwood_Pokecenter_1F_EventScript_GymGuide#0"
     },
     {
       "id": "msg_0575_T24PC0101_00004",
-      "from": "scr_seq_T24PC0101_002#0"
+      "from": "Cianwood_Pokecenter_1F_EventScript_Man#0"
     },
     {
       "id": "msg_0575_T24PC0101_00005",
-      "from": "scr_seq_T24PC0101_002#1"
+      "from": "Cianwood_Pokecenter_1F_EventScript_Man#1"
     },
     {
       "id": "msg_0575_T24PC0101_00006",
-      "from": "scr_seq_T24PC0101_002#2"
+      "from": "Cianwood_Pokecenter_1F_EventScript_Man#2"
     }
   ]
 }

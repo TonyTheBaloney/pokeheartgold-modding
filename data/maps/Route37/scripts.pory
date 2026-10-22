@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R37_000 {
+script Route37_OnTransition {
     getweekday(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 0) {
         clearflag(FLAG_UNK_1C3)
@@ -11,7 +11,7 @@ script scr_seq_R37_000 {
     end
 }
 
-script scr_seq_R37_001 {
+script Route37_EventScript_LittleBoy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -87,13 +87,13 @@ _012A:
     end
 }
 
-script scr_seq_R37_002 {
+script Route37_EventScript_RouteSign {
     directionsignpostex(1, 3, "Rt. 37\n"
                               "North to Ecruteak City")
     end
 }
 
-script scr_seq_R37_003 {
+script Route37_EventScript_TrainerTips {
     trainertipsex(3, "Trainer Tips\r"
                      "The move Dig can take you back to\n"
                      "the entrance when you use it.\r"
@@ -104,5 +104,5 @@ script scr_seq_R37_003 {
 }
 
 mapscripts Route37_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R37_000
+    INIT_SCRIPT_ON_TRANSITION: Route37_OnTransition
 }

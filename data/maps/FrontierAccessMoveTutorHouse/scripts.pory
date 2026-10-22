@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D32R0103_000
-    scr_seq_D32R0103_001
-    scr_seq_D32R0103_002
-    scr_seq_D32R0103_003
+    FrontierAccessMoveTutorHouse_EventScript_PokefanM1
+    FrontierAccessMoveTutorHouse_EventScript_PokefanM2
+    FrontierAccessMoveTutorHouse_EventScript_PokefanM3
+    FrontierAccessMoveTutorHouse_OnTransition
 }
 
-script scr_seq_D32R0103_003 {
+script FrontierAccessMoveTutorHouse_OnTransition {
     setvar(VAR_UNK_40E5, 2)
     end
 }
 
-script scr_seq_D32R0103_000 {
+script FrontierAccessMoveTutorHouse_EventScript_PokefanM1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -23,7 +23,7 @@ script scr_seq_D32R0103_000 {
     end
 }
 
-script scr_seq_D32R0103_001 {
+script FrontierAccessMoveTutorHouse_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -32,7 +32,7 @@ script scr_seq_D32R0103_001 {
     end
 }
 
-script scr_seq_D32R0103_002 {
+script FrontierAccessMoveTutorHouse_EventScript_PokefanM3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -42,5 +42,5 @@ script scr_seq_D32R0103_002 {
 }
 
 mapscripts FrontierAccessMoveTutorHouse_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0103_003
+    INIT_SCRIPT_ON_TRANSITION: FrontierAccessMoveTutorHouse_OnTransition
 }

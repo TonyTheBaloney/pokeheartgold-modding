@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0493_T07PC0101_00000",
-      "from": "scr_seq_T07PC0101_001#0"
+      "from": "Celadon_Pokecenter_1F_EventScript_Gentleman#0"
     },
     {
       "id": "msg_0493_T07PC0101_00001",
-      "from": "scr_seq_T07PC0101_002#0"
+      "from": "Celadon_Pokecenter_1F_EventScript_AceTrainerF#0"
     },
     {
       "id": "msg_0493_T07PC0101_00002",
-      "from": "scr_seq_T07PC0101_003#0"
+      "from": "Celadon_Pokecenter_1F_EventScript_GymGuide#0"
     }
   ]
 }

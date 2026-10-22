@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R36_008 + 1",
+            "script": "Route36_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R36_009 + 1",
+            "script": "Route36_EventScript_Lass2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R36_000 + 1",
+            "script": "Route36_EventScript_Usokky",
             "flag": "FLAG_HIDE_ROUTE_36_SUDOWOODO"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R36_007 + 1",
+            "script": "Route36_EventScript_Lass1",
             "flag": "FLAG_HIDE_ROUTE_36_FLOWERSHOP_GIRL"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R36_001 + 1",
+            "script": "Route36_EventScript_SchoolKidM",
             "flag": "FLAG_UNK_1C4"
         },
         {
@@ -233,7 +233,7 @@
             "y": 235,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R36_005 + 1"
+            "script": "Route36_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -241,7 +241,7 @@
             "y": 248,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R36_004 + 1"
+            "script": "Route36_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -249,7 +249,7 @@
             "y": 244,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R36_003 + 1"
+            "script": "Route36_EventScript_RouteSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -257,7 +257,7 @@
             "y": 223,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R36_006 + 1"
+            "script": "Route36_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

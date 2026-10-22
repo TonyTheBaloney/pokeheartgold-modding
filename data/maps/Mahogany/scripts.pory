@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T28_000
-    scr_seq_T28_001
-    scr_seq_T28_002
-    scr_seq_T28_003
-    scr_seq_T28_004
-    scr_seq_T28_005
-    scr_seq_T28_006
-    scr_seq_T28_007
-    scr_seq_T28_008
+    Mahogany_EventScript_PokefanM
+    Mahogany_EventScript_PokefanMTrigger
+    Mahogany_EventScript_OldMan
+    Mahogany_EventScript_Lass
+    Mahogany_EventScript_FatMan
+    Mahogany_EventScript_ProfElmCall
+    Mahogany_EventScript_TownSign
+    Mahogany_EventScript_TrainerTips1
+    Mahogany_EventScript_TrainerTips2
 }
 
-script scr_seq_T28_005 {
+script Mahogany_EventScript_ProfElmCall {
     setvar(VAR_SCENE_ROCKET_TAKEOVER, 2)
     setflag(FLAG_UNK_0C5)
     setflag(FLAG_ROCKET_TAKEOVER_ACTIVE)
@@ -26,7 +26,7 @@ script scr_seq_T28_005 {
     end
 }
 
-script scr_seq_T28_000 {
+script Mahogany_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -107,21 +107,21 @@ text msg_0620_T28_00000 {
     "$300! Want one? {YESNO 0}"
 }
 
-script scr_seq_T28_001 {
+script Mahogany_EventScript_PokefanMTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_0278)
+    applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_PokefanMExclamation)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 176) {
-        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_0284)
-        applymovement(obj_player, Mahogany_Movement_0294)
+        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_PokefanMWalkRightDown1)
+        applymovement(obj_player, Mahogany_Movement_PlayerWalkLeft1)
     } else {
-        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_02A4)
-        applymovement(obj_player, Mahogany_Movement_02B4)
+        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_PokefanMWalkRightDown2)
+        applymovement(obj_player, Mahogany_Movement_PlayerWalkLeft2)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -163,9 +163,9 @@ script scr_seq_T28_001 {
 _0228:
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 176) {
-        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_02C4)
+        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_PokefanMWalkUp1)
     } else {
-        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_02D0)
+        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_PokefanMWalkUp2)
     }
     waitmovement
     releaseall
@@ -180,46 +180,46 @@ _0262:
     goto(_0228)
 }
 
-movement Mahogany_Movement_0278 {
+movement Mahogany_Movement_PokefanMExclamation {
     face_down
     emote_exclamation_mark
 }
 
-movement Mahogany_Movement_0284 {
+movement Mahogany_Movement_PokefanMWalkRightDown1 {
     walk_fast_right
     walk_fast_down
     walk_fast_left
 }
 
-movement Mahogany_Movement_0294 {
+movement Mahogany_Movement_PlayerWalkLeft1 {
     delay_4 * 2
     walk_fast_left
     face_right
 }
 
-movement Mahogany_Movement_02A4 {
+movement Mahogany_Movement_PokefanMWalkRightDown2 {
     walk_fast_right
     walk_fast_down * 2
     walk_fast_left
 }
 
-movement Mahogany_Movement_02B4 {
+movement Mahogany_Movement_PlayerWalkLeft2 {
     delay_4 * 3
     walk_fast_left
     face_right
 }
 
-movement Mahogany_Movement_02C4 {
+movement Mahogany_Movement_PokefanMWalkUp1 {
     walk_up
     face_down
 }
 
-movement Mahogany_Movement_02D0 {
+movement Mahogany_Movement_PokefanMWalkUp2 {
     walk_up * 2
     face_down
 }
 
-script scr_seq_T28_002 {
+script Mahogany_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -241,7 +241,7 @@ script scr_seq_T28_002 {
     end
 }
 
-script scr_seq_T28_003 {
+script Mahogany_EventScript_Lass {
     simplenpcmsg("Visit Grandma’s shop. She sells\n"
                  "stuff that nobody else has...\r"
                  "You want to buy stuff, right?\n"
@@ -249,7 +249,7 @@ script scr_seq_T28_003 {
     end
 }
 
-script scr_seq_T28_004 {
+script Mahogany_EventScript_FatMan {
     simplenpcmsg("Have you seen this guy with a\n"
                  "black cape?\r"
                  "He has been going back and forth\n"
@@ -260,20 +260,20 @@ script scr_seq_T28_004 {
     end
 }
 
-script scr_seq_T28_006 {
+script Mahogany_EventScript_TownSign {
     directionsignpostex(0, 19, "Mahogany Town\n"
                                "Home of the Ninja")
     end
 }
 
-script scr_seq_T28_007 {
+script Mahogany_EventScript_TrainerTips1 {
     trainertipsex(2, "Just a Souvenir Shop\r"
                      "Nothing Suspicious about It\n"
                      "No Need to Be Alarmed")
     end
 }
 
-script scr_seq_T28_008 {
+script Mahogany_EventScript_TrainerTips2 {
     trainertipsex(2, "Mahogany Town Pokémon Gym\n"
                      "Leader: Pryce\f"
                      "The Teacher of Winter’s Harshness")
@@ -282,6 +282,6 @@ script scr_seq_T28_008 {
 
 mapscripts Mahogany_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_MIDGAME_BADGES, 4: scr_seq_T28_005
+        VAR_MIDGAME_BADGES, 4: Mahogany_EventScript_ProfElmCall
     ]
 }

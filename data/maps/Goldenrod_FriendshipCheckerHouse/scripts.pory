@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R0301_000 {
+script Goldenrod_FriendshipCheckerHouse_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -60,7 +60,7 @@ script scr_seq_T25R0301_000 {
     end
 }
 
-script scr_seq_T25R0301_001 {
+script Goldenrod_FriendshipCheckerHouse_EventScript_PokefanM {
     simplenpcmsg("I keep losing in battles, and my\n"
                  "Pokémon end up fainting...\r"
                  "Maybe that’s why my Pokémon don’t\n"
@@ -68,7 +68,7 @@ script scr_seq_T25R0301_001 {
     end
 }
 
-script scr_seq_T25R0301_002 {
+script Goldenrod_FriendshipCheckerHouse_EventScript_LittleGirl {
     simplenpcmsg("When I use an item on my Pokémon,\n"
                  "it acts really glad!")
     end

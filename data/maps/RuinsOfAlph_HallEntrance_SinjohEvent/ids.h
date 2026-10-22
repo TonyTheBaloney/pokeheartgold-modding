@@ -1,10 +1,10 @@
 #ifndef SCR_SEQ_D24R0217_H_
 #define SCR_SEQ_D24R0217_H_
 
-#define _EV_scr_seq_D24R0217_000 0
-#define _EV_scr_seq_D24R0217_001 1
-#define _EV_scr_seq_D24R0217_002 2
-#define _EV_scr_seq_D24R0217_003 3
+#define _EV_RuinsOfAlph_HallEntrance_SinjohEvent_EventScript_Sign1 0
+#define _EV_RuinsOfAlph_HallEntrance_SinjohEvent_EventScript_Sign2 1
+#define _EV_RuinsOfAlph_HallEntrance_SinjohEvent_OnTransition 2
+#define _EV_RuinsOfAlph_HallEntrance_SinjohEvent_EventScript_PokefanM 3
 
 #define obj_D24R0217_gsmiddleman1 0
 

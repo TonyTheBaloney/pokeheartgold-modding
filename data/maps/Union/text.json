@@ -87,7 +87,7 @@
     },
     {
       "id": "msg_0738_UNION_00016",
-      "from": "scr_seq_UNION_003#1"
+      "from": "Union_EventScript_Boy1#1"
     },
     {
       "id": "msg_0738_UNION_00017",
@@ -167,7 +167,7 @@
     },
     {
       "id": "msg_0738_UNION_00036",
-      "from": "scr_seq_UNION_003#2"
+      "from": "Union_EventScript_Boy1#2"
     },
     {
       "id": "msg_0738_UNION_00037",
@@ -959,39 +959,39 @@
     },
     {
       "id": "msg_0738_UNION_00157",
-      "from": "scr_seq_UNION_007#1"
+      "from": "Union_EventScript_Receptionist#1"
     },
     {
       "id": "msg_0738_UNION_00158",
-      "from": "scr_seq_UNION_007#0"
+      "from": "Union_EventScript_Receptionist#0"
     },
     {
       "id": "msg_0738_UNION_00159",
-      "from": "scr_seq_UNION_007#2"
+      "from": "Union_EventScript_Receptionist#2"
     },
     {
       "id": "msg_0738_UNION_00160",
-      "from": "scr_seq_UNION_007#3"
+      "from": "Union_EventScript_Receptionist#3"
     },
     {
       "id": "msg_0738_UNION_00161",
-      "from": "scr_seq_UNION_007#4"
+      "from": "Union_EventScript_Receptionist#4"
     },
     {
       "id": "msg_0738_UNION_00162",
-      "from": "scr_seq_UNION_007#5"
+      "from": "Union_EventScript_Receptionist#5"
     },
     {
       "id": "msg_0738_UNION_00163",
-      "from": "scr_seq_UNION_007#8"
+      "from": "Union_EventScript_Receptionist#8"
     },
     {
       "id": "msg_0738_UNION_00164",
-      "from": "scr_seq_UNION_007#6"
+      "from": "Union_EventScript_Receptionist#6"
     },
     {
       "id": "msg_0738_UNION_00165",
-      "from": "scr_seq_UNION_007#7"
+      "from": "Union_EventScript_Receptionist#7"
     },
     {
       "id": "msg_0738_UNION_00166",
@@ -1275,7 +1275,7 @@
     },
     {
       "id": "msg_0738_UNION_00199",
-      "from": "scr_seq_UNION_003#0"
+      "from": "Union_EventScript_Boy1#0"
     },
     {
       "id": "msg_0738_UNION_00200",
@@ -1355,7 +1355,7 @@
     },
     {
       "id": "msg_0738_UNION_00218",
-      "from": "scr_seq_UNION_003#3"
+      "from": "Union_EventScript_Boy1#3"
     },
     {
       "id": "msg_0738_UNION_00219",

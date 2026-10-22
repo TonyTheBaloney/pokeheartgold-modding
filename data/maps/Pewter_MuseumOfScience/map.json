@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03R0101_001 + 1",
+            "script": "Pewter_MuseumOfScience_EventScript_SuperNerd1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03R0101_000 + 1",
+            "script": "Pewter_MuseumOfScience_EventScript_Receptionist",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03R0101_004 + 1",
+            "script": "Pewter_MuseumOfScience_EventScript_OldMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03R0101_003 + 1",
+            "script": "Pewter_MuseumOfScience_EventScript_Maniac",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03R0101_002 + 1",
+            "script": "Pewter_MuseumOfScience_EventScript_SuperNerd2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03R0101_013 + 1",
+            "script": "Pewter_MuseumOfScience_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03R0101_015 + 1",
+            "script": "Pewter_MuseumOfScience_EventScript_Steven1",
             "flag": "FLAG_HIDE_STEVEN_IN_HOUSE_BEFORE_LATIS"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T03R0101_019 + 1",
+            "script": "Pewter_MuseumOfScience_EventScript_Steven2",
             "flag": "FLAG_HIDE_STEVEN_IN_HOUSE_AFTER_LATIS"
         }
     ],
@@ -182,7 +182,7 @@
             "height": 2,
             "var": "VAR_UNK_4083",
             "var_value": 1,
-            "script": "_EV_scr_seq_T03R0101_016 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_StevenTrigger"
         }
     ],
     "bg_events": [
@@ -192,7 +192,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_005 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -200,7 +200,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_005 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -208,7 +208,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_005 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -216,7 +216,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_005 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -224,7 +224,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_005 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -232,7 +232,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_006 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -240,7 +240,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_006 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -248,7 +248,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_006 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -256,7 +256,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_006 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -264,7 +264,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_006 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -272,7 +272,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_007 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign3"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -280,7 +280,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_007 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign3"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -288,7 +288,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_007 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign3"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -296,7 +296,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_007 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign3"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -304,7 +304,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_007 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign3"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -312,7 +312,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_008 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign4"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -320,7 +320,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_008 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign4"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -328,7 +328,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_008 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign4"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -336,7 +336,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_008 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign4"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -344,7 +344,7 @@
             "y": 6,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_008 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign4"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -352,7 +352,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_009 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign5"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -360,7 +360,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_009 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign5"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -368,7 +368,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_009 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign5"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -376,7 +376,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_009 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign5"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -384,7 +384,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_010 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign6"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -392,7 +392,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_010 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign6"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -400,7 +400,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_010 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign6"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -408,7 +408,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_010 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign6"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -416,7 +416,7 @@
             "y": 5,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_011 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Bookshelf"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -424,7 +424,7 @@
             "y": 5,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T03R0101_011 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Bookshelf"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -432,7 +432,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_011 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Bookshelf"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -440,7 +440,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T03R0101_011 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Bookshelf"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -448,7 +448,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_012 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_OurMuseumMainlyDisplaysSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -456,7 +456,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_012 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_OurMuseumMainlyDisplaysSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -464,7 +464,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_012 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_OurMuseumMainlyDisplaysSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -472,7 +472,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_012 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_OurMuseumMainlyDisplaysSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -480,7 +480,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_012 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_OurMuseumMainlyDisplaysSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -488,7 +488,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_012 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_OurMuseumMainlyDisplaysSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -496,7 +496,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_009 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign5"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -504,7 +504,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_009 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Sign5"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -512,7 +512,7 @@
             "y": 5,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T03R0101_011 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Bookshelf"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -520,7 +520,7 @@
             "y": 5,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T03R0101_011 + 1"
+            "script": "Pewter_MuseumOfScience_EventScript_Bookshelf"
         }
     ]
 }

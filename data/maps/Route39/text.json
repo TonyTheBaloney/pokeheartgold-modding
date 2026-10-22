@@ -3,23 +3,23 @@
   "messages": [
     {
       "id": "msg_0396_R39_00000",
-      "from": "scr_seq_R39_003#0"
+      "from": "Route39_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0396_R39_00001",
-      "from": "scr_seq_R39_004#0"
+      "from": "Route39_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0396_R39_00002",
-      "from": "scr_seq_R39_005#0"
+      "from": "Route39_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0396_R39_00003",
-      "from": "scr_seq_R39_000#0"
+      "from": "Route39_EventScript_Miltank#0"
     },
     {
       "id": "msg_0396_R39_00004",
-      "from": "scr_seq_R39_002#0"
+      "from": "Route39_EventScript_BaobaTrigger#0"
     },
     {
       "id": "msg_0396_R39_00005",
@@ -27,39 +27,39 @@
     },
     {
       "id": "msg_0396_R39_00006",
-      "from": "scr_seq_R39_002#1"
+      "from": "Route39_EventScript_BaobaTrigger#1"
     },
     {
       "id": "msg_0396_R39_00007",
-      "from": "scr_seq_R39_002#4"
+      "from": "Route39_EventScript_BaobaTrigger#4"
     },
     {
       "id": "msg_0396_R39_00008",
-      "from": "scr_seq_R39_002#2"
+      "from": "Route39_EventScript_BaobaTrigger#2"
     },
     {
       "id": "msg_0396_R39_00009",
-      "from": "scr_seq_R39_002#3"
+      "from": "Route39_EventScript_BaobaTrigger#3"
     },
     {
       "id": "msg_0396_R39_00010",
-      "from": "scr_seq_R39_007#0"
+      "from": "Route39_EventScript_LtSurge#0"
     },
     {
       "id": "msg_0396_R39_00011",
-      "from": "scr_seq_R39_007#3"
+      "from": "Route39_EventScript_LtSurge#3"
     },
     {
       "id": "msg_0396_R39_00012",
-      "from": "scr_seq_R39_007#4"
+      "from": "Route39_EventScript_LtSurge#4"
     },
     {
       "id": "msg_0396_R39_00013",
-      "from": "scr_seq_R39_007#1"
+      "from": "Route39_EventScript_LtSurge#1"
     },
     {
       "id": "msg_0396_R39_00014",
-      "from": "scr_seq_R39_007#2"
+      "from": "Route39_EventScript_LtSurge#2"
     }
   ]
 }

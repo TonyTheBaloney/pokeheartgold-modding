@@ -3,42 +3,42 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T25R1101_000
-    scr_seq_T25R1101_001
-    scr_seq_T25R1101_002
-    scr_seq_T25R1101_003
-    scr_seq_T25R1101_004
-    scr_seq_T25R1101_005
-    scr_seq_T25R1101_006
-    scr_seq_T25R1101_007
-    scr_seq_T25R1101_008
-    scr_seq_T25R1101_009
-    scr_seq_T25R1101_010
-    scr_seq_T25R1101_011
-    scr_seq_T25R1101_012
-    scr_seq_T25R1101_013
-    scr_seq_T25R1101_014
-    scr_seq_T25R1101_015
-    scr_seq_T25R1101_016
-    scr_seq_T25R1101_017
-    scr_seq_T25R1101_018
-    scr_seq_T25R1101_019
-    scr_seq_T25R1101_020
-    scr_seq_T25R1101_021
-    scr_seq_T25R1101_022
-    scr_seq_T25R1101_023
-    scr_seq_T25R1101_024
-    scr_seq_T25R1101_025
-    scr_seq_T25R1101_026
-    scr_seq_T25R1101_027
-    scr_seq_T25R1101_028
-    scr_seq_T25R1101_029
-    scr_seq_T25R1101_030
-    scr_seq_T25R1101_031
-    scr_seq_T25R1101_032
+    Goldenrod_GameCorner_Jp_EventScript_Clerk
+    Goldenrod_GameCorner_Jp_EventScript_Receptionist1
+    Goldenrod_GameCorner_Jp_EventScript_Receptionist2
+    Goldenrod_GameCorner_Jp_EventScript_Gentleman1
+    Goldenrod_GameCorner_Jp_EventScript_PokefanM
+    Goldenrod_GameCorner_Jp_EventScript_Man
+    Goldenrod_GameCorner_Jp_EventScript_AceTrainerF
+    Goldenrod_GameCorner_Jp_EventScript_PokefanF
+    Goldenrod_GameCorner_Jp_EventScript_Gentleman2
+    Goldenrod_GameCorner_Jp_EventScript_FatMan
+    Goldenrod_GameCorner_Jp_EventScript_Sign1
+    Goldenrod_GameCorner_Jp_EventScript_Sign2
+    Goldenrod_GameCorner_Jp_EventScript_Sign3
+    Goldenrod_GameCorner_Jp_EventScript_Sign4
+    Goldenrod_GameCorner_Jp_EventScript_Sign5
+    Goldenrod_GameCorner_Jp_EventScript_Sign6
+    Goldenrod_GameCorner_Jp_EventScript_Sign7
+    Goldenrod_GameCorner_Jp_EventScript_Sign8
+    Goldenrod_GameCorner_Jp_EventScript_Sign9
+    Goldenrod_GameCorner_Jp_EventScript_Sign10
+    Goldenrod_GameCorner_Jp_EventScript_Sign11
+    Goldenrod_GameCorner_Jp_EventScript_Sign12
+    Goldenrod_GameCorner_Jp_EventScript_Sign13
+    Goldenrod_GameCorner_Jp_EventScript_Sign14
+    Goldenrod_GameCorner_Jp_EventScript_Sign15
+    Goldenrod_GameCorner_Jp_EventScript_Sign16
+    Goldenrod_GameCorner_Jp_EventScript_Sign17
+    Goldenrod_GameCorner_Jp_EventScript_Sign18
+    Goldenrod_GameCorner_Jp_EventScript_Sign19
+    Goldenrod_GameCorner_Jp_EventScript_Sign20
+    Goldenrod_GameCorner_Jp_EventScript_Sign21
+    Goldenrod_GameCorner_Jp_EventScript_Sign22
+    Goldenrod_GameCorner_Jp_OnTransition
 }
 
-script scr_seq_T25R1101_032 {
+script Goldenrod_GameCorner_Jp_OnTransition {
     getweekday(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) != 0) {
         goto(_00FC)
@@ -64,7 +64,7 @@ script scr_seq_T25R1101_032 {
     goto(_00A9)
 }
 
-script scr_seq_T25R1101_010 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -102,7 +102,7 @@ _013D:
     return
 }
 
-script scr_seq_T25R1101_011 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -118,7 +118,7 @@ script scr_seq_T25R1101_011 {
     end
 }
 
-script scr_seq_T25R1101_012 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -134,7 +134,7 @@ script scr_seq_T25R1101_012 {
     end
 }
 
-script scr_seq_T25R1101_013 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -150,7 +150,7 @@ script scr_seq_T25R1101_013 {
     end
 }
 
-script scr_seq_T25R1101_014 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign5 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -166,7 +166,7 @@ script scr_seq_T25R1101_014 {
     end
 }
 
-script scr_seq_T25R1101_015 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign6 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -182,7 +182,7 @@ script scr_seq_T25R1101_015 {
     end
 }
 
-script scr_seq_T25R1101_016 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign7 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -198,7 +198,7 @@ script scr_seq_T25R1101_016 {
     end
 }
 
-script scr_seq_T25R1101_017 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign8 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -214,7 +214,7 @@ script scr_seq_T25R1101_017 {
     end
 }
 
-script scr_seq_T25R1101_018 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign9 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -230,7 +230,7 @@ script scr_seq_T25R1101_018 {
     end
 }
 
-script scr_seq_T25R1101_019 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign10 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -246,7 +246,7 @@ script scr_seq_T25R1101_019 {
     end
 }
 
-script scr_seq_T25R1101_020 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign11 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -262,7 +262,7 @@ script scr_seq_T25R1101_020 {
     end
 }
 
-script scr_seq_T25R1101_021 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign12 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -278,7 +278,7 @@ script scr_seq_T25R1101_021 {
     end
 }
 
-script scr_seq_T25R1101_022 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign13 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -294,7 +294,7 @@ script scr_seq_T25R1101_022 {
     end
 }
 
-script scr_seq_T25R1101_023 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign14 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -310,7 +310,7 @@ script scr_seq_T25R1101_023 {
     end
 }
 
-script scr_seq_T25R1101_024 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign15 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -326,7 +326,7 @@ script scr_seq_T25R1101_024 {
     end
 }
 
-script scr_seq_T25R1101_025 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign16 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -342,7 +342,7 @@ script scr_seq_T25R1101_025 {
     end
 }
 
-script scr_seq_T25R1101_026 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign17 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -358,7 +358,7 @@ script scr_seq_T25R1101_026 {
     end
 }
 
-script scr_seq_T25R1101_027 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign18 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -374,7 +374,7 @@ script scr_seq_T25R1101_027 {
     end
 }
 
-script scr_seq_T25R1101_028 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign19 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -390,7 +390,7 @@ script scr_seq_T25R1101_028 {
     end
 }
 
-script scr_seq_T25R1101_029 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign20 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -406,7 +406,7 @@ script scr_seq_T25R1101_029 {
     end
 }
 
-script scr_seq_T25R1101_030 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign21 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -422,7 +422,7 @@ script scr_seq_T25R1101_030 {
     end
 }
 
-script scr_seq_T25R1101_031 {
+script Goldenrod_GameCorner_Jp_EventScript_Sign22 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_013D)
@@ -438,7 +438,7 @@ script scr_seq_T25R1101_031 {
     end
 }
 
-script scr_seq_T25R1101_000 {
+script Goldenrod_GameCorner_Jp_EventScript_Clerk {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -515,7 +515,7 @@ script scr_seq_T25R1101_000 {
     end
 }
 
-script scr_seq_T25R1101_001 {
+script Goldenrod_GameCorner_Jp_EventScript_Receptionist1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -787,7 +787,7 @@ _0E07:
     end
 }
 
-script scr_seq_T25R1101_002 {
+script Goldenrod_GameCorner_Jp_EventScript_Receptionist2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -949,17 +949,17 @@ script scr_seq_T25R1101_002 {
     goto(_0ECD)
 }
 
-script scr_seq_T25R1101_003 {
+script Goldenrod_GameCorner_Jp_EventScript_Gentleman1 {
     simplenpcmsg(msg_0599_T25R1101_00018)
     end
 }
 
-script scr_seq_T25R1101_004 {
+script Goldenrod_GameCorner_Jp_EventScript_PokefanM {
     simplenpcmsg(msg_0599_T25R1101_00019)
     end
 }
 
-script scr_seq_T25R1101_005 {
+script Goldenrod_GameCorner_Jp_EventScript_Man {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1011,26 +1011,26 @@ _12DE:
     end
 }
 
-script scr_seq_T25R1101_006 {
+script Goldenrod_GameCorner_Jp_EventScript_AceTrainerF {
     simplenpcmsg(msg_0599_T25R1101_00021)
     end
 }
 
-script scr_seq_T25R1101_007 {
+script Goldenrod_GameCorner_Jp_EventScript_PokefanF {
     simplenpcmsg(msg_0599_T25R1101_00022)
     end
 }
 
-script scr_seq_T25R1101_008 {
+script Goldenrod_GameCorner_Jp_EventScript_Gentleman2 {
     simplenpcmsg(msg_0599_T25R1101_00023)
     end
 }
 
-script scr_seq_T25R1101_009 {
+script Goldenrod_GameCorner_Jp_EventScript_FatMan {
     simplenpcmsg(msg_0599_T25R1101_00024)
     end
 }
 
 mapscripts Goldenrod_GameCorner_Jp_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25R1101_032
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_GameCorner_Jp_OnTransition
 }

@@ -3,46 +3,46 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D35R0102_000
-    scr_seq_D35R0102_001
-    scr_seq_D35R0102_002
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger1
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatue1
+    TeamRocketHeadquarters_B1F_EventScript_RocketGrunt
     scr_seq_D35R0102_003
-    scr_seq_D35R0102_004
-    scr_seq_D35R0102_005
-    scr_seq_D35R0102_006
-    scr_seq_D35R0102_007
-    scr_seq_D35R0102_008
-    scr_seq_D35R0102_009
-    scr_seq_D35R0102_010
-    scr_seq_D35R0102_011
-    scr_seq_D35R0102_012
-    scr_seq_D35R0102_013
-    scr_seq_D35R0102_014
-    scr_seq_D35R0102_015
-    scr_seq_D35R0102_016
-    scr_seq_D35R0102_017
-    scr_seq_D35R0102_018
-    scr_seq_D35R0102_019
-    scr_seq_D35R0102_020
-    scr_seq_D35R0102_021
-    scr_seq_D35R0102_022
-    scr_seq_D35R0102_023
-    scr_seq_D35R0102_024
-    scr_seq_D35R0102_025
-    scr_seq_D35R0102_026
-    scr_seq_D35R0102_027
-    scr_seq_D35R0102_028
-    scr_seq_D35R0102_029
-    scr_seq_D35R0102_030
-    scr_seq_D35R0102_031
-    scr_seq_D35R0102_032
+    TeamRocketHeadquarters_B1F_EventScript_Sign
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger2
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger3
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger4
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger5
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatue2
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatue3
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatue4
+    TeamRocketHeadquarters_B1F_EventScript_PersianStatue5
+    TeamRocketHeadquarters_B1F_EventScript_Trigger1
+    TeamRocketHeadquarters_B1F_EventScript_Trigger2
+    TeamRocketHeadquarters_B1F_EventScript_Trigger3
+    TeamRocketHeadquarters_B1F_EventScript_Trigger4
+    TeamRocketHeadquarters_B1F_EventScript_Trigger5
+    TeamRocketHeadquarters_B1F_EventScript_Trigger6
+    TeamRocketHeadquarters_B1F_EventScript_Trigger7
+    TeamRocketHeadquarters_B1F_EventScript_Trigger8
+    TeamRocketHeadquarters_B1F_EventScript_Trigger9
+    TeamRocketHeadquarters_B1F_EventScript_Trigger10
+    TeamRocketHeadquarters_B1F_EventScript_Trigger11
+    TeamRocketHeadquarters_B1F_EventScript_Trigger12
+    TeamRocketHeadquarters_B1F_EventScript_Trigger13
+    TeamRocketHeadquarters_B1F_EventScript_Trigger14
+    TeamRocketHeadquarters_B1F_EventScript_Trigger15
+    TeamRocketHeadquarters_B1F_EventScript_Trigger16
+    TeamRocketHeadquarters_B1F_EventScript_WarpToTeamRocketHeadquartersB1F
+    TeamRocketHeadquarters_B1F_OnResume
+    TeamRocketHeadquarters_B1F_OnTransition
+    TeamRocketHeadquarters_B1F_OnLoad
 }
 
-script scr_seq_D35R0102_032 {
+script TeamRocketHeadquarters_B1F_OnLoad {
     end
 }
 
-script scr_seq_D35R0102_031 {
+script TeamRocketHeadquarters_B1F_OnTransition {
     if (var(VAR_UNK_40AC) == 4) { goto(_00BE) }
     if (var(VAR_UNK_40AC) == 5) { goto(_00BE) }
     if (var(VAR_UNK_40AC) == 6) { goto(_00BE) }
@@ -58,7 +58,7 @@ _00BE:
     end
 }
 
-script scr_seq_D35R0102_030 {
+script TeamRocketHeadquarters_B1F_OnResume {
     compare(VAR_UNK_40AC, 9)
     callifge(_025D)
     if (var(VAR_UNK_40AD) == 2) {
@@ -106,12 +106,12 @@ _025D:
     return
 }
 
-script scr_seq_D35R0102_000 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger1 {
     followmonresetmovement
     lockall
-    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerExclamation)
     waitmovement
-    applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_0454)
+    applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_PersianStatueExclamation)
     waitmovement
     playse(SEQ_SE_GS_AJITO_SIREN)
     playhideoutalarm
@@ -125,26 +125,26 @@ script scr_seq_D35R0102_000 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0460)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight1)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0490)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft1)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_EAST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0460)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight1)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0490)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft1)
         waitmovement
         goto(_0402)
     _036C:
@@ -152,32 +152,32 @@ script scr_seq_D35R0102_000 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_046C)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight2)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0490)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft1)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_EAST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_046C)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight2)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0490)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft1)
         waitmovement
     _0402:
         movepersonfacing(obj_D35R0102_rocketm, 37, 0, 0, DIR_WEST)
         setflag(FLAG_UNK_1E8)
         setvar(VAR_UNK_40AD, 2)
-        applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_049C)
+        applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceLeft)
         waitmovement
         releaseall
         end
@@ -197,7 +197,7 @@ text msg_0112_D35R0102_00001 {
     "There’s no escape!\r"
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0428 {
+movement TeamRocketHeadquarters_B1F_Movement_PlayerExclamation {
     emote_exclamation_mark
     delay_8 * 2
     face_right * 2
@@ -210,54 +210,54 @@ movement TeamRocketHeadquarters_B1F_Movement_0428 {
     delay_8
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0454 {
+movement TeamRocketHeadquarters_B1F_Movement_PersianStatueExclamation {
     emote_exclamation_mark
     delay_8 * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0460 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight1 {
     walk_faster_right * 11
     face_up * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_046C {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight2 {
     walk_faster_right * 11
     face_down * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0478 {
+movement TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown {
     face_down * 2
     delay_8 * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0484 {
+movement TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp {
     face_up * 2
     delay_8 * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0490 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft1 {
     face_left * 2
     walk_faster_left * 10
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_049C {
+movement TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceLeft {
     face_left
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_04A4 {
+movement TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceDown {
     face_down
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_04AC {
+movement TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceUp {
     face_up
 }
 
-script scr_seq_D35R0102_005 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger2 {
     followmonresetmovement
     lockall
-    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerExclamation)
     waitmovement
-    applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_0454)
+    applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_PersianStatueExclamation)
     waitmovement
     playse(SEQ_SE_GS_AJITO_SIREN)
     playhideoutalarm
@@ -270,28 +270,28 @@ script scr_seq_D35R0102_005 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0668)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft2)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06C8)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight7)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0668)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft2)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06C8)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight7)
         waitmovement
         goto(_0649)
     _05A9:
@@ -299,34 +299,34 @@ script scr_seq_D35R0102_005 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0674)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft3)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06C8)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight7)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0674)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft3)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06C8)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight7)
         waitmovement
     _0649:
         removeobject(obj_D35R0102_rocketm)
         setflag(FLAG_UNK_1E8)
         setvar(VAR_UNK_40AE, 2)
-        applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_049C)
+        applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceLeft)
         waitmovement
         releaseall
         end
@@ -336,72 +336,72 @@ script scr_seq_D35R0102_005 {
     goto(_0503)
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0668 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft2 {
     walk_faster_left * 9
     face_up * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0674 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft3 {
     walk_faster_left * 9
     face_down * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0680 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight3 {
     walk_faster_right * 11
     face_up * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_068C {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight4 {
     walk_faster_right * 11
     face_down * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_0698 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight5 {
     walk_faster_right * 11
     face_up * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_06A4 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight6 {
     walk_faster_right * 11
     face_down * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_06B0 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft4 {
     walk_faster_left * 9
     face_up * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_06BC {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft5 {
     walk_faster_left * 9
     face_down * 2
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_06C8 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight7 {
     face_right * 2
     walk_faster_right * 10
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_06D4 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft6 {
     face_left * 2
     walk_faster_left * 10
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_06E0 {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft7 {
     face_left * 2
     walk_faster_left * 10
 }
 
-movement TeamRocketHeadquarters_B1F_Movement_06EC {
+movement TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight8 {
     face_right * 2
     walk_faster_right * 10
 }
 
-script scr_seq_D35R0102_006 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger3 {
     followmonresetmovement
     lockall
-    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerExclamation)
     waitmovement
-    applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_0454)
+    applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_PersianStatueExclamation)
     waitmovement
     playse(SEQ_SE_GS_AJITO_SIREN)
     playhideoutalarm
@@ -414,28 +414,28 @@ script scr_seq_D35R0102_006 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0680)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight3)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06D4)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft6)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0680)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight3)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06D4)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft6)
         waitmovement
         goto(_088D)
     _07ED:
@@ -443,34 +443,34 @@ script scr_seq_D35R0102_006 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_068C)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight4)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06D4)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft6)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_068C)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight4)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06D4)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft6)
         waitmovement
     _088D:
         removeobject(obj_D35R0102_rocketm)
         setflag(FLAG_UNK_1E8)
         setvar(VAR_UNK_40AF, 2)
-        applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_049C)
+        applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceLeft)
         waitmovement
         releaseall
         end
@@ -480,12 +480,12 @@ script scr_seq_D35R0102_006 {
     goto(_0747)
 }
 
-script scr_seq_D35R0102_007 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger4 {
     followmonresetmovement
     lockall
-    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerExclamation)
     waitmovement
-    applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_0454)
+    applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_PersianStatueExclamation)
     waitmovement
     playse(SEQ_SE_GS_AJITO_SIREN)
     playhideoutalarm
@@ -498,28 +498,28 @@ script scr_seq_D35R0102_007 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0698)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight5)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06E0)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft7)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0698)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight5)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06E0)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft7)
         waitmovement
         goto(_0A3E)
     _099E:
@@ -527,33 +527,33 @@ script scr_seq_D35R0102_007 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06A4)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight6)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06E0)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft7)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06A4)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight6)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06E0)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft7)
         waitmovement
     _0A3E:
         removeobject(obj_D35R0102_rocketm)
         setvar(VAR_UNK_40B0, 2)
-        applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_049C)
+        applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceLeft)
         waitmovement
         releaseall
         end
@@ -563,12 +563,12 @@ script scr_seq_D35R0102_007 {
     goto(_08F8)
 }
 
-script scr_seq_D35R0102_008 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger5 {
     followmonresetmovement
     lockall
-    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerExclamation)
     waitmovement
-    applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_0454)
+    applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_PersianStatueExclamation)
     waitmovement
     playse(SEQ_SE_GS_AJITO_SIREN)
     playhideoutalarm
@@ -581,28 +581,28 @@ script scr_seq_D35R0102_008 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06B0)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft4)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06EC)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight8)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06B0)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft4)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06EC)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight8)
         waitmovement
         goto(_0BEB)
     _0B4B:
@@ -610,33 +610,33 @@ script scr_seq_D35R0102_008 {
         clearflag(FLAG_UNK_1E8)
         addobject(obj_D35R0102_rocketm)
         movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06BC)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft5)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp)
         waitmovement
         npcmsg(msg_0112_D35R0102_00000)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06EC)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight8)
         waitmovement
         movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06BC)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkLeft5)
         waitmovement
-        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_PlayerFaceUp)
         waitmovement
         npcmsg(msg_0112_D35R0102_00001)
         closemessage
         trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
         checkbattlewon(VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
-        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06EC)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_RocketGruntWalkRight8)
         waitmovement
     _0BEB:
         removeobject(obj_D35R0102_rocketm)
         setvar(VAR_UNK_40B1, 2)
-        applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_049C)
+        applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceLeft)
         waitmovement
         releaseall
         end
@@ -650,7 +650,7 @@ script scr_seq_D35R0102_008 {
     goto(_0AA5)
 }
 
-script scr_seq_D35R0102_001 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatue1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     if (var(VAR_UNK_40AD) != 0) {
@@ -689,7 +689,7 @@ text msg_0112_D35R0102_00002 {
     "watching..."
 }
 
-script scr_seq_D35R0102_009 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatue2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     if (var(VAR_UNK_40AE) != 0) {
@@ -707,7 +707,7 @@ script scr_seq_D35R0102_009 {
     goto(_0C93)
 }
 
-script scr_seq_D35R0102_010 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatue3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     if (var(VAR_UNK_40AF) != 0) {
@@ -725,7 +725,7 @@ script scr_seq_D35R0102_010 {
     goto(_0CDA)
 }
 
-script scr_seq_D35R0102_011 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatue4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     if (var(VAR_UNK_40B0) != 0) {
@@ -743,7 +743,7 @@ script scr_seq_D35R0102_011 {
     goto(_0D21)
 }
 
-script scr_seq_D35R0102_012 {
+script TeamRocketHeadquarters_B1F_EventScript_PersianStatue5 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     if (var(VAR_UNK_40B1) != 0) {
@@ -761,7 +761,7 @@ script scr_seq_D35R0102_012 {
     goto(_0D68)
 }
 
-script scr_seq_D35R0102_002 {
+script TeamRocketHeadquarters_B1F_EventScript_RocketGrunt {
     end
 }
 
@@ -769,7 +769,7 @@ script scr_seq_D35R0102_003 {
     end
 }
 
-script scr_seq_D35R0102_004 {
+script TeamRocketHeadquarters_B1F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -797,23 +797,23 @@ script scr_seq_D35R0102_004 {
     setflag(FLAG_UNK_0D6)
     if (var(VAR_UNK_40AD) < 2) {
         setvar(VAR_UNK_40AD, 1)
-        applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_04A4)
+        applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceDown)
     }
     if (var(VAR_UNK_40AE) < 2) {
         setvar(VAR_UNK_40AE, 1)
-        applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_04A4)
+        applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceDown)
     }
     if (var(VAR_UNK_40AF) < 2) {
         setvar(VAR_UNK_40AF, 1)
-        applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_04A4)
+        applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceDown)
     }
     if (var(VAR_UNK_40B0) < 2) {
         setvar(VAR_UNK_40B0, 1)
-        applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_04A4)
+        applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceDown)
     }
     if (var(VAR_UNK_40B1) < 2) {
         setvar(VAR_UNK_40B1, 1)
-        applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_04A4)
+        applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceDown)
         waitmovement
     }
     npcmsg("The surveillance system is off!")
@@ -837,23 +837,23 @@ _0E58:
     clearflag(FLAG_UNK_0D6)
     if (var(VAR_UNK_40AD) < 2) {
         setvar(VAR_UNK_40AD, 0)
-        applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_04AC)
+        applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceUp)
     }
     if (var(VAR_UNK_40AE) < 2) {
         setvar(VAR_UNK_40AE, 0)
-        applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_04AC)
+        applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceUp)
     }
     if (var(VAR_UNK_40AF) < 2) {
         setvar(VAR_UNK_40AF, 0)
-        applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_04AC)
+        applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceUp)
     }
     if (var(VAR_UNK_40B0) < 2) {
         setvar(VAR_UNK_40B0, 0)
-        applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_04AC)
+        applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceUp)
     }
     if (var(VAR_UNK_40B1) < 2) {
         setvar(VAR_UNK_40B1, 0)
-        applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_04AC)
+        applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_PersianStatueFaceUp)
         waitmovement
     }
     npcmsg("The surveillance system is on!")
@@ -871,7 +871,7 @@ text msg_0112_D35R0102_00007 {
     "Better press it.\r"
 }
 
-script scr_seq_D35R0102_013 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger1 {
     followmonresetmovement
     lockall
     playtrapeffect(1)
@@ -884,7 +884,7 @@ script scr_seq_D35R0102_013 {
     end
 }
 
-script scr_seq_D35R0102_014 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger2 {
     followmonresetmovement
     lockall
     playtrapeffect(0)
@@ -897,7 +897,7 @@ script scr_seq_D35R0102_014 {
     end
 }
 
-script scr_seq_D35R0102_015 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger3 {
     followmonresetmovement
     lockall
     playtrapeffect(2)
@@ -910,7 +910,7 @@ script scr_seq_D35R0102_015 {
     end
 }
 
-script scr_seq_D35R0102_016 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger4 {
     followmonresetmovement
     lockall
     playtrapeffect(0)
@@ -923,7 +923,7 @@ script scr_seq_D35R0102_016 {
     end
 }
 
-script scr_seq_D35R0102_017 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger5 {
     followmonresetmovement
     lockall
     playtrapeffect(2)
@@ -936,7 +936,7 @@ script scr_seq_D35R0102_017 {
     end
 }
 
-script scr_seq_D35R0102_018 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger6 {
     followmonresetmovement
     lockall
     playtrapeffect(0)
@@ -949,7 +949,7 @@ script scr_seq_D35R0102_018 {
     end
 }
 
-script scr_seq_D35R0102_019 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger7 {
     followmonresetmovement
     lockall
     playtrapeffect(0)
@@ -962,7 +962,7 @@ script scr_seq_D35R0102_019 {
     end
 }
 
-script scr_seq_D35R0102_020 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger8 {
     followmonresetmovement
     lockall
     playtrapeffect(1)
@@ -975,7 +975,7 @@ script scr_seq_D35R0102_020 {
     end
 }
 
-script scr_seq_D35R0102_021 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger9 {
     followmonresetmovement
     lockall
     playtrapeffect(1)
@@ -988,7 +988,7 @@ script scr_seq_D35R0102_021 {
     end
 }
 
-script scr_seq_D35R0102_022 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger10 {
     followmonresetmovement
     lockall
     playtrapeffect(2)
@@ -1001,7 +1001,7 @@ script scr_seq_D35R0102_022 {
     end
 }
 
-script scr_seq_D35R0102_023 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger11 {
     followmonresetmovement
     lockall
     playtrapeffect(2)
@@ -1014,7 +1014,7 @@ script scr_seq_D35R0102_023 {
     end
 }
 
-script scr_seq_D35R0102_024 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger12 {
     followmonresetmovement
     lockall
     playtrapeffect(1)
@@ -1027,7 +1027,7 @@ script scr_seq_D35R0102_024 {
     end
 }
 
-script scr_seq_D35R0102_025 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger13 {
     followmonresetmovement
     lockall
     playtrapeffect(0)
@@ -1040,7 +1040,7 @@ script scr_seq_D35R0102_025 {
     end
 }
 
-script scr_seq_D35R0102_026 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger14 {
     followmonresetmovement
     lockall
     playtrapeffect(0)
@@ -1053,7 +1053,7 @@ script scr_seq_D35R0102_026 {
     end
 }
 
-script scr_seq_D35R0102_027 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger15 {
     followmonresetmovement
     lockall
     playtrapeffect(1)
@@ -1066,7 +1066,7 @@ script scr_seq_D35R0102_027 {
     end
 }
 
-script scr_seq_D35R0102_028 {
+script TeamRocketHeadquarters_B1F_EventScript_Trigger16 {
     followmonresetmovement
     lockall
     playtrapeffect(2)
@@ -1083,7 +1083,7 @@ _11FF:
     end
 }
 
-script scr_seq_D35R0102_029 {
+script TeamRocketHeadquarters_B1F_EventScript_WarpToTeamRocketHeadquartersB1F {
     followmonresetmovement
     lockall
     playse(SEQ_SE_PL_BOWABOWA)
@@ -1098,7 +1098,7 @@ script scr_seq_D35R0102_029 {
 }
 
 mapscripts TeamRocketHeadquarters_B1F_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D35R0102_030
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D35R0102_031
-    INIT_SCRIPT_ON_LOAD: scr_seq_D35R0102_032
+    INIT_SCRIPT_ON_RESUME: TeamRocketHeadquarters_B1F_OnResume
+    INIT_SCRIPT_ON_TRANSITION: TeamRocketHeadquarters_B1F_OnTransition
+    INIT_SCRIPT_ON_LOAD: TeamRocketHeadquarters_B1F_OnLoad
 }

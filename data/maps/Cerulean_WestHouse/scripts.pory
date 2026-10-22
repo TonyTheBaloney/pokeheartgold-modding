@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T04R0301_000 {
+script Cerulean_WestHouse_EventScript_OldWoman {
     simplenpcmsg("My husband lives happily with Pokémon\n"
                  "he got through trades.\r"
                  "I live happily having such a\n"
@@ -9,12 +9,12 @@ script scr_seq_T04R0301_000 {
     end
 }
 
-script scr_seq_T04R0301_001 {
+script Cerulean_WestHouse_EventScript_OldMan {
     simplenpcmsg("Ah... I’m so happy...")
     end
 }
 
-script scr_seq_T04R0301_002 {
+script Cerulean_WestHouse_EventScript_Kangaskhan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -27,7 +27,7 @@ script scr_seq_T04R0301_002 {
     end
 }
 
-script scr_seq_T04R0301_003 {
+script Cerulean_WestHouse_EventScript_Zubat {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

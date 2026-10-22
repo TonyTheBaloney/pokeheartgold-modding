@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T11GYM0101_000
-    scr_seq_T11GYM0101_001
-    scr_seq_T11GYM0101_002
-    scr_seq_T11GYM0101_003
-    scr_seq_T11GYM0101_004
+    Saffron_Gym_EventScript_Sabrina
+    Saffron_Gym_EventScript_GymGuide
+    Saffron_Gym_EventScript_GymSign
+    Saffron_Gym_EventScript_WarpToSaffronGym
+    Saffron_Gym_OnTransition
 }
 
-script scr_seq_T11GYM0101_004 {
+script Saffron_Gym_OnTransition {
     getphonebookrematch(PHONE_CONTACT_SABRINA, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
         setflag(FLAG_HIDE_SAFFRON_GYM_SABRINA)
@@ -36,7 +36,7 @@ _0083:
     end
 }
 
-script scr_seq_T11GYM0101_000 {
+script Saffron_Gym_EventScript_Sabrina {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -114,7 +114,7 @@ _0136:
     end
 }
 
-script scr_seq_T11GYM0101_001 {
+script Saffron_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -138,7 +138,7 @@ script scr_seq_T11GYM0101_001 {
     end
 }
 
-script scr_seq_T11GYM0101_002 {
+script Saffron_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -158,12 +158,12 @@ script scr_seq_T11GYM0101_002 {
     end
 }
 
-script scr_seq_T11GYM0101_003 {
+script Saffron_Gym_EventScript_WarpToSaffronGym {
     followmonresetmovement
     lockall
     followmonrecall
     playse(SEQ_SE_PL_BOWABOWA)
-    applymovement(obj_player, Saffron_Gym_Movement_01FC)
+    applymovement(obj_player, Saffron_Gym_Movement_PlayerExit)
     waitmovement
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -174,7 +174,7 @@ script scr_seq_T11GYM0101_003 {
     end
 }
 
-movement Saffron_Gym_Movement_01FC {
+movement Saffron_Gym_Movement_PlayerExit {
     face_down * 2
     face_left * 2
     face_up * 2
@@ -195,5 +195,5 @@ movement Saffron_Gym_Movement_01FC {
 }
 
 mapscripts Saffron_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11GYM0101_004
+    INIT_SCRIPT_ON_TRANSITION: Saffron_Gym_OnTransition
 }

@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D25R0103_000
-    scr_seq_D25R0103_001
-    scr_seq_D25R0103_002
+    Union_Cave_B2F_EventScript_Rapurasu
+    Union_Cave_B2F_OnLoad
+    Union_Cave_B2F_OnTransition
 }
 
-script scr_seq_D25R0103_002 {
+script Union_Cave_B2F_OnTransition {
     if (flag(FLAG_DAILY_CAUGHT_LAPRAS)) {
         setflag(FLAG_HIDE_UNION_CAVE_LAPRAS)
         end
@@ -22,7 +22,7 @@ script scr_seq_D25R0103_002 {
     end
 }
 
-script scr_seq_D25R0103_001 {
+script Union_Cave_B2F_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_UNION_CAVE_LAPRAS)
         removeobject(obj_D25R0103_rapurasu)
@@ -31,7 +31,7 @@ script scr_seq_D25R0103_001 {
     end
 }
 
-script scr_seq_D25R0103_000 {
+script Union_Cave_B2F_EventScript_Rapurasu {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -52,6 +52,6 @@ script scr_seq_D25R0103_000 {
 }
 
 mapscripts Union_Cave_B2F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D25R0103_002
-    INIT_SCRIPT_ON_LOAD: scr_seq_D25R0103_001
+    INIT_SCRIPT_ON_TRANSITION: Union_Cave_B2F_OnTransition
+    INIT_SCRIPT_ON_LOAD: Union_Cave_B2F_OnLoad
 }

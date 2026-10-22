@@ -3,31 +3,31 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D32R0401_000
-    scr_seq_D32R0401_001
-    scr_seq_D32R0401_002
-    scr_seq_D32R0401_003
-    scr_seq_D32R0401_004
-    scr_seq_D32R0401_005
-    scr_seq_D32R0401_006
-    scr_seq_D32R0401_007
-    scr_seq_D32R0401_008
-    scr_seq_D32R0401_009
-    scr_seq_D32R0401_010
-    scr_seq_D32R0401_011
-    scr_seq_D32R0401_012
-    scr_seq_D32R0401_013
-    scr_seq_D32R0401_014
-    scr_seq_D32R0401_015
-    scr_seq_D32R0401_016
-    scr_seq_D32R0401_017
+    BattleFrontier_BattleHall_EventScript_Attendant1
+    BattleFrontier_BattleHall_EventScript_Scene1
+    BattleFrontier_BattleHall_EventScript_Scene2
+    BattleFrontier_BattleHall_EventScript_Scene3
+    BattleFrontier_BattleHall_EventScript_Scene4
+    BattleFrontier_BattleHall_EventScript_Attendant2
+    BattleFrontier_BattleHall_EventScript_Hiker
+    BattleFrontier_BattleHall_EventScript_Lass
+    BattleFrontier_BattleHall_EventScript_LittleGirl
+    BattleFrontier_BattleHall_EventScript_Slowbro
+    BattleFrontier_BattleHall_EventScript_OldMan
+    BattleFrontier_BattleHall_EventScript_Idol
+    BattleFrontier_BattleHall_EventScript_PokefanF
+    BattleFrontier_BattleHall_EventScript_Beauty
+    BattleFrontier_BattleHall_EventScript_BugCatcher
+    BattleFrontier_BattleHall_OnTransition
+    BattleFrontier_BattleHall_EventScript_Attendant3
+    BattleFrontier_BattleHall_EventScript_Winston
     scr_seq_D32R0401_018
-    scr_seq_D32R0401_019
-    scr_seq_D32R0401_020
-    scr_seq_D32R0401_021
+    BattleFrontier_BattleHall_EventScript_Ethan
+    BattleFrontier_BattleHall_OnLoad
+    BattleFrontier_BattleHall_OnResume
 }
 
-script scr_seq_D32R0401_021 {
+script BattleFrontier_BattleHall_OnResume {
     battlehallcountusedspecies(VAR_TEMP_x4000)
     compare(VAR_TEMP_x4000, 11)
     callifge(_0090)
@@ -44,7 +44,7 @@ _0090:
     return
 }
 
-script scr_seq_D32R0401_020 {
+script BattleFrontier_BattleHall_OnLoad {
     if (var(VAR_UNK_4145) == 1) {
         random(VAR_TEMP_x4007, 100)
         callifunset(FLAG_UNK_234, _00D5)
@@ -85,7 +85,7 @@ script scr_seq_D32R0401_020 {
     end
 }
 
-script scr_seq_D32R0401_015 {
+script BattleFrontier_BattleHall_OnTransition {
     getplayergender(VAR_TEMP_x4000)
     compare(VAR_TEMP_x4000, 0)
     callifeq(_01FB)
@@ -131,7 +131,7 @@ _01B3:
     return
 }
 
-script scr_seq_D32R0401_000 {
+script BattleFrontier_BattleHall_EventScript_Attendant1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -141,7 +141,7 @@ script scr_seq_D32R0401_000 {
     end
 }
 
-script scr_seq_D32R0401_005 {
+script BattleFrontier_BattleHall_EventScript_Attendant2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -354,16 +354,16 @@ _0269:
                                 npcmsg(msg_0108_D32R0401_00009)
                                 waitabpress
                                 closemessage
-                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_07C8)
-                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_07F0)
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_PlayerExit1)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_ObjectExit1)
                                 waitmovement
                                 return
                             _073C:
                                 npcmsg(msg_0108_D32R0401_00009)
                                 waitabpress
                                 closemessage
-                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_07C8)
-                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_07F0)
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_PlayerExit1)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_ObjectExit1)
                                 waitmovement
                                 return
                             _0757:
@@ -372,23 +372,23 @@ _0269:
                                 linksyncclearpackets
                                 linksyncandwait(109)
                                 closemessage
-                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_07D8)
-                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_0800)
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_PlayerExit2)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_ObjectExit2)
                                 waitmovement
                                 return
                             _077D:
-                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_0818)
-                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_0848)
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_PlayerWalkRightUp)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_ObjectWalkUpRight1)
                                 waitmovement
                                 return
                             _0791:
-                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_0818)
-                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_0848)
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_PlayerWalkRightUp)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_ObjectWalkUpRight1)
                                 waitmovement
                                 return
                             _07A5:
-                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_082C)
-                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_0858)
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_PlayerWalkRightDown)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_ObjectWalkUpRight2)
                                 waitmovement
                                 return
                             _07B9:
@@ -472,13 +472,13 @@ text msg_0108_D32R0401_00009 {
     "Right this way, please!"
 }
 
-movement BattleFrontier_BattleHall_Movement_07C8 {
+movement BattleFrontier_BattleHall_Movement_PlayerExit1 {
     walk_left * 4
     walk_down * 3
     set_invisible
 }
 
-movement BattleFrontier_BattleHall_Movement_07D8 {
+movement BattleFrontier_BattleHall_Movement_PlayerExit2 {
     walk_left * 2
     walk_up
     walk_left * 2
@@ -486,13 +486,13 @@ movement BattleFrontier_BattleHall_Movement_07D8 {
     set_invisible
 }
 
-movement BattleFrontier_BattleHall_Movement_07F0 {
+movement BattleFrontier_BattleHall_Movement_ObjectExit1 {
     walk_left * 3
     walk_down * 3
     set_invisible
 }
 
-movement BattleFrontier_BattleHall_Movement_0800 {
+movement BattleFrontier_BattleHall_Movement_ObjectExit2 {
     walk_left
     walk_up
     walk_left * 2
@@ -500,14 +500,14 @@ movement BattleFrontier_BattleHall_Movement_0800 {
     set_invisible
 }
 
-movement BattleFrontier_BattleHall_Movement_0818 {
+movement BattleFrontier_BattleHall_Movement_PlayerWalkRightUp {
     walk_faster_right * 4
     walk_faster_up * 3
     face_left
     set_visible
 }
 
-movement BattleFrontier_BattleHall_Movement_082C {
+movement BattleFrontier_BattleHall_Movement_PlayerWalkRightDown {
     walk_faster_right * 2
     walk_faster_down
     walk_faster_right * 2
@@ -516,13 +516,13 @@ movement BattleFrontier_BattleHall_Movement_082C {
     set_visible
 }
 
-movement BattleFrontier_BattleHall_Movement_0848 {
+movement BattleFrontier_BattleHall_Movement_ObjectWalkUpRight1 {
     walk_faster_up * 3
     walk_faster_right * 3
     set_visible
 }
 
-movement BattleFrontier_BattleHall_Movement_0858 {
+movement BattleFrontier_BattleHall_Movement_ObjectWalkUpRight2 {
     walk_faster_up * 2
     walk_faster_right * 3
     set_visible
@@ -595,7 +595,7 @@ _08AD:
     return
 }
 
-script scr_seq_D32R0401_001 {
+script BattleFrontier_BattleHall_EventScript_Scene1 {
     checkfieldheapfreesize(0)
     setvar(VAR_TEMP_x4003, 1)
     setvar(VAR_UNK_4145, 0)
@@ -615,7 +615,7 @@ _08D9:
     return
 }
 
-script scr_seq_D32R0401_002 {
+script BattleFrontier_BattleHall_EventScript_Scene2 {
     npcmsg("Excuse me!\r"
            "You didn’t save before you quit your\n"
            "challenge last time.\r"
@@ -636,7 +636,7 @@ _091C:
     return
 }
 
-script scr_seq_D32R0401_003 {
+script BattleFrontier_BattleHall_EventScript_Scene3 {
     compare(VAR_UNK_4146, 0)
     callifeq(_0960)
     compare(VAR_UNK_4146, 1)
@@ -677,7 +677,7 @@ text msg_0108_D32R0401_00013 {
     "you with this commemorative print!\r"
 }
 
-script scr_seq_D32R0401_004 {
+script BattleFrontier_BattleHall_EventScript_Scene4 {
     goto(_02F5)
     end
 }
@@ -694,7 +694,7 @@ movement BattleFrontier_BattleHall_Movement_09B0 {
     walk_up
 }
 
-script scr_seq_D32R0401_006 {
+script BattleFrontier_BattleHall_EventScript_Hiker {
     simplenpcmsg("Do you eat your favorite dish first or\n"
                  "leave it for later?\r"
                  "At the Battle Hall, it’s better to start\n"
@@ -705,7 +705,7 @@ script scr_seq_D32R0401_006 {
     end
 }
 
-script scr_seq_D32R0401_007 {
+script BattleFrontier_BattleHall_EventScript_Lass {
     simplenpcmsg("That opulent stage!\r"
                  "Your streaks of winnings are kept per\n"
                  "each kind of Pokémon.\f"
@@ -716,7 +716,7 @@ script scr_seq_D32R0401_007 {
     end
 }
 
-script scr_seq_D32R0401_008 {
+script BattleFrontier_BattleHall_EventScript_LittleGirl {
     simplenpcmsg("Slow...\r"
                  "My SLOWBRO is a cutie, but he’s even\n"
                  "battled the Brain here.\r"
@@ -725,7 +725,7 @@ script scr_seq_D32R0401_008 {
     end
 }
 
-script scr_seq_D32R0401_009 {
+script BattleFrontier_BattleHall_EventScript_Slowbro {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -739,7 +739,7 @@ script scr_seq_D32R0401_009 {
     end
 }
 
-script scr_seq_D32R0401_010 {
+script BattleFrontier_BattleHall_EventScript_OldMan {
     simplenpcmsg("Here is a tip!\r"
                  "You should try the Battle Hall with\n"
                  "not just your favorite Pokémon,\r"
@@ -749,7 +749,7 @@ script scr_seq_D32R0401_010 {
     end
 }
 
-script scr_seq_D32R0401_011 {
+script BattleFrontier_BattleHall_EventScript_Idol {
     simplenpcmsg("At the Battle Hall, if it’s the same kind\n"
                  "of Pokémon, you can enter different\f"
                  "ones and still keep your record.\r"
@@ -758,7 +758,7 @@ script scr_seq_D32R0401_011 {
     end
 }
 
-script scr_seq_D32R0401_012 {
+script BattleFrontier_BattleHall_EventScript_PokefanF {
     simplenpcmsg("You know how HOPPIP has two types--\n"
                  "Grass and Flying?\r"
                  "That means it can appear as a\n"
@@ -770,7 +770,7 @@ script scr_seq_D32R0401_012 {
     end
 }
 
-script scr_seq_D32R0401_013 {
+script BattleFrontier_BattleHall_EventScript_Beauty {
     simplenpcmsg("A piece of advice...\r"
                  "At the Battle Hall, the opposing\n"
                  "Pokémon are matched in level to yours.\r"
@@ -780,7 +780,7 @@ script scr_seq_D32R0401_013 {
     end
 }
 
-script scr_seq_D32R0401_014 {
+script BattleFrontier_BattleHall_EventScript_BugCatcher {
     simplenpcmsg("The Battle Hall lets you keep the\n"
                  "winning-streak records.\f"
                  "That’s neat, huh?\r"
@@ -793,7 +793,7 @@ script scr_seq_D32R0401_014 {
     end
 }
 
-script scr_seq_D32R0401_016 {
+script BattleFrontier_BattleHall_EventScript_Attendant3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -856,7 +856,7 @@ text msg_0108_D32R0401_00068 {
     "streaks of each kind of Pokémon."
 }
 
-script scr_seq_D32R0401_017 {
+script BattleFrontier_BattleHall_EventScript_Winston {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1091,7 +1091,7 @@ _0C4A:
     end
 }
 
-script scr_seq_D32R0401_019 {
+script BattleFrontier_BattleHall_EventScript_Ethan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1160,13 +1160,13 @@ script scr_seq_D32R0401_019 {
 }
 
 mapscripts BattleFrontier_BattleHall_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_D32R0401_020
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0401_015
-    INIT_SCRIPT_ON_RESUME: scr_seq_D32R0401_021
+    INIT_SCRIPT_ON_LOAD: BattleFrontier_BattleHall_OnLoad
+    INIT_SCRIPT_ON_TRANSITION: BattleFrontier_BattleHall_OnTransition
+    INIT_SCRIPT_ON_RESUME: BattleFrontier_BattleHall_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4145, 1: scr_seq_D32R0401_003
-        VAR_UNK_4145, 2: scr_seq_D32R0401_001
-        VAR_UNK_4145, 3: scr_seq_D32R0401_004
-        VAR_UNK_4145, 255: scr_seq_D32R0401_002
+        VAR_UNK_4145, 1: BattleFrontier_BattleHall_EventScript_Scene3
+        VAR_UNK_4145, 2: BattleFrontier_BattleHall_EventScript_Scene1
+        VAR_UNK_4145, 3: BattleFrontier_BattleHall_EventScript_Scene4
+        VAR_UNK_4145, 255: BattleFrontier_BattleHall_EventScript_Scene2
     ]
 }

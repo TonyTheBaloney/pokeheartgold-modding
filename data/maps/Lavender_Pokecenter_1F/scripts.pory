@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T05PC0101_000 {
+script Lavender_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T05PC0101_001 {
+script Lavender_Pokecenter_1F_EventScript_Gentleman {
     simplenpcmsg("To the north of Lavender is\n"
                  "the Rock Tunnel.\r"
                  "Go through it to get to the\n"
@@ -15,7 +15,7 @@ script scr_seq_T05PC0101_001 {
     end
 }
 
-script scr_seq_T05PC0101_002 {
+script Lavender_Pokecenter_1F_EventScript_Woman {
     simplenpcmsg("There’s a radio show that plays\n"
                  "Poké Flute music.\r"
                  "Oh? Ah, your radio needs an EXPN Card\n"
@@ -23,7 +23,7 @@ script scr_seq_T05PC0101_002 {
     end
 }
 
-script scr_seq_T05PC0101_003 {
+script Lavender_Pokecenter_1F_EventScript_SchoolKidM {
     simplenpcmsg("If the Power Plant isn’t running, the\n"
                  "Magnet Train won’t run either...\r"
                  "It also means the Radio Station\n"

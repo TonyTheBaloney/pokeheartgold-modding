@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0061_D18R0102_00000",
-      "from": "scr_seq_D18R0102_000#0"
+      "from": "BurnedTower_B1F_EventScript_EusineTrigger#0"
     },
     {
       "id": "msg_0061_D18R0102_00001",
-      "from": "scr_seq_D18R0102_000#1"
+      "from": "BurnedTower_B1F_EventScript_EusineTrigger#1"
     }
   ]
 }

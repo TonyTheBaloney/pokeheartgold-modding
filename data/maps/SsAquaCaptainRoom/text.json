@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0260_P01R0302_00000",
-      "from": "scr_seq_P01R0302_001#0"
+      "from": "SsAquaCaptainRoom_EventScript_LittleGirl#0"
     },
     {
       "id": "msg_0260_P01R0302_00001",
@@ -15,31 +15,31 @@
     },
     {
       "id": "msg_0260_P01R0302_00002",
-      "from": "scr_seq_P01R0302_001#2"
+      "from": "SsAquaCaptainRoom_EventScript_LittleGirl#2"
     },
     {
       "id": "msg_0260_P01R0302_00003",
-      "from": "scr_seq_P01R0302_001#1"
+      "from": "SsAquaCaptainRoom_EventScript_LittleGirl#1"
     },
     {
       "id": "msg_0260_P01R0302_00004",
-      "from": "scr_seq_P01R0302_000#3"
+      "from": "SsAquaCaptainRoom_EventScript_Captain#3"
     },
     {
       "id": "msg_0260_P01R0302_00005",
-      "from": "scr_seq_P01R0302_000#4"
+      "from": "SsAquaCaptainRoom_EventScript_Captain#4"
     },
     {
       "id": "msg_0260_P01R0302_00006",
-      "from": "scr_seq_P01R0302_000#2"
+      "from": "SsAquaCaptainRoom_EventScript_Captain#2"
     },
     {
       "id": "msg_0260_P01R0302_00007",
-      "from": "scr_seq_P01R0302_000#0"
+      "from": "SsAquaCaptainRoom_EventScript_Captain#0"
     },
     {
       "id": "msg_0260_P01R0302_00008",
-      "from": "scr_seq_P01R0302_000#1"
+      "from": "SsAquaCaptainRoom_EventScript_Captain#1"
     }
   ]
 }

@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0566_T23GYM0101_00000",
-      "from": "scr_seq_T23GYM0101_000#1"
+      "from": "Azalea_Gym_Entrance_EventScript_GymGuide#1"
     },
     {
       "id": "msg_0566_T23GYM0101_00001",
-      "from": "scr_seq_T23GYM0101_000#0"
+      "from": "Azalea_Gym_Entrance_EventScript_GymGuide#0"
     },
     {
       "id": "msg_0566_T23GYM0101_00002",
-      "from": "scr_seq_T23GYM0101_001#0"
+      "from": "Azalea_Gym_Entrance_EventScript_GymSign#0"
     },
     {
       "id": "msg_0566_T23GYM0101_00003",
-      "from": "scr_seq_T23GYM0101_001#1"
+      "from": "Azalea_Gym_Entrance_EventScript_GymSign#1"
     }
   ]
 }

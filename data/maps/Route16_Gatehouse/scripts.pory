@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R16R0201_000
-    scr_seq_R16R0201_001
-    scr_seq_R16R0201_002
-    scr_seq_R16R0201_003
+    Route16_Gatehouse_EventScript_Attendant
+    Route16_Gatehouse_EventScript_Trigger1
+    Route16_Gatehouse_EventScript_Trigger2
+    Route16_Gatehouse_OnResume
 }
 
-script scr_seq_R16R0201_003 {
+script Route16_Gatehouse_OnResume {
     if (flag(FLAG_UNK_149)) {
         setbikestatelock(1)
         end
@@ -17,7 +17,7 @@ script scr_seq_R16R0201_003 {
     end
 }
 
-script scr_seq_R16R0201_001 {
+script Route16_Gatehouse_EventScript_Trigger1 {
     followmonresetmovement
     lockall
     playeronbikecheck(VAR_SPECIAL_RESULT)
@@ -29,7 +29,7 @@ script scr_seq_R16R0201_001 {
         releaseall
         end
     }
-    applymovement(obj_player, Route16_Gatehouse_Movement_0084)
+    applymovement(obj_player, Route16_Gatehouse_Movement_PlayerFaceUp)
     waitmovement
     npcmsg("You! Stop right there!\r"
            "You have to be on a Bicycle to go on\n"
@@ -38,7 +38,7 @@ script scr_seq_R16R0201_001 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Route16_Gatehouse_Movement_008C)
+    applymovement(obj_player, Route16_Gatehouse_Movement_PlayerWalkRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -47,15 +47,15 @@ script scr_seq_R16R0201_001 {
     end
 }
 
-movement Route16_Gatehouse_Movement_0084 {
+movement Route16_Gatehouse_Movement_PlayerFaceUp {
     walk_in_place_up
 }
 
-movement Route16_Gatehouse_Movement_008C {
+movement Route16_Gatehouse_Movement_PlayerWalkRight {
     walk_right
 }
 
-script scr_seq_R16R0201_002 {
+script Route16_Gatehouse_EventScript_Trigger2 {
     setbikestatelock(0)
     setvar(VAR_UNK_4129, 0)
     setvar(VAR_UNK_412A, 0)
@@ -63,7 +63,7 @@ script scr_seq_R16R0201_002 {
     end
 }
 
-script scr_seq_R16R0201_000 {
+script Route16_Gatehouse_EventScript_Attendant {
     simplenpcmsg("Cycling Road starts here.\n"
                  "It’s all downhill, so it’s totally\f"
                  "exhilarating.\r"
@@ -75,5 +75,5 @@ script scr_seq_R16R0201_000 {
 }
 
 mapscripts Route16_Gatehouse_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_R16R0201_003
+    INIT_SCRIPT_ON_RESUME: Route16_Gatehouse_OnResume
 }

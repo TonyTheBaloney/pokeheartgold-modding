@@ -3,30 +3,30 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T27_000
-    scr_seq_T27_001
-    scr_seq_T27_002
-    scr_seq_T27_003
-    scr_seq_T27_004
-    scr_seq_T27_005
-    scr_seq_T27_006
-    scr_seq_T27_007
-    scr_seq_T27_008
-    scr_seq_T27_009
-    scr_seq_T27_010
-    scr_seq_T27_011
-    scr_seq_T27_012
-    scr_seq_T27_013
-    scr_seq_T27_014
-    scr_seq_T27_015
-    scr_seq_T27_016
+    Ecruteak_OnResume
+    Ecruteak_EventScript_CitySign
+    Ecruteak_EventScript_TrainerTips1
+    Ecruteak_EventScript_TrainerTips2
+    Ecruteak_EventScript_TrainerTips3
+    Ecruteak_EventScript_RivalTrigger
+    Ecruteak_EventScript_Lass
+    Ecruteak_EventScript_SchoolKidM
+    Ecruteak_EventScript_FatMan
+    Ecruteak_EventScript_OldMan1
+    Ecruteak_EventScript_OldMan2
+    Ecruteak_EventScript_Girl
+    Ecruteak_EventScript_Scene
+    Ecruteak_EventScript_OldMan3
+    Ecruteak_EventScript_PokefanM
+    Ecruteak_OnTransition
+    Ecruteak_EventScript_TrainerTips4
 }
 
-script scr_seq_T27_000 {
+script Ecruteak_OnResume {
     end
 }
 
-script scr_seq_T27_015 {
+script Ecruteak_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 5) {
@@ -40,13 +40,13 @@ script scr_seq_T27_015 {
     end
 }
 
-script scr_seq_T27_012 {
+script Ecruteak_EventScript_Scene {
     followmonresetmovement
     lockall
     dooranimationload(11, 5, 25, 23, 1)
     dooranimationopen(1)
     dooranimationwait(1)
-    applymovement(obj_player, Ecruteak_Movement_00D0)
+    applymovement(obj_player, Ecruteak_Movement_PlayerWalkDown1)
     waitmovement
     lock(obj_partner_poke)
     followmonislarge(VAR_SPECIAL_RESULT)
@@ -64,12 +64,12 @@ script scr_seq_T27_012 {
     end
 }
 
-movement Ecruteak_Movement_00D0 {
+movement Ecruteak_Movement_PlayerWalkDown1 {
     walk_fast_down * 2
     delay_8
 }
 
-script scr_seq_T27_005 {
+script Ecruteak_EventScript_RivalTrigger {
     followmonresetmovement
     lockall
     clearflag(FLAG_HIDE_ECRUTEAK_RIVAL)
@@ -77,8 +77,8 @@ script scr_seq_T27_005 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_T27_gsrivel, Ecruteak_Movement_019C)
-    applymovement(obj_player, Ecruteak_Movement_01B0)
+    applymovement(obj_T27_gsrivel, Ecruteak_Movement_RivalWalkDown1)
+    applymovement(obj_player, Ecruteak_Movement_PlayerWalkDown2)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -91,7 +91,7 @@ script scr_seq_T27_005 {
            "possible? How can I lose to\f"
            "mere Kimono Girls...?\r")
     closemessage
-    applymovement(obj_T27_gsrivel, Ecruteak_Movement_01C4)
+    applymovement(obj_T27_gsrivel, Ecruteak_Movement_RivalExclamation)
     waitmovement
     bufferplayersname(0)
     bufferrivalsname(1)
@@ -115,14 +115,14 @@ script scr_seq_T27_005 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_T27_gsrivel, Ecruteak_Movement_01D4)
-    applymovement(obj_player, Ecruteak_Movement_01B0)
+    applymovement(obj_T27_gsrivel, Ecruteak_Movement_RivalWalkDown2)
+    applymovement(obj_player, Ecruteak_Movement_PlayerWalkDown2)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_T27_gsrivel, Ecruteak_Movement_01E0)
-    applymovement(obj_player, Ecruteak_Movement_01F0)
+    applymovement(obj_T27_gsrivel, Ecruteak_Movement_RivalWalkLeft)
+    applymovement(obj_player, Ecruteak_Movement_PlayerFaceLeft)
     waitmovement
     removeobject(obj_T27_gsrivel)
     setflag(FLAG_HIDE_ECRUTEAK_RIVAL)
@@ -138,43 +138,43 @@ movement Ecruteak_Movement_0194 {
     emote_exclamation_mark
 }
 
-movement Ecruteak_Movement_019C {
+movement Ecruteak_Movement_RivalWalkDown1 {
     lock_dir
     walk_fast_down
     walk_in_place_fast_up
     unlock_dir
 }
 
-movement Ecruteak_Movement_01B0 {
+movement Ecruteak_Movement_PlayerWalkDown2 {
     face_up
     lock_dir
     walk_fast_down
     unlock_dir
 }
 
-movement Ecruteak_Movement_01C4 {
+movement Ecruteak_Movement_RivalExclamation {
     emote_exclamation_mark
     delay_8
     walk_in_place_down
 }
 
-movement Ecruteak_Movement_01D4 {
+movement Ecruteak_Movement_RivalWalkDown2 {
     walk_fast_down
     walk_in_place_fast_down
 }
 
-movement Ecruteak_Movement_01E0 {
+movement Ecruteak_Movement_RivalWalkLeft {
     walk_slow_left * 3
     delay_8 * 3
     walk_fast_left * 6
 }
 
-movement Ecruteak_Movement_01F0 {
+movement Ecruteak_Movement_PlayerFaceLeft {
     delay_8 * 3
     walk_in_place_left
 }
 
-script scr_seq_T27_013 {
+script Ecruteak_EventScript_OldMan3 {
     simplenpcmsg("In the distant past...\r"
                  "When this tower burned in a fire,\n"
                  "three nameless Pokémon perished in it.\r"
@@ -194,7 +194,7 @@ script scr_seq_T27_013 {
     end
 }
 
-script scr_seq_T27_014 {
+script Ecruteak_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -228,13 +228,13 @@ script scr_seq_T27_014 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Ecruteak_Movement_033C)
-        applymovement(obj_T27_gsmiddleman1, Ecruteak_Movement_0374)
+        applymovement(obj_player, Ecruteak_Movement_PlayerWalkRightUp)
+        applymovement(obj_T27_gsmiddleman1, Ecruteak_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Ecruteak_Movement_0354)
+        applymovement(obj_player, Ecruteak_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Ecruteak_Movement_0360)
-        applymovement(obj_T27_gsmiddleman1, Ecruteak_Movement_0374)
+        applymovement(obj_player, Ecruteak_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T27_gsmiddleman1, Ecruteak_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -242,7 +242,7 @@ script scr_seq_T27_014 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Ecruteak_Movement_0380)
+        applymovement(obj_partner_poke, Ecruteak_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -261,7 +261,7 @@ script scr_seq_T27_014 {
     end
 }
 
-movement Ecruteak_Movement_033C {
+movement Ecruteak_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -269,61 +269,61 @@ movement Ecruteak_Movement_033C {
     walk_in_place_down
 }
 
-movement Ecruteak_Movement_0354 {
+movement Ecruteak_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Ecruteak_Movement_0360 {
+movement Ecruteak_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Ecruteak_Movement_0374 {
+movement Ecruteak_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Ecruteak_Movement_0380 {
+movement Ecruteak_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T27_001 {
+script Ecruteak_EventScript_CitySign {
     directionsignpostex(0, 18, "Ecruteak City\n"
                                "A Historical City")
     end
 }
 
-script scr_seq_T27_002 {
+script Ecruteak_EventScript_TrainerTips1 {
     trainertipsex(2, "Ecruteak City Pokémon Gym\n"
                      "Leader: Morty\f"
                      "The Mystic Seer of the Future")
     end
 }
 
-script scr_seq_T27_003 {
+script Ecruteak_EventScript_TrainerTips2 {
     trainertipsex(2, "Ecruteak Dance Theater")
     end
 }
 
-script scr_seq_T27_004 {
+script Ecruteak_EventScript_TrainerTips3 {
     trainertipsex(2, "Burned Tower\n"
                      "It was destroyed by a mysterious fire.\r"
                      "Please stay away, as it is unsafe.")
     end
 }
 
-script scr_seq_T27_016 {
+script Ecruteak_EventScript_TrainerTips4 {
     trainertipsex(2, "Barrier Station to Bell Tower\n"
                      "No Trespassing by the Unworthy")
     end
 }
 
-script scr_seq_T27_008 {
+script Ecruteak_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -351,7 +351,7 @@ script scr_seq_T27_008 {
     end
 }
 
-script scr_seq_T27_009 {
+script Ecruteak_EventScript_OldMan1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -373,7 +373,7 @@ script scr_seq_T27_009 {
     end
 }
 
-script scr_seq_T27_010 {
+script Ecruteak_EventScript_OldMan2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -392,7 +392,7 @@ script scr_seq_T27_010 {
     end
 }
 
-script scr_seq_T27_006 {
+script Ecruteak_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -419,7 +419,7 @@ script scr_seq_T27_006 {
     end
 }
 
-script scr_seq_T27_007 {
+script Ecruteak_EventScript_SchoolKidM {
     simplenpcmsg("If you go west from this city, you’ll\n"
                  "reach a port called Olivine City.\r"
                  "When your Pokémon learns Surf,\n"
@@ -428,16 +428,16 @@ script scr_seq_T27_007 {
     end
 }
 
-script scr_seq_T27_011 {
+script Ecruteak_EventScript_Girl {
     simplenpcmsg("I’m going to rehearse at the\n"
                  "Dance Theater. Care to join me?")
     end
 }
 
 mapscripts Ecruteak_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_T27_000
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T27_015
+    INIT_SCRIPT_ON_RESUME: Ecruteak_OnResume
+    INIT_SCRIPT_ON_TRANSITION: Ecruteak_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4079, 1: scr_seq_T27_012
+        VAR_UNK_4079, 1: Ecruteak_EventScript_Scene
     ]
 }

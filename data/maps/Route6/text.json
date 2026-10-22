@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0334_R06_00000",
-      "from": "scr_seq_R06_000#0"
+      "from": "Route6_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0334_R06_00001",
-      "from": "scr_seq_R06_001#0"
+      "from": "Route6_EventScript_TrainerTips#0"
     }
   ]
 }

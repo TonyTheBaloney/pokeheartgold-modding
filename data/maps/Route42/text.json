@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0399_R42_00000",
-      "from": "scr_seq_R42_002#0"
+      "from": "Route42_EventScript_RouteSignEcruteak#0"
     },
     {
       "id": "msg_0399_R42_00001",
-      "from": "scr_seq_R42_003#0"
+      "from": "Route42_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0399_R42_00002",
-      "from": "scr_seq_R42_004#0"
+      "from": "Route42_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0399_R42_00003",
-      "from": "scr_seq_R42_005#0"
+      "from": "Route42_EventScript_RouteSignMahogany#0"
     },
     {
       "id": "msg_0399_R42_00004",
@@ -23,23 +23,23 @@
     },
     {
       "id": "msg_0399_R42_00005",
-      "from": "scr_seq_R42_000#0"
+      "from": "Route42_EventScript_HikerTrigger#0"
     },
     {
       "id": "msg_0399_R42_00006",
-      "from": "scr_seq_R42_000#1"
+      "from": "Route42_EventScript_HikerTrigger#1"
     },
     {
       "id": "msg_0399_R42_00007",
-      "from": "scr_seq_R42_001#0"
+      "from": "Route42_EventScript_EusineTrigger#0"
     },
     {
       "id": "msg_0399_R42_00008",
-      "from": "scr_seq_R42_001#1"
+      "from": "Route42_EventScript_EusineTrigger#1"
     },
     {
       "id": "msg_0399_R42_00009",
-      "from": "scr_seq_R42_001#2"
+      "from": "Route42_EventScript_EusineTrigger#2"
     }
   ]
 }

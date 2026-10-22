@@ -7,67 +7,67 @@
     },
     {
       "id": "msg_0361_R22R0101_00001",
-      "from": "scr_seq_R22R0101_005#1"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Policeman3#1"
     },
     {
       "id": "msg_0361_R22R0101_00002",
-      "from": "scr_seq_R22R0101_002#0"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger3#0"
     },
     {
       "id": "msg_0361_R22R0101_00003",
-      "from": "scr_seq_R22R0101_005#0"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Policeman3#0"
     },
     {
       "id": "msg_0361_R22R0101_00004",
-      "from": "scr_seq_R22R0101_004#1"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Policeman2#1"
     },
     {
       "id": "msg_0361_R22R0101_00005",
-      "from": "scr_seq_R22R0101_001#0"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger2#0"
     },
     {
       "id": "msg_0361_R22R0101_00006",
-      "from": "scr_seq_R22R0101_004#0"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Policeman2#0"
     },
     {
       "id": "msg_0361_R22R0101_00007",
-      "from": "scr_seq_R22R0101_008#5"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#5"
     },
     {
       "id": "msg_0361_R22R0101_00008",
-      "from": "scr_seq_R22R0101_008#6"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#6"
     },
     {
       "id": "msg_0361_R22R0101_00009",
-      "from": "scr_seq_R22R0101_008#7"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#7"
     },
     {
       "id": "msg_0361_R22R0101_00010",
-      "from": "scr_seq_R22R0101_008#8"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#8"
     },
     {
       "id": "msg_0361_R22R0101_00011",
-      "from": "scr_seq_R22R0101_008#9"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#9"
     },
     {
       "id": "msg_0361_R22R0101_00012",
-      "from": "scr_seq_R22R0101_008#0"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#0"
     },
     {
       "id": "msg_0361_R22R0101_00013",
-      "from": "scr_seq_R22R0101_008#3"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#3"
     },
     {
       "id": "msg_0361_R22R0101_00014",
-      "from": "scr_seq_R22R0101_008#4"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#4"
     },
     {
       "id": "msg_0361_R22R0101_00015",
-      "from": "scr_seq_R22R0101_008#1"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#1"
     },
     {
       "id": "msg_0361_R22R0101_00016",
-      "from": "scr_seq_R22R0101_008#2"
+      "from": "Route22_PokemonLeagueReceptionGate_EventScript_Janine#2"
     }
   ]
 }

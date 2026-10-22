@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R04_000 {
+script Route4_EventScript_TrainerTips {
     trainertipsex(2, "Mt. Moon ahead.\r"
                      "Mt. Moon Square is on\n"
                      "the way to the top!")

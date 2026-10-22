@@ -3,27 +3,27 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D32R0501_000
-    scr_seq_D32R0501_001
-    scr_seq_D32R0501_002
-    scr_seq_D32R0501_003
-    scr_seq_D32R0501_004
-    scr_seq_D32R0501_005
-    scr_seq_D32R0501_006
-    scr_seq_D32R0501_007
-    scr_seq_D32R0501_008
-    scr_seq_D32R0501_009
-    scr_seq_D32R0501_010
-    scr_seq_D32R0501_011
-    scr_seq_D32R0501_012
-    scr_seq_D32R0501_013
+    BattleFrontier_BattleCastle_EventScript_Attendant1
+    BattleFrontier_BattleCastle_EventScript_Scene1
+    BattleFrontier_BattleCastle_EventScript_Scene2
+    BattleFrontier_BattleCastle_EventScript_Scene3
+    BattleFrontier_BattleCastle_EventScript_Scene4
+    BattleFrontier_BattleCastle_EventScript_Attendant2
+    BattleFrontier_BattleCastle_EventScript_PokefanM
+    BattleFrontier_BattleCastle_EventScript_Lady
+    BattleFrontier_BattleCastle_EventScript_FatMan
+    BattleFrontier_BattleCastle_EventScript_Woman
+    BattleFrontier_BattleCastle_EventScript_Roughneck
+    BattleFrontier_BattleCastle_EventScript_Gentleman
+    BattleFrontier_BattleCastle_EventScript_BlackBelt
+    BattleFrontier_BattleCastle_OnTransition
 }
 
-script scr_seq_D32R0501_013 {
+script BattleFrontier_BattleCastle_OnTransition {
     end
 }
 
-script scr_seq_D32R0501_000 {
+script BattleFrontier_BattleCastle_EventScript_Attendant1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -33,7 +33,7 @@ script scr_seq_D32R0501_000 {
     end
 }
 
-script scr_seq_D32R0501_005 {
+script BattleFrontier_BattleCastle_EventScript_Attendant2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -269,16 +269,16 @@ _009A:
                         npcmsg(msg_0109_D32R0501_00032)
                         waitabpress
                         closemessage
-                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_060C)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_062C)
+                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_PlayerExit1)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_ObjectExit1)
                         waitmovement
                         return
                     _057E:
                         npcmsg(msg_0109_D32R0501_00032)
                         waitabpress
                         closemessage
-                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_060C)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_062C)
+                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_PlayerExit1)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_ObjectExit1)
                         waitmovement
                         return
                     _0599:
@@ -287,23 +287,23 @@ _009A:
                         linksyncclearpackets
                         linksyncandwait(137)
                         closemessage
-                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_0618)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_0638)
+                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_PlayerExit2)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_ObjectExit2)
                         waitmovement
                         return
                     _05BF:
-                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_064C)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_0670)
+                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_PlayerWalkRight)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_ObjectWalkRight)
                         waitmovement
                         return
                     _05D3:
-                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_064C)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_0670)
+                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_PlayerWalkRight)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_ObjectWalkRight)
                         waitmovement
                         return
                     _05E7:
-                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_065C)
-                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_067C)
+                        applymovement(obj_player, BattleFrontier_BattleCastle_Movement_PlayerWalkRightDown)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleCastle_Movement_ObjectWalkDownRight)
                         waitmovement
                         return
                     _05FB:
@@ -375,49 +375,49 @@ text msg_0109_D32R0501_00032 {
     "Right this way, please!"
 }
 
-movement BattleFrontier_BattleCastle_Movement_060C {
+movement BattleFrontier_BattleCastle_Movement_PlayerExit1 {
     walk_left * 6
     set_invisible
 }
 
-movement BattleFrontier_BattleCastle_Movement_0618 {
+movement BattleFrontier_BattleCastle_Movement_PlayerExit2 {
     walk_left * 3
     walk_up
     walk_left * 3
     set_invisible
 }
 
-movement BattleFrontier_BattleCastle_Movement_062C {
+movement BattleFrontier_BattleCastle_Movement_ObjectExit1 {
     walk_left * 5
     set_invisible
 }
 
-movement BattleFrontier_BattleCastle_Movement_0638 {
+movement BattleFrontier_BattleCastle_Movement_ObjectExit2 {
     walk_left * 2
     walk_up
     walk_left * 3
     set_invisible
 }
 
-movement BattleFrontier_BattleCastle_Movement_064C {
+movement BattleFrontier_BattleCastle_Movement_PlayerWalkRight {
     walk_faster_right * 6
     set_visible
     face_left
 }
 
-movement BattleFrontier_BattleCastle_Movement_065C {
+movement BattleFrontier_BattleCastle_Movement_PlayerWalkRightDown {
     walk_faster_right * 6
     walk_faster_down
     set_visible
     face_left
 }
 
-movement BattleFrontier_BattleCastle_Movement_0670 {
+movement BattleFrontier_BattleCastle_Movement_ObjectWalkRight {
     walk_faster_right * 5
     set_visible
 }
 
-movement BattleFrontier_BattleCastle_Movement_067C {
+movement BattleFrontier_BattleCastle_Movement_ObjectWalkDownRight {
     walk_faster_down
     walk_faster_right * 5
     set_visible
@@ -492,7 +492,7 @@ _06D1:
     return
 }
 
-script scr_seq_D32R0501_001 {
+script BattleFrontier_BattleCastle_EventScript_Scene1 {
     checkfieldheapfreesize(0)
     setvar(VAR_TEMP_x4003, 1)
     setvar(VAR_UNK_4147, 0)
@@ -512,7 +512,7 @@ _06FD:
     return
 }
 
-script scr_seq_D32R0501_002 {
+script BattleFrontier_BattleCastle_EventScript_Scene2 {
     lockall
     faceplayer
     npcmsg("Excuse me!\r"
@@ -535,7 +535,7 @@ _0744:
     return
 }
 
-script scr_seq_D32R0501_003 {
+script BattleFrontier_BattleCastle_EventScript_Scene3 {
     compare(VAR_UNK_4148, 0)
     callifeq(_0788)
     compare(VAR_UNK_4148, 1)
@@ -576,7 +576,7 @@ text msg_0109_D32R0501_00035 {
     "present you with a commemorative print!\r"
 }
 
-script scr_seq_D32R0501_004 {
+script BattleFrontier_BattleCastle_EventScript_Scene4 {
     goto(_0126)
     end
 }
@@ -593,7 +593,7 @@ movement BattleFrontier_BattleCastle_Movement_07D8 {
     walk_up
 }
 
-script scr_seq_D32R0501_006 {
+script BattleFrontier_BattleCastle_EventScript_PokefanM {
     simplenpcmsg("Listen carefully!\r"
                  "If your Pokémon win without taking\n"
                  "damage, you earn more CP.\f"
@@ -602,7 +602,7 @@ script scr_seq_D32R0501_006 {
     end
 }
 
-script scr_seq_D32R0501_007 {
+script BattleFrontier_BattleCastle_EventScript_Lady {
     simplenpcmsg("Listen!\r"
                  "You can earn more Castle Points or CP\n"
                  "by facing higher-level opponents.\r"
@@ -611,7 +611,7 @@ script scr_seq_D32R0501_007 {
     end
 }
 
-script scr_seq_D32R0501_008 {
+script BattleFrontier_BattleCastle_EventScript_FatMan {
     simplenpcmsg("Before every battle, you should check\n"
                  "the opponent’s lineup.\r"
                  "Don’t be cheap with your CP.\n"
@@ -624,7 +624,7 @@ script scr_seq_D32R0501_008 {
     end
 }
 
-script scr_seq_D32R0501_009 {
+script BattleFrontier_BattleCastle_EventScript_Woman {
     simplenpcmsg("Mr. Darach...\r"
                  "His feelings for Lady Caitlin are\n"
                  "all bottled up...\r"
@@ -632,7 +632,7 @@ script scr_seq_D32R0501_009 {
     end
 }
 
-script scr_seq_D32R0501_010 {
+script BattleFrontier_BattleCastle_EventScript_Roughneck {
     simplenpcmsg("At first, you can only use CP for\n"
                  "restoring HP.\r"
                  "But you can spend CP to rank up.\n"
@@ -640,14 +640,14 @@ script scr_seq_D32R0501_010 {
     end
 }
 
-script scr_seq_D32R0501_011 {
+script BattleFrontier_BattleCastle_EventScript_Gentleman {
     simplenpcmsg("If you lose, your entire stock of CP\n"
                  "is cleaned out to zero!\r"
                  "This is the rule at the Battle Castle.")
     end
 }
 
-script scr_seq_D32R0501_012 {
+script BattleFrontier_BattleCastle_EventScript_BlackBelt {
     simplenpcmsg("My dream is to wear a beautiful dress\n"
                  "and live in a castle!\r"
                  "That’s not what I meant to say...\r"
@@ -657,11 +657,11 @@ script scr_seq_D32R0501_012 {
 }
 
 mapscripts BattleFrontier_BattleCastle_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0501_013
+    INIT_SCRIPT_ON_TRANSITION: BattleFrontier_BattleCastle_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4147, 1: scr_seq_D32R0501_003
-        VAR_UNK_4147, 2: scr_seq_D32R0501_001
-        VAR_UNK_4147, 3: scr_seq_D32R0501_004
-        VAR_UNK_4147, 255: scr_seq_D32R0501_002
+        VAR_UNK_4147, 1: BattleFrontier_BattleCastle_EventScript_Scene3
+        VAR_UNK_4147, 2: BattleFrontier_BattleCastle_EventScript_Scene1
+        VAR_UNK_4147, 3: BattleFrontier_BattleCastle_EventScript_Scene4
+        VAR_UNK_4147, 255: BattleFrontier_BattleCastle_EventScript_Scene2
     ]
 }

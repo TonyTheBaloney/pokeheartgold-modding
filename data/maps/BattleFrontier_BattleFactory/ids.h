@@ -1,20 +1,20 @@
 #ifndef SCR_SEQ_D32R0301_H_
 #define SCR_SEQ_D32R0301_H_
 
-#define _EV_scr_seq_D32R0301_000 0
-#define _EV_scr_seq_D32R0301_001 1
-#define _EV_scr_seq_D32R0301_002 2
-#define _EV_scr_seq_D32R0301_003 3
-#define _EV_scr_seq_D32R0301_004 4
-#define _EV_scr_seq_D32R0301_005 5
-#define _EV_scr_seq_D32R0301_006 6
-#define _EV_scr_seq_D32R0301_007 7
-#define _EV_scr_seq_D32R0301_008 8
-#define _EV_scr_seq_D32R0301_009 9
-#define _EV_scr_seq_D32R0301_010 10
-#define _EV_scr_seq_D32R0301_011 11
-#define _EV_scr_seq_D32R0301_012 12
-#define _EV_scr_seq_D32R0301_013 13
+#define _EV_BattleFrontier_BattleFactory_EventScript_Attendant1 0
+#define _EV_BattleFrontier_BattleFactory_EventScript_Scene1 1
+#define _EV_BattleFrontier_BattleFactory_EventScript_Scene2 2
+#define _EV_BattleFrontier_BattleFactory_EventScript_Scene3 3
+#define _EV_BattleFrontier_BattleFactory_EventScript_Scene4 4
+#define _EV_BattleFrontier_BattleFactory_EventScript_Attendant2 5
+#define _EV_BattleFrontier_BattleFactory_EventScript_Woman 6
+#define _EV_BattleFrontier_BattleFactory_EventScript_Sailor 7
+#define _EV_BattleFrontier_BattleFactory_EventScript_Beauty 8
+#define _EV_BattleFrontier_BattleFactory_EventScript_Youngster 9
+#define _EV_BattleFrontier_BattleFactory_EventScript_Gentleman 10
+#define _EV_BattleFrontier_BattleFactory_EventScript_Lady 11
+#define _EV_BattleFrontier_BattleFactory_EventScript_Policeman 12
+#define _EV_BattleFrontier_BattleFactory_OnTransition 13
 
 #define obj_D32R0301_bfsm        0
 #define obj_D32R0301_bfsw1       1

@@ -3,21 +3,21 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T02_000
-    scr_seq_T02_001
-    scr_seq_T02_002
-    scr_seq_T02_003
-    scr_seq_T02_004
-    scr_seq_T02_005
-    scr_seq_T02_006
-    scr_seq_T02_007
-    scr_seq_T02_008
-    scr_seq_T02_009
-    scr_seq_T02_010
-    scr_seq_T02_011
+    Viridian_EventScript_OldMan1
+    Viridian_EventScript_OldMan2
+    Viridian_EventScript_FatMan
+    Viridian_EventScript_SchoolKidM
+    Viridian_EventScript_CitySign
+    Viridian_EventScript_TrainerTips1
+    Viridian_EventScript_TrainerTips2
+    Viridian_EventScript_TrainerTips3
+    Viridian_OnTransition
+    Viridian_EventScript_PokefanM
+    Viridian_EventScript_OldMan3
+    Viridian_EventScript_ProfOakCall
 }
 
-script scr_seq_T02_008 {
+script Viridian_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 3) {
@@ -37,13 +37,13 @@ script scr_seq_T02_008 {
     end
 }
 
-script scr_seq_T02_011 {
+script Viridian_EventScript_ProfOakCall {
     phonecall(PHONE_CONTACT_PROF__OAK, 2, 0)
     setvar(VAR_UNK_4096, 2)
     end
 }
 
-script scr_seq_T02_000 {
+script Viridian_EventScript_OldMan1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -71,20 +71,20 @@ script scr_seq_T02_000 {
     end
 }
 
-script scr_seq_T02_001 {
+script Viridian_EventScript_OldMan2 {
     simplenpcmsg("This Gym didn’t have a Leader...\r"
                  "A young man from Pallet Town became the\n"
                  "Leader, but he’s often away.")
     end
 }
 
-script scr_seq_T02_010 {
+script Viridian_EventScript_OldMan3 {
     simplenpcmsg("How was it?\n"
                  "Were you able to battle the Leader?")
     end
 }
 
-script scr_seq_T02_002 {
+script Viridian_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -116,7 +116,7 @@ script scr_seq_T02_002 {
     end
 }
 
-script scr_seq_T02_009 {
+script Viridian_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -150,16 +150,16 @@ script scr_seq_T02_009 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Viridian_Movement_02AC)
-        applymovement(obj_T02_gsmiddleman1, Viridian_Movement_02F8)
+        applymovement(obj_player, Viridian_Movement_PlayerWalkRightUp)
+        applymovement(obj_T02_gsmiddleman1, Viridian_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Viridian_Movement_02C4)
+        applymovement(obj_player, Viridian_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Viridian_Movement_02E4)
-        applymovement(obj_T02_gsmiddleman1, Viridian_Movement_02F8)
+        applymovement(obj_player, Viridian_Movement_PlayerWalkUpRight)
+        applymovement(obj_T02_gsmiddleman1, Viridian_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Viridian_Movement_02D0)
-        applymovement(obj_T02_gsmiddleman1, Viridian_Movement_02F8)
+        applymovement(obj_player, Viridian_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T02_gsmiddleman1, Viridian_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -167,7 +167,7 @@ script scr_seq_T02_009 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Viridian_Movement_0304)
+        applymovement(obj_partner_poke, Viridian_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -186,7 +186,7 @@ script scr_seq_T02_009 {
     end
 }
 
-movement Viridian_Movement_02AC {
+movement Viridian_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -194,70 +194,70 @@ movement Viridian_Movement_02AC {
     walk_in_place_down
 }
 
-movement Viridian_Movement_02C4 {
+movement Viridian_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Viridian_Movement_02D0 {
+movement Viridian_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Viridian_Movement_02E4 {
+movement Viridian_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Viridian_Movement_02F8 {
+movement Viridian_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Viridian_Movement_0304 {
+movement Viridian_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T02_003 {
+script Viridian_EventScript_SchoolKidM {
     simplenpcmsg("I heard that there are many items on\n"
                  "the ground in Viridian Forest.")
     end
 }
 
-script scr_seq_T02_004 {
+script Viridian_EventScript_CitySign {
     directionsignpostex(0, 2, "Viridian City\n"
                               "The City of Evergreen")
     end
 }
 
-script scr_seq_T02_005 {
+script Viridian_EventScript_TrainerTips1 {
     trainertipsex(2, "Viridian City Pokémon Gym\n"
                      "Leader: ...\f"
                      "The rest of the text is illegible...")
     end
 }
 
-script scr_seq_T02_006 {
+script Viridian_EventScript_TrainerTips2 {
     trainertipsex(2, "Welcome to Viridian City,\n"
                      "the Gateway to Indigo Plateau!")
     end
 }
 
-script scr_seq_T02_007 {
+script Viridian_EventScript_TrainerTips3 {
     trainertipsex(2, "Trainer House\n"
                      "The Club for Top Trainer Battles")
     end
 }
 
 mapscripts Viridian_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T02_008
+    INIT_SCRIPT_ON_TRANSITION: Viridian_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4096, 1: scr_seq_T02_011
+        VAR_UNK_4096, 1: Viridian_EventScript_ProfOakCall
     ]
 }

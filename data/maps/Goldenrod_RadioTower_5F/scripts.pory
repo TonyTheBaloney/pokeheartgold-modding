@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D23R0105_000
-    scr_seq_D23R0105_001
-    scr_seq_D23R0105_002
-    scr_seq_D23R0105_003
+    Goldenrod_RadioTower_5F_OnTransition
+    Goldenrod_RadioTower_5F_EventScript_5FDirectorsOfficeSign
+    Goldenrod_RadioTower_5F_EventScript_Petrel
+    Goldenrod_RadioTower_5F_EventScript_Sign
 }
 
-script scr_seq_D23R0105_000 {
+script Goldenrod_RadioTower_5F_OnTransition {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
     setvar(VAR_UNK_4125, 0)
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
@@ -18,17 +18,17 @@ script scr_seq_D23R0105_000 {
     end
 }
 
-script scr_seq_D23R0105_001 {
+script Goldenrod_RadioTower_5F_EventScript_5FDirectorsOfficeSign {
     simplenpcmsg("5F Director’s Office")
     end
 }
 
-script scr_seq_D23R0105_003 {
+script Goldenrod_RadioTower_5F_EventScript_Sign {
     simplenpcmsg("Go up for Observation Deck")
     end
 }
 
-script scr_seq_D23R0105_002 {
+script Goldenrod_RadioTower_5F_EventScript_Petrel {
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
         getitemquantity(ITEM_BASEMENT_KEY, VAR_SPECIAL_RESULT)
         if (var(VAR_SPECIAL_RESULT) != 0) {
@@ -52,17 +52,17 @@ script scr_seq_D23R0105_002 {
         wait(16, VAR_SPECIAL_RESULT)
         getplayerfacing(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 0) {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_0258)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelExclamation3)
         } elif (var(VAR_TEMP_x4000) == 2) {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_024C)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelExclamation2)
         } else {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_0240)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelExclamation1)
         }
         waitmovement
         if (var(VAR_TEMP_x4000) == 3) {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_0264)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelWalkRight1)
         } elif (var(VAR_TEMP_x4000) == 2) {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_0274)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelWalkLeft1)
         }
         waitmovement
         npcmsg("Yikes!\n"
@@ -70,19 +70,19 @@ script scr_seq_D23R0105_002 {
                "Who are you?\r")
         closemessage
         if (var(VAR_TEMP_x4000) == 3) {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_0284)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelWalkLeft2)
         } elif (var(VAR_TEMP_x4000) == 2) {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_028C)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelWalkRight2)
         }
         waitmovement
         bufferplayersname(0)
         npcmsg("...Oh no, it’s you again, {STRVAR_1 3, 0, 0}?\r")
         if (var(VAR_TEMP_x4000) == 0) {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_02B0)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelSpin2)
         } elif (var(VAR_TEMP_x4000) == 2) {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_0294)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelSpin1)
         } else {
-            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_02C8)
+            applymovement(obj_D23R0105_gsgentleman, Goldenrod_RadioTower_5F_Movement_PetrelSpin3)
         }
         waitmovement
         setflag(FLAG_HIDE_RADIO_TOWER_5F_OFFICE_DIRECTOR)
@@ -90,11 +90,11 @@ script scr_seq_D23R0105_002 {
         addobject(obj_D23R0105_rkanbum2)
         removeobject(obj_D23R0105_gsgentleman)
         if (var(VAR_TEMP_x4000) == 0) {
-            applymovement(obj_D23R0105_rkanbum2, Goldenrod_RadioTower_5F_Movement_0328)
+            applymovement(obj_D23R0105_rkanbum2, Goldenrod_RadioTower_5F_Movement_PetrelSpin5)
         } elif (var(VAR_TEMP_x4000) == 2) {
-            applymovement(obj_D23R0105_rkanbum2, Goldenrod_RadioTower_5F_Movement_0310)
+            applymovement(obj_D23R0105_rkanbum2, Goldenrod_RadioTower_5F_Movement_PetrelSpin4)
         } else {
-            applymovement(obj_D23R0105_rkanbum2, Goldenrod_RadioTower_5F_Movement_0344)
+            applymovement(obj_D23R0105_rkanbum2, Goldenrod_RadioTower_5F_Movement_PetrelSpin6)
         }
         waitmovement
         npcmsg("Petrel: No, no, no! I was pretending to\n"
@@ -139,42 +139,42 @@ script scr_seq_D23R0105_002 {
     end
 }
 
-movement Goldenrod_RadioTower_5F_Movement_0240 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelExclamation1 {
     face_left
     emote_exclamation_mark
 }
 
-movement Goldenrod_RadioTower_5F_Movement_024C {
+movement Goldenrod_RadioTower_5F_Movement_PetrelExclamation2 {
     face_right
     emote_exclamation_mark
 }
 
-movement Goldenrod_RadioTower_5F_Movement_0258 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelExclamation3 {
     face_down
     emote_exclamation_mark
 }
 
-movement Goldenrod_RadioTower_5F_Movement_0264 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelWalkRight1 {
     lock_dir
     walk_fast_right
     unlock_dir
 }
 
-movement Goldenrod_RadioTower_5F_Movement_0274 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelWalkLeft1 {
     lock_dir
     walk_fast_left
     unlock_dir
 }
 
-movement Goldenrod_RadioTower_5F_Movement_0284 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelWalkLeft2 {
     walk_fast_left
 }
 
-movement Goldenrod_RadioTower_5F_Movement_028C {
+movement Goldenrod_RadioTower_5F_Movement_PetrelWalkRight2 {
     walk_fast_right
 }
 
-movement Goldenrod_RadioTower_5F_Movement_0294 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelSpin1 {
     face_down
     face_left
     face_up
@@ -183,7 +183,7 @@ movement Goldenrod_RadioTower_5F_Movement_0294 {
     face_left
 }
 
-movement Goldenrod_RadioTower_5F_Movement_02B0 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelSpin2 {
     face_left
     face_up
     face_right
@@ -191,7 +191,7 @@ movement Goldenrod_RadioTower_5F_Movement_02B0 {
     face_left
 }
 
-movement Goldenrod_RadioTower_5F_Movement_02C8 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelSpin3 {
     face_up
     face_right
     face_down
@@ -213,7 +213,7 @@ movement Goldenrod_RadioTower_5F_Movement_02EC {
     face_up
 }
 
-movement Goldenrod_RadioTower_5F_Movement_0310 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelSpin4 {
     face_right
     face_down
     face_left
@@ -221,7 +221,7 @@ movement Goldenrod_RadioTower_5F_Movement_0310 {
     face_right
 }
 
-movement Goldenrod_RadioTower_5F_Movement_0328 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelSpin5 {
     face_right
     face_down
     face_left
@@ -230,7 +230,7 @@ movement Goldenrod_RadioTower_5F_Movement_0328 {
     face_down
 }
 
-movement Goldenrod_RadioTower_5F_Movement_0344 {
+movement Goldenrod_RadioTower_5F_Movement_PetrelSpin6 {
     face_right
     face_down
     face_left
@@ -241,5 +241,5 @@ movement Goldenrod_RadioTower_5F_Movement_0344 {
 }
 
 mapscripts Goldenrod_RadioTower_5F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0105_000
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_RadioTower_5F_OnTransition
 }

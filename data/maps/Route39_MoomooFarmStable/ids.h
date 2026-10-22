@@ -1,11 +1,11 @@
 #ifndef SCR_SEQ_R39R0201_H_
 #define SCR_SEQ_R39R0201_H_
 
-#define _EV_scr_seq_R39R0201_000 0
-#define _EV_scr_seq_R39R0201_001 1
-#define _EV_scr_seq_R39R0201_002 2
-#define _EV_scr_seq_R39R0201_003 3
-#define _EV_scr_seq_R39R0201_004 4
+#define _EV_Route39_MoomooFarmStable_EventScript_LittleGirl1 0
+#define _EV_Route39_MoomooFarmStable_EventScript_LittleGirl2 1
+#define _EV_Route39_MoomooFarmStable_EventScript_Miltank1 2
+#define _EV_Route39_MoomooFarmStable_EventScript_Miltank2 3
+#define _EV_Route39_MoomooFarmStable_OnTransition 4
 
 #define obj_R39R0201_gsbabygirl1                 0
 #define obj_R39R0201_tsure_poke_static_miltank   1

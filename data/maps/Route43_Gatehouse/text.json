@@ -15,11 +15,11 @@
     },
     {
       "id": "msg_0403_R43R0201_00003",
-      "from": "scr_seq_R43R0201_000#0"
+      "from": "Route43_Gatehouse_EventScript_RocketGrunt#0"
     },
     {
       "id": "msg_0403_R43R0201_00004",
-      "from": "scr_seq_R43R0201_003#0"
+      "from": "Route43_Gatehouse_EventScript_Attendant#0"
     },
     {
       "id": "msg_0403_R43R0201_00005",
@@ -27,7 +27,7 @@
     },
     {
       "id": "msg_0403_R43R0201_00006",
-      "from": "scr_seq_R43R0201_003#1"
+      "from": "Route43_Gatehouse_EventScript_Attendant#1"
     }
   ]
 }

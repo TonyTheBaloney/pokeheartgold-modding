@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D46R0101_000
-    scr_seq_D46R0101_001
+    Viridian_Forest_EventScript_Bugsy
+    Viridian_Forest_OnTransition
 }
 
-script scr_seq_D46R0101_001 {
+script Viridian_Forest_OnTransition {
     checkregisteredphonenumber(PHONE_CONTACT_BUGSY, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 1) { goto(_0047) }
     if (flag(FLAG_GAME_CLEAR)) {
@@ -23,7 +23,7 @@ script scr_seq_D46R0101_001 {
     end
 }
 
-script scr_seq_D46R0101_000 {
+script Viridian_Forest_EventScript_Bugsy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -78,5 +78,5 @@ _00CC:
 }
 
 mapscripts Viridian_Forest_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D46R0101_001
+    INIT_SCRIPT_ON_TRANSITION: Viridian_Forest_OnTransition
 }

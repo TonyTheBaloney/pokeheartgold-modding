@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T24R0601_000 {
+script Cianwood_CameronsHouse_EventScript_Fisherman {
     simplenpcmsg("Hi. You must be a sightseer!\n"
                  "Why not take a picture here?\r"
                  "You saw the camera outside?\n"

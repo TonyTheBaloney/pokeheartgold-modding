@@ -1,20 +1,20 @@
 #ifndef SCR_SEQ_D32R0501_H_
 #define SCR_SEQ_D32R0501_H_
 
-#define _EV_scr_seq_D32R0501_000 0
-#define _EV_scr_seq_D32R0501_001 1
-#define _EV_scr_seq_D32R0501_002 2
-#define _EV_scr_seq_D32R0501_003 3
-#define _EV_scr_seq_D32R0501_004 4
-#define _EV_scr_seq_D32R0501_005 5
-#define _EV_scr_seq_D32R0501_006 6
-#define _EV_scr_seq_D32R0501_007 7
-#define _EV_scr_seq_D32R0501_008 8
-#define _EV_scr_seq_D32R0501_009 9
-#define _EV_scr_seq_D32R0501_010 10
-#define _EV_scr_seq_D32R0501_011 11
-#define _EV_scr_seq_D32R0501_012 12
-#define _EV_scr_seq_D32R0501_013 13
+#define _EV_BattleFrontier_BattleCastle_EventScript_Attendant1 0
+#define _EV_BattleFrontier_BattleCastle_EventScript_Scene1 1
+#define _EV_BattleFrontier_BattleCastle_EventScript_Scene2 2
+#define _EV_BattleFrontier_BattleCastle_EventScript_Scene3 3
+#define _EV_BattleFrontier_BattleCastle_EventScript_Scene4 4
+#define _EV_BattleFrontier_BattleCastle_EventScript_Attendant2 5
+#define _EV_BattleFrontier_BattleCastle_EventScript_PokefanM 6
+#define _EV_BattleFrontier_BattleCastle_EventScript_Lady 7
+#define _EV_BattleFrontier_BattleCastle_EventScript_FatMan 8
+#define _EV_BattleFrontier_BattleCastle_EventScript_Woman 9
+#define _EV_BattleFrontier_BattleCastle_EventScript_Roughneck 10
+#define _EV_BattleFrontier_BattleCastle_EventScript_Gentleman 11
+#define _EV_BattleFrontier_BattleCastle_EventScript_BlackBelt 12
+#define _EV_BattleFrontier_BattleCastle_OnTransition 13
 
 #define obj_D32R0501_bfsm         0
 #define obj_D32R0501_bfsw1        1

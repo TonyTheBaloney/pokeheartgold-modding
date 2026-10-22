@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_D37R0105_H_
 #define SCR_SEQ_D37R0105_H_
 
-#define _EV_scr_seq_D37R0105_000 0
-#define _EV_scr_seq_D37R0105_001 1
+#define _EV_Goldenrod_TunnelWarehouse_OnTransition 0
+#define _EV_Goldenrod_TunnelWarehouse_EventScript_Director 1
 
 #define obj_D37R0105_rocketm       0
 #define obj_D37R0105_rocketm_2     1

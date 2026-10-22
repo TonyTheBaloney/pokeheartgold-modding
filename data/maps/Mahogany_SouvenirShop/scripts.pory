@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D35R0101_000
-    scr_seq_D35R0101_001
-    scr_seq_D35R0101_002
-    scr_seq_D35R0101_003
-    scr_seq_D35R0101_004
-    scr_seq_D35R0101_005
-    scr_seq_D35R0101_006
-    scr_seq_D35R0101_007
-    scr_seq_D35R0101_008
-    scr_seq_D35R0101_009
+    Mahogany_SouvenirShop_EventScript_InvisibleObject
+    Mahogany_SouvenirShop_OnResume
+    Mahogany_SouvenirShop_EventScript_GymGuide
+    Mahogany_SouvenirShop_EventScript_BlackBelt
+    Mahogany_SouvenirShop_EventScript_OldWoman
+    Mahogany_SouvenirShop_EventScript_Lance
+    Mahogany_SouvenirShop_EventScript_LanceScene
+    Mahogany_SouvenirShop_EventScript_Dragonite
+    Mahogany_SouvenirShop_OnLoad
+    Mahogany_SouvenirShop_EventScript_Radio
 }
 
-script scr_seq_D35R0101_001 {
+script Mahogany_SouvenirShop_OnResume {
     makeobjectvisible(obj_D35R0101_stop)
     makeobjectvisible(obj_D35R0101_stop_2)
     makeobjectvisible(obj_D35R0101_stop_3)
@@ -42,7 +42,7 @@ _006D:
     end
 }
 
-script scr_seq_D35R0101_008 {
+script Mahogany_SouvenirShop_OnLoad {
     if (var(VAR_UNK_40AC) == 3) {
         clearflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_GIOVANNI)
         setflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_PETREL)
@@ -56,22 +56,22 @@ _0105:
     end
 }
 
-script scr_seq_D35R0101_006 {
+script Mahogany_SouvenirShop_EventScript_LanceScene {
     stopbgm(0)
     playbgm(SEQ_GS_D_AJITO)
     followmonresetmovement
     lockall
-    applymovement(obj_player, Mahogany_SouvenirShop_Movement_0214)
+    applymovement(obj_player, Mahogany_SouvenirShop_Movement_PlayerExclamation)
     waitmovement
     npcmsg("Lance: DRAGONITE, Hyper Beam.\r")
     closemessage
     playse(SEQ_SE_GS_ZUTUKI)
-    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02AC)
+    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_DragoniteWalkRightLeft)
     waitse(SEQ_SE_GS_PRESSHIT)
-    applymovement(obj_D35R0101_gsfighter, Mahogany_SouvenirShop_Movement_021C)
+    applymovement(obj_D35R0101_gsfighter, Mahogany_SouvenirShop_Movement_BlackBeltWalkRight)
     waitmovement
-    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_022C)
-    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02C0)
+    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_LanceWalkDown)
+    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_DragoniteFaceDown)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("What took you so long, {STRVAR_1 3, 0, 0}?\r"
@@ -83,36 +83,36 @@ script scr_seq_D35R0101_006 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_0240)
-    applymovement(obj_player, Mahogany_SouvenirShop_Movement_025C)
-    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02CC)
+    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_LanceWalkUpRight)
+    applymovement(obj_player, Mahogany_SouvenirShop_Movement_PlayerWalkUp)
+    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_DragoniteWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_D35R0101_sunglasses, Mahogany_SouvenirShop_Movement_0268)
+    applymovement(obj_D35R0101_sunglasses, Mahogany_SouvenirShop_Movement_GymGuideWalkLeft)
     waitmovement
-    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_0280)
+    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_LanceWalkUp)
     waitmovement
     npcmsg("The stairs are right here.\r")
     closemessage
-    applymovement(obj_D35R0101_sunglasses, Mahogany_SouvenirShop_Movement_0290)
+    applymovement(obj_D35R0101_sunglasses, Mahogany_SouvenirShop_Movement_GymGuideExclamation)
     waitmovement
     playse(SEQ_SE_DP_UG_023)
-    applymovement(obj_D35R0101_babyboy1_10, Mahogany_SouvenirShop_Movement_029C)
-    applymovement(obj_D35R0101_stop, Mahogany_SouvenirShop_Movement_029C)
-    applymovement(obj_D35R0101_stop_2, Mahogany_SouvenirShop_Movement_029C)
-    applymovement(obj_D35R0101_stop_3, Mahogany_SouvenirShop_Movement_029C)
+    applymovement(obj_D35R0101_babyboy1_10, Mahogany_SouvenirShop_Movement_LittleBoyWalkRight)
+    applymovement(obj_D35R0101_stop, Mahogany_SouvenirShop_Movement_LittleBoyWalkRight)
+    applymovement(obj_D35R0101_stop_2, Mahogany_SouvenirShop_Movement_LittleBoyWalkRight)
+    applymovement(obj_D35R0101_stop_3, Mahogany_SouvenirShop_Movement_LittleBoyWalkRight)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lance: {STRVAR_1 3, 0, 0}, we should split up\n"
                  "to check this place. I’ll go first.\r", "Lance: {STRVAR_1 3, 0, 0}, we should split up\n"
                                                           "to check this place. I’ll go first.\r")
     closemessage
-    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_02A4)
+    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_LanceWalkRight)
     waitmovement
     removeobject(obj_D35R0101_wataru)
-    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02DC)
+    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_DragoniteWalkUpRight)
     waitmovement
     removeobject(obj_D35R0101_tsure_poke_static_dragonite)
     setflag(FLAG_HIDE_MAHOGANY_SHOP_LANCE)
@@ -121,24 +121,24 @@ script scr_seq_D35R0101_006 {
     end
 }
 
-movement Mahogany_SouvenirShop_Movement_0214 {
+movement Mahogany_SouvenirShop_Movement_PlayerExclamation {
     emote_exclamation_mark
 }
 
-movement Mahogany_SouvenirShop_Movement_021C {
+movement Mahogany_SouvenirShop_Movement_BlackBeltWalkRight {
     lock_dir
     walk_faster_right * 2
     unlock_dir
 }
 
-movement Mahogany_SouvenirShop_Movement_022C {
+movement Mahogany_SouvenirShop_Movement_LanceWalkDown {
     delay_8 * 3
     face_down * 2
     walk_down
     delay_8 * 5
 }
 
-movement Mahogany_SouvenirShop_Movement_0240 {
+movement Mahogany_SouvenirShop_Movement_LanceWalkUpRight {
     face_up * 2
     walk_up * 4
     face_right * 2
@@ -147,12 +147,12 @@ movement Mahogany_SouvenirShop_Movement_0240 {
     delay_8 * 5
 }
 
-movement Mahogany_SouvenirShop_Movement_025C {
+movement Mahogany_SouvenirShop_Movement_PlayerWalkUp {
     delay_8
     walk_up * 4
 }
 
-movement Mahogany_SouvenirShop_Movement_0268 {
+movement Mahogany_SouvenirShop_Movement_GymGuideWalkLeft {
     emote_exclamation_mark
     delay_8
     lock_dir
@@ -160,59 +160,59 @@ movement Mahogany_SouvenirShop_Movement_0268 {
     unlock_dir
 }
 
-movement Mahogany_SouvenirShop_Movement_0280 {
+movement Mahogany_SouvenirShop_Movement_LanceWalkUp {
     walk_up
     face_right * 2
     delay_8 * 2
 }
 
-movement Mahogany_SouvenirShop_Movement_0290 {
+movement Mahogany_SouvenirShop_Movement_GymGuideExclamation {
     face_right * 2
     emote_exclamation_mark
 }
 
-movement Mahogany_SouvenirShop_Movement_029C {
+movement Mahogany_SouvenirShop_Movement_LittleBoyWalkRight {
     walk_right
 }
 
-movement Mahogany_SouvenirShop_Movement_02A4 {
+movement Mahogany_SouvenirShop_Movement_LanceWalkRight {
     walk_right
 }
 
-movement Mahogany_SouvenirShop_Movement_02AC {
+movement Mahogany_SouvenirShop_Movement_DragoniteWalkRightLeft {
     walk_faster_right * 2
     lock_dir
     walk_faster_left * 2
     unlock_dir
 }
 
-movement Mahogany_SouvenirShop_Movement_02C0 {
+movement Mahogany_SouvenirShop_Movement_DragoniteFaceDown {
     delay_8 * 3
     face_down * 2
 }
 
-movement Mahogany_SouvenirShop_Movement_02CC {
+movement Mahogany_SouvenirShop_Movement_DragoniteWalkUp {
     delay_8 * 3
     face_up * 2
     walk_up * 2
 }
 
-movement Mahogany_SouvenirShop_Movement_02DC {
+movement Mahogany_SouvenirShop_Movement_DragoniteWalkUpRight {
     delay_8 * 3
     walk_up * 2
     face_right * 2
     walk_right
 }
 
-script scr_seq_D35R0101_000 {
+script Mahogany_SouvenirShop_EventScript_InvisibleObject {
     end
 }
 
-script scr_seq_D35R0101_007 {
+script Mahogany_SouvenirShop_EventScript_Dragonite {
     end
 }
 
-script scr_seq_D35R0101_002 {
+script Mahogany_SouvenirShop_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -238,7 +238,7 @@ script scr_seq_D35R0101_002 {
     end
 }
 
-script scr_seq_D35R0101_003 {
+script Mahogany_SouvenirShop_EventScript_BlackBelt {
     if (var(VAR_UNK_40A8) >= 2) {
         simplenpcmsg("Urrgh...\r"
                      "That guy’s Dragon-type Pokémon\n"
@@ -252,11 +252,11 @@ script scr_seq_D35R0101_003 {
     end
 }
 
-script scr_seq_D35R0101_005 {
+script Mahogany_SouvenirShop_EventScript_Lance {
     end
 }
 
-script scr_seq_D35R0101_004 {
+script Mahogany_SouvenirShop_EventScript_OldWoman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -275,7 +275,7 @@ script scr_seq_D35R0101_004 {
     end
 }
 
-script scr_seq_D35R0101_009 {
+script Mahogany_SouvenirShop_EventScript_Radio {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -357,9 +357,9 @@ text msg_0111_D35R0101_00012 {
 }
 
 mapscripts Mahogany_SouvenirShop_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D35R0101_001
-    INIT_SCRIPT_ON_LOAD: scr_seq_D35R0101_008
+    INIT_SCRIPT_ON_RESUME: Mahogany_SouvenirShop_OnResume
+    INIT_SCRIPT_ON_LOAD: Mahogany_SouvenirShop_OnLoad
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40A8, 1: scr_seq_D35R0101_006
+        VAR_UNK_40A8, 1: Mahogany_SouvenirShop_EventScript_LanceScene
     ]
 }

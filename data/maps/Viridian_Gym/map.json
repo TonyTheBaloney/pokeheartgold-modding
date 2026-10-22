@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T02GYM0101_001 + 1",
+            "script": "Viridian_Gym_EventScript_GymGuide",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T02GYM0101_000 + 1",
+            "script": "Viridian_Gym_EventScript_Blue",
             "flag": "FLAG_HIDE_VIRIDIAN_GYM_BLUE"
         },
         {
@@ -165,7 +165,7 @@
             "height": 1,
             "var": "VAR_UNK_4127",
             "var_value": 0,
-            "script": "_EV_scr_seq_T02GYM0101_003 + 1"
+            "script": "Viridian_Gym_EventScript_GymGuideTrigger"
         }
     ],
     "bg_events": [
@@ -175,7 +175,7 @@
             "y": 45,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T02GYM0101_004 + 1"
+            "script": "Viridian_Gym_EventScript_GymSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -183,7 +183,7 @@
             "y": 45,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T02GYM0101_004 + 1"
+            "script": "Viridian_Gym_EventScript_GymSign"
         }
     ]
 }

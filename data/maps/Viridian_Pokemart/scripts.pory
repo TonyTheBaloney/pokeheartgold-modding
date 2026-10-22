@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T02FS0101_000 {
+script Viridian_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T02FS0101_000 {
     end
 }
 
-script scr_seq_T02FS0101_001 {
+script Viridian_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,12 +25,12 @@ script scr_seq_T02FS0101_001 {
     end
 }
 
-script scr_seq_T02FS0101_002 {
+script Viridian_Pokemart_EventScript_Lass {
     simplenpcmsg("The Gym Leader here is totally cool.")
     end
 }
 
-script scr_seq_T02FS0101_003 {
+script Viridian_Pokemart_EventScript_AceTrainerM {
     simplenpcmsg("Have you been to Cinnabar?\r"
                  "It’s an island way south\n"
                  "of here.")

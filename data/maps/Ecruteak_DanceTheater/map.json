@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_014 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_OldWoman",
             "flag": "FLAG_UNK_241"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_002 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_Man",
             "flag": "FLAG_UNK_241"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_000 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_Gentleman",
             "flag": "FLAG_UNK_241"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_001 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_Psyduck",
             "flag": "FLAG_UNK_241"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_005 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_KimonoGirl2",
             "flag": "FLAG_HIDE_DANCE_STUDIO_KIMONO_GIRLS"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_006 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_KimonoGirl3",
             "flag": "FLAG_HIDE_DANCE_STUDIO_KIMONO_GIRLS"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_004 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_KimonoGirl1",
             "flag": "FLAG_UNK_23B"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_008 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_KimonoGirl5",
             "flag": "FLAG_HIDE_DANCE_STUDIO_KIMONO_GIRLS"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_009 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_KimonoGirl6",
             "flag": "FLAG_HIDE_DANCE_STUDIO_KIMONO_GIRLS"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_003 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_Grunt",
             "flag": "FLAG_UNK_23A"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27R0501_007 + 1",
+            "script": "Ecruteak_DanceTheater_EventScript_KimonoGirl4",
             "flag": "FLAG_HIDE_DANCE_STUDIO_KIMONO_GIRLS"
         },
         {
@@ -267,7 +267,7 @@
             "height": 1,
             "var": "VAR_UNK_410C",
             "var_value": 2,
-            "script": "_EV_scr_seq_T27R0501_011 + 1"
+            "script": "Ecruteak_DanceTheater_EventScript_GentlemanTrigger1"
         },
         {
             "x": 11,
@@ -277,7 +277,7 @@
             "height": 1,
             "var": "VAR_UNK_410C",
             "var_value": 2,
-            "script": "_EV_scr_seq_T27R0501_012 + 1"
+            "script": "Ecruteak_DanceTheater_EventScript_GentlemanTrigger2"
         }
     ],
     "bg_events": [
@@ -287,7 +287,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T27R0501_010 + 1"
+            "script": "Ecruteak_DanceTheater_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -295,7 +295,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T27R0501_010 + 1"
+            "script": "Ecruteak_DanceTheater_EventScript_Sign"
         }
     ]
 }

@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0627_T29R0101_00000",
-      "from": "scr_seq_T29R0101_000#1"
+      "from": "LakeOfRage_HiddenPowerHouse_EventScript_FatMan#1"
     },
     {
       "id": "msg_0627_T29R0101_00001",
@@ -11,7 +11,7 @@
     },
     {
       "id": "msg_0627_T29R0101_00002",
-      "from": "scr_seq_T29R0101_000#2"
+      "from": "LakeOfRage_HiddenPowerHouse_EventScript_FatMan#2"
     },
     {
       "id": "msg_0627_T29R0101_00003",
@@ -19,7 +19,7 @@
     },
     {
       "id": "msg_0627_T29R0101_00004",
-      "from": "scr_seq_T29R0101_000#0"
+      "from": "LakeOfRage_HiddenPowerHouse_EventScript_FatMan#0"
     }
   ]
 }

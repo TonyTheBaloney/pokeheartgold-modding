@@ -1,50 +1,50 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T05_000 {
+script Lavender_EventScript_PokefanM {
     simplenpcmsg("That’s quite some building, eh?\n"
                  "It’s Kanto’s Radio Tower.")
     end
 }
 
-script scr_seq_T05_001 {
+script Lavender_EventScript_Woman {
     simplenpcmsg("Kanto has many good radio shows.")
     end
 }
 
-script scr_seq_T05_002 {
+script Lavender_EventScript_OldMan {
     simplenpcmsg("People come from all over to pay their\n"
                  "respects to the spirits of Pokémon.")
     end
 }
 
-script scr_seq_T05_003 {
+script Lavender_EventScript_SchoolKidM {
     simplenpcmsg("You need a Poké Flute to wake\n"
                  "sleeping Pokémon.\f"
                  "Every Trainer has to know that!")
     end
 }
 
-script scr_seq_T05_004 {
+script Lavender_EventScript_TownSign {
     directionsignpostex(0, 5, "Lavender Town\n"
                               "The Noble Town")
     end
 }
 
-script scr_seq_T05_005 {
+script Lavender_EventScript_TrainerTips1 {
     trainertipsex(2, "Kanto Radio Station\n"
                      "Your Best-Loved Shows On-Air\f"
                      "Around the Clock!")
     end
 }
 
-script scr_seq_T05_006 {
+script Lavender_EventScript_TrainerTips2 {
     trainertipsex(2, "Lavender Volunteer\n"
                      "Pokémon House")
     end
 }
 
-script scr_seq_T05_007 {
+script Lavender_EventScript_TrainerTips3 {
     trainertipsex(2, "House of Memories\n"
                      "May Pokémon Spirits Rest Easy")
     end

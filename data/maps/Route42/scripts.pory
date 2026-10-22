@@ -1,31 +1,31 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R42_000 {
+script Route42_EventScript_HikerTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_player, Route42_Movement_017C)
+    applymovement(obj_player, Route42_Movement_PlayerExclamation)
     waitmovement
     getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
     clearflag(FLAG_HIDE_ROUTE_42_HIKER)
     addobject(obj_R42_mount_2_2)
     if (var(VAR_SPECIAL_x8001) == 172) {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_0198)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkDownLeft1)
     } elif (var(VAR_SPECIAL_x8001) == 173) {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_01A4)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkDownLeft2)
     } elif (var(VAR_SPECIAL_x8001) == 174) {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_01B0)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkDownLeft3)
     } elif (var(VAR_SPECIAL_x8001) == 175) {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_01BC)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkDownLeft4)
     } else {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_01C8)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkDownLeft5)
     }
     waitmovement
     playse(SEQ_SE_DP_WALL_HIT2)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_player, Route42_Movement_0184)
+    applymovement(obj_player, Route42_Movement_PlayerJumpLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -36,7 +36,7 @@ script scr_seq_R42_000 {
            "Please don’t cry.\n"
            "Here, take this.\r")
     closemessage
-    applymovement(obj_R42_mount_2_2, Route42_Movement_01D4)
+    applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkLeft)
     waitmovement
     giveitemnocheck(ITEM_HM04, 1)
     npcmsg("It’s a move called Strength!\r"
@@ -45,15 +45,15 @@ script scr_seq_R42_000 {
            "Enjoy a happy mountain-climbing life!\r")
     closemessage
     if (var(VAR_SPECIAL_x8001) == 172) {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_01DC)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkDownLeft6)
     } elif (var(VAR_SPECIAL_x8001) == 173) {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_01F0)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkDownLeft7)
     } elif (var(VAR_SPECIAL_x8001) == 174) {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_0204)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkDownLeft8)
     } elif (var(VAR_SPECIAL_x8001) == 175) {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_0210)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkDownLeft9)
     } else {
-        applymovement(obj_R42_mount_2_2, Route42_Movement_0224)
+        applymovement(obj_R42_mount_2_2, Route42_Movement_HikerWalkUpLeft)
     }
     waitmovement
     setflag(FLAG_HIDE_ROUTE_42_HIKER)
@@ -63,78 +63,78 @@ script scr_seq_R42_000 {
     end
 }
 
-movement Route42_Movement_017C {
+movement Route42_Movement_PlayerExclamation {
     emote_exclamation_mark
 }
 
-movement Route42_Movement_0184 {
+movement Route42_Movement_PlayerJumpLeft {
     face_right
     lock_dir
     jump_far_left
     unlock_dir
 }
 
-movement Route42_Movement_0198 {
+movement Route42_Movement_HikerWalkDownLeft1 {
     walk_fast_down
     walk_fast_left
 }
 
-movement Route42_Movement_01A4 {
+movement Route42_Movement_HikerWalkDownLeft2 {
     walk_fast_down * 2
     walk_fast_left
 }
 
-movement Route42_Movement_01B0 {
+movement Route42_Movement_HikerWalkDownLeft3 {
     walk_fast_down * 3
     walk_fast_left
 }
 
-movement Route42_Movement_01BC {
+movement Route42_Movement_HikerWalkDownLeft4 {
     walk_fast_down * 4
     walk_fast_left
 }
 
-movement Route42_Movement_01C8 {
+movement Route42_Movement_HikerWalkDownLeft5 {
     walk_fast_down * 5
     walk_fast_left
 }
 
-movement Route42_Movement_01D4 {
+movement Route42_Movement_HikerWalkLeft {
     walk_left * 2
 }
 
-movement Route42_Movement_01DC {
+movement Route42_Movement_HikerWalkDownLeft6 {
     walk_down
     walk_left * 5
     walk_down * 2
     walk_left * 5
 }
 
-movement Route42_Movement_01F0 {
+movement Route42_Movement_HikerWalkDownLeft7 {
     walk_down
     walk_left * 5
     walk_down
     walk_left * 5
 }
 
-movement Route42_Movement_0204 {
+movement Route42_Movement_HikerWalkDownLeft8 {
     walk_down
     walk_left * 10
 }
 
-movement Route42_Movement_0210 {
+movement Route42_Movement_HikerWalkDownLeft9 {
     walk_down
     walk_left * 4
     walk_up
     walk_left * 5
 }
 
-movement Route42_Movement_0224 {
+movement Route42_Movement_HikerWalkUpLeft {
     walk_up
     walk_left * 10
 }
 
-script scr_seq_R42_001 {
+script Route42_EventScript_EusineTrigger {
     followmonresetmovement
     lockall
     playcry(SPECIES_SUICUNE, 0)
@@ -145,8 +145,8 @@ script scr_seq_R42_001 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_R42_tsure_poke_static_suicune, Route42_Movement_02EC)
-    applymovement(obj_player, Route42_Movement_0308)
+    applymovement(obj_R42_tsure_poke_static_suicune, Route42_Movement_SuicuneWalkLeft)
+    applymovement(obj_player, Route42_Movement_PlayerWalkUpRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -154,7 +154,7 @@ script scr_seq_R42_001 {
     clearflag(FLAG_HIDE_ROUTE_42_EUSINE)
     addobject(obj_R42_minaki)
     callstd(std_play_eusine_music)
-    applymovement(obj_R42_minaki, Route42_Movement_0324)
+    applymovement(obj_R42_minaki, Route42_Movement_EusineWalkRightUp)
     waitmovement
     npcmsg("Eusine: SUICUNE...\n"
            "How brave it is!\f"
@@ -162,7 +162,7 @@ script scr_seq_R42_001 {
            "How beautiful it is!\f"
            "And how quickly it moves!\r")
     closemessage
-    applymovement(obj_R42_minaki, Route42_Movement_0334)
+    applymovement(obj_R42_minaki, Route42_Movement_EusineWalkUp)
     waitmovement
     bufferplayersname(0)
     npcmsg("{STRVAR_1 3, 0, 0}!\n"
@@ -175,14 +175,14 @@ script scr_seq_R42_001 {
            "I’ve heard so many stories about\f"
            "SUICUNE from him.\r")
     closemessage
-    applymovement(obj_R42_minaki, Route42_Movement_0348)
+    applymovement(obj_R42_minaki, Route42_Movement_EusineWalkRight2)
     waitmovement
     npcmsg("SUICUNE...\r"
            "I won’t stop following you until\n"
            "I’ve found out what you’re after...\r"
            "You hear me!\r")
     closemessage
-    applymovement(obj_R42_minaki, Route42_Movement_0340)
+    applymovement(obj_R42_minaki, Route42_Movement_EusineWalkRight1)
     waitmovement
     callstd(std_fade_end_eusine_music)
     removeobject(obj_R42_tsure_poke_static_suicune)
@@ -197,7 +197,7 @@ script scr_seq_R42_001 {
     end
 }
 
-movement Route42_Movement_02EC {
+movement Route42_Movement_SuicuneWalkLeft {
     delay_4 * 3
     walk_faster_left * 2
     jump_far_left
@@ -206,7 +206,7 @@ movement Route42_Movement_02EC {
     move_action_112
 }
 
-movement Route42_Movement_0308 {
+movement Route42_Movement_PlayerWalkUpRight {
     emote_exclamation_mark
     lock_dir
     walk_fast_up * 4
@@ -215,44 +215,44 @@ movement Route42_Movement_0308 {
     walk_right
 }
 
-movement Route42_Movement_0324 {
+movement Route42_Movement_EusineWalkRightUp {
     walk_right * 4
     walk_up * 3
     walk_right * 6
 }
 
-movement Route42_Movement_0334 {
+movement Route42_Movement_EusineWalkUp {
     walk_up
     face_left
 }
 
-movement Route42_Movement_0340 {
+movement Route42_Movement_EusineWalkRight1 {
     walk_right * 9
 }
 
-movement Route42_Movement_0348 {
+movement Route42_Movement_EusineWalkRight2 {
     walk_right
 }
 
-script scr_seq_R42_002 {
+script Route42_EventScript_RouteSignEcruteak {
     directionsignpostex(1, 1, "Rt. 42 Ecruteak City\n"
                               "to Mahogany Town")
     end
 }
 
-script scr_seq_R42_003 {
+script Route42_EventScript_TrainerTips1 {
     trainertipsex(2, "Mt. Mortar\n"
                      "Waterfall Cave Inside")
     end
 }
 
-script scr_seq_R42_004 {
+script Route42_EventScript_TrainerTips2 {
     trainertipsex(2, "Mt. Mortar\n"
                      "Waterfall Cave Inside")
     end
 }
 
-script scr_seq_R42_005 {
+script Route42_EventScript_RouteSignMahogany {
     directionsignpostex(1, 2, "Rt. 42 Mahogany Town\n"
                               "to Ecruteak City")
     end

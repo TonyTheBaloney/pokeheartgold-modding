@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0537_T11R0701_00000",
-      "from": "scr_seq_T11R0701_000#0"
+      "from": "Saffron_SilphCoHq_EventScript_Receptionist#0"
     },
     {
       "id": "msg_0537_T11R0701_00001",
-      "from": "scr_seq_T11R0701_001#0"
+      "from": "Saffron_SilphCoHq_EventScript_Policeman#0"
     },
     {
       "id": "msg_0537_T11R0701_00002",
-      "from": "scr_seq_T11R0701_001#1"
+      "from": "Saffron_SilphCoHq_EventScript_Policeman#1"
     },
     {
       "id": "msg_0537_T11R0701_00003",
-      "from": "scr_seq_T11R0701_003#0"
+      "from": "Saffron_SilphCoHq_EventScript_Sign#0"
     },
     {
       "id": "msg_0537_T11R0701_00004",
@@ -59,15 +59,15 @@
     },
     {
       "id": "msg_0537_T11R0701_00014",
-      "from": "scr_seq_T11R0701_004#1"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#1"
     },
     {
       "id": "msg_0537_T11R0701_00015",
-      "from": "scr_seq_T11R0701_004#2"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#2"
     },
     {
       "id": "msg_0537_T11R0701_00016",
-      "from": "scr_seq_T11R0701_004#3"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#3"
     },
     {
       "id": "msg_0537_T11R0701_00017",
@@ -83,31 +83,31 @@
     },
     {
       "id": "msg_0537_T11R0701_00020",
-      "from": "scr_seq_T11R0701_004#4"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#4"
     },
     {
       "id": "msg_0537_T11R0701_00021",
-      "from": "scr_seq_T11R0701_004#5"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#5"
     },
     {
       "id": "msg_0537_T11R0701_00022",
-      "from": "scr_seq_T11R0701_004#7"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#7"
     },
     {
       "id": "msg_0537_T11R0701_00023",
-      "from": "scr_seq_T11R0701_004#8"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#8"
     },
     {
       "id": "msg_0537_T11R0701_00024",
-      "from": "scr_seq_T11R0701_004#0"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#0"
     },
     {
       "id": "msg_0537_T11R0701_00025",
-      "from": "scr_seq_T11R0701_004#6"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#6"
     },
     {
       "id": "msg_0537_T11R0701_00026",
-      "from": "scr_seq_T11R0701_004#10"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#10"
     },
     {
       "id": "msg_0537_T11R0701_00027",
@@ -115,7 +115,7 @@
     },
     {
       "id": "msg_0537_T11R0701_00028",
-      "from": "scr_seq_T11R0701_004#9"
+      "from": "Saffron_SilphCoHq_EventScript_Steven#9"
     },
     {
       "id": "msg_0537_T11R0701_00029",

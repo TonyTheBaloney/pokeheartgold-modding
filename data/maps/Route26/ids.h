@@ -1,10 +1,10 @@
 #ifndef SCR_SEQ_R26_H_
 #define SCR_SEQ_R26_H_
 
-#define _EV_scr_seq_R26_000 0
-#define _EV_scr_seq_R26_001 1
-#define _EV_scr_seq_R26_002 2
-#define _EV_scr_seq_R26_003 3
+#define _EV_Route26_EventScript_PokefanM 0
+#define _EV_Route26_OnTransition 1
+#define _EV_Route26_EventScript_TrainerTips 2
+#define _EV_Route26_EventScript_NorthToVictoryRoadSign 3
 
 #define obj_R26_fishing_2    0
 #define obj_R26_mystery_2    1

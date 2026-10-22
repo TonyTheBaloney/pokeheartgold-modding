@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R09_000 {
+script Route9_EventScript_RouteSign {
     directionsignpostex(1, 1, "Rt. 9\n"
                               "East to Rock Tunnel")
     end

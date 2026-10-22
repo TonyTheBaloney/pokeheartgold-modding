@@ -3,35 +3,35 @@
   "messages": [
     {
       "id": "msg_0114_D35R0104_00000",
-      "from": "scr_seq_D35R0104_001#0"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_LanceScene#0"
     },
     {
       "id": "msg_0114_D35R0104_00001",
-      "from": "scr_seq_D35R0104_001#1"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_LanceScene#1"
     },
     {
       "id": "msg_0114_D35R0104_00002",
-      "from": "scr_seq_D35R0104_000#0"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_RocketGrunt#0"
     },
     {
       "id": "msg_0114_D35R0104_00003",
-      "from": "scr_seq_D35R0104_002#0"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_RivalTrigger#0"
     },
     {
       "id": "msg_0114_D35R0104_00004",
-      "from": "scr_seq_D35R0104_003#0"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_PetrelTrigger#0"
     },
     {
       "id": "msg_0114_D35R0104_00005",
-      "from": "scr_seq_D35R0104_003#1"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_PetrelTrigger#1"
     },
     {
       "id": "msg_0114_D35R0104_00006",
-      "from": "scr_seq_D35R0104_003#2"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_PetrelTrigger#2"
     },
     {
       "id": "msg_0114_D35R0104_00007",
-      "from": "scr_seq_D35R0104_003#3"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_PetrelTrigger#3"
     },
     {
       "id": "msg_0114_D35R0104_00008",
@@ -39,19 +39,19 @@
     },
     {
       "id": "msg_0114_D35R0104_00009",
-      "from": "scr_seq_D35R0104_003#4"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_PetrelTrigger#4"
     },
     {
       "id": "msg_0114_D35R0104_00010",
-      "from": "scr_seq_D35R0104_007#0"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_MurkrowTrigger#0"
     },
     {
       "id": "msg_0114_D35R0104_00011",
-      "from": "scr_seq_D35R0104_004#1"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_LittleBoy#1"
     },
     {
       "id": "msg_0114_D35R0104_00012",
-      "from": "scr_seq_D35R0104_004#0"
+      "from": "TeamRocketHeadquarters_B3F_EventScript_LittleBoy#0"
     }
   ]
 }

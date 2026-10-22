@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D39R0101_000
-    scr_seq_D39R0101_001
-    scr_seq_D39R0101_002
-    scr_seq_D39R0101_003
-    scr_seq_D39R0101_004
+    IcePath_1F_EventScript_PokefanM1
+    IcePath_1F_OnTransition
+    IcePath_1F_EventScript_KimonoGirl
+    IcePath_1F_EventScript_PokefanM2
+    IcePath_1F_EventScript_PokefanMTrigger
 }
 
-script scr_seq_D39R0101_001 {
+script IcePath_1F_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 5) { goto(_004B) }
@@ -25,7 +25,7 @@ script scr_seq_D39R0101_001 {
     end
 }
 
-script scr_seq_D39R0101_000 {
+script IcePath_1F_EventScript_PokefanM1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -41,7 +41,7 @@ script scr_seq_D39R0101_000 {
     }
     npcmsg(msg_0122_D39R0101_00001)
     closemessage
-    applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_0114)
+    applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_PokefanMFaceDown)
     waitmovement
     releaseall
     end
@@ -70,12 +70,12 @@ text msg_0122_D39R0101_00001 {
     "are gone!\r"
 }
 
-script scr_seq_D39R0101_004 {
+script IcePath_1F_EventScript_PokefanMTrigger {
     followmonresetmovement
     lockall
     if (flag(FLAG_HIDE_ITEMBALL_D39R0101_HM07)) {
-        applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_0108)
-        applymovement(obj_player, IcePath_1F_Movement_011C)
+        applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_PokefanMExclamation)
+        applymovement(obj_player, IcePath_1F_Movement_PlayerFaceDown)
         waitmovement
         npcmsg(msg_0122_D39R0101_00002)
         waitbuttonpress
@@ -84,16 +84,16 @@ script scr_seq_D39R0101_004 {
         setvar(VAR_UNK_4100, 1)
         end
     }
-    applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_0108)
-    applymovement(obj_player, IcePath_1F_Movement_011C)
+    applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_PokefanMExclamation)
+    applymovement(obj_player, IcePath_1F_Movement_PlayerFaceDown)
     waitmovement
     npcmsg(msg_0122_D39R0101_00001)
     closemessage
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_0114)
-    applymovement(obj_player, IcePath_1F_Movement_0128)
+    applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_PokefanMFaceDown)
+    applymovement(obj_player, IcePath_1F_Movement_PlayerWalkLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -102,25 +102,25 @@ script scr_seq_D39R0101_004 {
     end
 }
 
-movement IcePath_1F_Movement_0108 {
+movement IcePath_1F_Movement_PokefanMExclamation {
     face_up
     emote_exclamation_mark
 }
 
-movement IcePath_1F_Movement_0114 {
+movement IcePath_1F_Movement_PokefanMFaceDown {
     face_down
 }
 
-movement IcePath_1F_Movement_011C {
+movement IcePath_1F_Movement_PlayerFaceDown {
     delay_8 * 2
     face_down
 }
 
-movement IcePath_1F_Movement_0128 {
+movement IcePath_1F_Movement_PlayerWalkLeft {
     walk_left
 }
 
-script scr_seq_D39R0101_002 {
+script IcePath_1F_EventScript_KimonoGirl {
     playse(SEQ_SE_DP_SELECT)
     lockall
     callstd(std_play_kimono_girl_music)
@@ -169,13 +169,13 @@ _0193:
     closemessage
     getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
     createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
-    applymovement(obj_D39R0101_dancer, IcePath_1F_Movement_021C)
-    applymovement(241, IcePath_1F_Movement_0244)
+    applymovement(obj_D39R0101_dancer, IcePath_1F_Movement_KimonoGirlWalkDown1)
+    applymovement(241, IcePath_1F_Movement_ObjectWalkDown)
     waitmovement
     npcmsg("You really are kind.\r"
            "Thank you so much!\r")
     closemessage
-    applymovement(obj_D39R0101_dancer, IcePath_1F_Movement_023C)
+    applymovement(obj_D39R0101_dancer, IcePath_1F_Movement_KimonoGirlWalkDown2)
     waitmovement
     removeobject(obj_D39R0101_dancer)
     playse(SEQ_SE_DP_KAIDAN2)
@@ -183,7 +183,7 @@ _0193:
     callstd(std_fade_end_kimono_girl_music)
     setflag(FLAG_UNK_239)
     setvar(VAR_UNK_40E8, 1)
-    applymovement(241, IcePath_1F_Movement_024C)
+    applymovement(241, IcePath_1F_Movement_ObjectWalkUp)
     waitmovement
     removecameratarget
     releaseall
@@ -200,7 +200,7 @@ _01F3:
     end
 }
 
-movement IcePath_1F_Movement_021C {
+movement IcePath_1F_Movement_KimonoGirlWalkDown1 {
     pause_animation * 0
     walk_fast_down * 5
     resume_animation * 0
@@ -210,15 +210,15 @@ movement IcePath_1F_Movement_021C {
     walk_in_place_up * 2
 }
 
-movement IcePath_1F_Movement_023C {
+movement IcePath_1F_Movement_KimonoGirlWalkDown2 {
     walk_down * 4
 }
 
-movement IcePath_1F_Movement_0244 {
+movement IcePath_1F_Movement_ObjectWalkDown {
     walk_fast_down * 4
 }
 
-movement IcePath_1F_Movement_024C {
+movement IcePath_1F_Movement_ObjectWalkUp {
     walk_fast_up * 4
 }
 
@@ -226,7 +226,7 @@ movement IcePath_1F_Movement_0254 {
     face_down
 }
 
-script scr_seq_D39R0101_003 {
+script IcePath_1F_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -260,16 +260,16 @@ script scr_seq_D39R0101_003 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, IcePath_1F_Movement_03AC)
-        applymovement(obj_D39R0101_gsmiddleman1_2, IcePath_1F_Movement_03F8)
+        applymovement(obj_player, IcePath_1F_Movement_PlayerWalkRightUp)
+        applymovement(obj_D39R0101_gsmiddleman1_2, IcePath_1F_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, IcePath_1F_Movement_03C4)
+        applymovement(obj_player, IcePath_1F_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, IcePath_1F_Movement_03E4)
-        applymovement(obj_D39R0101_gsmiddleman1_2, IcePath_1F_Movement_03F8)
+        applymovement(obj_player, IcePath_1F_Movement_PlayerWalkUpRight)
+        applymovement(obj_D39R0101_gsmiddleman1_2, IcePath_1F_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, IcePath_1F_Movement_03D0)
-        applymovement(obj_D39R0101_gsmiddleman1_2, IcePath_1F_Movement_03F8)
+        applymovement(obj_player, IcePath_1F_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D39R0101_gsmiddleman1_2, IcePath_1F_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -277,7 +277,7 @@ script scr_seq_D39R0101_003 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, IcePath_1F_Movement_0404)
+        applymovement(obj_partner_poke, IcePath_1F_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -296,7 +296,7 @@ script scr_seq_D39R0101_003 {
     end
 }
 
-movement IcePath_1F_Movement_03AC {
+movement IcePath_1F_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -304,36 +304,36 @@ movement IcePath_1F_Movement_03AC {
     walk_in_place_down
 }
 
-movement IcePath_1F_Movement_03C4 {
+movement IcePath_1F_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement IcePath_1F_Movement_03D0 {
+movement IcePath_1F_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement IcePath_1F_Movement_03E4 {
+movement IcePath_1F_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement IcePath_1F_Movement_03F8 {
+movement IcePath_1F_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement IcePath_1F_Movement_0404 {
+movement IcePath_1F_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
 mapscripts IcePath_1F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D39R0101_001
+    INIT_SCRIPT_ON_TRANSITION: IcePath_1F_OnTransition
 }

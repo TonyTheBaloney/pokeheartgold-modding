@@ -4,47 +4,47 @@
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
     scr_seq_D32_000
-    scr_seq_D32_001
-    scr_seq_D32_002
-    scr_seq_D32_003
-    scr_seq_D32_004
-    scr_seq_D32_005
-    scr_seq_D32_006
-    scr_seq_D32_007
-    scr_seq_D32_008
-    scr_seq_D32_009
-    scr_seq_D32_010
-    scr_seq_D32_011
-    scr_seq_D32_012
-    scr_seq_D32_013
-    scr_seq_D32_014
-    scr_seq_D32_015
-    scr_seq_D32_016
-    scr_seq_D32_017
-    scr_seq_D32_018
-    scr_seq_D32_019
-    scr_seq_D32_020
-    scr_seq_D32_021
-    scr_seq_D32_022
+    BattleFrontier_EventScript_LittleBoy1
+    BattleFrontier_EventScript_BlackBelt
+    BattleFrontier_EventScript_Idol
+    BattleFrontier_EventScript_Fisherman1
+    BattleFrontier_EventScript_LittleGirl
+    BattleFrontier_EventScript_Woman1
+    BattleFrontier_EventScript_OldMan
+    BattleFrontier_EventScript_OldWoman
+    BattleFrontier_EventScript_Woman2
+    BattleFrontier_EventScript_Cowgirl
+    BattleFrontier_EventScript_Roughneck
+    BattleFrontier_EventScript_PokefanM1
+    BattleFrontier_EventScript_FatMan
+    BattleFrontier_EventScript_Gentleman
+    BattleFrontier_EventScript_AceTrainerM
+    BattleFrontier_EventScript_Picnicker
+    BattleFrontier_EventScript_Woman3
+    BattleFrontier_EventScript_Man
+    BattleFrontier_EventScript_SchoolKidM
+    BattleFrontier_EventScript_Fisherman2
+    BattleFrontier_EventScript_LittleBoy2
+    BattleFrontier_EventScript_Attendant1
     scr_seq_D32_023
-    scr_seq_D32_024
-    scr_seq_D32_025
-    scr_seq_D32_026
-    scr_seq_D32_027
-    scr_seq_D32_028
-    scr_seq_D32_029
-    scr_seq_D32_030
-    scr_seq_D32_031
-    scr_seq_D32_032
-    scr_seq_D32_033
-    scr_seq_D32_034
-    scr_seq_D32_035
-    scr_seq_D32_036
-    scr_seq_D32_037
-    scr_seq_D32_038
+    BattleFrontier_EventScript_Attendant2
+    BattleFrontier_EventScript_TrainerTips1
+    BattleFrontier_EventScript_TrainerTips2
+    BattleFrontier_EventScript_TrainerTips3
+    BattleFrontier_EventScript_TrainerTips4
+    BattleFrontier_EventScript_TrainerTips5
+    BattleFrontier_EventScript_Statue
+    BattleFrontier_EventScript_Sign1
+    BattleFrontier_EventScript_Sign2
+    BattleFrontier_EventScript_WarpToBattleFrontierBattleHall
+    BattleFrontier_EventScript_WarpToBattleFrontierBattleCastle
+    BattleFrontier_EventScript_WarpToBattleFrontierBattleArcade
+    BattleFrontier_EventScript_WarpToBattleFrontierBattleFactory
+    BattleFrontier_OnTransition
+    BattleFrontier_EventScript_PokefanM2
 }
 
-script scr_seq_D32_037 {
+script BattleFrontier_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) != 3) {
@@ -61,7 +61,7 @@ script scr_seq_D32_037 {
     end
 }
 
-script scr_seq_D32_038 {
+script BattleFrontier_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -95,16 +95,16 @@ script scr_seq_D32_038 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, BattleFrontier_Movement_0234)
-        applymovement(obj_D32_gsmiddleman1_2, BattleFrontier_Movement_0280)
+        applymovement(obj_player, BattleFrontier_Movement_PlayerWalkRightUp)
+        applymovement(obj_D32_gsmiddleman1_2, BattleFrontier_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, BattleFrontier_Movement_024C)
+        applymovement(obj_player, BattleFrontier_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, BattleFrontier_Movement_026C)
-        applymovement(obj_D32_gsmiddleman1_2, BattleFrontier_Movement_0280)
+        applymovement(obj_player, BattleFrontier_Movement_PlayerWalkUpRight)
+        applymovement(obj_D32_gsmiddleman1_2, BattleFrontier_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, BattleFrontier_Movement_0258)
-        applymovement(obj_D32_gsmiddleman1_2, BattleFrontier_Movement_0280)
+        applymovement(obj_player, BattleFrontier_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D32_gsmiddleman1_2, BattleFrontier_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -112,7 +112,7 @@ script scr_seq_D32_038 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, BattleFrontier_Movement_028C)
+        applymovement(obj_partner_poke, BattleFrontier_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -131,7 +131,7 @@ script scr_seq_D32_038 {
     end
 }
 
-movement BattleFrontier_Movement_0234 {
+movement BattleFrontier_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -139,43 +139,43 @@ movement BattleFrontier_Movement_0234 {
     walk_in_place_down
 }
 
-movement BattleFrontier_Movement_024C {
+movement BattleFrontier_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement BattleFrontier_Movement_0258 {
+movement BattleFrontier_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement BattleFrontier_Movement_026C {
+movement BattleFrontier_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement BattleFrontier_Movement_0280 {
+movement BattleFrontier_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement BattleFrontier_Movement_028C {
+movement BattleFrontier_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_D32_001 {
+script BattleFrontier_EventScript_LittleBoy1 {
     simplenpcmsg("Battle Tower... It’s so tall!\n"
                  "I wonder how many times my height it is?")
     end
 }
 
-script scr_seq_D32_002 {
+script BattleFrontier_EventScript_BlackBelt {
     simplenpcmsg("All the places in the Battle Frontier\n"
                  "let you team up with a friend!\f"
                  "That’s so cool, don’t you think?\f"
@@ -183,7 +183,7 @@ script scr_seq_D32_002 {
     end
 }
 
-script scr_seq_D32_003 {
+script BattleFrontier_EventScript_Idol {
     simplenpcmsg("I am the super Idol in Johto!\r"
                  "I’ve come all the way to the\n"
                  "Battle Frontier to promote my\f"
@@ -194,7 +194,7 @@ script scr_seq_D32_003 {
     end
 }
 
-script scr_seq_D32_004 {
+script BattleFrontier_EventScript_Fisherman1 {
     simplenpcmsg("Fishing won’t keep me calm since I came\n"
                  "to know about the Battle Frontier.\f"
                  "When I go fishing, I find myself quitting\f"
@@ -202,7 +202,7 @@ script scr_seq_D32_004 {
     end
 }
 
-script scr_seq_D32_005 {
+script BattleFrontier_EventScript_LittleGirl {
     simplenpcmsg("The place I like best among the five\n"
                  "facilities here would be the\f"
                  "Battle Castle, because you can see\f"
@@ -210,7 +210,7 @@ script scr_seq_D32_005 {
     end
 }
 
-script scr_seq_D32_006 {
+script BattleFrontier_EventScript_Woman1 {
     simplenpcmsg("What makes me the most happy being\n"
                  "a Trainer?\r"
                  "The fact that Pokémon will always bring\n"
@@ -218,7 +218,7 @@ script scr_seq_D32_006 {
     end
 }
 
-script scr_seq_D32_007 {
+script BattleFrontier_EventScript_OldMan {
     simplenpcmsg("Just like people go through different\n"
                  "things they can learn from, Pokémon\f"
                  "learn different things from battles.\r"
@@ -227,13 +227,13 @@ script scr_seq_D32_007 {
     end
 }
 
-script scr_seq_D32_008 {
+script BattleFrontier_EventScript_OldWoman {
     simplenpcmsg("All experiences lead to a tale.\n"
                  "I’m not wrong, am I, dear?")
     end
 }
 
-script scr_seq_D32_009 {
+script BattleFrontier_EventScript_Woman2 {
     simplenpcmsg("I’ve come to the Battle Frontier to\n"
                  "get a job!\r"
                  "Thanks to my previous job, I’m good\n"
@@ -241,7 +241,7 @@ script scr_seq_D32_009 {
     end
 }
 
-script scr_seq_D32_010 {
+script BattleFrontier_EventScript_Cowgirl {
     simplenpcmsg("To be strong is to be weak.\n"
                  "To be weak is to be strong.\r"
                  "Somebody told me that before.\n"
@@ -252,7 +252,7 @@ script scr_seq_D32_010 {
     end
 }
 
-script scr_seq_D32_011 {
+script BattleFrontier_EventScript_Roughneck {
     simplenpcmsg("Watching these people who care so much\n"
                  "about Pokémon makes me feel ashamed\f"
                  "of my selfishness.\r"
@@ -260,7 +260,7 @@ script scr_seq_D32_011 {
     end
 }
 
-script scr_seq_D32_012 {
+script BattleFrontier_EventScript_PokefanM1 {
     simplenpcmsg("I wonder how many years it’s been since\n"
                  "I first met a Pokémon? ...Forty-nine!\r"
                  "Oh, I lost the page that kept track of\n"
@@ -269,7 +269,7 @@ script scr_seq_D32_012 {
     end
 }
 
-script scr_seq_D32_013 {
+script BattleFrontier_EventScript_FatMan {
     simplenpcmsg("Trainers care about Pokémon\n"
                  "as the battle progresses.\r"
                  "In return, Pokémon repay that trust\n"
@@ -281,7 +281,7 @@ script scr_seq_D32_013 {
     end
 }
 
-script scr_seq_D32_014 {
+script BattleFrontier_EventScript_Gentleman {
     simplenpcmsg("You cannot try anything if you are\n"
                  "afraid of losing battles.\r"
                  "But!\r"
@@ -294,7 +294,7 @@ script scr_seq_D32_014 {
     end
 }
 
-script scr_seq_D32_015 {
+script BattleFrontier_EventScript_AceTrainerM {
     simplenpcmsg("If you want to graduate from being\n"
                  "a so-so Trainer, mark my words!\r"
                  "The Pokémon’s type!\r"
@@ -304,7 +304,7 @@ script scr_seq_D32_015 {
     end
 }
 
-script scr_seq_D32_016 {
+script BattleFrontier_EventScript_Picnicker {
     simplenpcmsg("When people win a battle, some laugh\n"
                  "at their opponent.\r"
                  "Some brag about his or her strengths.\r"
@@ -316,7 +316,7 @@ script scr_seq_D32_016 {
     end
 }
 
-script scr_seq_D32_017 {
+script BattleFrontier_EventScript_Woman3 {
     simplenpcmsg("Have you heard of the Brains of the\n"
                  "Battle Frontier?\r"
                  "There are five facilities in the\n"
@@ -328,7 +328,7 @@ script scr_seq_D32_017 {
     end
 }
 
-script scr_seq_D32_018 {
+script BattleFrontier_EventScript_Man {
     simplenpcmsg("Allowing us to enjoy battles,\n"
                  "helping us work,\f"
                  "taking us to places far away,\f"
@@ -338,7 +338,7 @@ script scr_seq_D32_018 {
     end
 }
 
-script scr_seq_D32_019 {
+script BattleFrontier_EventScript_SchoolKidM {
     simplenpcmsg("At the Battle Factory, you have to\n"
                  "keep winning with rental Pokémon.\r"
                  "I may not stand a chance at other\n"
@@ -347,7 +347,7 @@ script scr_seq_D32_019 {
     end
 }
 
-script scr_seq_D32_020 {
+script BattleFrontier_EventScript_Fisherman2 {
     simplenpcmsg("The Battle Hall is where Pokémon battle\n"
                  "one-on-one for as long as they can.\r"
                  "Even my MAGIKARP has a shot at\n"
@@ -358,7 +358,7 @@ script scr_seq_D32_020 {
     end
 }
 
-script scr_seq_D32_021 {
+script BattleFrontier_EventScript_LittleBoy2 {
     simplenpcmsg("Life is full of ebbs and flows.\n"
                  "I’ll keep my inflatable tube close.\r"
                  "I could call it the wisdom I gained\n"
@@ -366,7 +366,7 @@ script scr_seq_D32_021 {
     end
 }
 
-script scr_seq_D32_022 {
+script BattleFrontier_EventScript_Attendant1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -670,7 +670,7 @@ text msg_0100_D32_00021 {
     "for some prizes? {YESNO 0}"
 }
 
-script scr_seq_D32_024 {
+script BattleFrontier_EventScript_Attendant2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -881,37 +881,37 @@ script scr_seq_D32_023 {
     end
 }
 
-script scr_seq_D32_025 {
+script BattleFrontier_EventScript_TrainerTips1 {
     trainertipsex(3, "Battle Tower\n"
                      "Never Lose! Keep Winning!")
     end
 }
 
-script scr_seq_D32_026 {
+script BattleFrontier_EventScript_TrainerTips2 {
     trainertipsex(3, "Battle Hall\n"
                      "Let Each Pokémon Seek No. 1")
     end
 }
 
-script scr_seq_D32_027 {
+script BattleFrontier_EventScript_TrainerTips3 {
     trainertipsex(3, "Battle Castle\n"
                      "Manage Battles with Castle Points")
     end
 }
 
-script scr_seq_D32_028 {
+script BattleFrontier_EventScript_TrainerTips4 {
     trainertipsex(3, "Battle Arcade\n"
                      "Where Events Sway Outcomes")
     end
 }
 
-script scr_seq_D32_029 {
+script BattleFrontier_EventScript_TrainerTips5 {
     trainertipsex(3, "Battle Factory\n"
                      "Win Consecutively with Rental Pokémon")
     end
 }
 
-script scr_seq_D32_030 {
+script BattleFrontier_EventScript_Statue {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("A Trainer who just caught a Pokémon.\n"
@@ -922,7 +922,7 @@ script scr_seq_D32_030 {
     end
 }
 
-script scr_seq_D32_031 {
+script BattleFrontier_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("“Boastful of Capture”...\n"
@@ -933,7 +933,7 @@ script scr_seq_D32_031 {
     end
 }
 
-script scr_seq_D32_032 {
+script BattleFrontier_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("This...!\n"
@@ -944,11 +944,11 @@ script scr_seq_D32_032 {
     end
 }
 
-script scr_seq_D32_033 {
+script BattleFrontier_EventScript_WarpToBattleFrontierBattleHall {
     followmonresetmovement
     lockall
     followmonrecall
-    applymovement(obj_player, BattleFrontier_Movement_10B0)
+    applymovement(obj_player, BattleFrontier_Movement_PlayerWalkLeft1)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -960,15 +960,15 @@ script scr_seq_D32_033 {
     end
 }
 
-movement BattleFrontier_Movement_10B0 {
+movement BattleFrontier_Movement_PlayerWalkLeft1 {
     walk_fast_left * 5
 }
 
-script scr_seq_D32_034 {
+script BattleFrontier_EventScript_WarpToBattleFrontierBattleCastle {
     followmonresetmovement
     lockall
     followmonrecall
-    applymovement(obj_player, BattleFrontier_Movement_10F4)
+    applymovement(obj_player, BattleFrontier_Movement_PlayerWalkLeft2)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -980,15 +980,15 @@ script scr_seq_D32_034 {
     end
 }
 
-movement BattleFrontier_Movement_10F4 {
+movement BattleFrontier_Movement_PlayerWalkLeft2 {
     walk_fast_left * 6
 }
 
-script scr_seq_D32_035 {
+script BattleFrontier_EventScript_WarpToBattleFrontierBattleArcade {
     followmonresetmovement
     lockall
     followmonrecall
-    applymovement(obj_player, BattleFrontier_Movement_1138)
+    applymovement(obj_player, BattleFrontier_Movement_PlayerWalkRight1)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -1000,15 +1000,15 @@ script scr_seq_D32_035 {
     end
 }
 
-movement BattleFrontier_Movement_1138 {
+movement BattleFrontier_Movement_PlayerWalkRight1 {
     walk_fast_right * 5
 }
 
-script scr_seq_D32_036 {
+script BattleFrontier_EventScript_WarpToBattleFrontierBattleFactory {
     followmonresetmovement
     lockall
     followmonrecall
-    applymovement(obj_player, BattleFrontier_Movement_117C)
+    applymovement(obj_player, BattleFrontier_Movement_PlayerWalkRight2)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -1020,7 +1020,7 @@ script scr_seq_D32_036 {
     end
 }
 
-movement BattleFrontier_Movement_117C {
+movement BattleFrontier_Movement_PlayerWalkRight2 {
     walk_fast_right * 6
 }
 
@@ -1029,5 +1029,5 @@ script scr_seq_D32_000 {
 }
 
 mapscripts BattleFrontier_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32_037
+    INIT_SCRIPT_ON_TRANSITION: BattleFrontier_OnTransition
 }

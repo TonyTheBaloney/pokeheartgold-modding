@@ -138,7 +138,7 @@
             "height": 1,
             "var": "VAR_UNK_40C7",
             "var_value": 0,
-            "script": "_EV_scr_seq_T10R0601_000 + 1"
+            "script": "PokemonLeagueLanceRoom_EventScript_LanceTrigger"
         }
     ],
     "bg_events": []

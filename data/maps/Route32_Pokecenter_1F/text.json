@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0381_R32PC0101_00000",
-      "from": "scr_seq_R32PC0101_001#1"
+      "from": "Route32_Pokecenter_1F_EventScript_Fisherman#1"
     },
     {
       "id": "msg_0381_R32PC0101_00001",
@@ -15,39 +15,39 @@
     },
     {
       "id": "msg_0381_R32PC0101_00003",
-      "from": "scr_seq_R32PC0101_001#3"
+      "from": "Route32_Pokecenter_1F_EventScript_Fisherman#3"
     },
     {
       "id": "msg_0381_R32PC0101_00004",
-      "from": "scr_seq_R32PC0101_001#2"
+      "from": "Route32_Pokecenter_1F_EventScript_Fisherman#2"
     },
     {
       "id": "msg_0381_R32PC0101_00005",
-      "from": "scr_seq_R32PC0101_001#0"
+      "from": "Route32_Pokecenter_1F_EventScript_Fisherman#0"
     },
     {
       "id": "msg_0381_R32PC0101_00006",
-      "from": "scr_seq_R32PC0101_003#0"
+      "from": "Route32_Pokecenter_1F_EventScript_AceTrainerF#0"
     },
     {
       "id": "msg_0381_R32PC0101_00007",
-      "from": "scr_seq_R32PC0101_002#1"
+      "from": "Route32_Pokecenter_1F_EventScript_PokefanM#1"
     },
     {
       "id": "msg_0381_R32PC0101_00008",
-      "from": "scr_seq_R32PC0101_002#2"
+      "from": "Route32_Pokecenter_1F_EventScript_PokefanM#2"
     },
     {
       "id": "msg_0381_R32PC0101_00009",
-      "from": "scr_seq_R32PC0101_002#3"
+      "from": "Route32_Pokecenter_1F_EventScript_PokefanM#3"
     },
     {
       "id": "msg_0381_R32PC0101_00010",
-      "from": "scr_seq_R32PC0101_002#4"
+      "from": "Route32_Pokecenter_1F_EventScript_PokefanM#4"
     },
     {
       "id": "msg_0381_R32PC0101_00011",
-      "from": "scr_seq_R32PC0101_002#0"
+      "from": "Route32_Pokecenter_1F_EventScript_PokefanM#0"
     }
   ]
 }

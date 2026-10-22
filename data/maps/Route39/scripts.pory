@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R39_000
-    scr_seq_R39_001
-    scr_seq_R39_002
-    scr_seq_R39_003
-    scr_seq_R39_004
-    scr_seq_R39_005
-    scr_seq_R39_006
-    scr_seq_R39_007
+    Route39_EventScript_Miltank
+    Route39_OnTransition
+    Route39_EventScript_BaobaTrigger
+    Route39_EventScript_RouteSign
+    Route39_EventScript_TrainerTips1
+    Route39_EventScript_TrainerTips2
+    Route39_EventScript_PokefanM
+    Route39_EventScript_LtSurge
 }
 
-script scr_seq_R39_001 {
+script Route39_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) != 4) {
@@ -51,7 +51,7 @@ script scr_seq_R39_001 {
     end
 }
 
-script scr_seq_R39_000 {
+script Route39_EventScript_Miltank {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -64,18 +64,18 @@ script scr_seq_R39_000 {
     end
 }
 
-script scr_seq_R39_002 {
+script Route39_EventScript_BaobaTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_R39_gsgentleman, Route39_Movement_0208)
+    applymovement(obj_R39_gsgentleman, Route39_Movement_GentlemanExclamation)
     waitmovement
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 171) {
-        applymovement(obj_R39_gsgentleman, Route39_Movement_0214)
+        applymovement(obj_R39_gsgentleman, Route39_Movement_GentlemanWalkUpRight)
     } elif (var(VAR_TEMP_x4001) == 172) {
-        applymovement(obj_R39_gsgentleman, Route39_Movement_0220)
+        applymovement(obj_R39_gsgentleman, Route39_Movement_GentlemanWalkRight)
     } else {
-        applymovement(obj_R39_gsgentleman, Route39_Movement_0228)
+        applymovement(obj_R39_gsgentleman, Route39_Movement_GentlemanWalkDownRight)
     }
     waitmovement
     npcmsg("Baoba: ...Ohh!\n"
@@ -115,11 +115,11 @@ _0173:
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 171) {
-        applymovement(obj_R39_gsgentleman, Route39_Movement_0234)
+        applymovement(obj_R39_gsgentleman, Route39_Movement_GentlemanWalkDownLeft1)
     } elif (var(VAR_TEMP_x4001) == 172) {
-        applymovement(obj_R39_gsgentleman, Route39_Movement_0244)
+        applymovement(obj_R39_gsgentleman, Route39_Movement_GentlemanWalkDownLeft2)
     } else {
-        applymovement(obj_R39_gsgentleman, Route39_Movement_0254)
+        applymovement(obj_R39_gsgentleman, Route39_Movement_GentlemanWalkDownLeft3)
     }
     waitmovement
     removeobject(obj_R39_gsgentleman)
@@ -145,44 +145,44 @@ text msg_0396_R39_00005 {
     "Do you want to register? {YESNO 0}"
 }
 
-movement Route39_Movement_0208 {
+movement Route39_Movement_GentlemanExclamation {
     emote_exclamation_mark
     walk_in_place_right
 }
 
-movement Route39_Movement_0214 {
+movement Route39_Movement_GentlemanWalkUpRight {
     walk_up
     walk_right * 2
 }
 
-movement Route39_Movement_0220 {
+movement Route39_Movement_GentlemanWalkRight {
     walk_right * 2
 }
 
-movement Route39_Movement_0228 {
+movement Route39_Movement_GentlemanWalkDownRight {
     walk_down
     walk_right * 2
 }
 
-movement Route39_Movement_0234 {
+movement Route39_Movement_GentlemanWalkDownLeft1 {
     walk_down
     walk_left * 2
     walk_down * 9
 }
 
-movement Route39_Movement_0244 {
+movement Route39_Movement_GentlemanWalkDownLeft2 {
     walk_down
     walk_left * 2
     walk_down * 8
 }
 
-movement Route39_Movement_0254 {
+movement Route39_Movement_GentlemanWalkDownLeft3 {
     walk_down
     walk_left * 2
     walk_down * 7
 }
 
-script scr_seq_R39_006 {
+script Route39_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -216,16 +216,16 @@ script scr_seq_R39_006 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Route39_Movement_03B4)
-        applymovement(obj_R39_gsmiddleman1_2, Route39_Movement_0400)
+        applymovement(obj_player, Route39_Movement_PlayerWalkRightUp)
+        applymovement(obj_R39_gsmiddleman1_2, Route39_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route39_Movement_03CC)
+        applymovement(obj_player, Route39_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Route39_Movement_03EC)
-        applymovement(obj_R39_gsmiddleman1_2, Route39_Movement_0400)
+        applymovement(obj_player, Route39_Movement_PlayerWalkUpRight)
+        applymovement(obj_R39_gsmiddleman1_2, Route39_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Route39_Movement_03D8)
-        applymovement(obj_R39_gsmiddleman1_2, Route39_Movement_0400)
+        applymovement(obj_player, Route39_Movement_PlayerWalkUpLeft)
+        applymovement(obj_R39_gsmiddleman1_2, Route39_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -233,7 +233,7 @@ script scr_seq_R39_006 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route39_Movement_040C)
+        applymovement(obj_partner_poke, Route39_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -252,7 +252,7 @@ script scr_seq_R39_006 {
     end
 }
 
-movement Route39_Movement_03B4 {
+movement Route39_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -260,37 +260,37 @@ movement Route39_Movement_03B4 {
     walk_in_place_down
 }
 
-movement Route39_Movement_03CC {
+movement Route39_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route39_Movement_03D8 {
+movement Route39_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route39_Movement_03EC {
+movement Route39_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route39_Movement_0400 {
+movement Route39_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route39_Movement_040C {
+movement Route39_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R39_007 {
+script Route39_EventScript_LtSurge {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -341,19 +341,19 @@ script scr_seq_R39_007 {
     end
 }
 
-script scr_seq_R39_003 {
+script Route39_EventScript_RouteSign {
     directionsignpostex(1, 21, "Rt. 39\n"
                                "South to Olivine City")
     end
 }
 
-script scr_seq_R39_004 {
+script Route39_EventScript_TrainerTips1 {
     trainertipsex(2, "Moomoo Farm\n"
                      "Enjoy Our Fresh and Tasty Milk")
     end
 }
 
-script scr_seq_R39_005 {
+script Route39_EventScript_TrainerTips2 {
     trainertipsex(3, "Trainer Tips\r"
                      "Use Headbutt on trees to shake\n"
                      "Pokémon out.\r"
@@ -364,5 +364,5 @@ script scr_seq_R39_005 {
 }
 
 mapscripts Route39_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R39_001
+    INIT_SCRIPT_ON_TRANSITION: Route39_OnTransition
 }

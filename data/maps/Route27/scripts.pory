@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R27_000
-    scr_seq_R27_001
-    scr_seq_R27_002
-    scr_seq_R27_003
-    scr_seq_R27_004
+    Route27_EventScript_FatMan
+    Route27_EventScript_FatManTrigger
+    Route27_EventScript_TrainerTips
+    Route27_OnTransition
+    Route27_EventScript_WestToNewBarkTownSign
 }
 
-script scr_seq_R27_003 {
+script Route27_OnTransition {
     if (flag(FLAG_UNK_168)) {
         end
     }
@@ -18,7 +18,7 @@ script scr_seq_R27_003 {
     end
 }
 
-script scr_seq_R27_000 {
+script Route27_EventScript_FatMan {
     simplenpcmsg(msg_0369_R27_00001)
     end
 }
@@ -30,20 +30,20 @@ text msg_0369_R27_00001 {
     "Check your Pokégear Map and see."
 }
 
-script scr_seq_R27_001 {
+script Route27_EventScript_FatManTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_R27_gsbigman, Route27_Movement_00A8)
+    applymovement(obj_R27_gsbigman, Route27_Movement_FatManExclamation)
     waitmovement
     npcmsg("Hey!\r")
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 402) {
-        applymovement(obj_R27_gsbigman, Route27_Movement_00C4)
+        applymovement(obj_R27_gsbigman, Route27_Movement_FatManWalkUpLeft)
     } elif (var(VAR_TEMP_x4001) == 403) {
-        applymovement(obj_R27_gsbigman, Route27_Movement_00B0)
+        applymovement(obj_R27_gsbigman, Route27_Movement_FatManWalkLeft)
     } else {
-        applymovement(obj_R27_gsbigman, Route27_Movement_00B8)
+        applymovement(obj_R27_gsbigman, Route27_Movement_FatManWalkDownLeft)
     }
     waitmovement
     npcmsg(msg_0369_R27_00001)
@@ -54,37 +54,37 @@ script scr_seq_R27_001 {
     end
 }
 
-movement Route27_Movement_00A8 {
+movement Route27_Movement_FatManExclamation {
     emote_exclamation_mark
 }
 
-movement Route27_Movement_00B0 {
+movement Route27_Movement_FatManWalkLeft {
     walk_left * 4
 }
 
-movement Route27_Movement_00B8 {
+movement Route27_Movement_FatManWalkDownLeft {
     walk_down
     walk_left * 4
 }
 
-movement Route27_Movement_00C4 {
+movement Route27_Movement_FatManWalkUpLeft {
     walk_up
     walk_left * 4
 }
 
-script scr_seq_R27_002 {
+script Route27_EventScript_TrainerTips {
     trainertipsex(2, "Tohjo Falls\r"
                      "The Link between\n"
                      "Kanto and Johto")
     end
 }
 
-script scr_seq_R27_004 {
+script Route27_EventScript_WestToNewBarkTownSign {
     directionsignpostex(1, 5, "West to New Bark Town\n"
                               "East to Rt. 26")
     end
 }
 
 mapscripts Route27_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R27_003
+    INIT_SCRIPT_ON_TRANSITION: Route27_OnTransition
 }

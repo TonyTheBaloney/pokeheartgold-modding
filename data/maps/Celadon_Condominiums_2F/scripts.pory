@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0202_000
-    scr_seq_T07R0202_001
-    scr_seq_T07R0202_002
+    Celadon_Condominiums_2F_EventScript_PleaseTakeThisElevatorSign
+    Celadon_Condominiums_2F_OnTransition
+    Celadon_Condominiums_2F_EventScript_Sign
 }
 
-script scr_seq_T07R0202_001 {
+script Celadon_Condominiums_2F_OnTransition {
     setvar(VAR_UNK_4125, 0)
     end
 }
 
-script scr_seq_T07R0202_000 {
+script Celadon_Condominiums_2F_EventScript_PleaseTakeThisElevatorSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Please take this elevator\n"
@@ -24,7 +24,7 @@ script scr_seq_T07R0202_000 {
     end
 }
 
-script scr_seq_T07R0202_002 {
+script Celadon_Condominiums_2F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("This elevator goes straight between\n"
@@ -36,5 +36,5 @@ script scr_seq_T07R0202_002 {
 }
 
 mapscripts Celadon_Condominiums_2F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07R0202_001
+    INIT_SCRIPT_ON_TRANSITION: Celadon_Condominiums_2F_OnTransition
 }

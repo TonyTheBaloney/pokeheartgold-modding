@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T10R0101_000
-    scr_seq_T10R0101_001
-    scr_seq_T10R0101_002
-    scr_seq_T10R0101_003
-    scr_seq_T10R0101_004
-    scr_seq_T10R0101_005
-    scr_seq_T10R0101_006
-    scr_seq_T10R0101_007
-    scr_seq_T10R0101_008
+    PokemonLeagueEntrance_EventScript_Nurse
+    PokemonLeagueEntrance_EventScript_BlackBelt
+    PokemonLeagueEntrance_EventScript_OldMan
+    PokemonLeagueEntrance_EventScript_Abra
+    PokemonLeagueEntrance_EventScript_Clerk
+    PokemonLeagueEntrance_OnTransition
+    PokemonLeagueEntrance_EventScript_RivalTrigger
+    PokemonLeagueEntrance_EventScript_Sign
+    PokemonLeagueEntrance_EventScript_Attendant
 }
 
-script scr_seq_T10R0101_005 {
+script PokemonLeagueEntrance_OnTransition {
     setflag(FLAG_HIDE_WILLS_ROOM_RETREAT)
     setflag(FLAG_HIDE_KOGAS_ROOM_RETREAT)
     setflag(FLAG_HIDE_BRUNOS_ROOM_RETREAT)
@@ -42,7 +42,7 @@ _00AC:
     end
 }
 
-script scr_seq_T10R0101_001 {
+script PokemonLeagueEntrance_EventScript_BlackBelt {
     simplenpcmsg("At the Pokémon League, you’ll get\n"
                  "tested by the Elite Four.\f"
                  "You have to beat them all.\r"
@@ -51,7 +51,7 @@ script scr_seq_T10R0101_001 {
     end
 }
 
-script scr_seq_T10R0101_002 {
+script PokemonLeagueEntrance_EventScript_OldMan {
     simplenpcmsg("Some Trainers suddenly feel\n"
                  "discouraged and leave.\r"
                  "My ABRA can take you home.\n"
@@ -62,7 +62,7 @@ script scr_seq_T10R0101_002 {
     end
 }
 
-script scr_seq_T10R0101_003 {
+script PokemonLeagueEntrance_EventScript_Abra {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -75,11 +75,11 @@ script scr_seq_T10R0101_003 {
     end
 }
 
-script scr_seq_T10R0101_006 {
+script PokemonLeagueEntrance_EventScript_RivalTrigger {
     followmonresetmovement
     lockall
     fadeoutbgm(0, 3)
-    applymovement(obj_player, PokemonLeagueEntrance_Movement_01DC)
+    applymovement(obj_player, PokemonLeagueEntrance_Movement_PlayerExclamation)
     waitmovement
     callstd(std_play_rival_intro_music)
     getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
@@ -89,8 +89,8 @@ script scr_seq_T10R0101_006 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_T10R0101_gsrivel, PokemonLeagueEntrance_Movement_0208)
-    applymovement(obj_player, PokemonLeagueEntrance_Movement_01E8)
+    applymovement(obj_T10R0101_gsrivel, PokemonLeagueEntrance_Movement_RivalWalkUp)
+    applymovement(obj_player, PokemonLeagueEntrance_Movement_PlayerWalkDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -132,7 +132,7 @@ script scr_seq_T10R0101_006 {
            "Don’t forget to rest your Pokémon\n"
            "before you challenge the Champion!\r")
     closemessage
-    applymovement(obj_T10R0101_gsrivel, PokemonLeagueEntrance_Movement_0210)
+    applymovement(obj_T10R0101_gsrivel, PokemonLeagueEntrance_Movement_RivalWalkDown)
     waitmovement
     setvar(VAR_UNK_4119, 0)
     setflag(FLAG_UNK_AA9)
@@ -142,12 +142,12 @@ script scr_seq_T10R0101_006 {
     end
 }
 
-movement PokemonLeagueEntrance_Movement_01DC {
+movement PokemonLeagueEntrance_Movement_PlayerExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement PokemonLeagueEntrance_Movement_01E8 {
+movement PokemonLeagueEntrance_Movement_PlayerWalkDown {
     delay_8 * 2
     walk_down
 }
@@ -159,22 +159,22 @@ movement PokemonLeagueEntrance_Movement_01F4 {
     walk_in_place_down
 }
 
-movement PokemonLeagueEntrance_Movement_0208 {
+movement PokemonLeagueEntrance_Movement_RivalWalkUp {
     walk_up * 7
 }
 
-movement PokemonLeagueEntrance_Movement_0210 {
+movement PokemonLeagueEntrance_Movement_RivalWalkDown {
     walk_in_place_down
     walk_down * 7
 }
 
-script scr_seq_T10R0101_000 {
+script PokemonLeagueEntrance_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T10R0101_004 {
+script PokemonLeagueEntrance_EventScript_Clerk {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -186,7 +186,7 @@ script scr_seq_T10R0101_004 {
     end
 }
 
-script scr_seq_T10R0101_008 {
+script PokemonLeagueEntrance_EventScript_Attendant {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -211,9 +211,9 @@ script scr_seq_T10R0101_008 {
     closemessage
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 2) {
-        applymovement(obj_T10R0101_counterm, PokemonLeagueEntrance_Movement_02A0)
+        applymovement(obj_T10R0101_counterm, PokemonLeagueEntrance_Movement_AttendantWalkLeft)
     } else {
-        applymovement(obj_T10R0101_counterm, PokemonLeagueEntrance_Movement_02B0)
+        applymovement(obj_T10R0101_counterm, PokemonLeagueEntrance_Movement_AttendantWalkRight)
         waitmovement
     }
     waitmovement
@@ -222,19 +222,19 @@ script scr_seq_T10R0101_008 {
     end
 }
 
-movement PokemonLeagueEntrance_Movement_02A0 {
+movement PokemonLeagueEntrance_Movement_AttendantWalkLeft {
     lock_dir
     walk_left
     unlock_dir
 }
 
-movement PokemonLeagueEntrance_Movement_02B0 {
+movement PokemonLeagueEntrance_Movement_AttendantWalkRight {
     lock_dir
     walk_right
     unlock_dir
 }
 
-script scr_seq_T10R0101_007 {
+script PokemonLeagueEntrance_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -446,7 +446,7 @@ text msg_0522_T10R0101_00025 {
 }
 
 mapscripts PokemonLeagueEntrance_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T10R0101_005
+    INIT_SCRIPT_ON_TRANSITION: PokemonLeagueEntrance_OnTransition
     INIT_SCRIPT_ON_RESUME: std_wireless_reset_state
     INIT_SCRIPT_ON_FRAME_TABLE [
         VAR_UNK_4133, 2: std_union_room_return

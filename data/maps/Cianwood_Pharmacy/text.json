@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0577_T24R0501_00000",
-      "from": "scr_seq_T24R0501_000#0"
+      "from": "Cianwood_Pharmacy_EventScript_GymGuide#0"
     },
     {
       "id": "msg_0577_T24R0501_00001",
@@ -11,11 +11,11 @@
     },
     {
       "id": "msg_0577_T24R0501_00002",
-      "from": "scr_seq_T24R0501_000#1"
+      "from": "Cianwood_Pharmacy_EventScript_GymGuide#1"
     },
     {
       "id": "msg_0577_T24R0501_00003",
-      "from": "scr_seq_T24R0501_000#2"
+      "from": "Cianwood_Pharmacy_EventScript_GymGuide#2"
     },
     {
       "id": "msg_0577_T24R0501_00004",

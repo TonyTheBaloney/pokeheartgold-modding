@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0129_D44R0102_00000",
-      "from": "scr_seq_D44R0102_000#0"
+      "from": "DragonsDen_EventScript_ClairTrigger#0"
     },
     {
       "id": "msg_0129_D44R0102_00001",
-      "from": "scr_seq_D44R0102_000#1"
+      "from": "DragonsDen_EventScript_ClairTrigger#1"
     },
     {
       "id": "msg_0129_D44R0102_00002",
@@ -15,127 +15,127 @@
     },
     {
       "id": "msg_0129_D44R0102_00003",
-      "from": "scr_seq_D44R0102_000#3"
+      "from": "DragonsDen_EventScript_ClairTrigger#3"
     },
     {
       "id": "msg_0129_D44R0102_00004",
-      "from": "scr_seq_D44R0102_000#2"
+      "from": "DragonsDen_EventScript_ClairTrigger#2"
     },
     {
       "id": "msg_0129_D44R0102_00005",
-      "from": "scr_seq_D44R0102_000#4"
+      "from": "DragonsDen_EventScript_ClairTrigger#4"
     },
     {
       "id": "msg_0129_D44R0102_00006",
-      "from": "scr_seq_D44R0102_005#0"
+      "from": "DragonsDen_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0129_D44R0102_00007",
-      "from": "scr_seq_D44R0102_001#1"
+      "from": "DragonsDen_EventScript_Rival#1"
     },
     {
       "id": "msg_0129_D44R0102_00008",
-      "from": "scr_seq_D44R0102_001#0"
+      "from": "DragonsDen_EventScript_Rival#0"
     },
     {
       "id": "msg_0129_D44R0102_00009",
-      "from": "scr_seq_D44R0102_003#5"
+      "from": "DragonsDen_EventScript_Clair#5"
     },
     {
       "id": "msg_0129_D44R0102_00010",
-      "from": "scr_seq_D44R0102_003#6"
+      "from": "DragonsDen_EventScript_Clair#6"
     },
     {
       "id": "msg_0129_D44R0102_00011",
-      "from": "scr_seq_D44R0102_003#7"
+      "from": "DragonsDen_EventScript_Clair#7"
     },
     {
       "id": "msg_0129_D44R0102_00012",
-      "from": "scr_seq_D44R0102_003#8"
+      "from": "DragonsDen_EventScript_Clair#8"
     },
     {
       "id": "msg_0129_D44R0102_00013",
-      "from": "scr_seq_D44R0102_003#9"
+      "from": "DragonsDen_EventScript_Clair#9"
     },
     {
       "id": "msg_0129_D44R0102_00014",
-      "from": "scr_seq_D44R0102_004#0"
+      "from": "DragonsDen_EventScript_LanceTrigger#0"
     },
     {
       "id": "msg_0129_D44R0102_00015",
-      "from": "scr_seq_D44R0102_004#1"
+      "from": "DragonsDen_EventScript_LanceTrigger#1"
     },
     {
       "id": "msg_0129_D44R0102_00016",
-      "from": "scr_seq_D44R0102_004#2"
+      "from": "DragonsDen_EventScript_LanceTrigger#2"
     },
     {
       "id": "msg_0129_D44R0102_00017",
-      "from": "scr_seq_D44R0102_004#3"
+      "from": "DragonsDen_EventScript_LanceTrigger#3"
     },
     {
       "id": "msg_0129_D44R0102_00018",
-      "from": "scr_seq_D44R0102_004#4"
+      "from": "DragonsDen_EventScript_LanceTrigger#4"
     },
     {
       "id": "msg_0129_D44R0102_00019",
-      "from": "scr_seq_D44R0102_004#5"
+      "from": "DragonsDen_EventScript_LanceTrigger#5"
     },
     {
       "id": "msg_0129_D44R0102_00020",
-      "from": "scr_seq_D44R0102_004#6"
+      "from": "DragonsDen_EventScript_LanceTrigger#6"
     },
     {
       "id": "msg_0129_D44R0102_00021",
-      "from": "scr_seq_D44R0102_004#7"
+      "from": "DragonsDen_EventScript_LanceTrigger#7"
     },
     {
       "id": "msg_0129_D44R0102_00022",
-      "from": "scr_seq_D44R0102_004#8"
+      "from": "DragonsDen_EventScript_LanceTrigger#8"
     },
     {
       "id": "msg_0129_D44R0102_00023",
-      "from": "scr_seq_D44R0102_004#9"
+      "from": "DragonsDen_EventScript_LanceTrigger#9"
     },
     {
       "id": "msg_0129_D44R0102_00024",
-      "from": "scr_seq_D44R0102_004#10"
+      "from": "DragonsDen_EventScript_LanceTrigger#10"
     },
     {
       "id": "msg_0129_D44R0102_00025",
-      "from": "scr_seq_D44R0102_004#11"
+      "from": "DragonsDen_EventScript_LanceTrigger#11"
     },
     {
       "id": "msg_0129_D44R0102_00026",
-      "from": "scr_seq_D44R0102_004#12"
+      "from": "DragonsDen_EventScript_LanceTrigger#12"
     },
     {
       "id": "msg_0129_D44R0102_00027",
-      "from": "scr_seq_D44R0102_004#13"
+      "from": "DragonsDen_EventScript_LanceTrigger#13"
     },
     {
       "id": "msg_0129_D44R0102_00028",
-      "from": "scr_seq_D44R0102_004#14"
+      "from": "DragonsDen_EventScript_LanceTrigger#14"
     },
     {
       "id": "msg_0129_D44R0102_00029",
-      "from": "scr_seq_D44R0102_003#0"
+      "from": "DragonsDen_EventScript_Clair#0"
     },
     {
       "id": "msg_0129_D44R0102_00030",
-      "from": "scr_seq_D44R0102_003#3"
+      "from": "DragonsDen_EventScript_Clair#3"
     },
     {
       "id": "msg_0129_D44R0102_00031",
-      "from": "scr_seq_D44R0102_003#4"
+      "from": "DragonsDen_EventScript_Clair#4"
     },
     {
       "id": "msg_0129_D44R0102_00032",
-      "from": "scr_seq_D44R0102_003#1"
+      "from": "DragonsDen_EventScript_Clair#1"
     },
     {
       "id": "msg_0129_D44R0102_00033",
-      "from": "scr_seq_D44R0102_003#2"
+      "from": "DragonsDen_EventScript_Clair#2"
     }
   ]
 }

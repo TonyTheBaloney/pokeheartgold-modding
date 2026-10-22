@@ -1,15 +1,15 @@
 #ifndef SCR_SEQ_D49R0106_H_
 #define SCR_SEQ_D49R0106_H_
 
-#define _EV_scr_seq_D49R0106_000 0
-#define _EV_scr_seq_D49R0106_001 1
-#define _EV_scr_seq_D49R0106_002 2
-#define _EV_scr_seq_D49R0106_003 3
-#define _EV_scr_seq_D49R0106_004 4
-#define _EV_scr_seq_D49R0106_005 5
-#define _EV_scr_seq_D49R0106_006 6
-#define _EV_scr_seq_D49R0106_007 7
-#define _EV_scr_seq_D49R0106_008 8
+#define _EV_PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Receptionist1 0
+#define _EV_PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Receptionist2 1
+#define _EV_PokeathlonDome_Interior_B1FPotentialRoom_EventScript_FatMan 2
+#define _EV_PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Dodrio 3
+#define _EV_PokeathlonDome_Interior_B1FPotentialRoom_EventScript_CheckedSign 4
+#define _EV_PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Sign1 5
+#define _EV_PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Sign2 6
+#define _EV_PokeathlonDome_Interior_B1FPotentialRoom_OnResume 7
+#define _EV_PokeathlonDome_Interior_B1FPotentialRoom_OnTransition 8
 
 #define obj_D49R0106_pcwoman2                 0
 #define obj_D49R0106_pcwoman2_2               1

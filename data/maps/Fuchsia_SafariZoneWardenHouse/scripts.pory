@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T08R0601_000 {
+script Fuchsia_SafariZoneWardenHouse_EventScript_Lass {
     simplenpcmsg("My grandpa closed the Safari Zone\n"
                  "and now that we have an empty lot,\f"
                  "my dad decided to run the Pal Park!\r"
@@ -10,7 +10,7 @@ script scr_seq_T08R0601_000 {
     end
 }
 
-script scr_seq_T08R0601_001 {
+script Fuchsia_SafariZoneWardenHouse_EventScript_Aipom1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -23,7 +23,7 @@ script scr_seq_T08R0601_001 {
     end
 }
 
-script scr_seq_T08R0601_002 {
+script Fuchsia_SafariZoneWardenHouse_EventScript_Aipom2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -36,7 +36,7 @@ script scr_seq_T08R0601_002 {
     end
 }
 
-script scr_seq_T08R0601_003 {
+script Fuchsia_SafariZoneWardenHouse_EventScript_Aipom3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

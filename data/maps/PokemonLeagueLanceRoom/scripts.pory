@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T10R0601_000
-    scr_seq_T10R0601_001
-    scr_seq_T10R0601_002
+    PokemonLeagueLanceRoom_EventScript_LanceTrigger
+    PokemonLeagueLanceRoom_EventScript_LittleBoyScene
+    PokemonLeagueLanceRoom_OnTransition
 }
 
-script scr_seq_T10R0601_001 {
+script PokemonLeagueLanceRoom_EventScript_LittleBoyScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_0048)
+    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_PlayerWalkUp1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -27,17 +27,17 @@ script scr_seq_T10R0601_001 {
     end
 }
 
-movement PokemonLeagueLanceRoom_Movement_0048 {
+movement PokemonLeagueLanceRoom_Movement_PlayerWalkUp1 {
     walk_up * 6
 }
 
-script scr_seq_T10R0601_002 {
+script PokemonLeagueLanceRoom_OnTransition {
     setflag(FLAG_UNK_210)
     setvar(VAR_UNK_40C8, 0)
     end
 }
 
-script scr_seq_T10R0601_000 {
+script PokemonLeagueLanceRoom_EventScript_LanceTrigger {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
@@ -45,17 +45,17 @@ script scr_seq_T10R0601_000 {
     followingpokemonmovement(55)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 5) {
-        applymovement(obj_player, PokemonLeagueLanceRoom_Movement_0298)
+        applymovement(obj_player, PokemonLeagueLanceRoom_Movement_PlayerWalkUpRight)
     } elif (var(VAR_TEMP_x4000) == 6) {
-        applymovement(obj_player, PokemonLeagueLanceRoom_Movement_02A8)
+        applymovement(obj_player, PokemonLeagueLanceRoom_Movement_PlayerWalkUp2)
     } else {
-        applymovement(obj_player, PokemonLeagueLanceRoom_Movement_02B0)
+        applymovement(obj_player, PokemonLeagueLanceRoom_Movement_PlayerWalkUpLeft)
     }
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_02C0)
+    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_LanceFaceDown)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lance: I’ve been waiting for you.\r"
@@ -114,28 +114,28 @@ script scr_seq_T10R0601_000 {
     wait(30, VAR_SPECIAL_x8004)
     stopbgm(0)
     playbgm(SEQ_GS_EYE_J_SHOUJO)
-    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_02C8)
-    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_02E0)
+    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_LanceWalkRight)
+    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_PlayerWalkUp3)
     waitmovement
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
         if (var(VAR_TEMP_x4000) == 5) {
-            applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_02F8)
+            applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_FollowMonWalkUpRight1)
         } elif (var(VAR_TEMP_x4000) == 6) {
-            applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_0308)
+            applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_FollowMonWalkUpLeft)
         } else {
-            applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_0320)
+            applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_FollowMonWalkUpRight2)
         }
         waitmovement
     }
-    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_0338)
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_MaryWalkUp1)
     waitmovement
     npcmsg("Mary: Oh, no! It’s all over!\n"
            "Professor Oak, if you weren’t\f"
            "so slow...\r")
     closemessage
-    applymovement(obj_T10R0601_ookido, PokemonLeagueLanceRoom_Movement_0348)
-    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_0350)
+    applymovement(obj_T10R0601_ookido, PokemonLeagueLanceRoom_Movement_ProfOakWalkUp)
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_MaryWalkLeft)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Professor Oak: Ah, {STRVAR_1 3, 0, 0}!\n"
@@ -160,12 +160,12 @@ script scr_seq_T10R0601_000 {
                                                            "Trainer, they persevered.\r"
                                                            "Congratulations, {STRVAR_1 3, 0, 0}!\r")
     closemessage
-    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_0360)
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_MaryFaceUp)
     waitmovement
     npcmsg("Mary: Let’s interview the brand-new\n"
            "Champion!\r")
-    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_0368)
-    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_0378)
+    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_LanceWalkUpLeft)
+    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_PlayerFaceUp)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lance: This is getting to be a\n"
@@ -177,23 +177,23 @@ script scr_seq_T10R0601_000 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_0384)
-    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_0394)
+    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_LanceExit)
+    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_PlayerExit)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
-        applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_03A4)
+        applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_FollowMonExit)
         waitmovement
     }
     playse(SEQ_SE_DP_KAIDAN2)
-    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_03AC)
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_MaryWalkUp2)
     waitmovement
     npcmsg("Mary: Oh, wait!\n"
            "We haven’t done the interview!")
-    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_03BC)
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_MaryWalkRightLeft)
     waitmovement
     waitabpress
     closemessage
@@ -210,27 +210,27 @@ script scr_seq_T10R0601_000 {
     end
 }
 
-movement PokemonLeagueLanceRoom_Movement_0298 {
+movement PokemonLeagueLanceRoom_Movement_PlayerWalkUpRight {
     walk_up * 2
     walk_right
     walk_in_place_up
 }
 
-movement PokemonLeagueLanceRoom_Movement_02A8 {
+movement PokemonLeagueLanceRoom_Movement_PlayerWalkUp2 {
     walk_up * 2
 }
 
-movement PokemonLeagueLanceRoom_Movement_02B0 {
+movement PokemonLeagueLanceRoom_Movement_PlayerWalkUpLeft {
     walk_up * 2
     walk_left
     walk_in_place_up
 }
 
-movement PokemonLeagueLanceRoom_Movement_02C0 {
+movement PokemonLeagueLanceRoom_Movement_LanceFaceDown {
     walk_in_place_down
 }
 
-movement PokemonLeagueLanceRoom_Movement_02C8 {
+movement PokemonLeagueLanceRoom_Movement_LanceWalkRight {
     face_down
     emote_exclamation_mark * 0
     lock_dir
@@ -238,7 +238,7 @@ movement PokemonLeagueLanceRoom_Movement_02C8 {
     unlock_dir
 }
 
-movement PokemonLeagueLanceRoom_Movement_02E0 {
+movement PokemonLeagueLanceRoom_Movement_PlayerWalkUp3 {
     face_down
     delay_8 * 4
     lock_dir
@@ -246,13 +246,13 @@ movement PokemonLeagueLanceRoom_Movement_02E0 {
     unlock_dir
 }
 
-movement PokemonLeagueLanceRoom_Movement_02F8 {
+movement PokemonLeagueLanceRoom_Movement_FollowMonWalkUpRight1 {
     walk_fast_up * 3
     walk_fast_right
     walk_in_place_down
 }
 
-movement PokemonLeagueLanceRoom_Movement_0308 {
+movement PokemonLeagueLanceRoom_Movement_FollowMonWalkUpLeft {
     walk_fast_up * 2
     walk_fast_left
     walk_fast_up * 2
@@ -260,7 +260,7 @@ movement PokemonLeagueLanceRoom_Movement_0308 {
     walk_in_place_down
 }
 
-movement PokemonLeagueLanceRoom_Movement_0320 {
+movement PokemonLeagueLanceRoom_Movement_FollowMonWalkUpRight2 {
     walk_fast_up
     walk_fast_right
     walk_fast_up * 2
@@ -268,60 +268,60 @@ movement PokemonLeagueLanceRoom_Movement_0320 {
     walk_in_place_down
 }
 
-movement PokemonLeagueLanceRoom_Movement_0338 {
+movement PokemonLeagueLanceRoom_Movement_MaryWalkUp1 {
     walk_fast_up * 12
     face_down
     walk_in_place_fast_down * 3
 }
 
-movement PokemonLeagueLanceRoom_Movement_0348 {
+movement PokemonLeagueLanceRoom_Movement_ProfOakWalkUp {
     walk_up * 8
 }
 
-movement PokemonLeagueLanceRoom_Movement_0350 {
+movement PokemonLeagueLanceRoom_Movement_MaryWalkLeft {
     delay_8 * 6
     walk_left
     face_up
 }
 
-movement PokemonLeagueLanceRoom_Movement_0360 {
+movement PokemonLeagueLanceRoom_Movement_MaryFaceUp {
     walk_in_place_fast_up * 4
 }
 
-movement PokemonLeagueLanceRoom_Movement_0368 {
+movement PokemonLeagueLanceRoom_Movement_LanceWalkUpLeft {
     walk_up * 2
     walk_left
     face_down
 }
 
-movement PokemonLeagueLanceRoom_Movement_0378 {
+movement PokemonLeagueLanceRoom_Movement_PlayerFaceUp {
     delay_8 * 3
     face_up
 }
 
-movement PokemonLeagueLanceRoom_Movement_0384 {
+movement PokemonLeagueLanceRoom_Movement_LanceExit {
     delay_4
     walk_up * 2
     set_invisible
 }
 
-movement PokemonLeagueLanceRoom_Movement_0394 {
+movement PokemonLeagueLanceRoom_Movement_PlayerExit {
     walk_up * 2
     walk_up * 2
     set_invisible
 }
 
-movement PokemonLeagueLanceRoom_Movement_03A4 {
+movement PokemonLeagueLanceRoom_Movement_FollowMonExit {
     set_invisible
 }
 
-movement PokemonLeagueLanceRoom_Movement_03AC {
+movement PokemonLeagueLanceRoom_Movement_MaryWalkUp2 {
     walk_fast_up * 4
     emote_exclamation_mark * 0
     delay_8 * 2
 }
 
-movement PokemonLeagueLanceRoom_Movement_03BC {
+movement PokemonLeagueLanceRoom_Movement_MaryWalkRightLeft {
     walk_fast_right
     walk_fast_left * 2
     walk_fast_right * 2
@@ -331,7 +331,7 @@ movement PokemonLeagueLanceRoom_Movement_03BC {
 
 mapscripts PokemonLeagueLanceRoom_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40C8, 0: scr_seq_T10R0601_001
+        VAR_UNK_40C8, 0: PokemonLeagueLanceRoom_EventScript_LittleBoyScene
     ]
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T10R0601_002
+    INIT_SCRIPT_ON_TRANSITION: PokemonLeagueLanceRoom_OnTransition
 }

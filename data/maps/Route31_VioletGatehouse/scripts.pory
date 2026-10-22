@@ -3,55 +3,55 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R31R0101_000
-    scr_seq_R31R0101_001
-    scr_seq_R31R0101_002
+    Route31_VioletGatehouse_EventScript_LyraTrigger
+    Route31_VioletGatehouse_OnTransition
+    Route31_VioletGatehouse_EventScript_Attendant
 }
 
-script scr_seq_R31R0101_001 {
+script Route31_VioletGatehouse_OnTransition {
     getfriendsprite(VAR_OBJ_0)
     end
 }
 
-script scr_seq_R31R0101_000 {
+script Route31_VioletGatehouse_EventScript_LyraTrigger {
     followmonresetmovement
     lockall
     callstd(std_play_friend_music)
-    applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_028C)
+    applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillExit1)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     movepersonfacing(obj_R31R0101_var_1, 10, 1, 7, DIR_WEST)
     movepersonfacing(obj_R31R0101_tsure_poke_static_marill, 10, 1, 7, DIR_WEST)
-    applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_0284)
+    applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendExclamation)
     waitmovement
     waitse(SEQ_SE_DP_KAIDAN2)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     followmonisactive(VAR_TEMP_x4002)
     if (var(VAR_TEMP_x4002) == 1) {
         if (var(VAR_TEMP_x4001) == 6) {
-            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02AC)
-            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_02FC)
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendWalkLeftUp1)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillWalkLeftUp1)
         } elif (var(VAR_TEMP_x4001) == 7) {
-            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02BC)
-            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0314)
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendWalkLeft1)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillWalkLeft1)
         } else {
-            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02C4)
-            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0324)
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendWalkLeftDown1)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillWalkLeftDown1)
         }
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02D4)
-        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_033C)
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendWalkLeftUp2)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillWalkLeftUp2)
     } elif (var(VAR_TEMP_x4001) == 7) {
-        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02E4)
-        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0354)
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendWalkLeft2)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillWalkLeft2)
     } else {
-        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02EC)
-        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0364)
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendWalkLeftDown2)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillWalkLeftDown2)
     }
     waitmovement
-    applymovement(obj_player, Route31_VioletGatehouse_Movement_0294)
+    applymovement(obj_player, Route31_VioletGatehouse_Movement_PlayerFaceRight)
     if (var(VAR_TEMP_x4002) == 1) {
-        applymovement(obj_partner_poke, Route31_VioletGatehouse_Movement_0294)
+        applymovement(obj_partner_poke, Route31_VioletGatehouse_Movement_PlayerFaceRight)
     }
     waitmovement
     bufferplayersname(0)
@@ -71,37 +71,37 @@ script scr_seq_R31R0101_000 {
                                                      "I have to go now!\f"
                                                      "I won’t let you pass me again!\r")
     closemessage
-    applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_0294)
+    applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_PlayerFaceRight)
     waitmovement
     gendermsgbox("Let’s go, MARILL!\r", "Come on, MARILL!\r")
     closemessage
-    applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_02A4)
+    applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillFaceLeft)
     waitmovement
     if (var(VAR_TEMP_x4002) == 1) {
         if (var(VAR_TEMP_x4001) == 6) {
-            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_037C)
-            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_03EC)
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendExit1)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillExit2)
         } elif (var(VAR_TEMP_x4001) == 7) {
-            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_038C)
-            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0404)
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendExit2)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillExit3)
         } else {
-            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_03A4)
-            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0424)
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendExit3)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillExit4)
         }
     } elif (var(VAR_TEMP_x4001) == 6) {
-        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_03B4)
-        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_043C)
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendExit4)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillExit5)
     } elif (var(VAR_TEMP_x4001) == 7) {
-        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_03C4)
-        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0454)
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendExit5)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillExit6)
     } else {
-        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_03DC)
-        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0474)
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_FriendExit6)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_MarillExit7)
     }
     wait(16, VAR_SPECIAL_RESULT)
-    applymovement(obj_player, Route31_VioletGatehouse_Movement_029C)
+    applymovement(obj_player, Route31_VioletGatehouse_Movement_PlayerFaceLeft)
     if (var(VAR_TEMP_x4002) == 1) {
-        applymovement(obj_partner_poke, Route31_VioletGatehouse_Movement_029C)
+        applymovement(obj_partner_poke, Route31_VioletGatehouse_Movement_PlayerFaceLeft)
     }
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
@@ -114,59 +114,59 @@ script scr_seq_R31R0101_000 {
     end
 }
 
-movement Route31_VioletGatehouse_Movement_0284 {
+movement Route31_VioletGatehouse_Movement_FriendExclamation {
     emote_exclamation_mark
 }
 
-movement Route31_VioletGatehouse_Movement_028C {
+movement Route31_VioletGatehouse_Movement_MarillExit1 {
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_0294 {
+movement Route31_VioletGatehouse_Movement_PlayerFaceRight {
     walk_in_place_right
 }
 
-movement Route31_VioletGatehouse_Movement_029C {
+movement Route31_VioletGatehouse_Movement_PlayerFaceLeft {
     walk_in_place_fast_left
 }
 
-movement Route31_VioletGatehouse_Movement_02A4 {
+movement Route31_VioletGatehouse_Movement_MarillFaceLeft {
     jump_in_place_fast_left * 2
 }
 
-movement Route31_VioletGatehouse_Movement_02AC {
+movement Route31_VioletGatehouse_Movement_FriendWalkLeftUp1 {
     walk_left * 2
     walk_up
     walk_left
 }
 
-movement Route31_VioletGatehouse_Movement_02BC {
+movement Route31_VioletGatehouse_Movement_FriendWalkLeft1 {
     walk_left * 3
 }
 
-movement Route31_VioletGatehouse_Movement_02C4 {
+movement Route31_VioletGatehouse_Movement_FriendWalkLeftDown1 {
     walk_left * 2
     walk_down
     walk_left
 }
 
-movement Route31_VioletGatehouse_Movement_02D4 {
+movement Route31_VioletGatehouse_Movement_FriendWalkLeftUp2 {
     walk_left * 2
     walk_up
     walk_left * 2
 }
 
-movement Route31_VioletGatehouse_Movement_02E4 {
+movement Route31_VioletGatehouse_Movement_FriendWalkLeft2 {
     walk_left * 4
 }
 
-movement Route31_VioletGatehouse_Movement_02EC {
+movement Route31_VioletGatehouse_Movement_FriendWalkLeftDown2 {
     walk_left * 2
     walk_down
     walk_left * 2
 }
 
-movement Route31_VioletGatehouse_Movement_02FC {
+movement Route31_VioletGatehouse_Movement_MarillWalkLeftUp1 {
     delay_8
     set_visible
     walk_left * 2
@@ -174,13 +174,13 @@ movement Route31_VioletGatehouse_Movement_02FC {
     walk_in_place_left
 }
 
-movement Route31_VioletGatehouse_Movement_0314 {
+movement Route31_VioletGatehouse_Movement_MarillWalkLeft1 {
     delay_8
     set_visible
     walk_left * 2
 }
 
-movement Route31_VioletGatehouse_Movement_0324 {
+movement Route31_VioletGatehouse_Movement_MarillWalkLeftDown1 {
     delay_8
     set_visible
     walk_left * 2
@@ -188,7 +188,7 @@ movement Route31_VioletGatehouse_Movement_0324 {
     walk_in_place_left
 }
 
-movement Route31_VioletGatehouse_Movement_033C {
+movement Route31_VioletGatehouse_Movement_MarillWalkLeftUp2 {
     delay_8
     set_visible
     walk_left * 2
@@ -196,13 +196,13 @@ movement Route31_VioletGatehouse_Movement_033C {
     walk_left
 }
 
-movement Route31_VioletGatehouse_Movement_0354 {
+movement Route31_VioletGatehouse_Movement_MarillWalkLeft2 {
     delay_8
     set_visible
     walk_left * 3
 }
 
-movement Route31_VioletGatehouse_Movement_0364 {
+movement Route31_VioletGatehouse_Movement_MarillWalkLeftDown2 {
     delay_8
     set_visible
     walk_left * 2
@@ -210,13 +210,13 @@ movement Route31_VioletGatehouse_Movement_0364 {
     walk_left
 }
 
-movement Route31_VioletGatehouse_Movement_037C {
+movement Route31_VioletGatehouse_Movement_FriendExit1 {
     run_down
     run_left * 6
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_038C {
+movement Route31_VioletGatehouse_Movement_FriendExit2 {
     run_down
     run_left * 4
     run_up
@@ -224,19 +224,19 @@ movement Route31_VioletGatehouse_Movement_038C {
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_03A4 {
+movement Route31_VioletGatehouse_Movement_FriendExit3 {
     run_up
     run_left * 6
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_03B4 {
+movement Route31_VioletGatehouse_Movement_FriendExit4 {
     run_down
     run_left * 5
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_03C4 {
+movement Route31_VioletGatehouse_Movement_FriendExit5 {
     run_down
     run_left * 3
     run_up
@@ -244,13 +244,13 @@ movement Route31_VioletGatehouse_Movement_03C4 {
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_03DC {
+movement Route31_VioletGatehouse_Movement_FriendExit6 {
     run_up
     run_left * 5
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_03EC {
+movement Route31_VioletGatehouse_Movement_MarillExit2 {
     delay_2
     walk_fast_left
     walk_fast_down
@@ -258,7 +258,7 @@ movement Route31_VioletGatehouse_Movement_03EC {
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_0404 {
+movement Route31_VioletGatehouse_Movement_MarillExit3 {
     delay_2
     walk_fast_left
     walk_fast_down
@@ -268,7 +268,7 @@ movement Route31_VioletGatehouse_Movement_0404 {
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_0424 {
+movement Route31_VioletGatehouse_Movement_MarillExit4 {
     delay_2
     walk_fast_left
     walk_fast_up
@@ -276,7 +276,7 @@ movement Route31_VioletGatehouse_Movement_0424 {
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_043C {
+movement Route31_VioletGatehouse_Movement_MarillExit5 {
     delay_2
     walk_fast_left
     walk_fast_down
@@ -284,7 +284,7 @@ movement Route31_VioletGatehouse_Movement_043C {
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_0454 {
+movement Route31_VioletGatehouse_Movement_MarillExit6 {
     delay_2
     walk_fast_left
     walk_fast_down
@@ -294,7 +294,7 @@ movement Route31_VioletGatehouse_Movement_0454 {
     set_invisible
 }
 
-movement Route31_VioletGatehouse_Movement_0474 {
+movement Route31_VioletGatehouse_Movement_MarillExit7 {
     delay_2
     walk_fast_left
     walk_fast_up
@@ -302,12 +302,12 @@ movement Route31_VioletGatehouse_Movement_0474 {
     set_invisible
 }
 
-script scr_seq_R31R0101_002 {
+script Route31_VioletGatehouse_EventScript_Attendant {
     simplenpcmsg("You must be an adventuring Trainer.\n"
                  "Did you challenge the Pokémon Gym yet?")
     end
 }
 
 mapscripts Route31_VioletGatehouse_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R31R0101_001
+    INIT_SCRIPT_ON_TRANSITION: Route31_VioletGatehouse_OnTransition
 }

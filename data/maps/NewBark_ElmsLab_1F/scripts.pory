@@ -3,25 +3,25 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T20R0101_000
-    scr_seq_T20R0101_001
-    scr_seq_T20R0101_002
-    scr_seq_T20R0101_003
+    NewBark_ElmsLab_1F_EventScript_ProfElm
+    NewBark_ElmsLab_1F_EventScript_Scientist
+    NewBark_ElmsLab_1F_EventScript_LyraScene1
+    NewBark_ElmsLab_1F_EventScript_ScientistTrigger
     scr_seq_T20R0101_004
-    scr_seq_T20R0101_005
-    scr_seq_T20R0101_006
-    scr_seq_T20R0101_007
-    scr_seq_T20R0101_008
-    scr_seq_T20R0101_009
-    scr_seq_T20R0101_010
-    scr_seq_T20R0101_011
-    scr_seq_T20R0101_012
-    scr_seq_T20R0101_013
-    scr_seq_T20R0101_014
-    scr_seq_T20R0101_015
+    NewBark_ElmsLab_1F_EventScript_Book1
+    NewBark_ElmsLab_1F_EventScript_Book2
+    NewBark_ElmsLab_1F_EventScript_Book3
+    NewBark_ElmsLab_1F_EventScript_Book4
+    NewBark_ElmsLab_1F_EventScript_Memo
+    NewBark_ElmsLab_1F_OnResume
+    NewBark_ElmsLab_1F_EventScript_ProfElmTrigger
+    NewBark_ElmsLab_1F_EventScript_PC1
+    NewBark_ElmsLab_1F_EventScript_PC2
+    NewBark_ElmsLab_1F_EventScript_LyraScene2
+    NewBark_ElmsLab_1F_EventScript_ScientistScene
 }
 
-script scr_seq_T20R0101_010 {
+script NewBark_ElmsLab_1F_OnResume {
     getfriendsprite(VAR_OBJ_0)
     if (flag(FLAG_ELMS_LAB_PREVENT_PLAYER_ESCAPE)) {
         movepersonfacing(obj_T20R0101_doctor, 4, 0, 5, DIR_EAST)
@@ -40,30 +40,30 @@ _00B4:
     end
 }
 
-script scr_seq_T20R0101_011 {
+script NewBark_ElmsLab_1F_EventScript_ProfElmTrigger {
     followmonresetmovement
     lockall
     if (flag(FLAG_ELMS_LAB_PREVENT_PLAYER_ESCAPE)) {
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_020C)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmExclamation1)
         waitmovement
         npcmsg("Professor Elm: Where are you going?\n"
                "The Poké Balls are in that device.\r")
         closemessage
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0368)
-        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_021C)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceRight)
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkUp2)
         waitmovement
         releaseall
         end
     }
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 3) {
-        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_01BC)
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkUpRight)
     } elif (var(VAR_TEMP_x4000) == 4) {
-        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_01CC)
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkUp1)
     } elif (var(VAR_TEMP_x4000) == 5) {
-        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_01D4)
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkUpLeft1)
     } elif (var(VAR_TEMP_x4000) == 6) {
-        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_01E4)
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkUpLeft2)
     }
     waitmovement
     bufferplayersname(0)
@@ -111,17 +111,17 @@ script scr_seq_T20R0101_011 {
                                                "The device over there has some Pokémon\n"
                                                "you could choose from...\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0368)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceRight)
     waitmovement
     wait(15, VAR_SPECIAL_x8004)
     playse(SEQ_SE_GS_PHONE0)
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_01F4)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkUp1)
     waitmovement
     npcmsg("Professor Elm: Oh, hey! I got an email!\r")
     npcmsg("Professor Elm: ...\n"
            "Hm... Uh-huh... OK...\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0204)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkDown1)
     waitmovement
     npcmsg("Professor Elm: Hey, listen.\n"
            "I have this acquaintance that people\f"
@@ -140,56 +140,56 @@ script scr_seq_T20R0101_011 {
            "You can choose one of the Pokémon\n"
            "over there.\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0368)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceRight)
     waitmovement
     setflag(FLAG_ELMS_LAB_PREVENT_PLAYER_ESCAPE)
     releaseall
     end
 }
 
-movement NewBark_ElmsLab_1F_Movement_01BC {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkUpRight {
     walk_up * 2
     walk_right
     walk_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_01CC {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkUp1 {
     walk_up * 3
 }
 
-movement NewBark_ElmsLab_1F_Movement_01D4 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkUpLeft1 {
     walk_up * 2
     walk_left
     walk_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_01E4 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkUpLeft2 {
     walk_up * 2
     walk_left * 2
     walk_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_01F4 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkUp1 {
     emote_exclamation_mark
     walk_up
     delay_16
 }
 
-movement NewBark_ElmsLab_1F_Movement_0204 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkDown1 {
     walk_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_020C {
+movement NewBark_ElmsLab_1F_Movement_ProfElmExclamation1 {
     face_down
     emote_exclamation_mark
     walk_in_place_down * 2
 }
 
-movement NewBark_ElmsLab_1F_Movement_021C {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkUp2 {
     walk_up
 }
 
-script scr_seq_T20R0101_012 {
+script NewBark_ElmsLab_1F_EventScript_PC1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -247,8 +247,8 @@ script scr_seq_T20R0101_012 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0370)
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0388)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkDownLeft1)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceDown1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -259,13 +259,13 @@ script scr_seq_T20R0101_012 {
            "Mr. Pokémon’s house.\r"
            "If your Pokémon gets hurt...\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0380)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceUp)
     waitmovement
     npcmsg("You should heal it with this machine.\r"
            "It’s so easy to use.\n"
            "Just check the PC on my desk!\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0390)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceDown2)
     waitmovement
     bufferplayersname(0)
     gendermsgbox(msg_0543_T20R0101_00012, msg_0543_T20R0101_00013)
@@ -309,30 +309,30 @@ text msg_0543_T20R0101_00013 {
     "I’m counting on you, {STRVAR_1 3, 0, 0}!"
 }
 
-movement NewBark_ElmsLab_1F_Movement_0368 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmFaceRight {
     face_right
 }
 
-movement NewBark_ElmsLab_1F_Movement_0370 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkDownLeft1 {
     walk_down * 2
     walk_left * 4
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0380 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmFaceUp {
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0388 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmFaceDown1 {
     walk_in_place_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0390 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmFaceDown2 {
     delay_16
     walk_in_place_down
 }
 
-script scr_seq_T20R0101_000 {
+script NewBark_ElmsLab_1F_EventScript_ProfElm {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -430,7 +430,7 @@ _03F5:
             if (var(VAR_TEMP_x4001) == SPECIES_TOGEKISS) { goto(_0599) }
         } else {
         _0599:
-            applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0658)
+            applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmExclamation2)
             waitmovement
             npcmsg("Professor Elm: What?\n"
                    "That Pokémon!?\r")
@@ -494,7 +494,7 @@ _03F5:
                "appears, let your Pokémon battle it!")
         waitbuttonpress
         closemessage
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0368)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceRight)
         waitmovement
     } elif (var(VAR_SCENE_ELMS_LAB) <= 2) {
         bufferplayersname(0)
@@ -663,23 +663,23 @@ text msg_0543_T20R0101_00069 {
     "Ecruteak Dance Theater."
 }
 
-movement NewBark_ElmsLab_1F_Movement_0658 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmExclamation2 {
     emote_exclamation_mark
     delay_4
 }
 
-script scr_seq_T20R0101_003 {
+script NewBark_ElmsLab_1F_EventScript_ScientistTrigger {
     followmonresetmovement
     lockall
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 3) {
-        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_081C)
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkLeft1)
     } elif (var(VAR_TEMP_x4000) == 4) {
-        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_082C)
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkLeft2)
     } elif (var(VAR_TEMP_x4000) == 5) {
-        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_083C)
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkLeft3)
     } elif (var(VAR_TEMP_x4000) == 6) {
-        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_084C)
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkLeft4)
     }
     waitmovement
     bufferplayersname(0)
@@ -697,20 +697,20 @@ script scr_seq_T20R0101_003 {
            "think yours is in danger.\r")
     closemessage
     if (var(VAR_TEMP_x4000) == 3) {
-        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_0864)
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkRight1)
     } elif (var(VAR_TEMP_x4000) == 4) {
-        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_0870)
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkRight2)
     } elif (var(VAR_TEMP_x4000) == 5) {
-        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_087C)
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkRight3)
     } elif (var(VAR_TEMP_x4000) == 6) {
-        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_0888)
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkRight4)
     }
     waitmovement
     releaseall
     end
 }
 
-script scr_seq_T20R0101_001 {
+script NewBark_ElmsLab_1F_EventScript_Scientist {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -767,25 +767,25 @@ text msg_0543_T20R0101_00055 {
     "person turns bad itself."
 }
 
-movement NewBark_ElmsLab_1F_Movement_081C {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkLeft1 {
     emote_exclamation_mark
     walk_slightly_fast_left * 6
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_082C {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkLeft2 {
     emote_exclamation_mark
     walk_slightly_fast_left * 5
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_083C {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkLeft3 {
     emote_exclamation_mark
     walk_slightly_fast_left * 4
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_084C {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkLeft4 {
     emote_exclamation_mark
     walk_slightly_fast_left * 3
     walk_in_place_up
@@ -795,38 +795,38 @@ movement NewBark_ElmsLab_1F_Movement_085C {
     face_right
 }
 
-movement NewBark_ElmsLab_1F_Movement_0864 {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkRight1 {
     walk_slightly_fast_right * 6
     walk_in_place_left
 }
 
-movement NewBark_ElmsLab_1F_Movement_0870 {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkRight2 {
     walk_slightly_fast_right * 5
     walk_in_place_left
 }
 
-movement NewBark_ElmsLab_1F_Movement_087C {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkRight3 {
     walk_slightly_fast_right * 4
     walk_in_place_left
 }
 
-movement NewBark_ElmsLab_1F_Movement_0888 {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkRight4 {
     walk_slightly_fast_right * 3
     walk_in_place_left
 }
 
-script scr_seq_T20R0101_002 {
+script NewBark_ElmsLab_1F_EventScript_LyraScene1 {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0A68)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkUp3)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0A7C)
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_PolicemanFaceRight)
     waitmovement
     npcmsg("Who are you?\n"
            "We are investigating the case of the\f"
@@ -842,8 +842,8 @@ script scr_seq_T20R0101_002 {
     addobject(obj_T20R0101_var_1)
     waitse(SEQ_SE_DP_KAIDAN2)
     callstd(std_play_friend_music)
-    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0ADC)
-    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0A84)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_FriendWalkUpLeft)
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_PolicemanFaceDown)
     waitmovement
     gendermsgbox("Lyra: Hold on a second!\n"
                  "He has nothing to do with it!\r"
@@ -855,7 +855,7 @@ script scr_seq_T20R0101_002 {
                                                  "There was a red-haired boy\f"
                                                  "looking into the building!\r")
     closemessage
-    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0A90)
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_PolicemanExclamation)
     waitmovement
     npcmsg("What?\n"
            "You battled a boy like that?\r"
@@ -870,7 +870,7 @@ _0904:
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0904) }
-    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0A7C)
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_PolicemanFaceRight)
     waitmovement
     bufferrivalsname(1)
     npcmsg("I see! So {STRVAR_1 3, 1, 0} was\n"
@@ -891,13 +891,13 @@ _0904:
            "My next assignment is to search for\n"
            "this red-haired individual.\r")
     closemessage
-    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0AEC)
-    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0ABC)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_FriendWalkRight)
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_PolicemanWalkDownRight)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     removeobject(obj_T20R0101_policeman)
     waitse(SEQ_SE_DP_KAIDAN2)
-    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0B08)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_FriendWalkLeftUp)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lyra: {STRVAR_1 3, 0, 0}!\n"
@@ -908,7 +908,7 @@ _0904:
                                      "innocent.\r"
                                      "See you later!\r")
     closemessage
-    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0B18)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_FriendWalkDownRight)
     waitmovement
     setflag(FLAG_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND)
     playse(SEQ_SE_DP_KAIDAN2)
@@ -917,9 +917,9 @@ _0904:
     setflag(FLAG_HIDE_ELMS_LAB_OFFICER)
     setflag(FLAG_HIDE_ELMS_LAB_FRIEND)
     setflag(FLAG_GAVE_RIVAL_NAME_TO_OFFICER)
-    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0A74)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerFaceUp1)
     waitmovement
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B2C)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceDown3)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Professor Elm: {STRVAR_1 3, 0, 0}, this\n"
@@ -935,7 +935,7 @@ _0904:
     playfanfare(SEQ_ME_ITEM)
     waitfanfare
     takeitemnocheck(ITEM_MYSTERY_EGG, 1)
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B34)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkUp2)
     waitmovement
     npcmsg("Professor Elm: Huh?\n"
            "This is an...Egg, isn’t it?\r"
@@ -948,7 +948,7 @@ _0904:
            "I’ll keep it for a while to find out\n"
            "about the Egg.\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B48)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkDown2)
     waitmovement
     gendermsgbox("Professor Elm: What?!\r"
                  "Professor Oak gave you a Pokédex?\r"
@@ -990,7 +990,7 @@ _0904:
                                                    "easy, but you can certainly\f"
                                                    "challenge Violet City’s Gym.\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B50)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkUp3)
     waitmovement
     gendermsgbox("...{STRVAR_1 3, 0, 0}. Challenging the\n"
                  "Gyms scattered around will be\f"
@@ -1002,7 +1002,7 @@ _0904:
                                                  "Before you leave, make sure\n"
                                                  "that you talk to your mom.\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B64)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkDown3)
     waitmovement
     setflag(FLAG_HIDE_ROUTE_30_BATTLERS)
     clearflag(FLAG_HIDE_ROUTE_30_YOUNGSTER_JOEY)
@@ -1018,25 +1018,25 @@ _0904:
     end
 }
 
-movement NewBark_ElmsLab_1F_Movement_0A68 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkUp3 {
     walk_slightly_fast_up * 8
     face_left
 }
 
-movement NewBark_ElmsLab_1F_Movement_0A74 {
+movement NewBark_ElmsLab_1F_Movement_PlayerFaceUp1 {
     face_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0A7C {
+movement NewBark_ElmsLab_1F_Movement_PolicemanFaceRight {
     walk_in_place_right
 }
 
-movement NewBark_ElmsLab_1F_Movement_0A84 {
+movement NewBark_ElmsLab_1F_Movement_PolicemanFaceDown {
     delay_8 * 4
     walk_in_place_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0A90 {
+movement NewBark_ElmsLab_1F_Movement_PolicemanExclamation {
     emote_exclamation_mark
     delay_1
     face_down
@@ -1049,7 +1049,7 @@ movement NewBark_ElmsLab_1F_Movement_0A90 {
     delay_8 * 2
 }
 
-movement NewBark_ElmsLab_1F_Movement_0ABC {
+movement NewBark_ElmsLab_1F_Movement_PolicemanWalkDownRight {
     face_down
     delay_4
     walk_down * 6
@@ -1059,13 +1059,13 @@ movement NewBark_ElmsLab_1F_Movement_0ABC {
     walk_down * 2
 }
 
-movement NewBark_ElmsLab_1F_Movement_0ADC {
+movement NewBark_ElmsLab_1F_Movement_FriendWalkUpLeft {
     walk_fast_up * 6
     walk_fast_left
     jump_in_place_fast_up * 2
 }
 
-movement NewBark_ElmsLab_1F_Movement_0AEC {
+movement NewBark_ElmsLab_1F_Movement_FriendWalkRight {
     face_left
     lock_dir
     walk_right
@@ -1074,51 +1074,51 @@ movement NewBark_ElmsLab_1F_Movement_0AEC {
     face_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0B08 {
+movement NewBark_ElmsLab_1F_Movement_FriendWalkLeftUp {
     walk_left
     walk_up * 2
     walk_in_place_right
 }
 
-movement NewBark_ElmsLab_1F_Movement_0B18 {
+movement NewBark_ElmsLab_1F_Movement_FriendWalkDownRight {
     face_down
     walk_down * 6
     walk_right
     walk_down * 2
 }
 
-movement NewBark_ElmsLab_1F_Movement_0B2C {
+movement NewBark_ElmsLab_1F_Movement_ProfElmFaceDown3 {
     walk_in_place_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0B34 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkUp2 {
     jump_in_place_fast_down
     lock_dir
     walk_slightly_faster_up
     unlock_dir
 }
 
-movement NewBark_ElmsLab_1F_Movement_0B48 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkDown2 {
     walk_slightly_fast_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0B50 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkUp3 {
     face_up
     walk_slow_up
     delay_15
     face_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0B64 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkDown3 {
     walk_slightly_fast_down
 }
 
-script scr_seq_T20R0101_014 {
+script NewBark_ElmsLab_1F_EventScript_LyraScene2 {
     followmonresetmovement
     lockall
-    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0C78)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_FriendExclamation)
     waitmovement
-    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0C84)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_FriendWalkLeft)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lyra: {STRVAR_1 3, 0, 0}!\n"
@@ -1134,13 +1134,13 @@ script scr_seq_T20R0101_014 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0CA4)
-    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0C90)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkUp4)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_FriendWalkUpRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B2C)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceDown3)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Professor Elm: Hi, {STRVAR_1 3, 0, 0}!\n"
@@ -1183,8 +1183,8 @@ script scr_seq_T20R0101_014 {
                                                     "We just had a group of beautiful\n"
                                                     "Kimono Girls looking for you.\r")
     closemessage
-    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0CAC)
-    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0CB8)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_FriendWalkDown)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerFaceRight)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lyra: {STRVAR_1 3, 0, 0}, people are talking\n"
@@ -1197,14 +1197,14 @@ script scr_seq_T20R0101_014 {
                                                            "You’ve been helping all these people!\n"
                                                            "You make me proud to be your friend.\r")
     closemessage
-    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0CC4)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_FriendWalkDownLeft)
     waitmovement
     removeobject(obj_T20R0101_var_1)
     setflag(FLAG_HIDE_ELMS_LAB_FRIEND)
     playse(SEQ_SE_DP_KAIDAN2)
     waitse(SEQ_SE_DP_KAIDAN2)
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B2C)
-    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0CD4)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceDown3)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerFaceUp2)
     waitmovement
     npcmsg(msg_0543_T20R0101_00069)
     waitbuttonpress
@@ -1219,44 +1219,44 @@ script scr_seq_T20R0101_014 {
     end
 }
 
-movement NewBark_ElmsLab_1F_Movement_0C78 {
+movement NewBark_ElmsLab_1F_Movement_FriendExclamation {
     face_left
     emote_exclamation_mark
 }
 
-movement NewBark_ElmsLab_1F_Movement_0C84 {
+movement NewBark_ElmsLab_1F_Movement_FriendWalkLeft {
     walk_slightly_fast_left * 3
     walk_in_place_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0C90 {
+movement NewBark_ElmsLab_1F_Movement_FriendWalkUpRight {
     walk_up * 5
     walk_right
     walk_up
     walk_in_place_left
 }
 
-movement NewBark_ElmsLab_1F_Movement_0CA4 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkUp4 {
     walk_up * 7
 }
 
-movement NewBark_ElmsLab_1F_Movement_0CAC {
+movement NewBark_ElmsLab_1F_Movement_FriendWalkDown {
     walk_down
     walk_in_place_left
 }
 
-movement NewBark_ElmsLab_1F_Movement_0CB8 {
+movement NewBark_ElmsLab_1F_Movement_PlayerFaceRight {
     delay_8
     walk_in_place_right
 }
 
-movement NewBark_ElmsLab_1F_Movement_0CC4 {
+movement NewBark_ElmsLab_1F_Movement_FriendWalkDownLeft {
     walk_slightly_fast_down * 3
     walk_slightly_fast_left
     walk_slightly_fast_down * 4
 }
 
-movement NewBark_ElmsLab_1F_Movement_0CD4 {
+movement NewBark_ElmsLab_1F_Movement_PlayerFaceUp2 {
     walk_in_place_up
 }
 
@@ -1280,25 +1280,25 @@ script(local) _0CDC {
         followingpokemonmovement(55)
         getpersoncoords(0, VAR_SPECIAL_x8006, VAR_SPECIAL_x8007)
         if (var(VAR_TEMP_x4005) == 0) {
-            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0EB8)
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkDown)
             waitmovement
-            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F0C)
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_FollowMonWalkRightDown)
         } elif (var(VAR_TEMP_x4005) == 3) {
-            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0EC4)
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkDownRight)
             waitmovement
-            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F1C)
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_FollowMonWalkDownRight)
         } elif (var(VAR_TEMP_x4005) == 2) {
-            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0ED4)
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkDownLeft2)
             waitmovement
-            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F30)
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_FollowMonFaceUp1)
         } elif (var(VAR_SPECIAL_x8006) == 4) {
-            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0EF8)
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkRightDown)
             waitmovement
-            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F30)
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_FollowMonFaceUp1)
         } else {
-            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0EE4)
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_PlayerWalkLeftDown)
             waitmovement
-            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F1C)
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_FollowMonWalkDownRight)
         }
         waitmovement
         waitfollowingpokemonmovement
@@ -1309,15 +1309,15 @@ script(local) _0CDC {
     if (var(VAR_UNK_412F) >= 2) { goto(_1044) }
     if (var(VAR_UNK_412F) == 1) { goto(_0FE4) }
     call(_0DE3)
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F48)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceDown4)
     waitmovement
     npcmsg("Professor Elm: That is quite a\n"
            "rare PICHU!\f"
            "Can I take a look at it closely?\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F50)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkDownRight1)
     waitmovement
-    applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F38)
+    applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_FollowMonFaceUp2)
     waitmovement
     npcmsg("Hmm...\n"
            "One of the ears is spiky...\f"
@@ -1325,17 +1325,17 @@ script(local) _0CDC {
            "There seems to be something more to it.\r"
            "It really is a rare sight.\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F48)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmFaceDown4)
     waitmovement
     npcmsg("You met it at the Ilex Forest?\r"
            "A mysterious Pokémon called CELEBI\n"
            "has been sighted there, or so I heard.\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F60)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmExclamation3)
     waitmovement
     npcmsg("Speaking of that...\r")
     closemessage
-    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0FBC)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkUpLeft2)
     waitmovement
     npcmsg("Professor Oak once wrote about\n"
            "CELEBI and {COLOR 1}Time Travel{COLOR 0} in a research\f"
@@ -1343,9 +1343,9 @@ script(local) _0CDC {
     closemessage
     getpersoncoords(0, VAR_SPECIAL_x8006, VAR_SPECIAL_x8007)
     if (var(VAR_SPECIAL_x8006) == 4) {
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F98)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkUpRight)
     } else {
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F6C)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkUpLeft1)
     }
     waitmovement
     npcmsg("Professor Elm: CELEBI can use its\n"
@@ -1353,10 +1353,10 @@ script(local) _0CDC {
            "travel to the past and future.\r")
     closemessage
     if (var(VAR_SPECIAL_x8006) == 4) {
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0FDC)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkDown4)
         waitmovement
     } else {
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0FCC)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkDownRight2)
         waitmovement
     }
     bufferplayersname(0)
@@ -1387,76 +1387,76 @@ script(local) _0CDC {
     end
 }
 
-movement NewBark_ElmsLab_1F_Movement_0EB8 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkDown {
     walk_down
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0EC4 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkDownRight {
     walk_down * 2
     walk_right
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0ED4 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkDownLeft2 {
     walk_down * 2
     walk_left
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0EE4 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkLeftDown {
     walk_left
     walk_down * 3
     walk_right
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0EF8 {
+movement NewBark_ElmsLab_1F_Movement_PlayerWalkRightDown {
     walk_right
     walk_down * 3
     walk_left
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0F0C {
+movement NewBark_ElmsLab_1F_Movement_FollowMonWalkRightDown {
     walk_right
     walk_down
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0F1C {
+movement NewBark_ElmsLab_1F_Movement_FollowMonWalkDownRight {
     walk_down
     walk_right * 2
     walk_up
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0F30 {
+movement NewBark_ElmsLab_1F_Movement_FollowMonFaceUp1 {
     walk_in_place_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0F38 {
+movement NewBark_ElmsLab_1F_Movement_FollowMonFaceUp2 {
     jump_in_place_fast_down
     delay_16
     jump_in_place_fast_up
 }
 
-movement NewBark_ElmsLab_1F_Movement_0F48 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmFaceDown4 {
     walk_in_place_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0F50 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkDownRight1 {
     walk_down
     walk_right
     walk_in_place_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0F60 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmExclamation3 {
     emote_exclamation_mark
     delay_8
 }
 
-movement NewBark_ElmsLab_1F_Movement_0F6C {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkUpLeft1 {
     walk_up
     walk_left * 2
     walk_in_place_up
@@ -1469,7 +1469,7 @@ movement NewBark_ElmsLab_1F_Movement_0F6C {
     delay_8 * 2
 }
 
-movement NewBark_ElmsLab_1F_Movement_0F98 {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkUpRight {
     walk_up
     delay_8 * 2
     lock_dir
@@ -1480,19 +1480,19 @@ movement NewBark_ElmsLab_1F_Movement_0F98 {
     delay_8 * 2
 }
 
-movement NewBark_ElmsLab_1F_Movement_0FBC {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkUpLeft2 {
     walk_up
     walk_left
     walk_in_place_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0FCC {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkDownRight2 {
     walk_down
     walk_right * 2
     walk_in_place_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_0FDC {
+movement NewBark_ElmsLab_1F_Movement_ProfElmWalkDown4 {
     walk_down
 }
 
@@ -1504,21 +1504,21 @@ script(local) _0FE4 {
                      "to like you a lot already, {STRVAR_1 3, 0, 0}.\r", "Oh, wow, your Spiky-eared PICHU seems\n"
                                                                          "to like you a lot already, {STRVAR_1 3, 0, 0}.\r")
         closemessage
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F60)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmExclamation3)
         waitmovement
         npcmsg("Something’s funny...\n"
                "I would expect it to evolve into\f"
                "PIKACHU since it likes its Trainer\f"
                "this much...\r")
         closemessage
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F50)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkDownRight1)
         waitmovement
         npcmsg("Let me see...\r"
                "Hmm...\r"
                "Could it be...\r"
                "Just as I thought!\r")
         closemessage
-        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0FBC)
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_ProfElmWalkUpLeft2)
         waitmovement
         npcmsg("It seems that this PICHU will never\n"
                "evolve. It’s so strange!\r"
@@ -1553,7 +1553,7 @@ script scr_seq_T20R0101_004 {
     end
 }
 
-script scr_seq_T20R0101_005 {
+script NewBark_ElmsLab_1F_EventScript_Book1 {
     bufferplayersname(0)
     playse(SEQ_SE_DP_SELECT)
     lockall
@@ -1568,7 +1568,7 @@ script scr_seq_T20R0101_005 {
     end
 }
 
-script scr_seq_T20R0101_006 {
+script NewBark_ElmsLab_1F_EventScript_Book2 {
     bufferplayersname(0)
     playse(SEQ_SE_DP_SELECT)
     lockall
@@ -1583,7 +1583,7 @@ script scr_seq_T20R0101_006 {
     end
 }
 
-script scr_seq_T20R0101_007 {
+script NewBark_ElmsLab_1F_EventScript_Book3 {
     bufferplayersname(0)
     playse(SEQ_SE_DP_SELECT)
     lockall
@@ -1596,7 +1596,7 @@ script scr_seq_T20R0101_007 {
     end
 }
 
-script scr_seq_T20R0101_008 {
+script NewBark_ElmsLab_1F_EventScript_Book4 {
     bufferplayersname(0)
     playse(SEQ_SE_DP_SELECT)
     lockall
@@ -1612,7 +1612,7 @@ script scr_seq_T20R0101_008 {
     end
 }
 
-script scr_seq_T20R0101_009 {
+script NewBark_ElmsLab_1F_EventScript_Memo {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("You found a memo...\n"
@@ -1625,7 +1625,7 @@ script scr_seq_T20R0101_009 {
     end
 }
 
-script scr_seq_T20R0101_013 {
+script NewBark_ElmsLab_1F_EventScript_PC2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -1658,10 +1658,10 @@ script scr_seq_T20R0101_013 {
     end
 }
 
-script scr_seq_T20R0101_015 {
+script NewBark_ElmsLab_1F_EventScript_ScientistScene {
     followmonresetmovement
     lockall
-    applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_113C)
+    applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkLeftDown)
     waitmovement
     bufferplayersname(0)
     npcmsg("{STRVAR_1 3, 0, 0}!\n"
@@ -1679,29 +1679,29 @@ script scr_seq_T20R0101_015 {
            "...\n"
            "Isn’t it moving? It made me cry!\r")
     closemessage
-    applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_1148)
+    applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_ScientistWalkUpRight)
     waitmovement
     setvar(VAR_UNK_40FC, 3)
     releaseall
     end
 }
 
-movement NewBark_ElmsLab_1F_Movement_113C {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkLeftDown {
     walk_left * 5
     walk_down
 }
 
-movement NewBark_ElmsLab_1F_Movement_1148 {
+movement NewBark_ElmsLab_1F_Movement_ScientistWalkUpRight {
     walk_up
     walk_right * 5
     walk_in_place_down
 }
 
 mapscripts NewBark_ElmsLab_1F_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_T20R0101_010
+    INIT_SCRIPT_ON_RESUME: NewBark_ElmsLab_1F_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40FC, 2: scr_seq_T20R0101_015
-        VAR_SCENE_ELMS_LAB, 3: scr_seq_T20R0101_002
-        VAR_SCENE_ELMS_LAB, 8: scr_seq_T20R0101_014
+        VAR_UNK_40FC, 2: NewBark_ElmsLab_1F_EventScript_ScientistScene
+        VAR_SCENE_ELMS_LAB, 3: NewBark_ElmsLab_1F_EventScript_LyraScene1
+        VAR_SCENE_ELMS_LAB, 8: NewBark_ElmsLab_1F_EventScript_LyraScene2
     ]
 }

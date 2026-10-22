@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R06_000 {
+script Route6_EventScript_PokefanM {
     simplenpcmsg("The road is closed until the problem at\n"
                  "the Power Plant is solved.")
     end
 }
 
-script scr_seq_R06_001 {
+script Route6_EventScript_TrainerTips {
     trainertipsex(2, "Underground Path\r"
                      "You can go from Vermilion City to\n"
                      "Cerulean City through this path under\f"

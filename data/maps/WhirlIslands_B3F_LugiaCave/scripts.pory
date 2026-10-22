@@ -3,22 +3,22 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D40R0107_000
-    scr_seq_D40R0107_001
-    scr_seq_D40R0107_002
-    scr_seq_D40R0107_003
-    scr_seq_D40R0107_004
-    scr_seq_D40R0107_005
-    scr_seq_D40R0107_006
+    WhirlIslands_B3F_LugiaCave_EventScript_Lugia
+    WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl1
+    WhirlIslands_B3F_LugiaCave_OnLoad
+    WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl2
+    WhirlIslands_B3F_LugiaCave_OnResume
+    WhirlIslands_B3F_LugiaCave_EventScript_ZukiTrigger
+    WhirlIslands_B3F_LugiaCave_OnTransition
 }
 
-script scr_seq_D40R0107_006 {
+script WhirlIslands_B3F_LugiaCave_OnTransition {
     setvar(VAR_TEMP_x4003, 111)
     setflag(FLAG_UNK_105)
     end
 }
 
-script scr_seq_D40R0107_002 {
+script WhirlIslands_B3F_LugiaCave_OnLoad {
     setflag(FLAG_UNK_99A)
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_WHIRL_ISLAND_LUGIA)
@@ -34,7 +34,7 @@ script scr_seq_D40R0107_002 {
     end
 }
 
-script scr_seq_D40R0107_004 {
+script WhirlIslands_B3F_LugiaCave_OnResume {
     if (!flag(FLAG_HIDE_WHIRL_ISLAND_LUGIA)) {
         makeobjectvisible(obj_D40R0107_stop)
         makeobjectvisible(obj_D40R0107_stop_2)
@@ -60,7 +60,7 @@ _00FA:
     end
 }
 
-script scr_seq_D40R0107_000 {
+script WhirlIslands_B3F_LugiaCave_EventScript_Lugia {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -104,13 +104,13 @@ _01A8:
     return
 }
 
-script scr_seq_D40R0107_005 {
+script WhirlIslands_B3F_LugiaCave_EventScript_ZukiTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_player, WhirlIslands_B3F_LugiaCave_Movement_0964)
+    applymovement(obj_player, WhirlIslands_B3F_LugiaCave_Movement_PlayerWalkUp)
     waitmovement
     loadeventsoundeffects
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlFaceDown)
     waitmovement
     npcmsg("Zuki: That’s right.\n"
            "This is where we welcome LUGIA.\r"
@@ -129,38 +129,38 @@ script scr_seq_D40R0107_005 {
     fadescreen(4, 4, 1, RGB_WHITE)
     waitfade
     waitse(SEQ_SE_GS_SUZUSYUTUGEN_RU)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_096C)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0978)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0984)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0990)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_099C)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp1)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft1)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeftUp)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight1)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRightUp)
     waitmovement
     wait(16, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09A8)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09A8)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09A8)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09A8)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlFaceDown)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlFaceDown)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlFaceDown)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlFaceDown)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlFaceDown)
     waitmovement
     wait(16, VAR_SPECIAL_RESULT)
     stopbgm(0)
     tempbgm(SEQ_GS_E_MAIKO_MAI)
     wait(18, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09B8)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09B8)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09B8)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09B8)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
     waitmovement
     wait(67, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09B8)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09B8)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09B8)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09B8)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
@@ -169,65 +169,65 @@ script scr_seq_D40R0107_005 {
     legendcutscenewavesorleaveseffectbegin
     waitfade
     wait(6, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
     waitmovement
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
     waitmovement
     wait(33, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0AF0)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A98)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A6C)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0AC4)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin9)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin7)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin6)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin8)
     wait(15, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
     waitmovement
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
@@ -235,33 +235,33 @@ script scr_seq_D40R0107_005 {
     legendcutscenewavesorleaveseffectend
     legendcutscenepancamerato(0)
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
     waitmovement
     wait(29, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A6C)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0AF0)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0AC4)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A98)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin6)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin9)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin8)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin7)
     wait(15, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
@@ -274,97 +274,97 @@ script scr_seq_D40R0107_005 {
     legendcutscenemovecamerato(1)
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
     waitmovement
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
     waitmovement
     wait(29, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
     legendcutscenemovecamerato(2)
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
     waitmovement
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
     waitmovement
     wait(38, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
     waitmovement
     legendcutscenepancamerato(1)
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09DC)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
@@ -372,17 +372,17 @@ script scr_seq_D40R0107_005 {
     fadeoutbgm(0, 100)
     stopbgm(0)
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B24)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B34)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2)
     waitmovement
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A00)
-    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A24)
-    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A48)
-    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2)
     wait(12, VAR_SPECIAL_RESULT)
     waitmovement
     legendcutscenewaitcamerapan
@@ -427,7 +427,7 @@ script scr_seq_D40R0107_005 {
     legendcutscenelugiaarriveseffectend
     wait(16, VAR_SPECIAL_RESULT)
     processsoundplate
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B3C)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp3)
     waitmovement
     bufferplayersname(0)
     npcmsg("That is indeed LUGIA...\n"
@@ -439,7 +439,7 @@ script scr_seq_D40R0107_005 {
            "harmony with the Tidal Bell has finally\f"
            "allowed it to appear...\r")
     closemessage
-    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlFaceDown)
     waitmovement
     bufferplayersname(0)
     npcmsg("{STRVAR_1 3, 0, 0}, don’t you see?\r"
@@ -454,36 +454,36 @@ script scr_seq_D40R0107_005 {
     end
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0964 {
+movement WhirlIslands_B3F_LugiaCave_Movement_PlayerWalkUp {
     walk_slow_up * 2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_096C {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp1 {
     delay_8 * 6
     walk_up
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0978 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft1 {
     delay_8 * 5
     walk_left * 2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0984 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeftUp {
     walk_left
     walk_up * 6
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0990 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight1 {
     delay_8 * 5
     walk_right * 2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_099C {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRightUp {
     walk_right
     walk_up * 6
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_09A8 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlFaceDown {
     walk_in_place_down
 }
 
@@ -491,7 +491,7 @@ movement WhirlIslands_B3F_LugiaCave_Movement_09B0 {
     walk_in_place_up
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_09B8 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin1 {
     face_right
     delay_2
     face_up
@@ -502,7 +502,7 @@ movement WhirlIslands_B3F_LugiaCave_Movement_09B8 {
     delay_2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_09DC {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin2 {
     face_left
     delay_2
     face_down
@@ -513,7 +513,7 @@ movement WhirlIslands_B3F_LugiaCave_Movement_09DC {
     delay_2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0A00 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin3 {
     face_right
     delay_2
     face_up
@@ -524,7 +524,7 @@ movement WhirlIslands_B3F_LugiaCave_Movement_0A00 {
     delay_2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0A24 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin4 {
     face_down
     delay_2
     face_right
@@ -535,7 +535,7 @@ movement WhirlIslands_B3F_LugiaCave_Movement_0A24 {
     delay_2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0A48 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin5 {
     face_up
     delay_2
     face_left
@@ -546,7 +546,7 @@ movement WhirlIslands_B3F_LugiaCave_Movement_0A48 {
     delay_2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0A6C {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin6 {
     face_left
     delay_2
     face_down
@@ -559,7 +559,7 @@ movement WhirlIslands_B3F_LugiaCave_Movement_0A6C {
     delay_2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0A98 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin7 {
     face_right
     delay_2
     face_up
@@ -572,7 +572,7 @@ movement WhirlIslands_B3F_LugiaCave_Movement_0A98 {
     delay_2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0AC4 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin8 {
     face_down
     delay_2
     face_right
@@ -585,7 +585,7 @@ movement WhirlIslands_B3F_LugiaCave_Movement_0AC4 {
     delay_2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0AF0 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlSpin9 {
     face_up
     delay_2
     face_left
@@ -598,27 +598,27 @@ movement WhirlIslands_B3F_LugiaCave_Movement_0AF0 {
     delay_2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0B1C {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp2 {
     walk_slow_up * 2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0B24 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkDown {
     walk_slow_down * 2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0B2C {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkLeft2 {
     walk_slow_left * 2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0B34 {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkRight2 {
     walk_slow_right * 2
 }
 
-movement WhirlIslands_B3F_LugiaCave_Movement_0B3C {
+movement WhirlIslands_B3F_LugiaCave_Movement_KimonoGirlWalkUp3 {
     walk_slow_up
 }
 
-script scr_seq_D40R0107_001 {
+script WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -667,7 +667,7 @@ text msg_0125_D40R0107_00001 {
     "What you do now is entirely up to you..."
 }
 
-script scr_seq_D40R0107_003 {
+script WhirlIslands_B3F_LugiaCave_EventScript_KimonoGirl2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -687,7 +687,7 @@ script scr_seq_D40R0107_003 {
 }
 
 mapscripts WhirlIslands_B3F_LugiaCave_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_D40R0107_002
-    INIT_SCRIPT_ON_RESUME: scr_seq_D40R0107_004
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D40R0107_006
+    INIT_SCRIPT_ON_LOAD: WhirlIslands_B3F_LugiaCave_OnLoad
+    INIT_SCRIPT_ON_RESUME: WhirlIslands_B3F_LugiaCave_OnResume
+    INIT_SCRIPT_ON_TRANSITION: WhirlIslands_B3F_LugiaCave_OnTransition
 }

@@ -3,31 +3,31 @@
   "messages": [
     {
       "id": "msg_0464_T03R0101_00000",
-      "from": "scr_seq_T03R0101_000#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Receptionist#0"
     },
     {
       "id": "msg_0464_T03R0101_00001",
-      "from": "scr_seq_T03R0101_001#4"
+      "from": "Pewter_MuseumOfScience_EventScript_SuperNerd1#4"
     },
     {
       "id": "msg_0464_T03R0101_00002",
-      "from": "scr_seq_T03R0101_001#7"
+      "from": "Pewter_MuseumOfScience_EventScript_SuperNerd1#7"
     },
     {
       "id": "msg_0464_T03R0101_00003",
-      "from": "scr_seq_T03R0101_001#6"
+      "from": "Pewter_MuseumOfScience_EventScript_SuperNerd1#6"
     },
     {
       "id": "msg_0464_T03R0101_00004",
-      "from": "scr_seq_T03R0101_001#0"
+      "from": "Pewter_MuseumOfScience_EventScript_SuperNerd1#0"
     },
     {
       "id": "msg_0464_T03R0101_00005",
-      "from": "scr_seq_T03R0101_001#1"
+      "from": "Pewter_MuseumOfScience_EventScript_SuperNerd1#1"
     },
     {
       "id": "msg_0464_T03R0101_00006",
-      "from": "scr_seq_T03R0101_001#5"
+      "from": "Pewter_MuseumOfScience_EventScript_SuperNerd1#5"
     },
     {
       "id": "msg_0464_T03R0101_00007",
@@ -35,51 +35,51 @@
     },
     {
       "id": "msg_0464_T03R0101_00008",
-      "from": "scr_seq_T03R0101_001#2"
+      "from": "Pewter_MuseumOfScience_EventScript_SuperNerd1#2"
     },
     {
       "id": "msg_0464_T03R0101_00009",
-      "from": "scr_seq_T03R0101_001#3"
+      "from": "Pewter_MuseumOfScience_EventScript_SuperNerd1#3"
     },
     {
       "id": "msg_0464_T03R0101_00010",
-      "from": "scr_seq_T03R0101_002#0"
+      "from": "Pewter_MuseumOfScience_EventScript_SuperNerd2#0"
     },
     {
       "id": "msg_0464_T03R0101_00011",
-      "from": "scr_seq_T03R0101_003#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Maniac#0"
     },
     {
       "id": "msg_0464_T03R0101_00012",
-      "from": "scr_seq_T03R0101_004#0"
+      "from": "Pewter_MuseumOfScience_EventScript_OldMan#0"
     },
     {
       "id": "msg_0464_T03R0101_00013",
-      "from": "scr_seq_T03R0101_019#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Steven2#0"
     },
     {
       "id": "msg_0464_T03R0101_00014",
-      "from": "scr_seq_T03R0101_016#0"
+      "from": "Pewter_MuseumOfScience_EventScript_StevenTrigger#0"
     },
     {
       "id": "msg_0464_T03R0101_00015",
-      "from": "scr_seq_T03R0101_016#1"
+      "from": "Pewter_MuseumOfScience_EventScript_StevenTrigger#1"
     },
     {
       "id": "msg_0464_T03R0101_00016",
-      "from": "scr_seq_T03R0101_016#2"
+      "from": "Pewter_MuseumOfScience_EventScript_StevenTrigger#2"
     },
     {
       "id": "msg_0464_T03R0101_00017",
-      "from": "scr_seq_T03R0101_016#3"
+      "from": "Pewter_MuseumOfScience_EventScript_StevenTrigger#3"
     },
     {
       "id": "msg_0464_T03R0101_00018",
-      "from": "scr_seq_T03R0101_016#4"
+      "from": "Pewter_MuseumOfScience_EventScript_StevenTrigger#4"
     },
     {
       "id": "msg_0464_T03R0101_00019",
-      "from": "scr_seq_T03R0101_016#5"
+      "from": "Pewter_MuseumOfScience_EventScript_StevenTrigger#5"
     },
     {
       "id": "msg_0464_T03R0101_00020",
@@ -91,39 +91,39 @@
     },
     {
       "id": "msg_0464_T03R0101_00021",
-      "from": "scr_seq_T03R0101_016#6"
+      "from": "Pewter_MuseumOfScience_EventScript_StevenTrigger#6"
     },
     {
       "id": "msg_0464_T03R0101_00022",
-      "from": "scr_seq_T03R0101_005#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Sign1#0"
     },
     {
       "id": "msg_0464_T03R0101_00023",
-      "from": "scr_seq_T03R0101_006#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Sign2#0"
     },
     {
       "id": "msg_0464_T03R0101_00024",
-      "from": "scr_seq_T03R0101_007#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Sign3#0"
     },
     {
       "id": "msg_0464_T03R0101_00025",
-      "from": "scr_seq_T03R0101_008#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Sign4#0"
     },
     {
       "id": "msg_0464_T03R0101_00026",
-      "from": "scr_seq_T03R0101_009#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Sign5#0"
     },
     {
       "id": "msg_0464_T03R0101_00027",
-      "from": "scr_seq_T03R0101_010#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Sign6#0"
     },
     {
       "id": "msg_0464_T03R0101_00028",
-      "from": "scr_seq_T03R0101_011#0"
+      "from": "Pewter_MuseumOfScience_EventScript_Bookshelf#0"
     },
     {
       "id": "msg_0464_T03R0101_00029",
-      "from": "scr_seq_T03R0101_012#0"
+      "from": "Pewter_MuseumOfScience_EventScript_OurMuseumMainlyDisplaysSign#0"
     }
   ]
 }

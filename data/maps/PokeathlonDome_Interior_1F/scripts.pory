@@ -3,37 +3,37 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D49R0101_000
-    scr_seq_D49R0101_001
-    scr_seq_D49R0101_002
+    PokeathlonDome_Interior_1F_EventScript_WhitneyTrigger
+    PokeathlonDome_Interior_1F_EventScript_Nurse1
+    PokeathlonDome_Interior_1F_EventScript_Nurse2
     scr_seq_D49R0101_003
-    scr_seq_D49R0101_004
-    scr_seq_D49R0101_005
-    scr_seq_D49R0101_006
-    scr_seq_D49R0101_007
-    scr_seq_D49R0101_008
-    scr_seq_D49R0101_009
-    scr_seq_D49R0101_010
-    scr_seq_D49R0101_011
-    scr_seq_D49R0101_012
-    scr_seq_D49R0101_013
-    scr_seq_D49R0101_014
-    scr_seq_D49R0101_015
-    scr_seq_D49R0101_016
-    scr_seq_D49R0101_017
-    scr_seq_D49R0101_018
-    scr_seq_D49R0101_019
-    scr_seq_D49R0101_020
-    scr_seq_D49R0101_021
-    scr_seq_D49R0101_022
-    scr_seq_D49R0101_023
+    PokeathlonDome_Interior_1F_EventScript_Sign1
+    PokeathlonDome_Interior_1F_EventScript_Sign2
+    PokeathlonDome_Interior_1F_EventScript_Sign3
+    PokeathlonDome_Interior_1F_EventScript_Sign4
+    PokeathlonDome_Interior_1F_EventScript_Sign5
+    PokeathlonDome_Interior_1F_EventScript_Sign6
+    PokeathlonDome_Interior_1F_EventScript_Sign7
+    PokeathlonDome_Interior_1F_EventScript_Sign8
+    PokeathlonDome_Interior_1F_EventScript_Sign9
+    PokeathlonDome_Interior_1F_EventScript_Sign10
+    PokeathlonDome_Interior_1F_EventScript_Machine
+    PokeathlonDome_Interior_1F_EventScript_SchoolKidM
+    PokeathlonDome_Interior_1F_EventScript_Woman
+    PokeathlonDome_Interior_1F_EventScript_PokefanM
+    PokeathlonDome_Interior_1F_EventScript_Man1
+    PokeathlonDome_Interior_1F_EventScript_FatMan
+    PokeathlonDome_Interior_1F_EventScript_Sign11
+    PokeathlonDome_Interior_1F_EventScript_OldMan
+    PokeathlonDome_Interior_1F_EventScript_Man2
+    PokeathlonDome_Interior_1F_OnTransition
 }
 
 raw `
 #include "msgdata/msg/msg_0191.h"
 `
 
-script scr_seq_D49R0101_023 {
+script PokeathlonDome_Interior_1F_OnTransition {
     setflag(FLAG_SYS_FLYPOINT_POKEATHLON)
     end
 }
@@ -42,36 +42,36 @@ movement PokeathlonDome_Interior_1F_Movement_0068 {
     walk_in_place_left
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0070 {
+movement PokeathlonDome_Interior_1F_Movement_PlayerFaceRight1 {
     walk_in_place_right
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0078 {
+movement PokeathlonDome_Interior_1F_Movement_PlayerFaceDown {
     walk_in_place_down
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0080 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyFaceUp {
     walk_in_place_up
 }
 
-script scr_seq_D49R0101_000 {
+script PokeathlonDome_Interior_1F_EventScript_WhitneyTrigger {
     followmonresetmovement
     lockall
     getplayerfacing(VAR_TEMP_x400A)
     if (var(VAR_TEMP_x400A) == 0) {
-        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0230)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_PlayerExclamation1)
     } else {
-        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_023C)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_PlayerExclamation2)
     }
     waitmovement
     clearflag(FLAG_HIDE_POKEATHLON_RECEPTION_WHITNEY)
     addobject(obj_D49R0101_gsleader3)
     movepersonfacing(obj_D49R0101_gsleader3, 23, 0, 20, DIR_NORTH)
     if (var(VAR_TEMP_x400A) == 0) {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0248)
-        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0260)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkRightUp1)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_PlayerFaceRight2)
     } else {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0258)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkUp2)
     }
     waitmovement
     bufferplayersname(0)
@@ -83,9 +83,9 @@ script scr_seq_D49R0101_000 {
     closemessage
     wait(30, VAR_SPECIAL_RESULT)
     if (var(VAR_TEMP_x400A) == 0) {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0200)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkLeft)
     } else {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0218)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkUp1)
     }
     waitmovement
     npcmsg("Huh?\r"
@@ -103,16 +103,16 @@ script scr_seq_D49R0101_000 {
            "Wait right there!\r")
     closemessage
     if (var(VAR_TEMP_x400A) == 0) {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0270)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkRightUp2)
     } elif (var(VAR_TEMP_x400A) == 3) {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_02AC)
-        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0070)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkRightUp3)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_PlayerFaceRight1)
     } else {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_02E8)
-        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0070)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkRightUp4)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_PlayerFaceRight1)
         waitmovement
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0080)
-        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0078)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyFaceUp)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_PlayerFaceDown)
     }
     waitmovement
     npcmsg("This is just right for you!\r")
@@ -128,13 +128,13 @@ script scr_seq_D49R0101_000 {
            "See ya!\r")
     closemessage
     if (var(VAR_TEMP_x400A) == 0) {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0328)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkDownLeft1)
     } elif (var(VAR_TEMP_x400A) == 3) {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0338)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkDownLeft2)
     } else {
-        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0348)
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_WhitneyWalkDown)
     }
-    applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0078)
+    applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_PlayerFaceDown)
     waitmovement
     removeobject(obj_D49R0101_gsleader3)
     setflag(FLAG_HIDE_POKEATHLON_RECEPTION_WHITNEY)
@@ -143,7 +143,7 @@ script scr_seq_D49R0101_000 {
     end
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0200 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkLeft {
     lock_dir
     jump_near_fast_right
     unlock_dir
@@ -151,7 +151,7 @@ movement PokeathlonDome_Interior_1F_Movement_0200 {
     walk_fast_left
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0218 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkUp1 {
     lock_dir
     jump_near_fast_down
     unlock_dir
@@ -159,33 +159,33 @@ movement PokeathlonDome_Interior_1F_Movement_0218 {
     walk_fast_up
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0230 {
+movement PokeathlonDome_Interior_1F_Movement_PlayerExclamation1 {
     emote_exclamation_mark
     walk_in_place_down
 }
 
-movement PokeathlonDome_Interior_1F_Movement_023C {
+movement PokeathlonDome_Interior_1F_Movement_PlayerExclamation2 {
     emote_exclamation_mark
     walk_in_place_down
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0248 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkRightUp1 {
     walk_faster_right
     walk_slightly_fast_up * 10
     walk_in_place_left
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0258 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkUp2 {
     walk_slightly_fast_up * 9
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0260 {
+movement PokeathlonDome_Interior_1F_Movement_PlayerFaceRight2 {
     delay_2
     delay_8 * 8
     walk_in_place_right
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0270 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkRightUp2 {
     walk_in_place_down
     delay_8
     walk_in_place_up
@@ -202,7 +202,7 @@ movement PokeathlonDome_Interior_1F_Movement_0270 {
     walk_fast_left * 6
 }
 
-movement PokeathlonDome_Interior_1F_Movement_02AC {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkRightUp3 {
     walk_fast_right * 7
     walk_in_place_down
     delay_8
@@ -219,7 +219,7 @@ movement PokeathlonDome_Interior_1F_Movement_02AC {
     walk_fast_left * 6
 }
 
-movement PokeathlonDome_Interior_1F_Movement_02E8 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkRightUp4 {
     walk_fast_right * 7
     walk_in_place_down
     delay_8
@@ -237,23 +237,23 @@ movement PokeathlonDome_Interior_1F_Movement_02E8 {
     walk_in_place_up
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0328 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkDownLeft1 {
     walk_slightly_fast_down * 2
     walk_slightly_fast_left
     walk_slightly_fast_down * 8
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0338 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkDownLeft2 {
     walk_slightly_fast_down
     walk_slightly_fast_left
     walk_slightly_fast_down * 9
 }
 
-movement PokeathlonDome_Interior_1F_Movement_0348 {
+movement PokeathlonDome_Interior_1F_Movement_WhitneyWalkDown {
     walk_slightly_fast_down * 9
 }
 
-script scr_seq_D49R0101_001 {
+script PokeathlonDome_Interior_1F_EventScript_Nurse1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -332,7 +332,7 @@ text msg_0138_D49R0101_00051 {
     "Thank you, please come again."
 }
 
-script scr_seq_D49R0101_002 {
+script PokeathlonDome_Interior_1F_EventScript_Nurse2 {
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 2) {
         end
@@ -483,7 +483,7 @@ script scr_seq_D49R0101_003 {
     end
 }
 
-script scr_seq_D49R0101_004 {
+script PokeathlonDome_Interior_1F_EventScript_Sign1 {
     simplenpcmsg("“Hurdle Dash”\r"
                  "Many Hurdles await your Pokémon!\n"
                  "Be faster and more precise than\f"
@@ -492,7 +492,7 @@ script scr_seq_D49R0101_004 {
     end
 }
 
-script scr_seq_D49R0101_005 {
+script PokeathlonDome_Interior_1F_EventScript_Sign2 {
     simplenpcmsg("“Pennant Capture”\r"
                  "Pennants are hidden on the beach.\n"
                  "Fight over them and come back with as\f"
@@ -500,7 +500,7 @@ script scr_seq_D49R0101_005 {
     end
 }
 
-script scr_seq_D49R0101_006 {
+script PokeathlonDome_Interior_1F_EventScript_Sign3 {
     simplenpcmsg("“Circle Push”\r"
                  "The time has come to show off your\n"
                  "Pokémon’s Power!\f"
@@ -508,7 +508,7 @@ script scr_seq_D49R0101_006 {
     end
 }
 
-script scr_seq_D49R0101_007 {
+script PokeathlonDome_Interior_1F_EventScript_Sign4 {
     simplenpcmsg("“Block Smash”\r"
                  "A mountain of Blocks awaits\n"
                  "your Pokémon!\f"
@@ -516,7 +516,7 @@ script scr_seq_D49R0101_007 {
     end
 }
 
-script scr_seq_D49R0101_008 {
+script PokeathlonDome_Interior_1F_EventScript_Sign5 {
     simplenpcmsg("“Disc Catch”\r"
                  "Discs are thrown at you. Jump and\n"
                  "catch them in the air!\r"
@@ -525,7 +525,7 @@ script scr_seq_D49R0101_008 {
     end
 }
 
-script scr_seq_D49R0101_009 {
+script PokeathlonDome_Interior_1F_EventScript_Sign6 {
     simplenpcmsg("“Lamp Jump”\r"
                  "You never know how high you’re going\n"
                  "to bounce! Use your Pokémon’s Jump\f"
@@ -533,7 +533,7 @@ script scr_seq_D49R0101_009 {
     end
 }
 
-script scr_seq_D49R0101_010 {
+script PokeathlonDome_Interior_1F_EventScript_Sign7 {
     simplenpcmsg("“Relay Run”\r"
                  "Keep running until you can’t run\n"
                  "any more! Three Pokémon work together\f"
@@ -541,14 +541,14 @@ script scr_seq_D49R0101_010 {
     end
 }
 
-script scr_seq_D49R0101_011 {
+script PokeathlonDome_Interior_1F_EventScript_Sign8 {
     simplenpcmsg("“Ring Drop”\r"
                  "Pokémon tackle! Go beyond your Stamina\n"
                  "limit and stay in the Ring!")
     end
 }
 
-script scr_seq_D49R0101_012 {
+script PokeathlonDome_Interior_1F_EventScript_Sign9 {
     simplenpcmsg("“Snow Throw”\r"
                  "On an incredibly cold playfield,\n"
                  "millions of balls of Snow await!\r"
@@ -557,7 +557,7 @@ script scr_seq_D49R0101_012 {
     end
 }
 
-script scr_seq_D49R0101_013 {
+script PokeathlonDome_Interior_1F_EventScript_Sign10 {
     simplenpcmsg("“Goal Roll”\r"
                  "Put your heart into hitting the ball!\n"
                  "Attack! Defend your Goal!\r"
@@ -566,13 +566,13 @@ script scr_seq_D49R0101_013 {
     end
 }
 
-script scr_seq_D49R0101_015 {
+script PokeathlonDome_Interior_1F_EventScript_SchoolKidM {
     simplenpcmsg("So they have ten events?\n"
                  "...Which Pokémon should I choose?")
     end
 }
 
-script scr_seq_D49R0101_016 {
+script PokeathlonDome_Interior_1F_EventScript_Woman {
     simplenpcmsg("There are five Pokéathlon courses!\r"
                  "They are divided into Speed, Power,\n"
                  "Stamina, Jump, and Skill.\r"
@@ -581,14 +581,14 @@ script scr_seq_D49R0101_016 {
     end
 }
 
-script scr_seq_D49R0101_017 {
+script PokeathlonDome_Interior_1F_EventScript_PokefanM {
     simplenpcmsg("Some Pokémon are good at Speed events.\n"
                  "Some are not. You need to form a team\f"
                  "whose members can help one another.")
     end
 }
 
-script scr_seq_D49R0101_018 {
+script PokeathlonDome_Interior_1F_EventScript_Man1 {
     simplenpcmsg("If you go on, you’ll see the\n"
                  "Museum of Pokéathlete Records.\r"
                  "I will someday be a Pokéathlete holding\n"
@@ -596,7 +596,7 @@ script scr_seq_D49R0101_018 {
     end
 }
 
-script scr_seq_D49R0101_019 {
+script PokeathlonDome_Interior_1F_EventScript_FatMan {
     simplenpcmsg("The score you achieve in the Pokéathlon\n"
                  "will become Athlete Points, and you can\f"
                  "exchange them for prizes.\r"
@@ -605,7 +605,7 @@ script scr_seq_D49R0101_019 {
     end
 }
 
-script scr_seq_D49R0101_014 {
+script PokeathlonDome_Interior_1F_EventScript_Machine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     scriptoverlaycmd(3, 0)
@@ -805,7 +805,7 @@ text msg_0138_D49R0101_00086 {
     "Which drink would you like? {YESNO 0}"
 }
 
-script scr_seq_D49R0101_020 {
+script PokeathlonDome_Interior_1F_EventScript_Sign11 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -856,7 +856,7 @@ _0BA5:
     end
 }
 
-script scr_seq_D49R0101_021 {
+script PokeathlonDome_Interior_1F_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -918,7 +918,7 @@ script scr_seq_D49R0101_021 {
     end
 }
 
-script scr_seq_D49R0101_022 {
+script PokeathlonDome_Interior_1F_EventScript_Man2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -976,5 +976,5 @@ script scr_seq_D49R0101_022 {
 }
 
 mapscripts PokeathlonDome_Interior_1F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D49R0101_023
+    INIT_SCRIPT_ON_TRANSITION: PokeathlonDome_Interior_1F_OnTransition
 }

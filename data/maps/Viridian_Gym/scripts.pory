@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T02GYM0101_000
-    scr_seq_T02GYM0101_001
-    scr_seq_T02GYM0101_002
-    scr_seq_T02GYM0101_003
-    scr_seq_T02GYM0101_004
+    Viridian_Gym_EventScript_Blue
+    Viridian_Gym_EventScript_GymGuide
+    Viridian_Gym_OnTransition
+    Viridian_Gym_EventScript_GymGuideTrigger
+    Viridian_Gym_EventScript_GymSign
 }
 
-script scr_seq_T02GYM0101_002 {
+script Viridian_Gym_OnTransition {
     viridiangyminit
     setvar(VAR_UNK_4127, 0)
     getphonebookrematch(PHONE_CONTACT_BLUE, VAR_TEMP_x4001)
@@ -31,7 +31,7 @@ _005F:
     end
 }
 
-script scr_seq_T02GYM0101_000 {
+script Viridian_Gym_EventScript_Blue {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -117,7 +117,7 @@ _0127:
     end
 }
 
-script scr_seq_T02GYM0101_001 {
+script Viridian_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -150,35 +150,35 @@ script scr_seq_T02GYM0101_001 {
     end
 }
 
-script scr_seq_T02GYM0101_003 {
+script Viridian_Gym_EventScript_GymGuideTrigger {
     followmonresetmovement
     lockall
     if (!flag(FLAG_UNK_13A)) {
         getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4000) == 1) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0394)
-            applymovement(obj_player, Viridian_Gym_Movement_040C)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkLeft1)
+            applymovement(obj_player, Viridian_Gym_Movement_PlayerFaceRight1)
         } elif (var(VAR_TEMP_x4000) == 2) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03A4)
-            applymovement(obj_player, Viridian_Gym_Movement_040C)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkLeft2)
+            applymovement(obj_player, Viridian_Gym_Movement_PlayerFaceRight1)
         } elif (var(VAR_TEMP_x4000) == 3) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03B4)
-            applymovement(obj_player, Viridian_Gym_Movement_040C)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkLeft3)
+            applymovement(obj_player, Viridian_Gym_Movement_PlayerFaceRight1)
         } elif (var(VAR_TEMP_x4000) == 4) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03C4)
-            applymovement(obj_player, Viridian_Gym_Movement_0418)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkLeft4)
+            applymovement(obj_player, Viridian_Gym_Movement_PlayerFaceRight2)
         } elif (var(VAR_TEMP_x4000) == 5) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03D4)
-            applymovement(obj_player, Viridian_Gym_Movement_0418)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkLeft5)
+            applymovement(obj_player, Viridian_Gym_Movement_PlayerFaceRight2)
         } elif (var(VAR_TEMP_x4000) == 6) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03E4)
-            applymovement(obj_player, Viridian_Gym_Movement_0418)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideExclamation1)
+            applymovement(obj_player, Viridian_Gym_Movement_PlayerFaceRight2)
         } elif (var(VAR_TEMP_x4000) == 8) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03F0)
-            applymovement(obj_player, Viridian_Gym_Movement_0424)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideExclamation2)
+            applymovement(obj_player, Viridian_Gym_Movement_PlayerFaceLeft)
         } else {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03FC)
-            applymovement(obj_player, Viridian_Gym_Movement_0424)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkRight1)
+            applymovement(obj_player, Viridian_Gym_Movement_PlayerFaceLeft)
         }
         waitmovement
         npcmsg("Yo, legend in the making!\r"
@@ -192,21 +192,21 @@ script scr_seq_T02GYM0101_003 {
         closemessage
         setflag(FLAG_UNK_13A)
         if (var(VAR_TEMP_x4000) == 1) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0430)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkRight2)
         } elif (var(VAR_TEMP_x4000) == 2) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_043C)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkRight3)
         } elif (var(VAR_TEMP_x4000) == 3) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0448)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkRight4)
         } elif (var(VAR_TEMP_x4000) == 4) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0454)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkRight5)
         } elif (var(VAR_TEMP_x4000) == 5) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0460)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkRight6)
         } elif (var(VAR_TEMP_x4000) == 6) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_046C)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideFaceDown)
         } elif (var(VAR_TEMP_x4000) == 8) {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_046C)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideFaceDown)
         } else {
-            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0474)
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_GymGuideWalkLeft6)
         }
         waitmovement
     }
@@ -219,102 +219,102 @@ script scr_seq_T02GYM0101_003 {
     end
 }
 
-movement Viridian_Gym_Movement_0394 {
+movement Viridian_Gym_Movement_GymGuideWalkLeft1 {
     face_left
     emote_exclamation_mark
     walk_left * 5
 }
 
-movement Viridian_Gym_Movement_03A4 {
+movement Viridian_Gym_Movement_GymGuideWalkLeft2 {
     face_left
     emote_exclamation_mark
     walk_left * 4
 }
 
-movement Viridian_Gym_Movement_03B4 {
+movement Viridian_Gym_Movement_GymGuideWalkLeft3 {
     face_left
     emote_exclamation_mark
     walk_left * 3
 }
 
-movement Viridian_Gym_Movement_03C4 {
+movement Viridian_Gym_Movement_GymGuideWalkLeft4 {
     face_left
     emote_exclamation_mark
     walk_left * 2
 }
 
-movement Viridian_Gym_Movement_03D4 {
+movement Viridian_Gym_Movement_GymGuideWalkLeft5 {
     face_left
     emote_exclamation_mark
     walk_left
 }
 
-movement Viridian_Gym_Movement_03E4 {
+movement Viridian_Gym_Movement_GymGuideExclamation1 {
     face_left
     emote_exclamation_mark
 }
 
-movement Viridian_Gym_Movement_03F0 {
+movement Viridian_Gym_Movement_GymGuideExclamation2 {
     face_right
     emote_exclamation_mark
 }
 
-movement Viridian_Gym_Movement_03FC {
+movement Viridian_Gym_Movement_GymGuideWalkRight1 {
     face_right
     emote_exclamation_mark
     walk_right
 }
 
-movement Viridian_Gym_Movement_040C {
+movement Viridian_Gym_Movement_PlayerFaceRight1 {
     delay_16 * 2
     face_right
 }
 
-movement Viridian_Gym_Movement_0418 {
+movement Viridian_Gym_Movement_PlayerFaceRight2 {
     delay_8 * 2
     face_right
 }
 
-movement Viridian_Gym_Movement_0424 {
+movement Viridian_Gym_Movement_PlayerFaceLeft {
     delay_8 * 2
     face_left
 }
 
-movement Viridian_Gym_Movement_0430 {
+movement Viridian_Gym_Movement_GymGuideWalkRight2 {
     walk_right * 5
     face_down
 }
 
-movement Viridian_Gym_Movement_043C {
+movement Viridian_Gym_Movement_GymGuideWalkRight3 {
     walk_right * 4
     face_down
 }
 
-movement Viridian_Gym_Movement_0448 {
+movement Viridian_Gym_Movement_GymGuideWalkRight4 {
     walk_right * 3
     face_down
 }
 
-movement Viridian_Gym_Movement_0454 {
+movement Viridian_Gym_Movement_GymGuideWalkRight5 {
     walk_right * 2
     face_down
 }
 
-movement Viridian_Gym_Movement_0460 {
+movement Viridian_Gym_Movement_GymGuideWalkRight6 {
     walk_right
     face_down
 }
 
-movement Viridian_Gym_Movement_046C {
+movement Viridian_Gym_Movement_GymGuideFaceDown {
     face_down
 }
 
-movement Viridian_Gym_Movement_0474 {
+movement Viridian_Gym_Movement_GymGuideWalkLeft6 {
     walk_left
     face_down
 }
 
-script scr_seq_T02GYM0101_004 {
+script Viridian_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -335,5 +335,5 @@ script scr_seq_T02GYM0101_004 {
 }
 
 mapscripts Viridian_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T02GYM0101_002
+    INIT_SCRIPT_ON_TRANSITION: Viridian_Gym_OnTransition
 }

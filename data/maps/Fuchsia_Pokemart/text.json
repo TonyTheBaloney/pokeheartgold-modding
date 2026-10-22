@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0513_T08FS0101_00000",
-      "from": "scr_seq_T08FS0101_002#0"
+      "from": "Fuchsia_Pokemart_EventScript_FatMan#0"
     },
     {
       "id": "msg_0513_T08FS0101_00001",
@@ -16,7 +16,7 @@
     },
     {
       "id": "msg_0513_T08FS0101_00002",
-      "from": "scr_seq_T08FS0101_003#0"
+      "from": "Fuchsia_Pokemart_EventScript_AceTrainerF#0"
     }
   ]
 }

@@ -308,7 +308,7 @@
             "y": 81,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D22R0102_000 + 1"
+            "script": "NationalPark_BugCatchingContest_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -316,7 +316,7 @@
             "y": 60,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D22R0102_001 + 1"
+            "script": "NationalPark_BugCatchingContest_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -324,7 +324,7 @@
             "y": 16,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D22R0102_002 + 1"
+            "script": "NationalPark_BugCatchingContest_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

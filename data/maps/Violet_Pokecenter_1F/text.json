@@ -39,35 +39,35 @@
     },
     {
       "id": "msg_0559_T22PC0101_00009",
-      "from": "scr_seq_T22PC0101_001#0"
+      "from": "Violet_Pokecenter_1F_EventScript_Man#0"
     },
     {
       "id": "msg_0559_T22PC0101_00010",
-      "from": "scr_seq_T22PC0101_002#0"
+      "from": "Violet_Pokecenter_1F_EventScript_Gentleman#0"
     },
     {
       "id": "msg_0559_T22PC0101_00011",
-      "from": "scr_seq_T22PC0101_003#0"
+      "from": "Violet_Pokecenter_1F_EventScript_SchoolKidM#0"
     },
     {
       "id": "msg_0559_T22PC0101_00012",
-      "from": "scr_seq_T22PC0101_004#0"
+      "from": "Violet_Pokecenter_1F_EventScript_Primo#0"
     },
     {
       "id": "msg_0559_T22PC0101_00013",
-      "from": "scr_seq_T22PC0101_004#3"
+      "from": "Violet_Pokecenter_1F_EventScript_Primo#3"
     },
     {
       "id": "msg_0559_T22PC0101_00014",
-      "from": "scr_seq_T22PC0101_004#6"
+      "from": "Violet_Pokecenter_1F_EventScript_Primo#6"
     },
     {
       "id": "msg_0559_T22PC0101_00015",
-      "from": "scr_seq_T22PC0101_004#1"
+      "from": "Violet_Pokecenter_1F_EventScript_Primo#1"
     },
     {
       "id": "msg_0559_T22PC0101_00016",
-      "from": "scr_seq_T22PC0101_004#2"
+      "from": "Violet_Pokecenter_1F_EventScript_Primo#2"
     },
     {
       "id": "msg_0559_T22PC0101_00017",
@@ -91,35 +91,35 @@
     },
     {
       "id": "msg_0559_T22PC0101_00019",
-      "from": "scr_seq_T22PC0101_004#4"
+      "from": "Violet_Pokecenter_1F_EventScript_Primo#4"
     },
     {
       "id": "msg_0559_T22PC0101_00020",
-      "from": "scr_seq_T22PC0101_004#5"
+      "from": "Violet_Pokecenter_1F_EventScript_Primo#5"
     },
     {
       "id": "msg_0559_T22PC0101_00021",
-      "from": "scr_seq_T22PC0101_005#0"
+      "from": "Violet_Pokecenter_1F_EventScript_AceTrainerM#0"
     },
     {
       "id": "msg_0559_T22PC0101_00022",
-      "from": "scr_seq_T22PC0101_005#2"
+      "from": "Violet_Pokecenter_1F_EventScript_AceTrainerM#2"
     },
     {
       "id": "msg_0559_T22PC0101_00023",
-      "from": "scr_seq_T22PC0101_005#3"
+      "from": "Violet_Pokecenter_1F_EventScript_AceTrainerM#3"
     },
     {
       "id": "msg_0559_T22PC0101_00024",
-      "from": "scr_seq_T22PC0101_005#4"
+      "from": "Violet_Pokecenter_1F_EventScript_AceTrainerM#4"
     },
     {
       "id": "msg_0559_T22PC0101_00025",
-      "from": "scr_seq_T22PC0101_005#5"
+      "from": "Violet_Pokecenter_1F_EventScript_AceTrainerM#5"
     },
     {
       "id": "msg_0559_T22PC0101_00026",
-      "from": "scr_seq_T22PC0101_005#1"
+      "from": "Violet_Pokecenter_1F_EventScript_AceTrainerM#1"
     }
   ]
 }

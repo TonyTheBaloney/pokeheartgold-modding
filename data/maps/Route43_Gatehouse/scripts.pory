@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R43R0201_000
-    scr_seq_R43R0201_001
-    scr_seq_R43R0201_002
-    scr_seq_R43R0201_003
+    Route43_Gatehouse_EventScript_RocketGrunt
+    Route43_Gatehouse_EventScript_RocketGruntScene
+    Route43_Gatehouse_OnTransition
+    Route43_Gatehouse_EventScript_Attendant
 }
 
-script scr_seq_R43R0201_001 {
+script Route43_Gatehouse_EventScript_RocketGruntScene {
     stopbgm(SEQ_GS_R_7_42)
     playbgm(SEQ_GS_EYE_ROCKET)
     getplayerfacing(VAR_SPECIAL_RESULT)
@@ -17,8 +17,8 @@ script scr_seq_R43R0201_001 {
     goto(_0095)
     goto(_0066)
 _0037:
-    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_0114)
-    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_0128)
+    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_RocketGruntWalkDownRight)
+    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_RocketGruntWalkDownLeft)
     waitmovement
     npcmsg(msg_0403_R43R0201_00000)
     hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 1000)
@@ -33,13 +33,13 @@ _006C:
     goto(_0077)
 _0077:
     submoneyimmediate(1000)
-    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_0144)
-    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_0158)
+    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_RocketGruntWalkLeftUp)
+    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_RocketGruntWalkRightUp)
     waitmovement
     goto(_00ED)
 _0095:
-    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_0164)
-    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_0180)
+    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_RocketGruntWalkUpRight)
+    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_RocketGruntWalkUpLeft)
     waitmovement
     npcmsg(msg_0403_R43R0201_00000)
     hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 1000)
@@ -53,8 +53,8 @@ _00CA:
     goto(_00D5)
 _00D5:
     submoneyimmediate(1000)
-    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_0194)
-    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_01A4)
+    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_RocketGruntWalkLeftDown)
+    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_RocketGruntWalkRightDown)
     waitmovement
 _00ED:
     stopbgm(SEQ_GS_EYE_ROCKET)
@@ -78,7 +78,7 @@ text msg_0403_R43R0201_00002 {
     "can go through free of charge!\r"
 }
 
-script scr_seq_R43R0201_002 {
+script Route43_Gatehouse_OnTransition {
     if (flag(FLAG_ROCKET_HIDEOUT_CLEARED)) {
         end
     }
@@ -86,14 +86,14 @@ script scr_seq_R43R0201_002 {
     end
 }
 
-movement Route43_Gatehouse_Movement_0114 {
+movement Route43_Gatehouse_Movement_RocketGruntWalkDownRight {
     emote_exclamation_mark
     walk_faster_down * 3
     walk_faster_right * 2
     face_down
 }
 
-movement Route43_Gatehouse_Movement_0128 {
+movement Route43_Gatehouse_Movement_RocketGruntWalkDownLeft {
     delay_8 * 6
     face_down
     emote_exclamation_mark
@@ -102,19 +102,19 @@ movement Route43_Gatehouse_Movement_0128 {
     face_down
 }
 
-movement Route43_Gatehouse_Movement_0144 {
+movement Route43_Gatehouse_Movement_RocketGruntWalkLeftUp {
     delay_4 * 3
     walk_faster_left * 2
     walk_faster_up * 3
     face_down
 }
 
-movement Route43_Gatehouse_Movement_0158 {
+movement Route43_Gatehouse_Movement_RocketGruntWalkRightUp {
     walk_faster_right
     walk_faster_up * 3
 }
 
-movement Route43_Gatehouse_Movement_0164 {
+movement Route43_Gatehouse_Movement_RocketGruntWalkUpRight {
     delay_8 * 6
     face_up
     emote_exclamation_mark
@@ -123,33 +123,33 @@ movement Route43_Gatehouse_Movement_0164 {
     face_up
 }
 
-movement Route43_Gatehouse_Movement_0180 {
+movement Route43_Gatehouse_Movement_RocketGruntWalkUpLeft {
     emote_exclamation_mark
     walk_faster_up * 4
     walk_faster_left * 2
     face_up
 }
 
-movement Route43_Gatehouse_Movement_0194 {
+movement Route43_Gatehouse_Movement_RocketGruntWalkLeftDown {
     delay_4 * 3
     walk_faster_left
     walk_faster_down * 4
 }
 
-movement Route43_Gatehouse_Movement_01A4 {
+movement Route43_Gatehouse_Movement_RocketGruntWalkRightDown {
     walk_faster_right * 2
     walk_faster_down * 4
     face_up
 }
 
-script scr_seq_R43R0201_000 {
+script Route43_Gatehouse_EventScript_RocketGrunt {
     simplenpcmsg("He-he-he. We’re making a bundle.\r"
                  "Everyone wants to see what’s going\n"
                  "on up at Lake of Rage.")
     end
 }
 
-script scr_seq_R43R0201_003 {
+script Route43_Gatehouse_EventScript_Attendant {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -187,7 +187,7 @@ script scr_seq_R43R0201_003 {
 
 mapscripts Route43_Gatehouse_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_410F, 0: scr_seq_R43R0201_001
+        VAR_UNK_410F, 0: Route43_Gatehouse_EventScript_RocketGruntScene
     ]
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R43R0201_002
+    INIT_SCRIPT_ON_TRANSITION: Route43_Gatehouse_OnTransition
 }

@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_007 + 1",
+            "script": "Union_EventScript_Receptionist",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_003 + 1",
+            "script": "Union_EventScript_Boy1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -245,7 +245,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -262,7 +262,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -279,7 +279,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -296,7 +296,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -313,7 +313,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -330,7 +330,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -347,7 +347,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -364,7 +364,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -381,7 +381,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -398,7 +398,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -415,7 +415,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -432,7 +432,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -449,7 +449,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -466,7 +466,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -483,7 +483,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -500,7 +500,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -517,7 +517,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -534,7 +534,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -551,7 +551,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -568,7 +568,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -585,7 +585,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -602,7 +602,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -619,7 +619,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -636,7 +636,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -653,7 +653,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -670,7 +670,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -687,7 +687,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -704,7 +704,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -721,7 +721,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -738,7 +738,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -755,7 +755,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -772,7 +772,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -789,7 +789,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -806,7 +806,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -823,7 +823,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -840,7 +840,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -857,7 +857,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -874,7 +874,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -891,7 +891,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_UNION_006 + 1",
+            "script": "Union_EventScript_Boy2",
             "flag": "FLAG_NOTHING"
         }
     ],

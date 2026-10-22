@@ -5,13 +5,13 @@ script scr_seq_R43_000 {
     end
 }
 
-script scr_seq_R43_001 {
+script Route43_EventScript_RouteSign {
     directionsignpostex(1, 3, "Rt. 43\n"
                               "North to Lake of Rage")
     end
 }
 
-script scr_seq_R43_002 {
+script Route43_EventScript_TrainerTips {
     trainertipsex(3, "Trainer Tips\r"
                      "All Pokémon have pros and cons\n"
                      "depending on their types.\r"
@@ -22,7 +22,7 @@ script scr_seq_R43_002 {
     end
 }
 
-script scr_seq_R43_003 {
+script Route43_EventScript_NorthToLakeOfRageSign {
     directionsignpostex(1, 6, "North to Lake of Rage\n"
                               "South to Mahogany Town")
     end

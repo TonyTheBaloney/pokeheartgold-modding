@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R34R0201_000 {
+script Route34_IlexForestGatehouse_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -31,7 +31,7 @@ _0055:
     end
 }
 
-script scr_seq_R34R0201_001 {
+script Route34_IlexForestGatehouse_EventScript_Butterfree {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -44,7 +44,7 @@ script scr_seq_R34R0201_001 {
     end
 }
 
-script scr_seq_R34R0201_002 {
+script Route34_IlexForestGatehouse_EventScript_Lass {
     simplenpcmsg("Did you see the shrine that pays homage\n"
                  "to the protector?\r"
                  "This protector watches over the forest\n"

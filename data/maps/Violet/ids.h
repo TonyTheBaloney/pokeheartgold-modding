@@ -1,21 +1,21 @@
 #ifndef SCR_SEQ_T22_H_
 #define SCR_SEQ_T22_H_
 
-#define _EV_scr_seq_T22_000 0
-#define _EV_scr_seq_T22_001 1
-#define _EV_scr_seq_T22_002 2
-#define _EV_scr_seq_T22_003 3
-#define _EV_scr_seq_T22_004 4
-#define _EV_scr_seq_T22_005 5
-#define _EV_scr_seq_T22_006 6
-#define _EV_scr_seq_T22_007 7
-#define _EV_scr_seq_T22_008 8
-#define _EV_scr_seq_T22_009 9
-#define _EV_scr_seq_T22_010 10
-#define _EV_scr_seq_T22_011 11
-#define _EV_scr_seq_T22_012 12
-#define _EV_scr_seq_T22_013 13
-#define _EV_scr_seq_T22_014 14
+#define _EV_Violet_EventScript_ProfElmCall 0
+#define _EV_Violet_EventScript_FatMan 1
+#define _EV_Violet_EventScript_Trigger 2
+#define _EV_Violet_EventScript_Juggler 3
+#define _EV_Violet_EventScript_KimonoGirlScene 4
+#define _EV_Violet_EventScript_AceTrainerF 5
+#define _EV_Violet_EventScript_LittleBoy 6
+#define _EV_Violet_EventScript_TrainerTips1 7
+#define _EV_Violet_EventScript_CitySign 8
+#define _EV_Violet_EventScript_TrainerTips2 9
+#define _EV_Violet_EventScript_TrainerTips3 10
+#define _EV_Violet_EventScript_Girl 11
+#define _EV_Violet_EventScript_Man 12
+#define _EV_Violet_EventScript_OldWoman 13
+#define _EV_Violet_EventScript_Youngster 14
 
 #define obj_T22_gsgirl3       0
 #define obj_T22_gsman1        1

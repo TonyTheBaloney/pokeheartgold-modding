@@ -1,15 +1,15 @@
 #ifndef SCR_SEQ_R22R0101_H_
 #define SCR_SEQ_R22R0101_H_
 
-#define _EV_scr_seq_R22R0101_000 0
-#define _EV_scr_seq_R22R0101_001 1
-#define _EV_scr_seq_R22R0101_002 2
-#define _EV_scr_seq_R22R0101_003 3
-#define _EV_scr_seq_R22R0101_004 4
-#define _EV_scr_seq_R22R0101_005 5
-#define _EV_scr_seq_R22R0101_006 6
-#define _EV_scr_seq_R22R0101_007 7
-#define _EV_scr_seq_R22R0101_008 8
+#define _EV_Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger1 0
+#define _EV_Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger2 1
+#define _EV_Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger3 2
+#define _EV_Route22_PokemonLeagueReceptionGate_EventScript_Policeman1 3
+#define _EV_Route22_PokemonLeagueReceptionGate_EventScript_Policeman2 4
+#define _EV_Route22_PokemonLeagueReceptionGate_EventScript_Policeman3 5
+#define _EV_Route22_PokemonLeagueReceptionGate_OnResume 6
+#define _EV_Route22_PokemonLeagueReceptionGate_OnTransition 7
+#define _EV_Route22_PokemonLeagueReceptionGate_EventScript_Janine 8
 
 #define obj_R22R0101_policeman   0
 #define obj_R22R0101_policeman_2 1

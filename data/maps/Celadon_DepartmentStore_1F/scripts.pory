@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T07R0101_000 {
+script Celadon_DepartmentStore_1F_EventScript_Receptionist {
     simplenpcmsg("Hello! Welcome to the Celadon\n"
                  "Department Store!\r"
                  "The directory is on the wall next to\n"
@@ -9,7 +9,7 @@ script scr_seq_T07R0101_000 {
     end
 }
 
-script scr_seq_T07R0101_001 {
+script Celadon_DepartmentStore_1F_EventScript_Gentleman {
     simplenpcmsg("This department store is part of the\n"
                  "same chain as the one in Goldenrod City.\r"
                  "They were both renovated at the\n"
@@ -17,14 +17,14 @@ script scr_seq_T07R0101_001 {
     end
 }
 
-script scr_seq_T07R0101_002 {
+script Celadon_DepartmentStore_1F_EventScript_AceTrainerF {
     simplenpcmsg("This is my first time here.\n"
                  "It’s so big...\f"
                  "I’m afraid I’ll get lost.")
     end
 }
 
-script scr_seq_T07R0101_003 {
+script Celadon_DepartmentStore_1F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("1F: Service Counter\n"

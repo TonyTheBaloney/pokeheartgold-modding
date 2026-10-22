@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_000 + 1",
+            "script": "Blackthorn_EventScript_Man1",
             "flag": "FLAG_HIDE_BLACKTHORN_GYM_GUARD_INFRONT"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_002 + 1",
+            "script": "Blackthorn_EventScript_OldMan1",
             "flag": "FLAG_HIDE_BLACKTHORN_DEN_GUARD_INFRONT"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_004 + 1",
+            "script": "Blackthorn_EventScript_BlackBelt",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_013 + 1",
+            "script": "Blackthorn_EventScript_AceTrainerF1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_014 + 1",
+            "script": "Blackthorn_EventScript_SchoolKidM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_015 + 1",
+            "script": "Blackthorn_EventScript_AceTrainerF2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_001 + 1",
+            "script": "Blackthorn_EventScript_Man2",
             "flag": "FLAG_HIDE_BLACKTHORN_GYM_GUARD_ASIDE"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_003 + 1",
+            "script": "Blackthorn_EventScript_OldMan2",
             "flag": "FLAG_HIDE_BLACKTHRON_DEN_GUARD_ASIDE"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_006 + 1",
+            "script": "Blackthorn_EventScript_Youngster",
             "flag": "FLAG_UNK_204"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T30_016 + 1",
+            "script": "Blackthorn_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         }
     ],
@@ -264,7 +264,7 @@
             "y": 170,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T30_008 + 1"
+            "script": "Blackthorn_EventScript_CitySign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -272,7 +272,7 @@
             "y": 153,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T30_009 + 1"
+            "script": "Blackthorn_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -280,7 +280,7 @@
             "y": 176,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T30_010 + 1"
+            "script": "Blackthorn_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -288,7 +288,7 @@
             "y": 134,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T30_011 + 1"
+            "script": "Blackthorn_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -296,7 +296,7 @@
             "y": 171,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T30_012 + 1"
+            "script": "Blackthorn_EventScript_TrainerTips4"
         }
     ]
 }

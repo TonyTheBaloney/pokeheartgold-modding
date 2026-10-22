@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T02R0302_000
-    scr_seq_T02R0302_001
-    scr_seq_T02R0302_002
+    Viridian_TrainerHouse_B1F_EventScript_Trigger1
+    Viridian_TrainerHouse_B1F_EventScript_Trigger2
+    Viridian_TrainerHouse_B1F_EventScript_Scene
     scr_seq_T02R0302_003
 }
 
-script scr_seq_T02R0302_002 {
+script Viridian_TrainerHouse_B1F_EventScript_Scene {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_412E, 2)
@@ -19,7 +19,7 @@ script scr_seq_T02R0302_002 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0070)
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_PlayerWalkLeftDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -55,17 +55,17 @@ script scr_seq_T02R0302_002 {
     end
 }
 
-movement Viridian_TrainerHouse_B1F_Movement_0070 {
+movement Viridian_TrainerHouse_B1F_Movement_PlayerWalkLeftDown {
     walk_left * 2
     walk_down
     walk_left * 2
 }
 
-script scr_seq_T02R0302_000 {
+script Viridian_TrainerHouse_B1F_EventScript_Trigger1 {
 scr_seq_T02R0302_003:
     followmonresetmovement
     lockall
-    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0120)
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_PlayerFaceLeft)
     waitmovement
     npcmsg("Hello, welcome to our Training Hall.\r"
            "You may battle our best Trainers and\n"
@@ -88,7 +88,7 @@ _0091:
     npcmsg("You are ready!\n"
            "Please go right through.\r")
     closemessage
-    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_017C)
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_PlayerWalkDown)
     waitmovement
     followmonmovetoplayer
     changeobjectmovement(253, 56)
@@ -103,7 +103,7 @@ _00ED:
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0184)
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_PlayerWalkRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -113,11 +113,11 @@ _00ED:
     end
 }
 
-movement Viridian_TrainerHouse_B1F_Movement_0120 {
+movement Viridian_TrainerHouse_B1F_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-script scr_seq_T02R0302_001 {
+script Viridian_TrainerHouse_B1F_EventScript_Trigger2 {
     followmonresetmovement
     lockall
     npcmsg("Do you want to exit? {YESNO 0}")
@@ -128,14 +128,14 @@ script scr_seq_T02R0302_001 {
         npcmsg("I see.\n"
                "Good luck!\r")
         closemessage
-        applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_017C)
+        applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_PlayerWalkDown)
         waitmovement
         releaseall
         end
     }
     npcmsg("Thank you for playing!\r")
     closemessage
-    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0184)
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_PlayerWalkRight)
     waitmovement
     setfollowmoninhibitstate(0)
     followmonreleasenexttoplayer
@@ -145,18 +145,18 @@ script scr_seq_T02R0302_001 {
     end
 }
 
-movement Viridian_TrainerHouse_B1F_Movement_017C {
+movement Viridian_TrainerHouse_B1F_Movement_PlayerWalkDown {
     walk_down * 3
 }
 
-movement Viridian_TrainerHouse_B1F_Movement_0184 {
+movement Viridian_TrainerHouse_B1F_Movement_PlayerWalkRight {
     walk_right
 }
 
 mapscripts Viridian_TrainerHouse_B1F_MapScripts {
     INIT_SCRIPT_ON_TRANSITION: std_trainer_house_reset
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_412E, 0: scr_seq_T02R0302_002
+        VAR_UNK_412E, 0: Viridian_TrainerHouse_B1F_EventScript_Scene
         VAR_UNK_412E, 5: scr_seq_T02R0302_003
     ]
 }

@@ -1,17 +1,17 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D27R0105_000 {
+script Olivine_Lighthouse_4F_EventScript_WarpToOlivineLighthouseExterior {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_40A7, 1)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) != 0) {
-        applymovement(obj_player, Olivine_Lighthouse_4F_Movement_0070)
-        applymovement(obj_partner_poke, Olivine_Lighthouse_4F_Movement_007C)
+        applymovement(obj_player, Olivine_Lighthouse_4F_Movement_PlayerExit)
+        applymovement(obj_partner_poke, Olivine_Lighthouse_4F_Movement_FollowMonExit)
         waitmovement
     } else {
-        applymovement(obj_player, Olivine_Lighthouse_4F_Movement_0070)
+        applymovement(obj_player, Olivine_Lighthouse_4F_Movement_PlayerExit)
         waitmovement
     }
     playse(SEQ_SE_GS_RAKKA01)
@@ -24,12 +24,12 @@ script scr_seq_D27R0105_000 {
     end
 }
 
-movement Olivine_Lighthouse_4F_Movement_0070 {
+movement Olivine_Lighthouse_4F_Movement_PlayerExit {
     walk_fast_right
     set_invisible
 }
 
-movement Olivine_Lighthouse_4F_Movement_007C {
+movement Olivine_Lighthouse_4F_Movement_FollowMonExit {
     walk_fast_right
     set_invisible
 }

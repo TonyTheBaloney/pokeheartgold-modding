@@ -1,23 +1,23 @@
 #ifndef SCR_SEQ_T11_H_
 #define SCR_SEQ_T11_H_
 
-#define _EV_scr_seq_T11_000 0
-#define _EV_scr_seq_T11_001 1
-#define _EV_scr_seq_T11_002 2
-#define _EV_scr_seq_T11_003 3
-#define _EV_scr_seq_T11_004 4
-#define _EV_scr_seq_T11_005 5
-#define _EV_scr_seq_T11_006 6
-#define _EV_scr_seq_T11_007 7
-#define _EV_scr_seq_T11_008 8
-#define _EV_scr_seq_T11_009 9
-#define _EV_scr_seq_T11_010 10
-#define _EV_scr_seq_T11_011 11
-#define _EV_scr_seq_T11_012 12
-#define _EV_scr_seq_T11_013 13
-#define _EV_scr_seq_T11_014 14
-#define _EV_scr_seq_T11_015 15
-#define _EV_scr_seq_T11_016 16
+#define _EV_Saffron_EventScript_Girl 0
+#define _EV_Saffron_EventScript_SchoolKidM 1
+#define _EV_Saffron_EventScript_Beauty 2
+#define _EV_Saffron_EventScript_Youngster 3
+#define _EV_Saffron_EventScript_FatMan 4
+#define _EV_Saffron_EventScript_Woman 5
+#define _EV_Saffron_EventScript_Man 6
+#define _EV_Saffron_EventScript_PokefanM1 7
+#define _EV_Saffron_EventScript_TrainerTips1 8
+#define _EV_Saffron_EventScript_CitySign 9
+#define _EV_Saffron_EventScript_TrainerTips2 10
+#define _EV_Saffron_EventScript_TrainerTips3 11
+#define _EV_Saffron_EventScript_TrainerTips4 12
+#define _EV_Saffron_EventScript_TrainerTips5 13
+#define _EV_Saffron_EventScript_PokefanM2 14
+#define _EV_Saffron_EventScript_PokefanM3 15
+#define _EV_Saffron_OnTransition 16
 
 #define obj_T11_gsboy1         0
 #define obj_T11_gsgirl2        1

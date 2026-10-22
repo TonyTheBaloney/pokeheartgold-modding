@@ -1,10 +1,10 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T11R0602_000 {
+script Saffron_MagnetTrainStation_2F_EventScript_WarpToSaffronMagnetTrainStation1F {
     followmonresetmovement
     lockall
-    applymovement(obj_player, Saffron_MagnetTrainStation_2F_Movement_0088)
+    applymovement(obj_player, Saffron_MagnetTrainStation_2F_Movement_PlayerWalkDownRight)
     waitmovement
     playse(SEQ_SE_DP_KAIDAN2)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -17,7 +17,7 @@ script scr_seq_T11R0602_000 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Saffron_MagnetTrainStation_2F_Movement_0094)
+    applymovement(obj_player, Saffron_MagnetTrainStation_2F_Movement_PlayerWalkRightDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -28,7 +28,7 @@ script scr_seq_T11R0602_000 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Saffron_MagnetTrainStation_2F_Movement_00A0)
+    applymovement(obj_player, Saffron_MagnetTrainStation_2F_Movement_PlayerWalkDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -37,17 +37,17 @@ script scr_seq_T11R0602_000 {
     end
 }
 
-movement Saffron_MagnetTrainStation_2F_Movement_0088 {
+movement Saffron_MagnetTrainStation_2F_Movement_PlayerWalkDownRight {
     walk_down * 3
     walk_right * 7
 }
 
-movement Saffron_MagnetTrainStation_2F_Movement_0094 {
+movement Saffron_MagnetTrainStation_2F_Movement_PlayerWalkRightDown {
     walk_right * 11
     walk_down * 4
 }
 
-movement Saffron_MagnetTrainStation_2F_Movement_00A0 {
+movement Saffron_MagnetTrainStation_2F_Movement_PlayerWalkDown {
     walk_down * 2
 }
 
@@ -57,6 +57,6 @@ script(local) _00A8 {
 
 mapscripts Saffron_MagnetTrainStation_2F_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_411F, 0: scr_seq_T11R0602_000
+        VAR_UNK_411F, 0: Saffron_MagnetTrainStation_2F_EventScript_WarpToSaffronMagnetTrainStation1F
     ]
 }

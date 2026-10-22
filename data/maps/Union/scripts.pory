@@ -1,20 +1,20 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_UNION_000 {
+script Union_OnTransition {
     end
 }
 
-script scr_seq_UNION_001 {
+script Union_OnLoad {
     end
 }
 
-script scr_seq_UNION_002 {
+script Union_OnResume {
     unionroomrestoreobjects
     end
 }
 
-script scr_seq_UNION_003 {
+script Union_EventScript_Boy1 {
     playse(SEQ_SE_DP_SELECT)
     followmonresetmovement
     lockall
@@ -708,7 +708,7 @@ script scr_seq_UNION_005 {
     end
 }
 
-script scr_seq_UNION_006 {
+script Union_EventScript_Boy2 {
     playse(SEQ_SE_DP_SELECT)
     followmonresetmovement
     lockall
@@ -717,7 +717,7 @@ script scr_seq_UNION_006 {
     end
 }
 
-script scr_seq_UNION_007 {
+script Union_EventScript_Receptionist {
     playse(SEQ_SE_DP_SELECT)
     followmonresetmovement
     lockall
@@ -859,7 +859,7 @@ _0D9B:
 }
 
 mapscripts Union_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_UNION_000
-    INIT_SCRIPT_ON_LOAD: scr_seq_UNION_001
-    INIT_SCRIPT_ON_RESUME: scr_seq_UNION_002
+    INIT_SCRIPT_ON_TRANSITION: Union_OnTransition
+    INIT_SCRIPT_ON_LOAD: Union_OnLoad
+    INIT_SCRIPT_ON_RESUME: Union_OnResume
 }

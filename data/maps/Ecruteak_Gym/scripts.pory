@@ -3,15 +3,15 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T27GYM0101_000
-    scr_seq_T27GYM0101_001
-    scr_seq_T27GYM0101_002
-    scr_seq_T27GYM0101_003
-    scr_seq_T27GYM0101_004
-    scr_seq_T27GYM0101_005
+    Ecruteak_Gym_OnTransition
+    Ecruteak_Gym_EventScript_Morty
+    Ecruteak_Gym_EventScript_WarpToEcruteakGym
+    Ecruteak_Gym_EventScript_GymGuide
+    Ecruteak_Gym_EventScript_OldManScene
+    Ecruteak_Gym_EventScript_GymSign
 }
 
-script scr_seq_T27GYM0101_000 {
+script Ecruteak_Gym_OnTransition {
     ecruteakgyminit
     getphonebookrematch(PHONE_CONTACT_MORTY, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
@@ -43,10 +43,10 @@ _00A6:
     end
 }
 
-script scr_seq_T27GYM0101_004 {
+script Ecruteak_Gym_EventScript_OldManScene {
     followmonresetmovement
     lockall
-    applymovement(obj_T27GYM0101_gsoldman1, Ecruteak_Gym_Movement_0108)
+    applymovement(obj_T27GYM0101_gsoldman1, Ecruteak_Gym_Movement_OldManWalkDown)
     waitmovement
     npcmsg("You have business with the Gym Leader?\r"
            "Morty, the Gym Leader, has gone to\n"
@@ -54,8 +54,8 @@ script scr_seq_T27GYM0101_004 {
            "Sorry, but you’ll have to leave.\n"
            "Ho ho ho.\r")
     closemessage
-    applymovement(obj_T27GYM0101_gsoldman1, Ecruteak_Gym_Movement_0118)
-    applymovement(obj_player, Ecruteak_Gym_Movement_0128)
+    applymovement(obj_T27GYM0101_gsoldman1, Ecruteak_Gym_Movement_OldManWalkDownUp)
+    applymovement(obj_player, Ecruteak_Gym_Movement_PlayerWalkDown)
     waitmovement
     setvar(VAR_UNK_4079, 1)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -67,25 +67,25 @@ script scr_seq_T27GYM0101_004 {
     end
 }
 
-movement Ecruteak_Gym_Movement_0108 {
+movement Ecruteak_Gym_Movement_OldManWalkDown {
     emote_exclamation_mark
     walk_down * 3
     delay_8
 }
 
-movement Ecruteak_Gym_Movement_0118 {
+movement Ecruteak_Gym_Movement_OldManWalkDownUp {
     walk_slow_down
     lock_dir
     walk_up
 }
 
-movement Ecruteak_Gym_Movement_0128 {
+movement Ecruteak_Gym_Movement_PlayerWalkDown {
     delay_8
     walk_down
     delay_8
 }
 
-script scr_seq_T27GYM0101_001 {
+script Ecruteak_Gym_EventScript_Morty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -167,11 +167,11 @@ _01CF:
     end
 }
 
-script scr_seq_T27GYM0101_002 {
+script Ecruteak_Gym_EventScript_WarpToEcruteakGym {
     followmonresetmovement
     lockall
     playse(SEQ_SE_DP_GYURU)
-    applymovement(obj_player, Ecruteak_Gym_Movement_0230)
+    applymovement(obj_player, Ecruteak_Gym_Movement_PlayerExit)
     waitmovement
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -182,7 +182,7 @@ script scr_seq_T27GYM0101_002 {
     end
 }
 
-movement Ecruteak_Gym_Movement_0230 {
+movement Ecruteak_Gym_Movement_PlayerExit {
     face_down * 2
     face_left * 2
     face_up * 2
@@ -202,7 +202,7 @@ movement Ecruteak_Gym_Movement_0230 {
     set_invisible * 0
 }
 
-script scr_seq_T27GYM0101_003 {
+script Ecruteak_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -230,7 +230,7 @@ script scr_seq_T27GYM0101_003 {
     end
 }
 
-script scr_seq_T27GYM0101_005 {
+script Ecruteak_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -251,8 +251,8 @@ script scr_seq_T27GYM0101_005 {
 }
 
 mapscripts Ecruteak_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T27GYM0101_000
+    INIT_SCRIPT_ON_TRANSITION: Ecruteak_Gym_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4079, 0: scr_seq_T27GYM0101_004
+        VAR_UNK_4079, 0: Ecruteak_Gym_EventScript_OldManScene
     ]
 }

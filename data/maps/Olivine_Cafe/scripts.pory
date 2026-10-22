@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T26R0701_000
-    scr_seq_T26R0701_001
-    scr_seq_T26R0701_002
-    scr_seq_T26R0701_003
-    scr_seq_T26R0701_004
-    scr_seq_T26R0701_005
-    scr_seq_T26R0701_006
+    Olivine_Cafe_EventScript_Sailor1
+    Olivine_Cafe_EventScript_Sailor2
+    Olivine_Cafe_EventScript_Fisherman
+    Olivine_Cafe_EventScript_PokefanM
+    Olivine_Cafe_OnTransition
+    Olivine_Cafe_EventScript_Jasmine
+    Olivine_Cafe_EventScript_Sailor3
 }
 
-script scr_seq_T26R0701_004 {
+script Olivine_Cafe_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 5) {
@@ -48,7 +48,7 @@ script scr_seq_T26R0701_004 {
     end
 }
 
-script scr_seq_T26R0701_006 {
+script Olivine_Cafe_EventScript_Sailor3 {
     simplenpcmsg("You!\n"
                  "How is your Pokémon training\f"
                  "coming along?\r"
@@ -62,7 +62,7 @@ script scr_seq_T26R0701_006 {
     end
 }
 
-script scr_seq_T26R0701_000 {
+script Olivine_Cafe_EventScript_Sailor1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Gobble...gobble...\r"
@@ -76,7 +76,7 @@ script scr_seq_T26R0701_000 {
     end
 }
 
-script scr_seq_T26R0701_001 {
+script Olivine_Cafe_EventScript_Sailor2 {
     simplenpcmsg("Whenever I roll into Olivine, I always\n"
                  "visit the Olivine Café.\r"
                  "Everything on the menu makes me feel\n"
@@ -84,13 +84,13 @@ script scr_seq_T26R0701_001 {
     end
 }
 
-script scr_seq_T26R0701_002 {
+script Olivine_Cafe_EventScript_Fisherman {
     simplenpcmsg("Olivine Café’s menu is chock-full\n"
                  "of hearty fare for beefy Sailors!")
     end
 }
 
-script scr_seq_T26R0701_003 {
+script Olivine_Cafe_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -124,13 +124,13 @@ script scr_seq_T26R0701_003 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Olivine_Cafe_Movement_0288)
-        applymovement(obj_T26R0701_gsmiddleman1, Olivine_Cafe_Movement_02C0)
+        applymovement(obj_player, Olivine_Cafe_Movement_PlayerWalkRightUp)
+        applymovement(obj_T26R0701_gsmiddleman1, Olivine_Cafe_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Olivine_Cafe_Movement_02A0)
+        applymovement(obj_player, Olivine_Cafe_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Olivine_Cafe_Movement_02AC)
-        applymovement(obj_T26R0701_gsmiddleman1, Olivine_Cafe_Movement_02C0)
+        applymovement(obj_player, Olivine_Cafe_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T26R0701_gsmiddleman1, Olivine_Cafe_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -138,7 +138,7 @@ script scr_seq_T26R0701_003 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Olivine_Cafe_Movement_02CC)
+        applymovement(obj_partner_poke, Olivine_Cafe_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -158,21 +158,21 @@ script scr_seq_T26R0701_003 {
     getplayerfacing(VAR_SPECIAL_RESULT)
     comparevartovalue(VAR_SPECIAL_RESULT, 0)
     gotoifne(_0237)
-    applymovement(obj_player, Olivine_Cafe_Movement_0288)
+    applymovement(obj_player, Olivine_Cafe_Movement_PlayerWalkRightUp)
     goto(_025A)
 _0237:
     comparevartovalue(VAR_SPECIAL_RESULT, 1)
     gotoifne(_0252)
-    applymovement(obj_player, Olivine_Cafe_Movement_02A0)
+    applymovement(obj_player, Olivine_Cafe_Movement_PlayerWalkUp)
     goto(_025A)
 _0252:
-    applymovement(obj_player, Olivine_Cafe_Movement_02AC)
+    applymovement(obj_player, Olivine_Cafe_Movement_PlayerWalkUpLeft)
 _025A:
     waitmovement
     return
 }
 
-movement Olivine_Cafe_Movement_0288 {
+movement Olivine_Cafe_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -180,30 +180,30 @@ movement Olivine_Cafe_Movement_0288 {
     walk_in_place_down
 }
 
-movement Olivine_Cafe_Movement_02A0 {
+movement Olivine_Cafe_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Olivine_Cafe_Movement_02AC {
+movement Olivine_Cafe_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Olivine_Cafe_Movement_02C0 {
+movement Olivine_Cafe_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Olivine_Cafe_Movement_02CC {
+movement Olivine_Cafe_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T26R0701_005 {
+script Olivine_Cafe_EventScript_Jasmine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -307,5 +307,5 @@ _037F:
 }
 
 mapscripts Olivine_Cafe_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T26R0701_004
+    INIT_SCRIPT_ON_TRANSITION: Olivine_Cafe_OnTransition
 }

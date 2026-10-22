@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0204_000
-    scr_seq_T07R0204_001
+    Celadon_CondominiumsRoof_EventScript_FatMan
+    Celadon_CondominiumsRoof_OnTransition
 }
 
-script scr_seq_T07R0204_001 {
+script Celadon_CondominiumsRoof_OnTransition {
     setvar(VAR_UNK_4125, 0)
     end
 }
 
-script scr_seq_T07R0204_000 {
+script Celadon_CondominiumsRoof_EventScript_FatMan {
     simplenpcmsg("High places--I do love them so!\r"
                  "I’d say the only thing that loves\n"
                  "heights as much as me is smoke!")
@@ -20,5 +20,5 @@ script scr_seq_T07R0204_000 {
 }
 
 mapscripts Celadon_CondominiumsRoof_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07R0204_001
+    INIT_SCRIPT_ON_TRANSITION: Celadon_CondominiumsRoof_OnTransition
 }

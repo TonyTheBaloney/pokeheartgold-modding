@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_002 + 1",
+            "script": "Goldenrod_EventScript_Beauty2",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_2"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_006 + 1",
+            "script": "Goldenrod_EventScript_OldMan",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_2"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_004 + 1",
+            "script": "Goldenrod_EventScript_SchoolKidM2",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_2"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_003 + 1",
+            "script": "Goldenrod_EventScript_SchoolKidM1",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_2"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_007 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt1",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_3"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_005 + 1",
+            "script": "Goldenrod_EventScript_PokefanM",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_2"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_001 + 1",
+            "script": "Goldenrod_EventScript_Beauty1",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_2"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_000 + 1",
+            "script": "Goldenrod_EventScript_Lass",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_2"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_014 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt8",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_5"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_015 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt9",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_5"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_012 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt6",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_1"
         },
         {
@@ -228,7 +228,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_013 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt7",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_1"
         },
         {
@@ -245,7 +245,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_008 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt2",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_1"
         },
         {
@@ -262,7 +262,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_011 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt5",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_1"
         },
         {
@@ -279,7 +279,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_010 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt4",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_4"
         },
         {
@@ -313,7 +313,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_016 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt10",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_1"
         },
         {
@@ -330,7 +330,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_009 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt3",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_4"
         },
         {
@@ -347,7 +347,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_031 + 1",
+            "script": "Goldenrod_EventScript_RocketGrunt11",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_1"
         },
         {
@@ -364,7 +364,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_030 + 1",
+            "script": "Goldenrod_EventScript_Beauty3",
             "flag": "FLAG_HIDE_ROCKET_TAKEOVER_1"
         },
         {
@@ -381,7 +381,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25_032 + 1",
+            "script": "Goldenrod_EventScript_Beauty4",
             "flag": "FLAG_UNK_318"
         }
     ],
@@ -515,7 +515,7 @@
             "height": 1,
             "var": "VAR_SCENE_ROCKET_TAKEOVER",
             "var_value": 3,
-            "script": "_EV_scr_seq_T25_017 + 1"
+            "script": "Goldenrod_EventScript_RocketGruntTrigger"
         }
     ],
     "bg_events": [
@@ -525,7 +525,7 @@
             "y": 350,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_019 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -533,7 +533,7 @@
             "y": 350,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_020 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -541,7 +541,7 @@
             "y": 334,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_021 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -549,7 +549,7 @@
             "y": 356,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_022 + 1"
+            "script": "Goldenrod_EventScript_CitySign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -557,7 +557,7 @@
             "y": 375,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_023 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips4"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -565,7 +565,7 @@
             "y": 361,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_024 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips5"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -573,7 +573,7 @@
             "y": 334,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_025 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips6"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -581,7 +581,7 @@
             "y": 336,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_026 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips7"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -589,7 +589,7 @@
             "y": 375,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_027 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips8"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -597,7 +597,7 @@
             "y": 350,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_028 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips9"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -605,7 +605,7 @@
             "y": 333,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T25_029 + 1"
+            "script": "Goldenrod_EventScript_TrainerTips10"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

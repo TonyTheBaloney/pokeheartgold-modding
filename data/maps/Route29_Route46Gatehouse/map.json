@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R29R0101_001 + 1",
+            "script": "Route29_Route46Gatehouse_EventScript_Attendant",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R29R0101_002 + 1",
+            "script": "Route29_Route46Gatehouse_EventScript_SchoolKidM",
             "flag": "FLAG_NOTHING"
         }
     ],

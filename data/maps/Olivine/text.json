@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0604_T26_00000",
-      "from": "scr_seq_T26_001#0"
+      "from": "Olivine_EventScript_RivalTrigger#0"
     },
     {
       "id": "msg_0604_T26_00001",
-      "from": "scr_seq_T26_008#0"
+      "from": "Olivine_EventScript_Sailor1#0"
     },
     {
       "id": "msg_0604_T26_00002",
-      "from": "scr_seq_T26_009#0"
+      "from": "Olivine_EventScript_SchoolKidM#0"
     },
     {
       "id": "msg_0604_T26_00003",
@@ -22,23 +22,23 @@
     },
     {
       "id": "msg_0604_T26_00004",
-      "from": "scr_seq_T26_010#0"
+      "from": "Olivine_EventScript_Sailor2#0"
     },
     {
       "id": "msg_0604_T26_00005",
-      "from": "scr_seq_T26_005#0"
+      "from": "Olivine_EventScript_CitySign#0"
     },
     {
       "id": "msg_0604_T26_00006",
-      "from": "scr_seq_T26_006#0"
+      "from": "Olivine_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0604_T26_00007",
-      "from": "scr_seq_T26_004#0"
+      "from": "Olivine_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0604_T26_00008",
-      "from": "scr_seq_T26_007#0"
+      "from": "Olivine_EventScript_TrainerTips3#0"
     }
   ]
 }

@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R10_000
-    scr_seq_R10_001
-    scr_seq_R10_002
-    scr_seq_R10_003
-    scr_seq_R10_004
-    scr_seq_R10_005
-    scr_seq_R10_006
+    Route10_EventScript_WarpToRoute10PowerPlantRepaired
+    Route10_OnTransition
+    Route10_EventScript_LtSurge
+    Route10_EventScript_Zapdos
+    Route10_OnLoad
+    Route10_EventScript_TrainerTips1
+    Route10_EventScript_TrainerTips2
 }
 
-script scr_seq_R10_004 {
+script Route10_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_ROUTE_10_ZAPDOS)
         removeobject(obj_R10_tsure_poke_static_zapdos)
@@ -22,7 +22,7 @@ script scr_seq_R10_004 {
     end
 }
 
-script scr_seq_R10_001 {
+script Route10_OnTransition {
     checkbadge(BADGE_EARTH, VAR_TEMP_x4004)
     if (var(VAR_TEMP_x4004) != 1) {
     } else {
@@ -45,7 +45,7 @@ _00BF:
     end
 }
 
-script scr_seq_R10_002 {
+script Route10_EventScript_LtSurge {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -119,7 +119,7 @@ _017B:
     end
 }
 
-script scr_seq_R10_000 {
+script Route10_EventScript_WarpToRoute10PowerPlantRepaired {
     followmonresetmovement
     lockall
     if (flag(FLAG_RESTORED_POWER)) {
@@ -158,7 +158,7 @@ script scr_seq_R10_000 {
     end
 }
 
-script scr_seq_R10_003 {
+script Route10_EventScript_Zapdos {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -185,17 +185,17 @@ script scr_seq_R10_003 {
     end
 }
 
-script scr_seq_R10_005 {
+script Route10_EventScript_TrainerTips1 {
     trainertipsex(2, "Kanto Power Plant")
     end
 }
 
-script scr_seq_R10_006 {
+script Route10_EventScript_TrainerTips2 {
     trainertipsex(2, "Rock Tunnel")
     end
 }
 
 mapscripts Route10_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R10_001
-    INIT_SCRIPT_ON_LOAD: scr_seq_R10_004
+    INIT_SCRIPT_ON_TRANSITION: Route10_OnTransition
+    INIT_SCRIPT_ON_LOAD: Route10_OnLoad
 }

@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0393_R37_00000",
-      "from": "scr_seq_R37_002#0"
+      "from": "Route37_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0393_R37_00001",
-      "from": "scr_seq_R37_003#0"
+      "from": "Route37_EventScript_TrainerTips#0"
     }
   ]
 }

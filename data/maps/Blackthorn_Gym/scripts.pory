@@ -3,15 +3,15 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T30GYM0101_000
-    scr_seq_T30GYM0101_001
-    scr_seq_T30GYM0101_002
-    scr_seq_T30GYM0101_003
-    scr_seq_T30GYM0101_004
-    scr_seq_T30GYM0101_005
+    Blackthorn_Gym_EventScript_Clair
+    Blackthorn_Gym_OnTransition
+    Blackthorn_Gym_EventScript_WarpToBlackthornGym
+    Blackthorn_Gym_EventScript_GymGuide
+    Blackthorn_Gym_EventScript_GymGuideTrigger
+    Blackthorn_Gym_EventScript_GymSign
 }
 
-script scr_seq_T30GYM0101_001 {
+script Blackthorn_Gym_OnTransition {
     blackthorngyminit
     setvar(VAR_UNK_4120, 0)
     getphonebookrematch(PHONE_CONTACT_CLAIR, VAR_TEMP_x4001)
@@ -51,7 +51,7 @@ _00BD:
     end
 }
 
-script scr_seq_T30GYM0101_000 {
+script Blackthorn_Gym_EventScript_Clair {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -149,11 +149,11 @@ _0188:
     end
 }
 
-script scr_seq_T30GYM0101_002 {
+script Blackthorn_Gym_EventScript_WarpToBlackthornGym {
     followmonresetmovement
     lockall
     playse(SEQ_SE_DP_GYURU)
-    applymovement(obj_player, Blackthorn_Gym_Movement_0218)
+    applymovement(obj_player, Blackthorn_Gym_Movement_PlayerExit)
     waitmovement
     fadescreen(6, 1, 0, RGB_BLACK)
     waitfade
@@ -164,7 +164,7 @@ script scr_seq_T30GYM0101_002 {
     end
 }
 
-movement Blackthorn_Gym_Movement_0218 {
+movement Blackthorn_Gym_Movement_PlayerExit {
     face_down * 2
     face_left * 2
     face_up * 2
@@ -184,7 +184,7 @@ movement Blackthorn_Gym_Movement_0218 {
     set_invisible * 0
 }
 
-script scr_seq_T30GYM0101_003 {
+script Blackthorn_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -219,20 +219,20 @@ script scr_seq_T30GYM0101_003 {
     end
 }
 
-script scr_seq_T30GYM0101_004 {
+script Blackthorn_Gym_EventScript_GymGuideTrigger {
     followmonresetmovement
     lockall
     if (!flag(FLAG_UNK_138)) {
         getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4000) == 12) {
-            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_0370)
-            applymovement(obj_player, Blackthorn_Gym_Movement_039C)
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_GymGuideWalkLeft1)
+            applymovement(obj_player, Blackthorn_Gym_Movement_PlayerFaceRight1)
         } elif (var(VAR_TEMP_x4000) == 13) {
-            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_0380)
-            applymovement(obj_player, Blackthorn_Gym_Movement_03A8)
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_GymGuideWalkLeft2)
+            applymovement(obj_player, Blackthorn_Gym_Movement_PlayerFaceRight2)
         } else {
-            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_0390)
-            applymovement(obj_player, Blackthorn_Gym_Movement_03B4)
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_GymGuideExclamation)
+            applymovement(obj_player, Blackthorn_Gym_Movement_PlayerFaceRight3)
         }
         waitmovement
         npcmsg("Yo! Champ in the making!\r"
@@ -246,11 +246,11 @@ script scr_seq_T30GYM0101_004 {
         closemessage
         setflag(FLAG_UNK_138)
         if (var(VAR_TEMP_x4000) == 12) {
-            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_03C0)
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_GymGuideWalkRight1)
         } elif (var(VAR_TEMP_x4000) == 13) {
-            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_03CC)
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_GymGuideWalkRight2)
         } else {
-            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_03D8)
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_GymGuideFaceDown)
         }
         waitmovement
     }
@@ -264,53 +264,53 @@ script scr_seq_T30GYM0101_004 {
     end
 }
 
-movement Blackthorn_Gym_Movement_0370 {
+movement Blackthorn_Gym_Movement_GymGuideWalkLeft1 {
     face_left
     emote_exclamation_mark
     walk_left * 2
 }
 
-movement Blackthorn_Gym_Movement_0380 {
+movement Blackthorn_Gym_Movement_GymGuideWalkLeft2 {
     face_left
     emote_exclamation_mark
     walk_left
 }
 
-movement Blackthorn_Gym_Movement_0390 {
+movement Blackthorn_Gym_Movement_GymGuideExclamation {
     face_left
     emote_exclamation_mark
 }
 
-movement Blackthorn_Gym_Movement_039C {
+movement Blackthorn_Gym_Movement_PlayerFaceRight1 {
     delay_8 * 5
     face_right
 }
 
-movement Blackthorn_Gym_Movement_03A8 {
+movement Blackthorn_Gym_Movement_PlayerFaceRight2 {
     delay_8 * 4
     face_right
 }
 
-movement Blackthorn_Gym_Movement_03B4 {
+movement Blackthorn_Gym_Movement_PlayerFaceRight3 {
     delay_8 * 2
     face_right
 }
 
-movement Blackthorn_Gym_Movement_03C0 {
+movement Blackthorn_Gym_Movement_GymGuideWalkRight1 {
     walk_right * 2
     face_down
 }
 
-movement Blackthorn_Gym_Movement_03CC {
+movement Blackthorn_Gym_Movement_GymGuideWalkRight2 {
     walk_right
     face_down
 }
 
-movement Blackthorn_Gym_Movement_03D8 {
+movement Blackthorn_Gym_Movement_GymGuideFaceDown {
     face_down
 }
 
-script scr_seq_T30GYM0101_005 {
+script Blackthorn_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -331,5 +331,5 @@ script scr_seq_T30GYM0101_005 {
 }
 
 mapscripts Blackthorn_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T30GYM0101_001
+    INIT_SCRIPT_ON_TRANSITION: Blackthorn_Gym_OnTransition
 }

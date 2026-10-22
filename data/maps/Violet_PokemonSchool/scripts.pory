@@ -3,29 +3,29 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T22R0301_000
-    scr_seq_T22R0301_001
-    scr_seq_T22R0301_002
-    scr_seq_T22R0301_003
-    scr_seq_T22R0301_004
-    scr_seq_T22R0301_005
-    scr_seq_T22R0301_006
-    scr_seq_T22R0301_007
+    Violet_PokemonSchool_EventScript_FatMan
+    Violet_PokemonSchool_EventScript_Sign
+    Violet_PokemonSchool_EventScript_Notebook
+    Violet_PokemonSchool_EventScript_Girl
+    Violet_PokemonSchool_EventScript_SchoolKidM1
+    Violet_PokemonSchool_EventScript_SchoolKidM2
+    Violet_PokemonSchool_EventScript_Boy1
+    Violet_PokemonSchool_EventScript_Boy2
 }
 
-script scr_seq_T22R0301_000 {
+script Violet_PokemonSchool_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 2) {
-        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_0164)
+        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_FatManSpin1)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_0188)
+        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_FatManSpin2)
     } elif (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_01AC)
+        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_FatManSpin3)
     } else {
-        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_01D0)
+        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_FatManSpin4)
     }
     waitmovement
     npcmsg("Earl, I am!\n"
@@ -108,7 +108,7 @@ script scr_seq_T22R0301_000 {
     end
 }
 
-movement Violet_PokemonSchool_Movement_0164 {
+movement Violet_PokemonSchool_Movement_FatManSpin1 {
     face_down
     face_left
     face_up
@@ -119,7 +119,7 @@ movement Violet_PokemonSchool_Movement_0164 {
     face_right
 }
 
-movement Violet_PokemonSchool_Movement_0188 {
+movement Violet_PokemonSchool_Movement_FatManSpin2 {
     face_up
     face_right
     face_down
@@ -130,7 +130,7 @@ movement Violet_PokemonSchool_Movement_0188 {
     face_left
 }
 
-movement Violet_PokemonSchool_Movement_01AC {
+movement Violet_PokemonSchool_Movement_FatManSpin3 {
     face_left
     face_up
     face_right
@@ -141,7 +141,7 @@ movement Violet_PokemonSchool_Movement_01AC {
     face_down
 }
 
-movement Violet_PokemonSchool_Movement_01D0 {
+movement Violet_PokemonSchool_Movement_FatManSpin4 {
     face_right
     face_down
     face_left
@@ -152,7 +152,7 @@ movement Violet_PokemonSchool_Movement_01D0 {
     face_up
 }
 
-script scr_seq_T22R0301_001 {
+script Violet_PokemonSchool_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -221,7 +221,7 @@ _0207:
     goto(_02D8)
 }
 
-script scr_seq_T22R0301_003 {
+script Violet_PokemonSchool_EventScript_Girl {
     simplenpcmsg("Pokémon have what are called\n"
                  "abilities!\r"
                  "It seems that each kind of Pokémon has\n"
@@ -231,7 +231,7 @@ script scr_seq_T22R0301_003 {
     end
 }
 
-script scr_seq_T22R0301_002 {
+script Violet_PokemonSchool_EventScript_Notebook {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -266,7 +266,7 @@ script scr_seq_T22R0301_002 {
            "The next page is... Blank!\r")
     closemessage
     touchscreenmenushow
-    applymovement(obj_T22R0301_gsboy1, Violet_PokemonSchool_Movement_035C)
+    applymovement(obj_T22R0301_gsboy1, Violet_PokemonSchool_Movement_SchoolKidMFaceUp)
     waitmovement
     npcmsg("Boy: E-he-he...\n"
            "I haven’t written any more...")
@@ -281,11 +281,11 @@ _0353:
     end
 }
 
-movement Violet_PokemonSchool_Movement_035C {
+movement Violet_PokemonSchool_Movement_SchoolKidMFaceUp {
     walk_in_place_up
 }
 
-script scr_seq_T22R0301_004 {
+script Violet_PokemonSchool_EventScript_SchoolKidM1 {
     simplenpcmsg("I’m taking notes of the teacher’s\n"
                  "lecture.\r"
                  "I’d better copy the stuff on the\n"
@@ -293,7 +293,7 @@ script scr_seq_T22R0301_004 {
     end
 }
 
-script scr_seq_T22R0301_005 {
+script Violet_PokemonSchool_EventScript_SchoolKidM2 {
     simplenpcmsg("...Some Berries can restore a\n"
                  "Pokémon’s health.\r"
                  "Many other items can be held\n"
@@ -302,13 +302,13 @@ script scr_seq_T22R0301_005 {
     end
 }
 
-script scr_seq_T22R0301_006 {
+script Violet_PokemonSchool_EventScript_Boy1 {
     simplenpcmsg("Huh? The Pokémon I just got is\n"
                  "holding something!")
     end
 }
 
-script scr_seq_T22R0301_007 {
+script Violet_PokemonSchool_EventScript_Boy2 {
     simplenpcmsg("I traded my best Pokémon to the\n"
                  "guy beside me.")
     end

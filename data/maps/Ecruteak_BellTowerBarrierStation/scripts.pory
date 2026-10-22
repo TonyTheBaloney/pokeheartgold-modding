@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T27R0201_000
-    scr_seq_T27R0201_001
-    scr_seq_T27R0201_002
-    scr_seq_T27R0201_003
+    Ecruteak_BellTowerBarrierStation_EventScript_Sage1
+    Ecruteak_BellTowerBarrierStation_EventScript_Sage2
+    Ecruteak_BellTowerBarrierStation_EventScript_Sage3
+    Ecruteak_BellTowerBarrierStation_OnResume
 }
 
-script scr_seq_T27R0201_003 {
+script Ecruteak_BellTowerBarrierStation_OnResume {
     if (flag(FLAG_UNK_108)) {
         movepersonfacing(obj_T27R0201_bozu, 16, 0, 8, DIR_WEST)
         end
@@ -17,7 +17,7 @@ script scr_seq_T27R0201_003 {
     end
 }
 
-script scr_seq_T27R0201_000 {
+script Ecruteak_BellTowerBarrierStation_EventScript_Sage1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -93,7 +93,7 @@ _0096:
                "Please, do go on.\r")
     }
     closemessage
-    applymovement(obj_T27R0201_bozu, Ecruteak_BellTowerBarrierStation_Movement_00F4)
+    applymovement(obj_T27R0201_bozu, Ecruteak_BellTowerBarrierStation_Movement_SageWalkUpRight)
     waitmovement
     setvar(VAR_TEMP_x4002, 1)
     releaseall
@@ -105,26 +105,26 @@ _00C9:
     releaseall
     end
 _00D4:
-    applymovement(obj_T27R0201_bozu, Ecruteak_BellTowerBarrierStation_Movement_0104)
+    applymovement(obj_T27R0201_bozu, Ecruteak_BellTowerBarrierStation_Movement_SageWalkDownRight)
     waitmovement
     setvar(VAR_TEMP_x4002, 1)
     releaseall
     end
 }
 
-movement Ecruteak_BellTowerBarrierStation_Movement_00F4 {
+movement Ecruteak_BellTowerBarrierStation_Movement_SageWalkUpRight {
     walk_up
     walk_right
     face_left
 }
 
-movement Ecruteak_BellTowerBarrierStation_Movement_0104 {
+movement Ecruteak_BellTowerBarrierStation_Movement_SageWalkDownRight {
     walk_down
     walk_right
     face_left
 }
 
-script scr_seq_T27R0201_001 {
+script Ecruteak_BellTowerBarrierStation_EventScript_Sage2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -169,7 +169,7 @@ _0157:
     end
 }
 
-script scr_seq_T27R0201_002 {
+script Ecruteak_BellTowerBarrierStation_EventScript_Sage3 {
     simplenpcmsg("The rainbow-hued Pokémon flying\n"
                  "gracefully over the tower...\r"
                  "The silvery, sparkling Pokémon resting\n"
@@ -179,5 +179,5 @@ script scr_seq_T27R0201_002 {
 }
 
 mapscripts Ecruteak_BellTowerBarrierStation_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_T27R0201_003
+    INIT_SCRIPT_ON_RESUME: Ecruteak_BellTowerBarrierStation_OnResume
 }

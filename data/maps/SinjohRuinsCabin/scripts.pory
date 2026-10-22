@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D51R0301_000 {
+script SinjohRuinsCabin_EventScript_Cynthia {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -24,7 +24,7 @@ script scr_seq_D51R0301_000 {
     }
     playerhasspecies(VAR_SPECIAL_RESULT, SPECIES_ARCEUS)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_0188)
+        applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaExclamation)
         waitmovement
         npcmsg("Cynthia: You are...\f"
                "a Pokémon Trainer?\r"
@@ -36,55 +36,55 @@ script scr_seq_D51R0301_000 {
             if (var(VAR_TEMP_x4002) != 1) {
                 goto(_0097)
             _0097:
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_0194)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaWalkUp1)
                 waitmovement
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01A0)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaFaceDown1)
                 waitmovement
                 npcmsg(msg_0147_D51R0301_00003)
                 closemessage
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01A8)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaWalkDown1)
                 waitmovement
                 npcmsg(msg_0147_D51R0301_00004)
                 closemessage
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01B4)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaWalkDownLeft1)
                 waitmovement
                 goto(_0167)
             _00CF:
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01C4)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaWalkDown2)
                 waitmovement
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01D0)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaFaceUp)
                 waitmovement
                 npcmsg(msg_0147_D51R0301_00003)
                 closemessage
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01D8)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaWalkUp2)
                 waitmovement
                 npcmsg(msg_0147_D51R0301_00004)
                 closemessage
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01E0)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaWalkDownLeft2)
                 waitmovement
                 goto(_0167)
             _0107:
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01F0)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaWalkUp3)
                 waitmovement
                 togglefollowingpokemonmovement(0)
                 waitfollowingpokemonmovement
                 followingpokemonmovement(55)
-                applymovement(obj_player, SinjohRuinsCabin_Movement_01FC)
+                applymovement(obj_player, SinjohRuinsCabin_Movement_PlayerWalkUp)
                 waitmovement
                 waitfollowingpokemonmovement
                 togglefollowingpokemonmovement(1)
                 followingpokemonmovement(48)
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_0204)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaFaceDown2)
                 waitmovement
                 npcmsg(msg_0147_D51R0301_00003)
                 closemessage
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_020C)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaWalkRightDown)
                 waitmovement
-                applymovement(obj_player, SinjohRuinsCabin_Movement_022C)
+                applymovement(obj_player, SinjohRuinsCabin_Movement_PlayerFaceRight)
                 waitmovement
                 npcmsg(msg_0147_D51R0301_00004)
                 closemessage
-                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_021C)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_CynthiaWalkDownLeft3)
                 waitmovement
                 goto(_0167)
             _0167:
@@ -134,80 +134,80 @@ text msg_0147_D51R0301_00004 {
     "that stage, something will happen.\r"
 }
 
-movement SinjohRuinsCabin_Movement_0188 {
+movement SinjohRuinsCabin_Movement_CynthiaExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement SinjohRuinsCabin_Movement_0194 {
+movement SinjohRuinsCabin_Movement_CynthiaWalkUp1 {
     walk_in_place_up
     walk_slow_up * 2
 }
 
-movement SinjohRuinsCabin_Movement_01A0 {
+movement SinjohRuinsCabin_Movement_CynthiaFaceDown1 {
     walk_in_place_down
 }
 
-movement SinjohRuinsCabin_Movement_01A8 {
+movement SinjohRuinsCabin_Movement_CynthiaWalkDown1 {
     walk_down * 2
     walk_in_place_right
 }
 
-movement SinjohRuinsCabin_Movement_01B4 {
+movement SinjohRuinsCabin_Movement_CynthiaWalkDownLeft1 {
     walk_down * 2
     walk_left * 4
     walk_in_place_down
 }
 
-movement SinjohRuinsCabin_Movement_01C4 {
+movement SinjohRuinsCabin_Movement_CynthiaWalkDown2 {
     walk_in_place_down
     walk_slow_down
 }
 
-movement SinjohRuinsCabin_Movement_01D0 {
+movement SinjohRuinsCabin_Movement_CynthiaFaceUp {
     walk_in_place_up
 }
 
-movement SinjohRuinsCabin_Movement_01D8 {
+movement SinjohRuinsCabin_Movement_CynthiaWalkUp2 {
     walk_up
 }
 
-movement SinjohRuinsCabin_Movement_01E0 {
+movement SinjohRuinsCabin_Movement_CynthiaWalkDownLeft2 {
     walk_down * 2
     walk_left * 4
     walk_in_place_down
 }
 
-movement SinjohRuinsCabin_Movement_01F0 {
+movement SinjohRuinsCabin_Movement_CynthiaWalkUp3 {
     walk_in_place_up
     walk_slow_up * 2
 }
 
-movement SinjohRuinsCabin_Movement_01FC {
+movement SinjohRuinsCabin_Movement_PlayerWalkUp {
     walk_slow_up
 }
 
-movement SinjohRuinsCabin_Movement_0204 {
+movement SinjohRuinsCabin_Movement_CynthiaFaceDown2 {
     walk_in_place_down
 }
 
-movement SinjohRuinsCabin_Movement_020C {
+movement SinjohRuinsCabin_Movement_CynthiaWalkRightDown {
     walk_right
     walk_down * 2
     walk_in_place_left
 }
 
-movement SinjohRuinsCabin_Movement_021C {
+movement SinjohRuinsCabin_Movement_CynthiaWalkDownLeft3 {
     walk_down * 2
     walk_left * 5
     walk_in_place_down
 }
 
-movement SinjohRuinsCabin_Movement_022C {
+movement SinjohRuinsCabin_Movement_PlayerFaceRight {
     walk_in_place_right
 }
 
-script scr_seq_D51R0301_001 {
+script SinjohRuinsCabin_EventScript_Hiker {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -263,7 +263,7 @@ _0263:
     end
 }
 
-script scr_seq_D51R0301_002 {
+script SinjohRuinsCabin_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -288,7 +288,7 @@ script scr_seq_D51R0301_002 {
            "Picture your house in your mind...\r")
     closemessage
     playse(SEQ_SE_DP_TELE)
-    applymovement(obj_player, SinjohRuinsCabin_Movement_0318)
+    applymovement(obj_player, SinjohRuinsCabin_Movement_PlayerSpin)
     waitmovement
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 13) {
         setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 10)
@@ -307,7 +307,7 @@ script scr_seq_D51R0301_002 {
     end
 }
 
-movement SinjohRuinsCabin_Movement_0318 {
+movement SinjohRuinsCabin_Movement_PlayerSpin {
     face_right
     delay_4
     face_down
@@ -338,7 +338,7 @@ movement SinjohRuinsCabin_Movement_0318 {
     face_up
 }
 
-script scr_seq_D51R0301_003 {
+script SinjohRuinsCabin_EventScript_Abra {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

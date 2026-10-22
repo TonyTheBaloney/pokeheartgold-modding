@@ -3,20 +3,20 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T01R0301_000
-    scr_seq_T01R0301_001
-    scr_seq_T01R0301_002
-    scr_seq_T01R0301_003
-    scr_seq_T01R0301_004
-    scr_seq_T01R0301_005
-    scr_seq_T01R0301_006
-    scr_seq_T01R0301_007
-    scr_seq_T01R0301_008
-    scr_seq_T01R0301_009
-    scr_seq_T01R0301_010
+    Pallet_TownOaksLab_EventScript_ProfOak
+    Pallet_TownOaksLab_EventScript_Scientist1
+    Pallet_TownOaksLab_EventScript_Scientist2
+    Pallet_TownOaksLab_EventScript_Scientist3
+    Pallet_TownOaksLab_EventScript_Bookshelf
+    Pallet_TownOaksLab_EventScript_PC
+    Pallet_TownOaksLab_EventScript_ProfOakScene
+    Pallet_TownOaksLab_EventScript_Sign1
+    Pallet_TownOaksLab_EventScript_Sign2
+    Pallet_TownOaksLab_EventScript_Sign3
+    Pallet_TownOaksLab_OnTransition
 }
 
-script scr_seq_T01R0301_010 {
+script Pallet_TownOaksLab_OnTransition {
     if (var(VAR_UNK_4131) == 3) { goto(_0057) }
     if (var(VAR_UNK_4131) == 4) { goto(_0057) }
     if (var(VAR_UNK_4131) == 5) { goto(_0057) }
@@ -29,13 +29,13 @@ _0057:
     end
 }
 
-script scr_seq_T01R0301_006 {
+script Pallet_TownOaksLab_EventScript_ProfOakScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Pallet_TownOaksLab_Movement_00C8)
+    applymovement(obj_player, Pallet_TownOaksLab_Movement_PlayerWalkUp)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Professor Oak: Hello, {STRVAR_1 3, 0, 0}.\n"
@@ -52,15 +52,15 @@ script scr_seq_T01R0301_006 {
                                                           "For all your hard work,\n"
                                                           "I would like to give you something.\r")
     closemessage
-    applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_00E0)
+    applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceDown1)
     waitmovement
     npcmsg("Professor Oak: Haha!\r"
            "What’s behind me...\n"
            "You must have figured it out right away.\r"
            "Yes, it is a Pokémon!\r")
     closemessage
-    applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_00F4)
-    applymovement(obj_player, Pallet_TownOaksLab_Movement_00D0)
+    applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakWalkUpLeft)
+    applymovement(obj_player, Pallet_TownOaksLab_Movement_PlayerWalkUpLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -80,30 +80,30 @@ text msg_0451_T01R0301_00042 {
     "...Go ahead!"
 }
 
-movement Pallet_TownOaksLab_Movement_00C8 {
+movement Pallet_TownOaksLab_Movement_PlayerWalkUp {
     walk_up * 5
 }
 
-movement Pallet_TownOaksLab_Movement_00D0 {
+movement Pallet_TownOaksLab_Movement_PlayerWalkUpLeft {
     delay_8 * 2
     walk_up * 3
     walk_left * 2
 }
 
-movement Pallet_TownOaksLab_Movement_00E0 {
+movement Pallet_TownOaksLab_Movement_ProfOakFaceDown1 {
     face_up
     delay_8 * 4
     face_down
     delay_8 * 3
 }
 
-movement Pallet_TownOaksLab_Movement_00F4 {
+movement Pallet_TownOaksLab_Movement_ProfOakWalkUpLeft {
     walk_up
     walk_left * 3
     face_right
 }
 
-script scr_seq_T01R0301_000 {
+script Pallet_TownOaksLab_EventScript_ProfOak {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -180,7 +180,7 @@ script scr_seq_T01R0301_000 {
                      "What brought you here?\r", "Professor Oak: Oh, {STRVAR_1 3, 0, 0}!\n"
                                                  "What brought you here?\r")
         closemessage
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_04D4)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakExclamation)
         waitmovement
         setflag(FLAG_UNK_0BC)
         npcmsg("Professor Oak: The legendary Pokémon\n"
@@ -205,38 +205,38 @@ script scr_seq_T01R0301_000 {
     _0358:
         waitmovement
     _035A:
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0500)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceDown2)
         waitmovement
         npcmsg(msg_0451_T01R0301_00014)
         closemessage
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0500)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceDown2)
         waitmovement
         goto(_03DE)
         end
     _037B:
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_052C)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceLeft)
         waitmovement
         npcmsg(msg_0451_T01R0301_00014)
         closemessage
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_052C)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceLeft)
         waitmovement
         goto(_03DE)
         end
     _039C:
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0558)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceRight1)
         waitmovement
         npcmsg(msg_0451_T01R0301_00014)
         closemessage
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0558)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceRight1)
         waitmovement
         goto(_03DE)
         end
     _03BD:
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0584)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceUp1)
         waitmovement
         npcmsg(msg_0451_T01R0301_00014)
         closemessage
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0584)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceUp1)
         waitmovement
         goto(_03DE)
         end
@@ -357,13 +357,13 @@ script scr_seq_T01R0301_000 {
     _0421:
         getplayerfacing(VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 0) {
-            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0500)
+            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceDown2)
         } elif (var(VAR_TEMP_x4001) == 3) {
-            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_052C)
+            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceLeft)
         } elif (var(VAR_TEMP_x4001) == 2) {
-            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0558)
+            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceRight1)
         } else {
-            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0584)
+            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceUp1)
         }
         waitmovement
         bufferplayersname(0)
@@ -551,7 +551,7 @@ text msg_0451_T01R0301_00014 {
     "All this is quite possible!\r"
 }
 
-movement Pallet_TownOaksLab_Movement_04D4 {
+movement Pallet_TownOaksLab_Movement_ProfOakExclamation {
     emote_exclamation_mark
     delay_8
 }
@@ -566,7 +566,7 @@ movement Pallet_TownOaksLab_Movement_04E0 {
     walk_in_place_down
 }
 
-movement Pallet_TownOaksLab_Movement_0500 {
+movement Pallet_TownOaksLab_Movement_ProfOakFaceDown2 {
     walk_in_place_down
     delay_8
 }
@@ -581,7 +581,7 @@ movement Pallet_TownOaksLab_Movement_050C {
     walk_in_place_left
 }
 
-movement Pallet_TownOaksLab_Movement_052C {
+movement Pallet_TownOaksLab_Movement_ProfOakFaceLeft {
     walk_in_place_left
     delay_8
 }
@@ -596,7 +596,7 @@ movement Pallet_TownOaksLab_Movement_0538 {
     walk_in_place_right
 }
 
-movement Pallet_TownOaksLab_Movement_0558 {
+movement Pallet_TownOaksLab_Movement_ProfOakFaceRight1 {
     walk_in_place_right
     delay_8
 }
@@ -611,12 +611,12 @@ movement Pallet_TownOaksLab_Movement_0564 {
     walk_in_place_up
 }
 
-movement Pallet_TownOaksLab_Movement_0584 {
+movement Pallet_TownOaksLab_Movement_ProfOakFaceUp1 {
     walk_in_place_up
     delay_8
 }
 
-script scr_seq_T01R0301_001 {
+script Pallet_TownOaksLab_EventScript_Scientist1 {
     simplenpcmsg("The Professor’s Pokémon Talk\n"
                  "radio show is aired here and\f"
                  "in Johto as well.\r"
@@ -624,7 +624,7 @@ script scr_seq_T01R0301_001 {
     end
 }
 
-script scr_seq_T01R0301_002 {
+script Pallet_TownOaksLab_EventScript_Scientist2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -638,7 +638,7 @@ script scr_seq_T01R0301_002 {
     end
 }
 
-script scr_seq_T01R0301_003 {
+script Pallet_TownOaksLab_EventScript_Scientist3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -653,7 +653,7 @@ script scr_seq_T01R0301_003 {
     end
 }
 
-script scr_seq_T01R0301_004 {
+script Pallet_TownOaksLab_EventScript_Bookshelf {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("There are many books.\n"
@@ -664,7 +664,7 @@ script scr_seq_T01R0301_004 {
     end
 }
 
-script scr_seq_T01R0301_005 {
+script Pallet_TownOaksLab_EventScript_PC {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -694,7 +694,7 @@ script scr_seq_T01R0301_005 {
     end
 }
 
-script scr_seq_T01R0301_007 {
+script Pallet_TownOaksLab_EventScript_Sign1 {
     if (var(VAR_UNK_4131) == 6) { goto(_0979) }
     if (var(VAR_UNK_4131) == 0) { goto(_097B) }
     if (var(VAR_UNK_4131) == 3) { goto(_097B) }
@@ -705,9 +705,9 @@ script scr_seq_T01R0301_007 {
     if (var(VAR_UNK_4131) == 5) { goto(_097D) }
     getpersoncoords(0, VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 8) {
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09C4)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceUp2)
     } else {
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09BC)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceRight2)
     }
     waitmovement
     showpokemonpicwindow(SPECIES_BULBASAUR, 0)
@@ -724,7 +724,7 @@ script scr_seq_T01R0301_007 {
     end
 }
 
-script scr_seq_T01R0301_008 {
+script Pallet_TownOaksLab_EventScript_Sign2 {
     if (var(VAR_UNK_4131) == 6) { goto(_0979) }
     if (var(VAR_UNK_4131) == 0) { goto(_097B) }
     if (var(VAR_UNK_4131) == 4) { goto(_097B) }
@@ -735,9 +735,9 @@ script scr_seq_T01R0301_008 {
     if (var(VAR_UNK_4131) == 5) { goto(_097D) }
     getpersoncoords(0, VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 8) {
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09C4)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceUp2)
     } else {
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09BC)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceRight2)
     }
     waitmovement
     showpokemonpicwindow(SPECIES_SQUIRTLE, 0)
@@ -754,7 +754,7 @@ script scr_seq_T01R0301_008 {
     end
 }
 
-script scr_seq_T01R0301_009 {
+script Pallet_TownOaksLab_EventScript_Sign3 {
     if (var(VAR_UNK_4131) == 6) { goto(_0979) }
     if (var(VAR_UNK_4131) == 0) { goto(_097B) }
     if (var(VAR_UNK_4131) == 5) { goto(_097B) }
@@ -765,9 +765,9 @@ script scr_seq_T01R0301_009 {
     if (var(VAR_UNK_4131) == 4) { goto(_097D) }
     getpersoncoords(0, VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 8) {
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09C4)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceUp2)
     } else {
-        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09BC)
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_ProfOakFaceRight2)
     }
     waitmovement
     showpokemonpicwindow(SPECIES_CHARMANDER, 0)
@@ -828,18 +828,18 @@ _0801:
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
         if (var(VAR_SPECIAL_x8004) == 1) {
-            applymovement(obj_player, Pallet_TownOaksLab_Movement_0998)
+            applymovement(obj_player, Pallet_TownOaksLab_Movement_PlayerWalkDownLeft1)
         } elif (var(VAR_SPECIAL_x8004) == 7) {
-            applymovement(obj_player, Pallet_TownOaksLab_Movement_09A4)
+            applymovement(obj_player, Pallet_TownOaksLab_Movement_PlayerWalkDownLeft2)
         } else {
-            applymovement(obj_player, Pallet_TownOaksLab_Movement_09B0)
+            applymovement(obj_player, Pallet_TownOaksLab_Movement_PlayerWalkDownLeft3)
         }
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
         followingpokemonmovement(48)
     } else {
-        applymovement(obj_player, Pallet_TownOaksLab_Movement_09CC)
+        applymovement(obj_player, Pallet_TownOaksLab_Movement_PlayerFaceDown)
         waitmovement
     }
     npcmsg("Professor Oak: If a wild Pokémon\n"
@@ -893,36 +893,36 @@ _097D:
     end
 }
 
-movement Pallet_TownOaksLab_Movement_0998 {
+movement Pallet_TownOaksLab_Movement_PlayerWalkDownLeft1 {
     walk_down
     walk_left * 3
 }
 
-movement Pallet_TownOaksLab_Movement_09A4 {
+movement Pallet_TownOaksLab_Movement_PlayerWalkDownLeft2 {
     walk_down
     walk_left * 2
 }
 
-movement Pallet_TownOaksLab_Movement_09B0 {
+movement Pallet_TownOaksLab_Movement_PlayerWalkDownLeft3 {
     walk_down
     walk_left
 }
 
-movement Pallet_TownOaksLab_Movement_09BC {
+movement Pallet_TownOaksLab_Movement_ProfOakFaceRight2 {
     face_right
 }
 
-movement Pallet_TownOaksLab_Movement_09C4 {
+movement Pallet_TownOaksLab_Movement_ProfOakFaceUp2 {
     face_up
 }
 
-movement Pallet_TownOaksLab_Movement_09CC {
+movement Pallet_TownOaksLab_Movement_PlayerFaceDown {
     face_down
 }
 
 mapscripts Pallet_TownOaksLab_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T01R0301_010
+    INIT_SCRIPT_ON_TRANSITION: Pallet_TownOaksLab_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4131, 1: scr_seq_T01R0301_006
+        VAR_UNK_4131, 1: Pallet_TownOaksLab_EventScript_ProfOakScene
     ]
 }

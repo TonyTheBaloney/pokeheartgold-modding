@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0486_T06PC0101_00000",
-      "from": "scr_seq_T06PC0101_001#1"
+      "from": "Vermilion_Pokecenter_1F_EventScript_Fisherman#1"
     },
     {
       "id": "msg_0486_T06PC0101_00001",
-      "from": "scr_seq_T06PC0101_001#0"
+      "from": "Vermilion_Pokecenter_1F_EventScript_Fisherman#0"
     },
     {
       "id": "msg_0486_T06PC0101_00002",
-      "from": "scr_seq_T06PC0101_002#0"
+      "from": "Vermilion_Pokecenter_1F_EventScript_Sailor#0"
     },
     {
       "id": "msg_0486_T06PC0101_00003",
-      "from": "scr_seq_T06PC0101_003#0"
+      "from": "Vermilion_Pokecenter_1F_EventScript_LittleBoy#0"
     }
   ]
 }

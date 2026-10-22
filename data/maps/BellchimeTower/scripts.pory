@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D17R1101_000 {
+script BellchimeTower_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         if (!flag(FLAG_GAME_CLEAR)) { goto(_00A5) }
         getphonebookrematch(PHONE_CONTACT_MORTY, VAR_TEMP_x4001)
@@ -33,7 +33,7 @@ script scr_seq_D17R1101_000 {
     end
 }
 
-script scr_seq_D17R1101_001 {
+script BellchimeTower_EventScript_Morty {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -135,5 +135,5 @@ _014E:
 }
 
 mapscripts BellchimeTower_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D17R1101_000
+    INIT_SCRIPT_ON_TRANSITION: BellchimeTower_OnTransition
 }

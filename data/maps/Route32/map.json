@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R32_000 + 1",
+            "script": "Route32_EventScript_FatMan1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R32_001 + 1",
+            "script": "Route32_EventScript_PokefanM1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R32_003 + 1",
+            "script": "Route32_EventScript_FatMan2",
             "flag": "FLAG_UNK_1AA"
         },
         {
@@ -279,7 +279,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R32_005 + 1",
+            "script": "Route32_EventScript_Lass",
             "flag": "FLAG_UNK_208"
         },
         {
@@ -347,7 +347,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R32_009 + 1",
+            "script": "Route32_EventScript_PokefanM2",
             "flag": "FLAG_HIDE_CAMERON"
         }
     ],
@@ -390,7 +390,7 @@
             "height": 1,
             "var": "VAR_UNK_408D",
             "var_value": 0,
-            "script": "_EV_scr_seq_R32_002 + 1"
+            "script": "Route32_EventScript_PokefanMTrigger"
         }
     ],
     "bg_events": [
@@ -400,7 +400,7 @@
             "y": 291,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R32_006 + 1"
+            "script": "Route32_EventScript_RuinsOfAlphSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -408,7 +408,7 @@
             "y": 300,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R32_007 + 1"
+            "script": "Route32_EventScript_RouteSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -416,7 +416,7 @@
             "y": 437,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_R32_008 + 1"
+            "script": "Route32_EventScript_UnionCaveAheadSign"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

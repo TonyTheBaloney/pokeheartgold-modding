@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27GYM0101_003 + 1",
+            "script": "Ecruteak_Gym_EventScript_GymGuide",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T27GYM0101_001 + 1",
+            "script": "Ecruteak_Gym_EventScript_Morty",
             "flag": "FLAG_HIDE_ECRUTEAK_GYM_MORTY"
         },
         {
@@ -165,7 +165,7 @@
             "height": 7,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 9,
@@ -175,7 +175,7 @@
             "height": 9,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 9,
@@ -185,7 +185,7 @@
             "height": 8,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 8,
@@ -195,7 +195,7 @@
             "height": 1,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 9,
@@ -205,7 +205,7 @@
             "height": 1,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 12,
@@ -215,7 +215,7 @@
             "height": 1,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 15,
@@ -225,7 +225,7 @@
             "height": 8,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 13,
@@ -235,7 +235,7 @@
             "height": 11,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 12,
@@ -245,7 +245,7 @@
             "height": 1,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 12,
@@ -255,7 +255,7 @@
             "height": 2,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 14,
@@ -265,7 +265,7 @@
             "height": 4,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 12,
@@ -275,7 +275,7 @@
             "height": 5,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 21,
@@ -285,7 +285,7 @@
             "height": 3,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 20,
@@ -295,7 +295,7 @@
             "height": 8,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         },
         {
             "x": 17,
@@ -305,7 +305,7 @@
             "height": 9,
             "var": "VAR_UNK_4109",
             "var_value": 0,
-            "script": "_EV_scr_seq_T27GYM0101_002 + 1"
+            "script": "Ecruteak_Gym_EventScript_WarpToEcruteakGym"
         }
     ],
     "bg_events": [
@@ -315,7 +315,7 @@
             "y": 51,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T27GYM0101_005 + 1"
+            "script": "Ecruteak_Gym_EventScript_GymSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -323,7 +323,7 @@
             "y": 51,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T27GYM0101_005 + 1"
+            "script": "Ecruteak_Gym_EventScript_GymSign"
         }
     ]
 }

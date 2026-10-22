@@ -3,29 +3,29 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0203_000
-    scr_seq_T07R0203_001
-    scr_seq_T07R0203_002
-    scr_seq_T07R0203_003
-    scr_seq_T07R0203_004
-    scr_seq_T07R0203_005
-    scr_seq_T07R0203_006
-    scr_seq_T07R0203_007
-    scr_seq_T07R0203_008
-    scr_seq_T07R0203_009
-    scr_seq_T07R0203_010
-    scr_seq_T07R0203_011
-    scr_seq_T07R0203_012
-    scr_seq_T07R0203_013
+    Celadon_Condominiums_3F_EventScript_AceTrainerM
+    Celadon_Condominiums_3F_EventScript_GymGuide
+    Celadon_Condominiums_3F_EventScript_Man
+    Celadon_Condominiums_3F_EventScript_FatMan
+    Celadon_Condominiums_3F_EventScript_GameFreakSign
+    Celadon_Condominiums_3F_EventScript_Sign1
+    Celadon_Condominiums_3F_EventScript_PokemonStickersAreEverywhereSign
+    Celadon_Condominiums_3F_EventScript_Bookshelf
+    Celadon_Condominiums_3F_OnTransition
+    Celadon_Condominiums_3F_EventScript_SchoolKidM
+    Celadon_Condominiums_3F_EventScript_LyraScene
+    Celadon_Condominiums_3F_OnResume
+    Celadon_Condominiums_3F_EventScript_Businessman
+    Celadon_Condominiums_3F_EventScript_Sign2
 }
 
-script scr_seq_T07R0203_008 {
+script Celadon_Condominiums_3F_OnTransition {
     getfriendsprite(VAR_OBJ_0)
     setvar(VAR_UNK_4125, 0)
     end
 }
 
-script scr_seq_T07R0203_011 {
+script Celadon_Condominiums_3F_OnResume {
     if (var(VAR_UNK_412C) == 0) {
         movepersonfacing(obj_T07R0203_var_1, 12, 0, 6, DIR_WEST)
         movepersonfacing(obj_T07R0203_tsure_poke_static_marill, 13, 0, 6, DIR_WEST)
@@ -33,22 +33,22 @@ script scr_seq_T07R0203_011 {
     end
 }
 
-script scr_seq_T07R0203_010 {
+script Celadon_Condominiums_3F_EventScript_LyraScene {
     followmonresetmovement
     lockall
     callstd(std_play_friend_music)
-    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_012C)
-    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_0138)
+    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_FriendWalkLeft1)
+    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_MarillWalkLeft1)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lyra: Hi, {STRVAR_1 3, 0, 0}!\r", "Ethan: Hey, {STRVAR_1 3, 0, 0}!\r")
     closemessage
-    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_0140)
-    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_0148)
+    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_FriendWalkLeft2)
+    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_MarillWalkLeft2)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Celadon_Condominiums_3F_Movement_0150)
+    applymovement(obj_player, Celadon_Condominiums_3F_Movement_PlayerWalkDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -74,14 +74,14 @@ script scr_seq_T07R0203_010 {
                               "Why don’t you go for it, {STRVAR_1 3, 0, 0}?\n"
                               "See ya!\r")
     closemessage
-    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_015C)
-    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_016C)
+    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_FriendWalkUpLeft)
+    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_MarillWalkLeftUp)
     waitmovement
     dooranimationload(0, 0, 3, 2, 77)
     dooranimationopen(77)
     dooranimationwait(77)
-    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_0180)
-    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_018C)
+    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_FriendExit)
+    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_MarillExit)
     waitmovement
     dooranimationclose(77)
     dooranimationwait(77)
@@ -94,52 +94,52 @@ script scr_seq_T07R0203_010 {
     end
 }
 
-movement Celadon_Condominiums_3F_Movement_012C {
+movement Celadon_Condominiums_3F_Movement_FriendWalkLeft1 {
     walk_left * 4
     emote_exclamation_mark
 }
 
-movement Celadon_Condominiums_3F_Movement_0138 {
+movement Celadon_Condominiums_3F_Movement_MarillWalkLeft1 {
     walk_left * 4
 }
 
-movement Celadon_Condominiums_3F_Movement_0140 {
+movement Celadon_Condominiums_3F_Movement_FriendWalkLeft2 {
     walk_left * 4
 }
 
-movement Celadon_Condominiums_3F_Movement_0148 {
+movement Celadon_Condominiums_3F_Movement_MarillWalkLeft2 {
     walk_left * 4
 }
 
-movement Celadon_Condominiums_3F_Movement_0150 {
+movement Celadon_Condominiums_3F_Movement_PlayerWalkDown {
     walk_down * 3
     walk_in_place_right
 }
 
-movement Celadon_Condominiums_3F_Movement_015C {
+movement Celadon_Condominiums_3F_Movement_FriendWalkUpLeft {
     walk_up * 2
     walk_left
     walk_up
 }
 
-movement Celadon_Condominiums_3F_Movement_016C {
+movement Celadon_Condominiums_3F_Movement_MarillWalkLeftUp {
     walk_left
     walk_up * 2
     walk_left
     walk_in_place_up
 }
 
-movement Celadon_Condominiums_3F_Movement_0180 {
+movement Celadon_Condominiums_3F_Movement_FriendExit {
     walk_up
     set_invisible
 }
 
-movement Celadon_Condominiums_3F_Movement_018C {
+movement Celadon_Condominiums_3F_Movement_MarillExit {
     walk_up * 2
     set_invisible
 }
 
-script scr_seq_T07R0203_000 {
+script Celadon_Condominiums_3F_EventScript_AceTrainerM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -208,7 +208,7 @@ _0245:
     end
 }
 
-script scr_seq_T07R0203_009 {
+script Celadon_Condominiums_3F_EventScript_SchoolKidM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -266,20 +266,20 @@ script scr_seq_T07R0203_009 {
     end
 }
 
-script scr_seq_T07R0203_001 {
+script Celadon_Condominiums_3F_EventScript_GymGuide {
     simplenpcmsg("I am the Graphic Designer!\n"
                  "I am a skilled dot artist!")
     end
 }
 
-script scr_seq_T07R0203_002 {
+script Celadon_Condominiums_3F_EventScript_Man {
     simplenpcmsg("I am the Programmer!\r"
                  "I control the world of games\n"
                  "with my fingertip!")
     end
 }
 
-script scr_seq_T07R0203_003 {
+script Celadon_Condominiums_3F_EventScript_FatMan {
     simplenpcmsg("I am the Planner!\n"
                  "I come up with great ideas!\r"
                  "This place you’re standing\n"
@@ -287,7 +287,7 @@ script scr_seq_T07R0203_003 {
     end
 }
 
-script scr_seq_T07R0203_004 {
+script Celadon_Condominiums_3F_EventScript_GameFreakSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Game Freak\n"
@@ -298,7 +298,7 @@ script scr_seq_T07R0203_004 {
     end
 }
 
-script scr_seq_T07R0203_013 {
+script Celadon_Condominiums_3F_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("This elevator goes straight between\n"
@@ -309,7 +309,7 @@ script scr_seq_T07R0203_013 {
     end
 }
 
-script scr_seq_T07R0203_005 {
+script Celadon_Condominiums_3F_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It’s the game program.\r"
@@ -321,7 +321,7 @@ script scr_seq_T07R0203_005 {
     end
 }
 
-script scr_seq_T07R0203_006 {
+script Celadon_Condominiums_3F_EventScript_PokemonStickersAreEverywhereSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Pokémon stickers are everywhere\n"
@@ -332,7 +332,7 @@ script scr_seq_T07R0203_006 {
     end
 }
 
-script scr_seq_T07R0203_007 {
+script Celadon_Condominiums_3F_EventScript_Bookshelf {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("There are many photo collections\n"
@@ -343,7 +343,7 @@ script scr_seq_T07R0203_007 {
     end
 }
 
-script scr_seq_T07R0203_012 {
+script Celadon_Condominiums_3F_EventScript_Businessman {
     simplenpcmsg("What do you think?\r"
                  "I am the President here.\r"
                  "We are remaking an old game,\n"
@@ -362,9 +362,9 @@ script scr_seq_T07R0203_012 {
 }
 
 mapscripts Celadon_Condominiums_3F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07R0203_008
-    INIT_SCRIPT_ON_RESUME: scr_seq_T07R0203_011
+    INIT_SCRIPT_ON_TRANSITION: Celadon_Condominiums_3F_OnTransition
+    INIT_SCRIPT_ON_RESUME: Celadon_Condominiums_3F_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_412C, 0: scr_seq_T07R0203_010
+        VAR_UNK_412C, 0: Celadon_Condominiums_3F_EventScript_LyraScene
     ]
 }

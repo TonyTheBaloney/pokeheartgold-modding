@@ -3,27 +3,27 @@
   "messages": [
     {
       "id": "msg_0341_R10_00000",
-      "from": "scr_seq_R10_002#2"
+      "from": "Route10_EventScript_LtSurge#2"
     },
     {
       "id": "msg_0341_R10_00001",
-      "from": "scr_seq_R10_002#3"
+      "from": "Route10_EventScript_LtSurge#3"
     },
     {
       "id": "msg_0341_R10_00002",
-      "from": "scr_seq_R10_002#4"
+      "from": "Route10_EventScript_LtSurge#4"
     },
     {
       "id": "msg_0341_R10_00003",
-      "from": "scr_seq_R10_002#5"
+      "from": "Route10_EventScript_LtSurge#5"
     },
     {
       "id": "msg_0341_R10_00004",
-      "from": "scr_seq_R10_002#0"
+      "from": "Route10_EventScript_LtSurge#0"
     },
     {
       "id": "msg_0341_R10_00005",
-      "from": "scr_seq_R10_002#1"
+      "from": "Route10_EventScript_LtSurge#1"
     },
     {
       "id": "msg_0341_R10_00006",
@@ -38,11 +38,11 @@
     },
     {
       "id": "msg_0341_R10_00008",
-      "from": "scr_seq_R10_005#0"
+      "from": "Route10_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0341_R10_00009",
-      "from": "scr_seq_R10_006#0"
+      "from": "Route10_EventScript_TrainerTips2#0"
     }
   ]
 }

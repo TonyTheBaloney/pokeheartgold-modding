@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0070_D23R0106_00000",
-      "from": "scr_seq_D23R0106_001#0"
+      "from": "Goldenrod_RadioTowerObservationDeck_EventScript_Archer#0"
     },
     {
       "id": "msg_0070_D23R0106_00001",
-      "from": "scr_seq_D23R0106_001#1"
+      "from": "Goldenrod_RadioTowerObservationDeck_EventScript_Archer#1"
     },
     {
       "id": "msg_0070_D23R0106_00002",
-      "from": "scr_seq_D23R0106_001#2"
+      "from": "Goldenrod_RadioTowerObservationDeck_EventScript_Archer#2"
     },
     {
       "id": "msg_0070_D23R0106_00003",
@@ -29,23 +29,23 @@
     },
     {
       "id": "msg_0070_D23R0106_00005",
-      "from": "scr_seq_D23R0106_001#3"
+      "from": "Goldenrod_RadioTowerObservationDeck_EventScript_Archer#3"
     },
     {
       "id": "msg_0070_D23R0106_00006",
-      "from": "scr_seq_D23R0106_001#4"
+      "from": "Goldenrod_RadioTowerObservationDeck_EventScript_Archer#4"
     },
     {
       "id": "msg_0070_D23R0106_00007",
-      "from": "scr_seq_D23R0106_001#5"
+      "from": "Goldenrod_RadioTowerObservationDeck_EventScript_Archer#5"
     },
     {
       "id": "msg_0070_D23R0106_00008",
-      "from": "scr_seq_D23R0106_001#6"
+      "from": "Goldenrod_RadioTowerObservationDeck_EventScript_Archer#6"
     },
     {
       "id": "msg_0070_D23R0106_00009",
-      "from": "scr_seq_D23R0106_001#7"
+      "from": "Goldenrod_RadioTowerObservationDeck_EventScript_Archer#7"
     }
   ]
 }

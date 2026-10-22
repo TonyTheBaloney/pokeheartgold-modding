@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0257_P01R0103_00000",
-      "from": "scr_seq_P01R0103_000#1"
+      "from": "SsAquaVermilionPortInterior_EventScript_Sailor#1"
     },
     {
       "id": "msg_0257_P01R0103_00001",
-      "from": "scr_seq_P01R0103_000#2"
+      "from": "SsAquaVermilionPortInterior_EventScript_Sailor#2"
     },
     {
       "id": "msg_0257_P01R0103_00002",
-      "from": "scr_seq_P01R0103_000#0"
+      "from": "SsAquaVermilionPortInterior_EventScript_Sailor#0"
     },
     {
       "id": "msg_0257_P01R0103_00003",
-      "from": "scr_seq_P01R0103_002#0"
+      "from": "SsAquaVermilionPortInterior_EventScript_Man#0"
     }
   ]
 }

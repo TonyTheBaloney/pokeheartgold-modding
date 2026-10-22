@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T22R0401_001 + 1",
+            "script": "Violet_NorthwestHouse_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T22R0401_002 + 1",
+            "script": "Violet_NorthwestHouse_EventScript_Lass",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T22R0401_003 + 1",
+            "script": "Violet_NorthwestHouse_EventScript_Strawberry",
             "flag": "FLAG_NOTHING"
         }
     ],

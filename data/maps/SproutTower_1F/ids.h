@@ -2,10 +2,10 @@
 #define SCR_SEQ_D15R0101_H_
 
 #define _EV_scr_seq_D15R0101_000 0
-#define _EV_scr_seq_D15R0101_001 1
-#define _EV_scr_seq_D15R0101_002 2
-#define _EV_scr_seq_D15R0101_003 3
-#define _EV_scr_seq_D15R0101_004 4
+#define _EV_SproutTower_1F_EventScript_OldWoman 1
+#define _EV_SproutTower_1F_EventScript_Woman 2
+#define _EV_SproutTower_1F_EventScript_Sage1 3
+#define _EV_SproutTower_1F_EventScript_Sage2 4
 
 #define obj_D15R0101_gsoldwoman1 0
 #define obj_D15R0101_gswoman1    1

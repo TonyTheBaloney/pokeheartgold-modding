@@ -3,26 +3,26 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D47_000
-    scr_seq_D47_001
-    scr_seq_D47_002
-    scr_seq_D47_003
-    scr_seq_D47_004
-    scr_seq_D47_005
-    scr_seq_D47_006
-    scr_seq_D47_007
-    scr_seq_D47_008
-    scr_seq_D47_009
-    scr_seq_D47_010
-    scr_seq_D47_011
-    scr_seq_D47_012
-    scr_seq_D47_013
-    scr_seq_D47_014
-    scr_seq_D47_015
-    scr_seq_D47_016
+    SafariZoneGate_EventScript_Man
+    SafariZoneGate_EventScript_PokefanF
+    SafariZoneGate_EventScript_Kangaskhan
+    SafariZoneGate_EventScript_Gentleman
+    SafariZoneGate_EventScript_Jigglypuff
+    SafariZoneGate_EventScript_LittleBoy
+    SafariZoneGate_EventScript_OldMan
+    SafariZoneGate_EventScript_Woman
+    SafariZoneGate_EventScript_Butterfree
+    SafariZoneGate_EventScript_Beauty
+    SafariZoneGate_EventScript_Slowpoke
+    SafariZoneGate_EventScript_TrainerTips
+    SafariZoneGate_EventScript_LittleGirl
+    SafariZoneGate_EventScript_PokefanM
+    SafariZoneGate_OnTransition
+    SafariZoneGate_EventScript_Worker1
+    SafariZoneGate_EventScript_Worker2
 }
 
-script scr_seq_D47_014 {
+script SafariZoneGate_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 2) { goto(_007B) }
@@ -37,7 +37,7 @@ script scr_seq_D47_014 {
     end
 }
 
-script scr_seq_D47_000 {
+script SafariZoneGate_EventScript_Man {
     simplenpcmsg("Safari Zone...\r"
                  "It makes me feel like I am in a\n"
                  "foreign country.\f"
@@ -45,25 +45,25 @@ script scr_seq_D47_000 {
     end
 }
 
-script scr_seq_D47_001 {
+script SafariZoneGate_EventScript_PokefanF {
     simplenpcmsg("..................\n"
                  "(I am not a talker.)")
     end
 }
 
-script scr_seq_D47_002 {
+script SafariZoneGate_EventScript_Kangaskhan {
     simplenpcmsg("KANGASKHAN: ..................")
     end
 }
 
-script scr_seq_D47_003 {
+script SafariZoneGate_EventScript_Gentleman {
     simplenpcmsg("This Safari Zone is great!\r"
                  "I just kept going after Pokémon!\n"
                  "That made my JIGGLYPUFF upset though.")
     end
 }
 
-script scr_seq_D47_004 {
+script SafariZoneGate_EventScript_Jigglypuff {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -76,7 +76,7 @@ script scr_seq_D47_004 {
     end
 }
 
-script scr_seq_D47_005 {
+script SafariZoneGate_EventScript_LittleBoy {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -107,7 +107,7 @@ script scr_seq_D47_005 {
     end
 }
 
-script scr_seq_D47_006 {
+script SafariZoneGate_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -122,7 +122,7 @@ script scr_seq_D47_006 {
     end
 }
 
-script scr_seq_D47_007 {
+script SafariZoneGate_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -138,7 +138,7 @@ script scr_seq_D47_007 {
     end
 }
 
-script scr_seq_D47_008 {
+script SafariZoneGate_EventScript_Butterfree {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -151,7 +151,7 @@ script scr_seq_D47_008 {
     end
 }
 
-script scr_seq_D47_009 {
+script SafariZoneGate_EventScript_Beauty {
     simplenpcmsg("There are many Pokémon to choose from,\n"
                  "but nothing beats the cuteness of\f"
                  "SLOWPOKE.\r"
@@ -159,7 +159,7 @@ script scr_seq_D47_009 {
     end
 }
 
-script scr_seq_D47_010 {
+script SafariZoneGate_EventScript_Slowpoke {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -172,7 +172,7 @@ script scr_seq_D47_010 {
     end
 }
 
-script scr_seq_D47_011 {
+script SafariZoneGate_EventScript_TrainerTips {
     trainertipsex(2, "Safari Zone\r"
                      "This is where everything is thrilling.\n"
                      "Feel free to come by and experience\f"
@@ -180,13 +180,13 @@ script scr_seq_D47_011 {
     end
 }
 
-script scr_seq_D47_012 {
+script SafariZoneGate_EventScript_LittleGirl {
     simplenpcmsg("I have always wanted to catch my first\n"
                  "Pokémon at the Safari Zone.")
     end
 }
 
-script scr_seq_D47_013 {
+script SafariZoneGate_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -220,16 +220,16 @@ script scr_seq_D47_013 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, SafariZoneGate_Movement_0330)
-        applymovement(obj_D47_gsmiddleman1, SafariZoneGate_Movement_037C)
+        applymovement(obj_player, SafariZoneGate_Movement_PlayerWalkRightUp)
+        applymovement(obj_D47_gsmiddleman1, SafariZoneGate_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, SafariZoneGate_Movement_0348)
+        applymovement(obj_player, SafariZoneGate_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, SafariZoneGate_Movement_0368)
-        applymovement(obj_D47_gsmiddleman1, SafariZoneGate_Movement_037C)
+        applymovement(obj_player, SafariZoneGate_Movement_PlayerWalkUpRight)
+        applymovement(obj_D47_gsmiddleman1, SafariZoneGate_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, SafariZoneGate_Movement_0354)
-        applymovement(obj_D47_gsmiddleman1, SafariZoneGate_Movement_037C)
+        applymovement(obj_player, SafariZoneGate_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D47_gsmiddleman1, SafariZoneGate_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -237,7 +237,7 @@ script scr_seq_D47_013 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, SafariZoneGate_Movement_0388)
+        applymovement(obj_partner_poke, SafariZoneGate_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -256,7 +256,7 @@ script scr_seq_D47_013 {
     end
 }
 
-movement SafariZoneGate_Movement_0330 {
+movement SafariZoneGate_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -264,37 +264,37 @@ movement SafariZoneGate_Movement_0330 {
     walk_in_place_down
 }
 
-movement SafariZoneGate_Movement_0348 {
+movement SafariZoneGate_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement SafariZoneGate_Movement_0354 {
+movement SafariZoneGate_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement SafariZoneGate_Movement_0368 {
+movement SafariZoneGate_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement SafariZoneGate_Movement_037C {
+movement SafariZoneGate_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement SafariZoneGate_Movement_0388 {
+movement SafariZoneGate_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_D47_015 {
+script SafariZoneGate_EventScript_Worker1 {
     simplenpcmsg("You may be under the impression\n"
                  "there is a sophisticated system to\f"
                  "customizing the Safari Zone, right?\r"
@@ -302,7 +302,7 @@ script scr_seq_D47_015 {
     end
 }
 
-script scr_seq_D47_016 {
+script SafariZoneGate_EventScript_Worker2 {
     simplenpcmsg("Arrrgh...\n"
                  "I am so exhausted...\f"
                  "This job uses so much of your energy...")
@@ -310,5 +310,5 @@ script scr_seq_D47_016 {
 }
 
 mapscripts SafariZoneGate_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D47_014
+    INIT_SCRIPT_ON_TRANSITION: SafariZoneGate_OnTransition
 }

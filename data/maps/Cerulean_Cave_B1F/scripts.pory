@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D03R0103_000
-    scr_seq_D03R0103_001
+    Cerulean_Cave_B1F_EventScript_Mewtwo
+    Cerulean_Cave_B1F_OnLoad
 }
 
-script scr_seq_D03R0103_001 {
+script Cerulean_Cave_B1F_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_CERULEAN_CAVE_MEWTWO)
         removeobject(obj_D03R0103_tsure_poke_static_mewtwo)
@@ -17,7 +17,7 @@ script scr_seq_D03R0103_001 {
     end
 }
 
-script scr_seq_D03R0103_000 {
+script Cerulean_Cave_B1F_EventScript_Mewtwo {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -45,5 +45,5 @@ script scr_seq_D03R0103_000 {
 }
 
 mapscripts Cerulean_Cave_B1F_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_D03R0103_001
+    INIT_SCRIPT_ON_LOAD: Cerulean_Cave_B1F_OnLoad
 }

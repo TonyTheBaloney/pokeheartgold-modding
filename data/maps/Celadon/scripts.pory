@@ -3,28 +3,28 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07_000
-    scr_seq_T07_001
-    scr_seq_T07_002
-    scr_seq_T07_003
-    scr_seq_T07_004
-    scr_seq_T07_005
-    scr_seq_T07_006
-    scr_seq_T07_007
-    scr_seq_T07_008
-    scr_seq_T07_009
-    scr_seq_T07_010
-    scr_seq_T07_011
-    scr_seq_T07_012
-    scr_seq_T07_013
-    scr_seq_T07_014
-    scr_seq_T07_015
-    scr_seq_T07_016
-    scr_seq_T07_017
-    scr_seq_T07_018
+    Celadon_EventScript_FatMan
+    Celadon_EventScript_Poliwrath
+    Celadon_EventScript_Woman
+    Celadon_EventScript_OldMan1
+    Celadon_EventScript_OldMan2
+    Celadon_EventScript_SchoolKidM
+    Celadon_EventScript_Youngster
+    Celadon_EventScript_Beauty
+    Celadon_EventScript_Lass
+    Celadon_EventScript_CitySign
+    Celadon_EventScript_TrainerTips1
+    Celadon_EventScript_TrainerTips2
+    Celadon_EventScript_TrainerTips3
+    Celadon_EventScript_TrainerTips4
+    Celadon_EventScript_TrainerTips5
+    Celadon_OnTransition
+    Celadon_EventScript_Erika
+    Celadon_EventScript_Jasmine
+    Celadon_EventScript_PokefanM
 }
 
-script scr_seq_T07_015 {
+script Celadon_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 2) {
@@ -88,14 +88,14 @@ script scr_seq_T07_015 {
     end
 }
 
-script scr_seq_T07_000 {
+script Celadon_EventScript_FatMan {
     simplenpcmsg("This is my trusted pal, POLIWRATH.\r"
                  "I wonder if it will become a Frog\n"
                  "Pokémon someday.")
     end
 }
 
-script scr_seq_T07_001 {
+script Celadon_EventScript_Poliwrath {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -108,7 +108,7 @@ script scr_seq_T07_001 {
     end
 }
 
-script scr_seq_T07_002 {
+script Celadon_EventScript_Woman {
     simplenpcmsg("Oh, my!\n"
                  "Were you staring at me?\r"
                  "Seeing me come out of the Game Corner\n"
@@ -118,7 +118,7 @@ script scr_seq_T07_002 {
     end
 }
 
-script scr_seq_T07_003 {
+script Celadon_EventScript_OldMan1 {
     simplenpcmsg("GRIMER started to appear recently.\n"
                  "You see the pond in front of the house?\r"
                  "It has GRIMER, too.\n"
@@ -127,13 +127,13 @@ script scr_seq_T07_003 {
     end
 }
 
-script scr_seq_T07_004 {
+script Celadon_EventScript_OldMan2 {
     simplenpcmsg("Ha ha! This Gym is great!\n"
                  "It’s full of strong Trainers!")
     end
 }
 
-script scr_seq_T07_005 {
+script Celadon_EventScript_SchoolKidM {
     simplenpcmsg("I’ll tell you a secret!\r"
                  "The Celadon Condominiums have some\n"
                  "places you can only reach by taking the\f"
@@ -141,7 +141,7 @@ script scr_seq_T07_005 {
     end
 }
 
-script scr_seq_T07_006 {
+script Celadon_EventScript_Youngster {
     simplenpcmsg("The restaurant there is having an\n"
                  "eating contest.\r"
                  "I heard that we have a great\n"
@@ -150,7 +150,7 @@ script scr_seq_T07_006 {
     end
 }
 
-script scr_seq_T07_007 {
+script Celadon_EventScript_Beauty {
     simplenpcmsg("The Celadon Department Store offers\n"
                  "the widest range of items!\f"
                  "You can buy anything you want!\r"
@@ -159,7 +159,7 @@ script scr_seq_T07_007 {
     end
 }
 
-script scr_seq_T07_008 {
+script Celadon_EventScript_Lass {
     simplenpcmsg("I love this kind of place where\n"
                  "there are many buildings!\r"
                  "I heard Johto also has a city called\n"
@@ -169,37 +169,37 @@ script scr_seq_T07_008 {
     end
 }
 
-script scr_seq_T07_009 {
+script Celadon_EventScript_CitySign {
     directionsignpostex(0, 7, "Celadon City\n"
                               "City of the Rainbow’s Colors")
     end
 }
 
-script scr_seq_T07_010 {
+script Celadon_EventScript_TrainerTips1 {
     trainertipsex(2, "Celadon City Pokémon Gym\n"
                      "Leader: Erika\f"
                      "The Nature-Loving Princess!")
     end
 }
 
-script scr_seq_T07_011 {
+script Celadon_EventScript_TrainerTips2 {
     trainertipsex(2, "Find what you need at the\n"
                      "Celadon Dept. Store!")
     end
 }
 
-script scr_seq_T07_012 {
+script Celadon_EventScript_TrainerTips3 {
     trainertipsex(2, "Celadon Condominiums")
     end
 }
 
-script scr_seq_T07_013 {
+script Celadon_EventScript_TrainerTips4 {
     trainertipsex(2, "Celadon Game Corner\n"
                      "A Fun Place for Everyone")
     end
 }
 
-script scr_seq_T07_014 {
+script Celadon_EventScript_TrainerTips5 {
     trainertipsex(3, "Trainer Tips\r"
                      "Guard Spec. protects Pokémon\n"
                      "from status-reduction moves\f"
@@ -209,7 +209,7 @@ script scr_seq_T07_014 {
     end
 }
 
-script scr_seq_T07_016 {
+script Celadon_EventScript_Erika {
     checkregisteredphonenumber(PHONE_CONTACT_ERIKA, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 1) { goto(_046C) }
     if (var(VAR_TEMP_x4005) == 2) {
@@ -228,59 +228,59 @@ _0302:
     playse(SEQ_SE_DP_SELECT)
     lockall
     setvar(VAR_TEMP_x4005, 1)
-    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    applymovement(obj_T07_gsleader12, Celadon_Movement_ErikaFaceRight)
     waitmovement
     npcmsg("Erika: Hi, Jasmine. I heard Whitney from\n"
            "Goldenrod Gym said you were too\f"
            "plain and should look more fancy.\f"
            "Is that true?\r")
     closemessage
-    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    applymovement(obj_T07_gsleader6, Celadon_Movement_JasmineFaceLeft)
     waitmovement
     npcmsg("Jasmine: Yes...\r"
            "I’m thinking maybe I should\n"
            "participate in this Contest in Sinnoh\f"
            "to try and be more vibrant...\r")
     closemessage
-    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    applymovement(obj_T07_gsleader12, Celadon_Movement_ErikaFaceRight)
     waitmovement
     npcmsg("Erika: How did it go?\r")
     closemessage
-    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    applymovement(obj_T07_gsleader6, Celadon_Movement_JasmineFaceLeft)
     waitmovement
     npcmsg("Jasmine: I couldn’t bring myself to\n"
            "go to the Contest.\r")
     closemessage
-    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    applymovement(obj_T07_gsleader12, Celadon_Movement_ErikaFaceRight)
     waitmovement
     npcmsg("Erika: Oh, I see...\r"
            "Then why don’t you try putting on\n"
            "something especially gorgeous?\r")
     closemessage
-    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    applymovement(obj_T07_gsleader6, Celadon_Movement_JasmineFaceLeft)
     waitmovement
     npcmsg("Jasmine: Ah, yes!\n"
            "Maybe I can bring myself to\f"
            "enter the Contest!\r")
     closemessage
-    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    applymovement(obj_T07_gsleader12, Celadon_Movement_ErikaFaceRight)
     waitmovement
     npcmsg("Erika: How about a fancy, light blue\n"
            "outfit with a cape over it?\r")
     closemessage
-    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    applymovement(obj_T07_gsleader6, Celadon_Movement_JasmineFaceLeft)
     waitmovement
     npcmsg("Jasmine: What?\n"
            "That’s too embarrassing!\r")
     closemessage
-    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    applymovement(obj_T07_gsleader12, Celadon_Movement_ErikaFaceRight)
     waitmovement
     npcmsg("Erika: I see.\n"
            "You think Clair from Blackthorn is a\f"
            "little embarrassing...\f"
            "I’m just taking notes.\r")
     closemessage
-    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    applymovement(obj_T07_gsleader6, Celadon_Movement_JasmineFaceLeft)
     waitmovement
     npcmsg("Jasmine: Oh, no!\n"
            "Erika, that’s not what I meant!")
@@ -339,11 +339,11 @@ text msg_0491_T07_00021 {
     "Call me around then."
 }
 
-movement Celadon_Movement_045C {
+movement Celadon_Movement_ErikaFaceRight {
     walk_in_place_right
 }
 
-movement Celadon_Movement_0464 {
+movement Celadon_Movement_JasmineFaceLeft {
     walk_in_place_left
 }
 
@@ -394,7 +394,7 @@ script(local) _046C {
     end
 }
 
-script scr_seq_T07_017 {
+script Celadon_EventScript_Jasmine {
     if (var(VAR_TEMP_x4002) >= 1) {
         simplenpcmsg("Jasmine: Amphy is well thanks to you.")
         end
@@ -403,7 +403,7 @@ script scr_seq_T07_017 {
     end
 }
 
-script scr_seq_T07_018 {
+script Celadon_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -437,16 +437,16 @@ script scr_seq_T07_018 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Celadon_Movement_0664)
-        applymovement(obj_T07_gsmiddleman1, Celadon_Movement_06B0)
+        applymovement(obj_player, Celadon_Movement_PlayerWalkRightUp)
+        applymovement(obj_T07_gsmiddleman1, Celadon_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Celadon_Movement_067C)
+        applymovement(obj_player, Celadon_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Celadon_Movement_069C)
-        applymovement(obj_T07_gsmiddleman1, Celadon_Movement_06B0)
+        applymovement(obj_player, Celadon_Movement_PlayerWalkUpRight)
+        applymovement(obj_T07_gsmiddleman1, Celadon_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Celadon_Movement_0688)
-        applymovement(obj_T07_gsmiddleman1, Celadon_Movement_06B0)
+        applymovement(obj_player, Celadon_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T07_gsmiddleman1, Celadon_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -454,7 +454,7 @@ script scr_seq_T07_018 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Celadon_Movement_06BC)
+        applymovement(obj_partner_poke, Celadon_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -473,7 +473,7 @@ script scr_seq_T07_018 {
     end
 }
 
-movement Celadon_Movement_0664 {
+movement Celadon_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -481,36 +481,36 @@ movement Celadon_Movement_0664 {
     walk_in_place_down
 }
 
-movement Celadon_Movement_067C {
+movement Celadon_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Celadon_Movement_0688 {
+movement Celadon_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Celadon_Movement_069C {
+movement Celadon_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Celadon_Movement_06B0 {
+movement Celadon_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Celadon_Movement_06BC {
+movement Celadon_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
 mapscripts Celadon_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07_015
+    INIT_SCRIPT_ON_TRANSITION: Celadon_OnTransition
 }

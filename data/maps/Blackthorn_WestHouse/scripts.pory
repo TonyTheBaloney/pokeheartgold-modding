@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T30R0201_000 {
+script Blackthorn_WestHouse_EventScript_OldWoman {
     simplenpcmsg("A clan of Trainers who can freely\n"
                  "command Dragon-type Pokémon lives\f"
                  "right here in Blackthorn.\r"
@@ -10,7 +10,7 @@ script scr_seq_T30R0201_000 {
     end
 }
 
-script scr_seq_T30R0201_001 {
+script Blackthorn_WestHouse_EventScript_Dratini {
     playcry(SPECIES_DRATINI, 0)
     simplenpcmsg("DRATINI: Draa!")
     waitcry

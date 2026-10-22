@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D45R0102_000
-    scr_seq_D45R0102_001
-    scr_seq_D45R0102_002
-    scr_seq_D45R0102_003
+    TohjoFalls_HiddenRoom_OnResume
+    TohjoFalls_HiddenRoom_EventScript_LyraScene
+    TohjoFalls_HiddenRoom_OnLoad
+    TohjoFalls_HiddenRoom_EventScript_Radio
 }
 
-script scr_seq_D45R0102_002 {
+script TohjoFalls_HiddenRoom_OnLoad {
     end
 }
 
-script scr_seq_D45R0102_000 {
+script TohjoFalls_HiddenRoom_OnResume {
     if (var(VAR_UNK_40FE) == 4) {
         end
     }
@@ -32,28 +32,28 @@ _0057:
     end
 }
 
-script scr_seq_D45R0102_001 {
+script TohjoFalls_HiddenRoom_EventScript_LyraScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, TohjoFalls_HiddenRoom_Movement_0374)
-    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03AC)
+    applymovement(obj_player, TohjoFalls_HiddenRoom_Movement_PlayerWalkUp)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_FriendFaceUp)
     waitmovement
-    applymovement(obj_partner_poke, TohjoFalls_HiddenRoom_Movement_0398)
+    applymovement(obj_partner_poke, TohjoFalls_HiddenRoom_Movement_FollowMonWalkRightUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_031C)
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_GiovanniExclamation)
     waitmovement
     npcmsg("...\r"
            "I don’t know why you have come here.\r"
            "Anyway, I have to warn you that\n"
            "this is not a place for kids like you.\r")
     closemessage
-    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03AC)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_FriendFaceUp)
     waitmovement
     gendermsgbox("Lyra: Huh?\r"
                  "That’s the guy we just saw arguing with\n"
@@ -61,7 +61,7 @@ script scr_seq_D45R0102_001 {
                                 "That’s the guy we just saw arguing with\n"
                                 "that boy!\r")
     closemessage
-    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_032C)
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_GiovanniWalkDown)
     waitmovement
     npcmsg("You have a certain look...\r"
            "It reminds me of the kid who stood in\n"
@@ -72,13 +72,13 @@ script scr_seq_D45R0102_001 {
            "answer the call and join my team.\f"
            "Are you going to get in my way?\r")
     closemessage
-    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03B4)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_FriendWalkUp)
     waitmovement
     gendermsgbox("Lyra: Three years ago...?\n"
                  "Goldenrod City...?\r", "Ethan: Three years ago...?\n"
                                          "Goldenrod City...?\r")
     closemessage
-    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_038C)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_FriendExclamation)
     waitmovement
     gendermsgbox("Could this be the one that the radio\n"
                  "was trying to reach?\f"
@@ -86,7 +86,7 @@ script scr_seq_D45R0102_001 {
                                             "was trying to reach?\f"
                                             "Giovanni, their boss?\r")
     closemessage
-    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03DC)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_FriendFaceRight2)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Do you hear it, {STRVAR_1 3, 0, 0}?\n"
@@ -115,7 +115,7 @@ script scr_seq_D45R0102_001 {
            "...\r")
     stopse(SEQ_SE_PL_FR03)
     closemessage
-    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_032C)
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_GiovanniWalkDown)
     waitmovement
     npcmsg("My old associates need me...\r"
            "We will not repeat the failure of three\n"
@@ -132,7 +132,7 @@ script scr_seq_D45R0102_001 {
                "strength shows that you are still\f"
                "but a child.\r")
         closemessage
-        applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_0360)
+        applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_GiovanniWalkRightDown)
         playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
         fadescreen(6, 6, 0, RGB_WHITE)
         waitfade
@@ -159,7 +159,7 @@ script scr_seq_D45R0102_001 {
         end
     _02C0:
         setvar(VAR_TEMP_x4003, 1)
-        applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_0304)
+        applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_FriendWalkRight)
         waitmovement
         gendermsgbox("CELEBI...!\r"
                      "We need it to get better, or we will\n"
@@ -181,7 +181,7 @@ script scr_seq_D45R0102_001 {
         return
     }
     setvar(VAR_UNK_40FE, 4)
-    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_033C)
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_GiovanniWalkUpRight)
     waitmovement
     npcmsg("Giovanni: How is this possible...?\r"
            "The past three years have been\n"
@@ -191,12 +191,12 @@ script scr_seq_D45R0102_001 {
            "The precious dream of Team Rocket has\n"
            "become little more than an illusion...\r")
     closemessage
-    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_0350)
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_GiovanniWalkDownLeft)
     waitmovement
     removeobject(obj_D45R0102_sakaki)
     setflag(FLAG_HIDE_TOHJO_FALLS_GIOVANNI)
-    applymovement(obj_player, TohjoFalls_HiddenRoom_Movement_0380)
-    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_0380)
+    applymovement(obj_player, TohjoFalls_HiddenRoom_Movement_PlayerWalkDown)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_PlayerWalkDown)
     waitmovement
     fadeoutbgm(0, 30)
     stopbgm(0)
@@ -209,7 +209,7 @@ script scr_seq_D45R0102_001 {
            "...\r")
     stopse(SEQ_SE_PL_FR03)
     closemessage
-    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03D4)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_FriendWalkDown)
     waitmovement
     bufferplayersname(0)
     gendermsgbox("Lyra: They keep calling for their boss.\n"
@@ -232,7 +232,7 @@ script scr_seq_D45R0102_001 {
     getpartymonspecies(VAR_TEMP_x4002, VAR_SPECIAL_RESULT)
     compare(VAR_SPECIAL_RESULT, 251)
     callifne(_02C0)
-    applymovement(obj_partner_poke, TohjoFalls_HiddenRoom_Movement_03A4)
+    applymovement(obj_partner_poke, TohjoFalls_HiddenRoom_Movement_FollowMonFaceDown)
     waitmovement
     playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
     fadescreen(6, 6, 0, RGB_WHITE)
@@ -240,9 +240,9 @@ script scr_seq_D45R0102_001 {
     wait(15, VAR_SPECIAL_RESULT)
     fadescreen(6, 6, 1, RGB_WHITE)
     waitfade
-    applymovement(obj_player, TohjoFalls_HiddenRoom_Movement_038C)
+    applymovement(obj_player, TohjoFalls_HiddenRoom_Movement_FriendExclamation)
     waitmovement
-    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03C0)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_FriendFaceRight1)
     waitmovement
     if (var(VAR_TEMP_x4003) == 1) {
         gendermsgbox("{COLOR 1}Time Travel{COLOR 0}......!\r"
@@ -267,7 +267,7 @@ script scr_seq_D45R0102_001 {
     end
 }
 
-movement TohjoFalls_HiddenRoom_Movement_0304 {
+movement TohjoFalls_HiddenRoom_Movement_FriendWalkRight {
     walk_in_place_right
     emote_exclamation_mark
     delay_8
@@ -275,13 +275,13 @@ movement TohjoFalls_HiddenRoom_Movement_0304 {
     walk_in_place_up
 }
 
-movement TohjoFalls_HiddenRoom_Movement_031C {
+movement TohjoFalls_HiddenRoom_Movement_GiovanniExclamation {
     emote_exclamation_mark
     delay_8
     walk_in_place_down
 }
 
-movement TohjoFalls_HiddenRoom_Movement_032C {
+movement TohjoFalls_HiddenRoom_Movement_GiovanniWalkDown {
     walk_down
 }
 
@@ -289,75 +289,75 @@ movement TohjoFalls_HiddenRoom_Movement_0334 {
     walk_in_place_down
 }
 
-movement TohjoFalls_HiddenRoom_Movement_033C {
+movement TohjoFalls_HiddenRoom_Movement_GiovanniWalkUpRight {
     lock_dir
     walk_slow_up
     unlock_dir
     walk_slow_right * 2
 }
 
-movement TohjoFalls_HiddenRoom_Movement_0350 {
+movement TohjoFalls_HiddenRoom_Movement_GiovanniWalkDownLeft {
     walk_down * 4
     walk_left * 2
     walk_down * 2
 }
 
-movement TohjoFalls_HiddenRoom_Movement_0360 {
+movement TohjoFalls_HiddenRoom_Movement_GiovanniWalkRightDown {
     walk_slow_right * 2
     walk_slow_down * 3
     walk_slow_left * 2
     walk_slow_down * 2
 }
 
-movement TohjoFalls_HiddenRoom_Movement_0374 {
+movement TohjoFalls_HiddenRoom_Movement_PlayerWalkUp {
     walk_in_place_up
     walk_up
 }
 
-movement TohjoFalls_HiddenRoom_Movement_0380 {
+movement TohjoFalls_HiddenRoom_Movement_PlayerWalkDown {
     delay_8 * 3
     walk_down
 }
 
-movement TohjoFalls_HiddenRoom_Movement_038C {
+movement TohjoFalls_HiddenRoom_Movement_FriendExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement TohjoFalls_HiddenRoom_Movement_0398 {
+movement TohjoFalls_HiddenRoom_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
 }
 
-movement TohjoFalls_HiddenRoom_Movement_03A4 {
+movement TohjoFalls_HiddenRoom_Movement_FollowMonFaceDown {
     jump_in_place_fast_down
 }
 
-movement TohjoFalls_HiddenRoom_Movement_03AC {
+movement TohjoFalls_HiddenRoom_Movement_FriendFaceUp {
     walk_in_place_up
 }
 
-movement TohjoFalls_HiddenRoom_Movement_03B4 {
+movement TohjoFalls_HiddenRoom_Movement_FriendWalkUp {
     walk_up
     walk_in_place_right
 }
 
-movement TohjoFalls_HiddenRoom_Movement_03C0 {
+movement TohjoFalls_HiddenRoom_Movement_FriendFaceRight1 {
     walk_in_place_left
     delay_8
     walk_in_place_right
     delay_8
 }
 
-movement TohjoFalls_HiddenRoom_Movement_03D4 {
+movement TohjoFalls_HiddenRoom_Movement_FriendWalkDown {
     walk_down
 }
 
-movement TohjoFalls_HiddenRoom_Movement_03DC {
+movement TohjoFalls_HiddenRoom_Movement_FriendFaceRight2 {
     walk_in_place_fast_right * 4
 }
 
-script scr_seq_D45R0102_003 {
+script TohjoFalls_HiddenRoom_EventScript_Radio {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -377,9 +377,9 @@ script scr_seq_D45R0102_003 {
 }
 
 mapscripts TohjoFalls_HiddenRoom_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D45R0102_000
-    INIT_SCRIPT_ON_LOAD: scr_seq_D45R0102_002
+    INIT_SCRIPT_ON_RESUME: TohjoFalls_HiddenRoom_OnResume
+    INIT_SCRIPT_ON_LOAD: TohjoFalls_HiddenRoom_OnLoad
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40FE, 2: scr_seq_D45R0102_001
+        VAR_UNK_40FE, 2: TohjoFalls_HiddenRoom_EventScript_LyraScene
     ]
 }

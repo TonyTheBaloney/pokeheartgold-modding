@@ -167,7 +167,7 @@ Message numbers are positions in the bank, so `text.json` still lists every
 message in order. For dialog that lives in `scripts.pory` it holds only the slot:
 
 ```json
-{ "id": "msg_0375_R30_00001", "from": "scr_seq_R30_000#1" }
+{ "id": "msg_0375_R30_00001", "from": "Route30_EventScript_Youngster#1" }
 { "id": "msg_0375_R30_00002", "from": "text" }
 ```
 
@@ -232,8 +232,8 @@ Events and map scripts refer to scripts by number, so order matters:
 
   ```
   scrdefs {
-      scr_seq_R30_000
-      scr_seq_R30_001
+      Route30_EventScript_Youngster
+      Route30_EventScript_ProfElmCall
   }
   ```
 
@@ -298,6 +298,30 @@ owner's `scripts.pory`.
 
 To change a script, edit it and run `make`: same commands in the same order give
 the same ROM, whatever the labels are called.
+
+## Names
+
+Scripts and movements have pokeemerald-style names, given by
+`mapkit pory name-scripts --all` (rename any of them with `mapkit script rename`):
+
+| Kind | Name | From |
+|---|---|---|
+| NPC script | `Route30_EventScript_Youngster`, `Goldenrod_EventScript_Beauty2` | the object: a named character (`tools/mapkit/npc_names.json`), the speaker in its dialog (`Archer: ...`), the trainer it battles, then its sprite's class |
+| Sign | `CitySign`, `RouteSign`, `RouteSignEcruteak`, `MrPokemonsHouseSign`, `TrainerTips1` | the first line of its text |
+| Other things you inspect | `Book1`, `TV`, `Fridge`, `LockedDoor`, `PC` | keywords in its text (`things` in `npc_names.json`) |
+| Trigger, frame-table script | `RivalTrigger`, `LyraScene`, `ProfElmCall`, `WarpToMahoganyGym` | who it's about (speaker, an object it uses, a trainer), a phone call, or a warp |
+| Map scripts | `Route30_OnTransition`, `_OnLoad`, `_OnResume` | the `mapscripts` entry |
+| Movement | `Route30_Movement_PlayerWalkDownLeft1`, `Goldenrod_Movement_RocketGruntExclamation` | who `applymovement` moves + what it does (`Face<Dir>`, `Walk<Dir><Dir>`, `Exit`, `Exclamation`, `Spin`, `WarpIn`) |
+
+Several with one name are numbered (`Man1`, `Man2`), as in pokeemerald; a single
+one isn't. Names someone chose are kept, and an object whose script has one is
+called that in movement names (Cherrygrove's `GuideGent`). Only generated names
+(`scr_seq_*`, `<Map>_Movement_<offset>`) are renamed, and only scripts something
+uses; about 14% (309 of 2259) are still generic (`Sign`, `Trigger`, `Scene`) and want a human.
+Local jump labels inside scripts (`_0083`) keep their offsets.
+
+`map.json` refers to a map's own scripts by label; maps that use another map's
+scripts (`@Everywhere`) keep `_EV_<label> + 1`.
 
 ## Build
 

@@ -1,20 +1,20 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R13_000 {
+script Route13_EventScript_TrainerTips {
     trainertipsex(3, "Trainer Tips\r"
                      "Look! Right there, at the east side of\n"
                      "the post.")
     end
 }
 
-script scr_seq_R13_001 {
+script Route13_EventScript_RouteSign {
     directionsignpostex(1, 10, "Rt. 13\n"
                                "North to Silence Bridge")
     end
 }
 
-script scr_seq_R13_002 {
+script Route13_EventScript_NorthToLavenderTownSign {
     directionsignpostex(1, 14, "North to Lavender Town\n"
                                "West to Fuchsia City")
     end

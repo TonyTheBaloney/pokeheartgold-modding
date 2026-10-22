@@ -2,8 +2,8 @@
 #define SCR_SEQ_R38_H_
 
 #define _EV_scr_seq_R38_000 0
-#define _EV_scr_seq_R38_001 1
-#define _EV_scr_seq_R38_002 2
+#define _EV_Route38_EventScript_RouteSign 1
+#define _EV_Route38_EventScript_TrainerTips 2
 
 #define obj_R38_gsboy1        0
 #define obj_R38_gsman2        1

@@ -3,24 +3,24 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_P01R0301_000
-    scr_seq_P01R0301_001
-    scr_seq_P01R0301_002
-    scr_seq_P01R0301_003
-    scr_seq_P01R0301_004
-    scr_seq_P01R0301_005
-    scr_seq_P01R0301_006
-    scr_seq_P01R0301_007
-    scr_seq_P01R0301_008
+    SsAqua_1F_EventScript_Sailor1
+    SsAqua_1F_EventScript_Sailor2
+    SsAqua_1F_EventScript_Sailor3
+    SsAqua_1F_EventScript_Gentleman
+    SsAqua_1F_EventScript_GentlemanTrigger
+    SsAqua_1F_EventScript_SailorScene
+    SsAqua_1F_OnResume
+    SsAqua_1F_OnTransition
+    SsAqua_1F_OnLoad
 }
 
-script scr_seq_P01R0301_007 {
+script SsAqua_1F_OnTransition {
     if (!flag(FLAG_BOAT_ARRIVED)) { goto(_0031) }
 _0031:
     end
 }
 
-script scr_seq_P01R0301_006 {
+script SsAqua_1F_OnResume {
     if (var(VAR_BOAT_DIRECTION) <= 1) {
         movewarp(0, 27, 20)
         end
@@ -32,18 +32,18 @@ script scr_seq_P01R0301_006 {
     end
 }
 
-script scr_seq_P01R0301_008 {
+script SsAqua_1F_OnLoad {
     end
 }
 
-script scr_seq_P01R0301_005 {
+script SsAqua_1F_EventScript_SailorScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, SsAqua_1F_Movement_009C)
-    applymovement(obj_P01R0301_seaman_2_2, SsAqua_1F_Movement_00A4)
+    applymovement(obj_player, SsAqua_1F_Movement_PlayerWalkUp)
+    applymovement(obj_P01R0301_seaman_2_2, SsAqua_1F_Movement_SailorWalkLeftRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -53,11 +53,11 @@ script scr_seq_P01R0301_005 {
     end
 }
 
-movement SsAqua_1F_Movement_009C {
+movement SsAqua_1F_Movement_PlayerWalkUp {
     walk_up * 4
 }
 
-movement SsAqua_1F_Movement_00A4 {
+movement SsAqua_1F_Movement_SailorWalkLeftRight {
     lock_dir
     walk_slow_left
     unlock_dir
@@ -67,7 +67,7 @@ movement SsAqua_1F_Movement_00A4 {
     face_up * 2
 }
 
-script scr_seq_P01R0301_000 {
+script SsAqua_1F_EventScript_Sailor1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -95,7 +95,7 @@ script scr_seq_P01R0301_000 {
                     npcmsg("Fast Ship S.S. Aqua\n"
                            "has arrived in Olivine City.\r")
                     closemessage
-                    applymovement(obj_P01R0301_seaman_2_2, SsAqua_1F_Movement_0180)
+                    applymovement(obj_P01R0301_seaman_2_2, SsAqua_1F_Movement_SailorWalkDownRight)
                     waitmovement
                     setvar(VAR_TEMP_x4000, 1)
                     releaseall
@@ -113,7 +113,7 @@ script scr_seq_P01R0301_000 {
             npcmsg("Fast Ship S.S. Aqua\n"
                    "has arrived in Vermilion City.\r")
             closemessage
-            applymovement(obj_P01R0301_seaman_2_2, SsAqua_1F_Movement_0180)
+            applymovement(obj_P01R0301_seaman_2_2, SsAqua_1F_Movement_SailorWalkDownRight)
             waitmovement
             setvar(VAR_SCENE_SS_AQUA, 7)
             setvar(VAR_TEMP_x4000, 1)
@@ -133,7 +133,7 @@ script scr_seq_P01R0301_000 {
     goto(_00EB)
 }
 
-movement SsAqua_1F_Movement_0180 {
+movement SsAqua_1F_Movement_SailorWalkDownRight {
     lock_dir
     walk_down
     unlock_dir
@@ -143,10 +143,10 @@ movement SsAqua_1F_Movement_0180 {
     unlock_dir
 }
 
-script scr_seq_P01R0301_004 {
+script SsAqua_1F_EventScript_GentlemanTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_player, SsAqua_1F_Movement_0280)
+    applymovement(obj_player, SsAqua_1F_Movement_PlayerExclamation)
     waitmovement
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 22) {
@@ -160,17 +160,17 @@ script scr_seq_P01R0301_004 {
     } else {
         movepersonfacing(obj_P01R0301_gsgentleman, 35, 0, VAR_TEMP_x4001, DIR_WEST)
     }
-    applymovement(obj_P01R0301_gsgentleman, SsAqua_1F_Movement_0288)
-    applymovement(obj_player, SsAqua_1F_Movement_02A0)
+    applymovement(obj_P01R0301_gsgentleman, SsAqua_1F_Movement_GentlemanWalkLeft)
+    applymovement(obj_player, SsAqua_1F_Movement_PlayerFaceRight)
     waitmovement
-    applymovement(obj_P01R0301_gsgentleman, SsAqua_1F_Movement_02B8)
+    applymovement(obj_P01R0301_gsgentleman, SsAqua_1F_Movement_GentlemanFaceLeft)
     waitmovement
     npcmsg("Whoa! Excuse me. I was in a hurry!\r"
            "My granddaughter is missing!\r"
            "She’s just a wee girl. If you see\n"
            "her, please let me know!\r")
     closemessage
-    applymovement(obj_P01R0301_gsgentleman, SsAqua_1F_Movement_02C0)
+    applymovement(obj_P01R0301_gsgentleman, SsAqua_1F_Movement_GentlemanWalkUpLeft)
     waitmovement
     removeobject(obj_P01R0301_gsgentleman)
     setflag(FLAG_UNK_215)
@@ -180,11 +180,11 @@ script scr_seq_P01R0301_004 {
     end
 }
 
-movement SsAqua_1F_Movement_0280 {
+movement SsAqua_1F_Movement_PlayerExclamation {
     emote_exclamation_mark
 }
 
-movement SsAqua_1F_Movement_0288 {
+movement SsAqua_1F_Movement_GentlemanWalkLeft {
     walk_fast_left * 9
     lock_dir
     jump_near_fast_right
@@ -192,7 +192,7 @@ movement SsAqua_1F_Movement_0288 {
     delay_16
 }
 
-movement SsAqua_1F_Movement_02A0 {
+movement SsAqua_1F_Movement_PlayerFaceRight {
     delay_2 * 5
     face_right * 2
     delay_2 * 5
@@ -200,11 +200,11 @@ movement SsAqua_1F_Movement_02A0 {
     delay_16
 }
 
-movement SsAqua_1F_Movement_02B8 {
+movement SsAqua_1F_Movement_GentlemanFaceLeft {
     jump_in_place_fast_left * 4
 }
 
-movement SsAqua_1F_Movement_02C0 {
+movement SsAqua_1F_Movement_GentlemanWalkUpLeft {
     walk_in_place_fast_left * 2
     face_up * 2
     walk_fast_up
@@ -212,7 +212,7 @@ movement SsAqua_1F_Movement_02C0 {
     walk_fast_left * 10
 }
 
-script scr_seq_P01R0301_001 {
+script SsAqua_1F_EventScript_Sailor2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -235,22 +235,22 @@ script scr_seq_P01R0301_001 {
     end
 }
 
-script scr_seq_P01R0301_002 {
+script SsAqua_1F_EventScript_Sailor3 {
     simplenpcmsg("Most passengers are Trainers.\r"
                  "They’re all itching to battle in\n"
                  "their cabins.")
     end
 }
 
-script scr_seq_P01R0301_003 {
+script SsAqua_1F_EventScript_Gentleman {
     end
 }
 
 mapscripts SsAqua_1F_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_P01R0301_006
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0301_007
-    INIT_SCRIPT_ON_LOAD: scr_seq_P01R0301_008
+    INIT_SCRIPT_ON_RESUME: SsAqua_1F_OnResume
+    INIT_SCRIPT_ON_TRANSITION: SsAqua_1F_OnTransition
+    INIT_SCRIPT_ON_LOAD: SsAqua_1F_OnLoad
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40DC, 0: scr_seq_P01R0301_005
+        VAR_UNK_40DC, 0: SsAqua_1F_EventScript_SailorScene
     ]
 }

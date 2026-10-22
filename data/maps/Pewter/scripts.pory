@@ -3,23 +3,23 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T03_000
-    scr_seq_T03_001
-    scr_seq_T03_002
-    scr_seq_T03_003
-    scr_seq_T03_004
-    scr_seq_T03_005
-    scr_seq_T03_006
-    scr_seq_T03_007
-    scr_seq_T03_008
-    scr_seq_T03_009
-    scr_seq_T03_010
-    scr_seq_T03_011
-    scr_seq_T03_012
-    scr_seq_T03_013
+    Pewter_EventScript_OldMan
+    Pewter_EventScript_AceTrainerF
+    Pewter_EventScript_LittleBoy
+    Pewter_EventScript_CitySign1
+    Pewter_EventScript_TrainerTips1
+    Pewter_EventScript_TrainerTips2
+    Pewter_EventScript_CitySign2
+    Pewter_EventScript_PokefanM
+    Pewter_OnTransition
+    Pewter_EventScript_Steven
+    Pewter_EventScript_Latios
+    Pewter_OnResume
+    Pewter_EventScript_StevenScene
+    Pewter_OnLoad
 }
 
-script scr_seq_T03_008 {
+script Pewter_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         goto(_030E)
     _0051:
@@ -36,7 +36,7 @@ script scr_seq_T03_008 {
     end
 }
 
-script scr_seq_T03_000 {
+script Pewter_EventScript_OldMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -84,7 +84,7 @@ _0108:
     end
 }
 
-script scr_seq_T03_007 {
+script Pewter_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -118,13 +118,13 @@ script scr_seq_T03_007 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Pewter_Movement_0240)
+        applymovement(obj_player, Pewter_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Pewter_Movement_0260)
-        applymovement(obj_T03_gsmiddleman1, Pewter_Movement_0274)
+        applymovement(obj_player, Pewter_Movement_PlayerWalkUpRight)
+        applymovement(obj_T03_gsmiddleman1, Pewter_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Pewter_Movement_024C)
-        applymovement(obj_T03_gsmiddleman1, Pewter_Movement_0274)
+        applymovement(obj_player, Pewter_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T03_gsmiddleman1, Pewter_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -132,7 +132,7 @@ script scr_seq_T03_007 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Pewter_Movement_0280)
+        applymovement(obj_partner_poke, Pewter_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -151,69 +151,69 @@ script scr_seq_T03_007 {
     end
 }
 
-movement Pewter_Movement_0240 {
+movement Pewter_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Pewter_Movement_024C {
+movement Pewter_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Pewter_Movement_0260 {
+movement Pewter_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Pewter_Movement_0274 {
+movement Pewter_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Pewter_Movement_0280 {
+movement Pewter_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T03_001 {
+script Pewter_EventScript_AceTrainerF {
     simplenpcmsg("Have you visited Pewter Gym?\r"
                  "The Gym Leader uses\n"
                  "Rock-type Pokémon.")
     end
 }
 
-script scr_seq_T03_002 {
+script Pewter_EventScript_LittleBoy {
     simplenpcmsg("At night, CLEFAIRY come out to play\n"
                  "at Mt. Moon.\r"
                  "But not every night.")
     end
 }
 
-script scr_seq_T03_003 {
+script Pewter_EventScript_CitySign1 {
     directionsignpostex(0, 3, "Pewter City\n"
                               "Between Rugged Mountains")
     end
 }
 
-script scr_seq_T03_004 {
+script Pewter_EventScript_TrainerTips1 {
     trainertipsex(2, "Pewter City Pokémon Gym\n"
                      "Leader: Brock\f"
                      "The Rock-Solid Pokémon Trainer")
     end
 }
 
-script scr_seq_T03_005 {
+script Pewter_EventScript_TrainerTips2 {
     trainertipsex(2, "Pewter Museum of Science")
     end
 }
 
-script scr_seq_T03_006 {
+script Pewter_EventScript_CitySign2 {
     directionsignpostex(2, 0, "Welcome to Pewter City!")
     end
 _030E:
@@ -234,7 +234,7 @@ _0341:
     end
 }
 
-script scr_seq_T03_011 {
+script Pewter_OnResume {
     if (var(VAR_UNK_4083) == 2) {
         movepersonfacing(obj_T03_daigo, 1047, 6, 81, DIR_WEST)
         end
@@ -242,7 +242,7 @@ script scr_seq_T03_011 {
     end
 }
 
-script scr_seq_T03_013 {
+script Pewter_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         getgameversion(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 7) {
@@ -257,15 +257,15 @@ script scr_seq_T03_013 {
     end
 }
 
-script scr_seq_T03_012 {
+script Pewter_EventScript_StevenScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, Pewter_Movement_0440)
+    applymovement(obj_player, Pewter_Movement_PlayerWalkDown)
     waitmovement
-    applymovement(obj_T03_daigo, Pewter_Movement_045C)
+    applymovement(obj_T03_daigo, Pewter_Movement_StevenFaceDown)
     waitmovement
     getgameversion(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 7) {
@@ -276,8 +276,8 @@ script scr_seq_T03_012 {
                "attracted to it in no time!\r")
     }
     closemessage
-    applymovement(obj_T03_daigo, Pewter_Movement_0464)
-    applymovement(obj_player, Pewter_Movement_0464)
+    applymovement(obj_T03_daigo, Pewter_Movement_StevenWalkLeft)
+    applymovement(obj_player, Pewter_Movement_StevenWalkLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -301,39 +301,39 @@ script scr_seq_T03_012 {
     end
 }
 
-movement Pewter_Movement_0440 {
+movement Pewter_Movement_PlayerWalkDown {
     walk_down * 4
     face_left
 }
 
-movement Pewter_Movement_044C {
+movement Pewter_Movement_PlayerWalkRight {
     delay_8
     walk_right * 2
     delay_8
 }
 
-movement Pewter_Movement_045C {
+movement Pewter_Movement_StevenFaceDown {
     walk_in_place_down
 }
 
-movement Pewter_Movement_0464 {
+movement Pewter_Movement_StevenWalkLeft {
     walk_left * 3
 }
 
-movement Pewter_Movement_046C {
+movement Pewter_Movement_StevenWalkDownLeft {
     walk_down * 2
     walk_left
 }
 
-movement Pewter_Movement_0478 {
+movement Pewter_Movement_StevenFaceLeft {
     walk_in_place_left
 }
 
-movement Pewter_Movement_0480 {
+movement Pewter_Movement_StevenWalkRight {
     walk_right * 8
 }
 
-script scr_seq_T03_010 {
+script Pewter_EventScript_Latios {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -373,8 +373,8 @@ script scr_seq_T03_010 {
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_T03_daigo, Pewter_Movement_046C)
-            applymovement(obj_player, Pewter_Movement_044C)
+            applymovement(obj_T03_daigo, Pewter_Movement_StevenWalkDownLeft)
+            applymovement(obj_player, Pewter_Movement_PlayerWalkRight)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -389,7 +389,7 @@ script scr_seq_T03_010 {
                 goto(_061F)
                 end
             _061F:
-                applymovement(obj_T03_daigo, Pewter_Movement_0478)
+                applymovement(obj_T03_daigo, Pewter_Movement_StevenFaceLeft)
                 waitmovement
                 npcmsg("I’ve been away from the Hoenn\n"
                        "Pokémon League for too long.\r"
@@ -400,7 +400,7 @@ script scr_seq_T03_010 {
                        "Our fun will have to wait for the\n"
                        "right time.\r")
                 closemessage
-                applymovement(obj_T03_daigo, Pewter_Movement_0480)
+                applymovement(obj_T03_daigo, Pewter_Movement_StevenWalkRight)
                 waitmovement
                 removeobject(obj_T03_daigo)
                 compare(VAR_UNK_4130, 4)
@@ -454,17 +454,17 @@ script scr_seq_T03_010 {
     end
 }
 
-script scr_seq_T03_009 {
+script Pewter_EventScript_Steven {
     simplenpcmsg("Steven: What? You are not scared,\n"
                  "are you? Don’t be reserved. Go for it.")
     end
 }
 
 mapscripts Pewter_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T03_008
-    INIT_SCRIPT_ON_LOAD: scr_seq_T03_013
-    INIT_SCRIPT_ON_RESUME: scr_seq_T03_011
+    INIT_SCRIPT_ON_TRANSITION: Pewter_OnTransition
+    INIT_SCRIPT_ON_LOAD: Pewter_OnLoad
+    INIT_SCRIPT_ON_RESUME: Pewter_OnResume
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4083, 2: scr_seq_T03_012
+        VAR_UNK_4083, 2: Pewter_EventScript_StevenScene
     ]
 }

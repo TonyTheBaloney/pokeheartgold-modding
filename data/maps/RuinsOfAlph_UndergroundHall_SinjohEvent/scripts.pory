@@ -3,20 +3,20 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D24R0216_000
-    scr_seq_D24R0216_001
-    scr_seq_D24R0216_002
-    scr_seq_D24R0216_003
-    scr_seq_D24R0216_004
-    scr_seq_D24R0216_005
-    scr_seq_D24R0216_006
+    RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_Sign
+    RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_BusinessmanScene1
+    RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_BusinessmanScene2
+    RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_WarpToSinjohRuinsMystriStage
+    RuinsOfAlph_UndergroundHall_SinjohEvent_OnTransition
+    RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_Scene
+    RuinsOfAlph_UndergroundHall_SinjohEvent_OnResume
 }
 
 raw `
 #include "constants/events.h"
 `
 
-script scr_seq_D24R0216_004 {
+script RuinsOfAlph_UndergroundHall_SinjohEvent_OnTransition {
     nopvar490(VAR_TEMP_x4004)
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 10) { goto(_0035) }
     goto(_0095)
@@ -46,14 +46,14 @@ _0097:
     return
 }
 
-script scr_seq_D24R0216_001 {
+script RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_BusinessmanScene1 {
     followmonresetmovement
     lockall
-    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0178)
+    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanWalkLeft1)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_01C4)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerWalkLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -63,7 +63,7 @@ script scr_seq_D24R0216_001 {
            "years, but something feels...\f"
            "different.\r")
     closemessage
-    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0184)
+    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanWalkUpLeft)
     waitmovement
     npcmsg("Wow!\r"
            "The UNOWN pictures on the wall...\r"
@@ -77,7 +77,7 @@ script scr_seq_D24R0216_001 {
     fadescreen(6, 6, 1, RGB_BLACK)
     waitfade
     stopse(SEQ_SE_GS_ZENIGAME_JOURO)
-    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_01AC)
+    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanSpin)
     waitmovement
     npcmsg("What is this?\n"
            "There is something eerie that is making\f"
@@ -104,12 +104,12 @@ script scr_seq_D24R0216_001 {
     end
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0178 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanWalkLeft1 {
     walk_left * 4
     walk_in_place_right
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0184 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanWalkUpLeft {
     emote_exclamation_mark
     delay_8
     walk_fast_up * 3
@@ -121,7 +121,7 @@ movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0184 {
     unlock_dir
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_01AC {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanSpin {
     walk_in_place_right
     delay_8
     walk_in_place_left
@@ -129,29 +129,29 @@ movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_01AC {
     walk_in_place_down
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_01C4 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerWalkLeft {
     walk_left * 4
 }
 
-script scr_seq_D24R0216_002 {
+script RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_BusinessmanScene2 {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0230)
-    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0260)
+    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanWalkLeft2)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerWalkRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0258)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerFaceRight)
     waitmovement
     npcmsg("Oh, are you all right?\n"
            "You disappeared right in front of me,\f"
            "and that made me so surprised!\r")
     closemessage
-    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0248)
+    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanFaceLeft)
     waitmovement
     npcmsg("I see.\r"
            "The power of ARCEUS and UNOWN affected\n"
@@ -162,7 +162,7 @@ script scr_seq_D24R0216_002 {
            "It has made me even more inquisitive!\r"
            "I will one day solve all the mysteries!\r")
     closemessage
-    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0250)
+    applymovement(obj_D24R0216_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanWalkRight)
     waitmovement
     removeobject(obj_D24R0216_suit)
     setflag(FLAG_HIDE_ALPH_MAIN_CHAMBER_ARCEUS_EVENT_PEOPLE)
@@ -171,7 +171,7 @@ script scr_seq_D24R0216_002 {
     end
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0230 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanWalkLeft2 {
     delay_8
     walk_in_place_left
     emote_exclamation_mark
@@ -179,29 +179,29 @@ movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0230 {
     walk_fast_left * 3
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0248 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanFaceLeft {
     walk_in_place_left
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0250 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_BusinessmanWalkRight {
     walk_right * 10
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0258 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerFaceRight {
     walk_in_place_right
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0260 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerWalkRight {
     walk_right
 }
 
-script scr_seq_D24R0216_003 {
+script RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_WarpToSinjohRuinsMystriStage {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0324)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerWalkLeftDown)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -213,7 +213,7 @@ script scr_seq_D24R0216_003 {
     fadescreen(6, 6, 1, RGB_BLACK)
     waitfade
     stopse(SEQ_SE_GS_ZENIGAME_JOURO)
-    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0330)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerSpin)
     waitmovement
     playse(SEQ_SE_GS_ZENIGAME_JOURO)
     fadescreen(6, 6, 0, RGB_BLACK)
@@ -237,12 +237,12 @@ script scr_seq_D24R0216_003 {
     end
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0324 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerWalkLeftDown {
     walk_left
     walk_down
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0330 {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerSpin {
     walk_in_place_right
     delay_8
     walk_in_place_left
@@ -250,11 +250,11 @@ movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_0330 {
     walk_in_place_down
 }
 
-script scr_seq_D24R0216_005 {
+script RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_Scene {
     followmonresetmovement
     lockall
     playse(SEQ_SE_GS_RAKKA01)
-    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_038C)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerWarpIn)
     makeobjectinvisible(obj_player)
     waitmovement
     screenshake(0, 1, 1, 8)
@@ -264,18 +264,18 @@ script scr_seq_D24R0216_005 {
     end
 }
 
-script scr_seq_D24R0216_006 {
+script RuinsOfAlph_UndergroundHall_SinjohEvent_OnResume {
     if (var(VAR_UNK_40CE) == 1) {
         makeobjectvisible(obj_player)
     }
     end
 }
 
-movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_038C {
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_Movement_PlayerWarpIn {
     warp_in
 }
 
-script scr_seq_D24R0216_000 {
+script RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It’s a replica of an ancient Pokémon.")
@@ -287,11 +287,11 @@ script scr_seq_D24R0216_000 {
 
 mapscripts RuinsOfAlph_UndergroundHall_SinjohEvent_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_SINJOH_MYSTRI_ROOM, 2: scr_seq_D24R0216_001
-        VAR_SCENE_SINJOH_MYSTRI_ROOM, 9: scr_seq_D24R0216_002
-        VAR_SCENE_SINJOH_MYSTRI_ROOM, 11: scr_seq_D24R0216_003
-        VAR_UNK_40CE, 1: scr_seq_D24R0216_005
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 2: RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_BusinessmanScene1
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 9: RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_BusinessmanScene2
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 11: RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_WarpToSinjohRuinsMystriStage
+        VAR_UNK_40CE, 1: RuinsOfAlph_UndergroundHall_SinjohEvent_EventScript_Scene
     ]
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D24R0216_004
-    INIT_SCRIPT_ON_RESUME: scr_seq_D24R0216_006
+    INIT_SCRIPT_ON_TRANSITION: RuinsOfAlph_UndergroundHall_SinjohEvent_OnTransition
+    INIT_SCRIPT_ON_RESUME: RuinsOfAlph_UndergroundHall_SinjohEvent_OnResume
 }

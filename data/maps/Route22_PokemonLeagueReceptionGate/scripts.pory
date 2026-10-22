@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R22R0101_000
-    scr_seq_R22R0101_001
-    scr_seq_R22R0101_002
-    scr_seq_R22R0101_003
-    scr_seq_R22R0101_004
-    scr_seq_R22R0101_005
-    scr_seq_R22R0101_006
-    scr_seq_R22R0101_007
-    scr_seq_R22R0101_008
+    Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger1
+    Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger2
+    Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger3
+    Route22_PokemonLeagueReceptionGate_EventScript_Policeman1
+    Route22_PokemonLeagueReceptionGate_EventScript_Policeman2
+    Route22_PokemonLeagueReceptionGate_EventScript_Policeman3
+    Route22_PokemonLeagueReceptionGate_OnResume
+    Route22_PokemonLeagueReceptionGate_OnTransition
+    Route22_PokemonLeagueReceptionGate_EventScript_Janine
 }
 
-script scr_seq_R22R0101_006 {
+script Route22_PokemonLeagueReceptionGate_OnResume {
     if (flag(FLAG_UNLOCKED_WEST_KANTO)) {
         movepersonfacing(obj_R22R0101_policeman_3, 15, 0, 8, DIR_SOUTH)
     }
@@ -24,7 +24,7 @@ script scr_seq_R22R0101_006 {
     end
 }
 
-script scr_seq_R22R0101_007 {
+script Route22_PokemonLeagueReceptionGate_OnTransition {
     setflag(FLAG_SYS_FLYPOINT_VICTORY_ROAD)
     if (!flag(FLAG_UNK_189)) {
         checkregisteredphonenumber(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
@@ -67,12 +67,12 @@ script scr_seq_R22R0101_007 {
     end
 }
 
-script scr_seq_R22R0101_000 {
+script Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger1 {
     followmonresetmovement
     lockall
-    applymovement(obj_R22R0101_policeman, Route22_PokemonLeagueReceptionGate_Movement_015C)
+    applymovement(obj_R22R0101_policeman, Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation1)
     waitmovement
-    applymovement(obj_player, Route22_PokemonLeagueReceptionGate_Movement_0164)
+    applymovement(obj_player, Route22_PokemonLeagueReceptionGate_Movement_PlayerFaceLeft)
     waitmovement
     npcmsg(msg_0361_R22R0101_00000)
     waitbuttonpress
@@ -89,35 +89,35 @@ text msg_0361_R22R0101_00000 {
     "Please, go right on through!"
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_015C {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation1 {
     emote_exclamation_mark
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0164 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PlayerFaceLeft {
     walk_in_place_left
 }
 
-script scr_seq_R22R0101_003 {
+script Route22_PokemonLeagueReceptionGate_EventScript_Policeman1 {
     simplenpcmsg(msg_0361_R22R0101_00000)
     end
 }
 
-script scr_seq_R22R0101_001 {
+script Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger2 {
     followmonresetmovement
     lockall
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 8) {
-        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_0264)
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation2)
     } else {
-        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_0270)
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation3)
     }
     waitmovement
     if (var(VAR_TEMP_x4001) == 8) {
-        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_027C)
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkRightUp)
     } elif (var(VAR_TEMP_x4001) == 10) {
-        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_028C)
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkRightDown1)
     } else {
-        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_029C)
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkRightDown2)
     }
     waitmovement
     npcmsg("Hold there!\r"
@@ -128,79 +128,79 @@ script scr_seq_R22R0101_001 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_02AC)
-    applymovement(obj_player, Route22_PokemonLeagueReceptionGate_Movement_02B4)
+    applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkLeft)
+    applymovement(obj_player, Route22_PokemonLeagueReceptionGate_Movement_PlayerWalkLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     wait(16, VAR_SPECIAL_RESULT)
     if (var(VAR_TEMP_x4001) == 8) {
-        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_02C4)
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkDown1)
     } elif (var(VAR_TEMP_x4001) == 10) {
-        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_02D0)
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkUp1)
     } else {
-        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_02DC)
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkUp2)
     }
     waitmovement
     releaseall
     end
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0264 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation2 {
     walk_in_place_up
     emote_exclamation_mark
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0270 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation3 {
     walk_in_place_down
     emote_exclamation_mark
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_027C {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkRightUp {
     walk_fast_right
     walk_fast_up
     walk_in_place_fast_left
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_028C {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkRightDown1 {
     walk_fast_right
     walk_fast_down
     walk_in_place_fast_left
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_029C {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkRightDown2 {
     walk_fast_right
     walk_fast_down * 2
     walk_in_place_fast_left
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_02AC {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkLeft {
     walk_left
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_02B4 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PlayerWalkLeft {
     lock_dir
     walk_left
     unlock_dir
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_02C4 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkDown1 {
     walk_down
     walk_in_place_left
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_02D0 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkUp1 {
     walk_up
     walk_in_place_left
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_02DC {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkUp2 {
     walk_up * 2
     walk_in_place_left
 }
 
-script scr_seq_R22R0101_004 {
+script Route22_PokemonLeagueReceptionGate_EventScript_Policeman2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -225,22 +225,22 @@ script scr_seq_R22R0101_004 {
     end
 }
 
-script scr_seq_R22R0101_002 {
+script Route22_PokemonLeagueReceptionGate_EventScript_PolicemanTrigger3 {
     followmonresetmovement
     lockall
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) == 8) {
-        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_03F8)
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation4)
     } else {
-        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0404)
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation5)
     }
     waitmovement
     if (var(VAR_TEMP_x4001) == 8) {
-        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0410)
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkLeftUp)
     } elif (var(VAR_TEMP_x4001) == 10) {
-        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0420)
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkLeftDown1)
     } else {
-        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0430)
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkLeftDown2)
     }
     waitmovement
     npcmsg("This way leads to\n"
@@ -252,79 +252,79 @@ script scr_seq_R22R0101_002 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(56)
-    applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0440)
-    applymovement(obj_player, Route22_PokemonLeagueReceptionGate_Movement_0448)
+    applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkRight)
+    applymovement(obj_player, Route22_PokemonLeagueReceptionGate_Movement_PlayerWalkRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
     wait(16, VAR_SPECIAL_RESULT)
     if (var(VAR_TEMP_x4001) == 8) {
-        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0458)
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkDown2)
     } elif (var(VAR_TEMP_x4001) == 10) {
-        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0464)
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkUp3)
     } else {
-        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0470)
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkUp4)
     }
     waitmovement
     releaseall
     end
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_03F8 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation4 {
     walk_in_place_up
     emote_exclamation_mark
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0404 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanExclamation5 {
     walk_in_place_down
     emote_exclamation_mark
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0410 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkLeftUp {
     walk_fast_left
     walk_fast_up
     walk_in_place_fast_right
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0420 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkLeftDown1 {
     walk_fast_left
     walk_fast_down
     walk_in_place_fast_right
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0430 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkLeftDown2 {
     walk_fast_left
     walk_fast_down * 2
     walk_in_place_fast_right
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0440 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkRight {
     walk_right
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0448 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PlayerWalkRight {
     lock_dir
     walk_right
     unlock_dir
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0458 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkDown2 {
     walk_down
     walk_in_place_right
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0464 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkUp3 {
     walk_up
     walk_in_place_right
 }
 
-movement Route22_PokemonLeagueReceptionGate_Movement_0470 {
+movement Route22_PokemonLeagueReceptionGate_Movement_PolicemanWalkUp4 {
     walk_up * 2
     walk_in_place_right
 }
 
-script scr_seq_R22R0101_005 {
+script Route22_PokemonLeagueReceptionGate_EventScript_Policeman3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -351,7 +351,7 @@ script scr_seq_R22R0101_005 {
     end
 }
 
-script scr_seq_R22R0101_008 {
+script Route22_PokemonLeagueReceptionGate_EventScript_Janine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -452,6 +452,6 @@ _0548:
 }
 
 mapscripts Route22_PokemonLeagueReceptionGate_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R22R0101_007
-    INIT_SCRIPT_ON_RESUME: scr_seq_R22R0101_006
+    INIT_SCRIPT_ON_TRANSITION: Route22_PokemonLeagueReceptionGate_OnTransition
+    INIT_SCRIPT_ON_RESUME: Route22_PokemonLeagueReceptionGate_OnResume
 }

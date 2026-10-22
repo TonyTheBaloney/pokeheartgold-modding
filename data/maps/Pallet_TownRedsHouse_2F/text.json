@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0448_T01R0102_00000",
-      "from": "scr_seq_T01R0102_000#0"
+      "from": "Pallet_TownRedsHouse_2F_EventScript_ItsAWiiSign#0"
     },
     {
       "id": "msg_0448_T01R0102_00001",
-      "from": "scr_seq_T01R0102_001#0"
+      "from": "Pallet_TownRedsHouse_2F_EventScript_Sign#0"
     }
   ]
 }

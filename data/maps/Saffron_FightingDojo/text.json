@@ -3,147 +3,147 @@
   "messages": [
     {
       "id": "msg_0533_T11R0101_00000",
-      "from": "scr_seq_T11R0101_000#1"
+      "from": "Saffron_FightingDojo_EventScript_BlackBelt#1"
     },
     {
       "id": "msg_0533_T11R0101_00001",
-      "from": "scr_seq_T11R0101_000#0"
+      "from": "Saffron_FightingDojo_EventScript_BlackBelt#0"
     },
     {
       "id": "msg_0533_T11R0101_00002",
-      "from": "scr_seq_T11R0101_001#0"
+      "from": "Saffron_FightingDojo_EventScript_Sign1#0"
     },
     {
       "id": "msg_0533_T11R0101_00003",
-      "from": "scr_seq_T11R0101_002#0"
+      "from": "Saffron_FightingDojo_EventScript_Sign2#0"
     },
     {
       "id": "msg_0533_T11R0101_00004",
-      "from": "scr_seq_T11R0101_015#0"
+      "from": "Saffron_FightingDojo_EventScript_Falkner#0"
     },
     {
       "id": "msg_0533_T11R0101_00005",
-      "from": "scr_seq_T11R0101_015#1"
+      "from": "Saffron_FightingDojo_EventScript_Falkner#1"
     },
     {
       "id": "msg_0533_T11R0101_00006",
-      "from": "scr_seq_T11R0101_013#0"
+      "from": "Saffron_FightingDojo_EventScript_Bugsy#0"
     },
     {
       "id": "msg_0533_T11R0101_00007",
-      "from": "scr_seq_T11R0101_013#1"
+      "from": "Saffron_FightingDojo_EventScript_Bugsy#1"
     },
     {
       "id": "msg_0533_T11R0101_00008",
-      "from": "scr_seq_T11R0101_004#0"
+      "from": "Saffron_FightingDojo_EventScript_Whitney#0"
     },
     {
       "id": "msg_0533_T11R0101_00009",
-      "from": "scr_seq_T11R0101_004#1"
+      "from": "Saffron_FightingDojo_EventScript_Whitney#1"
     },
     {
       "id": "msg_0533_T11R0101_00010",
-      "from": "scr_seq_T11R0101_011#0"
+      "from": "Saffron_FightingDojo_EventScript_Chuck#0"
     },
     {
       "id": "msg_0533_T11R0101_00011",
-      "from": "scr_seq_T11R0101_011#1"
+      "from": "Saffron_FightingDojo_EventScript_Chuck#1"
     },
     {
       "id": "msg_0533_T11R0101_00012",
-      "from": "scr_seq_T11R0101_018#0"
+      "from": "Saffron_FightingDojo_EventScript_Jasmine#0"
     },
     {
       "id": "msg_0533_T11R0101_00013",
-      "from": "scr_seq_T11R0101_018#1"
+      "from": "Saffron_FightingDojo_EventScript_Jasmine#1"
     },
     {
       "id": "msg_0533_T11R0101_00014",
-      "from": "scr_seq_T11R0101_017#0"
+      "from": "Saffron_FightingDojo_EventScript_Morty#0"
     },
     {
       "id": "msg_0533_T11R0101_00015",
-      "from": "scr_seq_T11R0101_017#1"
+      "from": "Saffron_FightingDojo_EventScript_Morty#1"
     },
     {
       "id": "msg_0533_T11R0101_00016",
-      "from": "scr_seq_T11R0101_019#0"
+      "from": "Saffron_FightingDojo_EventScript_Pryce#0"
     },
     {
       "id": "msg_0533_T11R0101_00017",
-      "from": "scr_seq_T11R0101_019#1"
+      "from": "Saffron_FightingDojo_EventScript_Pryce#1"
     },
     {
       "id": "msg_0533_T11R0101_00018",
-      "from": "scr_seq_T11R0101_006#0"
+      "from": "Saffron_FightingDojo_EventScript_Clair#0"
     },
     {
       "id": "msg_0533_T11R0101_00019",
-      "from": "scr_seq_T11R0101_006#1"
+      "from": "Saffron_FightingDojo_EventScript_Clair#1"
     },
     {
       "id": "msg_0533_T11R0101_00020",
-      "from": "scr_seq_T11R0101_016#0"
+      "from": "Saffron_FightingDojo_EventScript_LtSurge#0"
     },
     {
       "id": "msg_0533_T11R0101_00021",
-      "from": "scr_seq_T11R0101_016#1"
+      "from": "Saffron_FightingDojo_EventScript_LtSurge#1"
     },
     {
       "id": "msg_0533_T11R0101_00022",
-      "from": "scr_seq_T11R0101_014#0"
+      "from": "Saffron_FightingDojo_EventScript_Sabrina#0"
     },
     {
       "id": "msg_0533_T11R0101_00023",
-      "from": "scr_seq_T11R0101_014#1"
+      "from": "Saffron_FightingDojo_EventScript_Sabrina#1"
     },
     {
       "id": "msg_0533_T11R0101_00024",
-      "from": "scr_seq_T11R0101_007#0"
+      "from": "Saffron_FightingDojo_EventScript_Erika#0"
     },
     {
       "id": "msg_0533_T11R0101_00025",
-      "from": "scr_seq_T11R0101_007#1"
+      "from": "Saffron_FightingDojo_EventScript_Erika#1"
     },
     {
       "id": "msg_0533_T11R0101_00026",
-      "from": "scr_seq_T11R0101_008#0"
+      "from": "Saffron_FightingDojo_EventScript_Misty#0"
     },
     {
       "id": "msg_0533_T11R0101_00027",
-      "from": "scr_seq_T11R0101_008#1"
+      "from": "Saffron_FightingDojo_EventScript_Misty#1"
     },
     {
       "id": "msg_0533_T11R0101_00028",
-      "from": "scr_seq_T11R0101_012#0"
+      "from": "Saffron_FightingDojo_EventScript_Brock#0"
     },
     {
       "id": "msg_0533_T11R0101_00029",
-      "from": "scr_seq_T11R0101_012#1"
+      "from": "Saffron_FightingDojo_EventScript_Brock#1"
     },
     {
       "id": "msg_0533_T11R0101_00030",
-      "from": "scr_seq_T11R0101_005#0"
+      "from": "Saffron_FightingDojo_EventScript_Janine#0"
     },
     {
       "id": "msg_0533_T11R0101_00031",
-      "from": "scr_seq_T11R0101_005#1"
+      "from": "Saffron_FightingDojo_EventScript_Janine#1"
     },
     {
       "id": "msg_0533_T11R0101_00032",
-      "from": "scr_seq_T11R0101_009#0"
+      "from": "Saffron_FightingDojo_EventScript_Blaine#0"
     },
     {
       "id": "msg_0533_T11R0101_00033",
-      "from": "scr_seq_T11R0101_009#1"
+      "from": "Saffron_FightingDojo_EventScript_Blaine#1"
     },
     {
       "id": "msg_0533_T11R0101_00034",
-      "from": "scr_seq_T11R0101_010#0"
+      "from": "Saffron_FightingDojo_EventScript_Blue#0"
     },
     {
       "id": "msg_0533_T11R0101_00035",
-      "from": "scr_seq_T11R0101_010#1"
+      "from": "Saffron_FightingDojo_EventScript_Blue#1"
     }
   ]
 }

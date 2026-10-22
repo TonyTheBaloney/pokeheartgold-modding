@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T09_000
-    scr_seq_T09_001
-    scr_seq_T09_002
-    scr_seq_T09_003
-    scr_seq_T09_004
+    CinnabarIsland_EventScript_Blue
+    CinnabarIsland_EventScript_TrainerTips
+    CinnabarIsland_EventScript_CinnabarIslandSign
+    CinnabarIsland_OnTransition
+    CinnabarIsland_EventScript_Blaine
 }
 
-script scr_seq_T09_003 {
+script CinnabarIsland_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         if (flag(FLAG_UNK_129)) {
             setflag(FLAG_UNK_25A)
@@ -60,12 +60,12 @@ script scr_seq_T09_003 {
     end
 }
 
-script scr_seq_T09_000 {
+script CinnabarIsland_EventScript_Blue {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     release(obj_partner_poke)
-    applymovement(obj_partner_poke, CinnabarIsland_Movement_02FC)
+    applymovement(obj_partner_poke, CinnabarIsland_Movement_FollowMonDelay)
     waitmovement
     lock(obj_partner_poke)
     if (var(VAR_UNK_40FD) != 0) { goto(_0304) }
@@ -80,9 +80,9 @@ script scr_seq_T09_000 {
         closemessage
         getplayerfacing(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 0) {
-            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_0268)
+            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_BlueSpin1)
         } else {
-            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_0280)
+            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_BlueSpin2)
         }
         waitmovement
         npcmsg("Blue: A volcano erupts, and just\n"
@@ -104,29 +104,29 @@ script scr_seq_T09_000 {
         getpersoncoords(253, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
         if (var(VAR_TEMP_x4000) == 0) {
             if (var(VAR_SPECIAL_x8004) == 1035) {
-                applymovement(obj_partner_poke, CinnabarIsland_Movement_02D4)
+                applymovement(obj_partner_poke, CinnabarIsland_Movement_FollowMonWalkDownRight)
                 waitmovement
             }
         } elif (var(VAR_SPECIAL_x8005) == 495) {
-            applymovement(obj_partner_poke, CinnabarIsland_Movement_02E4)
+            applymovement(obj_partner_poke, CinnabarIsland_Movement_FollowMonWalkLeftUp)
             waitmovement
         }
         if (var(VAR_TEMP_x4000) == 0) {
-            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_0298)
+            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_BlueWalkLeftDown)
         } else {
-            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_02A4)
+            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_BlueWalkDownLeft1)
         }
         waitmovement
         npcmsg("I’ll be waiting for you!\r")
         closemessage
         if (var(VAR_TEMP_x4000) == 0) {
-            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_02B0)
-            applymovement(obj_player, CinnabarIsland_Movement_02F4)
-            applymovement(obj_partner_poke, CinnabarIsland_Movement_02F4)
+            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_BlueWalkDownLeft2)
+            applymovement(obj_player, CinnabarIsland_Movement_PlayerFaceDown)
+            applymovement(obj_partner_poke, CinnabarIsland_Movement_PlayerFaceDown)
         } else {
-            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_02C0)
-            applymovement(obj_player, CinnabarIsland_Movement_02F4)
-            applymovement(obj_partner_poke, CinnabarIsland_Movement_02F4)
+            applymovement(obj_T09_gsleader16, CinnabarIsland_Movement_BlueWalkDownLeft3)
+            applymovement(obj_player, CinnabarIsland_Movement_PlayerFaceDown)
+            applymovement(obj_partner_poke, CinnabarIsland_Movement_PlayerFaceDown)
         }
         waitmovement
         removeobject(obj_T09_gsleader16)
@@ -150,7 +150,7 @@ script scr_seq_T09_000 {
     end
 }
 
-movement CinnabarIsland_Movement_0268 {
+movement CinnabarIsland_Movement_BlueSpin1 {
     walk_in_place_right
     delay_8 * 2
     walk_in_place_up
@@ -158,7 +158,7 @@ movement CinnabarIsland_Movement_0268 {
     walk_in_place_down
 }
 
-movement CinnabarIsland_Movement_0280 {
+movement CinnabarIsland_Movement_BlueSpin2 {
     walk_in_place_up
     delay_8 * 2
     walk_in_place_right
@@ -166,46 +166,46 @@ movement CinnabarIsland_Movement_0280 {
     walk_in_place_left
 }
 
-movement CinnabarIsland_Movement_0298 {
+movement CinnabarIsland_Movement_BlueWalkLeftDown {
     walk_left
     walk_down
 }
 
-movement CinnabarIsland_Movement_02A4 {
+movement CinnabarIsland_Movement_BlueWalkDownLeft1 {
     walk_down
     walk_left
 }
 
-movement CinnabarIsland_Movement_02B0 {
+movement CinnabarIsland_Movement_BlueWalkDownLeft2 {
     walk_down * 2
     walk_left * 2
     walk_down * 8
 }
 
-movement CinnabarIsland_Movement_02C0 {
+movement CinnabarIsland_Movement_BlueWalkDownLeft3 {
     walk_down
     walk_down * 2
     walk_left * 2
     walk_down * 7
 }
 
-movement CinnabarIsland_Movement_02D4 {
+movement CinnabarIsland_Movement_FollowMonWalkDownRight {
     walk_down
     walk_right
     walk_in_place_left
 }
 
-movement CinnabarIsland_Movement_02E4 {
+movement CinnabarIsland_Movement_FollowMonWalkLeftUp {
     walk_left
     walk_up
     walk_in_place_right
 }
 
-movement CinnabarIsland_Movement_02F4 {
+movement CinnabarIsland_Movement_PlayerFaceDown {
     walk_in_place_down
 }
 
-movement CinnabarIsland_Movement_02FC {
+movement CinnabarIsland_Movement_FollowMonDelay {
     delay_1
 }
 
@@ -252,7 +252,7 @@ script(local) _0304 {
     end
 }
 
-script scr_seq_T09_004 {
+script CinnabarIsland_EventScript_Blaine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -345,7 +345,7 @@ _041E:
     end
 }
 
-script scr_seq_T09_001 {
+script CinnabarIsland_EventScript_TrainerTips {
     trainertipsex(2, "There is a notice here...\r"
                      "The Cinnabar Gym has relocated\n"
                      "to Seafoam Islands.\f"
@@ -353,12 +353,12 @@ script scr_seq_T09_001 {
     end
 }
 
-script scr_seq_T09_002 {
+script CinnabarIsland_EventScript_CinnabarIslandSign {
     directionsignpostex(0, 9, "Cinnabar Island\n"
                               "The Ravaged Town of the Past")
     end
 }
 
 mapscripts CinnabarIsland_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T09_003
+    INIT_SCRIPT_ON_TRANSITION: CinnabarIsland_OnTransition
 }

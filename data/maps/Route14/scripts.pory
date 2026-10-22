@@ -3,15 +3,15 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R14_000
-    scr_seq_R14_001
-    scr_seq_R14_002
-    scr_seq_R14_003
-    scr_seq_R14_004
-    scr_seq_R14_005
+    Route14_EventScript_PokefanM
+    Route14_OnTransition
+    Route14_EventScript_EusineTrigger
+    Route14_EventScript_Eusine1
+    Route14_EventScript_Eusine2
+    Route14_EventScript_Woman
 }
 
-script scr_seq_R14_001 {
+script Route14_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 4) { goto(_004F) }
@@ -26,7 +26,7 @@ script scr_seq_R14_001 {
     end
 }
 
-script scr_seq_R14_000 {
+script Route14_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -60,16 +60,16 @@ script scr_seq_R14_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Route14_Movement_01A8)
-        applymovement(obj_R14_gsmiddleman1_3, Route14_Movement_01F4)
+        applymovement(obj_player, Route14_Movement_PlayerWalkRightUp1)
+        applymovement(obj_R14_gsmiddleman1_3, Route14_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route14_Movement_01C0)
+        applymovement(obj_player, Route14_Movement_PlayerWalkUp1)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Route14_Movement_01E0)
-        applymovement(obj_R14_gsmiddleman1_3, Route14_Movement_01F4)
+        applymovement(obj_player, Route14_Movement_PlayerWalkUpRight1)
+        applymovement(obj_R14_gsmiddleman1_3, Route14_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Route14_Movement_01CC)
-        applymovement(obj_R14_gsmiddleman1_3, Route14_Movement_01F4)
+        applymovement(obj_player, Route14_Movement_PlayerWalkUpLeft)
+        applymovement(obj_R14_gsmiddleman1_3, Route14_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -77,7 +77,7 @@ script scr_seq_R14_000 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route14_Movement_0200)
+        applymovement(obj_partner_poke, Route14_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -96,7 +96,7 @@ script scr_seq_R14_000 {
     end
 }
 
-movement Route14_Movement_01A8 {
+movement Route14_Movement_PlayerWalkRightUp1 {
     walk_right
     walk_up * 2
     walk_left
@@ -104,37 +104,37 @@ movement Route14_Movement_01A8 {
     walk_in_place_down
 }
 
-movement Route14_Movement_01C0 {
+movement Route14_Movement_PlayerWalkUp1 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route14_Movement_01CC {
+movement Route14_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route14_Movement_01E0 {
+movement Route14_Movement_PlayerWalkUpRight1 {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route14_Movement_01F4 {
+movement Route14_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route14_Movement_0200 {
+movement Route14_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R14_002 {
+script Route14_EventScript_EusineTrigger {
     followmonresetmovement
     lockall
     clearflag(FLAG_HIDE_ROUTE_14_EUSINE)
@@ -147,10 +147,10 @@ script scr_seq_R14_002 {
         goto(_0255)
     _0255:
         if (var(VAR_TEMP_x4001) == 409) {
-            applymovement(obj_player, Route14_Movement_0450)
+            applymovement(obj_player, Route14_Movement_PlayerExclamation)
             waitmovement
         } else {
-            applymovement(obj_player, Route14_Movement_0450)
+            applymovement(obj_player, Route14_Movement_PlayerExclamation)
             waitmovement
         }
     _027C:
@@ -164,47 +164,47 @@ script scr_seq_R14_002 {
                 goto(_03AD)
             _02D0:
                 if (var(VAR_TEMP_x4001) == 409) {
-                    applymovement(obj_player, Route14_Movement_04AC)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkDownRight1)
                 } elif (var(VAR_TEMP_x4001) == 410) {
-                    applymovement(obj_player, Route14_Movement_04C0)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkRightDown1)
                 } elif (var(VAR_TEMP_x4001) == 411) {
-                    applymovement(obj_player, Route14_Movement_04D0)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkRightDown2)
                 } elif (var(VAR_TEMP_x4001) == 412) {
-                    applymovement(obj_player, Route14_Movement_04E0)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkRight)
                 } elif (var(VAR_TEMP_x4001) == 413) {
-                    applymovement(obj_player, Route14_Movement_04E8)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkRightUp2)
                 } elif (var(VAR_TEMP_x4001) == 414) {
-                    applymovement(obj_player, Route14_Movement_04F8)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkRightUp3)
                 } else {
-                    applymovement(obj_player, Route14_Movement_0508)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkUpRight2)
                 }
                 waitmovement
                 goto(_03D2)
             _0382:
                 if (var(VAR_TEMP_x4001) == 409) {
-                    applymovement(obj_player, Route14_Movement_051C)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkDownRight2)
                 } else {
-                    applymovement(obj_player, Route14_Movement_0530)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkUpRight3)
                 }
                 waitmovement
                 goto(_03D2)
             _03AD:
                 if (var(VAR_TEMP_x4001) == 409) {
-                    applymovement(obj_player, Route14_Movement_0544)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkDown)
                 } else {
-                    applymovement(obj_player, Route14_Movement_0550)
+                    applymovement(obj_player, Route14_Movement_PlayerWalkUp2)
                 }
                 waitmovement
             _03D2:
-                applymovement(obj_R14_tsure_poke_static_suicune, Route14_Movement_0488)
-                applymovement(obj_player, Route14_Movement_055C)
+                applymovement(obj_R14_tsure_poke_static_suicune, Route14_Movement_SuicuneWalkUp)
+                applymovement(obj_player, Route14_Movement_PlayerWalkUp3)
                 waitmovement
                 waitfollowingpokemonmovement
                 togglefollowingpokemonmovement(1)
                 followingpokemonmovement(48)
                 callstd(std_play_eusine_music)
-                applymovement(obj_R14_minaki, Route14_Movement_057C)
-                applymovement(obj_player, Route14_Movement_056C)
+                applymovement(obj_R14_minaki, Route14_Movement_EusineWalkUpDown)
+                applymovement(obj_player, Route14_Movement_PlayerFaceLeft)
                 waitmovement
                 bufferplayersname(0)
                 npcmsg("Eusine: {STRVAR_1 3, 0, 0}! Not again!\n"
@@ -247,13 +247,13 @@ script scr_seq_R14_002 {
         goto(_02D0)
         goto(_02D0)
     }
-    applymovement(obj_player, Route14_Movement_0450)
+    applymovement(obj_player, Route14_Movement_PlayerExclamation)
     waitmovement
     goto(_027C)
     goto(_0255)
 }
 
-movement Route14_Movement_0450 {
+movement Route14_Movement_PlayerExclamation {
     emote_exclamation_mark
 }
 
@@ -277,7 +277,7 @@ movement Route14_Movement_047C {
     face_left
 }
 
-movement Route14_Movement_0488 {
+movement Route14_Movement_SuicuneWalkUp {
     walk_faster_up * 2
     jump_near_fast_up
     jump_far_up
@@ -288,86 +288,86 @@ movement Route14_Movement_0488 {
     jump_near_fast_up
 }
 
-movement Route14_Movement_04AC {
+movement Route14_Movement_PlayerWalkDownRight1 {
     walk_down
     walk_right * 3
     walk_down * 2
     face_right
 }
 
-movement Route14_Movement_04C0 {
+movement Route14_Movement_PlayerWalkRightDown1 {
     walk_right * 3
     walk_down * 2
     face_right
 }
 
-movement Route14_Movement_04D0 {
+movement Route14_Movement_PlayerWalkRightDown2 {
     walk_right * 3
     walk_down
     face_right
 }
 
-movement Route14_Movement_04E0 {
+movement Route14_Movement_PlayerWalkRight {
     walk_right * 3
 }
 
-movement Route14_Movement_04E8 {
+movement Route14_Movement_PlayerWalkRightUp2 {
     walk_right * 3
     walk_up
     face_right
 }
 
-movement Route14_Movement_04F8 {
+movement Route14_Movement_PlayerWalkRightUp3 {
     walk_right * 3
     walk_up * 2
     face_right
 }
 
-movement Route14_Movement_0508 {
+movement Route14_Movement_PlayerWalkUpRight2 {
     walk_up
     walk_right * 3
     walk_up * 2
     face_right
 }
 
-movement Route14_Movement_051C {
+movement Route14_Movement_PlayerWalkDownRight2 {
     walk_down
     walk_right * 2
     walk_down * 2
     face_right
 }
 
-movement Route14_Movement_0530 {
+movement Route14_Movement_PlayerWalkUpRight3 {
     walk_up
     walk_right * 2
     walk_up * 2
     face_right
 }
 
-movement Route14_Movement_0544 {
+movement Route14_Movement_PlayerWalkDown {
     walk_down * 3
     face_right
 }
 
-movement Route14_Movement_0550 {
+movement Route14_Movement_PlayerWalkUp2 {
     walk_up * 3
     face_right
 }
 
-movement Route14_Movement_055C {
+movement Route14_Movement_PlayerWalkUp3 {
     delay_8
     face_up
     walk_up
 }
 
-movement Route14_Movement_056C {
+movement Route14_Movement_PlayerFaceLeft {
     delay_16 * 5
     face_left
 }
 
 movement Route14_Movement_0578 {}
 
-movement Route14_Movement_057C {
+movement Route14_Movement_EusineWalkUpDown {
     walk_fast_up * 11
     walk_up * 2
     walk_slower_up
@@ -376,7 +376,7 @@ movement Route14_Movement_057C {
     face_right
 }
 
-script scr_seq_R14_003 {
+script Route14_EventScript_Eusine1 {
     bufferplayersname(0)
     simplenpcmsg(msg_0351_R14_00007)
     end
@@ -397,13 +397,13 @@ text msg_0351_R14_00007 {
     "It will be just you and me!"
 }
 
-script scr_seq_R14_004 {
+script Route14_EventScript_Eusine2 {
     bufferplayersname(0)
     simplenpcmsg(msg_0351_R14_00007)
     end
 }
 
-script scr_seq_R14_005 {
+script Route14_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -446,7 +446,7 @@ script scr_seq_R14_005 {
     releaseall
     end
 _060D:
-    applymovement(obj_R14_gswoman1, Route14_Movement_0698)
+    applymovement(obj_R14_gswoman1, Route14_Movement_WomanExclamation)
     waitmovement
     npcmsg("That Pokémon is...CHANSEY!\r"
            "What are the chances of\n"
@@ -470,11 +470,11 @@ _064E:
     end
 }
 
-movement Route14_Movement_0698 {
+movement Route14_Movement_WomanExclamation {
     emote_exclamation_mark
     delay_4
 }
 
 mapscripts Route14_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R14_001
+    INIT_SCRIPT_ON_TRANSITION: Route14_OnTransition
 }

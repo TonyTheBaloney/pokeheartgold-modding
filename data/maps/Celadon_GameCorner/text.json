@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0511_T07SP0101_00000",
-      "from": "scr_seq_T07SP0101_003#0"
+      "from": "Celadon_GameCorner_EventScript_Businessman#0"
     },
     {
       "id": "msg_0511_T07SP0101_00001",
@@ -15,35 +15,35 @@
     },
     {
       "id": "msg_0511_T07SP0101_00003",
-      "from": "scr_seq_T07SP0101_003#3"
+      "from": "Celadon_GameCorner_EventScript_Businessman#3"
     },
     {
       "id": "msg_0511_T07SP0101_00004",
-      "from": "scr_seq_T07SP0101_003#4"
+      "from": "Celadon_GameCorner_EventScript_Businessman#4"
     },
     {
       "id": "msg_0511_T07SP0101_00005",
-      "from": "scr_seq_T07SP0101_003#2"
+      "from": "Celadon_GameCorner_EventScript_Businessman#2"
     },
     {
       "id": "msg_0511_T07SP0101_00006",
-      "from": "scr_seq_T07SP0101_003#5"
+      "from": "Celadon_GameCorner_EventScript_Businessman#5"
     },
     {
       "id": "msg_0511_T07SP0101_00007",
-      "from": "scr_seq_T07SP0101_003#6"
+      "from": "Celadon_GameCorner_EventScript_Businessman#6"
     },
     {
       "id": "msg_0511_T07SP0101_00008",
-      "from": "scr_seq_T07SP0101_003#7"
+      "from": "Celadon_GameCorner_EventScript_Businessman#7"
     },
     {
       "id": "msg_0511_T07SP0101_00009",
-      "from": "scr_seq_T07SP0101_003#1"
+      "from": "Celadon_GameCorner_EventScript_Businessman#1"
     },
     {
       "id": "msg_0511_T07SP0101_00010",
-      "from": "scr_seq_T07SP0101_000#0"
+      "from": "Celadon_GameCorner_EventScript_Sign1#0"
     },
     {
       "id": "msg_0511_T07SP0101_00011",
@@ -51,15 +51,15 @@
     },
     {
       "id": "msg_0511_T07SP0101_00012",
-      "from": "scr_seq_T07SP0101_000#1"
+      "from": "Celadon_GameCorner_EventScript_Sign1#1"
     },
     {
       "id": "msg_0511_T07SP0101_00013",
-      "from": "scr_seq_T07SP0101_002#0"
+      "from": "Celadon_GameCorner_EventScript_Sign2#0"
     },
     {
       "id": "msg_0511_T07SP0101_00014",
-      "from": "scr_seq_T07SP0101_001#0"
+      "from": "Celadon_GameCorner_EventScript_GymGuide#0"
     }
   ]
 }

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T30FS0101_000 {
+script Blackthorn_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T30FS0101_000 {
     end
 }
 
-script scr_seq_T30FS0101_001 {
+script Blackthorn_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,7 +25,7 @@ script scr_seq_T30FS0101_001 {
     end
 }
 
-script scr_seq_T30FS0101_002 {
+script Blackthorn_Pokemart_EventScript_AceTrainerM {
     simplenpcmsg("You can’t buy a Max Revive, but it fully\n"
                  "restores a fainted Pokémon.\r"
                  "Beware--it won’t restore PP, the\n"
@@ -33,7 +33,7 @@ script scr_seq_T30FS0101_002 {
     end
 }
 
-script scr_seq_T30FS0101_003 {
+script Blackthorn_Pokemart_EventScript_BlackBelt {
     simplenpcmsg("Max Repel keeps weak Pokémon away\n"
                  "from you. It’s the longest lasting of\f"
                  "the Repel sprays.")

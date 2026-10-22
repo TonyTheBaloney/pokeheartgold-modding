@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T05R0701_000
-    scr_seq_T05R0701_001
-    scr_seq_T05R0701_002
-    scr_seq_T05R0701_003
-    scr_seq_T05R0701_004
-    scr_seq_T05R0701_005
-    scr_seq_T05R0701_006
+    Lavender_RadioStation_EventScript_Receptionist
+    Lavender_RadioStation_EventScript_Policeman
+    Lavender_RadioStation_EventScript_Man1
+    Lavender_RadioStation_EventScript_Gentleman
+    Lavender_RadioStation_EventScript_Man2
+    Lavender_RadioStation_EventScript_1FReceptionSign
+    Lavender_RadioStation_EventScript_Radio
 }
 
-script scr_seq_T05R0701_003 {
+script Lavender_RadioStation_EventScript_Gentleman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -60,7 +60,7 @@ script scr_seq_T05R0701_003 {
     end
 }
 
-script scr_seq_T05R0701_004 {
+script Lavender_RadioStation_EventScript_Man2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -90,14 +90,14 @@ script scr_seq_T05R0701_004 {
     end
 }
 
-script scr_seq_T05R0701_000 {
+script Lavender_RadioStation_EventScript_Receptionist {
     simplenpcmsg("Welcome!\r"
                  "Feel free to look around anywhere\n"
                  "on this floor.")
     end
 }
 
-script scr_seq_T05R0701_001 {
+script Lavender_RadioStation_EventScript_Policeman {
     simplenpcmsg("Sorry, but you can only tour the\n"
                  "ground floor.\r"
                  "Ever since Johto’s Radio Tower was\n"
@@ -106,7 +106,7 @@ script scr_seq_T05R0701_001 {
     end
 }
 
-script scr_seq_T05R0701_002 {
+script Lavender_RadioStation_EventScript_Man1 {
     simplenpcmsg("Many people are hard at work here\n"
                  "in the Radio Tower.\r"
                  "They must be doing their best to put\n"
@@ -114,7 +114,7 @@ script scr_seq_T05R0701_002 {
     end
 }
 
-script scr_seq_T05R0701_005 {
+script Lavender_RadioStation_EventScript_1FReceptionSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("1F Reception\n"
@@ -128,7 +128,7 @@ script scr_seq_T05R0701_005 {
     end
 }
 
-script scr_seq_T05R0701_006 {
+script Lavender_RadioStation_EventScript_Radio {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Perk Up Pokémon with Mellow Sounds\n"

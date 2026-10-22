@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0106_000 + 1",
+            "script": "Celadon_DepartmentStoreRoof_EventScript_Man",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07R0106_001 + 1",
+            "script": "Celadon_DepartmentStoreRoof_EventScript_SchoolKidM",
             "flag": "FLAG_NOTHING"
         }
     ],
@@ -86,7 +86,7 @@
             "y": 2,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T07R0106_002 + 1"
+            "script": "Celadon_DepartmentStoreRoof_EventScript_VendingMachine"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -94,7 +94,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T07R0106_003 + 1"
+            "script": "Celadon_DepartmentStoreRoof_EventScript_Machine"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -102,7 +102,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T07R0106_003 + 1"
+            "script": "Celadon_DepartmentStoreRoof_EventScript_Machine"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -110,7 +110,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T07R0106_003 + 1"
+            "script": "Celadon_DepartmentStoreRoof_EventScript_Machine"
         }
     ]
 }

@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_006 + 1",
+            "script": "Fuchsia_Gym_EventScript_Cindy",
             "flag": "FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_REVEALED"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_003 + 1",
+            "script": "Fuchsia_Gym_EventScript_Linda",
             "flag": "FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_REVEALED"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_001 + 1",
+            "script": "Fuchsia_Gym_EventScript_Janine",
             "flag": "FLAG_HIDE_FUCHSIA_GYM_JANINE"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_002 + 1",
+            "script": "Fuchsia_Gym_EventScript_GymGuide",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_005 + 1",
+            "script": "Fuchsia_Gym_EventScript_Alice",
             "flag": "FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_REVEALED"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_004 + 1",
+            "script": "Fuchsia_Gym_EventScript_Barry",
             "flag": "FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_REVEALED"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_006 + 1",
+            "script": "Fuchsia_Gym_EventScript_Cindy",
             "flag": "FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_DISGUISED"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_004 + 1",
+            "script": "Fuchsia_Gym_EventScript_Barry",
             "flag": "FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_DISGUISED"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_003 + 1",
+            "script": "Fuchsia_Gym_EventScript_Linda",
             "flag": "FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_DISGUISED"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T08GYM0101_005 + 1",
+            "script": "Fuchsia_Gym_EventScript_Alice",
             "flag": "FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_DISGUISED"
         }
     ],
@@ -215,7 +215,7 @@
             "y": 23,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T08GYM0101_007 + 1"
+            "script": "Fuchsia_Gym_EventScript_GymSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -223,7 +223,7 @@
             "y": 23,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_T08GYM0101_007 + 1"
+            "script": "Fuchsia_Gym_EventScript_GymSign"
         }
     ]
 }

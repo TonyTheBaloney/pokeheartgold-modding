@@ -5,14 +5,14 @@ script scr_seq_R44_000 {
     end
 }
 
-script scr_seq_R44_001 {
+script Route44_EventScript_TrainerTips {
     trainertipsex(2, "Ice Path\r"
                      "Careful not to slip, fall over,\n"
                      "freeze, and get stuck on the ice.")
     end
 }
 
-script scr_seq_R44_002 {
+script Route44_EventScript_RouteSign {
     directionsignpostex(1, 1, "Rt. 44\n"
                               "East to Blackthorn City")
     end

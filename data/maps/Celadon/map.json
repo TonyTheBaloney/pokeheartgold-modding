@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_000 + 1",
+            "script": "Celadon_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_001 + 1",
+            "script": "Celadon_EventScript_Poliwrath",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_005 + 1",
+            "script": "Celadon_EventScript_SchoolKidM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_007 + 1",
+            "script": "Celadon_EventScript_Beauty",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_008 + 1",
+            "script": "Celadon_EventScript_Lass",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_002 + 1",
+            "script": "Celadon_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_006 + 1",
+            "script": "Celadon_EventScript_Youngster",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_004 + 1",
+            "script": "Celadon_EventScript_OldMan2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_003 + 1",
+            "script": "Celadon_EventScript_OldMan1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_016 + 1",
+            "script": "Celadon_EventScript_Erika",
             "flag": "FLAG_UNK_25D"
         },
         {
@@ -211,7 +211,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_017 + 1",
+            "script": "Celadon_EventScript_Jasmine",
             "flag": "FLAG_UNK_2E1"
         },
         {
@@ -262,7 +262,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T07_018 + 1",
+            "script": "Celadon_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         }
     ],
@@ -325,7 +325,7 @@
             "y": 245,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T07_009 + 1"
+            "script": "Celadon_EventScript_CitySign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -333,7 +333,7 @@
             "y": 252,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T07_013 + 1"
+            "script": "Celadon_EventScript_TrainerTips4"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -341,7 +341,7 @@
             "y": 252,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T07_014 + 1"
+            "script": "Celadon_EventScript_TrainerTips5"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -349,7 +349,7 @@
             "y": 237,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T07_012 + 1"
+            "script": "Celadon_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -357,7 +357,7 @@
             "y": 268,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T07_010 + 1"
+            "script": "Celadon_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -365,7 +365,7 @@
             "y": 238,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T07_011 + 1"
+            "script": "Celadon_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

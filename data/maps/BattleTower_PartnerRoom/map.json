@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D31R0207_000 + 1",
+            "script": "BattleTower_PartnerRoom_EventScript_Attendant",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D31R0207_001 + 1",
+            "script": "BattleTower_PartnerRoom_EventScript_Cheryl",
             "flag": "FLAG_UNK_2AD"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D31R0207_002 + 1",
+            "script": "BattleTower_PartnerRoom_EventScript_Mira",
             "flag": "FLAG_UNK_2AE"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D31R0207_003 + 1",
+            "script": "BattleTower_PartnerRoom_EventScript_Riley",
             "flag": "FLAG_UNK_2AF"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D31R0207_004 + 1",
+            "script": "BattleTower_PartnerRoom_EventScript_Marley",
             "flag": "FLAG_UNK_2B0"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D31R0207_005 + 1",
+            "script": "BattleTower_PartnerRoom_EventScript_Buck",
             "flag": "FLAG_UNK_2B1"
         }
     ],

@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0386_R34R0201_00000",
-      "from": "scr_seq_R34R0201_000#0"
+      "from": "Route34_IlexForestGatehouse_EventScript_Woman#0"
     },
     {
       "id": "msg_0386_R34R0201_00001",
@@ -11,15 +11,15 @@
     },
     {
       "id": "msg_0386_R34R0201_00002",
-      "from": "scr_seq_R34R0201_000#1"
+      "from": "Route34_IlexForestGatehouse_EventScript_Woman#1"
     },
     {
       "id": "msg_0386_R34R0201_00003",
-      "from": "scr_seq_R34R0201_001#0"
+      "from": "Route34_IlexForestGatehouse_EventScript_Butterfree#0"
     },
     {
       "id": "msg_0386_R34R0201_00004",
-      "from": "scr_seq_R34R0201_002#0"
+      "from": "Route34_IlexForestGatehouse_EventScript_Lass#0"
     }
   ]
 }

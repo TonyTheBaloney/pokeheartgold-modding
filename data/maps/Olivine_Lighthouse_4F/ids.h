@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_D27R0105_H_
 #define SCR_SEQ_D27R0105_H_
 
-#define _EV_scr_seq_D27R0105_000 0
+#define _EV_Olivine_Lighthouse_4F_EventScript_WarpToOlivineLighthouseExterior 0
 
 #define obj_D27R0105_gsgirl1     0
 #define obj_D27R0105_gsgentleman 1

@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T25GYM0101_000
-    scr_seq_T25GYM0101_001
-    scr_seq_T25GYM0101_002
-    scr_seq_T25GYM0101_003
-    scr_seq_T25GYM0101_004
+    Goldenrod_Gym_EventScript_Whitney
+    Goldenrod_Gym_EventScript_CathyTrigger
+    Goldenrod_Gym_EventScript_GymGuide
+    Goldenrod_Gym_EventScript_GymSign
+    Goldenrod_Gym_OnTransition
 }
 
-script scr_seq_T25GYM0101_004 {
+script Goldenrod_Gym_OnTransition {
     getphonebookrematch(PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4001) != 0) {
         setflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
@@ -49,7 +49,7 @@ _0100:
     end
 }
 
-script scr_seq_T25GYM0101_000 {
+script Goldenrod_Gym_EventScript_Whitney {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -144,10 +144,10 @@ _01F8:
     end
 }
 
-script scr_seq_T25GYM0101_001 {
+script Goldenrod_Gym_EventScript_CathyTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_T25GYM0101_gsgirl1, Goldenrod_Gym_Movement_0260)
+    applymovement(obj_T25GYM0101_gsgirl1, Goldenrod_Gym_Movement_CathyWalkUp)
     waitmovement
     npcmsg("Oh, no. You made Whitney cry.\r"
            "It’s OK. She’ll stop soon.\n"
@@ -156,8 +156,8 @@ script scr_seq_T25GYM0101_001 {
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_T25GYM0101_gsgirl1, Goldenrod_Gym_Movement_026C)
-    applymovement(obj_player, Goldenrod_Gym_Movement_0278)
+    applymovement(obj_T25GYM0101_gsgirl1, Goldenrod_Gym_Movement_CathyWalkDown)
+    applymovement(obj_player, Goldenrod_Gym_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -167,22 +167,22 @@ script scr_seq_T25GYM0101_001 {
     end
 }
 
-movement Goldenrod_Gym_Movement_0260 {
+movement Goldenrod_Gym_Movement_CathyWalkUp {
     emote_exclamation_mark
     walk_up * 3
 }
 
-movement Goldenrod_Gym_Movement_026C {
+movement Goldenrod_Gym_Movement_CathyWalkDown {
     walk_down * 3
     walk_in_place_up
 }
 
-movement Goldenrod_Gym_Movement_0278 {
+movement Goldenrod_Gym_Movement_PlayerWalkUp {
     delay_8
     walk_up
 }
 
-script scr_seq_T25GYM0101_002 {
+script Goldenrod_Gym_EventScript_GymGuide {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -206,7 +206,7 @@ script scr_seq_T25GYM0101_002 {
     end
 }
 
-script scr_seq_T25GYM0101_003 {
+script Goldenrod_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -227,5 +227,5 @@ script scr_seq_T25GYM0101_003 {
 }
 
 mapscripts Goldenrod_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25GYM0101_004
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_Gym_OnTransition
 }

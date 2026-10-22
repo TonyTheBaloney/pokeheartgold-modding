@@ -3,16 +3,16 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D17R0110_000
-    scr_seq_D17R0110_001
-    scr_seq_D17R0110_002
-    scr_seq_D17R0110_003
-    scr_seq_D17R0110_004
-    scr_seq_D17R0110_005
-    scr_seq_D17R0110_006
+    BellTowerRoof_EventScript_HouObj
+    BellTowerRoof_EventScript_KimonoGirl1
+    BellTowerRoof_OnLoad
+    BellTowerRoof_OnTransition
+    BellTowerRoof_EventScript_KimonoGirl2
+    BellTowerRoof_OnResume
+    BellTowerRoof_EventScript_ZukiTrigger
 }
 
-script scr_seq_D17R0110_002 {
+script BellTowerRoof_OnLoad {
     if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
         setflag(FLAG_HIDE_BELL_TOWER_HO_OH)
         removeobject(obj_D17R0110_hou_obj01)
@@ -22,13 +22,13 @@ script scr_seq_D17R0110_002 {
     end
 }
 
-script scr_seq_D17R0110_003 {
+script BellTowerRoof_OnTransition {
     setvar(VAR_TEMP_x4003, 111)
     setflag(FLAG_UNK_105)
     end
 }
 
-script scr_seq_D17R0110_005 {
+script BellTowerRoof_OnResume {
     if (var(VAR_TEMP_x400B) == 123) {
         stopse(SEQ_SE_GS_KYOUHUU)
         setvar(VAR_TEMP_x400B, 0)
@@ -48,7 +48,7 @@ _00C3:
     end
 }
 
-script scr_seq_D17R0110_000 {
+script BellTowerRoof_EventScript_HouObj {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -92,11 +92,11 @@ _0171:
     return
 }
 
-script scr_seq_D17R0110_006 {
+script BellTowerRoof_EventScript_ZukiTrigger {
     followmonresetmovement
     lockall
     loadeventsoundeffects
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0790)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlFaceDown)
     waitmovement
     npcmsg("Zuki: Yes, this is where we welcome\n"
            "HO-OH.\r"
@@ -115,38 +115,38 @@ script scr_seq_D17R0110_006 {
     fadescreen(4, 4, 1, RGB_WHITE)
     waitfade
     waitse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0754)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0760)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_076C)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0778)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0784)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlWalkUp1)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlWalkLeft1)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlWalkLeftUp)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlWalkRight1)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlWalkRightUp)
     waitmovement
     wait(16, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0790)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0790)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_0790)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0790)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0790)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlFaceDown)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlFaceDown)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlFaceDown)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlFaceDown)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlFaceDown)
     waitmovement
     wait(16, VAR_SPECIAL_RESULT)
     stopbgm(0)
     tempbgm(SEQ_GS_E_MAIKO_MAI)
     wait(18, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07A0)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07A0)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07A0)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07A0)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin1)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin1)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin1)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin1)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin1)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
     waitmovement
     wait(67, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07A0)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07A0)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07A0)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07A0)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin1)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin1)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin1)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin1)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin1)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
@@ -155,65 +155,65 @@ script scr_seq_D17R0110_006 {
     legendcutscenewavesorleaveseffectbegin
     waitfade
     wait(4, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0914)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0904)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_091C)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0914)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_090C)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlWalkDown)
     waitmovement
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_080C)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_0830)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_080C)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin4)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin5)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin4)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin3)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
     waitmovement
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0904)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0904)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_091C)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0914)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_090C)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlWalkDown)
     waitmovement
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_0830)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_080C)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin5)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin4)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin3)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
     waitmovement
     wait(33, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0904)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0904)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_091C)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0914)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_090C)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlWalkLeft2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlWalkDown)
     waitmovement
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0854)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_08D8)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_08AC)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0880)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin6)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin9)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin8)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin7)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
     waitmovement
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_091C)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_091C)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_090C)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0904)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0914)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlWalkLeft2)
     waitmovement
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0830)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0830)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_080C)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin5)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin5)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin3)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin4)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(1)
     playse(SEQ_SE_GS_SUZUNOONPA_RU)
@@ -221,33 +221,33 @@ script scr_seq_D17R0110_006 {
     legendcutscenewavesorleaveseffectend
     legendcutscenepancamerato(0)
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_091C)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_091C)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_090C)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0904)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0914)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlWalkLeft2)
     waitmovement
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0830)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0830)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_080C)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin5)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin5)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin3)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin4)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
     waitmovement
     wait(32, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_090C)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_091C)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_090C)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0904)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0914)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlWalkRight2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlWalkDown)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlWalkUp2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlWalkLeft2)
     waitmovement
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07E8)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0830)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_080C)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin3)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin5)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin3)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin4)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
@@ -283,22 +283,22 @@ script scr_seq_D17R0110_006 {
     fadescreen(6, 1, 1, RGB_BLACK)
     waitfade
     wait(22, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin3)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin3)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
     waitmovement
     wait(32, VAR_SPECIAL_RESULT)
     wait(34, VAR_SPECIAL_RESULT)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
-    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
-    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_KimonoGirlSpin3)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_KimonoGirlSpin2)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_KimonoGirlSpin3)
     wait(12, VAR_SPECIAL_RESULT)
     legendcutsceneclearbellshimmer(0)
     playse(SEQ_SE_GS_SUZUNOONPA2)
@@ -321,7 +321,7 @@ script scr_seq_D17R0110_006 {
     wait(20, VAR_SPECIAL_RESULT)
     legendcutscenebirdfinalapproach
     stopbgm(30)
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0798)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlFaceUp)
     waitmovement
     processsoundplate
     bufferplayersname(0)
@@ -334,7 +334,7 @@ script scr_seq_D17R0110_006 {
            "Bell in harmony have finally made\f"
            "it appear...\r")
     closemessage
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0790)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlFaceDown)
     waitmovement
     bufferplayersname(0)
     npcmsg("{STRVAR_1 3, 0, 0}, don’t you see?\r"
@@ -342,7 +342,7 @@ script scr_seq_D17R0110_006 {
            "someone like you all this time.\f"
            "Wouldn’t you agree...?\r")
     closemessage
-    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_092C)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_KimonoGirlWalkRight3)
     waitmovement
     releaseall
     setflag(FLAG_UNK_10A)
@@ -350,7 +350,7 @@ script scr_seq_D17R0110_006 {
     end
 }
 
-script scr_seq_D17R0110_001 {
+script BellTowerRoof_EventScript_KimonoGirl1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -399,40 +399,40 @@ text msg_0058_D17R0110_00001 {
     "What you do now is entirely up to you..."
 }
 
-movement BellTowerRoof_Movement_0754 {
+movement BellTowerRoof_Movement_KimonoGirlWalkUp1 {
     delay_8 * 6
     walk_up
 }
 
-movement BellTowerRoof_Movement_0760 {
+movement BellTowerRoof_Movement_KimonoGirlWalkLeft1 {
     delay_8 * 5
     walk_left * 2
 }
 
-movement BellTowerRoof_Movement_076C {
+movement BellTowerRoof_Movement_KimonoGirlWalkLeftUp {
     walk_left
     walk_up * 6
 }
 
-movement BellTowerRoof_Movement_0778 {
+movement BellTowerRoof_Movement_KimonoGirlWalkRight1 {
     delay_8 * 5
     walk_right * 2
 }
 
-movement BellTowerRoof_Movement_0784 {
+movement BellTowerRoof_Movement_KimonoGirlWalkRightUp {
     walk_right
     walk_up * 6
 }
 
-movement BellTowerRoof_Movement_0790 {
+movement BellTowerRoof_Movement_KimonoGirlFaceDown {
     walk_in_place_down
 }
 
-movement BellTowerRoof_Movement_0798 {
+movement BellTowerRoof_Movement_KimonoGirlFaceUp {
     walk_in_place_up
 }
 
-movement BellTowerRoof_Movement_07A0 {
+movement BellTowerRoof_Movement_KimonoGirlSpin1 {
     face_left
     delay_2
     face_up
@@ -443,7 +443,7 @@ movement BellTowerRoof_Movement_07A0 {
     delay_2
 }
 
-movement BellTowerRoof_Movement_07C4 {
+movement BellTowerRoof_Movement_KimonoGirlSpin2 {
     face_right
     delay_2
     face_down
@@ -454,7 +454,7 @@ movement BellTowerRoof_Movement_07C4 {
     delay_2
 }
 
-movement BellTowerRoof_Movement_07E8 {
+movement BellTowerRoof_Movement_KimonoGirlSpin3 {
     face_left
     delay_2
     face_up
@@ -465,7 +465,7 @@ movement BellTowerRoof_Movement_07E8 {
     delay_2
 }
 
-movement BellTowerRoof_Movement_080C {
+movement BellTowerRoof_Movement_KimonoGirlSpin4 {
     face_up
     delay_2
     face_right
@@ -476,7 +476,7 @@ movement BellTowerRoof_Movement_080C {
     delay_2
 }
 
-movement BellTowerRoof_Movement_0830 {
+movement BellTowerRoof_Movement_KimonoGirlSpin5 {
     face_down
     delay_2
     face_left
@@ -487,7 +487,7 @@ movement BellTowerRoof_Movement_0830 {
     delay_2
 }
 
-movement BellTowerRoof_Movement_0854 {
+movement BellTowerRoof_Movement_KimonoGirlSpin6 {
     face_right
     delay_2
     face_down
@@ -500,7 +500,7 @@ movement BellTowerRoof_Movement_0854 {
     delay_2
 }
 
-movement BellTowerRoof_Movement_0880 {
+movement BellTowerRoof_Movement_KimonoGirlSpin7 {
     face_left
     delay_2
     face_up
@@ -513,7 +513,7 @@ movement BellTowerRoof_Movement_0880 {
     delay_2
 }
 
-movement BellTowerRoof_Movement_08AC {
+movement BellTowerRoof_Movement_KimonoGirlSpin8 {
     face_up
     delay_2
     face_right
@@ -526,7 +526,7 @@ movement BellTowerRoof_Movement_08AC {
     delay_2
 }
 
-movement BellTowerRoof_Movement_08D8 {
+movement BellTowerRoof_Movement_KimonoGirlSpin9 {
     face_down
     delay_2
     face_left
@@ -539,19 +539,19 @@ movement BellTowerRoof_Movement_08D8 {
     delay_2
 }
 
-movement BellTowerRoof_Movement_0904 {
+movement BellTowerRoof_Movement_KimonoGirlWalkUp2 {
     walk_slow_up * 2
 }
 
-movement BellTowerRoof_Movement_090C {
+movement BellTowerRoof_Movement_KimonoGirlWalkDown {
     walk_slow_down * 2
 }
 
-movement BellTowerRoof_Movement_0914 {
+movement BellTowerRoof_Movement_KimonoGirlWalkLeft2 {
     walk_slow_left * 2
 }
 
-movement BellTowerRoof_Movement_091C {
+movement BellTowerRoof_Movement_KimonoGirlWalkRight2 {
     walk_slow_right * 2
 }
 
@@ -559,14 +559,14 @@ movement BellTowerRoof_Movement_0924 {
     walk_slow_down
 }
 
-movement BellTowerRoof_Movement_092C {
+movement BellTowerRoof_Movement_KimonoGirlWalkRight3 {
     face_left
     lock_dir
     walk_slow_right
     unlock_dir
 }
 
-script scr_seq_D17R0110_004 {
+script BellTowerRoof_EventScript_KimonoGirl2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -586,7 +586,7 @@ script scr_seq_D17R0110_004 {
 }
 
 mapscripts BellTowerRoof_MapScripts {
-    INIT_SCRIPT_ON_LOAD: scr_seq_D17R0110_002
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D17R0110_003
-    INIT_SCRIPT_ON_RESUME: scr_seq_D17R0110_005
+    INIT_SCRIPT_ON_LOAD: BellTowerRoof_OnLoad
+    INIT_SCRIPT_ON_TRANSITION: BellTowerRoof_OnTransition
+    INIT_SCRIPT_ON_RESUME: BellTowerRoof_OnResume
 }

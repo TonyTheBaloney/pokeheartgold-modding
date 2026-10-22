@@ -3,27 +3,27 @@
   "messages": [
     {
       "id": "msg_0607_T26PC0101_00000",
-      "from": "scr_seq_T26PC0101_001#0"
+      "from": "Olivine_Pokecenter_1F_EventScript_Fisherman#0"
     },
     {
       "id": "msg_0607_T26PC0101_00001",
-      "from": "scr_seq_T26PC0101_002#0"
+      "from": "Olivine_Pokecenter_1F_EventScript_FatMan#0"
     },
     {
       "id": "msg_0607_T26PC0101_00002",
-      "from": "scr_seq_T26PC0101_003#0"
+      "from": "Olivine_Pokecenter_1F_EventScript_Woman#0"
     },
     {
       "id": "msg_0607_T26PC0101_00003",
-      "from": "scr_seq_T26PC0101_004#0"
+      "from": "Olivine_Pokecenter_1F_EventScript_Charlotte#0"
     },
     {
       "id": "msg_0607_T26PC0101_00004",
-      "from": "scr_seq_T26PC0101_004#1"
+      "from": "Olivine_Pokecenter_1F_EventScript_Charlotte#1"
     },
     {
       "id": "msg_0607_T26PC0101_00005",
-      "from": "scr_seq_T26PC0101_004#2"
+      "from": "Olivine_Pokecenter_1F_EventScript_Charlotte#2"
     },
     {
       "id": "msg_0607_T26PC0101_00006",
@@ -31,11 +31,11 @@
     },
     {
       "id": "msg_0607_T26PC0101_00007",
-      "from": "scr_seq_T26PC0101_004#4"
+      "from": "Olivine_Pokecenter_1F_EventScript_Charlotte#4"
     },
     {
       "id": "msg_0607_T26PC0101_00008",
-      "from": "scr_seq_T26PC0101_004#3"
+      "from": "Olivine_Pokecenter_1F_EventScript_Charlotte#3"
     }
   ]
 }

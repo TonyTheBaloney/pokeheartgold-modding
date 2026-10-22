@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0128_D43R0103_00000",
-      "from": "scr_seq_D43R0103_000#0"
+      "from": "VictoryRoad_3F_EventScript_RivalTrigger#0"
     },
     {
       "id": "msg_0128_D43R0103_00001",
-      "from": "scr_seq_D43R0103_000#1"
+      "from": "VictoryRoad_3F_EventScript_RivalTrigger#1"
     }
   ]
 }

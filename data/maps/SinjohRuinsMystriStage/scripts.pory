@@ -4,20 +4,20 @@
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
     scr_seq_D51R0201_000
-    scr_seq_D51R0201_001
-    scr_seq_D51R0201_002
-    scr_seq_D51R0201_003
-    scr_seq_D51R0201_004
-    scr_seq_D51R0201_005
-    scr_seq_D51R0201_006
-    scr_seq_D51R0201_007
+    SinjohRuinsMystriStage_EventScript_Cynthia
+    SinjohRuinsMystriStage_OnTransition
+    SinjohRuinsMystriStage_EventScript_CynthiaTrigger1
+    SinjohRuinsMystriStage_EventScript_CynthiaTrigger2
+    SinjohRuinsMystriStage_EventScript_CynthiaTrigger3
+    SinjohRuinsMystriStage_EventScript_Scene1
+    SinjohRuinsMystriStage_EventScript_Scene2
 }
 
 raw `
 #include "constants/events.h"
 `
 
-script scr_seq_D51R0201_002 {
+script SinjohRuinsMystriStage_OnTransition {
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 7) { goto(_0065) }
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 8) { goto(_0065) }
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 9) { goto(_0065) }
@@ -29,13 +29,13 @@ _0065:
     end
 }
 
-script scr_seq_D51R0201_007 {
+script SinjohRuinsMystriStage_EventScript_Scene2 {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, SinjohRuinsMystriStage_Movement_00C4)
+    applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerWalkDown1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -45,13 +45,13 @@ script scr_seq_D51R0201_007 {
     end
 }
 
-script scr_seq_D51R0201_006 {
+script SinjohRuinsMystriStage_EventScript_Scene1 {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, SinjohRuinsMystriStage_Movement_00C4)
+    applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerWalkDown1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -61,7 +61,7 @@ script scr_seq_D51R0201_006 {
     end
 }
 
-movement SinjohRuinsMystriStage_Movement_00C4 {
+movement SinjohRuinsMystriStage_Movement_PlayerWalkDown1 {
     walk_down * 2
 }
 
@@ -69,7 +69,7 @@ script scr_seq_D51R0201_000 {
     end
 }
 
-script scr_seq_D51R0201_001 {
+script SinjohRuinsMystriStage_EventScript_Cynthia {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -85,11 +85,11 @@ script scr_seq_D51R0201_001 {
         setvar(VAR_UNK_4104, 1)
         getplayerfacing(VAR_TEMP_x4002)
         if (var(VAR_TEMP_x4002) == 0) {
-            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02B4)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaFaceDown1)
         } elif (var(VAR_TEMP_x4002) == 3) {
-            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02BC)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaFaceLeft1)
         } else {
-            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02C4)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaFaceRight)
         }
         waitmovement
         npcmsg("Cynthia: This is where one might say,\n"
@@ -104,20 +104,20 @@ script scr_seq_D51R0201_001 {
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
         if (var(VAR_TEMP_x4002) == 2) {
-            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02D4)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkLeft)
         } else {
-            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02E0)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkRight)
         }
         waitmovement
         if (var(VAR_TEMP_x4002) == 0) {
-            applymovement(obj_player, SinjohRuinsMystriStage_Movement_0390)
-            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0308)
+            applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerWalkUp)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkLeftUp)
         } elif (var(VAR_TEMP_x4002) == 3) {
-            applymovement(obj_player, SinjohRuinsMystriStage_Movement_03A0)
-            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0308)
+            applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerWalkRightUp)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkLeftUp)
         } else {
-            applymovement(obj_player, SinjohRuinsMystriStage_Movement_03B4)
-            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02EC)
+            applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerWalkLeftUp)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkRightUp)
         }
         waitmovement
         waitfollowingpokemonmovement
@@ -129,26 +129,26 @@ script scr_seq_D51R0201_001 {
                "The circle in the middle is ARCEUS,\n"
                "the origin of it all...\r")
         closemessage
-        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0324)
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkRightDown1)
         waitmovement
         npcmsg("Cynthia: This is the pattern that\n"
                "represents PALKIA, the master of\f"
                "space and dimensions...\r")
         closemessage
-        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0334)
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkDownLeft)
         waitmovement
         npcmsg("Cynthia: This is the pattern that\n"
                "represents DIALGA, the guardian\f"
                "of time...\r")
         closemessage
-        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0348)
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkUpRight)
         waitmovement
         npcmsg("Cynthia: This is the pattern that\n"
                "represents GIRATINA, the ruler of\f"
                "the world that is on the opposite side\f"
                "of ours, the world of antimatter...\r")
         closemessage
-        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0364)
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkDown)
         waitmovement
         npcmsg("Cynthia: ARCEUS has accepted you as\n"
                "a Trainer.\r"
@@ -158,8 +158,8 @@ script scr_seq_D51R0201_001 {
                "The power of possibly making life\n"
                "appear out of nothing...\r")
         closemessage
-        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0370)
-        applymovement(obj_player, SinjohRuinsMystriStage_Movement_03C8)
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkRightDown2)
+        applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerFaceRight)
         waitmovement
         npcmsg("Cynthia: It seems that something\n"
                "will happen when you choose one\f"
@@ -195,7 +195,7 @@ _011A:
     closemessage
     getpartycount(VAR_SPECIAL_x8004)
     if (var(VAR_SPECIAL_x8004) >= 2) { goto(_0154) }
-    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02CC)
+    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaFaceUp1)
     waitmovement
     npcmsg("Cynthia: According to an ancient\n"
            "document, time, space, and antimatter,\f"
@@ -219,33 +219,33 @@ _0154:
     end
 }
 
-movement SinjohRuinsMystriStage_Movement_02B4 {
+movement SinjohRuinsMystriStage_Movement_CynthiaFaceDown1 {
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_02BC {
+movement SinjohRuinsMystriStage_Movement_CynthiaFaceLeft1 {
     walk_in_place_left
 }
 
-movement SinjohRuinsMystriStage_Movement_02C4 {
+movement SinjohRuinsMystriStage_Movement_CynthiaFaceRight {
     walk_in_place_right
 }
 
-movement SinjohRuinsMystriStage_Movement_02CC {
+movement SinjohRuinsMystriStage_Movement_CynthiaFaceUp1 {
     walk_in_place_up
 }
 
-movement SinjohRuinsMystriStage_Movement_02D4 {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkLeft {
     walk_left
     walk_in_place_right
 }
 
-movement SinjohRuinsMystriStage_Movement_02E0 {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkRight {
     walk_right
     walk_in_place_left
 }
 
-movement SinjohRuinsMystriStage_Movement_02EC {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkRightUp {
     delay_16
     walk_right
     walk_up * 3
@@ -254,7 +254,7 @@ movement SinjohRuinsMystriStage_Movement_02EC {
     walk_in_place_left
 }
 
-movement SinjohRuinsMystriStage_Movement_0308 {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkLeftUp {
     delay_16
     walk_left
     walk_up * 3
@@ -263,20 +263,20 @@ movement SinjohRuinsMystriStage_Movement_0308 {
     walk_in_place_left
 }
 
-movement SinjohRuinsMystriStage_Movement_0324 {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkRightDown1 {
     walk_right * 3
     walk_down
     walk_in_place_left
 }
 
-movement SinjohRuinsMystriStage_Movement_0334 {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkDownLeft {
     walk_down
     walk_left * 8
     walk_up
     walk_in_place_right
 }
 
-movement SinjohRuinsMystriStage_Movement_0348 {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkUpRight {
     walk_up * 3
     walk_right * 2
     walk_up * 3
@@ -285,12 +285,12 @@ movement SinjohRuinsMystriStage_Movement_0348 {
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0364 {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkDown {
     walk_down * 3
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0370 {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkRightDown2 {
     walk_right
     walk_down * 6
     walk_left
@@ -302,34 +302,34 @@ movement SinjohRuinsMystriStage_Movement_0384 {
     walk_down * 2
 }
 
-movement SinjohRuinsMystriStage_Movement_0390 {
+movement SinjohRuinsMystriStage_Movement_PlayerWalkUp {
     walk_up * 6
     delay_16
     walk_in_place_right
 }
 
-movement SinjohRuinsMystriStage_Movement_03A0 {
+movement SinjohRuinsMystriStage_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 5
     delay_16
     walk_in_place_right
 }
 
-movement SinjohRuinsMystriStage_Movement_03B4 {
+movement SinjohRuinsMystriStage_Movement_PlayerWalkLeftUp {
     walk_left
     walk_up * 5
     delay_16
     walk_in_place_right
 }
 
-movement SinjohRuinsMystriStage_Movement_03C8 {
+movement SinjohRuinsMystriStage_Movement_PlayerFaceRight {
     delay_8 * 2
     walk_in_place_right
     delay_8 * 3
     walk_in_place_right
 }
 
-script scr_seq_D51R0201_004 {
+script SinjohRuinsMystriStage_EventScript_CynthiaTrigger2 {
     followmonresetmovement
     lockall
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) >= 13) {
@@ -349,7 +349,7 @@ script scr_seq_D51R0201_004 {
     end
 }
 
-script scr_seq_D51R0201_003 {
+script SinjohRuinsMystriStage_EventScript_CynthiaTrigger1 {
     followmonresetmovement
     lockall
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) >= 13) {
@@ -369,7 +369,7 @@ script scr_seq_D51R0201_003 {
     end
 }
 
-script scr_seq_D51R0201_005 {
+script SinjohRuinsMystriStage_EventScript_CynthiaTrigger3 {
     followmonresetmovement
     lockall
     if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) >= 13) {
@@ -409,49 +409,49 @@ _0514:
                 goto(_07B2)
             _06B0:
                 if (var(VAR_TEMP_x4002) == 0) {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0BE4)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0C28)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkRightUp1)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkRightUp)
                 } elif (var(VAR_TEMP_x4002) == 3) {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0BF4)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0C28)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkUpRight)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkRightUp)
                 } elif (var(VAR_TEMP_x4002) == 2) {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C08)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0C28)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkRightUp2)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkRightUp)
                 } else {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C18)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0C28)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkRightUp3)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkRightUp)
                 }
                 waitmovement
                 goto(_0833)
             _0731:
                 if (var(VAR_TEMP_x4002) == 0) {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C34)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0C78)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkLeftUp1)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkLeftUp)
                 } elif (var(VAR_TEMP_x4002) == 3) {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C44)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0C78)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkLeftUp2)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkLeftUp)
                 } elif (var(VAR_TEMP_x4002) == 2) {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C54)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0C78)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkUpLeft)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkLeftUp)
                 } else {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C68)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0C78)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkLeftUp3)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkLeftUp)
                 }
                 waitmovement
                 goto(_0833)
             _07B2:
                 if (var(VAR_TEMP_x4002) == 0) {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C84)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0CC4)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkDown1)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkDown1)
                 } elif (var(VAR_TEMP_x4002) == 3) {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C90)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0CC4)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkDownRight)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkDown1)
                 } elif (var(VAR_TEMP_x4002) == 2) {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0CA0)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0CC4)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkDownLeft)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkDown1)
                 } else {
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0CB0)
-                    applymovement(241, SinjohRuinsMystriStage_Movement_0CC4)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkRightDown)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkDown1)
                 }
                 waitmovement
                 goto(_0833)
@@ -468,11 +468,11 @@ _0514:
                     lock(obj_D51R0201_champion)
                 }
                 if (var(VAR_TEMP_x4009) == SPECIES_DIALGA) {
-                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_0CCC)
+                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerWalkRight)
                 } elif (var(VAR_TEMP_x4009) == SPECIES_PALKIA) {
-                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_0CD8)
+                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerWalkLeft)
                 } else {
-                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_0CE4)
+                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerWalkDown2)
                 }
                 wait(150, VAR_SPECIAL_RESULT)
                 fadescreen(6, 30, 1, RGB_BLACK)
@@ -481,7 +481,7 @@ _0514:
                 createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
                 nopvar490(VAR_SPECIAL_x8004)
                 nopvar490(VAR_SPECIAL_x8005)
-                applymovement(241, SinjohRuinsMystriStage_Movement_0CF0)
+                applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkUp)
                 waitmovement
                 playse(SEQ_SE_GS_TAMASYUTUGEN)
                 if (var(VAR_TEMP_x4009) == SPECIES_DIALGA) {
@@ -492,7 +492,7 @@ _0514:
                     sinjohgeteggcutscene(2)
                 }
                 stopse(SEQ_SE_GS_TAMASYUTUGEN)
-                applymovement(obj_player, SinjohRuinsMystriStage_Movement_0D0C)
+                applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerExclamation)
                 waitmovement
                 sinjohfreezeallmodels
                 wait(2, VAR_SPECIAL_RESULT)
@@ -506,7 +506,7 @@ _0514:
                        "the {STRVAR_1 0, 1, 0}!")
                 waitfanfare
                 closemessage
-                applymovement(241, SinjohRuinsMystriStage_Movement_0CF8)
+                applymovement(241, SinjohRuinsMystriStage_Movement_ObjectWalkDown2)
                 waitmovement
                 removecameratarget
                 resetbgm
@@ -530,9 +530,9 @@ _0514:
                 compare(VAR_SPECIAL_RESULT, 0)
                 callifeq(_0BB2)
                 if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) != 14) {
-                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D28)
-                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_0D00)
-                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0D1C)
+                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaWalkUp)
+                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_PlayerWalkDown3)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_FollowMonWalkDown2)
                     waitmovement
                     npcmsg("Cynthia: That shining sphere...\n"
                            "Could it be...an Egg?\r"
@@ -540,7 +540,7 @@ _0514:
                            "an Egg was brought to this world?\f"
                            "A moment no one has ever seen?\r")
                     closemessage
-                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D4C)
+                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaFaceDown2)
                     waitmovement
                     npcmsg("Cynthia: An Egg is the cradle of every\n"
                            "being. This planet itself is an Egg\f"
@@ -558,11 +558,11 @@ _0514:
                     wait(1, VAR_SPECIAL_RESULT)
                     fadescreen(6, 6, 1, RGB_BLACK)
                     waitfade
-                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D30)
+                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaFaceLeft2)
                     waitmovement
                     npcmsg("Cynthia: That was...?\r")
                     closemessage
-                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D44)
+                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_CynthiaFaceUp2)
                     waitmovement
                     npcmsg("Cynthia: We seem to be surrounded by\n"
                            "that strong power again...!\r")
@@ -713,157 +713,157 @@ text msg_0146_D51R0201_00030 {
     "This place does not seem to respond..."
 }
 
-movement SinjohRuinsMystriStage_Movement_0BE4 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkRightUp1 {
     walk_slow_right * 4
     walk_slow_up * 4
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0BF4 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkUpRight {
     walk_slow_up * 2
     walk_slow_right * 5
     walk_slow_up
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0C08 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkRightUp2 {
     walk_slow_right * 3
     walk_slow_up * 3
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0C18 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkRightUp3 {
     walk_slow_right * 4
     walk_slow_up * 2
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0C28 {
+movement SinjohRuinsMystriStage_Movement_ObjectWalkRightUp {
     walk_slow_right * 4
     walk_slow_up * 3
 }
 
-movement SinjohRuinsMystriStage_Movement_0C34 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkLeftUp1 {
     walk_slow_left * 4
     walk_slow_up * 4
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0C44 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkLeftUp2 {
     walk_slow_left * 3
     walk_slow_up * 3
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0C54 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkUpLeft {
     walk_slow_up * 2
     walk_slow_left * 5
     walk_slow_up
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0C68 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkLeftUp3 {
     walk_slow_left * 4
     walk_slow_up * 2
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0C78 {
+movement SinjohRuinsMystriStage_Movement_ObjectWalkLeftUp {
     walk_slow_left * 4
     walk_slow_up * 3
 }
 
-movement SinjohRuinsMystriStage_Movement_0C84 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkDown1 {
     walk_slow_down * 3
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0C90 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkDownRight {
     walk_slow_down * 4
     walk_slow_right
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0CA0 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkDownLeft {
     walk_slow_down * 4
     walk_slow_left
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0CB0 {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkRightDown {
     walk_slow_right
     walk_slow_down * 5
     walk_slow_left
     walk_in_place_down
 }
 
-movement SinjohRuinsMystriStage_Movement_0CC4 {
+movement SinjohRuinsMystriStage_Movement_ObjectWalkDown1 {
     walk_slow_down * 4
 }
 
-movement SinjohRuinsMystriStage_Movement_0CCC {
+movement SinjohRuinsMystriStage_Movement_PlayerWalkRight {
     walk_faster_right * 4
     face_up
 }
 
-movement SinjohRuinsMystriStage_Movement_0CD8 {
+movement SinjohRuinsMystriStage_Movement_PlayerWalkLeft {
     walk_faster_left * 4
     face_up
 }
 
-movement SinjohRuinsMystriStage_Movement_0CE4 {
+movement SinjohRuinsMystriStage_Movement_PlayerWalkDown2 {
     walk_down * 7
     face_up
 }
 
-movement SinjohRuinsMystriStage_Movement_0CF0 {
+movement SinjohRuinsMystriStage_Movement_ObjectWalkUp {
     walk_up * 3
 }
 
-movement SinjohRuinsMystriStage_Movement_0CF8 {
+movement SinjohRuinsMystriStage_Movement_ObjectWalkDown2 {
     walk_down * 3
 }
 
-movement SinjohRuinsMystriStage_Movement_0D00 {
+movement SinjohRuinsMystriStage_Movement_PlayerWalkDown3 {
     delay_16 * 2
     walk_down * 2
 }
 
-movement SinjohRuinsMystriStage_Movement_0D0C {
+movement SinjohRuinsMystriStage_Movement_PlayerExclamation {
     delay_8
     emote_exclamation_mark
     delay_8
 }
 
-movement SinjohRuinsMystriStage_Movement_0D1C {
+movement SinjohRuinsMystriStage_Movement_FollowMonWalkDown2 {
     delay_16 * 2
     walk_down * 4
 }
 
-movement SinjohRuinsMystriStage_Movement_0D28 {
+movement SinjohRuinsMystriStage_Movement_CynthiaWalkUp {
     walk_up * 9
 }
 
-movement SinjohRuinsMystriStage_Movement_0D30 {
+movement SinjohRuinsMystriStage_Movement_CynthiaFaceLeft2 {
     face_right
     delay_8 * 3
     face_left
     delay_8 * 3
 }
 
-movement SinjohRuinsMystriStage_Movement_0D44 {
+movement SinjohRuinsMystriStage_Movement_CynthiaFaceUp2 {
     walk_in_place_up
 }
 
-movement SinjohRuinsMystriStage_Movement_0D4C {
+movement SinjohRuinsMystriStage_Movement_CynthiaFaceDown2 {
     delay_8
     walk_in_place_down
 }
 
 mapscripts SinjohRuinsMystriStage_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D51R0201_002
+    INIT_SCRIPT_ON_TRANSITION: SinjohRuinsMystriStage_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_SINJOH_MYSTRI_ROOM, 3: scr_seq_D51R0201_006
-        VAR_SCENE_SINJOH_MYSTRI_ROOM, 12: scr_seq_D51R0201_007
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 3: SinjohRuinsMystriStage_EventScript_Scene1
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 12: SinjohRuinsMystriStage_EventScript_Scene2
     ]
 }

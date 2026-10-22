@@ -15,55 +15,55 @@
     },
     {
       "id": "msg_0344_R10R0201_00003",
-      "from": "scr_seq_R10R0201_000#0"
+      "from": "Route10_PowerPlantRepaired_EventScript_Manager#0"
     },
     {
       "id": "msg_0344_R10R0201_00004",
-      "from": "scr_seq_R10R0201_001#0"
+      "from": "Route10_PowerPlantRepaired_EventScript_Policeman1#0"
     },
     {
       "id": "msg_0344_R10R0201_00005",
-      "from": "scr_seq_R10R0201_002#0"
+      "from": "Route10_PowerPlantRepaired_EventScript_SuperNerd1#0"
     },
     {
       "id": "msg_0344_R10R0201_00006",
-      "from": "scr_seq_R10R0201_003#0"
+      "from": "Route10_PowerPlantRepaired_EventScript_SuperNerd2#0"
     },
     {
       "id": "msg_0344_R10R0201_00007",
-      "from": "scr_seq_R10R0201_004#0"
+      "from": "Route10_PowerPlantRepaired_EventScript_Policeman2#0"
     },
     {
       "id": "msg_0344_R10R0201_00008",
-      "from": "scr_seq_R10R0201_005#0"
+      "from": "Route10_PowerPlantRepaired_EventScript_SuperNerd3#0"
     },
     {
       "id": "msg_0344_R10R0201_00009",
-      "from": "scr_seq_R10R0201_006#1"
+      "from": "Route10_PowerPlantRepaired_EventScript_SuperNerd4#1"
     },
     {
       "id": "msg_0344_R10R0201_00010",
-      "from": "scr_seq_R10R0201_006#2"
+      "from": "Route10_PowerPlantRepaired_EventScript_SuperNerd4#2"
     },
     {
       "id": "msg_0344_R10R0201_00011",
-      "from": "scr_seq_R10R0201_006#3"
+      "from": "Route10_PowerPlantRepaired_EventScript_SuperNerd4#3"
     },
     {
       "id": "msg_0344_R10R0201_00012",
-      "from": "scr_seq_R10R0201_006#4"
+      "from": "Route10_PowerPlantRepaired_EventScript_SuperNerd4#4"
     },
     {
       "id": "msg_0344_R10R0201_00013",
-      "from": "scr_seq_R10R0201_006#0"
+      "from": "Route10_PowerPlantRepaired_EventScript_SuperNerd4#0"
     },
     {
       "id": "msg_0344_R10R0201_00014",
-      "from": "scr_seq_R10R0201_007#0"
+      "from": "Route10_PowerPlantRepaired_EventScript_Sign#0"
     },
     {
       "id": "msg_0344_R10R0201_00015",
-      "from": "scr_seq_R10R0201_008#0"
+      "from": "Route10_PowerPlantRepaired_EventScript_UseElectricityWiselySign#0"
     }
   ]
 }

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T07R0106_000 {
+script Celadon_DepartmentStoreRoof_EventScript_Man {
     simplenpcmsg("A vending machine with a \n"
                  "prize roulette...\r"
                  "It makes you happy when you get\n"
@@ -14,13 +14,13 @@ script scr_seq_T07R0106_000 {
     end
 }
 
-script scr_seq_T07R0106_001 {
+script Celadon_DepartmentStoreRoof_EventScript_SchoolKidM {
     simplenpcmsg("Aww! There are no games here!\n"
                  "I wanted to play...")
     end
 }
 
-script scr_seq_T07R0106_002 {
+script Celadon_DepartmentStoreRoof_EventScript_VendingMachine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Have a Break at the Vending Machines\n"
@@ -31,7 +31,7 @@ script scr_seq_T07R0106_002 {
     end
 }
 
-script scr_seq_T07R0106_003 {
+script Celadon_DepartmentStoreRoof_EventScript_Machine {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg(msg_0499_T07R0106_00003)

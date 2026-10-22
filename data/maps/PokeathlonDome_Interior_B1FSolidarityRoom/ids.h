@@ -1,20 +1,20 @@
 #ifndef SCR_SEQ_D49R0104_H_
 #define SCR_SEQ_D49R0104_H_
 
-#define _EV_scr_seq_D49R0104_000 0
-#define _EV_scr_seq_D49R0104_001 1
-#define _EV_scr_seq_D49R0104_002 2
-#define _EV_scr_seq_D49R0104_003 3
-#define _EV_scr_seq_D49R0104_004 4
-#define _EV_scr_seq_D49R0104_005 5
-#define _EV_scr_seq_D49R0104_006 6
-#define _EV_scr_seq_D49R0104_007 7
-#define _EV_scr_seq_D49R0104_008 8
-#define _EV_scr_seq_D49R0104_009 9
-#define _EV_scr_seq_D49R0104_010 10
-#define _EV_scr_seq_D49R0104_011 11
-#define _EV_scr_seq_D49R0104_012 12
-#define _EV_scr_seq_D49R0104_013 13
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Receptionist1 0
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Receptionist2 1
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Man 2
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Rattata1 3
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Lass 4
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Rattata2 5
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Zubat 6
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_CheckedSign 7
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Painting 8
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Sign1 9
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Sign2 10
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_OnResume 11
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_OnTransition 12
+#define _EV_PokeathlonDome_Interior_B1FSolidarityRoom_EventScript_Sign3 13
 
 #define obj_D49R0104_gsman1                    0
 #define obj_D49R0104_pcwoman2                  1

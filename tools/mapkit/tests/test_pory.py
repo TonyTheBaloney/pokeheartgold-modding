@@ -9,7 +9,7 @@ sys.path[:0] = [os.path.join(os.path.dirname(__file__), ".."), os.path.dirname(_
 
 from mapkit import Repo  # noqa: E402
 from mapkit import pory  # noqa: E402
-from mapkit.pory import compiler, decompile, inline_text, PoryError  # noqa: E402
+from mapkit.pory import compiler, decompile, inline_text, naming, PoryError  # noqa: E402
 from pory_roundtrip import roundtrip  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
@@ -189,6 +189,31 @@ class InlineText(unittest.TestCase):
             for i, msg in enumerate(out[:len(REPO.text_bank(m).messages)]):
                 if msg["id"].startswith("msg_"):
                     self.assertTrue(msg["id"].endswith("_%05d" % i), (e["dir"], msg["id"], i))
+
+
+class Naming(unittest.TestCase):
+    def test_camel(self):
+        self.assertEqual([naming.camel(x) for x in ("Professor Elm", "Mr. Pokémon", "Lt. Surge", "FARFETCHD", "DJ Mary")],
+                         ["ProfElm", "MrPokemon", "LtSurge", "Farfetchd", "DJMary"])
+
+    def test_movement_actions(self):
+        a = naming.action
+        self.assertEqual(a([("walk_in_place_up", 1)]), "FaceUp")
+        self.assertEqual(a([("walk_down", 2), ("walk_in_place_left", 1), ("delay_8", 2), ("walk_left", 2)]), "WalkDownLeft")
+        self.assertEqual(a([("walk_up", 1), ("set_invisible", 1)]), "Exit")
+        self.assertEqual(a([("emote_exclamation_mark", 1), ("walk_in_place_fast_down", 1)]), "Exclamation")
+        self.assertEqual(a([("face_down", 1), ("face_left", 1), ("face_up", 1), ("face_right", 1)]), "Spin")
+        self.assertEqual(a([("WalkNormalNorth", 2)]), "WalkUp")
+
+    def test_numbering(self):
+        self.assertEqual(naming.number("M", {"a": "EventScript_Man", "b": "EventScript_Man", "c": "EventScript_Girl"},
+                                       ["b", "a", "c"], set()),
+                         {"b": "M_EventScript_Man1", "a": "M_EventScript_Man2", "c": "M_EventScript_Girl"})
+        self.assertEqual(naming.number("M", {"a": "EventScript_Girl"}, ["a"], {"M_EventScript_Girl"}),
+                         {"a": "M_EventScript_Girl1"})
+
+    def test_all_names_are_given_and_stable(self):
+        self.assertEqual(sum(len(p) for p in naming.plan_all(REPO).values()), 0)  # nothing left to rename
 
 
 class Decompile(unittest.TestCase):

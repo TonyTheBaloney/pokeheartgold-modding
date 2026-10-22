@@ -1,17 +1,17 @@
 #ifndef SCR_SEQ_R30_H_
 #define SCR_SEQ_R30_H_
 
-#define _EV_scr_seq_R30_000 0
-#define _EV_scr_seq_R30_001 1
-#define _EV_scr_seq_R30_002 2
-#define _EV_scr_seq_R30_003 3
-#define _EV_scr_seq_R30_004 4
-#define _EV_scr_seq_R30_005 5
-#define _EV_scr_seq_R30_006 6
-#define _EV_scr_seq_R30_007 7
-#define _EV_scr_seq_R30_008 8
-#define _EV_scr_seq_R30_009 9
-#define _EV_scr_seq_R30_010 10
+#define _EV_Route30_EventScript_Youngster 0
+#define _EV_Route30_EventScript_ProfElmCall 1
+#define _EV_Route30_EventScript_PokefanMTrigger 2
+#define _EV_Route30_EventScript_BugCatcher 3
+#define _EV_Route30_EventScript_MomCall 4
+#define _EV_Route30_EventScript_RouteSign 5
+#define _EV_Route30_EventScript_MrPokemonsHouseSign 6
+#define _EV_Route30_EventScript_TrainerTips1 7
+#define _EV_Route30_EventScript_TrainerTips2 8
+#define _EV_Route30_EventScript_Man 9
+#define _EV_Route30_EventScript_Girl 10
 
 #define obj_R30_gsman1                    0
 #define obj_R30_gsgirl2                   1

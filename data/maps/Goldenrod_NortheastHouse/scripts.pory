@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R0801_000 {
+script Goldenrod_NortheastHouse_EventScript_FatMan {
     simplenpcmsg("Once while I was battling, my Pokémon\n"
                  "couldn’t use any moves.\r"
                  "The Power Points, or PP, of its\n"
@@ -9,7 +9,7 @@ script scr_seq_T25R0801_000 {
     end
 }
 
-script scr_seq_T25R0801_001 {
+script Goldenrod_NortheastHouse_EventScript_Lass {
     simplenpcmsg("Sometimes, a healthy Pokémon\n"
                  "may be unable to use its moves.\r"
                  "If that happens, heal it at a\n"

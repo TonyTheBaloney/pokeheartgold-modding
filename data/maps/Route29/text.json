@@ -3,23 +3,23 @@
   "messages": [
     {
       "id": "msg_0373_R29_00000",
-      "from": "scr_seq_R29_001#2"
+      "from": "Route29_EventScript_LyraTrigger#2"
     },
     {
       "id": "msg_0373_R29_00001",
-      "from": "scr_seq_R29_001#3"
+      "from": "Route29_EventScript_LyraTrigger#3"
     },
     {
       "id": "msg_0373_R29_00002",
-      "from": "scr_seq_R29_001#8"
+      "from": "Route29_EventScript_LyraTrigger#8"
     },
     {
       "id": "msg_0373_R29_00003",
-      "from": "scr_seq_R29_001#4"
+      "from": "Route29_EventScript_LyraTrigger#4"
     },
     {
       "id": "msg_0373_R29_00004",
-      "from": "scr_seq_R29_001#5"
+      "from": "Route29_EventScript_LyraTrigger#5"
     },
     {
       "id": "msg_0373_R29_00005",
@@ -31,27 +31,27 @@
     },
     {
       "id": "msg_0373_R29_00007",
-      "from": "scr_seq_R29_001#6"
+      "from": "Route29_EventScript_LyraTrigger#6"
     },
     {
       "id": "msg_0373_R29_00008",
-      "from": "scr_seq_R29_001#7"
+      "from": "Route29_EventScript_LyraTrigger#7"
     },
     {
       "id": "msg_0373_R29_00009",
-      "from": "scr_seq_R29_006#0"
+      "from": "Route29_EventScript_Youngster#0"
     },
     {
       "id": "msg_0373_R29_00010",
-      "from": "scr_seq_R29_008#0"
+      "from": "Route29_EventScript_Beauty2#0"
     },
     {
       "id": "msg_0373_R29_00011",
-      "from": "scr_seq_R29_007#0"
+      "from": "Route29_EventScript_FatMan#0"
     },
     {
       "id": "msg_0373_R29_00012",
-      "from": "scr_seq_R29_002#0"
+      "from": "Route29_EventScript_Man#0"
     },
     {
       "id": "msg_0373_R29_00013",
@@ -59,23 +59,23 @@
     },
     {
       "id": "msg_0373_R29_00014",
-      "from": "scr_seq_R29_002#1"
+      "from": "Route29_EventScript_Man#1"
     },
     {
       "id": "msg_0373_R29_00015",
-      "from": "scr_seq_R29_005#0"
+      "from": "Route29_EventScript_RouteSign2#0"
     },
     {
       "id": "msg_0373_R29_00016",
-      "from": "scr_seq_R29_004#0"
+      "from": "Route29_EventScript_RouteSign1#0"
     },
     {
       "id": "msg_0373_R29_00017",
-      "from": "scr_seq_R29_001#0"
+      "from": "Route29_EventScript_LyraTrigger#0"
     },
     {
       "id": "msg_0373_R29_00018",
-      "from": "scr_seq_R29_001#1"
+      "from": "Route29_EventScript_LyraTrigger#1"
     }
   ]
 }

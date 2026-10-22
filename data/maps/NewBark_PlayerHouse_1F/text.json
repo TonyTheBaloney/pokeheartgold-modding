@@ -3,31 +3,31 @@
   "messages": [
     {
       "id": "msg_0545_T20R0201_00000",
-      "from": "scr_seq_T20R0201_000#0"
+      "from": "NewBark_PlayerHouse_1F_EventScript_MomScene1#0"
     },
     {
       "id": "msg_0545_T20R0201_00001",
-      "from": "scr_seq_T20R0201_000#1"
+      "from": "NewBark_PlayerHouse_1F_EventScript_MomScene1#1"
     },
     {
       "id": "msg_0545_T20R0201_00002",
-      "from": "scr_seq_T20R0201_000#2"
+      "from": "NewBark_PlayerHouse_1F_EventScript_MomScene1#2"
     },
     {
       "id": "msg_0545_T20R0201_00003",
-      "from": "scr_seq_T20R0201_000#3"
+      "from": "NewBark_PlayerHouse_1F_EventScript_MomScene1#3"
     },
     {
       "id": "msg_0545_T20R0201_00004",
-      "from": "scr_seq_T20R0201_000#4"
+      "from": "NewBark_PlayerHouse_1F_EventScript_MomScene1#4"
     },
     {
       "id": "msg_0545_T20R0201_00005",
-      "from": "scr_seq_T20R0201_000#5"
+      "from": "NewBark_PlayerHouse_1F_EventScript_MomScene1#5"
     },
     {
       "id": "msg_0545_T20R0201_00006",
-      "from": "scr_seq_T20R0201_001#18"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#18"
     },
     {
       "id": "msg_0545_T20R0201_00007",
@@ -35,39 +35,39 @@
     },
     {
       "id": "msg_0545_T20R0201_00008",
-      "from": "scr_seq_T20R0201_001#11"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#11"
     },
     {
       "id": "msg_0545_T20R0201_00009",
-      "from": "scr_seq_T20R0201_001#12"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#12"
     },
     {
       "id": "msg_0545_T20R0201_00010",
-      "from": "scr_seq_T20R0201_001#13"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#13"
     },
     {
       "id": "msg_0545_T20R0201_00011",
-      "from": "scr_seq_T20R0201_001#14"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#14"
     },
     {
       "id": "msg_0545_T20R0201_00012",
-      "from": "scr_seq_T20R0201_001#15"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#15"
     },
     {
       "id": "msg_0545_T20R0201_00013",
-      "from": "scr_seq_T20R0201_001#16"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#16"
     },
     {
       "id": "msg_0545_T20R0201_00014",
-      "from": "scr_seq_T20R0201_001#17"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#17"
     },
     {
       "id": "msg_0545_T20R0201_00015",
-      "from": "scr_seq_T20R0201_001#9"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#9"
     },
     {
       "id": "msg_0545_T20R0201_00016",
-      "from": "scr_seq_T20R0201_001#10"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#10"
     },
     {
       "id": "msg_0545_T20R0201_00017",
@@ -86,7 +86,7 @@
     },
     {
       "id": "msg_0545_T20R0201_00020",
-      "from": "scr_seq_T20R0201_001#1"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#1"
     },
     {
       "id": "msg_0545_T20R0201_00021",
@@ -94,31 +94,31 @@
     },
     {
       "id": "msg_0545_T20R0201_00022",
-      "from": "scr_seq_T20R0201_001#7"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#7"
     },
     {
       "id": "msg_0545_T20R0201_00023",
-      "from": "scr_seq_T20R0201_001#6"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#6"
     },
     {
       "id": "msg_0545_T20R0201_00024",
-      "from": "scr_seq_T20R0201_001#5"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#5"
     },
     {
       "id": "msg_0545_T20R0201_00025",
-      "from": "scr_seq_T20R0201_001#4"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#4"
     },
     {
       "id": "msg_0545_T20R0201_00026",
-      "from": "scr_seq_T20R0201_001#3"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#3"
     },
     {
       "id": "msg_0545_T20R0201_00027",
-      "from": "scr_seq_T20R0201_001#8"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#8"
     },
     {
       "id": "msg_0545_T20R0201_00028",
-      "from": "scr_seq_T20R0201_001#2"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#2"
     },
     {
       "id": "msg_0545_T20R0201_00029",
@@ -138,27 +138,27 @@
     },
     {
       "id": "msg_0545_T20R0201_00033",
-      "from": "scr_seq_T20R0201_006#0"
+      "from": "NewBark_PlayerHouse_1F_EventScript_MomScene2#0"
     },
     {
       "id": "msg_0545_T20R0201_00034",
-      "from": "scr_seq_T20R0201_001#0"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Mom#0"
     },
     {
       "id": "msg_0545_T20R0201_00035",
-      "from": "scr_seq_T20R0201_002#0"
+      "from": "NewBark_PlayerHouse_1F_EventScript_TV#0"
     },
     {
       "id": "msg_0545_T20R0201_00036",
-      "from": "scr_seq_T20R0201_003#0"
+      "from": "NewBark_PlayerHouse_1F_EventScript_CinnabarVolcanoBurgerSign#0"
     },
     {
       "id": "msg_0545_T20R0201_00037",
-      "from": "scr_seq_T20R0201_004#0"
+      "from": "NewBark_PlayerHouse_1F_EventScript_ASqueakyCleanSinkSign#0"
     },
     {
       "id": "msg_0545_T20R0201_00038",
-      "from": "scr_seq_T20R0201_005#0"
+      "from": "NewBark_PlayerHouse_1F_EventScript_Fridge#0"
     }
   ]
 }

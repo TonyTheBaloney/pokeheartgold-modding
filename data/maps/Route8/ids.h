@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_R08_H_
 #define SCR_SEQ_R08_H_
 
-#define _EV_scr_seq_R08_000 0
-#define _EV_scr_seq_R08_001 1
+#define _EV_Route8_EventScript_ItWontOpenSign 0
+#define _EV_Route8_EventScript_TrainerTips 1
 
 #define obj_R08_gang           0
 #define obj_R08_gang_2         1

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T25R1007_000 {
+script Goldenrod_DepartmentStoreElevator_EventScript_Receptionist {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -249,7 +249,7 @@ _07A0:
 _07AB:
     setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
     closemessage
-    applymovement(obj_T25R1007_gswoman6, Goldenrod_DepartmentStoreElevator_Movement_08B0)
+    applymovement(obj_T25R1007_gswoman6, Goldenrod_DepartmentStoreElevator_Movement_ReceptionistFaceDown)
     waitmovement
     waitse(SEQ_SE_DP_SELECT)
     elevatoranim(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
@@ -322,7 +322,7 @@ _0898:
     end
 }
 
-movement Goldenrod_DepartmentStoreElevator_Movement_08B0 {
+movement Goldenrod_DepartmentStoreElevator_Movement_ReceptionistFaceDown {
     walk_in_place_down
 }
 

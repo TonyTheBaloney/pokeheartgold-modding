@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D37R0105_000 {
+script Goldenrod_TunnelWarehouse_OnTransition {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
@@ -11,7 +11,7 @@ script scr_seq_D37R0105_000 {
     end
 }
 
-script scr_seq_D37R0105_001 {
+script Goldenrod_TunnelWarehouse_EventScript_Director {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -43,5 +43,5 @@ script scr_seq_D37R0105_001 {
 }
 
 mapscripts Goldenrod_TunnelWarehouse_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D37R0105_000
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_TunnelWarehouse_OnTransition
 }

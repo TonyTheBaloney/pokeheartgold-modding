@@ -37,7 +37,7 @@
             "height": 1,
             "var": "VAR_UNK_40D9",
             "var_value": 0,
-            "script": "_EV_scr_seq_D24R0209_002 + 1"
+            "script": "RuinsOfAlph_NorthwestHiddenRoom_EventScript_WarpToRuinsOfAlphUndergroundHallSinjohEvent2"
         }
     ],
     "bg_events": []

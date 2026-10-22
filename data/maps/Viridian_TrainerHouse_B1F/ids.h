@@ -1,9 +1,9 @@
 #ifndef SCR_SEQ_T02R0302_H_
 #define SCR_SEQ_T02R0302_H_
 
-#define _EV_scr_seq_T02R0302_000 0
-#define _EV_scr_seq_T02R0302_001 1
-#define _EV_scr_seq_T02R0302_002 2
+#define _EV_Viridian_TrainerHouse_B1F_EventScript_Trigger1 0
+#define _EV_Viridian_TrainerHouse_B1F_EventScript_Trigger2 1
+#define _EV_Viridian_TrainerHouse_B1F_EventScript_Scene 2
 #define _EV_scr_seq_T02R0302_003 3
 
 #define obj_T02R0302_gswoman6 0

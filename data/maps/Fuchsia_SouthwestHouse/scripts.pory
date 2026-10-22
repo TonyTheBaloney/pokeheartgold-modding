@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T08R0401_000 {
+script Fuchsia_SouthwestHouse_EventScript_PokefanF {
     simplenpcmsg("My grandpa is at my brother Bill’s\n"
                  "on Cerulean Cape.")
     end
 }
 
-script scr_seq_T08R0401_001 {
+script Fuchsia_SouthwestHouse_EventScript_SchoolKidM {
     simplenpcmsg("I saw these weird, slow Pokémon on\n"
                  "Cycling Road.")
     end

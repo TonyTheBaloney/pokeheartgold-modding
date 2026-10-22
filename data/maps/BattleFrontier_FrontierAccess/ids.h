@@ -1,15 +1,15 @@
 #ifndef SCR_SEQ_D32R0102_H_
 #define SCR_SEQ_D32R0102_H_
 
-#define _EV_scr_seq_D32R0102_000 0
-#define _EV_scr_seq_D32R0102_001 1
-#define _EV_scr_seq_D32R0102_002 2
-#define _EV_scr_seq_D32R0102_003 3
-#define _EV_scr_seq_D32R0102_004 4
-#define _EV_scr_seq_D32R0102_005 5
-#define _EV_scr_seq_D32R0102_006 6
-#define _EV_scr_seq_D32R0102_007 7
-#define _EV_scr_seq_D32R0102_008 8
+#define _EV_BattleFrontier_FrontierAccess_EventScript_PokefanM1 0
+#define _EV_BattleFrontier_FrontierAccess_EventScript_PokefanMTrigger 1
+#define _EV_BattleFrontier_FrontierAccess_OnResume 2
+#define _EV_BattleFrontier_FrontierAccess_EventScript_PokefanM2 3
+#define _EV_BattleFrontier_FrontierAccess_OnTransition 4
+#define _EV_BattleFrontier_FrontierAccess_EventScript_Man 5
+#define _EV_BattleFrontier_FrontierAccess_EventScript_Hiker 6
+#define _EV_BattleFrontier_FrontierAccess_EventScript_Girl 7
+#define _EV_BattleFrontier_FrontierAccess_EventScript_TrainerTips 8
 
 #define obj_D32R0102_gsmiddleman1   0
 #define obj_D32R0102_gsmiddleman1_2 1

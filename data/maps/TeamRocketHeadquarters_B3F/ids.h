@@ -1,15 +1,15 @@
 #ifndef SCR_SEQ_D35R0104_H_
 #define SCR_SEQ_D35R0104_H_
 
-#define _EV_scr_seq_D35R0104_000 0
-#define _EV_scr_seq_D35R0104_001 1
-#define _EV_scr_seq_D35R0104_002 2
-#define _EV_scr_seq_D35R0104_003 3
-#define _EV_scr_seq_D35R0104_004 4
-#define _EV_scr_seq_D35R0104_005 5
-#define _EV_scr_seq_D35R0104_006 6
-#define _EV_scr_seq_D35R0104_007 7
-#define _EV_scr_seq_D35R0104_008 8
+#define _EV_TeamRocketHeadquarters_B3F_EventScript_RocketGrunt 0
+#define _EV_TeamRocketHeadquarters_B3F_EventScript_LanceScene 1
+#define _EV_TeamRocketHeadquarters_B3F_EventScript_RivalTrigger 2
+#define _EV_TeamRocketHeadquarters_B3F_EventScript_PetrelTrigger 3
+#define _EV_TeamRocketHeadquarters_B3F_EventScript_LittleBoy 4
+#define _EV_TeamRocketHeadquarters_B3F_EventScript_Murkrow 5
+#define _EV_TeamRocketHeadquarters_B3F_OnTransition 6
+#define _EV_TeamRocketHeadquarters_B3F_EventScript_MurkrowTrigger 7
+#define _EV_TeamRocketHeadquarters_B3F_OnResume 8
 
 #define obj_D35R0104_rocketm                     0
 #define obj_D35R0104_assistantm                  1

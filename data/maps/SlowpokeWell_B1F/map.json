@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 1,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D26R0102_002 + 1",
+            "script": "SlowpokeWell_B1F_EventScript_Proton",
             "flag": "FLAG_UNK_1A9"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D26R0102_001 + 1",
+            "script": "SlowpokeWell_B1F_EventScript_Yadon2",
             "flag": "FLAG_UNK_1D5"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D26R0102_000 + 1",
+            "script": "SlowpokeWell_B1F_EventScript_Yadon1",
             "flag": "FLAG_UNK_1D5"
         },
         {

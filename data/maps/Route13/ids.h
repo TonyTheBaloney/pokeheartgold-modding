@@ -1,9 +1,9 @@
 #ifndef SCR_SEQ_R13_H_
 #define SCR_SEQ_R13_H_
 
-#define _EV_scr_seq_R13_000 0
-#define _EV_scr_seq_R13_001 1
-#define _EV_scr_seq_R13_002 2
+#define _EV_Route13_EventScript_TrainerTips 0
+#define _EV_Route13_EventScript_RouteSign 1
+#define _EV_Route13_EventScript_NorthToLavenderTownSign 2
 
 #define obj_R13_mount_2        0
 #define obj_R13_gsman2         1

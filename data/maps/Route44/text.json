@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0404_R44_00000",
-      "from": "scr_seq_R44_001#0"
+      "from": "Route44_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0404_R44_00001",
-      "from": "scr_seq_R44_002#0"
+      "from": "Route44_EventScript_RouteSign#0"
     }
   ]
 }

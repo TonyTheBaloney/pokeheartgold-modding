@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T05FS0101_000 {
+script Lavender_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T05FS0101_000 {
     end
 }
 
-script scr_seq_T05FS0101_001 {
+script Lavender_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,7 +25,7 @@ script scr_seq_T05FS0101_001 {
     end
 }
 
-script scr_seq_T05FS0101_002 {
+script Lavender_Pokemart_EventScript_PokefanM {
     simplenpcmsg("Repel is a necessity if you are\n"
                  "going to explore a cave.\r"
                  "Even though I like exploring, I still\n"
@@ -33,7 +33,7 @@ script scr_seq_T05FS0101_002 {
     end
 }
 
-script scr_seq_T05FS0101_003 {
+script Lavender_Pokemart_EventScript_Man {
     simplenpcmsg("I heard about a craftsman who\n"
                  "makes custom Poké Balls in the\f"
                  "Johto town of Azalea.\r"

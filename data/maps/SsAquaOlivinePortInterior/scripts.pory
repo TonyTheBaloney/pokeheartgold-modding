@@ -3,14 +3,14 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_P01R0101_000
-    scr_seq_P01R0101_001
-    scr_seq_P01R0101_002
-    scr_seq_P01R0101_003
-    scr_seq_P01R0101_004
+    SsAquaOlivinePortInterior_EventScript_Sailor
+    SsAquaOlivinePortInterior_OnTransition
+    SsAquaOlivinePortInterior_EventScript_ProfOakScene
+    SsAquaOlivinePortInterior_EventScript_Youngster
+    SsAquaOlivinePortInterior_EventScript_AceTrainerF
 }
 
-script scr_seq_P01R0101_001 {
+script SsAquaOlivinePortInterior_OnTransition {
     getpreviousmapid(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 330) {
         setobjectfacing(obj_P01R0101_seaman_2, DIR_SOUTH)
@@ -19,18 +19,18 @@ script scr_seq_P01R0101_001 {
     end
 }
 
-script scr_seq_P01R0101_002 {
+script SsAquaOlivinePortInterior_EventScript_ProfOakScene {
     followmonresetmovement
     lockall
-    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_00E4)
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_ProfOakExclamation1)
     waitmovement
     stopbgm(0)
     playbgm(SEQ_GS_OHKIDO)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_00EC)
-    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_0100)
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_ProfOakWalkLeftUp)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_PlayerWalkDown1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -52,7 +52,7 @@ script scr_seq_P01R0101_002 {
                                          "I’ll upgrade your Pokédex with\n"
                                          "the National Mode.\r")
     closemessage
-    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_0110)
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_ProfOakFaceLeft)
     waitmovement
     natdexflagaction(1, VAR_SPECIAL_RESULT)
     bufferplayersname(0)
@@ -66,7 +66,7 @@ script scr_seq_P01R0101_002 {
            "However, I’m sure you will make an\n"
            "honest attempt on our behalf!\r")
     closemessage
-    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_0120)
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_ProfOakExclamation2)
     waitmovement
     npcmsg("Oh, time flies!\r"
            "I have a radio show to record\n"
@@ -75,7 +75,7 @@ script scr_seq_P01R0101_002 {
            "If you come near Pallet Town, do drop\n"
            "by my Pokémon Research Lab!\r")
     closemessage
-    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_0128)
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_ProfOakWalkUpLeft)
     waitmovement
     removeobject(obj_P01R0101_ookido)
     setflag(FLAG_HIDE_OLIVINE_PORT_OAK)
@@ -93,40 +93,40 @@ _00DE:
     return
 }
 
-movement SsAquaOlivinePortInterior_Movement_00E4 {
+movement SsAquaOlivinePortInterior_Movement_ProfOakExclamation1 {
     emote_exclamation_mark
 }
 
-movement SsAquaOlivinePortInterior_Movement_00EC {
+movement SsAquaOlivinePortInterior_Movement_ProfOakWalkLeftUp {
     delay_8
     walk_left * 3
     walk_up
     walk_in_place_left
 }
 
-movement SsAquaOlivinePortInterior_Movement_0100 {
+movement SsAquaOlivinePortInterior_Movement_PlayerWalkDown1 {
     delay_8 * 3
     walk_down * 3
     walk_in_place_right
 }
 
-movement SsAquaOlivinePortInterior_Movement_0110 {
+movement SsAquaOlivinePortInterior_Movement_ProfOakFaceLeft {
     walk_in_place_left
     delay_8 * 2
     walk_in_place_left
 }
 
-movement SsAquaOlivinePortInterior_Movement_0120 {
+movement SsAquaOlivinePortInterior_Movement_ProfOakExclamation2 {
     emote_exclamation_mark
 }
 
-movement SsAquaOlivinePortInterior_Movement_0128 {
+movement SsAquaOlivinePortInterior_Movement_ProfOakWalkUpLeft {
     walk_up * 2
     walk_left
     walk_up
 }
 
-script scr_seq_P01R0101_000 {
+script SsAquaOlivinePortInterior_EventScript_Sailor {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -149,23 +149,23 @@ script scr_seq_P01R0101_000 {
     closemessage
     hasitem(ITEM_S_S__TICKET, 1, VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02F9) }
-    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_036C)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_PlayerFaceDown)
     waitmovement
     bufferplayersname(0)
     npcmsg("{STRVAR_1 3, 0, 0} flashed the S.S. Ticket.\r")
     closemessage
-    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03F4)
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_SailorFaceUp)
     waitmovement
     npcmsg("OK, you have a Ticket!\r"
            "We’re departing soon.\n"
            "Get on board quick!\r")
     closemessage
-    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_038C)
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_SailorWalkDownRight)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_03AC)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_PlayerWalkDown2)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -210,12 +210,12 @@ _029B:
            "Your Ticket is...right there.\n"
            "Please come through.\r")
     closemessage
-    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_038C)
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_SailorWalkDownRight)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_03AC)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_PlayerWalkDown2)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -240,14 +240,14 @@ _02EE:
     releaseall
     end
 _02F9:
-    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_0378)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_PlayerExclamation)
     waitmovement
     bufferplayersname(0)
     npcmsg("{STRVAR_1 3, 0, 0} tried to show the\n"
            "S.S. Ticket...\r"
            "...But no Ticket here!\r")
     closemessage
-    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03F4)
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_SailorFaceUp)
     waitmovement
     npcmsg("I’m sorry...\r"
            "Another person without a Ticket\n"
@@ -260,17 +260,17 @@ _02F9:
     releaseall
     end
 _0320:
-    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03B4)
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_SailorWalkUpRight)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_03D4)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03E0)
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_SailorWalkLeftDown)
     waitmovement
     releaseall
     end
@@ -283,19 +283,19 @@ _0356:
     end
 }
 
-movement SsAquaOlivinePortInterior_Movement_036C {
+movement SsAquaOlivinePortInterior_Movement_PlayerFaceDown {
     walk_in_place_right
     face_down * 2
 }
 
-movement SsAquaOlivinePortInterior_Movement_0378 {
+movement SsAquaOlivinePortInterior_Movement_PlayerExclamation {
     jump_in_place_fast_left
     jump_in_place_fast_right
     face_down * 2
     emote_exclamation_mark
 }
 
-movement SsAquaOlivinePortInterior_Movement_038C {
+movement SsAquaOlivinePortInterior_Movement_SailorWalkDownRight {
     lock_dir
     walk_down
     unlock_dir
@@ -305,11 +305,11 @@ movement SsAquaOlivinePortInterior_Movement_038C {
     unlock_dir
 }
 
-movement SsAquaOlivinePortInterior_Movement_03AC {
+movement SsAquaOlivinePortInterior_Movement_PlayerWalkDown2 {
     walk_down * 2
 }
 
-movement SsAquaOlivinePortInterior_Movement_03B4 {
+movement SsAquaOlivinePortInterior_Movement_SailorWalkUpRight {
     lock_dir
     walk_up
     unlock_dir
@@ -319,29 +319,29 @@ movement SsAquaOlivinePortInterior_Movement_03B4 {
     unlock_dir
 }
 
-movement SsAquaOlivinePortInterior_Movement_03D4 {
+movement SsAquaOlivinePortInterior_Movement_PlayerWalkUp {
     delay_8
     walk_up * 4
 }
 
-movement SsAquaOlivinePortInterior_Movement_03E0 {
+movement SsAquaOlivinePortInterior_Movement_SailorWalkLeftDown {
     walk_left
     face_down * 2
     walk_down
     walk_in_place_up
 }
 
-movement SsAquaOlivinePortInterior_Movement_03F4 {
+movement SsAquaOlivinePortInterior_Movement_SailorFaceUp {
     walk_in_place_up
 }
 
-script scr_seq_P01R0101_003 {
+script SsAquaOlivinePortInterior_EventScript_Youngster {
     simplenpcmsg("The S.S. Aqua uses jets to travel.\n"
                  "It skims over water!")
     end
 }
 
-script scr_seq_P01R0101_004 {
+script SsAquaOlivinePortInterior_EventScript_AceTrainerF {
     simplenpcmsg("You’ve been to Kanto already?\r"
                  "I hear many rare Pokémon live\n"
                  "over there.\r"
@@ -351,8 +351,8 @@ script scr_seq_P01R0101_004 {
 }
 
 mapscripts SsAquaOlivinePortInterior_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0101_001
+    INIT_SCRIPT_ON_TRANSITION: SsAquaOlivinePortInterior_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_411A, 1: scr_seq_P01R0101_002
+        VAR_UNK_411A, 1: SsAquaOlivinePortInterior_EventScript_ProfOakScene
     ]
 }

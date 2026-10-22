@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0582_T25GYM0101_00000",
-      "from": "scr_seq_T25GYM0101_000#1"
+      "from": "Goldenrod_Gym_EventScript_Whitney#1"
     },
     {
       "id": "msg_0582_T25GYM0101_00001",
@@ -17,19 +17,19 @@
     },
     {
       "id": "msg_0582_T25GYM0101_00002",
-      "from": "scr_seq_T25GYM0101_000#2"
+      "from": "Goldenrod_Gym_EventScript_Whitney#2"
     },
     {
       "id": "msg_0582_T25GYM0101_00003",
-      "from": "scr_seq_T25GYM0101_000#3"
+      "from": "Goldenrod_Gym_EventScript_Whitney#3"
     },
     {
       "id": "msg_0582_T25GYM0101_00004",
-      "from": "scr_seq_T25GYM0101_000#4"
+      "from": "Goldenrod_Gym_EventScript_Whitney#4"
     },
     {
       "id": "msg_0582_T25GYM0101_00005",
-      "from": "scr_seq_T25GYM0101_000#5"
+      "from": "Goldenrod_Gym_EventScript_Whitney#5"
     },
     {
       "id": "msg_0582_T25GYM0101_00006",
@@ -37,31 +37,31 @@
     },
     {
       "id": "msg_0582_T25GYM0101_00007",
-      "from": "scr_seq_T25GYM0101_000#6"
+      "from": "Goldenrod_Gym_EventScript_Whitney#6"
     },
     {
       "id": "msg_0582_T25GYM0101_00008",
-      "from": "scr_seq_T25GYM0101_000#0"
+      "from": "Goldenrod_Gym_EventScript_Whitney#0"
     },
     {
       "id": "msg_0582_T25GYM0101_00009",
-      "from": "scr_seq_T25GYM0101_001#0"
+      "from": "Goldenrod_Gym_EventScript_CathyTrigger#0"
     },
     {
       "id": "msg_0582_T25GYM0101_00010",
-      "from": "scr_seq_T25GYM0101_002#1"
+      "from": "Goldenrod_Gym_EventScript_GymGuide#1"
     },
     {
       "id": "msg_0582_T25GYM0101_00011",
-      "from": "scr_seq_T25GYM0101_002#0"
+      "from": "Goldenrod_Gym_EventScript_GymGuide#0"
     },
     {
       "id": "msg_0582_T25GYM0101_00012",
-      "from": "scr_seq_T25GYM0101_003#0"
+      "from": "Goldenrod_Gym_EventScript_GymSign#0"
     },
     {
       "id": "msg_0582_T25GYM0101_00013",
-      "from": "scr_seq_T25GYM0101_003#1"
+      "from": "Goldenrod_Gym_EventScript_GymSign#1"
     }
   ]
 }

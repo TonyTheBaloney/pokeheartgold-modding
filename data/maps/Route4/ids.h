@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_R04_H_
 #define SCR_SEQ_R04_H_
 
-#define _EV_scr_seq_R04_000 0
+#define _EV_Route4_EventScript_TrainerTips 0
 
 #define obj_R04_picnicgirl_2   0
 #define obj_R04_picnicgirl_2_2 1

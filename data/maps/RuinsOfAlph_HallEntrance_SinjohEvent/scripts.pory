@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D24R0217_000
-    scr_seq_D24R0217_001
-    scr_seq_D24R0217_002
-    scr_seq_D24R0217_003
+    RuinsOfAlph_HallEntrance_SinjohEvent_EventScript_Sign1
+    RuinsOfAlph_HallEntrance_SinjohEvent_EventScript_Sign2
+    RuinsOfAlph_HallEntrance_SinjohEvent_OnTransition
+    RuinsOfAlph_HallEntrance_SinjohEvent_EventScript_PokefanM
 }
 
-script scr_seq_D24R0217_002 {
+script RuinsOfAlph_HallEntrance_SinjohEvent_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) != 0) {
@@ -28,7 +28,7 @@ script scr_seq_D24R0217_002 {
     end
 }
 
-script scr_seq_D24R0217_000 {
+script RuinsOfAlph_HallEntrance_SinjohEvent_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It’s a replica of an ancient Pokémon.")
@@ -38,11 +38,11 @@ script scr_seq_D24R0217_000 {
     end
 }
 
-script scr_seq_D24R0217_001 {
+script RuinsOfAlph_HallEntrance_SinjohEvent_EventScript_Sign2 {
     end
 }
 
-script scr_seq_D24R0217_003 {
+script RuinsOfAlph_HallEntrance_SinjohEvent_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -76,22 +76,22 @@ script scr_seq_D24R0217_003 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01C0)
-        applymovement(obj_D24R0217_gsmiddleman1, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_020C)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PlayerWalkRightUp)
+        applymovement(obj_D24R0217_gsmiddleman1, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01D8)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01F8)
-        applymovement(obj_D24R0217_gsmiddleman1, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_020C)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PlayerWalkUpRight)
+        applymovement(obj_D24R0217_gsmiddleman1, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01E4)
-        applymovement(obj_D24R0217_gsmiddleman1, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_020C)
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PlayerWalkUpLeft)
+        applymovement(obj_D24R0217_gsmiddleman1, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
     followingpokemonmovement(48)
-    applymovement(obj_partner_poke, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_0218)
+    applymovement(obj_partner_poke, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_FollowMonWalkRightUp)
     waitmovement
     setflag(FLAG_UNK_189)
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -109,7 +109,7 @@ script scr_seq_D24R0217_003 {
     end
 }
 
-movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01C0 {
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -117,36 +117,36 @@ movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01C0 {
     walk_in_place_down
 }
 
-movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01D8 {
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01E4 {
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01F8 {
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_020C {
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_0218 {
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
 mapscripts RuinsOfAlph_HallEntrance_SinjohEvent_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D24R0217_002
+    INIT_SCRIPT_ON_TRANSITION: RuinsOfAlph_HallEntrance_SinjohEvent_OnTransition
 }

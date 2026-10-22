@@ -3,11 +3,11 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_W21_000
-    scr_seq_W21_001
+    Route21_EventScript_PokefanM
+    Route21_OnTransition
 }
 
-script scr_seq_W21_001 {
+script Route21_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 1) { goto(_003F) }
@@ -22,7 +22,7 @@ script scr_seq_W21_001 {
     end
 }
 
-script scr_seq_W21_000 {
+script Route21_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -56,14 +56,14 @@ script scr_seq_W21_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route21_Movement_017C)
-        applymovement(obj_W21_gsmiddleman1, Route21_Movement_01B0)
+        applymovement(obj_player, Route21_Movement_PlayerWalkUp)
+        applymovement(obj_W21_gsmiddleman1, Route21_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Route21_Movement_019C)
-        applymovement(obj_W21_gsmiddleman1, Route21_Movement_01B0)
+        applymovement(obj_player, Route21_Movement_PlayerWalkUpRight)
+        applymovement(obj_W21_gsmiddleman1, Route21_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Route21_Movement_0188)
-        applymovement(obj_W21_gsmiddleman1, Route21_Movement_01B0)
+        applymovement(obj_player, Route21_Movement_PlayerWalkUpLeft)
+        applymovement(obj_W21_gsmiddleman1, Route21_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -71,7 +71,7 @@ script scr_seq_W21_000 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route21_Movement_01BC)
+        applymovement(obj_partner_poke, Route21_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -90,36 +90,36 @@ script scr_seq_W21_000 {
     end
 }
 
-movement Route21_Movement_017C {
+movement Route21_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route21_Movement_0188 {
+movement Route21_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route21_Movement_019C {
+movement Route21_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route21_Movement_01B0 {
+movement Route21_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route21_Movement_01BC {
+movement Route21_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
 mapscripts Route21_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_W21_001
+    INIT_SCRIPT_ON_TRANSITION: Route21_OnTransition
 }

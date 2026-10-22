@@ -23,11 +23,11 @@
     },
     {
       "id": "msg_0112_D35R0102_00005",
-      "from": "scr_seq_D35R0102_004#1"
+      "from": "TeamRocketHeadquarters_B1F_EventScript_Sign#1"
     },
     {
       "id": "msg_0112_D35R0102_00006",
-      "from": "scr_seq_D35R0102_004#3"
+      "from": "TeamRocketHeadquarters_B1F_EventScript_Sign#3"
     },
     {
       "id": "msg_0112_D35R0102_00007",
@@ -35,15 +35,15 @@
     },
     {
       "id": "msg_0112_D35R0102_00008",
-      "from": "scr_seq_D35R0102_004#0"
+      "from": "TeamRocketHeadquarters_B1F_EventScript_Sign#0"
     },
     {
       "id": "msg_0112_D35R0102_00009",
-      "from": "scr_seq_D35R0102_004#2"
+      "from": "TeamRocketHeadquarters_B1F_EventScript_Sign#2"
     },
     {
       "id": "msg_0112_D35R0102_00010",
-      "from": "scr_seq_D35R0102_004#4"
+      "from": "TeamRocketHeadquarters_B1F_EventScript_Sign#4"
     }
   ]
 }

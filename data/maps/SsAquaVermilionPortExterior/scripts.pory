@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_P01R0104_000
-    scr_seq_P01R0104_001
-    scr_seq_P01R0104_002
-    scr_seq_P01R0104_003
+    SsAquaVermilionPortExterior_EventScript_Sailor
+    SsAquaVermilionPortExterior_EventScript_SailorScene
+    SsAquaVermilionPortExterior_OnResume
+    SsAquaVermilionPortExterior_OnTransition
 }
 
-script scr_seq_P01R0104_003 {
+script SsAquaVermilionPortExterior_OnTransition {
     if (!flag(FLAG_UNK_168)) {
         setflag(FLAG_UNK_998)
     }
@@ -20,7 +20,7 @@ script scr_seq_P01R0104_003 {
     end
 }
 
-script scr_seq_P01R0104_002 {
+script SsAquaVermilionPortExterior_OnResume {
     if (var(VAR_BOAT_DIRECTION) == 1) {
         movepersonfacing(obj_P01R0104_seaman_2, 24, 0, 19, DIR_WEST)
         end
@@ -28,15 +28,15 @@ script scr_seq_P01R0104_002 {
     end
 }
 
-script scr_seq_P01R0104_001 {
+script SsAquaVermilionPortExterior_EventScript_SailorScene {
     followmonresetmovement
     lockall
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_player, SsAquaVermilionPortExterior_Movement_0090)
+    applymovement(obj_player, SsAquaVermilionPortExterior_Movement_PlayerWalkDown)
     waitmovement
-    applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_0098)
+    applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_SailorWalkLeft1)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -47,16 +47,16 @@ script scr_seq_P01R0104_001 {
     end
 }
 
-movement SsAquaVermilionPortExterior_Movement_0090 {
+movement SsAquaVermilionPortExterior_Movement_PlayerWalkDown {
     walk_down * 3
 }
 
-movement SsAquaVermilionPortExterior_Movement_0098 {
+movement SsAquaVermilionPortExterior_Movement_SailorWalkLeft1 {
     walk_left
     walk_in_place_down
 }
 
-script scr_seq_P01R0104_000 {
+script SsAquaVermilionPortExterior_EventScript_Sailor {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -76,17 +76,17 @@ script scr_seq_P01R0104_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 2) {
-        applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_0150)
+        applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_SailorWalkLeft2)
         waitmovement
-        applymovement(obj_player, SsAquaVermilionPortExterior_Movement_0180)
+        applymovement(obj_player, SsAquaVermilionPortExterior_Movement_PlayerWalkLeftUp)
     } elif (var(VAR_TEMP_x4000) == 3) {
-        applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_0160)
+        applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_SailorWalkRight1)
         waitmovement
-        applymovement(obj_player, SsAquaVermilionPortExterior_Movement_0190)
+        applymovement(obj_player, SsAquaVermilionPortExterior_Movement_PlayerWalkRightUp)
     } else {
-        applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_0170)
+        applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_SailorWalkRight2)
         waitmovement
-        applymovement(obj_player, SsAquaVermilionPortExterior_Movement_01A0)
+        applymovement(obj_player, SsAquaVermilionPortExterior_Movement_PlayerWalkUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -98,44 +98,44 @@ script scr_seq_P01R0104_000 {
     end
 }
 
-movement SsAquaVermilionPortExterior_Movement_0150 {
+movement SsAquaVermilionPortExterior_Movement_SailorWalkLeft2 {
     face_left
     walk_left
     walk_in_place_right
 }
 
-movement SsAquaVermilionPortExterior_Movement_0160 {
+movement SsAquaVermilionPortExterior_Movement_SailorWalkRight1 {
     face_right
     walk_right
     walk_in_place_left
 }
 
-movement SsAquaVermilionPortExterior_Movement_0170 {
+movement SsAquaVermilionPortExterior_Movement_SailorWalkRight2 {
     face_right
     walk_right
     walk_in_place_left
 }
 
-movement SsAquaVermilionPortExterior_Movement_0180 {
+movement SsAquaVermilionPortExterior_Movement_PlayerWalkLeftUp {
     walk_left
     face_up
     walk_up * 2
 }
 
-movement SsAquaVermilionPortExterior_Movement_0190 {
+movement SsAquaVermilionPortExterior_Movement_PlayerWalkRightUp {
     walk_right
     face_up
     walk_up * 2
 }
 
-movement SsAquaVermilionPortExterior_Movement_01A0 {
+movement SsAquaVermilionPortExterior_Movement_PlayerWalkUp {
     walk_up * 2
 }
 
 mapscripts SsAquaVermilionPortExterior_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_P01R0104_002
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0104_003
+    INIT_SCRIPT_ON_RESUME: SsAquaVermilionPortExterior_OnResume
+    INIT_SCRIPT_ON_TRANSITION: SsAquaVermilionPortExterior_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_BOAT_DIRECTION, 1: scr_seq_P01R0104_001
+        VAR_BOAT_DIRECTION, 1: SsAquaVermilionPortExterior_EventScript_SailorScene
     ]
 }

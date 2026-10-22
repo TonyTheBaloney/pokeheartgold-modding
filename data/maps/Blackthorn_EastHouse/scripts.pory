@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T30R0301_000 {
+script Blackthorn_EastHouse_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -64,7 +64,7 @@ _00BF:
     end
 }
 
-script scr_seq_T30R0301_001 {
+script Blackthorn_EastHouse_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

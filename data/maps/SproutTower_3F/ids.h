@@ -1,9 +1,9 @@
 #ifndef SCR_SEQ_D15R0103_H_
 #define SCR_SEQ_D15R0103_H_
 
-#define _EV_scr_seq_D15R0103_000 0
-#define _EV_scr_seq_D15R0103_001 1
-#define _EV_scr_seq_D15R0103_002 2
+#define _EV_SproutTower_3F_OnTransition 0
+#define _EV_SproutTower_3F_EventScript_ElderTrigger 1
+#define _EV_SproutTower_3F_EventScript_Elder 2
 
 #define obj_D15R0103_bozu          0
 #define obj_D15R0103_bozu_2        1

@@ -1,13 +1,13 @@
 #ifndef SCR_SEQ_T25R1005_H_
 #define SCR_SEQ_T25R1005_H_
 
-#define _EV_scr_seq_T25R1005_000 0
-#define _EV_scr_seq_T25R1005_001 1
-#define _EV_scr_seq_T25R1005_002 2
-#define _EV_scr_seq_T25R1005_003 3
-#define _EV_scr_seq_T25R1005_004 4
-#define _EV_scr_seq_T25R1005_005 5
-#define _EV_scr_seq_T25R1005_006 6
+#define _EV_Goldenrod_DepartmentStore_5F_EventScript_Clerk 0
+#define _EV_Goldenrod_DepartmentStore_5F_EventScript_PokefanM 1
+#define _EV_Goldenrod_DepartmentStore_5F_EventScript_Girl 2
+#define _EV_Goldenrod_DepartmentStore_5F_EventScript_FatMan 3
+#define _EV_Goldenrod_DepartmentStore_5F_EventScript_ModifyYourPokemonSign 4
+#define _EV_Goldenrod_DepartmentStore_5F_OnTransition 5
+#define _EV_Goldenrod_DepartmentStore_5F_EventScript_Woman 6
 
 #define obj_T25R1005_shopm1_2     0
 #define obj_T25R1005_gsmiddleman1 1

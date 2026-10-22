@@ -3,43 +3,43 @@
   "messages": [
     {
       "id": "msg_0331_R05R0202_00000",
-      "from": "scr_seq_R05R0202_000#1"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#1"
     },
     {
       "id": "msg_0331_R05R0202_00001",
-      "from": "scr_seq_R05R0202_000#2"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#2"
     },
     {
       "id": "msg_0331_R05R0202_00002",
-      "from": "scr_seq_R05R0202_000#3"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#3"
     },
     {
       "id": "msg_0331_R05R0202_00003",
-      "from": "scr_seq_R05R0202_000#6"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#6"
     },
     {
       "id": "msg_0331_R05R0202_00004",
-      "from": "scr_seq_R05R0202_000#7"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#7"
     },
     {
       "id": "msg_0331_R05R0202_00005",
-      "from": "scr_seq_R05R0202_000#8"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#8"
     },
     {
       "id": "msg_0331_R05R0202_00006",
-      "from": "scr_seq_R05R0202_000#9"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#9"
     },
     {
       "id": "msg_0331_R05R0202_00007",
-      "from": "scr_seq_R05R0202_000#0"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0331_R05R0202_00008",
-      "from": "scr_seq_R05R0202_000#4"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#4"
     },
     {
       "id": "msg_0331_R05R0202_00009",
-      "from": "scr_seq_R05R0202_000#5"
+      "from": "Route5_UndergroundPath_EventScript_PokefanM#5"
     }
   ]
 }

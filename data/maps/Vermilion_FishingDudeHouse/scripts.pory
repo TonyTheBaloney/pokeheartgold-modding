@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T06R0101_000 {
+script Vermilion_FishingDudeHouse_EventScript_Fisherman {
     simplenpcmsg("I am the Fishing Dude, the elder of\n"
                  "the Fishing Bros.\r"
                  "Have you met the Fishing Guru at\n"
@@ -15,7 +15,7 @@ script scr_seq_T06R0101_000 {
     end
 }
 
-script scr_seq_T06R0101_001 {
+script Vermilion_FishingDudeHouse_EventScript_LittleBoy {
     simplenpcmsg("You found something in between\n"
                  "the pages...\r"
                  "It’s a photo of people fishing...\n"

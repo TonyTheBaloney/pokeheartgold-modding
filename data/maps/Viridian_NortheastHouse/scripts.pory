@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T02R0201_000 {
+script Viridian_NortheastHouse_EventScript_PokefanM {
     simplenpcmsg("Do you put a lot of thought into naming\n"
                  "your Pokémon?\r"
                  "Giving them good nicknames adds to the\n"
@@ -9,13 +9,13 @@ script scr_seq_T02R0201_000 {
     end
 }
 
-script scr_seq_T02R0201_001 {
+script Viridian_NortheastHouse_EventScript_Lass {
     simplenpcmsg("They’re Speary--a SPEAROW--and\n"
                  "Rattey--a RATTATA.")
     end
 }
 
-script scr_seq_T02R0201_002 {
+script Viridian_NortheastHouse_EventScript_Speary {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -28,7 +28,7 @@ script scr_seq_T02R0201_002 {
     end
 }
 
-script scr_seq_T02R0201_003 {
+script Viridian_NortheastHouse_EventScript_Rattey {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer

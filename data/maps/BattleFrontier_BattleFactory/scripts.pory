@@ -3,27 +3,27 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D32R0301_000
-    scr_seq_D32R0301_001
-    scr_seq_D32R0301_002
-    scr_seq_D32R0301_003
-    scr_seq_D32R0301_004
-    scr_seq_D32R0301_005
-    scr_seq_D32R0301_006
-    scr_seq_D32R0301_007
-    scr_seq_D32R0301_008
-    scr_seq_D32R0301_009
-    scr_seq_D32R0301_010
-    scr_seq_D32R0301_011
-    scr_seq_D32R0301_012
-    scr_seq_D32R0301_013
+    BattleFrontier_BattleFactory_EventScript_Attendant1
+    BattleFrontier_BattleFactory_EventScript_Scene1
+    BattleFrontier_BattleFactory_EventScript_Scene2
+    BattleFrontier_BattleFactory_EventScript_Scene3
+    BattleFrontier_BattleFactory_EventScript_Scene4
+    BattleFrontier_BattleFactory_EventScript_Attendant2
+    BattleFrontier_BattleFactory_EventScript_Woman
+    BattleFrontier_BattleFactory_EventScript_Sailor
+    BattleFrontier_BattleFactory_EventScript_Beauty
+    BattleFrontier_BattleFactory_EventScript_Youngster
+    BattleFrontier_BattleFactory_EventScript_Gentleman
+    BattleFrontier_BattleFactory_EventScript_Lady
+    BattleFrontier_BattleFactory_EventScript_Policeman
+    BattleFrontier_BattleFactory_OnTransition
 }
 
-script scr_seq_D32R0301_013 {
+script BattleFrontier_BattleFactory_OnTransition {
     end
 }
 
-script scr_seq_D32R0301_000 {
+script BattleFrontier_BattleFactory_EventScript_Attendant1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -33,7 +33,7 @@ script scr_seq_D32R0301_000 {
     end
 }
 
-script scr_seq_D32R0301_005 {
+script BattleFrontier_BattleFactory_EventScript_Attendant2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -211,16 +211,16 @@ _009A:
                     npcmsg(msg_0107_D32R0301_00009)
                     waitabpress
                     closemessage
-                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_04D4)
-                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_04FC)
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_PlayerExit1)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_ObjectExit1)
                     waitmovement
                     return
                 _0454:
                     npcmsg(msg_0107_D32R0301_00009)
                     waitabpress
                     closemessage
-                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_04D4)
-                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_04FC)
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_PlayerExit1)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_ObjectExit1)
                     waitmovement
                     return
                 _046F:
@@ -229,23 +229,23 @@ _009A:
                     linksyncclearpackets
                     linksyncandwait(169)
                     closemessage
-                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_04E8)
-                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_0510)
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_PlayerExit2)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_ObjectExit2)
                     waitmovement
                     return
                 _0495:
-                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_0524)
-                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_0554)
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_PlayerWalkDownLeft)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_ObjectWalkDownLeft)
                     waitmovement
                     return
                 _04A9:
-                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_0524)
-                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_0554)
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_PlayerWalkDownLeft)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_ObjectWalkDownLeft)
                     waitmovement
                     return
                 _04BD:
-                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_053C)
-                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_0568)
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_PlayerWalkDownRight)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_ObjectWalkDownRight)
                     waitmovement
                     return
                 }
@@ -302,35 +302,35 @@ text msg_0107_D32R0301_00009 {
     "Right this way, please!"
 }
 
-movement BattleFrontier_BattleFactory_Movement_04D4 {
+movement BattleFrontier_BattleFactory_Movement_PlayerExit1 {
     walk_up * 3
     walk_right
     walk_up * 4
     set_invisible
 }
 
-movement BattleFrontier_BattleFactory_Movement_04E8 {
+movement BattleFrontier_BattleFactory_Movement_PlayerExit2 {
     walk_up * 3
     walk_left
     walk_up * 4
     set_invisible
 }
 
-movement BattleFrontier_BattleFactory_Movement_04FC {
+movement BattleFrontier_BattleFactory_Movement_ObjectExit1 {
     walk_up * 2
     walk_right
     walk_up * 4
     set_invisible
 }
 
-movement BattleFrontier_BattleFactory_Movement_0510 {
+movement BattleFrontier_BattleFactory_Movement_ObjectExit2 {
     walk_up * 2
     walk_left
     walk_up * 4
     set_invisible
 }
 
-movement BattleFrontier_BattleFactory_Movement_0524 {
+movement BattleFrontier_BattleFactory_Movement_PlayerWalkDownLeft {
     walk_faster_down * 3
     walk_faster_left
     walk_faster_down * 4
@@ -338,7 +338,7 @@ movement BattleFrontier_BattleFactory_Movement_0524 {
     set_visible
 }
 
-movement BattleFrontier_BattleFactory_Movement_053C {
+movement BattleFrontier_BattleFactory_Movement_PlayerWalkDownRight {
     walk_faster_down * 3
     walk_faster_right
     walk_faster_down * 4
@@ -346,14 +346,14 @@ movement BattleFrontier_BattleFactory_Movement_053C {
     set_visible
 }
 
-movement BattleFrontier_BattleFactory_Movement_0554 {
+movement BattleFrontier_BattleFactory_Movement_ObjectWalkDownLeft {
     walk_faster_down * 2
     walk_faster_left
     walk_faster_down * 4
     set_visible
 }
 
-movement BattleFrontier_BattleFactory_Movement_0568 {
+movement BattleFrontier_BattleFactory_Movement_ObjectWalkDownRight {
     walk_faster_down * 2
     walk_faster_right
     walk_faster_down * 4
@@ -432,7 +432,7 @@ _05C1:
     return
 }
 
-script scr_seq_D32R0301_001 {
+script BattleFrontier_BattleFactory_EventScript_Scene1 {
     checkfieldheapfreesize(0)
     setvar(VAR_TEMP_x4003, 1)
     setvar(VAR_UNK_4142, 0)
@@ -452,7 +452,7 @@ _05ED:
     return
 }
 
-script scr_seq_D32R0301_002 {
+script BattleFrontier_BattleFactory_EventScript_Scene2 {
     lockall
     faceplayer
     npcmsg("Excuse me!\r"
@@ -475,7 +475,7 @@ _0636:
     return
 }
 
-script scr_seq_D32R0301_003 {
+script BattleFrontier_BattleFactory_EventScript_Scene3 {
     compare(VAR_UNK_4143, 0)
     callifeq(_067A)
     compare(VAR_UNK_4143, 1)
@@ -516,7 +516,7 @@ text msg_0107_D32R0301_00013 {
     "present you this commemorative print!\r"
 }
 
-script scr_seq_D32R0301_004 {
+script BattleFrontier_BattleFactory_EventScript_Scene4 {
     goto(_0126)
     end
 }
@@ -533,7 +533,7 @@ movement BattleFrontier_BattleFactory_Movement_06CC {
     walk_up
 }
 
-script scr_seq_D32R0301_006 {
+script BattleFrontier_BattleFactory_EventScript_Woman {
     simplenpcmsg("The staff tell you about the next\n"
                  "Trainer you’ll face.\r"
                  "They’re very helpful here.\n"
@@ -541,7 +541,7 @@ script scr_seq_D32R0301_006 {
     end
 }
 
-script scr_seq_D32R0301_007 {
+script BattleFrontier_BattleFactory_EventScript_Sailor {
     simplenpcmsg("They tell you about the next Trainer\n"
                  "you’ll face? That’s really nice.\r"
                  "You know, you can prepare for it\n"
@@ -550,7 +550,7 @@ script scr_seq_D32R0301_007 {
     end
 }
 
-script scr_seq_D32R0301_008 {
+script BattleFrontier_BattleFactory_EventScript_Beauty {
     simplenpcmsg("It’ll help you choose a Pokémon when\n"
                  "you remember what kind of Pokémon\f"
                  "the other Trainer had and what moves\f"
@@ -558,7 +558,7 @@ script scr_seq_D32R0301_008 {
     end
 }
 
-script scr_seq_D32R0301_009 {
+script BattleFrontier_BattleFactory_EventScript_Youngster {
     simplenpcmsg("This is a place to battle with rental\n"
                  "Pokémon, right?\r"
                  "It is a good chance to try Pokémon\n"
@@ -569,7 +569,7 @@ script scr_seq_D32R0301_009 {
     end
 }
 
-script scr_seq_D32R0301_010 {
+script BattleFrontier_BattleFactory_EventScript_Gentleman {
     simplenpcmsg("Do you have a lot of Pokémon?\r"
                  "I’m not too proud to say this, but...\n"
                  "I have only a few!\r"
@@ -580,7 +580,7 @@ script scr_seq_D32R0301_010 {
     end
 }
 
-script scr_seq_D32R0301_011 {
+script BattleFrontier_BattleFactory_EventScript_Lady {
     simplenpcmsg("So you have to battle with Pokémon\n"
                  "you just met instead of with your\f"
                  "cherished Pokémon you’ve always\f"
@@ -591,7 +591,7 @@ script scr_seq_D32R0301_011 {
     end
 }
 
-script scr_seq_D32R0301_012 {
+script BattleFrontier_BattleFactory_EventScript_Policeman {
     simplenpcmsg("All the Trainers gathered at the\n"
                  "Battle Frontier are nice,\f"
                  "pleasant people!\r"
@@ -602,11 +602,11 @@ script scr_seq_D32R0301_012 {
 }
 
 mapscripts BattleFrontier_BattleFactory_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0301_013
+    INIT_SCRIPT_ON_TRANSITION: BattleFrontier_BattleFactory_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4142, 1: scr_seq_D32R0301_003
-        VAR_UNK_4142, 2: scr_seq_D32R0301_001
-        VAR_UNK_4142, 3: scr_seq_D32R0301_004
-        VAR_UNK_4142, 255: scr_seq_D32R0301_002
+        VAR_UNK_4142, 1: BattleFrontier_BattleFactory_EventScript_Scene3
+        VAR_UNK_4142, 2: BattleFrontier_BattleFactory_EventScript_Scene1
+        VAR_UNK_4142, 3: BattleFrontier_BattleFactory_EventScript_Scene4
+        VAR_UNK_4142, 255: BattleFrontier_BattleFactory_EventScript_Scene2
     ]
 }

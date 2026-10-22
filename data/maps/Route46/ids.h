@@ -1,9 +1,9 @@
 #ifndef SCR_SEQ_R46_H_
 #define SCR_SEQ_R46_H_
 
-#define _EV_scr_seq_R46_000 0
-#define _EV_scr_seq_R46_001 1
-#define _EV_scr_seq_R46_002 2
+#define _EV_Route46_EventScript_Man 0
+#define _EV_Route46_EventScript_RouteSign 1
+#define _EV_Route46_EventScript_TrainerTips 2
 
 #define obj_R46_mount_2      0
 #define obj_R46_campboy_2    1

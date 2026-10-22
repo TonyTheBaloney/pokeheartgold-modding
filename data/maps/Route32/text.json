@@ -3,27 +3,27 @@
   "messages": [
     {
       "id": "msg_0380_R32_00000",
-      "from": "scr_seq_R32_002#0"
+      "from": "Route32_EventScript_PokefanMTrigger#0"
     },
     {
       "id": "msg_0380_R32_00001",
-      "from": "scr_seq_R32_001#1"
+      "from": "Route32_EventScript_PokefanM1#1"
     },
     {
       "id": "msg_0380_R32_00002",
-      "from": "scr_seq_R32_002#2"
+      "from": "Route32_EventScript_PokefanMTrigger#2"
     },
     {
       "id": "msg_0380_R32_00003",
-      "from": "scr_seq_R32_001#0"
+      "from": "Route32_EventScript_PokefanM1#0"
     },
     {
       "id": "msg_0380_R32_00004",
-      "from": "scr_seq_R32_002#1"
+      "from": "Route32_EventScript_PokefanMTrigger#1"
     },
     {
       "id": "msg_0380_R32_00005",
-      "from": "scr_seq_R32_001#2"
+      "from": "Route32_EventScript_PokefanM1#2"
     },
     {
       "id": "msg_0380_R32_00006",
@@ -31,19 +31,19 @@
     },
     {
       "id": "msg_0380_R32_00007",
-      "from": "scr_seq_R32_001#5"
+      "from": "Route32_EventScript_PokefanM1#5"
     },
     {
       "id": "msg_0380_R32_00008",
-      "from": "scr_seq_R32_001#3"
+      "from": "Route32_EventScript_PokefanM1#3"
     },
     {
       "id": "msg_0380_R32_00009",
-      "from": "scr_seq_R32_001#4"
+      "from": "Route32_EventScript_PokefanM1#4"
     },
     {
       "id": "msg_0380_R32_00010",
-      "from": "scr_seq_R32_000#0"
+      "from": "Route32_EventScript_FatMan1#0"
     },
     {
       "id": "msg_0380_R32_00011",
@@ -51,7 +51,7 @@
     },
     {
       "id": "msg_0380_R32_00012",
-      "from": "scr_seq_R32_000#1"
+      "from": "Route32_EventScript_FatMan1#1"
     },
     {
       "id": "msg_0380_R32_00013",
@@ -59,27 +59,27 @@
     },
     {
       "id": "msg_0380_R32_00014",
-      "from": "scr_seq_R32_003#0"
+      "from": "Route32_EventScript_FatMan2#0"
     },
     {
       "id": "msg_0380_R32_00015",
-      "from": "scr_seq_R32_003#1"
+      "from": "Route32_EventScript_FatMan2#1"
     },
     {
       "id": "msg_0380_R32_00016",
-      "from": "scr_seq_R32_003#2"
+      "from": "Route32_EventScript_FatMan2#2"
     },
     {
       "id": "msg_0380_R32_00017",
-      "from": "scr_seq_R32_007#0"
+      "from": "Route32_EventScript_RouteSign#0"
     },
     {
       "id": "msg_0380_R32_00018",
-      "from": "scr_seq_R32_006#0"
+      "from": "Route32_EventScript_RuinsOfAlphSign#0"
     },
     {
       "id": "msg_0380_R32_00019",
-      "from": "scr_seq_R32_008#0"
+      "from": "Route32_EventScript_UnionCaveAheadSign#0"
     }
   ]
 }

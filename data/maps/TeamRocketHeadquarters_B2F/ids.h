@@ -1,21 +1,21 @@
 #ifndef SCR_SEQ_D35R0103_H_
 #define SCR_SEQ_D35R0103_H_
 
-#define _EV_scr_seq_D35R0103_000 0
-#define _EV_scr_seq_D35R0103_001 1
-#define _EV_scr_seq_D35R0103_002 2
-#define _EV_scr_seq_D35R0103_003 3
-#define _EV_scr_seq_D35R0103_004 4
-#define _EV_scr_seq_D35R0103_005 5
-#define _EV_scr_seq_D35R0103_006 6
-#define _EV_scr_seq_D35R0103_007 7
-#define _EV_scr_seq_D35R0103_008 8
-#define _EV_scr_seq_D35R0103_009 9
-#define _EV_scr_seq_D35R0103_010 10
-#define _EV_scr_seq_D35R0103_011 11
-#define _EV_scr_seq_D35R0103_012 12
-#define _EV_scr_seq_D35R0103_013 13
-#define _EV_scr_seq_D35R0103_014 14
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_LanceScene 0
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_LittleBoy 1
+#define _EV_TeamRocketHeadquarters_B2F_OnResume 2
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_ArianaTrigger 3
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_Electrode1 4
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_Electrode2 5
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_Lance 6
+#define _EV_TeamRocketHeadquarters_B2F_OnLoad 7
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_LanceTrigger1 8
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_LanceTrigger2 9
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_Radio 10
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger1 11
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_Trigger 12
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger2 13
+#define _EV_TeamRocketHeadquarters_B2F_EventScript_MurkrowTrigger3 14
 
 #define obj_D35R0103_wataru                        0
 #define obj_D35R0103_tsure_poke_static_dragonite   1

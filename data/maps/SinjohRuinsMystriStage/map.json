@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D51R0201_001 + 1",
+            "script": "SinjohRuinsMystriStage_EventScript_Cynthia",
             "flag": "FLAG_HIDE_SINJOH_MYSTRI_SHRINE_CYNTHIA"
         }
     ],
@@ -63,7 +63,7 @@
             "height": 1,
             "var": "VAR_UNK_4104",
             "var_value": 1,
-            "script": "_EV_scr_seq_D51R0201_003 + 1"
+            "script": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger1"
         },
         {
             "x": 12,
@@ -73,7 +73,7 @@
             "height": 1,
             "var": "VAR_UNK_4104",
             "var_value": 1,
-            "script": "_EV_scr_seq_D51R0201_004 + 1"
+            "script": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger2"
         },
         {
             "x": 16,
@@ -83,7 +83,7 @@
             "height": 1,
             "var": "VAR_UNK_4104",
             "var_value": 1,
-            "script": "_EV_scr_seq_D51R0201_005 + 1"
+            "script": "SinjohRuinsMystriStage_EventScript_CynthiaTrigger3"
         }
     ],
     "bg_events": []

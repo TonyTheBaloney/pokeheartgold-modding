@@ -1,11 +1,11 @@
 #ifndef SCR_SEQ_R35_H_
 #define SCR_SEQ_R35_H_
 
-#define _EV_scr_seq_R35_000 0
-#define _EV_scr_seq_R35_001 1
-#define _EV_scr_seq_R35_002 2
-#define _EV_scr_seq_R35_003 3
-#define _EV_scr_seq_R35_004 4
+#define _EV_Route35_EventScript_RouteSign 0
+#define _EV_Route35_OnTransition 1
+#define _EV_Route35_EventScript_Policeman 2
+#define _EV_Route35_EventScript_PokefanM 3
+#define _EV_Route35_EventScript_NorthToTheNationalParkSign 4
 
 #define obj_R35_policeman      0
 #define obj_R35_picnicgirl_2   1

@@ -3,27 +3,27 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D32R0101_000
-    scr_seq_D32R0101_001
-    scr_seq_D32R0101_002
-    scr_seq_D32R0101_003
-    scr_seq_D32R0101_004
-    scr_seq_D32R0101_005
-    scr_seq_D32R0101_006
-    scr_seq_D32R0101_007
-    scr_seq_D32R0101_008
-    scr_seq_D32R0101_009
-    scr_seq_D32R0101_010
-    scr_seq_D32R0101_011
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_Scene
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant1
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant2
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant3
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant4
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant5
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant6
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_RuinManiac
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_OldMan
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_Man
+    BattleFrontier_FrontierAccess_Gatehouse_EventScript_Beauty
+    BattleFrontier_FrontierAccess_Gatehouse_OnTransition
 }
 
-script scr_seq_D32R0101_011 {
+script BattleFrontier_FrontierAccess_Gatehouse_OnTransition {
     setflag(FLAG_SYS_FLYPOINT_UNION_CAVE)
     setvar(VAR_UNK_40E5, 2)
     end
 }
 
-script scr_seq_D32R0101_000 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_Scene {
     followmonresetmovement
     lockall
     setvar(VAR_UNK_40E6, 1)
@@ -68,7 +68,7 @@ text msg_0103_D32R0101_00010 {
     "We hope you enjoy your visit!"
 }
 
-script scr_seq_D32R0101_001 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -170,7 +170,7 @@ text msg_0103_D32R0101_00004 {
     "Which topic should I explain? {YESNO 0}"
 }
 
-script scr_seq_D32R0101_002 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -202,7 +202,7 @@ script scr_seq_D32R0101_002 {
     end
 }
 
-script scr_seq_D32R0101_003 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -238,7 +238,7 @@ script scr_seq_D32R0101_003 {
     end
 }
 
-script scr_seq_D32R0101_004 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -271,7 +271,7 @@ script scr_seq_D32R0101_004 {
     end
 }
 
-script scr_seq_D32R0101_005 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant5 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -306,7 +306,7 @@ script scr_seq_D32R0101_005 {
     end
 }
 
-script scr_seq_D32R0101_006 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant6 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -341,25 +341,25 @@ script scr_seq_D32R0101_006 {
         releaseall
         end
     _02FF:
-        applymovement(obj_D32R0101_bfsw2, BattleFrontier_FrontierAccess_Gatehouse_Movement_0384)
-        applymovement(obj_D32R0101_bfsw2_2, BattleFrontier_FrontierAccess_Gatehouse_Movement_0384)
-        applymovement(obj_D32R0101_bfsw2_3, BattleFrontier_FrontierAccess_Gatehouse_Movement_0384)
-        applymovement(obj_D32R0101_bfsw2_4, BattleFrontier_FrontierAccess_Gatehouse_Movement_0384)
-        applymovement(obj_D32R0101_bfsw2_5, BattleFrontier_FrontierAccess_Gatehouse_Movement_0384)
-        applymovement(obj_D32R0101_bfsw2_6, BattleFrontier_FrontierAccess_Gatehouse_Movement_0384)
+        applymovement(obj_D32R0101_bfsw2, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceDown)
+        applymovement(obj_D32R0101_bfsw2_2, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceDown)
+        applymovement(obj_D32R0101_bfsw2_3, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceDown)
+        applymovement(obj_D32R0101_bfsw2_4, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceDown)
+        applymovement(obj_D32R0101_bfsw2_5, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceDown)
+        applymovement(obj_D32R0101_bfsw2_6, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceDown)
         waitmovement
         return
     _0333:
         togglefollowingpokemonmovement(0)
         waitfollowingpokemonmovement
         followingpokemonmovement(55)
-        applymovement(obj_D32R0101_bfsw2, BattleFrontier_FrontierAccess_Gatehouse_Movement_038C)
-        applymovement(obj_D32R0101_bfsw2_2, BattleFrontier_FrontierAccess_Gatehouse_Movement_038C)
-        applymovement(obj_D32R0101_bfsw2_3, BattleFrontier_FrontierAccess_Gatehouse_Movement_038C)
-        applymovement(obj_D32R0101_bfsw2_4, BattleFrontier_FrontierAccess_Gatehouse_Movement_0394)
-        applymovement(obj_D32R0101_bfsw2_5, BattleFrontier_FrontierAccess_Gatehouse_Movement_0394)
-        applymovement(obj_D32R0101_bfsw2_6, BattleFrontier_FrontierAccess_Gatehouse_Movement_0394)
-        applymovement(obj_player, BattleFrontier_FrontierAccess_Gatehouse_Movement_039C)
+        applymovement(obj_D32R0101_bfsw2, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceRight)
+        applymovement(obj_D32R0101_bfsw2_2, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceRight)
+        applymovement(obj_D32R0101_bfsw2_3, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceRight)
+        applymovement(obj_D32R0101_bfsw2_4, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceLeft)
+        applymovement(obj_D32R0101_bfsw2_5, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceLeft)
+        applymovement(obj_D32R0101_bfsw2_6, BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceLeft)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Gatehouse_Movement_PlayerWalkUp)
         waitmovement
         waitfollowingpokemonmovement
         togglefollowingpokemonmovement(1)
@@ -370,24 +370,24 @@ script scr_seq_D32R0101_006 {
     end
 }
 
-movement BattleFrontier_FrontierAccess_Gatehouse_Movement_0384 {
+movement BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceDown {
     face_down
 }
 
-movement BattleFrontier_FrontierAccess_Gatehouse_Movement_038C {
+movement BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceRight {
     face_right
 }
 
-movement BattleFrontier_FrontierAccess_Gatehouse_Movement_0394 {
+movement BattleFrontier_FrontierAccess_Gatehouse_Movement_AttendantFaceLeft {
     face_left
 }
 
-movement BattleFrontier_FrontierAccess_Gatehouse_Movement_039C {
+movement BattleFrontier_FrontierAccess_Gatehouse_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_left
 }
 
-script scr_seq_D32R0101_007 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_RuinManiac {
     simplenpcmsg("The Battle Frontier is up ahead!\n"
                  "I have explored places all over the\f"
                  "world, but nothing compares to the\f"
@@ -398,7 +398,7 @@ script scr_seq_D32R0101_007 {
     end
 }
 
-script scr_seq_D32R0101_008 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_OldMan {
     simplenpcmsg("The five facilities of the Battle\n"
                  "Frontier are...\r"
                  "Tower.\r"
@@ -415,14 +415,14 @@ script scr_seq_D32R0101_008 {
     end
 }
 
-script scr_seq_D32R0101_009 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_Man {
     simplenpcmsg("The Vs. Recorder is sure nifty!\r"
                  "Checking the Frontier Record\n"
                  "will tell you how much BP you have.")
     end
 }
 
-script scr_seq_D32R0101_010 {
+script BattleFrontier_FrontierAccess_Gatehouse_EventScript_Beauty {
     simplenpcmsg("My dream is to battle Palmer of the\n"
                  "Battle Tower.\r"
                  "I want to record it for posterity on\n"
@@ -433,8 +433,8 @@ script scr_seq_D32R0101_010 {
 }
 
 mapscripts BattleFrontier_FrontierAccess_Gatehouse_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0101_011
+    INIT_SCRIPT_ON_TRANSITION: BattleFrontier_FrontierAccess_Gatehouse_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40E6, 0: scr_seq_D32R0101_000
+        VAR_UNK_40E6, 0: BattleFrontier_FrontierAccess_Gatehouse_EventScript_Scene
     ]
 }

@@ -3,43 +3,43 @@
   "messages": [
     {
       "id": "msg_0495_T07R0102_00000",
-      "from": "scr_seq_T07R0102_002#0"
+      "from": "Celadon_DepartmentStore_2F_EventScript_PokefanM1#0"
     },
     {
       "id": "msg_0495_T07R0102_00001",
-      "from": "scr_seq_T07R0102_003#0"
+      "from": "Celadon_DepartmentStore_2F_EventScript_SchoolKidM#0"
     },
     {
       "id": "msg_0495_T07R0102_00002",
-      "from": "scr_seq_T07R0102_004#0"
+      "from": "Celadon_DepartmentStore_2F_EventScript_Sign#0"
     },
     {
       "id": "msg_0495_T07R0102_00003",
-      "from": "scr_seq_T07R0102_007#1"
+      "from": "Celadon_DepartmentStore_2F_EventScript_CrasherWake#1"
     },
     {
       "id": "msg_0495_T07R0102_00004",
-      "from": "scr_seq_T07R0102_007#2"
+      "from": "Celadon_DepartmentStore_2F_EventScript_CrasherWake#2"
     },
     {
       "id": "msg_0495_T07R0102_00005",
-      "from": "scr_seq_T07R0102_007#3"
+      "from": "Celadon_DepartmentStore_2F_EventScript_CrasherWake#3"
     },
     {
       "id": "msg_0495_T07R0102_00006",
-      "from": "scr_seq_T07R0102_007#4"
+      "from": "Celadon_DepartmentStore_2F_EventScript_CrasherWake#4"
     },
     {
       "id": "msg_0495_T07R0102_00007",
-      "from": "scr_seq_T07R0102_007#5"
+      "from": "Celadon_DepartmentStore_2F_EventScript_CrasherWake#5"
     },
     {
       "id": "msg_0495_T07R0102_00008",
-      "from": "scr_seq_T07R0102_007#6"
+      "from": "Celadon_DepartmentStore_2F_EventScript_CrasherWake#6"
     },
     {
       "id": "msg_0495_T07R0102_00009",
-      "from": "scr_seq_T07R0102_007#0"
+      "from": "Celadon_DepartmentStore_2F_EventScript_CrasherWake#0"
     }
   ]
 }

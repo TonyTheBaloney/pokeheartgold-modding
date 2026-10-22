@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T01R0202_000 {
+script Pallet_TownBluesHouse_2F_EventScript_ItsAWiiSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("It’s a Wii!\n"
@@ -12,7 +12,7 @@ script scr_seq_T01R0202_000 {
     end
 }
 
-script scr_seq_T01R0202_001 {
+script Pallet_TownBluesHouse_2F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("...The power is turned off.")

@@ -3,30 +3,30 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0401_000
-    scr_seq_T07R0401_001
-    scr_seq_T07R0401_002
-    scr_seq_T07R0401_003
-    scr_seq_T07R0401_004
-    scr_seq_T07R0401_005
-    scr_seq_T07R0401_006
-    scr_seq_T07R0401_007
-    scr_seq_T07R0401_008
-    scr_seq_T07R0401_009
-    scr_seq_T07R0401_010
-    scr_seq_T07R0401_011
-    scr_seq_T07R0401_012
-    scr_seq_T07R0401_013
-    scr_seq_T07R0401_014
-    scr_seq_T07R0401_015
-    scr_seq_T07R0401_016
-    scr_seq_T07R0401_017
-    scr_seq_T07R0401_018
-    scr_seq_T07R0401_019
-    scr_seq_T07R0401_020
-    scr_seq_T07R0401_021
-    scr_seq_T07R0401_022
-    scr_seq_T07R0401_023
+    Celadon_GameCorner_Jp_EventScript_Clerk
+    Celadon_GameCorner_Jp_EventScript_Receptionist
+    Celadon_GameCorner_Jp_EventScript_PokefanM
+    Celadon_GameCorner_Jp_EventScript_Woman
+    Celadon_GameCorner_Jp_EventScript_Fisherman
+    Celadon_GameCorner_Jp_EventScript_FatMan
+    Celadon_GameCorner_Jp_EventScript_GymGuide
+    Celadon_GameCorner_Jp_EventScript_OldMan
+    Celadon_GameCorner_Jp_EventScript_Sign1
+    Celadon_GameCorner_Jp_EventScript_Sign2
+    Celadon_GameCorner_Jp_EventScript_Sign3
+    Celadon_GameCorner_Jp_EventScript_Sign4
+    Celadon_GameCorner_Jp_EventScript_Sign5
+    Celadon_GameCorner_Jp_EventScript_Sign6
+    Celadon_GameCorner_Jp_EventScript_Sign7
+    Celadon_GameCorner_Jp_EventScript_Sign8
+    Celadon_GameCorner_Jp_EventScript_Sign9
+    Celadon_GameCorner_Jp_EventScript_Sign10
+    Celadon_GameCorner_Jp_EventScript_Sign11
+    Celadon_GameCorner_Jp_EventScript_Sign12
+    Celadon_GameCorner_Jp_EventScript_Sign13
+    Celadon_GameCorner_Jp_EventScript_Sign14
+    Celadon_GameCorner_Jp_EventScript_Sign15
+    Celadon_GameCorner_Jp_EventScript_Sign16
 }
 
 script(local) _0062 {
@@ -53,7 +53,7 @@ script(local) _0062 {
     return
 }
 
-script scr_seq_T07R0401_010 {
+script Celadon_GameCorner_Jp_EventScript_Sign3 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -69,7 +69,7 @@ script scr_seq_T07R0401_010 {
     end
 }
 
-script scr_seq_T07R0401_011 {
+script Celadon_GameCorner_Jp_EventScript_Sign4 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -85,7 +85,7 @@ script scr_seq_T07R0401_011 {
     end
 }
 
-script scr_seq_T07R0401_012 {
+script Celadon_GameCorner_Jp_EventScript_Sign5 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -101,7 +101,7 @@ script scr_seq_T07R0401_012 {
     end
 }
 
-script scr_seq_T07R0401_013 {
+script Celadon_GameCorner_Jp_EventScript_Sign6 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -117,7 +117,7 @@ script scr_seq_T07R0401_013 {
     end
 }
 
-script scr_seq_T07R0401_014 {
+script Celadon_GameCorner_Jp_EventScript_Sign7 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -133,7 +133,7 @@ script scr_seq_T07R0401_014 {
     end
 }
 
-script scr_seq_T07R0401_015 {
+script Celadon_GameCorner_Jp_EventScript_Sign8 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -149,7 +149,7 @@ script scr_seq_T07R0401_015 {
     end
 }
 
-script scr_seq_T07R0401_016 {
+script Celadon_GameCorner_Jp_EventScript_Sign9 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -165,7 +165,7 @@ script scr_seq_T07R0401_016 {
     end
 }
 
-script scr_seq_T07R0401_017 {
+script Celadon_GameCorner_Jp_EventScript_Sign10 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -181,7 +181,7 @@ script scr_seq_T07R0401_017 {
     end
 }
 
-script scr_seq_T07R0401_018 {
+script Celadon_GameCorner_Jp_EventScript_Sign11 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -197,7 +197,7 @@ script scr_seq_T07R0401_018 {
     end
 }
 
-script scr_seq_T07R0401_019 {
+script Celadon_GameCorner_Jp_EventScript_Sign12 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -213,7 +213,7 @@ script scr_seq_T07R0401_019 {
     end
 }
 
-script scr_seq_T07R0401_020 {
+script Celadon_GameCorner_Jp_EventScript_Sign13 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -229,7 +229,7 @@ script scr_seq_T07R0401_020 {
     end
 }
 
-script scr_seq_T07R0401_021 {
+script Celadon_GameCorner_Jp_EventScript_Sign14 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -245,7 +245,7 @@ script scr_seq_T07R0401_021 {
     end
 }
 
-script scr_seq_T07R0401_022 {
+script Celadon_GameCorner_Jp_EventScript_Sign15 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -263,7 +263,7 @@ script scr_seq_T07R0401_022 {
     end
 }
 
-script scr_seq_T07R0401_023 {
+script Celadon_GameCorner_Jp_EventScript_Sign16 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     call(_0062)
@@ -279,7 +279,7 @@ script scr_seq_T07R0401_023 {
     end
 }
 
-script scr_seq_T07R0401_000 {
+script Celadon_GameCorner_Jp_EventScript_Clerk {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -356,7 +356,7 @@ script scr_seq_T07R0401_000 {
     end
 }
 
-script scr_seq_T07R0401_005 {
+script Celadon_GameCorner_Jp_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -397,37 +397,37 @@ script scr_seq_T07R0401_005 {
     end
 }
 
-script scr_seq_T07R0401_001 {
+script Celadon_GameCorner_Jp_EventScript_Receptionist {
     simplenpcmsg(msg_0508_T07R0401_00007)
     end
 }
 
-script scr_seq_T07R0401_002 {
+script Celadon_GameCorner_Jp_EventScript_PokefanM {
     simplenpcmsg(msg_0508_T07R0401_00008)
     end
 }
 
-script scr_seq_T07R0401_003 {
+script Celadon_GameCorner_Jp_EventScript_Woman {
     simplenpcmsg(msg_0508_T07R0401_00009)
     end
 }
 
-script scr_seq_T07R0401_004 {
+script Celadon_GameCorner_Jp_EventScript_Fisherman {
     simplenpcmsg(msg_0508_T07R0401_00010)
     end
 }
 
-script scr_seq_T07R0401_006 {
+script Celadon_GameCorner_Jp_EventScript_GymGuide {
     simplenpcmsg(msg_0508_T07R0401_00016)
     end
 }
 
-script scr_seq_T07R0401_007 {
+script Celadon_GameCorner_Jp_EventScript_OldMan {
     simplenpcmsg(msg_0508_T07R0401_00017)
     end
 }
 
-script scr_seq_T07R0401_008 {
+script Celadon_GameCorner_Jp_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg(msg_0508_T07R0401_00018)
@@ -437,7 +437,7 @@ script scr_seq_T07R0401_008 {
     end
 }
 
-script scr_seq_T07R0401_009 {
+script Celadon_GameCorner_Jp_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg(msg_0508_T07R0401_00019)

@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T20_000 + 1",
+            "script": "NewBark_EventScript_Rival",
             "flag": "FLAG_HIDE_NEW_BARK_RIVAL"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T20_001 + 1",
+            "script": "NewBark_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T20_015 + 1",
+            "script": "NewBark_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T20_005 + 1",
+            "script": "NewBark_EventScript_Marill",
             "flag": "FLAG_HIDE_NEW_BARK_MARILL"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T20_004 + 1",
+            "script": "NewBark_EventScript_Lyra",
             "flag": "FLAG_HIDE_NEW_BARK_FRIEND"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T20_017 + 1",
+            "script": "NewBark_EventScript_PokefanM",
             "flag": "FLAG_HIDE_CAMERON"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T20_004 + 1",
+            "script": "NewBark_EventScript_Lyra",
             "flag": "FLAG_HIDE_NEW_BARK_FRIEND_2"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T20_005 + 1",
+            "script": "NewBark_EventScript_Marill",
             "flag": "FLAG_HIDE_NEW_BARK_FRIEND_2"
         }
     ],
@@ -244,7 +244,7 @@
             "height": 7,
             "var": "VAR_SCENE_NEW_BARK_WEST_EXIT",
             "var_value": 0,
-            "script": "_EV_scr_seq_T20_002 + 1"
+            "script": "NewBark_EventScript_ProfElmTrigger"
         },
         {
             "x": 688,
@@ -254,7 +254,7 @@
             "height": 1,
             "var": "VAR_TEMP_x4003",
             "var_value": 0,
-            "script": "_EV_scr_seq_T20_010 + 1"
+            "script": "NewBark_EventScript_WarpToNewBarkElmsLab2F"
         },
         {
             "x": 700,
@@ -264,7 +264,7 @@
             "height": 5,
             "var": "VAR_SCENE_NEW_BARK_EAST_EXIT",
             "var_value": 1,
-            "script": "_EV_scr_seq_T20_011 + 1"
+            "script": "NewBark_EventScript_MomTrigger"
         },
         {
             "x": 700,
@@ -274,7 +274,7 @@
             "height": 5,
             "var": "VAR_SCENE_NEW_BARK_EAST_EXIT",
             "var_value": 2,
-            "script": "_EV_scr_seq_T20_012 + 1"
+            "script": "NewBark_EventScript_LyraTrigger"
         }
     ],
     "bg_events": [
@@ -284,7 +284,7 @@
             "y": 393,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T20_013 + 1"
+            "script": "NewBark_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -292,7 +292,7 @@
             "y": 396,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T20_007 + 1"
+            "script": "NewBark_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -300,7 +300,7 @@
             "y": 400,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T20_014 + 1"
+            "script": "NewBark_EventScript_TownSign"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -308,7 +308,7 @@
             "y": 407,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T20_016 + 1"
+            "script": "NewBark_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

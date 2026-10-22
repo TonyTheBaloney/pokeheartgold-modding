@@ -1,12 +1,12 @@
 #ifndef SCR_SEQ_D44R0103_H_
 #define SCR_SEQ_D44R0103_H_
 
-#define _EV_scr_seq_D44R0103_000 0
-#define _EV_scr_seq_D44R0103_001 1
-#define _EV_scr_seq_D44R0103_002 2
-#define _EV_scr_seq_D44R0103_003 3
-#define _EV_scr_seq_D44R0103_004 4
-#define _EV_scr_seq_D44R0103_005 5
+#define _EV_DragonsDen_Shrine_EventScript_Elder 0
+#define _EV_DragonsDen_Shrine_EventScript_OldMan1 1
+#define _EV_DragonsDen_Shrine_EventScript_OldMan2 2
+#define _EV_DragonsDen_Shrine_EventScript_ClairScene 3
+#define _EV_DragonsDen_Shrine_OnTransition 4
+#define _EV_DragonsDen_Shrine_EventScript_PokefanM 5
 
 #define obj_D44R0103_chourou      0
 #define obj_D44R0103_gsoldman1    1

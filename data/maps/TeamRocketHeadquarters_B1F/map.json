@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0102_001 + 1",
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatue1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0102_002 + 1",
+            "script": "TeamRocketHeadquarters_B1F_EventScript_RocketGrunt",
             "flag": "FLAG_UNK_1E8"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0102_009 + 1",
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatue2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0102_010 + 1",
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatue3",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0102_011 + 1",
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatue4",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D35R0102_012 + 1",
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatue5",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -240,7 +240,7 @@
             "height": 2,
             "var": "VAR_UNK_40AD",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_000 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger1"
         },
         {
             "x": 18,
@@ -250,7 +250,7 @@
             "height": 2,
             "var": "VAR_UNK_40AE",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_005 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger2"
         },
         {
             "x": 44,
@@ -260,7 +260,7 @@
             "height": 2,
             "var": "VAR_UNK_40AF",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_006 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger3"
         },
         {
             "x": 44,
@@ -270,7 +270,7 @@
             "height": 2,
             "var": "VAR_UNK_40B0",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_007 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger4"
         },
         {
             "x": 18,
@@ -280,7 +280,7 @@
             "height": 2,
             "var": "VAR_UNK_40B1",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_008 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_PersianStatueTrigger5"
         },
         {
             "x": 12,
@@ -290,7 +290,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_KOFFING_1",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_013 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger1"
         },
         {
             "x": 13,
@@ -300,7 +300,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_VOLTORB_1",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_014 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger2"
         },
         {
             "x": 15,
@@ -310,7 +310,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_GEODUDE_1",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_015 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger3"
         },
         {
             "x": 16,
@@ -320,7 +320,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_VOLTORB_2",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_016 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger4"
         },
         {
             "x": 11,
@@ -330,7 +330,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_GEODUDE_2",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_017 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger5"
         },
         {
             "x": 16,
@@ -340,7 +340,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_VOLTORB_3",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_018 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger6"
         },
         {
             "x": 14,
@@ -350,7 +350,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_VOLTORB_4",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_019 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger7"
         },
         {
             "x": 15,
@@ -360,7 +360,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_KOFFING_2",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_020 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger8"
         },
         {
             "x": 15,
@@ -370,7 +370,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_KOFFING_3",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_021 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger9"
         },
         {
             "x": 13,
@@ -380,7 +380,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_GEODUDE_3",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_022 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger10"
         },
         {
             "x": 14,
@@ -390,7 +390,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_GEODUDE_4",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_023 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger11"
         },
         {
             "x": 12,
@@ -400,7 +400,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_KOFFING_4",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_024 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger12"
         },
         {
             "x": 11,
@@ -410,7 +410,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_VOLTORB_5",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_025 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger13"
         },
         {
             "x": 13,
@@ -420,7 +420,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_VOLTORB_6",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_026 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger14"
         },
         {
             "x": 14,
@@ -430,7 +430,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_KOFFING_5",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_027 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger15"
         },
         {
             "x": 16,
@@ -440,7 +440,7 @@
             "height": 1,
             "var": "VAR_ROCKET_TRAP_GEODUDE_5",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_028 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Trigger16"
         },
         {
             "x": 16,
@@ -450,7 +450,7 @@
             "height": 1,
             "var": "VAR_UNK_40C2",
             "var_value": 0,
-            "script": "_EV_scr_seq_D35R0102_029 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_WarpToTeamRocketHeadquartersB1F"
         }
     ],
     "bg_events": [
@@ -460,7 +460,7 @@
             "y": 21,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_D35R0102_004 + 1"
+            "script": "TeamRocketHeadquarters_B1F_EventScript_Sign"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

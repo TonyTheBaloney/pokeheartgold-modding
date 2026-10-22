@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R32PC0101_000 {
+script Route32_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 3)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_R32PC0101_001 {
+script Route32_Pokecenter_1F_EventScript_Fisherman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -69,7 +69,7 @@ _0058:
     end
 }
 
-script scr_seq_R32PC0101_002 {
+script Route32_Pokecenter_1F_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -125,7 +125,7 @@ _0117:
     end
 }
 
-script scr_seq_R32PC0101_003 {
+script Route32_Pokecenter_1F_EventScript_AceTrainerF {
     simplenpcmsg("What should I make my Pokémon hold?\r"
                  "Maybe an item that increases\n"
                  "its Attack power...")

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T27FS0101_000 {
+script Ecruteak_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T27FS0101_000 {
     end
 }
 
-script scr_seq_T27FS0101_001 {
+script Ecruteak_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,13 +25,13 @@ script scr_seq_T27FS0101_001 {
     end
 }
 
-script scr_seq_T27FS0101_002 {
+script Ecruteak_Pokemart_EventScript_OldWoman {
     simplenpcmsg("If you use Revive, a Pokémon that has\n"
                  "fainted will wake right up.")
     end
 }
 
-script scr_seq_T27FS0101_003 {
+script Ecruteak_Pokemart_EventScript_Man {
     simplenpcmsg("My EEVEE evolved into an ESPEON.\r"
                  "But my friend’s EEVEE turned into\n"
                  "an UMBREON.\r"

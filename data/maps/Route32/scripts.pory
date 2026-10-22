@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R32_000
-    scr_seq_R32_001
-    scr_seq_R32_002
-    scr_seq_R32_003
-    scr_seq_R32_004
-    scr_seq_R32_005
-    scr_seq_R32_006
-    scr_seq_R32_007
-    scr_seq_R32_008
-    scr_seq_R32_009
+    Route32_EventScript_FatMan1
+    Route32_EventScript_PokefanM1
+    Route32_EventScript_PokefanMTrigger
+    Route32_EventScript_FatMan2
+    Route32_OnTransition
+    Route32_EventScript_Lass
+    Route32_EventScript_RuinsOfAlphSign
+    Route32_EventScript_RouteSign
+    Route32_EventScript_UnionCaveAheadSign
+    Route32_EventScript_PokefanM2
 }
 
-script scr_seq_R32_004 {
+script Route32_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) != 0) {
@@ -42,7 +42,7 @@ script scr_seq_R32_004 {
     end
 }
 
-script scr_seq_R32_005 {
+script Route32_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -118,7 +118,7 @@ _01A5:
     end
 }
 
-script scr_seq_R32_000 {
+script Route32_EventScript_FatMan1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -147,7 +147,7 @@ script scr_seq_R32_000 {
     end
 }
 
-script scr_seq_R32_001 {
+script Route32_EventScript_PokefanM1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -217,10 +217,10 @@ _0284:
     end
 }
 
-script scr_seq_R32_002 {
+script Route32_EventScript_PokefanMTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_R32_gsmiddleman1, Route32_Movement_046C)
+    applymovement(obj_R32_gsmiddleman1, Route32_Movement_PokefanMExclamation)
     waitmovement
     npcmsg("Wait up!\n"
            "What’s the hurry?\r")
@@ -231,12 +231,12 @@ script scr_seq_R32_002 {
         followingpokemonmovement(56)
         getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4000) == 475) {
-            applymovement(obj_R32_gsmiddleman1, Route32_Movement_04D4)
-            applymovement(obj_player, Route32_Movement_04E4)
+            applymovement(obj_R32_gsmiddleman1, Route32_Movement_PokefanMWalkLeft)
+            applymovement(obj_player, Route32_Movement_PlayerFaceRight1)
             setvar(VAR_TEMP_x4002, 1)
         } else {
-            applymovement(obj_R32_gsmiddleman1, Route32_Movement_04DC)
-            applymovement(obj_player, Route32_Movement_04F0)
+            applymovement(obj_R32_gsmiddleman1, Route32_Movement_PokefanMDelay)
+            applymovement(obj_player, Route32_Movement_PlayerFaceRight2)
             setvar(VAR_TEMP_x4002, 0)
         }
         waitmovement
@@ -245,7 +245,7 @@ script scr_seq_R32_002 {
         followingpokemonmovement(48)
         call(_02B5)
         if (var(VAR_TEMP_x4000) == 475) {
-            applymovement(obj_R32_gsmiddleman1, Route32_Movement_04F8)
+            applymovement(obj_R32_gsmiddleman1, Route32_Movement_PokefanMWalkRight)
             waitmovement
         }
         releaseall
@@ -256,11 +256,11 @@ script scr_seq_R32_002 {
     followingpokemonmovement(56)
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 475) {
-        applymovement(obj_R32_gsmiddleman1, Route32_Movement_0478)
-        applymovement(obj_player, Route32_Movement_0494)
+        applymovement(obj_R32_gsmiddleman1, Route32_Movement_PokefanMWalkLeftUp1)
+        applymovement(obj_player, Route32_Movement_PlayerWalkUp1)
     } else {
-        applymovement(obj_R32_gsmiddleman1, Route32_Movement_0484)
-        applymovement(obj_player, Route32_Movement_04A4)
+        applymovement(obj_R32_gsmiddleman1, Route32_Movement_PokefanMWalkLeftUp2)
+        applymovement(obj_player, Route32_Movement_PlayerWalkUp2)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -283,78 +283,78 @@ script scr_seq_R32_002 {
     closemessage
     getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
     if (var(VAR_TEMP_x4000) == 475) {
-        applymovement(obj_R32_gsmiddleman1, Route32_Movement_04B4)
+        applymovement(obj_R32_gsmiddleman1, Route32_Movement_PokefanMWalkDownRight1)
     } else {
-        applymovement(obj_R32_gsmiddleman1, Route32_Movement_04C4)
+        applymovement(obj_R32_gsmiddleman1, Route32_Movement_PokefanMWalkDownRight2)
     }
     waitmovement
     releaseall
     end
 }
 
-movement Route32_Movement_046C {
+movement Route32_Movement_PokefanMExclamation {
     face_left
     emote_exclamation_mark
 }
 
-movement Route32_Movement_0478 {
+movement Route32_Movement_PokefanMWalkLeftUp1 {
     walk_left * 2
     walk_up
 }
 
-movement Route32_Movement_0484 {
+movement Route32_Movement_PokefanMWalkLeftUp2 {
     delay_4
     walk_left
     walk_up
 }
 
-movement Route32_Movement_0494 {
+movement Route32_Movement_PlayerWalkUp1 {
     delay_8
     walk_up * 2
     face_down
 }
 
-movement Route32_Movement_04A4 {
+movement Route32_Movement_PlayerWalkUp2 {
     delay_4
     walk_up * 2
     face_down
 }
 
-movement Route32_Movement_04B4 {
+movement Route32_Movement_PokefanMWalkDownRight1 {
     walk_down
     walk_right * 2
     face_left
 }
 
-movement Route32_Movement_04C4 {
+movement Route32_Movement_PokefanMWalkDownRight2 {
     walk_down
     walk_right
     face_left
 }
 
-movement Route32_Movement_04D4 {
+movement Route32_Movement_PokefanMWalkLeft {
     walk_left
 }
 
-movement Route32_Movement_04DC {
+movement Route32_Movement_PokefanMDelay {
     delay_4
 }
 
-movement Route32_Movement_04E4 {
+movement Route32_Movement_PlayerFaceRight1 {
     delay_8
     face_right
 }
 
-movement Route32_Movement_04F0 {
+movement Route32_Movement_PlayerFaceRight2 {
     face_right
 }
 
-movement Route32_Movement_04F8 {
+movement Route32_Movement_PokefanMWalkRight {
     walk_right
     face_left
 }
 
-script scr_seq_R32_003 {
+script Route32_EventScript_FatMan2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -378,7 +378,7 @@ script scr_seq_R32_003 {
     end
 }
 
-script scr_seq_R32_009 {
+script Route32_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -412,16 +412,16 @@ script scr_seq_R32_009 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Route32_Movement_0688)
-        applymovement(obj_R32_gsmiddleman1_2, Route32_Movement_06D4)
+        applymovement(obj_player, Route32_Movement_PlayerWalkRightUp)
+        applymovement(obj_R32_gsmiddleman1_2, Route32_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Route32_Movement_06A0)
+        applymovement(obj_player, Route32_Movement_PlayerWalkUp3)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Route32_Movement_06C0)
-        applymovement(obj_R32_gsmiddleman1_2, Route32_Movement_06D4)
+        applymovement(obj_player, Route32_Movement_PlayerWalkUpRight)
+        applymovement(obj_R32_gsmiddleman1_2, Route32_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Route32_Movement_06AC)
-        applymovement(obj_R32_gsmiddleman1_2, Route32_Movement_06D4)
+        applymovement(obj_player, Route32_Movement_PlayerWalkUpLeft)
+        applymovement(obj_R32_gsmiddleman1_2, Route32_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -429,7 +429,7 @@ script scr_seq_R32_009 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Route32_Movement_06E0)
+        applymovement(obj_partner_poke, Route32_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -448,7 +448,7 @@ script scr_seq_R32_009 {
     end
 }
 
-movement Route32_Movement_0688 {
+movement Route32_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -456,53 +456,53 @@ movement Route32_Movement_0688 {
     walk_in_place_down
 }
 
-movement Route32_Movement_06A0 {
+movement Route32_Movement_PlayerWalkUp3 {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route32_Movement_06AC {
+movement Route32_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route32_Movement_06C0 {
+movement Route32_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Route32_Movement_06D4 {
+movement Route32_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Route32_Movement_06E0 {
+movement Route32_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_R32_006 {
+script Route32_EventScript_RuinsOfAlphSign {
     directionsignpostex(1, 2, "Ruins of Alph\n"
                               "East Entrance")
     end
 }
 
-script scr_seq_R32_007 {
+script Route32_EventScript_RouteSign {
     directionsignpostex(1, 4, "Rt. 32\n"
                               "South to Azalea Town")
     end
 }
 
-script scr_seq_R32_008 {
+script Route32_EventScript_UnionCaveAheadSign {
     directionsignpostex(1, 13, "Union Cave ahead")
     end
 }
 
 mapscripts Route32_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_R32_004
+    INIT_SCRIPT_ON_TRANSITION: Route32_OnTransition
 }

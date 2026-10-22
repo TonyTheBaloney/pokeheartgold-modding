@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R43R0201_000 + 1",
+            "script": "Route43_Gatehouse_EventScript_RocketGrunt",
             "flag": "FLAG_HIDE_ROUTE_43_GATE_ROCKETS"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R43R0201_000 + 1",
+            "script": "Route43_Gatehouse_EventScript_RocketGrunt",
             "flag": "FLAG_HIDE_ROUTE_43_GATE_ROCKETS"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R43R0201_003 + 1",
+            "script": "Route43_Gatehouse_EventScript_Attendant",
             "flag": "FLAG_HIDE_ROUTE_43_GATE_GUARD"
         }
     ],

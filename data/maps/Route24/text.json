@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0362_R24_00000",
-      "from": "scr_seq_R24_002#0"
+      "from": "Route24_EventScript_Grunt#0"
     },
     {
       "id": "msg_0362_R24_00001",
@@ -11,35 +11,35 @@
     },
     {
       "id": "msg_0362_R24_00002",
-      "from": "scr_seq_R24_002#1"
+      "from": "Route24_EventScript_Grunt#1"
     },
     {
       "id": "msg_0362_R24_00003",
-      "from": "scr_seq_R24_002#2"
+      "from": "Route24_EventScript_Grunt#2"
     },
     {
       "id": "msg_0362_R24_00004",
-      "from": "scr_seq_R24_000#1"
+      "from": "Route24_EventScript_Man#1"
     },
     {
       "id": "msg_0362_R24_00005",
-      "from": "scr_seq_R24_000#2"
+      "from": "Route24_EventScript_Man#2"
     },
     {
       "id": "msg_0362_R24_00006",
-      "from": "scr_seq_R24_000#0"
+      "from": "Route24_EventScript_Man#0"
     },
     {
       "id": "msg_0362_R24_00007",
-      "from": "scr_seq_R24_001#1"
+      "from": "Route24_EventScript_Beauty#1"
     },
     {
       "id": "msg_0362_R24_00008",
-      "from": "scr_seq_R24_001#2"
+      "from": "Route24_EventScript_Beauty#2"
     },
     {
       "id": "msg_0362_R24_00009",
-      "from": "scr_seq_R24_001#0"
+      "from": "Route24_EventScript_Beauty#0"
     }
   ]
 }

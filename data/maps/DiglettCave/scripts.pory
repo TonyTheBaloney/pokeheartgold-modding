@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D01R0101_000 {
+script DiglettCave_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         checkregisteredphonenumber(PHONE_CONTACT_BROCK, VAR_TEMP_x4001)
         if (var(VAR_TEMP_x4001) == 1) {
@@ -43,7 +43,7 @@ script scr_seq_D01R0101_000 {
     end
 }
 
-script scr_seq_D01R0101_001 {
+script DiglettCave_EventScript_Brock {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -238,12 +238,12 @@ _01AB:
     end
 }
 
-script scr_seq_D01R0101_002 {
+script DiglettCave_EventScript_PokefanM {
     simplenpcmsg("A bunch of DIGLETT popped out of the\n"
                  "ground! That was surprising!")
     end
 }
 
 mapscripts DiglettCave_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D01R0101_000
+    INIT_SCRIPT_ON_TRANSITION: DiglettCave_OnTransition
 }

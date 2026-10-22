@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_000 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Clerk",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_001 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Receptionist1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_002 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Receptionist2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_005 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Man",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_006 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_AceTrainerF",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_003 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Gentleman1",
             "flag": "FLAG_UNK_2DA"
         },
         {
@@ -143,7 +143,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_008 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Gentleman2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -160,7 +160,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_004 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_PokefanM",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -177,7 +177,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_009 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -194,7 +194,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T25R1101_007 + 1",
+            "script": "Goldenrod_GameCorner_Jp_EventScript_PokefanF",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -232,7 +232,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_012 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign3"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -240,7 +240,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_011 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -248,7 +248,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_010 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -256,7 +256,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_025 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign16"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -264,7 +264,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_023 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign14"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -272,7 +272,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_018 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign9"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -280,7 +280,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_017 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign8"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -288,7 +288,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_016 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign7"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -296,7 +296,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_015 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign6"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -304,7 +304,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_019 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign10"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -312,7 +312,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_014 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign5"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -320,7 +320,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_013 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign4"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -328,7 +328,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_024 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign15"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -336,7 +336,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_022 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign13"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -344,7 +344,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_021 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign12"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -352,7 +352,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_020 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign11"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -360,7 +360,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_026 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign17"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -368,7 +368,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_EAST",
-            "script": "_EV_scr_seq_T25R1101_027 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign18"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -376,7 +376,7 @@
             "y": 7,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_028 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign19"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -384,7 +384,7 @@
             "y": 8,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_029 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign20"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -392,7 +392,7 @@
             "y": 9,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_030 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign21"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -400,7 +400,7 @@
             "y": 10,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_WEST",
-            "script": "_EV_scr_seq_T25R1101_031 + 1"
+            "script": "Goldenrod_GameCorner_Jp_EventScript_Sign22"
         }
     ]
 }

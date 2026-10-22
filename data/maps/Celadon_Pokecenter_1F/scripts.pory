@@ -1,20 +1,20 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T07PC0101_000 {
+script Celadon_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T07PC0101_001 {
+script Celadon_Pokecenter_1F_EventScript_Gentleman {
     simplenpcmsg("That Pokégear you have--\n"
                  "it’s way too cool!\r"
                  "Is that the...latest model?")
     end
 }
 
-script scr_seq_T07PC0101_002 {
+script Celadon_Pokecenter_1F_EventScript_AceTrainerF {
     simplenpcmsg("Erika is a master of Grass-type\n"
                  "Pokémon.\r"
                  "She’ll make you pay if you don’t\n"
@@ -22,7 +22,7 @@ script scr_seq_T07PC0101_002 {
     end
 }
 
-script scr_seq_T07PC0101_003 {
+script Celadon_Pokecenter_1F_EventScript_GymGuide {
     simplenpcmsg("The Game Corner in this city used\n"
                  "to be run by Team Rocket...\r"
                  "But when Team Rocket was removed,\n"

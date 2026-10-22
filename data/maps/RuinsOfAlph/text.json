@@ -19,43 +19,43 @@
     },
     {
       "id": "msg_0072_D24R0101_00001",
-      "from": "scr_seq_D24R0101_007#0"
+      "from": "RuinsOfAlph_EventScript_BusinessmanTrigger#0"
     },
     {
       "id": "msg_0072_D24R0101_00002",
-      "from": "scr_seq_D24R0101_007#1"
+      "from": "RuinsOfAlph_EventScript_BusinessmanTrigger#1"
     },
     {
       "id": "msg_0072_D24R0101_00003",
-      "from": "scr_seq_D24R0101_007#2"
+      "from": "RuinsOfAlph_EventScript_BusinessmanTrigger#2"
     },
     {
       "id": "msg_0072_D24R0101_00004",
-      "from": "scr_seq_D24R0101_007#3"
+      "from": "RuinsOfAlph_EventScript_BusinessmanTrigger#3"
     },
     {
       "id": "msg_0072_D24R0101_00005",
-      "from": "scr_seq_D24R0101_007#4"
+      "from": "RuinsOfAlph_EventScript_BusinessmanTrigger#4"
     },
     {
       "id": "msg_0072_D24R0101_00006",
-      "from": "scr_seq_D24R0101_007#5"
+      "from": "RuinsOfAlph_EventScript_BusinessmanTrigger#5"
     },
     {
       "id": "msg_0072_D24R0101_00007",
-      "from": "scr_seq_D24R0101_002#0"
+      "from": "RuinsOfAlph_EventScript_TrainerTips3#0"
     },
     {
       "id": "msg_0072_D24R0101_00008",
-      "from": "scr_seq_D24R0101_003#0"
+      "from": "RuinsOfAlph_EventScript_TrainerTips4#0"
     },
     {
       "id": "msg_0072_D24R0101_00009",
-      "from": "scr_seq_D24R0101_001#0"
+      "from": "RuinsOfAlph_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0072_D24R0101_00010",
-      "from": "scr_seq_D24R0101_000#0"
+      "from": "RuinsOfAlph_EventScript_TrainerTips1#0"
     }
   ]
 }

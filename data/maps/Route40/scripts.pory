@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_W40_000
-    scr_seq_W40_001
-    scr_seq_W40_002
+    Route40_OnTransition
+    Route40_EventScript_Woman
+    Route40_EventScript_RouteSign
     scr_seq_W40_003
     scr_seq_W40_004
     scr_seq_W40_005
     scr_seq_W40_006
-    scr_seq_W40_007
-    scr_seq_W40_008
-    scr_seq_W40_009
+    Route40_EventScript_PokefanM
+    Route40_EventScript_PokefanMTrigger
+    Route40_EventScript_TrainerTips
 }
 
-script scr_seq_W40_000 {
+script Route40_OnTransition {
     getweekday(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 1) {
         clearflag(FLAG_UNK_206)
@@ -25,7 +25,7 @@ script scr_seq_W40_000 {
     end
 }
 
-script scr_seq_W40_001 {
+script Route40_EventScript_Woman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -101,20 +101,20 @@ _0142:
     end
 }
 
-script scr_seq_W40_008 {
+script Route40_EventScript_PokefanMTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_W40_gsmiddleman1, Route40_Movement_02C8)
+    applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMExclamation)
     waitmovement
     getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
     if (var(VAR_SPECIAL_x8000) == 252) {
-        applymovement(obj_W40_gsmiddleman1, Route40_Movement_02D4)
+        applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMWalkUp1)
     } elif (var(VAR_SPECIAL_x8000) == 253) {
-        applymovement(obj_W40_gsmiddleman1, Route40_Movement_02E0)
+        applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMWalkUpRight1)
     } elif (var(VAR_SPECIAL_x8000) == 254) {
-        applymovement(obj_W40_gsmiddleman1, Route40_Movement_02F4)
+        applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMWalkUpRight2)
     } else {
-        applymovement(obj_W40_gsmiddleman1, Route40_Movement_0308)
+        applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMWalkUpRight3)
     }
     waitmovement
     followmonisactive(VAR_TEMP_x4002)
@@ -123,8 +123,8 @@ script scr_seq_W40_008 {
         waitfollowingpokemonmovement
         followingpokemonmovement(56)
     }
-    applymovement(obj_W40_gsmiddleman1, Route40_Movement_031C)
-    applymovement(obj_player, Route40_Movement_02B8)
+    applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMWalkUp2)
+    applymovement(obj_player, Route40_Movement_PlayerWalkUp)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -134,7 +134,7 @@ script scr_seq_W40_008 {
            "No one can resist such\n"
            "good waves!\r")
     closemessage
-    applymovement(obj_W40_gsmiddleman1, Route40_Movement_02C8)
+    applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMExclamation)
     waitmovement
     npcmsg("I see... You don’t have Surf yet...\n"
            "This is just between you and me...\r"
@@ -144,87 +144,87 @@ script scr_seq_W40_008 {
     closemessage
     getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
     if (var(VAR_SPECIAL_x8000) == 252) {
-        applymovement(obj_W40_gsmiddleman1, Route40_Movement_0324)
+        applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMWalkDown)
     } elif (var(VAR_SPECIAL_x8000) == 253) {
-        applymovement(obj_W40_gsmiddleman1, Route40_Movement_0330)
+        applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMWalkDownLeft1)
     } elif (var(VAR_SPECIAL_x8000) == 254) {
-        applymovement(obj_W40_gsmiddleman1, Route40_Movement_0344)
+        applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMWalkDownLeft2)
     } else {
-        applymovement(obj_W40_gsmiddleman1, Route40_Movement_0358)
+        applymovement(obj_W40_gsmiddleman1, Route40_Movement_PokefanMWalkDownLeft3)
     }
     waitmovement
     releaseall
     end
 }
 
-movement Route40_Movement_02B8 {
+movement Route40_Movement_PlayerWalkUp {
     lock_dir
     walk_up
     unlock_dir
 }
 
-movement Route40_Movement_02C8 {
+movement Route40_Movement_PokefanMExclamation {
     emote_exclamation_mark
     delay_8
 }
 
-movement Route40_Movement_02D4 {
+movement Route40_Movement_PokefanMWalkUp1 {
     walk_fast_up * 5
     walk_in_place_up * 2
 }
 
-movement Route40_Movement_02E0 {
+movement Route40_Movement_PokefanMWalkUpRight1 {
     walk_fast_up * 2
     walk_fast_right
     walk_fast_up * 3
     walk_in_place_up * 2
 }
 
-movement Route40_Movement_02F4 {
+movement Route40_Movement_PokefanMWalkUpRight2 {
     walk_fast_up * 2
     walk_fast_right * 2
     walk_fast_up * 3
     walk_in_place_up * 2
 }
 
-movement Route40_Movement_0308 {
+movement Route40_Movement_PokefanMWalkUpRight3 {
     walk_fast_up * 2
     walk_fast_right * 3
     walk_fast_up * 3
     walk_in_place_up * 2
 }
 
-movement Route40_Movement_031C {
+movement Route40_Movement_PokefanMWalkUp2 {
     walk_up
 }
 
-movement Route40_Movement_0324 {
+movement Route40_Movement_PokefanMWalkDown {
     walk_fast_down * 6
     walk_in_place_up
 }
 
-movement Route40_Movement_0330 {
+movement Route40_Movement_PokefanMWalkDownLeft1 {
     walk_fast_down * 3
     walk_fast_left
     walk_fast_down * 3
     walk_in_place_up
 }
 
-movement Route40_Movement_0344 {
+movement Route40_Movement_PokefanMWalkDownLeft2 {
     walk_fast_down * 3
     walk_fast_left * 2
     walk_fast_down * 3
     walk_in_place_up
 }
 
-movement Route40_Movement_0358 {
+movement Route40_Movement_PokefanMWalkDownLeft3 {
     walk_fast_down * 3
     walk_fast_left * 3
     walk_fast_down * 3
     walk_in_place_up
 }
 
-script scr_seq_W40_007 {
+script Route40_EventScript_PokefanM {
     simplenpcmsg("Hey!\n"
                  "Great waves here!\r"
                  "No one can resist such\n"
@@ -232,13 +232,13 @@ script scr_seq_W40_007 {
     end
 }
 
-script scr_seq_W40_002 {
+script Route40_EventScript_RouteSign {
     directionsignpostex(1, 4, "Rt. 40\n"
                               "South to Cianwood City")
     end
 }
 
-script scr_seq_W40_009 {
+script Route40_EventScript_TrainerTips {
     trainertipsex(2, "Battle Frontier Ahead")
     end
 }
@@ -269,5 +269,5 @@ script scr_seq_W40_006 {
 }
 
 mapscripts Route40_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_W40_000
+    INIT_SCRIPT_ON_TRANSITION: Route40_OnTransition
 }

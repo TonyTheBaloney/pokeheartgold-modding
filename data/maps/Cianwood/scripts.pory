@@ -3,35 +3,35 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T24_000
-    scr_seq_T24_001
-    scr_seq_T24_002
+    Cianwood_EventScript_PokefanF1
+    Cianwood_EventScript_Suicune
+    Cianwood_EventScript_EusineTrigger
     scr_seq_T24_003
-    scr_seq_T24_004
-    scr_seq_T24_005
-    scr_seq_T24_006
-    scr_seq_T24_007
-    scr_seq_T24_008
-    scr_seq_T24_009
-    scr_seq_T24_010
-    scr_seq_T24_011
-    scr_seq_T24_012
-    scr_seq_T24_013
-    scr_seq_T24_014
-    scr_seq_T24_015
+    Cianwood_EventScript_TrainerTips1
+    Cianwood_OnTransition
+    Cianwood_EventScript_PokefanFScene
+    Cianwood_EventScript_Sign
+    Cianwood_EventScript_CitySign
+    Cianwood_EventScript_TrainerTips2
+    Cianwood_EventScript_TrainerTips3
+    Cianwood_EventScript_TrainerTips4
+    Cianwood_EventScript_SchoolKidM
+    Cianwood_EventScript_PokefanM
+    Cianwood_EventScript_Lass
+    Cianwood_EventScript_PokefanF2
 }
 
-script scr_seq_T24_005 {
+script Cianwood_OnTransition {
     clearflag(FLAG_SYS_CIANWOOD_WATERFALL_DISABLE)
     setvar(VAR_UNK_40EB, 0)
     end
 }
 
-script scr_seq_T24_006 {
+script Cianwood_EventScript_PokefanFScene {
     followmonresetmovement
     lockall
-    applymovement(obj_T24_middlewoman1_2, Cianwood_Movement_00C4)
-    applymovement(obj_player, Cianwood_Movement_00E4)
+    applymovement(obj_T24_middlewoman1_2, Cianwood_Movement_PokefanFWalkUp)
+    applymovement(obj_player, Cianwood_Movement_PlayerFaceRight)
     waitmovement
     npcmsg("That’s Cianwood’s Gym Badge!\r"
            "Then you should take this HM.\r")
@@ -49,26 +49,26 @@ script scr_seq_T24_006 {
            "to anywhere you have visited.")
     waitbuttonpress
     closemessage
-    applymovement(obj_T24_middlewoman1_2, Cianwood_Movement_00D8)
+    applymovement(obj_T24_middlewoman1_2, Cianwood_Movement_PokefanFWalkDown)
     waitmovement
     if (var(VAR_MIDGAME_BADGES) == 4) { goto(_00F0) }
     releaseall
     end
 }
 
-movement Cianwood_Movement_00C4 {
+movement Cianwood_Movement_PokefanFWalkUp {
     walk_in_place_fast_up
     emote_exclamation_mark
     walk_up * 2
     face_left
 }
 
-movement Cianwood_Movement_00D8 {
+movement Cianwood_Movement_PokefanFWalkDown {
     walk_down * 2
     walk_in_place_fast_up
 }
 
-movement Cianwood_Movement_00E4 {
+movement Cianwood_Movement_PlayerFaceRight {
     delay_16 * 3
     face_right
 }
@@ -90,31 +90,31 @@ movement Cianwood_Movement_0134 {
     emote_exclamation_mark
 }
 
-script scr_seq_T24_001 {
+script Cianwood_EventScript_Suicune {
     end
 }
 
-script scr_seq_T24_002 {
+script Cianwood_EventScript_EusineTrigger {
     followmonresetmovement
     lockall
-    applymovement(obj_player, Cianwood_Movement_0310)
+    applymovement(obj_player, Cianwood_Movement_PlayerExclamation)
     waitmovement
     playcry(SPECIES_SUICUNE, 0)
     release(obj_T24_tsure_poke_static_suicune)
     spinobject(obj_T24_tsure_poke_static_suicune, 2, 90, 2, 0)
     lock(obj_T24_tsure_poke_static_suicune)
     waitcry
-    applymovement(obj_T24_tsure_poke_static_suicune, Cianwood_Movement_02F4)
+    applymovement(obj_T24_tsure_poke_static_suicune, Cianwood_Movement_SuicuneMove)
     waitmovement
-    applymovement(obj_T24_tsure_poke_static_suicune, Cianwood_Movement_0338)
-    applymovement(obj_player, Cianwood_Movement_0320)
+    applymovement(obj_T24_tsure_poke_static_suicune, Cianwood_Movement_SuicuneFaceDown)
+    applymovement(obj_player, Cianwood_Movement_PlayerFaceUp)
     waitmovement
     wait(30, VAR_SPECIAL_RESULT)
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_T24_tsure_poke_static_suicune, Cianwood_Movement_0300)
-    applymovement(obj_player, Cianwood_Movement_0344)
+    applymovement(obj_T24_tsure_poke_static_suicune, Cianwood_Movement_SuicuneExit)
+    applymovement(obj_player, Cianwood_Movement_PlayerWalkRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -125,8 +125,8 @@ script scr_seq_T24_002 {
     clearflag(FLAG_HIDE_CIANWOOD_EUSINE)
     addobject(obj_T24_minaki)
     callstd(std_play_eusine_music)
-    applymovement(obj_T24_minaki, Cianwood_Movement_0358)
-    applymovement(obj_player, Cianwood_Movement_036C)
+    applymovement(obj_T24_minaki, Cianwood_Movement_EusineWalkUpRight)
+    applymovement(obj_player, Cianwood_Movement_PlayerFaceDown)
     waitmovement
     bufferplayersname(0)
     npcmsg("Eusine: Yo, {STRVAR_1 3, 0, 0}.\r"
@@ -167,7 +167,7 @@ script scr_seq_T24_002 {
            "I have a feeling we’ll see each other\n"
            "again. See you around!\r")
     closemessage
-    applymovement(obj_T24_minaki, Cianwood_Movement_037C)
+    applymovement(obj_T24_minaki, Cianwood_Movement_EusineWalkDownLeft)
     waitmovement
     removeobject(obj_T24_minaki)
     setflag(FLAG_HIDE_CIANWOOD_EUSINE)
@@ -177,7 +177,7 @@ script scr_seq_T24_002 {
     end
 }
 
-script scr_seq_T24_000 {
+script Cianwood_EventScript_PokefanF1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -251,7 +251,7 @@ _026B:
     end
 }
 
-movement Cianwood_Movement_02F4 {
+movement Cianwood_Movement_SuicuneMove {
     move_action_111
 }
 
@@ -259,7 +259,7 @@ raw `
 	End
 `
 
-movement Cianwood_Movement_0300 {
+movement Cianwood_Movement_SuicuneExit {
     move_action_112
     set_invisible
 }
@@ -268,7 +268,7 @@ raw `
 	End
 `
 
-movement Cianwood_Movement_0310 {
+movement Cianwood_Movement_PlayerExclamation {
     face_up
     emote_exclamation_mark
 }
@@ -277,7 +277,7 @@ raw `
 	End
 `
 
-movement Cianwood_Movement_0320 {
+movement Cianwood_Movement_PlayerFaceUp {
     face_up
 }
 
@@ -293,7 +293,7 @@ raw `
 	End
 `
 
-movement Cianwood_Movement_0338 {
+movement Cianwood_Movement_SuicuneFaceDown {
     face_down
 }
 
@@ -301,7 +301,7 @@ raw `
 	End
 `
 
-movement Cianwood_Movement_0344 {
+movement Cianwood_Movement_PlayerWalkRight {
     face_right
     delay_8
     walk_right * 2
@@ -311,7 +311,7 @@ raw `
 	End
 `
 
-movement Cianwood_Movement_0358 {
+movement Cianwood_Movement_EusineWalkUpRight {
     walk_up * 5
     walk_right * 2
     walk_up * 2
@@ -321,7 +321,7 @@ raw `
 	End
 `
 
-movement Cianwood_Movement_036C {
+movement Cianwood_Movement_PlayerFaceDown {
     delay_8 * 6
     face_down
 }
@@ -330,7 +330,7 @@ raw `
 	End
 `
 
-movement Cianwood_Movement_037C {
+movement Cianwood_Movement_EusineWalkDownLeft {
     walk_down * 2
     walk_left * 2
     walk_down * 5
@@ -340,7 +340,7 @@ raw `
 	End
 `
 
-script scr_seq_T24_007 {
+script Cianwood_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -371,11 +371,11 @@ script scr_seq_T24_007 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Cianwood_Movement_0498)
+        applymovement(obj_player, Cianwood_Movement_PlayerWalkRightUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Cianwood_Movement_04B0)
+        applymovement(obj_player, Cianwood_Movement_PlayerWalkUp)
     } else {
-        applymovement(obj_player, Cianwood_Movement_04BC)
+        applymovement(obj_player, Cianwood_Movement_PlayerWalkUpLeft)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -383,7 +383,7 @@ script scr_seq_T24_007 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Cianwood_Movement_04D0)
+        applymovement(obj_partner_poke, Cianwood_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     fadescreen(6, 1, 0, RGB_BLACK)
@@ -400,7 +400,7 @@ script scr_seq_T24_007 {
     end
 }
 
-movement Cianwood_Movement_0498 {
+movement Cianwood_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -408,52 +408,52 @@ movement Cianwood_Movement_0498 {
     walk_in_place_down
 }
 
-movement Cianwood_Movement_04B0 {
+movement Cianwood_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Cianwood_Movement_04BC {
+movement Cianwood_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Cianwood_Movement_04D0 {
+movement Cianwood_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T24_008 {
+script Cianwood_EventScript_CitySign {
     directionsignpostex(0, 15, "Cianwood City\n"
                                "A Port of Crashing Waves")
     end
 }
 
-script scr_seq_T24_009 {
+script Cianwood_EventScript_TrainerTips2 {
     trainertipsex(2, "Cianwood City Pokémon Gym\n"
                      "Leader: Chuck\f"
                      "His Roaring Fists Do the Talking")
     end
 }
 
-script scr_seq_T24_010 {
+script Cianwood_EventScript_TrainerTips3 {
     trainertipsex(2, "Cianwood City Pharmacy\r"
                      "500 Years of Tradition\n"
                      "We Await Your Medicinal Queries")
     end
 }
 
-script scr_seq_T24_011 {
+script Cianwood_EventScript_TrainerTips4 {
     trainertipsex(2, "This is the house of Cameron,\n"
                      "the Photographer.\f"
                      "Take a Snapshot as a Keepsake!")
     end
 }
 
-script scr_seq_T24_004 {
+script Cianwood_EventScript_TrainerTips1 {
     trainertipsex(2, "Entrance to the road for the\n"
                      "Safari Zone.\r"
                      "Experience thrilling encounters\n"
@@ -464,13 +464,13 @@ script scr_seq_T24_004 {
     end
 }
 
-script scr_seq_T24_012 {
+script Cianwood_EventScript_SchoolKidM {
     simplenpcmsg("If you use Fly, you can get back\n"
                  "to Olivine instantly.")
     end
 }
 
-script scr_seq_T24_013 {
+script Cianwood_EventScript_PokefanM {
     simplenpcmsg("Boulders to the north of town can\n"
                  "be crushed.\r"
                  "They may be hiding something.\n"
@@ -479,13 +479,13 @@ script scr_seq_T24_013 {
     end
 }
 
-script scr_seq_T24_014 {
+script Cianwood_EventScript_Lass {
     simplenpcmsg("Chuck, the Gym Leader, spars with\n"
                  "his Fighting-type Pokémon.")
     end
 }
 
-script scr_seq_T24_015 {
+script Cianwood_EventScript_PokefanF2 {
     simplenpcmsg("There are several islands between\n"
                  "here and Olivine.\r"
                  "A mythical sea creature supposedly\n"
@@ -494,8 +494,8 @@ script scr_seq_T24_015 {
 }
 
 mapscripts Cianwood_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T24_005
+    INIT_SCRIPT_ON_TRANSITION: Cianwood_OnTransition
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_4116, 1: scr_seq_T24_006
+        VAR_UNK_4116, 1: Cianwood_EventScript_PokefanFScene
     ]
 }

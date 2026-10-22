@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0356_R16R0201_00000",
-      "from": "scr_seq_R16R0201_000#0"
+      "from": "Route16_Gatehouse_EventScript_Attendant#0"
     },
     {
       "id": "msg_0356_R16R0201_00001",
-      "from": "scr_seq_R16R0201_001#0"
+      "from": "Route16_Gatehouse_EventScript_Trigger1#0"
     }
   ]
 }

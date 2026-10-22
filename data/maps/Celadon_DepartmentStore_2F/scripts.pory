@@ -3,17 +3,17 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0102_000
-    scr_seq_T07R0102_001
-    scr_seq_T07R0102_002
-    scr_seq_T07R0102_003
-    scr_seq_T07R0102_004
-    scr_seq_T07R0102_005
-    scr_seq_T07R0102_006
-    scr_seq_T07R0102_007
+    Celadon_DepartmentStore_2F_EventScript_Clerk1
+    Celadon_DepartmentStore_2F_EventScript_Clerk2
+    Celadon_DepartmentStore_2F_EventScript_PokefanM1
+    Celadon_DepartmentStore_2F_EventScript_SchoolKidM
+    Celadon_DepartmentStore_2F_EventScript_Sign
+    Celadon_DepartmentStore_2F_EventScript_PokefanM2
+    Celadon_DepartmentStore_2F_OnTransition
+    Celadon_DepartmentStore_2F_EventScript_CrasherWake
 }
 
-script scr_seq_T07R0102_006 {
+script Celadon_DepartmentStore_2F_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 5) {
@@ -27,7 +27,7 @@ script scr_seq_T07R0102_006 {
     end
 }
 
-script scr_seq_T07R0102_000 {
+script Celadon_DepartmentStore_2F_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -39,7 +39,7 @@ script scr_seq_T07R0102_000 {
     end
 }
 
-script scr_seq_T07R0102_001 {
+script Celadon_DepartmentStore_2F_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -51,7 +51,7 @@ script scr_seq_T07R0102_001 {
     end
 }
 
-script scr_seq_T07R0102_007 {
+script Celadon_DepartmentStore_2F_EventScript_CrasherWake {
     playse(SEQ_SE_DP_SELECT)
     lockall
     hasitem(ITEM_FASHION_CASE, 1, VAR_SPECIAL_RESULT)
@@ -66,20 +66,20 @@ script scr_seq_T07R0102_007 {
     npcmsg("Wake: Hmm... Hmm... Humm...\r")
     getplayerfacing(VAR_TEMP_x4000)
     if (var(VAR_TEMP_x4000) == 2) {
-        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_01E8)
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_CrasherWakeWalkLeftRight)
     } else {
-        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0200)
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_CrasherWakeWalkRightLeft)
     }
     waitmovement
     npcmsg("Wake: Ha! This is quite a mask...\r")
-    applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0218)
+    applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_CrasherWakeExclamation)
     waitmovement
     if (var(VAR_TEMP_x4000) == 0) {
-        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0220)
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_CrasherWakeFaceDown)
     } elif (var(VAR_TEMP_x4000) == 2) {
-        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0230)
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_CrasherWakeFaceRight)
     } else {
-        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0228)
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_CrasherWakeFaceLeft)
     }
     waitmovement
     npcmsg("Wake: Huh? You talking to me?\r"
@@ -118,9 +118,9 @@ script scr_seq_T07R0102_007 {
     compare(VAR_TEMP_x4000, 3)
     callifeq(_01A0)
     if (var(VAR_TEMP_x4000) == 3) {
-        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0250)
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_CrasherWakeWalkDownLeft)
     } else {
-        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0238)
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_CrasherWakeWalkLeftDown)
     }
     waitmovement
     removeobject(obj_T07R0102_leader3)
@@ -134,7 +134,7 @@ _01A0:
         getpersoncoords(253, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
         if (var(VAR_SPECIAL_x8005) == 5) {
             release(obj_partner_poke)
-            applymovement(obj_partner_poke, Celadon_DepartmentStore_2F_Movement_0264)
+            applymovement(obj_partner_poke, Celadon_DepartmentStore_2F_Movement_FollowMonWalkLeftUp)
             waitmovement
             lock(obj_partner_poke)
         }
@@ -142,7 +142,7 @@ _01A0:
     return
 }
 
-movement Celadon_DepartmentStore_2F_Movement_01E8 {
+movement Celadon_DepartmentStore_2F_Movement_CrasherWakeWalkLeftRight {
     walk_left
     walk_in_place_up
     delay_8
@@ -150,7 +150,7 @@ movement Celadon_DepartmentStore_2F_Movement_01E8 {
     walk_in_place_up
 }
 
-movement Celadon_DepartmentStore_2F_Movement_0200 {
+movement Celadon_DepartmentStore_2F_Movement_CrasherWakeWalkRightLeft {
     walk_right
     walk_in_place_up
     delay_8
@@ -158,23 +158,23 @@ movement Celadon_DepartmentStore_2F_Movement_0200 {
     walk_in_place_up
 }
 
-movement Celadon_DepartmentStore_2F_Movement_0218 {
+movement Celadon_DepartmentStore_2F_Movement_CrasherWakeExclamation {
     emote_exclamation_mark
 }
 
-movement Celadon_DepartmentStore_2F_Movement_0220 {
+movement Celadon_DepartmentStore_2F_Movement_CrasherWakeFaceDown {
     walk_in_place_down
 }
 
-movement Celadon_DepartmentStore_2F_Movement_0228 {
+movement Celadon_DepartmentStore_2F_Movement_CrasherWakeFaceLeft {
     walk_in_place_left
 }
 
-movement Celadon_DepartmentStore_2F_Movement_0230 {
+movement Celadon_DepartmentStore_2F_Movement_CrasherWakeFaceRight {
     walk_in_place_right
 }
 
-movement Celadon_DepartmentStore_2F_Movement_0238 {
+movement Celadon_DepartmentStore_2F_Movement_CrasherWakeWalkLeftDown {
     walk_left * 2
     walk_down
     walk_left * 4
@@ -182,20 +182,20 @@ movement Celadon_DepartmentStore_2F_Movement_0238 {
     walk_left * 4
 }
 
-movement Celadon_DepartmentStore_2F_Movement_0250 {
+movement Celadon_DepartmentStore_2F_Movement_CrasherWakeWalkDownLeft {
     walk_down
     walk_left * 6
     walk_up
     walk_left * 4
 }
 
-movement Celadon_DepartmentStore_2F_Movement_0264 {
+movement Celadon_DepartmentStore_2F_Movement_FollowMonWalkLeftUp {
     walk_slightly_fast_left
     walk_slightly_fast_up
     face_down
 }
 
-script scr_seq_T07R0102_005 {
+script Celadon_DepartmentStore_2F_EventScript_PokefanM2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -229,16 +229,16 @@ script scr_seq_T07R0102_005 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_03C4)
-        applymovement(obj_T07R0102_gsmiddleman1_2, Celadon_DepartmentStore_2F_Movement_0410)
+        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_PlayerWalkRightUp)
+        applymovement(obj_T07R0102_gsmiddleman1_2, Celadon_DepartmentStore_2F_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_03DC)
+        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_03FC)
-        applymovement(obj_T07R0102_gsmiddleman1_2, Celadon_DepartmentStore_2F_Movement_0410)
+        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_PlayerWalkUpRight)
+        applymovement(obj_T07R0102_gsmiddleman1_2, Celadon_DepartmentStore_2F_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_03E8)
-        applymovement(obj_T07R0102_gsmiddleman1_2, Celadon_DepartmentStore_2F_Movement_0410)
+        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T07R0102_gsmiddleman1_2, Celadon_DepartmentStore_2F_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -246,7 +246,7 @@ script scr_seq_T07R0102_005 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, Celadon_DepartmentStore_2F_Movement_041C)
+        applymovement(obj_partner_poke, Celadon_DepartmentStore_2F_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -265,7 +265,7 @@ script scr_seq_T07R0102_005 {
     end
 }
 
-movement Celadon_DepartmentStore_2F_Movement_03C4 {
+movement Celadon_DepartmentStore_2F_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -273,37 +273,37 @@ movement Celadon_DepartmentStore_2F_Movement_03C4 {
     walk_in_place_down
 }
 
-movement Celadon_DepartmentStore_2F_Movement_03DC {
+movement Celadon_DepartmentStore_2F_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement Celadon_DepartmentStore_2F_Movement_03E8 {
+movement Celadon_DepartmentStore_2F_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement Celadon_DepartmentStore_2F_Movement_03FC {
+movement Celadon_DepartmentStore_2F_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement Celadon_DepartmentStore_2F_Movement_0410 {
+movement Celadon_DepartmentStore_2F_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement Celadon_DepartmentStore_2F_Movement_041C {
+movement Celadon_DepartmentStore_2F_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T07R0102_002 {
+script Celadon_DepartmentStore_2F_EventScript_PokefanM1 {
     simplenpcmsg("I just recently became a Trainer.\f"
                  "My son encouraged me to do it.\r"
                  "I’m impressed by the selection of\n"
@@ -311,14 +311,14 @@ script scr_seq_T07R0102_002 {
     end
 }
 
-script scr_seq_T07R0102_003 {
+script Celadon_DepartmentStore_2F_EventScript_SchoolKidM {
     simplenpcmsg("My dad’s having a hard time learning\n"
                  "the names of items and how they are\f"
                  "supposed to be used...")
     end
 }
 
-script scr_seq_T07R0102_004 {
+script Celadon_DepartmentStore_2F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Top Grade Items for Trainers!\n"
@@ -330,5 +330,5 @@ script scr_seq_T07R0102_004 {
 }
 
 mapscripts Celadon_DepartmentStore_2F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07R0102_006
+    INIT_SCRIPT_ON_TRANSITION: Celadon_DepartmentStore_2F_OnTransition
 }

@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0376_R30R0101_00000",
-      "from": "scr_seq_R30R0101_000#1"
+      "from": "Route30_ApricornHouse_EventScript_PokefanM#1"
     },
     {
       "id": "msg_0376_R30R0101_00001",
@@ -11,11 +11,11 @@
     },
     {
       "id": "msg_0376_R30R0101_00002",
-      "from": "scr_seq_R30R0101_000#2"
+      "from": "Route30_ApricornHouse_EventScript_PokefanM#2"
     },
     {
       "id": "msg_0376_R30R0101_00003",
-      "from": "scr_seq_R30R0101_000#0"
+      "from": "Route30_ApricornHouse_EventScript_PokefanM#0"
     }
   ]
 }

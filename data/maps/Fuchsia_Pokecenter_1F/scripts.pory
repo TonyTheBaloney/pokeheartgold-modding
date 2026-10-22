@@ -1,26 +1,26 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T08PC0101_000 {
+script Fuchsia_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T08PC0101_001 {
+script Fuchsia_Pokecenter_1F_EventScript_AceTrainerM {
     simplenpcmsg("Hey! You have a Pokédex!\n"
                  "Did Professor Oak give that to you?")
     end
 }
 
-script scr_seq_T08PC0101_002 {
+script Fuchsia_Pokecenter_1F_EventScript_AceTrainerF {
     simplenpcmsg("I got quite a shock at the Gym.\n"
                  "There were all these girls who\f"
                  "looked identical.")
     end
 }
 
-script scr_seq_T08PC0101_003 {
+script Fuchsia_Pokecenter_1F_EventScript_Lass {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -28,11 +28,11 @@ script scr_seq_T08PC0101_003 {
            "Poof!\r")
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_T08PC0101_gsgirl1, Fuchsia_Pokecenter_1F_Movement_009C)
+        applymovement(obj_T08PC0101_gsgirl1, Fuchsia_Pokecenter_1F_Movement_LassSpin1)
     } elif (var(VAR_SPECIAL_RESULT) == 2) {
-        applymovement(obj_T08PC0101_gsgirl1, Fuchsia_Pokecenter_1F_Movement_00C0)
+        applymovement(obj_T08PC0101_gsgirl1, Fuchsia_Pokecenter_1F_Movement_LassSpin2)
     } else {
-        applymovement(obj_T08PC0101_gsgirl1, Fuchsia_Pokecenter_1F_Movement_00E4)
+        applymovement(obj_T08PC0101_gsgirl1, Fuchsia_Pokecenter_1F_Movement_LassSpin3)
     }
     npcmsg("See? I look just like her now!\r"
            "...?\r"
@@ -43,7 +43,7 @@ script scr_seq_T08PC0101_003 {
     end
 }
 
-movement Fuchsia_Pokecenter_1F_Movement_009C {
+movement Fuchsia_Pokecenter_1F_Movement_LassSpin1 {
     face_right
     face_up
     face_left
@@ -54,7 +54,7 @@ movement Fuchsia_Pokecenter_1F_Movement_009C {
     face_down
 }
 
-movement Fuchsia_Pokecenter_1F_Movement_00C0 {
+movement Fuchsia_Pokecenter_1F_Movement_LassSpin2 {
     face_up
     face_left
     face_down
@@ -65,7 +65,7 @@ movement Fuchsia_Pokecenter_1F_Movement_00C0 {
     face_right
 }
 
-movement Fuchsia_Pokecenter_1F_Movement_00E4 {
+movement Fuchsia_Pokecenter_1F_Movement_LassSpin3 {
     face_down
     face_right
     face_up

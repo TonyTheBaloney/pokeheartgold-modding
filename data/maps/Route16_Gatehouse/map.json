@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_R16R0201_000 + 1",
+            "script": "Route16_Gatehouse_EventScript_Attendant",
             "flag": "FLAG_NOTHING"
         }
     ],
@@ -70,7 +70,7 @@
             "height": 3,
             "var": "VAR_UNK_4129",
             "var_value": 0,
-            "script": "_EV_scr_seq_R16R0201_001 + 1"
+            "script": "Route16_Gatehouse_EventScript_Trigger1"
         },
         {
             "x": 6,
@@ -80,7 +80,7 @@
             "height": 3,
             "var": "VAR_UNK_412A",
             "var_value": 1,
-            "script": "_EV_scr_seq_R16R0201_002 + 1"
+            "script": "Route16_Gatehouse_EventScript_Trigger2"
         }
     ],
     "bg_events": []

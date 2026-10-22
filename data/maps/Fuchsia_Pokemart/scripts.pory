@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T08FS0101_000 {
+script Fuchsia_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T08FS0101_000 {
     end
 }
 
-script scr_seq_T08FS0101_001 {
+script Fuchsia_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,7 +25,7 @@ script scr_seq_T08FS0101_001 {
     end
 }
 
-script scr_seq_T08FS0101_002 {
+script Fuchsia_Pokemart_EventScript_FatMan {
     simplenpcmsg("I was hoping to buy some Safari Zone\n"
                  "souvenirs, but it’s not open!\r"
                  "I thought it was closed today,\n"
@@ -34,7 +34,7 @@ script scr_seq_T08FS0101_002 {
     end
 }
 
-script scr_seq_T08FS0101_003 {
+script Fuchsia_Pokemart_EventScript_AceTrainerF {
     simplenpcmsg("Have you been to the Pal Park?\r"
                  "The Safari Zone Warden’s son is\n"
                  "running it with his wife.\r"

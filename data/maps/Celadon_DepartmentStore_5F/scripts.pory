@@ -3,15 +3,15 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07R0105_000
-    scr_seq_T07R0105_001
-    scr_seq_T07R0105_002
-    scr_seq_T07R0105_003
-    scr_seq_T07R0105_004
-    scr_seq_T07R0105_005
+    Celadon_DepartmentStore_5F_EventScript_Clerk1
+    Celadon_DepartmentStore_5F_EventScript_Clerk2
+    Celadon_DepartmentStore_5F_EventScript_Gentleman
+    Celadon_DepartmentStore_5F_EventScript_Sailor
+    Celadon_DepartmentStore_5F_EventScript_Woman
+    Celadon_DepartmentStore_5F_EventScript_BringOutPokemonPotentialSign
 }
 
-script scr_seq_T07R0105_001 {
+script Celadon_DepartmentStore_5F_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -23,7 +23,7 @@ script scr_seq_T07R0105_001 {
     end
 }
 
-script scr_seq_T07R0105_000 {
+script Celadon_DepartmentStore_5F_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -35,14 +35,14 @@ script scr_seq_T07R0105_000 {
     end
 }
 
-script scr_seq_T07R0105_002 {
+script Celadon_DepartmentStore_5F_EventScript_Gentleman {
     simplenpcmsg("I want to buy some items that raise\n"
                  "Pokémon stats, but I don’t have\f"
                  "enough money...")
     end
 }
 
-script scr_seq_T07R0105_003 {
+script Celadon_DepartmentStore_5F_EventScript_Sailor {
     simplenpcmsg("Do you know PP UP?\r"
                  "It raises the Max PP of moves.\r"
                  "I thought I would find it here,\n"
@@ -51,14 +51,14 @@ script scr_seq_T07R0105_003 {
     end
 }
 
-script scr_seq_T07R0105_004 {
+script Celadon_DepartmentStore_5F_EventScript_Woman {
     simplenpcmsg("Using items on them makes\n"
                  "Pokémon happy.\f"
                  "They hate certain items, though...")
     end
 }
 
-script scr_seq_T07R0105_005 {
+script Celadon_DepartmentStore_5F_EventScript_BringOutPokemonPotentialSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Bring Out Pokémon Potential\n"

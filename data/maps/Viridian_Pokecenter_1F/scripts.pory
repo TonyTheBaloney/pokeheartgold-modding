@@ -1,13 +1,13 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T02PC0101_000 {
+script Viridian_Pokecenter_1F_EventScript_Nurse {
     setvar(VAR_SPECIAL_x8007, 0)
     callstd(std_nurse_joy)
     end
 }
 
-script scr_seq_T02PC0101_001 {
+script Viridian_Pokecenter_1F_EventScript_AceTrainerM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -34,7 +34,7 @@ script scr_seq_T02PC0101_001 {
     end
 }
 
-script scr_seq_T02PC0101_002 {
+script Viridian_Pokecenter_1F_EventScript_AceTrainerF {
     simplenpcmsg("I heard that the Gym in Cinnabar\n"
                  "is gone.\r"
                  "I wonder what became of Blaine,\n"
@@ -42,7 +42,7 @@ script scr_seq_T02PC0101_002 {
     end
 }
 
-script scr_seq_T02PC0101_003 {
+script Viridian_Pokecenter_1F_EventScript_LittleBoy {
     simplenpcmsg("My dream is to become a Gym Leader.")
     end
 }

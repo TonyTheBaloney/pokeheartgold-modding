@@ -5,7 +5,7 @@ script scr_seq_R42R0101_000 {
     end
 }
 
-script scr_seq_R42R0101_001 {
+script Route42_EcruteakGatehouse_EventScript_Attendant {
     simplenpcmsg("Mt. Mortar is like a maze inside.\f"
                  "Be careful. Don’t get lost in there.")
     end

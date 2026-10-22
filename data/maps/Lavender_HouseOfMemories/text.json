@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0481_T05R0601_00000",
-      "from": "scr_seq_T05R0601_000#0"
+      "from": "Lavender_HouseOfMemories_EventScript_MrFuji#0"
     },
     {
       "id": "msg_0481_T05R0601_00001",
-      "from": "scr_seq_T05R0601_001#0"
+      "from": "Lavender_HouseOfMemories_EventScript_Woman#0"
     },
     {
       "id": "msg_0481_T05R0601_00002",
-      "from": "scr_seq_T05R0601_002#0"
+      "from": "Lavender_HouseOfMemories_EventScript_Lass#0"
     },
     {
       "id": "msg_0481_T05R0601_00003",
-      "from": "scr_seq_T05R0601_003#0"
+      "from": "Lavender_HouseOfMemories_EventScript_OldWoman#0"
     }
   ]
 }

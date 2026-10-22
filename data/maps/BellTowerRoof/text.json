@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0058_D17R0110_00000",
-      "from": "scr_seq_D17R0110_006#0"
+      "from": "BellTowerRoof_EventScript_ZukiTrigger#0"
     },
     {
       "id": "msg_0058_D17R0110_00001",
@@ -11,27 +11,27 @@
     },
     {
       "id": "msg_0058_D17R0110_00002",
-      "from": "scr_seq_D17R0110_006#1"
+      "from": "BellTowerRoof_EventScript_ZukiTrigger#1"
     },
     {
       "id": "msg_0058_D17R0110_00003",
-      "from": "scr_seq_D17R0110_006#2"
+      "from": "BellTowerRoof_EventScript_ZukiTrigger#2"
     },
     {
       "id": "msg_0058_D17R0110_00004",
-      "from": "scr_seq_D17R0110_000#0"
+      "from": "BellTowerRoof_EventScript_HouObj#0"
     },
     {
       "id": "msg_0058_D17R0110_00005",
-      "from": "scr_seq_D17R0110_004#0"
+      "from": "BellTowerRoof_EventScript_KimonoGirl2#0"
     },
     {
       "id": "msg_0058_D17R0110_00006",
-      "from": "scr_seq_D17R0110_001#0"
+      "from": "BellTowerRoof_EventScript_KimonoGirl1#0"
     },
     {
       "id": "msg_0058_D17R0110_00007",
-      "from": "scr_seq_D17R0110_001#1"
+      "from": "BellTowerRoof_EventScript_KimonoGirl1#1"
     },
     {
       "id": "msg_0058_D17R0110_00008",

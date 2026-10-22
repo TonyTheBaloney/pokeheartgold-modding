@@ -4,16 +4,16 @@
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
     scr_seq_T22R0401_000
-    scr_seq_T22R0401_001
-    scr_seq_T22R0401_002
-    scr_seq_T22R0401_003
+    Violet_NorthwestHouse_EventScript_Woman
+    Violet_NorthwestHouse_EventScript_Lass
+    Violet_NorthwestHouse_EventScript_Strawberry
 }
 
 script scr_seq_T22R0401_000 {
     end
 }
 
-script scr_seq_T22R0401_003 {
+script Violet_NorthwestHouse_EventScript_Strawberry {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -26,7 +26,7 @@ script scr_seq_T22R0401_003 {
     end
 }
 
-script scr_seq_T22R0401_001 {
+script Violet_NorthwestHouse_EventScript_Woman {
     simplenpcmsg("She uses the names of all the foods\n"
                  "she really enjoys eating.\r"
                  "For the nicknames she gives to her\n"
@@ -34,7 +34,7 @@ script scr_seq_T22R0401_001 {
     end
 }
 
-script scr_seq_T22R0401_002 {
+script Violet_NorthwestHouse_EventScript_Lass {
     simplenpcmsg("I call my PIDGEY Strawberry!")
     end
 }

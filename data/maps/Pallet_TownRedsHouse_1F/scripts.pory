@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T01R0101_000 {
+script Pallet_TownRedsHouse_1F_EventScript_Mom {
     simplenpcmsg("Hi!\r"
                  "Red’s been away. He hasn’t called\n"
                  "either, so I have no idea where he\f"
@@ -11,7 +11,7 @@ script scr_seq_T01R0101_000 {
     end
 }
 
-script scr_seq_T01R0101_001 {
+script Pallet_TownRedsHouse_1F_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("They have shows that aren’t\n"

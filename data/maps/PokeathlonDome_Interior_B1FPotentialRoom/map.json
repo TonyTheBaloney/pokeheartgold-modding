@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0106_001 + 1",
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Receptionist2",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0106_000 + 1",
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Receptionist1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0106_002 + 1",
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_FatMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D49R0106_003 + 1",
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Dodrio",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -154,7 +154,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0106_005 + 1"
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Sign1"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -162,7 +162,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0106_006 + 1"
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -170,7 +170,7 @@
             "y": 3,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0106_006 + 1"
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Sign2"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -178,7 +178,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0106_004 + 1"
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_CheckedSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -186,7 +186,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0106_004 + 1"
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_CheckedSign"
         },
         {
             "type": "BG_TYPE_NORMAL",
@@ -194,7 +194,7 @@
             "y": 11,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_SOUTH",
-            "script": "_EV_scr_seq_D49R0106_004 + 1"
+            "script": "PokeathlonDome_Interior_B1FPotentialRoom_EventScript_CheckedSign"
         }
     ]
 }

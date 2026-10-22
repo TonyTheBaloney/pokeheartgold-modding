@@ -13,111 +13,111 @@
     },
     {
       "id": "msg_0556_T22_00001",
-      "from": "scr_seq_T22_001#0"
+      "from": "Violet_EventScript_FatMan#0"
     },
     {
       "id": "msg_0556_T22_00002",
-      "from": "scr_seq_T22_001#1"
+      "from": "Violet_EventScript_FatMan#1"
     },
     {
       "id": "msg_0556_T22_00003",
-      "from": "scr_seq_T22_001#2"
+      "from": "Violet_EventScript_FatMan#2"
     },
     {
       "id": "msg_0556_T22_00004",
-      "from": "scr_seq_T22_001#3"
+      "from": "Violet_EventScript_FatMan#3"
     },
     {
       "id": "msg_0556_T22_00005",
-      "from": "scr_seq_T22_011#0"
+      "from": "Violet_EventScript_Girl#0"
     },
     {
       "id": "msg_0556_T22_00006",
-      "from": "scr_seq_T22_012#0"
+      "from": "Violet_EventScript_Man#0"
     },
     {
       "id": "msg_0556_T22_00007",
-      "from": "scr_seq_T22_013#0"
+      "from": "Violet_EventScript_OldWoman#0"
     },
     {
       "id": "msg_0556_T22_00008",
-      "from": "scr_seq_T22_014#0"
+      "from": "Violet_EventScript_Youngster#0"
     },
     {
       "id": "msg_0556_T22_00009",
-      "from": "scr_seq_T22_008#0"
+      "from": "Violet_EventScript_CitySign#0"
     },
     {
       "id": "msg_0556_T22_00010",
-      "from": "scr_seq_T22_009#0"
+      "from": "Violet_EventScript_TrainerTips2#0"
     },
     {
       "id": "msg_0556_T22_00011",
-      "from": "scr_seq_T22_010#0"
+      "from": "Violet_EventScript_TrainerTips3#0"
     },
     {
       "id": "msg_0556_T22_00012",
-      "from": "scr_seq_T22_007#0"
+      "from": "Violet_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0556_T22_00013",
-      "from": "scr_seq_T22_004#0"
+      "from": "Violet_EventScript_KimonoGirlScene#0"
     },
     {
       "id": "msg_0556_T22_00014",
-      "from": "scr_seq_T22_004#1"
+      "from": "Violet_EventScript_KimonoGirlScene#1"
     },
     {
       "id": "msg_0556_T22_00015",
-      "from": "scr_seq_T22_004#2"
+      "from": "Violet_EventScript_KimonoGirlScene#2"
     },
     {
       "id": "msg_0556_T22_00016",
-      "from": "scr_seq_T22_004#3"
+      "from": "Violet_EventScript_KimonoGirlScene#3"
     },
     {
       "id": "msg_0556_T22_00017",
-      "from": "scr_seq_T22_003#8"
+      "from": "Violet_EventScript_Juggler#8"
     },
     {
       "id": "msg_0556_T22_00018",
-      "from": "scr_seq_T22_003#0"
+      "from": "Violet_EventScript_Juggler#0"
     },
     {
       "id": "msg_0556_T22_00019",
-      "from": "scr_seq_T22_003#7"
+      "from": "Violet_EventScript_Juggler#7"
     },
     {
       "id": "msg_0556_T22_00020",
-      "from": "scr_seq_T22_003#5"
+      "from": "Violet_EventScript_Juggler#5"
     },
     {
       "id": "msg_0556_T22_00021",
-      "from": "scr_seq_T22_003#1"
+      "from": "Violet_EventScript_Juggler#1"
     },
     {
       "id": "msg_0556_T22_00022",
-      "from": "scr_seq_T22_003#2"
+      "from": "Violet_EventScript_Juggler#2"
     },
     {
       "id": "msg_0556_T22_00023",
-      "from": "scr_seq_T22_003#3"
+      "from": "Violet_EventScript_Juggler#3"
     },
     {
       "id": "msg_0556_T22_00024",
-      "from": "scr_seq_T22_003#4"
+      "from": "Violet_EventScript_Juggler#4"
     },
     {
       "id": "msg_0556_T22_00025",
-      "from": "scr_seq_T22_003#6"
+      "from": "Violet_EventScript_Juggler#6"
     },
     {
       "id": "msg_0556_T22_00026",
-      "from": "scr_seq_T22_005#0"
+      "from": "Violet_EventScript_AceTrainerF#0"
     },
     {
       "id": "msg_0556_T22_00027",
-      "from": "scr_seq_T22_006#0"
+      "from": "Violet_EventScript_LittleBoy#0"
     }
   ]
 }

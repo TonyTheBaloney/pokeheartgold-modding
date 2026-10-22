@@ -1,8 +1,8 @@
 #ifndef SCR_SEQ_D11R0105_H_
 #define SCR_SEQ_D11R0105_H_
 
-#define _EV_scr_seq_D11R0105_000 0
-#define _EV_scr_seq_D11R0105_001 1
+#define _EV_SeafoamIslands_B4F_EventScript_Articuno 0
+#define _EV_SeafoamIslands_B4F_OnLoad 1
 
 #define obj_D11R0105_monstarball                0
 #define obj_D11R0105_monstarball_2              1

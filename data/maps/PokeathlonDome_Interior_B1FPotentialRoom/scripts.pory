@@ -3,18 +3,18 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D49R0106_000
-    scr_seq_D49R0106_001
-    scr_seq_D49R0106_002
-    scr_seq_D49R0106_003
-    scr_seq_D49R0106_004
-    scr_seq_D49R0106_005
-    scr_seq_D49R0106_006
-    scr_seq_D49R0106_007
-    scr_seq_D49R0106_008
+    PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Receptionist1
+    PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Receptionist2
+    PokeathlonDome_Interior_B1FPotentialRoom_EventScript_FatMan
+    PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Dodrio
+    PokeathlonDome_Interior_B1FPotentialRoom_EventScript_CheckedSign
+    PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Sign1
+    PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Sign2
+    PokeathlonDome_Interior_B1FPotentialRoom_OnResume
+    PokeathlonDome_Interior_B1FPotentialRoom_OnTransition
 }
 
-script scr_seq_D49R0106_008 {
+script PokeathlonDome_Interior_B1FPotentialRoom_OnTransition {
     if (flag(FLAG_UNK_0F1)) {
         setvar(VAR_TEMP_x400D, 1)
         end
@@ -23,7 +23,7 @@ script scr_seq_D49R0106_008 {
     end
 }
 
-script scr_seq_D49R0106_007 {
+script PokeathlonDome_Interior_B1FPotentialRoom_OnResume {
     if (var(VAR_TEMP_x400D) == 1) {
         movepersonfacing(obj_D49R0106_pcwoman2, 6, 1, 3, DIR_EAST)
         setvar(VAR_TEMP_x400D, 0)
@@ -31,14 +31,14 @@ script scr_seq_D49R0106_007 {
     end
 }
 
-script scr_seq_D49R0106_000 {
+script PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Receptionist1 {
     simplenpcmsg("This is the “Potential” room.\n"
                  "It is to show the infinite potential\f"
                  "of both Pokémon and people.")
     end
 }
 
-script scr_seq_D49R0106_001 {
+script PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Receptionist2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -61,7 +61,7 @@ script scr_seq_D49R0106_001 {
     end
 }
 
-script scr_seq_D49R0106_002 {
+script PokeathlonDome_Interior_B1FPotentialRoom_EventScript_FatMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -298,19 +298,19 @@ text msg_0142_D49R0106_00007 {
     "like to know about? {YESNO 0}"
 }
 
-script scr_seq_D49R0106_003 {
+script PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Dodrio {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_D49R0106_tsure_poke_static_dodrio, PokeathlonDome_Interior_B1FPotentialRoom_Movement_043C)
+        applymovement(obj_D49R0106_tsure_poke_static_dodrio, PokeathlonDome_Interior_B1FPotentialRoom_Movement_DodrioFaceDown)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_D49R0106_tsure_poke_static_dodrio, PokeathlonDome_Interior_B1FPotentialRoom_Movement_0434)
+        applymovement(obj_D49R0106_tsure_poke_static_dodrio, PokeathlonDome_Interior_B1FPotentialRoom_Movement_DodrioFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 2) {
-        applymovement(obj_D49R0106_tsure_poke_static_dodrio, PokeathlonDome_Interior_B1FPotentialRoom_Movement_044C)
+        applymovement(obj_D49R0106_tsure_poke_static_dodrio, PokeathlonDome_Interior_B1FPotentialRoom_Movement_DodrioFaceRight)
     } else {
-        applymovement(obj_D49R0106_tsure_poke_static_dodrio, PokeathlonDome_Interior_B1FPotentialRoom_Movement_0444)
+        applymovement(obj_D49R0106_tsure_poke_static_dodrio, PokeathlonDome_Interior_B1FPotentialRoom_Movement_DodrioFaceLeft)
     }
     waitmovement
     playcry(SPECIES_DODRIO, 0)
@@ -322,23 +322,23 @@ script scr_seq_D49R0106_003 {
     end
 }
 
-movement PokeathlonDome_Interior_B1FPotentialRoom_Movement_0434 {
+movement PokeathlonDome_Interior_B1FPotentialRoom_Movement_DodrioFaceUp {
     jump_in_place_fast_up * 2
 }
 
-movement PokeathlonDome_Interior_B1FPotentialRoom_Movement_043C {
+movement PokeathlonDome_Interior_B1FPotentialRoom_Movement_DodrioFaceDown {
     jump_in_place_fast_down * 2
 }
 
-movement PokeathlonDome_Interior_B1FPotentialRoom_Movement_0444 {
+movement PokeathlonDome_Interior_B1FPotentialRoom_Movement_DodrioFaceLeft {
     jump_in_place_fast_left * 2
 }
 
-movement PokeathlonDome_Interior_B1FPotentialRoom_Movement_044C {
+movement PokeathlonDome_Interior_B1FPotentialRoom_Movement_DodrioFaceRight {
     jump_in_place_fast_right * 2
 }
 
-script scr_seq_D49R0106_004 {
+script PokeathlonDome_Interior_B1FPotentialRoom_EventScript_CheckedSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -356,7 +356,7 @@ script scr_seq_D49R0106_004 {
     end
 }
 
-script scr_seq_D49R0106_005 {
+script PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -381,7 +381,7 @@ script scr_seq_D49R0106_005 {
     end
 }
 
-script scr_seq_D49R0106_006 {
+script PokeathlonDome_Interior_B1FPotentialRoom_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -408,6 +408,6 @@ script scr_seq_D49R0106_006 {
 }
 
 mapscripts PokeathlonDome_Interior_B1FPotentialRoom_MapScripts {
-    INIT_SCRIPT_ON_RESUME: scr_seq_D49R0106_007
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D49R0106_008
+    INIT_SCRIPT_ON_RESUME: PokeathlonDome_Interior_B1FPotentialRoom_OnResume
+    INIT_SCRIPT_ON_TRANSITION: PokeathlonDome_Interior_B1FPotentialRoom_OnTransition
 }

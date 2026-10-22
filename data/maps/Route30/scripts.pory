@@ -3,60 +3,60 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_R30_000
-    scr_seq_R30_001
-    scr_seq_R30_002
-    scr_seq_R30_003
-    scr_seq_R30_004
-    scr_seq_R30_005
-    scr_seq_R30_006
-    scr_seq_R30_007
-    scr_seq_R30_008
-    scr_seq_R30_009
-    scr_seq_R30_010
+    Route30_EventScript_Youngster
+    Route30_EventScript_ProfElmCall
+    Route30_EventScript_PokefanMTrigger
+    Route30_EventScript_BugCatcher
+    Route30_EventScript_MomCall
+    Route30_EventScript_RouteSign
+    Route30_EventScript_MrPokemonsHouseSign
+    Route30_EventScript_TrainerTips1
+    Route30_EventScript_TrainerTips2
+    Route30_EventScript_Man
+    Route30_EventScript_Girl
 }
 
-script scr_seq_R30_001 {
+script Route30_EventScript_ProfElmCall {
     setflag(FLAG_GOT_ELMS_PANIC_CALL)
     phonecall(PHONE_CONTACT_PROF__ELM, 2, 0)
     setvar(VAR_SCENE_ROUTE_30_OW, 3)
     end
 }
 
-script scr_seq_R30_000 {
+script Route30_EventScript_Youngster {
     playse(SEQ_SE_DP_SELECT)
     lockall
     npcmsg("Go, RATTATA!\r"
            "Tackle!\r")
     closemessage
-    applymovement(obj_R30_tsure_poke_static_rattata, Route30_Movement_0088)
+    applymovement(obj_R30_tsure_poke_static_rattata, Route30_Movement_RattataFaceUp)
     waitmovement
-    applymovement(obj_R30_tsure_poke_static_pidgey, Route30_Movement_0090)
+    applymovement(obj_R30_tsure_poke_static_pidgey, Route30_Movement_PidgeyFaceDown)
     waitmovement
     playse(SEQ_SE_DP_SELECT)
     faceplayer
     npcmsg("What? This is a big battle!\f"
            "Leave me alone!\r")
     closemessage
-    applymovement(obj_R30_gsboy2_3, Route30_Movement_0098)
+    applymovement(obj_R30_gsboy2_3, Route30_Movement_YoungsterFaceUp)
     waitmovement
     releaseall
     end
 }
 
-movement Route30_Movement_0088 {
+movement Route30_Movement_RattataFaceUp {
     jump_in_place_fast_up * 3
 }
 
-movement Route30_Movement_0090 {
+movement Route30_Movement_PidgeyFaceDown {
     jump_in_place_fast_down * 2
 }
 
-movement Route30_Movement_0098 {
+movement Route30_Movement_YoungsterFaceUp {
     walk_in_place_up
 }
 
-script scr_seq_R30_002 {
+script Route30_EventScript_PokefanMTrigger {
     followmonresetmovement
     lockall
     dooranimationload(17, 11, 11, 3, 77)
@@ -64,12 +64,12 @@ script scr_seq_R30_002 {
     dooranimationwait(77)
     clearflag(FLAG_HIDE_ROUTE_30_APRICORN_MAN)
     addobject(obj_R30_gsmiddleman1)
-    applymovement(obj_R30_gsmiddleman1, Route30_Movement_01B0)
+    applymovement(obj_R30_gsmiddleman1, Route30_Movement_PokefanMWalkDown)
     waitmovement
     dooranimationclose(77)
     dooranimationwait(77)
     dooranimationunload(77)
-    applymovement(obj_R30_gsmiddleman1, Route30_Movement_01C4)
+    applymovement(obj_R30_gsmiddleman1, Route30_Movement_PokefanMFaceRight)
     waitmovement
     npcmsg("Hey, kiddo!\r"
            "How in the world can you be so\n"
@@ -81,13 +81,13 @@ script scr_seq_R30_002 {
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
     if (var(VAR_TEMP_x4000) == 558) {
-        applymovement(obj_player, Route30_Movement_01D4)
+        applymovement(obj_player, Route30_Movement_PlayerWalkDownLeft1)
     } elif (var(VAR_TEMP_x4000) == 559) {
-        applymovement(obj_player, Route30_Movement_01E8)
+        applymovement(obj_player, Route30_Movement_PlayerWalkDownLeft2)
     } elif (var(VAR_TEMP_x4000) == 560) {
-        applymovement(obj_player, Route30_Movement_01FC)
+        applymovement(obj_player, Route30_Movement_PlayerWalkDownLeft3)
     } else {
-        applymovement(obj_player, Route30_Movement_0210)
+        applymovement(obj_player, Route30_Movement_PlayerWalkDownLeft4)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -111,12 +111,12 @@ script scr_seq_R30_002 {
            "so many Apricorns.\r"
            "You’ll be a decent Apricorn collector!\r")
     closemessage
-    applymovement(obj_R30_gsmiddleman1, Route30_Movement_01CC)
+    applymovement(obj_R30_gsmiddleman1, Route30_Movement_PokefanMFaceUp)
     waitmovement
     dooranimationload(17, 11, 11, 3, 77)
     dooranimationopen(77)
     dooranimationwait(77)
-    applymovement(obj_R30_gsmiddleman1, Route30_Movement_01B8)
+    applymovement(obj_R30_gsmiddleman1, Route30_Movement_PokefanMExit)
     waitmovement
     dooranimationclose(77)
     dooranimationwait(77)
@@ -129,52 +129,52 @@ script scr_seq_R30_002 {
     end
 }
 
-movement Route30_Movement_01B0 {
+movement Route30_Movement_PokefanMWalkDown {
     walk_down
 }
 
-movement Route30_Movement_01B8 {
+movement Route30_Movement_PokefanMExit {
     walk_up
     set_invisible
 }
 
-movement Route30_Movement_01C4 {
+movement Route30_Movement_PokefanMFaceRight {
     walk_in_place_right
 }
 
-movement Route30_Movement_01CC {
+movement Route30_Movement_PokefanMFaceUp {
     walk_in_place_up
 }
 
-movement Route30_Movement_01D4 {
+movement Route30_Movement_PlayerWalkDownLeft1 {
     walk_down * 2
     walk_in_place_left
     delay_8 * 2
     walk_left * 2
 }
 
-movement Route30_Movement_01E8 {
+movement Route30_Movement_PlayerWalkDownLeft2 {
     walk_down * 2
     walk_in_place_left
     delay_8 * 2
     walk_left * 3
 }
 
-movement Route30_Movement_01FC {
+movement Route30_Movement_PlayerWalkDownLeft3 {
     walk_down * 2
     walk_in_place_left
     delay_8 * 2
     walk_left * 4
 }
 
-movement Route30_Movement_0210 {
+movement Route30_Movement_PlayerWalkDownLeft4 {
     walk_down * 2
     walk_in_place_left
     delay_8 * 2
     walk_left * 5
 }
 
-script scr_seq_R30_003 {
+script Route30_EventScript_BugCatcher {
     simplenpcmsg("Oh! You’re wearing the Running Shoes.\r"
                  "They make you feel like you are flying,\n"
                  "don’t they?\r"
@@ -185,7 +185,7 @@ script scr_seq_R30_003 {
     end
 }
 
-script scr_seq_R30_004 {
+script Route30_EventScript_MomCall {
     followmonresetmovement
     lockall
     phonecall(PHONE_CONTACT_MOTHER, 2, 0)
@@ -195,19 +195,19 @@ script scr_seq_R30_004 {
     end
 }
 
-script scr_seq_R30_005 {
+script Route30_EventScript_RouteSign {
     directionsignpostex(1, 6, "Rt. 30\n"
                               "South to Cherrygrove City")
     end
 }
 
-script scr_seq_R30_006 {
+script Route30_EventScript_MrPokemonsHouseSign {
     directionsignpostex(1, 3, "Mr. Pokémon’s House\n"
                               "Straight Ahead!")
     end
 }
 
-script scr_seq_R30_007 {
+script Route30_EventScript_TrainerTips1 {
     trainertipsex(3, "Trainer Tips\r"
                      "No stealing other people’s Pokémon!\r"
                      "Poké Balls are to be thrown only at\n"
@@ -215,12 +215,12 @@ script scr_seq_R30_007 {
     end
 }
 
-script scr_seq_R30_008 {
+script Route30_EventScript_TrainerTips2 {
     trainertipsex(2, "Mr. Pokémon’s House")
     end
 }
 
-script scr_seq_R30_009 {
+script Route30_EventScript_Man {
     if (flag(FLAG_GOT_POKEDEX)) {
         simplenpcmsg("A Pokémon can use its moves as long\n"
                      "as the moves still have PP.\r"
@@ -239,7 +239,7 @@ script scr_seq_R30_009 {
     end
 }
 
-script scr_seq_R30_010 {
+script Route30_EventScript_Girl {
     simplenpcmsg("I’m not a Trainer.\r"
                  "But if you look one in the eyes,\n"
                  "prepare to battle.")
@@ -248,6 +248,6 @@ script scr_seq_R30_010 {
 
 mapscripts Route30_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_SCENE_ROUTE_30_OW, 2: scr_seq_R30_001
+        VAR_SCENE_ROUTE_30_OW, 2: Route30_EventScript_ProfElmCall
     ]
 }

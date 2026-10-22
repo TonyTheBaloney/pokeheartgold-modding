@@ -3,13 +3,13 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T07SP0101_000
-    scr_seq_T07SP0101_001
-    scr_seq_T07SP0101_002
-    scr_seq_T07SP0101_003
+    Celadon_GameCorner_EventScript_Sign1
+    Celadon_GameCorner_EventScript_GymGuide
+    Celadon_GameCorner_EventScript_Sign2
+    Celadon_GameCorner_EventScript_Businessman
 }
 
-script scr_seq_T07SP0101_000 {
+script Celadon_GameCorner_EventScript_Sign1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -17,12 +17,12 @@ script scr_seq_T07SP0101_000 {
     if (var(VAR_SPECIAL_RESULT) == 0) {
         npcmsg("It seems you need a Coin Case\n"
                "to play...\r")
-        applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_007C)
+        applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_BusinessmanFaceDown)
         waitmovement
         npcmsg(msg_0511_T07SP0101_00011)
         goto(_00E4)
     }
-    applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_007C)
+    applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_BusinessmanFaceDown)
     waitmovement
     npcmsg("Mr. Game: Show me how you play and\n"
            "make my heart pound with excitement!\r")
@@ -44,19 +44,19 @@ text msg_0511_T07SP0101_00011 {
     "Come here and I’ll give you a Coin Case!"
 }
 
-movement Celadon_GameCorner_Movement_007C {
+movement Celadon_GameCorner_Movement_BusinessmanFaceDown {
     face_down
 }
 
-movement Celadon_GameCorner_Movement_0084 {
+movement Celadon_GameCorner_Movement_BusinessmanFaceLeft {
     face_left
 }
 
-movement Celadon_GameCorner_Movement_008C {
+movement Celadon_GameCorner_Movement_BusinessmanFaceRight {
     face_right
 }
 
-script scr_seq_T07SP0101_002 {
+script Celadon_GameCorner_EventScript_Sign2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -64,7 +64,7 @@ script scr_seq_T07SP0101_002 {
     if (var(VAR_TEMP_x4002) == 1) {
         call(_00EC)
     } else {
-        applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_007C)
+        applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_BusinessmanFaceDown)
     }
     waitmovement
     hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
@@ -84,14 +84,14 @@ _00EC:
     getplayercoords(VAR_TEMP_x4002, VAR_TEMP_x4003)
     getplayercoords(VAR_TEMP_x4002, VAR_TEMP_x4003)
     if (var(VAR_TEMP_x4002) == 6) {
-        applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_0084)
+        applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_BusinessmanFaceLeft)
     } elif (var(VAR_TEMP_x4002) == 8) {
-        applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_008C)
+        applymovement(obj_T07SP0101_suit, Celadon_GameCorner_Movement_BusinessmanFaceRight)
     }
     return
 }
 
-script scr_seq_T07SP0101_003 {
+script Celadon_GameCorner_EventScript_Businessman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -152,7 +152,7 @@ script scr_seq_T07SP0101_003 {
     end
 }
 
-script scr_seq_T07SP0101_001 {
+script Celadon_GameCorner_EventScript_GymGuide {
     simplenpcmsg("Yo, legend in the making!\n"
                  "Do you play this Coin game, too?\r"
                  "I’ve been trying for the prize Pokémon,\n"

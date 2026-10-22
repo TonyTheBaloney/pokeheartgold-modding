@@ -7,43 +7,43 @@
     },
     {
       "id": "msg_0620_T28_00001",
-      "from": "scr_seq_T28_000#5"
+      "from": "Mahogany_EventScript_PokefanM#5"
     },
     {
       "id": "msg_0620_T28_00002",
-      "from": "scr_seq_T28_001#0"
+      "from": "Mahogany_EventScript_PokefanMTrigger#0"
     },
     {
       "id": "msg_0620_T28_00003",
-      "from": "scr_seq_T28_000#0"
+      "from": "Mahogany_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0620_T28_00004",
-      "from": "scr_seq_T28_000#1"
+      "from": "Mahogany_EventScript_PokefanM#1"
     },
     {
       "id": "msg_0620_T28_00005",
-      "from": "scr_seq_T28_000#2"
+      "from": "Mahogany_EventScript_PokefanM#2"
     },
     {
       "id": "msg_0620_T28_00006",
-      "from": "scr_seq_T28_001#1"
+      "from": "Mahogany_EventScript_PokefanMTrigger#1"
     },
     {
       "id": "msg_0620_T28_00007",
-      "from": "scr_seq_T28_000#3"
+      "from": "Mahogany_EventScript_PokefanM#3"
     },
     {
       "id": "msg_0620_T28_00008",
-      "from": "scr_seq_T28_001#3"
+      "from": "Mahogany_EventScript_PokefanMTrigger#3"
     },
     {
       "id": "msg_0620_T28_00009",
-      "from": "scr_seq_T28_000#4"
+      "from": "Mahogany_EventScript_PokefanM#4"
     },
     {
       "id": "msg_0620_T28_00010",
-      "from": "scr_seq_T28_001#2"
+      "from": "Mahogany_EventScript_PokefanMTrigger#2"
     },
     {
       "id": "msg_0620_T28_00011",
@@ -55,31 +55,31 @@
     },
     {
       "id": "msg_0620_T28_00013",
-      "from": "scr_seq_T28_004#0"
+      "from": "Mahogany_EventScript_FatMan#0"
     },
     {
       "id": "msg_0620_T28_00014",
-      "from": "scr_seq_T28_002#1"
+      "from": "Mahogany_EventScript_OldMan#1"
     },
     {
       "id": "msg_0620_T28_00015",
-      "from": "scr_seq_T28_002#0"
+      "from": "Mahogany_EventScript_OldMan#0"
     },
     {
       "id": "msg_0620_T28_00016",
-      "from": "scr_seq_T28_003#0"
+      "from": "Mahogany_EventScript_Lass#0"
     },
     {
       "id": "msg_0620_T28_00017",
-      "from": "scr_seq_T28_006#0"
+      "from": "Mahogany_EventScript_TownSign#0"
     },
     {
       "id": "msg_0620_T28_00018",
-      "from": "scr_seq_T28_007#0"
+      "from": "Mahogany_EventScript_TrainerTips1#0"
     },
     {
       "id": "msg_0620_T28_00019",
-      "from": "scr_seq_T28_008#0"
+      "from": "Mahogany_EventScript_TrainerTips2#0"
     }
   ]
 }

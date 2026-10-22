@@ -5,21 +5,21 @@ script scr_seq_R32R0101_000 {
     end
 }
 
-script scr_seq_R32R0101_001 {
+script Route32_RuinsOfAlphGatehouse_EventScript_Attendant {
     simplenpcmsg("The Ruins of Alph.\n"
                  "A look-and-touch tourist site.\f"
                  "Try the sliding stone panels!")
     end
 }
 
-script scr_seq_R32R0101_002 {
+script Route32_RuinsOfAlphGatehouse_EventScript_SchoolKidM {
     simplenpcmsg("There are drawings on stone panels.\n"
                  "I tried moving them.\f"
                  "I wonder what they are.")
     end
 }
 
-script scr_seq_R32R0101_003 {
+script Route32_RuinsOfAlphGatehouse_EventScript_PokefanM {
     simplenpcmsg("You’re studying the ruins?\n"
                  "I see a scientist in the making.")
     end

@@ -1,9 +1,9 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_D43R0102_000 {
+script VictoryRoad_2F_EventScript_Scene {
     playse(SEQ_SE_GS_RAKKA01)
-    applymovement(obj_player, VictoryRoad_2F_Movement_0048)
+    applymovement(obj_player, VictoryRoad_2F_Movement_PlayerWarpIn)
     makeobjectinvisible(obj_player)
     waitmovement
     screenshake(0, 1, 1, 8)
@@ -12,20 +12,20 @@ script scr_seq_D43R0102_000 {
     end
 }
 
-script scr_seq_D43R0102_001 {
+script VictoryRoad_2F_OnResume {
     if (var(VAR_UNK_40CA) == 1) {
         makeobjectvisible(obj_player)
     }
     end
 }
 
-movement VictoryRoad_2F_Movement_0048 {
+movement VictoryRoad_2F_Movement_PlayerWarpIn {
     warp_in
 }
 
 mapscripts VictoryRoad_2F_MapScripts {
     INIT_SCRIPT_ON_FRAME_TABLE [
-        VAR_UNK_40CA, 1: scr_seq_D43R0102_000
+        VAR_UNK_40CA, 1: VictoryRoad_2F_EventScript_Scene
     ]
-    INIT_SCRIPT_ON_RESUME: scr_seq_D43R0102_001
+    INIT_SCRIPT_ON_RESUME: VictoryRoad_2F_OnResume
 }

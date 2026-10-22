@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T06_003 + 1",
+            "script": "Vermilion_EventScript_OldMan",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T06_000 + 1",
+            "script": "Vermilion_EventScript_PokefanM1",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T06_001 + 1",
+            "script": "Vermilion_EventScript_Woman",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T06_002 + 1",
+            "script": "Vermilion_EventScript_Man",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T06_004 + 1",
+            "script": "Vermilion_EventScript_Machop",
             "flag": "FLAG_NOTHING"
         },
         {
@@ -279,7 +279,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_T06_010 + 1",
+            "script": "Vermilion_EventScript_PokefanM2",
             "flag": "FLAG_HIDE_CAMERON"
         },
         {
@@ -418,7 +418,7 @@
             "height": 3,
             "var": "VAR_UNK_4070",
             "var_value": 1,
-            "script": "_EV_scr_seq_T06_011 + 1"
+            "script": "Vermilion_EventScript_EusineTrigger1"
         },
         {
             "x": 1324,
@@ -428,7 +428,7 @@
             "height": 1,
             "var": "VAR_UNK_4071",
             "var_value": 1,
-            "script": "_EV_scr_seq_T06_012 + 1"
+            "script": "Vermilion_EventScript_EusineTrigger2"
         },
         {
             "x": 1334,
@@ -438,7 +438,7 @@
             "height": 3,
             "var": "VAR_UNK_4070",
             "var_value": 1,
-            "script": "_EV_scr_seq_T06_011 + 1"
+            "script": "Vermilion_EventScript_EusineTrigger1"
         }
     ],
     "bg_events": [
@@ -448,7 +448,7 @@
             "y": 320,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T06_006 + 1"
+            "script": "Vermilion_EventScript_TrainerTips1"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -456,7 +456,7 @@
             "y": 309,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T06_007 + 1"
+            "script": "Vermilion_EventScript_TrainerTips2"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -464,7 +464,7 @@
             "y": 310,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T06_008 + 1"
+            "script": "Vermilion_EventScript_TrainerTips3"
         },
         {
             "type": "BG_TYPE_SIGNPOST",
@@ -472,7 +472,7 @@
             "y": 299,
             "elevation": 0,
             "player_facing_dir": "BG_DIR_ALL",
-            "script": "_EV_scr_seq_T06_005 + 1"
+            "script": "Vermilion_EventScript_CitySign"
         },
         {
             "type": "BG_TYPE_HIDDEN_ITEM",

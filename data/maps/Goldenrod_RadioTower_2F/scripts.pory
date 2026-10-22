@@ -3,20 +3,20 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_D23R0102_000
-    scr_seq_D23R0102_001
-    scr_seq_D23R0102_002
-    scr_seq_D23R0102_003
-    scr_seq_D23R0102_004
-    scr_seq_D23R0102_005
-    scr_seq_D23R0102_006
-    scr_seq_D23R0102_007
-    scr_seq_D23R0102_008
-    scr_seq_D23R0102_009
-    scr_seq_D23R0102_010
+    Goldenrod_RadioTower_2F_EventScript_2FSalesSign
+    Goldenrod_RadioTower_2F_EventScript_Sign
+    Goldenrod_RadioTower_2F_EventScript_2FStudio2Sign
+    Goldenrod_RadioTower_2F_EventScript_Jigglypuff
+    Goldenrod_RadioTower_2F_EventScript_Beauty1
+    Goldenrod_RadioTower_2F_EventScript_Man
+    Goldenrod_RadioTower_2F_EventScript_Policeman
+    Goldenrod_RadioTower_2F_OnTransition
+    Goldenrod_RadioTower_2F_OnResume
+    Goldenrod_RadioTower_2F_EventScript_Buena
+    Goldenrod_RadioTower_2F_EventScript_Beauty2
 }
 
-script scr_seq_D23R0102_007 {
+script Goldenrod_RadioTower_2F_OnTransition {
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
     setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
@@ -29,30 +29,30 @@ script scr_seq_D23R0102_007 {
     end
 }
 
-script scr_seq_D23R0102_008 {
+script Goldenrod_RadioTower_2F_OnResume {
     if (var(VAR_SCENE_ROCKET_TAKEOVER) == 5) {
         movepersonfacing(obj_D23R0102_policeman, 2, 1, 7, DIR_EAST)
     }
     end
 }
 
-script scr_seq_D23R0102_000 {
+script Goldenrod_RadioTower_2F_EventScript_2FSalesSign {
     simplenpcmsg("2F Sales")
     end
 }
 
-script scr_seq_D23R0102_001 {
+script Goldenrod_RadioTower_2F_EventScript_Sign {
     simplenpcmsg("Pokémon Talk with Professor Oak\n"
                  "The Hottest Show on the Air!")
     end
 }
 
-script scr_seq_D23R0102_002 {
+script Goldenrod_RadioTower_2F_EventScript_2FStudio2Sign {
     simplenpcmsg("2F Studio 2")
     end
 }
 
-script scr_seq_D23R0102_003 {
+script Goldenrod_RadioTower_2F_EventScript_Jigglypuff {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -65,7 +65,7 @@ script scr_seq_D23R0102_003 {
     end
 }
 
-script scr_seq_D23R0102_004 {
+script Goldenrod_RadioTower_2F_EventScript_Beauty1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -85,7 +85,7 @@ script scr_seq_D23R0102_004 {
     end
 }
 
-script scr_seq_D23R0102_005 {
+script Goldenrod_RadioTower_2F_EventScript_Man {
     simplenpcmsg("Radio is good, you know?\r"
                  "Cool music and Pokémon information...\n"
                  "Surprising news and moving dramas...\f"
@@ -96,7 +96,7 @@ script scr_seq_D23R0102_005 {
     end
 }
 
-script scr_seq_D23R0102_006 {
+script Goldenrod_RadioTower_2F_EventScript_Policeman {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -116,7 +116,7 @@ script scr_seq_D23R0102_006 {
     end
 }
 
-script scr_seq_D23R0102_009 {
+script Goldenrod_RadioTower_2F_EventScript_Buena {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -184,7 +184,7 @@ _016A:
                                                  "Join the show.\r")
             }
             closemessage
-            applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0620)
+            applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_BuenaFaceLeft)
             waitmovement
             gendermsgbox("Buena: Everyone ready?\r"
                          "I want to hear you shout out today’s\n"
@@ -197,19 +197,19 @@ _016A:
             if (var(VAR_TEMP_x4002) != 0) {
                 release(obj_partner_poke)
                 if (var(VAR_TEMP_x4000) == 2) {
-                    applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_05CC)
-                    applymovement(obj_partner_poke, Goldenrod_RadioTower_2F_Movement_05E0)
+                    applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_PlayerWalkDownLeft1)
+                    applymovement(obj_partner_poke, Goldenrod_RadioTower_2F_Movement_FollowMonWalkDownLeft)
                 } else {
-                    applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_05F0)
-                    applymovement(obj_partner_poke, Goldenrod_RadioTower_2F_Movement_0600)
+                    applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_PlayerWalkDown)
+                    applymovement(obj_partner_poke, Goldenrod_RadioTower_2F_Movement_FollowMonWalkDown)
                 }
                 waitmovement
                 lock(obj_partner_poke)
             } else {
                 if (var(VAR_TEMP_x4000) == 2) {
-                    applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_05CC)
+                    applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_PlayerWalkDownLeft1)
                 } else {
-                    applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_05F0)
+                    applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_PlayerWalkDown)
                 }
                 waitmovement
             }
@@ -225,7 +225,7 @@ _016A:
             touchscreenmenushow
             setflag(FLAG_UNK_102)
             setflag(FLAG_DAILY_BUENAS_PASSWORD)
-            applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0628)
+            applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_BuenaFaceDown)
             waitmovement
             if (var(VAR_SPECIAL_RESULT) != VAR_SPECIAL_x8001) {
                 npcmsg("Buena: Aww... That’s not it...\n"
@@ -237,7 +237,7 @@ _016A:
             _0568:
                 npcmsg(msg_0066_D23R0102_00032)
                 closemessage
-                applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0638)
+                applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_BuenaWalkUp)
                 waitmovement
                 releaseall
                 end
@@ -245,9 +245,9 @@ _016A:
             npcmsg("Buena: Yippee! That’s right!\r"
                    "You did tune in! I’m so happy!\n"
                    "You earned one point! Congratulations!\r")
-            applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0630)
+            applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_BuenaWalkDown)
             waitmovement
-            applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_060C)
+            applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_PlayerFaceUp)
             waitmovement
             playse(SEQ_SE_GS_OKOZUKAI)
             if (var(VAR_BLUE_CARD_POINTS) < 30) {
@@ -255,7 +255,7 @@ _016A:
             }
             if (var(VAR_BLUE_CARD_POINTS) >= 30) {
                 if (var(VAR_NUM_TIMES_GIVEN_BLUE_CARD) < 2) {
-                    applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0628)
+                    applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_BuenaFaceDown)
                     waitmovement
                     gendermsgbox("Buena: Oh! Your Blue Card reached 30\n"
                                  "points today! That’s so wild!\r"
@@ -275,7 +275,7 @@ _016A:
                     playfanfare(SEQ_ME_POKEGEAR_REGIST)
                     waitfanfare
                     closemessage
-                    applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0628)
+                    applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_BuenaFaceDown)
                     waitmovement
                     npcmsg("Buena: I look forward to hearing\n"
                            "from you!\r")
@@ -294,13 +294,13 @@ _016A:
         _03F5:
             npcmsg(msg_0066_D23R0102_00032)
             closemessage
-            applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_0638)
+            applymovement(obj_D23R0102_gswoman1, Goldenrod_RadioTower_2F_Movement_BuenaWalkUp)
             waitmovement
             togglefollowingpokemonmovement(0)
             waitfollowingpokemonmovement
             followingpokemonmovement(55)
-            applymovement(obj_D23R0102_gswoman2_2, Goldenrod_RadioTower_2F_Movement_0648)
-            applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_0614)
+            applymovement(obj_D23R0102_gswoman2_2, Goldenrod_RadioTower_2F_Movement_BeautyWalkDownRight)
+            applymovement(obj_player, Goldenrod_RadioTower_2F_Movement_PlayerWalkDownLeft2)
             waitmovement
             waitfollowingpokemonmovement
             togglefollowingpokemonmovement(1)
@@ -330,7 +330,7 @@ _016A:
             }
             npcmsg("Please join the show again!\r")
             closemessage
-            applymovement(obj_D23R0102_gswoman2_2, Goldenrod_RadioTower_2F_Movement_0654)
+            applymovement(obj_D23R0102_gswoman2_2, Goldenrod_RadioTower_2F_Movement_BeautyWalkLeftUp)
             waitmovement
             releaseall
             end
@@ -410,7 +410,7 @@ text msg_0066_D23R0102_00032 {
     "tomorrow!\r"
 }
 
-script scr_seq_D23R0102_010 {
+script Goldenrod_RadioTower_2F_EventScript_Beauty2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -441,69 +441,69 @@ _05B0:
     end
 }
 
-movement Goldenrod_RadioTower_2F_Movement_05CC {
+movement Goldenrod_RadioTower_2F_Movement_PlayerWalkDownLeft1 {
     face_down
     walk_down * 2
     walk_left
     walk_in_place_left
 }
 
-movement Goldenrod_RadioTower_2F_Movement_05E0 {
+movement Goldenrod_RadioTower_2F_Movement_FollowMonWalkDownLeft {
     walk_down * 2
     walk_left
     walk_in_place_up
 }
 
-movement Goldenrod_RadioTower_2F_Movement_05F0 {
+movement Goldenrod_RadioTower_2F_Movement_PlayerWalkDown {
     face_down
     walk_down
     walk_in_place_left
 }
 
-movement Goldenrod_RadioTower_2F_Movement_0600 {
+movement Goldenrod_RadioTower_2F_Movement_FollowMonWalkDown {
     walk_down
     walk_in_place_up
 }
 
-movement Goldenrod_RadioTower_2F_Movement_060C {
+movement Goldenrod_RadioTower_2F_Movement_PlayerFaceUp {
     walk_in_place_up
 }
 
-movement Goldenrod_RadioTower_2F_Movement_0614 {
+movement Goldenrod_RadioTower_2F_Movement_PlayerWalkDownLeft2 {
     walk_down
     walk_left * 2
 }
 
-movement Goldenrod_RadioTower_2F_Movement_0620 {
+movement Goldenrod_RadioTower_2F_Movement_BuenaFaceLeft {
     walk_in_place_left
 }
 
-movement Goldenrod_RadioTower_2F_Movement_0628 {
+movement Goldenrod_RadioTower_2F_Movement_BuenaFaceDown {
     walk_in_place_down
 }
 
-movement Goldenrod_RadioTower_2F_Movement_0630 {
+movement Goldenrod_RadioTower_2F_Movement_BuenaWalkDown {
     walk_down
 }
 
-movement Goldenrod_RadioTower_2F_Movement_0638 {
+movement Goldenrod_RadioTower_2F_Movement_BuenaWalkUp {
     face_up
     walk_up
     walk_in_place_left
 }
 
-movement Goldenrod_RadioTower_2F_Movement_0648 {
+movement Goldenrod_RadioTower_2F_Movement_BeautyWalkDownRight {
     walk_down * 2
     walk_right * 3
 }
 
-movement Goldenrod_RadioTower_2F_Movement_0654 {
+movement Goldenrod_RadioTower_2F_Movement_BeautyWalkLeftUp {
     walk_left * 3
     walk_up * 2
     walk_in_place_down
 }
 
 mapscripts Goldenrod_RadioTower_2F_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0102_007
-    INIT_SCRIPT_ON_RESUME: scr_seq_D23R0102_008
+    INIT_SCRIPT_ON_TRANSITION: Goldenrod_RadioTower_2F_OnTransition
+    INIT_SCRIPT_ON_RESUME: Goldenrod_RadioTower_2F_OnResume
 }

@@ -3,19 +3,19 @@
   "messages": [
     {
       "id": "msg_0614_T27GYM0101_00000",
-      "from": "scr_seq_T27GYM0101_001#1"
+      "from": "Ecruteak_Gym_EventScript_Morty#1"
     },
     {
       "id": "msg_0614_T27GYM0101_00001",
-      "from": "scr_seq_T27GYM0101_001#2"
+      "from": "Ecruteak_Gym_EventScript_Morty#2"
     },
     {
       "id": "msg_0614_T27GYM0101_00002",
-      "from": "scr_seq_T27GYM0101_001#3"
+      "from": "Ecruteak_Gym_EventScript_Morty#3"
     },
     {
       "id": "msg_0614_T27GYM0101_00003",
-      "from": "scr_seq_T27GYM0101_001#4"
+      "from": "Ecruteak_Gym_EventScript_Morty#4"
     },
     {
       "id": "msg_0614_T27GYM0101_00004",
@@ -23,31 +23,31 @@
     },
     {
       "id": "msg_0614_T27GYM0101_00005",
-      "from": "scr_seq_T27GYM0101_001#5"
+      "from": "Ecruteak_Gym_EventScript_Morty#5"
     },
     {
       "id": "msg_0614_T27GYM0101_00006",
-      "from": "scr_seq_T27GYM0101_001#0"
+      "from": "Ecruteak_Gym_EventScript_Morty#0"
     },
     {
       "id": "msg_0614_T27GYM0101_00007",
-      "from": "scr_seq_T27GYM0101_003#1"
+      "from": "Ecruteak_Gym_EventScript_GymGuide#1"
     },
     {
       "id": "msg_0614_T27GYM0101_00008",
-      "from": "scr_seq_T27GYM0101_003#0"
+      "from": "Ecruteak_Gym_EventScript_GymGuide#0"
     },
     {
       "id": "msg_0614_T27GYM0101_00009",
-      "from": "scr_seq_T27GYM0101_004#0"
+      "from": "Ecruteak_Gym_EventScript_OldManScene#0"
     },
     {
       "id": "msg_0614_T27GYM0101_00010",
-      "from": "scr_seq_T27GYM0101_005#0"
+      "from": "Ecruteak_Gym_EventScript_GymSign#0"
     },
     {
       "id": "msg_0614_T27GYM0101_00011",
-      "from": "scr_seq_T27GYM0101_005#1"
+      "from": "Ecruteak_Gym_EventScript_GymSign#1"
     }
   ]
 }

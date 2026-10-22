@@ -41,7 +41,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D17R0110_001 + 1",
+            "script": "BellTowerRoof_EventScript_KimonoGirl1",
             "flag": "FLAG_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS"
         },
         {
@@ -58,7 +58,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D17R0110_004 + 1",
+            "script": "BellTowerRoof_EventScript_KimonoGirl2",
             "flag": "FLAG_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS"
         },
         {
@@ -75,7 +75,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D17R0110_004 + 1",
+            "script": "BellTowerRoof_EventScript_KimonoGirl2",
             "flag": "FLAG_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS"
         },
         {
@@ -92,7 +92,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D17R0110_004 + 1",
+            "script": "BellTowerRoof_EventScript_KimonoGirl2",
             "flag": "FLAG_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS"
         },
         {
@@ -109,7 +109,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D17R0110_004 + 1",
+            "script": "BellTowerRoof_EventScript_KimonoGirl2",
             "flag": "FLAG_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS"
         },
         {
@@ -126,7 +126,7 @@
             "trainer_sight_or_param0": 0,
             "param1": 0,
             "param2": 0,
-            "script": "_EV_scr_seq_D17R0110_000 + 1",
+            "script": "BellTowerRoof_EventScript_HouObj",
             "flag": "FLAG_HIDE_BELL_TOWER_HO_OH"
         }
     ],
@@ -148,7 +148,7 @@
             "height": 1,
             "var": "VAR_UNK_40FA",
             "var_value": 1,
-            "script": "_EV_scr_seq_D17R0110_006 + 1"
+            "script": "BellTowerRoof_EventScript_ZukiTrigger"
         }
     ],
     "bg_events": []

@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_P01R0303_000 {
+script SsAqua_1F_SoutheastRooms_EventScript_Stanly {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -17,13 +17,13 @@ script scr_seq_P01R0303_000 {
     }
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 3) { goto(_009D) }
-    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_0120)
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_StanlyJumpLeft)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_0144)
-    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_01C8)
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_StanlyWalkUpRight1)
+    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_PlayerWalkRight)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -35,7 +35,7 @@ script scr_seq_P01R0303_000 {
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_010C) }
     npcmsg(msg_0261_P01R0303_00006)
     closemessage
-    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_0160)
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_StanlyWalkUp)
     waitmovement
     setvar(VAR_SCENE_SS_AQUA, 3)
     removeobject(obj_P01R0303_seaman_2)
@@ -43,13 +43,13 @@ script scr_seq_P01R0303_000 {
     releaseall
     end
 _009D:
-    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_016C)
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_StanlyJumpRight)
     waitmovement
     togglefollowingpokemonmovement(0)
     waitfollowingpokemonmovement
     followingpokemonmovement(55)
-    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_0190)
-    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_01DC)
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_StanlyWalkUpLeft)
+    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_PlayerWalkLeft)
     waitmovement
     waitfollowingpokemonmovement
     togglefollowingpokemonmovement(1)
@@ -61,7 +61,7 @@ _009D:
     if (var(VAR_SPECIAL_RESULT) == 0) { goto(_010C) }
     npcmsg(msg_0261_P01R0303_00006)
     closemessage
-    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_01AC)
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_StanlyWalkUpRight2)
     waitmovement
     setvar(VAR_SCENE_SS_AQUA, 3)
     removeobject(obj_P01R0303_seaman_2)
@@ -92,7 +92,7 @@ text msg_0261_P01R0303_00006 {
     "Please don’t tell the Captain.\r"
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_0120 {
+movement SsAqua_1F_SoutheastRooms_Movement_StanlyJumpLeft {
     emote_exclamation_mark
     delay_8
     face_right * 2
@@ -103,7 +103,7 @@ movement SsAqua_1F_SoutheastRooms_Movement_0120 {
     unlock_dir
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_0144 {
+movement SsAqua_1F_SoutheastRooms_Movement_StanlyWalkUpRight1 {
     face_up * 2
     walk_fast_up * 2
     face_right * 2
@@ -112,12 +112,12 @@ movement SsAqua_1F_SoutheastRooms_Movement_0144 {
     walk_fast_down
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_0160 {
+movement SsAqua_1F_SoutheastRooms_Movement_StanlyWalkUp {
     face_up * 2
     walk_fast_up * 7
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_016C {
+movement SsAqua_1F_SoutheastRooms_Movement_StanlyJumpRight {
     emote_exclamation_mark
     delay_8
     face_left * 2
@@ -128,7 +128,7 @@ movement SsAqua_1F_SoutheastRooms_Movement_016C {
     unlock_dir
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_0190 {
+movement SsAqua_1F_SoutheastRooms_Movement_StanlyWalkUpLeft {
     face_up * 2
     walk_fast_up * 2
     face_left * 2
@@ -137,7 +137,7 @@ movement SsAqua_1F_SoutheastRooms_Movement_0190 {
     walk_fast_down
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_01AC {
+movement SsAqua_1F_SoutheastRooms_Movement_StanlyWalkUpRight2 {
     face_up * 2
     walk_fast_up * 3
     face_right * 2
@@ -146,24 +146,24 @@ movement SsAqua_1F_SoutheastRooms_Movement_01AC {
     walk_fast_up * 4
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_01C8 {
+movement SsAqua_1F_SoutheastRooms_Movement_PlayerWalkRight {
     delay_16
     face_right * 2
     walk_right
     face_up * 2
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_01DC {
+movement SsAqua_1F_SoutheastRooms_Movement_PlayerWalkLeft {
     delay_16
     face_left * 2
     walk_left
     face_up * 2
 }
 
-script scr_seq_P01R0303_001 {
+script SsAqua_1F_SoutheastRooms_EventScript_Trigger {
     followmonresetmovement
     lockall
-    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_02B4)
+    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_PlayerExclamation)
     waitmovement
     npcmsg("A comfy bed!\n"
            "Time to sleep...\r")
@@ -185,7 +185,7 @@ script scr_seq_P01R0303_001 {
         waitfollowingpokemonmovement
         followingpokemonmovement(56)
     }
-    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_02C4)
+    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_PlayerJumpRight)
     waitmovement
     if (var(VAR_TEMP_x4002) != 0) {
         waitfollowingpokemonmovement
@@ -214,13 +214,13 @@ script scr_seq_P01R0303_001 {
     end
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_02B4 {
+movement SsAqua_1F_SoutheastRooms_Movement_PlayerExclamation {
     face_down * 2
     delay_16
     emote_exclamation_mark
 }
 
-movement SsAqua_1F_SoutheastRooms_Movement_02C4 {
+movement SsAqua_1F_SoutheastRooms_Movement_PlayerJumpRight {
     face_right * 2
     jump_near_fast_right
 }

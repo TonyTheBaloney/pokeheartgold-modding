@@ -2,11 +2,11 @@
 #define SCR_SEQ_R31_H_
 
 #define _EV_scr_seq_R31_000 0
-#define _EV_scr_seq_R31_001 1
-#define _EV_scr_seq_R31_002 2
-#define _EV_scr_seq_R31_003 3
-#define _EV_scr_seq_R31_004 4
-#define _EV_scr_seq_R31_005 5
+#define _EV_Route31_EventScript_FatMan 1
+#define _EV_Route31_EventScript_RouteSign 2
+#define _EV_Route31_EventScript_TrainerTips 3
+#define _EV_Route31_EventScript_Man 4
+#define _EV_Route31_EventScript_SchoolKidM 5
 
 #define obj_R31_gsman1        0
 #define obj_R31_tree          1

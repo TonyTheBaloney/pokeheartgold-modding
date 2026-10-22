@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_R15R0101_000 {
+script Route15_FuchsiaGatehouse_EventScript_Attendant {
     simplenpcmsg("West to the Cycling Road.\n"
                  "East to the Silence Bridge.\r"
                  "Coming from either way, everyone who\n"

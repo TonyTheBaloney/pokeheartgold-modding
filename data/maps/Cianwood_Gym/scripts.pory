@@ -3,19 +3,19 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T24GYM0101_000
-    scr_seq_T24GYM0101_001
-    scr_seq_T24GYM0101_002
-    scr_seq_T24GYM0101_003
+    Cianwood_Gym_EventScript_Chuck
+    Cianwood_Gym_OnTransition
+    Cianwood_Gym_EventScript_Sign
+    Cianwood_Gym_EventScript_GymSign
 }
 
-script scr_seq_T24GYM0101_001 {
+script Cianwood_Gym_OnTransition {
     cianwoodgyminit
     clearflag(FLAG_SYS_CIANWOOD_WATERFALL_DISABLE)
     end
 }
 
-script scr_seq_T24GYM0101_000 {
+script Cianwood_Gym_EventScript_Chuck {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -110,7 +110,7 @@ _0104:
     end
 }
 
-script scr_seq_T24GYM0101_002 {
+script Cianwood_Gym_EventScript_Sign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -144,7 +144,7 @@ script scr_seq_T24GYM0101_002 {
     end
 }
 
-script scr_seq_T24GYM0101_003 {
+script Cianwood_Gym_EventScript_GymSign {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -165,5 +165,5 @@ script scr_seq_T24GYM0101_003 {
 }
 
 mapscripts Cianwood_Gym_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T24GYM0101_001
+    INIT_SCRIPT_ON_TRANSITION: Cianwood_Gym_OnTransition
 }

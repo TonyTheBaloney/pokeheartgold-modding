@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0382_R32R0101_00000",
-      "from": "scr_seq_R32R0101_001#0"
+      "from": "Route32_RuinsOfAlphGatehouse_EventScript_Attendant#0"
     },
     {
       "id": "msg_0382_R32R0101_00001",
-      "from": "scr_seq_R32R0101_003#0"
+      "from": "Route32_RuinsOfAlphGatehouse_EventScript_PokefanM#0"
     },
     {
       "id": "msg_0382_R32R0101_00002",
-      "from": "scr_seq_R32R0101_002#0"
+      "from": "Route32_RuinsOfAlphGatehouse_EventScript_SchoolKidM#0"
     }
   ]
 }

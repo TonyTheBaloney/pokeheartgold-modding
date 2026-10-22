@@ -1,18 +1,18 @@
 #ifndef SCR_SEQ_D32R0101_H_
 #define SCR_SEQ_D32R0101_H_
 
-#define _EV_scr_seq_D32R0101_000 0
-#define _EV_scr_seq_D32R0101_001 1
-#define _EV_scr_seq_D32R0101_002 2
-#define _EV_scr_seq_D32R0101_003 3
-#define _EV_scr_seq_D32R0101_004 4
-#define _EV_scr_seq_D32R0101_005 5
-#define _EV_scr_seq_D32R0101_006 6
-#define _EV_scr_seq_D32R0101_007 7
-#define _EV_scr_seq_D32R0101_008 8
-#define _EV_scr_seq_D32R0101_009 9
-#define _EV_scr_seq_D32R0101_010 10
-#define _EV_scr_seq_D32R0101_011 11
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_Scene 0
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant1 1
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant2 2
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant3 3
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant4 4
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant5 5
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_Attendant6 6
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_RuinManiac 7
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_OldMan 8
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_Man 9
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_EventScript_Beauty 10
+#define _EV_BattleFrontier_FrontierAccess_Gatehouse_OnTransition 11
 
 #define obj_D32R0101_gsman1    0
 #define obj_D32R0101_gsoldman1 1

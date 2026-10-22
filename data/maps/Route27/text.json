@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0369_R27_00000",
-      "from": "scr_seq_R27_001#0"
+      "from": "Route27_EventScript_FatManTrigger#0"
     },
     {
       "id": "msg_0369_R27_00001",
@@ -11,11 +11,11 @@
     },
     {
       "id": "msg_0369_R27_00002",
-      "from": "scr_seq_R27_002#0"
+      "from": "Route27_EventScript_TrainerTips#0"
     },
     {
       "id": "msg_0369_R27_00003",
-      "from": "scr_seq_R27_004#0"
+      "from": "Route27_EventScript_WestToNewBarkTownSign#0"
     }
   ]
 }

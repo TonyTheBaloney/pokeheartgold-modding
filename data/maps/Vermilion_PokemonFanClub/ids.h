@@ -1,14 +1,14 @@
 #ifndef SCR_SEQ_T06R0301_H_
 #define SCR_SEQ_T06R0301_H_
 
-#define _EV_scr_seq_T06R0301_000 0
-#define _EV_scr_seq_T06R0301_001 1
-#define _EV_scr_seq_T06R0301_002 2
-#define _EV_scr_seq_T06R0301_003 3
-#define _EV_scr_seq_T06R0301_004 4
-#define _EV_scr_seq_T06R0301_005 5
-#define _EV_scr_seq_T06R0301_006 6
-#define _EV_scr_seq_T06R0301_007 7
+#define _EV_Vermilion_PokemonFanClub_EventScript_Gentleman 0
+#define _EV_Vermilion_PokemonFanClub_EventScript_Beauty 1
+#define _EV_Vermilion_PokemonFanClub_EventScript_FatMan 2
+#define _EV_Vermilion_PokemonFanClub_EventScript_Woman 3
+#define _EV_Vermilion_PokemonFanClub_EventScript_Bayleef 4
+#define _EV_Vermilion_PokemonFanClub_EventScript_Sign1 5
+#define _EV_Vermilion_PokemonFanClub_EventScript_Sign2 6
+#define _EV_Vermilion_PokemonFanClub_EventScript_ItsAClefairySign 7
 
 #define obj_T06R0301_gsgentleman               0
 #define obj_T06R0301_gswoman2                  1

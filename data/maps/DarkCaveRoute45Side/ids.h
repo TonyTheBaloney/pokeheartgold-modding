@@ -1,7 +1,7 @@
 #ifndef SCR_SEQ_D42R0101_H_
 #define SCR_SEQ_D42R0101_H_
 
-#define _EV_scr_seq_D42R0101_000 0
+#define _EV_DarkCaveRoute45Side_EventScript_GymGuide 0
 
 #define obj_D42R0101_sunglasses    0
 #define obj_D42R0101_monstarball   1

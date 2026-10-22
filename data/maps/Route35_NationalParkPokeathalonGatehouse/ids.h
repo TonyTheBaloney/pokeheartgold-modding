@@ -1,19 +1,19 @@
 #ifndef SCR_SEQ_R35R0201_H_
 #define SCR_SEQ_R35R0201_H_
 
-#define _EV_scr_seq_R35R0201_000 0
-#define _EV_scr_seq_R35R0201_001 1
-#define _EV_scr_seq_R35R0201_002 2
-#define _EV_scr_seq_R35R0201_003 3
-#define _EV_scr_seq_R35R0201_004 4
-#define _EV_scr_seq_R35R0201_005 5
-#define _EV_scr_seq_R35R0201_006 6
-#define _EV_scr_seq_R35R0201_007 7
-#define _EV_scr_seq_R35R0201_008 8
-#define _EV_scr_seq_R35R0201_009 9
-#define _EV_scr_seq_R35R0201_010 10
-#define _EV_scr_seq_R35R0201_011 11
-#define _EV_scr_seq_R35R0201_012 12
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_Worker 0
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_Attendant1 1
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_Attendant2 2
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_BlackBelt 3
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_Lass 4
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_Youngster 5
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_Sign1 6
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_Sign2 7
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_WorkerTrigger 8
+#define _EV_Route35_NationalParkPokeathalonGatehouse_OnResume 9
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_AttendantScene 10
+#define _EV_Route35_NationalParkPokeathalonGatehouse_EventScript_PokefanM 11
+#define _EV_Route35_NationalParkPokeathalonGatehouse_OnTransition 12
 
 #define obj_R35R0201_gsboy2       0
 #define obj_R35R0201_counterm     1

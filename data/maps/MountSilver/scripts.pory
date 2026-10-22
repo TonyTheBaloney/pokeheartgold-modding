@@ -3,12 +3,12 @@
 
 // Script numbers, from 1, in this order (map.json and mapscripts use the labels).
 scrdefs {
-    scr_seq_T31_000
-    scr_seq_T31_001
-    scr_seq_T31_002
+    MountSilver_EventScript_PokefanM
+    MountSilver_OnTransition
+    MountSilver_EventScript_TrainerTips
 }
 
-script scr_seq_T31_001 {
+script MountSilver_OnTransition {
     if (!flag(FLAG_UNK_189)) {
         getweekday(VAR_TEMP_x4000)
         if (var(VAR_TEMP_x4000) == 3) { goto(_0043) }
@@ -23,7 +23,7 @@ script scr_seq_T31_001 {
     end
 }
 
-script scr_seq_T31_000 {
+script MountSilver_EventScript_PokefanM {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -57,16 +57,16 @@ script scr_seq_T31_000 {
     followingpokemonmovement(55)
     getplayerfacing(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 0) {
-        applymovement(obj_player, MountSilver_Movement_019C)
-        applymovement(obj_T31_gsmiddleman1, MountSilver_Movement_01E8)
+        applymovement(obj_player, MountSilver_Movement_PlayerWalkRightUp)
+        applymovement(obj_T31_gsmiddleman1, MountSilver_Movement_PokefanMFaceUp)
     } elif (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_player, MountSilver_Movement_01B4)
+        applymovement(obj_player, MountSilver_Movement_PlayerWalkUp)
     } elif (var(VAR_SPECIAL_RESULT) == 3) {
-        applymovement(obj_player, MountSilver_Movement_01D4)
-        applymovement(obj_T31_gsmiddleman1, MountSilver_Movement_01E8)
+        applymovement(obj_player, MountSilver_Movement_PlayerWalkUpRight)
+        applymovement(obj_T31_gsmiddleman1, MountSilver_Movement_PokefanMFaceUp)
     } else {
-        applymovement(obj_player, MountSilver_Movement_01C0)
-        applymovement(obj_T31_gsmiddleman1, MountSilver_Movement_01E8)
+        applymovement(obj_player, MountSilver_Movement_PlayerWalkUpLeft)
+        applymovement(obj_T31_gsmiddleman1, MountSilver_Movement_PokefanMFaceUp)
     }
     waitmovement
     waitfollowingpokemonmovement
@@ -74,7 +74,7 @@ script scr_seq_T31_000 {
     followingpokemonmovement(48)
     followmonisactive(VAR_SPECIAL_RESULT)
     if (var(VAR_SPECIAL_RESULT) == 1) {
-        applymovement(obj_partner_poke, MountSilver_Movement_01F4)
+        applymovement(obj_partner_poke, MountSilver_Movement_FollowMonWalkRightUp)
         waitmovement
     }
     setflag(FLAG_UNK_189)
@@ -93,7 +93,7 @@ script scr_seq_T31_000 {
     end
 }
 
-movement MountSilver_Movement_019C {
+movement MountSilver_Movement_PlayerWalkRightUp {
     walk_right
     walk_up * 2
     walk_left
@@ -101,41 +101,41 @@ movement MountSilver_Movement_019C {
     walk_in_place_down
 }
 
-movement MountSilver_Movement_01B4 {
+movement MountSilver_Movement_PlayerWalkUp {
     walk_up * 3
     walk_in_place_down
 }
 
-movement MountSilver_Movement_01C0 {
+movement MountSilver_Movement_PlayerWalkUpLeft {
     walk_up
     walk_left
     walk_up * 3
     walk_in_place_down
 }
 
-movement MountSilver_Movement_01D4 {
+movement MountSilver_Movement_PlayerWalkUpRight {
     walk_up
     walk_right
     walk_up * 3
     walk_in_place_down
 }
 
-movement MountSilver_Movement_01E8 {
+movement MountSilver_Movement_PokefanMFaceUp {
     delay_8
     walk_in_place_up
 }
 
-movement MountSilver_Movement_01F4 {
+movement MountSilver_Movement_FollowMonWalkRightUp {
     walk_right
     walk_up
     face_down
 }
 
-script scr_seq_T31_002 {
+script MountSilver_EventScript_TrainerTips {
     trainertipsex(2, "Mt. Silver")
     end
 }
 
 mapscripts MountSilver_MapScripts {
-    INIT_SCRIPT_ON_TRANSITION: scr_seq_T31_001
+    INIT_SCRIPT_ON_TRANSITION: MountSilver_OnTransition
 }

@@ -1,13 +1,13 @@
 #ifndef SCR_SEQ_D37R0104_H_
 #define SCR_SEQ_D37R0104_H_
 
-#define _EV_scr_seq_D37R0104_000 0
-#define _EV_scr_seq_D37R0104_001 1
-#define _EV_scr_seq_D37R0104_002 2
-#define _EV_scr_seq_D37R0104_003 3
-#define _EV_scr_seq_D37R0104_004 4
-#define _EV_scr_seq_D37R0104_005 5
-#define _EV_scr_seq_D37R0104_006 6
+#define _EV_Goldenrod_Tunnel_B2F_EventScript_Sign1 0
+#define _EV_Goldenrod_Tunnel_B2F_EventScript_Sign2 1
+#define _EV_Goldenrod_Tunnel_B2F_EventScript_Sign3 2
+#define _EV_Goldenrod_Tunnel_B2F_EventScript_Sign4 3
+#define _EV_Goldenrod_Tunnel_B2F_EventScript_RivalTrigger 4
+#define _EV_Goldenrod_Tunnel_B2F_OnResume 5
+#define _EV_Goldenrod_Tunnel_B2F_OnTransition 6
 
 #define obj_D37R0104_rocketm          0
 #define obj_D37R0104_rocketm_2        1

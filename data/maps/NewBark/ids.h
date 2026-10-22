@@ -1,24 +1,24 @@
 #ifndef SCR_SEQ_T20_H_
 #define SCR_SEQ_T20_H_
 
-#define _EV_scr_seq_T20_000 0
-#define _EV_scr_seq_T20_001 1
-#define _EV_scr_seq_T20_002 2
-#define _EV_scr_seq_T20_003 3
-#define _EV_scr_seq_T20_004 4
-#define _EV_scr_seq_T20_005 5
-#define _EV_scr_seq_T20_006 6
-#define _EV_scr_seq_T20_007 7
-#define _EV_scr_seq_T20_008 8
-#define _EV_scr_seq_T20_009 9
-#define _EV_scr_seq_T20_010 10
-#define _EV_scr_seq_T20_011 11
-#define _EV_scr_seq_T20_012 12
-#define _EV_scr_seq_T20_013 13
-#define _EV_scr_seq_T20_014 14
-#define _EV_scr_seq_T20_015 15
-#define _EV_scr_seq_T20_016 16
-#define _EV_scr_seq_T20_017 17
+#define _EV_NewBark_EventScript_Rival 0
+#define _EV_NewBark_EventScript_Woman 1
+#define _EV_NewBark_EventScript_ProfElmTrigger 2
+#define _EV_NewBark_EventScript_MarillScene 3
+#define _EV_NewBark_EventScript_Lyra 4
+#define _EV_NewBark_EventScript_Marill 5
+#define _EV_NewBark_OnTransition 6
+#define _EV_NewBark_EventScript_TrainerTips1 7
+#define _EV_NewBark_EventScript_LyraScene 8
+#define _EV_NewBark_OnResume 9
+#define _EV_NewBark_EventScript_WarpToNewBarkElmsLab2F 10
+#define _EV_NewBark_EventScript_MomTrigger 11
+#define _EV_NewBark_EventScript_LyraTrigger 12
+#define _EV_NewBark_EventScript_TrainerTips2 13
+#define _EV_NewBark_EventScript_TownSign 14
+#define _EV_NewBark_EventScript_FatMan 15
+#define _EV_NewBark_EventScript_TrainerTips3 16
+#define _EV_NewBark_EventScript_PokefanM 17
 
 #define obj_T20_gsrivel                    0
 #define obj_T20_gswoman1                   1

@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0458_T02R0302_00000",
-      "from": "scr_seq_T02R0302_000#0"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Trigger1#0"
     },
     {
       "id": "msg_0458_T02R0302_00001",
@@ -11,35 +11,35 @@
     },
     {
       "id": "msg_0458_T02R0302_00002",
-      "from": "scr_seq_T02R0302_000#1"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Trigger1#1"
     },
     {
       "id": "msg_0458_T02R0302_00003",
-      "from": "scr_seq_T02R0302_000#2"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Trigger1#2"
     },
     {
       "id": "msg_0458_T02R0302_00004",
-      "from": "scr_seq_T02R0302_001#0"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Trigger2#0"
     },
     {
       "id": "msg_0458_T02R0302_00005",
-      "from": "scr_seq_T02R0302_001#2"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Trigger2#2"
     },
     {
       "id": "msg_0458_T02R0302_00006",
-      "from": "scr_seq_T02R0302_001#1"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Trigger2#1"
     },
     {
       "id": "msg_0458_T02R0302_00007",
-      "from": "scr_seq_T02R0302_002#0"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Scene#0"
     },
     {
       "id": "msg_0458_T02R0302_00008",
-      "from": "scr_seq_T02R0302_002#1"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Scene#1"
     },
     {
       "id": "msg_0458_T02R0302_00009",
-      "from": "scr_seq_T02R0302_002#2"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Scene#2"
     },
     {
       "id": "msg_0458_T02R0302_00010",
@@ -50,11 +50,11 @@
     },
     {
       "id": "msg_0458_T02R0302_00011",
-      "from": "scr_seq_T02R0302_002#3"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Scene#3"
     },
     {
       "id": "msg_0458_T02R0302_00012",
-      "from": "scr_seq_T02R0302_002#4"
+      "from": "Viridian_TrainerHouse_B1F_EventScript_Scene#4"
     },
     {
       "id": "msg_0458_T02R0302_00013",

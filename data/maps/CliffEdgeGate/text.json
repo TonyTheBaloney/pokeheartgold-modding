@@ -3,51 +3,51 @@
   "messages": [
     {
       "id": "msg_0136_D48R0101_00000",
-      "from": "scr_seq_D48R0101_000#1"
+      "from": "CliffEdgeGate_EventScript_PokefanF#1"
     },
     {
       "id": "msg_0136_D48R0101_00001",
-      "from": "scr_seq_D48R0101_000#2"
+      "from": "CliffEdgeGate_EventScript_PokefanF#2"
     },
     {
       "id": "msg_0136_D48R0101_00002",
-      "from": "scr_seq_D48R0101_000#4"
+      "from": "CliffEdgeGate_EventScript_PokefanF#4"
     },
     {
       "id": "msg_0136_D48R0101_00003",
-      "from": "scr_seq_D48R0101_000#3"
+      "from": "CliffEdgeGate_EventScript_PokefanF#3"
     },
     {
       "id": "msg_0136_D48R0101_00004",
-      "from": "scr_seq_D48R0101_000#0"
+      "from": "CliffEdgeGate_EventScript_PokefanF#0"
     },
     {
       "id": "msg_0136_D48R0101_00005",
-      "from": "scr_seq_D48R0101_001#0"
+      "from": "CliffEdgeGate_EventScript_Worker1#0"
     },
     {
       "id": "msg_0136_D48R0101_00006",
-      "from": "scr_seq_D48R0101_002#0"
+      "from": "CliffEdgeGate_EventScript_Worker2#0"
     },
     {
       "id": "msg_0136_D48R0101_00007",
-      "from": "scr_seq_D48R0101_004#0"
+      "from": "CliffEdgeGate_EventScript_ChuckScene#0"
     },
     {
       "id": "msg_0136_D48R0101_00008",
-      "from": "scr_seq_D48R0101_004#1"
+      "from": "CliffEdgeGate_EventScript_ChuckScene#1"
     },
     {
       "id": "msg_0136_D48R0101_00009",
-      "from": "scr_seq_D48R0101_004#2"
+      "from": "CliffEdgeGate_EventScript_ChuckScene#2"
     },
     {
       "id": "msg_0136_D48R0101_00010",
-      "from": "scr_seq_D48R0101_003#1"
+      "from": "CliffEdgeGate_EventScript_Sign#1"
     },
     {
       "id": "msg_0136_D48R0101_00011",
-      "from": "scr_seq_D48R0101_003#0"
+      "from": "CliffEdgeGate_EventScript_Sign#0"
     }
   ]
 }

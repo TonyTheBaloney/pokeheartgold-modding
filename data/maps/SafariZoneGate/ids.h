@@ -1,23 +1,23 @@
 #ifndef SCR_SEQ_D47_H_
 #define SCR_SEQ_D47_H_
 
-#define _EV_scr_seq_D47_000 0
-#define _EV_scr_seq_D47_001 1
-#define _EV_scr_seq_D47_002 2
-#define _EV_scr_seq_D47_003 3
-#define _EV_scr_seq_D47_004 4
-#define _EV_scr_seq_D47_005 5
-#define _EV_scr_seq_D47_006 6
-#define _EV_scr_seq_D47_007 7
-#define _EV_scr_seq_D47_008 8
-#define _EV_scr_seq_D47_009 9
-#define _EV_scr_seq_D47_010 10
-#define _EV_scr_seq_D47_011 11
-#define _EV_scr_seq_D47_012 12
-#define _EV_scr_seq_D47_013 13
-#define _EV_scr_seq_D47_014 14
-#define _EV_scr_seq_D47_015 15
-#define _EV_scr_seq_D47_016 16
+#define _EV_SafariZoneGate_EventScript_Man 0
+#define _EV_SafariZoneGate_EventScript_PokefanF 1
+#define _EV_SafariZoneGate_EventScript_Kangaskhan 2
+#define _EV_SafariZoneGate_EventScript_Gentleman 3
+#define _EV_SafariZoneGate_EventScript_Jigglypuff 4
+#define _EV_SafariZoneGate_EventScript_LittleBoy 5
+#define _EV_SafariZoneGate_EventScript_OldMan 6
+#define _EV_SafariZoneGate_EventScript_Woman 7
+#define _EV_SafariZoneGate_EventScript_Butterfree 8
+#define _EV_SafariZoneGate_EventScript_Beauty 9
+#define _EV_SafariZoneGate_EventScript_Slowpoke 10
+#define _EV_SafariZoneGate_EventScript_TrainerTips 11
+#define _EV_SafariZoneGate_EventScript_LittleGirl 12
+#define _EV_SafariZoneGate_EventScript_PokefanM 13
+#define _EV_SafariZoneGate_OnTransition 14
+#define _EV_SafariZoneGate_EventScript_Worker1 15
+#define _EV_SafariZoneGate_EventScript_Worker2 16
 
 #define obj_D47_gsman1                       0
 #define obj_D47_gsgentleman                  1

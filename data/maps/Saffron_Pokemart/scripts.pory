@@ -1,7 +1,7 @@
 // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
 // map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
-script scr_seq_T11FS0101_000 {
+script Saffron_Pokemart_EventScript_Clerk1 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -13,7 +13,7 @@ script scr_seq_T11FS0101_000 {
     end
 }
 
-script scr_seq_T11FS0101_001 {
+script Saffron_Pokemart_EventScript_Clerk2 {
     playse(SEQ_SE_DP_SELECT)
     lockall
     faceplayer
@@ -25,13 +25,13 @@ script scr_seq_T11FS0101_001 {
     end
 }
 
-script scr_seq_T11FS0101_002 {
+script Saffron_Pokemart_EventScript_AceTrainerM {
     simplenpcmsg("There’s a big Radio Tower in\n"
                  "Lavender Town.")
     end
 }
 
-script scr_seq_T11FS0101_003 {
+script Saffron_Pokemart_EventScript_AceTrainerF {
     simplenpcmsg("I want to become stronger, but I’m\n"
                  "not good yet...\r"
                  "Could you show me how sometime?")
