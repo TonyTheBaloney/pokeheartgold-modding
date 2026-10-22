@@ -2,7 +2,7 @@
     "id": "MAP_LAVENDER_RADIO_STATION",
     "name": "Lavender_RadioStation",
     "code": "T05R0701",
-    "layout": "NARC_map_matrix_map_matrix_0195_T05R0701_bin",
+    "layout": "Lavender_RadioStation",
     "music_day": "SEQ_GS_T_CHION",
     "music_night": "SEQ_GS_T_CHION",
     "region_map_section": "MAPSEC_LAVENDER_TOWN",

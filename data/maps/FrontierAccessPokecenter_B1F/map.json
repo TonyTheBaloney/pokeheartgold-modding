@@ -2,7 +2,7 @@
     "id": "MAP_FRONTIER_ACCESS_POKECENTER_B1F",
     "name": "FrontierAccessPokecenter_B1F",
     "code": "D32PC0102",
-    "layout": "NARC_map_matrix_map_matrix_0077_T27PC0105_bin",
+    "layout": "PokemonCenter_B1F",
     "music_day": "SEQ_GS_POKESEN",
     "music_night": "SEQ_GS_POKESEN",
     "region_map_section": "MAPSEC_FRONTIER_ACCESS",

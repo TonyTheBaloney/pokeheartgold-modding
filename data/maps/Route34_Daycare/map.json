@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_34_DAYCARE",
     "name": "Route34_Daycare",
     "code": "R34R0101",
-    "layout": "NARC_map_matrix_map_matrix_0179_R34R0101_bin",
+    "layout": "Route34_Daycare",
     "music_day": "SEQ_GS_R_4_34",
     "music_night": "SEQ_GS_R_4_34",
     "region_map_section": "MAPSEC_ROUTE_34",

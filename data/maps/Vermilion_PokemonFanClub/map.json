@@ -2,7 +2,7 @@
     "id": "MAP_VERMILION_POKEMON_FAN_CLUB",
     "name": "Vermilion_PokemonFanClub",
     "code": "T06R0301",
-    "layout": "NARC_map_matrix_map_matrix_0185_T06R0301_bin",
+    "layout": "Vermilion_PokemonFanClub",
     "music_day": "SEQ_GS_C_KUCHIBA",
     "music_night": "SEQ_GS_C_KUCHIBA",
     "region_map_section": "MAPSEC_VERMILION_CITY",

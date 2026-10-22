@@ -2,7 +2,7 @@
     "id": "MAP_WHIRL_ISLANDS_B3F_LUGIA_CAVE",
     "name": "WhirlIslands_B3F_LugiaCave",
     "code": "D40R0107",
-    "layout": "NARC_map_matrix_map_matrix_0144_D40R0107_bin",
+    "layout": "WhirlIslands_B3F_LugiaCave",
     "music_day": "SEQ_SILENCE_FIELD",
     "music_night": "SEQ_SILENCE_FIELD",
     "region_map_section": "MAPSEC_WHIRL_ISLANDS",

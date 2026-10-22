@@ -2,7 +2,7 @@
     "id": "MAP_GOLDENROD_RADIO_TOWER_ELEVATOR",
     "name": "Goldenrod_RadioTowerElevator",
     "code": "D23R0107",
-    "layout": "NARC_map_matrix_map_matrix_0262_D31R0202_bin",
+    "layout": "Elevator",
     "music_day": "SEQ_GS_C_KOGANE",
     "music_night": "SEQ_GS_C_KOGANE",
     "region_map_section": "MAPSEC_RADIO_TOWER",

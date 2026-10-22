@@ -2,7 +2,7 @@
     "id": "MAP_SINJOH_RUINS_EXTERIOR",
     "name": "SinjohRuinsExterior",
     "code": "D51R0101",
-    "layout": "NARC_map_matrix_map_matrix_0277_D51R0101_bin",
+    "layout": "SinjohRuinsExterior",
     "music_day": "SEQ_GS_D_SHINTO",
     "music_night": "SEQ_GS_D_SHINTO",
     "region_map_section": "MAPSEC_SINJOH_RUINS",

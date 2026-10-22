@@ -2,7 +2,7 @@
     "id": "MAP_SAFFRON_MR_PSYCHIC_HOUSE",
     "name": "Saffron_MrPsychicHouse",
     "code": "T11R0501",
-    "layout": "NARC_map_matrix_map_matrix_0097_T21R0301_bin",
+    "layout": "House3",
     "music_day": "SEQ_GS_C_YAMABUKI",
     "music_night": "SEQ_GS_C_YAMABUKI",
     "region_map_section": "MAPSEC_SAFFRON_CITY",

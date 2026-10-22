@@ -56,7 +56,8 @@ data/
       ids.h                  script and object id defines (was event_T21.h)
     Cherrygrove_Pokecenter_1F/
       ...
-  layouts/                   (later) map grids, pokeemerald's data/layouts
+  layouts/                   map grids (layout.json), pokeemerald's data/layouts
+  landdata/                  terrain cells: collision, behaviors, props, models
 files/fielddata/encountdata/gs_enc_data.json   wild data stays central, like
                                                pokeemerald's src/data/wild_encounters.json
 ```
@@ -221,7 +222,8 @@ binary must equal the current file):
 | 2 | `files/poketool/personal/pms.narc` (base/egg species) | field in `evo.json` or `pms.json` |
 | 3 | `files/poketool/personal/performance.narc` (Pokéathlon stats) | `performance.json` |
 | 3 | `files/poketool/pokegra/height*.narc`, `johtozukan.narc` | JSON |
-| later | `files/a/0/6/5` land data (collision, heights, props, models) | per-layout files; needs a parser |
+| done | `files/a/0/6/5` land data | `data/landdata/NNNN/` (2026-10-22): permissions and props as text, model/BDHC binary |
+| done | `files/fielddata/mapmatrix/map_matrix/*.bin` | `data/layouts/<Layout>/layout.json` (2026-10-22) |
 
 Adding new species is out of scope for now: the count is fixed in the save
 layout (`NUM_DEX_FLAG_WORDS`), in many file-index-based archives and in about
@@ -247,7 +249,12 @@ layout (`NUM_DEX_FLAG_WORDS`), in many file-index-based archives and in about
    `scripts.pory` by `mapkit pory init`; script order in `scrdefs`. ROM unchanged.
 4. **Blobs.** Learnsets and egg moves done (2026-10-22, `tools/pokedata`); next
    trainer text, then the rest.
-5. **Later.** Land data parsing, a map viewer, new species.
+5. **Map editor.** Done (2026-10-22): layouts (`data/layouts`) and land data
+   (`data/landdata`) as files, both ROMs match; `tools/mapeditor` (PySide6) shows
+   a map top-down, paints collision and behaviors, and edits events and the
+   header with undo. Next: draw the NSBMD terrain and props (3D view), move props,
+   edit layouts (resize, reassign cells), sprites for objects.
+6. **Later.** New species.
 
 ## Building a modified ROM
 

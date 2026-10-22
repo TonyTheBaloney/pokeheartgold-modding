@@ -2,7 +2,7 @@
     "id": "MAP_NATIONAL_PARK_BUG_CATCHING_CONTEST",
     "name": "NationalPark_BugCatchingContest",
     "code": "D22R0102",
-    "layout": "NARC_map_matrix_map_matrix_0027_D22R0101_bin",
+    "layout": "NationalPark",
     "music_day": "SEQ_GS_TAIKAI",
     "music_night": "SEQ_GS_TAIKAI",
     "region_map_section": "MAPSEC_NATIONAL_PARK",

@@ -2,7 +2,7 @@
     "id": "MAP_MOUNT_SILVER_CAVE_SUMMIT",
     "name": "MountSilver_CaveSummit",
     "code": "D41R0108",
-    "layout": "NARC_map_matrix_map_matrix_0272_D41R0108_bin",
+    "layout": "MountSilver_CaveSummit",
     "music_day": "SEQ_SILENCE_FIELD",
     "music_night": "SEQ_SILENCE_FIELD",
     "region_map_section": "MAPSEC_MT_SILVER_CAVE",

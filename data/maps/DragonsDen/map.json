@@ -2,7 +2,7 @@
     "id": "MAP_DRAGONS_DEN",
     "name": "DragonsDen",
     "code": "D44R0102",
-    "layout": "NARC_map_matrix_map_matrix_0146_D44R0102_bin",
+    "layout": "DragonsDen",
     "music_day": "SEQ_GS_RYUUNOANA",
     "music_night": "SEQ_GS_RYUUNOANA",
     "region_map_section": "MAPSEC_DRAGONS_DEN",

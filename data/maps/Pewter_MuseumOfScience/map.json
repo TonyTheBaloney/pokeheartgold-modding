@@ -2,7 +2,7 @@
     "id": "MAP_PEWTER_MUSEUM_OF_SCIENCE",
     "name": "Pewter_MuseumOfScience",
     "code": "T03R0101",
-    "layout": "NARC_map_matrix_map_matrix_0242_T03R0101_bin",
+    "layout": "Pewter_MuseumOfScience",
     "music_day": "SEQ_GS_C_NIBI",
     "music_night": "SEQ_GS_C_NIBI",
     "region_map_section": "MAPSEC_PEWTER_CITY",

@@ -2,7 +2,7 @@
     "id": "MAP_CERULEAN_POKEMART",
     "name": "Cerulean_Pokemart",
     "code": "T04FS0101",
-    "layout": "NARC_map_matrix_map_matrix_0104_T21FS0101_bin",
+    "layout": "Pokemart",
     "music_day": "SEQ_GS_FS",
     "music_night": "SEQ_GS_FS",
     "region_map_section": "MAPSEC_CERULEAN_CITY",

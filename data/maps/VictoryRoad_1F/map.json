@@ -2,7 +2,7 @@
     "id": "MAP_VICTORY_ROAD_1F",
     "name": "VictoryRoad_1F",
     "code": "D43R0101",
-    "layout": "NARC_map_matrix_map_matrix_0161_D43R0101_bin",
+    "layout": "VictoryRoad_1F",
     "music_day": "SEQ_GS_D_CHAMPROAD",
     "music_night": "SEQ_GS_D_CHAMPROAD",
     "region_map_section": "MAPSEC_VICTORY_ROAD_JK",

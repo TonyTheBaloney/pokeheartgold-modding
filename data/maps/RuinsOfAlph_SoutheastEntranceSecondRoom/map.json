@@ -2,7 +2,7 @@
     "id": "MAP_RUINS_OF_ALPH_SOUTHEAST_ENTRANCE_SECOND_ROOM",
     "name": "RuinsOfAlph_SoutheastEntranceSecondRoom",
     "code": "D24R0213",
-    "layout": "NARC_map_matrix_map_matrix_0182_D24R0212_bin",
+    "layout": "RuinsOfAlph_NortheastEntranceSecondRoom",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_RUINS_OF_ALPH",

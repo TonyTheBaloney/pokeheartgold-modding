@@ -2,7 +2,7 @@
     "id": "MAP_SINJOH_RUINS_MYSTRI_STAGE",
     "name": "SinjohRuinsMystriStage",
     "code": "D51R0201",
-    "layout": "NARC_map_matrix_map_matrix_0278_D51R0201_bin",
+    "layout": "SinjohRuinsMystriStage",
     "music_day": "SEQ_GS_D_SHINTO",
     "music_night": "SEQ_GS_D_SHINTO",
     "region_map_section": "MAPSEC_SINJOH_RUINS",

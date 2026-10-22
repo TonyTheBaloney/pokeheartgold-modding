@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_5_UNDERGROUND_PATH",
     "name": "Route5_UndergroundPath",
     "code": "R05R0202",
-    "layout": "NARC_map_matrix_map_matrix_0252_R05R0101_bin",
+    "layout": "Route5_UndergroundPath",
     "music_day": "SEQ_GS_D_IWAYAMA",
     "music_night": "SEQ_GS_D_IWAYAMA",
     "region_map_section": "MAPSEC_ROUTE_5",

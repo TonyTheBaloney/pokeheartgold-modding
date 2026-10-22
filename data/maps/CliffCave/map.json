@@ -2,7 +2,7 @@
     "id": "MAP_CLIFF_CAVE",
     "name": "CliffCave",
     "code": "D50R0101",
-    "layout": "NARC_map_matrix_map_matrix_0184_D50R0101_bin",
+    "layout": "CliffCave",
     "music_day": "SEQ_GS_SAFARI_ROAD",
     "music_night": "SEQ_GS_SAFARI_ROAD",
     "region_map_section": "MAPSEC_CLIFF_CAVE",

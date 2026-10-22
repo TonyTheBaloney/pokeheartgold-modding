@@ -2,7 +2,7 @@
     "id": "MAP_UNION_CAVE_B1F",
     "name": "Union_Cave_B1F",
     "code": "D25R0102",
-    "layout": "NARC_map_matrix_map_matrix_0043_D25R0102_bin",
+    "layout": "Union_Cave_B1F",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_UNION_CAVE",

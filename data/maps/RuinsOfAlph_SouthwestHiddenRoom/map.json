@@ -2,7 +2,7 @@
     "id": "MAP_RUINS_OF_ALPH_SOUTHWEST_HIDDEN_ROOM",
     "name": "RuinsOfAlph_SouthwestHiddenRoom",
     "code": "D24R0207",
-    "layout": "NARC_map_matrix_map_matrix_0039_D24R0207_bin",
+    "layout": "RuinsOfAlph_SouthwestHiddenRoom",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_RUINS_OF_ALPH",

@@ -2,7 +2,7 @@
     "id": "MAP_POKEMON_LEAGUE_KOGA_ROOM",
     "name": "PokemonLeagueKogaRoom",
     "code": "T10R0301",
-    "layout": "NARC_map_matrix_map_matrix_0166_T10R0301_bin",
+    "layout": "PokemonLeagueKogaRoom",
     "music_day": "SEQ_GS_CHAMPROAD",
     "music_night": "SEQ_GS_CHAMPROAD",
     "region_map_section": "MAPSEC_POKEMON_LEAGUE",

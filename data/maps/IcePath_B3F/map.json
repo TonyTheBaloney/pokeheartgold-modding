@@ -2,7 +2,7 @@
     "id": "MAP_ICE_PATH_B3F",
     "name": "IcePath_B3F",
     "code": "D39R0104",
-    "layout": "NARC_map_matrix_map_matrix_0135_D39R0104_bin",
+    "layout": "IcePath_B3F",
     "music_day": "SEQ_GS_D_KOORINONUKE",
     "music_night": "SEQ_GS_D_KOORINONUKE",
     "region_map_section": "MAPSEC_ICE_PATH",

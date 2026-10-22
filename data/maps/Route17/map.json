@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_17",
     "name": "Route17",
     "code": "R17",
-    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "layout": "Overworld",
     "music_day": "SEQ_PL_BICYCLE",
     "music_night": "SEQ_PL_BICYCLE",
     "region_map_section": "MAPSEC_ROUTE_17",

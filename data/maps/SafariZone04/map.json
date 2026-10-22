@@ -2,7 +2,7 @@
     "id": "MAP_SAFARI_ZONE_04",
     "name": "SafariZone04",
     "code": "SAF04",
-    "layout": "NARC_map_matrix_map_matrix_0200_SAF04_bin",
+    "layout": "SafariZone04",
     "music_day": "SEQ_GS_R_6_34",
     "music_night": "SEQ_GS_R_6_34",
     "region_map_section": "MAPSEC_SAFARI_ZONE",

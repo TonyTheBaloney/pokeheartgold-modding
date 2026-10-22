@@ -2,7 +2,7 @@
     "id": "MAP_ICE_PATH_1F",
     "name": "IcePath_1F",
     "code": "D39R0101",
-    "layout": "NARC_map_matrix_map_matrix_0132_D39R0101_bin",
+    "layout": "IcePath_1F",
     "music_day": "SEQ_GS_D_KOORINONUKE",
     "music_night": "SEQ_GS_D_KOORINONUKE",
     "region_map_section": "MAPSEC_ICE_PATH",

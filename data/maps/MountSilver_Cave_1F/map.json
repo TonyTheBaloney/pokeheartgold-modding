@@ -2,7 +2,7 @@
     "id": "MAP_MOUNT_SILVER_CAVE_1F",
     "name": "MountSilver_Cave_1F",
     "code": "D41R0101",
-    "layout": "NARC_map_matrix_map_matrix_0265_D41R0101_bin",
+    "layout": "MountSilver_Cave_1F",
     "music_day": "SEQ_GS_TO_TOUDAI",
     "music_night": "SEQ_GS_TO_TOUDAI",
     "region_map_section": "MAPSEC_MT_SILVER_CAVE",

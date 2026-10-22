@@ -2,7 +2,7 @@
     "id": "MAP_MOUNT_MORTAR_1F_BACK",
     "name": "MountMortar_1FBack",
     "code": "D38R0102",
-    "layout": "NARC_map_matrix_map_matrix_0063_D38R0102_bin",
+    "layout": "MountMortar_1FBack",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_MT_MORTAR",

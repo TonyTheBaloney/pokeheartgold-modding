@@ -2,7 +2,7 @@
     "id": "MAP_SAFFRON",
     "name": "Saffron",
     "code": "T11",
-    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "layout": "Overworld",
     "music_day": "SEQ_GS_C_YAMABUKI",
     "music_night": "SEQ_GS_C_YAMABUKI",
     "region_map_section": "MAPSEC_SAFFRON_CITY",

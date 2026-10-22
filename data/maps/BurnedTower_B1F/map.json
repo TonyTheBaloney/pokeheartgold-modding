@@ -2,7 +2,7 @@
     "id": "MAP_BURNED_TOWER_B1F",
     "name": "BurnedTower_B1F",
     "code": "D18R0102",
-    "layout": "NARC_map_matrix_map_matrix_0026_D18R0102_bin",
+    "layout": "BurnedTower_B1F",
     "music_day": "SEQ_GS_TO_YAKETA",
     "music_night": "SEQ_GS_TO_YAKETA",
     "region_map_section": "MAPSEC_BURNED_TOWER",

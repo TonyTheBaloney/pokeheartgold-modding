@@ -117,28 +117,97 @@ Runs `script` when the player steps into the `width`×`height` rectangle **and**
 `var == var_value`. The script usually changes `var` so it fires once. Many of these
 vars are still `VAR_UNK_*`.
 
-## Map grid (matrix)
+## Map grid: data/layouts
 
-`files/fielddata/mapmatrix/map_matrix/map_matrix_NNNN_NAME.bin`, binary, one per
-grid, parsed in `src/map_matrix.c`; `map.json`'s `layout` names it.
+A map's grid of 32×32-tile cells is its **layout**, as in pokeemerald:
+`data/layouts/<Layout>/layout.json`, named by `map.json`'s `layout`.
+
+```json
+{
+    "name": "m_dun0101_",
+    "width": 2,
+    "height": 3,
+    "land_data": [
+        [383, 384],
+        [385, 386],
+        [387, 388]
+    ]
+}
+```
+
+| Key | Meaning |
+|---|---|
+| `land_data` | one row per line; each cell's terrain, `data/landdata/NNNN/` (below); `null` = no cell |
+| `maps` | outdoor layouts only: which `MAP_*` header applies in each cell (where you are for music, wild data, the name popup) |
+| `altitudes` | outdoor layouts only: per-cell altitude |
+| `name` | the name stored in the file; not used by the game |
+
+- Layouts are shared. `Overworld` (47×17) holds every town and route: Cherrygrove
+  is the two cells whose `maps` entry is `MAP_CHERRYGROVE`. Indoor layouts are
+  named after their map, or after what they are when several maps use them
+  (`PokemonCenter_1F`, `Pokemart`, `House1`-`House4`, `Gatehouse_EastWest`, ...).
+- `mapkit layouts rename OLD NEW` renames a layout and the maps that use it.
+- `data/layouts/layouts.txt` keeps each layout's original file name
+  (`map_matrix_0002_D01R0101`), so the ROM's file order doesn't depend on folder
+  names. The build writes every layout back to its matrix (`mapkit layouts pack`,
+  `src/map_matrix.c` reads it).
+
+## Terrain: data/landdata
+
+Each cell's terrain is one folder, `data/landdata/NNNN/` (NNNN is the number
+`land_data` uses; the build packs them in that order into `files/a/0/6/5`).
+
+| File | Holds | Editable? |
+|---|---|---|
+| `permissions.txt` | per tile: collision, behavior, attribute | yes (text, or the map editor) |
+| `props.json` | placed props (buildings, trees, signs...) | yes |
+| `soundplates.bin` | sound plates, only in cells that have them | binary |
+| `model.nsbmd` | the 3D terrain model | binary |
+| `terrain.bdhc` | terrain heights the player walks on | binary |
+
+`permissions.txt` is three 32×32 grids (row = north to south):
 
 ```
-u8 width, height, hasHeaders, hasAltitudes, nameLen; char name[nameLen];
-[u16 mapHeaderIds[w*h]]   if hasHeaders   -> which MAP_* owns each cell
-[u8  altitudes[w*h]]      if hasAltitudes
-u16  landDataIds[w*h]                     -> block in the land-data archive
+[collision]  # blocks movement, . is open
+######......##########..........
+...
+[behavior]  TILE_BEHAVIOR_* value in hex (include/constants/metatile_behavior.h)
+00 00 02 02 ...
+[attr]  bits 8-14 of the permission word, hex (FieldSystem_GetTileAttrBits8To14)
+00 00 ...
 ```
 
-Many maps share one grid (the outdoor grid holds most routes and towns; each
-cell's `mapHeaderIds` says which map you're in). `mapkit` reads these
-(`matrix.py`); moving them to pokeemerald-style `data/layouts/` is a later step.
+- **Behavior** is what the tile does: `02` tall grass, `10` river water, `15` sea,
+  `20` ice, door and warp tiles, ledges... (`enum TILE_BEHAVIOR`; checks in
+  `src/metatile_behavior.c`). Painting water behavior doesn't draw water: the
+  look comes from `model.nsbmd`, so keep behavior and model in step.
+- **Collision** blocks walking (`FieldSystem_CheckTileCollision`, `src/field_terrain.c`).
+  Copy a nearby door or warp tile's collision and behavior when adding one.
+- `[attr]` is written only for cells that use it; its meaning isn't decoded yet
+  (map object movement reads it).
+- Cells can be **shared**: one land data folder can appear in several layout
+  cells (repeating sea, every Pokémon Center). Editing it changes all of them;
+  the map editor's status bar says how many cells use the one under the cursor.
 
-## Terrain, collision, buildings, 3D models
+`props.json`, one prop per line:
 
-All in `files/a/0/6/5`, one prebuilt 19.5 MB archive. Each block has
-permissions/collision, building placements, an NSBMD model and height data
-(header read by `ReadMapFileHeader` in `src/field/map_load_manager.c`). There is no
-editor for these in the repo yet.
+```json
+{ "model": 29, "position": [-88.0, 17.0, -56.0], "rotation": [0.0, 0.0, 0.0], "scale": [1.0, 1.0, 1.0] }
+```
+
+`model` is a prop number from the area's prop list (`area_data` in the header,
+`src/field/area_data.c`); `position` is in 1/16 tile from the cell's centre
+(x east, y height, z south), in steps of 1/4096. At most 32 props per cell
+(`MAP_PROP_MAX`, `include/field/map_load_manager.h`).
+
+`tools/mapkit/mapkit.sh landdata pack` rebuilds `files/a/0/6/5`; the unmodified
+folders give the retail archive (checked by `tools/mapkit/tests`).
+
+## Map editor
+
+`tools/mapeditor/mapeditor.sh Cherrygrove` opens a porymap-style editor for
+layouts, collision, behaviors and events; see
+[tools/mapeditor/README.md](../../tools/mapeditor/README.md).
 
 ## Adding a new map
 

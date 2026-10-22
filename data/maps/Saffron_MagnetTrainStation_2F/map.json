@@ -2,7 +2,7 @@
     "id": "MAP_SAFFRON_MAGNET_TRAIN_STATION_2F",
     "name": "Saffron_MagnetTrainStation_2F",
     "code": "T11R0602",
-    "layout": "NARC_map_matrix_map_matrix_0188_T11R0602_bin",
+    "layout": "Saffron_MagnetTrainStation_2F",
     "music_day": "SEQ_GS_C_YAMABUKI",
     "music_night": "SEQ_GS_C_YAMABUKI",
     "region_map_section": "MAPSEC_SAFFRON_CITY",

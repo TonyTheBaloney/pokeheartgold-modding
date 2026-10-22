@@ -2,7 +2,7 @@
     "id": "MAP_ECRUTEAK_DANCE_THEATER",
     "name": "Ecruteak_DanceTheater",
     "code": "T27R0501",
-    "layout": "NARC_map_matrix_map_matrix_0126_T27R0501_bin",
+    "layout": "Ecruteak_DanceTheater",
     "music_day": "SEQ_GS_KABURENJOU",
     "music_night": "SEQ_GS_KABURENJOU",
     "region_map_section": "MAPSEC_ECRUTEAK_CITY",

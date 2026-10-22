@@ -2,7 +2,7 @@
     "id": "MAP_PEWTER_GYM",
     "name": "Pewter_Gym",
     "code": "T03GYM0101",
-    "layout": "NARC_map_matrix_map_matrix_0260_T03GYM0101_bin",
+    "layout": "Pewter_Gym",
     "music_day": "SEQ_GS_GYM",
     "music_night": "SEQ_GS_GYM",
     "region_map_section": "MAPSEC_PEWTER_CITY",

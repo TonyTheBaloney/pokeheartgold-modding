@@ -2,7 +2,7 @@
     "id": "MAP_GOLDENROD_TUNNEL_B2F",
     "name": "Goldenrod_Tunnel_B2F",
     "code": "D37R0104",
-    "layout": "NARC_map_matrix_map_matrix_0060_D37R0104_bin",
+    "layout": "Goldenrod_Tunnel_B2F",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_GOLDENROD_CITY",

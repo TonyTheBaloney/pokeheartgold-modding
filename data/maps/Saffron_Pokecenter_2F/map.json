@@ -2,7 +2,7 @@
     "id": "MAP_SAFFRON_POKECENTER_2F",
     "name": "Saffron_Pokecenter_2F",
     "code": "T11PC0102",
-    "layout": "NARC_map_matrix_map_matrix_0077_T27PC0105_bin",
+    "layout": "PokemonCenter_B1F",
     "music_day": "SEQ_GS_POKESEN",
     "music_night": "SEQ_GS_POKESEN",
     "region_map_section": "MAPSEC_SAFFRON_CITY",

@@ -2,7 +2,7 @@
     "id": "MAP_POKEMON_LEAGUE_ENTRANCE_WIFI_ROOM",
     "name": "PokemonLeagueEntrance_WifiRoom",
     "code": "T10R0801",
-    "layout": "NARC_map_matrix_map_matrix_0077_T27PC0105_bin",
+    "layout": "PokemonCenter_B1F",
     "music_day": "SEQ_GS_POKESEN",
     "music_night": "SEQ_GS_POKESEN",
     "region_map_section": "MAPSEC_POKEMON_LEAGUE",

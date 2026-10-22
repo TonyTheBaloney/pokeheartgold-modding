@@ -2,7 +2,7 @@
     "id": "MAP_SINJOH_RUINS_CABIN",
     "name": "SinjohRuinsCabin",
     "code": "D51R0301",
-    "layout": "NARC_map_matrix_map_matrix_0287_D51R0301_bin",
+    "layout": "SinjohRuinsCabin",
     "music_day": "SEQ_GS_D_SHINTO",
     "music_night": "SEQ_GS_D_SHINTO",
     "region_map_section": "MAPSEC_SINJOH_RUINS",

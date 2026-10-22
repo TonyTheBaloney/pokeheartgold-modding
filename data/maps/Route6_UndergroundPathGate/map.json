@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_6_UNDERGROUND_PATH_GATE",
     "name": "Route6_UndergroundPathGate",
     "code": "R06R0101",
-    "layout": "NARC_map_matrix_map_matrix_0253_R05R0201_bin",
+    "layout": "Route5_UndergroundPath_Gate",
     "music_day": "SEQ_GS_D_IWAYAMA",
     "music_night": "SEQ_GS_D_IWAYAMA",
     "region_map_section": "MAPSEC_ROUTE_6",

@@ -7,7 +7,7 @@ import os
 import re
 from dataclasses import dataclass
 
-from . import cdefs, events, layout, matrix, scripts, text, wild
+from . import cdefs, events, layout, layouts, matrix, scripts, text, wild
 
 VERSIONS = ("HEARTGOLD", "SOULSILVER")
 
@@ -93,9 +93,10 @@ class Repo:
             for name, body in _HEADER_ENTRY_RE.findall(src):
                 headers[name] = {k: v.strip() for k, v in _HEADER_FIELD_RE.findall(body)}
             index = list(self.migrated.values())
+            bases = layout.layout_bases(self.root)
             for entry in index:  # data/maps/<MapName>/map.json
                 with open(layout.folder_paths(self.root, entry, index)["map.json"], encoding="utf-8") as f:
-                    headers[entry["map"]] = layout.header_from_map_json(json.load(f), entry, index)
+                    headers[entry["map"]] = layout.header_from_map_json(json.load(f), entry, index, bases)
             out = []
             for name, (num, code) in sorted(ids.items(), key=lambda kv: kv[1][0]):
                 if name in headers:
@@ -151,7 +152,12 @@ class Repo:
             return self.path("files/fielddata/eventdata/zone_event", mm.group(1) + ".json") if mm else None
         if field == "matrixId":
             mm = re.match(r"NARC_map_matrix_(\w+?)_bin$", v)
-            return self.path("files/fielddata/mapmatrix/map_matrix", mm.group(1) + ".bin") if mm else None
+            if not mm:
+                return None
+            folder = layouts.folder_for_base(self.root, mm.group(1))
+            if folder:
+                return self.path(layouts.LAYOUTS_DIR, folder, "layout.json")
+            return self.path("files/fielddata/mapmatrix/map_matrix", mm.group(1) + ".bin")
         raise KeyError(field)
 
     def pory_entry(self, m):
@@ -268,7 +274,16 @@ class Repo:
 
     def matrix(self, m):
         p = self.bank_path(m, "matrixId")
-        return self._cached(("matrix", p), lambda: matrix.load(p)) if p and os.path.exists(p) else None
+        if not p or not os.path.exists(p):
+            return None
+        if p.endswith("layout.json"):
+            return self._cached(("matrix", p), lambda: layouts.load(self.root, os.path.basename(os.path.dirname(p))))
+        return self._cached(("matrix", p), lambda: matrix.load(p))
+
+    def layout_folder(self, m):
+        """data/layouts folder of a map's layout, or None."""
+        p = self.bank_path(m, "matrixId")
+        return os.path.basename(os.path.dirname(p)) if p and p.endswith("layout.json") else None
 
     # --- wild ------------------------------------------------------------
 

@@ -2,7 +2,7 @@
     "id": "MAP_GOLDENROD_GAME_CORNER",
     "name": "Goldenrod_GameCorner",
     "code": "T25SP0101",
-    "layout": "NARC_map_matrix_map_matrix_0286_T25SP0101_bin",
+    "layout": "GameCorner",
     "music_day": "SEQ_GS_GAME",
     "music_night": "SEQ_GS_GAME",
     "region_map_section": "MAPSEC_GOLDENROD_CITY",

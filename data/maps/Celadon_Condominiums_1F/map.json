@@ -2,7 +2,7 @@
     "id": "MAP_CELADON_CONDOMINIUMS_1F",
     "name": "Celadon_Condominiums_1F",
     "code": "T07R0201",
-    "layout": "NARC_map_matrix_map_matrix_0221_T07R0201_bin",
+    "layout": "Celadon_Condominiums_1F",
     "music_day": "SEQ_GS_C_TAMAMUSHI",
     "music_night": "SEQ_GS_C_TAMAMUSHI",
     "region_map_section": "MAPSEC_CELADON_CITY",

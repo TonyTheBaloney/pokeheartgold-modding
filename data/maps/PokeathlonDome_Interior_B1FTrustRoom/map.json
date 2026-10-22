@@ -2,7 +2,7 @@
     "id": "MAP_POKEATHLON_DOME_INTERIOR_B1F_TRUST_ROOM",
     "name": "PokeathlonDome_Interior_B1FTrustRoom",
     "code": "D49R0105",
-    "layout": "NARC_map_matrix_map_matrix_0158_D49R0105_bin",
+    "layout": "PokeathlonDome_Interior_B1FTrustRoom",
     "music_day": "SEQ_GS_PT_ENTR",
     "music_night": "SEQ_GS_PT_ENTR",
     "region_map_section": "MAPSEC_POKEATHLON_DOME",

@@ -2,7 +2,7 @@
     "id": "MAP_BATTLE_FRONTIER_FRONTIER_ACCESS_GATEHOUSE",
     "name": "BattleFrontier_FrontierAccess_Gatehouse",
     "code": "D32R0101",
-    "layout": "NARC_map_matrix_map_matrix_0231_D32R0101_bin",
+    "layout": "BattleFrontier_FrontierAccess_Gatehouse",
     "music_day": "SEQ_GS_BATTLETOWER",
     "music_night": "SEQ_GS_BATTLETOWER",
     "region_map_section": "MAPSEC_BATTLE_FRONTIER",

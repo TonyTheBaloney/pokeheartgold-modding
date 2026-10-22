@@ -2,7 +2,7 @@
     "id": "MAP_FUCHSIA_SAFARI_ZONE_WARDEN_HOUSE",
     "name": "Fuchsia_SafariZoneWardenHouse",
     "code": "T08R0601",
-    "layout": "NARC_map_matrix_map_matrix_0097_T21R0301_bin",
+    "layout": "House3",
     "music_day": "SEQ_GS_C_SEKICHIKU",
     "music_night": "SEQ_GS_C_SEKICHIKU",
     "region_map_section": "MAPSEC_FUCHSIA_CITY",

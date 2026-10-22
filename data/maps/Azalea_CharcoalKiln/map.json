@@ -2,7 +2,7 @@
     "id": "MAP_AZALEA_CHARCOAL_KILN",
     "name": "Azalea_CharcoalKiln",
     "code": "T23R0201",
-    "layout": "NARC_map_matrix_map_matrix_0125_T23R0201_bin",
+    "layout": "Azalea_CharcoalKiln",
     "music_day": "SEQ_GS_T_HIWADA",
     "music_night": "SEQ_GS_T_HIWADA",
     "region_map_section": "MAPSEC_AZALEA_TOWN",

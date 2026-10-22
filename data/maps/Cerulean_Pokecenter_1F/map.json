@@ -2,7 +2,7 @@
     "id": "MAP_CERULEAN_POKECENTER_1F",
     "name": "Cerulean_Pokecenter_1F",
     "code": "T04PC0101",
-    "layout": "NARC_map_matrix_map_matrix_0073_T21PC0101_bin",
+    "layout": "PokemonCenter_1F",
     "music_day": "SEQ_GS_POKESEN",
     "music_night": "SEQ_GS_POKESEN",
     "region_map_section": "MAPSEC_CERULEAN_CITY",

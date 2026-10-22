@@ -2,7 +2,7 @@
     "id": "MAP_NEW_BARK_RIVAL_HOUSE_2F",
     "name": "NewBark_RivalHouse_2F",
     "code": "T20R0402",
-    "layout": "NARC_map_matrix_map_matrix_0072_T20R0202_bin",
+    "layout": "NewBark_PlayerHouse_2F",
     "music_day": "SEQ_GS_T_WAKABA",
     "music_night": "SEQ_GS_T_WAKABA",
     "region_map_section": "MAPSEC_NEW_BARK_TOWN",

@@ -2,7 +2,7 @@
     "id": "MAP_SS_AQUA_CAPTAIN_ROOM",
     "name": "SsAquaCaptainRoom",
     "code": "P01R0302",
-    "layout": "NARC_map_matrix_map_matrix_0172_P01R0302_bin",
+    "layout": "SsAquaCaptainRoom",
     "music_day": "SEQ_GS_KOUSOKUSEN",
     "music_night": "SEQ_GS_KOUSOKUSEN",
     "region_map_section": "MAPSEC_SS_AQUA",

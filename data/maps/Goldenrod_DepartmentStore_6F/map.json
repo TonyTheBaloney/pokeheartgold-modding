@@ -2,7 +2,7 @@
     "id": "MAP_GOLDENROD_DEPARTMENT_STORE_6F",
     "name": "Goldenrod_DepartmentStore_6F",
     "code": "T25R1006",
-    "layout": "NARC_map_matrix_map_matrix_0118_T25R1006_bin",
+    "layout": "Goldenrod_DepartmentStore_6F",
     "music_day": "SEQ_GS_FS",
     "music_night": "SEQ_GS_FS",
     "region_map_section": "MAPSEC_GOLDENROD_CITY",

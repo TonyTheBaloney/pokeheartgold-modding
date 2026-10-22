@@ -2,7 +2,7 @@
     "id": "MAP_BLACKTHORN",
     "name": "Blackthorn",
     "code": "T30",
-    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "layout": "Overworld",
     "music_day": "SEQ_GS_C_FUSUBE",
     "music_night": "SEQ_GS_C_FUSUBE",
     "region_map_section": "MAPSEC_BLACKTHORN_CITY",

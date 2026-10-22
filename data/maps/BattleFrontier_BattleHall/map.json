@@ -2,7 +2,7 @@
     "id": "MAP_BATTLE_FRONTIER_BATTLE_HALL",
     "name": "BattleFrontier_BattleHall",
     "code": "D32R0401",
-    "layout": "NARC_map_matrix_map_matrix_0234_D32R0401_bin",
+    "layout": "BattleFrontier_BattleHall",
     "music_day": "SEQ_GS_BF_STAGE",
     "music_night": "SEQ_GS_BF_STAGE",
     "region_map_section": "MAPSEC_BATTLE_HALL",

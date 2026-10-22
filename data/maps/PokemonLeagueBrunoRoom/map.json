@@ -2,7 +2,7 @@
     "id": "MAP_POKEMON_LEAGUE_BRUNO_ROOM",
     "name": "PokemonLeagueBrunoRoom",
     "code": "T10R0401",
-    "layout": "NARC_map_matrix_map_matrix_0167_T10R0401_bin",
+    "layout": "PokemonLeagueBrunoRoom",
     "music_day": "SEQ_GS_CHAMPROAD",
     "music_night": "SEQ_GS_CHAMPROAD",
     "region_map_section": "MAPSEC_POKEMON_LEAGUE",

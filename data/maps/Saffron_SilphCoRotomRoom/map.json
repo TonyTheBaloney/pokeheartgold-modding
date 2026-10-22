@@ -2,7 +2,7 @@
     "id": "MAP_SAFFRON_SILPH_CO_ROTOM_ROOM",
     "name": "Saffron_SilphCoRotomRoom",
     "code": "T11R0702",
-    "layout": "NARC_map_matrix_map_matrix_0241_T11R0702_bin",
+    "layout": "Saffron_SilphCoRotomRoom",
     "music_day": "SEQ_GS_C_YAMABUKI",
     "music_night": "SEQ_GS_C_YAMABUKI",
     "region_map_section": "MAPSEC_ROTOMS_ROOM",

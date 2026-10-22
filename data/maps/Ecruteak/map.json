@@ -2,7 +2,7 @@
     "id": "MAP_ECRUTEAK",
     "name": "Ecruteak",
     "code": "T27",
-    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "layout": "Overworld",
     "music_day": "SEQ_GS_C_ENJU",
     "music_night": "SEQ_GS_C_ENJU",
     "region_map_section": "MAPSEC_ECRUTEAK_CITY",

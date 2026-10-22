@@ -2,7 +2,7 @@
     "id": "MAP_NEW_BARK",
     "name": "NewBark",
     "code": "T20",
-    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "layout": "Overworld",
     "music_day": "SEQ_GS_T_WAKABA",
     "music_night": "SEQ_GS_T_WAKABA",
     "region_map_section": "MAPSEC_NEW_BARK_TOWN",

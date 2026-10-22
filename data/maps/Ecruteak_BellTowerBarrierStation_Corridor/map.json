@@ -2,7 +2,7 @@
     "id": "MAP_ECRUTEAK_BELL_TOWER_BARRIER_STATION_CORRIDOR",
     "name": "Ecruteak_BellTowerBarrierStation_Corridor",
     "code": "T27R0202",
-    "layout": "NARC_map_matrix_map_matrix_0130_T27R0202_bin",
+    "layout": "Ecruteak_BellTowerBarrierStation_Corridor",
     "music_day": "SEQ_GS_C_ENJU",
     "music_night": "SEQ_GS_C_ENJU",
     "region_map_section": "MAPSEC_ECRUTEAK_CITY",

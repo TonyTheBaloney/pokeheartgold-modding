@@ -2,7 +2,7 @@
     "id": "MAP_SAFFRON_SILPH_CO_HQ",
     "name": "Saffron_SilphCoHq",
     "code": "T11R0701",
-    "layout": "NARC_map_matrix_map_matrix_0189_T11R0701_bin",
+    "layout": "Saffron_SilphCoHq",
     "music_day": "SEQ_GS_C_YAMABUKI",
     "music_night": "SEQ_GS_C_YAMABUKI",
     "region_map_section": "MAPSEC_SAFFRON_CITY",

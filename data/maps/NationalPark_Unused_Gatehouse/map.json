@@ -2,7 +2,7 @@
     "id": "MAP_NATIONAL_PARK_UNUSED_GATEHOUSE",
     "name": "NationalPark_Unused_Gatehouse",
     "code": "D22R0201",
-    "layout": "NARC_map_matrix_map_matrix_0069_R35R0101_bin",
+    "layout": "Gatehouse_NorthSouth",
     "music_day": "SEQ_GS_PT_ENTR",
     "music_night": "SEQ_GS_PT_ENTR",
     "region_map_section": "MAPSEC_POKEATHLON_DOME",

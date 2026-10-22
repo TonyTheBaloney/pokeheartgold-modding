@@ -8,7 +8,7 @@ import re
 import sys
 
 from . import events as ev_mod
-from . import edit, layout, scripts, wild
+from . import edit, landdata, layout, layouts, scripts, wild
 from .matrix import CELL_SIZE
 from .repo import Repo, VERSIONS
 from .validate import ERROR, INFO, WARNING, Validator
@@ -479,6 +479,28 @@ def main(argv=None):
     for p in ps.choices.values():
         p.set_defaults(func=cmd_pory)
 
+    lay = sub.add_parser("layouts", help="map grids in data/layouts (docs/modding/maps-and-warps.md)")
+    ls_ = lay.add_subparsers(dest="action", required=True)
+    p = ls_.add_parser("migrate", help="one-time: map_matrix/*.bin -> data/layouts (ROM unchanged)")
+    p.set_defaults(func=lambda repo, a: print("%d layouts" % len(layouts.migrate(repo.root))) or 0)
+    p = ls_.add_parser("rename", help="rename a layout folder and update the maps that use it")
+    p.add_argument("old"); p.add_argument("new")
+    p.set_defaults(func=lambda repo, a: print("%s -> %s (%d maps)" % (
+        a.old, a.new, len(layouts.rename(repo.root, a.old, a.new)))) or 0)
+    p = ls_.add_parser("pack", help="(used by the build)")
+    p.add_argument("out"); p.add_argument("--nitroarc", required=True); p.add_argument("--work", required=True)
+    p.set_defaults(func=lambda repo, a: layouts.pack(repo.root, a.out, a.nitroarc, a.work) or 0)
+
+    land = sub.add_parser("landdata", help="terrain cells in data/landdata")
+    lds = land.add_subparsers(dest="action", required=True)
+    p = lds.add_parser("migrate", help="one-time: files/a/0/6/5 -> data/landdata (ROM unchanged)")
+    p.set_defaults(func=lambda repo, a: print("%d land data cells" % landdata.migrate(repo.root)) or 0)
+    p = lds.add_parser("pack", help="(used by the build)")
+    p.add_argument("out")
+    p.set_defaults(func=lambda repo, a: landdata.pack(repo.root, a.out) or 0)
+    p = lds.add_parser("files", help="(used by the build) list every source file")
+    p.set_defaults(func=lambda repo, a: print("\n".join(landdata.file_list(repo.root))) or 0)
+
     # build-time generators (called from data/maps/meson.build)
     for name, fn in (("gen-header", layout.gen_header), ("gen-events", layout.gen_events)):
         p = sub.add_parser(name, help="(used by the build)")
@@ -488,4 +510,8 @@ def main(argv=None):
 
     args = ap.parse_args(argv)
     repo = Repo(args.root, args.version)
-    return args.func(repo, args)
+    try:
+        return args.func(repo, args)
+    except (layouts.LayoutError, landdata.LandDataError) as e:
+        print("error: %s" % e, file=sys.stderr)
+        return 1

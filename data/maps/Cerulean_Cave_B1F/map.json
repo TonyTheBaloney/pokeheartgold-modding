@@ -2,7 +2,7 @@
     "id": "MAP_CERULEAN_CAVE_B1F",
     "name": "Cerulean_Cave_B1F",
     "code": "D03R0103",
-    "layout": "NARC_map_matrix_map_matrix_0080_D03R0103_bin",
+    "layout": "Cerulean_Cave_B1F",
     "music_day": "SEQ_GS_D_IWAYAMA",
     "music_night": "SEQ_GS_D_IWAYAMA",
     "region_map_section": "MAPSEC_CERULEAN_CAVE",

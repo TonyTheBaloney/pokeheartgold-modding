@@ -2,7 +2,7 @@
     "id": "MAP_SS_AQUA_1F_NORTHEAST_ROOMS",
     "name": "SsAqua_1F_NortheastRooms",
     "code": "P01R0305",
-    "layout": "NARC_map_matrix_map_matrix_0175_P01R0305_bin",
+    "layout": "SsAqua_1F_NortheastRooms",
     "music_day": "SEQ_GS_KOUSOKUSEN",
     "music_night": "SEQ_GS_KOUSOKUSEN",
     "region_map_section": "MAPSEC_SS_AQUA",

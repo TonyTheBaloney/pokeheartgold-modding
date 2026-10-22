@@ -1,0 +1,23 @@
+{
+    "name": "m_safari_",
+    "width": 5,
+    "height": 4,
+    "land_data": [
+        [211, 211, 211, 211, 211],
+        [211, null, null, null, 211],
+        [211, null, null, null, 211],
+        [211, 211, 666, 211, 211]
+    ],
+    "maps": [
+        ["MAP_EVERYWHERE", "MAP_EVERYWHERE", "MAP_EVERYWHERE", "MAP_EVERYWHERE", "MAP_EVERYWHERE"],
+        ["MAP_EVERYWHERE", "MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR", "MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR", "MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR", "MAP_EVERYWHERE"],
+        ["MAP_EVERYWHERE", "MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR", "MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR", "MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR", "MAP_EVERYWHERE"],
+        ["MAP_EVERYWHERE", "MAP_EVERYWHERE", "MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR", "MAP_EVERYWHERE", "MAP_EVERYWHERE"]
+    ],
+    "altitudes": [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+    ]
+}

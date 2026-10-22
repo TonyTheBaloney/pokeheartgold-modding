@@ -15,7 +15,7 @@ from mapkit import Repo, edit, layout  # noqa: E402
 from mapkit.validate import ERROR, Validator  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
-COPY = ["include", "asm/macros", "data/maps", "src/data/map_headers.h", "files/fielddata/eventdata",
+COPY = ["include", "asm/macros", "data/maps", "data/layouts", "src/data/map_headers.h", "files/fielddata/eventdata",
         "files/fielddata/script", "files/fielddata/mapmatrix", "files/fielddata/encountdata", "files/msgdata/msg"]
 
 

@@ -2,7 +2,7 @@
     "id": "MAP_GOLDENROD_DEPARTMENT_STORE_BASEMENT",
     "name": "Goldenrod_DepartmentStoreBasement",
     "code": "D37R0103",
-    "layout": "NARC_map_matrix_map_matrix_0059_D37R0103_bin",
+    "layout": "Goldenrod_DepartmentStoreBasement",
     "music_day": "SEQ_GS_C_KOGANE",
     "music_night": "SEQ_GS_C_KOGANE",
     "region_map_section": "MAPSEC_GOLDENROD_CITY",

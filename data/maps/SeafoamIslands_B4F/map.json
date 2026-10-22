@@ -2,7 +2,7 @@
     "id": "MAP_SEAFOAM_ISLANDS_B4F",
     "name": "SeafoamIslands_B4F",
     "code": "D11R0105",
-    "layout": "NARC_map_matrix_map_matrix_0085_D11R0105_bin",
+    "layout": "SeafoamIslands_B4F",
     "music_day": "SEQ_GS_D_KOORINONUKE",
     "music_night": "SEQ_GS_D_KOORINONUKE",
     "region_map_section": "MAPSEC_SEAFOAM_ISLANDS",

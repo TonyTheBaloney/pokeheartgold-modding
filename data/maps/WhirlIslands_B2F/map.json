@@ -2,7 +2,7 @@
     "id": "MAP_WHIRL_ISLANDS_B2F",
     "name": "WhirlIslands_B2F",
     "code": "D40R0104",
-    "layout": "NARC_map_matrix_map_matrix_0143_D40R0104_bin",
+    "layout": "WhirlIslands_B2F",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_WHIRL_ISLANDS",

@@ -2,7 +2,7 @@
     "id": "MAP_FIGHT_AREA_UNUSED_8",
     "name": "FightAreaUnused8",
     "code": "C11R0401",
-    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "layout": "Overworld",
     "music_day": "SEQ_GS_BATTLETOWER",
     "music_night": "SEQ_GS_BATTLETOWER",
     "region_map_section": "MAPSEC_FIGHT_AREA",

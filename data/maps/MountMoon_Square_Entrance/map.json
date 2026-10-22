@@ -2,7 +2,7 @@
     "id": "MAP_MOUNT_MOON_SQUARE_ENTRANCE",
     "name": "MountMoon_Square_Entrance",
     "code": "D02R0102",
-    "layout": "NARC_map_matrix_map_matrix_0004_D02R0102_bin",
+    "layout": "MountMoon_Square_Entrance",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_MT_MOON",

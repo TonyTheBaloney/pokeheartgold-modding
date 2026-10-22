@@ -2,7 +2,7 @@
     "id": "MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT",
     "name": "RuinsOfAlph_UndergroundHall_SinjohEvent",
     "code": "D24R0216",
-    "layout": "NARC_map_matrix_map_matrix_0037_D24R0205_bin",
+    "layout": "RuinsOfAlph_UndergroundHall",
     "music_day": "SEQ_GS_D_UNKNOWN_ISEKI",
     "music_night": "SEQ_GS_D_UNKNOWN_ISEKI",
     "region_map_section": "MAPSEC_RUINS_OF_ALPH",

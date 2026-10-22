@@ -2,7 +2,7 @@
     "id": "MAP_PAL_PARK",
     "name": "PalPark",
     "code": "D10R0101",
-    "layout": "NARC_map_matrix_map_matrix_0008_D10R0101_bin",
+    "layout": "PalPark",
     "music_day": "SEQ_GS_SAFARI_FIELD",
     "music_night": "SEQ_GS_SAFARI_FIELD",
     "region_map_section": "MAPSEC_PAL_PARK",

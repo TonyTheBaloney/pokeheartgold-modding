@@ -2,7 +2,7 @@
     "id": "MAP_MAHOGANY_SOUVENIR_SHOP",
     "name": "Mahogany_SouvenirShop",
     "code": "D35R0101",
-    "layout": "NARC_map_matrix_map_matrix_0138_D35R0101_bin",
+    "layout": "Mahogany_SouvenirShop",
     "music_day": "SEQ_GS_T_CHOUJI",
     "music_night": "SEQ_GS_T_CHOUJI",
     "region_map_section": "MAPSEC_MAHOGANY_TOWN",

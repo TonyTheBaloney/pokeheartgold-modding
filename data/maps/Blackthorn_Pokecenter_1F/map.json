@@ -2,7 +2,7 @@
     "id": "MAP_BLACKTHORN_POKECENTER_1F",
     "name": "Blackthorn_Pokecenter_1F",
     "code": "T30PC0101",
-    "layout": "NARC_map_matrix_map_matrix_0073_T21PC0101_bin",
+    "layout": "PokemonCenter_1F",
     "music_day": "SEQ_GS_POKESEN",
     "music_night": "SEQ_GS_POKESEN",
     "region_map_section": "MAPSEC_BLACKTHORN_CITY",

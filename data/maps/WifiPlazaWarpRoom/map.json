@@ -2,7 +2,7 @@
     "id": "MAP_WIFI_PLAZA_WARP_ROOM",
     "name": "WifiPlazaWarpRoom",
     "code": "HIROBA",
-    "layout": "NARC_map_matrix_map_matrix_0280_HIROBA_bin",
+    "layout": "WifiPlazaWarpRoom",
     "music_day": "SEQ_GS_POKESEN",
     "music_night": "SEQ_GS_POKESEN",
     "region_map_section": "MAPSEC_MYSTERY_ZONE",

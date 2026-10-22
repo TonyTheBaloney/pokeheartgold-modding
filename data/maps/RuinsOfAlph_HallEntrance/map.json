@@ -2,7 +2,7 @@
     "id": "MAP_RUINS_OF_ALPH_HALL_ENTRANCE",
     "name": "RuinsOfAlph_HallEntrance",
     "code": "D24R0211",
-    "layout": "NARC_map_matrix_map_matrix_0181_D24R0211_bin",
+    "layout": "RuinsOfAlph_HallEntrance",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_RUINS_OF_ALPH",

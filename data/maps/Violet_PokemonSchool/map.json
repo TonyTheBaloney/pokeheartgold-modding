@@ -2,7 +2,7 @@
     "id": "MAP_VIOLET_POKEMON_SCHOOL",
     "name": "Violet_PokemonSchool",
     "code": "T22R0301",
-    "layout": "NARC_map_matrix_map_matrix_0102_T22R0301_bin",
+    "layout": "Violet_PokemonSchool",
     "music_day": "SEQ_GS_C_KIKYOU",
     "music_night": "SEQ_GS_C_KIKYOU",
     "region_map_section": "MAPSEC_VIOLET_CITY",

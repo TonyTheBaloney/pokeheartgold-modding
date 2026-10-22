@@ -2,7 +2,7 @@
     "id": "MAP_SS_AQUA_VERMILION_PORT_INTERIOR",
     "name": "SsAquaVermilionPortInterior",
     "code": "P01R0103",
-    "layout": "NARC_map_matrix_map_matrix_0186_P01R0103_bin",
+    "layout": "SsAquaVermilionPortInterior",
     "music_day": "SEQ_GS_C_KUCHIBA",
     "music_night": "SEQ_GS_C_KUCHIBA",
     "region_map_section": "MAPSEC_VERMILION_CITY",

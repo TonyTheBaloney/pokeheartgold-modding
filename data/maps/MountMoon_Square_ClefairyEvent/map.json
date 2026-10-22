@@ -2,7 +2,7 @@
     "id": "MAP_MOUNT_MOON_SQUARE_CLEFAIRY_EVENT",
     "name": "MountMoon_Square_ClefairyEvent",
     "code": "D02R0104",
-    "layout": "NARC_map_matrix_map_matrix_0281_D02R0104_bin",
+    "layout": "MountMoon_Square_ClefairyEvent",
     "music_day": "SEQ_GS_OTSUKIMI_EVENT",
     "music_night": "SEQ_GS_OTSUKIMI_EVENT",
     "region_map_section": "MAPSEC_MT_MOON",

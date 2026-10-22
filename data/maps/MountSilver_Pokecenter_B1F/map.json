@@ -2,7 +2,7 @@
     "id": "MAP_MOUNT_SILVER_POKECENTER_B1F",
     "name": "MountSilver_Pokecenter_B1F",
     "code": "T31PC0102",
-    "layout": "NARC_map_matrix_map_matrix_0077_T27PC0105_bin",
+    "layout": "PokemonCenter_B1F",
     "music_day": "SEQ_GS_POKESEN",
     "music_night": "SEQ_GS_POKESEN",
     "region_map_section": "MAPSEC_MT_SILVER",

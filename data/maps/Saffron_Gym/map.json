@@ -2,7 +2,7 @@
     "id": "MAP_SAFFRON_GYM",
     "name": "Saffron_Gym",
     "code": "T11GYM0101",
-    "layout": "NARC_map_matrix_map_matrix_0256_T11GYM0101_bin",
+    "layout": "Saffron_Gym",
     "music_day": "SEQ_GS_GYM",
     "music_night": "SEQ_GS_GYM",
     "region_map_section": "MAPSEC_SAFFRON_CITY",

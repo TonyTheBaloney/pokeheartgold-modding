@@ -2,7 +2,7 @@
     "id": "MAP_BATTLE_TOWER_PARTNER_ROOM",
     "name": "BattleTower_PartnerRoom",
     "code": "D31R0207",
-    "layout": "NARC_map_matrix_map_matrix_0263_D31R0207_bin",
+    "layout": "BattleTower_PartnerRoom",
     "music_day": "SEQ_GS_BATTLETOWER",
     "music_night": "SEQ_GS_BATTLETOWER",
     "region_map_section": "MAPSEC_BATTLE_TOWER",

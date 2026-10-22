@@ -2,7 +2,7 @@
     "id": "MAP_MOUNT_MOON_SQUARE",
     "name": "MountMoon_Square",
     "code": "D02R0103",
-    "layout": "NARC_map_matrix_map_matrix_0005_D02R0103_bin",
+    "layout": "MountMoon_Square",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_MT_MOON",

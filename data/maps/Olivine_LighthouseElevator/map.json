@@ -2,7 +2,7 @@
     "id": "MAP_OLIVINE_LIGHTHOUSE_ELEVATOR",
     "name": "Olivine_LighthouseElevator",
     "code": "D27R0108",
-    "layout": "NARC_map_matrix_map_matrix_0262_D31R0202_bin",
+    "layout": "Elevator",
     "music_day": "SEQ_GS_TO_TOUDAI",
     "music_night": "SEQ_GS_TO_TOUDAI",
     "region_map_section": "MAPSEC_LIGHTHOUSE",

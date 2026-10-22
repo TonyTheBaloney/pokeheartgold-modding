@@ -2,7 +2,7 @@
     "id": "MAP_SEAFOAM_ISLANDS_UNUSED",
     "name": "SeafoamIslandsUnused",
     "code": "D11R0107",
-    "layout": "NARC_map_matrix_map_matrix_0264_D11R0106_bin",
+    "layout": "SeafoamIslandsCinnabarGym",
     "music_day": "SEQ_GS_D_KOORINONUKE",
     "music_night": "SEQ_GS_D_KOORINONUKE",
     "region_map_section": "MAPSEC_SEAFOAM_ISLANDS",

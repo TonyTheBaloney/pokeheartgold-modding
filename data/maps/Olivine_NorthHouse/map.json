@@ -2,7 +2,7 @@
     "id": "MAP_OLIVINE_NORTH_HOUSE",
     "name": "Olivine_NorthHouse",
     "code": "T26R0301",
-    "layout": "NARC_map_matrix_map_matrix_0097_T21R0301_bin",
+    "layout": "House3",
     "music_day": "SEQ_GS_C_ASAGI",
     "music_night": "SEQ_GS_C_ASAGI",
     "region_map_section": "MAPSEC_OLIVINE_CITY",

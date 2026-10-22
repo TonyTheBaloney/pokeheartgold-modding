@@ -2,7 +2,7 @@
     "id": "MAP_GOLDENROD_RADIO_TOWER_OBSERVATION_DECK",
     "name": "Goldenrod_RadioTowerObservationDeck",
     "code": "D23R0106",
-    "layout": "NARC_map_matrix_map_matrix_0110_D23R0106_bin",
+    "layout": "Goldenrod_RadioTowerObservationDeck",
     "music_day": "SEQ_GS_C_KOGANE",
     "music_night": "SEQ_GS_C_KOGANE",
     "region_map_section": "MAPSEC_RADIO_TOWER",

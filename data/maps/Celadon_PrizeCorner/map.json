@@ -2,7 +2,7 @@
     "id": "MAP_CELADON_PRIZE_CORNER",
     "name": "Celadon_PrizeCorner",
     "code": "T07R0501",
-    "layout": "NARC_map_matrix_map_matrix_0214_T07R0501_bin",
+    "layout": "Celadon_PrizeCorner",
     "music_day": "SEQ_GS_GAME",
     "music_night": "SEQ_GS_GAME",
     "region_map_section": "MAPSEC_CELADON_CITY",

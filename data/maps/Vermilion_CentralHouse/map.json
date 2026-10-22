@@ -2,7 +2,7 @@
     "id": "MAP_VERMILION_CENTRAL_HOUSE",
     "name": "Vermilion_CentralHouse",
     "code": "T06R0401",
-    "layout": "NARC_map_matrix_map_matrix_0095_T28R0201_bin",
+    "layout": "House2",
     "music_day": "SEQ_GS_C_KUCHIBA",
     "music_night": "SEQ_GS_C_KUCHIBA",
     "region_map_section": "MAPSEC_VERMILION_CITY",

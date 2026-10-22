@@ -2,7 +2,7 @@
     "id": "MAP_CIANWOOD_CENTRAL_HOUSE",
     "name": "Cianwood_CentralHouse",
     "code": "T24R0701",
-    "layout": "NARC_map_matrix_map_matrix_0095_T28R0201_bin",
+    "layout": "House2",
     "music_day": "SEQ_GS_C_TANBA",
     "music_night": "SEQ_GS_C_TANBA",
     "region_map_section": "MAPSEC_CIANWOOD_CITY",

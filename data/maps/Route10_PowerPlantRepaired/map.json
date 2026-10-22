@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_10_POWER_PLANT_REPAIRED",
     "name": "Route10_PowerPlantRepaired",
     "code": "R10R0201",
-    "layout": "NARC_map_matrix_map_matrix_0251_R10R0201_bin",
+    "layout": "Route10_PowerPlantRepaired",
     "music_day": "SEQ_GS_C_NIBI",
     "music_night": "SEQ_GS_C_NIBI",
     "region_map_section": "MAPSEC_POWER_PLANT",

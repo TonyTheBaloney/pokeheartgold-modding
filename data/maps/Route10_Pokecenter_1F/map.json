@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_10_POKECENTER_1F",
     "name": "Route10_Pokecenter_1F",
     "code": "R10PC0101",
-    "layout": "NARC_map_matrix_map_matrix_0073_T21PC0101_bin",
+    "layout": "PokemonCenter_1F",
     "music_day": "SEQ_GS_POKESEN",
     "music_night": "SEQ_GS_POKESEN",
     "region_map_section": "MAPSEC_ROUTE_10",

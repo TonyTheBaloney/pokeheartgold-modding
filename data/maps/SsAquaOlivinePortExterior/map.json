@@ -2,7 +2,7 @@
     "id": "MAP_SS_AQUA_OLIVINE_PORT_EXTERIOR",
     "name": "SsAquaOlivinePortExterior",
     "code": "P01R0102",
-    "layout": "NARC_map_matrix_map_matrix_0178_P01R0102_bin",
+    "layout": "SsAquaOlivinePortExterior",
     "music_day": "SEQ_GS_C_ASAGI",
     "music_night": "SEQ_GS_C_ASAGI",
     "region_map_section": "MAPSEC_OLIVINE_CITY",

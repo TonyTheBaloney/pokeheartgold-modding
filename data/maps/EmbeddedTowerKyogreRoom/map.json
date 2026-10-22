@@ -2,7 +2,7 @@
     "id": "MAP_EMBEDDED_TOWER_KYOGRE_ROOM",
     "name": "EmbeddedTowerKyogreRoom",
     "code": "D52R0102",
-    "layout": "NARC_map_matrix_map_matrix_0284_D52R0102_bin",
+    "layout": "EmbeddedTowerKyogreRoom",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_EMBEDDED_TOWER",

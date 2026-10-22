@@ -2,7 +2,7 @@
     "id": "MAP_GOLDENROD_TUNNEL_B1F",
     "name": "Goldenrod_Tunnel_B1F",
     "code": "D37R0102",
-    "layout": "NARC_map_matrix_map_matrix_0058_D37R0102_bin",
+    "layout": "Goldenrod_Tunnel_B1F",
     "music_day": "SEQ_GS_C_KOGANE",
     "music_night": "SEQ_GS_C_KOGANE",
     "region_map_section": "MAPSEC_GOLDENROD_TUNNEL",

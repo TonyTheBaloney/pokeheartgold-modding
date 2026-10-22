@@ -2,7 +2,7 @@
     "id": "MAP_SPROUT_TOWER_2F",
     "name": "SproutTower_2F",
     "code": "D15R0102",
-    "layout": "NARC_map_matrix_map_matrix_0013_D15R0102_bin",
+    "layout": "SproutTower_2F",
     "music_day": "SEQ_GS_TO_MADATSUBOMI1",
     "music_night": "SEQ_GS_TO_MADATSUBOMI1",
     "region_map_section": "MAPSEC_SPROUT_TOWER",

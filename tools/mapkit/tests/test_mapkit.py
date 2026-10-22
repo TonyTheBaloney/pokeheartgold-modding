@@ -2,6 +2,7 @@
 """Run: python3 tools/mapkit/tests/test_mapkit.py"""
 
 import glob
+import hashlib
 import os
 import sys
 import tempfile
@@ -9,7 +10,7 @@ import unittest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from mapkit import Repo, cdefs, matrix, scripts  # noqa: E402
+from mapkit import Repo, cdefs, landdata, layouts, matrix, scripts  # noqa: E402
 from mapkit.validate import ERROR, Validator  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
@@ -48,13 +49,48 @@ class TestRepoData(unittest.TestCase):
     def setUpClass(cls):
         cls.repo = Repo(ROOT)
 
-    def test_matrix_round_trip(self):
-        files = glob.glob(os.path.join(ROOT, "files/fielddata/mapmatrix/map_matrix/*.bin"))
-        self.assertGreater(len(files), 200)
-        for p in files:
-            with open(p, "rb") as f:
-                data = f.read()
-            self.assertEqual(matrix.parse(data).to_bytes(), data, p)
+    # sha1 of the retail map matrices (in NARC order, concatenated) and land data NARC
+    RETAIL_MATRICES = "a1c8aafcef52db5d7466f5f37d678dd0519262be"
+    RETAIL_LAND_DATA = "e98a8d144035f8b8f4373d203aab62c04d7c05f7"
+
+    def test_layouts_build_the_retail_matrices(self):
+        entries = layouts.read_index(ROOT)
+        self.assertEqual(len(entries), 288)
+        h = hashlib.sha1()
+        for e in entries:
+            m = layouts.load(ROOT, e["dir"])
+            data = m.to_bytes()
+            self.assertEqual(matrix.parse(data).to_bytes(), data, e["dir"])
+            h.update(data)
+        self.assertEqual(h.hexdigest(), self.RETAIL_MATRICES)
+
+    def test_land_data_builds_the_retail_narc(self):
+        data = landdata.narc_bytes([landdata.build(d) for d in landdata.chunk_dirs(ROOT)])
+        self.assertEqual(hashlib.sha1(data).hexdigest(), self.RETAIL_LAND_DATA)
+
+    def test_permissions_text_round_trip(self):
+        p = landdata.Permissions([0x8000 | 0x0412, 0x0006] + [0] * 1022)
+        q = landdata.Permissions.from_text(p.to_text())
+        self.assertEqual(q.words()[:2], [0x8412, 0x0006])
+        bad = p.to_text().replace("[behavior]", "[nope]")
+        with self.assertRaises(landdata.LandDataError):
+            landdata.Permissions.from_text(bad)
+
+    def test_layout_errors(self):
+        d = layouts.to_json(layouts.load(ROOT, "DiglettCave"), ROOT)
+        d["land_data"][0][0] = "x"
+        with self.assertRaises(layouts.LayoutError):
+            layouts.from_json(d, ROOT)
+        d = layouts.to_json(layouts.load(ROOT, "Overworld"), ROOT)
+        d["maps"][0][0] = "MAP_NOPE"
+        with self.assertRaises(layouts.LayoutError):
+            layouts.from_json(d, ROOT)
+
+    def test_map_layout_resolves(self):
+        m = self.repo.find_map("Cherrygrove")
+        self.assertEqual(m.header["matrixId"], "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin")
+        self.assertEqual(self.repo.layout_folder(m), "Overworld")
+        self.assertEqual(self.repo.matrix(m).width, 47)
 
     def test_find_map(self):
         r = self.repo

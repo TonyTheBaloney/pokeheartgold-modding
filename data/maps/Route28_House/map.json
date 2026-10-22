@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_28_HOUSE",
     "name": "Route28_House",
     "code": "R28R0101",
-    "layout": "NARC_map_matrix_map_matrix_0066_T20R0301_bin",
+    "layout": "House1",
     "music_day": "SEQ_GS_CHAMPROAD",
     "music_night": "SEQ_GS_CHAMPROAD",
     "region_map_section": "MAPSEC_ROUTE_28",

@@ -2,7 +2,7 @@
     "id": "MAP_TEAM_ROCKET_HEADQUARTERS_B2F",
     "name": "TeamRocketHeadquarters_B2F",
     "code": "D35R0103",
-    "layout": "NARC_map_matrix_map_matrix_0054_D35R0103_bin",
+    "layout": "TeamRocketHeadquarters_B2F",
     "music_day": "SEQ_GS_D_AJITO",
     "music_night": "SEQ_GS_D_AJITO",
     "region_map_section": "MAPSEC_TEAM_ROCKET_HQ",

@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_24",
     "name": "Route24",
     "code": "R24",
-    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "layout": "Overworld",
     "music_day": "SEQ_GS_R_12_24",
     "music_night": "SEQ_GS_R_12_24",
     "region_map_section": "MAPSEC_ROUTE_24",

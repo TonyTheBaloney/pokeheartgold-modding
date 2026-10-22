@@ -2,7 +2,7 @@
     "id": "MAP_AZALEA_GYM_ENTRANCE",
     "name": "Azalea_Gym_Entrance",
     "code": "T23GYM0101",
-    "layout": "NARC_map_matrix_map_matrix_0088_T23GYM0101_bin",
+    "layout": "Azalea_Gym_Entrance",
     "music_day": "SEQ_GS_GYM",
     "music_night": "SEQ_GS_GYM",
     "region_map_section": "MAPSEC_AZALEA_TOWN",

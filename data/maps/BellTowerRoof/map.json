@@ -2,7 +2,7 @@
     "id": "MAP_BELL_TOWER_ROOF",
     "name": "BellTowerRoof",
     "code": "D17R0110",
-    "layout": "NARC_map_matrix_map_matrix_0024_D17R0110_bin",
+    "layout": "BellTowerRoof",
     "music_day": "SEQ_SILENCE_FIELD",
     "music_night": "SEQ_SILENCE_FIELD",
     "region_map_section": "MAPSEC_BELL_TOWER",

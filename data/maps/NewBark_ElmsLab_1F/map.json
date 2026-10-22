@@ -2,7 +2,7 @@
     "id": "MAP_NEW_BARK_ELMS_LAB_1F",
     "name": "NewBark_ElmsLab_1F",
     "code": "T20R0101",
-    "layout": "NARC_map_matrix_map_matrix_0100_T20R0101_bin",
+    "layout": "NewBark_ElmsLab_1F",
     "music_day": "SEQ_GS_UTSUGI_RABO",
     "music_night": "SEQ_GS_UTSUGI_RABO",
     "region_map_section": "MAPSEC_NEW_BARK_TOWN",

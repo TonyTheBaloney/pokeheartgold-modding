@@ -2,7 +2,7 @@
     "id": "MAP_RUINS_OF_ALPH_RESEARCH_CENTER",
     "name": "RuinsOfAlph_ResearchCenter",
     "code": "D24R0102",
-    "layout": "NARC_map_matrix_map_matrix_0273_D24R0102_bin",
+    "layout": "RuinsOfAlph_ResearchCenter",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_RUINS_OF_ALPH",

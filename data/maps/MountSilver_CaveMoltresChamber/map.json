@@ -2,7 +2,7 @@
     "id": "MAP_MOUNT_SILVER_CAVE_MOLTRES_CHAMBER",
     "name": "MountSilver_CaveMoltresChamber",
     "code": "D41R0105",
-    "layout": "NARC_map_matrix_map_matrix_0269_D41R0105_bin",
+    "layout": "MountSilver_CaveMoltresChamber",
     "music_day": "SEQ_GS_TO_TOUDAI",
     "music_night": "SEQ_GS_TO_TOUDAI",
     "region_map_section": "MAPSEC_MT_SILVER_CAVE",

@@ -2,7 +2,7 @@
     "id": "MAP_SLOWPOKE_WELL_B2F",
     "name": "SlowpokeWell_B2F",
     "code": "D26R0103",
-    "layout": "NARC_map_matrix_map_matrix_0106_D26R0103_bin",
+    "layout": "SlowpokeWell_B2F",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_SLOWPOKE_WELL",

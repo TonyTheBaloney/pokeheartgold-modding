@@ -2,7 +2,7 @@
     "id": "MAP_OLIVINE_LIGHTHOUSE_LIGHT_ROOM",
     "name": "Olivine_LighthouseLightRoom",
     "code": "D27R0107",
-    "layout": "NARC_map_matrix_map_matrix_0131_D27R0107_bin",
+    "layout": "Olivine_LighthouseLightRoom",
     "music_day": "SEQ_GS_TO_TOUDAI",
     "music_night": "SEQ_GS_TO_TOUDAI",
     "region_map_section": "MAPSEC_LIGHTHOUSE",

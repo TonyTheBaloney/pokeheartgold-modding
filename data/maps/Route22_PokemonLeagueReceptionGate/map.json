@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_22_POKEMON_LEAGUE_RECEPTION_GATE",
     "name": "Route22_PokemonLeagueReceptionGate",
     "code": "R22R0101",
-    "layout": "NARC_map_matrix_map_matrix_0150_R22R0101_bin",
+    "layout": "Route22_PokemonLeagueReceptionGate",
     "music_day": "SEQ_GS_R_1_26",
     "music_night": "SEQ_GS_R_1_26",
     "region_map_section": "MAPSEC_ROUTE_26",

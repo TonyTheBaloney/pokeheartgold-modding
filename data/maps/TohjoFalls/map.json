@@ -2,7 +2,7 @@
     "id": "MAP_TOHJO_FALLS",
     "name": "TohjoFalls",
     "code": "D45R0101",
-    "layout": "NARC_map_matrix_map_matrix_0151_D45R0101_bin",
+    "layout": "TohjoFalls",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_TOHJO_FALLS",

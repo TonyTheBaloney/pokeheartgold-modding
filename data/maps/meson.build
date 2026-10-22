@@ -53,7 +53,7 @@ foreach line : fs.read('maps.txt').splitlines()
         )
     endif
     maps_headers += custom_target('header_' + map_id,
-        input: [dir / 'map.json', 'maps.txt'],
+        input: [dir / 'map.json', 'maps.txt', '../layouts/layouts.txt'],
         output: 'header_' + map_id + '.h',
         command: [mapkit_sh, mapkit_root, 'gen-header', '@INPUT0@', '@OUTPUT@'],
         depend_files: mapkit_sources,

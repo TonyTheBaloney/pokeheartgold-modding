@@ -2,7 +2,7 @@
     "id": "MAP_SAFARI_ZONE_ENTRANCE_INTERIOR",
     "name": "SafariZoneEntranceInterior",
     "code": "D47R0101",
-    "layout": "NARC_map_matrix_map_matrix_0227_D47R0101_bin",
+    "layout": "SafariZoneEntranceInterior",
     "music_day": "SEQ_GS_SAFARI_HOUSE",
     "music_night": "SEQ_GS_SAFARI_HOUSE",
     "region_map_section": "MAPSEC_SAFARI_ZONE_GATE",

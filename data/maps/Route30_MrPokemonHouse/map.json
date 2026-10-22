@@ -2,7 +2,7 @@
     "id": "MAP_ROUTE_30_MR_POKEMON_HOUSE",
     "name": "Route30_MrPokemonHouse",
     "code": "R30R0201",
-    "layout": "NARC_map_matrix_map_matrix_0103_R30R0201_bin",
+    "layout": "Route30_MrPokemonHouse",
     "music_day": "SEQ_GS_R_1_30",
     "music_night": "SEQ_GS_R_1_30",
     "region_map_section": "MAPSEC_ROUTE_30",

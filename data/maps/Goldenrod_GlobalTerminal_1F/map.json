@@ -2,7 +2,7 @@
     "id": "MAP_GOLDENROD_GLOBAL_TERMINAL_1F",
     "name": "Goldenrod_GlobalTerminal_1F",
     "code": "T25R1201",
-    "layout": "NARC_map_matrix_map_matrix_0237_T25R1201_bin",
+    "layout": "Goldenrod_GlobalTerminal_1F",
     "music_day": "SEQ_GS_WIFITOWER",
     "music_night": "SEQ_GS_WIFITOWER",
     "region_map_section": "MAPSEC_GLOBAL_TERMINAL",

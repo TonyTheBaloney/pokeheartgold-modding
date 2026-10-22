@@ -2,7 +2,7 @@
     "id": "MAP_TOHJO_FALLS_HIDDEN_ROOM",
     "name": "TohjoFalls_HiddenRoom",
     "code": "D45R0102",
-    "layout": "NARC_map_matrix_map_matrix_0164_D45R0102_bin",
+    "layout": "TohjoFalls_HiddenRoom",
     "music_day": "SEQ_GS_D_CHIKATSUURO",
     "music_night": "SEQ_GS_D_CHIKATSUURO",
     "region_map_section": "MAPSEC_TOHJO_FALLS",

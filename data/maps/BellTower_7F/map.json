@@ -2,7 +2,7 @@
     "id": "MAP_BELL_TOWER_7F",
     "name": "BellTower_7F",
     "code": "D17R0107",
-    "layout": "NARC_map_matrix_map_matrix_0021_D17R0107_bin",
+    "layout": "BellTower_7F",
     "music_day": "SEQ_GS_TO_SUZU",
     "music_night": "SEQ_GS_TO_SUZU",
     "region_map_section": "MAPSEC_BELL_TOWER",

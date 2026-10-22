@@ -2,7 +2,7 @@
     "id": "MAP_VERMILION_GYM",
     "name": "Vermilion_Gym",
     "code": "T06GYM0101",
-    "layout": "NARC_map_matrix_map_matrix_0255_T06GYM0101_bin",
+    "layout": "Vermilion_Gym",
     "music_day": "SEQ_GS_GYM",
     "music_night": "SEQ_GS_GYM",
     "region_map_section": "MAPSEC_VERMILION_CITY",

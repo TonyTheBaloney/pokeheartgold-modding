@@ -2,7 +2,7 @@
     "id": "MAP_CIANWOOD_PHARMACY",
     "name": "Cianwood_Pharmacy",
     "code": "T24R0501",
-    "layout": "NARC_map_matrix_map_matrix_0139_T24R0501_bin",
+    "layout": "Cianwood_Pharmacy",
     "music_day": "SEQ_GS_C_TANBA",
     "music_night": "SEQ_GS_C_TANBA",
     "region_map_section": "MAPSEC_CIANWOOD_CITY",

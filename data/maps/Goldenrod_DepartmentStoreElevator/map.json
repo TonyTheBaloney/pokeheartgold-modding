@@ -2,7 +2,7 @@
     "id": "MAP_GOLDENROD_DEPARTMENT_STORE_ELEVATOR",
     "name": "Goldenrod_DepartmentStoreElevator",
     "code": "T25R1007",
-    "layout": "NARC_map_matrix_map_matrix_0262_D31R0202_bin",
+    "layout": "Elevator",
     "music_day": "SEQ_GS_FS",
     "music_night": "SEQ_GS_FS",
     "region_map_section": "MAPSEC_GOLDENROD_CITY",

@@ -2,7 +2,7 @@
     "id": "MAP_SAFFRON_FIGHTING_DOJO",
     "name": "Saffron_FightingDojo",
     "code": "T11R0101",
-    "layout": "NARC_map_matrix_map_matrix_0192_T11R0101_bin",
+    "layout": "Saffron_FightingDojo",
     "music_day": "SEQ_GS_C_YAMABUKI",
     "music_night": "SEQ_GS_C_YAMABUKI",
     "region_map_section": "MAPSEC_SAFFRON_CITY",

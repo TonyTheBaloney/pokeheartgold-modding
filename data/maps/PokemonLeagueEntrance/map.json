@@ -2,7 +2,7 @@
     "id": "MAP_POKEMON_LEAGUE_ENTRANCE",
     "name": "PokemonLeagueEntrance",
     "code": "T10R0101",
-    "layout": "NARC_map_matrix_map_matrix_0148_T10R0101_bin",
+    "layout": "PokemonLeagueEntrance",
     "music_day": "SEQ_GS_CHAMPROAD",
     "music_night": "SEQ_GS_CHAMPROAD",
     "region_map_section": "MAPSEC_POKEMON_LEAGUE",

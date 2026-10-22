@@ -2,7 +2,7 @@
     "id": "MAP_BATTLE_TOWER_ELEVATOR",
     "name": "BattleTower_Elevator",
     "code": "D31R0202",
-    "layout": "NARC_map_matrix_map_matrix_0262_D31R0202_bin",
+    "layout": "Elevator",
     "music_day": "SEQ_GS_BATTLETOWER2",
     "music_night": "SEQ_GS_BATTLETOWER2",
     "region_map_section": "MAPSEC_BATTLE_TOWER",

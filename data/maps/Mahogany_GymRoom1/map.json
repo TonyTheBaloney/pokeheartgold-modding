@@ -2,7 +2,7 @@
     "id": "MAP_MAHOGANY_GYM_ROOM_1",
     "name": "Mahogany_GymRoom1",
     "code": "T28GYM0103",
-    "layout": "NARC_map_matrix_map_matrix_0093_T28GYM0103_bin",
+    "layout": "Mahogany_GymRoom1",
     "music_day": "SEQ_GS_GYM",
     "music_night": "SEQ_GS_GYM",
     "region_map_section": "MAPSEC_MAHOGANY_TOWN",

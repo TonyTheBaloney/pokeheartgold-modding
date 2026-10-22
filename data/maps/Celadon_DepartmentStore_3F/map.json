@@ -2,7 +2,7 @@
     "id": "MAP_CELADON_DEPARTMENT_STORE_3F",
     "name": "Celadon_DepartmentStore_3F",
     "code": "T07R0103",
-    "layout": "NARC_map_matrix_map_matrix_0217_T07R0103_bin",
+    "layout": "Celadon_DepartmentStore_3F",
     "music_day": "SEQ_GS_FS",
     "music_night": "SEQ_GS_FS",
     "region_map_section": "MAPSEC_CELADON_CITY",

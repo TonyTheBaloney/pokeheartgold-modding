@@ -2,7 +2,7 @@
     "id": "MAP_CERULEAN_NORTH_HOUSE",
     "name": "Cerulean_NorthHouse",
     "code": "T04R0101",
-    "layout": "NARC_map_matrix_map_matrix_0096_T21R0401_bin",
+    "layout": "House4",
     "music_day": "SEQ_GS_C_HANADA",
     "music_night": "SEQ_GS_C_HANADA",
     "region_map_section": "MAPSEC_CERULEAN_CITY",
