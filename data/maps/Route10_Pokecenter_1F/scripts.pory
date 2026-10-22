@@ -1,0 +1,35 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R10PC0101_000 {
+    setvar(VAR_SPECIAL_x8007, 0)
+    callstd(std_nurse_joy)
+    end
+}
+
+script scr_seq_R10PC0101_001 {
+    simplenpcmsg(msg_0342_R10PC0101_00000)
+    end
+}
+
+script scr_seq_R10PC0101_002 {
+    if (flag(FLAG_RESTORED_POWER)) {
+        simplenpcmsg(msg_0342_R10PC0101_00002)
+        end
+    }
+    simplenpcmsg(msg_0342_R10PC0101_00001)
+    end
+}
+
+script scr_seq_R10PC0101_003 {
+    simplenpcmsg(msg_0342_R10PC0101_00003)
+    end
+}
+
+mapscripts Route10_Pokecenter_1F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: std_wireless_reset_state
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4133, 2: std_union_room_return
+        VAR_UNK_4133, 1: std_wireless_colosseum_return
+    ]
+}

@@ -1,0 +1,17 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T30R0201_000 {
+    simplenpcmsg(msg_0633_T30R0201_00000)
+    end
+}
+
+script scr_seq_T30R0201_001 {
+    playcry(SPECIES_DRATINI, 0)
+    simplenpcmsg(msg_0633_T30R0201_00002)
+    waitcry
+    end
+}
+
+mapscripts Blackthorn_WestHouse_MapScripts {
+}

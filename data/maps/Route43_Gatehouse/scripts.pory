@@ -1,0 +1,164 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R43R0201_000
+	ScrDef scr_seq_R43R0201_001
+	ScrDef scr_seq_R43R0201_002
+	ScrDef scr_seq_R43R0201_003
+	ScrDefEnd
+`
+
+script scr_seq_R43R0201_001 {
+    stopbgm(SEQ_GS_R_7_42)
+    playbgm(SEQ_GS_EYE_ROCKET)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 1) { goto(_0037) }
+    goto(_0095)
+    goto(_0066)
+_0037:
+    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_0114)
+    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_0128)
+    waitmovement
+    npcmsg(msg_0403_R43R0201_00000)
+    hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 1000)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_006C) }
+    npcmsg(msg_0403_R43R0201_00001)
+    closemessage
+_0066:
+    goto(_0077)
+_006C:
+    npcmsg(msg_0403_R43R0201_00002)
+    closemessage
+    goto(_0077)
+_0077:
+    submoneyimmediate(1000)
+    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_0144)
+    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_0158)
+    waitmovement
+    goto(_00ED)
+_0095:
+    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_0164)
+    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_0180)
+    waitmovement
+    npcmsg(msg_0403_R43R0201_00000)
+    hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 1000)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00CA) }
+    npcmsg(msg_0403_R43R0201_00001)
+    closemessage
+    goto(_00D5)
+_00CA:
+    npcmsg(msg_0403_R43R0201_00002)
+    closemessage
+    goto(_00D5)
+_00D5:
+    submoneyimmediate(1000)
+    applymovement(obj_R43R0201_rocketm, Route43_Gatehouse_Movement_0194)
+    applymovement(obj_R43R0201_rocketm_2, Route43_Gatehouse_Movement_01A4)
+    waitmovement
+_00ED:
+    stopbgm(SEQ_GS_EYE_ROCKET)
+    playbgm(SEQ_GS_R_7_42)
+    setvar(VAR_UNK_410F, 1)
+    end
+}
+
+script scr_seq_R43R0201_002 {
+    if (flag(FLAG_ROCKET_HIDEOUT_CLEARED)) {
+        end
+    }
+    setvar(VAR_UNK_410F, 0)
+    end
+}
+
+movement Route43_Gatehouse_Movement_0114 {
+    emote_exclamation_mark
+    walk_faster_down * 3
+    walk_faster_right * 2
+    face_down
+}
+
+movement Route43_Gatehouse_Movement_0128 {
+    delay_8 * 6
+    face_down
+    emote_exclamation_mark
+    walk_faster_down * 3
+    walk_faster_left
+    face_down
+}
+
+movement Route43_Gatehouse_Movement_0144 {
+    delay_4 * 3
+    walk_faster_left * 2
+    walk_faster_up * 3
+    face_down
+}
+
+movement Route43_Gatehouse_Movement_0158 {
+    walk_faster_right
+    walk_faster_up * 3
+}
+
+movement Route43_Gatehouse_Movement_0164 {
+    delay_8 * 6
+    face_up
+    emote_exclamation_mark
+    walk_faster_up * 4
+    walk_faster_right
+    face_up
+}
+
+movement Route43_Gatehouse_Movement_0180 {
+    emote_exclamation_mark
+    walk_faster_up * 4
+    walk_faster_left * 2
+    face_up
+}
+
+movement Route43_Gatehouse_Movement_0194 {
+    delay_4 * 3
+    walk_faster_left
+    walk_faster_down * 4
+}
+
+movement Route43_Gatehouse_Movement_01A4 {
+    walk_faster_right * 2
+    walk_faster_down * 4
+    face_up
+}
+
+script scr_seq_R43R0201_000 {
+    simplenpcmsg(msg_0403_R43R0201_00003)
+    end
+}
+
+script scr_seq_R43R0201_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_TM36_FROM_ROUTE_43_GUARD)) {
+        npcmsg(msg_0403_R43R0201_00004)
+        if (!itemspace(ITEM_TM36, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_obtain_item_verbose)
+        waitbuttonpress
+        setflag(FLAG_GOT_TM36_FROM_ROUTE_43_GUARD)
+    }
+    npcmsg(msg_0403_R43R0201_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Route43_Gatehouse_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_410F, 0: scr_seq_R43R0201_001
+    ]
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R43R0201_002
+}

@@ -1,0 +1,211 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D37R0103_000
+	ScrDef scr_seq_D37R0103_001
+	ScrDef scr_seq_D37R0103_002
+	ScrDef scr_seq_D37R0103_003
+	ScrDefEnd
+`
+
+script scr_seq_D37R0103_003 {
+    makeobjectvisible(obj_D37R0103_stop)
+    makeobjectvisible(obj_D37R0103_stop_2)
+    makeobjectvisible(obj_D37R0103_stop_3)
+    makeobjectvisible(obj_D37R0103_stop_4)
+    makeobjectvisible(obj_D37R0103_stop_5)
+    makeobjectvisible(obj_D37R0103_stop_6)
+    makeobjectvisible(obj_D37R0103_stop_7)
+    makeobjectvisible(obj_D37R0103_stop_8)
+    makeobjectvisible(obj_D37R0103_stop_9)
+    if (flag(FLAG_UNK_096)) { goto(_0059) }
+    if (flag(FLAG_UNK_097)) { goto(_01BE) }
+    if (flag(FLAG_UNK_098)) { goto(_0207) }
+    end
+_0059:
+    if (flag(FLAG_UNK_097)) { goto(_00B3) }
+    if (flag(FLAG_UNK_098)) { goto(_013E) }
+    changeobjectmovement(0, 9)
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH)
+    movepersonfacing(obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop, 19, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_2, 20, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_3, 20, 0, 18, DIR_NORTH)
+    end
+_00B3:
+    if (flag(FLAG_UNK_098)) { goto(_02BF) }
+    changeobjectmovement(0, 9)
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH)
+    movepersonfacing(obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop, 19, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_2, 20, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_3, 20, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke_2, 3, 0, 14, DIR_WEST)
+    movepersonfacing(obj_D37R0103_babyboy1_5_2, 1, 0, 14, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_4, 1, 0, 13, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_5, 2, 0, 13, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_6, 2, 0, 14, DIR_NORTH)
+    end
+_013E:
+    changeobjectmovement(0, 9)
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH)
+    movepersonfacing(obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop, 19, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_2, 20, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_3, 20, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke_3, 7, 0, 17, DIR_EAST)
+    movepersonfacing(obj_D37R0103_babyboy1_5, 8, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_7, 8, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_8, 9, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_9, 9, 0, 18, DIR_NORTH)
+    end
+_01BE:
+    if (flag(FLAG_UNK_098)) { goto(_0245) }
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke_2, 3, 0, 14, DIR_WEST)
+    movepersonfacing(obj_D37R0103_babyboy1_5_2, 1, 0, 14, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_4, 1, 0, 13, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_5, 2, 0, 13, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_6, 2, 0, 14, DIR_NORTH)
+    end
+_0207:
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke_3, 7, 0, 17, DIR_EAST)
+    movepersonfacing(obj_D37R0103_babyboy1_5, 8, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_7, 8, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_8, 9, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_9, 9, 0, 18, DIR_NORTH)
+    end
+_0245:
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke_2, 3, 0, 14, DIR_WEST)
+    movepersonfacing(obj_D37R0103_babyboy1_5_2, 1, 0, 14, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_4, 1, 0, 13, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_5, 2, 0, 13, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_6, 2, 0, 14, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke_3, 7, 0, 17, DIR_EAST)
+    movepersonfacing(obj_D37R0103_babyboy1_5, 8, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_7, 8, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_8, 9, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_9, 9, 0, 18, DIR_NORTH)
+    end
+_02BF:
+    changeobjectmovement(0, 9)
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH)
+    movepersonfacing(obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop, 19, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_2, 20, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_3, 20, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke_2, 3, 0, 14, DIR_WEST)
+    movepersonfacing(obj_D37R0103_babyboy1_5_2, 1, 0, 14, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_4, 1, 0, 13, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_5, 2, 0, 13, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_6, 2, 0, 14, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_tsure_poke_static_machoke_3, 7, 0, 17, DIR_EAST)
+    movepersonfacing(obj_D37R0103_babyboy1_5, 8, 0, 18, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_7, 8, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_8, 9, 0, 17, DIR_NORTH)
+    movepersonfacing(obj_D37R0103_stop_9, 9, 0, 18, DIR_NORTH)
+    end
+}
+
+script scr_seq_D37R0103_000 {
+    if (flag(FLAG_UNK_096)) { goto(_03C9) }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0118_D37R0103_00000)
+    closemessage
+    applymovement(obj_D37R0103_tsure_poke_static_machoke, Goldenrod_DepartmentStoreBasement_Movement_0504)
+    applymovement(obj_D37R0103_babyboy1_5_3, Goldenrod_DepartmentStoreBasement_Movement_0504)
+    applymovement(obj_D37R0103_stop, Goldenrod_DepartmentStoreBasement_Movement_0504)
+    applymovement(obj_D37R0103_stop_2, Goldenrod_DepartmentStoreBasement_Movement_0504)
+    applymovement(obj_D37R0103_stop_3, Goldenrod_DepartmentStoreBasement_Movement_0504)
+    waitmovement
+    setflag(FLAG_UNK_096)
+    changeobjectmovement(0, 9)
+    releaseall
+    end
+_03C9:
+    simplenpcmsg(msg_0118_D37R0103_00001)
+    end
+}
+
+script scr_seq_D37R0103_001 {
+    getpersoncoords(4, VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 15) {
+        if (var(VAR_TEMP_x4001) != 16) {
+            goto(_03C9)
+        _041C:
+            if (flag(FLAG_UNK_097)) { goto(_03C9) }
+            getobjectfacing(4, VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 0) {
+            } else {
+                goto(_03C9)
+            }
+            playse(SEQ_SE_DP_SELECT)
+            lockall
+            npcmsg(msg_0118_D37R0103_00000)
+            closemessage
+            applymovement(obj_D37R0103_tsure_poke_static_machoke_2, Goldenrod_DepartmentStoreBasement_Movement_050C)
+            applymovement(obj_D37R0103_babyboy1_5_2, Goldenrod_DepartmentStoreBasement_Movement_050C)
+            applymovement(obj_D37R0103_stop_4, Goldenrod_DepartmentStoreBasement_Movement_050C)
+            applymovement(obj_D37R0103_stop_5, Goldenrod_DepartmentStoreBasement_Movement_050C)
+            applymovement(obj_D37R0103_stop_6, Goldenrod_DepartmentStoreBasement_Movement_050C)
+            waitmovement
+            setflag(FLAG_UNK_097)
+            releaseall
+            end
+        _0483:
+            if (flag(FLAG_UNK_098)) { goto(_03C9) }
+            getobjectfacing(4, VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 1) {
+            } else {
+                goto(_03C9)
+            }
+            playse(SEQ_SE_DP_SELECT)
+            lockall
+            npcmsg(msg_0118_D37R0103_00000)
+            closemessage
+            applymovement(obj_D37R0103_tsure_poke_static_machoke_3, Goldenrod_DepartmentStoreBasement_Movement_0514)
+            applymovement(obj_D37R0103_babyboy1_5, Goldenrod_DepartmentStoreBasement_Movement_0514)
+            applymovement(obj_D37R0103_stop_7, Goldenrod_DepartmentStoreBasement_Movement_0514)
+            applymovement(obj_D37R0103_stop_8, Goldenrod_DepartmentStoreBasement_Movement_0514)
+            applymovement(obj_D37R0103_stop_9, Goldenrod_DepartmentStoreBasement_Movement_0514)
+            waitmovement
+            setflag(FLAG_UNK_098)
+            releaseall
+            end
+        }
+        goto(_0483)
+        goto(_041C)
+    }
+    goto(_041C)
+    goto(_041C)
+}
+
+script scr_seq_D37R0103_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    playcry(SPECIES_MACHOKE, 0)
+    npcmsg(msg_0118_D37R0103_00002)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Goldenrod_DepartmentStoreBasement_Movement_0504 {
+    walk_slow_down * 2
+}
+
+movement Goldenrod_DepartmentStoreBasement_Movement_050C {
+    walk_slow_left * 2
+}
+
+movement Goldenrod_DepartmentStoreBasement_Movement_0514 {
+    walk_slow_right * 2
+}
+
+mapscripts Goldenrod_DepartmentStoreBasement_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_D37R0103_003
+}

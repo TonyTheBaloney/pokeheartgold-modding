@@ -1,0 +1,142 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T31_000
+	ScrDef scr_seq_T31_001
+	ScrDef scr_seq_T31_002
+	ScrDefEnd
+`
+
+script scr_seq_T31_001 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 3) { goto(_0043) }
+        if (var(VAR_TEMP_x4000) == 5) { goto(_0043) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _0043:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T31_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, MountSilver_Movement_019C)
+        applymovement(obj_T31_gsmiddleman1, MountSilver_Movement_01E8)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, MountSilver_Movement_01B4)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, MountSilver_Movement_01D4)
+        applymovement(obj_T31_gsmiddleman1, MountSilver_Movement_01E8)
+    } else {
+        applymovement(obj_player, MountSilver_Movement_01C0)
+        applymovement(obj_T31_gsmiddleman1, MountSilver_Movement_01E8)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, MountSilver_Movement_01F4)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(77)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement MountSilver_Movement_019C {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement MountSilver_Movement_01B4 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement MountSilver_Movement_01C0 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement MountSilver_Movement_01D4 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement MountSilver_Movement_01E8 {
+    delay_8
+    walk_in_place_up
+}
+
+movement MountSilver_Movement_01F4 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_T31_002 {
+    trainertipsex(2, msg_0636_T31_00000)
+    end
+}
+
+mapscripts MountSilver_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T31_001
+}

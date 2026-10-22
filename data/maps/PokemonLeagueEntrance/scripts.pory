@@ -1,0 +1,342 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T10R0101_000
+	ScrDef scr_seq_T10R0101_001
+	ScrDef scr_seq_T10R0101_002
+	ScrDef scr_seq_T10R0101_003
+	ScrDef scr_seq_T10R0101_004
+	ScrDef scr_seq_T10R0101_005
+	ScrDef scr_seq_T10R0101_006
+	ScrDef scr_seq_T10R0101_007
+	ScrDef scr_seq_T10R0101_008
+	ScrDefEnd
+`
+
+script scr_seq_T10R0101_005 {
+    setflag(FLAG_HIDE_WILLS_ROOM_RETREAT)
+    setflag(FLAG_HIDE_KOGAS_ROOM_RETREAT)
+    setflag(FLAG_HIDE_BRUNOS_ROOM_RETREAT)
+    setflag(FLAG_HIDE_KARENS_ROOM_RETREAT)
+    clearflag(FLAG_HIDE_WILLS_ROOM_EXIT)
+    clearflag(FLAG_HIDE_KOGAS_ROOM_EXIT)
+    clearflag(FLAG_HIDE_BRUNOS_ROOM_EXIT)
+    clearflag(FLAG_HIDE_KARENS_ROOM_EXIT)
+    clearflag(FLAG_DEFEATED_WILL)
+    clearflag(FLAG_DEFEATED_KOGA)
+    clearflag(FLAG_DEFEATED_BRUNO)
+    clearflag(FLAG_DEFEATED_KAREN)
+    if (var(VAR_UNK_40FC) <= 1) { goto(_00AC) }
+    if (flag(FLAG_UNK_AA9)) { goto(_00AC) }
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 1) {
+        setvar(VAR_UNK_4119, 1)
+    } elif (var(VAR_TEMP_x4000) == 3) {
+        setvar(VAR_UNK_4119, 1)
+    } else {
+        setvar(VAR_UNK_4119, 0)
+    }
+    end
+_00AC:
+    end
+}
+
+script scr_seq_T10R0101_001 {
+    simplenpcmsg(msg_0522_T10R0101_00000)
+    end
+}
+
+script scr_seq_T10R0101_002 {
+    simplenpcmsg(msg_0522_T10R0101_00001)
+    end
+}
+
+script scr_seq_T10R0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_ABRA, 0)
+    npcmsg(msg_0522_T10R0101_00002)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T10R0101_006 {
+    followmonresetmovement
+    lockall
+    fadeoutbgm(0, 3)
+    applymovement(obj_player, PokemonLeagueEntrance_Movement_01DC)
+    waitmovement
+    callstd(std_play_rival_intro_music)
+    getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+    clearflag(FLAG_HIDE_INDIGO_PLATEAU_RIVAL)
+    addobject(obj_T10R0101_gsrivel)
+    movepersonfacing(obj_T10R0101_gsrivel, VAR_SPECIAL_x8000, 0, 23, DIR_NORTH)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_T10R0101_gsrivel, PokemonLeagueEntrance_Movement_0208)
+    applymovement(obj_player, PokemonLeagueEntrance_Movement_01E8)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferrivalsname(0)
+    npcmsg(msg_0522_T10R0101_00003)
+    closemessage
+    getstarterchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 152) {
+        trainerbattle(TRAINER_RIVAL_SILVER_20, 0, 0, 0)
+    } elif (var(VAR_SPECIAL_RESULT) == 155) {
+        trainerbattle(TRAINER_RIVAL_SILVER_21, 0, 0, 0)
+    } else {
+        trainerbattle(TRAINER_RIVAL_SILVER_19, 0, 0, 0)
+    }
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        removeobject(obj_T10R0101_gsrivel)
+        setflag(FLAG_HIDE_INDIGO_PLATEAU_RIVAL)
+        whiteout
+        releaseall
+        end
+    }
+    callstd(std_play_rival_outro_music)
+    bufferrivalsname(0)
+    npcmsg(msg_0522_T10R0101_00004)
+    closemessage
+    applymovement(obj_T10R0101_gsrivel, PokemonLeagueEntrance_Movement_0210)
+    waitmovement
+    setvar(VAR_UNK_4119, 0)
+    setflag(FLAG_UNK_AA9)
+    removeobject(obj_T10R0101_gsrivel)
+    callstd(std_fade_end_rival_outro_music)
+    releaseall
+    end
+}
+
+movement PokemonLeagueEntrance_Movement_01DC {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement PokemonLeagueEntrance_Movement_01E8 {
+    delay_8 * 2
+    walk_down
+}
+
+movement PokemonLeagueEntrance_Movement_01F4 {
+    delay_8 * 2
+    walk_right
+    walk_up
+    walk_in_place_down
+}
+
+movement PokemonLeagueEntrance_Movement_0208 {
+    walk_up * 7
+}
+
+movement PokemonLeagueEntrance_Movement_0210 {
+    walk_in_place_down
+    walk_down * 7
+}
+
+script scr_seq_T10R0101_000 {
+    setvar(VAR_SPECIAL_x8007, 0)
+    callstd(std_nurse_joy)
+    end
+}
+
+script scr_seq_T10R0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 13)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_T10R0101_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_TEMP_x4005) >= 1) {
+        npcmsg(msg_0522_T10R0101_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0522_T10R0101_00005)
+    closemessage
+    getplayerfacing(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 2) {
+        applymovement(obj_T10R0101_counterm, PokemonLeagueEntrance_Movement_02A0)
+    } else {
+        applymovement(obj_T10R0101_counterm, PokemonLeagueEntrance_Movement_02B0)
+        waitmovement
+    }
+    waitmovement
+    setvar(VAR_TEMP_x4005, 1)
+    releaseall
+    end
+}
+
+movement PokemonLeagueEntrance_Movement_02A0 {
+    lock_dir
+    walk_left
+    unlock_dir
+}
+
+movement PokemonLeagueEntrance_Movement_02B0 {
+    lock_dir
+    walk_right
+    unlock_dir
+}
+
+script scr_seq_T10R0101_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0522_T10R0101_00007)
+    touchscreenmenuhide
+_02CD:
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(msg_0522_T10R0101_00008, 255, 0)
+    menuitemadd(msg_0522_T10R0101_00009, 255, 1)
+    menuitemadd(msg_0522_T10R0101_00010, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0317)
+    Case(1, _0456)
+    goto(_058C)
+    end
+_0317:
+    if (var(VAR_UNK_40E6) == 0) { goto(_037A) }
+    npcmsg(msg_0522_T10R0101_00011)
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(msg_0522_T10R0101_00012, 255, 0)
+    menuitemadd(msg_0522_T10R0101_00013, 255, 1)
+    menuitemadd(msg_0522_T10R0101_00014, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _037A)
+    Case(1, _03F1)
+    goto(_0371)
+    end
+_0371:
+    npcmsg(msg_0522_T10R0101_00007)
+    goto(_02CD)
+_037A:
+    npcmsg(msg_0522_T10R0101_00015)
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(msg_0522_T10R0101_00016, 255, 0)
+    menuitemadd(msg_0522_T10R0101_00017, 255, 1)
+    menuitemadd(msg_0522_T10R0101_00018, 255, 2)
+    menuitemadd(msg_0522_T10R0101_00019, 255, 3)
+    menuitemadd(msg_0522_T10R0101_00026, 255, 4)
+    menuexec
+    if (var(VAR_SPECIAL_RESULT) == 4) { goto(_03CF) }
+    closemessage
+    viewrankings(RANKINGS_SCOPE_GROUP, RANKINGS_PAGE_POKEMON, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0522_T10R0101_00007)
+    touchscreenmenuhide
+    goto(_02CD)
+_03CF:
+    if (var(VAR_UNK_40E6) != 0) {
+        goto(_0317)
+    _03F1:
+        npcmsg(msg_0522_T10R0101_00015)
+        menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        menuitemadd(msg_0522_T10R0101_00020, 255, 0)
+        menuitemadd(msg_0522_T10R0101_00021, 255, 1)
+        menuitemadd(msg_0522_T10R0101_00022, 255, 2)
+        menuitemadd(msg_0522_T10R0101_00023, 255, 3)
+        menuitemadd(msg_0522_T10R0101_00024, 255, 4)
+        menuitemadd(msg_0522_T10R0101_00025, 255, 5)
+        menuitemadd(msg_0522_T10R0101_00026, 255, 6)
+        menuexec
+        if (var(VAR_SPECIAL_RESULT) == 6) { goto(_03CF) }
+        closemessage
+        viewrankings(RANKINGS_SCOPE_GROUP, RANKINGS_PAGE_BATTLE_TOWER, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0522_T10R0101_00007)
+        touchscreenmenuhide
+        goto(_02CD)
+    _0456:
+        if (var(VAR_UNK_40E6) == 0) { goto(_04B0) }
+        npcmsg(msg_0522_T10R0101_00011)
+        menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        menuitemadd(msg_0522_T10R0101_00012, 255, 0)
+        menuitemadd(msg_0522_T10R0101_00013, 255, 1)
+        menuitemadd(msg_0522_T10R0101_00014, 255, 2)
+        menuexec
+        Switch(VAR_SPECIAL_RESULT)
+        Case(0, _04B0)
+        Case(1, _0527)
+        goto(_02CD)
+        end
+    _04B0:
+        npcmsg(msg_0522_T10R0101_00015)
+        menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        menuitemadd(msg_0522_T10R0101_00016, 255, 0)
+        menuitemadd(msg_0522_T10R0101_00017, 255, 1)
+        menuitemadd(msg_0522_T10R0101_00018, 255, 2)
+        menuitemadd(msg_0522_T10R0101_00019, 255, 3)
+        menuitemadd(msg_0522_T10R0101_00026, 255, 4)
+        menuexec
+        if (var(VAR_SPECIAL_RESULT) == 4) { goto(_0505) }
+        closemessage
+        viewrankings(RANKINGS_SCOPE_GLOBAL, RANKINGS_PAGE_POKEMON, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0522_T10R0101_00007)
+        touchscreenmenuhide
+        goto(_02CD)
+    _0505:
+        if (var(VAR_UNK_40E6) != 0) {
+            goto(_0456)
+        _0527:
+            npcmsg(msg_0522_T10R0101_00015)
+            menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+            menuitemadd(msg_0522_T10R0101_00020, 255, 0)
+            menuitemadd(msg_0522_T10R0101_00021, 255, 1)
+            menuitemadd(msg_0522_T10R0101_00022, 255, 2)
+            menuitemadd(msg_0522_T10R0101_00023, 255, 3)
+            menuitemadd(msg_0522_T10R0101_00024, 255, 4)
+            menuitemadd(msg_0522_T10R0101_00025, 255, 5)
+            menuitemadd(msg_0522_T10R0101_00026, 255, 6)
+            menuexec
+            if (var(VAR_SPECIAL_RESULT) == 6) { goto(_0505) }
+            closemessage
+            viewrankings(RANKINGS_SCOPE_GLOBAL, RANKINGS_PAGE_BATTLE_TOWER, VAR_SPECIAL_RESULT)
+            npcmsg(msg_0522_T10R0101_00007)
+            touchscreenmenuhide
+            goto(_02CD)
+        _058C:
+            touchscreenmenushow
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0522_T10R0101_00007)
+        goto(_02CD)
+        goto(_0527)
+    }
+    npcmsg(msg_0522_T10R0101_00007)
+    goto(_02CD)
+    goto(_03F1)
+}
+
+mapscripts PokemonLeagueEntrance_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T10R0101_005
+    INIT_SCRIPT_ON_RESUME: std_wireless_reset_state
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4133, 2: std_union_room_return
+        VAR_UNK_4133, 1: std_wireless_colosseum_return
+    ]
+}

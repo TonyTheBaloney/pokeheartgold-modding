@@ -136,8 +136,9 @@ class Repo:
     def bank_path(self, m, field):
         e = self.migrated.get(m.name)
         if e and field in layout.BANK_FIELDS:
-            if field in ("scriptsBank", "scriptHeaderBank") and self.pory_entry(m):
-                return self.path(layout.MAPS_DIR, e["dir"], "scripts.pory")
+            pe = self.pory_entry(m) if field in ("scriptsBank", "scriptHeaderBank") else None
+            if pe:
+                return self.path(layout.MAPS_DIR, pe["dir"], "scripts.pory")
             return layout.folder_paths(self.root, e, list(self.migrated.values()))[field]
         v = m.header.get(field, "")
         if field in ("scriptsBank", "scriptHeaderBank"):
@@ -154,10 +155,12 @@ class Repo:
         raise KeyError(field)
 
     def pory_entry(self, m):
-        """The maps.txt entry if this map's scripts come from scripts.pory, else None."""
+        """The maps.txt entry whose scripts.pory holds this map's scripts (the owner's
+        for a map that borrows another map's scripts), else None."""
         e = self.migrated.get(m.name)
-        if e and not e["scripts"].startswith("@") and \
-                os.path.exists(self.path(layout.MAPS_DIR, e["dir"], "scripts.pory")):
+        if e and e["scripts"].startswith("@"):
+            e = next((o for o in self.migrated.values() if o["dir"] == e["scripts"][1:]), None)
+        if e and os.path.exists(self.path(layout.MAPS_DIR, e["dir"], "scripts.pory")):
             return e
         return None
 

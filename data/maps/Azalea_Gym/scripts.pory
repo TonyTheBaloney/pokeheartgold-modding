@@ -1,0 +1,181 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T23GYM0102_000
+	ScrDef scr_seq_T23GYM0102_001
+	ScrDef scr_seq_T23GYM0102_002
+	ScrDef scr_seq_T23GYM0102_003
+	ScrDef scr_seq_T23GYM0102_004
+	ScrDef scr_seq_T23GYM0102_005
+	ScrDef scr_seq_T23GYM0102_006
+	ScrDef scr_seq_T23GYM0102_007
+	ScrDef scr_seq_T23GYM0102_008
+	ScrDef scr_seq_T23GYM0102_009
+	ScrDef scr_seq_T23GYM0102_010
+	ScrDef scr_seq_T23GYM0102_011
+	ScrDef scr_seq_T23GYM0102_012
+	ScrDef scr_seq_T23GYM0102_013
+	ScrDef scr_seq_T23GYM0102_014
+	ScrDef scr_seq_T23GYM0102_015
+	ScrDef scr_seq_T23GYM0102_016
+	ScrDefEnd
+`
+
+script scr_seq_T23GYM0102_016 {
+    azaleagyminit
+    getphonebookrematch(PHONE_CONTACT_BUGSY, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_AZALEA_GYM_BUGSY)
+        end
+    }
+    if (flag(FLAG_GAME_CLEAR)) { goto(_006C) }
+    clearflag(FLAG_HIDE_AZALEA_GYM_BUGSY)
+    end
+_006C:
+    checkregisteredphonenumber(PHONE_CONTACT_BUGSY, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_0096) }
+    getweekday(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 4) { goto(_0096) }
+    setflag(FLAG_HIDE_AZALEA_GYM_BUGSY)
+    end
+_0096:
+    getweekday(VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_00C7) }
+    if (var(VAR_TEMP_x4001) == 3) { goto(_00C7) }
+    if (var(VAR_TEMP_x4001) == 5) { goto(_00C7) }
+    clearflag(FLAG_HIDE_AZALEA_GYM_BUGSY)
+    end
+_00C7:
+    setflag(FLAG_HIDE_AZALEA_GYM_BUGSY)
+    end
+}
+
+script scr_seq_T23GYM0102_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_HIVE, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        if (!flag(FLAG_GOT_TM89_FROM_BUGSY)) { goto(_0136) }
+        npcmsg(msg_0567_T23GYM0102_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0567_T23GYM0102_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_BUGSY_BUGSY, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0174) }
+    npcmsg(msg_0567_T23GYM0102_00001)
+    bufferplayersname(0)
+    npcmsg(msg_0567_T23GYM0102_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    givebadge(BADGE_HIVE)
+    settrainerflag(TRAINER_BUG_CATCHER_AL)
+    settrainerflag(TRAINER_BUG_CATCHER_BENNY)
+    settrainerflag(TRAINER_BUG_CATCHER_JOSH)
+    settrainerflag(TRAINER_TWINS_AMY_AND_MIMI)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    npcmsg(msg_0567_T23GYM0102_00003)
+_0136:
+    if (!itemspace(ITEM_TM89, 1)) { goto(_016A) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM89_FROM_BUGSY)
+    npcmsg(msg_0567_T23GYM0102_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_016A:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+_0174:
+    whiteout
+    releaseall
+    end
+}
+
+script scr_seq_T23GYM0102_000 {
+    end
+}
+
+script scr_seq_T23GYM0102_002 {
+    azaleagymspinarak(0)
+    end
+}
+
+script scr_seq_T23GYM0102_003 {
+    azaleagymspinarak(1)
+    end
+}
+
+script scr_seq_T23GYM0102_004 {
+    azaleagymspinarak(2)
+    end
+}
+
+script scr_seq_T23GYM0102_005 {
+    azaleagymspinarak(3)
+    end
+}
+
+script scr_seq_T23GYM0102_006 {
+    azaleagymspinarak(4)
+    end
+}
+
+script scr_seq_T23GYM0102_007 {
+    azaleagymspinarak(5)
+    end
+}
+
+script scr_seq_T23GYM0102_008 {
+    azaleagymspinarak(6)
+    end
+}
+
+script scr_seq_T23GYM0102_009 {
+    azaleagymspinarak(7)
+    end
+}
+
+script scr_seq_T23GYM0102_010 {
+    azaleagymspinarak(8)
+    end
+}
+
+script scr_seq_T23GYM0102_011 {
+    azaleagymspinarak(9)
+    end
+}
+
+script scr_seq_T23GYM0102_012 {
+    azaleagymspinarak(10)
+    end
+}
+
+script scr_seq_T23GYM0102_013 {
+    azaleagymspinarak(11)
+    end
+}
+
+script scr_seq_T23GYM0102_014 {
+    azaleagymswitch(0)
+    end
+}
+
+script scr_seq_T23GYM0102_015 {
+    azaleagymswitch(1)
+    end
+}
+
+mapscripts Azalea_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T23GYM0102_016
+}

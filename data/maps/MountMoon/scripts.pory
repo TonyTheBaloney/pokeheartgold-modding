@@ -1,0 +1,72 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D02R0101_000 {
+    callstd(std_play_rival_intro_music)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D02R0101_gsrivel, MountMoon_Movement_00D0)
+    applymovement(obj_player, MountMoon_Movement_00DC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    bufferrivalsname(1)
+    npcmsg(msg_0049_D02R0101_00000)
+    closemessage
+    getstarterchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 152) {
+        trainerbattle(TRAINER_RIVAL_SILVER_15, 0, 0, 0)
+    } elif (var(VAR_SPECIAL_RESULT) == 155) {
+        trainerbattle(TRAINER_RIVAL_SILVER_16, 0, 0, 0)
+    } else {
+        trainerbattle(TRAINER_RIVAL_SILVER_14, 0, 0, 0)
+    }
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        end
+    }
+    callstd(std_play_rival_outro_music)
+    bufferplayersname(0)
+    bufferrivalsname(1)
+    npcmsg(msg_0049_D02R0101_00001)
+    closemessage
+    applymovement(obj_D02R0101_gsrivel, MountMoon_Movement_00E8)
+    waitmovement
+    removeobject(obj_D02R0101_gsrivel)
+    callstd(std_fade_end_rival_outro_music)
+    setflag(FLAG_UNK_25C)
+    clearflag(FLAG_HIDE_DRAGONS_DEN_RIVAL)
+    setvar(VAR_UNK_40FC, 1)
+    setvar(VAR_UNK_40F5, 1)
+    setflag(FLAG_UNK_0E3)
+    end
+}
+
+movement MountMoon_Movement_00D0 {
+    emote_exclamation_mark
+    walk_left * 4
+}
+
+movement MountMoon_Movement_00DC {
+    delay_8 * 4
+    walk_right
+}
+
+movement MountMoon_Movement_00E8 {
+    walk_fast_right * 5
+    walk_fast_down * 9
+}
+
+script(local) _00F4 {
+    end
+}
+
+mapscripts MountMoon_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40F5, 0: scr_seq_D02R0101_000
+    ]
+}

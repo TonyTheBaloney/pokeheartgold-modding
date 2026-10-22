@@ -1,0 +1,165 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_P01R0302_000
+	ScrDef scr_seq_P01R0302_001
+	ScrDef scr_seq_P01R0302_002
+	ScrDefEnd
+`
+
+script scr_seq_P01R0302_002 {
+    if (var(VAR_SCENE_SS_AQUA) >= 4) {
+        setflag(FLAG_HIDE_SS_AQUA_CAPTAINS_ROOM_GRANDDAUGHTER)
+        end
+    }
+    end
+}
+
+script scr_seq_P01R0302_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_SS_AQUA) >= 6) {
+        if (!flag(FLAG_DAILY_RECEIVED_PLATE_FROM_AQUA_CAPTAIN)) {
+            if (!flag(FLAG_RECEIVED_PLATE_FROM_AQUA_CAPTAIN_THIS_TRIP)) {
+                checkbadge(BADGE_EARTH, VAR_TEMP_x4002)
+                if (var(VAR_TEMP_x4002) == 1) {
+                    npcmsg(msg_0260_P01R0302_00007)
+                    closemessage
+                    if (var(VAR_RECEIVED_PLATES_COUNT) == 0) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_FLAME_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 1) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_SPLASH_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 2) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_ZAP_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 3) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_MEADOW_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 4) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_ICICLE_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 5) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_FIST_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 6) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_TOXIC_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 7) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_EARTH_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 8) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_SKY_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 9) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_MIND_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 10) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_INSECT_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 11) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_STONE_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 12) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_SPOOKY_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 13) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_DRACO_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 14) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_DREAD_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } elif (var(VAR_RECEIVED_PLATES_COUNT) == 15) {
+                        setvar(VAR_SPECIAL_x8004, ITEM_IRON_PLATE)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                    } else {
+                        setvar(VAR_SPECIAL_x8004, ITEM_NUGGET)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                        goto(_029C)
+                    }
+                    addvar(VAR_RECEIVED_PLATES_COUNT, 1)
+                _029C:
+                    hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+                    if (var(VAR_SPECIAL_RESULT) == 0) {
+                        bufferitemname(1, VAR_SPECIAL_x8004)
+                        npcmsg(msg_0260_P01R0302_00008)
+                        waitbuttonpress
+                        closemessage
+                        releaseall
+                        end
+                    }
+                    callstd(std_obtain_item_verbose)
+                    setflag(FLAG_DAILY_RECEIVED_PLATE_FROM_AQUA_CAPTAIN)
+                    setflag(FLAG_RECEIVED_PLATE_FROM_AQUA_CAPTAIN_THIS_TRIP)
+                    closemessage
+                    releaseall
+                    end
+                }
+            }
+        }
+        npcmsg(msg_0260_P01R0302_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_SCENE_SS_AQUA) == 4) { goto(_0050) }
+    npcmsg(msg_0260_P01R0302_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0050:
+    npcmsg(msg_0260_P01R0302_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_P01R0302_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0260_P01R0302_00000)
+    closemessage
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_P01R0302_gsbabygirl1, SsAquaCaptainRoom_Movement_0340)
+    } else {
+        applymovement(obj_P01R0302_gsbabygirl1, SsAquaCaptainRoom_Movement_0350)
+    }
+    waitmovement
+    gendermsgbox(msg_0260_P01R0302_00003, msg_0260_P01R0302_00002)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setvar(VAR_SCENE_SS_AQUA, 4)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    removeobject(obj_P01R0302_gsbabygirl1)
+    setflag(FLAG_HIDE_SS_AQUA_CAPTAINS_ROOM_GRANDDAUGHTER)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement SsAquaCaptainRoom_Movement_0340 {
+    emote_exclamation_mark
+    delay_8
+    face_up * 2
+}
+
+movement SsAquaCaptainRoom_Movement_0350 {
+    emote_exclamation_mark
+    delay_8
+    face_right * 2
+}
+
+mapscripts SsAquaCaptainRoom_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0302_002
+}

@@ -1,0 +1,211 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T27GYM0101_000
+	ScrDef scr_seq_T27GYM0101_001
+	ScrDef scr_seq_T27GYM0101_002
+	ScrDef scr_seq_T27GYM0101_003
+	ScrDef scr_seq_T27GYM0101_004
+	ScrDef scr_seq_T27GYM0101_005
+	ScrDefEnd
+`
+
+script scr_seq_T27GYM0101_000 {
+    ecruteakgyminit
+    getphonebookrematch(PHONE_CONTACT_MORTY, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_ECRUTEAK_GYM_MORTY)
+        end
+    }
+    if (!flag(FLAG_GAME_CLEAR)) { goto(_00A6) }
+    checkregisteredphonenumber(PHONE_CONTACT_MORTY, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_0085) }
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 1) {
+        setflag(FLAG_HIDE_ECRUTEAK_GYM_MORTY)
+    } elif (var(VAR_TEMP_x4000) == 2) {
+        setflag(FLAG_HIDE_ECRUTEAK_GYM_MORTY)
+    } else {
+        clearflag(FLAG_HIDE_ECRUTEAK_GYM_MORTY)
+    }
+    end
+_0085:
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 5) {
+        setflag(FLAG_HIDE_ECRUTEAK_GYM_MORTY)
+    } else {
+        clearflag(FLAG_HIDE_ECRUTEAK_GYM_MORTY)
+    }
+    end
+_00A6:
+    clearflag(FLAG_HIDE_ECRUTEAK_GYM_MORTY)
+    end
+}
+
+script scr_seq_T27GYM0101_004 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T27GYM0101_gsoldman1, Ecruteak_Gym_Movement_0108)
+    waitmovement
+    npcmsg(msg_0614_T27GYM0101_00009)
+    closemessage
+    applymovement(obj_T27GYM0101_gsoldman1, Ecruteak_Gym_Movement_0118)
+    applymovement(obj_player, Ecruteak_Gym_Movement_0128)
+    waitmovement
+    setvar(VAR_UNK_4079, 1)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_ECRUTEAK, 7, 376, 182, DIR_SOUTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement Ecruteak_Gym_Movement_0108 {
+    emote_exclamation_mark
+    walk_down * 3
+    delay_8
+}
+
+movement Ecruteak_Gym_Movement_0118 {
+    walk_slow_down
+    lock_dir
+    walk_up
+}
+
+movement Ecruteak_Gym_Movement_0128 {
+    delay_8
+    walk_down
+    delay_8
+}
+
+script scr_seq_T27GYM0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_FOG, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        if (!flag(FLAG_GOT_TM30_FROM_MORTY)) { goto(_019B) }
+        npcmsg(msg_0614_T27GYM0101_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0614_T27GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_MORTY_MORTY, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0614_T27GYM0101_00001)
+    givebadge(BADGE_FOG)
+    addvar(VAR_MIDGAME_BADGES, 1)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    setflag(FLAG_UNK_998)
+    bufferplayersname(0)
+    npcmsg(msg_0614_T27GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    npcmsg(msg_0614_T27GYM0101_00003)
+    goto(_019B)
+_019B:
+    if (!itemspace(ITEM_TM30, 1)) { goto(_01CF) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM30_FROM_MORTY)
+    npcmsg(msg_0614_T27GYM0101_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_01CF:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27GYM0101_002 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_DP_GYURU)
+    applymovement(obj_player, Ecruteak_Gym_Movement_0230)
+    waitmovement
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_ECRUTEAK_GYM, 0, 16, 49, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement Ecruteak_Gym_Movement_0230 {
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right
+    set_invisible * 0
+}
+
+script scr_seq_T27GYM0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_FOG, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        bufferplayersname(0)
+        npcmsg(msg_0614_T27GYM0101_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0614_T27GYM0101_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27GYM0101_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_FOG, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0614_T27GYM0101_00010)
+    } else {
+        npcmsg(msg_0614_T27GYM0101_00011)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Ecruteak_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T27GYM0101_000
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4079, 0: scr_seq_T27GYM0101_004
+    ]
+}

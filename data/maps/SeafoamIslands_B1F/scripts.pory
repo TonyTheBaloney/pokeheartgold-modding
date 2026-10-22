@@ -1,0 +1,126 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D11R0102_000
+	ScrDef scr_seq_D11R0102_001
+	ScrDefEnd
+`
+
+script scr_seq_D11R0102_001 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 2) { goto(_003F) }
+        if (var(VAR_TEMP_x4000) == 6) { goto(_003F) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _003F:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D11R0102_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, SeafoamIslands_B1F_Movement_0174)
+        applymovement(obj_D11R0102_gsmiddleman1, SeafoamIslands_B1F_Movement_01AC)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, SeafoamIslands_B1F_Movement_018C)
+    } else {
+        applymovement(obj_player, SeafoamIslands_B1F_Movement_0198)
+        applymovement(obj_D11R0102_gsmiddleman1, SeafoamIslands_B1F_Movement_01AC)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, SeafoamIslands_B1F_Movement_01B8)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(75)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement SeafoamIslands_B1F_Movement_0174 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SeafoamIslands_B1F_Movement_018C {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SeafoamIslands_B1F_Movement_0198 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SeafoamIslands_B1F_Movement_01AC {
+    delay_8
+    walk_in_place_up
+}
+
+movement SeafoamIslands_B1F_Movement_01B8 {
+    walk_right
+    walk_up
+    face_down
+}
+
+mapscripts SeafoamIslands_B1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D11R0102_001
+}

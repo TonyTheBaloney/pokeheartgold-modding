@@ -1,0 +1,429 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R35R0201_000
+	ScrDef scr_seq_R35R0201_001
+	ScrDef scr_seq_R35R0201_002
+	ScrDef scr_seq_R35R0201_003
+	ScrDef scr_seq_R35R0201_004
+	ScrDef scr_seq_R35R0201_005
+	ScrDef scr_seq_R35R0201_006
+	ScrDef scr_seq_R35R0201_007
+	ScrDef scr_seq_R35R0201_008
+	ScrDef scr_seq_R35R0201_009
+	ScrDef scr_seq_R35R0201_010
+	ScrDef scr_seq_R35R0201_011
+	ScrDef scr_seq_R35R0201_012
+	ScrDefEnd
+`
+
+script scr_seq_R35R0201_009 {
+    end
+}
+
+script scr_seq_R35R0201_010 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_00D8)
+    applymovement(obj_R35R0201_counterm_3, Route35_NationalParkPokeathalonGatehouse_Movement_00E0)
+    waitmovement
+    callstd(std_bug_contest_guard_ask_end)
+    if (var(VAR_UNK_4118) == 1) {
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_0448)
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        playse(SEQ_SE_DP_KAIDAN2)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_NATIONAL_PARK_BUG_CATCHING_CONTEST, 0, 40, 86, DIR_NORTH)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        lock(obj_partner_poke)
+        followmonislarge(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            followmonreleasenexttoplayer
+        } else {
+            followmonmovetoplayer
+        }
+        applymovement(obj_partner_poke, Route35_NationalParkPokeathalonGatehouse_Movement_00E8)
+        waitmovement
+        release(obj_partner_poke)
+    }
+    releaseall
+    end
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_00D8 {
+    face_left
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_00E0 {
+    face_right
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_00E8 {
+    face_up
+}
+
+script scr_seq_R35R0201_012 {
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_UNK_4118) == 1) {
+        clearflag(FLAG_UNK_1C4)
+        setflag(FLAG_UNK_1C3)
+    } elif (var(VAR_TEMP_x4000) == 2) {
+        clearflag(FLAG_UNK_1C4)
+        setflag(FLAG_UNK_1C3)
+    } elif (var(VAR_TEMP_x4000) == 4) {
+        clearflag(FLAG_UNK_1C4)
+        setflag(FLAG_UNK_1C3)
+    } elif (var(VAR_TEMP_x4000) == 6) {
+        clearflag(FLAG_UNK_1C4)
+        setflag(FLAG_UNK_1C3)
+    } else {
+        clearflag(FLAG_UNK_1C3)
+        setflag(FLAG_UNK_1C4)
+    }
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 6) { goto(_019D) }
+        if (var(VAR_TEMP_x4000) == 0) { goto(_019D) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _019D:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_R35R0201_008 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_029C)
+    waitmovement
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 7) {
+        applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_02A4)
+    } elif (var(VAR_TEMP_x4001) == 8) {
+        applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_02B4)
+    } elif (var(VAR_TEMP_x4001) == 10) {
+        applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_02C4)
+    } else {
+        applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_02D4)
+    }
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_02E4)
+    applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_02EC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0389_R35R0201_00010)
+    closemessage
+    if (var(VAR_TEMP_x4001) == 7) {
+        applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_02FC)
+    } elif (var(VAR_TEMP_x4001) == 8) {
+        applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_0308)
+    } elif (var(VAR_TEMP_x4001) == 10) {
+        applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_0314)
+    } else {
+        applymovement(obj_R35R0201_workman, Route35_NationalParkPokeathalonGatehouse_Movement_0320)
+    }
+    waitmovement
+    releaseall
+    end
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_029C {
+    emote_exclamation_mark
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_02A4 {
+    walk_fast_left
+    walk_fast_up * 2
+    walk_in_place_fast_right
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_02B4 {
+    walk_fast_left
+    walk_fast_up
+    walk_in_place_fast_right
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_02C4 {
+    walk_fast_left
+    walk_fast_down
+    walk_in_place_fast_right
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_02D4 {
+    walk_fast_left
+    walk_fast_down * 2
+    walk_in_place_fast_right
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_02E4 {
+    walk_right
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_02EC {
+    lock_dir
+    walk_right
+    unlock_dir
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_02FC {
+    walk_down * 2
+    walk_in_place_right
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_0308 {
+    walk_down
+    walk_in_place_right
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_0314 {
+    walk_up
+    walk_in_place_right
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_0320 {
+    walk_up * 2
+    walk_in_place_right
+}
+
+script scr_seq_R35R0201_000 {
+    simplenpcmsg(msg_0389_R35R0201_00009)
+    end
+}
+
+script scr_seq_R35R0201_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_bug_contest_guard_start)
+    if (var(VAR_UNK_4118) == 1) {
+        if (!flag(FLAG_UNK_1C4)) {
+            getplayerfacing(VAR_SPECIAL_RESULT)
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            if (var(VAR_SPECIAL_RESULT) == 0) {
+                applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_043C)
+            } elif (var(VAR_SPECIAL_RESULT) == 2) {
+                applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_0448)
+            } else {
+                applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_0450)
+            }
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+        } else {
+            getplayerfacing(VAR_SPECIAL_RESULT)
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_0460)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+        }
+        playse(SEQ_SE_DP_KAIDAN2)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_NATIONAL_PARK_BUG_CATCHING_CONTEST, 0, 40, 86, DIR_NORTH)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        lock(obj_partner_poke)
+        followmonislarge(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            followmonreleasenexttoplayer
+        } else {
+            followmonmovetoplayer
+        }
+        applymovement(obj_partner_poke, Route35_NationalParkPokeathalonGatehouse_Movement_00E8)
+        waitmovement
+        release(obj_partner_poke)
+    }
+    releaseall
+    end
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_043C {
+    walk_right
+    walk_up * 2
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_0448 {
+    walk_up
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_0450 {
+    walk_down
+    walk_right * 2
+    walk_up * 2
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_0460 {
+    walk_right * 2
+    walk_up * 2
+}
+
+script scr_seq_R35R0201_002 {
+    simplenpcmsg(msg_0389_R35R0201_00003)
+    end
+}
+
+script scr_seq_R35R0201_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_05D0)
+        applymovement(obj_R35R0201_gsmiddleman1, Route35_NationalParkPokeathalonGatehouse_Movement_061C)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_05E8)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_0608)
+        applymovement(obj_R35R0201_gsmiddleman1, Route35_NationalParkPokeathalonGatehouse_Movement_061C)
+    } else {
+        applymovement(obj_player, Route35_NationalParkPokeathalonGatehouse_Movement_05F4)
+        applymovement(obj_R35R0201_gsmiddleman1, Route35_NationalParkPokeathalonGatehouse_Movement_061C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Route35_NationalParkPokeathalonGatehouse_Movement_0628)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(12)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_05D0 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_05E8 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_05F4 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_0608 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_061C {
+    delay_8
+    walk_in_place_up
+}
+
+movement Route35_NationalParkPokeathalonGatehouse_Movement_0628 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_R35R0201_003 {
+    simplenpcmsg(msg_0389_R35R0201_00005)
+    end
+}
+
+script scr_seq_R35R0201_004 {
+    simplenpcmsg(msg_0389_R35R0201_00006)
+    end
+}
+
+script scr_seq_R35R0201_005 {
+    simplenpcmsg(msg_0389_R35R0201_00000)
+    end
+}
+
+script scr_seq_R35R0201_006 {
+    simplenpcmsg(msg_0389_R35R0201_00007)
+    end
+}
+
+script scr_seq_R35R0201_007 {
+    simplenpcmsg(msg_0389_R35R0201_00008)
+    end
+}
+
+mapscripts Route35_NationalParkPokeathalonGatehouse_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4118, 1: scr_seq_R35R0201_010
+    ]
+    INIT_SCRIPT_ON_RESUME: scr_seq_R35R0201_009
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R35R0201_012
+}

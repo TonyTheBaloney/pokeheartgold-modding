@@ -1,0 +1,13 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+raw `
+#include "maps/WhirlIslands_B3F/ids.h"
+`
+
+script scr_seq_EVERYWHERE_000 {
+    end
+}
+
+mapscripts Everywhere_MapScripts {
+}

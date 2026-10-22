@@ -1,0 +1,310 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D37R0101_000
+	ScrDef scr_seq_D37R0101_001
+	ScrDef scr_seq_D37R0101_002
+	ScrDef scr_seq_D37R0101_003
+	ScrDefEnd
+`
+
+script scr_seq_D37R0101_003 {
+    getfriendsprite(VAR_OBJ_0)
+    end
+}
+
+script scr_seq_D37R0101_002 {
+    followmonresetmovement
+    lockall
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 3) { goto(_0228) }
+    clearflag(FLAG_HIDE_GOLDENROD_UNDERGROUND_FRIEND)
+    addobject(obj_D37R0101_tsure_poke_static_marill)
+    if (var(VAR_TEMP_x4001) == 30) {
+        movepersonfacing(obj_D37R0101_tsure_poke_static_marill, 9, 0, 25, DIR_WEST)
+    }
+    playse(SEQ_SE_DP_KAIDAN2)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0174)
+    waitmovement
+    wait(8, VAR_SPECIAL_RESULT)
+    playcry(SPECIES_MARILL, 0)
+    waitcry
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_01BC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    clearflag(FLAG_HIDE_GOLDENROD_UNDERGROUND_FRIEND)
+    addobject(obj_D37R0101_var_1)
+    if (var(VAR_TEMP_x4001) == 30) {
+        movepersonfacing(obj_D37R0101_var_1, 9, 0, 25, DIR_WEST)
+    }
+    playse(SEQ_SE_DP_KAIDAN2)
+    callstd(std_play_friend_music)
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_01C4)
+    waitmovement
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0218)
+        applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_0218)
+        applymovement(obj_partner_poke, Goldenrod_Tunnel_1F_Movement_0218)
+        waitmovement
+    } else {
+        applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0218)
+        applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_0218)
+        waitmovement
+    }
+    bufferplayersname(0)
+    gendermsgbox(msg_0116_D37R0101_00006, msg_0116_D37R0101_00009)
+    closemessage
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_01D0)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_01E0)
+    waitmovement
+    gendermsgbox(msg_0116_D37R0101_00007, msg_0116_D37R0101_00010)
+    giveitemnocheck(ITEM_FASHION_CASE, 1)
+    call(_0354)
+    gendermsgbox(msg_0116_D37R0101_00008, msg_0116_D37R0101_00011)
+    closemessage
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_01F0)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0204)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    setflag(FLAG_HIDE_GOLDENROD_UNDERGROUND_FRIEND)
+    removeobject(obj_D37R0101_var_1)
+    removeobject(obj_D37R0101_tsure_poke_static_marill)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    callstd(std_fade_end_friend_music)
+    setvar(VAR_UNK_40F8, 1)
+    setflag(FLAG_UNK_14C)
+    releaseall
+    end
+}
+
+movement Goldenrod_Tunnel_1F_Movement_0174 {
+    walk_slightly_fast_left
+    walk_in_place_fast_right
+    jump_in_place_fast_left * 2
+    walk_fast_left * 3
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+}
+
+movement Goldenrod_Tunnel_1F_Movement_01BC {
+    walk_up * 3
+}
+
+movement Goldenrod_Tunnel_1F_Movement_01C4 {
+    walk_left
+    emote_exclamation_mark
+}
+
+movement Goldenrod_Tunnel_1F_Movement_01D0 {
+    walk_left
+    walk_down * 2
+    walk_left
+}
+
+movement Goldenrod_Tunnel_1F_Movement_01E0 {
+    delay_8 * 3
+    walk_right
+    walk_down
+}
+
+movement Goldenrod_Tunnel_1F_Movement_01F0 {
+    walk_down * 2
+    walk_left
+    walk_down
+    set_invisible
+}
+
+movement Goldenrod_Tunnel_1F_Movement_0204 {
+    walk_down * 3
+    walk_left
+    walk_down
+    set_invisible
+}
+
+movement Goldenrod_Tunnel_1F_Movement_0218 {
+    walk_in_place_right
+}
+
+movement Goldenrod_Tunnel_1F_Movement_0220 {
+    walk_in_place_down
+}
+
+script(local) _0228 {
+    clearflag(FLAG_HIDE_GOLDENROD_UNDERGROUND_FRIEND)
+    addobject(obj_D37R0101_var_1)
+    clearflag(FLAG_HIDE_GOLDENROD_UNDERGROUND_FRIEND)
+    addobject(obj_D37R0101_tsure_poke_static_marill)
+    lock(obj_D37R0101_tsure_poke_static_marill)
+    callstd(std_play_friend_music)
+    movepersonfacing(obj_D37R0101_var_1, 25, 0, 9, DIR_NORTH)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_0220)
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_0308)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Goldenrod_Tunnel_1F_Movement_0310)
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_0318)
+    wait(8, VAR_SPECIAL_RESULT)
+    movepersonfacing(obj_D37R0101_tsure_poke_static_marill, 25, 0, 9, DIR_NORTH)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_0320)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    gendermsgbox(msg_0116_D37R0101_00006, msg_0116_D37R0101_00009)
+    gendermsgbox(msg_0116_D37R0101_00007, msg_0116_D37R0101_00010)
+    giveitemnocheck(ITEM_FASHION_CASE, 1)
+    call(_0354)
+    gendermsgbox(msg_0116_D37R0101_00008, msg_0116_D37R0101_00011)
+    closemessage
+    applymovement(obj_D37R0101_var_1, Goldenrod_Tunnel_1F_Movement_0328)
+    applymovement(obj_D37R0101_tsure_poke_static_marill, Goldenrod_Tunnel_1F_Movement_033C)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    setflag(FLAG_HIDE_GOLDENROD_UNDERGROUND_FRIEND)
+    removeobject(obj_D37R0101_var_1)
+    removeobject(obj_D37R0101_tsure_poke_static_marill)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    callstd(std_fade_end_friend_music)
+    setvar(VAR_UNK_40F8, 1)
+    setflag(FLAG_UNK_14C)
+    releaseall
+    end
+}
+
+movement Goldenrod_Tunnel_1F_Movement_0308 {
+    emote_exclamation_mark
+}
+
+movement Goldenrod_Tunnel_1F_Movement_0310 {
+    walk_down * 2
+}
+
+movement Goldenrod_Tunnel_1F_Movement_0318 {
+    walk_up * 2
+}
+
+movement Goldenrod_Tunnel_1F_Movement_0320 {
+    walk_up
+}
+
+movement Goldenrod_Tunnel_1F_Movement_0328 {
+    walk_right
+    walk_up * 4
+    walk_left * 2
+    set_invisible
+}
+
+movement Goldenrod_Tunnel_1F_Movement_033C {
+    walk_up
+    walk_right
+    walk_up * 4
+    walk_left * 2
+    set_invisible
+}
+
+script(local) _0354 {
+    call(_03A8)
+    call(_03A8)
+    call(_03A8)
+    call(_03A8)
+    call(_03A8)
+    call(_03C2)
+    call(_03C2)
+    call(_03C2)
+    call(_03C2)
+    call(_03C2)
+    givecontestbackground(0)
+    setvar(VAR_TEMP_x4001, 9999)
+    call(_03DC)
+    call(_03DC)
+    return
+_03A8:
+    random(VAR_SPECIAL_RESULT, 6)
+    setvar(VAR_SPECIAL_x8004, 0)
+    addvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    giveaccessory(VAR_SPECIAL_x8004, 1)
+    return
+_03C2:
+    random(VAR_SPECIAL_RESULT, 6)
+    setvar(VAR_SPECIAL_x8004, 18)
+    addvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    giveaccessory(VAR_SPECIAL_x8004, 1)
+    return
+_03DC:
+    random(VAR_SPECIAL_RESULT, 8)
+    if (var(VAR_TEMP_x4001) == VAR_SPECIAL_RESULT) { goto(_03DC) }
+    copyvar(VAR_TEMP_x4001, VAR_SPECIAL_RESULT)
+    setvar(VAR_SPECIAL_x8004, 1)
+    addvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    givecontestbackground(VAR_SPECIAL_x8004)
+    return
+}
+
+script scr_seq_D37R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 2) {
+        npcmsg(msg_0116_D37R0101_00002)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        npcmsg(msg_0116_D37R0101_00002)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        npcmsg(msg_0116_D37R0101_00001)
+    } else {
+        npcmsg(msg_0116_D37R0101_00000)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D37R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 2) {
+        npcmsg(msg_0116_D37R0101_00005)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        npcmsg(msg_0116_D37R0101_00005)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        npcmsg(msg_0116_D37R0101_00004)
+    } else {
+        npcmsg(msg_0116_D37R0101_00003)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Goldenrod_Tunnel_1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D37R0101_003
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40F8, 0: scr_seq_D37R0101_002
+    ]
+}

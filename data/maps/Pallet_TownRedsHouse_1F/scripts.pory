@@ -1,0 +1,20 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T01R0101_000 {
+    simplenpcmsg(msg_0447_T01R0101_00000)
+    end
+}
+
+script scr_seq_T01R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0447_T01R0101_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Pallet_TownRedsHouse_1F_MapScripts {
+}

@@ -1,0 +1,700 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T22_000
+	ScrDef scr_seq_T22_001
+	ScrDef scr_seq_T22_002
+	ScrDef scr_seq_T22_003
+	ScrDef scr_seq_T22_004
+	ScrDef scr_seq_T22_005
+	ScrDef scr_seq_T22_006
+	ScrDef scr_seq_T22_007
+	ScrDef scr_seq_T22_008
+	ScrDef scr_seq_T22_009
+	ScrDef scr_seq_T22_010
+	ScrDef scr_seq_T22_011
+	ScrDef scr_seq_T22_012
+	ScrDef scr_seq_T22_013
+	ScrDef scr_seq_T22_014
+	ScrDefEnd
+`
+
+script scr_seq_T22_000 {
+    setflag(FLAG_GOT_PICK_UP_EGG_CALL_FROM_ELM)
+    phonecall(PHONE_CONTACT_PROF__ELM, 2, 1)
+    setvar(VAR_SCENE_VIOLET_CITY_OW, 2)
+    clearflag(FLAG_HIDE_VIOLET_SHOP_LAB_AIDE)
+    setflag(FLAG_HIDE_ELMS_LAB_AIDE)
+    end
+}
+
+script scr_seq_T22_004 {
+    followmonresetmovement
+    lockall
+    callstd(std_play_kimono_girl_music)
+    applymovement(obj_T22_dancer, Violet_Movement_00CC)
+    waitmovement
+    npcmsg(msg_0556_T22_00013)
+    closemessage
+    applymovement(obj_T22_dancer, Violet_Movement_00DC)
+    waitmovement
+    npcmsg(msg_0556_T22_00014)
+    closemessage
+    applymovement(obj_T22_dancer, Violet_Movement_00E4)
+    waitmovement
+    npcmsg(msg_0556_T22_00015)
+    closemessage
+    applymovement(obj_T22_dancer, Violet_Movement_0104)
+    waitmovement
+    npcmsg(msg_0556_T22_00016)
+    closemessage
+    applymovement(obj_T22_dancer, Violet_Movement_00F4)
+    waitmovement
+    callstd(std_fade_end_kimono_girl_music)
+    removeobject(obj_T22_dancer)
+    setflag(FLAG_HIDE_VIOLET_KIMONO_GIRL)
+    releaseall
+    setvar(VAR_SCENE_VIOLET_CITY_OW, 4)
+    end
+}
+
+movement Violet_Movement_00CC {
+    emote_exclamation_mark
+    walk_left * 5
+    walk_up
+}
+
+movement Violet_Movement_00DC {
+    walk_up
+}
+
+movement Violet_Movement_00E4 {
+    lock_dir
+    walk_slow_down
+    unlock_dir
+}
+
+movement Violet_Movement_00F4 {
+    walk_down * 2
+    walk_left
+    walk_down * 7
+}
+
+movement Violet_Movement_0104 {
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+}
+
+script scr_seq_T22_005 {
+    simplenpcmsg(msg_0556_T22_00026)
+    end
+}
+
+script scr_seq_T22_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 2) {
+        applymovement(obj_T22_gsbigman, Violet_Movement_0388)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_T22_gsbigman, Violet_Movement_03AC)
+    } elif (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_T22_gsbigman, Violet_Movement_03D0)
+    } else {
+        applymovement(obj_T22_gsbigman, Violet_Movement_03F4)
+    }
+    waitmovement
+    npcmsg(msg_0556_T22_00001)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0556_T22_00002)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0556_T22_00003)
+        closemessage
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_T22_gsbigman, Violet_Movement_0418)
+        } elif (var(VAR_SPECIAL_RESULT) == 3) {
+            applymovement(obj_T22_gsbigman, Violet_Movement_0440)
+        } elif (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T22_gsbigman, Violet_Movement_0460)
+        } else {
+            applymovement(obj_T22_gsbigman, Violet_Movement_0484)
+        }
+        waitmovement
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 2) {
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_T22_gsbigman, Violet_Movement_04B0)
+            applymovement(obj_player, Violet_Movement_05FC)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+            goto(_0343)
+            end
+        }
+        if (var(VAR_SPECIAL_RESULT) == 3) {
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_T22_gsbigman, Violet_Movement_04B0)
+            applymovement(obj_player, Violet_Movement_061C)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+            goto(_0343)
+            end
+        }
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_T22_gsbigman, Violet_Movement_04FC)
+            applymovement(obj_player, Violet_Movement_063C)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+            goto(_0343)
+            end
+        _0315:
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_T22_gsbigman, Violet_Movement_04B0)
+            applymovement(obj_player, Violet_Movement_0670)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+            goto(_0343)
+            end
+        _0343:
+            npcmsg(msg_0556_T22_00004)
+            closemessage
+            applymovement(obj_T22_gsbigman, Violet_Movement_05EC)
+            waitmovement
+            dooranimationload(15, 8, 15, 1, 77)
+            dooranimationopen(77)
+            dooranimationwait(77)
+            applymovement(obj_T22_gsbigman, Violet_Movement_05F4)
+            waitmovement
+            dooranimationclose(77)
+            dooranimationwait(77)
+            dooranimationunload(77)
+            removeobject(obj_T22_gsbigman)
+            setflag(FLAG_UNK_19A)
+            clearflag(FLAG_HIDE_EARL_IN_SCHOOL)
+            releaseall
+            end
+        }
+        goto(_0315)
+        end
+    }
+    end
+}
+
+movement Violet_Movement_0388 {
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+}
+
+movement Violet_Movement_03AC {
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+movement Violet_Movement_03D0 {
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_Movement_03F4 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+}
+
+movement Violet_Movement_0418 {
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_Movement_0440 {
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_Movement_0460 {
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_Movement_0484 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_Movement_04B0 {
+    walk_fast_down * 8
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    walk_fast_right * 21
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    walk_fast_up
+    walk_in_place_down
+}
+
+movement Violet_Movement_04FC {
+    walk_fast_left * 2
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    walk_fast_down * 3
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    walk_fast_right * 2
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    walk_fast_down * 5
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    walk_fast_right * 21
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    walk_fast_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_Movement_05EC {
+    walk_up * 2
+}
+
+movement Violet_Movement_05F4 {
+    walk_up
+}
+
+movement Violet_Movement_05FC {
+    delay_8
+    run_left
+    run_down * 8
+    walk_in_place_right
+    delay_4
+    run_right * 21
+    walk_in_place_up
+}
+
+movement Violet_Movement_061C {
+    delay_8
+    run_right
+    run_down * 8
+    walk_in_place_right
+    delay_4
+    run_right * 21
+    walk_in_place_up
+}
+
+movement Violet_Movement_063C {
+    walk_fast_down
+    walk_fast_right
+    walk_in_place_fast_left
+    delay_8 * 2
+    walk_in_place_fast_down
+    delay_8 * 2
+    walk_fast_left
+    run_down * 6
+    walk_in_place_right
+    delay_4
+    run_right * 21
+    walk_in_place_up
+}
+
+movement Violet_Movement_0670 {
+    delay_8
+    run_down * 9
+    walk_in_place_right
+    delay_4
+    run_right * 21
+    walk_in_place_up
+}
+
+script scr_seq_T22_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    call(_0ADD)
+    call(_0A57)
+    if (var(VAR_SPECIAL_x8006) == 1) {
+        npcmsg(msg_0556_T22_00018)
+    _06BF:
+        touchscreenmenuhide
+        menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_x8000) == 1) {
+            menuitemadd(205, 255, 0)
+        }
+        if (var(VAR_SPECIAL_x8001) == 1) {
+            menuitemadd(206, 255, 1)
+        }
+        if (var(VAR_SPECIAL_x8002) == 1) {
+            menuitemadd(207, 255, 2)
+        }
+        if (var(VAR_SPECIAL_x8003) == 1) {
+            menuitemadd(208, 255, 3)
+        }
+        menuitemadd(126, 255, 4)
+        menuexec
+        touchscreenmenushow
+        Switch(VAR_SPECIAL_RESULT)
+        Case(0, _0769)
+        Case(1, _080D)
+        Case(2, _08B1)
+        Case(3, _0955)
+        goto(_09F9)
+    _0769:
+        npcmsg(msg_0556_T22_00021)
+        if (!itemspace(ITEM_CHERI_BERRY, 1)) { goto(_0A08) }
+        if (!itemspace(ITEM_PECHA_BERRY, 1)) { goto(_0A08) }
+        if (!itemspace(ITEM_LEPPA_BERRY, 1)) { goto(_0A08) }
+        giveitemnocheck(ITEM_CHERI_BERRY, 1)
+        giveitemnocheck(ITEM_PECHA_BERRY, 1)
+        giveitemnocheck(ITEM_LEPPA_BERRY, 1)
+        takeitem(ITEM_RED_SHARD, 1, VAR_SPECIAL_RESULT)
+        goto(_0A17)
+    _080D:
+        npcmsg(msg_0556_T22_00022)
+        if (!itemspace(ITEM_ORAN_BERRY, 1)) { goto(_0A08) }
+        if (!itemspace(ITEM_CHESTO_BERRY, 1)) { goto(_0A08) }
+        if (!itemspace(ITEM_WIKI_BERRY, 1)) { goto(_0A08) }
+        giveitemnocheck(ITEM_ORAN_BERRY, 1)
+        giveitemnocheck(ITEM_CHESTO_BERRY, 1)
+        giveitemnocheck(ITEM_WIKI_BERRY, 1)
+        takeitem(ITEM_BLUE_SHARD, 1, VAR_SPECIAL_RESULT)
+        goto(_0A17)
+    _08B1:
+        npcmsg(msg_0556_T22_00023)
+        if (!itemspace(ITEM_ASPEAR_BERRY, 1)) { goto(_0A08) }
+        if (!itemspace(ITEM_SITRUS_BERRY, 1)) { goto(_0A08) }
+        if (!itemspace(ITEM_IAPAPA_BERRY, 1)) { goto(_0A08) }
+        giveitemnocheck(ITEM_ASPEAR_BERRY, 1)
+        giveitemnocheck(ITEM_SITRUS_BERRY, 1)
+        giveitemnocheck(ITEM_IAPAPA_BERRY, 1)
+        takeitem(ITEM_YELLOW_SHARD, 1, VAR_SPECIAL_RESULT)
+        goto(_0A17)
+    _0955:
+        npcmsg(msg_0556_T22_00024)
+        if (!itemspace(ITEM_RAWST_BERRY, 1)) { goto(_0A08) }
+        if (!itemspace(ITEM_LUM_BERRY, 1)) { goto(_0A08) }
+        if (!itemspace(ITEM_AGUAV_BERRY, 1)) { goto(_0A08) }
+        giveitemnocheck(ITEM_RAWST_BERRY, 1)
+        giveitemnocheck(ITEM_LUM_BERRY, 1)
+        giveitemnocheck(ITEM_AGUAV_BERRY, 1)
+        takeitem(ITEM_GREEN_SHARD, 1, VAR_SPECIAL_RESULT)
+        goto(_0A17)
+    _09F9:
+        npcmsg(msg_0556_T22_00020)
+        closemessage
+        call(_0ADD)
+        releaseall
+        end
+    _0A08:
+        npcmsg(msg_0556_T22_00025)
+        closemessage
+        call(_0ADD)
+        releaseall
+        end
+    _0A17:
+        setvar(VAR_SPECIAL_x8000, 0)
+        setvar(VAR_SPECIAL_x8001, 0)
+        setvar(VAR_SPECIAL_x8002, 0)
+        setvar(VAR_SPECIAL_x8003, 0)
+        setvar(VAR_SPECIAL_x8006, 0)
+        call(_0A57)
+        if (var(VAR_SPECIAL_x8006) != 1) {
+            goto(_09F9)
+        _0A57:
+            hasitem(ITEM_RED_SHARD, 1, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                setvar(VAR_SPECIAL_x8000, 1)
+                setvar(VAR_SPECIAL_x8006, 1)
+            }
+            hasitem(ITEM_BLUE_SHARD, 1, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                setvar(VAR_SPECIAL_x8001, 1)
+                setvar(VAR_SPECIAL_x8006, 1)
+            }
+            hasitem(ITEM_YELLOW_SHARD, 1, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                setvar(VAR_SPECIAL_x8002, 1)
+                setvar(VAR_SPECIAL_x8006, 1)
+            }
+            hasitem(ITEM_GREEN_SHARD, 1, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                setvar(VAR_SPECIAL_x8003, 1)
+                setvar(VAR_SPECIAL_x8006, 1)
+            }
+            return
+        _0ADD:
+            getplayerfacing(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 0) {
+                applymovement(obj_T22_juggrer, Violet_Movement_0B28)
+                waitmovement
+            } elif (var(VAR_SPECIAL_RESULT) == 2) {
+                applymovement(obj_T22_juggrer, Violet_Movement_0B6C)
+                waitmovement
+            } else {
+                applymovement(obj_T22_juggrer, Violet_Movement_0BB0)
+                waitmovement
+            }
+            return
+        }
+        npcmsg(msg_0556_T22_00019)
+        goto(_06BF)
+    }
+    npcmsg(msg_0556_T22_00017)
+    closemessage
+    call(_0ADD)
+    releaseall
+    end
+}
+
+movement Violet_Movement_0B28 {
+    face_right
+    face_up
+    face_left
+    face_down
+    face_right
+    face_up
+    face_left
+    face_down
+    face_right
+    face_up
+    face_left
+    face_down
+    face_right
+    face_up
+    face_left
+    face_down
+}
+
+movement Violet_Movement_0B6C {
+    face_up
+    face_left
+    face_down
+    face_right
+    face_up
+    face_left
+    face_down
+    face_right
+    face_up
+    face_left
+    face_down
+    face_right
+    face_up
+    face_left
+    face_down
+    face_right
+}
+
+movement Violet_Movement_0BB0 {
+    face_down
+    face_right
+    face_up
+    face_left
+    face_down
+    face_right
+    face_up
+    face_left
+    face_down
+    face_right
+    face_up
+    face_left
+    face_down
+    face_right
+    face_up
+    face_left
+}
+
+script scr_seq_T22_002 {
+    end
+}
+
+script scr_seq_T22_006 {
+    simplenpcmsg(msg_0556_T22_00027)
+    end
+}
+
+script scr_seq_T22_007 {
+    trainertipsex(2, msg_0556_T22_00012)
+    end
+}
+
+script scr_seq_T22_008 {
+    directionsignpostex(0, 13, msg_0556_T22_00009)
+    end
+}
+
+script scr_seq_T22_009 {
+    trainertipsex(2, msg_0556_T22_00010)
+    end
+}
+
+script scr_seq_T22_010 {
+    trainertipsex(2, msg_0556_T22_00011)
+    end
+}
+
+script scr_seq_T22_011 {
+    simplenpcmsg(msg_0556_T22_00005)
+    end
+}
+
+script scr_seq_T22_012 {
+    simplenpcmsg(msg_0556_T22_00006)
+    end
+}
+
+script scr_seq_T22_013 {
+    simplenpcmsg(msg_0556_T22_00007)
+    end
+}
+
+script scr_seq_T22_014 {
+    simplenpcmsg(msg_0556_T22_00008)
+    end
+}
+
+mapscripts Violet_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_VIOLET_CITY_OW, 1: scr_seq_T22_000
+        VAR_SCENE_VIOLET_CITY_OW, 3: scr_seq_T22_004
+    ]
+}

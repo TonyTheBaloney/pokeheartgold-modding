@@ -51,8 +51,7 @@ data/
     meson.build              reads maps.txt; regenerates/copies files for the build
     Cherrygrove/
       map.json               header fields + object/warp/coord/bg events
-      scripts.inc            event scripts
-      map_scripts.inc        on-load/on-transition/on-frame scripts (separate binary on DS)
+      scripts.pory           event scripts + map scripts (poryscript-style; SCRIPTING.md)
       text.json              messages (msgenc JSON; DS text isn't .inc)
       ids.h                  script and object id defines (was event_T21.h)
     Cherrygrove_Pokecenter_1F/
@@ -111,9 +110,9 @@ for each line of `maps.txt`:
 map.json        --mapkit gen-events-->  build/.../data/maps/064_T21.json  -> zone_event.narc
 map.json        --mapkit gen-header-->  build/.../data/maps/header_MAP_CHERRYGROVE.h
                                         (#included in place of the entry in src/data/map_headers.h)
-scripts.inc     --copy-->               scr_seq_0850_T21.s       -> scr_seq.narc
-map_scripts.inc --copy-->               scr_seq_0623_T21_hdr.s   -> scr_seq.narc
-text.json       --copy-->               msg_0550_T21.json        -> msg.narc
+scripts.pory    --mapkit pory build-->  scr_seq_0850_T21.s       -> scr_seq.narc
+                                        scr_seq_0623_T21_hdr.s   -> scr_seq.narc
+text.json       --(+ .pory text)-->     msg_0550_T21.json        -> msg.narc
 ```
 
 `files/.../zone_event/meson.build`, `scr_seq/meson.build` and the msg list skip
@@ -141,14 +140,16 @@ In `map.json`, `"script"` can be a script **label**, as in pokeemerald:
 for all 451 existing headers), and the build turns a bare label into
 `_EV_<label> + 1`. `std_*` constants, numbers and expressions pass through.
 
-`mapkit script rename` renames a label in `scripts.inc`, `map_scripts.inc`,
+`mapkit script rename` renames a label in `scripts.pory`,
 `ids.h` and `map.json` at once; `mapkit script add` appends a script, its
 `ScrDef` entry and its `_EV_` define. Script labels follow pokeemerald:
 `Cherrygrove_EventScript_*`, `Cherrygrove_OnTransition`. Internal jump labels
 (`_005F`) can be renamed freely.
 
-Not done yet: generating the `ScrDef` table and the `_EV_` block of `ids.h`
-from the labels instead of keeping them by hand.
+The `ScrDef` table is generated from `scripts.pory` (script blocks in file
+order), except in the 210 maps whose scripts aren't in number order in the file:
+those keep the table as a `raw` block. The `_EV_` block of `ids.h` is still a
+file; `mapkit pory sync <map>` regenerates it.
 
 ### Text
 

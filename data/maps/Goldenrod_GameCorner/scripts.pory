@@ -1,0 +1,549 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T25SP0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0603_T25SP0101_00038)
+        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0080)
+        waitmovement
+        npcmsg(msg_0603_T25SP0101_00039)
+        goto(_00E8)
+    }
+    applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0080)
+    waitmovement
+    npcmsg(msg_0603_T25SP0101_00040)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    casinogame(0, 0)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    setvar(VAR_TEMP_x4001, 2)
+    releaseall
+    end
+}
+
+movement Goldenrod_GameCorner_Movement_0080 {
+    face_down
+}
+
+movement Goldenrod_GameCorner_Movement_0088 {
+    face_left
+}
+
+movement Goldenrod_GameCorner_Movement_0090 {
+    face_right
+}
+
+script scr_seq_T25SP0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getplayerfacing(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 1) {
+        call(_00F0)
+    } else {
+        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0080)
+    }
+    waitmovement
+    hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        npcmsg(msg_0603_T25SP0101_00041)
+    } else {
+        npcmsg(msg_0603_T25SP0101_00039)
+    }
+_00E8:
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00F0:
+    getplayercoords(VAR_TEMP_x4002, VAR_TEMP_x4003)
+    if (var(VAR_TEMP_x4002) == 6) {
+        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0088)
+    } else {
+        applymovement(obj_T25SP0101_suit, Goldenrod_GameCorner_Movement_0090)
+    }
+    return
+}
+
+script scr_seq_T25SP0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        if (var(VAR_TEMP_x4001) == 0) {
+            npcmsg(msg_0603_T25SP0101_00028)
+        } else {
+            npcmsg(msg_0603_T25SP0101_00037)
+        }
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            setvar(VAR_TEMP_x4001, 1)
+            npcmsg(msg_0603_T25SP0101_00033)
+            goto(_00E8)
+        }
+        npcmsg(msg_0603_T25SP0101_00031)
+        setvar(VAR_TEMP_x4001, 1)
+        giveitemnocheck(ITEM_COIN_CASE, 1)
+        npcmsg(msg_0603_T25SP0101_00032)
+        goto(_00E8)
+    }
+    if (var(VAR_TEMP_x4001) == 0) {
+        npcmsg(msg_0603_T25SP0101_00034)
+        setvar(VAR_TEMP_x4001, 1)
+    } elif (var(VAR_TEMP_x4001) == 1) {
+        npcmsg(msg_0603_T25SP0101_00035)
+    } else {
+        npcmsg(msg_0603_T25SP0101_00036)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25SP0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    scriptoverlaycmd(3, 0)
+    npcmsg(msg_0603_T25SP0101_00000)
+    touchscreenmenuhide
+    showpointsbox(0, 20, 2)
+_01EC:
+    menuinit(1, 1, 0, 1, VAR_TEMP_x4000)
+    menuitemadd(12, 255, 0)
+    menuitemadd(13, 255, 1)
+    menuitemadd(11, 255, 2)
+    menuexec
+    Switch(VAR_TEMP_x4000)
+    Case(0, _0234)
+    Case(1, _02D0)
+    goto(_0C17)
+_0234:
+    menuinit(1, 1, 0, 1, VAR_TEMP_x4000)
+    menuitemadd(14, 255, 0)
+    menuitemadd(15, 255, 1)
+    menuitemadd(16, 255, 2)
+    menuitemadd(17, 255, 3)
+    menuitemadd(18, 255, 4)
+    menuitemadd(19, 255, 5)
+    menuitemadd(11, 255, 6)
+    menuexec
+    Switch(VAR_TEMP_x4000)
+    Case(0, _0342)
+    Case(1, _03CD)
+    Case(2, _0458)
+    Case(3, _04E3)
+    Case(4, _056E)
+    Case(5, _05F9)
+    goto(_01EC)
+_02D0:
+    menuinit(1, 1, 0, 1, VAR_TEMP_x4000)
+    menuitemadd(20, 255, 0)
+    menuitemadd(21, 255, 1)
+    menuitemadd(22, 255, 2)
+    menuitemadd(23, 255, 3)
+    menuitemadd(11, 255, 4)
+    menuexec
+    Switch(VAR_TEMP_x4000)
+    Case(0, _0684)
+    Case(1, _070F)
+    Case(2, _079A)
+    Case(3, _0825)
+    goto(_01EC)
+_0342:
+    if (!itemspace(ITEM_TM90, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0234) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 2000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(2000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_0234)
+    end
+_03CD:
+    if (!itemspace(ITEM_TM75, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0234) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 4000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(4000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_0234)
+    end
+_0458:
+    if (!itemspace(ITEM_TM44, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0234) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 6000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(6000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_0234)
+    end
+_04E3:
+    if (!itemspace(ITEM_TM35, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0234) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 10000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(10000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_0234)
+    end
+_056E:
+    if (!itemspace(ITEM_TM13, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0234) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 10000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(10000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_0234)
+    end
+_05F9:
+    if (!itemspace(ITEM_TM24, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0234) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 10000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(10000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_0234)
+    end
+_0684:
+    if (!itemspace(ITEM_SILK_SCARF, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02D0) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 1000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(1000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_02D0)
+    end
+_070F:
+    if (!itemspace(ITEM_WIDE_LENS, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02D0) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 1000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(1000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_02D0)
+    end
+_079A:
+    if (!itemspace(ITEM_ZOOM_LENS, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02D0) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 1000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(1000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_02D0)
+    end
+_0825:
+    if (!itemspace(ITEM_METRONOME, 1)) { goto(_0B45) }
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    npcmsg(msg_0603_T25SP0101_00003)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        closemessage
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02D0) }
+    }
+    getcoinamount(VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) < 1000) { goto(_0BE6) }
+    npcmsg(msg_0603_T25SP0101_00004)
+    playse(SEQ_SE_DP_REGI)
+    takecoins(1000)
+    updatepointsbox(0)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0603_T25SP0101_00010)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    goto(_02D0)
+    end
+}
+
+script scr_seq_T25SP0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    scriptoverlaycmd(3, 0)
+    npcmsg(msg_0603_T25SP0101_00009)
+    touchscreenmenuhide
+    showpointsbox(0, 20, 2)
+    getgameversion(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 7) {
+        goto(_0948)
+    _08EB:
+        menuinit(1, 1, 0, 1, VAR_TEMP_x4000)
+        menuitemadd(24, 255, 0)
+        menuitemadd(25, 255, 1)
+        menuitemadd(26, 255, 2)
+        menuitemadd(11, 255, 3)
+        menuexec
+        Switch(VAR_TEMP_x4000)
+        Case(0, _09A5)
+        Case(1, _09B1)
+        Case(2, _09BD)
+        goto(_0C17)
+    _0948:
+        menuinit(1, 1, 0, 1, VAR_TEMP_x4000)
+        menuitemadd(24, 255, 0)
+        menuitemadd(27, 255, 1)
+        menuitemadd(26, 255, 2)
+        menuitemadd(11, 255, 3)
+        menuexec
+        Switch(VAR_TEMP_x4000)
+        Case(0, _09A5)
+        Case(1, _09C9)
+        Case(2, _09BD)
+        goto(_0C17)
+    _09A5:
+        setorcopyvar(VAR_TEMP_x4002, 63)
+        goto(_09D5)
+    _09B1:
+        setorcopyvar(VAR_TEMP_x4002, 23)
+        goto(_09D5)
+    _09BD:
+        setorcopyvar(VAR_TEMP_x4002, 147)
+        goto(_09D5)
+    _09C9:
+        setorcopyvar(VAR_TEMP_x4002, 27)
+        goto(_09D5)
+    _09D5:
+        getpartycount(VAR_SPECIAL_x8005)
+        if (var(VAR_SPECIAL_x8005) != 6) {
+            bufferspeciesname(1, VAR_TEMP_x4002, 0, 0)
+            npcmsg(msg_0603_T25SP0101_00007)
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0A34) }
+            closemessage
+            getgameversion(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) != 7) {
+                goto(_0948)
+            _0A34:
+                if (var(VAR_TEMP_x4002) == 63) {
+                    getcoinamount(VAR_SPECIAL_x8006)
+                    if (var(VAR_SPECIAL_x8006) < 200) { goto(_0BF1) }
+                } elif (var(VAR_TEMP_x4002) == 23) {
+                    getcoinamount(VAR_SPECIAL_x8006)
+                    if (var(VAR_SPECIAL_x8006) < 700) { goto(_0BF1) }
+                } elif (var(VAR_TEMP_x4002) == 27) {
+                    getcoinamount(VAR_SPECIAL_x8006)
+                    if (var(VAR_SPECIAL_x8006) < 700) { goto(_0BF1) }
+                } else {
+                    getcoinamount(VAR_SPECIAL_x8006)
+                    if (var(VAR_SPECIAL_x8006) < 2100) { goto(_0BF1) }
+                }
+                npcmsg(msg_0603_T25SP0101_00004)
+                playse(SEQ_SE_DP_REGI)
+                givemon(VAR_TEMP_x4002, 15, 0, 0, 0, VAR_SPECIAL_RESULT)
+                bufferplayersname(0)
+                bufferspeciesname(1, VAR_TEMP_x4002, 0, 0)
+                npcmsg(msg_0603_T25SP0101_00008)
+                if (var(VAR_TEMP_x4002) == 63) {
+                    takecoins(200)
+                } elif (var(VAR_TEMP_x4002) == 23) {
+                    takecoins(700)
+                } elif (var(VAR_TEMP_x4002) == 27) {
+                    takecoins(700)
+                } else {
+                    takecoins(2100)
+                }
+                updatepointsbox(0)
+                getgameversion(VAR_TEMP_x4000)
+                if (var(VAR_TEMP_x4000) != 7) {
+                    goto(_0948)
+                _0B43:
+                    end
+                _0B45:
+                    npcmsg(msg_0603_T25SP0101_00005)
+                    closemessage
+                _0B4A:
+                    if (var(VAR_SPECIAL_x8004) != 417) {
+                        if (var(VAR_SPECIAL_x8004) != 402) {
+                            if (var(VAR_SPECIAL_x8004) != 371) {
+                                if (var(VAR_SPECIAL_x8004) != 362) {
+                                    if (var(VAR_SPECIAL_x8004) != 340) {
+                                        if (var(VAR_SPECIAL_x8004) != 351) {
+                                            goto(_02D0)
+                                        _0BE6:
+                                            npcmsg(msg_0603_T25SP0101_00002)
+                                            goto(_0B4A)
+                                            end
+                                        _0BF1:
+                                            npcmsg(msg_0603_T25SP0101_00002)
+                                            getgameversion(VAR_TEMP_x4000)
+                                            if (var(VAR_TEMP_x4000) != 7) {
+                                                goto(_0948)
+                                            _0C17:
+                                                npcmsg(msg_0603_T25SP0101_00001)
+                                                waitbuttonpress
+                                                closemessage
+                                                goto(_0C26)
+                                                end
+                                            _0C26:
+                                                hidepointsbox
+                                                touchscreenmenushow
+                                                scriptoverlaycmd(3, 1)
+                                                releaseall
+                                                end
+                                            }
+                                            goto(_08EB)
+                                            goto(_0C17)
+                                        }
+                                        goto(_0234)
+                                        goto(_0BE6)
+                                    }
+                                    goto(_0234)
+                                    goto(_0BE6)
+                                }
+                                goto(_0234)
+                                goto(_0BE6)
+                            }
+                            goto(_0234)
+                            goto(_0BE6)
+                        }
+                        goto(_0234)
+                        goto(_0BE6)
+                    }
+                    goto(_0234)
+                    goto(_0BE6)
+                }
+                goto(_08EB)
+                goto(_0B43)
+            }
+            goto(_08EB)
+            goto(_0A34)
+        }
+        npcmsg(msg_0603_T25SP0101_00006)
+        waitbuttonpress
+        closemessage
+        goto(_0C26)
+    }
+    goto(_08EB)
+    goto(_08EB)
+}
+
+mapscripts Goldenrod_GameCorner_MapScripts {
+}

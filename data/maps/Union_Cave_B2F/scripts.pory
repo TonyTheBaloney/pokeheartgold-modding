@@ -1,0 +1,58 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D25R0103_000
+	ScrDef scr_seq_D25R0103_001
+	ScrDef scr_seq_D25R0103_002
+	ScrDefEnd
+`
+
+script scr_seq_D25R0103_002 {
+    if (flag(FLAG_DAILY_CAUGHT_LAPRAS)) {
+        setflag(FLAG_HIDE_UNION_CAVE_LAPRAS)
+        end
+    }
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 5) {
+        clearflag(FLAG_HIDE_UNION_CAVE_LAPRAS)
+    } else {
+        setflag(FLAG_HIDE_UNION_CAVE_LAPRAS)
+    }
+    end
+}
+
+script scr_seq_D25R0103_001 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_UNION_CAVE_LAPRAS)
+        removeobject(obj_D25R0103_rapurasu)
+        end
+    }
+    end
+}
+
+script scr_seq_D25R0103_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_LAPRAS, 0)
+    waitcry
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(SPECIES_LAPRAS, 20, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    setflag(FLAG_DAILY_CAUGHT_LAPRAS)
+    releaseall
+    end
+}
+
+mapscripts Union_Cave_B2F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D25R0103_002
+    INIT_SCRIPT_ON_LOAD: scr_seq_D25R0103_001
+}

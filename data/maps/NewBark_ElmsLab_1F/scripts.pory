@@ -1,0 +1,1195 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T20R0101_000
+	ScrDef scr_seq_T20R0101_001
+	ScrDef scr_seq_T20R0101_002
+	ScrDef scr_seq_T20R0101_003
+	ScrDef scr_seq_T20R0101_004
+	ScrDef scr_seq_T20R0101_005
+	ScrDef scr_seq_T20R0101_006
+	ScrDef scr_seq_T20R0101_007
+	ScrDef scr_seq_T20R0101_008
+	ScrDef scr_seq_T20R0101_009
+	ScrDef scr_seq_T20R0101_010
+	ScrDef scr_seq_T20R0101_011
+	ScrDef scr_seq_T20R0101_012
+	ScrDef scr_seq_T20R0101_013
+	ScrDef scr_seq_T20R0101_014
+	ScrDef scr_seq_T20R0101_015
+	ScrDefEnd
+`
+
+script scr_seq_T20R0101_010 {
+    getfriendsprite(VAR_OBJ_0)
+    if (flag(FLAG_ELMS_LAB_PREVENT_PLAYER_ESCAPE)) {
+        movepersonfacing(obj_T20R0101_doctor, 4, 0, 5, DIR_EAST)
+        goto(_00B4)
+    }
+    if (var(VAR_SCENE_ELMS_LAB) == 0) {
+        movepersonfacing(obj_T20R0101_doctor, 4, 0, 5, DIR_SOUTH)
+    } elif (var(VAR_SCENE_ELMS_LAB) == 3) {
+        movepersonfacing(obj_T20R0101_doctor, 4, 0, 5, DIR_SOUTH)
+    } elif (var(VAR_SCENE_ELMS_LAB) == 8) {
+        movepersonfacing(obj_T20R0101_doctor, 4, 0, 5, DIR_SOUTH)
+        movepersonfacing(obj_T20R0101_var_1, 7, 0, 12, DIR_EAST)
+    }
+_00B4:
+    placestarterballsinelmslab
+    end
+}
+
+script scr_seq_T20R0101_011 {
+    followmonresetmovement
+    lockall
+    if (flag(FLAG_ELMS_LAB_PREVENT_PLAYER_ESCAPE)) {
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_020C)
+        waitmovement
+        npcmsg(msg_0543_T20R0101_00006)
+        closemessage
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0368)
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_021C)
+        waitmovement
+        releaseall
+        end
+    }
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 3) {
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_01BC)
+    } elif (var(VAR_TEMP_x4000) == 4) {
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_01CC)
+    } elif (var(VAR_TEMP_x4000) == 5) {
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_01D4)
+    } elif (var(VAR_TEMP_x4000) == 6) {
+        applymovement(obj_player, NewBark_ElmsLab_1F_Movement_01E4)
+    }
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00000, msg_0543_T20R0101_00001)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0368)
+    waitmovement
+    wait(15, VAR_SPECIAL_x8004)
+    playse(SEQ_SE_GS_PHONE0)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_01F4)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00002)
+    npcmsg(msg_0543_T20R0101_00003)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0204)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00004)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0368)
+    waitmovement
+    setflag(FLAG_ELMS_LAB_PREVENT_PLAYER_ESCAPE)
+    releaseall
+    end
+}
+
+movement NewBark_ElmsLab_1F_Movement_01BC {
+    walk_up * 2
+    walk_right
+    walk_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_01CC {
+    walk_up * 3
+}
+
+movement NewBark_ElmsLab_1F_Movement_01D4 {
+    walk_up * 2
+    walk_left
+    walk_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_01E4 {
+    walk_up * 2
+    walk_left * 2
+    walk_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_01F4 {
+    emote_exclamation_mark
+    walk_up
+    delay_16
+}
+
+movement NewBark_ElmsLab_1F_Movement_0204 {
+    walk_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_020C {
+    face_down
+    emote_exclamation_mark
+    walk_in_place_down * 2
+}
+
+movement NewBark_ElmsLab_1F_Movement_021C {
+    walk_up
+}
+
+script scr_seq_T20R0101_012 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_STARTER)) {
+        if (flag(FLAG_GOT_TM51_FROM_FALKNER)) {
+            npcmsg(msg_0543_T20R0101_00017)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        if (flag(FLAG_MET_PASSERBY_BOY)) { goto(_0352) }
+        npcmsg(msg_0543_T20R0101_00015)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _0352:
+        npcmsg(msg_0543_T20R0101_00016)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    choosestarter
+    setflag(FLAG_GOT_STARTER)
+    followmonsetpositionnexttoplayer(3, 2)
+    togglefollowingpokemonmovement(0)
+    followmonspawnreleaseball
+    wait(10, VAR_SPECIAL_RESULT)
+    togglefollowingpokemonmovement(1)
+    getpartymonspecies(0, VAR_TEMP_x4001)
+    setstarterchoice(VAR_TEMP_x4001)
+    bufferplayersname(0)
+    buffermonspeciesname(1, 0)
+    npcmsg(msg_0543_T20R0101_00007)
+    playfanfare(SEQ_ME_POKEGET)
+    waitfanfare
+    touchscreenmenuhide
+    buffermonspeciesname(1, 0)
+    npcmsg(msg_0543_T20R0101_00008)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    closemessage
+    compare(VAR_SPECIAL_RESULT, 0)
+    callifeq(_02EE)
+    touchscreenmenushow
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0370)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0388)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0543_T20R0101_00010)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0380)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00011)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0390)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00012, msg_0543_T20R0101_00013)
+    waitbuttonpress
+    closemessage
+    setvar(VAR_SCENE_ELMS_LAB, 1)
+    setvar(VAR_SCENE_NEW_BARK_TOWN_OW, 1)
+    clearflag(FLAG_ELMS_LAB_PREVENT_PLAYER_ESCAPE)
+    releaseall
+    end
+_02EE:
+    setvar(VAR_TEMP_x4000, 0)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    nicknameinput(0, VAR_TEMP_x4000)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    touchscreenmenuhide
+    bufferpartymonnick(1, 0)
+    npcmsg(msg_0543_T20R0101_00009)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    closemessage
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02EE) }
+    return
+}
+
+movement NewBark_ElmsLab_1F_Movement_0368 {
+    face_right
+}
+
+movement NewBark_ElmsLab_1F_Movement_0370 {
+    walk_down * 2
+    walk_left * 4
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0380 {
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0388 {
+    walk_in_place_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0390 {
+    delay_16
+    walk_in_place_down
+}
+
+script scr_seq_T20R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_SS_TICKET_FROM_ELM)) {
+        if (flag(FLAG_GAME_CLEAR)) {
+            bufferplayersname(0)
+            gendermsgbox(msg_0543_T20R0101_00071, msg_0543_T20R0101_00072)
+            setvar(VAR_SPECIAL_x8004, ITEM_S_S__TICKET)
+            setvar(VAR_SPECIAL_x8005, 1)
+            setflag(FLAG_GOT_SS_TICKET_FROM_ELM)
+            callstd(std_give_item_verbose)
+        _0541:
+            bufferplayersname(0)
+            gendermsgbox(msg_0543_T20R0101_00073, msg_0543_T20R0101_00074)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _0550:
+            bufferplayersname(0)
+            gendermsgbox(msg_0543_T20R0101_00102, msg_0543_T20R0101_00103)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+    }
+    getpartycount(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        getpartyleadalive(VAR_TEMP_x4000)
+        getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == SPECIES_PICHU) {
+            getpartymonform2(VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0CDC) }
+        }
+    }
+_03F5:
+    if (flag(FLAG_UNK_072)) { goto(_04A1) }
+    if (flag(FLAG_SYS_HATCHED_TOGEPI_EGG)) {
+        getpartyleadalive(VAR_TEMP_x4000)
+        getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        unsetphonecalltrigger(CALL_TRIGGER_ELM_EGG_HATCHED)
+        if (var(VAR_TEMP_x4001) != SPECIES_TOGEPI) {
+            if (var(VAR_TEMP_x4001) == SPECIES_TOGETIC) { goto(_0599) }
+            if (var(VAR_TEMP_x4001) == SPECIES_TOGEKISS) { goto(_0599) }
+        } else {
+        _0599:
+            applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0658)
+            waitmovement
+            npcmsg(msg_0543_T20R0101_00046)
+            bufferplayersname(0)
+            getgameversion(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 7) {
+                if (flag(FLAG_UNK_108)) {
+                    gendermsgbox(msg_0543_T20R0101_00104, msg_0543_T20R0101_00105)
+                } else {
+                    gendermsgbox(msg_0543_T20R0101_00047, msg_0543_T20R0101_00048)
+                }
+            } elif (flag(FLAG_UNK_109)) {
+                gendermsgbox(msg_0543_T20R0101_00104, msg_0543_T20R0101_00105)
+            } else {
+                gendermsgbox(msg_0543_T20R0101_00047, msg_0543_T20R0101_00048)
+            }
+            if (!itemspace(ITEM_EVERSTONE, 1)) {
+                callstd(std_bag_is_full)
+                closemessage
+                releaseall
+                end
+            }
+            callstd(std_give_item_verbose)
+            setflag(FLAG_UNK_072)
+            setflag(FLAG_GOT_EVERSTONE_FROM_ELM)
+            setvar(VAR_TEMP_x400F, 0)
+            npcmsg(msg_0543_T20R0101_00049)
+            bufferplayersname(0)
+            gendermsgbox(msg_0543_T20R0101_00050, msg_0543_T20R0101_00051)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        bufferplayersname(0)
+        gendermsgbox(msg_0543_T20R0101_00053, msg_0543_T20R0101_00054)
+        setvar(VAR_TEMP_x400F, 1)
+        goto(_04A1)
+        releaseall
+        end
+    }
+    if (var(VAR_SCENE_ELMS_LAB) >= 9) { goto(_04A1) }
+    if (var(VAR_SCENE_ELMS_LAB) == 0) {
+        npcmsg(msg_0543_T20R0101_00005)
+        waitbuttonpress
+        closemessage
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0368)
+        waitmovement
+    } elif (var(VAR_SCENE_ELMS_LAB) <= 2) {
+        bufferplayersname(0)
+        gendermsgbox(msg_0543_T20R0101_00012, msg_0543_T20R0101_00013)
+        waitbuttonpress
+        closemessage
+    } elif (var(VAR_SCENE_ELMS_LAB) <= 5) {
+        npcmsg(msg_0543_T20R0101_00040)
+        waitbuttonpress
+        closemessage
+    } elif (var(VAR_SCENE_ELMS_LAB) == 6) {
+        bufferplayersname(0)
+        gendermsgbox(msg_0543_T20R0101_00042, msg_0543_T20R0101_00043)
+        waitbuttonpress
+        closemessage
+    } else {
+        bufferplayersname(0)
+        gendermsgbox(msg_0543_T20R0101_00044, msg_0543_T20R0101_00045)
+        waitbuttonpress
+        closemessage
+    }
+    releaseall
+    end
+_04A1:
+    checkbadge(BADGE_EARTH, VAR_TEMP_x4003)
+    if (var(VAR_TEMP_x4003) == 1) { goto(_0550) }
+    if (flag(FLAG_GOT_SS_TICKET_FROM_ELM)) { goto(_0541) }
+    if (flag(FLAG_UNK_108)) { goto(_051B) }
+    if (flag(FLAG_UNK_109)) { goto(_051B) }
+    checkbadge(BADGE_RISING, VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 1) { goto(_0510) }
+    if (var(VAR_TEMP_x400F) == 1) { goto(_0504) }
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00098, msg_0543_T20R0101_00099)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0504:
+    gendermsgbox(msg_0543_T20R0101_00100, msg_0543_T20R0101_00101)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0510:
+    npcmsg(msg_0543_T20R0101_00069)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_051B:
+    npcmsg(msg_0543_T20R0101_00070)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement NewBark_ElmsLab_1F_Movement_0658 {
+    emote_exclamation_mark
+    delay_4
+}
+
+script scr_seq_T20R0101_003 {
+    followmonresetmovement
+    lockall
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 3) {
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_081C)
+    } elif (var(VAR_TEMP_x4000) == 4) {
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_082C)
+    } elif (var(VAR_TEMP_x4000) == 5) {
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_083C)
+    } elif (var(VAR_TEMP_x4000) == 6) {
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_084C)
+    }
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00019, msg_0543_T20R0101_00020)
+    if (!itemspace(ITEM_POTION, 5)) { goto(_0805) }
+    setvar(VAR_SPECIAL_x8004, ITEM_POTION)
+    setvar(VAR_SPECIAL_x8005, 5)
+    callstd(std_obtain_item_verbose)
+    closemessage
+    setvar(VAR_SCENE_ELMS_LAB, 2)
+    npcmsg(msg_0543_T20R0101_00021)
+    closemessage
+    if (var(VAR_TEMP_x4000) == 3) {
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_0864)
+    } elif (var(VAR_TEMP_x4000) == 4) {
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_0870)
+    } elif (var(VAR_TEMP_x4000) == 5) {
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_087C)
+    } elif (var(VAR_TEMP_x4000) == 6) {
+        applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_0888)
+    }
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_T20R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_40FC) == 3) {
+        npcmsg(msg_0543_T20R0101_00057)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_SCENE_ELMS_LAB) == 0) {
+        npcmsg(msg_0543_T20R0101_00018)
+    } elif (var(VAR_SCENE_ELMS_LAB) == 2) {
+        npcmsg(msg_0543_T20R0101_00022)
+    } elif (var(VAR_SCENE_ELMS_LAB) == 4) {
+        npcmsg(msg_0543_T20R0101_00041)
+        setvar(VAR_SCENE_ELMS_LAB, 5)
+    } elif (var(VAR_SCENE_ELMS_LAB) == 6) {
+        npcmsg(msg_0543_T20R0101_00055)
+    } else {
+        npcmsg(msg_0543_T20R0101_00055)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0805:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+movement NewBark_ElmsLab_1F_Movement_081C {
+    emote_exclamation_mark
+    walk_slightly_fast_left * 6
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_082C {
+    emote_exclamation_mark
+    walk_slightly_fast_left * 5
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_083C {
+    emote_exclamation_mark
+    walk_slightly_fast_left * 4
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_084C {
+    emote_exclamation_mark
+    walk_slightly_fast_left * 3
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_085C {
+    face_right
+}
+
+movement NewBark_ElmsLab_1F_Movement_0864 {
+    walk_slightly_fast_right * 6
+    walk_in_place_left
+}
+
+movement NewBark_ElmsLab_1F_Movement_0870 {
+    walk_slightly_fast_right * 5
+    walk_in_place_left
+}
+
+movement NewBark_ElmsLab_1F_Movement_087C {
+    walk_slightly_fast_right * 4
+    walk_in_place_left
+}
+
+movement NewBark_ElmsLab_1F_Movement_0888 {
+    walk_slightly_fast_right * 3
+    walk_in_place_left
+}
+
+script scr_seq_T20R0101_002 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0A68)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0A7C)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00023)
+    closemessage
+    clearflag(FLAG_HIDE_ELMS_LAB_FRIEND)
+    playse(SEQ_SE_DP_KAIDAN2)
+    addobject(obj_T20R0101_var_1)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    callstd(std_play_friend_music)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0ADC)
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0A84)
+    waitmovement
+    gendermsgbox(msg_0543_T20R0101_00024, msg_0543_T20R0101_00025)
+    closemessage
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0A90)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00026)
+    closemessage
+    callstd(std_fade_end_friend_music)
+_0904:
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    namerival(VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0904) }
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0A7C)
+    waitmovement
+    bufferrivalsname(1)
+    npcmsg(msg_0543_T20R0101_00027)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0543_T20R0101_00029)
+        closemessage
+        goto(_0904)
+        end
+    }
+    closemessage
+    npcmsg(msg_0543_T20R0101_00028)
+    closemessage
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0AEC)
+    applymovement(obj_T20R0101_policeman, NewBark_ElmsLab_1F_Movement_0ABC)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    removeobject(obj_T20R0101_policeman)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0B08)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00030, msg_0543_T20R0101_00031)
+    closemessage
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0B18)
+    waitmovement
+    setflag(FLAG_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND)
+    playse(SEQ_SE_DP_KAIDAN2)
+    removeobject(obj_T20R0101_var_1)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    setflag(FLAG_HIDE_ELMS_LAB_OFFICER)
+    setflag(FLAG_HIDE_ELMS_LAB_FRIEND)
+    setflag(FLAG_GAVE_RIVAL_NAME_TO_OFFICER)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0A74)
+    waitmovement
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B2C)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00032, msg_0543_T20R0101_00033)
+    closemessage
+    npcmsg(msg_0543_T20R0101_00034)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    takeitemnocheck(ITEM_MYSTERY_EGG, 1)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B34)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00035)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B48)
+    waitmovement
+    gendermsgbox(msg_0543_T20R0101_00036, msg_0543_T20R0101_00037)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B50)
+    waitmovement
+    gendermsgbox(msg_0543_T20R0101_00038, msg_0543_T20R0101_00039)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B64)
+    waitmovement
+    setflag(FLAG_HIDE_ROUTE_30_BATTLERS)
+    clearflag(FLAG_HIDE_ROUTE_30_YOUNGSTER_JOEY)
+    setvar(VAR_SCENE_ELMS_LAB, 4)
+    setvar(VAR_UNK_408B, 1)
+    clearflag(FLAG_HIDE_ROUTE_29_FRIEND)
+    clearflag(FLAG_HIDE_ROUTE_29_MARILL)
+    setvar(VAR_SCENE_MR_POKEMONS_HOUSE, 2)
+    setvar(VAR_SCENE_NEW_BARK_TOWN_OW, 3)
+    clearflag(FLAG_HIDE_CHERRYGROVE_MART_SPECIAL_CLERK)
+    setvar(VAR_SCENE_ROUTE_30_PHONE_CALL, 1)
+    releaseall
+    end
+}
+
+movement NewBark_ElmsLab_1F_Movement_0A68 {
+    walk_slightly_fast_up * 8
+    face_left
+}
+
+movement NewBark_ElmsLab_1F_Movement_0A74 {
+    face_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0A7C {
+    walk_in_place_right
+}
+
+movement NewBark_ElmsLab_1F_Movement_0A84 {
+    delay_8 * 4
+    walk_in_place_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0A90 {
+    emote_exclamation_mark
+    delay_1
+    face_down
+    delay_8 * 2
+    face_right
+    delay_8 * 2
+    face_down
+    delay_8 * 2
+    face_right
+    delay_8 * 2
+}
+
+movement NewBark_ElmsLab_1F_Movement_0ABC {
+    face_down
+    delay_4
+    walk_down * 6
+    face_right
+    walk_right
+    face_down
+    walk_down * 2
+}
+
+movement NewBark_ElmsLab_1F_Movement_0ADC {
+    walk_fast_up * 6
+    walk_fast_left
+    jump_in_place_fast_up * 2
+}
+
+movement NewBark_ElmsLab_1F_Movement_0AEC {
+    face_left
+    lock_dir
+    walk_right
+    unlock_dir
+    delay_32
+    face_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0B08 {
+    walk_left
+    walk_up * 2
+    walk_in_place_right
+}
+
+movement NewBark_ElmsLab_1F_Movement_0B18 {
+    face_down
+    walk_down * 6
+    walk_right
+    walk_down * 2
+}
+
+movement NewBark_ElmsLab_1F_Movement_0B2C {
+    walk_in_place_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0B34 {
+    jump_in_place_fast_down
+    lock_dir
+    walk_slightly_faster_up
+    unlock_dir
+}
+
+movement NewBark_ElmsLab_1F_Movement_0B48 {
+    walk_slightly_fast_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0B50 {
+    face_up
+    walk_slow_up
+    delay_15
+    face_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0B64 {
+    walk_slightly_fast_down
+}
+
+script scr_seq_T20R0101_014 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0C78)
+    waitmovement
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0C84)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00058, msg_0543_T20R0101_00059)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0CA4)
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0C90)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B2C)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00060, msg_0543_T20R0101_00061)
+    setvar(VAR_SPECIAL_x8004, 1)
+    setvar(VAR_SPECIAL_x8005, 1)
+    hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        callstd(std_bag_is_full)
+    } else {
+        callstd(std_give_item_verbose)
+    }
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00062, msg_0543_T20R0101_00063)
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00064, msg_0543_T20R0101_00065)
+    closemessage
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0CAC)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0CB8)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00067, msg_0543_T20R0101_00068)
+    closemessage
+    applymovement(obj_T20R0101_var_1, NewBark_ElmsLab_1F_Movement_0CC4)
+    waitmovement
+    removeobject(obj_T20R0101_var_1)
+    setflag(FLAG_HIDE_ELMS_LAB_FRIEND)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0B2C)
+    applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0CD4)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00069)
+    waitbuttonpress
+    closemessage
+    releaseall
+    setvar(VAR_SCENE_ELMS_LAB, 9)
+    setvar(VAR_UNK_4079, 3)
+    setflag(FLAG_UNK_23B)
+    clearflag(FLAG_HIDE_NEW_BARK_FRIEND_2)
+    setvar(VAR_SCENE_NEW_BARK_EAST_EXIT, 2)
+    setvar(VAR_UNK_407B, 2)
+    end
+}
+
+movement NewBark_ElmsLab_1F_Movement_0C78 {
+    face_left
+    emote_exclamation_mark
+}
+
+movement NewBark_ElmsLab_1F_Movement_0C84 {
+    walk_slightly_fast_left * 3
+    walk_in_place_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0C90 {
+    walk_up * 5
+    walk_right
+    walk_up
+    walk_in_place_left
+}
+
+movement NewBark_ElmsLab_1F_Movement_0CA4 {
+    walk_up * 7
+}
+
+movement NewBark_ElmsLab_1F_Movement_0CAC {
+    walk_down
+    walk_in_place_left
+}
+
+movement NewBark_ElmsLab_1F_Movement_0CB8 {
+    delay_8
+    walk_in_place_right
+}
+
+movement NewBark_ElmsLab_1F_Movement_0CC4 {
+    walk_slightly_fast_down * 3
+    walk_slightly_fast_left
+    walk_slightly_fast_down * 4
+}
+
+movement NewBark_ElmsLab_1F_Movement_0CD4 {
+    walk_in_place_up
+}
+
+script(local) _0CDC {
+    if (var(VAR_TEMP_x4006) == 1) {
+        npcmsg(msg_0543_T20R0101_00083)
+        waitbuttonpress
+        closemessage
+        addvar(VAR_TEMP_x4006, 1)
+        releaseall
+        end
+    _0DE3:
+        bufferplayersname(0)
+        gendermsgbox(msg_0543_T20R0101_00084, msg_0543_T20R0101_00085)
+        closemessage
+        getplayerfacing(VAR_TEMP_x4005)
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        getpersoncoords(0, VAR_SPECIAL_x8006, VAR_SPECIAL_x8007)
+        if (var(VAR_TEMP_x4005) == 0) {
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0EB8)
+            waitmovement
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F0C)
+        } elif (var(VAR_TEMP_x4005) == 3) {
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0EC4)
+            waitmovement
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F1C)
+        } elif (var(VAR_TEMP_x4005) == 2) {
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0ED4)
+            waitmovement
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F30)
+        } elif (var(VAR_SPECIAL_x8006) == 4) {
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0EF8)
+            waitmovement
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F30)
+        } else {
+            applymovement(obj_player, NewBark_ElmsLab_1F_Movement_0EE4)
+            waitmovement
+            applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F1C)
+        }
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        return
+    }
+    if (var(VAR_UNK_412F) >= 2) { goto(_1044) }
+    if (var(VAR_UNK_412F) == 1) { goto(_0FE4) }
+    call(_0DE3)
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F48)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00075)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F50)
+    waitmovement
+    applymovement(obj_partner_poke, NewBark_ElmsLab_1F_Movement_0F38)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00076)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F48)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00077)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F60)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00078)
+    closemessage
+    applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0FBC)
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00079)
+    closemessage
+    getpersoncoords(0, VAR_SPECIAL_x8006, VAR_SPECIAL_x8007)
+    if (var(VAR_SPECIAL_x8006) == 4) {
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F98)
+    } else {
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F6C)
+    }
+    waitmovement
+    npcmsg(msg_0543_T20R0101_00080)
+    closemessage
+    if (var(VAR_SPECIAL_x8006) == 4) {
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0FDC)
+        waitmovement
+    } else {
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0FCC)
+        waitmovement
+    }
+    bufferplayersname(0)
+    gendermsgbox(msg_0543_T20R0101_00081, msg_0543_T20R0101_00082)
+    waitbuttonpress
+    closemessage
+    setvar(VAR_UNK_412F, 1)
+    addvar(VAR_TEMP_x4006, 1)
+    releaseall
+    end
+}
+
+movement NewBark_ElmsLab_1F_Movement_0EB8 {
+    walk_down
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0EC4 {
+    walk_down * 2
+    walk_right
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0ED4 {
+    walk_down * 2
+    walk_left
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0EE4 {
+    walk_left
+    walk_down * 3
+    walk_right
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0EF8 {
+    walk_right
+    walk_down * 3
+    walk_left
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0F0C {
+    walk_right
+    walk_down
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0F1C {
+    walk_down
+    walk_right * 2
+    walk_up
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0F30 {
+    walk_in_place_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0F38 {
+    jump_in_place_fast_down
+    delay_16
+    jump_in_place_fast_up
+}
+
+movement NewBark_ElmsLab_1F_Movement_0F48 {
+    walk_in_place_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0F50 {
+    walk_down
+    walk_right
+    walk_in_place_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0F60 {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement NewBark_ElmsLab_1F_Movement_0F6C {
+    walk_up
+    walk_left * 2
+    walk_in_place_up
+    delay_8 * 2
+    lock_dir
+    walk_slow_right
+    walk_in_place_up
+    walk_slow_left
+    unlock_dir
+    delay_8 * 2
+}
+
+movement NewBark_ElmsLab_1F_Movement_0F98 {
+    walk_up
+    delay_8 * 2
+    lock_dir
+    walk_slow_right
+    walk_in_place_up
+    walk_slow_left
+    unlock_dir
+    delay_8 * 2
+}
+
+movement NewBark_ElmsLab_1F_Movement_0FBC {
+    walk_up
+    walk_left
+    walk_in_place_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0FCC {
+    walk_down
+    walk_right * 2
+    walk_in_place_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_0FDC {
+    walk_down
+}
+
+script(local) _0FE4 {
+    mongetfriendship(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) >= 220) {
+        call(_0DE3)
+        gendermsgbox(msg_0543_T20R0101_00086, msg_0543_T20R0101_00087)
+        closemessage
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F60)
+        waitmovement
+        npcmsg(msg_0543_T20R0101_00088)
+        closemessage
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0F50)
+        waitmovement
+        npcmsg(msg_0543_T20R0101_00089)
+        closemessage
+        applymovement(obj_T20R0101_doctor, NewBark_ElmsLab_1F_Movement_0FBC)
+        waitmovement
+        npcmsg(msg_0543_T20R0101_00090)
+        waitbuttonpress
+        closemessage
+        setvar(VAR_UNK_412F, 2)
+        releaseall
+        end
+    _1044:
+        npcmsg(msg_0543_T20R0101_00091)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    goto(_03F5)
+    end
+}
+
+script scr_seq_T20R0101_004 {
+    end
+}
+
+script scr_seq_T20R0101_005 {
+    bufferplayersname(0)
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0543_T20R0101_00093)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0101_006 {
+    bufferplayersname(0)
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0543_T20R0101_00094)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0101_007 {
+    bufferplayersname(0)
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0543_T20R0101_00095)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0101_008 {
+    bufferplayersname(0)
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0543_T20R0101_00096)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0101_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0543_T20R0101_00097)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0101_013 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_STARTER)) {
+        npcmsg(msg_0543_T20R0101_00014)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0543_T20R0101_00092)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    closemessage
+    if (var(VAR_SPECIAL_RESULT) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        playfanfare(SEQ_ME_ASA)
+        healparty
+        leaveoverworld
+        restoreoverworld
+        waitfanfare
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T20R0101_015 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_113C)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0543_T20R0101_00056)
+    closemessage
+    applymovement(obj_T20R0101_assistantm, NewBark_ElmsLab_1F_Movement_1148)
+    waitmovement
+    setvar(VAR_UNK_40FC, 3)
+    releaseall
+    end
+}
+
+movement NewBark_ElmsLab_1F_Movement_113C {
+    walk_left * 5
+    walk_down
+}
+
+movement NewBark_ElmsLab_1F_Movement_1148 {
+    walk_up
+    walk_right * 5
+    walk_in_place_down
+}
+
+mapscripts NewBark_ElmsLab_1F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_T20R0101_010
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40FC, 2: scr_seq_T20R0101_015
+        VAR_SCENE_ELMS_LAB, 3: scr_seq_T20R0101_002
+        VAR_SCENE_ELMS_LAB, 8: scr_seq_T20R0101_014
+    ]
+}

@@ -1,0 +1,1468 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T20_000
+	ScrDef scr_seq_T20_001
+	ScrDef scr_seq_T20_002
+	ScrDef scr_seq_T20_003
+	ScrDef scr_seq_T20_004
+	ScrDef scr_seq_T20_005
+	ScrDef scr_seq_T20_006
+	ScrDef scr_seq_T20_007
+	ScrDef scr_seq_T20_008
+	ScrDef scr_seq_T20_009
+	ScrDef scr_seq_T20_010
+	ScrDef scr_seq_T20_011
+	ScrDef scr_seq_T20_012
+	ScrDef scr_seq_T20_013
+	ScrDef scr_seq_T20_014
+	ScrDef scr_seq_T20_015
+	ScrDef scr_seq_T20_016
+	ScrDef scr_seq_T20_017
+	ScrDefEnd
+`
+
+script scr_seq_T20_006 {
+    getfriendsprite(VAR_OBJ_0)
+    if (!flag(FLAG_UNK_189)) {
+        setvar(VAR_TEMP_x4007, 0)
+        checkbadge(BADGE_PLAIN, VAR_TEMP_x4002)
+        if (var(VAR_TEMP_x4002) != 0) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 2) {
+                clearflag(FLAG_HIDE_CAMERON)
+                end
+            }
+        }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T20_009 {
+    if (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 1) {
+        clearflag(FLAG_HIDE_NEW_BARK_FRIEND)
+        addobject(obj_T20_var_1)
+        clearflag(FLAG_HIDE_NEW_BARK_MARILL)
+        addobject(obj_T20_tsure_poke_static_marill)
+        movepersonfacing(obj_T20_var_1, 686, 0, 396, DIR_WEST)
+        movepersonfacing(obj_T20_tsure_poke_static_marill, 685, 0, 396, DIR_SOUTH)
+        end
+    }
+    end
+}
+
+script scr_seq_T20_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0542_T20_00013)
+    closemessage
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_T20_gsrivel, NewBark_Movement_024C)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_T20_gsrivel, NewBark_Movement_0244)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_T20_gsrivel, NewBark_Movement_0254)
+    }
+    waitmovement
+    npcmsg(msg_0542_T20_00014)
+    closemessage
+    if (!flag(FLAG_GOT_STARTER)) { goto(_0166) }
+    if (var(VAR_SPECIAL_RESULT) != 1) {
+        if (var(VAR_SPECIAL_RESULT) != 3) { goto(_0166) }
+        goto(_0192)
+    _0166:
+        if (var(VAR_SPECIAL_RESULT) != 1) {
+            if (var(VAR_SPECIAL_RESULT) != 3) { goto(_0192) }
+            goto(_01E2)
+        _0192:
+            applymovement(obj_T20_gsrivel, NewBark_Movement_0264)
+            applymovement(obj_partner_poke, NewBark_Movement_0224)
+            applymovement(obj_player, NewBark_Movement_0288)
+            waitmovement
+            applymovement(obj_T20_gsrivel, NewBark_Movement_0274)
+            waitmovement
+            releaseall
+            end
+        _01BA:
+            applymovement(obj_T20_gsrivel, NewBark_Movement_02A0)
+            applymovement(obj_partner_poke, NewBark_Movement_0234)
+            applymovement(obj_player, NewBark_Movement_02B8)
+            waitmovement
+            applymovement(obj_T20_gsrivel, NewBark_Movement_0274)
+            waitmovement
+            releaseall
+            end
+        _01E2:
+            applymovement(obj_T20_gsrivel, NewBark_Movement_0264)
+            applymovement(obj_player, NewBark_Movement_0288)
+            waitmovement
+            applymovement(obj_T20_gsrivel, NewBark_Movement_0274)
+            waitmovement
+            releaseall
+            end
+        _0202:
+            applymovement(obj_T20_gsrivel, NewBark_Movement_02A0)
+            applymovement(obj_player, NewBark_Movement_02B8)
+            waitmovement
+            applymovement(obj_T20_gsrivel, NewBark_Movement_0274)
+            waitmovement
+            releaseall
+            end
+        }
+        goto(_0202)
+        goto(_0192)
+    }
+    goto(_01BA)
+    goto(_0166)
+}
+
+movement NewBark_Movement_0224 {
+    lock_dir
+    walk_slightly_fast_down * 4
+    unlock_dir
+}
+
+movement NewBark_Movement_0234 {
+    lock_dir
+    walk_slightly_fast_down * 6
+    unlock_dir
+}
+
+movement NewBark_Movement_0244 {
+    walk_in_place_up
+}
+
+movement NewBark_Movement_024C {
+    walk_in_place_down
+}
+
+movement NewBark_Movement_0254 {
+    walk_in_place_left
+}
+
+movement NewBark_Movement_025C {
+    walk_in_place_right
+}
+
+movement NewBark_Movement_0264 {
+    walk_slightly_fast_left
+    face_down
+    walk_slightly_fast_down * 2
+}
+
+movement NewBark_Movement_0274 {
+    face_up
+    walk_up * 2
+    face_right
+    walk_right
+}
+
+movement NewBark_Movement_0288 {
+    face_up
+    lock_dir
+    walk_slightly_fast_down * 2
+    jump_far_down
+    unlock_dir
+}
+
+movement NewBark_Movement_02A0 {
+    walk_slightly_fast_up
+    face_left
+    walk_slightly_fast_left
+    face_down
+    walk_slightly_fast_down * 3
+}
+
+movement NewBark_Movement_02B8 {
+    face_right
+    lock_dir
+    walk_slightly_fast_left
+    unlock_dir
+    face_up
+    lock_dir
+    walk_slightly_fast_down * 3
+    jump_far_down
+    unlock_dir
+}
+
+script scr_seq_T20_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 0) {
+        npcmsg(msg_0542_T20_00009)
+    } elif (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 1) {
+        npcmsg(msg_0542_T20_00005)
+    } elif (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 2) {
+        npcmsg(msg_0542_T20_00005)
+    } elif (var(VAR_SCENE_NEW_BARK_WEST_EXIT) == 1) {
+        npcmsg(msg_0542_T20_00000)
+    } else {
+        bufferplayersname(0)
+        gendermsgbox(msg_0542_T20_00006, msg_0542_T20_00007)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20_002 {
+    followmonresetmovement
+    lockall
+    if (flag(FLAG_GOT_POKEGEAR)) {
+        dooranimationload(21, 12, 12, 9, 77)
+        dooranimationopen(77)
+        dooranimationwait(77)
+        addobject(obj_T20_doctor)
+        movepersonfacing(obj_T20_doctor, 684, 0, 393, DIR_SOUTH)
+        applymovement(obj_T20_doctor, NewBark_Movement_0D08)
+        waitmovement
+        dooranimationclose(77)
+        dooranimationwait(77)
+        dooranimationunload(77)
+        npcmsg(msg_0542_T20_00017)
+        closemessage
+        applymovement(obj_player, NewBark_Movement_09C8)
+        waitmovement
+        getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 396) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0C98)
+            applymovement(obj_player, NewBark_Movement_09FC)
+        } elif (var(VAR_TEMP_x4001) == 397) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0CA8)
+            applymovement(obj_player, NewBark_Movement_0A0C)
+        } elif (var(VAR_TEMP_x4001) == 398) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0CB8)
+            applymovement(obj_player, NewBark_Movement_0A0C)
+        } elif (var(VAR_TEMP_x4001) == 399) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0CC8)
+            applymovement(obj_player, NewBark_Movement_0A0C)
+        } elif (var(VAR_TEMP_x4001) == 400) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0CD8)
+            applymovement(obj_player, NewBark_Movement_0A0C)
+        } elif (var(VAR_TEMP_x4001) == 401) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0CE8)
+            applymovement(obj_player, NewBark_Movement_09F4)
+        } elif (var(VAR_TEMP_x4001) == 402) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0CF8)
+            applymovement(obj_player, NewBark_Movement_09F4)
+        }
+        waitmovement
+        npcmsg(msg_0542_T20_00018)
+        registergearnumber(PHONE_CONTACT_PROF__ELM)
+        bufferplayersname(0)
+        npcmsg(msg_0542_T20_00019)
+        playfanfare(SEQ_ME_POKEGEAR_REGIST)
+        waitfanfare
+        npcmsg(msg_0542_T20_00020)
+        closemessage
+        getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 396) {
+            applymovement(obj_player, NewBark_Movement_09D4)
+            applymovement(obj_T20_doctor, NewBark_Movement_0D18)
+        } elif (var(VAR_TEMP_x4001) == 397) {
+            applymovement(obj_player, NewBark_Movement_09D4)
+            applymovement(obj_T20_doctor, NewBark_Movement_0D24)
+        } elif (var(VAR_TEMP_x4001) == 398) {
+            applymovement(obj_player, NewBark_Movement_09F4)
+            applymovement(obj_T20_doctor, NewBark_Movement_0D30)
+        } elif (var(VAR_TEMP_x4001) == 399) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0D40)
+        } elif (var(VAR_TEMP_x4001) == 400) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0D50)
+        } elif (var(VAR_TEMP_x4001) == 401) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0D60)
+        } elif (var(VAR_TEMP_x4001) == 402) {
+            applymovement(obj_T20_doctor, NewBark_Movement_0D70)
+        }
+        waitmovement
+        dooranimationload(21, 12, 12, 9, 77)
+        dooranimationopen(77)
+        dooranimationwait(77)
+        applymovement(obj_T20_doctor, NewBark_Movement_0D10)
+        waitmovement
+        removeobject(obj_T20_doctor)
+        dooranimationclose(77)
+        dooranimationwait(77)
+        dooranimationunload(77)
+        setvar(VAR_SCENE_NEW_BARK_WEST_EXIT, 1)
+        releaseall
+        end
+    }
+    applymovement(obj_T20_gswoman1, NewBark_Movement_09B8)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0542_T20_00001, msg_0542_T20_00002)
+    wait(20, VAR_SPECIAL_RESULT)
+    closemessage
+    applymovement(obj_player, NewBark_Movement_09D4)
+    waitmovement
+    if (var(VAR_SCENE_NEW_BARK_TOWN_OW) == 2) { goto(_054E) }
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 396) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A1C)
+    } elif (var(VAR_TEMP_x4001) == 397) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A2C)
+    } elif (var(VAR_TEMP_x4001) == 398) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A3C)
+    } elif (var(VAR_TEMP_x4001) == 399) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A4C)
+    } elif (var(VAR_TEMP_x4001) == 400) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A54)
+    } elif (var(VAR_TEMP_x4001) == 401) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A64)
+    } elif (var(VAR_TEMP_x4001) == 402) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A74)
+    }
+    waitmovement
+    npcmsg(msg_0542_T20_00003)
+    closemessage
+    if (var(VAR_TEMP_x4001) == 396) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0AEC)
+        applymovement(obj_player, NewBark_Movement_0BD4)
+    } elif (var(VAR_TEMP_x4001) == 397) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B00)
+        applymovement(obj_player, NewBark_Movement_0BE4)
+    } elif (var(VAR_TEMP_x4001) == 398) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B14)
+        applymovement(obj_player, NewBark_Movement_0BF4)
+    } elif (var(VAR_TEMP_x4001) == 399) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B28)
+        applymovement(obj_player, NewBark_Movement_0C04)
+    } elif (var(VAR_TEMP_x4001) == 400) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B34)
+        applymovement(obj_player, NewBark_Movement_0C0C)
+    } elif (var(VAR_TEMP_x4001) == 401) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B48)
+        applymovement(obj_player, NewBark_Movement_0C1C)
+    } elif (var(VAR_TEMP_x4001) == 402) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B58)
+        applymovement(obj_player, NewBark_Movement_0C2C)
+    }
+    waitmovement
+    npcmsg(msg_0542_T20_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_054E:
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 396) {
+        applymovement(obj_player, NewBark_Movement_09E8)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A84)
+    } elif (var(VAR_TEMP_x4001) == 397) {
+        applymovement(obj_player, NewBark_Movement_09E8)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A90)
+    } elif (var(VAR_TEMP_x4001) == 398) {
+        applymovement(obj_player, NewBark_Movement_09E8)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0A9C)
+    } elif (var(VAR_TEMP_x4001) == 399) {
+        applymovement(obj_player, NewBark_Movement_09DC)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0AA8)
+    } elif (var(VAR_TEMP_x4001) == 400) {
+        applymovement(obj_player, NewBark_Movement_09DC)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0ABC)
+    } elif (var(VAR_TEMP_x4001) == 401) {
+        applymovement(obj_player, NewBark_Movement_09DC)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0AC8)
+    } elif (var(VAR_TEMP_x4001) == 402) {
+        applymovement(obj_player, NewBark_Movement_09DC)
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0AD4)
+    }
+    waitmovement
+    npcmsg(msg_0542_T20_00010)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    if (var(VAR_TEMP_x4001) == 396) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B68)
+        applymovement(obj_player, NewBark_Movement_0C3C)
+    } elif (var(VAR_TEMP_x4001) == 397) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B78)
+        applymovement(obj_player, NewBark_Movement_0C48)
+    } elif (var(VAR_TEMP_x4001) == 398) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B88)
+        applymovement(obj_player, NewBark_Movement_0C54)
+    } elif (var(VAR_TEMP_x4001) == 399) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0B94)
+        applymovement(obj_player, NewBark_Movement_0C60)
+    } elif (var(VAR_TEMP_x4001) == 400) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0BA8)
+        applymovement(obj_player, NewBark_Movement_0C74)
+    } elif (var(VAR_TEMP_x4001) == 401) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0BB4)
+        applymovement(obj_player, NewBark_Movement_0C80)
+    } elif (var(VAR_TEMP_x4001) == 402) {
+        applymovement(obj_T20_gswoman1, NewBark_Movement_0BC4)
+        applymovement(obj_player, NewBark_Movement_0C8C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0542_T20_00011)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement NewBark_Movement_09B8 {
+    walk_in_place_left
+    emote_exclamation_mark
+    delay_8
+}
+
+movement NewBark_Movement_09C8 {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement NewBark_Movement_09D4 {
+    face_right
+}
+
+movement NewBark_Movement_09DC {
+    delay_32 * 2
+    walk_in_place_up
+}
+
+movement NewBark_Movement_09E8 {
+    delay_32 * 2
+    walk_in_place_down
+}
+
+movement NewBark_Movement_09F4 {
+    face_up
+}
+
+movement NewBark_Movement_09FC {
+    face_right
+    delay_32 * 2
+    face_down
+}
+
+movement NewBark_Movement_0A0C {
+    face_right
+    delay_32 * 2
+    face_up
+}
+
+movement NewBark_Movement_0A1C {
+    walk_left * 3
+    walk_up * 3
+    walk_left * 3
+}
+
+movement NewBark_Movement_0A2C {
+    walk_left * 3
+    walk_up * 2
+    walk_left * 3
+}
+
+movement NewBark_Movement_0A3C {
+    walk_left * 3
+    walk_up
+    walk_left * 3
+}
+
+movement NewBark_Movement_0A4C {
+    walk_left * 6
+}
+
+movement NewBark_Movement_0A54 {
+    walk_left * 3
+    walk_down
+    walk_left * 3
+}
+
+movement NewBark_Movement_0A64 {
+    walk_left * 6
+    walk_down * 2
+    face_left
+}
+
+movement NewBark_Movement_0A74 {
+    walk_left * 6
+    walk_down * 3
+    face_left
+}
+
+movement NewBark_Movement_0A84 {
+    walk_left * 7
+    walk_up * 2
+}
+
+movement NewBark_Movement_0A90 {
+    walk_left * 7
+    walk_up
+}
+
+movement NewBark_Movement_0A9C {
+    walk_left * 7
+    walk_in_place_up
+}
+
+movement NewBark_Movement_0AA8 {
+    walk_left * 3
+    walk_up
+    walk_left * 4
+    walk_in_place_down
+}
+
+movement NewBark_Movement_0ABC {
+    walk_left * 7
+    walk_in_place_down
+}
+
+movement NewBark_Movement_0AC8 {
+    walk_left * 7
+    walk_down
+}
+
+movement NewBark_Movement_0AD4 {
+    walk_left * 7
+    walk_down * 2
+}
+
+movement NewBark_Movement_0AE0 {
+    walk_right * 6
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0AEC {
+    walk_right * 3
+    walk_down * 3
+    walk_right * 3
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B00 {
+    walk_right * 3
+    walk_down * 2
+    walk_right * 3
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B14 {
+    walk_right * 3
+    walk_down
+    walk_right * 3
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B28 {
+    walk_right * 6
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B34 {
+    walk_right * 3
+    walk_up
+    walk_right * 3
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B48 {
+    walk_up * 2
+    walk_right * 6
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B58 {
+    walk_up * 3
+    walk_right * 6
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B68 {
+    walk_down * 2
+    walk_right * 7
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B78 {
+    walk_down
+    walk_right * 7
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B88 {
+    walk_right * 7
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0B94 {
+    walk_right * 3
+    walk_down
+    walk_right * 4
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0BA8 {
+    walk_right * 7
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0BB4 {
+    walk_up
+    walk_right * 7
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0BC4 {
+    walk_up * 2
+    walk_right * 7
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0BD4 {
+    walk_right * 4
+    walk_down * 3
+    walk_right * 2
+}
+
+movement NewBark_Movement_0BE4 {
+    walk_right * 4
+    walk_down * 2
+    walk_right * 2
+}
+
+movement NewBark_Movement_0BF4 {
+    walk_right * 4
+    walk_down
+    walk_right * 2
+}
+
+movement NewBark_Movement_0C04 {
+    walk_right * 6
+}
+
+movement NewBark_Movement_0C0C {
+    walk_right * 4
+    walk_up
+    walk_right * 2
+}
+
+movement NewBark_Movement_0C1C {
+    walk_right
+    walk_up * 2
+    walk_right * 5
+}
+
+movement NewBark_Movement_0C2C {
+    walk_right
+    walk_up * 3
+    walk_right * 5
+}
+
+movement NewBark_Movement_0C3C {
+    walk_down * 3
+    walk_right * 6
+}
+
+movement NewBark_Movement_0C48 {
+    walk_down * 2
+    walk_right * 6
+}
+
+movement NewBark_Movement_0C54 {
+    walk_down
+    walk_right * 6
+}
+
+movement NewBark_Movement_0C60 {
+    walk_up
+    walk_right * 3
+    walk_down
+    walk_right * 3
+}
+
+movement NewBark_Movement_0C74 {
+    walk_up
+    walk_right * 6
+}
+
+movement NewBark_Movement_0C80 {
+    walk_up * 2
+    walk_right * 6
+}
+
+movement NewBark_Movement_0C8C {
+    walk_up * 3
+    walk_right * 6
+}
+
+movement NewBark_Movement_0C98 {
+    walk_down * 3
+    walk_left * 8
+    walk_in_place_up
+}
+
+movement NewBark_Movement_0CA8 {
+    walk_down * 2
+    walk_left * 8
+    walk_in_place_down
+}
+
+movement NewBark_Movement_0CB8 {
+    walk_down * 2
+    walk_left * 8
+    walk_down
+}
+
+movement NewBark_Movement_0CC8 {
+    walk_down * 2
+    walk_left * 8
+    walk_down * 2
+}
+
+movement NewBark_Movement_0CD8 {
+    walk_down * 2
+    walk_left * 8
+    walk_down * 3
+}
+
+movement NewBark_Movement_0CE8 {
+    walk_down * 2
+    walk_left * 8
+    walk_down * 4
+}
+
+movement NewBark_Movement_0CF8 {
+    walk_down * 2
+    walk_left * 8
+    walk_down * 5
+}
+
+movement NewBark_Movement_0D08 {
+    walk_down
+}
+
+movement NewBark_Movement_0D10 {
+    walk_up
+}
+
+movement NewBark_Movement_0D18 {
+    walk_right * 8
+    walk_up * 3
+}
+
+movement NewBark_Movement_0D24 {
+    walk_right * 8
+    walk_up * 2
+}
+
+movement NewBark_Movement_0D30 {
+    walk_up
+    walk_right * 8
+    walk_up * 2
+}
+
+movement NewBark_Movement_0D40 {
+    walk_up * 2
+    walk_right * 8
+    walk_up * 2
+}
+
+movement NewBark_Movement_0D50 {
+    walk_up * 2
+    walk_right * 8
+    walk_up * 3
+}
+
+movement NewBark_Movement_0D60 {
+    walk_up * 2
+    walk_right * 8
+    walk_up * 4
+}
+
+movement NewBark_Movement_0D70 {
+    walk_up * 5
+    walk_right * 8
+    walk_up * 2
+}
+
+script scr_seq_T20_003 {
+    followmonresetmovement
+    lockall
+    release(obj_T20_tsure_poke_static_marill)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0E08)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    clearflag(FLAG_HIDE_NEW_BARK_FRIEND)
+    addobject(obj_T20_var_1)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    callstd(std_play_friend_music)
+    applymovement(obj_T20_var_1, NewBark_Movement_0EA4)
+    waitmovement
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0E38)
+    waitmovement
+    applymovement(obj_player, NewBark_Movement_0E9C)
+    applymovement(obj_T20_var_1, NewBark_Movement_0EB8)
+    waitmovement
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0E60)
+    waitmovement
+    applymovement(obj_T20_var_1, NewBark_Movement_0EC0)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0E68)
+    waitmovement
+    callstd(std_fade_end_friend_music)
+    setvar(VAR_SCENE_PLAYERS_HOUSE_1F, 2)
+    removeobject(obj_T20_tsure_poke_static_marill)
+    removeobject(obj_T20_var_1)
+    setflag(FLAG_HIDE_NEW_BARK_MARILL)
+    setflag(FLAG_HIDE_NEW_BARK_FRIEND)
+    releaseall
+    end
+}
+
+movement NewBark_Movement_0E08 {
+    delay_32
+    walk_fast_up * 8
+    lock_dir
+    jump_near_fast_down
+    unlock_dir
+    face_right * 5
+    face_up * 5
+    face_left * 5
+    face_up * 5
+    walk_up
+    delay_32
+}
+
+movement NewBark_Movement_0E38 {
+    face_left
+    emote_exclamation_mark
+    walk_in_place_fast_up * 4
+    face_down * 2
+    face_right * 2
+    face_up * 2
+    face_left * 2
+    walk_in_place_fast_left * 4
+    walk_fast_left * 6
+}
+
+movement NewBark_Movement_0E60 {
+    jump_in_place_fast_left * 4
+}
+
+movement NewBark_Movement_0E68 {
+    face_left
+    walk_left
+    face_down
+    walk_down * 4
+    face_left
+    walk_left * 2
+}
+
+movement NewBark_Movement_0E84 {
+    face_down * 2
+    emote_exclamation_mark
+    walk_down
+    face_left
+    walk_left * 6
+}
+
+movement NewBark_Movement_0E9C {
+    face_left * 4
+}
+
+movement NewBark_Movement_0EA4 {
+    delay_16
+    walk_down * 6
+    face_right
+    emote_exclamation_mark
+}
+
+movement NewBark_Movement_0EB8 {
+    walk_in_place_fast_right * 4
+}
+
+movement NewBark_Movement_0EC0 {
+    face_down
+    walk_down * 4
+    face_left
+    walk_left * 2
+}
+
+script scr_seq_T20_007 {
+    bufferplayersname(0)
+    trainertipsex(2, msg_0542_T20_00035)
+    end
+}
+
+script scr_seq_T20_008 {
+    followmonresetmovement
+    lockall
+    callstd(std_play_friend_music)
+    applymovement(obj_T20_var_1, NewBark_Movement_0F84)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_0FBC)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, NewBark_Movement_0FE8)
+    applymovement(obj_T20_var_1, NewBark_Movement_0FF4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    bufferpartymonspeciesnameindef(1, 0)
+    gendermsgbox(msg_0542_T20_00015, msg_0542_T20_00016)
+    closemessage
+    applymovement(obj_T20_var_1, NewBark_Movement_1000)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_1014)
+    applymovement(obj_player, NewBark_Movement_1038)
+    waitmovement
+    applymovement(obj_T20_var_1, NewBark_Movement_1044)
+    applymovement(obj_T20_tsure_poke_static_marill, NewBark_Movement_104C)
+    waitmovement
+    removeobject(obj_T20_tsure_poke_static_marill)
+    removeobject(obj_T20_var_1)
+    setflag(FLAG_HIDE_NEW_BARK_MARILL)
+    setflag(FLAG_HIDE_NEW_BARK_FRIEND)
+    callstd(std_fade_end_friend_music)
+    setvar(VAR_SCENE_NEW_BARK_TOWN_OW, 2)
+    releaseall
+    end
+}
+
+movement NewBark_Movement_0F84 {
+    delay_4 * 4
+    delay_4 * 2
+    walk_in_place_fast_down
+    delay_4 * 2
+    walk_in_place_fast_right
+    delay_4
+    walk_in_place_fast_up
+    delay_4
+    walk_in_place_fast_down
+    delay_4
+    walk_in_place_fast_up
+    delay_4
+    emote_exclamation_mark
+}
+
+movement NewBark_Movement_0FBC {
+    jump_in_place_fast_right * 3
+    walk_fast_down
+    walk_fast_right * 2
+    walk_fast_up * 2
+    walk_fast_left * 2
+    walk_fast_down * 2
+    walk_fast_up * 2
+    walk_fast_right * 2
+    walk_fast_down
+    walk_in_place_left
+}
+
+movement NewBark_Movement_0FE8 {
+    walk_down * 2
+    walk_right
+}
+
+movement NewBark_Movement_0FF4 {
+    delay_8
+    walk_in_place_left
+}
+
+movement NewBark_Movement_1000 {
+    walk_down
+    walk_left * 2
+    walk_down * 5
+    walk_in_place_up
+}
+
+movement NewBark_Movement_1014 {
+    walk_left
+    walk_down
+    walk_left * 2
+    walk_in_place_up
+    delay_8 * 3
+    walk_in_place_down
+    walk_fast_down * 4
+    jump_in_place_fast_down * 2
+}
+
+movement NewBark_Movement_1038 {
+    delay_8 * 2
+    walk_in_place_down
+}
+
+movement NewBark_Movement_1044 {
+    walk_down * 3
+}
+
+movement NewBark_Movement_104C {
+    walk_down * 4
+}
+
+script scr_seq_T20_010 {
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        followmonislarge(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            followmonrecall
+        }
+    }
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_NEW_BARK_ELMS_LAB_2F, 0, 12, 6, DIR_WEST)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    waitse(SEQ_SE_DP_KAIDAN2)
+    setspecialspawnwarp(MAP_NEW_BARK, 688, 393)
+    setvar(VAR_UNK_407C, 1)
+    end
+}
+
+movement NewBark_Movement_10B4 {
+    walk_down
+}
+
+script scr_seq_T20_016 {
+    bufferfriendsname(0)
+    trainertipsex(2, msg_0542_T20_00035)
+    end
+}
+
+script scr_seq_T20_017 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 4)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, NewBark_Movement_1238)
+        applymovement(obj_T20_gsmiddleman1, NewBark_Movement_1284)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, NewBark_Movement_1250)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, NewBark_Movement_1270)
+        applymovement(obj_T20_gsmiddleman1, NewBark_Movement_1284)
+    } else {
+        applymovement(obj_player, NewBark_Movement_125C)
+        applymovement(obj_T20_gsmiddleman1, NewBark_Movement_1284)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, NewBark_Movement_1290)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(0)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement NewBark_Movement_1238 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement NewBark_Movement_1250 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement NewBark_Movement_125C {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement NewBark_Movement_1270 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement NewBark_Movement_1284 {
+    delay_8
+    walk_in_place_up
+}
+
+movement NewBark_Movement_1290 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_T20_011 {
+    followmonresetmovement
+    lockall
+    if (var(VAR_TEMP_x4007) == 2) {
+        npcmsg(msg_0542_T20_00024)
+        closemessage
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        applymovement(obj_player, NewBark_Movement_1508)
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        releaseall
+        end
+    }
+    dooranimationload(21, 12, 23, 12, 77)
+    dooranimationopen(77)
+    dooranimationwait(77)
+    playse(SEQ_SE_DP_KAIDAN2)
+    clearflag(FLAG_HIDE_NEW_BARK_MOM)
+    addobject(obj_T20_gsmama)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    applymovement(obj_T20_gsmama, NewBark_Movement_1478)
+    waitmovement
+    if (var(VAR_TEMP_x4007) == 0) {
+        bufferplayersname(0)
+        npcmsg(msg_0542_T20_00021)
+        closemessage
+    }
+    dooranimationclose(77)
+    dooranimationwait(77)
+    dooranimationunload(77)
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    if (var(VAR_SPECIAL_x8005) == 398) {
+        applymovement(obj_T20_gsmama, NewBark_Movement_1480)
+        applymovement(obj_player, NewBark_Movement_14A4)
+    } elif (var(VAR_SPECIAL_x8005) == 399) {
+        applymovement(obj_T20_gsmama, NewBark_Movement_148C)
+        applymovement(obj_player, NewBark_Movement_14B0)
+    } elif (var(VAR_SPECIAL_x8005) == 400) {
+        applymovement(obj_T20_gsmama, NewBark_Movement_1498)
+        applymovement(obj_player, NewBark_Movement_14BC)
+    } elif (var(VAR_SPECIAL_x8005) == 401) {
+        applymovement(obj_T20_gsmama, NewBark_Movement_1498)
+        applymovement(obj_player, NewBark_Movement_14C8)
+    } else {
+        applymovement(obj_T20_gsmama, NewBark_Movement_1498)
+        applymovement(obj_player, NewBark_Movement_14D8)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    if (var(VAR_TEMP_x4007) == 0) {
+        npcmsg(msg_0542_T20_00022)
+    } else {
+        npcmsg(msg_0542_T20_00023)
+    }
+    closemessage
+    if (var(VAR_SPECIAL_x8005) == 398) {
+        applymovement(obj_T20_gsmama, NewBark_Movement_14E8)
+        waitmovement
+    } elif (var(VAR_SPECIAL_x8005) == 399) {
+        applymovement(obj_T20_gsmama, NewBark_Movement_14F0)
+        waitmovement
+    } else {
+        applymovement(obj_T20_gsmama, NewBark_Movement_14F8)
+        waitmovement
+    }
+    dooranimationload(21, 12, 23, 12, 77)
+    dooranimationopen(77)
+    dooranimationwait(77)
+    applymovement(obj_T20_gsmama, NewBark_Movement_1500)
+    waitmovement
+    setflag(FLAG_HIDE_NEW_BARK_MOM)
+    playse(SEQ_SE_DP_KAIDAN2)
+    removeobject(obj_T20_gsmama)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    dooranimationclose(77)
+    dooranimationwait(77)
+    dooranimationunload(77)
+    addvar(VAR_TEMP_x4007, 1)
+    releaseall
+    end
+}
+
+movement NewBark_Movement_1478 {
+    walk_down
+}
+
+movement NewBark_Movement_1480 {
+    walk_down
+    walk_in_place_right
+}
+
+movement NewBark_Movement_148C {
+    walk_down * 2
+    walk_in_place_right
+}
+
+movement NewBark_Movement_1498 {
+    walk_down * 3
+    walk_in_place_right
+}
+
+movement NewBark_Movement_14A4 {
+    walk_in_place_left
+    walk_left * 4
+}
+
+movement NewBark_Movement_14B0 {
+    walk_in_place_left
+    walk_left * 4
+}
+
+movement NewBark_Movement_14BC {
+    walk_in_place_left
+    walk_left * 4
+}
+
+movement NewBark_Movement_14C8 {
+    walk_left * 2
+    walk_up
+    walk_left * 2
+}
+
+movement NewBark_Movement_14D8 {
+    walk_left * 2
+    walk_up * 2
+    walk_left * 2
+}
+
+movement NewBark_Movement_14E8 {
+    walk_up
+}
+
+movement NewBark_Movement_14F0 {
+    walk_up * 2
+}
+
+movement NewBark_Movement_14F8 {
+    walk_up * 3
+}
+
+movement NewBark_Movement_1500 {
+    walk_up
+}
+
+movement NewBark_Movement_1508 {
+    walk_left
+}
+
+script scr_seq_T20_012 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T20_var_1_2, NewBark_Movement_1644)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0542_T20_00027, msg_0542_T20_00028)
+    closemessage
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    if (var(VAR_SPECIAL_x8005) == 398) {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_1650)
+    } elif (var(VAR_SPECIAL_x8005) == 399) {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_1658)
+    } elif (var(VAR_SPECIAL_x8005) == 399) {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_1660)
+    } elif (var(VAR_SPECIAL_x8005) == 399) {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_1668)
+    } else {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_1670)
+    }
+    applymovement(obj_player, NewBark_Movement_1678)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    gendermsgbox(msg_0542_T20_00029, msg_0542_T20_00030)
+    closemessage
+    if (var(VAR_SPECIAL_x8005) == 398) {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_1680)
+    } elif (var(VAR_SPECIAL_x8005) == 399) {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_1688)
+    } elif (var(VAR_SPECIAL_x8005) == 399) {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_1690)
+    } elif (var(VAR_SPECIAL_x8005) == 399) {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_1698)
+    } else {
+        applymovement(obj_T20_var_1_2, NewBark_Movement_16A0)
+    }
+    waitmovement
+    releaseall
+    end
+}
+
+movement NewBark_Movement_1644 {
+    face_right
+    emote_exclamation_mark
+}
+
+movement NewBark_Movement_1650 {
+    walk_in_place_right
+}
+
+movement NewBark_Movement_1658 {
+    walk_in_place_right
+}
+
+movement NewBark_Movement_1660 {
+    walk_right
+}
+
+movement NewBark_Movement_1668 {
+    walk_in_place_right
+}
+
+movement NewBark_Movement_1670 {
+    walk_in_place_right
+}
+
+movement NewBark_Movement_1678 {
+    walk_left * 2
+}
+
+movement NewBark_Movement_1680 {
+    walk_in_place_left
+}
+
+movement NewBark_Movement_1688 {
+    walk_in_place_left
+}
+
+movement NewBark_Movement_1690 {
+    walk_in_place_left
+}
+
+movement NewBark_Movement_1698 {
+    walk_in_place_left
+}
+
+movement NewBark_Movement_16A0 {
+    walk_in_place_left
+}
+
+script scr_seq_T20_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    gendermsgbox(msg_0542_T20_00025, msg_0542_T20_00026)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_MARILL, 0)
+    npcmsg(msg_0542_T20_00033)
+    waitcry
+    closemessage
+    applymovement(obj_T20_tsure_poke_static_marill_2, NewBark_Movement_16F4)
+    waitmovement
+    applymovement(obj_T20_var_1_2, NewBark_Movement_1700)
+    waitmovement
+    gendermsgbox(msg_0542_T20_00031, msg_0542_T20_00032)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement NewBark_Movement_16F4 {
+    jump_in_place_slow_right
+    jump_in_place_slow_right
+}
+
+movement NewBark_Movement_1700 {
+    walk_in_place_left
+}
+
+script scr_seq_T20_013 {
+    trainertipsex(2, msg_0542_T20_00036)
+    end
+}
+
+script scr_seq_T20_014 {
+    directionsignpostex(0, 11, msg_0542_T20_00034)
+    end
+}
+
+script scr_seq_T20_015 {
+    bufferplayersname(0)
+    simplenpcmsg(msg_0542_T20_00012)
+    end
+}
+
+mapscripts NewBark_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_PLAYERS_HOUSE_1F, 1: scr_seq_T20_003
+        VAR_SCENE_NEW_BARK_TOWN_OW, 1: scr_seq_T20_008
+    ]
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T20_006
+    INIT_SCRIPT_ON_RESUME: scr_seq_T20_009
+}

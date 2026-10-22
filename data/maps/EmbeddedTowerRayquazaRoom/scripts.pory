@@ -1,0 +1,110 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D52R0103_000
+	ScrDef scr_seq_D52R0103_001
+	ScrDef scr_seq_D52R0103_002
+	ScrDef scr_seq_D52R0103_003
+	ScrDefEnd
+`
+
+script scr_seq_D52R0103_002 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_EMBEDDED_TOWER_RAYQUAZA)
+        removeobject(obj_D52R0103_tsure_poke_static_rayquaza)
+        end
+    }
+    end
+}
+
+script scr_seq_D52R0103_003 {
+    if (var(VAR_SCENE_EMBEDDED_TOWER) >= 7) {
+        end
+    }
+    clearflag(FLAG_HIDE_EMBEDDED_TOWER_RAYQUAZA)
+    end
+}
+
+script scr_seq_D52R0103_001 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, EmbeddedTowerRayquazaRoom_Movement_00B4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    playcry(SPECIES_RAYQUAZA, 0)
+    waitcry
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, EmbeddedTowerRayquazaRoom_Movement_00B4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    release(obj_D52R0103_tsure_poke_static_rayquaza)
+    spinobject(obj_D52R0103_tsure_poke_static_rayquaza, 8, 90, 3, 0)
+    playcry(SPECIES_RAYQUAZA, 0)
+    npcmsg(msg_0150_D52R0103_00000)
+    waitcry
+    lock(obj_D52R0103_tsure_poke_static_rayquaza)
+    closemessage
+    setvar(VAR_SCENE_EMBEDDED_TOWER, 6)
+    releaseall
+    end
+}
+
+movement EmbeddedTowerRayquazaRoom_Movement_00B4 {
+    walk_up * 8
+    delay_8 * 2
+}
+
+script scr_seq_D52R0103_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    release(obj_D52R0103_tsure_poke_static_rayquaza)
+    spinobject(obj_D52R0103_tsure_poke_static_rayquaza, 8, 90, 3, 0)
+    playcry(SPECIES_RAYQUAZA, 0)
+    npcmsg(msg_0150_D52R0103_00000)
+    waitcry
+    closemessage
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(SPECIES_RAYQUAZA, 50, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    getstaticencounteroutcome(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 3) {
+        if (var(VAR_TEMP_x4002) == 4) { goto(_0134) }
+    }
+    npcmsg(msg_0150_D52R0103_00001)
+    waitbuttonpress
+    closemessage
+    setvar(VAR_SCENE_EMBEDDED_TOWER, 9)
+    releaseall
+    end
+_0134:
+    setvar(VAR_SCENE_EMBEDDED_TOWER, 7)
+    setflag(FLAG_CAUGHT_RAYQUAZA)
+    releaseall
+    end
+}
+
+mapscripts EmbeddedTowerRayquazaRoom_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_EMBEDDED_TOWER, 5: scr_seq_D52R0103_001
+    ]
+    INIT_SCRIPT_ON_LOAD: scr_seq_D52R0103_002
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D52R0103_003
+}

@@ -1,0 +1,62 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T25R0502_000 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Movement_008C)
+    waitmovement
+    waitse(SEQ_SE_DP_KAIDAN2)
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_GOLDENROD_MAGNET_TRAIN_STATION_1F, 0, 3, 3, DIR_EAST)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    waitse(SEQ_SE_DP_KAIDAN2)
+    followmonreleasenexttoplayer
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Movement_0098)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0588_T25R0502_00000)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Movement_00A4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    releaseall
+    end
+}
+
+movement Goldenrod_MagnetTrainStation_2F_Movement_008C {
+    walk_down * 3
+    walk_left * 8
+}
+
+movement Goldenrod_MagnetTrainStation_2F_Movement_0098 {
+    walk_right * 3
+    walk_down * 3
+}
+
+movement Goldenrod_MagnetTrainStation_2F_Movement_00A4 {
+    walk_down * 2
+}
+
+script(local) _00AC {
+    end
+}
+
+mapscripts Goldenrod_MagnetTrainStation_2F_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_411E, 0: scr_seq_T25R0502_000
+    ]
+}

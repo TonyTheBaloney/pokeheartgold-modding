@@ -1,0 +1,32 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R05R0401_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_CLEANSE_TAG_FROM_ROUTE_5_GRANDMA)) {
+        npcmsg(msg_0333_R05R0401_00000)
+        if (!itemspace(ITEM_CLEANSE_TAG, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_CLEANSE_TAG_FROM_ROUTE_5_GRANDMA)
+    }
+    npcmsg(msg_0333_R05R0401_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R05R0401_001 {
+    simplenpcmsg(msg_0333_R05R0401_00002)
+    end
+}
+
+mapscripts Route5_House_MapScripts {
+}

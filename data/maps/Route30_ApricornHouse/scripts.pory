@@ -1,0 +1,27 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R30R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_APRICORN_BOX)) {
+        npcmsg(msg_0376_R30R0101_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0376_R30R0101_00000)
+    giveitemnocheck(ITEM_APRICORN_BOX, 1)
+    setflag(FLAG_GOT_APRICORN_BOX)
+    setvar(VAR_SCENE_ROUTE_30_OW, 1)
+    npcmsg(msg_0376_R30R0101_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Route30_ApricornHouse_MapScripts {
+}

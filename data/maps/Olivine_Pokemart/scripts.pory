@@ -1,0 +1,49 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T26FS0101_000
+	ScrDef scr_seq_T26FS0101_001
+	ScrDef scr_seq_T26FS0101_002
+	ScrDef scr_seq_T26FS0101_003
+	ScrDefEnd
+`
+
+script scr_seq_T26FS0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 1)
+    callstd(std_pokemart)
+    releaseall
+    end
+}
+
+script scr_seq_T26FS0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 10)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_T26FS0101_001 {
+    simplenpcmsg(msg_0605_T26FS0101_00000)
+    end
+}
+
+script scr_seq_T26FS0101_002 {
+    simplenpcmsg(msg_0605_T26FS0101_00001)
+    end
+}
+
+mapscripts Olivine_Pokemart_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: std_hide_show_deliverymen
+}

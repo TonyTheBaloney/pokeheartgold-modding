@@ -1,0 +1,236 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T02_000
+	ScrDef scr_seq_T02_001
+	ScrDef scr_seq_T02_002
+	ScrDef scr_seq_T02_003
+	ScrDef scr_seq_T02_004
+	ScrDef scr_seq_T02_005
+	ScrDef scr_seq_T02_006
+	ScrDef scr_seq_T02_007
+	ScrDef scr_seq_T02_008
+	ScrDef scr_seq_T02_009
+	ScrDef scr_seq_T02_010
+	ScrDef scr_seq_T02_011
+	ScrDefEnd
+`
+
+script scr_seq_T02_008 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 3) {
+            clearflag(FLAG_HIDE_CAMERON)
+        } elif (var(VAR_TEMP_x4000) == 5) {
+            clearflag(FLAG_HIDE_CAMERON)
+        } else {
+            setflag(FLAG_HIDE_CAMERON)
+        }
+        if (!flag(FLAG_UNLOCKED_WEST_KANTO)) {
+            setflag(FLAG_UNLOCKED_WEST_KANTO)
+            setvar(VAR_UNK_4121, 1)
+        }
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T02_011 {
+    phonecall(PHONE_CONTACT_PROF__OAK, 2, 0)
+    setvar(VAR_UNK_4096, 2)
+    end
+}
+
+script scr_seq_T02_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0452_T02_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0452_T02_00001)
+    } else {
+        npcmsg(msg_0452_T02_00002)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T02_001 {
+    simplenpcmsg(msg_0452_T02_00003)
+    end
+}
+
+script scr_seq_T02_010 {
+    simplenpcmsg(msg_0452_T02_00004)
+    end
+}
+
+script scr_seq_T02_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_TM85_FROM_VIRIDIAN_CITY_MAN)) {
+        npcmsg(msg_0452_T02_00005)
+        if (!itemspace(ITEM_TM85, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_TM85_FROM_VIRIDIAN_CITY_MAN)
+    }
+    npcmsg(msg_0452_T02_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T02_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Viridian_Movement_02AC)
+        applymovement(obj_T02_gsmiddleman1, Viridian_Movement_02F8)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Viridian_Movement_02C4)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Viridian_Movement_02E4)
+        applymovement(obj_T02_gsmiddleman1, Viridian_Movement_02F8)
+    } else {
+        applymovement(obj_player, Viridian_Movement_02D0)
+        applymovement(obj_T02_gsmiddleman1, Viridian_Movement_02F8)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Viridian_Movement_0304)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(69)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Viridian_Movement_02AC {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Viridian_Movement_02C4 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Viridian_Movement_02D0 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Viridian_Movement_02E4 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Viridian_Movement_02F8 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Viridian_Movement_0304 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_T02_003 {
+    simplenpcmsg(msg_0452_T02_00007)
+    end
+}
+
+script scr_seq_T02_004 {
+    directionsignpostex(0, 2, msg_0452_T02_00008)
+    end
+}
+
+script scr_seq_T02_005 {
+    trainertipsex(2, msg_0452_T02_00009)
+    end
+}
+
+script scr_seq_T02_006 {
+    trainertipsex(2, msg_0452_T02_00010)
+    end
+}
+
+script scr_seq_T02_007 {
+    trainertipsex(2, msg_0452_T02_00011)
+    end
+}
+
+mapscripts Viridian_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T02_008
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4096, 1: scr_seq_T02_011
+    ]
+}

@@ -1,0 +1,897 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D32R0401_000
+	ScrDef scr_seq_D32R0401_001
+	ScrDef scr_seq_D32R0401_002
+	ScrDef scr_seq_D32R0401_003
+	ScrDef scr_seq_D32R0401_004
+	ScrDef scr_seq_D32R0401_005
+	ScrDef scr_seq_D32R0401_006
+	ScrDef scr_seq_D32R0401_007
+	ScrDef scr_seq_D32R0401_008
+	ScrDef scr_seq_D32R0401_009
+	ScrDef scr_seq_D32R0401_010
+	ScrDef scr_seq_D32R0401_011
+	ScrDef scr_seq_D32R0401_012
+	ScrDef scr_seq_D32R0401_013
+	ScrDef scr_seq_D32R0401_014
+	ScrDef scr_seq_D32R0401_015
+	ScrDef scr_seq_D32R0401_016
+	ScrDef scr_seq_D32R0401_017
+	ScrDef scr_seq_D32R0401_018
+	ScrDef scr_seq_D32R0401_019
+	ScrDef scr_seq_D32R0401_020
+	ScrDef scr_seq_D32R0401_021
+	ScrDefEnd
+`
+
+script scr_seq_D32R0401_021 {
+    battlehallcountusedspecies(VAR_TEMP_x4000)
+    compare(VAR_TEMP_x4000, 11)
+    callifge(_0090)
+    compare(VAR_TEMP_x4000, 101)
+    callifge(_007A)
+    end
+_007A:
+    moveperson(obj_D32R0401_var_10, 8, 11)
+    movepersonfacing(obj_D32R0401_var_10, 8, 0, 11, DIR_WEST)
+    return
+_0090:
+    moveperson(obj_D32R0401_var_10, 13, 11)
+    movepersonfacing(obj_D32R0401_var_10, 13, 0, 11, DIR_WEST)
+    return
+}
+
+script scr_seq_D32R0401_020 {
+    if (var(VAR_UNK_4145) == 1) {
+        random(VAR_TEMP_x4007, 100)
+        callifunset(FLAG_UNK_234, _00D5)
+        if (var(VAR_TEMP_x4007) < 30) {
+            if (!flag(FLAG_UNK_AA1)) {
+                setflag(FLAG_UNK_AA1)
+                battlehallgettotalstreak(VAR_TEMP_x4008)
+                if (var(VAR_TEMP_x4008) >= 10000) {
+                    random(VAR_UNK_4053, 4)
+                    goto(_0147)
+                    end
+                }
+                if (var(VAR_TEMP_x4008) >= 1000) {
+                    random(VAR_UNK_4053, 2)
+                    goto(_0147)
+                    end
+                }
+                if (var(VAR_TEMP_x4008) >= 500) {
+                    setvar(VAR_UNK_4053, 0)
+                    goto(_0147)
+                    end
+                _0147:
+                    clearflag(FLAG_UNK_234)
+                    call(_017D)
+                    addobject(obj_D32R0401_var_2)
+                    end
+                }
+                end
+            }
+            end
+        }
+        end
+    _00D5:
+        removeobject(obj_D32R0401_var_2)
+        setflag(FLAG_UNK_234)
+        return
+    }
+    end
+}
+
+script scr_seq_D32R0401_015 {
+    getplayergender(VAR_TEMP_x4000)
+    compare(VAR_TEMP_x4000, 0)
+    callifeq(_01FB)
+    compare(VAR_TEMP_x4000, 1)
+    callifeq(_0203)
+    call(_017D)
+    end
+_017D:
+    compare(VAR_UNK_4053, 0)
+    callifeq(_01B3)
+    compare(VAR_UNK_4053, 1)
+    callifeq(_01E3)
+    compare(VAR_UNK_4053, 2)
+    callifeq(_01EB)
+    compare(VAR_UNK_4053, 3)
+    callifeq(_01F3)
+    return
+_01B3:
+    getplayergender(VAR_TEMP_x4009)
+    if (var(VAR_TEMP_x4009) == 0) {
+        setvar(VAR_OBJ_1, 97)
+        return
+    }
+    if (var(VAR_TEMP_x4009) == 1) {
+        setvar(VAR_OBJ_1, 0)
+        return
+    _01E3:
+        setvar(VAR_OBJ_1, 365)
+        return
+    _01EB:
+        setvar(VAR_OBJ_1, 366)
+        return
+    _01F3:
+        setvar(VAR_OBJ_1, 354)
+        return
+    _01FB:
+        setvar(VAR_OBJ_9, 320)
+        return
+    _0203:
+        setvar(VAR_OBJ_9, 317)
+        return
+    }
+    return
+}
+
+script scr_seq_D32R0401_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4003, 0)
+    setvar(VAR_TEMP_x4004, 0)
+    goto(_0243)
+    end
+}
+
+script scr_seq_D32R0401_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4003, 0)
+    setvar(VAR_TEMP_x4004, 1)
+    goto(_0243)
+    end
+_0243:
+    checkfieldheapfreesize(0)
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_0868)
+    compare(VAR_TEMP_x4004, 1)
+    callifeq(_086D)
+    goto(_0269)
+    end
+_0269:
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_0872)
+    compare(VAR_TEMP_x4004, 1)
+    callifeq(_0891)
+    menuitemadd(19, 255, 2)
+    menuitemadd(20, 255, 3)
+    menuexec
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        setvar(VAR_UNK_4146, 0)
+        battlehallaction(0, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0377) }
+        goto(_03A1)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        setvar(VAR_UNK_4146, 1)
+        battlehallaction(0, 2, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0108_D32R0401_00036)
+            msgboxfrontierbannedspecies(37, 2, 0, 0)
+            touchscreenmenushow
+            goto(_02F5)
+            end
+        _03A1:
+            npcmsg(msg_0108_D32R0401_00033)
+            closemessage
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            battlehallaction(4, VAR_UNK_4146, VAR_SPECIAL_RESULT)
+            battlehallgetpartyselection(VAR_TEMP_x4002, VAR_TEMP_x4005)
+            if (var(VAR_TEMP_x4002) == 255) {
+                setsavedbottomscreenapp(0)
+            }
+            restoreoverworld
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            if (var(VAR_TEMP_x4002) == 255) { goto(_02F5) }
+            daycaresanitizemon(VAR_TEMP_x4002, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 255) { goto(_07B9) }
+            if (var(VAR_UNK_4146) == 1) {
+                daycaresanitizemon(VAR_TEMP_x4005, VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 255) { goto(_07B9) }
+                goto(_042F)
+                end
+            _042F:
+                getpartymonspecies(VAR_TEMP_x4002, VAR_TEMP_x4001)
+                if (var(VAR_TEMP_x4001) != 0) {
+                    battlehallaction(1, VAR_UNK_4146, VAR_SPECIAL_RESULT)
+                    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04D8) }
+                    battlehallaction(2, VAR_UNK_4146, VAR_SPECIAL_RESULT)
+                    bufferspeciesname(0, VAR_SPECIAL_RESULT, 0, 0)
+                    if (var(VAR_SPECIAL_RESULT) == VAR_TEMP_x4001) { goto(_04D8) }
+                    goto(_0484)
+                    end
+                _0484:
+                    bufferspeciesname(1, VAR_TEMP_x4001, 0, 0)
+                    npcmsg(msg_0108_D32R0401_00034)
+                    touchscreenmenuhide
+                    menuinitstdgmm(1, 1, 1, 1, VAR_SPECIAL_RESULT)
+                    menuitemadd(42, 255, 0)
+                    menuitemadd(43, 255, 1)
+                    menuexec
+                    Switch(VAR_SPECIAL_RESULT)
+                    Case(0, _04C8)
+                    touchscreenmenushow
+                    goto(_02F5)
+                    end
+                _04C8:
+                    battlehallaction(3, VAR_UNK_4146, VAR_SPECIAL_RESULT)
+                    goto(_04D8)
+                    end
+                _04D8:
+                    goto(_04E0)
+                    end
+                _04E0:
+                    compare(VAR_UNK_4146, 0)
+                    callifeq(_066C)
+                    compare(VAR_UNK_4146, 1)
+                    callifeq(_066C)
+                    setvar(VAR_TEMP_x4000, 0)
+                    healparty
+                    callstd(std_prompt_save)
+                    copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+                    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02F5) }
+                    if (var(VAR_UNK_4146) == 2) { goto(_052E) }
+                    goto(_0689)
+                    end
+                _052E:
+                    npcmsg(msg_0108_D32R0401_00030)
+                    touchscreenmenuhide
+                    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+                    menuitemadd(14, 255, 0)
+                    menuitemadd(15, 255, 1)
+                    menuitemadd(5, 255, 2)
+                    menuexec
+                    Switch(VAR_SPECIAL_RESULT)
+                    Case(0, _057F)
+                    Case(1, _05D7)
+                    touchscreenmenushow
+                    goto(_02F5)
+                    end
+                _057F:
+                    npcmsg(msg_0108_D32R0401_00031)
+                    getmenuchoice(VAR_SPECIAL_RESULT)
+                    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_052E) }
+                    touchscreenmenushow
+                    closemessage
+                    commclubjoin(30, 0, 0, VAR_SPECIAL_RESULT)
+                    touchscreenmenushow
+                    if (var(VAR_SPECIAL_RESULT) == 1) {
+                        goto(_052E)
+                        end
+                    }
+                    if (var(VAR_SPECIAL_RESULT) == 3) {
+                        commclubexit
+                        goto(_052E)
+                        end
+                    _05D7:
+                        npcmsg(msg_0108_D32R0401_00031)
+                        getmenuchoice(VAR_SPECIAL_RESULT)
+                        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_052E) }
+                        touchscreenmenushow
+                        closemessage
+                        commclubhost(30, 0, 0, VAR_SPECIAL_RESULT)
+                        touchscreenmenushow
+                        if (var(VAR_SPECIAL_RESULT) == 1) {
+                            goto(_052E)
+                            end
+                        }
+                        if (var(VAR_SPECIAL_RESULT) == 3) {
+                            commclubexit
+                            goto(_052E)
+                            end
+                        _062F:
+                            linksyncclearpackets
+                            linksyncandwait(108)
+                            battlehallcheckspecies(VAR_TEMP_x4001, VAR_SPECIAL_RESULT)
+                            if (var(VAR_SPECIAL_RESULT) == 1) {
+                                call(_0685)
+                                npcmsg(msg_0108_D32R0401_00057)
+                                goto(_02F5)
+                                end
+                            _0685:
+                                commclubexit
+                                return
+                            _0689:
+                                compare(VAR_UNK_4146, 0)
+                                callifeq(_0721)
+                                compare(VAR_UNK_4146, 1)
+                                callifeq(_073C)
+                                compare(VAR_UNK_4146, 2)
+                                callifeq(_0757)
+                                playse(SEQ_SE_DP_KAIDAN2)
+                                goto(_06BC)
+                                end
+                            _06BC:
+                                fadescreen(6, 1, 0, RGB_BLACK)
+                                waitfade
+                                setsavedbottomscreenapp(0)
+                                compare(VAR_UNK_4146, 0)
+                                callifeq(_077D)
+                                compare(VAR_UNK_4146, 1)
+                                callifeq(_0791)
+                                compare(VAR_UNK_4146, 2)
+                                callifeq(_07A5)
+                                incgamestat(59)
+                                leaveoverworld
+                                launchfrontier(9)
+                                compare(VAR_UNK_4146, 2)
+                                callifeq(_071D)
+                                restoreoverworld
+                                fadescreen(6, 1, 1, RGB_BLACK)
+                                waitfade
+                                checkfieldheapfreesize(1)
+                                end
+                            _071D:
+                                commclubexit
+                                return
+                            _0721:
+                                npcmsg(msg_0108_D32R0401_00009)
+                                waitabpress
+                                closemessage
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_07C8)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_07F0)
+                                waitmovement
+                                return
+                            _073C:
+                                npcmsg(msg_0108_D32R0401_00009)
+                                waitabpress
+                                closemessage
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_07C8)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_07F0)
+                                waitmovement
+                                return
+                            _0757:
+                                npcmsgvar(msg_0108_D32R0401_00009)
+                                wait(10, VAR_SPECIAL_RESULT)
+                                linksyncclearpackets
+                                linksyncandwait(109)
+                                closemessage
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_07D8)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_0800)
+                                waitmovement
+                                return
+                            _077D:
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_0818)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_0848)
+                                waitmovement
+                                return
+                            _0791:
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_0818)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_0848)
+                                waitmovement
+                                return
+                            _07A5:
+                                applymovement(obj_player, BattleFrontier_BattleHall_Movement_082C)
+                                applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleHall_Movement_0858)
+                                waitmovement
+                                return
+                            _07B9:
+                                touchscreenmenushow
+                                setvar(VAR_UNK_4145, 0)
+                                callstd(std_bag_is_full_griseous_orb)
+                                end
+                            }
+                            linksyncclearpackets
+                            linksyncandwait(110)
+                            npcmsg(msg_0108_D32R0401_00032)
+                            compare(VAR_UNK_4146, 2)
+                            callifeq(_066C)
+                            call(_08D9)
+                            goto(_0689)
+                            end
+                        _066C:
+                            setvar(VAR_UNK_4145, 255)
+                            return
+                        }
+                        goto(_062F)
+                        end
+                    }
+                    goto(_062F)
+                    end
+                }
+                touchscreenmenushow
+                goto(_02F5)
+            }
+            goto(_042F)
+            end
+        }
+        goto(_03A1)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_02D3) }
+    if (var(VAR_SPECIAL_RESULT) == 4) {
+        setvar(VAR_UNK_4146, 2)
+        battlehallaction(0, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0377) }
+        goto(_03A1)
+        end
+    _0377:
+        npcmsg(msg_0108_D32R0401_00035)
+        msgboxfrontierbannedspecies(37, 1, 0, 0)
+        touchscreenmenushow
+        goto(_02F5)
+        end
+    }
+    touchscreenmenushow
+    goto(_02F5)
+    end
+_02D3:
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_08A8)
+    compare(VAR_TEMP_x4004, 1)
+    callifeq(_08AD)
+    goto(_0269)
+    end
+_02F5:
+    goto(_02FD)
+    end
+_02FD:
+    setvar(VAR_UNK_4145, 0)
+    npcmsg(msg_0108_D32R0401_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement BattleFrontier_BattleHall_Movement_07C8 {
+    walk_left * 4
+    walk_down * 3
+    set_invisible
+}
+
+movement BattleFrontier_BattleHall_Movement_07D8 {
+    walk_left * 2
+    walk_up
+    walk_left * 2
+    walk_down * 3
+    set_invisible
+}
+
+movement BattleFrontier_BattleHall_Movement_07F0 {
+    walk_left * 3
+    walk_down * 3
+    set_invisible
+}
+
+movement BattleFrontier_BattleHall_Movement_0800 {
+    walk_left
+    walk_up
+    walk_left * 2
+    walk_down * 3
+    set_invisible
+}
+
+movement BattleFrontier_BattleHall_Movement_0818 {
+    walk_faster_right * 4
+    walk_faster_up * 3
+    face_left
+    set_visible
+}
+
+movement BattleFrontier_BattleHall_Movement_082C {
+    walk_faster_right * 2
+    walk_faster_down
+    walk_faster_right * 2
+    walk_faster_up * 3
+    face_left
+    set_visible
+}
+
+movement BattleFrontier_BattleHall_Movement_0848 {
+    walk_faster_up * 3
+    walk_faster_right * 3
+    set_visible
+}
+
+movement BattleFrontier_BattleHall_Movement_0858 {
+    walk_faster_up * 2
+    walk_faster_right * 3
+    set_visible
+}
+
+script(local) _0868 {
+    npcmsg(msg_0108_D32R0401_00000)
+    return
+_086D:
+    npcmsg(msg_0108_D32R0401_00003)
+    return
+_0872:
+    npcmsg(msg_0108_D32R0401_00001)
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(16, 255, 0)
+    menuitemadd(17, 255, 1)
+    return
+_0891:
+    npcmsg(msg_0108_D32R0401_00004)
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(18, 255, 4)
+    return
+_08A8:
+    npcmsg(msg_0108_D32R0401_00002)
+    return
+_08AD:
+    npcmsg(msg_0108_D32R0401_00005)
+    return
+}
+
+script scr_seq_D32R0401_001 {
+    checkfieldheapfreesize(0)
+    setvar(VAR_TEMP_x4003, 1)
+    setvar(VAR_UNK_4145, 0)
+    npcmsg(msg_0108_D32R0401_00011)
+    call(_066C)
+    call(_08D9)
+    goto(_0689)
+    end
+_08D9:
+    addwaitingicon
+    savegamenormal(VAR_SPECIAL_RESULT)
+    removewaitingicon
+    playse(SEQ_SE_DP_SAVE)
+    waitse(SEQ_SE_DP_SAVE)
+    return
+}
+
+script scr_seq_D32R0401_002 {
+    npcmsg(msg_0108_D32R0401_00012)
+    battlehallresetstreak(VAR_UNK_4146)
+    compare(VAR_BATTLE_HALL_PRINT_PROGRESS, 1)
+    callifeq(_0914)
+    compare(VAR_BATTLE_HALL_PRINT_PROGRESS, 3)
+    callifeq(_091C)
+    goto(_02F5)
+    end
+_0914:
+    setvar(VAR_BATTLE_HALL_PRINT_PROGRESS, 0)
+    return
+_091C:
+    setvar(VAR_BATTLE_HALL_PRINT_PROGRESS, 2)
+    return
+}
+
+script scr_seq_D32R0401_003 {
+    compare(VAR_UNK_4146, 0)
+    callifeq(_0960)
+    compare(VAR_UNK_4146, 1)
+    callifeq(_0960)
+    compare(VAR_BATTLE_HALL_PRINT_PROGRESS, 1)
+    callifeq(_0966)
+    compare(VAR_BATTLE_HALL_PRINT_PROGRESS, 3)
+    callifeq(_097D)
+    goto(_02F5)
+    end
+_0960:
+    addspecialgamestat2(SCORE_EVENT_BATTLE_HALL_SET_WON)
+    return
+_0966:
+    npcmsg(msg_0108_D32R0401_00013)
+    bufferplayersname(0)
+    npcmsg(msg_0108_D32R0401_00015)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setvar(VAR_BATTLE_HALL_PRINT_PROGRESS, 2)
+    return
+_097D:
+    npcmsg(msg_0108_D32R0401_00013)
+    bufferplayersname(0)
+    npcmsg(msg_0108_D32R0401_00014)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setvar(VAR_BATTLE_HALL_PRINT_PROGRESS, 4)
+    callstd(std_frontier_gold_prints_check)
+    return
+}
+
+script scr_seq_D32R0401_004 {
+    goto(_02F5)
+    end
+}
+
+movement BattleFrontier_BattleHall_Movement_09A0 {
+    walk_up * 2
+    delay_8
+    walk_up
+}
+
+movement BattleFrontier_BattleHall_Movement_09B0 {
+    walk_up * 2
+    delay_8
+    walk_up
+}
+
+script scr_seq_D32R0401_006 {
+    simplenpcmsg(msg_0108_D32R0401_00059)
+    end
+}
+
+script scr_seq_D32R0401_007 {
+    simplenpcmsg(msg_0108_D32R0401_00060)
+    end
+}
+
+script scr_seq_D32R0401_008 {
+    simplenpcmsg(msg_0108_D32R0401_00061)
+    end
+}
+
+script scr_seq_D32R0401_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    waitse(SEQ_SE_DP_SELECT)
+    playcry(SPECIES_SLOWBRO, 0)
+    npcmsg(msg_0108_D32R0401_00062)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D32R0401_010 {
+    simplenpcmsg(msg_0108_D32R0401_00063)
+    end
+}
+
+script scr_seq_D32R0401_011 {
+    simplenpcmsg(msg_0108_D32R0401_00064)
+    end
+}
+
+script scr_seq_D32R0401_012 {
+    simplenpcmsg(msg_0108_D32R0401_00065)
+    end
+}
+
+script scr_seq_D32R0401_013 {
+    simplenpcmsg(msg_0108_D32R0401_00066)
+    end
+}
+
+script scr_seq_D32R0401_014 {
+    simplenpcmsg(msg_0108_D32R0401_00067)
+    end
+}
+
+script scr_seq_D32R0401_016 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_MET_HALL_STREAK_TRACKER_DUDE)) {
+        setflag(FLAG_MET_HALL_STREAK_TRACKER_DUDE)
+        npcmsg(msg_0108_D32R0401_00068)
+        goto(_0B0E)
+        end
+    _0B0E:
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    bufferbattlehallstreak(1, 2, 3, 4, VAR_BATTLE_HALL_WIN_STREAK_LEVEL, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0AD5) }
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0AE0) }
+    if (var(VAR_SPECIAL_RESULT) == 3) { goto(_0AF1) }
+    bufferplayersname(0)
+    npcmsg(msg_0108_D32R0401_00069)
+    npcmsg(msg_0108_D32R0401_00070)
+    playfanfare(SEQ_ME_BPGET)
+    npcmsg(msg_0108_D32R0401_00072)
+    waitfanfare
+    goto(_0B0E)
+    end
+_0AD5:
+    npcmsg(msg_0108_D32R0401_00068)
+    goto(_0B0E)
+    end
+_0AE0:
+    bufferplayersname(0)
+    npcmsg(msg_0108_D32R0401_00073)
+    npcmsg(msg_0108_D32R0401_00071)
+    goto(_0B0E)
+    end
+_0AF1:
+    bufferplayersname(0)
+    npcmsg(msg_0108_D32R0401_00074)
+    goto(_0B0E)
+    end
+}
+
+script scr_seq_D32R0401_017 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getplayergender(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C4A) }
+    goto(_0B37)
+    end
+_0B37:
+    bufferplayersname(0)
+    battlehallcountusedspecies(VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) >= 475) {
+        npcmsg(msg_0108_D32R0401_00084)
+        goto(_0C21)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 351) {
+        npcmsg(msg_0108_D32R0401_00083)
+        goto(_0C21)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 251) {
+        npcmsg(msg_0108_D32R0401_00082)
+        goto(_0C21)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 151) {
+        npcmsg(msg_0108_D32R0401_00081)
+        goto(_0C21)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 101) {
+        npcmsg(msg_0108_D32R0401_00080)
+        goto(_0C21)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 51) {
+        npcmsg(msg_0108_D32R0401_00079)
+        goto(_0C21)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 31) {
+        npcmsg(msg_0108_D32R0401_00078)
+        goto(_0C21)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 11) {
+        npcmsg(msg_0108_D32R0401_00077)
+        goto(_0C21)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 1) {
+        npcmsg(msg_0108_D32R0401_00076)
+        goto(_0C21)
+        end
+    _0C21:
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0108_D32R0401_00075)
+    goto(_0C21)
+    end
+}
+
+script scr_seq_D32R0401_018 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getplayergender(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0B37) }
+    goto(_0C4A)
+    end
+_0C4A:
+    bufferplayersname(0)
+    battlehallcountusedspecies(VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) >= 475) {
+        npcmsg(msg_0108_D32R0401_00094)
+        goto(_0D34)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 351) {
+        npcmsg(msg_0108_D32R0401_00093)
+        goto(_0D34)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 251) {
+        npcmsg(msg_0108_D32R0401_00092)
+        goto(_0D34)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 151) {
+        npcmsg(msg_0108_D32R0401_00091)
+        goto(_0D34)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 101) {
+        npcmsg(msg_0108_D32R0401_00090)
+        goto(_0D34)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 51) {
+        npcmsg(msg_0108_D32R0401_00089)
+        goto(_0D34)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 31) {
+        npcmsg(msg_0108_D32R0401_00088)
+        goto(_0D34)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 11) {
+        npcmsg(msg_0108_D32R0401_00087)
+        goto(_0D34)
+        end
+    }
+    if (var(VAR_SPECIAL_x8005) >= 1) {
+        npcmsg(msg_0108_D32R0401_00086)
+        goto(_0D34)
+        end
+    _0D34:
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0108_D32R0401_00085)
+    goto(_0D34)
+    end
+}
+
+script scr_seq_D32R0401_019 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    copyvar(VAR_TEMP_x4001, VAR_OBJ_1)
+    if (var(VAR_TEMP_x4001) == 0) {
+        npcmsg(msg_0108_D32R0401_00096)
+        goto(_0DC7)
+        end
+    }
+    if (var(VAR_TEMP_x4001) == 97) {
+        npcmsg(msg_0108_D32R0401_00095)
+        goto(_0DC7)
+        end
+    }
+    if (var(VAR_TEMP_x4001) == 365) {
+        npcmsg(msg_0108_D32R0401_00097)
+        goto(_0DC7)
+        end
+    }
+    if (var(VAR_TEMP_x4001) == 366) {
+        npcmsg(msg_0108_D32R0401_00098)
+        goto(_0DC7)
+        end
+    }
+    if (var(VAR_TEMP_x4001) == 354) {
+        npcmsg(msg_0108_D32R0401_00099)
+        goto(_0DC7)
+        end
+    _0DC7:
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    end
+}
+
+mapscripts BattleFrontier_BattleHall_MapScripts {
+    INIT_SCRIPT_ON_LOAD: scr_seq_D32R0401_020
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0401_015
+    INIT_SCRIPT_ON_RESUME: scr_seq_D32R0401_021
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4145, 1: scr_seq_D32R0401_003
+        VAR_UNK_4145, 2: scr_seq_D32R0401_001
+        VAR_UNK_4145, 3: scr_seq_D32R0401_004
+        VAR_UNK_4145, 255: scr_seq_D32R0401_002
+    ]
+}

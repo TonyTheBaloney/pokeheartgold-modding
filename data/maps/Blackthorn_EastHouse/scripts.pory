@@ -1,0 +1,110 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T30R0301_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_TRADE_BLACKTHORN_CITY_DRAGONAIR_DODRIO)) {
+        npcmsg(msg_0634_T30R0301_00004)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0634_T30R0301_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_003B) }
+    goto(_00BF)
+_003B:
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    choosepartymonfortrade
+    getpartyselection(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 255) { goto(_00BF) }
+    loadnpctrade(3)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    getpartymonspecies(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    mongetgender(VAR_SPECIAL_x8004, VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8006) == 0) { goto(_00B2) }
+    npctradegetreqspecies(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8005) != VAR_SPECIAL_RESULT) { goto(_00B2) }
+    npctradeexec(VAR_SPECIAL_x8004)
+    npctradeend
+    setflag(FLAG_TRADE_BLACKTHORN_CITY_DRAGONAIR_DODRIO)
+    npcmsg(msg_0634_T30R0301_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00B2:
+    npctradeend
+    npcmsg(msg_0634_T30R0301_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00BF:
+    npcmsg(msg_0634_T30R0301_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T30R0301_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpartyleadalive(VAR_SPECIAL_x8000)
+    monhasribbon(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000, RIBBON_HOENN_EFFORT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        buffermonspeciesname(0, VAR_SPECIAL_x8000)
+        npcmsg(msg_0634_T30R0301_00014)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    buffermonspeciesname(0, VAR_SPECIAL_x8000)
+    npcmsg(msg_0634_T30R0301_00005)
+    getevtotal(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000)
+    if (var(VAR_SPECIAL_RESULT) < 510) { goto(_0136) }
+    npcmsg(msg_0634_T30R0301_00006)
+    giveribbon(VAR_SPECIAL_x8000, RIBBON_HOENN_EFFORT)
+    playfanfare(SEQ_ME_ITEM)
+    bufferplayersname(1)
+    npcmsg(msg_0634_T30R0301_00007)
+    waitfanfare
+    buffermonspeciesname(0, VAR_SPECIAL_x8000)
+    npcmsg(msg_0634_T30R0301_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0136:
+    if (var(VAR_SPECIAL_RESULT) == 506) {
+        npcmsg(msg_0634_T30R0301_00010)
+    } elif (var(VAR_SPECIAL_RESULT) == 507) {
+        npcmsg(msg_0634_T30R0301_00011)
+    } elif (var(VAR_SPECIAL_RESULT) == 508) {
+        npcmsg(msg_0634_T30R0301_00012)
+    } elif (var(VAR_SPECIAL_RESULT) == 509) {
+        npcmsg(msg_0634_T30R0301_00013)
+    } else {
+        npcmsg(msg_0634_T30R0301_00009)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Blackthorn_EastHouse_MapScripts {
+}

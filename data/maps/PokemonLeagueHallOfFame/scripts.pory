@@ -1,0 +1,181 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T10R0701_000
+	ScrDef scr_seq_T10R0701_001
+	ScrDefEnd
+`
+
+script scr_seq_T10R0701_001 {
+    stopbgm(0)
+    end
+}
+
+script scr_seq_T10R0701_000 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, PokemonLeagueHallOfFame_Movement_0188)
+    applymovement(obj_T10R0701_wataru, PokemonLeagueHallOfFame_Movement_0194)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    gendermsgbox(msg_0528_T10R0701_00000, msg_0528_T10R0701_00001)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, PokemonLeagueHallOfFame_Movement_01A8)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    partycountnotegg(VAR_SPECIAL_RESULT)
+    halloffameanim(VAR_SPECIAL_RESULT)
+    addspecialgamestat(SCORE_EVENT_LEAGUE_WIN)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    call(_01B4)
+    hasitem(ITEM_S_S__TICKET, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 1) {
+        setvar(VAR_SCENE_PLAYERS_HOUSE_1F, 3)
+    }
+    setflag(FLAG_UNK_97E)
+    clearflag(FLAG_HIDE_LAKE_OF_RAGE_PRYCE)
+    callifunset(FLAG_CAUGHT_HO_OH, _01C9)
+    callifunset(FLAG_CAUGHT_LUGIA, _01CF)
+    callifunset(FLAG_CAUGHT_SUDOWOODO, _01D5)
+    callifunset(FLAG_CAUGHT_RED_GYARADOS, _01DB)
+    callifunset(FLAG_CAUGHT_MEWTWO, _01E1)
+    callifunset(FLAG_CAUGHT_ARTICUNO, _01E7)
+    callifunset(FLAG_CAUGHT_ZAPDOS, _01ED)
+    callifunset(FLAG_CAUGHT_MOLTRES, _0206)
+    if (!flag(FLAG_CAUGHT_SNORLAX)) { goto(_020C) }
+_0105:
+    callifunset(FLAG_CAUGHT_SUICUNE, _0227)
+    getgameversion(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 7) {
+        goto(_024F)
+    _0133:
+        callifunset(FLAG_CAUGHT_RAYQUAZA, _0264)
+        compare(VAR_ROAMER_ENTEI_STATUS, 2)
+        callifeq(_026A)
+        compare(VAR_ROAMER_RAIKOU_STATUS, 2)
+        callifeq(_0275)
+        compare(VAR_ROAMER_LATIAS_STATUS, 2)
+        callifeq(_0280)
+        compare(VAR_ROAMER_LATIOS_STATUS, 2)
+        callifeq(_028B)
+        hofcredits(0)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        releaseall
+        end
+    }
+    goto(_023A)
+    goto(_0133)
+}
+
+movement PokemonLeagueHallOfFame_Movement_0188 {
+    walk_up * 14
+    face_right * 2
+}
+
+movement PokemonLeagueHallOfFame_Movement_0194 {
+    walk_up * 12
+    face_right * 2
+    walk_right
+    face_left * 2
+}
+
+movement PokemonLeagueHallOfFame_Movement_01A8 {
+    face_up * 2
+    walk_up * 4
+}
+
+script(local) _01B4 {
+    if (!flag(FLAG_GAME_CLEAR)) {
+        setflag(FLAG_UNK_998)
+    }
+    clearflag(FLAG_UNK_25F)
+    return
+_01C9:
+    clearflag(FLAG_HIDE_BELL_TOWER_HO_OH)
+    return
+_01CF:
+    clearflag(FLAG_HIDE_WHIRL_ISLAND_LUGIA)
+    return
+_01D5:
+    clearflag(FLAG_HIDE_ROUTE_36_SUDOWOODO)
+    return
+_01DB:
+    clearflag(FLAG_HIDE_LAKE_OF_RAGE_RED_GYARADOS)
+    return
+_01E1:
+    clearflag(FLAG_HIDE_CERULEAN_CAVE_MEWTWO)
+    return
+_01E7:
+    clearflag(FLAG_HIDE_SEAFOAM_ISLAND_ARTICUNO)
+    return
+_01ED:
+    checkbadge(BADGE_EARTH, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        clearflag(FLAG_HIDE_ROUTE_10_ZAPDOS)
+    }
+    return
+_0206:
+    clearflag(FLAG_HIDE_MT_SILVER_CAVE_MOLTRES)
+    return
+_020C:
+    if (flag(FLAG_SNORLAX_MEET)) {
+        clearflag(FLAG_HIDE_ROUTE_12_SNORLAX)
+        goto(_0105)
+    _0227:
+        if (var(VAR_SCENE_ROUTE_25) == 3) {
+            clearflag(FLAG_HIDE_BURNED_TOWER_STATIC_SUICUNE)
+        }
+        return
+    _023A:
+        if (flag(FLAG_CAUGHT_KYOGRE)) { goto(_0133) }
+        clearflag(FLAG_BEAT_OR_ESCAPED_FROM_GROUDON_OR_KYOGRE)
+        goto(_0133)
+    _024F:
+        if (flag(FLAG_CAUGHT_KYOGRE)) { goto(_0133) }
+        clearflag(FLAG_BEAT_OR_ESCAPED_FROM_GROUDON_OR_KYOGRE)
+        goto(_0133)
+    _0264:
+        clearflag(FLAG_HIDE_EMBEDDED_TOWER_RAYQUAZA)
+        return
+    _026A:
+        setvar(VAR_ROAMER_ENTEI_STATUS, 0)
+        createroamer(1)
+        return
+    _0275:
+        setvar(VAR_ROAMER_RAIKOU_STATUS, 0)
+        createroamer(0)
+        return
+    _0280:
+        setvar(VAR_ROAMER_LATIAS_STATUS, 0)
+        createroamer(2)
+        return
+    _028B:
+        setvar(VAR_ROAMER_LATIOS_STATUS, 0)
+        createroamer(3)
+        return
+    }
+    goto(_0105)
+}
+
+mapscripts PokemonLeagueHallOfFame_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_x4001, 0: scr_seq_T10R0701_000
+    ]
+    INIT_SCRIPT_ON_LOAD: scr_seq_T10R0701_001
+}

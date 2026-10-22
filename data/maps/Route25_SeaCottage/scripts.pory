@@ -1,0 +1,214 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R25R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_UNK_14E)) {
+        npcmsg(msg_0364_R25R0101_00000)
+        setflag(FLAG_UNK_14E)
+    }
+    getgameversion(VAR_SPECIAL_x8002)
+    if (var(VAR_SPECIAL_x8002) == 8) {
+    } else {
+        if (var(VAR_UNK_412D) == 0) {
+            npcmsg(msg_0364_R25R0101_00001)
+        } elif (var(VAR_UNK_412D) == 1) {
+            npcmsg(msg_0364_R25R0101_00002)
+        } elif (var(VAR_UNK_412D) == 2) {
+            npcmsg(msg_0364_R25R0101_00003)
+        } elif (var(VAR_UNK_412D) == 3) {
+            npcmsg(msg_0364_R25R0101_00004)
+        } elif (var(VAR_UNK_412D) == 4) {
+            npcmsg(msg_0364_R25R0101_00005)
+        } else {
+            goto(_0484)
+        }
+        goto(_0125)
+    }
+    if (var(VAR_UNK_412D) == 0) {
+        npcmsg(msg_0364_R25R0101_00006)
+    } elif (var(VAR_UNK_412D) == 1) {
+        npcmsg(msg_0364_R25R0101_00007)
+    } elif (var(VAR_UNK_412D) == 2) {
+        npcmsg(msg_0364_R25R0101_00008)
+    } elif (var(VAR_UNK_412D) == 3) {
+        npcmsg(msg_0364_R25R0101_00009)
+    } elif (var(VAR_UNK_412D) == 4) {
+        npcmsg(msg_0364_R25R0101_00010)
+    } else {
+        goto(_0484)
+    }
+_0125:
+    npcmsg(msg_0364_R25R0101_00011)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_048D) }
+    npcmsg(msg_0364_R25R0101_00012)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    partyselectui
+    getpartyselection(VAR_SPECIAL_x8000)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_x8000) == 255) { goto(_048D) }
+    getpartymonspecies(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+    if (var(VAR_SPECIAL_x8002) != 8) {
+        Switch(VAR_UNK_412D)
+        Case(0, _01C8)
+        Case(1, _01E4)
+        Case(2, _0200)
+        Case(3, _021C)
+        goto(_0238)
+    _01C8:
+        if (var(VAR_SPECIAL_x8001) == 43) {
+            goto(_024E)
+        _01E4:
+            if (var(VAR_SPECIAL_x8001) == 58) {
+                goto(_024E)
+            _0200:
+                if (var(VAR_SPECIAL_x8001) == 39) {
+                    goto(_024E)
+                _021C:
+                    if (var(VAR_SPECIAL_x8001) == 172) {
+                        goto(_024E)
+                    _0238:
+                        if (var(VAR_SPECIAL_x8001) == 183) { goto(_024E) }
+                        npcmsg(msg_0364_R25R0101_00014)
+                        goto(_0490)
+                    _024E:
+                        buffermonspeciesname(0, VAR_SPECIAL_x8000)
+                        npcmsg(msg_0364_R25R0101_00015)
+                        Switch(VAR_UNK_412D)
+                        Case(0, _0296)
+                        Case(1, _02A8)
+                        Case(2, _02BA)
+                        Case(3, _02CC)
+                        goto(_02DE)
+                    _0296:
+                        setvar(VAR_SPECIAL_x8004, 85)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                        goto(_0452)
+                    _02A8:
+                        setvar(VAR_SPECIAL_x8004, 82)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                        goto(_0452)
+                    _02BA:
+                        setvar(VAR_SPECIAL_x8004, 229)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                        goto(_0452)
+                    _02CC:
+                        setvar(VAR_SPECIAL_x8004, 83)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                        goto(_0452)
+                    _02DE:
+                        setvar(VAR_SPECIAL_x8004, 84)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                        goto(_0452)
+                    _02F0:
+                        Switch(VAR_UNK_412D)
+                        Case(0, _0330)
+                        Case(1, _034C)
+                        Case(2, _0368)
+                        Case(3, _0384)
+                        goto(_03A0)
+                    _0330:
+                        if (var(VAR_SPECIAL_x8001) == 108) {
+                            goto(_03B6)
+                        _034C:
+                            if (var(VAR_SPECIAL_x8001) == 43) {
+                                goto(_03B6)
+                            _0368:
+                                if (var(VAR_SPECIAL_x8001) == 120) {
+                                    goto(_03B6)
+                                _0384:
+                                    if (var(VAR_SPECIAL_x8001) == 37) {
+                                        goto(_03B6)
+                                    _03A0:
+                                        if (var(VAR_SPECIAL_x8001) == 172) { goto(_03B6) }
+                                        npcmsg(msg_0364_R25R0101_00014)
+                                        goto(_0490)
+                                    _03B6:
+                                        buffermonspeciesname(0, VAR_SPECIAL_x8000)
+                                        npcmsg(msg_0364_R25R0101_00015)
+                                        Switch(VAR_UNK_412D)
+                                        Case(0, _03FE)
+                                        Case(1, _0410)
+                                        Case(2, _0422)
+                                        Case(3, _0434)
+                                        goto(_0446)
+                                    _03FE:
+                                        setvar(VAR_SPECIAL_x8004, 229)
+                                        setvar(VAR_SPECIAL_x8005, 1)
+                                        goto(_0452)
+                                    _0410:
+                                        setvar(VAR_SPECIAL_x8004, 85)
+                                        setvar(VAR_SPECIAL_x8005, 1)
+                                        goto(_0452)
+                                    _0422:
+                                        setvar(VAR_SPECIAL_x8004, 84)
+                                        setvar(VAR_SPECIAL_x8005, 1)
+                                        goto(_0452)
+                                    _0434:
+                                        setvar(VAR_SPECIAL_x8004, 82)
+                                        setvar(VAR_SPECIAL_x8005, 1)
+                                        goto(_0452)
+                                    _0446:
+                                        setvar(VAR_SPECIAL_x8004, 83)
+                                        setvar(VAR_SPECIAL_x8005, 1)
+                                    _0452:
+                                        hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+                                        if (var(VAR_SPECIAL_RESULT) == 0) {
+                                            callstd(std_bag_is_full)
+                                            closemessage
+                                            releaseall
+                                            end
+                                        _0484:
+                                            npcmsg(msg_0364_R25R0101_00017)
+                                            goto(_0490)
+                                        _048D:
+                                            npcmsg(msg_0364_R25R0101_00013)
+                                        _0490:
+                                            waitbuttonpress
+                                            closemessage
+                                            releaseall
+                                            end
+                                        }
+                                        callstd(std_give_item_verbose)
+                                        addvar(VAR_UNK_412D, 1)
+                                        npcmsg(msg_0364_R25R0101_00016)
+                                        goto(_0490)
+                                    }
+                                    npcmsg(msg_0364_R25R0101_00014)
+                                    goto(_0490)
+                                }
+                                npcmsg(msg_0364_R25R0101_00014)
+                                goto(_0490)
+                            }
+                            npcmsg(msg_0364_R25R0101_00014)
+                            goto(_0490)
+                        }
+                        npcmsg(msg_0364_R25R0101_00014)
+                        goto(_0490)
+                    }
+                    npcmsg(msg_0364_R25R0101_00014)
+                    goto(_0490)
+                }
+                npcmsg(msg_0364_R25R0101_00014)
+                goto(_0490)
+            }
+            npcmsg(msg_0364_R25R0101_00014)
+            goto(_0490)
+        }
+        npcmsg(msg_0364_R25R0101_00014)
+        goto(_0490)
+    }
+    goto(_02F0)
+}
+
+mapscripts Route25_SeaCottage_MapScripts {
+}

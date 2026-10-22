@@ -1,0 +1,10 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R09_000 {
+    directionsignpostex(1, 1, msg_0340_R09_00000)
+    end
+}
+
+mapscripts Route9_MapScripts {
+}

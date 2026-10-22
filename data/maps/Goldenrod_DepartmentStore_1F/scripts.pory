@@ -1,0 +1,66 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T25R1001_000 {
+    simplenpcmsg(msg_0592_T25R1001_00000)
+    end
+}
+
+script scr_seq_T25R1001_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        npcmsg(msg_0592_T25R1001_00002)
+    } else {
+        npcmsg(msg_0592_T25R1001_00001)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1001_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        npcmsg(msg_0592_T25R1001_00004)
+    } else {
+        npcmsg(msg_0592_T25R1001_00003)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1001_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        npcmsg(msg_0592_T25R1001_00006)
+    } else {
+        npcmsg(msg_0592_T25R1001_00005)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1001_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0592_T25R1001_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Goldenrod_DepartmentStore_1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: std_hide_show_deliverymen
+}

@@ -1,0 +1,242 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T22R0301_000
+	ScrDef scr_seq_T22R0301_001
+	ScrDef scr_seq_T22R0301_002
+	ScrDef scr_seq_T22R0301_003
+	ScrDef scr_seq_T22R0301_004
+	ScrDef scr_seq_T22R0301_005
+	ScrDef scr_seq_T22R0301_006
+	ScrDef scr_seq_T22R0301_007
+	ScrDefEnd
+`
+
+script scr_seq_T22R0301_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 2) {
+        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_0164)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_0188)
+    } elif (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_01AC)
+    } else {
+        applymovement(obj_T22R0301_gsbigman, Violet_PokemonSchool_Movement_01D0)
+    }
+    waitmovement
+    npcmsg(msg_0560_T22R0301_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0560_T22R0301_00001)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00D7) }
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0157) }
+        end
+    _00D7:
+        npcmsg(msg_0560_T22R0301_00002)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0560_T22R0301_00003)
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0125) }
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0157) }
+            end
+        _0125:
+            npcmsg(msg_0560_T22R0301_00004)
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 0) {
+                npcmsg(msg_0560_T22R0301_00005)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _0157:
+                npcmsg(msg_0560_T22R0301_00006)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0157) }
+            end
+        }
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0125) }
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00D7) }
+    end
+}
+
+movement Violet_PokemonSchool_Movement_0164 {
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+}
+
+movement Violet_PokemonSchool_Movement_0188 {
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+movement Violet_PokemonSchool_Movement_01AC {
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Violet_PokemonSchool_Movement_01D0 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+}
+
+script scr_seq_T22R0301_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0560_T22R0301_00012)
+    goto(_0207)
+    end
+_0207:
+    npcmsg(msg_0560_T22R0301_00013)
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(24, 255, 1)
+    menuitemadd(25, 255, 2)
+    menuitemadd(26, 255, 3)
+    menuitemadd(27, 255, 4)
+    menuitemadd(28, 255, 5)
+    menuitemadd(29, 255, 0)
+    menuexec
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) != 1) {
+        if (var(VAR_SPECIAL_RESULT) != 2) {
+            if (var(VAR_SPECIAL_RESULT) != 3) {
+                if (var(VAR_SPECIAL_RESULT) != 4) {
+                    if (var(VAR_SPECIAL_RESULT) != 5) {
+                        closemessage
+                        releaseall
+                    _02D8:
+                        end
+                    }
+                    npcmsg(msg_0560_T22R0301_00018)
+                    goto(_0207)
+                    goto(_02D8)
+                }
+                npcmsg(msg_0560_T22R0301_00017)
+                goto(_0207)
+                goto(_02D8)
+            }
+            npcmsg(msg_0560_T22R0301_00016)
+            goto(_0207)
+            goto(_02D8)
+        }
+        npcmsg(msg_0560_T22R0301_00015)
+        goto(_0207)
+        goto(_02D8)
+    }
+    npcmsg(msg_0560_T22R0301_00014)
+    goto(_0207)
+    goto(_02D8)
+}
+
+script scr_seq_T22R0301_003 {
+    simplenpcmsg(msg_0560_T22R0301_00011)
+    end
+}
+
+script scr_seq_T22R0301_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0560_T22R0301_00019)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0353) }
+    npcmsg(msg_0560_T22R0301_00020)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0353) }
+    npcmsg(msg_0560_T22R0301_00021)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0353) }
+    npcmsg(msg_0560_T22R0301_00022)
+    closemessage
+    touchscreenmenushow
+    applymovement(obj_T22R0301_gsboy1, Violet_PokemonSchool_Movement_035C)
+    waitmovement
+    npcmsg(msg_0560_T22R0301_00023)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0353:
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+}
+
+movement Violet_PokemonSchool_Movement_035C {
+    walk_in_place_up
+}
+
+script scr_seq_T22R0301_004 {
+    simplenpcmsg(msg_0560_T22R0301_00007)
+    end
+}
+
+script scr_seq_T22R0301_005 {
+    simplenpcmsg(msg_0560_T22R0301_00010)
+    end
+}
+
+script scr_seq_T22R0301_006 {
+    simplenpcmsg(msg_0560_T22R0301_00009)
+    end
+}
+
+script scr_seq_T22R0301_007 {
+    simplenpcmsg(msg_0560_T22R0301_00008)
+    end
+}
+
+mapscripts Violet_PokemonSchool_MapScripts {
+}

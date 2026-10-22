@@ -1,0 +1,169 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R03_000
+	ScrDef scr_seq_R03_001
+	ScrDef scr_seq_R03_002
+	ScrDef scr_seq_R03_003
+	ScrDef scr_seq_R03_004
+	ScrDefEnd
+`
+
+script scr_seq_R03_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    partyhasspecies(SPECIES_DEOXYS, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02DF) }
+    getpartyleadalive(VAR_TEMP_x4000)
+    getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 386) {
+        setpartydeoxysform(3)
+    } else {
+        setpartydeoxysform(3)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        getplayercoords(VAR_SPECIAL_x8006, VAR_SPECIAL_x8007)
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        warp(MAP_ROUTE_3, 0, VAR_SPECIAL_x8006, VAR_SPECIAL_x8007, VAR_SPECIAL_RESULT)
+        playeronbikecheck(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 1) {
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                followmonsetpositionnexttoplayer(0, 1)
+            } else {
+                followmonsetpositionnexttoplayer(3, 2)
+            }
+            togglefollowingpokemonmovement(0)
+            followmonspawnreleaseball
+            wait(10, VAR_SPECIAL_RESULT)
+            togglefollowingpokemonmovement(1)
+        }
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    playcry(SPECIES_DEOXYS, 0)
+    npcmsg(msg_0326_R03_00002)
+    goto(_02D5)
+}
+
+script scr_seq_R03_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    partyhasspecies(SPECIES_DEOXYS, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02DF) }
+    getpartyleadalive(VAR_TEMP_x4000)
+    getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 386) {
+        setpartydeoxysform(2)
+    } else {
+        setpartydeoxysform(2)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        getplayercoords(VAR_SPECIAL_x8006, VAR_SPECIAL_x8007)
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        warp(MAP_ROUTE_3, 0, VAR_SPECIAL_x8006, VAR_SPECIAL_x8007, VAR_SPECIAL_RESULT)
+        playeronbikecheck(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 1) {
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                followmonsetpositionnexttoplayer(0, 1)
+            } elif (var(VAR_SPECIAL_RESULT) == 3) {
+                followmonsetpositionnexttoplayer(0, 1)
+            } else {
+                followmonsetpositionnexttoplayer(3, 2)
+            }
+            togglefollowingpokemonmovement(0)
+            followmonspawnreleaseball
+            wait(10, VAR_SPECIAL_RESULT)
+            togglefollowingpokemonmovement(1)
+        }
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    playcry(SPECIES_DEOXYS, 0)
+    npcmsg(msg_0326_R03_00003)
+    goto(_02D5)
+}
+
+script scr_seq_R03_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    partyhasspecies(SPECIES_DEOXYS, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02DF) }
+    getpartyleadalive(VAR_TEMP_x4000)
+    getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 386) {
+        setpartydeoxysform(1)
+    } else {
+        setpartydeoxysform(1)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        getplayercoords(VAR_SPECIAL_x8006, VAR_SPECIAL_x8007)
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        warp(MAP_ROUTE_3, 0, VAR_SPECIAL_x8006, VAR_SPECIAL_x8007, VAR_SPECIAL_RESULT)
+        playeronbikecheck(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 1) {
+            followmonsetpositionnexttoplayer(2, 3)
+            togglefollowingpokemonmovement(0)
+            followmonspawnreleaseball
+            wait(10, VAR_SPECIAL_RESULT)
+            togglefollowingpokemonmovement(1)
+        }
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    playcry(SPECIES_DEOXYS, 0)
+    npcmsg(msg_0326_R03_00004)
+    goto(_02D5)
+}
+
+script scr_seq_R03_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    partyhasspecies(SPECIES_DEOXYS, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02DF) }
+    getpartyleadalive(VAR_TEMP_x4000)
+    getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 386) {
+        setpartydeoxysform(0)
+    } else {
+        setpartydeoxysform(0)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        getplayercoords(VAR_SPECIAL_x8006, VAR_SPECIAL_x8007)
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        warp(MAP_ROUTE_3, 0, VAR_SPECIAL_x8006, VAR_SPECIAL_x8007, VAR_SPECIAL_RESULT)
+        playeronbikecheck(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 1) {
+            followmonsetpositionnexttoplayer(3, 2)
+            togglefollowingpokemonmovement(0)
+            followmonspawnreleaseball
+            wait(10, VAR_SPECIAL_RESULT)
+            togglefollowingpokemonmovement(1)
+        }
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    playcry(SPECIES_DEOXYS, 0)
+    npcmsg(msg_0326_R03_00005)
+_02D5:
+    waitbuttonpress
+    waitcry
+    closemessage
+    releaseall
+    end
+_02DF:
+    npcmsg(msg_0326_R03_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R03_000 {
+    trainertipsex(2, msg_0326_R03_00000)
+    end
+}
+
+mapscripts Route3_MapScripts {
+}

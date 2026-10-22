@@ -1,0 +1,787 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D49R0101_000
+	ScrDef scr_seq_D49R0101_001
+	ScrDef scr_seq_D49R0101_002
+	ScrDef scr_seq_D49R0101_003
+	ScrDef scr_seq_D49R0101_004
+	ScrDef scr_seq_D49R0101_005
+	ScrDef scr_seq_D49R0101_006
+	ScrDef scr_seq_D49R0101_007
+	ScrDef scr_seq_D49R0101_008
+	ScrDef scr_seq_D49R0101_009
+	ScrDef scr_seq_D49R0101_010
+	ScrDef scr_seq_D49R0101_011
+	ScrDef scr_seq_D49R0101_012
+	ScrDef scr_seq_D49R0101_013
+	ScrDef scr_seq_D49R0101_014
+	ScrDef scr_seq_D49R0101_015
+	ScrDef scr_seq_D49R0101_016
+	ScrDef scr_seq_D49R0101_017
+	ScrDef scr_seq_D49R0101_018
+	ScrDef scr_seq_D49R0101_019
+	ScrDef scr_seq_D49R0101_020
+	ScrDef scr_seq_D49R0101_021
+	ScrDef scr_seq_D49R0101_022
+	ScrDef scr_seq_D49R0101_023
+	ScrDefEnd
+`
+
+raw `
+#include "msgdata/msg/msg_0191.h"
+`
+
+script scr_seq_D49R0101_023 {
+    setflag(FLAG_SYS_FLYPOINT_POKEATHLON)
+    end
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0068 {
+    walk_in_place_left
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0070 {
+    walk_in_place_right
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0078 {
+    walk_in_place_down
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0080 {
+    walk_in_place_up
+}
+
+script scr_seq_D49R0101_000 {
+    followmonresetmovement
+    lockall
+    getplayerfacing(VAR_TEMP_x400A)
+    if (var(VAR_TEMP_x400A) == 0) {
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0230)
+    } else {
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_023C)
+    }
+    waitmovement
+    clearflag(FLAG_HIDE_POKEATHLON_RECEPTION_WHITNEY)
+    addobject(obj_D49R0101_gsleader3)
+    movepersonfacing(obj_D49R0101_gsleader3, 23, 0, 20, DIR_NORTH)
+    if (var(VAR_TEMP_x400A) == 0) {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0248)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0260)
+    } else {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0258)
+    }
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0138_D49R0101_00080)
+    closemessage
+    wait(30, VAR_SPECIAL_RESULT)
+    if (var(VAR_TEMP_x400A) == 0) {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0200)
+    } else {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0218)
+    }
+    waitmovement
+    npcmsg(msg_0138_D49R0101_00081)
+    closemessage
+    if (var(VAR_TEMP_x400A) == 0) {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0270)
+    } elif (var(VAR_TEMP_x400A) == 3) {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_02AC)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0070)
+    } else {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_02E8)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0070)
+        waitmovement
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0080)
+        applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0078)
+    }
+    waitmovement
+    npcmsg(msg_0138_D49R0101_00082)
+    closemessage
+    npcmsg(msg_0138_D49R0101_00083)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    npcmsg(msg_0138_D49R0101_00084)
+    closemessage
+    if (var(VAR_TEMP_x400A) == 0) {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0328)
+    } elif (var(VAR_TEMP_x400A) == 3) {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0338)
+    } else {
+        applymovement(obj_D49R0101_gsleader3, PokeathlonDome_Interior_1F_Movement_0348)
+    }
+    applymovement(obj_player, PokeathlonDome_Interior_1F_Movement_0078)
+    waitmovement
+    removeobject(obj_D49R0101_gsleader3)
+    setflag(FLAG_HIDE_POKEATHLON_RECEPTION_WHITNEY)
+    releaseall
+    setvar(VAR_UNK_40E2, 1)
+    end
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0200 {
+    lock_dir
+    jump_near_fast_right
+    unlock_dir
+    delay_16 * 2
+    walk_fast_left
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0218 {
+    lock_dir
+    jump_near_fast_down
+    unlock_dir
+    delay_16 * 2
+    walk_fast_up
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0230 {
+    emote_exclamation_mark
+    walk_in_place_down
+}
+
+movement PokeathlonDome_Interior_1F_Movement_023C {
+    emote_exclamation_mark
+    walk_in_place_down
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0248 {
+    walk_faster_right
+    walk_slightly_fast_up * 10
+    walk_in_place_left
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0258 {
+    walk_slightly_fast_up * 9
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0260 {
+    delay_2
+    delay_8 * 8
+    walk_in_place_right
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0270 {
+    walk_in_place_down
+    delay_8
+    walk_in_place_up
+    delay_8
+    walk_fast_right * 6
+    walk_fast_up * 6
+    walk_left
+    set_invisible
+    delay_16 * 2
+    face_right
+    set_visible
+    walk_right
+    walk_fast_down * 6
+    walk_fast_left * 6
+}
+
+movement PokeathlonDome_Interior_1F_Movement_02AC {
+    walk_fast_right * 7
+    walk_in_place_down
+    delay_8
+    walk_in_place_up
+    delay_8
+    walk_fast_up * 7
+    walk_left
+    set_invisible
+    delay_16 * 2
+    face_right
+    set_visible
+    walk_right
+    walk_fast_down * 6
+    walk_fast_left * 6
+}
+
+movement PokeathlonDome_Interior_1F_Movement_02E8 {
+    walk_fast_right * 7
+    walk_in_place_down
+    delay_8
+    walk_in_place_up
+    delay_8
+    walk_fast_up * 7
+    walk_left
+    set_invisible
+    delay_16 * 2
+    face_right
+    set_visible
+    walk_right
+    walk_fast_down * 7
+    walk_fast_left * 7
+    walk_in_place_up
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0328 {
+    walk_slightly_fast_down * 2
+    walk_slightly_fast_left
+    walk_slightly_fast_down * 8
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0338 {
+    walk_slightly_fast_down
+    walk_slightly_fast_left
+    walk_slightly_fast_down * 9
+}
+
+movement PokeathlonDome_Interior_1F_Movement_0348 {
+    walk_slightly_fast_down * 9
+}
+
+script scr_seq_D49R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_UNK_114)) {
+        npcmsg(msg_0138_D49R0101_00048)
+        setflag(FLAG_UNK_114)
+        goto(_0377)
+        end
+    }
+    checkpokeathlondailymarthasstock(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0138_D49R0101_00050)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0138_D49R0101_00049)
+_0377:
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(msg_0191_00325, 255, 0)
+    menuitemadd(msg_0191_00324, 255, 1)
+    menuitemadd(msg_0191_00323, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _03C7)
+    Case(1, _03D7)
+    goto(_03E4)
+    closemessage
+    releaseall
+    end
+_03C7:
+    holdmsg
+    setsavedbottomscreenapp(0)
+    pokeathlondailymart
+    goto(_03E4)
+    end
+_03D7:
+    touchscreenmenushow
+    npcmsg(msg_0138_D49R0101_00052)
+    goto(_0377)
+    end
+_03E4:
+    touchscreenmenushow
+    npcmsg(msg_0138_D49R0101_00051)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0101_002 {
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 2) {
+        end
+    }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    countpokeathlondatacardsbought(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 27) { goto(_05A9) }
+    if (!flag(FLAG_UNK_115)) { goto(_0529) }
+    npcmsg(msg_0138_D49R0101_00054)
+_0443:
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(325, 255, 0)
+    menuitemadd(324, 255, 1)
+    menuitemadd(323, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0493)
+    Case(1, _04E8)
+    goto(_051C)
+    closemessage
+    releaseall
+    end
+_0493:
+    holdmsg
+    setsavedbottomscreenapp(0)
+    pokeathlondatacardmart
+    countpokeathlondatacardsbought(VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) == 6) { goto(_0538) }
+    if (var(VAR_SPECIAL_x8005) == 12) { goto(_054B) }
+    if (var(VAR_SPECIAL_x8005) == 18) { goto(_055E) }
+    if (var(VAR_SPECIAL_x8005) == 24) { goto(_0571) }
+    if (var(VAR_SPECIAL_x8005) == 27) { goto(_0595) }
+    goto(_051C)
+    end
+_04E8:
+    touchscreenmenushow
+    npcmsg(msg_0138_D49R0101_00055)
+    getpokeathlonstat(12, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) >= 100) {
+        npcmsg(msg_0138_D49R0101_00057)
+    } else {
+        bufferint(0, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0138_D49R0101_00056)
+    }
+    npcmsg(msg_0138_D49R0101_00058)
+    goto(_0443)
+    end
+_051C:
+    touchscreenmenushow
+    npcmsg(msg_0138_D49R0101_00051)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0529:
+    npcmsg(msg_0138_D49R0101_00053)
+    setflag(FLAG_UNK_115)
+    goto(_0443)
+    end
+_0538:
+    if (var(VAR_UNK_4139) == 0) { goto(_0584) }
+    goto(_051C)
+_054B:
+    if (var(VAR_UNK_4139) == 1) { goto(_0584) }
+    goto(_051C)
+_055E:
+    if (var(VAR_UNK_4139) == 2) { goto(_0584) }
+    goto(_051C)
+_0571:
+    if (var(VAR_UNK_4139) == 3) { goto(_0584) }
+    goto(_051C)
+_0584:
+    npcmsg(msg_0138_D49R0101_00061)
+    waitbuttonpress
+    closemessage
+    releaseall
+    addvar(VAR_UNK_4139, 1)
+    end
+_0595:
+    bufferplayersname(0)
+    npcmsg(msg_0138_D49R0101_00062)
+    waitbuttonpress
+    closemessage
+    releaseall
+    addvar(VAR_UNK_4139, 1)
+    end
+_05A9:
+    bufferplayersname(0)
+    npcmsg(msg_0138_D49R0101_00060)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0101_003 {
+    end
+}
+
+script scr_seq_D49R0101_004 {
+    simplenpcmsg(msg_0138_D49R0101_00068)
+    end
+}
+
+script scr_seq_D49R0101_005 {
+    simplenpcmsg(msg_0138_D49R0101_00069)
+    end
+}
+
+script scr_seq_D49R0101_006 {
+    simplenpcmsg(msg_0138_D49R0101_00070)
+    end
+}
+
+script scr_seq_D49R0101_007 {
+    simplenpcmsg(msg_0138_D49R0101_00071)
+    end
+}
+
+script scr_seq_D49R0101_008 {
+    simplenpcmsg(msg_0138_D49R0101_00072)
+    end
+}
+
+script scr_seq_D49R0101_009 {
+    simplenpcmsg(msg_0138_D49R0101_00073)
+    end
+}
+
+script scr_seq_D49R0101_010 {
+    simplenpcmsg(msg_0138_D49R0101_00074)
+    end
+}
+
+script scr_seq_D49R0101_011 {
+    simplenpcmsg(msg_0138_D49R0101_00075)
+    end
+}
+
+script scr_seq_D49R0101_012 {
+    simplenpcmsg(msg_0138_D49R0101_00076)
+    end
+}
+
+script scr_seq_D49R0101_013 {
+    simplenpcmsg(msg_0138_D49R0101_00077)
+    end
+}
+
+script scr_seq_D49R0101_015 {
+    simplenpcmsg(msg_0138_D49R0101_00063)
+    end
+}
+
+script scr_seq_D49R0101_016 {
+    simplenpcmsg(msg_0138_D49R0101_00064)
+    end
+}
+
+script scr_seq_D49R0101_017 {
+    simplenpcmsg(msg_0138_D49R0101_00065)
+    end
+}
+
+script scr_seq_D49R0101_018 {
+    simplenpcmsg(msg_0138_D49R0101_00066)
+    end
+}
+
+script scr_seq_D49R0101_019 {
+    simplenpcmsg(msg_0138_D49R0101_00067)
+    end
+}
+
+script scr_seq_D49R0101_014 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    scriptoverlaycmd(3, 0)
+    npcmsg(msg_0138_D49R0101_00085)
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_x8000)
+    menuitemadd(337, 255, 0)
+    menuitemadd(338, 255, 1)
+    menuitemadd(12, 255, 2)
+    menuexec
+    copyvar(VAR_TEMP_x4005, VAR_SPECIAL_x8000)
+    if (var(VAR_TEMP_x4005) != 0) {
+        if (var(VAR_TEMP_x4005) != 1) { goto(_0748) }
+        showpointsbox(2, 20, 2)
+        goto(_0A7F)
+    _0748:
+        touchscreenmenushow
+        npcmsg(msg_0138_D49R0101_00091)
+        waitbuttonpress
+        closemessage
+        releaseall
+        scriptoverlaycmd(3, 1)
+        end
+    _0759:
+        npcmsg(msg_0138_D49R0101_00086)
+        touchscreenmenuhide
+        menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_x8000)
+        menuitemadd(209, 255, 0)
+        menuitemadd(210, 255, 1)
+        menuitemadd(211, 255, 2)
+        menuitemadd(212, 255, 3)
+        menuexec
+        Switch(VAR_SPECIAL_x8000)
+        Case(0, _07C0)
+        Case(1, _07CC)
+        Case(2, _07D8)
+        touchscreenmenushow
+        npcmsg(msg_0138_D49R0101_00091)
+        goto(_0A5C)
+    _07C0:
+        setvar(VAR_SPECIAL_x8001, 30)
+        goto(_08F8)
+    _07CC:
+        setvar(VAR_SPECIAL_x8001, 31)
+        goto(_08F8)
+    _07D8:
+        setvar(VAR_SPECIAL_x8001, 32)
+        goto(_08F8)
+    _07E4:
+        if (var(VAR_TEMP_x4005) == 0) {
+            hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 200)
+        } elif (var(VAR_TEMP_x4005) == 1) {
+            checkathletepoints(VAR_SPECIAL_RESULT, 50)
+        }
+        return
+    _0814:
+        if (var(VAR_TEMP_x4005) == 0) {
+            hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 300)
+        } elif (var(VAR_TEMP_x4005) == 1) {
+            checkathletepoints(VAR_SPECIAL_RESULT, 80)
+        }
+        return
+    _0844:
+        if (var(VAR_TEMP_x4005) == 0) {
+            hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 350)
+        } elif (var(VAR_TEMP_x4005) == 1) {
+            checkathletepoints(VAR_SPECIAL_RESULT, 100)
+        }
+        return
+    _0874:
+        if (var(VAR_TEMP_x4005) == 0) {
+            submoneyimmediate(200)
+        } elif (var(VAR_TEMP_x4005) == 1) {
+            takeathletepoints(50)
+        }
+        return
+    _08A0:
+        if (var(VAR_TEMP_x4005) == 0) {
+            submoneyimmediate(300)
+        } elif (var(VAR_TEMP_x4005) == 1) {
+            takeathletepoints(80)
+        }
+        return
+    _08CC:
+        if (var(VAR_TEMP_x4005) == 0) {
+            submoneyimmediate(350)
+        } elif (var(VAR_TEMP_x4005) == 1) {
+            takeathletepoints(100)
+        }
+        return
+    _08F8:
+        compare(VAR_SPECIAL_x8000, 0)
+        callifeq(_07E4)
+        compare(VAR_SPECIAL_x8000, 1)
+        callifeq(_0814)
+        compare(VAR_SPECIAL_x8000, 2)
+        callifeq(_0844)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            touchscreenmenushow
+            if (var(VAR_TEMP_x4005) == 0) {
+                npcmsg(msg_0138_D49R0101_00089)
+            } elif (var(VAR_TEMP_x4005) == 1) {
+                npcmsg(msg_0138_D49R0101_00090)
+            }
+            goto(_0A5C)
+        _0A35:
+            touchscreenmenushow
+            callstd(std_bag_is_full)
+            closemessage
+            if (var(VAR_TEMP_x4005) == 0) {
+                hidemoneybox
+            } else {
+                hidepointsbox
+            }
+            scriptoverlaycmd(3, 1)
+            releaseall
+            end
+        _0A5C:
+            waitbuttonpress
+            closemessage
+            if (var(VAR_TEMP_x4005) == 0) {
+                hidemoneybox
+            } else {
+                hidepointsbox
+            }
+            scriptoverlaycmd(3, 1)
+            releaseall
+            end
+        _0A7F:
+            npcmsg(msg_0138_D49R0101_00086)
+            touchscreenmenuhide
+            menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_x8000)
+            menuitemadd(339, 255, 0)
+            menuitemadd(340, 255, 1)
+            menuitemadd(341, 255, 2)
+            menuitemadd(212, 255, 3)
+            menuexec
+            Switch(VAR_SPECIAL_x8000)
+            Case(0, _07C0)
+            Case(1, _07CC)
+            Case(2, _07D8)
+            touchscreenmenushow
+            npcmsg(msg_0138_D49R0101_00091)
+            goto(_0A5C)
+            end
+        }
+        hasspaceforitem(VAR_SPECIAL_x8001, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0A35) }
+        compare(VAR_SPECIAL_x8000, 0)
+        callifeq(_0874)
+        compare(VAR_SPECIAL_x8000, 1)
+        callifeq(_08A0)
+        compare(VAR_SPECIAL_x8000, 2)
+        callifeq(_08CC)
+        if (var(VAR_TEMP_x4005) == 0) {
+            updatemoneybox
+        } elif (var(VAR_TEMP_x4005) == 1) {
+            updatepointsbox(2)
+        }
+        bufferitemname(0, VAR_SPECIAL_x8001)
+        playse(SEQ_SE_DP_JIHANKI)
+        bufferitemname(0, VAR_SPECIAL_x8001)
+        npcmsg(msg_0138_D49R0101_00087)
+        giveitemnocheck(VAR_SPECIAL_x8001, 1)
+        random(VAR_SPECIAL_RESULT, 64)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            playse(SEQ_SE_DP_JIHANKI)
+            bufferitemname(0, VAR_SPECIAL_x8001)
+            npcmsg(msg_0138_D49R0101_00088)
+            hasspaceforitem(VAR_SPECIAL_x8001, 1, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0A35) }
+            callstd(std_give_item_verbose)
+        }
+        if (var(VAR_TEMP_x4005) != 0) { goto(_09FF) }
+        goto(_0759)
+        goto(_0A05)
+    _09FF:
+        goto(_0A7F)
+    _0A05:
+        end
+    }
+    showmoneybox(20, 2)
+    goto(_0759)
+    goto(_0748)
+}
+
+script scr_seq_D49R0101_020 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0138_D49R0101_00092)
+_0AF3:
+    npcmsg(msg_0138_D49R0101_00093)
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(94, 255, 0)
+    menuitemadd(95, 255, 1)
+    menuitemadd(96, 255, 2)
+    menuitemadd(97, 255, 3)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0B57)
+    Case(1, _0B65)
+    Case(2, _0B73)
+    goto(_0BA5)
+    end
+_0B57:
+    setvar(VAR_TEMP_x4007, 0)
+    goto(_0B81)
+    end
+_0B65:
+    setvar(VAR_TEMP_x4007, 1)
+    goto(_0B81)
+    end
+_0B73:
+    setvar(VAR_TEMP_x4007, 2)
+    goto(_0B81)
+    end
+_0B81:
+    npcmsg(msg_0138_D49R0101_00098)
+    wait(4, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0138_D49R0101_00099)
+    wait(4, VAR_SPECIAL_RESULT)
+    closemessage
+    playse(SEQ_SE_DP_DECIDE)
+    showpokeathlonrecords(VAR_TEMP_x4007)
+    goto(_0AF3)
+    end
+_0BA5:
+    touchscreenmenushow
+    npcmsg(msg_0138_D49R0101_00101)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0101_021 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_152)) { goto(_0C4C) }
+    npcmsg(msg_0138_D49R0101_00103)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0138_D49R0101_00104)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0138_D49R0101_00105)
+    getpokeathlonstat(14, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 1000) {
+        npcmsg(msg_0138_D49R0101_00107)
+        if (!itemspace(ITEM_RARE_CANDY, 1)) { goto(_0C42) }
+        callstd(std_give_item_verbose)
+        adjustpokeathlonstat11(0, 100)
+        setflag(FLAG_UNK_152)
+        goto(_0C4C)
+        end
+    _0C42:
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    _0C4C:
+        npcmsg(msg_0138_D49R0101_00108)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0138_D49R0101_00106)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0101_022 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_153)) { goto(_0CF0) }
+    getpokeathlonstat(15, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) < 500) {
+        npcmsg(msg_0138_D49R0101_00109)
+    } elif (var(VAR_TEMP_x4000) < 1000) {
+        npcmsg(msg_0138_D49R0101_00111)
+    } else {
+        npcmsg(msg_0138_D49R0101_00112)
+    }
+    if (var(VAR_TEMP_x4000) >= 2001) {
+        npcmsg(msg_0138_D49R0101_00113)
+        if (!itemspace(ITEM_RARE_CANDY, 1)) { goto(_0C42) }
+        callstd(std_give_item_verbose)
+        adjustpokeathlonstat11(0, 100)
+        setflag(FLAG_UNK_153)
+        goto(_0CF0)
+        end
+    _0CF0:
+        npcmsg(msg_0138_D49R0101_00114)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0138_D49R0101_00110)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts PokeathlonDome_Interior_1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D49R0101_023
+}

@@ -1,0 +1,631 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T06_000
+	ScrDef scr_seq_T06_001
+	ScrDef scr_seq_T06_002
+	ScrDef scr_seq_T06_003
+	ScrDef scr_seq_T06_004
+	ScrDef scr_seq_T06_005
+	ScrDef scr_seq_T06_006
+	ScrDef scr_seq_T06_007
+	ScrDef scr_seq_T06_008
+	ScrDef scr_seq_T06_009
+	ScrDef scr_seq_T06_010
+	ScrDef scr_seq_T06_011
+	ScrDef scr_seq_T06_012
+	ScrDef scr_seq_T06_013
+	ScrDefEnd
+`
+
+script scr_seq_T06_009 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 4) {
+            clearflag(FLAG_HIDE_CAMERON)
+        } elif (var(VAR_TEMP_x4000) == 0) {
+            clearflag(FLAG_HIDE_CAMERON)
+        } else {
+            setflag(FLAG_HIDE_CAMERON)
+        }
+        setvar(VAR_UNK_4085, 0)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T06_013 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T06_daigo, Vermilion_Movement_016C)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Vermilion_Movement_0190)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0483_T06_00016)
+    closemessage
+    applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+    waitmovement
+    getgameversion(VAR_TEMP_x4004)
+    if (var(VAR_TEMP_x4004) == 8) {
+        showpokemonpicwindow(SPECIES_LATIOS, 0)
+        npcmsg(msg_0483_T06_00018)
+        closemessage
+        createroamer(3)
+        closepokemonpicwindow
+        applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+        waitmovement
+        npcmsg(msg_0483_T06_00020)
+        closemessage
+        applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+        waitmovement
+        npcmsg(msg_0483_T06_00022)
+        closemessage
+        goto(_013F)
+        end
+    _013F:
+        applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+        waitmovement
+        npcmsg(msg_0483_T06_00023)
+        closemessage
+        applymovement(obj_T06_daigo, Vermilion_Movement_0188)
+        waitmovement
+        setvar(VAR_UNK_4130, 2)
+        removeobject(obj_T06_daigo)
+        setflag(FLAG_HIDE_VERMILION_CITY_STEVEN)
+        releaseall
+        end
+    }
+    showpokemonpicwindow(SPECIES_LATIAS, 1)
+    npcmsg(msg_0483_T06_00017)
+    closemessage
+    createroamer(2)
+    closepokemonpicwindow
+    applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+    waitmovement
+    npcmsg(msg_0483_T06_00019)
+    closemessage
+    applymovement(obj_T06_daigo, Vermilion_Movement_0180)
+    waitmovement
+    npcmsg(msg_0483_T06_00021)
+    closemessage
+    goto(_013F)
+    end
+}
+
+movement Vermilion_Movement_016C {
+    emote_exclamation_mark
+    delay_8
+    walk_left * 4
+    walk_in_place_left
+}
+
+movement Vermilion_Movement_0180 {
+    walk_in_place_left
+}
+
+movement Vermilion_Movement_0188 {
+    walk_right * 10
+}
+
+movement Vermilion_Movement_0190 {
+    delay_16 * 4
+    walk_down
+    walk_in_place_right
+}
+
+script scr_seq_T06_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    dummy491(247)
+    if (flag(FLAG_GOT_PP_MAX_FROM_VERMILLION_CITY_MAN)) {
+        npcmsg(msg_0483_T06_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNK_4135) >= 8) {
+        npcmsg(msg_0483_T06_00007)
+        if (!itemspace(ITEM_PP_MAX, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_PP_MAX_FROM_VERMILLION_CITY_MAN)
+        npcmsg(msg_0483_T06_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNK_4135) >= 5) { goto(_01F4) }
+    if (var(VAR_UNK_4135) >= 1) { goto(_01E9) }
+    npcmsg(msg_0483_T06_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_01E9:
+    npcmsg(msg_0483_T06_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_01F4:
+    npcmsg(msg_0483_T06_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T06_011 {
+    followmonresetmovement
+    lockall
+    clearflag(FLAG_HIDE_VERMILION_EUSINE)
+    addobject(obj_T06_minaki)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 1334) {
+    } else {
+        applymovement(obj_player, Vermilion_Movement_040C)
+        waitmovement
+        playcry(SPECIES_SUICUNE, 0)
+        release(obj_T06_tsure_poke_static_suicune)
+        spinobject(obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0)
+        lock(obj_T06_tsure_poke_static_suicune)
+        waitcry
+        callstd(std_play_eusine_music)
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 331) {
+            applymovement(obj_player, Vermilion_Movement_0460)
+            applymovement(obj_T06_minaki, Vermilion_Movement_0490)
+            applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0414)
+        } elif (var(VAR_TEMP_x4001) == 332) {
+            applymovement(obj_player, Vermilion_Movement_0470)
+            applymovement(obj_T06_minaki, Vermilion_Movement_04A0)
+            applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0420)
+        } else {
+            applymovement(obj_player, Vermilion_Movement_0480)
+            applymovement(obj_T06_minaki, Vermilion_Movement_04B0)
+            applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_042C)
+        }
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        npcmsg(msg_0483_T06_00014)
+        closemessage
+        applymovement(obj_T06_minaki, Vermilion_Movement_04D0)
+        waitmovement
+        bufferplayersname(0)
+        npcmsg(msg_0483_T06_00015)
+        closemessage
+        applymovement(obj_T06_minaki, Vermilion_Movement_04E8)
+        applymovement(obj_player, Vermilion_Movement_04F0)
+        waitmovement
+    _034D:
+        callstd(std_fade_end_eusine_music)
+        removeobject(obj_T06_minaki)
+        removeobject(obj_T06_tsure_poke_static_suicune)
+        setflag(FLAG_HIDE_VERMILION_EUSINE)
+        setflag(FLAG_HIDE_VERMILION_EUSINE_2)
+        setflag(FLAG_HIDE_VERMILION_SUICUNE)
+        setvar(VAR_UNK_4070, 0)
+        setvar(VAR_UNK_4071, 0)
+        clearflag(FLAG_HIDE_ROUTE_14_SUICUNE)
+        setvar(VAR_UNK_4086, 1)
+        releaseall
+        end
+    }
+    applymovement(obj_player, Vermilion_Movement_040C)
+    applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0458)
+    waitmovement
+    playcry(SPECIES_SUICUNE, 0)
+    release(obj_T06_tsure_poke_static_suicune)
+    spinobject(obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0)
+    lock(obj_T06_tsure_poke_static_suicune)
+    waitcry
+    callstd(std_play_eusine_music)
+    applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0438)
+    applymovement(obj_T06_minaki, Vermilion_Movement_04C0)
+    applymovement(obj_player, Vermilion_Movement_04F8)
+    waitmovement
+    applymovement(obj_T06_minaki, Vermilion_Movement_04E0)
+    applymovement(obj_player, Vermilion_Movement_0504)
+    waitmovement
+    npcmsg(msg_0483_T06_00014)
+    closemessage
+    applymovement(obj_T06_minaki, Vermilion_Movement_04D8)
+    waitmovement
+    npcmsg(msg_0483_T06_00015)
+    closemessage
+    applymovement(obj_T06_minaki, Vermilion_Movement_04E8)
+    applymovement(obj_player, Vermilion_Movement_04F0)
+    waitmovement
+    goto(_034D)
+}
+
+movement Vermilion_Movement_040C {
+    emote_exclamation_mark
+}
+
+movement Vermilion_Movement_0414 {
+    delay_4 * 9
+    move_action_112
+}
+
+movement Vermilion_Movement_0420 {
+    delay_4 * 11
+    move_action_112
+}
+
+movement Vermilion_Movement_042C {
+    delay_4 * 13
+    move_action_112
+}
+
+movement Vermilion_Movement_0438 {
+    delay_4 * 4
+    walk_faster_down * 2
+    jump_near_fast_down
+    jump_far_down
+    walk_faster_down * 2
+    jump_near_fast_down
+    jump_far_down * 2
+}
+
+movement Vermilion_Movement_0458 {
+    walk_in_place_right
+}
+
+movement Vermilion_Movement_0460 {
+    walk_right * 2
+    walk_up * 2
+    walk_right
+}
+
+movement Vermilion_Movement_0470 {
+    walk_right * 2
+    walk_up * 3
+    walk_right
+}
+
+movement Vermilion_Movement_0480 {
+    walk_right * 2
+    walk_up * 4
+    walk_right
+}
+
+movement Vermilion_Movement_0490 {
+    delay_8
+    walk_fast_down * 6
+    walk_fast_right
+}
+
+movement Vermilion_Movement_04A0 {
+    delay_4 * 3
+    walk_fast_down * 6
+    walk_fast_right
+}
+
+movement Vermilion_Movement_04B0 {
+    delay_4 * 5
+    walk_fast_down * 6
+    walk_fast_right
+}
+
+movement Vermilion_Movement_04C0 {
+    delay_4 * 2
+    walk_fast_right
+    walk_fast_down * 2
+}
+
+movement Vermilion_Movement_04D0 {
+    face_down
+}
+
+movement Vermilion_Movement_04D8 {
+    face_right
+}
+
+movement Vermilion_Movement_04E0 {
+    jump_in_place_fast_down * 3
+}
+
+movement Vermilion_Movement_04E8 {
+    walk_up * 8
+}
+
+movement Vermilion_Movement_04F0 {
+    face_up
+}
+
+movement Vermilion_Movement_04F8 {
+    delay_4 * 4
+    face_down
+}
+
+movement Vermilion_Movement_0504 {
+    face_left
+}
+
+script scr_seq_T06_012 {
+    followmonresetmovement
+    lockall
+    clearflag(FLAG_HIDE_VERMILION_EUSINE_2)
+    addobject(obj_T06_minaki_2)
+    applymovement(obj_player, Vermilion_Movement_040C)
+    waitmovement
+    playcry(SPECIES_SUICUNE, 0)
+    release(obj_T06_tsure_poke_static_suicune)
+    spinobject(obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0)
+    lock(obj_T06_tsure_poke_static_suicune)
+    waitcry
+    callstd(std_play_eusine_music)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 1324) {
+        applymovement(obj_T06_minaki_2, Vermilion_Movement_0654)
+        applymovement(obj_player, Vermilion_Movement_0630)
+        applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0414)
+    } elif (var(VAR_TEMP_x4000) == 1325) {
+        applymovement(obj_T06_minaki_2, Vermilion_Movement_0668)
+        applymovement(obj_player, Vermilion_Movement_063C)
+        applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_0420)
+    } else {
+        applymovement(obj_T06_minaki_2, Vermilion_Movement_067C)
+        applymovement(obj_player, Vermilion_Movement_0648)
+        applymovement(obj_T06_tsure_poke_static_suicune, Vermilion_Movement_042C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0483_T06_00014)
+    closemessage
+    applymovement(obj_T06_minaki_2, Vermilion_Movement_0690)
+    applymovement(obj_player, Vermilion_Movement_06A4)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0483_T06_00015)
+    closemessage
+    applymovement(obj_T06_minaki_2, Vermilion_Movement_0698)
+    applymovement(obj_player, Vermilion_Movement_06AC)
+    waitmovement
+    callstd(std_fade_end_eusine_music)
+    removeobject(obj_T06_minaki_2)
+    removeobject(obj_T06_tsure_poke_static_suicune)
+    setflag(FLAG_HIDE_VERMILION_EUSINE)
+    setflag(FLAG_HIDE_VERMILION_EUSINE_2)
+    setflag(FLAG_HIDE_VERMILION_SUICUNE)
+    setvar(VAR_UNK_4070, 0)
+    setvar(VAR_UNK_4071, 0)
+    clearflag(FLAG_HIDE_ROUTE_14_SUICUNE)
+    setvar(VAR_UNK_4086, 1)
+    releaseall
+    end
+}
+
+movement Vermilion_Movement_0630 {
+    walk_down * 4
+    walk_right * 2
+}
+
+movement Vermilion_Movement_063C {
+    walk_down * 4
+    walk_right
+}
+
+movement Vermilion_Movement_0648 {
+    walk_down * 4
+    face_right
+}
+
+movement Vermilion_Movement_0654 {
+    delay_8
+    walk_fast_right * 7
+    walk_fast_up * 3
+    walk_fast_right
+}
+
+movement Vermilion_Movement_0668 {
+    delay_8 * 2
+    walk_fast_right * 7
+    walk_fast_up * 3
+    walk_fast_right
+}
+
+movement Vermilion_Movement_067C {
+    delay_8 * 3
+    walk_fast_right * 7
+    walk_fast_up * 3
+    walk_fast_right
+}
+
+movement Vermilion_Movement_0690 {
+    face_up
+}
+
+movement Vermilion_Movement_0698 {
+    walk_left * 2
+    walk_up * 13
+}
+
+movement Vermilion_Movement_06A4 {
+    face_down
+}
+
+movement Vermilion_Movement_06AC {
+    delay_8 * 2
+    face_left
+    delay_8
+    face_up
+}
+
+script scr_seq_T06_001 {
+    simplenpcmsg(msg_0483_T06_00000)
+    end
+}
+
+script scr_seq_T06_002 {
+    simplenpcmsg(msg_0483_T06_00003)
+    end
+}
+
+script scr_seq_T06_003 {
+    simplenpcmsg(msg_0483_T06_00001)
+    end
+}
+
+script scr_seq_T06_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_MACHOP, 0)
+    npcmsg(msg_0483_T06_00002)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T06_005 {
+    directionsignpostex(0, 6, msg_0483_T06_00010)
+    end
+}
+
+script scr_seq_T06_006 {
+    trainertipsex(2, msg_0483_T06_00011)
+    end
+}
+
+script scr_seq_T06_007 {
+    trainertipsex(2, msg_0483_T06_00012)
+    end
+}
+
+script scr_seq_T06_008 {
+    trainertipsex(2, msg_0483_T06_00013)
+    end
+}
+
+script scr_seq_T06_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Vermilion_Movement_0898)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Vermilion_Movement_08B8)
+        applymovement(obj_T06_gsmiddleman1_2, Vermilion_Movement_08CC)
+    } else {
+        applymovement(obj_player, Vermilion_Movement_08A4)
+        applymovement(obj_T06_gsmiddleman1_2, Vermilion_Movement_08CC)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Vermilion_Movement_08D8)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(50)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Vermilion_Movement_0898 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Vermilion_Movement_08A4 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Vermilion_Movement_08B8 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Vermilion_Movement_08CC {
+    delay_8
+    walk_in_place_up
+}
+
+movement Vermilion_Movement_08D8 {
+    walk_right
+    walk_up
+    face_down
+}
+
+mapscripts Vermilion_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T06_009
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4130, 1: scr_seq_T06_013
+    ]
+}

@@ -1,0 +1,40 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T02FS0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 1)
+    callstd(std_pokemart)
+    releaseall
+    end
+}
+
+script scr_seq_T02FS0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 26)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_T02FS0101_002 {
+    simplenpcmsg(msg_0453_T02FS0101_00000)
+    end
+}
+
+script scr_seq_T02FS0101_003 {
+    simplenpcmsg(msg_0453_T02FS0101_00001)
+    end
+}
+
+mapscripts Viridian_Pokemart_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: std_hide_show_deliverymen
+}

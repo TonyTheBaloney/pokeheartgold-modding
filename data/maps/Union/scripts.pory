@@ -1,0 +1,801 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_UNION_000 {
+    end
+}
+
+script scr_seq_UNION_001 {
+    end
+}
+
+script scr_seq_UNION_002 {
+    unionroomrestoreobjects
+    end
+}
+
+script scr_seq_UNION_003 {
+    playse(SEQ_SE_DP_SELECT)
+    followmonresetmovement
+    lockall
+    faceplayer
+    getunionroomplayeractivity(VAR_SPECIAL_RESULT)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 5) { goto(_0499) }
+    bufferunionroompartnerlanguage(0)
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_04AF) }
+    if (var(VAR_SPECIAL_RESULT) == 3) { goto(_05DB) }
+    if (var(VAR_SPECIAL_RESULT) == 4) { goto(_0528) }
+    unionroomrequestjoinplayer(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    getunionroomplayeractivity(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 5) { goto(_0499) }
+    npcmsg(msg_0738_UNION_00199)
+    unionroomwaitjoinstatus(VAR_SPECIAL_RESULT)
+    Switch(VAR_SPECIAL_RESULT)
+    Case(3, _07CC)
+    Case(2, _0488)
+    goto(_00BC)
+    end
+_00BC:
+    linksyncandwait(100)
+    getunionroomtalkmsg(2, VAR_SPECIAL_RESULT)
+    nonnpcmsgvarautoscroll(VAR_SPECIAL_RESULT)
+    goto(_00EC)
+    end
+_00D2:
+    linksyncandwait(100)
+    unionroomsetactivity(11)
+    getunionroomtalkmsg(22, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    goto(_00EC)
+    end
+_00EC:
+    multichoiceinitstdgmm(31, 3, 0, 1, VAR_SPECIAL_RESULT)
+    multichoicesetanchorright(1)
+    multichoiceitemadd(168, 0)
+    multichoiceitemadd(59, 1)
+    multichoiceitemadd(52, 2)
+    multichoiceitemadd(23, 3)
+    multichoiceitemadd(142, 4)
+    multichoiceitemadd(141, 5)
+    multichoiceitemadd(24, 99)
+    multichoiceshowunionroom
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0184)
+    Case(1, _0336)
+    Case(2, _0276)
+    Case(3, _01ED)
+    Case(4, _0396)
+    Case(5, _03F6)
+    Case(7, _07A0)
+    unionroomsendtalkresponse(0, 7)
+    goto(_0784)
+    end
+_0184:
+    unionroomsendtalkresponse(0, 1)
+    getunionroomtalkmsg(9, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    }
+    unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) { goto(_06AE) }
+    unionroomsetactivity(5)
+    getunionroomtalkmsg(1, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    linksyncandwait(1)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    openlinktrainercard
+    restoreoverworld
+    call(_0BDA)
+    nonnpcmsg(msg_0738_UNION_00016)
+    goto(_00D2)
+    end
+_01ED:
+    partycountnotegg(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) < 2) { goto(_0264) }
+    unionroomsendtalkresponse(0, 3)
+    getunionroomtalkmsg(9, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    }
+    unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) { goto(_06F6) }
+    unionroomsetactivity(7)
+    getunionroomtalkmsg(1, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    linksyncandwait(3)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    openwirelesstrade
+    restoreoverworld
+    call(_0BDA)
+    goto(_00D2)
+    end
+_0264:
+    getunionroomtalkmsg(20, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    goto(_00D2)
+    end
+_0276:
+    partycountmonsatorbelowlevel(VAR_SPECIAL_RESULT, 30)
+    if (var(VAR_SPECIAL_RESULT) < 2) { goto(_0324) }
+    unionroomsendtalkresponse(0, 2)
+    getunionroomtalkmsg(9, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    }
+    unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) { goto(_06DE) }
+    unionroomsetactivity(6)
+    getunionroomtalkmsg(1, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    linksyncandwait(2)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    unionroombattlepartyselect
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    npcmsg(msg_0738_UNION_00202)
+    linksyncandwait(102)
+    closemessage
+    getunionroombattlecancel(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0B8B) }
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0B8B) }
+    linkbattle
+    call(_0BDA)
+    goto(_00D2)
+    end
+_0324:
+    getunionroomtalkmsg(19, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    goto(_00D2)
+    end
+_0336:
+    unionroomsendtalkresponse(0, 4)
+    getunionroomtalkmsg(9, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    }
+    unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) { goto(_06C6) }
+    getunionroomtalkmsg(1, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    waitbuttonordelay(30)
+    linksyncandwait(4)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    opendrawingsession
+    restoreoverworld
+    call(_0BDA)
+    goto(_0478)
+    end
+_0396:
+    unionroomsendtalkresponse(0, 5)
+    getunionroomtalkmsg(9, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    }
+    unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0726) }
+    getunionroomtalkmsg(1, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    waitbuttonordelay(30)
+    linksyncandwait(5)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    openrecordmixing
+    restoreoverworld
+    call(_0BDA)
+    goto(_0478)
+    end
+_03F6:
+    partycountegg(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_074F) }
+    checkunionroompartnerversionnotdummy(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0761) }
+    unionroomsendtalkresponse(0, 6)
+    getunionroomtalkmsg(9, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    }
+    unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) { goto(_076C) }
+    getunionroomtalkmsg(1, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    waitbuttonordelay(30)
+    linksyncandwait(6)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    runspintradeflow
+    restoreoverworld
+    call(_0BDA)
+    goto(_0478)
+    end
+_0478:
+    releaseall
+    end
+    unionroomsendtalkresponse(0, 1)
+    closemessage
+    releaseall
+    end
+_0488:
+    npcmsg(msg_0738_UNION_00038)
+    wait(30, VAR_SPECIAL_RESULT)
+    closemessage
+    unionroomresumesearch
+    releaseall
+    end
+_0499:
+    unionroomrefusejoins
+    getunionroomtalkmsg(0, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    waitabpress
+    closemessage
+    unionroomresumesearch
+    releaseall
+    end
+_04AF:
+    unionroomrefusejoins
+    getunionroomtalkmsg(10, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_05C3) }
+    unionroomrequestjoinplayer(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 5) { goto(_0488) }
+    unionroomwaitjoinstatus(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0488) }
+    getunionroomtalkmsg(13, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    opendrawingsession
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    goto(_0478)
+    end
+_0528:
+    unionroomrefusejoins
+    getunionroomtalkmsg(12, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_066C) }
+    partycountegg(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0698) }
+    partylegalcheck(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0682) }
+    unionroomrequestjoinplayer(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 5) { goto(_0488) }
+    unionroomwaitjoinstatus(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0488) }
+    getunionroomtalkmsg(15, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    runspintradeflow
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    goto(_0478)
+    end
+_05C3:
+    getunionroomtalkmsg(16, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    unionroomresumesearch
+    closemessage
+    releaseall
+    end
+_05DB:
+    unionroomrefusejoins
+    getunionroomtalkmsg(11, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0654) }
+    unionroomrequestjoinplayer(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 5) { goto(_0488) }
+    unionroomwaitjoinstatus(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0488) }
+    getunionroomtalkmsg(14, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    openrecordmixing
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    goto(_0478)
+    end
+_0654:
+    getunionroomtalkmsg(17, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    closemessage
+    unionroomresumesearch
+    releaseall
+    end
+_066C:
+    getunionroomtalkmsg(18, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    closemessage
+    releaseall
+    end
+_0682:
+    getunionroomtalkmsg(26, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    closemessage
+    releaseall
+    end
+_0698:
+    getunionroomtalkmsg(21, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    closemessage
+    releaseall
+    end
+_06AE:
+    getunionroomtalkmsg(3, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    goto(_07BC)
+    end
+_06C6:
+    getunionroomtalkmsg(4, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    goto(_07BC)
+    end
+_06DE:
+    getunionroomtalkmsg(5, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    goto(_07BC)
+    end
+_06F6:
+    getunionroomtalkmsg(6, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    goto(_07BC)
+    end
+    getunionroomtalkmsg(7, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    goto(_07BC)
+    end
+_0726:
+    getunionroomtalkmsg(8, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    goto(_07BC)
+    end
+_073E:
+    unionroomsendtalkresponse(1, 1)
+    npcmsg(msg_0738_UNION_00036)
+    goto(_0BC2)
+    end
+_074F:
+    getunionroomtalkmsg(21, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    goto(_00D2)
+    end
+_0761:
+    npcmsg(msg_0738_UNION_00218)
+    goto(_00D2)
+    end
+_076C:
+    getunionroomtalkmsg(8, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    goto(_07BC)
+    end
+_0784:
+    getunionroomtalkmsg(23, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    linksyncandwait(101)
+    closemessage
+    unionroomrequestleaveall
+    releaseall
+    end
+_07A0:
+    getunionroomtalkmsg(24, VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    linksyncandwait(101)
+    closemessage
+    unionroomrequestleaveall
+    releaseall
+    end
+_07BC:
+    linksyncandwait(101)
+    closemessage
+    unionroomrequestleaveall
+    releaseall
+    end
+}
+
+script scr_seq_UNION_004 {
+    followmonresetmovement
+    lockall
+_07CC:
+    playse(SEQ_SE_DP_BUTTON9)
+    bufferunionroompartnerlanguage(1)
+    nonnpcmsgvarautoscroll(7)
+    waitbuttonordelay(30)
+    goto(_07E4)
+    end
+_07E4:
+    npcmsg(msg_0738_UNION_00009)
+    linksyncandwait(100)
+    unionroomsetactivity(11)
+    unionroomwaittalkreply(VAR_SPECIAL_RESULT)
+    Switch(VAR_SPECIAL_RESULT)
+    Case(1, _0863)
+    Case(4, _0B11)
+    Case(2, _0974)
+    Case(3, _08DB)
+    Case(5, _0A44)
+    Case(6, _0AA2)
+    Case(7, _0BA0)
+    Case(8, _0BB1)
+    end
+_0863:
+    npcmsg(msg_0738_UNION_00011)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        unionroomsendtalkresponse(1, 1)
+        npcmsg(msg_0738_UNION_00017)
+        goto(_0BC2)
+        end
+    _08DB:
+        npcmsg(msg_0738_UNION_00026)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0952) }
+        partycountnotegg(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) < 2) { goto(_0963) }
+        unionroomsendtalkresponse(1, 0)
+        closemessage
+        unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
+        npcmsg(msg_0738_UNION_00027)
+        wait(30, VAR_SPECIAL_RESULT)
+        linksyncandwait(3)
+        closemessage
+        unionroomsetactivity(7)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        openwirelesstrade
+        restoreoverworld
+        unionroomsetactivity(11)
+        call(_0BDA)
+        goto(_07E4)
+        end
+    _0952:
+        unionroomsendtalkresponse(1, 1)
+        npcmsg(msg_0738_UNION_00020)
+        goto(_0BC2)
+        end
+    _0963:
+        unionroomsendtalkresponse(1, 1)
+        npcmsg(msg_0738_UNION_00029)
+        goto(_0BC2)
+        end
+    _0974:
+        npcmsg(msg_0738_UNION_00021)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0A22) }
+        partycountmonsatorbelowlevel(VAR_SPECIAL_RESULT, 30)
+        if (var(VAR_SPECIAL_RESULT) < 2) { goto(_0A33) }
+        unionroomsendtalkresponse(1, 0)
+        closemessage
+        unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
+        npcmsg(msg_0738_UNION_00022)
+        wait(30, VAR_SPECIAL_RESULT)
+        linksyncandwait(2)
+        closemessage
+        unionroomsetactivity(6)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        unionroombattlepartyselect
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        npcmsg(msg_0738_UNION_00202)
+        linksyncandwait(102)
+        closemessage
+        getunionroombattlecancel(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0B8B) }
+        if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0B8B) }
+        linkbattle
+        unionroomsetactivity(11)
+        call(_0BDA)
+        goto(_07E4)
+        end
+    _0A22:
+        unionroomsendtalkresponse(1, 1)
+        npcmsg(msg_0738_UNION_00023)
+        goto(_0BC2)
+        end
+    _0A33:
+        unionroomsendtalkresponse(1, 1)
+        npcmsg(msg_0738_UNION_00024)
+        goto(_0BC2)
+        end
+    _0A44:
+        npcmsg(msg_0738_UNION_00030)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0A22) }
+        unionroomsendtalkresponse(1, 0)
+        closemessage
+        unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
+        npcmsg(msg_0738_UNION_00031)
+        wait(30, VAR_SPECIAL_RESULT)
+        linksyncandwait(5)
+        closemessage
+        unionroomsetactivity(2)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        openrecordmixing
+        restoreoverworld
+        call(_0BDA)
+        releaseall
+        end
+    _0AA2:
+        npcmsg(msg_0738_UNION_00033)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0A22) }
+        unionroomsendtalkresponse(1, 0)
+        closemessage
+        partycountegg(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_073E) }
+        unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
+        npcmsg(msg_0738_UNION_00034)
+        wait(30, VAR_SPECIAL_RESULT)
+        linksyncandwait(6)
+        closemessage
+        unionroomsetactivity(13)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        runspintradeflow
+        restoreoverworld
+        call(_0BDA)
+        releaseall
+        end
+    _0B11:
+        npcmsg(msg_0738_UNION_00018)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0B6F) }
+        unionroomsendtalkresponse(1, 0)
+        closemessage
+        unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 7) { goto(_0BA0) }
+        npcmsg(msg_0738_UNION_00019)
+        wait(30, VAR_SPECIAL_RESULT)
+        linksyncandwait(4)
+        closemessage
+        unionroomsetactivity(1)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        opendrawingsession
+        restoreoverworld
+        call(_0BDA)
+        releaseall
+        end
+    _0B6F:
+        unionroomsendtalkresponse(1, 1)
+        npcmsg(msg_0738_UNION_00028)
+        goto(_0BC2)
+        end
+    }
+    unionroomsendtalkresponse(1, 0)
+    closemessage
+    unionroomwaittalkchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        npcmsg(msg_0738_UNION_00035)
+        goto(_0BC2)
+        end
+    _0B8B:
+        unionroomsetactivity(11)
+        npcmsg(msg_0738_UNION_00025)
+        wait(30, VAR_SPECIAL_RESULT)
+        goto(_0BC2)
+        end
+    _0BA0:
+        npcmsg(msg_0738_UNION_00008)
+        wait(30, VAR_SPECIAL_RESULT)
+        goto(_0BC2)
+        end
+    _0BB1:
+        npcmsg(msg_0738_UNION_00010)
+        wait(30, VAR_SPECIAL_RESULT)
+        goto(_0BC2)
+        end
+    _0BC2:
+        linksyncandwait(101)
+        closemessage
+        unionroomrequestleaveall
+        releaseall
+        end
+        unionroomsendtalkresponse(1, 1)
+        closemessage
+        releaseall
+        end
+    _0BDA:
+        fieldcommregistercommands
+        fadescreen(6, 1, 1, RGB_BLACK)
+        return
+    }
+    getunionroompartnerhometownmsg2(VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    wait(30, VAR_SPECIAL_RESULT)
+    linksyncandwait(1)
+    closemessage
+    unionroomsetactivity(5)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    openlinktrainercard
+    restoreoverworld
+    call(_0BDA)
+    goto(_07E4)
+    end
+}
+
+script scr_seq_UNION_005 {
+    simplenpcmsg(msg_0738_UNION_00207)
+    end
+}
+
+script scr_seq_UNION_006 {
+    playse(SEQ_SE_DP_SELECT)
+    followmonresetmovement
+    lockall
+    faceplayer
+    goto(_0499)
+    end
+}
+
+script scr_seq_UNION_007 {
+    playse(SEQ_SE_DP_SELECT)
+    followmonresetmovement
+    lockall
+    faceplayer
+    goto(_0C1F)
+    end
+_0C1F:
+    unionroomrefusejoins
+    callifset(FLAG_UNK_069, _0C87)
+    touchscreenmenuhide
+_0C2E:
+    callifunset(FLAG_UNK_069, _0C8C)
+    setflag(FLAG_UNK_069)
+    menuinitstdgmm(21, 11, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(11, 255, 0)
+    menuitemadd(169, 255, 1)
+    menuitemadd(24, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0CAF)
+    Case(1, _0C91)
+    goto(_0CA5)
+    end
+_0C87:
+    npcmsg(msg_0738_UNION_00158)
+    return
+_0C8C:
+    npcmsg(msg_0738_UNION_00157)
+    return
+_0C91:
+    touchscreenmenushow
+    getunionroomownchatmsg(VAR_SPECIAL_RESULT)
+    nonnpcmsgvar(VAR_SPECIAL_RESULT)
+    touchscreenmenuhide
+    goto(_0C2E)
+    end
+_0CA5:
+    touchscreenmenushow
+    unionroomresumesearch
+    closemessage
+    releaseall
+    end
+_0CAF:
+    npcmsg(msg_0738_UNION_00159)
+    menuinitstdgmm(24, 3, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(52, 255, 0)
+    menuitemadd(23, 255, 1)
+    menuitemadd(142, 255, 2)
+    menuitemadd(59, 255, 3)
+    menuitemadd(170, 255, 4)
+    menuitemadd(141, 255, 5)
+    menuitemadd(13, 255, 6)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0D50)
+    Case(1, _0D5F)
+    Case(2, _0D6E)
+    Case(3, _0D7D)
+    Case(4, _0D8C)
+    Case(5, _0D9B)
+    goto(_0C2E)
+    end
+_0D50:
+    touchscreenmenushow
+    npcmsg(msg_0738_UNION_00160)
+    touchscreenmenuhide
+    goto(_0CAF)
+    end
+_0D5F:
+    touchscreenmenushow
+    npcmsg(msg_0738_UNION_00161)
+    touchscreenmenuhide
+    goto(_0CAF)
+    end
+_0D6E:
+    touchscreenmenushow
+    npcmsg(msg_0738_UNION_00162)
+    touchscreenmenuhide
+    goto(_0CAF)
+    end
+_0D7D:
+    touchscreenmenushow
+    npcmsg(msg_0738_UNION_00164)
+    touchscreenmenuhide
+    goto(_0CAF)
+    end
+_0D8C:
+    touchscreenmenushow
+    npcmsg(msg_0738_UNION_00165)
+    touchscreenmenuhide
+    goto(_0CAF)
+    end
+_0D9B:
+    touchscreenmenushow
+    npcmsg(msg_0738_UNION_00163)
+    touchscreenmenuhide
+    goto(_0CAF)
+    end
+    goto(_0C2E)
+    end
+}
+
+mapscripts Union_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_UNION_000
+    INIT_SCRIPT_ON_LOAD: scr_seq_UNION_001
+    INIT_SCRIPT_ON_RESUME: scr_seq_UNION_002
+}

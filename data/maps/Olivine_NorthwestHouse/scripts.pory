@@ -1,0 +1,47 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T26R0601_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_GOOD_ROD)) {
+        npcmsg(msg_0610_T26R0601_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0610_T26R0601_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0040) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0079) }
+    end
+_0040:
+    if (!itemspace(ITEM_GOOD_ROD, 1)) { goto(_0084) }
+    npcmsg(msg_0610_T26R0601_00001)
+    waitbuttonpress
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_GOOD_ROD)
+    npcmsg(msg_0610_T26R0601_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0079:
+    npcmsg(msg_0610_T26R0601_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0084:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Olivine_NorthwestHouse_MapScripts {
+}

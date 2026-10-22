@@ -1,0 +1,33 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R46_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GAVE_RIVAL_NAME_TO_OFFICER)) {
+        npcmsg(msg_0406_R46_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0406_R46_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R46_001 {
+    directionsignpostex(1, 3, msg_0406_R46_00000)
+    end
+}
+
+script scr_seq_R46_002 {
+    trainertipsex(2, msg_0406_R46_00001)
+    end
+}
+
+mapscripts Route46_MapScripts {
+}

@@ -1,0 +1,273 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_P01R0102_000
+	ScrDef scr_seq_P01R0102_001
+	ScrDef scr_seq_P01R0102_002
+	ScrDef scr_seq_P01R0102_003
+	ScrDef scr_seq_P01R0102_004
+	ScrDef scr_seq_P01R0102_005
+	ScrDef scr_seq_P01R0102_006
+	ScrDefEnd
+`
+
+script scr_seq_P01R0102_001 {
+    if (var(VAR_BOAT_DIRECTION) == 2) {
+        movepersonfacing(obj_P01R0102_seaman_2, 28, 0, 22, DIR_WEST)
+        end
+    }
+    end
+}
+
+script scr_seq_P01R0102_005 {
+    setspecialspawnwarp(MAP_OLIVINE, 279, 276)
+    if (!flag(FLAG_UNK_189)) { goto(_0054) }
+    clearflag(FLAG_UNK_189)
+    end
+_0054:
+    checkregisteredphonenumber(PHONE_CONTACT_SABRINA, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_0097) }
+    checkbadge(BADGE_MARSH, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 1) { goto(_0080) }
+    goto(_00C1)
+_0080:
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 5) { goto(_00C1) }
+    clearflag(FLAG_UNK_2C9)
+    end
+_0097:
+    getphonebookrematch(PHONE_CONTACT_SABRINA, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) { goto(_00C1) }
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 1) { goto(_00C1) }
+    clearflag(FLAG_UNK_2C9)
+    end
+_00C1:
+    setflag(FLAG_UNK_2C9)
+    end
+}
+
+script scr_seq_P01R0102_002 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, SsAquaOlivinePortExterior_Movement_0104)
+    waitmovement
+    applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_010C)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setvar(VAR_BOAT_DIRECTION, 0)
+    clearflag(FLAG_RECEIVED_PLATE_FROM_AQUA_CAPTAIN_THIS_TRIP)
+    releaseall
+    end
+}
+
+movement SsAquaOlivinePortExterior_Movement_0104 {
+    walk_down * 3
+}
+
+movement SsAquaOlivinePortExterior_Movement_010C {
+    walk_left
+    walk_in_place_down
+}
+
+script scr_seq_P01R0102_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0256_P01R0102_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_P01R0102_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0256_P01R0102_00003)
+    closemessage
+    applymovement(obj_P01R0102_gswoman2, SsAquaOlivinePortExterior_Movement_0144)
+    waitmovement
+    releaseall
+    end
+}
+
+movement SsAquaOlivinePortExterior_Movement_0144 {
+    walk_in_place_up
+}
+
+script scr_seq_P01R0102_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_BOAT_ARRIVED)) {
+        npcmsg(msg_0256_P01R0102_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0256_P01R0102_00000)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 2) {
+        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_021C)
+        waitmovement
+        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_024C)
+    } elif (var(VAR_TEMP_x4000) == 3) {
+        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_022C)
+        waitmovement
+        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_025C)
+    } elif (var(VAR_TEMP_x4000) == 0) {
+        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_023C)
+        waitmovement
+        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_026C)
+    } else {
+        applymovement(obj_P01R0102_seaman_2, SsAquaOlivinePortExterior_Movement_023C)
+        waitmovement
+        applymovement(obj_player, SsAquaOlivinePortExterior_Movement_026C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    playse(SEQ_SE_DP_KAIDAN2)
+    shipvoyage(0, 0, 307, 24, 19)
+    releaseall
+    end
+}
+
+movement SsAquaOlivinePortExterior_Movement_021C {
+    face_left
+    walk_left
+    walk_in_place_right
+}
+
+movement SsAquaOlivinePortExterior_Movement_022C {
+    face_right
+    walk_right
+    walk_in_place_left
+}
+
+movement SsAquaOlivinePortExterior_Movement_023C {
+    face_right
+    walk_right
+    walk_in_place_left
+}
+
+movement SsAquaOlivinePortExterior_Movement_024C {
+    walk_left
+    face_up
+    walk_up * 2
+}
+
+movement SsAquaOlivinePortExterior_Movement_025C {
+    walk_right
+    face_up
+    walk_up * 2
+}
+
+movement SsAquaOlivinePortExterior_Movement_026C {
+    walk_up * 2
+}
+
+script scr_seq_P01R0102_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkregisteredphonenumber(PHONE_CONTACT_SABRINA, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) {
+        npcmsg(msg_0256_P01R0102_00009)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0256_P01R0102_00012)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        photoalbumisfull(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0256_P01R0102_00013)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0256_P01R0102_00010)
+        closemessage
+        setflag(FLAG_UNK_189)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        cameronphoto(88)
+        faceplayer
+        lockall
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        clearflag(FLAG_UNK_189)
+        npcmsg(msg_0256_P01R0102_00011)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_TEMP_x4004) >= 1) { goto(_0317) }
+    npcmsg(msg_0256_P01R0102_00004)
+_029F:
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02C3) }
+    if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_0306) }
+    end
+_02C3:
+    bufferplayersname(0)
+    npcmsg(msg_0256_P01R0102_00005)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    registergearnumber(PHONE_CONTACT_SABRINA)
+    npcmsg(msg_0256_P01R0102_00006)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setflag(FLAG_UNK_2C9)
+    removeobject(obj_P01R0102_gsleader10)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+_0306:
+    setvar(VAR_TEMP_x4004, 1)
+    npcmsg(msg_0256_P01R0102_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0317:
+    npcmsg(msg_0256_P01R0102_00008)
+    goto(_029F)
+    end
+}
+
+mapscripts SsAquaOlivinePortExterior_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_P01R0102_001
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_BOAT_DIRECTION, 2: scr_seq_P01R0102_002
+    ]
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0102_005
+}

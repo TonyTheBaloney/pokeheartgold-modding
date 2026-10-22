@@ -1,0 +1,47 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D32R0103_000
+	ScrDef scr_seq_D32R0103_001
+	ScrDef scr_seq_D32R0103_002
+	ScrDef scr_seq_D32R0103_003
+	ScrDefEnd
+`
+
+script scr_seq_D32R0103_003 {
+    setvar(VAR_UNK_40E5, 2)
+    end
+}
+
+script scr_seq_D32R0103_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_frontier_move_tutor_1)
+    releaseall
+    end
+}
+
+script scr_seq_D32R0103_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_frontier_move_tutor_2)
+    releaseall
+    end
+}
+
+script scr_seq_D32R0103_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_frontier_move_tutor_3)
+    releaseall
+    end
+}
+
+mapscripts FrontierAccessMoveTutorHouse_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0103_003
+}

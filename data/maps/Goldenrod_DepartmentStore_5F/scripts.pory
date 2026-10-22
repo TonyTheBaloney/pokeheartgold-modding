@@ -1,0 +1,184 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T25R1005_000
+	ScrDef scr_seq_T25R1005_001
+	ScrDef scr_seq_T25R1005_002
+	ScrDef scr_seq_T25R1005_003
+	ScrDef scr_seq_T25R1005_004
+	ScrDef scr_seq_T25R1005_005
+	ScrDef scr_seq_T25R1005_006
+	ScrDefEnd
+`
+
+script scr_seq_T25R1005_005 {
+    setflag(FLAG_HIDE_GOLDENROD_DEPT_STORE_5F_RETURN_FRUSTRATION_LADY)
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 0) {
+        clearflag(FLAG_HIDE_GOLDENROD_DEPT_STORE_5F_RETURN_FRUSTRATION_LADY)
+        end
+    }
+    if (var(VAR_TEMP_x4000) == 0) {
+        clearflag(FLAG_HIDE_GOLDENROD_DEPT_STORE_5F_RETURN_FRUSTRATION_LADY)
+    }
+    end
+}
+
+script scr_seq_T25R1005_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 7)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_T25R1005_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        npcmsg(msg_0596_T25R1005_00018)
+    } else {
+        npcmsg(msg_0596_T25R1005_00017)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1005_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        npcmsg(msg_0596_T25R1005_00016)
+    } else {
+        npcmsg(msg_0596_T25R1005_00015)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1005_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_SYS_ROCKET_COSTUME)) {
+        npcmsg(msg_0596_T25R1005_00014)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_TRADE_GOLDENROD_CITY_DROWZEE_MACHOP)) { goto(_0172) }
+    npcmsg(msg_0596_T25R1005_00009)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00F6) }
+    goto(_0167)
+_00F6:
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    choosepartymonfortrade
+    getpartyselection(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 255) { goto(_0167) }
+    loadnpctrade(1)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    getpartymonspecies(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    npctradegetreqspecies(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8005) != VAR_SPECIAL_RESULT) { goto(_015A) }
+    npctradeexec(VAR_SPECIAL_x8004)
+    npctradeend
+    setflag(FLAG_TRADE_GOLDENROD_CITY_DROWZEE_MACHOP)
+    npcmsg(msg_0596_T25R1005_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_015A:
+    npctradeend
+    npcmsg(msg_0596_T25R1005_00011)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0167:
+    npcmsg(msg_0596_T25R1005_00012)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0172:
+    npcmsg(msg_0596_T25R1005_00013)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1005_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0596_T25R1005_00019)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1005_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_08E)) { goto(_0219) }
+    getpartyleadalive(VAR_SPECIAL_x8000)
+    buffermonspeciesname(0, VAR_SPECIAL_x8000)
+    npcmsg(msg_0596_T25R1005_00000)
+    mongetfriendship(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000)
+    if (var(VAR_SPECIAL_RESULT) >= 149) {
+        npcmsg(msg_0596_T25R1005_00001)
+        setvar(VAR_SPECIAL_x8004, 354)
+        setvar(VAR_SPECIAL_x8005, 1)
+        callstd(std_obtain_item_verbose)
+        closemessage
+        goto(_0219)
+    }
+    if (var(VAR_SPECIAL_RESULT) <= 50) {
+        npcmsg(msg_0596_T25R1005_00004)
+        setvar(VAR_SPECIAL_x8004, 348)
+        setvar(VAR_SPECIAL_x8005, 1)
+        callstd(std_obtain_item_verbose)
+        closemessage
+        goto(_0219)
+    _0219:
+        npcmsg(msg_0596_T25R1005_00006)
+        setflag(FLAG_UNK_08E)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0596_T25R1005_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Goldenrod_DepartmentStore_5F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25R1005_005
+}

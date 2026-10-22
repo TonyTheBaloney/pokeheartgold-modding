@@ -1,0 +1,272 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T30GYM0101_000
+	ScrDef scr_seq_T30GYM0101_001
+	ScrDef scr_seq_T30GYM0101_002
+	ScrDef scr_seq_T30GYM0101_003
+	ScrDef scr_seq_T30GYM0101_004
+	ScrDef scr_seq_T30GYM0101_005
+	ScrDefEnd
+`
+
+script scr_seq_T30GYM0101_001 {
+    blackthorngyminit
+    setvar(VAR_UNK_4120, 0)
+    getphonebookrematch(PHONE_CONTACT_CLAIR, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+        end
+    }
+    if (var(VAR_UNK_40FC) >= 2) { goto(_0044) }
+    end
+_0044:
+    checkregisteredphonenumber(PHONE_CONTACT_CLAIR, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_00BD) }
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 6) {
+        setflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+    } elif (var(VAR_TEMP_x4000) == 7) {
+        setflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+    } elif (var(VAR_TEMP_x4000) == 8) {
+        setflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+    } elif (var(VAR_TEMP_x4000) == 9) {
+        setflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+    } else {
+        clearflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+    }
+    end
+_00BD:
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 16) {
+        setflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+    } elif (var(VAR_TEMP_x4000) == 17) {
+        setflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+    } elif (var(VAR_TEMP_x4000) == 18) {
+        setflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+    } else {
+        clearflag(FLAG_HIDE_BLACKTHORN_GYM_CLAIR)
+    }
+    end
+}
+
+script scr_seq_T30GYM0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_0EA)) {
+        if (!flag(FLAG_GOT_TM59_FROM_CLAIR)) {
+            npcmsg(msg_0631_T30GYM0101_00006)
+            if (!itemspace(ITEM_TM59, 1)) {
+                npcmsg(msg_0631_T30GYM0101_00008)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            callstd(std_give_item_verbose)
+            setflag(FLAG_GOT_TM59_FROM_CLAIR)
+            npcmsg(msg_0631_T30GYM0101_00007)
+        }
+        npcmsg(msg_0631_T30GYM0101_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_UNK_0D1)) { goto(_017D) }
+    npcmsg(msg_0631_T30GYM0101_00003)
+    closemessage
+    trainerbattle(TRAINER_LEADER_CLAIR_CLAIR, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0188) }
+    settrainerflag(TRAINER_ACE_TRAINER_M_PAULO)
+    settrainerflag(TRAINER_ACE_TRAINER_M_CODY)
+    settrainerflag(TRAINER_ACE_TRAINER_M_MIKE)
+    settrainerflag(TRAINER_ACE_TRAINER_F_FRAN)
+    settrainerflag(TRAINER_ACE_TRAINER_F_LOLA)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    setflag(FLAG_UNK_0D1)
+    setflag(FLAG_HIDE_BLACKTHORN_DEN_GUARD_INFRONT)
+    clearflag(FLAG_HIDE_BLACKTHRON_DEN_GUARD_ASIDE)
+    npcmsg(msg_0631_T30GYM0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_017D:
+    npcmsg(msg_0631_T30GYM0101_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0188:
+    whiteout
+    releaseall
+    end
+}
+
+script scr_seq_T30GYM0101_002 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_DP_GYURU)
+    applymovement(obj_player, Blackthorn_Gym_Movement_0218)
+    waitmovement
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_BLACKTHORN_GYM, 0, 8, 83, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement Blackthorn_Gym_Movement_0218 {
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right
+    set_invisible * 0
+}
+
+script scr_seq_T30GYM0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_0D1)) {
+        npcmsg(msg_0631_T30GYM0101_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0631_T30GYM0101_00000)
+    followmonrecall
+    setfollowmoninhibitstate(1)
+    followmonmovetoplayer
+    changeobjectmovement(253, 56)
+    setvar(VAR_UNK_4120, 1)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T30GYM0101_004 {
+    followmonresetmovement
+    lockall
+    if (!flag(FLAG_UNK_138)) {
+        getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4000) == 12) {
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_0370)
+            applymovement(obj_player, Blackthorn_Gym_Movement_039C)
+        } elif (var(VAR_TEMP_x4000) == 13) {
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_0380)
+            applymovement(obj_player, Blackthorn_Gym_Movement_03A8)
+        } else {
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_0390)
+            applymovement(obj_player, Blackthorn_Gym_Movement_03B4)
+        }
+        waitmovement
+        npcmsg(msg_0631_T30GYM0101_00002)
+        closemessage
+        setflag(FLAG_UNK_138)
+        if (var(VAR_TEMP_x4000) == 12) {
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_03C0)
+        } elif (var(VAR_TEMP_x4000) == 13) {
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_03CC)
+        } else {
+            applymovement(obj_T30GYM0101_sunglasses, Blackthorn_Gym_Movement_03D8)
+        }
+        waitmovement
+    }
+    followmonrecall
+    setfollowmoninhibitstate(1)
+    followmonmovetoplayer
+    changeobjectmovement(253, 56)
+    setvar(VAR_UNK_4120, 1)
+    setvar(VAR_UNK_4120, 1)
+    releaseall
+    end
+}
+
+movement Blackthorn_Gym_Movement_0370 {
+    face_left
+    emote_exclamation_mark
+    walk_left * 2
+}
+
+movement Blackthorn_Gym_Movement_0380 {
+    face_left
+    emote_exclamation_mark
+    walk_left
+}
+
+movement Blackthorn_Gym_Movement_0390 {
+    face_left
+    emote_exclamation_mark
+}
+
+movement Blackthorn_Gym_Movement_039C {
+    delay_8 * 5
+    face_right
+}
+
+movement Blackthorn_Gym_Movement_03A8 {
+    delay_8 * 4
+    face_right
+}
+
+movement Blackthorn_Gym_Movement_03B4 {
+    delay_8 * 2
+    face_right
+}
+
+movement Blackthorn_Gym_Movement_03C0 {
+    walk_right * 2
+    face_down
+}
+
+movement Blackthorn_Gym_Movement_03CC {
+    walk_right
+    face_down
+}
+
+movement Blackthorn_Gym_Movement_03D8 {
+    face_down
+}
+
+script scr_seq_T30GYM0101_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_RISING, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0631_T30GYM0101_00010)
+    } else {
+        npcmsg(msg_0631_T30GYM0101_00011)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Blackthorn_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T30GYM0101_001
+}

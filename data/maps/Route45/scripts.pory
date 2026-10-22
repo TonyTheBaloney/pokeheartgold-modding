@@ -1,0 +1,133 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R45_000
+	ScrDef scr_seq_R45_001
+	ScrDef scr_seq_R45_002
+	ScrDef scr_seq_R45_003
+	ScrDef scr_seq_R45_004
+	ScrDefEnd
+`
+
+script scr_seq_R45_002 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 3) { goto(_004B) }
+        if (var(VAR_TEMP_x4000) == 6) { goto(_004B) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _004B:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_R45_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Route45_Movement_015C)
+    } else {
+        applymovement(obj_player, Route45_Movement_0168)
+        applymovement(obj_R45_gsmiddleman1, Route45_Movement_017C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Route45_Movement_0188)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(47)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route45_Movement_015C {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route45_Movement_0168 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route45_Movement_017C {
+    delay_8
+    walk_in_place_up
+}
+
+movement Route45_Movement_0188 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_R45_003 {
+    simplenpcmsg(msg_0405_R45_00000)
+    end
+}
+
+script scr_seq_R45_000 {
+    directionsignpostex(1, 4, msg_0405_R45_00001)
+    end
+}
+
+script scr_seq_R45_004 {
+    trainertipsex(2, msg_0405_R45_00002)
+    end
+}
+
+mapscripts Route45_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R45_002
+}

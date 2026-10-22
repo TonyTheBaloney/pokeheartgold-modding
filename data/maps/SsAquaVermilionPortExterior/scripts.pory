@@ -1,0 +1,140 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_P01R0104_000
+	ScrDef scr_seq_P01R0104_001
+	ScrDef scr_seq_P01R0104_002
+	ScrDef scr_seq_P01R0104_003
+	ScrDefEnd
+`
+
+script scr_seq_P01R0104_003 {
+    if (!flag(FLAG_UNK_168)) {
+        setflag(FLAG_UNK_998)
+    }
+    setpokegearmapunlocklevel(2)
+    setflag(FLAG_UNK_168)
+    setflag(FLAG_SYS_FLYPOINT_VERMILION)
+    setspecialspawnwarp(MAP_VERMILION, 1309, 340)
+    end
+}
+
+script scr_seq_P01R0104_002 {
+    if (var(VAR_BOAT_DIRECTION) == 1) {
+        movepersonfacing(obj_P01R0104_seaman_2, 24, 0, 19, DIR_WEST)
+        end
+    }
+    end
+}
+
+script scr_seq_P01R0104_001 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, SsAquaVermilionPortExterior_Movement_0090)
+    waitmovement
+    applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_0098)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setvar(VAR_BOAT_DIRECTION, 0)
+    clearflag(FLAG_RECEIVED_PLATE_FROM_AQUA_CAPTAIN_THIS_TRIP)
+    releaseall
+    end
+}
+
+movement SsAquaVermilionPortExterior_Movement_0090 {
+    walk_down * 3
+}
+
+movement SsAquaVermilionPortExterior_Movement_0098 {
+    walk_left
+    walk_in_place_down
+}
+
+script scr_seq_P01R0104_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_BOAT_ARRIVED)) {
+        npcmsg(msg_0258_P01R0104_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0258_P01R0104_00000)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 2) {
+        applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_0150)
+        waitmovement
+        applymovement(obj_player, SsAquaVermilionPortExterior_Movement_0180)
+    } elif (var(VAR_TEMP_x4000) == 3) {
+        applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_0160)
+        waitmovement
+        applymovement(obj_player, SsAquaVermilionPortExterior_Movement_0190)
+    } else {
+        applymovement(obj_P01R0104_seaman_2, SsAquaVermilionPortExterior_Movement_0170)
+        waitmovement
+        applymovement(obj_player, SsAquaVermilionPortExterior_Movement_01A0)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    playse(SEQ_SE_DP_KAIDAN2)
+    shipvoyage(1, 0, 307, 24, 19)
+    releaseall
+    end
+}
+
+movement SsAquaVermilionPortExterior_Movement_0150 {
+    face_left
+    walk_left
+    walk_in_place_right
+}
+
+movement SsAquaVermilionPortExterior_Movement_0160 {
+    face_right
+    walk_right
+    walk_in_place_left
+}
+
+movement SsAquaVermilionPortExterior_Movement_0170 {
+    face_right
+    walk_right
+    walk_in_place_left
+}
+
+movement SsAquaVermilionPortExterior_Movement_0180 {
+    walk_left
+    face_up
+    walk_up * 2
+}
+
+movement SsAquaVermilionPortExterior_Movement_0190 {
+    walk_right
+    face_up
+    walk_up * 2
+}
+
+movement SsAquaVermilionPortExterior_Movement_01A0 {
+    walk_up * 2
+}
+
+mapscripts SsAquaVermilionPortExterior_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_P01R0104_002
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0104_003
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_BOAT_DIRECTION, 1: scr_seq_P01R0104_001
+    ]
+}

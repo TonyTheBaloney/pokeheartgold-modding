@@ -1,0 +1,229 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T28_000
+	ScrDef scr_seq_T28_001
+	ScrDef scr_seq_T28_002
+	ScrDef scr_seq_T28_003
+	ScrDef scr_seq_T28_004
+	ScrDef scr_seq_T28_005
+	ScrDef scr_seq_T28_006
+	ScrDef scr_seq_T28_007
+	ScrDef scr_seq_T28_008
+	ScrDefEnd
+`
+
+script scr_seq_T28_005 {
+    setvar(VAR_SCENE_ROCKET_TAKEOVER, 2)
+    setflag(FLAG_UNK_0C5)
+    setflag(FLAG_ROCKET_TAKEOVER_ACTIVE)
+    if (var(VAR_UNK_40F8) == 0) {
+        setvar(VAR_UNK_40F8, 2)
+    }
+    phonecall(PHONE_CONTACT_PROF__ELM, 2, 2)
+    setvar(VAR_MIDGAME_BADGES, 5)
+    end
+}
+
+script scr_seq_T28_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 5) {
+        if (!flag(FLAG_GOT_RAGECANDYBAR)) {
+            npcmsg(msg_0620_T28_00003)
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_009D) }
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0101) }
+        }
+        npcmsg(msg_0620_T28_00004)
+        waitbuttonpress
+    _014C:
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_GOT_RAGECANDYBAR)) { goto(_010C) }
+    npcmsg(msg_0620_T28_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0101) }
+_009D:
+    hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 200)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00EC) }
+    if (!itemspace(ITEM_RAGECANDYBAR, 1)) { goto(_00F7) }
+    callstd(std_give_item_verbose)
+    submoneyimmediate(200)
+    npcmsg(msg_0620_T28_00005)
+    waitbuttonpress
+    setflag(FLAG_GOT_RAGECANDYBAR)
+    goto(_014C)
+_00EC:
+    npcmsg(msg_0620_T28_00007)
+    waitbuttonpress
+    goto(_014C)
+_00F7:
+    callstd(std_bag_is_full)
+    goto(_014C)
+_0101:
+    npcmsg(msg_0620_T28_00009)
+    waitbuttonpress
+    goto(_014C)
+_010C:
+    npcmsg(msg_0620_T28_00001)
+    waitbuttonpress
+    goto(_014C)
+}
+
+script scr_seq_T28_001 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_0278)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 176) {
+        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_0284)
+        applymovement(obj_player, Mahogany_Movement_0294)
+    } else {
+        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_02A4)
+        applymovement(obj_player, Mahogany_Movement_02B4)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    if (flag(FLAG_GOT_RAGECANDYBAR)) {
+        npcmsg(msg_0620_T28_00002)
+        closemessage
+        goto(_0228)
+    }
+    npcmsg(msg_0620_T28_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0257) }
+    }
+    hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 300)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0262) }
+    if (!itemspace(ITEM_RAGECANDYBAR, 1)) { goto(_00F7) }
+    callstd(std_give_item_verbose)
+    submoneyimmediate(300)
+    npcmsg(msg_0620_T28_00006)
+    closemessage
+    setflag(FLAG_GOT_RAGECANDYBAR)
+_0228:
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 176) {
+        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_02C4)
+    } else {
+        applymovement(obj_T28_gsmiddleman1, Mahogany_Movement_02D0)
+    }
+    waitmovement
+    releaseall
+    end
+_0257:
+    npcmsg(msg_0620_T28_00010)
+    closemessage
+    goto(_0228)
+_0262:
+    npcmsg(msg_0620_T28_00008)
+    closemessage
+    goto(_0228)
+}
+
+movement Mahogany_Movement_0278 {
+    face_down
+    emote_exclamation_mark
+}
+
+movement Mahogany_Movement_0284 {
+    walk_fast_right
+    walk_fast_down
+    walk_fast_left
+}
+
+movement Mahogany_Movement_0294 {
+    delay_4 * 2
+    walk_fast_left
+    face_right
+}
+
+movement Mahogany_Movement_02A4 {
+    walk_fast_right
+    walk_fast_down * 2
+    walk_fast_left
+}
+
+movement Mahogany_Movement_02B4 {
+    delay_4 * 3
+    walk_fast_left
+    face_right
+}
+
+movement Mahogany_Movement_02C4 {
+    walk_up
+    face_down
+}
+
+movement Mahogany_Movement_02D0 {
+    walk_up * 2
+    face_down
+}
+
+script scr_seq_T28_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_RED_SCALE)) {
+        npcmsg(msg_0620_T28_00015)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0620_T28_00014)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T28_003 {
+    simplenpcmsg(msg_0620_T28_00016)
+    end
+}
+
+script scr_seq_T28_004 {
+    simplenpcmsg(msg_0620_T28_00013)
+    end
+}
+
+script scr_seq_T28_006 {
+    directionsignpostex(0, 19, msg_0620_T28_00017)
+    end
+}
+
+script scr_seq_T28_007 {
+    trainertipsex(2, msg_0620_T28_00018)
+    end
+}
+
+script scr_seq_T28_008 {
+    trainertipsex(2, msg_0620_T28_00019)
+    end
+}
+
+mapscripts Mahogany_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_MIDGAME_BADGES, 4: scr_seq_T28_005
+    ]
+}

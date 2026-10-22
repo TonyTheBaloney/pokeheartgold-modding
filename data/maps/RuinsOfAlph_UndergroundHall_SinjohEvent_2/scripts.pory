@@ -1,0 +1,281 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D24R0218_000
+	ScrDef scr_seq_D24R0218_001
+	ScrDef scr_seq_D24R0218_002
+	ScrDef scr_seq_D24R0218_003
+	ScrDef scr_seq_D24R0218_004
+	ScrDef scr_seq_D24R0218_005
+	ScrDef scr_seq_D24R0218_006
+	ScrDefEnd
+`
+
+raw `
+#include "constants/events.h"
+`
+
+script scr_seq_D24R0218_004 {
+    nopvar490(VAR_TEMP_x4004)
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 10) { goto(_0035) }
+    goto(_0095)
+_0035:
+    getpartyleadalive(VAR_TEMP_x4005)
+    if (var(VAR_UNK_4102) == 1) { goto(_0059) }
+    if (var(VAR_UNK_4102) == 2) { goto(_0077) }
+    goto(_0095)
+_0059:
+    followerpokeiseventtrigger(EVENT_ARCEUS_HALL_OF_ORIGIN, VAR_TEMP_x4005, VAR_TEMP_x4007)
+    compare(VAR_TEMP_x4007, 1)
+    callifeq(_0097)
+    nopvar490(VAR_TEMP_x4005)
+    nopvar490(VAR_TEMP_x4007)
+    end
+_0077:
+    followerpokeiseventtrigger(EVENT_ARCEUS_MOVIE_GIFT, VAR_TEMP_x4005, VAR_TEMP_x4006)
+    compare(VAR_TEMP_x4006, 1)
+    callifeq(_0097)
+    nopvar490(VAR_TEMP_x4005)
+    nopvar490(VAR_TEMP_x4006)
+    end
+_0095:
+    end
+_0097:
+    setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 11)
+    return
+}
+
+script scr_seq_D24R0218_001 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_D24R0218_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0178)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_01C4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0086_D24R0218_00001)
+    closemessage
+    applymovement(obj_D24R0218_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0184)
+    waitmovement
+    npcmsg(msg_0086_D24R0218_00002)
+    closemessage
+    fadeoutbgm(0, 30)
+    playse(SEQ_SE_GS_ZENIGAME_JOURO)
+    fadescreen(6, 6, 0, RGB_BLACK)
+    waitfade
+    wait(1, VAR_SPECIAL_RESULT)
+    fadescreen(6, 6, 1, RGB_BLACK)
+    waitfade
+    stopse(SEQ_SE_GS_ZENIGAME_JOURO)
+    applymovement(obj_D24R0218_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_01AC)
+    waitmovement
+    npcmsg(msg_0086_D24R0218_00003)
+    closemessage
+    playse(SEQ_SE_GS_ZENIGAME_JOURO)
+    fadescreen(6, 6, 0, RGB_BLACK)
+    waitfade
+    wait(1, VAR_SPECIAL_RESULT)
+    fadescreen(6, 6, 1, RGB_BLACK)
+    waitfade
+    stopse(SEQ_SE_GS_ZENIGAME_JOURO)
+    setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 3)
+    setflag(FLAG_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT)
+    setflag(FLAG_HIDE_ALPH_MAIN_CHAMBER_ARCEUS_EVENT_PEOPLE)
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_SINJOH_RUINS_MYSTRI_STAGE, 0, 16, 24, DIR_SOUTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0178 {
+    walk_left * 4
+    walk_in_place_right
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0184 {
+    emote_exclamation_mark
+    delay_8
+    walk_fast_up * 3
+    walk_in_place_up
+    walk_fast_left * 2
+    walk_in_place_up
+    lock_dir
+    walk_slow_left
+    unlock_dir
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_01AC {
+    walk_in_place_right
+    delay_8
+    walk_in_place_left
+    delay_8
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_01C4 {
+    walk_left * 4
+}
+
+script scr_seq_D24R0218_002 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D24R0218_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0230)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0260)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0258)
+    waitmovement
+    npcmsg(msg_0086_D24R0218_00004)
+    closemessage
+    applymovement(obj_D24R0218_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0248)
+    waitmovement
+    npcmsg(msg_0086_D24R0218_00005)
+    closemessage
+    applymovement(obj_D24R0218_suit, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0250)
+    waitmovement
+    removeobject(obj_D24R0218_suit)
+    setflag(FLAG_HIDE_ALPH_MAIN_CHAMBER_ARCEUS_EVENT_PEOPLE)
+    setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 10)
+    releaseall
+    end
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0230 {
+    delay_8
+    walk_in_place_left
+    emote_exclamation_mark
+    delay_8
+    walk_fast_left * 3
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0248 {
+    walk_in_place_left
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0250 {
+    walk_right * 10
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0258 {
+    walk_in_place_right
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0260 {
+    walk_right
+}
+
+script scr_seq_D24R0218_003 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0324)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    playse(SEQ_SE_GS_ZENIGAME_JOURO)
+    fadescreen(6, 6, 0, RGB_BLACK)
+    waitfade
+    wait(1, VAR_SPECIAL_RESULT)
+    fadescreen(6, 6, 1, RGB_BLACK)
+    waitfade
+    stopse(SEQ_SE_GS_ZENIGAME_JOURO)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0330)
+    waitmovement
+    playse(SEQ_SE_GS_ZENIGAME_JOURO)
+    fadescreen(6, 6, 0, RGB_BLACK)
+    waitfade
+    wait(1, VAR_SPECIAL_RESULT)
+    fadescreen(6, 6, 1, RGB_BLACK)
+    waitfade
+    stopse(SEQ_SE_GS_ZENIGAME_JOURO)
+    setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 12)
+    setvar(VAR_UNK_4104, 1)
+    setflag(FLAG_HIDE_SINJOH_MYSTRI_SHRINE_CYNTHIA)
+    setflag(FLAG_UNK_2DD)
+    setflag(FLAG_UNK_2DB)
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_SINJOH_RUINS_MYSTRI_STAGE, 0, 16, 24, DIR_SOUTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0324 {
+    walk_left
+    walk_down
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_0330 {
+    walk_in_place_right
+    delay_8
+    walk_in_place_left
+    delay_8
+    walk_in_place_down
+}
+
+script scr_seq_D24R0218_006 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_GS_RAKKA01)
+    applymovement(obj_player, RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_038C)
+    makeobjectinvisible(obj_player)
+    waitmovement
+    screenshake(0, 1, 1, 8)
+    playse(SEQ_SE_DP_SUTYA2)
+    setvar(VAR_UNK_40CE, 0)
+    releaseall
+    end
+}
+
+script scr_seq_D24R0218_005 {
+    if (var(VAR_UNK_40CE) == 1) {
+        makeobjectvisible(obj_player)
+    }
+    end
+}
+
+movement RuinsOfAlph_UndergroundHall_SinjohEvent_2_Movement_038C {
+    warp_in
+}
+
+script scr_seq_D24R0218_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0086_D24R0218_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts RuinsOfAlph_UndergroundHall_SinjohEvent_2_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 2: scr_seq_D24R0218_001
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 9: scr_seq_D24R0218_002
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 11: scr_seq_D24R0218_003
+        VAR_UNK_40CE, 1: scr_seq_D24R0218_006
+    ]
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D24R0218_004
+    INIT_SCRIPT_ON_RESUME: scr_seq_D24R0218_005
+}

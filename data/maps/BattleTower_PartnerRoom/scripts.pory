@@ -1,0 +1,548 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D31R0207_000
+	ScrDef scr_seq_D31R0207_001
+	ScrDef scr_seq_D31R0207_002
+	ScrDef scr_seq_D31R0207_003
+	ScrDef scr_seq_D31R0207_004
+	ScrDef scr_seq_D31R0207_005
+	ScrDef scr_seq_D31R0207_006
+	ScrDef scr_seq_D31R0207_007
+	ScrDef scr_seq_D31R0207_008
+	ScrDef scr_seq_D31R0207_009
+	ScrDefEnd
+`
+
+script scr_seq_D31R0207_006 {
+    if (var(VAR_UNK_4151) == 2) {
+        battletoweraction(55, 2, VAR_TEMP_x4009)
+        if (var(VAR_TEMP_x4009) == 0) {
+            setflag(FLAG_UNK_2AD)
+            goto(_0050)
+            end
+        }
+    }
+    clearflag(FLAG_UNK_2AD)
+_0050:
+    if (var(VAR_UNK_4151) == 2) {
+        battletoweraction(55, 2, VAR_TEMP_x4009)
+        if (var(VAR_TEMP_x4009) == 1) {
+            setflag(FLAG_UNK_2AE)
+            goto(_0076)
+            end
+        }
+    }
+    clearflag(FLAG_UNK_2AE)
+_0076:
+    if (var(VAR_UNK_4151) == 2) {
+        battletoweraction(55, 2, VAR_TEMP_x4009)
+        if (var(VAR_TEMP_x4009) == 2) {
+            setflag(FLAG_UNK_2AF)
+            goto(_009C)
+            end
+        }
+    }
+    clearflag(FLAG_UNK_2AF)
+_009C:
+    if (var(VAR_UNK_4151) == 2) {
+        battletoweraction(55, 2, VAR_TEMP_x4009)
+        if (var(VAR_TEMP_x4009) == 3) {
+            setflag(FLAG_UNK_2B0)
+            goto(_00C2)
+            end
+        }
+    }
+    clearflag(FLAG_UNK_2B0)
+_00C2:
+    if (var(VAR_UNK_4151) == 2) {
+        battletoweraction(55, 2, VAR_TEMP_x4009)
+        if (var(VAR_TEMP_x4009) == 4) {
+            setflag(FLAG_UNK_2B1)
+            goto(_00E8)
+            end
+        }
+    }
+    clearflag(FLAG_UNK_2B1)
+_00E8:
+    end
+}
+
+script scr_seq_D31R0207_007 {
+    compare(VAR_UNK_4151, 1)
+    callifeq(_0142)
+    if (var(VAR_UNK_4151) == 2) {
+        movepersonfacing(obj_D31R0207_bfsw1, 8, 0, 3, DIR_SOUTH)
+        end
+    }
+    end
+_0142:
+    makeobjectvisible(obj_player)
+    return
+}
+
+script scr_seq_D31R0207_008 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_4151, 0)
+    call(_048B)
+    npcmsg(msg_0099_D31R0207_00000)
+    closemessage
+    battletoweraction(56, 0, 0)
+    releaseall
+    end
+}
+
+script scr_seq_D31R0207_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    npcmsg(msg_0099_D31R0207_00001)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        closemessage
+        releaseall
+        setvar(VAR_UNK_414B, 3)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_BATTLE_TOWER, 0, 11, 6, DIR_NORTH)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        end
+    }
+    npcmsg(msg_0099_D31R0207_00000)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D31R0207_009 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_4151, 0)
+    npcmsg(msg_0099_D31R0207_00002)
+    closemessage
+    call(_04C5)
+    setvar(VAR_UNK_414D, 2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_BATTLE_TOWER_ELEVATOR, 0, 3, 6, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+_0216:
+    battletowergetallymonspeciesandmove(VAR_TEMP_x4009, 0, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    bufferspeciesname(0, VAR_SPECIAL_x8004, 0, 0)
+    buffermovename(1, VAR_SPECIAL_x8005)
+    battletowergetallymonspeciesandmove(VAR_TEMP_x4009, 1, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    bufferspeciesname(2, VAR_SPECIAL_x8004, 0, 0)
+    buffermovename(3, VAR_SPECIAL_x8005)
+    return
+}
+
+script scr_seq_D31R0207_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4151) != 2) {
+        setvar(VAR_TEMP_x4009, 0)
+        battletowergetallymonspeciesandmove(VAR_TEMP_x4009, 0, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+        bufferspeciesnameindef(0, VAR_SPECIAL_x8004, 0, 0)
+        buffermovename(1, VAR_SPECIAL_x8005)
+        battletowergetallymonspeciesandmove(VAR_TEMP_x4009, 1, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+        bufferspeciesnameindef(2, VAR_SPECIAL_x8004, 0, 0)
+        buffermovename(3, VAR_SPECIAL_x8005)
+        npcmsg(msg_0099_D31R0207_00006)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            battletoweraction(50, VAR_TEMP_x4009, 0)
+            setvar(VAR_UNK_4151, 2)
+            npcmsg(msg_0099_D31R0207_00008)
+            closemessage
+            releaseall
+            lock(obj_D31R0207_seven1)
+            goto(_0541)
+            end
+        }
+    }
+    npcmsg(msg_0099_D31R0207_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D31R0207_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4151) != 2) {
+        setvar(VAR_TEMP_x4009, 1)
+        call(_0216)
+        bufferplayersname(4)
+        npcmsg(msg_0099_D31R0207_00015)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            battletoweraction(50, VAR_TEMP_x4009, 0)
+            setvar(VAR_UNK_4151, 2)
+            bufferplayersname(0)
+            npcmsg(msg_0099_D31R0207_00017)
+            closemessage
+            releaseall
+            lock(obj_D31R0207_seven5)
+            goto(_0586)
+            end
+        }
+    }
+    npcmsg(msg_0099_D31R0207_00016)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D31R0207_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4151) != 2) {
+        setvar(VAR_TEMP_x4009, 2)
+        call(_0216)
+        npcmsg(msg_0099_D31R0207_00003)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            battletoweraction(50, VAR_TEMP_x4009, 0)
+            setvar(VAR_UNK_4151, 2)
+            npcmsg(msg_0099_D31R0207_00005)
+            closemessage
+            releaseall
+            lock(obj_D31R0207_seven2)
+            goto(_05CB)
+            end
+        }
+    }
+    npcmsg(msg_0099_D31R0207_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D31R0207_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4151) != 2) {
+        setvar(VAR_TEMP_x4009, 3)
+        call(_0216)
+        npcmsg(msg_0099_D31R0207_00012)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            battletoweraction(50, VAR_TEMP_x4009, 0)
+            setvar(VAR_UNK_4151, 2)
+            npcmsg(msg_0099_D31R0207_00014)
+            closemessage
+            releaseall
+            lock(obj_D31R0207_seven3)
+            goto(_0610)
+            end
+        }
+    }
+    npcmsg(msg_0099_D31R0207_00013)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D31R0207_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4151) != 2) {
+        setvar(VAR_TEMP_x4009, 4)
+        call(_0216)
+        npcmsg(msg_0099_D31R0207_00009)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            battletoweraction(50, VAR_TEMP_x4009, 0)
+            setvar(VAR_UNK_4151, 2)
+            npcmsg(msg_0099_D31R0207_00011)
+            closemessage
+            releaseall
+            lock(obj_D31R0207_seven4)
+            goto(_0655)
+            end
+        _046D:
+            dooranimationload(0, 0, 8, 2, 77)
+            dooranimationopen(77)
+            dooranimationwait(77)
+            return
+        _0480:
+            dooranimationclose(77)
+            dooranimationwait(77)
+            dooranimationunload(77)
+            return
+        _048B:
+            call(_046D)
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06AC)
+            waitmovement
+            makeobjectinvisible(obj_player)
+            applymovement(obj_player, BattleTower_PartnerRoom_Movement_069C)
+            waitmovement
+            call(_0480)
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06BC)
+            waitmovement
+            applymovement(obj_player, BattleTower_PartnerRoom_Movement_06A4)
+            waitmovement
+            return
+        _04C5:
+            call(_046D)
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06F0)
+            applymovement(obj_player, BattleTower_PartnerRoom_Movement_06E4)
+            waitmovement
+            call(_0480)
+            return
+        _04E5:
+            applymovement(VAR_TEMP_x4000, BattleTower_PartnerRoom_Movement_06FC)
+            waitmovement
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06C8)
+            waitmovement
+            call(_046D)
+            applymovement(VAR_TEMP_x4000, BattleTower_PartnerRoom_Movement_0704)
+            waitmovement
+            call(_0480)
+            applymovement(obj_D31R0207_bfsw1, BattleTower_PartnerRoom_Movement_06D8)
+            waitmovement
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            warp(MAP_BATTLE_TOWER_PARTNER_ROOM, 0, 8, 4, DIR_NORTH)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            releaseall
+            end
+        _0541:
+            setvar(VAR_TEMP_x4000, 1)
+            getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+            if (var(VAR_SPECIAL_x8000) == 12) {
+                applymovement(obj_D31R0207_seven1, BattleTower_PartnerRoom_Movement_0710)
+                waitmovement
+                goto(_04E5)
+                end
+            _0574:
+                applymovement(obj_D31R0207_seven1, BattleTower_PartnerRoom_Movement_0724)
+                waitmovement
+                goto(_04E5)
+                end
+            _0586:
+                setvar(VAR_TEMP_x4000, 2)
+                getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+                if (var(VAR_SPECIAL_x8000) == 4) {
+                    applymovement(obj_D31R0207_seven5, BattleTower_PartnerRoom_Movement_073C)
+                    waitmovement
+                    goto(_04E5)
+                    end
+                _05B9:
+                    applymovement(obj_D31R0207_seven5, BattleTower_PartnerRoom_Movement_074C)
+                    waitmovement
+                    goto(_04E5)
+                    end
+                _05CB:
+                    setvar(VAR_TEMP_x4000, 3)
+                    getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+                    if (var(VAR_SPECIAL_x8001) == 7) {
+                        applymovement(obj_D31R0207_seven2, BattleTower_PartnerRoom_Movement_0758)
+                        waitmovement
+                        goto(_04E5)
+                        end
+                    _05FE:
+                        applymovement(obj_D31R0207_seven2, BattleTower_PartnerRoom_Movement_0768)
+                        waitmovement
+                        goto(_04E5)
+                        end
+                    _0610:
+                        setvar(VAR_TEMP_x4000, 4)
+                        getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+                        if (var(VAR_SPECIAL_x8001) == 9) {
+                            applymovement(obj_D31R0207_seven3, BattleTower_PartnerRoom_Movement_0774)
+                            waitmovement
+                            goto(_04E5)
+                            end
+                        _0643:
+                            applymovement(obj_D31R0207_seven3, BattleTower_PartnerRoom_Movement_0788)
+                            waitmovement
+                            goto(_04E5)
+                            end
+                        _0655:
+                            setvar(VAR_TEMP_x4000, 5)
+                            getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+                            if (var(VAR_SPECIAL_x8000) == 8) {
+                                applymovement(obj_D31R0207_seven4, BattleTower_PartnerRoom_Movement_079C)
+                                waitmovement
+                                goto(_04E5)
+                                end
+                            _0688:
+                                applymovement(obj_D31R0207_seven4, BattleTower_PartnerRoom_Movement_07AC)
+                                waitmovement
+                                goto(_04E5)
+                                end
+                            }
+                            goto(_0688)
+                            end
+                        }
+                        goto(_0643)
+                        end
+                    }
+                    goto(_05FE)
+                    end
+                }
+                goto(_05B9)
+                end
+            }
+            goto(_0574)
+            end
+        }
+    }
+    npcmsg(msg_0099_D31R0207_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement BattleTower_PartnerRoom_Movement_069C {
+    walk_down * 2
+}
+
+movement BattleTower_PartnerRoom_Movement_06A4 {
+    face_up
+}
+
+movement BattleTower_PartnerRoom_Movement_06AC {
+    walk_down * 2
+    walk_left
+    face_right
+}
+
+movement BattleTower_PartnerRoom_Movement_06BC {
+    walk_right
+    face_down
+}
+
+movement BattleTower_PartnerRoom_Movement_06C8 {
+    face_down
+    walk_fast_left
+    face_right
+}
+
+movement BattleTower_PartnerRoom_Movement_06D8 {
+    walk_fast_right
+    face_down
+}
+
+movement BattleTower_PartnerRoom_Movement_06E4 {
+    walk_up * 2
+    set_invisible
+}
+
+movement BattleTower_PartnerRoom_Movement_06F0 {
+    walk_up
+    set_invisible
+}
+
+movement BattleTower_PartnerRoom_Movement_06FC {
+    face_up
+}
+
+movement BattleTower_PartnerRoom_Movement_0704 {
+    walk_fast_up * 2
+    set_invisible
+}
+
+movement BattleTower_PartnerRoom_Movement_0710 {
+    walk_fast_down
+    walk_fast_left * 3
+    walk_fast_up * 7
+    walk_fast_left * 2
+}
+
+movement BattleTower_PartnerRoom_Movement_0724 {
+    walk_fast_left
+    walk_fast_up
+    walk_fast_left * 2
+    walk_fast_up * 5
+    walk_fast_left * 2
+}
+
+movement BattleTower_PartnerRoom_Movement_073C {
+    walk_fast_right
+    walk_fast_up * 2
+    walk_fast_right * 3
+}
+
+movement BattleTower_PartnerRoom_Movement_074C {
+    walk_fast_up * 2
+    walk_fast_right * 4
+}
+
+movement BattleTower_PartnerRoom_Movement_0758 {
+    walk_fast_left
+    walk_fast_up * 4
+    walk_fast_left * 2
+}
+
+movement BattleTower_PartnerRoom_Movement_0768 {
+    walk_fast_up * 4
+    walk_fast_left * 3
+}
+
+movement BattleTower_PartnerRoom_Movement_0774 {
+    walk_fast_down
+    walk_fast_right * 4
+    walk_fast_up * 7
+    walk_fast_right * 2
+}
+
+movement BattleTower_PartnerRoom_Movement_0788 {
+    walk_fast_up
+    walk_fast_right * 4
+    walk_fast_up * 5
+    walk_fast_right * 2
+}
+
+movement BattleTower_PartnerRoom_Movement_079C {
+    walk_fast_left
+    walk_fast_up * 5
+    walk_fast_right * 2
+}
+
+movement BattleTower_PartnerRoom_Movement_07AC {
+    walk_fast_right * 3
+    walk_fast_up * 5
+    walk_fast_left * 2
+}
+
+mapscripts BattleTower_PartnerRoom_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D31R0207_006
+    INIT_SCRIPT_ON_RESUME: scr_seq_D31R0207_007
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4151, 1: scr_seq_D31R0207_008
+        VAR_UNK_4151, 2: scr_seq_D31R0207_009
+    ]
+}

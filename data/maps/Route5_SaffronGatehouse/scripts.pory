@@ -1,0 +1,10 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R05R0301_000 {
+    simplenpcmsg(msg_0332_R05R0301_00000)
+    end
+}
+
+mapscripts Route5_SaffronGatehouse_MapScripts {
+}

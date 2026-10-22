@@ -1,0 +1,544 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T11R0702_000
+	ScrDef scr_seq_T11R0702_001
+	ScrDef scr_seq_T11R0702_002
+	ScrDef scr_seq_T11R0702_003
+	ScrDef scr_seq_T11R0702_004
+	ScrDef scr_seq_T11R0702_005
+	ScrDef scr_seq_T11R0702_006
+	ScrDef scr_seq_T11R0702_007
+	ScrDefEnd
+`
+
+script scr_seq_T11R0702_006 {
+    setflag(FLAG_HIDE_SILPH_ROTOM_HEAT)
+    setflag(FLAG_HIDE_SILPH_ROTOM_WASH)
+    setflag(FLAG_HIDE_SILPH_ROTOM_FROST)
+    setflag(FLAG_HIDE_SILPH_ROTOM_FAN)
+    setflag(FLAG_HIDE_SILPH_ROTOM_MOW)
+    getownedrotomforms(VAR_TEMP_x4000, VAR_TEMP_x4001, VAR_TEMP_x4002, VAR_TEMP_x4003, VAR_TEMP_x4004)
+    compare(VAR_TEMP_x4000, 0)
+    callifeq(_0085)
+    compare(VAR_TEMP_x4001, 0)
+    callifeq(_008B)
+    compare(VAR_TEMP_x4002, 0)
+    callifeq(_0091)
+    compare(VAR_TEMP_x4003, 0)
+    callifeq(_0097)
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_009D)
+    end
+_0085:
+    clearflag(FLAG_HIDE_SILPH_ROTOM_HEAT)
+    return
+_008B:
+    clearflag(FLAG_HIDE_SILPH_ROTOM_WASH)
+    return
+_0091:
+    clearflag(FLAG_HIDE_SILPH_ROTOM_FROST)
+    return
+_0097:
+    clearflag(FLAG_HIDE_SILPH_ROTOM_FAN)
+    return
+_009D:
+    clearflag(FLAG_HIDE_SILPH_ROTOM_MOW)
+    return
+}
+
+script scr_seq_T11R0702_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8004, 1)
+    goto(_0107)
+    end
+}
+
+script scr_seq_T11R0702_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8004, 4)
+    goto(_0107)
+    end
+}
+
+script scr_seq_T11R0702_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8004, 3)
+    goto(_0107)
+    end
+}
+
+script scr_seq_T11R0702_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8004, 2)
+    goto(_0107)
+    end
+}
+
+script scr_seq_T11R0702_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8004, 5)
+    goto(_0107)
+    end
+_0107:
+    playerhasspecies(VAR_SPECIAL_RESULT, SPECIES_ROTOM)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_07D8) }
+    compare(VAR_SPECIAL_x8004, 1)
+    callifeq(_0724)
+    compare(VAR_SPECIAL_x8004, 3)
+    callifeq(_0729)
+    compare(VAR_SPECIAL_x8004, 2)
+    callifeq(_072E)
+    compare(VAR_SPECIAL_x8004, 4)
+    callifeq(_0733)
+    compare(VAR_SPECIAL_x8004, 5)
+    callifeq(_0738)
+    counttranformedrotomsinparty(VAR_SPECIAL_x8003, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8003) >= 1) {
+        touchscreenmenuhide
+        menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        menuitemadd(15, 255, 0)
+        menuitemadd(14, 255, 1)
+        menuitemadd(16, 255, 2)
+        menuexec
+        Switch(VAR_SPECIAL_RESULT)
+        Case(0, _0189)
+        Case(1, _0231)
+        goto(_073D)
+        end
+    _0231:
+        counttranformedrotomsinparty(VAR_SPECIAL_x8003, VAR_SPECIAL_RESULT)
+        copyvar(VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_x8003) >= 2) { goto(_0332) }
+        goto(_0252)
+        end
+    _0252:
+        bufferpartymonnick(0, VAR_SPECIAL_x8000)
+        npcmsg(msg_0538_T11R0702_00011)
+        updaterotomform(VAR_SPECIAL_x8000, 0, 0, 0)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        closemessage
+        getpartymonform(VAR_SPECIAL_x8000, VAR_SPECIAL_x8004)
+        compare(VAR_SPECIAL_x8004, 1)
+        callifeq(_0300)
+        compare(VAR_SPECIAL_x8004, 3)
+        callifeq(_030A)
+        compare(VAR_SPECIAL_x8004, 2)
+        callifeq(_0314)
+        compare(VAR_SPECIAL_x8004, 4)
+        callifeq(_031E)
+        compare(VAR_SPECIAL_x8004, 5)
+        callifeq(_0328)
+        goto(_02C1)
+        end
+    _02C1:
+        setsavedbottomscreenapp(0)
+        getplayercoords(VAR_SPECIAL_x8006, VAR_SPECIAL_x8007)
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        warp(MAP_SAFFRON_SILPH_CO_ROTOM_ROOM, 0, VAR_SPECIAL_x8006, VAR_SPECIAL_x8007, VAR_SPECIAL_RESULT)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        nopvar490(VAR_TEMP_x400B)
+        compare(VAR_TEMP_x400A, 1)
+        callifeq(_07BA)
+        goto(_08A4)
+        end
+    _0300:
+        clearflag(FLAG_HIDE_SILPH_ROTOM_HEAT)
+        addobject(obj_T11R0702_rotomf)
+        return
+    _030A:
+        clearflag(FLAG_HIDE_SILPH_ROTOM_FROST)
+        addobject(obj_T11R0702_rotomi)
+        return
+    _0314:
+        clearflag(FLAG_HIDE_SILPH_ROTOM_WASH)
+        addobject(obj_T11R0702_rotomw)
+        return
+    _031E:
+        clearflag(FLAG_HIDE_SILPH_ROTOM_FAN)
+        addobject(obj_T11R0702_rotoms)
+        return
+    _0328:
+        clearflag(FLAG_HIDE_SILPH_ROTOM_MOW)
+        addobject(obj_T11R0702_rotomg)
+        return
+    _0332:
+        npcmsg(msg_0538_T11R0702_00007)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        closemessage
+        partyselectui
+        getpartyselection(VAR_SPECIAL_x8000)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        if (var(VAR_SPECIAL_x8000) == 255) { goto(_03AC) }
+        getpartymonspecies(VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_041A) }
+        if (var(VAR_SPECIAL_RESULT) != 479) { goto(_0427) }
+        getpartymonform(VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_039F) }
+        goto(_0252)
+        end
+    _039F:
+        npcmsg(msg_0538_T11R0702_00017)
+        waitbuttonpress
+        goto(_089C)
+        end
+    _03AC:
+        touchscreenmenushow
+        releaseall
+        end
+    }
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_073D) }
+    goto(_0189)
+    end
+_0189:
+    compare(VAR_SPECIAL_x8004, 1)
+    callifeq(_06FC)
+    compare(VAR_SPECIAL_x8004, 3)
+    callifeq(_0704)
+    compare(VAR_SPECIAL_x8004, 2)
+    callifeq(_070C)
+    compare(VAR_SPECIAL_x8004, 4)
+    callifeq(_0714)
+    compare(VAR_SPECIAL_x8004, 5)
+    callifeq(_071C)
+    countpartymonsofspecies(VAR_SPECIAL_RESULT, SPECIES_ROTOM)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getpartyslotwithspecies(VAR_SPECIAL_x8000, SPECIES_ROTOM)
+        goto(_0434)
+        end
+    _03C0:
+        npcmsg(msg_0538_T11R0702_00007)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        closemessage
+        partyselectui
+        getpartyselection(VAR_SPECIAL_x8000)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        if (var(VAR_SPECIAL_x8000) == 255) { goto(_073D) }
+        getpartymonspecies(VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_041A) }
+        if (var(VAR_SPECIAL_RESULT) != 479) { goto(_0427) }
+        goto(_0434)
+        end
+    _041A:
+        npcmsg(msg_0538_T11R0702_00008)
+        waitbuttonpress
+        goto(_089C)
+        end
+    _0427:
+        npcmsg(msg_0538_T11R0702_00009)
+        waitbuttonpress
+        goto(_089C)
+        end
+    _0434:
+        monhasmove(VAR_SPECIAL_RESULT, MOVE_OVERHEAT, VAR_SPECIAL_x8000)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_04BE) }
+        monhasmove(VAR_SPECIAL_RESULT, MOVE_BLIZZARD, VAR_SPECIAL_x8000)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_04BE) }
+        monhasmove(VAR_SPECIAL_RESULT, MOVE_HYDRO_PUMP, VAR_SPECIAL_x8000)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_04BE) }
+        monhasmove(VAR_SPECIAL_RESULT, MOVE_AIR_SLASH, VAR_SPECIAL_x8000)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_04BE) }
+        monhasmove(VAR_SPECIAL_RESULT, MOVE_LEAF_STORM, VAR_SPECIAL_x8000)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_04BE) }
+        countmonmoves(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000)
+        copyvar(VAR_SPECIAL_x8002, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 4) {
+            nopvar490(VAR_TEMP_x4007)
+            getpartyleadalive(VAR_TEMP_x4000)
+            getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) == 479) {
+                nopvar490(VAR_TEMP_x4000)
+                nopvar490(VAR_SPECIAL_x8000)
+                if (var(VAR_TEMP_x4000) == VAR_SPECIAL_x8000) {
+                    release(obj_partner_poke)
+                    applymovement(obj_partner_poke, Saffron_SilphCoRotomRoom_Movement_06F0)
+                    waitmovement
+                    lock(obj_partner_poke)
+                }
+                setvar(VAR_TEMP_x400A, 1)
+            }
+            bufferpartymonnick(0, VAR_SPECIAL_x8000)
+            buffermovename(1, VAR_SPECIAL_x8001)
+            npcmsg(msg_0538_T11R0702_00000)
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0649) }
+            goto(_058A)
+            end
+        _058A:
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            closemessage
+            pokemonsummaryscreen(1, VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+            getmoveselection(1, VAR_SPECIAL_x8002)
+            restoreoverworld
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            if (var(VAR_SPECIAL_x8002) == 4) {
+                buffermovename(1, VAR_SPECIAL_x8001)
+                npcmsg(msg_0538_T11R0702_00001)
+                getmenuchoice(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 1) { goto(_058A) }
+                goto(_0649)
+                end
+            _0649:
+                bufferpartymonnick(0, VAR_SPECIAL_x8000)
+                buffermovename(1, VAR_SPECIAL_x8001)
+                npcmsg(msg_0538_T11R0702_00002)
+                waitbuttonpress
+                compare(VAR_TEMP_x400A, 1)
+                callifeq(_07BA)
+                nopvar490(VAR_TEMP_x400D)
+                goto(_089C)
+                end
+            _0671:
+                updaterotomform(VAR_SPECIAL_x8000, VAR_SPECIAL_x8002, VAR_SPECIAL_x8001, VAR_SPECIAL_x8004)
+                fadescreen(6, 1, 0, RGB_BLACK)
+                waitfade
+                closemessage
+                compare(VAR_SPECIAL_x8004, 1)
+                callifeq(_06D2)
+                compare(VAR_SPECIAL_x8004, 4)
+                callifeq(_06D8)
+                compare(VAR_SPECIAL_x8004, 3)
+                callifeq(_06DE)
+                compare(VAR_SPECIAL_x8004, 2)
+                callifeq(_06E4)
+                compare(VAR_SPECIAL_x8004, 5)
+                callifeq(_06EA)
+                goto(_02C1)
+                end
+            _06D2:
+                removeobject(obj_T11R0702_rotomf)
+                return
+            _06D8:
+                removeobject(obj_T11R0702_rotoms)
+                return
+            _06DE:
+                removeobject(obj_T11R0702_rotomi)
+                return
+            _06E4:
+                removeobject(obj_T11R0702_rotomw)
+                return
+            _06EA:
+                removeobject(obj_T11R0702_rotomg)
+                return
+            }
+            mongetmove(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000, VAR_SPECIAL_x8002)
+            buffermovename(1, VAR_SPECIAL_RESULT)
+            npcmsg(msg_0538_T11R0702_00003)
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0649) }
+            bufferpartymonnick(0, VAR_SPECIAL_x8000)
+            mongetmove(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000, VAR_SPECIAL_x8002)
+            buffermovename(1, VAR_SPECIAL_RESULT)
+            npcmsg(msg_0538_T11R0702_00004)
+            playse(SEQ_SE_DP_KON)
+            waitse(SEQ_SE_DP_KON)
+            wait(30, VAR_SPECIAL_RESULT)
+            npcmsg(msg_0538_T11R0702_00005)
+            wait(32, VAR_SPECIAL_RESULT)
+            buffermovename(1, VAR_SPECIAL_x8001)
+            npcmsg(msg_0538_T11R0702_00006)
+            playfanfare(SEQ_ME_LVUP)
+            waitfanfare
+            wait(16, VAR_SPECIAL_RESULT)
+            goto(_0671)
+            end
+        }
+        goto(_04CC)
+        end
+    _04BE:
+        setvar(VAR_SPECIAL_x8002, 0)
+        goto(_04CC)
+        end
+    _04CC:
+        nopvar490(VAR_TEMP_x4005)
+        getpartyleadalive(VAR_TEMP_x4000)
+        getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 479) {
+            if (var(VAR_TEMP_x4000) == VAR_SPECIAL_x8000) {
+                release(obj_partner_poke)
+                applymovement(obj_partner_poke, Saffron_SilphCoRotomRoom_Movement_06F0)
+                waitmovement
+                lock(obj_partner_poke)
+            }
+            setvar(VAR_TEMP_x400A, 1)
+        }
+        bufferpartymonnick(0, VAR_SPECIAL_x8000)
+        npcmsg(msg_0538_T11R0702_00010)
+        goto(_0671)
+        end
+    }
+    goto(_03C0)
+    end
+}
+
+movement Saffron_SilphCoRotomRoom_Movement_06F0 {
+    jump_in_place_slow_down * 2
+    set_invisible
+}
+
+script(local) _06FC {
+    setvar(VAR_SPECIAL_x8001, 315)
+    return
+_0704:
+    setvar(VAR_SPECIAL_x8001, 59)
+    return
+_070C:
+    setvar(VAR_SPECIAL_x8001, 56)
+    return
+_0714:
+    setvar(VAR_SPECIAL_x8001, 403)
+    return
+_071C:
+    setvar(VAR_SPECIAL_x8001, 437)
+    return
+_0724:
+    npcmsg(msg_0538_T11R0702_00021)
+    return
+_0729:
+    npcmsg(msg_0538_T11R0702_00024)
+    return
+_072E:
+    npcmsg(msg_0538_T11R0702_00027)
+    return
+_0733:
+    npcmsg(msg_0538_T11R0702_00030)
+    return
+_0738:
+    npcmsg(msg_0538_T11R0702_00033)
+    return
+_073D:
+    compare(VAR_SPECIAL_x8004, 1)
+    callifeq(_0797)
+    compare(VAR_SPECIAL_x8004, 3)
+    callifeq(_079E)
+    compare(VAR_SPECIAL_x8004, 2)
+    callifeq(_07A5)
+    compare(VAR_SPECIAL_x8004, 4)
+    callifeq(_07AC)
+    compare(VAR_SPECIAL_x8004, 5)
+    callifeq(_07B3)
+    compare(VAR_TEMP_x400A, 1)
+    callifeq(_07BA)
+    nopvar490(VAR_TEMP_x4006)
+    goto(_089C)
+    end
+_0797:
+    npcmsg(msg_0538_T11R0702_00022)
+    waitbuttonpress
+    return
+_079E:
+    npcmsg(msg_0538_T11R0702_00025)
+    waitbuttonpress
+    return
+_07A5:
+    npcmsg(msg_0538_T11R0702_00028)
+    waitbuttonpress
+    return
+_07AC:
+    npcmsg(msg_0538_T11R0702_00031)
+    waitbuttonpress
+    return
+_07B3:
+    npcmsg(msg_0538_T11R0702_00034)
+    waitbuttonpress
+    return
+_07BA:
+    release(obj_partner_poke)
+    applymovement(obj_partner_poke, Saffron_SilphCoRotomRoom_Movement_07D0)
+    waitmovement
+    lock(obj_partner_poke)
+    return
+}
+
+movement Saffron_SilphCoRotomRoom_Movement_07D0 {
+    set_visible
+}
+
+script(local) _07D8 {
+    compare(VAR_SPECIAL_x8004, 1)
+    callifeq(_0821)
+    compare(VAR_SPECIAL_x8004, 3)
+    callifeq(_0826)
+    compare(VAR_SPECIAL_x8004, 2)
+    callifeq(_082B)
+    compare(VAR_SPECIAL_x8004, 4)
+    callifeq(_0830)
+    compare(VAR_SPECIAL_x8004, 5)
+    callifeq(_0835)
+    goto(_089C)
+    end
+_0821:
+    npcmsg(msg_0538_T11R0702_00020)
+    return
+_0826:
+    npcmsg(msg_0538_T11R0702_00023)
+    return
+_082B:
+    npcmsg(msg_0538_T11R0702_00026)
+    return
+_0830:
+    npcmsg(msg_0538_T11R0702_00029)
+    return
+_0835:
+    npcmsg(msg_0538_T11R0702_00032)
+    return
+}
+
+script scr_seq_T11R0702_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    counttranformedrotomsinparty(VAR_SPECIAL_x8003, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8003) == 0) {
+        npcmsg(msg_0538_T11R0702_00018)
+        waitbuttonpress
+        closemessage
+        goto(_08A4)
+        end
+    _089C:
+        touchscreenmenushow
+        closemessage
+        releaseall
+        end
+    _08A4:
+        releaseall
+        end
+    }
+    npcmsg(msg_0538_T11R0702_00013)
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(14, 255, 0)
+    menuitemadd(19, 255, 1)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0231)
+    goto(_089C)
+    end
+}
+
+script scr_seq_T11R0702_000 {
+    simplenpcmsg(msg_0538_T11R0702_00035)
+    end
+}
+
+mapscripts Saffron_SilphCoRotomRoom_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11R0702_006
+}

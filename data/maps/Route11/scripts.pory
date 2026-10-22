@@ -1,0 +1,77 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R11_000
+	ScrDef scr_seq_R11_001
+	ScrDef scr_seq_R11_002
+	ScrDef scr_seq_R11_003
+	ScrDefEnd
+`
+
+script scr_seq_R11_001 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_ROUTE_11_SNORLAX)
+        removeobject(obj_R11_kabigon)
+        removeobject(obj_R11_gsbabyboy1_2)
+        removeobject(obj_R11_gsbabyboy1)
+        removeobject(obj_R11_gsbabyboy1_3)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        end
+    }
+    if (flag(FLAG_SNORLAX_MEET)) {
+        end
+    }
+    end
+}
+
+script scr_seq_R11_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    radiomusicisplaying(5, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        playcry(SPECIES_SNORLAX, 0)
+        npcmsg(msg_0346_R11_00003)
+        waitcry
+        closemessage
+        setflag(FLAG_ENGAGING_STATIC_POKEMON)
+        wildbattle(SPECIES_SNORLAX, 50, 0)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            whiteout
+            releaseall
+            end
+        _00BA:
+            setflag(FLAG_CAUGHT_SNORLAX)
+            return
+        }
+        getstaticencounteroutcome(VAR_TEMP_x4005)
+        compare(VAR_TEMP_x4005, 4)
+        callifeq(_00BA)
+        setflag(FLAG_UNK_998)
+        setflag(FLAG_SNORLAX_MEET)
+        releaseall
+        end
+    }
+    npcmsg(msg_0346_R11_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R11_002 {
+    directionsignpostex(1, 2, msg_0346_R11_00000)
+    end
+}
+
+script scr_seq_R11_003 {
+    trainertipsex(2, msg_0346_R11_00001)
+    end
+}
+
+mapscripts Route11_MapScripts {
+    INIT_SCRIPT_ON_LOAD: scr_seq_R11_001
+}

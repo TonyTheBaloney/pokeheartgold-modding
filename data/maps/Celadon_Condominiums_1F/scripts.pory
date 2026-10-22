@@ -1,0 +1,76 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T07R0201_000
+	ScrDef scr_seq_T07R0201_001
+	ScrDef scr_seq_T07R0201_002
+	ScrDef scr_seq_T07R0201_003
+	ScrDef scr_seq_T07R0201_004
+	ScrDef scr_seq_T07R0201_005
+	ScrDefEnd
+`
+
+script scr_seq_T07R0201_005 {
+    setvar(VAR_UNK_4125, 0)
+    end
+}
+
+script scr_seq_T07R0201_000 {
+    simplenpcmsg(msg_0501_T07R0201_00000)
+    end
+}
+
+script scr_seq_T07R0201_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_MEOWTH, 0)
+    npcmsg(msg_0501_T07R0201_00001)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0201_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_CLEFAIRY, 0)
+    npcmsg(msg_0501_T07R0201_00002)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0201_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_NIDORAN_F, 0)
+    npcmsg(msg_0501_T07R0201_00003)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0201_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0501_T07R0201_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Celadon_Condominiums_1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07R0201_005
+}

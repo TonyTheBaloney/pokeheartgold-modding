@@ -1,0 +1,15 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T06R0101_000 {
+    simplenpcmsg(msg_0487_T06R0101_00000)
+    end
+}
+
+script scr_seq_T06R0101_001 {
+    simplenpcmsg(msg_0487_T06R0101_00001)
+    end
+}
+
+mapscripts Vermilion_FishingDudeHouse_MapScripts {
+}

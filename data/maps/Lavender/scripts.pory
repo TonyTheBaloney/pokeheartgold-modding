@@ -1,0 +1,45 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T05_000 {
+    simplenpcmsg(msg_0475_T05_00000)
+    end
+}
+
+script scr_seq_T05_001 {
+    simplenpcmsg(msg_0475_T05_00001)
+    end
+}
+
+script scr_seq_T05_002 {
+    simplenpcmsg(msg_0475_T05_00002)
+    end
+}
+
+script scr_seq_T05_003 {
+    simplenpcmsg(msg_0475_T05_00003)
+    end
+}
+
+script scr_seq_T05_004 {
+    directionsignpostex(0, 5, msg_0475_T05_00004)
+    end
+}
+
+script scr_seq_T05_005 {
+    trainertipsex(2, msg_0475_T05_00005)
+    end
+}
+
+script scr_seq_T05_006 {
+    trainertipsex(2, msg_0475_T05_00006)
+    end
+}
+
+script scr_seq_T05_007 {
+    trainertipsex(2, msg_0475_T05_00007)
+    end
+}
+
+mapscripts Lavender_MapScripts {
+}

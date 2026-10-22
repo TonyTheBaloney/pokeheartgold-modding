@@ -1,0 +1,121 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D17R1101_000 {
+    if (!flag(FLAG_UNK_189)) {
+        if (!flag(FLAG_GAME_CLEAR)) { goto(_00A5) }
+        getphonebookrematch(PHONE_CONTACT_MORTY, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) != 0) { goto(_00A5) }
+        checkregisteredphonenumber(PHONE_CONTACT_MORTY, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 1) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 5) {
+                clearflag(FLAG_UNK_2CA)
+            } else {
+                setflag(FLAG_UNK_2CA)
+            }
+            end
+        _00A5:
+            setflag(FLAG_UNK_2CA)
+            end
+        }
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 1) {
+            clearflag(FLAG_UNK_2CA)
+        } elif (var(VAR_TEMP_x4000) == 2) {
+            clearflag(FLAG_UNK_2CA)
+        } else {
+            setflag(FLAG_UNK_2CA)
+        }
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D17R1101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkregisteredphonenumber(PHONE_CONTACT_MORTY, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) {
+        npcmsg(msg_0059_D17R1101_00005)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0059_D17R1101_00008)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        photoalbumisfull(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0059_D17R1101_00009)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0059_D17R1101_00006)
+        closemessage
+        setflag(FLAG_UNK_189)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        cameronphoto(20)
+        faceplayer
+        lockall
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        clearflag(FLAG_UNK_189)
+        npcmsg(msg_0059_D17R1101_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_TEMP_x4002) >= 1) { goto(_014E) }
+    npcmsg(msg_0059_D17R1101_00000)
+_00D6:
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00FA) }
+    if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_013D) }
+    end
+_00FA:
+    bufferplayersname(0)
+    npcmsg(msg_0059_D17R1101_00001)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    registergearnumber(PHONE_CONTACT_MORTY)
+    npcmsg(msg_0059_D17R1101_00002)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setflag(FLAG_UNK_2CA)
+    removeobject(obj_D17R1101_gsleader4)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+_013D:
+    setvar(VAR_TEMP_x4002, 1)
+    npcmsg(msg_0059_D17R1101_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_014E:
+    npcmsg(msg_0059_D17R1101_00004)
+    goto(_00D6)
+    end
+}
+
+mapscripts BellchimeTower_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D17R1101_000
+}

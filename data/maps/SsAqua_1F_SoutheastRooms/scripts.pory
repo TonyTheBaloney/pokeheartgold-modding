@@ -1,0 +1,205 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_P01R0303_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_UNK_0ED)) {
+        npcmsg(msg_0261_P01R0303_00004)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 3) { goto(_009D) }
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_0120)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_0144)
+    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_01C8)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0261_P01R0303_00005)
+    closemessage
+    trainerbattle(TRAINER_SAILOR_STANLY, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_010C) }
+    npcmsg(msg_0261_P01R0303_00006)
+    closemessage
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_0160)
+    waitmovement
+    setvar(VAR_SCENE_SS_AQUA, 3)
+    removeobject(obj_P01R0303_seaman_2)
+    setflag(FLAG_UNK_21A)
+    releaseall
+    end
+_009D:
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_016C)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_0190)
+    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_01DC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0261_P01R0303_00005)
+    closemessage
+    trainerbattle(TRAINER_SAILOR_STANLY, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_010C) }
+    npcmsg(msg_0261_P01R0303_00006)
+    closemessage
+    applymovement(obj_P01R0303_seaman_2, SsAqua_1F_SoutheastRooms_Movement_01AC)
+    waitmovement
+    setvar(VAR_SCENE_SS_AQUA, 3)
+    removeobject(obj_P01R0303_seaman_2)
+    setflag(FLAG_UNK_21A)
+    releaseall
+    end
+_010C:
+    whiteout
+    releaseall
+    end
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_0120 {
+    emote_exclamation_mark
+    delay_8
+    face_right * 2
+    face_left * 2
+    face_right * 2
+    lock_dir
+    jump_far_left
+    unlock_dir
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_0144 {
+    face_up * 2
+    walk_fast_up * 2
+    face_right * 2
+    walk_fast_right * 4
+    face_down * 2
+    walk_fast_down
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_0160 {
+    face_up * 2
+    walk_fast_up * 7
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_016C {
+    emote_exclamation_mark
+    delay_8
+    face_left * 2
+    face_right * 2
+    face_left * 2
+    lock_dir
+    jump_far_right
+    unlock_dir
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_0190 {
+    face_up * 2
+    walk_fast_up * 2
+    face_left * 2
+    walk_fast_left * 4
+    face_down * 2
+    walk_fast_down
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_01AC {
+    face_up * 2
+    walk_fast_up * 3
+    face_right * 2
+    walk_fast_right * 4
+    face_up * 2
+    walk_fast_up * 4
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_01C8 {
+    delay_16
+    face_right * 2
+    walk_right
+    face_up * 2
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_01DC {
+    delay_16
+    face_left * 2
+    walk_left
+    face_up * 2
+}
+
+script scr_seq_P01R0303_001 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_02B4)
+    waitmovement
+    npcmsg(msg_0261_P01R0303_00000)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    playfanfare(SEQ_ME_ASA)
+    waitfanfare
+    healparty
+    leaveoverworld
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    npcmsg(msg_0261_P01R0303_00001)
+    closemessage
+    followmonisactive(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 0) {
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(56)
+    }
+    applymovement(obj_player, SsAqua_1F_SoutheastRooms_Movement_02C4)
+    waitmovement
+    if (var(VAR_TEMP_x4002) != 0) {
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+    }
+    if (var(VAR_SCENE_SS_AQUA) >= 7) {
+        if (!flag(FLAG_BOAT_ARRIVED)) {
+            playse(SEQ_SE_DP_PINPON)
+            waitse(SEQ_SE_DP_PINPON)
+            setflag(FLAG_BOAT_ARRIVED)
+            if (var(VAR_BOAT_DIRECTION) == 1) {
+                npcmsg(msg_0261_P01R0303_00003)
+            } else {
+                npcmsg(msg_0261_P01R0303_00002)
+            }
+            waitbuttonpress
+            closemessage
+        }
+        releaseall
+        end
+    }
+    releaseall
+    end
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_02B4 {
+    face_down * 2
+    delay_16
+    emote_exclamation_mark
+}
+
+movement SsAqua_1F_SoutheastRooms_Movement_02C4 {
+    face_right * 2
+    jump_near_fast_right
+}
+
+mapscripts SsAqua_1F_SoutheastRooms_MapScripts {
+}

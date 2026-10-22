@@ -1,0 +1,130 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T25R0401_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_EEVEE_FROM_BILL)) {
+        npcmsg(msg_0586_T25R0401_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    bufferplayersname(0)
+    npcmsg(msg_0586_T25R0401_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_004B) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00D3) }
+    end
+_004B:
+    getpartycount(VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) == 6) { goto(_00DE) }
+    npcmsg(msg_0586_T25R0401_00001)
+    givemon(SPECIES_EEVEE, 5, 0, 0, 0, VAR_SPECIAL_RESULT)
+    setflag(FLAG_GOT_EEVEE_FROM_BILL)
+    bufferplayersname(0)
+    npcmsg(msg_0586_T25R0401_00002)
+    playfanfare(SEQ_ME_POKEGET)
+    waitfanfare
+    npcmsg(msg_0586_T25R0401_00007)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_00C6) }
+    }
+    closemessage
+    setvar(VAR_TEMP_x4000, 0)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    nicknameinput(VAR_SPECIAL_x8005, VAR_TEMP_x4000)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+_00C6:
+    npcmsg(msg_0586_T25R0401_00003)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+_00D3:
+    npcmsg(msg_0586_T25R0401_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00DE:
+    npcmsg(msg_0586_T25R0401_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R0401_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_410D) == 1) {
+        npcmsg(msg_0586_T25R0401_00010)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0586_T25R0401_00009)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R0401_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkregisteredphonenumber(PHONE_CONTACT_BILL, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) {
+        npcmsg(msg_0586_T25R0401_00015)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNK_410D) == 1) { goto(_0152) }
+    npcmsg(msg_0586_T25R0401_00011)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0152:
+    npcmsg(msg_0586_T25R0401_00012)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0179) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0191) }
+    end
+_0179:
+    bufferplayersname(0)
+    npcmsg(msg_0586_T25R0401_00013)
+    registergearnumber(PHONE_CONTACT_BILL)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0191:
+    npcmsg(msg_0586_T25R0401_00015)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Goldenrod_BillsHouse_MapScripts {
+}

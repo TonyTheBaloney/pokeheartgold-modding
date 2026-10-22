@@ -1,0 +1,123 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T27R0201_000
+	ScrDef scr_seq_T27R0201_001
+	ScrDef scr_seq_T27R0201_002
+	ScrDef scr_seq_T27R0201_003
+	ScrDefEnd
+`
+
+script scr_seq_T27R0201_003 {
+    if (flag(FLAG_UNK_108)) {
+        movepersonfacing(obj_T27R0201_bozu, 16, 0, 8, DIR_WEST)
+        end
+    }
+    end
+}
+
+script scr_seq_T27R0201_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_108)) {
+        npcmsg(msg_0616_T27R0201_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_TEMP_x4002) >= 1) { goto(_00C9) }
+    getplayerfacing(VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_00D4) }
+    checkbadge(BADGE_FOG, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0096) }
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        npcmsg(msg_0616_T27R0201_00000)
+    } else {
+        npcmsg(msg_0616_T27R0201_00001)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0096:
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        npcmsg(msg_0616_T27R0201_00002)
+    } else {
+        npcmsg(msg_0616_T27R0201_00003)
+    }
+    closemessage
+    applymovement(obj_T27R0201_bozu, Ecruteak_BellTowerBarrierStation_Movement_00F4)
+    waitmovement
+    setvar(VAR_TEMP_x4002, 1)
+    releaseall
+    end
+_00C9:
+    npcmsg(msg_0616_T27R0201_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00D4:
+    applymovement(obj_T27R0201_bozu, Ecruteak_BellTowerBarrierStation_Movement_0104)
+    waitmovement
+    setvar(VAR_TEMP_x4002, 1)
+    releaseall
+    end
+}
+
+movement Ecruteak_BellTowerBarrierStation_Movement_00F4 {
+    walk_up
+    walk_right
+    face_left
+}
+
+movement Ecruteak_BellTowerBarrierStation_Movement_0104 {
+    walk_down
+    walk_right
+    face_left
+}
+
+script scr_seq_T27R0201_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_108)) {
+        npcmsg(msg_0616_T27R0201_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_UNK_103)) { goto(_0157) }
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        npcmsg(msg_0616_T27R0201_00006)
+    } else {
+        npcmsg(msg_0616_T27R0201_00007)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0157:
+    npcmsg(msg_0616_T27R0201_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27R0201_002 {
+    simplenpcmsg(msg_0616_T27R0201_00010)
+    end
+}
+
+mapscripts Ecruteak_BellTowerBarrierStation_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_T27R0201_003
+}

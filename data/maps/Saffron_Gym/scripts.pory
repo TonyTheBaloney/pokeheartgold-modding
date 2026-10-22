@@ -1,0 +1,167 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T11GYM0101_000
+	ScrDef scr_seq_T11GYM0101_001
+	ScrDef scr_seq_T11GYM0101_002
+	ScrDef scr_seq_T11GYM0101_003
+	ScrDef scr_seq_T11GYM0101_004
+	ScrDefEnd
+`
+
+script scr_seq_T11GYM0101_004 {
+    getphonebookrematch(PHONE_CONTACT_SABRINA, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_SAFFRON_GYM_SABRINA)
+        end
+    }
+    checkregisteredphonenumber(PHONE_CONTACT_SABRINA, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_006C) }
+    checkbadge(BADGE_MARSH, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 1) { goto(_0055) }
+    goto(_0083)
+_0055:
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 5) { goto(_0083) }
+    setflag(FLAG_HIDE_SAFFRON_GYM_SABRINA)
+    end
+_006C:
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 1) { goto(_0083) }
+    setflag(FLAG_HIDE_SAFFRON_GYM_SABRINA)
+    end
+_0083:
+    clearflag(FLAG_HIDE_SAFFRON_GYM_SABRINA)
+    end
+}
+
+script scr_seq_T11GYM0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_MARSH, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        if (!flag(FLAG_GOT_TM48_FROM_SABRINA)) { goto(_0102) }
+        npcmsg(msg_0531_T11GYM0101_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0531_T11GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_SABRINA_SABRINA, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    givebadge(BADGE_MARSH)
+    addvar(VAR_UNK_4135, 1)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    setflag(FLAG_UNK_998)
+    settrainerflag(TRAINER_PSYCHIC_M_FRANKLIN)
+    settrainerflag(TRAINER_PSYCHIC_M_JARED)
+    settrainerflag(TRAINER_MEDIUM_REBECCA)
+    settrainerflag(TRAINER_MEDIUM_DARCY)
+    npcmsg(msg_0531_T11GYM0101_00001)
+    bufferplayersname(0)
+    npcmsg(msg_0531_T11GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    npcmsg(msg_0531_T11GYM0101_00003)
+    goto(_0102)
+_0102:
+    if (!itemspace(ITEM_TM48, 1)) { goto(_0136) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM48_FROM_SABRINA)
+    npcmsg(msg_0531_T11GYM0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0136:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T11GYM0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_MARSH, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0531_T11GYM0101_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0531_T11GYM0101_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T11GYM0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_MARSH, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0531_T11GYM0101_00008)
+    } else {
+        npcmsg(msg_0531_T11GYM0101_00009)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T11GYM0101_003 {
+    followmonresetmovement
+    lockall
+    followmonrecall
+    playse(SEQ_SE_PL_BOWABOWA)
+    applymovement(obj_player, Saffron_Gym_Movement_01FC)
+    waitmovement
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_SAFFRON_GYM, 0, 15, 23, DIR_SOUTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement Saffron_Gym_Movement_01FC {
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right
+    set_invisible * 0
+}
+
+mapscripts Saffron_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11GYM0101_004
+}

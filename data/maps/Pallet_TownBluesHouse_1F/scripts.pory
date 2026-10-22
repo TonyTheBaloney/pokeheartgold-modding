@@ -1,0 +1,120 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T01R0201_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    nopvar490(VAR_UNK_4122)
+    if (var(VAR_UNK_4122) == 7) {
+        checkregisteredphonenumber(PHONE_CONTACT_BLUE, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 1) { goto(_001F) }
+        goto(_015D)
+        end
+    }
+_001F:
+    getcurrenthour(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 15) {
+        if (flag(FLAG_UNK_AA8)) {
+            npcmsg(msg_0449_T01R0201_00005)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _015D:
+            if (var(VAR_TEMP_x4004) >= 1) {
+                npcmsg(msg_0449_T01R0201_00012)
+                goto(_016D)
+                end
+            }
+            npcmsg(msg_0449_T01R0201_00008)
+        _016D:
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_019D) }
+            registergearnumber(PHONE_CONTACT_BLUE)
+            bufferplayersname(0)
+            npcmsg(msg_0449_T01R0201_00009)
+            playfanfare(SEQ_ME_POKEGEAR_REGIST)
+            waitfanfare
+            npcmsg(msg_0449_T01R0201_00010)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _019D:
+            npcmsg(msg_0449_T01R0201_00011)
+            waitbuttonpress
+            closemessage
+            setvar(VAR_TEMP_x4004, 1)
+            releaseall
+            end
+        }
+        npcmsg(msg_0449_T01R0201_00001)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0147) }
+        getpartycount(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0099) }
+        if (var(VAR_SPECIAL_RESULT) != 1) { goto(_00A7) }
+        end
+    _0099:
+        setvar(VAR_SPECIAL_x8004, 0)
+        goto(_00F0)
+        end
+    _00A7:
+        npcmsg(msg_0449_T01R0201_00002)
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        partyselectui
+        getpartyselection(VAR_SPECIAL_x8004)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        nopvar490(VAR_SPECIAL_x8004)
+        if (var(VAR_SPECIAL_x8004) == 255) { goto(_0147) }
+        getpartymonspecies(VAR_SPECIAL_x8004, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 0) { goto(_013C) }
+    _00F0:
+        bufferpartymonnick(0, VAR_SPECIAL_x8004)
+        playse(SEQ_SE_DP_FW367)
+        npcmsg(msg_0449_T01R0201_00003)
+        waitse(SEQ_SE_DP_FW367)
+        wait(15, VAR_SPECIAL_RESULT)
+        monaddfriendship(10, VAR_SPECIAL_x8004)
+        monaddcontestvalue(VAR_SPECIAL_x8004, 1, 32)
+        monaddcontestvalue(VAR_SPECIAL_x8004, 5, 22)
+        if (var(VAR_UNK_4122) != 7) {
+            addvar(VAR_UNK_4122, 1)
+        }
+        setflag(FLAG_UNK_AA8)
+        npcmsg(msg_0449_T01R0201_00004)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _013C:
+        npcmsg(msg_0449_T01R0201_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _0147:
+        npcmsg(msg_0449_T01R0201_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0449_T01R0201_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Pallet_TownBluesHouse_1F_MapScripts {
+}

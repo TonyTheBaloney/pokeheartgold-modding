@@ -1,0 +1,1068 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D35R0102_000
+	ScrDef scr_seq_D35R0102_001
+	ScrDef scr_seq_D35R0102_002
+	ScrDef scr_seq_D35R0102_003
+	ScrDef scr_seq_D35R0102_004
+	ScrDef scr_seq_D35R0102_005
+	ScrDef scr_seq_D35R0102_006
+	ScrDef scr_seq_D35R0102_007
+	ScrDef scr_seq_D35R0102_008
+	ScrDef scr_seq_D35R0102_009
+	ScrDef scr_seq_D35R0102_010
+	ScrDef scr_seq_D35R0102_011
+	ScrDef scr_seq_D35R0102_012
+	ScrDef scr_seq_D35R0102_013
+	ScrDef scr_seq_D35R0102_014
+	ScrDef scr_seq_D35R0102_015
+	ScrDef scr_seq_D35R0102_016
+	ScrDef scr_seq_D35R0102_017
+	ScrDef scr_seq_D35R0102_018
+	ScrDef scr_seq_D35R0102_019
+	ScrDef scr_seq_D35R0102_020
+	ScrDef scr_seq_D35R0102_021
+	ScrDef scr_seq_D35R0102_022
+	ScrDef scr_seq_D35R0102_023
+	ScrDef scr_seq_D35R0102_024
+	ScrDef scr_seq_D35R0102_025
+	ScrDef scr_seq_D35R0102_026
+	ScrDef scr_seq_D35R0102_027
+	ScrDef scr_seq_D35R0102_028
+	ScrDef scr_seq_D35R0102_029
+	ScrDef scr_seq_D35R0102_030
+	ScrDef scr_seq_D35R0102_031
+	ScrDef scr_seq_D35R0102_032
+	ScrDefEnd
+`
+
+script scr_seq_D35R0102_032 {
+    end
+}
+
+script scr_seq_D35R0102_031 {
+    if (var(VAR_UNK_40AC) == 4) { goto(_00BE) }
+    if (var(VAR_UNK_40AC) == 5) { goto(_00BE) }
+    if (var(VAR_UNK_40AC) == 6) { goto(_00BE) }
+    if (var(VAR_UNK_40AC) == 7) { goto(_00BE) }
+    end
+_00BE:
+    setvar(VAR_UNK_40AC, 8)
+    setvar(VAR_UNK_40A9, 2)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_1)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_MURKROW_2)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_2)
+    clearflag(FLAG_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_3)
+    end
+}
+
+script scr_seq_D35R0102_030 {
+    compare(VAR_UNK_40AC, 9)
+    callifge(_025D)
+    if (var(VAR_UNK_40AD) == 2) {
+        movepersonfacing(obj_D35R0102_aji_peru, 44, 0, 3, DIR_WEST)
+    } elif (var(VAR_UNK_40AD) == 1) {
+        movepersonfacing(obj_D35R0102_aji_peru, 44, 0, 3, DIR_SOUTH)
+    } else {
+        movepersonfacing(obj_D35R0102_aji_peru, 44, 0, 3, DIR_NORTH)
+    }
+    if (var(VAR_UNK_40AE) == 2) {
+        movepersonfacing(obj_D35R0102_aji_peru_2, 18, 0, 3, DIR_WEST)
+    } elif (var(VAR_UNK_40AE) == 1) {
+        movepersonfacing(obj_D35R0102_aji_peru_2, 18, 0, 3, DIR_SOUTH)
+    } else {
+        movepersonfacing(obj_D35R0102_aji_peru_2, 18, 0, 3, DIR_NORTH)
+    }
+    if (var(VAR_UNK_40AF) == 2) {
+        movepersonfacing(obj_D35R0102_aji_peru_3, 44, 0, 10, DIR_WEST)
+    } elif (var(VAR_UNK_40AF) == 1) {
+        movepersonfacing(obj_D35R0102_aji_peru_3, 44, 0, 10, DIR_SOUTH)
+    } else {
+        movepersonfacing(obj_D35R0102_aji_peru_3, 44, 0, 10, DIR_NORTH)
+    }
+    if (var(VAR_UNK_40B0) == 2) {
+        movepersonfacing(obj_D35R0102_aji_peru_4, 44, 0, 28, DIR_WEST)
+    } elif (var(VAR_UNK_40B0) == 1) {
+        movepersonfacing(obj_D35R0102_aji_peru_4, 44, 0, 28, DIR_SOUTH)
+    } else {
+        movepersonfacing(obj_D35R0102_aji_peru_4, 44, 0, 28, DIR_NORTH)
+    }
+    if (var(VAR_UNK_40B1) == 2) {
+        movepersonfacing(obj_D35R0102_aji_peru_5, 18, 0, 28, DIR_WEST)
+    } elif (var(VAR_UNK_40B1) == 1) {
+        movepersonfacing(obj_D35R0102_aji_peru_5, 18, 0, 28, DIR_SOUTH)
+    } else {
+        movepersonfacing(obj_D35R0102_aji_peru_5, 18, 0, 28, DIR_NORTH)
+    }
+    end
+_025D:
+    setvar(VAR_UNK_40AD, 2)
+    setvar(VAR_UNK_40AE, 2)
+    setvar(VAR_UNK_40AF, 2)
+    setvar(VAR_UNK_40B0, 2)
+    setvar(VAR_UNK_40B1, 2)
+    return
+}
+
+script scr_seq_D35R0102_000 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    waitmovement
+    applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_0454)
+    waitmovement
+    playse(SEQ_SE_GS_AJITO_SIREN)
+    playhideoutalarm
+    stopse(SEQ_SE_GS_AJITO_SIREN)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 4) {
+        subvar(VAR_TEMP_x4001, 1)
+        goto(_036C)
+    _02D0:
+        moveperson(obj_D35R0102_rocketm, 33, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0460)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0490)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_EAST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0460)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0490)
+        waitmovement
+        goto(_0402)
+    _036C:
+        moveperson(obj_D35R0102_rocketm, 33, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_046C)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0490)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_EAST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_046C)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0490)
+        waitmovement
+    _0402:
+        movepersonfacing(obj_D35R0102_rocketm, 37, 0, 0, DIR_WEST)
+        setflag(FLAG_UNK_1E8)
+        setvar(VAR_UNK_40AD, 2)
+        applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_049C)
+        waitmovement
+        releaseall
+        end
+    }
+    addvar(VAR_TEMP_x4001, 1)
+    goto(_02D0)
+    goto(_02D0)
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0428 {
+    emote_exclamation_mark
+    delay_8 * 2
+    face_right * 2
+    delay_8
+    face_left * 2
+    delay_8
+    face_right * 2
+    delay_8
+    face_up * 2
+    delay_8
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0454 {
+    emote_exclamation_mark
+    delay_8 * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0460 {
+    walk_faster_right * 11
+    face_up * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_046C {
+    walk_faster_right * 11
+    face_down * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0478 {
+    face_down * 2
+    delay_8 * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0484 {
+    face_up * 2
+    delay_8 * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0490 {
+    face_left * 2
+    walk_faster_left * 10
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_049C {
+    face_left
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_04A4 {
+    face_down
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_04AC {
+    face_up
+}
+
+script scr_seq_D35R0102_005 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    waitmovement
+    applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_0454)
+    waitmovement
+    playse(SEQ_SE_GS_AJITO_SIREN)
+    playhideoutalarm
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 4) {
+        subvar(VAR_TEMP_x4001, 1)
+        goto(_05A9)
+    _0503:
+        moveperson(obj_D35R0102_rocketm, 27, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0668)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06C8)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0668)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06C8)
+        waitmovement
+        goto(_0649)
+    _05A9:
+        moveperson(obj_D35R0102_rocketm, 27, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0674)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06C8)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0674)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06C8)
+        waitmovement
+    _0649:
+        removeobject(obj_D35R0102_rocketm)
+        setflag(FLAG_UNK_1E8)
+        setvar(VAR_UNK_40AE, 2)
+        applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_049C)
+        waitmovement
+        releaseall
+        end
+    }
+    addvar(VAR_TEMP_x4001, 1)
+    goto(_0503)
+    goto(_0503)
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0668 {
+    walk_faster_left * 9
+    face_up * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0674 {
+    walk_faster_left * 9
+    face_down * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0680 {
+    walk_faster_right * 11
+    face_up * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_068C {
+    walk_faster_right * 11
+    face_down * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_0698 {
+    walk_faster_right * 11
+    face_up * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_06A4 {
+    walk_faster_right * 11
+    face_down * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_06B0 {
+    walk_faster_left * 9
+    face_up * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_06BC {
+    walk_faster_left * 9
+    face_down * 2
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_06C8 {
+    face_right * 2
+    walk_faster_right * 10
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_06D4 {
+    face_left * 2
+    walk_faster_left * 10
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_06E0 {
+    face_left * 2
+    walk_faster_left * 10
+}
+
+movement TeamRocketHeadquarters_B1F_Movement_06EC {
+    face_right * 2
+    walk_faster_right * 10
+}
+
+script scr_seq_D35R0102_006 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    waitmovement
+    applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_0454)
+    waitmovement
+    playse(SEQ_SE_GS_AJITO_SIREN)
+    playhideoutalarm
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 11) {
+        subvar(VAR_TEMP_x4001, 1)
+        goto(_07ED)
+    _0747:
+        moveperson(obj_D35R0102_rocketm, 33, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0680)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06D4)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0680)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06D4)
+        waitmovement
+        goto(_088D)
+    _07ED:
+        moveperson(obj_D35R0102_rocketm, 33, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_068C)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06D4)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_068C)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06D4)
+        waitmovement
+    _088D:
+        removeobject(obj_D35R0102_rocketm)
+        setflag(FLAG_UNK_1E8)
+        setvar(VAR_UNK_40AF, 2)
+        applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_049C)
+        waitmovement
+        releaseall
+        end
+    }
+    addvar(VAR_TEMP_x4001, 1)
+    goto(_0747)
+    goto(_0747)
+}
+
+script scr_seq_D35R0102_007 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    waitmovement
+    applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_0454)
+    waitmovement
+    playse(SEQ_SE_GS_AJITO_SIREN)
+    playhideoutalarm
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 29) {
+        subvar(VAR_TEMP_x4001, 1)
+        goto(_099E)
+    _08F8:
+        moveperson(obj_D35R0102_rocketm, 33, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0698)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06E0)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_0698)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06E0)
+        waitmovement
+        goto(_0A3E)
+    _099E:
+        moveperson(obj_D35R0102_rocketm, 33, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06A4)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06E0)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 33, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06A4)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06E0)
+        waitmovement
+    _0A3E:
+        removeobject(obj_D35R0102_rocketm)
+        setvar(VAR_UNK_40B0, 2)
+        applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_049C)
+        waitmovement
+        releaseall
+        end
+    }
+    addvar(VAR_TEMP_x4001, 1)
+    goto(_08F8)
+    goto(_08F8)
+}
+
+script scr_seq_D35R0102_008 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0428)
+    waitmovement
+    applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_0454)
+    waitmovement
+    playse(SEQ_SE_GS_AJITO_SIREN)
+    playhideoutalarm
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 29) {
+        subvar(VAR_TEMP_x4001, 1)
+        goto(_0B4B)
+    _0AA5:
+        moveperson(obj_D35R0102_rocketm, 27, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06B0)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06EC)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06B0)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0478)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06EC)
+        waitmovement
+        goto(_0BEB)
+    _0B4B:
+        moveperson(obj_D35R0102_rocketm, 27, 0)
+        clearflag(FLAG_UNK_1E8)
+        addobject(obj_D35R0102_rocketm)
+        movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06BC)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00000)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06EC)
+        waitmovement
+        movepersonfacing(obj_D35R0102_rocketm, 27, 0, VAR_TEMP_x4001, DIR_WEST)
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06BC)
+        waitmovement
+        applymovement(obj_player, TeamRocketHeadquarters_B1F_Movement_0484)
+        waitmovement
+        npcmsg(msg_0112_D35R0102_00001)
+        closemessage
+        trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0C03) }
+        applymovement(obj_D35R0102_rocketm, TeamRocketHeadquarters_B1F_Movement_06EC)
+        waitmovement
+    _0BEB:
+        removeobject(obj_D35R0102_rocketm)
+        setvar(VAR_UNK_40B1, 2)
+        applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_049C)
+        waitmovement
+        releaseall
+        end
+    _0C03:
+        whiteout
+        releaseall
+        end
+    }
+    addvar(VAR_TEMP_x4001, 1)
+    goto(_0AA5)
+    goto(_0AA5)
+}
+
+script scr_seq_D35R0102_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    if (var(VAR_UNK_40AD) != 0) {
+        if (var(VAR_UNK_40AD) != 1) {
+            npcmsg(msg_0112_D35R0102_00004)
+        _0C4A:
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0112_D35R0102_00003)
+        goto(_0C4A)
+        goto(_0C4A)
+    }
+    npcmsg(msg_0112_D35R0102_00002)
+    goto(_0C4A)
+    goto(_0C4A)
+}
+
+script scr_seq_D35R0102_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    if (var(VAR_UNK_40AE) != 0) {
+        if (var(VAR_UNK_40AE) != 1) {
+            npcmsg(msg_0112_D35R0102_00004)
+        _0C93:
+            goto(_0C4A)
+        }
+        npcmsg(msg_0112_D35R0102_00003)
+        goto(_0C4A)
+        goto(_0C93)
+    }
+    npcmsg(msg_0112_D35R0102_00002)
+    goto(_0C4A)
+    goto(_0C93)
+}
+
+script scr_seq_D35R0102_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    if (var(VAR_UNK_40AF) != 0) {
+        if (var(VAR_UNK_40AF) != 1) {
+            npcmsg(msg_0112_D35R0102_00004)
+        _0CDA:
+            goto(_0C4A)
+        }
+        npcmsg(msg_0112_D35R0102_00003)
+        goto(_0C4A)
+        goto(_0CDA)
+    }
+    npcmsg(msg_0112_D35R0102_00002)
+    goto(_0C4A)
+    goto(_0CDA)
+}
+
+script scr_seq_D35R0102_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    if (var(VAR_UNK_40B0) != 0) {
+        if (var(VAR_UNK_40B0) != 1) {
+            npcmsg(msg_0112_D35R0102_00004)
+        _0D21:
+            goto(_0C4A)
+        }
+        npcmsg(msg_0112_D35R0102_00003)
+        goto(_0C4A)
+        goto(_0D21)
+    }
+    npcmsg(msg_0112_D35R0102_00002)
+    goto(_0C4A)
+    goto(_0D21)
+}
+
+script scr_seq_D35R0102_012 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    if (var(VAR_UNK_40B1) != 0) {
+        if (var(VAR_UNK_40B1) != 1) {
+            npcmsg(msg_0112_D35R0102_00004)
+        _0D68:
+            goto(_0C4A)
+        }
+        npcmsg(msg_0112_D35R0102_00003)
+        goto(_0C4A)
+        goto(_0D68)
+    }
+    npcmsg(msg_0112_D35R0102_00002)
+    goto(_0C4A)
+    goto(_0D68)
+}
+
+script scr_seq_D35R0102_002 {
+    end
+}
+
+script scr_seq_D35R0102_003 {
+    end
+}
+
+script scr_seq_D35R0102_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_40AC) >= 9) {
+        npcmsg(msg_0112_D35R0102_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_UNK_0D6)) { goto(_0E58) }
+    npcmsg(msg_0112_D35R0102_00005)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0F1E) }
+    }
+    playse(SEQ_SE_DP_DENSI01)
+    npcmsg(msg_0112_D35R0102_00007)
+    closemessage
+    setflag(FLAG_UNK_0D6)
+    if (var(VAR_UNK_40AD) < 2) {
+        setvar(VAR_UNK_40AD, 1)
+        applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_04A4)
+    }
+    if (var(VAR_UNK_40AE) < 2) {
+        setvar(VAR_UNK_40AE, 1)
+        applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_04A4)
+    }
+    if (var(VAR_UNK_40AF) < 2) {
+        setvar(VAR_UNK_40AF, 1)
+        applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_04A4)
+    }
+    if (var(VAR_UNK_40B0) < 2) {
+        setvar(VAR_UNK_40B0, 1)
+        applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_04A4)
+    }
+    if (var(VAR_UNK_40B1) < 2) {
+        setvar(VAR_UNK_40B1, 1)
+        applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_04A4)
+        waitmovement
+    }
+    npcmsg(msg_0112_D35R0102_00009)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0E58:
+    npcmsg(msg_0112_D35R0102_00006)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0F1E) }
+    }
+    playse(SEQ_SE_DP_DENSI01)
+    npcmsg(msg_0112_D35R0102_00007)
+    closemessage
+    clearflag(FLAG_UNK_0D6)
+    if (var(VAR_UNK_40AD) < 2) {
+        setvar(VAR_UNK_40AD, 0)
+        applymovement(obj_D35R0102_aji_peru, TeamRocketHeadquarters_B1F_Movement_04AC)
+    }
+    if (var(VAR_UNK_40AE) < 2) {
+        setvar(VAR_UNK_40AE, 0)
+        applymovement(obj_D35R0102_aji_peru_2, TeamRocketHeadquarters_B1F_Movement_04AC)
+    }
+    if (var(VAR_UNK_40AF) < 2) {
+        setvar(VAR_UNK_40AF, 0)
+        applymovement(obj_D35R0102_aji_peru_3, TeamRocketHeadquarters_B1F_Movement_04AC)
+    }
+    if (var(VAR_UNK_40B0) < 2) {
+        setvar(VAR_UNK_40B0, 0)
+        applymovement(obj_D35R0102_aji_peru_4, TeamRocketHeadquarters_B1F_Movement_04AC)
+    }
+    if (var(VAR_UNK_40B1) < 2) {
+        setvar(VAR_UNK_40B1, 0)
+        applymovement(obj_D35R0102_aji_peru_5, TeamRocketHeadquarters_B1F_Movement_04AC)
+        waitmovement
+    }
+    npcmsg(msg_0112_D35R0102_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0F1E:
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_013 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(1)
+    playse(SEQ_SE_GS_DOKU_TRAP)
+    rockettrapbattle(SPECIES_KOFFING, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_KOFFING_1, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_014 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(0)
+    playse(SEQ_SE_GS_DENKI_TRAP)
+    rockettrapbattle(SPECIES_VOLTORB, 23)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_VOLTORB_1, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_015 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(2)
+    playse(SEQ_SE_GS_IWA_TRAP)
+    rockettrapbattle(SPECIES_GEODUDE, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_GEODUDE_1, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_016 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(0)
+    playse(SEQ_SE_GS_DENKI_TRAP)
+    rockettrapbattle(SPECIES_VOLTORB, 23)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_VOLTORB_2, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_017 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(2)
+    playse(SEQ_SE_GS_IWA_TRAP)
+    rockettrapbattle(SPECIES_GEODUDE, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_GEODUDE_2, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_018 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(0)
+    playse(SEQ_SE_GS_DENKI_TRAP)
+    rockettrapbattle(SPECIES_VOLTORB, 23)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_VOLTORB_3, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_019 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(0)
+    playse(SEQ_SE_GS_DENKI_TRAP)
+    rockettrapbattle(SPECIES_VOLTORB, 23)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_VOLTORB_4, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_020 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(1)
+    playse(SEQ_SE_GS_DOKU_TRAP)
+    rockettrapbattle(SPECIES_KOFFING, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_KOFFING_2, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_021 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(1)
+    playse(SEQ_SE_GS_DOKU_TRAP)
+    rockettrapbattle(SPECIES_KOFFING, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_KOFFING_3, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_022 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(2)
+    playse(SEQ_SE_GS_IWA_TRAP)
+    rockettrapbattle(SPECIES_GEODUDE, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_GEODUDE_3, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_023 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(2)
+    playse(SEQ_SE_GS_IWA_TRAP)
+    rockettrapbattle(SPECIES_GEODUDE, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_GEODUDE_4, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_024 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(1)
+    playse(SEQ_SE_GS_DOKU_TRAP)
+    rockettrapbattle(SPECIES_KOFFING, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_KOFFING_4, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_025 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(0)
+    playse(SEQ_SE_GS_DENKI_TRAP)
+    rockettrapbattle(SPECIES_VOLTORB, 23)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_VOLTORB_5, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_026 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(0)
+    playse(SEQ_SE_GS_DENKI_TRAP)
+    rockettrapbattle(SPECIES_VOLTORB, 23)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_VOLTORB_6, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_027 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(1)
+    playse(SEQ_SE_GS_DOKU_TRAP)
+    rockettrapbattle(SPECIES_KOFFING, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_KOFFING_5, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_028 {
+    followmonresetmovement
+    lockall
+    playtrapeffect(2)
+    playse(SEQ_SE_GS_IWA_TRAP)
+    rockettrapbattle(SPECIES_GEODUDE, 21)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11FF) }
+    setvar(VAR_ROCKET_TRAP_GEODUDE_5, 1)
+    releaseall
+    end
+_11FF:
+    whiteout
+    releaseall
+    end
+}
+
+script scr_seq_D35R0102_029 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_PL_BOWABOWA)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    wait(15, VAR_SPECIAL_RESULT)
+    warp(MAP_TEAM_ROCKET_HEADQUARTERS_B1F, 0, 50, 4, DIR_WEST)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+mapscripts TeamRocketHeadquarters_B1F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_D35R0102_030
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D35R0102_031
+    INIT_SCRIPT_ON_LOAD: scr_seq_D35R0102_032
+}

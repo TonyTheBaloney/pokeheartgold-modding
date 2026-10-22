@@ -1,0 +1,271 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T11R0802_000
+	ScrDef scr_seq_T11R0802_001
+	ScrDef scr_seq_T11R0802_002
+	ScrDef scr_seq_T11R0802_003
+	ScrDef scr_seq_T11R0802_004
+	ScrDef scr_seq_T11R0802_005
+	ScrDef scr_seq_T11R0802_006
+	ScrDefEnd
+`
+
+script scr_seq_T11R0802_004 {
+    getplayergender(VAR_TEMP_x4009)
+    if (var(VAR_TEMP_x4009) == 0) {
+        setvar(VAR_OBJ_0, 0)
+    } else {
+        setvar(VAR_OBJ_0, 97)
+    }
+    end
+}
+
+script scr_seq_T11R0802_005 {
+    if (var(VAR_TEMP_x400B) == 0) {
+        removeobject(obj_T11R0802_var_1)
+        setvar(VAR_TEMP_x400B, 1)
+    }
+    end
+}
+
+script scr_seq_T11R0802_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getitemquantity(ITEM_PASS, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        call(_014D)
+        bufferplayersname(0)
+        gendermsgbox(msg_0541_T11R0802_00009, msg_0541_T11R0802_00010)
+        closemessage
+        call(_01DB)
+        npcmsg(msg_0541_T11R0802_00011)
+        closemessage
+        applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_026C)
+        waitmovement
+        releaseall
+        end
+    _014D:
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_02B0)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_0274)
+        } else {
+            applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_0294)
+        }
+        waitmovement
+        addobject(obj_T11R0802_var_1)
+        removeobject(obj_T11R0802_gsgirl1)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T11R0802_var_1, Saffron_CopycatHouse_2F_Movement_0304)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T11R0802_var_1, Saffron_CopycatHouse_2F_Movement_02C8)
+        } else {
+            applymovement(obj_T11R0802_var_1, Saffron_CopycatHouse_2F_Movement_02EC)
+        }
+        waitmovement
+        return
+    _01DB:
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T11R0802_var_1, Saffron_CopycatHouse_2F_Movement_02B0)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T11R0802_var_1, Saffron_CopycatHouse_2F_Movement_0274)
+        } else {
+            applymovement(obj_T11R0802_var_1, Saffron_CopycatHouse_2F_Movement_0294)
+        }
+        waitmovement
+        addobject(obj_T11R0802_gsgirl1)
+        removeobject(obj_T11R0802_var_1)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_0304)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_02C8)
+        } else {
+            applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_02EC)
+        }
+        waitmovement
+        return
+    }
+    getitemquantity(ITEM_LOST_ITEM, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) { goto(_00E9) }
+    if (flag(FLAG_RESTORED_POWER)) { goto(_00BD) }
+    call(_014D)
+    bufferplayersname(0)
+    gendermsgbox(msg_0541_T11R0802_00000, msg_0541_T11R0802_00001)
+    closemessage
+    call(_01DB)
+    npcmsg(msg_0541_T11R0802_00002)
+    closemessage
+    applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_026C)
+    waitmovement
+    releaseall
+    end
+_00BD:
+    setflag(FLAG_UNK_119)
+    call(_014D)
+    bufferplayersname(0)
+    gendermsgbox(msg_0541_T11R0802_00003, msg_0541_T11R0802_00004)
+    closemessage
+    call(_01DB)
+    npcmsg(msg_0541_T11R0802_00005)
+    closemessage
+    applymovement(obj_T11R0802_gsgirl1, Saffron_CopycatHouse_2F_Movement_026C)
+    waitmovement
+    releaseall
+    end
+_00E9:
+    takeitem(ITEM_LOST_ITEM, 1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0541_T11R0802_00006)
+    clearflag(FLAG_HIDE_SAFFRON_CITY_COPYCAT_HOUSE_CLEFAIRY_DOLL)
+    addobject(obj_T11R0802_mono_pip)
+    giveitemnocheck(ITEM_PASS, 1)
+    npcmsg(msg_0541_T11R0802_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    setflag(FLAG_UNK_087)
+    setflag(FLAG_UNK_998)
+    setvar(VAR_UNK_40FF, 2)
+    end
+}
+
+movement Saffron_CopycatHouse_2F_Movement_026C {
+    walk_in_place_left
+}
+
+movement Saffron_CopycatHouse_2F_Movement_0274 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+movement Saffron_CopycatHouse_2F_Movement_0294 {
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+movement Saffron_CopycatHouse_2F_Movement_02B0 {
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+movement Saffron_CopycatHouse_2F_Movement_02C8 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+}
+
+movement Saffron_CopycatHouse_2F_Movement_02EC {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+}
+
+movement Saffron_CopycatHouse_2F_Movement_0304 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+script scr_seq_T11R0802_003 {
+    if (var(VAR_TEMP_x400A) != 0) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        faceplayer
+        playcry(SPECIES_BANETTE, 0)
+        npcmsg(msg_0541_T11R0802_00013)
+        waitcry
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0541_T11R0802_00012)
+    waitbuttonpress
+    closemessage
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_T11R0802_jupetta, Saffron_CopycatHouse_2F_Movement_03C8)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_T11R0802_jupetta, Saffron_CopycatHouse_2F_Movement_03C0)
+    } elif (var(VAR_SPECIAL_RESULT) == 2) {
+        applymovement(obj_T11R0802_jupetta, Saffron_CopycatHouse_2F_Movement_03D8)
+    } else {
+        applymovement(obj_T11R0802_jupetta, Saffron_CopycatHouse_2F_Movement_03D0)
+    }
+    waitmovement
+    setvar(VAR_TEMP_x400A, 1)
+    releaseall
+    end
+}
+
+movement Saffron_CopycatHouse_2F_Movement_03C0 {
+    face_up
+}
+
+movement Saffron_CopycatHouse_2F_Movement_03C8 {
+    face_down
+}
+
+movement Saffron_CopycatHouse_2F_Movement_03D0 {
+    face_left
+}
+
+movement Saffron_CopycatHouse_2F_Movement_03D8 {
+    face_right
+}
+
+script scr_seq_T11R0802_001 {
+    simplenpcmsg(msg_0541_T11R0802_00015)
+    end
+}
+
+script scr_seq_T11R0802_002 {
+    simplenpcmsg(msg_0541_T11R0802_00014)
+    end
+}
+
+script scr_seq_T11R0802_006 {
+    if (flag(FLAG_HIDE_SAFFRON_CITY_COPYCAT_HOUSE_CLEFAIRY_DOLL)) {
+        end
+    }
+    if (var(VAR_UNK_40FF) == 2) {
+        simplenpcmsg(msg_0541_T11R0802_00017)
+        end
+    }
+    simplenpcmsg(msg_0541_T11R0802_00016)
+    end
+}
+
+mapscripts Saffron_CopycatHouse_2F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11R0802_004
+    INIT_SCRIPT_ON_RESUME: scr_seq_T11R0802_005
+}

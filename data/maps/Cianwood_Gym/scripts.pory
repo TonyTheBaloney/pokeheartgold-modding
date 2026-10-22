@@ -1,0 +1,134 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T24GYM0101_000
+	ScrDef scr_seq_T24GYM0101_001
+	ScrDef scr_seq_T24GYM0101_002
+	ScrDef scr_seq_T24GYM0101_003
+	ScrDefEnd
+`
+
+script scr_seq_T24GYM0101_001 {
+    cianwoodgyminit
+    clearflag(FLAG_SYS_CIANWOOD_WATERFALL_DISABLE)
+    end
+}
+
+script scr_seq_T24GYM0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_TEMP_x4000) == 0) {
+        npcmsg(msg_0574_T24GYM0101_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    checkbadge(BADGE_STORM, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00EE) }
+    npcmsg(msg_0574_T24GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_CHUCK_CHUCK, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0104) }
+    npcmsg(msg_0574_T24GYM0101_00003)
+    settrainerflag(TRAINER_BLACK_BELT_YOSHI)
+    settrainerflag(TRAINER_BLACK_BELT_LAO)
+    settrainerflag(TRAINER_BLACK_BELT_NOB)
+    settrainerflag(TRAINER_BLACK_BELT_LUNG)
+    bufferplayersname(0)
+    npcmsg(msg_0574_T24GYM0101_00004)
+    givebadge(BADGE_STORM)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    addvar(VAR_MIDGAME_BADGES, 1)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    setvar(VAR_UNK_4116, 1)
+    if (var(VAR_MIDGAME_BADGES) == 3) {
+        setvar(VAR_SCENE_ROCKET_TAKEOVER, 1)
+    }
+    npcmsg(msg_0574_T24GYM0101_00005)
+    goto(_00AF)
+_00AF:
+    if (!itemspace(ITEM_TM01, 1)) { goto(_00E3) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM01_FROM_CHUCK)
+    npcmsg(msg_0574_T24GYM0101_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00E3:
+    npcmsg(msg_0574_T24GYM0101_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00EE:
+    if (!flag(FLAG_GOT_TM01_FROM_CHUCK)) { goto(_00AF) }
+    npcmsg(msg_0574_T24GYM0101_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0104:
+    whiteout
+    releaseall
+    end
+}
+
+script scr_seq_T24GYM0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_TEMP_x4000) == 0) {
+        npcmsg(msg_0574_T24GYM0101_00010)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            bufferplayersname(0)
+            npcmsg(msg_0574_T24GYM0101_00011)
+            closemessage
+            setflag(FLAG_SYS_CIANWOOD_WATERFALL_DISABLE)
+            stopse(SEQ_SE_GS_N_TAKI)
+            playse(SEQ_SE_DP_SHIP03)
+            playse(SEQ_SE_GS_TAKI2)
+            cianwoodgymturnwinch(VAR_TEMP_x4000)
+            releaseall
+            end
+        }
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0574_T24GYM0101_00012)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T24GYM0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_STORM, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0574_T24GYM0101_00013)
+    } else {
+        npcmsg(msg_0574_T24GYM0101_00014)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Cianwood_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T24GYM0101_001
+}

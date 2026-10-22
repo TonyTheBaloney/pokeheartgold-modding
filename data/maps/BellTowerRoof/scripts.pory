@@ -1,0 +1,553 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D17R0110_000
+	ScrDef scr_seq_D17R0110_001
+	ScrDef scr_seq_D17R0110_002
+	ScrDef scr_seq_D17R0110_003
+	ScrDef scr_seq_D17R0110_004
+	ScrDef scr_seq_D17R0110_005
+	ScrDef scr_seq_D17R0110_006
+	ScrDefEnd
+`
+
+script scr_seq_D17R0110_002 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_BELL_TOWER_HO_OH)
+        removeobject(obj_D17R0110_hou_obj01)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        end
+    }
+    end
+}
+
+script scr_seq_D17R0110_003 {
+    setvar(VAR_TEMP_x4003, 111)
+    setflag(FLAG_UNK_105)
+    end
+}
+
+script scr_seq_D17R0110_005 {
+    if (var(VAR_TEMP_x400B) == 123) {
+        stopse(SEQ_SE_GS_KYOUHUU)
+        setvar(VAR_TEMP_x400B, 0)
+    }
+    if (flag(FLAG_UNK_108)) { goto(_00C3) }
+    if (!flag(FLAG_UNK_10A)) { goto(_00C3) }
+    if (var(VAR_TEMP_x4003) == 111) {
+        movepersonfacing(obj_D17R0110_dancer, 16, 1, 18, DIR_NORTH)
+        movepersonfacing(obj_D17R0110_dancer_2, 12, 1, 18, DIR_NORTH)
+        movepersonfacing(obj_D17R0110_dancer_3, 12, 1, 12, DIR_SOUTH)
+        movepersonfacing(obj_D17R0110_dancer_4, 18, 1, 18, DIR_NORTH)
+        movepersonfacing(obj_D17R0110_dancer_5, 18, 1, 12, DIR_SOUTH)
+    }
+    setvar(VAR_TEMP_x4003, 0)
+    end
+_00C3:
+    end
+}
+
+script scr_seq_D17R0110_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x400A, 250)
+    playcry(VAR_TEMP_x400A, 0)
+    npcmsg(msg_0058_D17R0110_00004)
+    waitcry
+    closemessage
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        setvar(VAR_SPECIAL_x8004, 45)
+    } else {
+        setvar(VAR_SPECIAL_x8004, 70)
+    }
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(VAR_TEMP_x400A, VAR_SPECIAL_x8004, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    getstaticencounteroutcome(VAR_TEMP_x4005)
+    if (var(VAR_TEMP_x4005) == 2) { goto(_0167) }
+    if (var(VAR_TEMP_x4005) == 3) { goto(_0167) }
+    compare(VAR_TEMP_x4005, 4)
+    callifeq(_0171)
+    releaseall
+    setflag(FLAG_UNK_108)
+    setvar(VAR_SCENE_NEW_BARK_EAST_EXIT, 3)
+    setflag(FLAG_HIDE_NEW_BARK_FRIEND)
+    setflag(FLAG_HIDE_NEW_BARK_MARILL)
+    setflag(FLAG_HIDE_NEW_BARK_FRIEND_2)
+    clearflag(FLAG_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND)
+    setflag(FLAG_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS)
+    clearflag(FLAG_HIDE_DANCE_STUDIO_KIMONO_GIRLS)
+    clearflag(FLAG_UNK_241)
+    end
+_0167:
+    clearflag(FLAG_HIDE_BELL_TOWER_HO_OH)
+    whiteout
+    releaseall
+    end
+_0171:
+    setflag(FLAG_CAUGHT_HO_OH)
+    return
+}
+
+script scr_seq_D17R0110_006 {
+    followmonresetmovement
+    lockall
+    loadeventsoundeffects
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0790)
+    waitmovement
+    npcmsg(msg_0058_D17R0110_00000)
+    closemessage
+    stopse(SEQ_SE_GS_KYOUHUU)
+    fadescreen(4, 4, 0, RGB_WHITE)
+    waitfade
+    legendcutsceneclearbellanimbegin
+    legendcutsceneclearbellrisefrombag
+    playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
+    fadescreen(4, 4, 1, RGB_WHITE)
+    waitfade
+    waitse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0754)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0760)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_076C)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0778)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0784)
+    waitmovement
+    wait(16, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0790)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0790)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_0790)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0790)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0790)
+    waitmovement
+    wait(16, VAR_SPECIAL_RESULT)
+    stopbgm(0)
+    tempbgm(SEQ_GS_E_MAIKO_MAI)
+    wait(18, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07A0)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    wait(67, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07A0)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07A0)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    fadescreen(4, 6, 1, RGB_WHITE)
+    legendcutscenewavesorleaveseffectbegin
+    waitfade
+    wait(4, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0914)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0904)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_091C)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0914)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_090C)
+    waitmovement
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_080C)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_0830)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_080C)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07E8)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0904)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0904)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_091C)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0914)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_090C)
+    waitmovement
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_0830)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_080C)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07E8)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    wait(33, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0904)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0904)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_091C)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0914)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_090C)
+    waitmovement
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0854)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_08D8)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_08AC)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0880)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_091C)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_091C)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_090C)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0904)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0914)
+    waitmovement
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0830)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0830)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_080C)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    legendcutscenewavesorleaveseffectend
+    legendcutscenepancamerato(0)
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_091C)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_091C)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_090C)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0904)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0914)
+    waitmovement
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0830)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0830)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_080C)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_090C)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_091C)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_090C)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_0904)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_0914)
+    waitmovement
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_0830)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_080C)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(41, VAR_SPECIAL_RESULT)
+    legendcutscenewaitcamerapan
+    wait(8, VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    legendcutscenemovecamerato(1)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    wait(20, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    release(obj_D17R0110_dancer)
+    release(obj_D17R0110_dancer_2)
+    release(obj_D17R0110_dancer_3)
+    release(obj_D17R0110_dancer_4)
+    release(obj_D17R0110_dancer_5)
+    movepersonfacing(obj_D17R0110_dancer, 15, 1, 18, DIR_NORTH)
+    movepersonfacing(obj_D17R0110_dancer_2, 12, 1, 18, DIR_NORTH)
+    movepersonfacing(obj_D17R0110_dancer_3, 12, 1, 12, DIR_SOUTH)
+    movepersonfacing(obj_D17R0110_dancer_4, 18, 1, 18, DIR_NORTH)
+    movepersonfacing(obj_D17R0110_dancer_5, 18, 1, 12, DIR_SOUTH)
+    wait(86, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    wait(32, VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    legendcutscenemovecamerato(2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    wait(22, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07E8)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(32, VAR_SPECIAL_RESULT)
+    wait(34, VAR_SPECIAL_RESULT)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_2, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_3, BellTowerRoof_Movement_07E8)
+    applymovement(obj_D17R0110_dancer_4, BellTowerRoof_Movement_07C4)
+    applymovement(obj_D17R0110_dancer_5, BellTowerRoof_Movement_07E8)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(60, VAR_SPECIAL_RESULT)
+    legendcutscenepancamerato(1)
+    legendcutscenewaitcamerapan
+    stopbgm(0)
+    legendcutsceneclearbellanimend
+    setvar(VAR_TEMP_x400B, 123)
+    fadescreen(6, 1, 0, RGB_WHITE)
+    waitfade
+    cinematic(0)
+    clearflag(FLAG_HIDE_BELL_TOWER_HO_OH)
+    addobject(obj_D17R0110_hou_obj01)
+    makeobjectvisible(obj_D17R0110_hou_obj01)
+    wait(6, VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 1, RGB_WHITE)
+    waitfade
+    wait(20, VAR_SPECIAL_RESULT)
+    legendcutscenebirdfinalapproach
+    stopbgm(30)
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0798)
+    waitmovement
+    processsoundplate
+    bufferplayersname(0)
+    npcmsg(msg_0058_D17R0110_00002)
+    closemessage
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_0790)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0058_D17R0110_00003)
+    closemessage
+    applymovement(obj_D17R0110_dancer, BellTowerRoof_Movement_092C)
+    waitmovement
+    releaseall
+    setflag(FLAG_UNK_10A)
+    setvar(VAR_UNK_40FA, 2)
+    end
+}
+
+script scr_seq_D17R0110_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_108)) {
+        if (var(VAR_TEMP_x4005) == 5) {
+            npcmsg(msg_0058_D17R0110_00008)
+        } elif (var(VAR_TEMP_x4005) == 6) {
+            npcmsg(msg_0058_D17R0110_00008)
+        } elif (var(VAR_TEMP_x4005) == 4) {
+            npcmsg(msg_0058_D17R0110_00006)
+        } else {
+            npcmsg(msg_0058_D17R0110_00007)
+        }
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0058_D17R0110_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement BellTowerRoof_Movement_0754 {
+    delay_8 * 6
+    walk_up
+}
+
+movement BellTowerRoof_Movement_0760 {
+    delay_8 * 5
+    walk_left * 2
+}
+
+movement BellTowerRoof_Movement_076C {
+    walk_left
+    walk_up * 6
+}
+
+movement BellTowerRoof_Movement_0778 {
+    delay_8 * 5
+    walk_right * 2
+}
+
+movement BellTowerRoof_Movement_0784 {
+    walk_right
+    walk_up * 6
+}
+
+movement BellTowerRoof_Movement_0790 {
+    walk_in_place_down
+}
+
+movement BellTowerRoof_Movement_0798 {
+    walk_in_place_up
+}
+
+movement BellTowerRoof_Movement_07A0 {
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+}
+
+movement BellTowerRoof_Movement_07C4 {
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+}
+
+movement BellTowerRoof_Movement_07E8 {
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+}
+
+movement BellTowerRoof_Movement_080C {
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+}
+
+movement BellTowerRoof_Movement_0830 {
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+}
+
+movement BellTowerRoof_Movement_0854 {
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+}
+
+movement BellTowerRoof_Movement_0880 {
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+}
+
+movement BellTowerRoof_Movement_08AC {
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+}
+
+movement BellTowerRoof_Movement_08D8 {
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+}
+
+movement BellTowerRoof_Movement_0904 {
+    walk_slow_up * 2
+}
+
+movement BellTowerRoof_Movement_090C {
+    walk_slow_down * 2
+}
+
+movement BellTowerRoof_Movement_0914 {
+    walk_slow_left * 2
+}
+
+movement BellTowerRoof_Movement_091C {
+    walk_slow_right * 2
+}
+
+movement BellTowerRoof_Movement_0924 {
+    walk_slow_down
+}
+
+movement BellTowerRoof_Movement_092C {
+    face_left
+    lock_dir
+    walk_slow_right
+    unlock_dir
+}
+
+script scr_seq_D17R0110_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_108)) {
+        npcmsg(msg_0058_D17R0110_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0058_D17R0110_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts BellTowerRoof_MapScripts {
+    INIT_SCRIPT_ON_LOAD: scr_seq_D17R0110_002
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D17R0110_003
+    INIT_SCRIPT_ON_RESUME: scr_seq_D17R0110_005
+}

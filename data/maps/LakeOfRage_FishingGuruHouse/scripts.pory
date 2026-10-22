@@ -1,0 +1,81 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T29R0201_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_ROCKET_HIDEOUT_CLEARED)) {
+        scriptoverlaycmd(0, 0)
+        playerhasspecies(VAR_SPECIAL_RESULT, SPECIES_MAGIKARP)
+        if (var(VAR_SPECIAL_RESULT) != 0) {
+            npcmsg(msg_0628_T29R0201_00003)
+            closemessage
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            partyselectui
+            getpartyselection(VAR_SPECIAL_x8002)
+            restoreoverworld
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            if (var(VAR_SPECIAL_x8002) != 255) {
+                getpartymonspecies(VAR_SPECIAL_x8002, VAR_SPECIAL_x8001)
+                if (var(VAR_SPECIAL_x8001) == 129) {
+                    sizerecordcompare(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002)
+                    if (var(VAR_SPECIAL_RESULT) != 0) {
+                        if (var(VAR_SPECIAL_RESULT) != 1) { goto(_0101) }
+                        bufferrecordsize(0, 1, SPECIES_MAGIKARP)
+                        npcmsg(msg_0628_T29R0201_00006)
+                        goto(_0146)
+                    _0101:
+                        buffermonsize(0, 1, VAR_SPECIAL_x8002)
+                        npcmsg(msg_0628_T29R0201_00004)
+                        setvar(VAR_SPECIAL_x8004, 38)
+                        setvar(VAR_SPECIAL_x8005, 1)
+                        hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+                        if (var(VAR_SPECIAL_RESULT) == 0) {
+                            callstd(std_bag_is_full)
+                        } else {
+                            callstd(std_give_item_verbose)
+                            sizerecordupdate(VAR_SPECIAL_x8002)
+                            setflag(FLAG_UNK_139)
+                            npcmsg(msg_0628_T29R0201_00005)
+                        _0146:
+                            waitbuttonpress
+                        }
+                        closemessage
+                        scriptoverlaycmd(0, 1)
+                        releaseall
+                        end
+                    }
+                    buffermonsize(0, 1, VAR_SPECIAL_x8002)
+                    bufferrecordsize(2, 3, SPECIES_MAGIKARP)
+                    npcmsg(msg_0628_T29R0201_00007)
+                    goto(_0146)
+                    goto(_0101)
+                }
+                npcmsg(msg_0628_T29R0201_00008)
+                goto(_0146)
+            }
+            npcmsg(msg_0628_T29R0201_00010)
+            goto(_0146)
+        }
+        npcmsg(msg_0628_T29R0201_00002)
+        goto(_0146)
+    }
+    if (flag(FLAG_UNK_0C8)) { goto(_002F) }
+    npcmsg(msg_0628_T29R0201_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_002F:
+    npcmsg(msg_0628_T29R0201_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts LakeOfRage_FishingGuruHouse_MapScripts {
+}

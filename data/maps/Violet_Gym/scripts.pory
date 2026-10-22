@@ -1,0 +1,152 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T22GYM0101_000
+	ScrDef scr_seq_T22GYM0101_001
+	ScrDef scr_seq_T22GYM0101_002
+	ScrDef scr_seq_T22GYM0101_003
+	ScrDef scr_seq_T22GYM0101_004
+	ScrDef scr_seq_T22GYM0101_005
+	ScrDefEnd
+`
+
+script scr_seq_T22GYM0101_000 {
+    violetgyminit
+    getphonebookrematch(PHONE_CONTACT_FALKNER, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_VIOLET_GYM_FALKNER)
+        end
+    }
+    checkregisteredphonenumber(PHONE_CONTACT_FALKNER, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_007E) }
+    checkbadge(BADGE_SOUL, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_005B) }
+    goto(_00A1)
+_005B:
+    getweekday(VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) {
+        setflag(FLAG_HIDE_VIOLET_GYM_FALKNER)
+    } else {
+        goto(_00A1)
+    }
+    end
+_007E:
+    getweekday(VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 3) {
+        setflag(FLAG_HIDE_VIOLET_GYM_FALKNER)
+    } else {
+        goto(_00A1)
+    }
+    end
+_00A1:
+    clearflag(FLAG_HIDE_VIOLET_GYM_FALKNER)
+    end
+}
+
+script scr_seq_T22GYM0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_ZEPHYR, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        if (!flag(FLAG_GOT_TM51_FROM_FALKNER)) { goto(_0126) }
+        npcmsg(msg_0558_T22GYM0101_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0558_T22GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_FALKNER_FALKNER, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    givebadge(BADGE_ZEPHYR)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    settrainerflag(TRAINER_BIRD_KEEPER_GS_ROD)
+    settrainerflag(TRAINER_BIRD_KEEPER_GS_ABE)
+    setvar(VAR_SCENE_VIOLET_CITY_OW, 1)
+    setflag(FLAG_UNK_192)
+    setvar(VAR_SCENE_ELMS_LAB, 6)
+    setflag(FLAG_UNK_0F4)
+    setflag(FLAG_HIDE_WIFI_CLUB_CLOSED_LADY)
+    npcmsg(msg_0558_T22GYM0101_00001)
+    bufferplayersname(0)
+    npcmsg(msg_0558_T22GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    npcmsg(msg_0558_T22GYM0101_00003)
+    goto(_0126)
+_0126:
+    if (!itemspace(ITEM_TM51, 1)) { goto(_015E) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM51_FROM_FALKNER)
+    clearflag(FLAG_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND)
+    npcmsg(msg_0558_T22GYM0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_015E:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T22GYM0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_ZEPHYR, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0558_T22GYM0101_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0558_T22GYM0101_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T22GYM0101_005 {
+    simplenpcmsg(msg_0558_T22GYM0101_00006)
+    end
+}
+
+script scr_seq_T22GYM0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_ZEPHYR, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0558_T22GYM0101_00009)
+    } else {
+        npcmsg(msg_0558_T22GYM0101_00010)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T22GYM0101_004 {
+    setvar(VAR_TEMP_x4000, 0)
+    violetgymelevator
+    end
+}
+
+mapscripts Violet_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T22GYM0101_000
+}

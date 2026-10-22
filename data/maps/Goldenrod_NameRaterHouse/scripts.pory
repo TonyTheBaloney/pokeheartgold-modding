@@ -1,0 +1,85 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T25R0901_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0591_T25R0901_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0591_T25R0901_00001)
+        waitabpress
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        partyselectui
+        getpartyselection(VAR_SPECIAL_RESULT)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_00B3) }
+        copyvar(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+        getpartymonspecies(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0591_T25R0901_00008)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        partymonismine(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            bufferpartymonnick(0, VAR_SPECIAL_x8005)
+            npcmsg(msg_0591_T25R0901_00007)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        bufferpartymonnick(0, VAR_SPECIAL_x8005)
+        npcmsg(msg_0591_T25R0901_00002)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0591_T25R0901_00003)
+            closemessage
+            setvar(VAR_SPECIAL_RESULT, 0)
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            nicknameinput(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                bufferpartymonnick(0, VAR_SPECIAL_x8005)
+                npcmsg(msg_0591_T25R0901_00006)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            bufferpartymonnick(0, VAR_SPECIAL_x8005)
+            npcmsg(msg_0591_T25R0901_00004)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        goto(_00B3)
+        end
+    _00B3:
+        npcmsg(msg_0591_T25R0901_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    goto(_00B3)
+    end
+}
+
+mapscripts Goldenrod_NameRaterHouse_MapScripts {
+}

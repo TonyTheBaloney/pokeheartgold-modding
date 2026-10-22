@@ -1,0 +1,920 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D32_000
+	ScrDef scr_seq_D32_001
+	ScrDef scr_seq_D32_002
+	ScrDef scr_seq_D32_003
+	ScrDef scr_seq_D32_004
+	ScrDef scr_seq_D32_005
+	ScrDef scr_seq_D32_006
+	ScrDef scr_seq_D32_007
+	ScrDef scr_seq_D32_008
+	ScrDef scr_seq_D32_009
+	ScrDef scr_seq_D32_010
+	ScrDef scr_seq_D32_011
+	ScrDef scr_seq_D32_012
+	ScrDef scr_seq_D32_013
+	ScrDef scr_seq_D32_014
+	ScrDef scr_seq_D32_015
+	ScrDef scr_seq_D32_016
+	ScrDef scr_seq_D32_017
+	ScrDef scr_seq_D32_018
+	ScrDef scr_seq_D32_019
+	ScrDef scr_seq_D32_020
+	ScrDef scr_seq_D32_021
+	ScrDef scr_seq_D32_022
+	ScrDef scr_seq_D32_023
+	ScrDef scr_seq_D32_024
+	ScrDef scr_seq_D32_025
+	ScrDef scr_seq_D32_026
+	ScrDef scr_seq_D32_027
+	ScrDef scr_seq_D32_028
+	ScrDef scr_seq_D32_029
+	ScrDef scr_seq_D32_030
+	ScrDef scr_seq_D32_031
+	ScrDef scr_seq_D32_032
+	ScrDef scr_seq_D32_033
+	ScrDef scr_seq_D32_034
+	ScrDef scr_seq_D32_035
+	ScrDef scr_seq_D32_036
+	ScrDef scr_seq_D32_037
+	ScrDef scr_seq_D32_038
+	ScrDefEnd
+`
+
+script scr_seq_D32_037 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 3) {
+            if (var(VAR_TEMP_x4000) == 5) { goto(_00D7) }
+            setflag(FLAG_HIDE_CAMERON)
+        } else {
+        _00D7:
+            setflag(FLAG_HIDE_CAMERON)
+        }
+        setflag(FLAG_UNK_234)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D32_038 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, BattleFrontier_Movement_0234)
+        applymovement(obj_D32_gsmiddleman1_2, BattleFrontier_Movement_0280)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, BattleFrontier_Movement_024C)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, BattleFrontier_Movement_026C)
+        applymovement(obj_D32_gsmiddleman1_2, BattleFrontier_Movement_0280)
+    } else {
+        applymovement(obj_player, BattleFrontier_Movement_0258)
+        applymovement(obj_D32_gsmiddleman1_2, BattleFrontier_Movement_0280)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, BattleFrontier_Movement_028C)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(31)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement BattleFrontier_Movement_0234 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement BattleFrontier_Movement_024C {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement BattleFrontier_Movement_0258 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement BattleFrontier_Movement_026C {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement BattleFrontier_Movement_0280 {
+    delay_8
+    walk_in_place_up
+}
+
+movement BattleFrontier_Movement_028C {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_D32_001 {
+    simplenpcmsg(msg_0100_D32_00000)
+    end
+}
+
+script scr_seq_D32_002 {
+    simplenpcmsg(msg_0100_D32_00001)
+    end
+}
+
+script scr_seq_D32_003 {
+    simplenpcmsg(msg_0100_D32_00002)
+    end
+}
+
+script scr_seq_D32_004 {
+    simplenpcmsg(msg_0100_D32_00003)
+    end
+}
+
+script scr_seq_D32_005 {
+    simplenpcmsg(msg_0100_D32_00004)
+    end
+}
+
+script scr_seq_D32_006 {
+    simplenpcmsg(msg_0100_D32_00005)
+    end
+}
+
+script scr_seq_D32_007 {
+    simplenpcmsg(msg_0100_D32_00006)
+    end
+}
+
+script scr_seq_D32_008 {
+    simplenpcmsg(msg_0100_D32_00007)
+    end
+}
+
+script scr_seq_D32_009 {
+    simplenpcmsg(msg_0100_D32_00008)
+    end
+}
+
+script scr_seq_D32_010 {
+    simplenpcmsg(msg_0100_D32_00009)
+    end
+}
+
+script scr_seq_D32_011 {
+    simplenpcmsg(msg_0100_D32_00010)
+    end
+}
+
+script scr_seq_D32_012 {
+    simplenpcmsg(msg_0100_D32_00011)
+    end
+}
+
+script scr_seq_D32_013 {
+    simplenpcmsg(msg_0100_D32_00012)
+    end
+}
+
+script scr_seq_D32_014 {
+    simplenpcmsg(msg_0100_D32_00013)
+    end
+}
+
+script scr_seq_D32_015 {
+    simplenpcmsg(msg_0100_D32_00014)
+    end
+}
+
+script scr_seq_D32_016 {
+    simplenpcmsg(msg_0100_D32_00015)
+    end
+}
+
+script scr_seq_D32_017 {
+    simplenpcmsg(msg_0100_D32_00016)
+    end
+}
+
+script scr_seq_D32_018 {
+    simplenpcmsg(msg_0100_D32_00017)
+    end
+}
+
+script scr_seq_D32_019 {
+    simplenpcmsg(msg_0100_D32_00018)
+    end
+}
+
+script scr_seq_D32_020 {
+    simplenpcmsg(msg_0100_D32_00019)
+    end
+}
+
+script scr_seq_D32_021 {
+    simplenpcmsg(msg_0100_D32_00020)
+    end
+}
+
+script scr_seq_D32_022 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_SPECIAL_x8000, 0)
+    scriptoverlaycmd(3, 0)
+    showpointsbox(1, 21, 1)
+    npcmsg(msg_0100_D32_00021)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    closemessage
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0B02) }
+_045C:
+    npcmsg(msg_0100_D32_00031)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(347, 255, 0)
+    menuitemadd(348, 255, 1)
+    menuitemadd(349, 255, 2)
+    menuitemadd(350, 255, 3)
+    menuitemadd(439, 255, 4)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _04D1)
+    Case(1, _0630)
+    Case(2, _0762)
+    Case(3, _08C1)
+    goto(_0B02)
+_04D1:
+    setvar(VAR_SPECIAL_x8007, 0)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(354, 396, 0)
+    menuitemadd(355, 397, 1)
+    menuitemadd(356, 398, 2)
+    menuitemadd(357, 399, 3)
+    menuitemadd(358, 400, 4)
+    menuitemadd(359, 401, 5)
+    menuitemadd(379, 402, 6)
+    menuitemadd(440, 438, 7)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0588)
+    Case(1, _05A0)
+    Case(2, _05B8)
+    Case(3, _05D0)
+    Case(4, _05E8)
+    Case(5, _0600)
+    Case(6, _0618)
+    goto(_045C)
+_0588:
+    setvar(VAR_SPECIAL_x8004, 46)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 1)
+    goto(_09F3)
+_05A0:
+    setvar(VAR_SPECIAL_x8004, 49)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 1)
+    goto(_09F3)
+_05B8:
+    setvar(VAR_SPECIAL_x8004, 47)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 1)
+    goto(_09F3)
+_05D0:
+    setvar(VAR_SPECIAL_x8004, 52)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 1)
+    goto(_09F3)
+_05E8:
+    setvar(VAR_SPECIAL_x8004, 48)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 1)
+    goto(_09F3)
+_0600:
+    setvar(VAR_SPECIAL_x8004, 45)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 1)
+    goto(_09F3)
+_0618:
+    setvar(VAR_SPECIAL_x8004, 50)
+    setvar(VAR_SPECIAL_x8005, 48)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_0630:
+    setvar(VAR_SPECIAL_x8007, 1)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(360, 403, 0)
+    menuitemadd(361, 404, 1)
+    menuitemadd(362, 405, 2)
+    menuitemadd(363, 406, 3)
+    menuitemadd(364, 407, 4)
+    menuitemadd(365, 408, 5)
+    menuitemadd(440, 438, 6)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _06D2)
+    Case(1, _06EA)
+    Case(2, _0702)
+    Case(3, _071A)
+    Case(4, _0732)
+    Case(5, _074A)
+    goto(_045C)
+_06D2:
+    setvar(VAR_SPECIAL_x8004, 289)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 16)
+    goto(_09F3)
+_06EA:
+    setvar(VAR_SPECIAL_x8004, 290)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 16)
+    goto(_09F3)
+_0702:
+    setvar(VAR_SPECIAL_x8004, 291)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 16)
+    goto(_09F3)
+_071A:
+    setvar(VAR_SPECIAL_x8004, 292)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 16)
+    goto(_09F3)
+_0732:
+    setvar(VAR_SPECIAL_x8004, 293)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 16)
+    goto(_09F3)
+_074A:
+    setvar(VAR_SPECIAL_x8004, 294)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 16)
+    goto(_09F3)
+_0762:
+    setvar(VAR_SPECIAL_x8007, 2)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(366, 409, 0)
+    menuitemadd(367, 410, 1)
+    menuitemadd(368, 411, 2)
+    menuitemadd(369, 412, 3)
+    menuitemadd(370, 413, 4)
+    menuitemadd(372, 415, 5)
+    menuitemadd(375, 418, 6)
+    menuitemadd(440, 438, 7)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0819)
+    Case(1, _0831)
+    Case(2, _0849)
+    Case(3, _0861)
+    Case(4, _0879)
+    Case(5, _0891)
+    Case(6, _08A9)
+    goto(_045C)
+_0819:
+    setvar(VAR_SPECIAL_x8004, 272)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 16)
+    goto(_09F3)
+_0831:
+    setvar(VAR_SPECIAL_x8004, 273)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 16)
+    goto(_09F3)
+_0849:
+    setvar(VAR_SPECIAL_x8004, 214)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 32)
+    goto(_09F3)
+_0861:
+    setvar(VAR_SPECIAL_x8004, 271)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 32)
+    goto(_09F3)
+_0879:
+    setvar(VAR_SPECIAL_x8004, 213)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_0891:
+    setvar(VAR_SPECIAL_x8004, 230)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_08A9:
+    setvar(VAR_SPECIAL_x8004, 275)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_08C1:
+    setvar(VAR_SPECIAL_x8007, 3)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(371, 414, 0)
+    menuitemadd(376, 419, 1)
+    menuitemadd(373, 416, 2)
+    menuitemadd(374, 417, 3)
+    menuitemadd(377, 420, 4)
+    menuitemadd(378, 421, 5)
+    menuitemadd(440, 438, 7)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0963)
+    Case(1, _097B)
+    Case(2, _0993)
+    Case(3, _09AB)
+    Case(4, _09C3)
+    Case(5, _09DB)
+    goto(_045C)
+_0963:
+    setvar(VAR_SPECIAL_x8004, 220)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_097B:
+    setvar(VAR_SPECIAL_x8004, 287)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_0993:
+    setvar(VAR_SPECIAL_x8004, 232)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_09AB:
+    setvar(VAR_SPECIAL_x8004, 266)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_09C3:
+    setvar(VAR_SPECIAL_x8004, 326)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_09DB:
+    setvar(VAR_SPECIAL_x8004, 327)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    goto(_09F3)
+_09F3:
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    bufferint(1, VAR_SPECIAL_x8006)
+    npcmsg(msg_0100_D32_00023)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0A24) }
+    if (var(VAR_SPECIAL_x8000) == 0) { goto(_0AB1) }
+    goto(_0F76)
+_0A24:
+    checkbattlepoints(VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0100_D32_00027)
+        if (var(VAR_SPECIAL_x8000) == 0) { goto(_0AB1) }
+        goto(_0F76)
+    _0AB1:
+        if (var(VAR_SPECIAL_x8007) != 0) {
+            if (var(VAR_SPECIAL_x8007) != 1) {
+                if (var(VAR_SPECIAL_x8007) != 2) {
+                    goto(_08C1)
+                _0B02:
+                    hidepointsbox
+                    touchscreenmenushow
+                    npcmsg(msg_0100_D32_00022)
+                    waitbuttonpress
+                    closemessage
+                    releaseall
+                    scriptoverlaycmd(3, 1)
+                    end
+                }
+                goto(_0762)
+                goto(_0B02)
+            }
+            goto(_0630)
+            goto(_0B02)
+        }
+        goto(_04D1)
+        goto(_0B02)
+    }
+    hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0A85) }
+    takebattlepoints(VAR_SPECIAL_x8006)
+    updatepointsbox(1)
+    playse(SEQ_SE_DP_REGI)
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    bufferpocketname(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0100_D32_00026)
+    giveitem(VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8000) == 0) { goto(_0AB1) }
+    goto(_0F76)
+_0A85:
+    npcmsg(msg_0100_D32_00029)
+    if (var(VAR_SPECIAL_x8000) == 0) { goto(_0AB1) }
+    goto(_0F76)
+}
+
+script scr_seq_D32_024 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_SPECIAL_x8000, 1)
+    scriptoverlaycmd(3, 0)
+    showpointsbox(1, 21, 1)
+    npcmsg(msg_0100_D32_00021)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0B02) }
+_0B44:
+    npcmsg(msg_0100_D32_00030)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(351, 255, 0)
+    menuitemadd(352, 255, 1)
+    menuitemadd(353, 255, 2)
+    menuitemadd(439, 255, 4)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0BA4)
+    Case(1, _0CFA)
+    Case(2, _0DEA)
+    goto(_0B02)
+_0BA4:
+    setvar(VAR_SPECIAL_x8007, 0)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(380, 422, 0)
+    menuitemadd(381, 423, 1)
+    menuitemadd(382, 424, 2)
+    menuitemadd(383, 425, 3)
+    menuitemadd(384, 426, 4)
+    menuitemadd(385, 427, 5)
+    menuitemadd(440, 438, 6)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0C46)
+    Case(1, _0C64)
+    Case(2, _0C82)
+    Case(3, _0CA0)
+    Case(4, _0CBE)
+    Case(5, _0CDC)
+    goto(_0B44)
+_0C46:
+    setvar(VAR_SPECIAL_x8004, 367)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 40)
+    setvar(VAR_SPECIAL_x8001, 332)
+    goto(_0F40)
+_0C64:
+    setvar(VAR_SPECIAL_x8004, 358)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 40)
+    setvar(VAR_SPECIAL_x8001, 280)
+    goto(_0F40)
+_0C82:
+    setvar(VAR_SPECIAL_x8004, 416)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 40)
+    setvar(VAR_SPECIAL_x8001, 369)
+    goto(_0F40)
+_0CA0:
+    setvar(VAR_SPECIAL_x8004, 408)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 64)
+    setvar(VAR_SPECIAL_x8001, 404)
+    goto(_0F40)
+_0CBE:
+    setvar(VAR_SPECIAL_x8004, 398)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 80)
+    setvar(VAR_SPECIAL_x8001, 444)
+    goto(_0F40)
+_0CDC:
+    setvar(VAR_SPECIAL_x8004, 353)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 80)
+    setvar(VAR_SPECIAL_x8001, 89)
+    goto(_0F40)
+_0CFA:
+    setvar(VAR_SPECIAL_x8007, 1)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(386, 428, 0)
+    menuitemadd(387, 429, 1)
+    menuitemadd(388, 430, 2)
+    menuitemadd(389, 431, 3)
+    menuitemadd(440, 438, 4)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0D72)
+    Case(1, _0D90)
+    Case(2, _0DAE)
+    Case(3, _0DCC)
+    goto(_0B44)
+_0D72:
+    setvar(VAR_SPECIAL_x8004, 357)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 64)
+    setvar(VAR_SPECIAL_x8001, 247)
+    goto(_0F40)
+_0D90:
+    setvar(VAR_SPECIAL_x8004, 380)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 64)
+    setvar(VAR_SPECIAL_x8001, 412)
+    goto(_0F40)
+_0DAE:
+    setvar(VAR_SPECIAL_x8004, 363)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 80)
+    setvar(VAR_SPECIAL_x8001, 188)
+    goto(_0F40)
+_0DCC:
+    setvar(VAR_SPECIAL_x8004, 386)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 80)
+    setvar(VAR_SPECIAL_x8001, 406)
+    goto(_0F40)
+_0DEA:
+    setvar(VAR_SPECIAL_x8007, 2)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(390, 432, 0)
+    menuitemadd(391, 433, 1)
+    menuitemadd(392, 434, 2)
+    menuitemadd(393, 435, 3)
+    menuitemadd(394, 436, 4)
+    menuitemadd(395, 437, 5)
+    menuitemadd(440, 438, 6)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0E8C)
+    Case(1, _0EAA)
+    Case(2, _0EC8)
+    Case(3, _0EE6)
+    Case(4, _0F04)
+    Case(5, _0F22)
+    goto(_0B44)
+_0E8C:
+    setvar(VAR_SPECIAL_x8004, 333)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 32)
+    setvar(VAR_SPECIAL_x8001, 92)
+    goto(_0F40)
+_0EAA:
+    setvar(VAR_SPECIAL_x8004, 400)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 32)
+    setvar(VAR_SPECIAL_x8001, 86)
+    goto(_0F40)
+_0EC8:
+    setvar(VAR_SPECIAL_x8004, 388)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 32)
+    setvar(VAR_SPECIAL_x8001, 261)
+    goto(_0F40)
+_0EE6:
+    setvar(VAR_SPECIAL_x8004, 372)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 32)
+    setvar(VAR_SPECIAL_x8001, 213)
+    goto(_0F40)
+_0F04:
+    setvar(VAR_SPECIAL_x8004, 335)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    setvar(VAR_SPECIAL_x8001, 339)
+    goto(_0F40)
+_0F22:
+    setvar(VAR_SPECIAL_x8004, 331)
+    setvar(VAR_SPECIAL_x8005, 1)
+    setvar(VAR_SPECIAL_x8006, 48)
+    setvar(VAR_SPECIAL_x8001, 347)
+    goto(_0F40)
+_0F40:
+    bufferitemname(0, VAR_SPECIAL_x8004)
+    buffermovename(1, VAR_SPECIAL_x8001)
+    bufferint(2, VAR_SPECIAL_x8006)
+    npcmsg(msg_0100_D32_00024)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0A24) }
+    if (var(VAR_SPECIAL_x8000) == 0) { goto(_0AB1) }
+    goto(_0F76)
+_0F76:
+    if (var(VAR_SPECIAL_x8007) != 0) { goto(_0F8F) }
+    goto(_0BA4)
+    goto(scr_seq_D32_023)
+_0F8F:
+    if (var(VAR_SPECIAL_x8007) != 1) { goto(_0FA8) }
+    goto(_0CFA)
+    goto(scr_seq_D32_023)
+_0FA8:
+    goto(_0DEA)
+}
+
+script scr_seq_D32_023 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    scratchoffcard
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_D32_025 {
+    trainertipsex(3, msg_0100_D32_00034)
+    end
+}
+
+script scr_seq_D32_026 {
+    trainertipsex(3, msg_0100_D32_00035)
+    end
+}
+
+script scr_seq_D32_027 {
+    trainertipsex(3, msg_0100_D32_00036)
+    end
+}
+
+script scr_seq_D32_028 {
+    trainertipsex(3, msg_0100_D32_00037)
+    end
+}
+
+script scr_seq_D32_029 {
+    trainertipsex(3, msg_0100_D32_00038)
+    end
+}
+
+script scr_seq_D32_030 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0100_D32_00039)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D32_031 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0100_D32_00040)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D32_032 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0100_D32_00041)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D32_033 {
+    followmonresetmovement
+    lockall
+    followmonrecall
+    applymovement(obj_player, BattleFrontier_Movement_10B0)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_BATTLE_FRONTIER_BATTLE_HALL, 0, 25, 9, DIR_WEST)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement BattleFrontier_Movement_10B0 {
+    walk_fast_left * 5
+}
+
+script scr_seq_D32_034 {
+    followmonresetmovement
+    lockall
+    followmonrecall
+    applymovement(obj_player, BattleFrontier_Movement_10F4)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_BATTLE_FRONTIER_BATTLE_CASTLE, 0, 21, 9, DIR_WEST)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement BattleFrontier_Movement_10F4 {
+    walk_fast_left * 6
+}
+
+script scr_seq_D32_035 {
+    followmonresetmovement
+    lockall
+    followmonrecall
+    applymovement(obj_player, BattleFrontier_Movement_1138)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_BATTLE_FRONTIER_BATTLE_ARCADE, 0, 1, 6, DIR_EAST)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement BattleFrontier_Movement_1138 {
+    walk_fast_right * 5
+}
+
+script scr_seq_D32_036 {
+    followmonresetmovement
+    lockall
+    followmonrecall
+    applymovement(obj_player, BattleFrontier_Movement_117C)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_BATTLE_FRONTIER_BATTLE_FACTORY, 0, 1, 7, DIR_EAST)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement BattleFrontier_Movement_117C {
+    walk_fast_right * 6
+}
+
+script scr_seq_D32_000 {
+    end
+}
+
+mapscripts BattleFrontier_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32_037
+}

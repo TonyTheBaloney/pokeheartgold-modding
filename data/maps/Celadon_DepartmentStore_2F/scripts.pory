@@ -1,0 +1,309 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T07R0102_000
+	ScrDef scr_seq_T07R0102_001
+	ScrDef scr_seq_T07R0102_002
+	ScrDef scr_seq_T07R0102_003
+	ScrDef scr_seq_T07R0102_004
+	ScrDef scr_seq_T07R0102_005
+	ScrDef scr_seq_T07R0102_006
+	ScrDef scr_seq_T07R0102_007
+	ScrDefEnd
+`
+
+script scr_seq_T07R0102_006 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 5) {
+            clearflag(FLAG_HIDE_CAMERON)
+        } else {
+            setflag(FLAG_HIDE_CAMERON)
+        }
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T07R0102_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 18)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_T07R0102_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 19)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_T07R0102_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    hasitem(ITEM_FASHION_CASE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0495_T07R0102_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0495_T07R0102_00003)
+    getplayerfacing(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 2) {
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_01E8)
+    } else {
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0200)
+    }
+    waitmovement
+    npcmsg(msg_0495_T07R0102_00004)
+    applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0218)
+    waitmovement
+    if (var(VAR_TEMP_x4000) == 0) {
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0220)
+    } elif (var(VAR_TEMP_x4000) == 2) {
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0230)
+    } else {
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0228)
+    }
+    waitmovement
+    npcmsg(msg_0495_T07R0102_00005)
+    setvar(VAR_SPECIAL_x8004, 92)
+    setvar(VAR_SPECIAL_x8005, 1)
+    callstd(std_receive_accessory)
+    npcmsg(msg_0495_T07R0102_00006)
+    setvar(VAR_SPECIAL_x8004, 93)
+    setvar(VAR_SPECIAL_x8005, 1)
+    callstd(std_receive_accessory)
+    npcmsg(msg_0495_T07R0102_00007)
+    setvar(VAR_SPECIAL_x8004, 94)
+    setvar(VAR_SPECIAL_x8005, 1)
+    callstd(std_receive_accessory)
+    npcmsg(msg_0495_T07R0102_00008)
+    closemessage
+    compare(VAR_TEMP_x4000, 3)
+    callifeq(_01A0)
+    if (var(VAR_TEMP_x4000) == 3) {
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0250)
+    } else {
+        applymovement(obj_T07R0102_leader3, Celadon_DepartmentStore_2F_Movement_0238)
+    }
+    waitmovement
+    removeobject(obj_T07R0102_leader3)
+    setflag(FLAG_HIDE_CELADON_DEPT_STORE_2F_CRASHER_WAKE)
+    clearflag(FLAG_HIDE_ROUTE_47_CRASHER_WAKE)
+    releaseall
+    end
+_01A0:
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getpersoncoords(253, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+        if (var(VAR_SPECIAL_x8005) == 5) {
+            release(obj_partner_poke)
+            applymovement(obj_partner_poke, Celadon_DepartmentStore_2F_Movement_0264)
+            waitmovement
+            lock(obj_partner_poke)
+        }
+    }
+    return
+}
+
+movement Celadon_DepartmentStore_2F_Movement_01E8 {
+    walk_left
+    walk_in_place_up
+    delay_8
+    walk_right
+    walk_in_place_up
+}
+
+movement Celadon_DepartmentStore_2F_Movement_0200 {
+    walk_right
+    walk_in_place_up
+    delay_8
+    walk_left
+    walk_in_place_up
+}
+
+movement Celadon_DepartmentStore_2F_Movement_0218 {
+    emote_exclamation_mark
+}
+
+movement Celadon_DepartmentStore_2F_Movement_0220 {
+    walk_in_place_down
+}
+
+movement Celadon_DepartmentStore_2F_Movement_0228 {
+    walk_in_place_left
+}
+
+movement Celadon_DepartmentStore_2F_Movement_0230 {
+    walk_in_place_right
+}
+
+movement Celadon_DepartmentStore_2F_Movement_0238 {
+    walk_left * 2
+    walk_down
+    walk_left * 4
+    walk_up
+    walk_left * 4
+}
+
+movement Celadon_DepartmentStore_2F_Movement_0250 {
+    walk_down
+    walk_left * 6
+    walk_up
+    walk_left * 4
+}
+
+movement Celadon_DepartmentStore_2F_Movement_0264 {
+    walk_slightly_fast_left
+    walk_slightly_fast_up
+    face_down
+}
+
+script scr_seq_T07R0102_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_03C4)
+        applymovement(obj_T07R0102_gsmiddleman1_2, Celadon_DepartmentStore_2F_Movement_0410)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_03DC)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_03FC)
+        applymovement(obj_T07R0102_gsmiddleman1_2, Celadon_DepartmentStore_2F_Movement_0410)
+    } else {
+        applymovement(obj_player, Celadon_DepartmentStore_2F_Movement_03E8)
+        applymovement(obj_T07R0102_gsmiddleman1_2, Celadon_DepartmentStore_2F_Movement_0410)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Celadon_DepartmentStore_2F_Movement_041C)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(58)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Celadon_DepartmentStore_2F_Movement_03C4 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Celadon_DepartmentStore_2F_Movement_03DC {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Celadon_DepartmentStore_2F_Movement_03E8 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Celadon_DepartmentStore_2F_Movement_03FC {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Celadon_DepartmentStore_2F_Movement_0410 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Celadon_DepartmentStore_2F_Movement_041C {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_T07R0102_002 {
+    simplenpcmsg(msg_0495_T07R0102_00000)
+    end
+}
+
+script scr_seq_T07R0102_003 {
+    simplenpcmsg(msg_0495_T07R0102_00001)
+    end
+}
+
+script scr_seq_T07R0102_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0495_T07R0102_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Celadon_DepartmentStore_2F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07R0102_006
+}

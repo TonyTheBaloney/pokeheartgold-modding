@@ -1,0 +1,64 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T26R0501_000 {
+    simplenpcmsg(msg_0609_T26R0501_00000)
+    end
+}
+
+script scr_seq_T26R0501_001 {
+    simplenpcmsg(msg_0609_T26R0501_00001)
+    end
+}
+
+script scr_seq_T26R0501_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_AB9)) {
+        npcmsg(msg_0609_T26R0501_00004)
+    } else {
+        npcmsg(msg_0609_T26R0501_00002)
+        hasitem(ITEM_SEAL_CASE, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0609_T26R0501_00005)
+        } else {
+            giverandomseal(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_x8002)
+            if (var(VAR_SPECIAL_x8000) == 0) {
+                npcmsg(msg_0609_T26R0501_00003)
+            } else {
+                setflag(FLAG_UNK_AB9)
+                buffersealname(0, VAR_SPECIAL_x8000)
+                npcmsg(msg_0609_T26R0501_00006)
+                playfanfare(SEQ_ME_ITEM)
+                npcmsg(msg_0609_T26R0501_00011)
+                waitfanfare
+                if (var(VAR_SPECIAL_x8001) == 0) { goto(_00EB) }
+                buffersealname(0, VAR_SPECIAL_x8001)
+                npcmsg(msg_0609_T26R0501_00007)
+                playfanfare(SEQ_ME_ITEM)
+                npcmsg(msg_0609_T26R0501_00011)
+                waitfanfare
+                if (var(VAR_SPECIAL_x8002) == 0) { goto(_00EB) }
+                buffersealname(0, VAR_SPECIAL_x8002)
+                npcmsg(msg_0609_T26R0501_00008)
+                playfanfare(SEQ_ME_ITEM)
+                npcmsg(msg_0609_T26R0501_00011)
+                waitfanfare
+                npcmsg(msg_0609_T26R0501_00009)
+            }
+        }
+    }
+_00E3:
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00EB:
+    npcmsg(msg_0609_T26R0501_00010)
+    goto(_00E3)
+    end
+}
+
+mapscripts Olivine_NortheastHouse_MapScripts {
+}

@@ -1,0 +1,10 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R02R0501_000 {
+    simplenpcmsg(msg_0325_R02R0501_00000)
+    end
+}
+
+mapscripts Route2_ViridianForestNorthGatehouse_MapScripts {
+}

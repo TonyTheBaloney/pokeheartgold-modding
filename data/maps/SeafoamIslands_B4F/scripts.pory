@@ -1,0 +1,50 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D11R0105_000
+	ScrDef scr_seq_D11R0105_001
+	ScrDefEnd
+`
+
+script scr_seq_D11R0105_001 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_SEAFOAM_ISLAND_ARTICUNO)
+        removeobject(obj_D11R0105_tsure_poke_static_articuno)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        end
+    }
+    end
+}
+
+script scr_seq_D11R0105_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_ARTICUNO, 0)
+    waitcry
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(SPECIES_ARTICUNO, 50, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    _007D:
+        setflag(FLAG_CAUGHT_ARTICUNO)
+        return
+    }
+    getstaticencounteroutcome(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 3) {
+        compare(VAR_TEMP_x4002, 4)
+        callifeq(_007D)
+    }
+    releaseall
+    end
+}
+
+mapscripts SeafoamIslands_B4F_MapScripts {
+    INIT_SCRIPT_ON_LOAD: scr_seq_D11R0105_001
+}

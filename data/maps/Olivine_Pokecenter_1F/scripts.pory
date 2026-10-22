@@ -1,0 +1,101 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T26PC0101_000
+	ScrDef scr_seq_T26PC0101_001
+	ScrDef scr_seq_T26PC0101_002
+	ScrDef scr_seq_T26PC0101_003
+	ScrDef scr_seq_T26PC0101_004
+	ScrDefEnd
+`
+
+script scr_seq_T26PC0101_000 {
+    setvar(VAR_SPECIAL_x8007, 0)
+    callstd(std_nurse_joy)
+    end
+}
+
+script scr_seq_T26PC0101_004 {
+    if (defeated(TRAINER_BEAUTY_CHARLOTTE)) {
+        simplenpcmsg(msg_0607_T26PC0101_00006)
+        end
+    }
+    if (var(VAR_TEMP_x4007) == 77) { goto(_00C4) }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0607_T26PC0101_00003)
+    setvar(VAR_TEMP_x4007, 77)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 2) {
+        applymovement(obj_T26PC0101_gswoman2, Olivine_Pokecenter_1F_Movement_00FC)
+    } elif (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_T26PC0101_gswoman2, Olivine_Pokecenter_1F_Movement_0104)
+    }
+    waitmovement
+    npcmsg(msg_0607_T26PC0101_00004)
+_0082:
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00D5) }
+    npcmsg(msg_0607_T26PC0101_00005)
+    closemessage
+    trainerbattle(TRAINER_BEAUTY_CHARLOTTE, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00E0) }
+    settrainerflag(TRAINER_BEAUTY_CHARLOTTE)
+    npcmsg(msg_0607_T26PC0101_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00C4:
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0607_T26PC0101_00008)
+    goto(_0082)
+_00D5:
+    npcmsg(msg_0607_T26PC0101_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00E0:
+    whiteout
+    releaseall
+    end
+}
+
+movement Olivine_Pokecenter_1F_Movement_00FC {
+    walk_in_place_right
+}
+
+movement Olivine_Pokecenter_1F_Movement_0104 {
+    walk_in_place_down
+}
+
+script scr_seq_T26PC0101_001 {
+    simplenpcmsg(msg_0607_T26PC0101_00000)
+    end
+}
+
+script scr_seq_T26PC0101_002 {
+    simplenpcmsg(msg_0607_T26PC0101_00001)
+    end
+}
+
+script scr_seq_T26PC0101_003 {
+    simplenpcmsg(msg_0607_T26PC0101_00002)
+    end
+}
+
+mapscripts Olivine_Pokecenter_1F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: std_wireless_reset_state
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4133, 2: std_union_room_return
+        VAR_UNK_4133, 1: std_wireless_colosseum_return
+    ]
+}

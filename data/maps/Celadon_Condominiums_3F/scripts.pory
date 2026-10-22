@@ -1,0 +1,279 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T07R0203_000
+	ScrDef scr_seq_T07R0203_001
+	ScrDef scr_seq_T07R0203_002
+	ScrDef scr_seq_T07R0203_003
+	ScrDef scr_seq_T07R0203_004
+	ScrDef scr_seq_T07R0203_005
+	ScrDef scr_seq_T07R0203_006
+	ScrDef scr_seq_T07R0203_007
+	ScrDef scr_seq_T07R0203_008
+	ScrDef scr_seq_T07R0203_009
+	ScrDef scr_seq_T07R0203_010
+	ScrDef scr_seq_T07R0203_011
+	ScrDef scr_seq_T07R0203_012
+	ScrDef scr_seq_T07R0203_013
+	ScrDefEnd
+`
+
+script scr_seq_T07R0203_008 {
+    getfriendsprite(VAR_OBJ_0)
+    setvar(VAR_UNK_4125, 0)
+    end
+}
+
+script scr_seq_T07R0203_011 {
+    if (var(VAR_UNK_412C) == 0) {
+        movepersonfacing(obj_T07R0203_var_1, 12, 0, 6, DIR_WEST)
+        movepersonfacing(obj_T07R0203_tsure_poke_static_marill, 13, 0, 6, DIR_WEST)
+    }
+    end
+}
+
+script scr_seq_T07R0203_010 {
+    followmonresetmovement
+    lockall
+    callstd(std_play_friend_music)
+    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_012C)
+    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_0138)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0503_T07R0203_00012, msg_0503_T07R0203_00013)
+    closemessage
+    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_0140)
+    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_0148)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Celadon_Condominiums_3F_Movement_0150)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    gendermsgbox(msg_0503_T07R0203_00014, msg_0503_T07R0203_00015)
+    closemessage
+    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_015C)
+    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_016C)
+    waitmovement
+    dooranimationload(0, 0, 3, 2, 77)
+    dooranimationopen(77)
+    dooranimationwait(77)
+    applymovement(obj_T07R0203_var_1, Celadon_Condominiums_3F_Movement_0180)
+    applymovement(obj_T07R0203_tsure_poke_static_marill, Celadon_Condominiums_3F_Movement_018C)
+    waitmovement
+    dooranimationclose(77)
+    dooranimationwait(77)
+    dooranimationunload(77)
+    callstd(std_fade_end_friend_music)
+    setvar(VAR_UNK_412C, 1)
+    movepersonfacing(obj_T07R0203_var_1, 29, 0, 29, DIR_WEST)
+    movepersonfacing(obj_T07R0203_tsure_poke_static_marill, 29, 0, 29, DIR_WEST)
+    releaseall
+    end
+}
+
+movement Celadon_Condominiums_3F_Movement_012C {
+    walk_left * 4
+    emote_exclamation_mark
+}
+
+movement Celadon_Condominiums_3F_Movement_0138 {
+    walk_left * 4
+}
+
+movement Celadon_Condominiums_3F_Movement_0140 {
+    walk_left * 4
+}
+
+movement Celadon_Condominiums_3F_Movement_0148 {
+    walk_left * 4
+}
+
+movement Celadon_Condominiums_3F_Movement_0150 {
+    walk_down * 3
+    walk_in_place_right
+}
+
+movement Celadon_Condominiums_3F_Movement_015C {
+    walk_up * 2
+    walk_left
+    walk_up
+}
+
+movement Celadon_Condominiums_3F_Movement_016C {
+    walk_left
+    walk_up * 2
+    walk_left
+    walk_in_place_up
+}
+
+movement Celadon_Condominiums_3F_Movement_0180 {
+    walk_up
+    set_invisible
+}
+
+movement Celadon_Condominiums_3F_Movement_018C {
+    walk_up * 2
+    set_invisible
+}
+
+script scr_seq_T07R0203_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkjohtodexcomplete(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0245) }
+    if (!flag(FLAG_SAW_JOHTO_DEX_CERTIFICATE)) {
+        npcmsg(msg_0503_T07R0203_00001)
+        playfanfare(SEQ_ME_HYOUKA2)
+        waitfanfare
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        showcertificate(0)
+        restoreoverworld
+        setflag(FLAG_SAW_JOHTO_DEX_CERTIFICATE)
+        addspecialgamestat(SCORE_EVENT_REGIONAL_DEX_COMPLETE)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    checknationaldexcomplete(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0245) }
+    if (!flag(FLAG_SAW_NATIONAL_DEX_CERTIFICATE)) {
+        npcmsg(msg_0503_T07R0203_00002)
+        playfanfare(SEQ_ME_HYOUKA2)
+        waitfanfare
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        showcertificate(1)
+        restoreoverworld
+        setflag(FLAG_SAW_NATIONAL_DEX_CERTIFICATE)
+        addspecialgamestat(SCORE_EVENT_NATIONAL_DEX_COMPLETE)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    npcmsg(msg_0503_T07R0203_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0245:
+    npcmsg(msg_0503_T07R0203_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0203_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_EARTH, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getitemquantity(ITEM_GB_SOUNDS, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 0) {
+            npcmsg(msg_0503_T07R0203_00011)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0503_T07R0203_00008)
+        giveitemnocheck(ITEM_GB_SOUNDS, 1)
+        npcmsg(msg_0503_T07R0203_00010)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0503_T07R0203_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0203_001 {
+    simplenpcmsg(msg_0503_T07R0203_00004)
+    end
+}
+
+script scr_seq_T07R0203_002 {
+    simplenpcmsg(msg_0503_T07R0203_00005)
+    end
+}
+
+script scr_seq_T07R0203_003 {
+    simplenpcmsg(msg_0503_T07R0203_00006)
+    end
+}
+
+script scr_seq_T07R0203_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0503_T07R0203_00016)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0203_013 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0503_T07R0203_00017)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0203_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0503_T07R0203_00018)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0203_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0503_T07R0203_00019)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0203_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0503_T07R0203_00020)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0203_012 {
+    simplenpcmsg(msg_0503_T07R0203_00021)
+    end
+}
+
+mapscripts Celadon_Condominiums_3F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07R0203_008
+    INIT_SCRIPT_ON_RESUME: scr_seq_T07R0203_011
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_412C, 0: scr_seq_T07R0203_010
+    ]
+}

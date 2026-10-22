@@ -1,0 +1,361 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T06GYM0101_000
+	ScrDef scr_seq_T06GYM0101_001
+	ScrDef scr_seq_T06GYM0101_002
+	ScrDef scr_seq_T06GYM0101_003
+	ScrDef scr_seq_T06GYM0101_004
+	ScrDef scr_seq_T06GYM0101_005
+	ScrDef scr_seq_T06GYM0101_006
+	ScrDef scr_seq_T06GYM0101_007
+	ScrDef scr_seq_T06GYM0101_008
+	ScrDef scr_seq_T06GYM0101_009
+	ScrDef scr_seq_T06GYM0101_010
+	ScrDef scr_seq_T06GYM0101_011
+	ScrDef scr_seq_T06GYM0101_012
+	ScrDef scr_seq_T06GYM0101_013
+	ScrDef scr_seq_T06GYM0101_014
+	ScrDef scr_seq_T06GYM0101_015
+	ScrDef scr_seq_T06GYM0101_016
+	ScrDef scr_seq_T06GYM0101_017
+	ScrDef scr_seq_T06GYM0101_018
+	ScrDef scr_seq_T06GYM0101_019
+	ScrDef scr_seq_T06GYM0101_020
+	ScrDef scr_seq_T06GYM0101_021
+	ScrDef scr_seq_T06GYM0101_022
+	ScrDef scr_seq_T06GYM0101_023
+	ScrDef scr_seq_T06GYM0101_024
+	ScrDef scr_seq_T06GYM0101_025
+	ScrDefEnd
+`
+
+script scr_seq_T06GYM0101_021 {
+    if (!flag(FLAG_HIDE_VERMILION_GYM_STOPS)) {
+        clearflag(FLAG_SYS_SOLVED_LT_SURGE_GYM)
+    }
+    vermiliongyminit
+    getphonebookrematch(PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+        end
+    }
+    if (!flag(FLAG_CAUGHT_ZAPDOS)) { goto(_0144) }
+    checkregisteredphonenumber(PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_00FB) }
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 9) {
+        setflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+    } elif (var(VAR_TEMP_x4000) == 10) {
+        setflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+    } elif (var(VAR_TEMP_x4000) == 11) {
+        setflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+    } else {
+        clearflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+    }
+    end
+_00FB:
+    if (flag(FLAG_TRADE_LT_SURGE_PIKACHU)) { goto(_010C) }
+    setflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+    end
+_010C:
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 5) {
+        setflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+    } elif (var(VAR_TEMP_x4000) == 6) {
+        setflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+    } else {
+        clearflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+    }
+    end
+_0144:
+    clearflag(FLAG_HIDE_VERMILION_GYM_LT_SURGE)
+    end
+}
+
+script scr_seq_T06GYM0101_022 {
+    if (flag(FLAG_HIDE_VERMILION_GYM_STOPS)) {
+        end
+    }
+    makeobjectvisible(obj_T06GYM0101_stop)
+    makeobjectvisible(obj_T06GYM0101_stop_2)
+    makeobjectvisible(obj_T06GYM0101_stop_3)
+    makeobjectvisible(obj_T06GYM0101_stop_4)
+    makeobjectvisible(obj_T06GYM0101_stop_5)
+    makeobjectvisible(obj_T06GYM0101_stop_6)
+    end
+}
+
+script scr_seq_T06GYM0101_000 {
+    vermiliongymcancheck(0, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_001 {
+    vermiliongymcancheck(1, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_002 {
+    vermiliongymcancheck(2, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_003 {
+    vermiliongymcancheck(3, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_004 {
+    vermiliongymcancheck(4, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_005 {
+    vermiliongymcancheck(5, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_006 {
+    vermiliongymcancheck(6, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_007 {
+    vermiliongymcancheck(7, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_008 {
+    vermiliongymcancheck(8, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_009 {
+    vermiliongymcancheck(9, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_010 {
+    vermiliongymcancheck(10, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_011 {
+    vermiliongymcancheck(11, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_012 {
+    vermiliongymcancheck(12, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_013 {
+    vermiliongymcancheck(13, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+}
+
+script scr_seq_T06GYM0101_014 {
+    vermiliongymcancheck(14, VAR_SPECIAL_RESULT)
+    goto(_023A)
+    end
+_023A:
+    if (var(VAR_SPECIAL_RESULT) == 4) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        npcmsg(msg_0485_T06GYM0101_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _028E:
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        npcmsg(msg_0485_T06GYM0101_00009)
+        waitbuttonpress
+        closemessage
+        vermiliongymlockaction(0, 0)
+        npcmsg(msg_0485_T06GYM0101_00011)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 2) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        npcmsg(msg_0485_T06GYM0101_00009)
+        waitbuttonpress
+        closemessage
+        vermiliongymlockaction(1, 0)
+        setflag(FLAG_SYS_SOLVED_LT_SURGE_GYM)
+        stopse(SEQ_SE_GS_DENGEKIBARIA)
+        npcmsg(msg_0485_T06GYM0101_00012)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_028E) }
+    if (var(VAR_SPECIAL_RESULT) == 3) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        npcmsg(msg_0485_T06GYM0101_00010)
+        waitbuttonpress
+        closemessage
+        vermiliongymlockaction(0, 1)
+        resamplevermiliongymcans
+        releaseall
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        npcmsg(msg_0485_T06GYM0101_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    end
+}
+
+script scr_seq_T06GYM0101_015 {
+    end
+}
+
+script scr_seq_T06GYM0101_016 {
+    end
+}
+
+script scr_seq_T06GYM0101_017 {
+    end
+}
+
+script scr_seq_T06GYM0101_018 {
+    end
+}
+
+script scr_seq_T06GYM0101_019 {
+    end
+}
+
+script scr_seq_T06GYM0101_020 {
+    end
+}
+
+script scr_seq_T06GYM0101_023 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_THUNDER, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        if (!flag(FLAG_GOT_TM34_FROM_LT_SURGE)) { goto(_0389) }
+        npcmsg(msg_0485_T06GYM0101_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0485_T06GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_LT_SURGE_LT__SURGE, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    givebadge(BADGE_THUNDER)
+    addvar(VAR_UNK_4135, 1)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    setflag(FLAG_HIDE_VERMILION_GYM_STOPS)
+    removeobject(obj_T06GYM0101_stop)
+    removeobject(obj_T06GYM0101_stop_2)
+    removeobject(obj_T06GYM0101_stop_3)
+    removeobject(obj_T06GYM0101_stop_4)
+    removeobject(obj_T06GYM0101_stop_5)
+    removeobject(obj_T06GYM0101_stop_6)
+    settrainerflag(TRAINER_GUITARIST_VINCENT)
+    settrainerflag(TRAINER_GENTLEMAN_GREGORY)
+    settrainerflag(TRAINER_JUGGLER_HORTON)
+    npcmsg(msg_0485_T06GYM0101_00001)
+    bufferplayersname(0)
+    npcmsg(msg_0485_T06GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    npcmsg(msg_0485_T06GYM0101_00003)
+    goto(_0389)
+_0389:
+    if (!itemspace(ITEM_TM34, 1)) { goto(_03BD) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM34_FROM_LT_SURGE)
+    npcmsg(msg_0485_T06GYM0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_03BD:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T06GYM0101_024 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_THUNDER, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0485_T06GYM0101_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0485_T06GYM0101_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T06GYM0101_025 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_THUNDER, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0485_T06GYM0101_00013)
+    } else {
+        npcmsg(msg_0485_T06GYM0101_00014)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Vermilion_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T06GYM0101_021
+    INIT_SCRIPT_ON_RESUME: scr_seq_T06GYM0101_022
+}

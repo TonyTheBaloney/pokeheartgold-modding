@@ -1,0 +1,469 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D22R0101_000
+	ScrDef scr_seq_D22R0101_001
+	ScrDef scr_seq_D22R0101_002
+	ScrDef scr_seq_D22R0101_003
+	ScrDef scr_seq_D22R0101_004
+	ScrDef scr_seq_D22R0101_005
+	ScrDef scr_seq_D22R0101_006
+	ScrDef scr_seq_D22R0101_007
+	ScrDef scr_seq_D22R0101_008
+	ScrDef scr_seq_D22R0101_009
+	ScrDef scr_seq_D22R0101_010
+	ScrDef scr_seq_D22R0101_011
+	ScrDef scr_seq_D22R0101_012
+	ScrDef scr_seq_D22R0101_013
+	ScrDef scr_seq_D22R0101_014
+	ScrDef scr_seq_D22R0101_015
+	ScrDef scr_seq_D22R0101_016
+	ScrDef scr_seq_D22R0101_017
+	ScrDef scr_seq_D22R0101_018
+	ScrDef scr_seq_D22R0101_019
+	ScrDef scr_seq_D22R0101_020
+	ScrDef scr_seq_D22R0101_021
+	ScrDef scr_seq_D22R0101_022
+	ScrDef scr_seq_D22R0101_023
+	ScrDef scr_seq_D22R0101_024
+	ScrDef scr_seq_D22R0101_025
+	ScrDef scr_seq_D22R0101_026
+	ScrDefEnd
+`
+
+script scr_seq_D22R0101_011 {
+    compare(VAR_UNK_40F7, 1)
+    callifeq(_007D)
+    end
+_007D:
+    movepersonfacing(obj_D22R0101_counterm, 51, 0, 48, DIR_SOUTH)
+    setvar(VAR_TEMP_x4000, 0)
+    setvar(VAR_TEMP_x4001, 10)
+    setvar(VAR_TEMP_x4002, 48)
+    scriptoverlaycmd(1, 0)
+_009F:
+    isbugcontestantregistered(VAR_TEMP_x4000, VAR_TEMP_x4004)
+    if (var(VAR_TEMP_x4004) == 1) {
+        movepersonfacing(VAR_TEMP_x4001, VAR_TEMP_x4002, 0, 50, DIR_NORTH)
+        addvar(VAR_TEMP_x4002, 2)
+    }
+    addvar(VAR_TEMP_x4000, 1)
+    addvar(VAR_TEMP_x4001, 1)
+    if (var(VAR_TEMP_x4000) < 10) { goto(_009F) }
+    scriptoverlaycmd(1, 1)
+    return
+}
+
+script scr_seq_D22R0101_025 {
+    if (!flag(FLAG_UNK_189)) {
+        if (var(VAR_UNK_40F7) == 1) { goto(_0162) }
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 1) { goto(_0154) }
+        if (var(VAR_TEMP_x4000) == 3) { goto(_0154) }
+        if (var(VAR_TEMP_x4000) == 2) { goto(_0162) }
+        if (var(VAR_TEMP_x4000) == 4) { goto(_0162) }
+        if (var(VAR_TEMP_x4000) == 5) { goto(_0162) }
+        setflag(FLAG_HIDE_CAMERON)
+        clearflag(FLAG_UNK_27F)
+        goto(_016E)
+    _0154:
+        clearflag(FLAG_HIDE_CAMERON)
+        setflag(FLAG_UNK_27F)
+        goto(_016E)
+    _0162:
+        setflag(FLAG_HIDE_CAMERON)
+        setflag(FLAG_UNK_27F)
+        clearflag(FLAG_UNK_996)
+    _016E:
+        if (flag(FLAG_GAME_CLEAR)) {
+            getphonebookrematch(PHONE_CONTACT_BUGSY, VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) != 0) {
+                setflag(FLAG_UNK_288)
+                end
+            }
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 1) { goto(_01C3) }
+            if (var(VAR_TEMP_x4000) == 3) { goto(_01C3) }
+            if (var(VAR_TEMP_x4000) == 5) { goto(_01C3) }
+            setflag(FLAG_UNK_288)
+            end
+        _01C3:
+            clearflag(FLAG_UNK_288)
+            end
+        }
+        setflag(FLAG_UNK_288)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D22R0101_012 {
+    simplenpcmsg(msg_0062_D22R0101_00045)
+    end
+}
+
+script scr_seq_D22R0101_013 {
+    simplenpcmsg(msg_0062_D22R0101_00048)
+    end
+}
+
+script scr_seq_D22R0101_014 {
+    simplenpcmsg(msg_0062_D22R0101_00051)
+    end
+}
+
+script scr_seq_D22R0101_015 {
+    simplenpcmsg(msg_0062_D22R0101_00054)
+    end
+}
+
+script scr_seq_D22R0101_016 {
+    simplenpcmsg(msg_0062_D22R0101_00057)
+    end
+}
+
+script scr_seq_D22R0101_017 {
+    simplenpcmsg(msg_0062_D22R0101_00060)
+    end
+}
+
+script scr_seq_D22R0101_018 {
+    simplenpcmsg(msg_0062_D22R0101_00063)
+    end
+}
+
+script scr_seq_D22R0101_019 {
+    simplenpcmsg(msg_0062_D22R0101_00066)
+    end
+}
+
+script scr_seq_D22R0101_020 {
+    simplenpcmsg(msg_0062_D22R0101_00069)
+    end
+}
+
+script scr_seq_D22R0101_021 {
+    simplenpcmsg(msg_0062_D22R0101_00072)
+    end
+}
+
+script scr_seq_D22R0101_022 {
+    simplenpcmsg(msg_0062_D22R0101_00042)
+    end
+}
+
+script scr_seq_D22R0101_026 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 5) {
+        bufferplayersname(0)
+        npcmsg(msg_0062_D22R0101_00085)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0062_D22R0101_00088)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        photoalbumisfull(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0062_D22R0101_00089)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0062_D22R0101_00086)
+        closemessage
+        setflag(FLAG_UNK_189)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        cameronphoto(7)
+        faceplayer
+        lockall
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        clearflag(FLAG_UNK_189)
+        npcmsg(msg_0062_D22R0101_00087)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    bufferplayersname(0)
+    npcmsg(msg_0062_D22R0101_00084)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D22R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_QUICK_CLAW_FROM_NATIONAL_PARK_WOMAN)) {
+        npcmsg(msg_0062_D22R0101_00002)
+        if (!itemspace(ITEM_QUICK_CLAW, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_QUICK_CLAW_FROM_NATIONAL_PARK_WOMAN)
+    }
+    npcmsg(msg_0062_D22R0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D22R0101_023 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0650) }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0664) }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, NationalPark_Movement_04C0)
+        applymovement(obj_D22R0101_gsmiddleman1_3, NationalPark_Movement_050C)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, NationalPark_Movement_04D8)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, NationalPark_Movement_04F8)
+        applymovement(obj_D22R0101_gsmiddleman1_3, NationalPark_Movement_050C)
+    } else {
+        applymovement(obj_player, NationalPark_Movement_04E4)
+        applymovement(obj_D22R0101_gsmiddleman1_3, NationalPark_Movement_050C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, NationalPark_Movement_0518)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(16)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement NationalPark_Movement_04C0 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement NationalPark_Movement_04D8 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement NationalPark_Movement_04E4 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement NationalPark_Movement_04F8 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement NationalPark_Movement_050C {
+    delay_8
+    walk_in_place_up
+}
+
+movement NationalPark_Movement_0518 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_D22R0101_024 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0650) }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0664) }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, NationalPark_Movement_04C0)
+        applymovement(obj_D22R0101_gsmiddleman1_4, NationalPark_Movement_050C)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, NationalPark_Movement_04D8)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, NationalPark_Movement_0678)
+        applymovement(obj_D22R0101_gsmiddleman1_4, NationalPark_Movement_050C)
+    } else {
+        applymovement(obj_player, NationalPark_Movement_04E4)
+        applymovement(obj_D22R0101_gsmiddleman1_4, NationalPark_Movement_050C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, NationalPark_Movement_0518)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(17)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0650:
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 5)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0664:
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 3)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement NationalPark_Movement_0678 {
+    walk_down
+    walk_right * 2
+    walk_up * 2
+    walk_left
+    walk_up * 2
+    walk_in_place_down
+}
+
+script scr_seq_D22R0101_001 {
+    trainertipsex(2, msg_0062_D22R0101_00022)
+    end
+}
+
+script scr_seq_D22R0101_002 {
+    trainertipsex(3, msg_0062_D22R0101_00023)
+    end
+}
+
+script scr_seq_D22R0101_003 {
+    trainertipsex(3, msg_0062_D22R0101_00024)
+    end
+}
+
+script scr_seq_D22R0101_004 {
+    simplenpcmsg(msg_0062_D22R0101_00000)
+    end
+}
+
+script scr_seq_D22R0101_005 {
+    simplenpcmsg(msg_0062_D22R0101_00001)
+    end
+}
+
+script scr_seq_D22R0101_006 {
+    simplenpcmsg(msg_0062_D22R0101_00005)
+    end
+}
+
+script scr_seq_D22R0101_007 {
+    simplenpcmsg(msg_0062_D22R0101_00006)
+    end
+}
+
+script scr_seq_D22R0101_008 {
+    simplenpcmsg(msg_0062_D22R0101_00009)
+    end
+}
+
+script scr_seq_D22R0101_009 {
+    simplenpcmsg(msg_0062_D22R0101_00007)
+    end
+}
+
+script scr_seq_D22R0101_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0062_D22R0101_00008)
+    playcry(SPECIES_PERSIAN, 0)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+    end
+}
+
+mapscripts NationalPark_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40F7, 1: std_bug_contest_judging
+    ]
+    INIT_SCRIPT_ON_RESUME: scr_seq_D22R0101_011
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D22R0101_025
+}

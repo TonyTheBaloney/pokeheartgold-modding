@@ -1,0 +1,40 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T29R0101_000 {
+    if (flag(FLAG_GOT_TM10_FROM_LAKE_OF_RAGE_MAN)) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        npcmsg(msg_0627_T29R0101_00004)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0627_T29R0101_00000)
+    if (!itemspace(ITEM_TM10, 1)) {
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM10_FROM_LAKE_OF_RAGE_MAN)
+    npcmsg(msg_0627_T29R0101_00002)
+    waitbuttonpress
+    closemessage
+    applymovement(obj_T29R0101_gsbigman, LakeOfRage_HiddenPowerHouse_Movement_0078)
+    waitmovement
+    releaseall
+    end
+}
+
+movement LakeOfRage_HiddenPowerHouse_Movement_0078 {
+    face_right
+}
+
+mapscripts LakeOfRage_HiddenPowerHouse_MapScripts {
+}

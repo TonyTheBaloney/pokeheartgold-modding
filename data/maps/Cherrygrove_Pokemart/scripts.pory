@@ -1,0 +1,59 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T21FS0101_000
+	ScrDef scr_seq_T21FS0101_001
+	ScrDef scr_seq_T21FS0101_002
+	ScrDef scr_seq_T21FS0101_003
+	ScrDefEnd
+`
+
+script scr_seq_T21FS0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 0)
+    callstd(std_pokemart)
+    releaseall
+    end
+}
+
+script scr_seq_T21FS0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 0)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_T21FS0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ELMS_LAB) >= 4) {
+        npcmsg(msg_0551_T21FS0101_00001)
+    } else {
+        npcmsg(msg_0551_T21FS0101_00000)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T21FS0101_001 {
+    simplenpcmsg(msg_0551_T21FS0101_00002)
+    end
+}
+
+mapscripts Cherrygrove_Pokemart_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: std_hide_show_deliverymen
+}

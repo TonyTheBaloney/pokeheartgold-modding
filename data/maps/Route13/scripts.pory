@@ -1,0 +1,20 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R13_000 {
+    trainertipsex(3, msg_0350_R13_00000)
+    end
+}
+
+script scr_seq_R13_001 {
+    directionsignpostex(1, 10, msg_0350_R13_00001)
+    end
+}
+
+script scr_seq_R13_002 {
+    directionsignpostex(1, 14, msg_0350_R13_00002)
+    end
+}
+
+mapscripts Route13_MapScripts {
+}

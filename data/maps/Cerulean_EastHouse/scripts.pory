@@ -1,0 +1,28 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T04R0201_000 {
+    simplenpcmsg(msg_0472_T04R0201_00000)
+    end
+}
+
+script scr_seq_T04R0201_001 {
+    simplenpcmsg(msg_0472_T04R0201_00001)
+    end
+}
+
+script scr_seq_T04R0201_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_DIGLETT, 0)
+    npcmsg(msg_0472_T04R0201_00002)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Cerulean_EastHouse_MapScripts {
+}

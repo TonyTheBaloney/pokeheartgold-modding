@@ -1,0 +1,132 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D15R0103_000 {
+    clearflag(FLAG_UNK_1A3)
+    if (flag(FLAG_UNK_078)) {
+        setflag(FLAG_UNK_1A3)
+        end
+    }
+    end
+}
+
+script scr_seq_D15R0103_001 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_40A4, 1)
+    applymovement(obj_player, SproutTower_3F_Movement_00B4)
+    waitmovement
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    applymovement(241, SproutTower_3F_Movement_00C0)
+    waitmovement
+    applymovement(obj_D15R0103_chourou, SproutTower_3F_Movement_00D0)
+    waitmovement
+    npcmsg(msg_0056_D15R0103_00000)
+    closemessage
+    wait(15, VAR_SPECIAL_RESULT)
+    callstd(std_play_rival_outro_music)
+    bufferrivalsname(0)
+    applymovement(obj_D15R0103_gsrivel, SproutTower_3F_Movement_00D8)
+    waitmovement
+    npcmsg(msg_0056_D15R0103_00001)
+    closemessage
+    wait(15, VAR_SPECIAL_RESULT)
+    bufferrivalsname(0)
+    npcmsg(msg_0056_D15R0103_00002)
+    waitabpress
+    closemessage
+    playse(SEQ_SE_DP_KAIDAN2)
+    applymovement(obj_D15R0103_gsrivel, SproutTower_3F_Movement_00E0)
+    waitmovement
+    removeobject(obj_D15R0103_gsrivel)
+    setflag(FLAG_UNK_078)
+    callstd(std_fade_end_rival_outro_music)
+    applymovement(241, SproutTower_3F_Movement_00C8)
+    waitmovement
+    removecameratarget
+    releaseall
+    end
+}
+
+movement SproutTower_3F_Movement_00B4 {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement SproutTower_3F_Movement_00C0 {
+    walk_up * 5
+}
+
+movement SproutTower_3F_Movement_00C8 {
+    walk_down * 5
+}
+
+movement SproutTower_3F_Movement_00D0 {
+    walk_in_place_down * 2
+}
+
+movement SproutTower_3F_Movement_00D8 {
+    walk_down
+}
+
+movement SproutTower_3F_Movement_00E0 {
+    face_left * 4
+    face_up * 4
+    face_right * 4
+    face_down * 4
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left * 2
+    face_up * 2
+    face_right * 2
+    face_down * 2
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+}
+
+script scr_seq_D15R0103_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_076)) {
+        npcmsg(msg_0056_D15R0103_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0056_D15R0103_00003)
+    closemessage
+    trainerbattle(TRAINER_ELDER_LI, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0056_D15R0103_00004)
+    giveitemnocheck(ITEM_TM70, 1)
+    setflag(FLAG_UNK_076)
+    setflag(FLAG_HIDE_VIOLET_GYM_GYM_GUY_AFTER_SPROUT)
+    clearflag(FLAG_HIDE_VIOLET_GYM_GYM_GUY_BEFORE_SPROUT)
+    npcmsg(msg_0056_D15R0103_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts SproutTower_3F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D15R0103_000
+}

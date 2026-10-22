@@ -1,0 +1,293 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T02GYM0101_000
+	ScrDef scr_seq_T02GYM0101_001
+	ScrDef scr_seq_T02GYM0101_002
+	ScrDef scr_seq_T02GYM0101_003
+	ScrDef scr_seq_T02GYM0101_004
+	ScrDefEnd
+`
+
+script scr_seq_T02GYM0101_002 {
+    viridiangyminit
+    setvar(VAR_UNK_4127, 0)
+    getphonebookrematch(PHONE_CONTACT_BLUE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_VIRIDIAN_GYM_BLUE)
+        end
+    }
+    if (var(VAR_UNK_40FD) == 0) { goto(_005F) }
+    getweekday(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 5) {
+        setflag(FLAG_HIDE_VIRIDIAN_GYM_BLUE)
+    } else {
+        clearflag(FLAG_HIDE_VIRIDIAN_GYM_BLUE)
+    }
+    end
+_005F:
+    clearflag(FLAG_HIDE_VIRIDIAN_GYM_BLUE)
+    end
+}
+
+script scr_seq_T02GYM0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_EARTH, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        if (!flag(FLAG_GOT_TM92_FROM_BLUE)) { goto(_00F0) }
+        npcmsg(msg_0454_T02GYM0101_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0454_T02GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_BLUE_BLUE, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    givebadge(BADGE_EARTH)
+    addvar(VAR_UNK_4135, 1)
+    setflag(FLAG_UNK_998)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    settrainerflag(TRAINER_ACE_TRAINER_M_ARABELLA)
+    settrainerflag(TRAINER_ACE_TRAINER_F_SALMA)
+    settrainerflag(TRAINER_ACE_TRAINER_M_BONITA)
+    settrainerflag(TRAINER_DOUBLE_TEAM_ELAN_AND_IDA)
+    setflag(FLAG_UNK_97F)
+    clearflag(FLAG_HIDE_ROUTE_10_ZAPDOS)
+    setflag(FLAG_HIDE_CERULEAN_CITY_MAN_OUTSIDE_CAVE)
+    setvar(VAR_UNK_4096, 1)
+    npcmsg(msg_0454_T02GYM0101_00001)
+    bufferplayersname(0)
+    npcmsg(msg_0454_T02GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    npcmsg(msg_0454_T02GYM0101_00003)
+    goto(_00F0)
+_00F0:
+    if (!itemspace(ITEM_TM92, 1)) { goto(_0127) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM92_FROM_BLUE)
+    bufferplayersname(0)
+    npcmsg(msg_0454_T02GYM0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0127:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T02GYM0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_EARTH, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0454_T02GYM0101_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0454_T02GYM0101_00006)
+    followmonrecall
+    setfollowmoninhibitstate(1)
+    followmonmovetoplayer
+    changeobjectmovement(253, 56)
+    setvar(VAR_UNK_4127, 1)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T02GYM0101_003 {
+    followmonresetmovement
+    lockall
+    if (!flag(FLAG_UNK_13A)) {
+        getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4000) == 1) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0394)
+            applymovement(obj_player, Viridian_Gym_Movement_040C)
+        } elif (var(VAR_TEMP_x4000) == 2) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03A4)
+            applymovement(obj_player, Viridian_Gym_Movement_040C)
+        } elif (var(VAR_TEMP_x4000) == 3) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03B4)
+            applymovement(obj_player, Viridian_Gym_Movement_040C)
+        } elif (var(VAR_TEMP_x4000) == 4) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03C4)
+            applymovement(obj_player, Viridian_Gym_Movement_0418)
+        } elif (var(VAR_TEMP_x4000) == 5) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03D4)
+            applymovement(obj_player, Viridian_Gym_Movement_0418)
+        } elif (var(VAR_TEMP_x4000) == 6) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03E4)
+            applymovement(obj_player, Viridian_Gym_Movement_0418)
+        } elif (var(VAR_TEMP_x4000) == 8) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03F0)
+            applymovement(obj_player, Viridian_Gym_Movement_0424)
+        } else {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_03FC)
+            applymovement(obj_player, Viridian_Gym_Movement_0424)
+        }
+        waitmovement
+        npcmsg(msg_0454_T02GYM0101_00008)
+        closemessage
+        setflag(FLAG_UNK_13A)
+        if (var(VAR_TEMP_x4000) == 1) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0430)
+        } elif (var(VAR_TEMP_x4000) == 2) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_043C)
+        } elif (var(VAR_TEMP_x4000) == 3) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0448)
+        } elif (var(VAR_TEMP_x4000) == 4) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0454)
+        } elif (var(VAR_TEMP_x4000) == 5) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0460)
+        } elif (var(VAR_TEMP_x4000) == 6) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_046C)
+        } elif (var(VAR_TEMP_x4000) == 8) {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_046C)
+        } else {
+            applymovement(obj_T02GYM0101_sunglasses, Viridian_Gym_Movement_0474)
+        }
+        waitmovement
+    }
+    followmonrecall
+    setfollowmoninhibitstate(1)
+    followmonmovetoplayer
+    changeobjectmovement(253, 56)
+    setvar(VAR_UNK_4127, 1)
+    releaseall
+    end
+}
+
+movement Viridian_Gym_Movement_0394 {
+    face_left
+    emote_exclamation_mark
+    walk_left * 5
+}
+
+movement Viridian_Gym_Movement_03A4 {
+    face_left
+    emote_exclamation_mark
+    walk_left * 4
+}
+
+movement Viridian_Gym_Movement_03B4 {
+    face_left
+    emote_exclamation_mark
+    walk_left * 3
+}
+
+movement Viridian_Gym_Movement_03C4 {
+    face_left
+    emote_exclamation_mark
+    walk_left * 2
+}
+
+movement Viridian_Gym_Movement_03D4 {
+    face_left
+    emote_exclamation_mark
+    walk_left
+}
+
+movement Viridian_Gym_Movement_03E4 {
+    face_left
+    emote_exclamation_mark
+}
+
+movement Viridian_Gym_Movement_03F0 {
+    face_right
+    emote_exclamation_mark
+}
+
+movement Viridian_Gym_Movement_03FC {
+    face_right
+    emote_exclamation_mark
+    walk_right
+}
+
+movement Viridian_Gym_Movement_040C {
+    delay_16 * 2
+    face_right
+}
+
+movement Viridian_Gym_Movement_0418 {
+    delay_8 * 2
+    face_right
+}
+
+movement Viridian_Gym_Movement_0424 {
+    delay_8 * 2
+    face_left
+}
+
+movement Viridian_Gym_Movement_0430 {
+    walk_right * 5
+    face_down
+}
+
+movement Viridian_Gym_Movement_043C {
+    walk_right * 4
+    face_down
+}
+
+movement Viridian_Gym_Movement_0448 {
+    walk_right * 3
+    face_down
+}
+
+movement Viridian_Gym_Movement_0454 {
+    walk_right * 2
+    face_down
+}
+
+movement Viridian_Gym_Movement_0460 {
+    walk_right
+    face_down
+}
+
+movement Viridian_Gym_Movement_046C {
+    face_down
+}
+
+movement Viridian_Gym_Movement_0474 {
+    walk_left
+    face_down
+}
+
+script scr_seq_T02GYM0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_EARTH, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0454_T02GYM0101_00009)
+    } else {
+        npcmsg(msg_0454_T02GYM0101_00010)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Viridian_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T02GYM0101_002
+}

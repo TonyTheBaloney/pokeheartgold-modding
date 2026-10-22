@@ -1,0 +1,76 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T23R0201_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_BEAT_AZALEA_ROCKETS)) {
+        if (flag(FLAG_GOT_HM01)) {
+            npcmsg(msg_0570_T23R0201_00002)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0570_T23R0201_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0570_T23R0201_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T23R0201_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_HM01)) {
+        if (flag(FLAG_GOT_CHARCOAL_FROM_AZALEA_TOWN_MAN)) {
+            npcmsg(msg_0570_T23R0201_00006)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0570_T23R0201_00004)
+        waitabpress
+        if (!itemspace(ITEM_CHARCOAL, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_obtain_item_verbose)
+        setflag(FLAG_GOT_CHARCOAL_FROM_AZALEA_TOWN_MAN)
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0570_T23R0201_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T23R0201_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_FARFETCHD, 0)
+    npcmsg(msg_0570_T23R0201_00008)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Azalea_CharcoalKiln_MapScripts {
+}

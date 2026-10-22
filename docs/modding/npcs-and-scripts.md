@@ -126,46 +126,46 @@ isn't possible as text yet.
 
 ## Event scripts
 
-Scripts can also be written in `scripts.pory` with `if`/`while`/`switch` and inline
-text: see [SCRIPTING.md](SCRIPTING.md). This section covers the `.inc` form.
+`data/maps/<MapName>/scripts.pory` holds a map's scripts, in a poryscript-style
+language with `if`/`elif`/`else`, `while`, `switch` and inline text: see
+[SCRIPTING.md](SCRIPTING.md). From Cherrygrove, the man who gives Mystic Water:
 
-`data/maps/<MapName>/scripts.inc` is an assembly file made of script-command macros
-from `asm/macros/script.inc`. From Cherrygrove, the man who gives Mystic Water:
-
-```asm
-	ScrDef Cherrygrove_EventScript_GuideGent        @ script 1
-	...
-	ScrDef Cherrygrove_EventScript_MysticWaterMan   @ script 5
-	...
-	ScrDefEnd
-
-Cherrygrove_EventScript_MysticWaterMan:
-	PlaySE SEQ_SE_DP_SELECT
-	LockAll
-	FacePlayer
-	GoToIfSet FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN, _0903
-	NPCMsg msg_0550_T21_00020
-	GoToIfNoItemSpace ITEM_MYSTIC_WATER, 1, _090E
-	CallStd std_give_item_verbose
-	SetFlag FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN
-_0903:
-	NPCMsg msg_0550_T21_00021
-	WaitButton
-	CloseMsg
-	ReleaseAll
-	End
+```
+script Cherrygrove_EventScript_MysticWaterMan {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)) {
+        npcmsg(msg_0550_T21_00020)
+        if (!itemspace(ITEM_MYSTIC_WATER, 1)) {
+            npcmsg(msg_0550_T21_00022)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_MYSTIC_WATER_FROM_CHERRYGROVE_CITY_MAN)
+    }
+    npcmsg(msg_0550_T21_00021)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
 ```
 
 Most maps still use their original labels (`scr_seq_T21_004`); Cherrygrove's were
 renamed pokeemerald-style with `mapkit script rename`.
 
-Common commands: `LockAll`/`ReleaseAll`, `FacePlayer`, `NPCMsg`, `WaitButton`,
-`CloseMsg`, `GoTo`, `GoToIfSet FLAG, label`, `Compare VAR, n` + `GoToIfEq label`,
-`SetFlag`/`ClearFlag`, `SetVar`, `ShowPerson`/`HidePerson`,
-`ApplyMovement obj, label` + `WaitMovement`, `CallStd std_*`, `End`.
-Labels like `_0903` are internal jump targets; rename them freely.
+Commands are the macros in `asm/macros/script.inc`, lowercased: `lockall`/`releaseall`,
+`faceplayer`, `npcmsg`, `waitbuttonpress`, `closemessage`, `setflag`/`clearflag`,
+`setvar`, `addobject`/`removeobject`, `applymovement(obj, Movement)` + `waitmovement`,
+`callstd(std_*)`, `end`. Conditions: `flag(F)`, `var(V) == n`, `defeated(T)`,
+`itemspace(ITEM, n)`. Labels like `_0083:` are shared jump targets; rename them freely.
 `grep -n '\.macro <Name>' asm/macros/script.inc` shows a command's arguments.
 852 commands exist and all have names; some arguments are still `argN`.
+`mapkit pory show <map>` prints what a map compiles to.
 
 ### Script IDs
 
@@ -181,60 +181,59 @@ Events refer to scripts in one of three ways:
 
 ### Adding a script
 
-`tools/mapkit/mapkit.sh script add <map> <Label> [--msg <msg id>]` does this:
+`tools/mapkit/mapkit.sh script add <map> <Label> [--msg <msg id>]` appends a
+`script <Label> { ... }` block to `scripts.pory`, updates the `_EV_` defines in
+`ids.h`, and prints the script's number. Point the object/sign/trigger at
+`"script": "<Label>"`.
 
-1. Add `ScrDef <Label>` as the **last** line before `ScrDefEnd` (appending keeps
-   every existing number the same).
-2. Add the labeled script body after the table.
-3. Add `#define _EV_<Label> <index>` to `ids.h`.
-4. Point the object/sign/trigger at `"script": "<Label>"`.
-
-Never insert into the middle of the `ScrDef` table: it renumbers every later script.
+Script numbers follow the `ScrDef` table at the top of the file when there is one
+(a `raw` block), else file order; new scripts are numbered after the existing ones.
+Never reorder or insert into the `ScrDef` table: it renumbers every later script.
 `mapkit script rename <map> <old> <new>` renames a script everywhere in the map.
 
-### Init / level scripts (`map_scripts.inc`)
+### Init / level scripts (`mapscripts`)
 
-`map_scripts.inc` declares scripts the engine runs by itself. Cherrygrove runs
-`Cherrygrove_OnTransition` on every entry:
+The `mapscripts` block at the end of `scripts.pory` declares scripts the engine
+runs by itself (it compiles to the map's separate init-script bank). Cherrygrove
+runs `Cherrygrove_OnTransition` on every entry:
 
-```asm
-	InitScriptEntry_OnTransition _EV_Cherrygrove_OnTransition + 1
-	InitScriptEntryEnd
-
-	InitScriptEnd
+```
+mapscripts Cherrygrove_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: Cherrygrove_OnTransition
+}
 ```
 
-Mount Moon (`data/maps/MountMoon/map_scripts.inc`) checks a var every frame:
+Mount Moon checks a var every frame:
 
-```asm
-	InitScriptEntry_OnFrameTable scr_seq_D02R0101_map_scripts_2
-	InitScriptEntryEnd
-
-scr_seq_D02R0101_map_scripts_2:
-	InitScriptGoToIfEqual VAR_UNK_40F5, 0, _EV_scr_seq_D02R0101_000 + 1
-	InitScriptFrameTableEnd
-
-	InitScriptEnd
+```
+mapscripts MountMoon_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40F5, 0: scr_seq_D02R0101_000
+    ]
+}
 ```
 
-Script ids here use the `_EV_<label> + 1` form. `InitScriptEntry_OnLoad` and
-`InitScriptEntry_OnResume` also exist. Macros: `asm/macros/script.inc`; types:
+`INIT_SCRIPT_ON_LOAD` and `INIT_SCRIPT_ON_RESUME` also exist. Types:
 `include/constants/init_script_types.h`.
 
 ### Movement scripts
 
-Inline data after `.balign 4` in the script file, macros from
-`asm/macros/movement.inc`:
+`movement` blocks, placed where they are written, with pokeemerald-style names
+for the macros in `asm/macros/movement.inc`:
 
-```asm
-	.balign 4
-_walkToPlayer:
-	WalkNormalNorth 2
-	FaceEast
-	EndMovement
+```
+movement Cherrygrove_Movement_0390 {
+    walk_fast_left * 2
+    walk_fast_up * 2
+    emote_exclamation_mark
+    walk_in_place_fast_down
+    walk_fast_down * 3
+    walk_fast_right
+}
 ```
 
-Run with `ApplyMovement obj_T21_gsoldman1, _walkToPlayer` then `WaitMovement`.
+Run with `applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0390)` then
+`waitmovement`.
 
 ## Text
 

@@ -1,0 +1,10 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R15R0101_000 {
+    simplenpcmsg(msg_0353_R15R0101_00000)
+    end
+}
+
+mapscripts Route15_FuchsiaGatehouse_MapScripts {
+}

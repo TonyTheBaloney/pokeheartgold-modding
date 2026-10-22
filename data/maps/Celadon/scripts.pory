@@ -1,0 +1,446 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T07_000
+	ScrDef scr_seq_T07_001
+	ScrDef scr_seq_T07_002
+	ScrDef scr_seq_T07_003
+	ScrDef scr_seq_T07_004
+	ScrDef scr_seq_T07_005
+	ScrDef scr_seq_T07_006
+	ScrDef scr_seq_T07_007
+	ScrDef scr_seq_T07_008
+	ScrDef scr_seq_T07_009
+	ScrDef scr_seq_T07_010
+	ScrDef scr_seq_T07_011
+	ScrDef scr_seq_T07_012
+	ScrDef scr_seq_T07_013
+	ScrDef scr_seq_T07_014
+	ScrDef scr_seq_T07_015
+	ScrDef scr_seq_T07_016
+	ScrDef scr_seq_T07_017
+	ScrDef scr_seq_T07_018
+	ScrDefEnd
+`
+
+script scr_seq_T07_015 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 2) {
+            clearflag(FLAG_HIDE_CAMERON)
+        } elif (var(VAR_TEMP_x4000) == 5) {
+            clearflag(FLAG_HIDE_CAMERON)
+        } else {
+            setflag(FLAG_HIDE_CAMERON)
+        }
+        checkregisteredphonenumber(PHONE_CONTACT_ERIKA, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 1) {
+            getphonebookrematch(PHONE_CONTACT_ERIKA, VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) != 0) { goto(_0198) }
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 1) {
+                clearflag(FLAG_UNK_25D)
+                setflag(FLAG_UNK_2E1)
+            } else {
+                goto(_0198)
+            }
+            end
+        _0198:
+            setflag(FLAG_UNK_25D)
+            setflag(FLAG_UNK_2E1)
+            end
+        }
+        checkbadge(BADGE_EARTH, VAR_TEMP_x4002)
+        if (var(VAR_TEMP_x4002) == 1) { goto(_00C3) }
+        goto(_0198)
+        end
+    _00C3:
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 6) { goto(_00E0) }
+        goto(_0101)
+        goto(_00FF)
+    _00E0:
+        if (var(VAR_TEMP_x4000) != 0) { goto(_00F9) }
+        goto(_0101)
+        goto(_00FF)
+    _00F9:
+        goto(_0198)
+    _00FF:
+        end
+    _0101:
+        getcurrenthour(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 14) {
+            clearflag(FLAG_UNK_25D)
+            clearflag(FLAG_UNK_2E1)
+        } elif (var(VAR_TEMP_x4000) == 15) {
+            clearflag(FLAG_UNK_25D)
+            clearflag(FLAG_UNK_2E1)
+        } elif (var(VAR_TEMP_x4000) == 16) {
+            clearflag(FLAG_UNK_25D)
+            clearflag(FLAG_UNK_2E1)
+        } else {
+            goto(_0198)
+        }
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T07_000 {
+    simplenpcmsg(msg_0491_T07_00000)
+    end
+}
+
+script scr_seq_T07_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_POLIWRATH, 0)
+    npcmsg(msg_0491_T07_00001)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07_002 {
+    simplenpcmsg(msg_0491_T07_00002)
+    end
+}
+
+script scr_seq_T07_003 {
+    simplenpcmsg(msg_0491_T07_00003)
+    end
+}
+
+script scr_seq_T07_004 {
+    simplenpcmsg(msg_0491_T07_00004)
+    end
+}
+
+script scr_seq_T07_005 {
+    simplenpcmsg(msg_0491_T07_00005)
+    end
+}
+
+script scr_seq_T07_006 {
+    simplenpcmsg(msg_0491_T07_00006)
+    end
+}
+
+script scr_seq_T07_007 {
+    simplenpcmsg(msg_0491_T07_00007)
+    end
+}
+
+script scr_seq_T07_008 {
+    simplenpcmsg(msg_0491_T07_00008)
+    end
+}
+
+script scr_seq_T07_009 {
+    directionsignpostex(0, 7, msg_0491_T07_00030)
+    end
+}
+
+script scr_seq_T07_010 {
+    trainertipsex(2, msg_0491_T07_00031)
+    end
+}
+
+script scr_seq_T07_011 {
+    trainertipsex(2, msg_0491_T07_00032)
+    end
+}
+
+script scr_seq_T07_012 {
+    trainertipsex(2, msg_0491_T07_00033)
+    end
+}
+
+script scr_seq_T07_013 {
+    trainertipsex(2, msg_0491_T07_00034)
+    end
+}
+
+script scr_seq_T07_014 {
+    trainertipsex(3, msg_0491_T07_00035)
+    end
+}
+
+script scr_seq_T07_016 {
+    checkregisteredphonenumber(PHONE_CONTACT_ERIKA, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_046C) }
+    if (var(VAR_TEMP_x4005) == 2) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        faceplayer
+        npcmsg(msg_0491_T07_00023)
+        goto(_03BE)
+        end
+        simplenpcmsg(msg_0491_T07_00021)
+        end
+    }
+    if (var(VAR_TEMP_x4005) == 1) { goto(_03AA) }
+_0302:
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_TEMP_x4005, 1)
+    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    waitmovement
+    npcmsg(msg_0491_T07_00009)
+    closemessage
+    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    waitmovement
+    npcmsg(msg_0491_T07_00010)
+    closemessage
+    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    waitmovement
+    npcmsg(msg_0491_T07_00011)
+    closemessage
+    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    waitmovement
+    npcmsg(msg_0491_T07_00012)
+    closemessage
+    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    waitmovement
+    npcmsg(msg_0491_T07_00013)
+    closemessage
+    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    waitmovement
+    npcmsg(msg_0491_T07_00014)
+    closemessage
+    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    waitmovement
+    npcmsg(msg_0491_T07_00015)
+    closemessage
+    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    waitmovement
+    npcmsg(msg_0491_T07_00016)
+    closemessage
+    applymovement(obj_T07_gsleader12, Celadon_Movement_045C)
+    waitmovement
+    npcmsg(msg_0491_T07_00017)
+    closemessage
+    applymovement(obj_T07_gsleader6, Celadon_Movement_0464)
+    waitmovement
+    npcmsg(msg_0491_T07_00018)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_03AA:
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4005, 2)
+    bufferplayersname(0)
+    npcmsg(msg_0491_T07_00019)
+_03BE:
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_03E2) }
+    if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_0429) }
+    end
+_03E2:
+    bufferplayersname(0)
+    npcmsg(msg_0491_T07_00020)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    registergearnumber(PHONE_CONTACT_ERIKA)
+    npcmsg(msg_0491_T07_00021)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setflag(FLAG_UNK_25D)
+    removeobject(obj_T07_gsleader12)
+    removeobject(obj_T07_gsleader6)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+_0429:
+    npcmsg(msg_0491_T07_00022)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Celadon_Movement_045C {
+    walk_in_place_right
+}
+
+movement Celadon_Movement_0464 {
+    walk_in_place_left
+}
+
+script(local) _046C {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0491_T07_00024)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0491_T07_00027)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0491_T07_00028)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0491_T07_00025)
+    closemessage
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(81)
+    faceplayer
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    npcmsg(msg_0491_T07_00026)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07_017 {
+    if (var(VAR_TEMP_x4002) >= 1) {
+        simplenpcmsg(msg_0491_T07_00029)
+        end
+    }
+    goto(_0302)
+    end
+}
+
+script scr_seq_T07_018 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Celadon_Movement_0664)
+        applymovement(obj_T07_gsmiddleman1, Celadon_Movement_06B0)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Celadon_Movement_067C)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Celadon_Movement_069C)
+        applymovement(obj_T07_gsmiddleman1, Celadon_Movement_06B0)
+    } else {
+        applymovement(obj_player, Celadon_Movement_0688)
+        applymovement(obj_T07_gsmiddleman1, Celadon_Movement_06B0)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Celadon_Movement_06BC)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(57)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Celadon_Movement_0664 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Celadon_Movement_067C {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Celadon_Movement_0688 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Celadon_Movement_069C {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Celadon_Movement_06B0 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Celadon_Movement_06BC {
+    walk_right
+    walk_up
+    face_down
+}
+
+mapscripts Celadon_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07_015
+}

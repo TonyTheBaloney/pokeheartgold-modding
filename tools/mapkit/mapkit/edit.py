@@ -200,13 +200,16 @@ def _pory_script_add(repo, m, label, msg_id):
     _write_text(path, text.rstrip("\n") + "\n" + block)
     repo._cache.clear()
     res = repo.pory_result(m)
-    pory.sync_ids(repo, repo.migrated[m.name], res.public)
+    pory.sync_ids(repo, repo.pory_entry(m), res.public)
     repo._cache.clear()
     return res.public.index(label) + 1
 
 
 def script_add(repo, m, label, msg_id=None):
     """Append a script (and its ScrDef entry and _EV_ id). With msg_id, a talk-to-NPC stub."""
+    e = repo.migrated.get(m.name)
+    if e and e["scripts"].startswith("@"):
+        raise EditError("%s uses %s's scripts; add the script there" % (m.name, e["scripts"][1:]))
     if repo.pory_entry(m):
         return _pory_script_add(repo, m, label, msg_id)
     path = repo.bank_path(m, "scriptsBank")

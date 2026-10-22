@@ -1,0 +1,37 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D39R0103_000 {
+    playse(SEQ_SE_GS_RAKKA01)
+    applymovement(obj_player, IcePath_B2F_Movement_0050)
+    wait(1, VAR_SPECIAL_RESULT)
+    makeobjectinvisible(obj_player)
+    waitmovement
+    screenshake(0, 1, 1, 8)
+    playse(SEQ_SE_DP_SUTYA2)
+    setvar(VAR_UNK_40AB, 0)
+    end
+}
+
+script scr_seq_D39R0103_001 {
+    if (var(VAR_UNK_40AB) == 1) {
+        makeobjectvisible(obj_player)
+    }
+    end
+}
+
+movement IcePath_B2F_Movement_0050 {
+    warp_in
+}
+
+script scr_seq_D39R0103_002 {
+    simplenpcmsg(msg_0123_D39R0103_00000)
+    end
+}
+
+mapscripts IcePath_B2F_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40AB, 1: scr_seq_D39R0103_000
+    ]
+    INIT_SCRIPT_ON_RESUME: scr_seq_D39R0103_001
+}

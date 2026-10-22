@@ -22,6 +22,7 @@ class Macro:
     label_params: set = field(default_factory=set)
     calls: list = field(default_factory=list)  # (callee, [arg texts]) for alias macros
     kind: str = "script"        # "script" or "movement"
+    defaults: dict = field(default_factory=dict)  # param -> default value text
 
 
 class MacroTable:
@@ -36,11 +37,13 @@ class MacroTable:
             line = raw.split("//")[0].rstrip()
             m = _MACRO_RE.match(line)
             if m:
-                params = []
+                params, defaults = [], {}
                 for p in re.split(r"[,\s]+", m.group(2).strip()):
                     if p:
                         params.append(p.split("=")[0].split(":")[0])
-                cur = Macro(m.group(1), params, kind=kind)
+                        if "=" in p:
+                            defaults[params[-1]] = p.split("=", 1)[1]
+                cur = Macro(m.group(1), params, kind=kind, defaults=defaults)
                 self.macros[cur.name] = cur
                 continue
             if cur is None:

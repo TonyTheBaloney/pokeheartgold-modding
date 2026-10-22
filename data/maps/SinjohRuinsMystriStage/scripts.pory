@@ -1,0 +1,800 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D51R0201_000
+	ScrDef scr_seq_D51R0201_001
+	ScrDef scr_seq_D51R0201_002
+	ScrDef scr_seq_D51R0201_003
+	ScrDef scr_seq_D51R0201_004
+	ScrDef scr_seq_D51R0201_005
+	ScrDef scr_seq_D51R0201_006
+	ScrDef scr_seq_D51R0201_007
+	ScrDefEnd
+`
+
+raw `
+#include "constants/events.h"
+`
+
+script scr_seq_D51R0201_002 {
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 7) { goto(_0065) }
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 8) { goto(_0065) }
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 9) { goto(_0065) }
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 12) { goto(_0065) }
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 13) { goto(_0065) }
+    end
+_0065:
+    mystristagegymmickinit
+    end
+}
+
+script scr_seq_D51R0201_007 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, SinjohRuinsMystriStage_Movement_00C4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 13)
+    releaseall
+    end
+}
+
+script scr_seq_D51R0201_006 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, SinjohRuinsMystriStage_Movement_00C4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 4)
+    releaseall
+    end
+}
+
+movement SinjohRuinsMystriStage_Movement_00C4 {
+    walk_down * 2
+}
+
+script scr_seq_D51R0201_000 {
+    end
+}
+
+script scr_seq_D51R0201_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 8) {
+        npcmsg(msg_0146_D51R0201_00012)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _0170:
+        setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 8)
+        setvar(VAR_UNK_4104, 1)
+        getplayerfacing(VAR_TEMP_x4002)
+        if (var(VAR_TEMP_x4002) == 0) {
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02B4)
+        } elif (var(VAR_TEMP_x4002) == 3) {
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02BC)
+        } else {
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02C4)
+        }
+        waitmovement
+        npcmsg(msg_0146_D51R0201_00004)
+        closemessage
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        if (var(VAR_TEMP_x4002) == 2) {
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02D4)
+        } else {
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02E0)
+        }
+        waitmovement
+        if (var(VAR_TEMP_x4002) == 0) {
+            applymovement(obj_player, SinjohRuinsMystriStage_Movement_0390)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0308)
+        } elif (var(VAR_TEMP_x4002) == 3) {
+            applymovement(obj_player, SinjohRuinsMystriStage_Movement_03A0)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0308)
+        } else {
+            applymovement(obj_player, SinjohRuinsMystriStage_Movement_03B4)
+            applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02EC)
+        }
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        npcmsg(msg_0146_D51R0201_00005)
+        closemessage
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0324)
+        waitmovement
+        npcmsg(msg_0146_D51R0201_00007)
+        closemessage
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0334)
+        waitmovement
+        npcmsg(msg_0146_D51R0201_00008)
+        closemessage
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0348)
+        waitmovement
+        npcmsg(msg_0146_D51R0201_00009)
+        closemessage
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0364)
+        waitmovement
+        npcmsg(msg_0146_D51R0201_00010)
+        closemessage
+        applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0370)
+        applymovement(obj_player, SinjohRuinsMystriStage_Movement_03C8)
+        waitmovement
+        npcmsg(msg_0146_D51R0201_00011)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getpartyleadalive(VAR_TEMP_x4005)
+    followerpokeiseventtrigger(EVENT_ARCEUS_MOVIE_GIFT, VAR_TEMP_x4005, VAR_TEMP_x4006)
+    if (var(VAR_TEMP_x4006) == 1) { goto(_011A) }
+    followerpokeiseventtrigger(EVENT_ARCEUS_HALL_OF_ORIGIN, VAR_TEMP_x4005, VAR_TEMP_x4007)
+    if (var(VAR_TEMP_x4007) == 1) { goto(_011A) }
+    npcmsg(msg_0146_D51R0201_00024)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_011A:
+    if (var(VAR_TEMP_x4004) == 1) { goto(_0154) }
+    npcmsg(msg_0146_D51R0201_00000)
+    closemessage
+    getpartycount(VAR_SPECIAL_x8004)
+    if (var(VAR_SPECIAL_x8004) >= 2) { goto(_0154) }
+    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_02CC)
+    waitmovement
+    npcmsg(msg_0146_D51R0201_00006)
+    closemessage
+    goto(_0170)
+    end
+_0154:
+    npcmsg(msg_0146_D51R0201_00002)
+    waitbuttonpress
+    closemessage
+    setvar(VAR_TEMP_x4004, 1)
+    releaseall
+    end
+}
+
+movement SinjohRuinsMystriStage_Movement_02B4 {
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_02BC {
+    walk_in_place_left
+}
+
+movement SinjohRuinsMystriStage_Movement_02C4 {
+    walk_in_place_right
+}
+
+movement SinjohRuinsMystriStage_Movement_02CC {
+    walk_in_place_up
+}
+
+movement SinjohRuinsMystriStage_Movement_02D4 {
+    walk_left
+    walk_in_place_right
+}
+
+movement SinjohRuinsMystriStage_Movement_02E0 {
+    walk_right
+    walk_in_place_left
+}
+
+movement SinjohRuinsMystriStage_Movement_02EC {
+    delay_16
+    walk_right
+    walk_up * 3
+    walk_right
+    walk_up * 2
+    walk_in_place_left
+}
+
+movement SinjohRuinsMystriStage_Movement_0308 {
+    delay_16
+    walk_left
+    walk_up * 3
+    walk_right
+    walk_up * 2
+    walk_in_place_left
+}
+
+movement SinjohRuinsMystriStage_Movement_0324 {
+    walk_right * 3
+    walk_down
+    walk_in_place_left
+}
+
+movement SinjohRuinsMystriStage_Movement_0334 {
+    walk_down
+    walk_left * 8
+    walk_up
+    walk_in_place_right
+}
+
+movement SinjohRuinsMystriStage_Movement_0348 {
+    walk_up * 3
+    walk_right * 2
+    walk_up * 3
+    walk_right * 2
+    walk_up
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0364 {
+    walk_down * 3
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0370 {
+    walk_right
+    walk_down * 6
+    walk_left
+    walk_in_place_up
+}
+
+movement SinjohRuinsMystriStage_Movement_0384 {
+    walk_in_place_down
+    walk_down * 2
+}
+
+movement SinjohRuinsMystriStage_Movement_0390 {
+    walk_up * 6
+    delay_16
+    walk_in_place_right
+}
+
+movement SinjohRuinsMystriStage_Movement_03A0 {
+    walk_right
+    walk_up * 5
+    delay_16
+    walk_in_place_right
+}
+
+movement SinjohRuinsMystriStage_Movement_03B4 {
+    walk_left
+    walk_up * 5
+    delay_16
+    walk_in_place_right
+}
+
+movement SinjohRuinsMystriStage_Movement_03C8 {
+    delay_8 * 2
+    walk_in_place_right
+    delay_8 * 3
+    walk_in_place_right
+}
+
+script scr_seq_D51R0201_004 {
+    followmonresetmovement
+    lockall
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) >= 13) {
+        if (var(VAR_UNK_4103) == 1) { goto(_0545) }
+        call(_0550)
+        if (var(VAR_TEMP_x400A) == 0) { goto(_0633) }
+        if (var(VAR_TEMP_x400A) == 2) { goto(_061D) }
+        if (var(VAR_TEMP_x400A) == 3) { goto(_0628) }
+        npcmsg(msg_0146_D51R0201_00027)
+    } else {
+        npcmsg(msg_0146_D51R0201_00013)
+    }
+    sinjohsetchosenlegend(1)
+    setvar(VAR_TEMP_x4009, SPECIES_DIALGA)
+    goto(_0514)
+    end
+}
+
+script scr_seq_D51R0201_003 {
+    followmonresetmovement
+    lockall
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) >= 13) {
+        if (var(VAR_UNK_4103) == 2) { goto(_0545) }
+        call(_0550)
+        if (var(VAR_TEMP_x400A) == 0) { goto(_0633) }
+        if (var(VAR_TEMP_x400A) == 2) { goto(_061D) }
+        if (var(VAR_TEMP_x400A) == 3) { goto(_0628) }
+        npcmsg(msg_0146_D51R0201_00028)
+    } else {
+        npcmsg(msg_0146_D51R0201_00014)
+    }
+    sinjohsetchosenlegend(2)
+    setvar(VAR_TEMP_x4009, SPECIES_PALKIA)
+    goto(_0514)
+    end
+}
+
+script scr_seq_D51R0201_005 {
+    followmonresetmovement
+    lockall
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) >= 13) {
+        if (var(VAR_UNK_4103) == 3) { goto(_0545) }
+        call(_0550)
+        if (var(VAR_TEMP_x400A) == 0) { goto(_0633) }
+        if (var(VAR_TEMP_x400A) == 2) { goto(_061D) }
+        if (var(VAR_TEMP_x400A) == 3) { goto(_0628) }
+        npcmsg(msg_0146_D51R0201_00029)
+    } else {
+        npcmsg(msg_0146_D51R0201_00015)
+    }
+    sinjohsetchosenlegend(3)
+    setvar(VAR_TEMP_x4009, 487)
+    goto(_0514)
+    end
+_0514:
+    nopvar490(VAR_TEMP_x4009)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        closemessage
+        if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 13) {
+            setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 14)
+        } else {
+            setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 9)
+        }
+        sinjohsetchosenlegend(0)
+        setvar(VAR_UNK_4104, 0)
+        getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+        createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+        getplayerfacing(VAR_TEMP_x4002)
+        if (var(VAR_TEMP_x4009) != SPECIES_DIALGA) {
+            if (var(VAR_TEMP_x4009) != SPECIES_PALKIA) {
+                goto(_07B2)
+            _06B0:
+                if (var(VAR_TEMP_x4002) == 0) {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0BE4)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0C28)
+                } elif (var(VAR_TEMP_x4002) == 3) {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0BF4)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0C28)
+                } elif (var(VAR_TEMP_x4002) == 2) {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C08)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0C28)
+                } else {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C18)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0C28)
+                }
+                waitmovement
+                goto(_0833)
+            _0731:
+                if (var(VAR_TEMP_x4002) == 0) {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C34)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0C78)
+                } elif (var(VAR_TEMP_x4002) == 3) {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C44)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0C78)
+                } elif (var(VAR_TEMP_x4002) == 2) {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C54)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0C78)
+                } else {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C68)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0C78)
+                }
+                waitmovement
+                goto(_0833)
+            _07B2:
+                if (var(VAR_TEMP_x4002) == 0) {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C84)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0CC4)
+                } elif (var(VAR_TEMP_x4002) == 3) {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0C90)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0CC4)
+                } elif (var(VAR_TEMP_x4002) == 2) {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0CA0)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0CC4)
+                } else {
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0CB0)
+                    applymovement(241, SinjohRuinsMystriStage_Movement_0CC4)
+                }
+                waitmovement
+                goto(_0833)
+            _0833:
+                fadeoutbgm(0, 30)
+                playse(SEQ_SE_GS_TAMASYUTUGEN)
+                unowncircle
+                stopse(SEQ_SE_GS_DOWSING_LOOP)
+                cinematic(2)
+                if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) != 14) {
+                    release(obj_D51R0201_champion)
+                    movepersonfacing(obj_D51R0201_champion, 16, 1, 28, DIR_NORTH)
+                    wait(5, VAR_SPECIAL_RESULT)
+                    lock(obj_D51R0201_champion)
+                }
+                if (var(VAR_TEMP_x4009) == SPECIES_DIALGA) {
+                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_0CCC)
+                } elif (var(VAR_TEMP_x4009) == SPECIES_PALKIA) {
+                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_0CD8)
+                } else {
+                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_0CE4)
+                }
+                wait(150, VAR_SPECIAL_RESULT)
+                fadescreen(6, 30, 1, RGB_BLACK)
+                waitfade
+                getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+                createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+                nopvar490(VAR_SPECIAL_x8004)
+                nopvar490(VAR_SPECIAL_x8005)
+                applymovement(241, SinjohRuinsMystriStage_Movement_0CF0)
+                waitmovement
+                playse(SEQ_SE_GS_TAMASYUTUGEN)
+                if (var(VAR_TEMP_x4009) == SPECIES_DIALGA) {
+                    sinjohgeteggcutscene(0)
+                } elif (var(VAR_TEMP_x4009) == SPECIES_PALKIA) {
+                    sinjohgeteggcutscene(1)
+                } else {
+                    sinjohgeteggcutscene(2)
+                }
+                stopse(SEQ_SE_GS_TAMASYUTUGEN)
+                applymovement(obj_player, SinjohRuinsMystriStage_Movement_0D0C)
+                waitmovement
+                sinjohfreezeallmodels
+                wait(2, VAR_SPECIAL_RESULT)
+                npcmsg(msg_0146_D51R0201_00025)
+                nopvar490(VAR_TEMP_x4009)
+                bufferplayersname(0)
+                bufferspeciesname(1, VAR_TEMP_x4009, 0, 0)
+                playfanfare(SEQ_ME_SHINKAOME)
+                npcmsg(msg_0146_D51R0201_00026)
+                waitfanfare
+                closemessage
+                applymovement(241, SinjohRuinsMystriStage_Movement_0CF8)
+                waitmovement
+                removecameratarget
+                resetbgm
+                nopvar490(VAR_TEMP_x4009)
+                if (var(VAR_TEMP_x4009) == SPECIES_DIALGA) {
+                    givemon(SPECIES_DIALGA, 1, ITEM_ADAMANT_ORB, 0, 0, VAR_SPECIAL_RESULT)
+                    setvar(VAR_UNK_4103, 1)
+                } elif (var(VAR_TEMP_x4009) == SPECIES_PALKIA) {
+                    givemon(SPECIES_PALKIA, 1, ITEM_LUSTROUS_ORB, 0, 0, VAR_SPECIAL_RESULT)
+                    setvar(VAR_UNK_4103, 2)
+                } else {
+                    givemon(SPECIES_GIRATINA, 1, ITEM_GRISEOUS_ORB, 1, ABILITY_LEVITATE, VAR_SPECIAL_RESULT)
+                    setvar(VAR_UNK_4103, 3)
+                }
+                touchscreenmenuhide
+                npcmsg(msg_0146_D51R0201_00032)
+                getmenuchoice(VAR_SPECIAL_RESULT)
+                closemessage
+                setsavedbottomscreenapp(0)
+                compare(VAR_SPECIAL_RESULT, 0)
+                callifeq(_0BB2)
+                if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) != 14) {
+                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D28)
+                    applymovement(obj_player, SinjohRuinsMystriStage_Movement_0D00)
+                    applymovement(obj_partner_poke, SinjohRuinsMystriStage_Movement_0D1C)
+                    waitmovement
+                    npcmsg(msg_0146_D51R0201_00016)
+                    closemessage
+                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D4C)
+                    waitmovement
+                    npcmsg(msg_0146_D51R0201_00017)
+                    closemessage
+                    playse(SEQ_SE_GS_ZENIGAME_JOURO)
+                    fadescreen(6, 6, 0, RGB_BLACK)
+                    waitfade
+                    wait(1, VAR_SPECIAL_RESULT)
+                    fadescreen(6, 6, 1, RGB_BLACK)
+                    waitfade
+                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D30)
+                    waitmovement
+                    npcmsg(msg_0146_D51R0201_00018)
+                    closemessage
+                    applymovement(obj_D51R0201_champion, SinjohRuinsMystriStage_Movement_0D44)
+                    waitmovement
+                    npcmsg(msg_0146_D51R0201_00019)
+                    closemessage
+                }
+                playse(SEQ_SE_GS_ZENIGAME_JOURO)
+                fadescreen(6, 6, 0, RGB_BLACK)
+                waitfade
+                wait(1, VAR_SPECIAL_RESULT)
+                fadescreen(6, 6, 1, RGB_BLACK)
+                waitfade
+                if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) != 14) {
+                    getpartyleadalive(VAR_TEMP_x4005)
+                    followerpokeiseventtrigger(EVENT_ARCEUS_MOVIE_GIFT, VAR_TEMP_x4005, VAR_TEMP_x4006)
+                    if (var(VAR_TEMP_x4006) == 1) {
+                        setvar(VAR_UNK_4102, 1)
+                    } else {
+                        setvar(VAR_UNK_4102, 2)
+                    }
+                    clearflag(FLAG_HIDE_ALPH_MAIN_CHAMBER_ARCEUS_EVENT_PEOPLE)
+                }
+                playse(SEQ_SE_DP_KAIDAN2)
+                if (var(VAR_UNOWN_REPORT_LEVEL) == 6) {
+                    fadescreen(6, 1, 0, RGB_BLACK)
+                    waitfade
+                    warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT, 0, 9, 24, DIR_SOUTH)
+                    fadescreen(6, 1, 1, RGB_BLACK)
+                    waitfade
+                } elif (var(VAR_UNOWN_REPORT_LEVEL) == 7) {
+                    fadescreen(6, 1, 0, RGB_BLACK)
+                    waitfade
+                    warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2, 0, 9, 24, DIR_SOUTH)
+                    fadescreen(6, 1, 1, RGB_BLACK)
+                    waitfade
+                } elif (var(VAR_UNOWN_REPORT_LEVEL) == 8) {
+                    fadescreen(6, 1, 0, RGB_BLACK)
+                    waitfade
+                    warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2, 0, 9, 24, DIR_SOUTH)
+                    fadescreen(6, 1, 1, RGB_BLACK)
+                    waitfade
+                } elif (var(VAR_UNOWN_REPORT_LEVEL) == 9) {
+                    fadescreen(6, 1, 0, RGB_BLACK)
+                    waitfade
+                    warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2, 0, 9, 24, DIR_SOUTH)
+                    fadescreen(6, 1, 1, RGB_BLACK)
+                    waitfade
+                } else {
+                    fadescreen(6, 1, 0, RGB_BLACK)
+                    waitfade
+                    warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL, 0, 9, 24, DIR_SOUTH)
+                    fadescreen(6, 1, 1, RGB_BLACK)
+                    waitfade
+                }
+                releaseall
+                end
+            _0BB2:
+                getpartycount(VAR_SPECIAL_RESULT)
+                subvar(VAR_SPECIAL_RESULT, 1)
+                setvar(VAR_TEMP_x4008, 0)
+                fadescreen(6, 1, 0, RGB_BLACK)
+                waitfade
+                nicknameinput(VAR_SPECIAL_RESULT, VAR_TEMP_x4008)
+                sinjohfreezeallmodels
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                return
+            }
+            goto(_0731)
+            goto(_06B0)
+        }
+        goto(_06B0)
+        goto(_06B0)
+    }
+    if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_053C) }
+    end
+_053C:
+    closemessage
+    sinjohsetchosenlegend(0)
+    releaseall
+    end
+_0545:
+    npcmsg(msg_0146_D51R0201_00030)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0550:
+    getpartycount(VAR_SPECIAL_x8004)
+    if (var(VAR_SPECIAL_x8004) == 1) { goto(_056D) }
+    nopvar490(VAR_TEMP_x4008)
+    setvar(VAR_TEMP_x400A, 2)
+    return
+_056D:
+    getpartyleadalive(VAR_TEMP_x4000)
+    if (var(VAR_UNK_4102) != 1) { goto(_05B2) }
+    followerpokeiseventtrigger(EVENT_ARCEUS_HALL_OF_ORIGIN, VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0605) }
+    followerpokeiseventtrigger(EVENT_ARCEUS_MOVIE_GIFT, VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_060D) }
+    goto(_0615)
+    goto(_05F9)
+_05B2:
+    if (var(VAR_UNK_4102) != 2) { goto(_05F3) }
+    followerpokeiseventtrigger(EVENT_ARCEUS_MOVIE_GIFT, VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0605) }
+    followerpokeiseventtrigger(EVENT_ARCEUS_HALL_OF_ORIGIN, VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_060D) }
+    goto(_0615)
+    goto(_05F9)
+_05F3:
+    goto(_0615)
+_05F9:
+    nopvar490(VAR_TEMP_x4007)
+    setvar(VAR_TEMP_x400A, 2)
+    return
+_0605:
+    setvar(VAR_TEMP_x400A, 1)
+    return
+_060D:
+    setvar(VAR_TEMP_x400A, 3)
+    return
+_0615:
+    setvar(VAR_TEMP_x400A, 0)
+    return
+_061D:
+    npcmsg(msg_0146_D51R0201_00031)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0628:
+    npcmsg(msg_0146_D51R0201_00033)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0633:
+    npcmsg(msg_0146_D51R0201_00030)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement SinjohRuinsMystriStage_Movement_0BE4 {
+    walk_slow_right * 4
+    walk_slow_up * 4
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0BF4 {
+    walk_slow_up * 2
+    walk_slow_right * 5
+    walk_slow_up
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0C08 {
+    walk_slow_right * 3
+    walk_slow_up * 3
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0C18 {
+    walk_slow_right * 4
+    walk_slow_up * 2
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0C28 {
+    walk_slow_right * 4
+    walk_slow_up * 3
+}
+
+movement SinjohRuinsMystriStage_Movement_0C34 {
+    walk_slow_left * 4
+    walk_slow_up * 4
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0C44 {
+    walk_slow_left * 3
+    walk_slow_up * 3
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0C54 {
+    walk_slow_up * 2
+    walk_slow_left * 5
+    walk_slow_up
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0C68 {
+    walk_slow_left * 4
+    walk_slow_up * 2
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0C78 {
+    walk_slow_left * 4
+    walk_slow_up * 3
+}
+
+movement SinjohRuinsMystriStage_Movement_0C84 {
+    walk_slow_down * 3
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0C90 {
+    walk_slow_down * 4
+    walk_slow_right
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0CA0 {
+    walk_slow_down * 4
+    walk_slow_left
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0CB0 {
+    walk_slow_right
+    walk_slow_down * 5
+    walk_slow_left
+    walk_in_place_down
+}
+
+movement SinjohRuinsMystriStage_Movement_0CC4 {
+    walk_slow_down * 4
+}
+
+movement SinjohRuinsMystriStage_Movement_0CCC {
+    walk_faster_right * 4
+    face_up
+}
+
+movement SinjohRuinsMystriStage_Movement_0CD8 {
+    walk_faster_left * 4
+    face_up
+}
+
+movement SinjohRuinsMystriStage_Movement_0CE4 {
+    walk_down * 7
+    face_up
+}
+
+movement SinjohRuinsMystriStage_Movement_0CF0 {
+    walk_up * 3
+}
+
+movement SinjohRuinsMystriStage_Movement_0CF8 {
+    walk_down * 3
+}
+
+movement SinjohRuinsMystriStage_Movement_0D00 {
+    delay_16 * 2
+    walk_down * 2
+}
+
+movement SinjohRuinsMystriStage_Movement_0D0C {
+    delay_8
+    emote_exclamation_mark
+    delay_8
+}
+
+movement SinjohRuinsMystriStage_Movement_0D1C {
+    delay_16 * 2
+    walk_down * 4
+}
+
+movement SinjohRuinsMystriStage_Movement_0D28 {
+    walk_up * 9
+}
+
+movement SinjohRuinsMystriStage_Movement_0D30 {
+    face_right
+    delay_8 * 3
+    face_left
+    delay_8 * 3
+}
+
+movement SinjohRuinsMystriStage_Movement_0D44 {
+    walk_in_place_up
+}
+
+movement SinjohRuinsMystriStage_Movement_0D4C {
+    delay_8
+    walk_in_place_down
+}
+
+mapscripts SinjohRuinsMystriStage_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D51R0201_002
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 3: scr_seq_D51R0201_006
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 12: scr_seq_D51R0201_007
+    ]
+}

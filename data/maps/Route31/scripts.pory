@@ -1,0 +1,197 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R31_000 {
+    end
+}
+
+script scr_seq_R31_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_LOAN_SPEAROW) != 1) {
+        if (var(VAR_LOAN_SPEAROW) != 2) {
+            if (var(VAR_LOAN_SPEAROW) != 4) {
+                if (var(VAR_LOAN_SPEAROW) == 6) {
+                    kenyacheckpartyormailbox(VAR_SPECIAL_RESULT)
+                    if (var(VAR_SPECIAL_RESULT) == 1) {
+                        setvar(VAR_LOAN_SPEAROW, 1)
+                        goto(_0098)
+                        end
+                    }
+                }
+            _008D:
+                npcmsg(msg_0378_R31_00000)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _0098:
+                npcmsg(msg_0378_R31_00001)
+                closemessage
+                fadescreen(6, 1, 0, RGB_BLACK)
+                waitfade
+                partyselectui
+                getpartyselection(VAR_TEMP_x4000)
+                if (var(VAR_TEMP_x4000) == 255) { goto(_0206) }
+                getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+                if (var(VAR_TEMP_x4001) == 0) { goto(_021F) }
+                kenyacheck(VAR_SPECIAL_RESULT, VAR_TEMP_x4000, 0)
+                if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0238) }
+                kenyacheck(VAR_SPECIAL_RESULT, VAR_TEMP_x4000, 1)
+                if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0251) }
+                checkreturnloanmon(7, VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 1) { goto(_026A) }
+                if (var(VAR_SPECIAL_RESULT) == 4) { goto(_0295) }
+                returnloanmon(VAR_TEMP_x4000)
+                restoreoverworld
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                getplayerfacing(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 0) {
+                    applymovement(obj_player, Route31_Movement_02BC)
+                } elif (var(VAR_SPECIAL_RESULT) == 1) {
+                    applymovement(obj_player, Route31_Movement_02C4)
+                } elif (var(VAR_SPECIAL_RESULT) == 2) {
+                    applymovement(obj_player, Route31_Movement_02CC)
+                } else {
+                    applymovement(obj_player, Route31_Movement_02D4)
+                }
+                waitmovement
+                bufferplayersname(0)
+                npcmsg(msg_0378_R31_00005)
+                playfanfare(SEQ_ME_ITEM)
+                waitfanfare
+            _0195:
+                npcmsg(msg_0378_R31_00007)
+                setvar(VAR_LOAN_SPEAROW, 2)
+                if (var(VAR_TEMP_x4000) == VAR_TEMP_x4001) {
+                    followmonreleasenexttoplayer
+                }
+            _01AD:
+                if (!itemspace(ITEM_TM44, 1)) { goto(_01FC) }
+                callstd(std_give_item_verbose)
+                if (var(VAR_LOAN_SPEAROW) == 2) {
+                    setvar(VAR_LOAN_SPEAROW, 3)
+                } else {
+                    setvar(VAR_LOAN_SPEAROW, 5)
+                }
+                npcmsg(msg_0378_R31_00008)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _01FC:
+                callstd(std_bag_is_full)
+                closemessage
+                releaseall
+                end
+            _0206:
+                restoreoverworld
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                npcmsg(msg_0378_R31_00009)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _021F:
+                restoreoverworld
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                npcmsg(msg_0378_R31_00015)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _0238:
+                restoreoverworld
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                npcmsg(msg_0378_R31_00002)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _0251:
+                restoreoverworld
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                npcmsg(msg_0378_R31_00003)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _026A:
+                restoreoverworld
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                npcmsg(msg_0378_R31_00004)
+                closemessage
+                bufferplayersname(0)
+                npcmsg(msg_0378_R31_00006)
+                playfanfare(SEQ_ME_ITEM)
+                waitfanfare
+                mongivemail(VAR_TEMP_x4000)
+                goto(_0195)
+                end
+            _0295:
+                restoreoverworld
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                npcmsg(msg_0378_R31_00010)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            goto(_01AD)
+            goto(_008D)
+        }
+        goto(_01AD)
+        goto(_008D)
+    }
+    goto(_0098)
+    goto(_008D)
+}
+
+movement Route31_Movement_02BC {
+    walk_in_place_up
+}
+
+movement Route31_Movement_02C4 {
+    walk_in_place_down
+}
+
+movement Route31_Movement_02CC {
+    walk_in_place_left
+}
+
+movement Route31_Movement_02D4 {
+    walk_in_place_right
+}
+
+script scr_seq_R31_002 {
+    directionsignpostex(1, 2, msg_0378_R31_00013)
+    end
+}
+
+script scr_seq_R31_003 {
+    trainertipsex(2, msg_0378_R31_00014)
+    end
+}
+
+script scr_seq_R31_004 {
+    simplenpcmsg(msg_0378_R31_00012)
+    end
+    simplenpcmsg(msg_0378_R31_00001)
+    end
+}
+
+script scr_seq_R31_005 {
+    simplenpcmsg(msg_0378_R31_00011)
+    end
+}
+
+mapscripts Route31_MapScripts {
+}

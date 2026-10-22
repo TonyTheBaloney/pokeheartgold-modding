@@ -1,0 +1,507 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D32R0301_000
+	ScrDef scr_seq_D32R0301_001
+	ScrDef scr_seq_D32R0301_002
+	ScrDef scr_seq_D32R0301_003
+	ScrDef scr_seq_D32R0301_004
+	ScrDef scr_seq_D32R0301_005
+	ScrDef scr_seq_D32R0301_006
+	ScrDef scr_seq_D32R0301_007
+	ScrDef scr_seq_D32R0301_008
+	ScrDef scr_seq_D32R0301_009
+	ScrDef scr_seq_D32R0301_010
+	ScrDef scr_seq_D32R0301_011
+	ScrDef scr_seq_D32R0301_012
+	ScrDef scr_seq_D32R0301_013
+	ScrDefEnd
+`
+
+script scr_seq_D32R0301_013 {
+    end
+}
+
+script scr_seq_D32R0301_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4003, 0)
+    setvar(VAR_TEMP_x4004, 0)
+    goto(_0074)
+    end
+}
+
+script scr_seq_D32R0301_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4003, 0)
+    setvar(VAR_TEMP_x4004, 1)
+    goto(_0074)
+    end
+_0074:
+    checkfieldheapfreesize(0)
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_057C)
+    compare(VAR_TEMP_x4004, 1)
+    callifeq(_0581)
+    goto(_009A)
+    end
+_009A:
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_0586)
+    compare(VAR_TEMP_x4004, 1)
+    callifeq(_05A5)
+    menuitemadd(19, 255, 2)
+    menuitemadd(20, 255, 3)
+    menuexec
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        setvar(VAR_UNK_4143, 0)
+        goto(_0169)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        setvar(VAR_UNK_4143, 1)
+        goto(_0169)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0104) }
+    if (var(VAR_SPECIAL_RESULT) == 4) {
+        setvar(VAR_UNK_4143, 2)
+        goto(_0169)
+        end
+    _0169:
+        npcmsg(msg_0107_D32R0301_00007)
+        menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        menuitemadd(21, 255, 0)
+        menuitemadd(22, 255, 1)
+        menuitemadd(23, 255, 2)
+        menuexec
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            setvar(VAR_UNK_4144, 0)
+            goto(_01CE)
+            end
+        }
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            setvar(VAR_UNK_4144, 1)
+            goto(_01CE)
+            end
+        _01CE:
+            goto(_01D6)
+            end
+        _01D6:
+            compare(VAR_UNK_4143, 0)
+            callifeq(_0399)
+            compare(VAR_UNK_4143, 1)
+            callifeq(_0399)
+            setvar(VAR_TEMP_x4000, 0)
+            healparty
+            callstd(std_prompt_save)
+            copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0126) }
+            touchscreenmenushow
+            if (var(VAR_UNK_4143) == 2) { goto(_0226) }
+            goto(_03A1)
+            end
+        _0226:
+            npcmsg(msg_0107_D32R0301_00024)
+            touchscreenmenuhide
+            menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+            menuitemadd(14, 255, 0)
+            menuitemadd(15, 255, 1)
+            menuitemadd(5, 255, 2)
+            menuexec
+            Switch(VAR_SPECIAL_RESULT)
+            Case(0, _0277)
+            Case(1, _02F9)
+            touchscreenmenushow
+            goto(_0126)
+            end
+        _0277:
+            npcmsg(msg_0107_D32R0301_00025)
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0226) }
+            touchscreenmenushow
+            closemessage
+            compare(VAR_UNK_4144, 0)
+            callifeq(_02CF)
+            compare(VAR_UNK_4144, 1)
+            callifeq(_02DB)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                goto(_0226)
+                end
+            }
+            if (var(VAR_SPECIAL_RESULT) == 3) {
+                commclubexit
+                goto(_0226)
+                end
+            _02F9:
+                npcmsg(msg_0107_D32R0301_00025)
+                touchscreenmenuhide
+                getmenuchoice(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0226) }
+                touchscreenmenushow
+                closemessage
+                compare(VAR_UNK_4144, 0)
+                callifeq(_0351)
+                compare(VAR_UNK_4144, 1)
+                callifeq(_035D)
+                touchscreenmenushow
+                if (var(VAR_SPECIAL_RESULT) == 1) {
+                    goto(_0226)
+                    end
+                }
+                if (var(VAR_SPECIAL_RESULT) == 3) {
+                    commclubexit
+                    goto(_0226)
+                    end
+                _037B:
+                    npcmsg(msg_0107_D32R0301_00026)
+                    compare(VAR_UNK_4143, 2)
+                    callifeq(_0399)
+                    call(_05ED)
+                    goto(_03A1)
+                    end
+                _0399:
+                    setvar(VAR_UNK_4142, 255)
+                    return
+                _03A1:
+                    compare(VAR_UNK_4143, 0)
+                    callifeq(_0439)
+                    compare(VAR_UNK_4143, 1)
+                    callifeq(_0454)
+                    compare(VAR_UNK_4143, 2)
+                    callifeq(_046F)
+                    playse(SEQ_SE_DP_KAIDAN2)
+                    goto(_03D4)
+                    end
+                _03D4:
+                    fadescreen(6, 1, 0, RGB_BLACK)
+                    waitfade
+                    setsavedbottomscreenapp(0)
+                    compare(VAR_UNK_4143, 0)
+                    callifeq(_0495)
+                    compare(VAR_UNK_4143, 1)
+                    callifeq(_04A9)
+                    compare(VAR_UNK_4143, 2)
+                    callifeq(_04BD)
+                    incgamestat(59)
+                    leaveoverworld
+                    launchfrontier(3)
+                    compare(VAR_UNK_4143, 2)
+                    callifeq(_0435)
+                    restoreoverworld
+                    fadescreen(6, 1, 1, RGB_BLACK)
+                    waitfade
+                    checkfieldheapfreesize(1)
+                    end
+                _0435:
+                    commclubexit
+                    return
+                _0439:
+                    npcmsg(msg_0107_D32R0301_00009)
+                    waitabpress
+                    closemessage
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_04D4)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_04FC)
+                    waitmovement
+                    return
+                _0454:
+                    npcmsg(msg_0107_D32R0301_00009)
+                    waitabpress
+                    closemessage
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_04D4)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_04FC)
+                    waitmovement
+                    return
+                _046F:
+                    npcmsgvar(msg_0107_D32R0301_00009)
+                    wait(15, VAR_SPECIAL_RESULT)
+                    linksyncclearpackets
+                    linksyncandwait(169)
+                    closemessage
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_04E8)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_0510)
+                    waitmovement
+                    return
+                _0495:
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_0524)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_0554)
+                    waitmovement
+                    return
+                _04A9:
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_0524)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_0554)
+                    waitmovement
+                    return
+                _04BD:
+                    applymovement(obj_player, BattleFrontier_BattleFactory_Movement_053C)
+                    applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleFactory_Movement_0568)
+                    waitmovement
+                    return
+                }
+                goto(_037B)
+                end
+            _0351:
+                commclubhost(27, 0, 0, VAR_SPECIAL_RESULT)
+                return
+            _035D:
+                commclubhost(28, 0, 0, VAR_SPECIAL_RESULT)
+                return
+            }
+            goto(_037B)
+            end
+        _02CF:
+            commclubjoin(27, 0, 0, VAR_SPECIAL_RESULT)
+            return
+        _02DB:
+            commclubjoin(28, 0, 0, VAR_SPECIAL_RESULT)
+            return
+        }
+        touchscreenmenushow
+        goto(_0126)
+        end
+    }
+    touchscreenmenushow
+    goto(_0126)
+    end
+_0104:
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_05BC)
+    compare(VAR_TEMP_x4004, 1)
+    callifeq(_05C1)
+    goto(_009A)
+    end
+_0126:
+    goto(_012E)
+    end
+_012E:
+    setvar(VAR_UNK_4142, 0)
+    npcmsg(msg_0107_D32R0301_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement BattleFrontier_BattleFactory_Movement_04D4 {
+    walk_up * 3
+    walk_right
+    walk_up * 4
+    set_invisible
+}
+
+movement BattleFrontier_BattleFactory_Movement_04E8 {
+    walk_up * 3
+    walk_left
+    walk_up * 4
+    set_invisible
+}
+
+movement BattleFrontier_BattleFactory_Movement_04FC {
+    walk_up * 2
+    walk_right
+    walk_up * 4
+    set_invisible
+}
+
+movement BattleFrontier_BattleFactory_Movement_0510 {
+    walk_up * 2
+    walk_left
+    walk_up * 4
+    set_invisible
+}
+
+movement BattleFrontier_BattleFactory_Movement_0524 {
+    walk_faster_down * 3
+    walk_faster_left
+    walk_faster_down * 4
+    face_up
+    set_visible
+}
+
+movement BattleFrontier_BattleFactory_Movement_053C {
+    walk_faster_down * 3
+    walk_faster_right
+    walk_faster_down * 4
+    face_up
+    set_visible
+}
+
+movement BattleFrontier_BattleFactory_Movement_0554 {
+    walk_faster_down * 2
+    walk_faster_left
+    walk_faster_down * 4
+    set_visible
+}
+
+movement BattleFrontier_BattleFactory_Movement_0568 {
+    walk_faster_down * 2
+    walk_faster_right
+    walk_faster_down * 4
+    set_visible
+}
+
+script(local) _057C {
+    npcmsg(msg_0107_D32R0301_00000)
+    return
+_0581:
+    npcmsg(msg_0107_D32R0301_00003)
+    return
+_0586:
+    npcmsg(msg_0107_D32R0301_00001)
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(16, 255, 0)
+    menuitemadd(17, 255, 1)
+    return
+_05A5:
+    npcmsg(msg_0107_D32R0301_00004)
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(18, 255, 4)
+    return
+_05BC:
+    npcmsg(msg_0107_D32R0301_00002)
+    return
+_05C1:
+    npcmsg(msg_0107_D32R0301_00005)
+    return
+}
+
+script scr_seq_D32R0301_001 {
+    checkfieldheapfreesize(0)
+    setvar(VAR_TEMP_x4003, 1)
+    setvar(VAR_UNK_4142, 0)
+    npcmsg(msg_0107_D32R0301_00011)
+    call(_0399)
+    call(_05ED)
+    goto(_03A1)
+    end
+_05ED:
+    addwaitingicon
+    savegamenormal(VAR_SPECIAL_RESULT)
+    removewaitingicon
+    playse(SEQ_SE_DP_SAVE)
+    waitse(SEQ_SE_DP_SAVE)
+    return
+}
+
+script scr_seq_D32R0301_002 {
+    lockall
+    faceplayer
+    npcmsg(msg_0107_D32R0301_00012)
+    battlefactoryresetstreak(VAR_UNK_4143, VAR_UNK_4144)
+    compare(VAR_BATTLE_FACTORY_PRINT_PROGRESS, 1)
+    callifeq(_062E)
+    compare(VAR_BATTLE_FACTORY_PRINT_PROGRESS, 3)
+    callifeq(_0636)
+    goto(_0126)
+    end
+_062E:
+    setvar(VAR_BATTLE_FACTORY_PRINT_PROGRESS, 0)
+    return
+_0636:
+    setvar(VAR_BATTLE_FACTORY_PRINT_PROGRESS, 2)
+    return
+}
+
+script scr_seq_D32R0301_003 {
+    compare(VAR_UNK_4143, 0)
+    callifeq(_067A)
+    compare(VAR_UNK_4143, 1)
+    callifeq(_067A)
+    compare(VAR_BATTLE_FACTORY_PRINT_PROGRESS, 1)
+    callifeq(_0680)
+    compare(VAR_BATTLE_FACTORY_PRINT_PROGRESS, 3)
+    callifeq(_0697)
+    goto(_0126)
+    end
+_067A:
+    addspecialgamestat2(SCORE_EVENT_BATTLE_FACTORY_SET_WON)
+    return
+_0680:
+    npcmsg(msg_0107_D32R0301_00013)
+    bufferplayersname(0)
+    npcmsg(msg_0107_D32R0301_00015)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setvar(VAR_BATTLE_FACTORY_PRINT_PROGRESS, 2)
+    return
+_0697:
+    npcmsg(msg_0107_D32R0301_00013)
+    bufferplayersname(0)
+    npcmsg(msg_0107_D32R0301_00014)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setvar(VAR_BATTLE_FACTORY_PRINT_PROGRESS, 4)
+    callstd(std_frontier_gold_prints_check)
+    return
+}
+
+script scr_seq_D32R0301_004 {
+    goto(_0126)
+    end
+}
+
+movement BattleFrontier_BattleFactory_Movement_06BC {
+    walk_up * 2
+    delay_8
+    walk_up
+}
+
+movement BattleFrontier_BattleFactory_Movement_06CC {
+    walk_up * 2
+    delay_8
+    walk_up
+}
+
+script scr_seq_D32R0301_006 {
+    simplenpcmsg(msg_0107_D32R0301_00027)
+    end
+}
+
+script scr_seq_D32R0301_007 {
+    simplenpcmsg(msg_0107_D32R0301_00028)
+    end
+}
+
+script scr_seq_D32R0301_008 {
+    simplenpcmsg(msg_0107_D32R0301_00029)
+    end
+}
+
+script scr_seq_D32R0301_009 {
+    simplenpcmsg(msg_0107_D32R0301_00030)
+    end
+}
+
+script scr_seq_D32R0301_010 {
+    simplenpcmsg(msg_0107_D32R0301_00031)
+    end
+}
+
+script scr_seq_D32R0301_011 {
+    simplenpcmsg(msg_0107_D32R0301_00032)
+    end
+}
+
+script scr_seq_D32R0301_012 {
+    simplenpcmsg(msg_0107_D32R0301_00033)
+    end
+}
+
+mapscripts BattleFrontier_BattleFactory_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0301_013
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4142, 1: scr_seq_D32R0301_003
+        VAR_UNK_4142, 2: scr_seq_D32R0301_001
+        VAR_UNK_4142, 3: scr_seq_D32R0301_004
+        VAR_UNK_4142, 255: scr_seq_D32R0301_002
+    ]
+}

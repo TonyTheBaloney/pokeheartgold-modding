@@ -1,0 +1,122 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D40R0104_000
+	ScrDef scr_seq_D40R0104_001
+	ScrDef scr_seq_D40R0104_002
+	ScrDef scr_seq_D40R0104_003
+	ScrDefEnd
+`
+
+script scr_seq_D40R0104_003 {
+    setvar(VAR_TEMP_x4003, 111)
+    end
+}
+
+script scr_seq_D40R0104_001 {
+    if (var(VAR_TEMP_x4003) == 111) {
+        if (flag(FLAG_UNK_106)) {
+            movepersonfacing(obj_D40R0104_bozu, 34, 1, 29, DIR_EAST)
+            setvar(VAR_TEMP_x4003, 0)
+            end
+        }
+    }
+    setvar(VAR_TEMP_x4003, 0)
+    end
+}
+
+script scr_seq_D40R0104_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_CAUGHT_LUGIA)) {
+        npcmsg(msg_0124_D40R0104_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 8) { goto(_0093) }
+    if (flag(FLAG_UNK_106)) { goto(_00C5) }
+    if (flag(FLAG_UNK_094)) { goto(_00B4) }
+    npcmsg(msg_0124_D40R0104_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0093:
+    if (flag(FLAG_UNK_106)) { goto(_00C5) }
+    if (flag(FLAG_UNK_094)) { goto(_00B4) }
+    npcmsg(msg_0124_D40R0104_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00B4:
+    npcmsg(msg_0124_D40R0104_00002)
+    closemessage
+    showlegendarywing(1)
+    releaseall
+    setflag(FLAG_UNK_106)
+    end
+_00C5:
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 8) {
+        if (flag(FLAG_UNK_109)) { goto(_00F7) }
+        if (flag(FLAG_UNK_105)) { goto(_0102) }
+    }
+    npcmsg(msg_0124_D40R0104_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00F7:
+    npcmsg(msg_0124_D40R0104_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0102:
+    npcmsg(msg_0124_D40R0104_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D40R0104_002 {
+    wait(60, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0124_D40R0104_00003)
+    closemessage
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_D40R0104_bozu, WhirlIslands_B2F_Movement_0168)
+    } else {
+        applymovement(obj_D40R0104_bozu, WhirlIslands_B2F_Movement_0154)
+    }
+    waitmovement
+    wait(30, VAR_SPECIAL_RESULT)
+    end
+}
+
+movement WhirlIslands_B2F_Movement_0154 {
+    face_down
+    lock_dir
+    walk_up
+    unlock_dir
+}
+
+movement WhirlIslands_B2F_Movement_0168 {
+    face_right
+    lock_dir
+    walk_left
+    unlock_dir
+}
+
+mapscripts WhirlIslands_B2F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_D40R0104_001
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D40R0104_003
+}

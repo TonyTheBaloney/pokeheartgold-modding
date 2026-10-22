@@ -1,0 +1,91 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_W40R0101_000
+	ScrDef scr_seq_W40R0101_001
+	ScrDef scr_seq_W40R0101_002
+	ScrDefEnd
+`
+
+script scr_seq_W40R0101_001 {
+    if (var(VAR_UNK_40E5) >= 1) {
+        setvar(VAR_UNK_40E5, 2)
+        end
+    }
+    if (flag(FLAG_GAME_CLEAR)) { goto(_0028) }
+    end
+_0028:
+    movepersonfacing(obj_W40R0101_gsmiddleman1, 3, 0, 3, DIR_NORTH)
+    end
+}
+
+script scr_seq_W40R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    if (flag(FLAG_UNK_0FB)) {
+        npcmsg(msg_0745_W40R0101_00002)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_GAME_CLEAR)) { goto(_00B1) }
+    getplayerfacing(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 3) {
+        applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_00E4)
+    } elif (var(VAR_TEMP_x4000) == 2) {
+        applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_00DC)
+    } else {
+        applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_00D4)
+    }
+    waitmovement
+    npcmsg(msg_0745_W40R0101_00000)
+    closemessage
+    applymovement(obj_W40R0101_gsmiddleman1, Route40_BattleFrontierGatehouse_Movement_00CC)
+    waitmovement
+    releaseall
+    end
+_00B1:
+    npcmsg(msg_0745_W40R0101_00001)
+    closemessage
+    releaseall
+    setflag(FLAG_UNK_0FB)
+    end
+}
+
+movement Route40_BattleFrontierGatehouse_Movement_00CC {
+    walk_in_place_up
+}
+
+movement Route40_BattleFrontierGatehouse_Movement_00D4 {
+    walk_in_place_down
+}
+
+movement Route40_BattleFrontierGatehouse_Movement_00DC {
+    walk_in_place_right
+}
+
+movement Route40_BattleFrontierGatehouse_Movement_00E4 {
+    walk_in_place_left
+}
+
+script scr_seq_W40R0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GAME_CLEAR)) {
+        npcmsg(msg_0745_W40R0101_00003)
+    } else {
+        npcmsg(msg_0745_W40R0101_00004)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Route40_BattleFrontierGatehouse_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_W40R0101_001
+}

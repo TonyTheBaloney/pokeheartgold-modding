@@ -1,0 +1,123 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T07R0106_000 {
+    simplenpcmsg(msg_0499_T07R0106_00000)
+    end
+}
+
+script scr_seq_T07R0106_001 {
+    simplenpcmsg(msg_0499_T07R0106_00001)
+    end
+}
+
+script scr_seq_T07R0106_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0499_T07R0106_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0106_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0499_T07R0106_00003)
+    showmoneybox(20, 2)
+    goto(_005E)
+_005E:
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_x8000)
+    menuitemadd(209, 255, 0)
+    menuitemadd(210, 255, 1)
+    menuitemadd(211, 255, 2)
+    menuitemadd(212, 255, 3)
+    menuexec
+    touchscreenmenushow
+    Switch(VAR_SPECIAL_x8000)
+    Case(0, _00C2)
+    Case(1, _00CE)
+    Case(2, _00DA)
+    npcmsg(msg_0499_T07R0106_00007)
+    goto(_0205)
+_00C2:
+    setvar(VAR_SPECIAL_x8001, 30)
+    goto(_011C)
+_00CE:
+    setvar(VAR_SPECIAL_x8001, 31)
+    goto(_011C)
+_00DA:
+    setvar(VAR_SPECIAL_x8001, 32)
+    goto(_011C)
+_00E6:
+    hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 200)
+    return
+_00F0:
+    hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 300)
+    return
+_00FA:
+    hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 350)
+    return
+_0104:
+    submoneyimmediate(200)
+    return
+_010C:
+    submoneyimmediate(300)
+    return
+_0114:
+    submoneyimmediate(350)
+    return
+_011C:
+    compare(VAR_SPECIAL_x8000, 0)
+    callifeq(_00E6)
+    compare(VAR_SPECIAL_x8000, 1)
+    callifeq(_00F0)
+    compare(VAR_SPECIAL_x8000, 2)
+    callifeq(_00FA)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0499_T07R0106_00006)
+        goto(_0205)
+    _01F9:
+        callstd(std_bag_is_full)
+        closemessage
+        hidemoneybox
+        releaseall
+        end
+    _0205:
+        waitbuttonpress
+        closemessage
+        hidemoneybox
+        releaseall
+        end
+    }
+    hasspaceforitem(VAR_SPECIAL_x8001, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01F9) }
+    compare(VAR_SPECIAL_x8000, 0)
+    callifeq(_0104)
+    compare(VAR_SPECIAL_x8000, 1)
+    callifeq(_010C)
+    compare(VAR_SPECIAL_x8000, 2)
+    callifeq(_0114)
+    updatemoneybox
+    bufferitemname(0, VAR_SPECIAL_x8001)
+    playse(SEQ_SE_DP_JIHANKI)
+    bufferitemname(0, VAR_SPECIAL_x8001)
+    npcmsg(msg_0499_T07R0106_00004)
+    giveitemnocheck(VAR_SPECIAL_x8001, 1)
+    random(VAR_SPECIAL_RESULT, 64)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        playse(SEQ_SE_DP_JIHANKI)
+        bufferitemname(0, VAR_SPECIAL_x8001)
+        npcmsg(msg_0499_T07R0106_00005)
+        hasspaceforitem(VAR_SPECIAL_x8001, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01F9) }
+        callstd(std_give_item_verbose)
+    }
+    npcmsg(msg_0499_T07R0106_00003)
+    goto(_005E)
+}
+
+mapscripts Celadon_DepartmentStoreRoof_MapScripts {
+}

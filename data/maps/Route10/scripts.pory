@@ -1,0 +1,187 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R10_000
+	ScrDef scr_seq_R10_001
+	ScrDef scr_seq_R10_002
+	ScrDef scr_seq_R10_003
+	ScrDef scr_seq_R10_004
+	ScrDef scr_seq_R10_005
+	ScrDef scr_seq_R10_006
+	ScrDefEnd
+`
+
+script scr_seq_R10_004 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_ROUTE_10_ZAPDOS)
+        removeobject(obj_R10_tsure_poke_static_zapdos)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        end
+    }
+    end
+}
+
+script scr_seq_R10_001 {
+    checkbadge(BADGE_EARTH, VAR_TEMP_x4004)
+    if (var(VAR_TEMP_x4004) != 1) {
+    } else {
+        if (!flag(FLAG_CAUGHT_ZAPDOS)) { goto(_00BF) }
+        checkregisteredphonenumber(PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 1) { goto(_00BF) }
+        getcurrenthour(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 9) {
+            clearflag(FLAG_HIDE_ROUTE_10_LT_SURGE)
+        } elif (var(VAR_TEMP_x4000) == 10) {
+            clearflag(FLAG_HIDE_ROUTE_10_LT_SURGE)
+        } elif (var(VAR_TEMP_x4000) == 11) {
+            clearflag(FLAG_HIDE_ROUTE_10_LT_SURGE)
+        } else {
+            setflag(FLAG_HIDE_ROUTE_10_LT_SURGE)
+        }
+        end
+    }
+_00BF:
+    end
+}
+
+script scr_seq_R10_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkregisteredphonenumber(PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_0148) }
+    playeronbikecheck(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0197) }
+    getpartyleadalive(VAR_TEMP_x4000)
+    getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 25) { goto(_0197) }
+    if (var(VAR_TEMP_x4002) >= 1) {
+        npcmsg(msg_0341_R10_00004)
+        goto(_0114)
+        end
+    _0197:
+        npcmsg(msg_0341_R10_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0341_R10_00000)
+_0114:
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0138) }
+    if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_017B) }
+    end
+_0138:
+    bufferplayersname(0)
+    npcmsg(msg_0341_R10_00001)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    registergearnumber(PHONE_CONTACT_LT__SURGE)
+_0148:
+    npcmsg(msg_0341_R10_00002)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setflag(FLAG_HIDE_ROUTE_10_LT_SURGE)
+    removeobject(obj_R10_gsleader9)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+_017B:
+    setvar(VAR_TEMP_x4002, 1)
+    npcmsg(msg_0341_R10_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R10_000 {
+    followmonresetmovement
+    lockall
+    if (flag(FLAG_RESTORED_POWER)) {
+        followmonisactive(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 0) {
+            followmonislarge(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                followmonrecall
+            }
+        }
+        playse(SEQ_SE_DP_KAIDAN2)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_ROUTE_10_POWER_PLANT_REPAIRED, 0, 7, 20, DIR_NORTH)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        setspecialspawnwarp(MAP_ROUTE_10, 1423, 185)
+        releaseall
+        end
+    }
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        followmonislarge(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            followmonrecall
+        }
+    }
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_ROUTE_10_POWER_PLANT_BROKEN, 0, 7, 20, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    setspecialspawnwarp(MAP_ROUTE_10, 1423, 185)
+    releaseall
+    end
+}
+
+script scr_seq_R10_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_ZAPDOS, 0)
+    waitcry
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(SPECIES_ZAPDOS, 50, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    _02B9:
+        setflag(FLAG_CAUGHT_ZAPDOS)
+        return
+    }
+    getstaticencounteroutcome(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 3) {
+        compare(VAR_TEMP_x4002, 4)
+        callifeq(_02B9)
+    }
+    releaseall
+    end
+}
+
+script scr_seq_R10_005 {
+    trainertipsex(2, msg_0341_R10_00008)
+    end
+}
+
+script scr_seq_R10_006 {
+    trainertipsex(2, msg_0341_R10_00009)
+    end
+}
+
+mapscripts Route10_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R10_001
+    INIT_SCRIPT_ON_LOAD: scr_seq_R10_004
+}

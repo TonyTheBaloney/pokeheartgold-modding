@@ -1,0 +1,136 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T25R0501_000
+	ScrDef scr_seq_T25R0501_001
+	ScrDef scr_seq_T25R0501_002
+	ScrDef scr_seq_T25R0501_003
+	ScrDef scr_seq_T25R0501_004
+	ScrDef scr_seq_T25R0501_005
+	ScrDef scr_seq_T25R0501_006
+	ScrDef scr_seq_T25R0501_007
+	ScrDefEnd
+`
+
+script scr_seq_T25R0501_006 {
+    setspecialspawnwarp(MAP_GOLDENROD, 348, 350)
+    if (flag(FLAG_RESTORED_POWER)) {
+        setvar(VAR_UNK_410B, 0)
+        end
+    }
+    end
+}
+
+script scr_seq_T25R0501_005 {
+    if (flag(FLAG_RESTORED_POWER)) {
+        movepersonfacing(obj_T25R0501_policeman, 4, 0, 6, DIR_EAST)
+        end
+    }
+    end
+}
+
+script scr_seq_T25R0501_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_RESTORED_POWER)) {
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 2) {
+            npcmsg(msg_0587_T25R0501_00005)
+            waitbuttonpress
+            closemessage
+        } else {
+            npcmsg(msg_0587_T25R0501_00007)
+            closemessage
+            applymovement(obj_T25R0501_policeman, Goldenrod_MagnetTrainStation_1F_Movement_00AC)
+            waitmovement
+        }
+        releaseall
+        end
+    }
+    npcmsg(msg_0587_T25R0501_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Goldenrod_MagnetTrainStation_1F_Movement_00AC {
+    face_right
+}
+
+script scr_seq_T25R0501_001 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_1F_Movement_013C)
+    waitmovement
+    if (flag(FLAG_UNK_123)) {
+        npcmsg(msg_0587_T25R0501_00003)
+        closemessage
+        goto(_00D6)
+    }
+    npcmsg(msg_0587_T25R0501_00001)
+    closemessage
+    setflag(FLAG_UNK_123)
+_00D6:
+    wait(50, VAR_SPECIAL_x8004)
+    hasitem(ITEM_PASS, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) >= 1) {
+        npcmsg(msg_0587_T25R0501_00004)
+        waitbuttonpress
+        closemessage
+        setvar(VAR_UNK_410B, 1)
+        setvar(VAR_UNK_411E, 1)
+        releaseall
+        end
+    }
+    npcmsg(msg_0587_T25R0501_00002)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_1F_Movement_0144)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    releaseall
+    end
+}
+
+movement Goldenrod_MagnetTrainStation_1F_Movement_013C {
+    walk_in_place_left
+}
+
+movement Goldenrod_MagnetTrainStation_1F_Movement_0144 {
+    walk_down * 2
+}
+
+script scr_seq_T25R0501_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0587_T25R0501_00009)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R0501_002 {
+    end
+}
+
+script scr_seq_T25R0501_003 {
+    end
+}
+
+script scr_seq_T25R0501_004 {
+    end
+}
+
+mapscripts Goldenrod_MagnetTrainStation_1F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_T25R0501_005
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25R0501_006
+}

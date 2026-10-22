@@ -1,0 +1,59 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_W41_000 {
+    end
+}
+
+script scr_seq_W41_001 {
+    simplenpcmsg(msg_0746_W41_00000)
+    end
+}
+
+script scr_seq_W41_002 {
+    simplenpcmsg(msg_0746_W41_00003)
+    end
+}
+
+script scr_seq_W41_003 {
+    simplenpcmsg(msg_0746_W41_00006)
+    end
+}
+
+script scr_seq_W41_004 {
+    simplenpcmsg(msg_0746_W41_00012)
+    end
+}
+
+script scr_seq_W41_005 {
+    simplenpcmsg(msg_0746_W41_00009)
+    end
+}
+
+script scr_seq_W41_006 {
+    simplenpcmsg(msg_0746_W41_00015)
+    end
+}
+
+script scr_seq_W41_007 {
+    simplenpcmsg(msg_0746_W41_00018)
+    end
+}
+
+script scr_seq_W41_008 {
+    simplenpcmsg(msg_0746_W41_00021)
+    end
+}
+
+script scr_seq_W41_009 {
+    simplenpcmsg(msg_0746_W41_00024)
+    end
+}
+
+script scr_seq_W41_010 {
+    simplenpcmsg(msg_0746_W41_00027)
+    end
+}
+
+mapscripts Route41_MapScripts {
+}

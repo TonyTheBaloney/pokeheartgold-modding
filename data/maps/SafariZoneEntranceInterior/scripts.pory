@@ -1,0 +1,1016 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D47R0101_000
+	ScrDef scr_seq_D47R0101_001
+	ScrDef scr_seq_D47R0101_002
+	ScrDef scr_seq_D47R0101_003
+	ScrDef scr_seq_D47R0101_004
+	ScrDef scr_seq_D47R0101_005
+	ScrDef scr_seq_D47R0101_006
+	ScrDef scr_seq_D47R0101_007
+	ScrDef scr_seq_D47R0101_008
+	ScrDef scr_seq_D47R0101_009
+	ScrDef scr_seq_D47R0101_010
+	ScrDef scr_seq_D47R0101_011
+	ScrDefEnd
+`
+
+script scr_seq_D47R0101_006 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_D47R0101_counterm_3, SafariZoneEntranceInterior_Movement_01EC)
+    applymovement(obj_D47R0101_counterm_5, SafariZoneEntranceInterior_Movement_01EC)
+    waitmovement
+    npcmsg(msg_0135_D47R0101_00007)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        safarizoneaction(1, 0)
+    }
+    touchscreenmenushow
+    closemessage
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4000) == 5) {
+            setvar(VAR_TEMP_x4002, 5)
+            setvar(VAR_TEMP_x4003, 5)
+        } else {
+            setvar(VAR_TEMP_x4002, 19)
+            setvar(VAR_TEMP_x4003, 5)
+        }
+        applymovement(obj_player, SafariZoneEntranceInterior_Movement_01DC)
+        waitmovement
+        dooranimationload(0, 0, VAR_TEMP_x4002, VAR_TEMP_x4003, 77)
+        call(_08AF)
+        applymovement(obj_player, SafariZoneEntranceInterior_Movement_01BC)
+        applymovement(obj_D47R0101_counterm_3, SafariZoneEntranceInterior_Movement_01F4)
+        applymovement(obj_D47R0101_counterm_5, SafariZoneEntranceInterior_Movement_01F4)
+        waitmovement
+        call(_08B7)
+        setvar(VAR_SCENE_SAFARI_ZONE_ENTRANCE, 0)
+        npcmsg(msg_0135_D47R0101_00008)
+        npcmsg(msg_0135_D47R0101_00009)
+        waitbuttonpress
+        closemessage
+        followmonreleasenexttoplayer
+        releaseall
+        end
+    }
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_01B4)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR, 0, 79, 100, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    lock(obj_partner_poke)
+    followmonreleasenexttoplayer
+    applymovement(obj_partner_poke, SafariZoneEntranceInterior_Movement_0200)
+    waitmovement
+    release(obj_partner_poke)
+    releaseall
+    end
+}
+
+script scr_seq_D47R0101_007 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_01E4)
+    waitmovement
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 5) {
+        setvar(VAR_TEMP_x4002, 5)
+        setvar(VAR_TEMP_x4003, 5)
+    } else {
+        setvar(VAR_TEMP_x4002, 19)
+        setvar(VAR_TEMP_x4003, 5)
+    }
+    dooranimationload(0, 0, VAR_TEMP_x4002, VAR_TEMP_x4003, 77)
+    call(_08AF)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_01BC)
+    waitmovement
+    call(_08B7)
+    setvar(VAR_SCENE_SAFARI_ZONE_ENTRANCE, 0)
+    npcmsg(msg_0135_D47R0101_00009)
+    waitbuttonpress
+    closemessage
+    followmonreleasenexttoplayer
+    releaseall
+    end
+}
+
+movement SafariZoneEntranceInterior_Movement_01B4 {
+    walk_up
+}
+
+movement SafariZoneEntranceInterior_Movement_01BC {
+    walk_down * 2
+    walk_left
+    walk_in_place_up
+}
+
+movement SafariZoneEntranceInterior_Movement_01CC {
+    walk_down * 4
+    walk_left
+    walk_in_place_up
+}
+
+movement SafariZoneEntranceInterior_Movement_01DC {
+    walk_down
+}
+
+movement SafariZoneEntranceInterior_Movement_01E4 {
+    walk_down * 2
+}
+
+movement SafariZoneEntranceInterior_Movement_01EC {
+    face_right
+}
+
+movement SafariZoneEntranceInterior_Movement_01F4 {
+    delay_8
+    face_down
+}
+
+movement SafariZoneEntranceInterior_Movement_0200 {
+    face_up
+}
+
+script scr_seq_D47R0101_008 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0310)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_03B8)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0135_D47R0101_00029)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_025B) }
+_024A:
+    npcmsg(msg_0135_D47R0101_00030)
+    waitbuttonpress
+    closemessage
+    setvar(VAR_UNK_4057, 2)
+    releaseall
+    end
+_025B:
+    npcmsg(msg_0135_D47R0101_00031)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_025B) }
+    goto(_024A)
+}
+
+script scr_seq_D47R0101_009 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0310)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_03B8)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0135_D47R0101_00034)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0324)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_03C8)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0135_D47R0101_00035)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0334)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_03D8)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0135_D47R0101_00036)
+    waitbuttonpress
+    closemessage
+    setvar(VAR_UNK_4057, 5)
+    clearflag(FLAG_HIDE_SAFARI_ZONE_WORKERS)
+    releaseall
+    end
+}
+
+movement SafariZoneEntranceInterior_Movement_0310 {
+    face_down
+    emote_exclamation_mark
+    delay_16
+    walk_left
+}
+
+movement SafariZoneEntranceInterior_Movement_0324 {
+    walk_up * 2
+    walk_right * 3
+    walk_up
+}
+
+movement SafariZoneEntranceInterior_Movement_0334 {
+    walk_down * 2
+    walk_left * 2
+    walk_down
+    emote_exclamation_mark
+    face_up
+}
+
+movement SafariZoneEntranceInterior_Movement_034C {
+    walk_left * 2
+    walk_up * 4
+    walk_right * 4
+    face_down
+}
+
+movement SafariZoneEntranceInterior_Movement_0360 {
+    walk_up * 4
+    walk_right * 2
+    face_down
+}
+
+movement SafariZoneEntranceInterior_Movement_0370 {
+    walk_down * 2
+    walk_right
+    walk_down * 2
+    face_left
+}
+
+movement SafariZoneEntranceInterior_Movement_0384 {
+    walk_right
+    delay_16
+    face_left
+}
+
+movement SafariZoneEntranceInterior_Movement_0394 {
+    walk_left
+}
+
+movement SafariZoneEntranceInterior_Movement_039C {
+    face_down
+    delay_16
+    face_left
+}
+
+movement SafariZoneEntranceInterior_Movement_03AC {
+    face_down
+    emote_exclamation_mark
+}
+
+movement SafariZoneEntranceInterior_Movement_03B8 {
+    delay_16
+    walk_up * 3
+    face_right
+}
+
+movement SafariZoneEntranceInterior_Movement_03C8 {
+    walk_up * 2
+    walk_right * 4
+    walk_up
+}
+
+movement SafariZoneEntranceInterior_Movement_03D8 {
+    face_down
+}
+
+movement SafariZoneEntranceInterior_Movement_03E0 {
+    delay_16
+    face_up
+    delay_16
+    walk_down
+    face_up
+}
+
+movement SafariZoneEntranceInterior_Movement_03F8 {
+    walk_right
+    face_up
+}
+
+movement SafariZoneEntranceInterior_Movement_0404 {
+    walk_up
+}
+
+movement SafariZoneEntranceInterior_Movement_040C {
+    delay_16 * 3
+    face_right
+}
+
+movement SafariZoneEntranceInterior_Movement_0418 {
+    face_up
+}
+
+movement SafariZoneEntranceInterior_Movement_0420 {
+    walk_up * 3
+    face_right
+}
+
+script scr_seq_D47R0101_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_183)) { goto(_0599) }
+    if (var(VAR_UNK_4057) == 2) {
+        checksafarizonechallengecompleted(0, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0135_D47R0101_00033)
+        } else {
+            npcmsg(msg_0135_D47R0101_00032)
+            setvar(VAR_UNK_4057, 3)
+            updatesafarizoneigt
+        }
+        goto(_0587)
+        end
+    }
+    if (var(VAR_UNK_4057) == 3) { goto(_048B) }
+    if (var(VAR_UNK_4057) == 5) {
+        checksafarizonechallengecompleted(1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 0) {
+            npcmsg(msg_0135_D47R0101_00037)
+            closemessage
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            getplayerfacing(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_034C)
+                applymovement(obj_player, SafariZoneEntranceInterior_Movement_03E0)
+                waitmovement
+            } elif (var(VAR_SPECIAL_RESULT) == 3) {
+                applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0360)
+                applymovement(obj_player, SafariZoneEntranceInterior_Movement_03F8)
+                waitmovement
+            } else {
+                applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0360)
+                applymovement(obj_player, SafariZoneEntranceInterior_Movement_0404)
+                waitmovement
+            }
+            npcmsg(msg_0135_D47R0101_00038)
+            closemessage
+            applymovement(obj_D47R0101_gsgentleman, SafariZoneEntranceInterior_Movement_0370)
+            applymovement(obj_player, SafariZoneEntranceInterior_Movement_040C)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+            npcmsg(msg_0135_D47R0101_00039)
+            setvar(VAR_UNK_4057, 6)
+            updatesafarizoneigt
+        } else {
+            npcmsg(msg_0135_D47R0101_00041)
+            goto(_0587)
+        }
+    _0587:
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNK_4057) == 6) { goto(_0494) }
+    if (var(VAR_UNK_4057) == 7) {
+        setflag(FLAG_UNK_183)
+        npcmsg(msg_0135_D47R0101_00043)
+        npcmsg(msg_0135_D47R0101_00044)
+    _0599:
+        npcmsg(msg_0135_D47R0101_00045)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0683) }
+    _05AF:
+        menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        menuitemadd(463, 255, 0)
+        menuitemadd(464, 255, 1)
+        menuitemadd(465, 255, 2)
+        menuitemadd(466, 255, 3)
+        menuitemadd(467, 255, 4)
+        menuitemadd(468, 255, 5)
+        menuitemadd(469, 255, 6)
+        menuexec
+        Switch(VAR_SPECIAL_RESULT)
+        Case(0, _064D)
+        Case(1, _0656)
+        Case(2, _065F)
+        Case(3, _0668)
+        Case(4, _0671)
+        Case(5, _067A)
+        goto(_0683)
+        end
+    _064D:
+        npcmsg(msg_0135_D47R0101_00047)
+        goto(_05AF)
+    _0656:
+        npcmsg(msg_0135_D47R0101_00048)
+        goto(_05AF)
+    _065F:
+        npcmsg(msg_0135_D47R0101_00049)
+        goto(_05AF)
+    _0668:
+        npcmsg(msg_0135_D47R0101_00050)
+        goto(_05AF)
+    _0671:
+        npcmsg(msg_0135_D47R0101_00051)
+        goto(_05AF)
+    _067A:
+        npcmsg(msg_0135_D47R0101_00052)
+        goto(_05AF)
+    _0683:
+        touchscreenmenushow
+        npcmsg(msg_0135_D47R0101_00053)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0135_D47R0101_00042)
+    goto(_0587)
+    end
+_048B:
+    npcmsg(msg_0135_D47R0101_00042)
+    goto(_0587)
+_0494:
+    npcmsg(msg_0135_D47R0101_00040)
+    goto(_0587)
+}
+
+script scr_seq_D47R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4057) >= 6) {
+        npcmsg(msg_0135_D47R0101_00015)
+    } else {
+        npcmsg(msg_0135_D47R0101_00014)
+    }
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0135_D47R0101_00017)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    setvar(VAR_SPECIAL_x8004, 30)
+    bufferint(1, VAR_SPECIAL_x8004)
+    setvar(VAR_SPECIAL_x8005, 1000)
+    bufferint(2, VAR_SPECIAL_x8005)
+    npcmsg(msg_0135_D47R0101_00016)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D47R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4057) == 7) {
+        if (flag(FLAG_UNK_183)) { goto(_0707) }
+        npcmsg(msg_0135_D47R0101_00018)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _08AF:
+        dooranimationopen(77)
+        dooranimationwait(77)
+        return
+    _08B7:
+        dooranimationclose(77)
+        dooranimationwait(77)
+        dooranimationunload(77)
+        return
+    }
+_0707:
+    if (var(VAR_UNK_4057) >= 6) {
+        setvar(VAR_SPECIAL_RESULT, 500)
+        bufferint(1, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0135_D47R0101_00001)
+    } else {
+        setvar(VAR_SPECIAL_RESULT, 500)
+        bufferint(1, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0135_D47R0101_00000)
+    }
+    showmoneybox(20, 2)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0846) }
+    countpcemptyspace(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        getpartycount(VAR_SPECIAL_x8004)
+        if (var(VAR_SPECIAL_x8004) == 6) { goto(_0853) }
+    }
+    hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 500)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0876) }
+    setvar(VAR_SPECIAL_RESULT, 500)
+    bufferint(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0135_D47R0101_00002)
+    playse(SEQ_SE_DP_REGI)
+    submoneyimmediate(500)
+    updatemoneybox
+    npcmsg(msg_0135_D47R0101_00004)
+    bufferplayersname(0)
+    setvar(VAR_SPECIAL_RESULT, 30)
+    bufferint(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0135_D47R0101_00005)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    npcmsg(msg_0135_D47R0101_00006)
+    closemessage
+    hidemoneybox
+    followmonrecall
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_08C4)
+    waitmovement
+    dooranimationload(0, 0, 5, 5, 77)
+    call(_08AF)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_08D0)
+    waitmovement
+    call(_08B7)
+    setvar(VAR_SCENE_SAFARI_ZONE_ENTRANCE, 1)
+    safarizoneaction(0, 0)
+    setdynamicwarp(MAP_SAFARI_ZONE_ENTRANCE_INTERIOR, 1, 5, 2, 1)
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR, 0, 79, 100, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    lock(obj_partner_poke)
+    followmonreleasenexttoplayer
+    applymovement(obj_partner_poke, SafariZoneEntranceInterior_Movement_0200)
+    waitmovement
+    release(obj_partner_poke)
+    releaseall
+    end
+_0846:
+    hidemoneybox
+    npcmsg(msg_0135_D47R0101_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0853:
+    hidemoneybox
+    if (var(VAR_UNK_4057) >= 6) {
+        npcmsg(msg_0135_D47R0101_00013)
+    } else {
+        npcmsg(msg_0135_D47R0101_00012)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0876:
+    hidemoneybox
+    if (var(VAR_UNK_4057) >= 6) {
+        npcmsg(msg_0135_D47R0101_00011)
+    } else {
+        npcmsg(msg_0135_D47R0101_00010)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement SafariZoneEntranceInterior_Movement_08C4 {
+    walk_right
+    face_up
+}
+
+movement SafariZoneEntranceInterior_Movement_08D0 {
+    walk_up * 4
+}
+
+script scr_seq_D47R0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4057) == 0) { goto(_09DC) }
+    if (var(VAR_UNK_4057) == 1) { goto(_09DC) }
+    if (var(VAR_UNK_4057) == 2) { goto(_09DC) }
+    if (var(VAR_UNK_4057) == 3) { goto(_09DC) }
+    npcmsg(msg_0135_D47R0101_00019)
+    touchscreenmenuhide
+_0919:
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(457, 255, 0)
+    menuitemadd(458, 255, 1)
+    menuitemadd(459, 255, 2)
+    menuitemadd(460, 255, 3)
+    menuitemadd(461, 255, 4)
+    menuitemadd(462, 255, 5)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _09A2)
+    Case(1, _09AB)
+    Case(2, _09B4)
+    Case(3, _09BD)
+    Case(4, _09C6)
+    goto(_09CF)
+    end
+_09A2:
+    npcmsg(msg_0135_D47R0101_00020)
+    goto(_0919)
+_09AB:
+    npcmsg(msg_0135_D47R0101_00021)
+    goto(_0919)
+_09B4:
+    npcmsg(msg_0135_D47R0101_00022)
+    goto(_0919)
+_09BD:
+    npcmsg(msg_0135_D47R0101_00023)
+    goto(_0919)
+_09C6:
+    npcmsg(msg_0135_D47R0101_00024)
+    goto(_0919)
+_09CF:
+    touchscreenmenushow
+    npcmsg(msg_0135_D47R0101_00026)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_09DC:
+    npcmsg(msg_0135_D47R0101_00025)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D47R0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4057) == 7) {
+        if (flag(FLAG_UNK_183)) { goto(_09FC) }
+        npcmsg(msg_0135_D47R0101_00018)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+_09FC:
+    dummy247
+    natdexflagaction(2, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 0) { goto(_0DF2) }
+    if (var(VAR_UNK_4057) >= 6) {
+        npcmsg(msg_0135_D47R0101_00065)
+    } else {
+        npcmsg(msg_0135_D47R0101_00066)
+    }
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    closemessage
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0BFC) }
+    callstd(std_prompt_save)
+    copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0A5D) }
+    goto(_0C16)
+    end
+_0A5D:
+    touchscreenmenuhide
+    npcmsg(msg_0135_D47R0101_00071)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(14, 255, 0)
+    menuitemadd(15, 255, 1)
+    menuitemadd(5, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0AAC)
+    Case(1, _0B2F)
+    goto(_0BFC)
+    end
+_0AAC:
+    npcmsg(msg_0135_D47R0101_00086)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0A5D) }
+    setvar(VAR_SPECIAL_x8004, 39)
+    setvar(VAR_SPECIAL_x8005, 0)
+    commclubjoin(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0B05) }
+    if (var(VAR_SPECIAL_RESULT) == 3) { goto(_0B11) }
+    if (var(VAR_SPECIAL_RESULT) == 4) { goto(_0B20) }
+    goto(_0BB2)
+    end
+_0B05:
+    commclubexit
+    touchscreenmenuhide
+    goto(_0A5D)
+    end
+_0B11:
+    commclubexit
+    touchscreenmenushow
+    npcmsg(msg_0135_D47R0101_00087)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0B20:
+    commclubexit
+    npcmsg(msg_0135_D47R0101_00085)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+_0B2F:
+    npcmsg(msg_0135_D47R0101_00086)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0A5D) }
+    setvar(VAR_SPECIAL_x8004, 39)
+    setvar(VAR_SPECIAL_x8005, 0)
+    commclubhost(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0B88) }
+    if (var(VAR_SPECIAL_RESULT) == 3) { goto(_0B94) }
+    if (var(VAR_SPECIAL_RESULT) == 4) { goto(_0BA3) }
+    goto(_0BB2)
+    end
+_0B88:
+    commclubexit
+    touchscreenmenuhide
+    goto(_0A5D)
+    end
+_0B94:
+    commclubexit
+    npcmsg(msg_0135_D47R0101_00087)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+_0BA3:
+    commclubexit
+    npcmsg(msg_0135_D47R0101_00085)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+_0BB2:
+    setvar(VAR_UNK_4133, 1)
+    npcmsg(msg_0135_D47R0101_00081)
+    linksyncandwait(96)
+    customsafarilinkexchange
+    commclubexit
+    setvar(VAR_TEMP_x4000, 0)
+    buffersafarilinkleadername(VAR_TEMP_x4000)
+    touchscreenmenuhide
+    npcmsg(msg_0135_D47R0101_00082)
+    npcmsg(msg_0135_D47R0101_00088)
+    addwaitingicon
+    savegamenormal(VAR_SPECIAL_RESULT)
+    removewaitingicon
+    bufferplayersname(0)
+    npcmsg(msg_0135_D47R0101_00089)
+    playse(SEQ_SE_DP_SAVE)
+    waitse(SEQ_SE_DP_SAVE)
+    npcmsg(msg_0135_D47R0101_00083)
+    setvar(VAR_UNK_4133, 0)
+    touchscreenmenushow
+    closemessage
+    releaseall
+    end
+_0BFC:
+    npcmsg(msg_0135_D47R0101_00085)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+    npcmsg(msg_0135_D47R0101_00085)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+_0C16:
+    npcmsg(msg_0135_D47R0101_00085)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D47R0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4057) == 7) {
+        if (flag(FLAG_UNK_183)) { goto(_0C4C) }
+        npcmsg(msg_0135_D47R0101_00018)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+_0C4C:
+    dummy247
+    natdexflagaction(2, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 0) { goto(_0DF2) }
+    checksafarizonelinked(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 0) {
+        setvar(VAR_TEMP_x4000, 0)
+        buffersafarilinkleadername(VAR_TEMP_x4000)
+        npcmsg(msg_0135_D47R0101_00054)
+    } else {
+        npcmsg(msg_0135_D47R0101_00060)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    showmoneybox(20, 2)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0D9F) }
+    countpcemptyspace(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        getpartycount(VAR_SPECIAL_x8004)
+        if (var(VAR_SPECIAL_x8004) == 6) { goto(_0DAC) }
+    }
+    hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 500)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0DCF) }
+    setvar(VAR_SPECIAL_RESULT, 500)
+    bufferint(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0135_D47R0101_00055)
+    playse(SEQ_SE_DP_REGI)
+    submoneyimmediate(500)
+    updatemoneybox
+    npcmsg(msg_0135_D47R0101_00057)
+    bufferplayersname(0)
+    setvar(VAR_SPECIAL_RESULT, 30)
+    bufferint(1, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0135_D47R0101_00058)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    npcmsg(msg_0135_D47R0101_00059)
+    closemessage
+    hidemoneybox
+    followmonrecall
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_08C4)
+    waitmovement
+    dooranimationload(0, 0, 19, 5, 77)
+    call(_08AF)
+    applymovement(obj_player, SafariZoneEntranceInterior_Movement_08D0)
+    waitmovement
+    call(_08B7)
+    setvar(VAR_SCENE_SAFARI_ZONE_ENTRANCE, 3)
+    safarizoneaction(0, 1)
+    setdynamicwarp(MAP_SAFARI_ZONE_ENTRANCE_INTERIOR, 2, 19, 2, 1)
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_SAFARI_ZONE_ENTRANCE_EXTERIOR, 0, 79, 100, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    lock(obj_partner_poke)
+    followmonreleasenexttoplayer
+    applymovement(obj_partner_poke, SafariZoneEntranceInterior_Movement_0200)
+    waitmovement
+    release(obj_partner_poke)
+    releaseall
+    end
+_0D9F:
+    hidemoneybox
+    npcmsg(msg_0135_D47R0101_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0DAC:
+    hidemoneybox
+    if (var(VAR_UNK_4057) >= 6) {
+        npcmsg(msg_0135_D47R0101_00013)
+    } else {
+        npcmsg(msg_0135_D47R0101_00012)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0DCF:
+    hidemoneybox
+    if (var(VAR_UNK_4057) >= 6) {
+        npcmsg(msg_0135_D47R0101_00011)
+    } else {
+        npcmsg(msg_0135_D47R0101_00010)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0DF2:
+    npcmsg(msg_0135_D47R0101_00084)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D47R0101_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    dummy247
+    natdexflagaction(2, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 0) {
+        npcmsg(msg_0135_D47R0101_00092)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNK_4057) >= 6) {
+        npcmsg(msg_0135_D47R0101_00093)
+    } else {
+        npcmsg(msg_0135_D47R0101_00094)
+    }
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0E68) }
+    npcmsg(msg_0135_D47R0101_00095)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0E68:
+    npcmsg(msg_0135_D47R0101_00096)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D47R0101_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4057) == 0) { goto(_0EF1) }
+    if (var(VAR_UNK_4057) == 1) { goto(_0EF1) }
+    if (var(VAR_UNK_4057) == 2) { goto(_0EF1) }
+    if (var(VAR_UNK_4057) == 3) { goto(_0EF1) }
+    bufferplayersname(0)
+    npcmsg(msg_0135_D47R0101_00027)
+    closemessage
+    clearflag(FLAG_UNK_99D)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    launchsafariareacustomizer
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (flag(FLAG_UNK_99D)) {
+        screenshake(0, 2, 10, 6)
+        playse(SEQ_SE_DP_KI_GASYAN)
+        npcmsg(msg_0135_D47R0101_00091)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    releaseall
+    end
+_0EF1:
+    npcmsg(msg_0135_D47R0101_00028)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts SafariZoneEntranceInterior_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_SAFARI_ZONE_ENTRANCE, 1: scr_seq_D47R0101_006
+        VAR_SCENE_SAFARI_ZONE_ENTRANCE, 3: scr_seq_D47R0101_006
+        VAR_SCENE_SAFARI_ZONE_ENTRANCE, 2: scr_seq_D47R0101_007
+        VAR_UNK_4057, 1: scr_seq_D47R0101_008
+        VAR_UNK_4057, 4: scr_seq_D47R0101_009
+    ]
+}

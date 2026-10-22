@@ -1,0 +1,33 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T20R0401_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND)) {
+        bufferplayersname(0)
+        gendermsgbox(msg_0548_T20R0401_00002, msg_0548_T20R0401_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_SCENE_ELMS_LAB) >= 1) {
+        bufferplayersname(0)
+        gendermsgbox(msg_0548_T20R0401_00004, msg_0548_T20R0401_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    bufferplayersname(0)
+    gendermsgbox(msg_0548_T20R0401_00000, msg_0548_T20R0401_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts NewBark_RivalHouse_1F_MapScripts {
+}

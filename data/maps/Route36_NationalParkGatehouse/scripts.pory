@@ -1,0 +1,160 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R36R0201_000
+	ScrDef scr_seq_R36R0201_001
+	ScrDef scr_seq_R36R0201_002
+	ScrDefEnd
+`
+
+script scr_seq_R36R0201_000 {
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_UNK_4118) == 1) {
+        clearflag(FLAG_UNK_1C4)
+        setflag(FLAG_UNK_1C3)
+    } elif (var(VAR_TEMP_x4000) == 2) {
+        clearflag(FLAG_UNK_1C4)
+        setflag(FLAG_UNK_1C3)
+    } elif (var(VAR_TEMP_x4000) == 4) {
+        clearflag(FLAG_UNK_1C4)
+        setflag(FLAG_UNK_1C3)
+    } elif (var(VAR_TEMP_x4000) == 6) {
+        clearflag(FLAG_UNK_1C4)
+        setflag(FLAG_UNK_1C3)
+    } else {
+        clearflag(FLAG_UNK_1C3)
+        setflag(FLAG_UNK_1C4)
+    }
+    end
+}
+
+script scr_seq_R36R0201_002 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Route36_NationalParkGatehouse_Movement_0120)
+    waitmovement
+    callstd(std_bug_contest_guard_ask_end)
+    if (var(VAR_UNK_4118) == 1) {
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        applymovement(obj_player, Route36_NationalParkGatehouse_Movement_0128)
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        playse(SEQ_SE_DP_KAIDAN2)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_NATIONAL_PARK_BUG_CATCHING_CONTEST, 0, 75, 39, DIR_WEST)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        lock(obj_partner_poke)
+        followmonislarge(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            followmonreleasenexttoplayer
+        } else {
+            followmonmovetoplayer
+        }
+        applymovement(obj_partner_poke, Route36_NationalParkGatehouse_Movement_0130)
+        waitmovement
+        release(obj_partner_poke)
+    }
+    releaseall
+    end
+}
+
+movement Route36_NationalParkGatehouse_Movement_0120 {
+    face_up
+}
+
+movement Route36_NationalParkGatehouse_Movement_0128 {
+    walk_in_place_left
+}
+
+movement Route36_NationalParkGatehouse_Movement_0130 {
+    face_left
+}
+
+script scr_seq_R36R0201_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_bug_contest_guard_start)
+    if (var(VAR_UNK_4118) == 1) {
+        if (!flag(FLAG_UNK_1C4)) {
+            getplayerfacing(VAR_SPECIAL_RESULT)
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            if (var(VAR_SPECIAL_RESULT) == 0) {
+                applymovement(obj_player, Route36_NationalParkGatehouse_Movement_0238)
+            } elif (var(VAR_SPECIAL_RESULT) == 2) {
+                applymovement(obj_player, Route36_NationalParkGatehouse_Movement_0240)
+            } else {
+                applymovement(obj_player, Route36_NationalParkGatehouse_Movement_024C)
+            }
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+        } else {
+            getplayerfacing(VAR_SPECIAL_RESULT)
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_player, Route36_NationalParkGatehouse_Movement_025C)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+        }
+        playse(SEQ_SE_DP_KAIDAN2)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_NATIONAL_PARK_BUG_CATCHING_CONTEST, 0, 75, 39, DIR_WEST)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        lock(obj_partner_poke)
+        followmonislarge(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            followmonreleasenexttoplayer
+        } else {
+            followmonmovetoplayer
+        }
+        applymovement(obj_partner_poke, Route36_NationalParkGatehouse_Movement_0130)
+        waitmovement
+        release(obj_partner_poke)
+    }
+    releaseall
+    end
+}
+
+movement Route36_NationalParkGatehouse_Movement_0238 {
+    face_left
+}
+
+movement Route36_NationalParkGatehouse_Movement_0240 {
+    walk_down
+    walk_left
+}
+
+movement Route36_NationalParkGatehouse_Movement_024C {
+    walk_right
+    walk_down * 2
+    walk_left * 2
+}
+
+movement Route36_NationalParkGatehouse_Movement_025C {
+    walk_down
+    walk_left * 4
+}
+
+mapscripts Route36_NationalParkGatehouse_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4118, 1: scr_seq_R36R0201_002
+    ]
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R36R0201_000
+}

@@ -1,0 +1,153 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D24R0217_000
+	ScrDef scr_seq_D24R0217_001
+	ScrDef scr_seq_D24R0217_002
+	ScrDef scr_seq_D24R0217_003
+	ScrDefEnd
+`
+
+script scr_seq_D24R0217_002 {
+    if (!flag(FLAG_UNK_189)) {
+        checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 0) {
+            getweekday(VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) == 1) { goto(_0067) }
+            if (var(VAR_TEMP_x4001) == 2) { goto(_0067) }
+            if (var(VAR_TEMP_x4001) == 4) { goto(_0067) }
+        }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _0067:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D24R0217_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0085_D24R0217_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D24R0217_001 {
+    end
+}
+
+script scr_seq_D24R0217_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01C0)
+        applymovement(obj_D24R0217_gsmiddleman1, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_020C)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01D8)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01F8)
+        applymovement(obj_D24R0217_gsmiddleman1, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_020C)
+    } else {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01E4)
+        applymovement(obj_D24R0217_gsmiddleman1, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_020C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_partner_poke, RuinsOfAlph_HallEntrance_SinjohEvent_Movement_0218)
+    waitmovement
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(4)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01C0 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01D8 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01E4 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_01F8 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_020C {
+    delay_8
+    walk_in_place_up
+}
+
+movement RuinsOfAlph_HallEntrance_SinjohEvent_Movement_0218 {
+    walk_right
+    walk_up
+    face_down
+}
+
+mapscripts RuinsOfAlph_HallEntrance_SinjohEvent_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D24R0217_002
+}

@@ -1,0 +1,98 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_P01R0306_000
+	ScrDef scr_seq_P01R0306_001
+	ScrDef scr_seq_P01R0306_002
+	ScrDef scr_seq_P01R0306_003
+	ScrDefEnd
+`
+
+script scr_seq_P01R0306_001 {
+    if (var(VAR_SCENE_SS_AQUA) >= 7) {
+        setflag(FLAG_UNK_216)
+        setflag(FLAG_UNK_218)
+        end
+    }
+    if (var(VAR_SCENE_SS_AQUA) <= 4) {
+        setflag(FLAG_UNK_218)
+    } else {
+        clearflag(FLAG_UNK_218)
+    }
+    end
+}
+
+script scr_seq_P01R0306_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_SS_AQUA) <= 3) {
+        applymovement(obj_P01R0306_gsgentleman, SsAqua_1F_NorthwestRooms_Movement_0090)
+        waitmovement
+        npcmsg(msg_0262_P01R0306_00001)
+    } elif (var(VAR_SCENE_SS_AQUA) == 4) {
+        npcmsg(msg_0262_P01R0306_00000)
+    } else {
+        npcmsg(msg_0262_P01R0306_00007)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement SsAqua_1F_NorthwestRooms_Movement_0090 {
+    jump_in_place_fast_down * 2
+}
+
+script scr_seq_P01R0306_003 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_P01R0306_gsbabygirl1_3, SsAqua_1F_NorthwestRooms_Movement_0110)
+    waitmovement
+    gendermsgbox(msg_0262_P01R0306_00002, msg_0262_P01R0306_00003)
+    closemessage
+    applymovement(obj_P01R0306_gsgentleman, SsAqua_1F_NorthwestRooms_Movement_0118)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0262_P01R0306_00004, msg_0262_P01R0306_00005)
+    if (!itemspace(ITEM_METAL_COAT, 1)) {
+        callstd(std_bag_is_full)
+        closemessage
+        goto(_00E2)
+    }
+    callstd(std_give_item_verbose)
+_00E2:
+    setvar(VAR_SCENE_SS_AQUA, 6)
+    setflag(FLAG_UNK_22A)
+    playse(SEQ_SE_DP_PINPON)
+    waitse(SEQ_SE_DP_PINPON)
+    setflag(FLAG_BOAT_ARRIVED)
+    npcmsg(msg_0262_P01R0306_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement SsAqua_1F_NorthwestRooms_Movement_0110 {
+    jump_in_place_fast_right * 3
+}
+
+movement SsAqua_1F_NorthwestRooms_Movement_0118 {
+    walk_slow_down
+}
+
+script scr_seq_P01R0306_002 {
+    simplenpcmsg(msg_0262_P01R0306_00008)
+    end
+}
+
+mapscripts SsAqua_1F_NorthwestRooms_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0306_001
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_SS_AQUA, 5: scr_seq_P01R0306_003
+    ]
+}

@@ -1,0 +1,167 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D24R0206_000
+	ScrDef scr_seq_D24R0206_001
+	ScrDef scr_seq_D24R0206_002
+	ScrDef scr_seq_D24R0206_003
+	ScrDefEnd
+`
+
+script scr_seq_D24R0206_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    alphpuzzle(2)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (flag(FLAG_SYS_ALPH_PUZZLE_OMANYTE)) {
+        wait(2, VAR_SPECIAL_x8004)
+        screenshake(0, 2, 10, 6)
+        wait(10, VAR_SPECIAL_x8004)
+        applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_02A4)
+        waitmovement
+        removeobject(obj_D24R0206_babyboy1_13)
+        playse(SEQ_SE_DP_KI_GASYAN)
+        clearflag(FLAG_UNK_111)
+        setflag(FLAG_UNK_220)
+        clearflag(FLAG_HIDE_RUINS_OF_ALPH_ASSISTANTS)
+        followmonisactive(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C)
+            waitmovement
+            goto(_00BC)
+        }
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C)
+            applymovement(obj_partner_poke, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_0238)
+            waitmovement
+        _00BC:
+            setvar(VAR_UNK_40CE, 1)
+            if (var(VAR_UNK_40EC) >= 1) {
+                setflag(FLAG_HIDE_RUINS_OF_ALPH_ASSISTANTS)
+                playse(SEQ_SE_GS_RAKKA01)
+                fadescreen(6, 1, 0, RGB_BLACK)
+                waitfade
+                warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL, 0, 5, 42, DIR_NORTH)
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                setvar(VAR_UNK_40DF, 1)
+                addvar(VAR_UNK_40EC, 1)
+                releaseall
+                end
+            }
+            playse(SEQ_SE_GS_RAKKA01)
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL, 0, 5, 42, DIR_NORTH)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            setvar(VAR_UNK_40DF, 1)
+            addvar(VAR_UNK_40EC, 1)
+            releaseall
+            end
+        }
+        end
+    }
+    releaseall
+    end
+}
+
+script scr_seq_D24R0206_003 {
+    followmonresetmovement
+    lockall
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C)
+        waitmovement
+        goto(_0189)
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C)
+        applymovement(obj_partner_poke, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_0238)
+        waitmovement
+    _0189:
+        setvar(VAR_UNK_40CE, 1)
+        playse(SEQ_SE_GS_RAKKA01)
+        if (var(VAR_UNOWN_REPORT_LEVEL) >= 7) {
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2, 0, 5, 42, DIR_NORTH)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            goto(_01D1)
+        }
+        if (var(VAR_UNOWN_REPORT_LEVEL) == 6) {
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT, 0, 5, 42, DIR_NORTH)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            goto(_01D1)
+        }
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL, 0, 5, 42, DIR_NORTH)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    _01D1:
+        releaseall
+        end
+    }
+    end
+}
+
+movement RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_022C {
+    walk_in_place_faster_up * 4
+    set_invisible
+}
+
+movement RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_0238 {
+    delay_4 * 3
+    walk_faster_up
+    set_invisible
+}
+
+script scr_seq_D24R0206_001 {
+    followmonresetmovement
+    lockall
+    openalphhiddenroom(2)
+    releaseall
+    end
+}
+
+script scr_seq_D24R0206_002 {
+    followmonresetmovement
+    lockall
+    if (flag(FLAG_OPENED_ALPH_WATER_STONE_SECRET_ROOM)) {
+        wait(10, VAR_SPECIAL_x8004)
+        npcmsg(msg_0077_D24R0206_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    wait(2, VAR_SPECIAL_x8004)
+    screenshake(0, 2, 10, 6)
+    wait(10, VAR_SPECIAL_x8004)
+    applymovement(obj_player, RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_02A4)
+    waitmovement
+    removeobject(obj_D24R0206_babyboy1_12)
+    setflag(FLAG_OPENED_ALPH_WATER_STONE_SECRET_ROOM)
+    playse(SEQ_SE_DP_UG_008)
+    releaseall
+    end
+}
+
+movement RuinsOfAlph_SouthwestEntranceFirstRoom_Movement_02A4 {
+    emote_exclamation_mark
+}
+
+mapscripts RuinsOfAlph_SouthwestEntranceFirstRoom_MapScripts {
+}

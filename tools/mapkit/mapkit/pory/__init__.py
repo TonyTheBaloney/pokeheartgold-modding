@@ -13,7 +13,7 @@ import re
 import subprocess
 
 from .. import layout, scripts
-from . import compiler
+from . import compiler, decompile
 from .compiler import CompileError, compile_source, text_entry  # noqa: F401
 from .parser import PoryError  # noqa: F401
 
@@ -114,8 +114,17 @@ def _init_target(expr, public):
     return expr.strip()
 
 
-def init_source(repo, m):
-    """The scripts.pory text `init` would write (nothing is changed)."""
+def own_includes(repo, entry):
+    """The includes the compiler writes itself."""
+    text_base = layout.resolve(list(repo.migrated.values()), entry, "msgBank")[1]
+    return {"constants/scrcmd.h", "macros/script.inc", layout.ids_include(entry["dir"]),
+            "msgdata/msg/%s.h" % text_base}
+
+
+def init_source(repo, m, raw=False, stats=None):
+    """The scripts.pory text `init` would write (nothing is changed). By default the
+    scripts are decompiled into structured `script` blocks (pory/decompile.py); with
+    raw, scripts.inc goes into one `raw` block unchanged."""
     entry = repo.migrated.get(m.name)
     if entry is None:
         raise CompileError("%s is not in data/maps" % m.name)
@@ -129,15 +138,23 @@ def init_source(repo, m):
     with open(os.path.join(folder, "scripts.inc"), encoding="utf-8") as f:
         src = f.read().replace("\r\n", "\n")
     # the compiler writes these includes itself
-    text_base = layout.resolve(list(repo.migrated.values()), entry, "msgBank")[1]
-    own = {"constants/scrcmd.h", "macros/script.inc", layout.ids_include(entry["dir"]),
-           "msgdata/msg/%s.h" % text_base}
+    own = own_includes(repo, entry)
     kept = [l for l in src.split("\n")
             if not (re.match(r'\s*#\s*include\s+"([^"]+)"', l) and re.match(r'\s*#\s*include\s+"([^"]+)"', l).group(1) in own)]
     src = "\n".join(kept).strip("\n")
     if "`" in src:
         raise CompileError("scripts.inc contains a backtick; can't wrap it in raw")
     public = [mm.group(1) for mm in map(compiler._SCRDEF_RE.match, src.splitlines()) if mm]
+    if raw:
+        scripts_part = ["raw `", src, "`", ""]
+    else:
+        with open(os.path.join(folder, "scripts.inc"), encoding="utf-8") as f:
+            full = f.read()
+        dec = decompile.Decompiler(context(repo, entry, repo.macros), entry["dir"], full)
+        scripts_part, st = dec.run(own)
+        if stats is not None:
+            for k, v in st.items():
+                stats[k] = stats.get(k, 0) + v
 
     sf = scripts.parse(os.path.join(folder, "map_scripts.inc"), repo.macros)
     entries, table, table_label = [], [], None
@@ -161,17 +178,20 @@ def init_source(repo, m):
         ms += (table + ["    ]"]) if e is None else [e]
 
     name = entry["dir"]
-    pory = ["// Converted from scripts.inc / map_scripts.inc by `mapkit pory init`.",
-            "// Scripts inside raw keep their ScrDef order; new `script` blocks are numbered after them.",
-            "", "raw `", src, "`", "",
-            "mapscripts %s_MapScripts {" % name] + ms + ["}", ""]
+    if raw:
+        head = ["// Converted from scripts.inc / map_scripts.inc by `mapkit pory init --raw`.",
+                "// Scripts inside raw keep their ScrDef order; new `script` blocks are numbered after them.", ""]
+    else:
+        head = ["// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /",
+                "// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).", ""]
+    pory = head + scripts_part + ["mapscripts %s_MapScripts {" % name] + ms + ["}", ""]
     return "\n".join(pory)
 
 
-def init(repo, m):
-    """scripts.inc + map_scripts.inc -> scripts.pory (scripts kept in a raw block,
-    map scripts as a mapscripts block). Builds byte-identical."""
-    text = init_source(repo, m)
+def init(repo, m, raw=False, stats=None):
+    """scripts.inc + map_scripts.inc -> scripts.pory (map scripts as a mapscripts
+    block; scripts decompiled, or kept in a raw block with raw). Builds byte-identical."""
+    text = init_source(repo, m, raw, stats)
     folder = os.path.join(repo.root, layout.MAPS_DIR, repo.migrated[m.name]["dir"])
     with open(os.path.join(folder, PORY), "w", encoding="utf-8") as f:
         f.write(text)

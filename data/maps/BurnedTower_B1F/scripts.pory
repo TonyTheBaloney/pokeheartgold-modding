@@ -1,0 +1,279 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D18R0102_000
+	ScrDef scr_seq_D18R0102_001
+	ScrDef scr_seq_D18R0102_002
+	ScrDefEnd
+`
+
+script scr_seq_D18R0102_002 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_BURNED_TOWER_STATIC_SUICUNE)
+        removeobject(obj_D18R0102_tsure_poke_static_suicune_2)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        end
+    }
+    end
+}
+
+script scr_seq_D18R0102_000 {
+    followmonresetmovement
+    lockall
+    playcry(SPECIES_RAIKOU, 0)
+    release(obj_D18R0102_tsure_poke_static_raikou)
+    spinobject(obj_D18R0102_tsure_poke_static_raikou, 2, 90, 2, 0)
+    lock(obj_D18R0102_tsure_poke_static_raikou)
+    waitcry
+    playcry(SPECIES_ENTEI, 0)
+    release(obj_D18R0102_tsure_poke_static_entei)
+    spinobject(obj_D18R0102_tsure_poke_static_entei, 2, 90, 2, 0)
+    lock(obj_D18R0102_tsure_poke_static_entei)
+    waitcry
+    playcry(SPECIES_SUICUNE, 0)
+    release(obj_D18R0102_tsure_poke_static_suicune)
+    spinobject(obj_D18R0102_tsure_poke_static_suicune, 2, 90, 2, 0)
+    lock(obj_D18R0102_tsure_poke_static_suicune)
+    waitcry
+    applymovement(obj_D18R0102_tsure_poke_static_raikou, BurnedTower_B1F_Movement_0224)
+    waitmovement
+    applymovement(obj_D18R0102_tsure_poke_static_entei, BurnedTower_B1F_Movement_0234)
+    waitmovement
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) == 16) {
+        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_0244)
+        waitmovement
+        playcry(SPECIES_SUICUNE, 0)
+        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_0254)
+        waitcry
+    } else {
+        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_0268)
+        waitmovement
+        playcry(SPECIES_SUICUNE, 0)
+        applymovement(obj_D18R0102_tsure_poke_static_suicune, BurnedTower_B1F_Movement_0278)
+        waitcry
+    }
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, BurnedTower_B1F_Movement_028C)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setflag(FLAG_HIDE_BURNED_TOWER_B1F_RAIKOU)
+    setflag(FLAG_HIDE_BURNED_TOWER_B1F_ENTEI)
+    setflag(FLAG_HIDE_BURNED_TOWER_B1F_SUICUNE)
+    removeobject(obj_D18R0102_tsure_poke_static_raikou)
+    removeobject(obj_D18R0102_tsure_poke_static_entei)
+    removeobject(obj_D18R0102_tsure_poke_static_suicune)
+    createroamer(0)
+    createroamer(1)
+    wait(15, VAR_SPECIAL_RESULT)
+    clearflag(FLAG_HIDE_BURNED_TOWER_B1F_EUSINE)
+    playse(SEQ_SE_DP_KAIDAN2)
+    addobject(obj_D18R0102_minaki)
+    lock(obj_D18R0102_minaki)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) == 16) {
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_029C)
+    } else {
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02B0)
+        applymovement(obj_player, BurnedTower_B1F_Movement_02D8)
+    }
+    waitmovement
+    npcmsg(msg_0061_D18R0102_00000)
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) == 16) {
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02C4)
+    } else {
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02D0)
+        applymovement(obj_player, BurnedTower_B1F_Movement_02D8)
+    }
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0061_D18R0102_00001)
+    closemessage
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) == 16) {
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02E8)
+    } else {
+        applymovement(obj_D18R0102_minaki, BurnedTower_B1F_Movement_02F8)
+    }
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    wait(2, VAR_SPECIAL_RESULT)
+    removeobject(obj_D18R0102_minaki)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    setflag(FLAG_HIDE_BURNED_TOWER_B1F_EUSINE)
+    setflag(FLAG_HIDE_BURNED_TOWER_1F_EUSINE)
+    setflag(FLAG_HIDE_BURNED_TOWER_1F_MORTY)
+    setflag(FLAG_HIDE_BURNED_TOWER_1F_RAIKOU)
+    setflag(FLAG_HIDE_BURNED_TOWER_1F_ENTEI)
+    setflag(FLAG_HIDE_BURNED_TOWER_1F_SUICUNE)
+    clearflag(FLAG_HIDE_CIANWOOD_SUICUNE)
+    setvar(VAR_UNK_40A1, 1)
+    setvar(VAR_UNK_4076, 1)
+    setvar(VAR_UNK_4079, 2)
+    setflag(FLAG_UNK_247)
+    clearflag(FLAG_HIDE_ECRUTEAK_OLD_MAN)
+    releaseall
+    end
+}
+
+movement BurnedTower_B1F_Movement_0224 {
+    move_action_105
+    set_invisible
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_0234 {
+    move_action_106
+    set_invisible
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_0244 {
+    move_action_107
+    face_right
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_0254 {
+    delay_4 * 6
+    move_action_108
+    set_invisible
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_0268 {
+    move_action_109
+    face_right
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_0278 {
+    delay_4 * 6
+    move_action_110
+    set_invisible
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_028C {
+    walk_left
+    face_down
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_029C {
+    walk_fast_down
+    walk_fast_left * 3
+    face_down
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_02B0 {
+    walk_fast_left * 5
+    walk_fast_down
+    face_down
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_02C4 {
+    walk_fast_left
+    face_up
+}
+
+movement BurnedTower_B1F_Movement_02D0 {
+    face_right
+}
+
+movement BurnedTower_B1F_Movement_02D8 {
+    delay_4 * 6
+    face_left
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_02E8 {
+    walk_fast_right * 4
+    walk_fast_up
+}
+
+raw `
+	End
+`
+
+movement BurnedTower_B1F_Movement_02F8 {
+    walk_fast_up
+    walk_fast_right * 5
+    face_up
+}
+
+raw `
+	End
+`
+
+script scr_seq_D18R0102_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_SUICUNE, 0)
+    waitcry
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(SPECIES_SUICUNE, 40, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    _0362:
+        setflag(FLAG_CAUGHT_SUICUNE)
+        return
+    }
+    getstaticencounteroutcome(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 3) {
+        compare(VAR_TEMP_x4002, 4)
+        callifeq(_0362)
+    }
+    releaseall
+    end
+}
+
+mapscripts BurnedTower_B1F_MapScripts {
+    INIT_SCRIPT_ON_LOAD: scr_seq_D18R0102_002
+}

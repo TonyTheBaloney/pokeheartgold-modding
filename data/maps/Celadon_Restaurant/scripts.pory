@@ -1,0 +1,113 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T07R0701_000
+	ScrDef scr_seq_T07R0701_001
+	ScrDef scr_seq_T07R0701_002
+	ScrDef scr_seq_T07R0701_003
+	ScrDef scr_seq_T07R0701_004
+	ScrDef scr_seq_T07R0701_005
+	ScrDef scr_seq_T07R0701_006
+	ScrDefEnd
+`
+
+script scr_seq_T07R0701_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0510_T07R0701_00006)
+    closemessage
+    applymovement(obj_T07R0701_leader4, Celadon_Restaurant_Movement_003C)
+    waitmovement
+    releaseall
+    end
+}
+
+movement Celadon_Restaurant_Movement_003C {
+    walk_in_place_right
+}
+
+script scr_seq_T07R0701_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0510_T07R0701_00005)
+        closemessage
+        applymovement(obj_T07R0701_gswoman1, Celadon_Restaurant_Movement_00D8)
+        waitmovement
+        releaseall
+        end
+    }
+    npcmsg(msg_0510_T07R0701_00004)
+    closemessage
+    applymovement(obj_T07R0701_gswoman1, Celadon_Restaurant_Movement_00D8)
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_T07R0701_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0510_T07R0701_00001)
+    closemessage
+    applymovement(obj_T07R0701_gsbigman_3, Celadon_Restaurant_Movement_00E0)
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_T07R0701_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0510_T07R0701_00002)
+    closemessage
+    applymovement(obj_T07R0701_gsbigman_2, Celadon_Restaurant_Movement_00E0)
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_T07R0701_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0510_T07R0701_00003)
+    closemessage
+    applymovement(obj_T07R0701_gsbigman, Celadon_Restaurant_Movement_00D8)
+    waitmovement
+    releaseall
+    end
+}
+
+movement Celadon_Restaurant_Movement_00D8 {
+    walk_in_place_down
+}
+
+movement Celadon_Restaurant_Movement_00E0 {
+    walk_in_place_up
+}
+
+script scr_seq_T07R0701_000 {
+    simplenpcmsg(msg_0510_T07R0701_00000)
+    end
+}
+
+script scr_seq_T07R0701_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0510_T07R0701_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Celadon_Restaurant_MapScripts {
+}

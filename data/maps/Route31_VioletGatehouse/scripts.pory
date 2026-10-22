@@ -1,0 +1,301 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R31R0101_000
+	ScrDef scr_seq_R31R0101_001
+	ScrDef scr_seq_R31R0101_002
+	ScrDefEnd
+`
+
+script scr_seq_R31R0101_001 {
+    getfriendsprite(VAR_OBJ_0)
+    end
+}
+
+script scr_seq_R31R0101_000 {
+    followmonresetmovement
+    lockall
+    callstd(std_play_friend_music)
+    applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_028C)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    movepersonfacing(obj_R31R0101_var_1, 10, 1, 7, DIR_WEST)
+    movepersonfacing(obj_R31R0101_tsure_poke_static_marill, 10, 1, 7, DIR_WEST)
+    applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_0284)
+    waitmovement
+    waitse(SEQ_SE_DP_KAIDAN2)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    followmonisactive(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 1) {
+        if (var(VAR_TEMP_x4001) == 6) {
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02AC)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_02FC)
+        } elif (var(VAR_TEMP_x4001) == 7) {
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02BC)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0314)
+        } else {
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02C4)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0324)
+        }
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02D4)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_033C)
+    } elif (var(VAR_TEMP_x4001) == 7) {
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02E4)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0354)
+    } else {
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_02EC)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0364)
+    }
+    waitmovement
+    applymovement(obj_player, Route31_VioletGatehouse_Movement_0294)
+    if (var(VAR_TEMP_x4002) == 1) {
+        applymovement(obj_partner_poke, Route31_VioletGatehouse_Movement_0294)
+    }
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0379_R31R0101_00002, msg_0379_R31R0101_00003)
+    giveitemnocheck(ITEM_VS__RECORDER, 1)
+    gendermsgbox(msg_0379_R31R0101_00004, msg_0379_R31R0101_00005)
+    closemessage
+    applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_0294)
+    waitmovement
+    gendermsgbox(msg_0379_R31R0101_00006, msg_0379_R31R0101_00007)
+    closemessage
+    applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_02A4)
+    waitmovement
+    if (var(VAR_TEMP_x4002) == 1) {
+        if (var(VAR_TEMP_x4001) == 6) {
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_037C)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_03EC)
+        } elif (var(VAR_TEMP_x4001) == 7) {
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_038C)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0404)
+        } else {
+            applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_03A4)
+            applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0424)
+        }
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_03B4)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_043C)
+    } elif (var(VAR_TEMP_x4001) == 7) {
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_03C4)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0454)
+    } else {
+        applymovement(obj_R31R0101_var_1, Route31_VioletGatehouse_Movement_03DC)
+        applymovement(obj_R31R0101_tsure_poke_static_marill, Route31_VioletGatehouse_Movement_0474)
+    }
+    wait(16, VAR_SPECIAL_RESULT)
+    applymovement(obj_player, Route31_VioletGatehouse_Movement_029C)
+    if (var(VAR_TEMP_x4002) == 1) {
+        applymovement(obj_partner_poke, Route31_VioletGatehouse_Movement_029C)
+    }
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    movepersonfacing(obj_R31R0101_var_1, 12, 0, 28, DIR_NORTH)
+    movepersonfacing(obj_R31R0101_tsure_poke_static_marill, 12, 0, 28, DIR_NORTH)
+    callstd(std_fade_end_friend_music)
+    releaseall
+    setvar(VAR_UNK_4132, 1)
+    end
+}
+
+movement Route31_VioletGatehouse_Movement_0284 {
+    emote_exclamation_mark
+}
+
+movement Route31_VioletGatehouse_Movement_028C {
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_0294 {
+    walk_in_place_right
+}
+
+movement Route31_VioletGatehouse_Movement_029C {
+    walk_in_place_fast_left
+}
+
+movement Route31_VioletGatehouse_Movement_02A4 {
+    jump_in_place_fast_left * 2
+}
+
+movement Route31_VioletGatehouse_Movement_02AC {
+    walk_left * 2
+    walk_up
+    walk_left
+}
+
+movement Route31_VioletGatehouse_Movement_02BC {
+    walk_left * 3
+}
+
+movement Route31_VioletGatehouse_Movement_02C4 {
+    walk_left * 2
+    walk_down
+    walk_left
+}
+
+movement Route31_VioletGatehouse_Movement_02D4 {
+    walk_left * 2
+    walk_up
+    walk_left * 2
+}
+
+movement Route31_VioletGatehouse_Movement_02E4 {
+    walk_left * 4
+}
+
+movement Route31_VioletGatehouse_Movement_02EC {
+    walk_left * 2
+    walk_down
+    walk_left * 2
+}
+
+movement Route31_VioletGatehouse_Movement_02FC {
+    delay_8
+    set_visible
+    walk_left * 2
+    walk_up
+    walk_in_place_left
+}
+
+movement Route31_VioletGatehouse_Movement_0314 {
+    delay_8
+    set_visible
+    walk_left * 2
+}
+
+movement Route31_VioletGatehouse_Movement_0324 {
+    delay_8
+    set_visible
+    walk_left * 2
+    walk_down
+    walk_in_place_left
+}
+
+movement Route31_VioletGatehouse_Movement_033C {
+    delay_8
+    set_visible
+    walk_left * 2
+    walk_up
+    walk_left
+}
+
+movement Route31_VioletGatehouse_Movement_0354 {
+    delay_8
+    set_visible
+    walk_left * 3
+}
+
+movement Route31_VioletGatehouse_Movement_0364 {
+    delay_8
+    set_visible
+    walk_left * 2
+    walk_down
+    walk_left
+}
+
+movement Route31_VioletGatehouse_Movement_037C {
+    run_down
+    run_left * 6
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_038C {
+    run_down
+    run_left * 4
+    run_up
+    run_left * 2
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_03A4 {
+    run_up
+    run_left * 6
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_03B4 {
+    run_down
+    run_left * 5
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_03C4 {
+    run_down
+    run_left * 3
+    run_up
+    run_left * 2
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_03DC {
+    run_up
+    run_left * 5
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_03EC {
+    delay_2
+    walk_fast_left
+    walk_fast_down
+    walk_fast_left * 6
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_0404 {
+    delay_2
+    walk_fast_left
+    walk_fast_down
+    walk_fast_left * 4
+    walk_fast_up
+    walk_fast_left * 2
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_0424 {
+    delay_2
+    walk_fast_left
+    walk_fast_up
+    walk_fast_left * 6
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_043C {
+    delay_2
+    walk_fast_left
+    walk_fast_down
+    walk_fast_left * 5
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_0454 {
+    delay_2
+    walk_fast_left
+    walk_fast_down
+    walk_fast_left * 3
+    walk_fast_up
+    walk_fast_left * 2
+    set_invisible
+}
+
+movement Route31_VioletGatehouse_Movement_0474 {
+    delay_2
+    walk_fast_left
+    walk_fast_up
+    walk_fast_left * 5
+    set_invisible
+}
+
+script scr_seq_R31R0101_002 {
+    simplenpcmsg(msg_0379_R31R0101_00000)
+    end
+}
+
+mapscripts Route31_VioletGatehouse_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R31R0101_001
+}

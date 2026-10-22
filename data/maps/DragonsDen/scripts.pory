@@ -1,0 +1,497 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D44R0102_000
+	ScrDef scr_seq_D44R0102_001
+	ScrDef scr_seq_D44R0102_002
+	ScrDef scr_seq_D44R0102_003
+	ScrDef scr_seq_D44R0102_004
+	ScrDef scr_seq_D44R0102_005
+	ScrDefEnd
+`
+
+script scr_seq_D44R0102_002 {
+    if (!flag(FLAG_UNK_189)) {
+        if (var(VAR_UNK_40FC) >= 2) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 2) {
+                clearflag(FLAG_HIDE_CHAMPIONS_ROOM_RETREAT)
+            } elif (var(VAR_TEMP_x4000) == 4) {
+                clearflag(FLAG_HIDE_CHAMPIONS_ROOM_RETREAT)
+            } else {
+                setflag(FLAG_HIDE_CHAMPIONS_ROOM_RETREAT)
+            }
+            checkregisteredphonenumber(PHONE_CONTACT_CLAIR, VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) == 1) {
+                getphonebookrematch(PHONE_CONTACT_CLAIR, VAR_TEMP_x4001)
+                if (var(VAR_TEMP_x4001) != 0) {
+                    setflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+                    end
+                _015E:
+                    getstarterchoice(VAR_TEMP_x4000)
+                    if (var(VAR_TEMP_x4000) == 152) {
+                        setvar(VAR_OBJ_0, 1048)
+                    } elif (var(VAR_TEMP_x4000) == 155) {
+                        setvar(VAR_OBJ_0, 1049)
+                    } else {
+                        setvar(VAR_OBJ_0, 1047)
+                    }
+                    return
+                }
+                getcurrenthour(VAR_TEMP_x4000)
+                if (var(VAR_TEMP_x4000) == 16) {
+                    clearflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+                } elif (var(VAR_TEMP_x4000) == 17) {
+                    clearflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+                } elif (var(VAR_TEMP_x4000) == 18) {
+                    clearflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+                } else {
+                    setflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+                }
+                end
+            }
+            getcurrenthour(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 6) {
+                clearflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+            } elif (var(VAR_TEMP_x4000) == 7) {
+                clearflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+            } elif (var(VAR_TEMP_x4000) == 8) {
+                clearflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+            } elif (var(VAR_TEMP_x4000) == 9) {
+                clearflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+            } else {
+                setflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+            }
+            end
+        }
+        compare(VAR_UNK_40FC, 1)
+        callifeq(_015E)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D44R0102_000 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, DragonsDen_Movement_02C0)
+    waitmovement
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 26) {
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02C8)
+    } elif (var(VAR_TEMP_x4000) == 27) {
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02D0)
+    } else {
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02D8)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0129_D44R0102_00000)
+    npcmsg(msg_0129_D44R0102_00001)
+    if (!itemspace(ITEM_TM59, 1)) {
+        npcmsg(msg_0129_D44R0102_00004)
+        closemessage
+        goto(_0236)
+        end
+    }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM59_FROM_CLAIR)
+    npcmsg(msg_0129_D44R0102_00003)
+_0236:
+    npcmsg(msg_0129_D44R0102_00005)
+    closemessage
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 26) {
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02E0)
+        applymovement(obj_player, DragonsDen_Movement_0310)
+    } elif (var(VAR_TEMP_x4000) == 27) {
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_02F0)
+        applymovement(obj_player, DragonsDen_Movement_0310)
+    } else {
+        applymovement(obj_D44R0102_gsleader8, DragonsDen_Movement_0300)
+        applymovement(obj_player, DragonsDen_Movement_0310)
+    }
+    waitmovement
+    removeobject(obj_D44R0102_gsleader8)
+    setvar(VAR_UNK_40C4, 2)
+    releaseall
+    end
+}
+
+movement DragonsDen_Movement_02B4 {
+    emote_exclamation_mark
+    face_left
+}
+
+movement DragonsDen_Movement_02C0 {
+    walk_left
+}
+
+movement DragonsDen_Movement_02C8 {
+    walk_right
+}
+
+movement DragonsDen_Movement_02D0 {
+    walk_right * 2
+}
+
+movement DragonsDen_Movement_02D8 {
+    walk_right * 3
+}
+
+movement DragonsDen_Movement_02E0 {
+    walk_up
+    walk_right * 3
+    walk_up * 7
+}
+
+movement DragonsDen_Movement_02F0 {
+    walk_up
+    walk_right * 2
+    walk_up * 7
+}
+
+movement DragonsDen_Movement_0300 {
+    walk_up
+    walk_right
+    walk_up * 7
+}
+
+movement DragonsDen_Movement_0310 {
+    face_up
+}
+
+script scr_seq_D44R0102_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_0E2)) {
+        bufferrivalsname(1)
+        npcmsg(msg_0129_D44R0102_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    bufferplayersname(0)
+    bufferrivalsname(1)
+    npcmsg(msg_0129_D44R0102_00007)
+    waitbuttonpress
+    closemessage
+    setflag(FLAG_UNK_0E2)
+    releaseall
+    end
+}
+
+script scr_seq_D44R0102_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkregisteredphonenumber(PHONE_CONTACT_CLAIR, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) {
+        npcmsg(msg_0129_D44R0102_00029)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0129_D44R0102_00032)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        photoalbumisfull(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0129_D44R0102_00033)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0129_D44R0102_00030)
+        closemessage
+        setflag(FLAG_UNK_189)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        cameronphoto(83)
+        faceplayer
+        lockall
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        clearflag(FLAG_UNK_189)
+        npcmsg(msg_0129_D44R0102_00031)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_TEMP_x4002) >= 1) { goto(_03F1) }
+    npcmsg(msg_0129_D44R0102_00009)
+_0379:
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_039D) }
+    if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_03E0) }
+    end
+_039D:
+    bufferplayersname(0)
+    npcmsg(msg_0129_D44R0102_00010)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    registergearnumber(PHONE_CONTACT_CLAIR)
+    npcmsg(msg_0129_D44R0102_00011)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setflag(FLAG_HIDE_VICTORY_ROAD_CLAIR)
+    removeobject(obj_D44R0102_gsleader8)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+_03E0:
+    setvar(VAR_TEMP_x4002, 1)
+    npcmsg(msg_0129_D44R0102_00012)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_03F1:
+    npcmsg(msg_0129_D44R0102_00013)
+    goto(_0379)
+    end
+}
+
+script scr_seq_D44R0102_004 {
+    followmonresetmovement
+    lockall
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0674)
+    if (var(VAR_TEMP_x4000) == 24) {
+        applymovement(obj_player, DragonsDen_Movement_0688)
+    } else {
+        applymovement(obj_player, DragonsDen_Movement_0694)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    callstd(std_play_rival_intro_music)
+    bufferrivalsname(1)
+    npcmsg(msg_0129_D44R0102_00014)
+    closemessage
+    movepersonfacing(obj_D44R0102_wataru, 28, 0, 34, DIR_SOUTH)
+    movepersonfacing(obj_D44R0102_gsleader8_2, 28, 0, 33, DIR_SOUTH)
+    callstd(std_fade_end_rival_intro_music)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0674)
+    applymovement(obj_player, DragonsDen_Movement_06A8)
+    applymovement(obj_D44R0102_wataru, DragonsDen_Movement_06E4)
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0704)
+    applymovement(obj_partner_poke, DragonsDen_Movement_06C8)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0129_D44R0102_00015, msg_0129_D44R0102_00016)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0680)
+    waitmovement
+    bufferrivalsname(1)
+    npcmsg(msg_0129_D44R0102_00017)
+    npcmsg(msg_0129_D44R0102_00018)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_073C)
+    waitmovement
+    bufferplayersname(0)
+    bufferrivalsname(1)
+    npcmsg(msg_0129_D44R0102_00019)
+    gendermsgbox(msg_0129_D44R0102_00020, msg_0129_D44R0102_00021)
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0718)
+    waitmovement
+    npcmsg(msg_0129_D44R0102_00022)
+    bufferrivalsname(1)
+    npcmsg(msg_0129_D44R0102_00023)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0744)
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0758)
+    applymovement(obj_player, DragonsDen_Movement_0764)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0129_D44R0102_00024)
+    closemessage
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0770)
+    applymovement(obj_player, DragonsDen_Movement_0770)
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0718)
+    waitmovement
+    if (var(VAR_OBJ_0) == 1048) {
+        multibattle(TRAINER_PARTNER_RIVAL_2, TRAINER_CHAMPION_LANCE_3, TRAINER_LEADER_CLAIR_CLAIR_3, 1)
+    } elif (var(VAR_OBJ_0) == 1049) {
+        multibattle(TRAINER_PARTNER_RIVAL_3, TRAINER_CHAMPION_LANCE_3, TRAINER_LEADER_CLAIR_CLAIR_3, 1)
+    } else {
+        multibattle(TRAINER_PARTNER_RIVAL_1, TRAINER_CHAMPION_LANCE_3, TRAINER_LEADER_CLAIR_CLAIR_3, 1)
+    }
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    bufferplayersname(0)
+    gendermsgbox(msg_0129_D44R0102_00025, msg_0129_D44R0102_00026)
+    closemessage
+    applymovement(obj_D44R0102_wataru, DragonsDen_Movement_06F4)
+    waitmovement
+    removeobject(obj_D44R0102_wataru)
+    bufferplayersname(0)
+    npcmsg(msg_0129_D44R0102_00027)
+    closemessage
+    applymovement(obj_D44R0102_gsleader8_2, DragonsDen_Movement_0720)
+    waitmovement
+    removeobject(obj_D44R0102_gsleader8_2)
+    applymovement(obj_D44R0102_gsrivel_2, DragonsDen_Movement_0778)
+    applymovement(obj_player, DragonsDen_Movement_0780)
+    waitmovement
+    bufferplayersname(0)
+    bufferrivalsname(1)
+    npcmsg(msg_0129_D44R0102_00028)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    removeobject(obj_D44R0102_gsrivel_2)
+    removeobject(obj_D44R0102_var_1)
+    wait(20, VAR_SPECIAL_x8004)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    applymovement(obj_partner_poke, DragonsDen_Movement_06DC)
+    waitmovement
+    setvar(VAR_UNK_40FC, 2)
+    setvar(VAR_UNK_4119, 1)
+    releaseall
+    end
+}
+
+movement DragonsDen_Movement_0674 {
+    face_up
+    emote_exclamation_mark
+}
+
+movement DragonsDen_Movement_0680 {
+    emote_exclamation_mark
+}
+
+movement DragonsDen_Movement_0688 {
+    delay_16 * 2
+    walk_down * 2
+}
+
+movement DragonsDen_Movement_0694 {
+    delay_16
+    walk_down
+    walk_left
+    walk_down
+}
+
+movement DragonsDen_Movement_06A8 {
+    delay_16
+    face_up
+    emote_exclamation_mark
+    delay_16 * 2
+    walk_right
+    walk_down * 2
+    face_up
+}
+
+movement DragonsDen_Movement_06C8 {
+    delay_16 * 4
+    walk_fast_right
+    walk_fast_down * 5
+    face_up
+}
+
+movement DragonsDen_Movement_06DC {
+    walk_up
+}
+
+movement DragonsDen_Movement_06E4 {
+    walk_down * 7
+    walk_left * 3
+    walk_down * 3
+}
+
+movement DragonsDen_Movement_06F4 {
+    walk_up * 4
+    walk_right * 3
+    walk_up * 7
+}
+
+movement DragonsDen_Movement_0704 {
+    delay_8
+    walk_down * 7
+    walk_left * 4
+    walk_down * 4
+}
+
+movement DragonsDen_Movement_0718 {
+    walk_down
+}
+
+movement DragonsDen_Movement_0720 {
+    lock_dir
+    walk_slow_up
+    unlock_dir
+    walk_fast_up * 2
+    walk_fast_right * 4
+    walk_fast_up * 7
+}
+
+movement DragonsDen_Movement_073C {
+    walk_in_place_fast_up * 2
+}
+
+movement DragonsDen_Movement_0744 {
+    walk_faster_up
+    delay_8
+    walk_down
+    walk_in_place_right
+}
+
+movement DragonsDen_Movement_0758 {
+    lock_dir
+    walk_faster_up * 2
+}
+
+movement DragonsDen_Movement_0764 {
+    delay_16 * 2
+    walk_in_place_left
+}
+
+movement DragonsDen_Movement_0770 {
+    walk_in_place_up
+}
+
+movement DragonsDen_Movement_0778 {
+    face_right
+}
+
+movement DragonsDen_Movement_0780 {
+    face_left
+}
+
+script scr_seq_D44R0102_005 {
+    trainertipsex(2, msg_0129_D44R0102_00006)
+    end
+}
+
+mapscripts DragonsDen_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D44R0102_002
+}

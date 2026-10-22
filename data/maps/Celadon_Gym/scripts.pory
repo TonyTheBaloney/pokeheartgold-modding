@@ -1,0 +1,128 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T07GYM0101_000
+	ScrDef scr_seq_T07GYM0101_001
+	ScrDef scr_seq_T07GYM0101_002
+	ScrDefEnd
+`
+
+script scr_seq_T07GYM0101_002 {
+    getphonebookrematch(PHONE_CONTACT_ERIKA, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_CELADON_GYM_ERIKA)
+        end
+    }
+    checkregisteredphonenumber(PHONE_CONTACT_ERIKA, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_00DE) }
+    checkbadge(BADGE_EARTH, VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 1) { goto(_004F) }
+    goto(_0101)
+    end
+_004F:
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 6) { goto(_006C) }
+    goto(_008D)
+    goto(_008B)
+_006C:
+    if (var(VAR_TEMP_x4000) != 0) { goto(_0085) }
+    goto(_008D)
+    goto(_008B)
+_0085:
+    goto(_0101)
+_008B:
+    end
+_008D:
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 14) {
+        setflag(FLAG_HIDE_CELADON_GYM_ERIKA)
+    } elif (var(VAR_TEMP_x4000) == 15) {
+        setflag(FLAG_HIDE_CELADON_GYM_ERIKA)
+    } elif (var(VAR_TEMP_x4000) == 16) {
+        setflag(FLAG_HIDE_CELADON_GYM_ERIKA)
+    } else {
+        goto(_0101)
+    }
+    end
+_00DE:
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 1) {
+        setflag(FLAG_HIDE_CELADON_GYM_ERIKA)
+    } else {
+        goto(_0101)
+    }
+    end
+_0101:
+    clearflag(FLAG_HIDE_CELADON_GYM_ERIKA)
+    end
+}
+
+script scr_seq_T07GYM0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_RAINBOW, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01A5) }
+    npcmsg(msg_0492_T07GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_ERIKA_ERIKA, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    givebadge(BADGE_RAINBOW)
+    addvar(VAR_UNK_4135, 1)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    settrainerflag(TRAINER_TWINS_JO_AND_ZOE)
+    settrainerflag(TRAINER_LASS_MICHELLE)
+    settrainerflag(TRAINER_PICNICKER_TANYA)
+    settrainerflag(TRAINER_BEAUTY_JULIA)
+    npcmsg(msg_0492_T07GYM0101_00001)
+    bufferplayersname(0)
+    npcmsg(msg_0492_T07GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    npcmsg(msg_0492_T07GYM0101_00003)
+    goto(_017C)
+_017C:
+    if (!itemspace(ITEM_TM19, 1)) {
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM19_FROM_ERIKA)
+_01A5:
+    if (!flag(FLAG_GOT_TM19_FROM_ERIKA)) { goto(_017C) }
+    npcmsg(msg_0492_T07GYM0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07GYM0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_RAINBOW, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0492_T07GYM0101_00005)
+    } else {
+        npcmsg(msg_0492_T07GYM0101_00006)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Celadon_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T07GYM0101_002
+}

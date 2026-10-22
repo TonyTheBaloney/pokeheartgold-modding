@@ -1,0 +1,160 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D10R0101_000 {
+    palparkaction(2)
+    end
+}
+
+script scr_seq_D10R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    nonnpcmsg(msg_0052_D10R0101_00006)
+    wait(30, VAR_SPECIAL_RESULT)
+    nonnpcmsg(msg_0052_D10R0101_00007)
+    playse(SEQ_SE_DP_DECIDE)
+    wait(30, VAR_SPECIAL_RESULT)
+    nonnpcmsg(msg_0052_D10R0101_00008)
+    playse(SEQ_SE_DP_DECIDE)
+    wait(30, VAR_SPECIAL_RESULT)
+    nonnpcmsg(msg_0052_D10R0101_00009)
+    playse(SEQ_SE_DP_DECIDE)
+    wait(30, VAR_SPECIAL_RESULT)
+    nonnpcmsg(msg_0052_D10R0101_00010)
+    playse(SEQ_SE_DP_CON_016)
+    wait(30, VAR_SPECIAL_RESULT)
+    palparkaction(0)
+    setvar(VAR_UNK_4124, 1)
+    closemessage
+    releaseall
+    end
+    palparkaction(0)
+    setvar(VAR_UNK_4124, 1)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D10R0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    playse(SEQ_SE_DP_PINPON)
+    bufferplayersname(0)
+    npcmsg(msg_0052_D10R0101_00004)
+    playbgm(SEQ_SILENCE_DUNGEON)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    closemessage
+    releaseall
+    setvar(VAR_UNK_4124, 1)
+    call(_01D4)
+    end
+}
+
+script scr_seq_D10R0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0052_D10R0101_00005)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    closemessage
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        setvar(VAR_UNK_4124, 2)
+        releaseall
+        call(_01D4)
+        end
+    }
+    releaseall
+    end
+}
+
+script scr_seq_D10R0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0180)
+    closemessage
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        applymovement(obj_player, PalPark_Movement_0134)
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        releaseall
+        end
+    }
+    setvar(VAR_UNK_4124, 2)
+    releaseall
+    call(_01D4)
+    end
+}
+
+movement PalPark_Movement_0134 {
+    walk_up
+}
+
+script scr_seq_D10R0101_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    call(_0180)
+    closemessage
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_D10R0101_mount_2, PalPark_Movement_0178)
+        waitmovement
+        releaseall
+        end
+    }
+    setvar(VAR_UNK_4124, 2)
+    releaseall
+    call(_01D4)
+    end
+}
+
+movement PalPark_Movement_0178 {
+    walk_in_place_left
+}
+
+script(local) _0180 {
+    npcmsg(msg_0052_D10R0101_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0052_D10R0101_00001)
+        setvar(VAR_SPECIAL_RESULT, 1)
+        return
+    _01D4:
+        palparkaction(1)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_FUCHSIA_PAL_PARK_ENTRANCE, 0, 7, 7, DIR_SOUTH)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        return
+    }
+    getplayergender(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01B9) }
+    bufferplayersname(0)
+    npcmsg(msg_0052_D10R0101_00002)
+    waitbuttonpress
+    setvar(VAR_SPECIAL_RESULT, 0)
+    return
+_01B9:
+    bufferplayersname(0)
+    npcmsg(msg_0052_D10R0101_00003)
+    waitbuttonpress
+    setvar(VAR_SPECIAL_RESULT, 0)
+    return
+}
+
+mapscripts PalPark_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D10R0101_000
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4124, 0: scr_seq_D10R0101_001
+    ]
+}

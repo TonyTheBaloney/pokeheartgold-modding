@@ -1,0 +1,134 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T28GYM0101_000
+	ScrDef scr_seq_T28GYM0101_001
+	ScrDefEnd
+`
+
+script scr_seq_T28GYM0101_001 {
+    if (!flag(FLAG_UNK_189)) {
+        getphonebookrematch(PHONE_CONTACT_PRYCE, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) != 0) {
+            setflag(FLAG_HIDE_MAHOGANY_GYM_PRYCE)
+            end
+        }
+        if (!flag(FLAG_GAME_CLEAR)) { goto(_00B2) }
+        checkregisteredphonenumber(PHONE_CONTACT_PRYCE, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 1) { goto(_00B2) }
+        getcurrenthour(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 6) {
+            setflag(FLAG_HIDE_MAHOGANY_GYM_PRYCE)
+        } elif (var(VAR_TEMP_x4000) == 7) {
+            setflag(FLAG_HIDE_MAHOGANY_GYM_PRYCE)
+        } elif (var(VAR_TEMP_x4000) == 8) {
+            setflag(FLAG_HIDE_MAHOGANY_GYM_PRYCE)
+        } elif (var(VAR_TEMP_x4000) == 9) {
+            setflag(FLAG_HIDE_MAHOGANY_GYM_PRYCE)
+        } else {
+            clearflag(FLAG_HIDE_MAHOGANY_GYM_PRYCE)
+        }
+        end
+    _00B2:
+        clearflag(FLAG_HIDE_MAHOGANY_GYM_PRYCE)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T28GYM0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_GLACIER, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        if (flag(FLAG_GAME_CLEAR)) {
+            npcmsg(msg_0622_T28GYM0101_00006)
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                npcmsg(msg_0622_T28GYM0101_00009)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            photoalbumisfull(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                npcmsg(msg_0622_T28GYM0101_00010)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            npcmsg(msg_0622_T28GYM0101_00007)
+            closemessage
+            setflag(FLAG_UNK_189)
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            cameronphoto(40)
+            faceplayer
+            lockall
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            clearflag(FLAG_UNK_189)
+            npcmsg(msg_0622_T28GYM0101_00008)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0622_T28GYM0101_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0622_T28GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_PRYCE_PRYCE, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0172) }
+    settrainerflag(TRAINER_BOARDER_DEANDRE)
+    settrainerflag(TRAINER_BOARDER_GERARDO)
+    settrainerflag(TRAINER_SKIER_JILL)
+    settrainerflag(TRAINER_SKIER_DIANA)
+    settrainerflag(TRAINER_BOARDER_PATTON)
+    npcmsg(msg_0622_T28GYM0101_00001)
+    givebadge(BADGE_GLACIER)
+    addvar(VAR_MIDGAME_BADGES, 1)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    if (var(VAR_MIDGAME_BADGES) == 3) {
+        setvar(VAR_SCENE_ROCKET_TAKEOVER, 1)
+    }
+    bufferplayersname(0)
+    npcmsg(msg_0622_T28GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    npcmsg(msg_0622_T28GYM0101_00003)
+    if (!itemspace(ITEM_TM07, 1)) {
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM07_FROM_PRYCE)
+    npcmsg(msg_0622_T28GYM0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0172:
+    whiteout
+    releaseall
+    end
+}
+
+mapscripts Mahogany_GymLeaderRoom_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T28GYM0101_001
+}

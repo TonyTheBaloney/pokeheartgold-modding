@@ -1,0 +1,174 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T07R0206_000 {
+    followmonresetmovement
+    lockall
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Celadon_CondominiumsLeftElevator_Movement_0340)
+        waitmovement
+    _0062:
+        getdynamicwarpfloorno(VAR_ELEVATOR_LAST_FLOOR)
+        Switch(VAR_ELEVATOR_LAST_FLOOR)
+        Case(3, _0095)
+        Case(2, _00A0)
+        Case(0, _00AA)
+        end
+    _0095:
+        bufferint(0, 0)
+        goto(_00B4)
+    _00A0:
+        bufferdeptstorefloorno(0, 3)
+        goto(_00B4)
+    _00AA:
+        bufferdeptstorefloorno(0, 1)
+        goto(_00B4)
+    _00B4:
+        elevatorcurfloorbox(20, 1, VAR_ELEVATOR_LAST_FLOOR, VAR_ELEVATOR_LAST_FLOOR)
+        npcmsg(msg_0506_T07R0206_00000)
+        touchscreenmenuhide
+        menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        menuitemadd(116, 255, 0)
+        menuitemadd(118, 255, 1)
+        menuitemadd(125, 255, 2)
+        menuitemadd(126, 255, 3)
+        menuexec
+        touchscreenmenushow
+        Switch(VAR_SPECIAL_RESULT)
+        Case(0, _0120)
+        Case(1, _019B)
+        Case(2, _0216)
+        goto(_0322)
+    _0120:
+        wait(1, VAR_SPECIAL_RESULT)
+        getdynamicwarpfloorno(VAR_ELEVATOR_LAST_FLOOR)
+        setdynamicwarp(MAP_CELADON_CONDOMINIUMS_1F, 2, 5, 3, 1)
+        if (var(VAR_ELEVATOR_LAST_FLOOR) == 0) { goto(_0305) }
+        compare(VAR_ELEVATOR_LAST_FLOOR, 0)
+        callifgt(_029C)
+        compare(VAR_ELEVATOR_LAST_FLOOR, 0)
+        calliflt(_0291)
+        if (var(VAR_ELEVATOR_LAST_FLOOR) == 2) {
+            setvar(VAR_SPECIAL_x8005, 2)
+        } elif (var(VAR_ELEVATOR_LAST_FLOOR) == 3) {
+            setvar(VAR_SPECIAL_x8005, 3)
+        }
+        call(_02A7)
+        setvar(VAR_ELEVATOR_LAST_FLOOR, 0)
+        goto(_02BB)
+    _019B:
+        wait(1, VAR_SPECIAL_RESULT)
+        getdynamicwarpfloorno(VAR_ELEVATOR_LAST_FLOOR)
+        setdynamicwarp(MAP_CELADON_CONDOMINIUMS_3F, 0, 5, 3, 1)
+        if (var(VAR_ELEVATOR_LAST_FLOOR) == 2) { goto(_0305) }
+        compare(VAR_ELEVATOR_LAST_FLOOR, 2)
+        callifgt(_029C)
+        compare(VAR_ELEVATOR_LAST_FLOOR, 2)
+        calliflt(_0291)
+        if (var(VAR_ELEVATOR_LAST_FLOOR) == 0) {
+            setvar(VAR_SPECIAL_x8005, 2)
+        } elif (var(VAR_ELEVATOR_LAST_FLOOR) == 3) {
+            setvar(VAR_SPECIAL_x8005, 1)
+        }
+        call(_02A7)
+        setvar(VAR_ELEVATOR_LAST_FLOOR, 2)
+        goto(_02BB)
+    _0216:
+        wait(1, VAR_SPECIAL_RESULT)
+        getdynamicwarpfloorno(VAR_ELEVATOR_LAST_FLOOR)
+        setdynamicwarp(MAP_CELADON_CONDOMINIUMS_ROOF, 1, 5, 3, 1)
+        if (var(VAR_ELEVATOR_LAST_FLOOR) == 3) { goto(_0305) }
+        compare(VAR_ELEVATOR_LAST_FLOOR, 3)
+        callifgt(_029C)
+        compare(VAR_ELEVATOR_LAST_FLOOR, 3)
+        calliflt(_0291)
+        if (var(VAR_ELEVATOR_LAST_FLOOR) == 0) {
+            setvar(VAR_SPECIAL_x8005, 3)
+        } elif (var(VAR_ELEVATOR_LAST_FLOOR) == 2) {
+            setvar(VAR_SPECIAL_x8005, 1)
+        }
+        call(_02A7)
+        setvar(VAR_ELEVATOR_LAST_FLOOR, 3)
+        goto(_02BB)
+    _0291:
+        npcmsg(msg_0506_T07R0206_00002)
+        setvar(VAR_SPECIAL_x8004, 0)
+        return
+    _029C:
+        npcmsg(msg_0506_T07R0206_00003)
+        setvar(VAR_SPECIAL_x8004, 1)
+        return
+    _02A7:
+        setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
+        closemessage
+        waitse(SEQ_SE_DP_SELECT)
+        elevatoranim(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+        return
+    _02BB:
+        Switch(VAR_ELEVATOR_LAST_FLOOR)
+        Case(3, _02EA)
+        Case(2, _02F3)
+        Case(0, _02FC)
+        end
+    _02EA:
+        npcmsg(msg_0506_T07R0206_00007)
+        goto(_032E)
+    _02F3:
+        npcmsg(msg_0506_T07R0206_00006)
+        goto(_032E)
+    _02FC:
+        npcmsg(msg_0506_T07R0206_00005)
+        goto(_032E)
+    _0305:
+        setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
+        wait(1, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0506_T07R0206_00004)
+        waitbuttonpress
+        closemessage
+        setvar(VAR_UNK_4125, 1)
+        releaseall
+        end
+    _0322:
+        setvar(VAR_ELEVATOR_LAST_FLOOR, 65535)
+        wait(1, VAR_SPECIAL_RESULT)
+    _032E:
+        npcmsg(msg_0506_T07R0206_00001)
+        waitbuttonpress
+        closemessage
+        setvar(VAR_UNK_4125, 1)
+        releaseall
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_002A) }
+    end
+_002A:
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Celadon_CondominiumsLeftElevator_Movement_0340)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_partner_poke, Celadon_CondominiumsLeftElevator_Movement_034C)
+    waitmovement
+    goto(_0062)
+}
+
+movement Celadon_CondominiumsLeftElevator_Movement_0340 {
+    walk_up * 2
+    walk_in_place_down
+}
+
+movement Celadon_CondominiumsLeftElevator_Movement_034C {
+    walk_right
+    walk_up
+    face_down
+}
+
+mapscripts Celadon_CondominiumsLeftElevator_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4125, 0: scr_seq_T07R0206_000
+    ]
+}

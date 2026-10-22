@@ -1,0 +1,91 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D24R0215_000 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_40D5, 1)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0108)
+        } elif (var(VAR_SPECIAL_RESULT) == 3) {
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0140)
+        } else {
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0124)
+        }
+        waitmovement
+        goto(_00DA)
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0108)
+            applymovement(obj_partner_poke, RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0114)
+        } elif (var(VAR_SPECIAL_RESULT) == 3) {
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0140)
+            applymovement(obj_partner_poke, RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_014C)
+        } else {
+            applymovement(obj_player, RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0124)
+            applymovement(obj_partner_poke, RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0130)
+        }
+        waitmovement
+    _00DA:
+        playse(SEQ_SE_GS_RAKKA01)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_RUINS_OF_ALPH_SOUTHWEST_HIDDEN_ROOM, 0, 11, 7, VAR_SPECIAL_RESULT)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        releaseall
+        end
+    }
+    end
+}
+
+movement RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0108 {
+    walk_in_place_faster_up * 4
+    set_invisible
+}
+
+movement RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0114 {
+    delay_4 * 3
+    walk_faster_up
+    set_invisible
+}
+
+movement RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0124 {
+    walk_in_place_faster_left * 4
+    set_invisible
+}
+
+movement RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0130 {
+    delay_4 * 3
+    walk_faster_left
+    set_invisible
+}
+
+movement RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_0140 {
+    walk_in_place_faster_right * 4
+    set_invisible
+}
+
+movement RuinsOfAlph_SouthwestEntranceSecondRoom_Movement_014C {
+    delay_4 * 3
+    walk_faster_right
+    set_invisible
+}
+
+script scr_seq_D24R0215_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0083_D24R0215_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts RuinsOfAlph_SouthwestEntranceSecondRoom_MapScripts {
+}

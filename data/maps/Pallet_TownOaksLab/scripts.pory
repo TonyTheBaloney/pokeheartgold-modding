@@ -1,0 +1,638 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T01R0301_000
+	ScrDef scr_seq_T01R0301_001
+	ScrDef scr_seq_T01R0301_002
+	ScrDef scr_seq_T01R0301_003
+	ScrDef scr_seq_T01R0301_004
+	ScrDef scr_seq_T01R0301_005
+	ScrDef scr_seq_T01R0301_006
+	ScrDef scr_seq_T01R0301_007
+	ScrDef scr_seq_T01R0301_008
+	ScrDef scr_seq_T01R0301_009
+	ScrDef scr_seq_T01R0301_010
+	ScrDefEnd
+`
+
+script scr_seq_T01R0301_010 {
+    if (var(VAR_UNK_4131) == 3) { goto(_0057) }
+    if (var(VAR_UNK_4131) == 4) { goto(_0057) }
+    if (var(VAR_UNK_4131) == 5) { goto(_0057) }
+    end
+_0057:
+    setflag(FLAG_HIDE_OAKS_LAB_BULBASAUR_BALL)
+    setflag(FLAG_HIDE_OAKS_LAB_SQUIRTLE_BALL)
+    setflag(FLAG_HIDE_OAKS_LAB_CHARMANDER_BALL)
+    setvar(VAR_UNK_4131, 6)
+    end
+}
+
+script scr_seq_T01R0301_006 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Pallet_TownOaksLab_Movement_00C8)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0451_T01R0301_00039, msg_0451_T01R0301_00040)
+    closemessage
+    applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_00E0)
+    waitmovement
+    npcmsg(msg_0451_T01R0301_00041)
+    closemessage
+    applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_00F4)
+    applymovement(obj_player, Pallet_TownOaksLab_Movement_00D0)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0451_T01R0301_00042)
+    waitbuttonpress
+    closemessage
+    setvar(VAR_UNK_4131, 2)
+    releaseall
+    end
+}
+
+movement Pallet_TownOaksLab_Movement_00C8 {
+    walk_up * 5
+}
+
+movement Pallet_TownOaksLab_Movement_00D0 {
+    delay_8 * 2
+    walk_up * 3
+    walk_left * 2
+}
+
+movement Pallet_TownOaksLab_Movement_00E0 {
+    face_up
+    delay_8 * 4
+    face_down
+    delay_8 * 3
+}
+
+movement Pallet_TownOaksLab_Movement_00F4 {
+    walk_up
+    walk_left * 3
+    face_right
+}
+
+script scr_seq_T01R0301_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4096) == 2) {
+        if (flag(FLAG_GOT_HM08)) { goto(_02C0) }
+        npcmsg(msg_0451_T01R0301_00055)
+        giveitemnocheck(ITEM_HM08, 1)
+        npcmsg(msg_0451_T01R0301_00056)
+        bufferplayersname(0)
+        gendermsgbox(msg_0451_T01R0301_00006, msg_0451_T01R0301_00007)
+        setvar(VAR_UNK_4110, 2)
+        setflag(FLAG_UNLOCKED_MT_SILVER)
+        waitbuttonpress
+        closemessage
+        setflag(FLAG_GOT_HM08)
+        releaseall
+        end
+    _02C0:
+        npcmsg(msg_0451_T01R0301_00057)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _02CB:
+        checkkyogregroudoninparty(VAR_SPECIAL_x8005)
+        if (var(VAR_SPECIAL_x8005) == 1) { goto(_040D) }
+        if (flag(FLAG_UNK_0BC)) { goto(_03DE) }
+        bufferplayersname(0)
+        gendermsgbox(msg_0451_T01R0301_00011, msg_0451_T01R0301_00012)
+        closemessage
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_04D4)
+        waitmovement
+        setflag(FLAG_UNK_0BC)
+        npcmsg(msg_0451_T01R0301_00013)
+        closemessage
+        getplayerfacing(VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) != 0) { goto(_0320) }
+        goto(_035A)
+        goto(_0358)
+    _0320:
+        if (var(VAR_TEMP_x4001) != 3) { goto(_0339) }
+        goto(_037B)
+        goto(_0358)
+    _0339:
+        if (var(VAR_TEMP_x4001) != 2) { goto(_0352) }
+        goto(_039C)
+        goto(_0358)
+    _0352:
+        goto(_03BD)
+    _0358:
+        waitmovement
+    _035A:
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0500)
+        waitmovement
+        npcmsg(msg_0451_T01R0301_00014)
+        closemessage
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0500)
+        waitmovement
+        goto(_03DE)
+        end
+    _037B:
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_052C)
+        waitmovement
+        npcmsg(msg_0451_T01R0301_00014)
+        closemessage
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_052C)
+        waitmovement
+        goto(_03DE)
+        end
+    _039C:
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0558)
+        waitmovement
+        npcmsg(msg_0451_T01R0301_00014)
+        closemessage
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0558)
+        waitmovement
+        goto(_03DE)
+        end
+    _03BD:
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0584)
+        waitmovement
+        npcmsg(msg_0451_T01R0301_00014)
+        closemessage
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0584)
+        waitmovement
+        goto(_03DE)
+        end
+    _03DE:
+        getgameversion(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 8) { goto(_03FE) }
+        bufferplayersname(0)
+        gendermsgbox(msg_0451_T01R0301_00015, msg_0451_T01R0301_00016)
+        closemessage
+        goto(_01B2)
+    _03FE:
+        bufferplayersname(0)
+        gendermsgbox(msg_0451_T01R0301_00017, msg_0451_T01R0301_00018)
+        closemessage
+        goto(_01B2)
+    _040D:
+        if (!flag(FLAG_UNK_0BC)) {
+            bufferplayersname(0)
+            gendermsgbox(msg_0451_T01R0301_00024, msg_0451_T01R0301_00025)
+            closemessage
+            goto(_0421)
+        }
+        bufferplayersname(0)
+        gendermsgbox(msg_0451_T01R0301_00019, msg_0451_T01R0301_00020)
+        closemessage
+    _0421:
+        getplayerfacing(VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 0) {
+            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0500)
+        } elif (var(VAR_TEMP_x4001) == 3) {
+            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_052C)
+        } elif (var(VAR_TEMP_x4001) == 2) {
+            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0558)
+        } else {
+            applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_0584)
+        }
+        waitmovement
+        bufferplayersname(0)
+        giveitemnocheck(ITEM_JADE_ORB, 1)
+        closemessage
+        npcmsg(msg_0451_T01R0301_00021)
+        closemessage
+        setvar(VAR_SCENE_EMBEDDED_TOWER, 5)
+        goto(_01B2)
+    _04A6:
+        npcmsg(msg_0451_T01R0301_00022)
+        closemessage
+        goto(_01B2)
+    }
+    if (var(VAR_UNK_4131) == 3) { goto(_0277) }
+    if (var(VAR_UNK_4131) == 4) { goto(_0277) }
+    if (var(VAR_UNK_4131) == 5) { goto(_0277) }
+    if (var(VAR_UNK_4131) == 2) { goto(_026C) }
+    if (var(VAR_SCENE_EMBEDDED_TOWER) == 7) {
+        npcmsg(msg_0451_T01R0301_00023)
+        closemessage
+        setvar(VAR_SCENE_EMBEDDED_TOWER, 8)
+        goto(_01B2)
+    }
+    if (var(VAR_SCENE_EMBEDDED_TOWER) == 5) { goto(_04A6) }
+    if (var(VAR_SCENE_EMBEDDED_TOWER) == 4) { goto(_02CB) }
+    if (!flag(FLAG_GOT_HM08)) {
+        if (!flag(FLAG_UNK_12A)) {
+            bufferplayersname(0)
+            gendermsgbox(msg_0451_T01R0301_00000, msg_0451_T01R0301_00001)
+            setflag(FLAG_UNK_12A)
+        }
+        if (var(VAR_UNK_4135) == 0) {
+            npcmsg(msg_0451_T01R0301_00008)
+        } else {
+            bufferplayersname(0)
+            gendermsgbox(msg_0451_T01R0301_00009, msg_0451_T01R0301_00010)
+        }
+    }
+_01B2:
+    if (flag(FLAG_SYS_OAK_ACKNOWLEDGED_NATIONAL_DEX_COMPLETION)) { goto(_01F2) }
+    callstd(std_in_person_evaluate_dex)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        if (var(VAR_SPECIAL_RESULT) != 1) {
+            checknationaldexcomplete(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01F0) }
+        }
+    }
+    releaseall
+    end
+_01F0:
+    waitabpress
+_01F2:
+    setflag(FLAG_SYS_OAK_ACKNOWLEDGED_NATIONAL_DEX_COMPLETION)
+    bufferplayersname(0)
+    gendermsgbox(msg_0451_T01R0301_00004, msg_0451_T01R0301_00005)
+    npcmsg(msg_0451_T01R0301_00028)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0256) }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0261) }
+    npcmsg(msg_0451_T01R0301_00029)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(90)
+    faceplayer
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    npcmsg(msg_0451_T01R0301_00030)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0256:
+    npcmsg(msg_0451_T01R0301_00031)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0261:
+    npcmsg(msg_0451_T01R0301_00032)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_026C:
+    npcmsg(msg_0451_T01R0301_00042)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0277:
+    npcmsg(msg_0451_T01R0301_00053)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Pallet_TownOaksLab_Movement_04D4 {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement Pallet_TownOaksLab_Movement_04E0 {
+    walk_in_place_up
+    walk_slow_up * 2
+    delay_8 * 4
+    walk_in_place_down
+    delay_8 * 4
+    walk_slow_down * 2
+    walk_in_place_down
+}
+
+movement Pallet_TownOaksLab_Movement_0500 {
+    walk_in_place_down
+    delay_8
+}
+
+movement Pallet_TownOaksLab_Movement_050C {
+    walk_in_place_right
+    walk_slow_right * 2
+    delay_8 * 4
+    walk_in_place_left
+    delay_8 * 4
+    walk_slow_left * 2
+    walk_in_place_left
+}
+
+movement Pallet_TownOaksLab_Movement_052C {
+    walk_in_place_left
+    delay_8
+}
+
+movement Pallet_TownOaksLab_Movement_0538 {
+    walk_in_place_left
+    walk_slow_left * 2
+    delay_8 * 4
+    walk_in_place_right
+    delay_8 * 4
+    walk_slow_right * 2
+    walk_in_place_right
+}
+
+movement Pallet_TownOaksLab_Movement_0558 {
+    walk_in_place_right
+    delay_8
+}
+
+movement Pallet_TownOaksLab_Movement_0564 {
+    walk_in_place_down
+    walk_slow_down * 2
+    delay_8 * 4
+    walk_in_place_up
+    delay_8 * 4
+    walk_slow_up * 2
+    walk_in_place_up
+}
+
+movement Pallet_TownOaksLab_Movement_0584 {
+    walk_in_place_up
+    delay_8
+}
+
+script scr_seq_T01R0301_001 {
+    simplenpcmsg(msg_0451_T01R0301_00033)
+    end
+}
+
+script scr_seq_T01R0301_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    npcmsg(msg_0451_T01R0301_00034)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T01R0301_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    npcmsg(msg_0451_T01R0301_00035)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T01R0301_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0451_T01R0301_00036)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T01R0301_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    gendermsgbox(msg_0451_T01R0301_00037, msg_0451_T01R0301_00038)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T01R0301_007 {
+    if (var(VAR_UNK_4131) == 6) { goto(_0979) }
+    if (var(VAR_UNK_4131) == 0) { goto(_097B) }
+    if (var(VAR_UNK_4131) == 3) { goto(_097B) }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4131) == 4) { goto(_097D) }
+    if (var(VAR_UNK_4131) == 5) { goto(_097D) }
+    getpersoncoords(0, VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 8) {
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09C4)
+    } else {
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09BC)
+    }
+    waitmovement
+    showpokemonpicwindow(SPECIES_BULBASAUR, 0)
+    playcry(SPECIES_BULBASAUR, 0)
+    npcmsg(msg_0451_T01R0301_00045)
+    waitcry
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_096C) }
+    setvar(VAR_SPECIAL_x8004, 1)
+    setvar(VAR_SPECIAL_x8006, 3)
+    call(_0801)
+    end
+}
+
+script scr_seq_T01R0301_008 {
+    if (var(VAR_UNK_4131) == 6) { goto(_0979) }
+    if (var(VAR_UNK_4131) == 0) { goto(_097B) }
+    if (var(VAR_UNK_4131) == 4) { goto(_097B) }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4131) == 3) { goto(_097D) }
+    if (var(VAR_UNK_4131) == 5) { goto(_097D) }
+    getpersoncoords(0, VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 8) {
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09C4)
+    } else {
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09BC)
+    }
+    waitmovement
+    showpokemonpicwindow(SPECIES_SQUIRTLE, 0)
+    playcry(SPECIES_SQUIRTLE, 0)
+    npcmsg(msg_0451_T01R0301_00044)
+    waitcry
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_096C) }
+    setvar(VAR_SPECIAL_x8004, 7)
+    setvar(VAR_SPECIAL_x8006, 4)
+    call(_0801)
+    end
+}
+
+script scr_seq_T01R0301_009 {
+    if (var(VAR_UNK_4131) == 6) { goto(_0979) }
+    if (var(VAR_UNK_4131) == 0) { goto(_097B) }
+    if (var(VAR_UNK_4131) == 5) { goto(_097B) }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4131) == 3) { goto(_097D) }
+    if (var(VAR_UNK_4131) == 4) { goto(_097D) }
+    getpersoncoords(0, VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 8) {
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09C4)
+    } else {
+        applymovement(obj_T01R0301_ookido, Pallet_TownOaksLab_Movement_09BC)
+    }
+    waitmovement
+    showpokemonpicwindow(SPECIES_CHARMANDER, 0)
+    playcry(SPECIES_CHARMANDER, 0)
+    npcmsg(msg_0451_T01R0301_00043)
+    waitcry
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_096C) }
+    setvar(VAR_SPECIAL_x8004, 4)
+    setvar(VAR_SPECIAL_x8006, 5)
+    call(_0801)
+    end
+_0801:
+    closepokemonpicwindow
+    getpartycount(VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) == 6) {
+        touchscreenmenushow
+        npcmsg(msg_0451_T01R0301_00051)
+        waitbuttonpress
+        closemessage
+        releaseall
+        return
+    }
+    if (var(VAR_SPECIAL_x8004) == 1) {
+        removeobject(obj_T01R0301_monstarball_3)
+        setflag(FLAG_HIDE_OAKS_LAB_BULBASAUR_BALL)
+    } elif (var(VAR_SPECIAL_x8004) == 7) {
+        removeobject(obj_T01R0301_monstarball_2)
+        setflag(FLAG_HIDE_OAKS_LAB_SQUIRTLE_BALL)
+    } else {
+        removeobject(obj_T01R0301_monstarball)
+        setflag(FLAG_HIDE_OAKS_LAB_CHARMANDER_BALL)
+    }
+    bufferplayersname(0)
+    bufferspeciesname(1, VAR_SPECIAL_x8004, 0, 0)
+    npcmsg(msg_0451_T01R0301_00046)
+    npcmsg(msg_0451_T01R0301_00048)
+    playfanfare(SEQ_ME_POKEGET)
+    waitfanfare
+    givemon(VAR_SPECIAL_x8004, 5, 0, 0, 0, VAR_SPECIAL_RESULT)
+    bufferspeciesname(1, VAR_SPECIAL_x8004, 0, 0)
+    npcmsg(msg_0451_T01R0301_00049)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    closemessage
+    compare(VAR_SPECIAL_RESULT, 0)
+    callifeq(_0929)
+    touchscreenmenushow
+    getpersoncoords(0, VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) != 8) {
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        if (var(VAR_SPECIAL_x8004) == 1) {
+            applymovement(obj_player, Pallet_TownOaksLab_Movement_0998)
+        } elif (var(VAR_SPECIAL_x8004) == 7) {
+            applymovement(obj_player, Pallet_TownOaksLab_Movement_09A4)
+        } else {
+            applymovement(obj_player, Pallet_TownOaksLab_Movement_09B0)
+        }
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+    } else {
+        applymovement(obj_player, Pallet_TownOaksLab_Movement_09CC)
+        waitmovement
+    }
+    npcmsg(msg_0451_T01R0301_00052)
+    waitbuttonpress
+    closemessage
+    releaseall
+    copyvar(VAR_UNK_4131, VAR_SPECIAL_x8006)
+    setvar(VAR_SCENE_EMBEDDED_TOWER, 1)
+    return
+_0929:
+    setvar(VAR_TEMP_x4000, 0)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    nicknameinput(VAR_SPECIAL_x8005, VAR_TEMP_x4000)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    touchscreenmenuhide
+    bufferpartymonnick(1, VAR_SPECIAL_x8005)
+    npcmsg(msg_0451_T01R0301_00050)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    closemessage
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0929) }
+    return
+_096C:
+    closepokemonpicwindow
+    npcmsg(msg_0451_T01R0301_00047)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+_0979:
+    end
+_097B:
+    end
+_097D:
+    bufferrivalsname(1)
+    npcmsg(msg_0451_T01R0301_00054)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Pallet_TownOaksLab_Movement_0998 {
+    walk_down
+    walk_left * 3
+}
+
+movement Pallet_TownOaksLab_Movement_09A4 {
+    walk_down
+    walk_left * 2
+}
+
+movement Pallet_TownOaksLab_Movement_09B0 {
+    walk_down
+    walk_left
+}
+
+movement Pallet_TownOaksLab_Movement_09BC {
+    face_right
+}
+
+movement Pallet_TownOaksLab_Movement_09C4 {
+    face_up
+}
+
+movement Pallet_TownOaksLab_Movement_09CC {
+    face_down
+}
+
+mapscripts Pallet_TownOaksLab_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T01R0301_010
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4131, 1: scr_seq_T01R0301_006
+    ]
+}

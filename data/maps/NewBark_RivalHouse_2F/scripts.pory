@@ -1,0 +1,147 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T20R0402_000
+	ScrDef scr_seq_T20R0402_001
+	ScrDef scr_seq_T20R0402_002
+	ScrDef scr_seq_T20R0402_003
+	ScrDef scr_seq_T20R0402_004
+	ScrDefEnd
+`
+
+script scr_seq_T20R0402_002 {
+    if (!flag(FLAG_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND)) {
+        getfriendsprite(VAR_OBJ_0)
+    }
+    end
+}
+
+script scr_seq_T20R0402_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_ZEPHYR, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getpartyleadalive(VAR_SPECIAL_x8006)
+        getshinyleafcount(VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT)
+        if (flag(FLAG_SHOWED_FRIEND_A_SHINY_LEAF)) {
+            copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_x8004) == 6) {
+                bufferplayersname(0)
+                getfollowpokepartyindex(VAR_SPECIAL_RESULT)
+                bufferpartymonnick(1, VAR_SPECIAL_RESULT)
+                gendermsgbox(msg_0549_T20R0402_00015, msg_0549_T20R0402_00016)
+                closemessage
+                goto(_010D)
+            }
+            if (var(VAR_SPECIAL_x8004) == 5) {
+                trygiveshinyleafcrown(VAR_SPECIAL_x8006)
+                setflag(FLAG_UNK_184)
+                bufferplayersname(0)
+                gendermsgbox(msg_0549_T20R0402_00011, msg_0549_T20R0402_00012)
+                closemessage
+            _010D:
+                fadescreen(6, 1, 0, RGB_BLACK)
+                waitfade
+                showcertificate(2)
+                restoreoverworld
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                gendermsgbox(msg_0549_T20R0402_00013, msg_0549_T20R0402_00014)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            if (var(VAR_SPECIAL_x8004) >= 1) {
+                if (var(VAR_SPECIAL_x8004) == 1) {
+                    setvar(VAR_SPECIAL_x8005, 4)
+                } elif (var(VAR_SPECIAL_x8004) == 2) {
+                    setvar(VAR_SPECIAL_x8005, 3)
+                } elif (var(VAR_SPECIAL_x8004) == 3) {
+                    setvar(VAR_SPECIAL_x8005, 2)
+                } else {
+                    setvar(VAR_SPECIAL_x8005, 1)
+                }
+                bufferplayersname(0)
+                bufferint(1, VAR_SPECIAL_x8004)
+                bufferint(2, VAR_SPECIAL_x8005)
+                gendermsgbox(msg_0549_T20R0402_00009, msg_0549_T20R0402_00010)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            goto(_008F)
+        }
+        if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_009E) }
+    _008F:
+        bufferplayersname(0)
+        gendermsgbox(msg_0549_T20R0402_00005, msg_0549_T20R0402_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _009E:
+        setflag(FLAG_SHOWED_FRIEND_A_SHINY_LEAF)
+        bufferplayersname(0)
+        gendermsgbox(msg_0549_T20R0402_00007, msg_0549_T20R0402_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    bufferplayersname(0)
+    if (flag(FLAG_GOT_STARTER)) { goto(_005C) }
+    gendermsgbox(msg_0549_T20R0402_00000, msg_0549_T20R0402_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_005C:
+    buffermonspeciesname(1, VAR_SPECIAL_RESULT)
+    gendermsgbox(msg_0549_T20R0402_00002, msg_0549_T20R0402_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0402_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0549_T20R0402_00004)
+    playcry(SPECIES_MARILL, 0)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0402_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0549_T20R0402_00017)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0402_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0549_T20R0402_00018)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts NewBark_RivalHouse_2F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T20R0402_002
+}

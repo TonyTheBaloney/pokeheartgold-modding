@@ -1,0 +1,57 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R16R0101_000
+	ScrDef scr_seq_R16R0101_001
+	ScrDefEnd
+`
+
+script scr_seq_R16R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_ABA)) {
+        npcmsg(msg_0355_R16R0101_00004)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    checkalltrendysayingsunlocked(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_007E) }
+    npcmsg(msg_0355_R16R0101_00001)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0355_R16R0101_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _007E:
+        npcmsg(msg_0355_R16R0101_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    unlockrandomtrendysaying(VAR_SPECIAL_RESULT, 0)
+    if (var(VAR_SPECIAL_RESULT) == 65535) { goto(_007E) }
+    setflag(FLAG_UNK_ABA)
+    npcmsg(msg_0355_R16R0101_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R16R0101_000 {
+    simplenpcmsg(msg_0355_R16R0101_00000)
+    end
+}
+
+mapscripts Route16_House_MapScripts {
+}

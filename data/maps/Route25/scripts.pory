@@ -1,0 +1,548 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R25_000
+	ScrDef scr_seq_R25_001
+	ScrDef scr_seq_R25_002
+	ScrDef scr_seq_R25_003
+	ScrDef scr_seq_R25_004
+	ScrDef scr_seq_R25_005
+	ScrDef scr_seq_R25_006
+	ScrDef scr_seq_R25_007
+	ScrDef scr_seq_R25_008
+	ScrDef scr_seq_R25_009
+	ScrDefEnd
+`
+
+script scr_seq_R25_003 {
+    if (!flag(FLAG_UNK_189)) {
+        if (var(VAR_SCENE_ROUTE_25) == 2) {
+            clearflag(FLAG_HIDE_ROUTE_25_EUSINE_2)
+            setflag(FLAG_HIDE_ROUTE_25_EUSINE)
+        }
+        checkbadge(BADGE_EARTH, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 0) { goto(_011B) }
+        if (var(VAR_SCENE_ROUTE_25) == 1) { goto(_011B) }
+        if (var(VAR_SCENE_ROUTE_25) == 2) { goto(_011B) }
+        getphonebookrematch(PHONE_CONTACT_MISTY, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) != 0) { goto(_0115) }
+        checkregisteredphonenumber(PHONE_CONTACT_MISTY, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 1) {
+            getcurrenthour(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 14) {
+                clearflag(FLAG_UNK_2CD)
+            } elif (var(VAR_TEMP_x4000) == 15) {
+                clearflag(FLAG_UNK_2CD)
+            } else {
+                setflag(FLAG_UNK_2CD)
+            }
+            end
+        _0115:
+            setflag(FLAG_UNK_2CD)
+            end
+        _011B:
+            setflag(FLAG_UNK_2CD)
+            end
+        }
+        getcurrenthour(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 16) {
+            clearflag(FLAG_UNK_2CD)
+        } elif (var(VAR_TEMP_x4000) == 17) {
+            clearflag(FLAG_UNK_2CD)
+        } else {
+            goto(_0115)
+        }
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_R25_008 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_ROUTE_25_SUICUNE)
+        removeobject(obj_R25_tsure_poke_static_suicune)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        end
+    }
+    end
+}
+
+script scr_seq_R25_000 {
+    followmonresetmovement
+    lockall
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 40) {
+        applymovement(obj_R25_gsleader11, Route25_Movement_029C)
+        applymovement(obj_R25_gsman1, Route25_Movement_02B0)
+        applymovement(obj_player, Route25_Movement_0304)
+    } elif (var(VAR_TEMP_x4001) == 41) {
+        applymovement(obj_R25_gsleader11, Route25_Movement_029C)
+        applymovement(obj_R25_gsman1, Route25_Movement_02CC)
+        applymovement(obj_player, Route25_Movement_0304)
+    } else {
+        applymovement(obj_R25_gsleader11, Route25_Movement_029C)
+        applymovement(obj_R25_gsman1, Route25_Movement_02E8)
+        applymovement(obj_player, Route25_Movement_0310)
+    }
+    waitmovement
+    stopbgm(SEQ_GS_R_12_24)
+    playbgm(SEQ_GS_EYE_K_SHOUJO)
+    if (var(VAR_TEMP_x4001) == 40) {
+        applymovement(obj_R25_gsleader11, Route25_Movement_032C)
+        applymovement(obj_player, Route25_Movement_0350)
+    } elif (var(VAR_TEMP_x4001) == 41) {
+        applymovement(obj_R25_gsleader11, Route25_Movement_0338)
+        applymovement(obj_player, Route25_Movement_0350)
+    } else {
+        applymovement(obj_R25_gsleader11, Route25_Movement_0344)
+        applymovement(obj_player, Route25_Movement_0350)
+    }
+    waitmovement
+    npcmsg(msg_0363_R25_00000)
+    closemessage
+    if (var(VAR_TEMP_x4001) == 40) {
+        applymovement(obj_R25_gsleader11, Route25_Movement_035C)
+        applymovement(obj_player, Route25_Movement_0380)
+    } elif (var(VAR_TEMP_x4001) == 41) {
+        applymovement(obj_R25_gsleader11, Route25_Movement_0368)
+        applymovement(obj_player, Route25_Movement_0380)
+    } else {
+        applymovement(obj_R25_gsleader11, Route25_Movement_0374)
+        applymovement(obj_player, Route25_Movement_0394)
+    }
+    waitmovement
+    removeobject(obj_R25_gsman1)
+    removeobject(obj_R25_gsleader11)
+    stopbgm(SEQ_GS_EYE_K_SHOUJO)
+    playbgm(SEQ_GS_R_12_24)
+    setflag(FLAG_HIDE_ROUTE_25_MISTYS_BOYFRIEND)
+    setflag(FLAG_HIDE_ROUTE_25_MISTY)
+    clearflag(FLAG_HIDE_CERULEAN_GYM_POPULATION)
+    setvar(VAR_UNK_4088, 2)
+    releaseall
+    end
+}
+
+movement Route25_Movement_029C {
+    delay_8
+    face_left
+    delay_32 * 2
+    face_up
+}
+
+movement Route25_Movement_02B0 {
+    delay_32
+    face_up
+    emote_exclamation_mark
+    walk_fast_up * 5
+    walk_fast_left * 5
+    walk_fast_down * 8
+}
+
+movement Route25_Movement_02CC {
+    delay_32
+    face_up
+    emote_exclamation_mark
+    walk_fast_up * 5
+    walk_fast_left * 5
+    walk_fast_down * 8
+}
+
+movement Route25_Movement_02E8 {
+    delay_32
+    face_up
+    emote_exclamation_mark
+    walk_fast_up * 6
+    walk_fast_left * 5
+    walk_fast_down * 9
+}
+
+movement Route25_Movement_0304 {
+    delay_16 * 6
+    face_down
+}
+
+movement Route25_Movement_0310 {
+    delay_16 * 6
+    face_up
+    delay_8
+    face_left
+    delay_8
+    face_down
+}
+
+movement Route25_Movement_032C {
+    walk_up * 7
+    walk_left * 2
+}
+
+movement Route25_Movement_0338 {
+    walk_up * 6
+    walk_left * 2
+}
+
+movement Route25_Movement_0344 {
+    walk_up * 5
+    walk_left * 2
+}
+
+movement Route25_Movement_0350 {
+    delay_16 * 3
+    face_right
+}
+
+movement Route25_Movement_035C {
+    walk_down
+    walk_left * 11
+}
+
+movement Route25_Movement_0368 {
+    walk_down
+    walk_left * 11
+}
+
+movement Route25_Movement_0374 {
+    walk_up
+    walk_left * 11
+}
+
+movement Route25_Movement_0380 {
+    delay_8
+    face_down
+    delay_8
+    face_left
+}
+
+movement Route25_Movement_0394 {
+    delay_8
+    face_up
+    delay_4
+    face_left
+}
+
+script scr_seq_R25_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkregisteredphonenumber(PHONE_CONTACT_MISTY, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) {
+        playeronbikecheck(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_04DA) }
+        firstalivemonhastype(11, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04DA) }
+        npcmsg(msg_0363_R25_00006)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0363_R25_00009)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        photoalbumisfull(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0363_R25_00010)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0363_R25_00007)
+        closemessage
+        setflag(FLAG_UNK_189)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        cameronphoto(84)
+        faceplayer
+        lockall
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        clearflag(FLAG_UNK_189)
+        npcmsg(msg_0363_R25_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _04DA:
+        npcmsg(msg_0363_R25_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_TEMP_x4002) >= 1) { goto(_044B) }
+    npcmsg(msg_0363_R25_00001)
+_03D3:
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_03F7) }
+    if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_043A) }
+    end
+_03F7:
+    bufferplayersname(0)
+    npcmsg(msg_0363_R25_00002)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    registergearnumber(PHONE_CONTACT_MISTY)
+    npcmsg(msg_0363_R25_00003)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setflag(FLAG_UNK_2CD)
+    removeobject(obj_R25_gsleader11_2)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+_043A:
+    setvar(VAR_TEMP_x4002, 1)
+    npcmsg(msg_0363_R25_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_044B:
+    npcmsg(msg_0363_R25_00005)
+    goto(_03D3)
+    end
+}
+
+script scr_seq_R25_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_NUGGET_FROM_ACE_TRAINER_M_KEVIN)) {
+        npcmsg(msg_0363_R25_00011)
+        if (!itemspace(ITEM_NUGGET, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_NUGGET_FROM_ACE_TRAINER_M_KEVIN)
+        npcmsg(msg_0363_R25_00013)
+        closemessage
+        trainerbattle(TRAINER_ACE_TRAINER_M_KEVIN, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            whiteout
+            releaseall
+            end
+        }
+    }
+    npcmsg(msg_0363_R25_00014)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R25_004 {
+    followmonresetmovement
+    lockall
+    setflag(FLAG_HIDE_ROUTE_14_EUSINE_2)
+    clearflag(FLAG_HIDE_ROUTE_25_EUSINE)
+    addobject(obj_R25_minaki)
+    applymovement(obj_player, Route25_Movement_0648)
+    waitmovement
+    playcry(SPECIES_SUICUNE, 0)
+    release(obj_R25_tsure_poke_static_suicune)
+    spinobject(obj_R25_tsure_poke_static_suicune, 2, 90, 2, 0)
+    lock(obj_R25_tsure_poke_static_suicune)
+    waitcry
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 40) {
+        applymovement(obj_player, Route25_Movement_0650)
+    } elif (var(VAR_TEMP_x4001) == 41) {
+        applymovement(obj_player, Route25_Movement_065C)
+    } else {
+        applymovement(obj_player, Route25_Movement_0670)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    callstd(std_play_eusine_music)
+    applymovement(obj_R25_minaki, Route25_Movement_069C)
+    applymovement(obj_player, Route25_Movement_0690)
+    waitmovement
+    npcmsg(msg_0363_R25_00016)
+    closemessage
+    applymovement(obj_R25_minaki, Route25_Movement_06B0)
+    applymovement(obj_player, Route25_Movement_0684)
+    waitmovement
+    npcmsg(msg_0363_R25_00017)
+    waitbuttonpress
+    closemessage
+    callstd(std_fade_end_eusine_music)
+    setvar(VAR_SCENE_ROUTE_25, 2)
+    releaseall
+    end
+}
+
+movement Route25_Movement_0648 {
+    emote_exclamation_mark
+}
+
+movement Route25_Movement_0650 {
+    walk_right * 3
+    face_up
+}
+
+movement Route25_Movement_065C {
+    walk_right
+    walk_up
+    walk_right * 2
+    face_up
+}
+
+movement Route25_Movement_0670 {
+    walk_right
+    walk_up * 2
+    walk_right * 2
+    face_up
+}
+
+movement Route25_Movement_0684 {
+    delay_16
+    face_up
+}
+
+movement Route25_Movement_0690 {
+    delay_8 * 2
+    face_down
+}
+
+movement Route25_Movement_069C {
+    walk_fast_right * 8
+    walk_right * 3
+    walk_slower_right
+    face_up
+}
+
+movement Route25_Movement_06B0 {
+    walk_right
+    walk_up * 2
+}
+
+script scr_seq_R25_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0363_R25_00017)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R25_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0363_R25_00017)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R25_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_SUICUNE, 0)
+    release(obj_R25_tsure_poke_static_suicune)
+    spinobject(obj_R25_tsure_poke_static_suicune, 2, 90, 2, 0)
+    lock(obj_R25_tsure_poke_static_suicune)
+    waitcry
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(SPECIES_SUICUNE, 40, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    _07B0:
+        setflag(FLAG_CAUGHT_SUICUNE)
+        return
+    }
+    getstaticencounteroutcome(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 3) {
+        compare(VAR_TEMP_x4002, 4)
+        callifeq(_07B0)
+        if (var(VAR_TEMP_x4002) == 5) {
+            wait(20, VAR_SPECIAL_x8004)
+            applymovement(obj_player, Route25_Movement_07EC)
+            waitmovement
+            bufferplayersname(0)
+            npcmsg(msg_0363_R25_00019)
+            closemessage
+            if (flag(FLAG_HIDE_ROUTE_25_EUSINE_2)) { goto(_0766) }
+            goto(_0786)
+        }
+        bufferplayersname(0)
+        npcmsg(msg_0363_R25_00018)
+        closemessage
+        if (!flag(FLAG_HIDE_ROUTE_25_EUSINE_2)) {
+        } else {
+        _0766:
+            applymovement(obj_player, Route25_Movement_07F4)
+            applymovement(obj_R25_minaki, Route25_Movement_0800)
+            waitmovement
+            removeobject(obj_R25_minaki)
+            setflag(FLAG_HIDE_ROUTE_25_EUSINE)
+            goto(_07A0)
+        }
+    _0786:
+        applymovement(obj_player, Route25_Movement_07F4)
+        applymovement(obj_R25_minaki_2, Route25_Movement_0800)
+        waitmovement
+        removeobject(obj_R25_minaki_2)
+        setflag(FLAG_HIDE_ROUTE_25_EUSINE_2)
+    _07A0:
+        setvar(VAR_SCENE_ROUTE_25, 3)
+    }
+    releaseall
+    end
+}
+
+movement Route25_Movement_07E0 {
+    face_down
+    delay_8 * 2
+}
+
+movement Route25_Movement_07EC {
+    face_down
+}
+
+movement Route25_Movement_07F4 {
+    delay_8 * 2
+    face_left
+}
+
+movement Route25_Movement_0800 {
+    walk_left * 11
+}
+
+script scr_seq_R25_002 {
+    trainertipsex(2, msg_0363_R25_00015)
+    end
+}
+
+mapscripts Route25_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R25_003
+    INIT_SCRIPT_ON_LOAD: scr_seq_R25_008
+}

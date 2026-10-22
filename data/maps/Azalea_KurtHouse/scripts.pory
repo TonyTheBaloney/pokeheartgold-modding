@@ -1,0 +1,307 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T23R0501_000
+	ScrDef scr_seq_T23R0501_001
+	ScrDef scr_seq_T23R0501_002
+	ScrDef scr_seq_T23R0501_003
+	ScrDef scr_seq_T23R0501_004
+	ScrDef scr_seq_T23R0501_005
+	ScrDef scr_seq_T23R0501_006
+	ScrDefEnd
+`
+
+script scr_seq_T23R0501_000 {
+    if (flag(FLAG_BEAT_AZALEA_ROCKETS)) {
+        clearflag(FLAG_HIDE_AZALEA_SLOWPOKES)
+        end
+    }
+    setflag(FLAG_HIDE_AZALEA_SLOWPOKES)
+    end
+}
+
+script scr_seq_T23R0501_005 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_4080, 3)
+    applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02B0)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0571_T23R0501_00001)
+    setvar(VAR_SPECIAL_x8004, 492)
+    setvar(VAR_SPECIAL_x8005, 1)
+    callstd(std_obtain_item_verbose)
+    setflag(FLAG_UNK_07C)
+    releaseall
+    goto(_011A)
+    end
+}
+
+script scr_seq_T23R0501_001 {
+    if (flag(FLAG_UNK_07C)) { goto(_011A) }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    npcmsg(msg_0571_T23R0501_00000)
+    waitabpress
+    closemessage
+    getplayerfacing(VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02E0)
+    _00AF:
+        waitmovement
+    _00B1:
+        releaseall
+        removeobject(obj_T23R0501_gantetsu)
+        waitfanfare
+        setflag(FLAG_UNK_077)
+        setflag(FLAG_UNK_19E)
+        setflag(FLAG_UNK_19F)
+        end
+    _00C7:
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(56)
+        getpersoncoords(253, VAR_TEMP_x4002, VAR_TEMP_x4003)
+        if (var(VAR_TEMP_x4002) == 5) {
+            applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02E8)
+        } else {
+            playse(SEQ_SE_DP_WALL_HIT)
+            applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02E0)
+            applymovement(obj_player, Azalea_KurtHouse_Movement_02C8)
+        }
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        goto(_00B1)
+    _011A:
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        faceplayer
+        getkurtapricornquantity(VAR_SPECIAL_x8000)
+        if (var(VAR_SPECIAL_x8000) != 0) {
+            if (flag(FLAG_DAILY_KURT_MAKING_BALLS)) { goto(_0204) }
+            bufferplayersname(0)
+            npcmsg(msg_0571_T23R0501_00008)
+            getkurtball(VAR_SPECIAL_x8004)
+            hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+            copyvar(VAR_SPECIAL_x8005, VAR_SPECIAL_x8000)
+            callstd(std_give_item_verbose)
+            clearkurtapricorn
+            if (var(VAR_UNK_413B) < 10) {
+                addvar(VAR_UNK_413B, 1)
+                compare(VAR_UNK_413B, 10)
+                callifge(_0227)
+            }
+            npcmsg(msg_0571_T23R0501_00010)
+            goto(_021F)
+            end
+            npcmsg(msg_0571_T23R0501_00009)
+            goto(_021F)
+            end
+        _0204:
+            npcmsg(msg_0571_T23R0501_00007)
+            goto(_021F)
+            end
+        }
+        gettotalapricorncount(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0571_T23R0501_00003)
+            if (var(VAR_UNK_4080) == 3) { goto(_022D) }
+        _021F:
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _0227:
+            setflag(FLAG_UNK_127)
+            return
+        _022D:
+            setvar(VAR_UNK_4080, 4)
+            applymovement(obj_T23R0501_gsbabygirl1, Azalea_KurtHouse_Movement_02FC)
+            waitmovement
+            applymovement(obj_player, Azalea_KurtHouse_Movement_02D4)
+            waitmovement
+            npcmsg(msg_0571_T23R0501_00015)
+        _024A:
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 0) {
+                bufferplayersname(0)
+                npcmsg(msg_0571_T23R0501_00016)
+                playfanfare(SEQ_ME_POKEGEAR_REGIST)
+                waitfanfare
+                registergearnumber(PHONE_CONTACT_KURT)
+                npcmsg(msg_0571_T23R0501_00017)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            if (var(VAR_SPECIAL_RESULT) >= 1) {
+                npcmsg(msg_0571_T23R0501_00018)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+                applymovement(1, Azalea_KurtHouse_Movement_0304)
+                waitmovement
+                releaseall
+                end
+            _02A2:
+                npcmsg(msg_0571_T23R0501_00019)
+                goto(_024A)
+                end
+            }
+            end
+        }
+        applymovement(obj_T23R0501_gantetsu, Azalea_KurtHouse_Movement_02BC)
+        waitmovement
+        npcmsg(msg_0571_T23R0501_00004)
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        launchapricornboxforkurt
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        getkurtapricornquantity(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0571_T23R0501_00006)
+        } else {
+            setflag(FLAG_DAILY_KURT_MAKING_BALLS)
+            npcmsg(msg_0571_T23R0501_00005)
+        }
+        waitbuttonpress
+        closemessage
+        if (var(VAR_UNK_4080) == 3) { goto(_022D) }
+        releaseall
+        end
+    }
+    goto(_00C7)
+    goto(_00AF)
+}
+
+movement Azalea_KurtHouse_Movement_02B0 {
+    delay_16
+    walk_in_place_fast_down
+}
+
+movement Azalea_KurtHouse_Movement_02BC {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement Azalea_KurtHouse_Movement_02C8 {
+    walk_fast_left
+    delay_16
+}
+
+movement Azalea_KurtHouse_Movement_02D4 {
+    walk_in_place_fast_right
+    face_right
+}
+
+movement Azalea_KurtHouse_Movement_02E0 {
+    walk_fast_down * 5
+}
+
+movement Azalea_KurtHouse_Movement_02E8 {
+    walk_fast_left
+    walk_fast_down * 2
+    walk_fast_right
+    walk_fast_down * 3
+}
+
+movement Azalea_KurtHouse_Movement_02FC {
+    walk_left
+}
+
+movement Azalea_KurtHouse_Movement_0304 {
+    walk_in_place_fast_right
+    walk_right
+    walk_in_place_fast_left
+}
+
+script scr_seq_T23R0501_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_077)) {
+        if (flag(FLAG_BEAT_AZALEA_ROCKETS)) {
+            checkregisteredphonenumber(PHONE_CONTACT_KURT, VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) == 0) { goto(_02A2) }
+            if (flag(FLAG_GAME_CLEAR)) {
+                npcmsg(msg_0571_T23R0501_00014)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            npcmsg(msg_0571_T23R0501_00013)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0571_T23R0501_00012)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0571_T23R0501_00011)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T23R0501_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_SLOWPOKE, 0)
+    npcmsg(msg_0571_T23R0501_00020)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T23R0501_004 {
+    simplenpcmsg(msg_0571_T23R0501_00021)
+    end
+}
+
+script scr_seq_T23R0501_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 2) {
+        npcmsg(msg_0571_T23R0501_00024)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        npcmsg(msg_0571_T23R0501_00024)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        npcmsg(msg_0571_T23R0501_00024)
+    } else {
+        npcmsg(msg_0571_T23R0501_00023)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Azalea_KurtHouse_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T23R0501_000
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4080, 2: scr_seq_T23R0501_005
+    ]
+}

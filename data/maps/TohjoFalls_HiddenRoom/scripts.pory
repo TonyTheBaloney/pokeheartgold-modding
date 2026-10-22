@@ -1,0 +1,303 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D45R0102_000
+	ScrDef scr_seq_D45R0102_001
+	ScrDef scr_seq_D45R0102_002
+	ScrDef scr_seq_D45R0102_003
+	ScrDefEnd
+`
+
+script scr_seq_D45R0102_002 {
+    end
+}
+
+script scr_seq_D45R0102_000 {
+    if (var(VAR_UNK_40FE) == 4) {
+        end
+    }
+    if (var(VAR_UNK_40FE) == 3) { goto(_0057) }
+    if (var(VAR_UNK_40FE) == 2) { goto(_003D) }
+    end
+_003D:
+    movepersonfacing(obj_D45R0102_sakaki, 6, 1, 4, DIR_NORTH)
+    movepersonfacing(obj_D45R0102_var_1, 5, 1, 8, DIR_SOUTH)
+    end
+_0057:
+    movepersonfacing(obj_D45R0102_sakaki, 6, 1, 6, DIR_SOUTH)
+    movepersonfacing(obj_D45R0102_var_1, 5, 1, 7, DIR_NORTH)
+    makeobjectvisible(obj_partner_poke)
+    followmonreleasenexttoplayer
+    end
+}
+
+script scr_seq_D45R0102_001 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, TohjoFalls_HiddenRoom_Movement_0374)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03AC)
+    waitmovement
+    applymovement(obj_partner_poke, TohjoFalls_HiddenRoom_Movement_0398)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_031C)
+    waitmovement
+    npcmsg(msg_0131_D45R0102_00000)
+    closemessage
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03AC)
+    waitmovement
+    gendermsgbox(msg_0131_D45R0102_00008, msg_0131_D45R0102_00007)
+    closemessage
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_032C)
+    waitmovement
+    npcmsg(msg_0131_D45R0102_00001)
+    closemessage
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03B4)
+    waitmovement
+    gendermsgbox(msg_0131_D45R0102_00010, msg_0131_D45R0102_00009)
+    closemessage
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_038C)
+    waitmovement
+    gendermsgbox(msg_0131_D45R0102_00012, msg_0131_D45R0102_00011)
+    closemessage
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03DC)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0131_D45R0102_00014, msg_0131_D45R0102_00013)
+    closemessage
+    stopbgm(0)
+    playse(SEQ_SE_PL_FR03)
+    playbgm(SEQ_GS_SENKYO)
+    npcmsg(msg_0131_D45R0102_00002)
+    stopse(SEQ_SE_PL_FR03)
+    closemessage
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_032C)
+    waitmovement
+    npcmsg(msg_0131_D45R0102_00003)
+    closemessage
+    setvar(VAR_UNK_40FE, 3)
+    trainerbattle(TRAINER_ROCKET_BOSS_GIOVANNI, 0, 1, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0131_D45R0102_00006)
+        closemessage
+        applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_0360)
+        playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
+        fadescreen(6, 6, 0, RGB_WHITE)
+        waitfade
+        wait(15, VAR_SPECIAL_RESULT)
+        fadescreen(6, 6, 1, RGB_WHITE)
+        waitfade
+        waitmovement
+        removeobject(obj_D45R0102_sakaki)
+        setflag(FLAG_HIDE_TOHJO_FALLS_GIOVANNI)
+        npcmsg(msg_0131_D45R0102_00019)
+        closemessage
+        playse(SEQ_SE_GS_TIMESLIP)
+        celebitimetravel
+        setflag(FLAG_UNK_178)
+        setvar(VAR_UNK_40FE, 0)
+        setflag(FLAG_HIDE_ILEX_FOREST_FRIEND)
+        warp(MAP_ILEX_FOREST, 0, 16, 57, DIR_SOUTH)
+        fadescreen(6, 15, 1, RGB_WHITE)
+        waitfade
+        touchscreenmenushow
+        releaseall
+        end
+    _02C0:
+        setvar(VAR_TEMP_x4003, 1)
+        applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_0304)
+        waitmovement
+        gendermsgbox(msg_0131_D45R0102_00023, msg_0131_D45R0102_00022)
+        closemessage
+        gendermsgbox(msg_0131_D45R0102_00025, msg_0131_D45R0102_00024)
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        playfanfare(SEQ_ME_ASA)
+        waitfanfare
+        healparty
+        leaveoverworld
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        return
+    }
+    setvar(VAR_UNK_40FE, 4)
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_033C)
+    waitmovement
+    npcmsg(msg_0131_D45R0102_00004)
+    closemessage
+    applymovement(obj_D45R0102_sakaki, TohjoFalls_HiddenRoom_Movement_0350)
+    waitmovement
+    removeobject(obj_D45R0102_sakaki)
+    setflag(FLAG_HIDE_TOHJO_FALLS_GIOVANNI)
+    applymovement(obj_player, TohjoFalls_HiddenRoom_Movement_0380)
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_0380)
+    waitmovement
+    fadeoutbgm(0, 30)
+    stopbgm(0)
+    playse(SEQ_SE_PL_FR03)
+    npcmsg(msg_0131_D45R0102_00005)
+    stopse(SEQ_SE_PL_FR03)
+    closemessage
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03D4)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0131_D45R0102_00016, msg_0131_D45R0102_00015)
+    closemessage
+    getpartyleadalive(VAR_TEMP_x4002)
+    getpartymonspecies(VAR_TEMP_x4002, VAR_SPECIAL_RESULT)
+    compare(VAR_SPECIAL_RESULT, 251)
+    callifne(_02C0)
+    applymovement(obj_partner_poke, TohjoFalls_HiddenRoom_Movement_03A4)
+    waitmovement
+    playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
+    fadescreen(6, 6, 0, RGB_WHITE)
+    waitfade
+    wait(15, VAR_SPECIAL_RESULT)
+    fadescreen(6, 6, 1, RGB_WHITE)
+    waitfade
+    applymovement(obj_player, TohjoFalls_HiddenRoom_Movement_038C)
+    waitmovement
+    applymovement(obj_D45R0102_var_1, TohjoFalls_HiddenRoom_Movement_03C0)
+    waitmovement
+    if (var(VAR_TEMP_x4003) == 1) {
+        gendermsgbox(msg_0131_D45R0102_00027, msg_0131_D45R0102_00026)
+        closemessage
+    } else {
+        gendermsgbox(msg_0131_D45R0102_00018, msg_0131_D45R0102_00017)
+        closemessage
+    }
+    playse(SEQ_SE_GS_TIMESLIP)
+    celebitimetravel
+    clearflag(FLAG_HIDE_ILEX_FOREST_FRIEND)
+    warp(MAP_ILEX_FOREST, 0, 16, 57, DIR_SOUTH)
+    fadescreen(6, 15, 1, RGB_WHITE)
+    waitfade
+    releaseall
+    end
+}
+
+movement TohjoFalls_HiddenRoom_Movement_0304 {
+    walk_in_place_right
+    emote_exclamation_mark
+    delay_8
+    walk_fast_right
+    walk_in_place_up
+}
+
+movement TohjoFalls_HiddenRoom_Movement_031C {
+    emote_exclamation_mark
+    delay_8
+    walk_in_place_down
+}
+
+movement TohjoFalls_HiddenRoom_Movement_032C {
+    walk_down
+}
+
+movement TohjoFalls_HiddenRoom_Movement_0334 {
+    walk_in_place_down
+}
+
+movement TohjoFalls_HiddenRoom_Movement_033C {
+    lock_dir
+    walk_slow_up
+    unlock_dir
+    walk_slow_right * 2
+}
+
+movement TohjoFalls_HiddenRoom_Movement_0350 {
+    walk_down * 4
+    walk_left * 2
+    walk_down * 2
+}
+
+movement TohjoFalls_HiddenRoom_Movement_0360 {
+    walk_slow_right * 2
+    walk_slow_down * 3
+    walk_slow_left * 2
+    walk_slow_down * 2
+}
+
+movement TohjoFalls_HiddenRoom_Movement_0374 {
+    walk_in_place_up
+    walk_up
+}
+
+movement TohjoFalls_HiddenRoom_Movement_0380 {
+    delay_8 * 3
+    walk_down
+}
+
+movement TohjoFalls_HiddenRoom_Movement_038C {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement TohjoFalls_HiddenRoom_Movement_0398 {
+    walk_right
+    walk_up
+}
+
+movement TohjoFalls_HiddenRoom_Movement_03A4 {
+    jump_in_place_fast_down
+}
+
+movement TohjoFalls_HiddenRoom_Movement_03AC {
+    walk_in_place_up
+}
+
+movement TohjoFalls_HiddenRoom_Movement_03B4 {
+    walk_up
+    walk_in_place_right
+}
+
+movement TohjoFalls_HiddenRoom_Movement_03C0 {
+    walk_in_place_left
+    delay_8
+    walk_in_place_right
+    delay_8
+}
+
+movement TohjoFalls_HiddenRoom_Movement_03D4 {
+    walk_down
+}
+
+movement TohjoFalls_HiddenRoom_Movement_03DC {
+    walk_in_place_fast_right * 4
+}
+
+script scr_seq_D45R0102_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_40FE) >= 4) {
+        npcmsg(msg_0131_D45R0102_00021)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0131_D45R0102_00020)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts TohjoFalls_HiddenRoom_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_D45R0102_000
+    INIT_SCRIPT_ON_LOAD: scr_seq_D45R0102_002
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40FE, 2: scr_seq_D45R0102_001
+    ]
+}

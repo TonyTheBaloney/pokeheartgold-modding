@@ -1,0 +1,346 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T20R0201_000
+	ScrDef scr_seq_T20R0201_001
+	ScrDef scr_seq_T20R0201_002
+	ScrDef scr_seq_T20R0201_003
+	ScrDef scr_seq_T20R0201_004
+	ScrDef scr_seq_T20R0201_005
+	ScrDef scr_seq_T20R0201_006
+	ScrDefEnd
+`
+
+script scr_seq_T20R0201_000 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, NewBark_PlayerHouse_1F_Movement_00A4)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B0)
+    waitmovement
+    callstd(std_play_mom_music)
+    wait(30, VAR_SPECIAL_RESULT)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B8)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0545_T20R0201_00000, msg_0545_T20R0201_00001)
+    setflag(FLAG_GOT_BAG)
+    playfanfare(SEQ_SE_PL_KIRAKIRA)
+    waitfanfare
+    npcmsg(msg_0545_T20R0201_00002)
+    setflag(FLAG_GOT_TRAINER_CARD)
+    playfanfare(SEQ_SE_PL_KIRAKIRA)
+    waitfanfare
+    npcmsg(msg_0545_T20R0201_00003)
+    setflag(FLAG_GOT_SAVE_BUTTON)
+    playfanfare(SEQ_SE_PL_KIRAKIRA)
+    waitfanfare
+    npcmsg(msg_0545_T20R0201_00004)
+    setflag(FLAG_GOT_OPTIONS_BUTTON)
+    playfanfare(SEQ_SE_PL_KIRAKIRA)
+    waitfanfare
+    npcmsg(msg_0545_T20R0201_00005)
+    closemessage
+    wait(15, VAR_SPECIAL_RESULT)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00C8)
+    waitmovement
+    callstd(std_fade_end_mom_music)
+    setvar(VAR_SCENE_PLAYERS_HOUSE_1F, 1)
+    releaseall
+    end
+}
+
+movement NewBark_PlayerHouse_1F_Movement_00A4 {
+    delay_4
+    walk_in_place_down
+}
+
+movement NewBark_PlayerHouse_1F_Movement_00B0 {
+    walk_in_place_up
+}
+
+movement NewBark_PlayerHouse_1F_Movement_00B8 {
+    walk_up * 2
+    walk_left * 3
+    walk_up
+}
+
+movement NewBark_PlayerHouse_1F_Movement_00C8 {
+    walk_in_place_down
+    walk_down * 3
+    walk_right * 3
+    walk_in_place_up
+}
+
+script scr_seq_T20R0201_006 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, NewBark_PlayerHouse_1F_Movement_00A4)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B0)
+    waitmovement
+    callstd(std_play_mom_music)
+    wait(30, VAR_SPECIAL_RESULT)
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00B8)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0545_T20R0201_00033)
+    closemessage
+    applymovement(obj_T20R0201_gsmama, NewBark_PlayerHouse_1F_Movement_00C8)
+    waitmovement
+    callstd(std_fade_end_mom_music)
+    setvar(VAR_SCENE_PLAYERS_HOUSE_1F, 4)
+    releaseall
+    end
+}
+
+script scr_seq_T20R0201_001 {
+    if (flag(FLAG_GAME_CLEAR)) {
+        hasitem(ITEM_S_S__TICKET, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            simplenpcmsg(msg_0545_T20R0201_00034)
+            end
+        _0205:
+            playse(SEQ_SE_DP_SELECT)
+            lockall
+            faceplayer
+            if (flag(FLAG_TALKED_TO_MOM_AFTER_NAMING_RIVAL)) {
+                npcmsg(msg_0545_T20R0201_00020)
+                showsavingsbox(1, 1)
+                touchscreenmenuhide
+                menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+                menuitemadd(29, 255, 0)
+                menuitemadd(30, 255, 1)
+                menuitemadd(31, 255, 2)
+                menuitemadd(32, 255, 3)
+                menuexec
+                Switch(VAR_SPECIAL_RESULT)
+                Case(0, _02DF)
+                Case(1, _0335)
+                Case(2, _0398)
+                goto(_03D1)
+                end
+            _02DF:
+                bankorwalletisfull(1, VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 1) {
+                    touchscreenmenushow
+                    hidesavingsbox
+                    npcmsg(msg_0545_T20R0201_00028)
+                    waitbuttonpress
+                    closemessage
+                    releaseall
+                    end
+                }
+                checkbankbalance(VAR_SPECIAL_RESULT, 1)
+                if (var(VAR_SPECIAL_RESULT) == 0) { goto(_041C) }
+                banktransaction(1, VAR_SPECIAL_RESULT)
+                hidesavingsbox
+                touchscreenmenushow
+                Switch(VAR_SPECIAL_RESULT)
+                Case(0, _03E0)
+                Case(1, _0411)
+                releaseall
+                end
+            _0335:
+                bankorwalletisfull(0, VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 1) { goto(_042B) }
+                hasenoughmoneyvar(VAR_SPECIAL_RESULT, 1)
+                if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0389) }
+                banktransaction(0, VAR_SPECIAL_RESULT)
+                hidesavingsbox
+                touchscreenmenushow
+                Switch(VAR_SPECIAL_RESULT)
+                Case(0, _03FA)
+                Case(1, _0411)
+                releaseall
+                end
+            _0389:
+                touchscreenmenushow
+                hidesavingsbox
+                npcmsg(msg_0545_T20R0201_00026)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _0398:
+                npcmsg(msg_0545_T20R0201_00025)
+                touchscreenmenuhide
+                getmenuchoice(VAR_SPECIAL_RESULT)
+                touchscreenmenushow
+                hidesavingsbox
+                if (var(VAR_SPECIAL_RESULT) == 0) {
+                    bufferplayersname(0)
+                    npcmsg(msg_0545_T20R0201_00017)
+                    setflag(FLAG_SYS_MOMS_SAVINGS)
+                } else {
+                    npcmsg(msg_0545_T20R0201_00018)
+                    clearflag(FLAG_SYS_MOMS_SAVINGS)
+                }
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _03D1:
+                hidesavingsbox
+                touchscreenmenushow
+                npcmsg(msg_0545_T20R0201_00021)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _03E0:
+                closemessage
+                wait(8, VAR_SPECIAL_RESULT)
+                playse(SEQ_SE_GS_OKOZUKAI)
+                bufferplayersname(0)
+                npcmsg(msg_0545_T20R0201_00024)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _03FA:
+                closemessage
+                wait(8, VAR_SPECIAL_RESULT)
+                playse(SEQ_SE_GS_OKOZUKAI)
+                npcmsg(msg_0545_T20R0201_00023)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _0411:
+                npcmsg(msg_0545_T20R0201_00021)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _041C:
+                touchscreenmenushow
+                hidesavingsbox
+                npcmsg(msg_0545_T20R0201_00022)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            _042B:
+                touchscreenmenushow
+                hidesavingsbox
+                npcmsg(msg_0545_T20R0201_00027)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            checkbadge(BADGE_ZEPHYR, VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 0) {
+                npcmsg(msg_0545_T20R0201_00015)
+            } else {
+                bufferplayersname(0)
+                npcmsg(msg_0545_T20R0201_00016)
+            }
+            setflag(FLAG_TALKED_TO_MOM_AFTER_NAMING_RIVAL)
+            setvar(VAR_SCENE_ROUTE_30_PHONE_CALL, 0)
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 0) {
+                npcmsg(msg_0545_T20R0201_00017)
+                setflag(FLAG_SYS_MOMS_SAVINGS)
+            } else {
+                npcmsg(msg_0545_T20R0201_00018)
+                clearflag(FLAG_SYS_MOMS_SAVINGS)
+            }
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        goto(_0205)
+        end
+    }
+    if (var(VAR_SCENE_ELMS_LAB) >= 4) { goto(_0205) }
+    if (flag(FLAG_GOT_STARTER)) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        faceplayer
+        if (flag(FLAG_GOT_POKEGEAR)) { goto(_01D4) }
+        bufferplayersname(0)
+        npcmsg(msg_0545_T20R0201_00007)
+        bufferplayersname(0)
+        npcmsg(msg_0545_T20R0201_00008)
+        setflag(FLAG_GOT_POKEGEAR)
+        playfanfare(SEQ_ME_ITEM)
+        waitfanfare
+        npcmsg(msg_0545_T20R0201_00009)
+        npcmsg(msg_0545_T20R0201_00010)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0545_T20R0201_00011)
+        } else {
+            npcmsg(msg_0545_T20R0201_00012)
+        }
+        npcmsg(msg_0545_T20R0201_00013)
+        waitbuttonordpad
+        closemessage
+        releaseall
+        end
+    _01D4:
+        npcmsg(msg_0545_T20R0201_00014)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+        simplenpcmsg(msg_0545_T20R0201_00007)
+        end
+    }
+    simplenpcmsg(msg_0545_T20R0201_00006)
+    end
+}
+
+script scr_seq_T20R0201_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0545_T20R0201_00035)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0201_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0545_T20R0201_00036)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0201_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0545_T20R0201_00037)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0201_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0545_T20R0201_00038)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts NewBark_PlayerHouse_1F_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_PLAYERS_HOUSE_1F, 3: scr_seq_T20R0201_006
+        VAR_SCENE_PLAYERS_HOUSE_1F, 0: scr_seq_T20R0201_000
+    ]
+}

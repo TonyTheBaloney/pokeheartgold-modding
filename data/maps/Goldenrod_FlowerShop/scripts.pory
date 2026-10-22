@@ -1,0 +1,316 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T25R0601_000
+	ScrDef scr_seq_T25R0601_001
+	ScrDef scr_seq_T25R0601_002
+	ScrDef scr_seq_T25R0601_003
+	ScrDefEnd
+`
+
+script scr_seq_T25R0601_002 {
+    if (!flag(FLAG_UNK_15D)) {
+        if (flag(FLAG_UNK_0B5)) {
+            getpartyslotwithfatefulencounter(VAR_TEMP_x4000, 492)
+            if (var(VAR_TEMP_x4000) != 255) {
+                getpartyleadalive(VAR_TEMP_x4000)
+                getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+                if (var(VAR_TEMP_x4001) == 492) {
+                    setvar(VAR_UNK_4082, 1)
+                }
+            }
+        }
+    }
+    end
+}
+
+script scr_seq_T25R0601_003 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Goldenrod_FlowerShop_Movement_00FC)
+    applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_0110)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_0120)
+    applymovement(obj_player, Goldenrod_FlowerShop_Movement_0108)
+    applymovement(obj_partner_poke, Goldenrod_FlowerShop_Movement_014C)
+    waitmovement
+    npcmsg(msg_0589_T25R0601_00005)
+    closemessage
+    applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_012C)
+    waitmovement
+    npcmsg(msg_0589_T25R0601_00006)
+    setvar(VAR_SPECIAL_x8004, 466)
+    setvar(VAR_SPECIAL_x8005, 1)
+    hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 0) {
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        setvar(VAR_UNK_4082, 0)
+        releaseall
+        end
+    }
+    callstd(std_give_item_verbose)
+    npcmsg(msg_0589_T25R0601_00007)
+    waitbuttonpress
+    closemessage
+    setflag(FLAG_UNK_15D)
+    setvar(VAR_UNK_4082, 0)
+    releaseall
+    end
+}
+
+movement Goldenrod_FlowerShop_Movement_00FC {
+    walk_up
+    delay_8
+}
+
+movement Goldenrod_FlowerShop_Movement_0108 {
+    face_right
+}
+
+movement Goldenrod_FlowerShop_Movement_0110 {
+    delay_8
+    face_left
+    emote_exclamation_mark
+}
+
+movement Goldenrod_FlowerShop_Movement_0120 {
+    walk_down
+    walk_left
+}
+
+movement Goldenrod_FlowerShop_Movement_012C {
+    walk_in_place_fast_left * 4
+}
+
+movement Goldenrod_FlowerShop_Movement_0134 {
+    walk_in_place_fast_down * 4
+}
+
+movement Goldenrod_FlowerShop_Movement_013C {
+    walk_in_place_fast_up * 4
+}
+
+movement Goldenrod_FlowerShop_Movement_0144 {
+    walk_in_place_fast_right * 4
+}
+
+movement Goldenrod_FlowerShop_Movement_014C {
+    face_right
+}
+
+script scr_seq_T25R0601_000 {
+    if (flag(FLAG_UNK_0B5)) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        faceplayer
+        npcmsg(msg_0589_T25R0601_00003)
+        npcmsg(msg_0589_T25R0601_00008)
+        touchscreenmenuhide
+        showmoneybox(20, 2)
+        menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        menuitemadd(213, 470, 0)
+        menuitemadd(214, 472, 1)
+        menuitemadd(215, 471, 2)
+        menuitemadd(216, 473, 3)
+        menuitemadd(217, 474, 4)
+        menuexec
+        copyvar(VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+        Switch(VAR_SPECIAL_x8000)
+        Case(0, _033D)
+        Case(1, _0349)
+        Case(2, _0355)
+        Case(3, _0361)
+        npcmsg(msg_0589_T25R0601_00010)
+        goto(_031F)
+    _0276:
+        compare(VAR_SPECIAL_x8000, 0)
+        callifeq(_036D)
+        compare(VAR_SPECIAL_x8000, 1)
+        callifeq(_0377)
+        compare(VAR_SPECIAL_x8000, 2)
+        callifeq(_0381)
+        compare(VAR_SPECIAL_x8000, 3)
+        callifeq(_038B)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0589_T25R0601_00013)
+            goto(_031F)
+        _033D:
+            setvar(VAR_SPECIAL_x8001, 95)
+            goto(_0276)
+        _0349:
+            setvar(VAR_SPECIAL_x8001, 96)
+            goto(_0276)
+        _0355:
+            setvar(VAR_SPECIAL_x8001, 97)
+            goto(_0276)
+        _0361:
+            setvar(VAR_SPECIAL_x8001, 98)
+            goto(_0276)
+        _036D:
+            hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 200)
+            return
+        _0377:
+            hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 200)
+            return
+        _0381:
+            hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 200)
+            return
+        _038B:
+            hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 200)
+            return
+        _0395:
+            submoneyimmediate(200)
+            return
+        _039D:
+            submoneyimmediate(200)
+            return
+        _03A5:
+            submoneyimmediate(200)
+            return
+        _03AD:
+            submoneyimmediate(200)
+            return
+        }
+        hasspaceforitem(VAR_SPECIAL_x8001, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_032B) }
+        compare(VAR_SPECIAL_x8000, 0)
+        callifeq(_0395)
+        compare(VAR_SPECIAL_x8000, 1)
+        callifeq(_039D)
+        compare(VAR_SPECIAL_x8000, 2)
+        callifeq(_03A5)
+        compare(VAR_SPECIAL_x8000, 3)
+        callifeq(_03AD)
+        updatemoneybox
+        playse(SEQ_SE_DP_REGI)
+        giveitem(VAR_SPECIAL_x8001, 1, VAR_SPECIAL_RESULT)
+        bufferitemname(0, VAR_SPECIAL_x8001)
+        npcmsg(msg_0589_T25R0601_00011)
+        npcmsg(msg_0589_T25R0601_00009)
+        goto(_031F)
+    _031F:
+        waitbuttonpress
+        closemessage
+        touchscreenmenushow
+        hidemoneybox
+        releaseall
+        end
+    _032B:
+        npcmsg(msg_0589_T25R0601_00012)
+        goto(_031F)
+    }
+    checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 1) { goto(_0185) }
+    simplenpcmsg(msg_0589_T25R0601_00000)
+    end
+_0185:
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    hasitem(ITEM_SQUIRTBOTTLE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01D0) }
+    npcmsg(msg_0589_T25R0601_00001)
+    if (!itemspace(ITEM_SQUIRTBOTTLE, 1)) { goto(_01DB) }
+    callstd(std_give_item_verbose)
+    closemessage
+    releaseall
+    end
+_01D0:
+    npcmsg(msg_0589_T25R0601_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_01DB:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R0601_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_15D)) {
+        getpartyslotwithfatefulencounter(VAR_SPECIAL_RESULT, 492)
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_03F2) }
+        getpartyleadalive(VAR_TEMP_x4000)
+        getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) != 492) { goto(_03F2) }
+        npcmsg(msg_0589_T25R0601_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getpartyslotwithfatefulencounter(VAR_SPECIAL_RESULT, 492)
+    if (var(VAR_SPECIAL_RESULT) != 255) {
+        getpartyleadalive(VAR_TEMP_x4000)
+        getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 492) {
+            applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_04F0)
+            waitmovement
+            npcmsg(msg_0589_T25R0601_00005)
+            closemessage
+            getplayerfacing(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 0) {
+                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_0134)
+            } elif (var(VAR_SPECIAL_RESULT) == 1) {
+                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_013C)
+            } elif (var(VAR_SPECIAL_RESULT) == 2) {
+                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_0144)
+            } else {
+                applymovement(obj_T25R0601_gsgirl1, Goldenrod_FlowerShop_Movement_012C)
+            }
+            waitmovement
+            npcmsg(msg_0589_T25R0601_00006)
+            setvar(VAR_SPECIAL_x8004, 466)
+            setvar(VAR_SPECIAL_x8005, 1)
+            hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_TEMP_x4002)
+            if (var(VAR_TEMP_x4002) == 0) {
+                callstd(std_bag_is_full)
+                closemessage
+                releaseall
+                setvar(VAR_UNK_4082, 0)
+                releaseall
+                end
+            }
+            callstd(std_give_item_verbose)
+            npcmsg(msg_0589_T25R0601_00007)
+            waitbuttonpress
+            closemessage
+            setflag(FLAG_UNK_15D)
+            setvar(VAR_UNK_4082, 0)
+            releaseall
+            end
+        }
+    }
+_03F2:
+    npcmsg(msg_0589_T25R0601_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Goldenrod_FlowerShop_Movement_04F0 {
+    emote_exclamation_mark
+}
+
+mapscripts Goldenrod_FlowerShop_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25R0601_002
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4082, 1: scr_seq_T25R0601_003
+    ]
+}

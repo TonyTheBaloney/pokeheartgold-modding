@@ -1,0 +1,110 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T25R1203_000 {
+    simplenpcmsg(msg_0602_T25R1203_00000)
+    end
+}
+
+script scr_seq_T25R1203_001 {
+    simplenpcmsg(msg_0602_T25R1203_00001)
+    end
+}
+
+script scr_seq_T25R1203_002 {
+    simplenpcmsg(msg_0602_T25R1203_00002)
+    end
+}
+
+script scr_seq_T25R1203_003 {
+    simplenpcmsg(msg_0602_T25R1203_00003)
+    end
+}
+
+script scr_seq_T25R1203_004 {
+    simplenpcmsg(msg_0602_T25R1203_00004)
+    end
+}
+
+script scr_seq_T25R1203_005 {
+    simplenpcmsg(msg_0602_T25R1203_00005)
+    end
+}
+
+script scr_seq_T25R1203_006 {
+    simplenpcmsg(msg_0602_T25R1203_00006)
+    end
+}
+
+script scr_seq_T25R1203_007 {
+    simplenpcmsg(msg_0602_T25R1203_00007)
+    end
+}
+
+script scr_seq_T25R1203_008 {
+    simplenpcmsg(msg_0602_T25R1203_00008)
+    end
+}
+
+script scr_seq_T25R1203_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0602_T25R1203_00009)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1203_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0602_T25R1203_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1203_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8005, 2)
+    goto(_0113)
+    end
+_0113:
+    npcmsg(msg_0602_T25R1203_00011)
+    touchscreenmenuhide
+    menuinit(21, 11, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(13, 255, 0)
+    menuitemadd(14, 255, 1)
+    menuitemadd(15, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _016A)
+    Case(1, _018F)
+    goto(_0162)
+    end
+_0162:
+    touchscreenmenushow
+_0164:
+    closemessage
+    releaseall
+    end
+_016A:
+    callstd(std_prompt_save)
+    copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0164) }
+    closemessage
+    setsavedbottomscreenapp(0)
+    callstd(std_enter_global_terminal)
+    releaseall
+    end
+_018F:
+    npcmsg(msg_0602_T25R1203_00012)
+    goto(_0113)
+    end
+}
+
+mapscripts Goldenrod_GlobalTerminal_3F_MapScripts {
+}

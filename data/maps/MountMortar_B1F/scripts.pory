@@ -1,0 +1,62 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D38R0104_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_TYROGUE_FROM_KARATE_KING)) { goto(_0097) }
+    if (!flag(FLAG_BEAT_KARATE_KING)) {
+        npcmsg(msg_0121_D38R0104_00000)
+        closemessage
+        trainerbattle(TRAINER_BLACK_BELT_KIYO, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            whiteout
+            releaseall
+            end
+        _00D2:
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        setflag(FLAG_BEAT_KARATE_KING)
+    }
+    npcmsg(msg_0121_D38R0104_00001)
+    getpartycount(VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) != 6) { goto(_0063) }
+    npcmsg(msg_0121_D38R0104_00004)
+    goto(_00D2)
+_0063:
+    bufferplayersname(0)
+    npcmsg(msg_0121_D38R0104_00002)
+    playfanfare(SEQ_ME_POKEGET)
+    waitfanfare
+    givemon(SPECIES_TYROGUE, 10, 0, 0, 0, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0121_D38R0104_00005)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    closemessage
+    compare(VAR_SPECIAL_RESULT, 0)
+    callifeq(_00A6)
+    touchscreenmenushow
+_0097:
+    setflag(FLAG_GOT_TYROGUE_FROM_KARATE_KING)
+    npcmsg(msg_0121_D38R0104_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00A6:
+    setvar(VAR_TEMP_x4000, 0)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    nicknameinput(VAR_SPECIAL_x8005, VAR_TEMP_x4000)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    return
+}
+
+mapscripts MountMortar_B1F_MapScripts {
+}

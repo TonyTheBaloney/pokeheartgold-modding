@@ -1,0 +1,212 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R30_000
+	ScrDef scr_seq_R30_001
+	ScrDef scr_seq_R30_002
+	ScrDef scr_seq_R30_003
+	ScrDef scr_seq_R30_004
+	ScrDef scr_seq_R30_005
+	ScrDef scr_seq_R30_006
+	ScrDef scr_seq_R30_007
+	ScrDef scr_seq_R30_008
+	ScrDef scr_seq_R30_009
+	ScrDef scr_seq_R30_010
+	ScrDefEnd
+`
+
+script scr_seq_R30_001 {
+    setflag(FLAG_GOT_ELMS_PANIC_CALL)
+    phonecall(PHONE_CONTACT_PROF__ELM, 2, 0)
+    setvar(VAR_SCENE_ROUTE_30_OW, 3)
+    end
+}
+
+script scr_seq_R30_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0375_R30_00000)
+    closemessage
+    applymovement(obj_R30_tsure_poke_static_rattata, Route30_Movement_0088)
+    waitmovement
+    applymovement(obj_R30_tsure_poke_static_pidgey, Route30_Movement_0090)
+    waitmovement
+    playse(SEQ_SE_DP_SELECT)
+    faceplayer
+    npcmsg(msg_0375_R30_00001)
+    closemessage
+    applymovement(obj_R30_gsboy2_3, Route30_Movement_0098)
+    waitmovement
+    releaseall
+    end
+}
+
+movement Route30_Movement_0088 {
+    jump_in_place_fast_up * 3
+}
+
+movement Route30_Movement_0090 {
+    jump_in_place_fast_down * 2
+}
+
+movement Route30_Movement_0098 {
+    walk_in_place_up
+}
+
+script scr_seq_R30_002 {
+    followmonresetmovement
+    lockall
+    dooranimationload(17, 11, 11, 3, 77)
+    dooranimationopen(77)
+    dooranimationwait(77)
+    clearflag(FLAG_HIDE_ROUTE_30_APRICORN_MAN)
+    addobject(obj_R30_gsmiddleman1)
+    applymovement(obj_R30_gsmiddleman1, Route30_Movement_01B0)
+    waitmovement
+    dooranimationclose(77)
+    dooranimationwait(77)
+    dooranimationunload(77)
+    applymovement(obj_R30_gsmiddleman1, Route30_Movement_01C4)
+    waitmovement
+    npcmsg(msg_0375_R30_00005)
+    closemessage
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    if (var(VAR_TEMP_x4000) == 558) {
+        applymovement(obj_player, Route30_Movement_01D4)
+    } elif (var(VAR_TEMP_x4000) == 559) {
+        applymovement(obj_player, Route30_Movement_01E8)
+    } elif (var(VAR_TEMP_x4000) == 560) {
+        applymovement(obj_player, Route30_Movement_01FC)
+    } else {
+        applymovement(obj_player, Route30_Movement_0210)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0375_R30_00006)
+    giveitemnocheck(ITEM_APRICORN_BOX, 1)
+    npcmsg(msg_0375_R30_00008)
+    closemessage
+    applymovement(obj_R30_gsmiddleman1, Route30_Movement_01CC)
+    waitmovement
+    dooranimationload(17, 11, 11, 3, 77)
+    dooranimationopen(77)
+    dooranimationwait(77)
+    applymovement(obj_R30_gsmiddleman1, Route30_Movement_01B8)
+    waitmovement
+    dooranimationclose(77)
+    dooranimationwait(77)
+    dooranimationunload(77)
+    removeobject(obj_R30_gsmiddleman1)
+    setflag(FLAG_HIDE_ROUTE_30_APRICORN_MAN)
+    releaseall
+    setflag(FLAG_GOT_APRICORN_BOX)
+    setvar(VAR_SCENE_ROUTE_30_OW, 1)
+    end
+}
+
+movement Route30_Movement_01B0 {
+    walk_down
+}
+
+movement Route30_Movement_01B8 {
+    walk_up
+    set_invisible
+}
+
+movement Route30_Movement_01C4 {
+    walk_in_place_right
+}
+
+movement Route30_Movement_01CC {
+    walk_in_place_up
+}
+
+movement Route30_Movement_01D4 {
+    walk_down * 2
+    walk_in_place_left
+    delay_8 * 2
+    walk_left * 2
+}
+
+movement Route30_Movement_01E8 {
+    walk_down * 2
+    walk_in_place_left
+    delay_8 * 2
+    walk_left * 3
+}
+
+movement Route30_Movement_01FC {
+    walk_down * 2
+    walk_in_place_left
+    delay_8 * 2
+    walk_left * 4
+}
+
+movement Route30_Movement_0210 {
+    walk_down * 2
+    walk_in_place_left
+    delay_8 * 2
+    walk_left * 5
+}
+
+script scr_seq_R30_003 {
+    simplenpcmsg(msg_0375_R30_00013)
+    end
+}
+
+script scr_seq_R30_004 {
+    followmonresetmovement
+    lockall
+    phonecall(PHONE_CONTACT_MOTHER, 2, 0)
+    setvar(VAR_SCENE_ROUTE_30_PHONE_CALL, 0)
+    setflag(FLAG_TALKED_TO_MOM_AFTER_NAMING_RIVAL)
+    releaseall
+    end
+}
+
+script scr_seq_R30_005 {
+    directionsignpostex(1, 6, msg_0375_R30_00009)
+    end
+}
+
+script scr_seq_R30_006 {
+    directionsignpostex(1, 3, msg_0375_R30_00010)
+    end
+}
+
+script scr_seq_R30_007 {
+    trainertipsex(3, msg_0375_R30_00012)
+    end
+}
+
+script scr_seq_R30_008 {
+    trainertipsex(2, msg_0375_R30_00011)
+    end
+}
+
+script scr_seq_R30_009 {
+    if (flag(FLAG_GOT_POKEDEX)) {
+        simplenpcmsg(msg_0375_R30_00003)
+        end
+    }
+    simplenpcmsg(msg_0375_R30_00002)
+    end
+}
+
+script scr_seq_R30_010 {
+    simplenpcmsg(msg_0375_R30_00004)
+    end
+}
+
+mapscripts Route30_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_ROUTE_30_OW, 2: scr_seq_R30_001
+    ]
+}

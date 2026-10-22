@@ -1,0 +1,115 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T22FS0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 1)
+    callstd(std_pokemart)
+    releaseall
+    end
+}
+
+script scr_seq_T22FS0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 1)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_T22FS0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_06F)) {
+        bufferplayersname(0)
+        gendermsgbox(msg_0557_T22FS0101_00009, msg_0557_T22FS0101_00010)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_007D) }
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00F7) }
+        end
+    }
+    bufferplayersname(0)
+    gendermsgbox(msg_0557_T22FS0101_00002, msg_0557_T22FS0101_00003)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00F7) }
+_007D:
+    getpartycount(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 6) { goto(_0106) }
+    givetogepiegg
+    setflag(FLAG_GOT_EGG_FROM_ELMS_ASSISTANT)
+    bufferplayersname(0)
+    npcmsg(msg_0557_T22FS0101_00004)
+    playfanfare(SEQ_ME_TAMAGO_GET)
+    waitfanfare
+    gendermsgbox(msg_0557_T22FS0101_00005, msg_0557_T22FS0101_00006)
+    closemessage
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_T22FS0101_assistantm, Violet_Pokemart_Movement_014C)
+    } else {
+        applymovement(obj_T22FS0101_assistantm, Violet_Pokemart_Movement_0140)
+    }
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    removeobject(obj_T22FS0101_assistantm)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    setflag(FLAG_HIDE_VIOLET_SHOP_LAB_AIDE)
+    releaseall
+    setvar(VAR_SCENE_VIOLET_CITY_OW, 3)
+    clearflag(FLAG_HIDE_VIOLET_KIMONO_GIRL)
+    clearflag(FLAG_HIDE_ELMS_LAB_AIDE)
+    setvar(VAR_SCENE_ELMS_LAB, 7)
+    end
+_00F7:
+    npcmsg(msg_0557_T22FS0101_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    setflag(FLAG_UNK_06F)
+    end
+_0106:
+    npcmsg(msg_0557_T22FS0101_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    setflag(FLAG_UNK_06F)
+    end
+}
+
+movement Violet_Pokemart_Movement_0140 {
+    walk_left * 2
+    walk_down * 3
+}
+
+movement Violet_Pokemart_Movement_014C {
+    walk_down * 2
+    walk_left * 2
+    walk_down
+}
+
+script scr_seq_T22FS0101_003 {
+    simplenpcmsg(msg_0557_T22FS0101_00000)
+    end
+}
+
+script scr_seq_T22FS0101_004 {
+    simplenpcmsg(msg_0557_T22FS0101_00001)
+    end
+}
+
+mapscripts Violet_Pokemart_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: std_hide_show_deliverymen
+}

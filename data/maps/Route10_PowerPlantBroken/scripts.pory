@@ -1,0 +1,258 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R10R0202_000
+	ScrDef scr_seq_R10R0202_001
+	ScrDef scr_seq_R10R0202_002
+	ScrDef scr_seq_R10R0202_003
+	ScrDef scr_seq_R10R0202_004
+	ScrDef scr_seq_R10R0202_005
+	ScrDef scr_seq_R10R0202_006
+	ScrDef scr_seq_R10R0202_007
+	ScrDef scr_seq_R10R0202_008
+	ScrDef scr_seq_R10R0202_009
+	ScrDefEnd
+`
+
+script scr_seq_R10R0202_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    hasitem(ITEM_MACHINE_PART, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) >= 1) {
+        npcmsg(msg_0345_R10R0202_00014)
+        closemessage
+        takeitem(ITEM_MACHINE_PART, 1, VAR_SPECIAL_RESULT)
+        applymovement(obj_R10R0202_gsbigman, Route10_PowerPlantBroken_Movement_0108)
+        waitmovement
+        waitse(SEQ_SE_GS_W012)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_ROUTE_10_POWER_PLANT_REPAIRED, 0, 13, 7, DIR_SOUTH)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        npcmsg(msg_0345_R10R0202_00015)
+        applymovement(obj_R10R0202_gsbigman, Route10_PowerPlantBroken_Movement_0120)
+        waitmovement
+        setflag(FLAG_RESTORED_POWER)
+        npcmsg(msg_0345_R10R0202_00016)
+        giveitemnocheck(ITEM_TM57, 1)
+        npcmsg(msg_0345_R10R0202_00017)
+        waitbuttonpress
+        closemessage
+        setflag(FLAG_UNK_258)
+        clearflag(FLAG_HIDE_LAVENDER_RADIO_TOWER_DIRECTOR)
+        setflag(FLAG_HIDE_SAFFRON_CITY_COPYCAT_HOUSE_CLEFAIRY_DOLL)
+        clearflag(FLAG_HIDE_VERMILION_FAN_CLUB_LOST_ITEM)
+        setvar(VAR_UNK_40FF, 1)
+        releaseall
+        end
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    }
+    if (!flag(FLAG_GOT_POWER_PLANT_MANAGERS_STORY)) {
+        setflag(FLAG_GOT_POWER_PLANT_MANAGERS_STORY)
+        setvar(VAR_SCENE_ROUTE_10_POWER_PLANT, 1)
+    }
+    npcmsg(msg_0345_R10R0202_00013)
+    waitbuttonpress
+    closemessage
+    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_0100)
+    waitmovement
+    releaseall
+    end
+}
+
+movement Route10_PowerPlantBroken_Movement_0100 {
+    face_down
+}
+
+movement Route10_PowerPlantBroken_Movement_0108 {
+    walk_in_place_left
+    delay_2
+    walk_in_place_left
+    delay_2
+    walk_in_place_left
+}
+
+movement Route10_PowerPlantBroken_Movement_0120 {
+    face_up
+}
+
+script scr_seq_R10R0202_007 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_GS_PHONE0)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_0198)
+    applymovement(obj_player, Route10_PowerPlantBroken_Movement_01B4)
+    applymovement(obj_R10R0202_gsassistantm, Route10_PowerPlantBroken_Movement_01CC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0345_R10R0202_00001)
+    closemessage
+    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_01D8)
+    applymovement(obj_player, Route10_PowerPlantBroken_Movement_01FC)
+    waitmovement
+    npcmsg(msg_0345_R10R0202_00002)
+    closemessage
+    applymovement(obj_R10R0202_policeman, Route10_PowerPlantBroken_Movement_01E8)
+    waitmovement
+    clearflag(FLAG_HIDE_CERULEAN_GYM_ROCKET)
+    setvar(VAR_SCENE_ROUTE_10_POWER_PLANT, 0)
+    setvar(VAR_UNK_411C, 1)
+    releaseall
+    end
+}
+
+movement Route10_PowerPlantBroken_Movement_0198 {
+    emote_exclamation_mark
+    walk_down
+    walk_right * 2
+    walk_up * 3
+    walk_right * 5
+    walk_up * 2
+}
+
+movement Route10_PowerPlantBroken_Movement_01B4 {
+    delay_32 * 2
+    walk_up
+    face_down
+    delay_16
+    face_right
+}
+
+movement Route10_PowerPlantBroken_Movement_01CC {
+    delay_32 * 4
+    face_down
+}
+
+movement Route10_PowerPlantBroken_Movement_01D8 {
+    walk_down * 2
+    walk_left * 5
+    face_up
+}
+
+movement Route10_PowerPlantBroken_Movement_01E8 {
+    walk_down * 3
+    walk_left * 2
+    walk_up
+    walk_in_place_down
+}
+
+movement Route10_PowerPlantBroken_Movement_01FC {
+    delay_8 * 7
+    face_down
+}
+
+script scr_seq_R10R0202_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_POWER_PLANT_MANAGERS_STORY)) {
+        npcmsg(msg_0345_R10R0202_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0345_R10R0202_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R10R0202_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_TRADE_POWER_PLANT_DUGTRIO_MAGNETON)) {
+        npcmsg(msg_0345_R10R0202_00012)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0345_R10R0202_00008)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02CD) }
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    choosepartymonfortrade
+    getpartyselection(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 255) { goto(_02CD) }
+    loadnpctrade(8)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    getpartymonspecies(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    npctradegetreqspecies(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8005) != VAR_SPECIAL_RESULT) { goto(_02C0) }
+    npctradeexec(VAR_SPECIAL_x8004)
+    npctradeend
+    setflag(FLAG_TRADE_POWER_PLANT_DUGTRIO_MAGNETON)
+    npcmsg(msg_0345_R10R0202_00009)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_02C0:
+    npctradeend
+    npcmsg(msg_0345_R10R0202_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_02CD:
+    npcmsg(msg_0345_R10R0202_00011)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R10R0202_003 {
+    simplenpcmsg(msg_0345_R10R0202_00006)
+    end
+}
+
+script scr_seq_R10R0202_001 {
+    simplenpcmsg(msg_0345_R10R0202_00004)
+    end
+}
+
+script scr_seq_R10R0202_002 {
+    simplenpcmsg(msg_0345_R10R0202_00005)
+    end
+}
+
+script scr_seq_R10R0202_004 {
+    simplenpcmsg(msg_0345_R10R0202_00007)
+    end
+}
+
+script scr_seq_R10R0202_008 {
+    simplenpcmsg(msg_0345_R10R0202_00018)
+    end
+}
+
+script scr_seq_R10R0202_009 {
+    simplenpcmsg(msg_0345_R10R0202_00019)
+    end
+}
+
+mapscripts Route10_PowerPlantBroken_MapScripts {
+}

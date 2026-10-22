@@ -1,0 +1,612 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D02R0104_000
+	ScrDef scr_seq_D02R0104_001
+	ScrDef scr_seq_D02R0104_002
+	ScrDef scr_seq_D02R0104_003
+	ScrDef scr_seq_D02R0104_004
+	ScrDef scr_seq_D02R0104_005
+	ScrDefEnd
+`
+
+script scr_seq_D02R0104_000 {
+    setflag(FLAG_UNK_298)
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 1) {
+        if (var(VAR_TEMP_x4000) != 2) {
+            setvar(VAR_UNK_40F6, 1)
+            setflag(FLAG_UNK_26E)
+        _005E:
+            end
+        _0060:
+            getcurrenttimeofday(VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) == 3) { goto(_009A) }
+            setvar(VAR_UNK_40F6, 1)
+            setflag(FLAG_UNK_26E)
+            end
+        _007D:
+            getcurrenttimeofday(VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) == 4) { goto(_009A) }
+            setvar(VAR_UNK_40F6, 1)
+            setflag(FLAG_UNK_26E)
+            end
+        _009A:
+            setvar(VAR_UNK_40F6, 0)
+            clearflag(FLAG_UNK_26E)
+            end
+        }
+        goto(_007D)
+        goto(_005E)
+    }
+    goto(_0060)
+    goto(_005E)
+}
+
+script scr_seq_D02R0104_005 {
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 1) {
+        if (var(VAR_TEMP_x4000) != 2) {
+            goto(_00E2)
+        _00E2:
+            if (var(VAR_UNK_40F6) == 1) { goto(_0141) }
+            setflag(FLAG_UNK_26E)
+            removeobject(obj_D02R0104_tsure_poke_static_clefairy)
+            removeobject(obj_D02R0104_tsure_poke_static_clefairy_2)
+            removeobject(obj_D02R0104_tsure_poke_static_clefairy_3)
+            removeobject(obj_D02R0104_tsure_poke_static_clefairy_4)
+            removeobject(obj_D02R0104_tsure_poke_static_clefairy_5)
+            removeobject(obj_D02R0104_tsure_poke_static_clefairy_6)
+            setvar(VAR_UNK_40F6, 1)
+            end
+        _0113:
+            getcurrenttimeofday(VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) == 3) { goto(_0141) }
+            goto(_00E2)
+        _012A:
+            getcurrenttimeofday(VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) == 4) { goto(_0141) }
+            goto(_00E2)
+        _0141:
+            end
+        }
+        goto(_012A)
+        goto(_00E2)
+    }
+    goto(_0113)
+    goto(_00E2)
+}
+
+script scr_seq_D02R0104_002 {
+    followmonresetmovement
+    lockall
+    clearflag(FLAG_UNK_298)
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    applymovement(241, MountMoon_Square_ClefairyEvent_Movement_0330)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy, MountMoon_Square_ClefairyEvent_Movement_0344)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_2, MountMoon_Square_ClefairyEvent_Movement_0350)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_3, MountMoon_Square_ClefairyEvent_Movement_035C)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_4, MountMoon_Square_ClefairyEvent_Movement_0368)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_5, MountMoon_Square_ClefairyEvent_Movement_0374)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_6, MountMoon_Square_ClefairyEvent_Movement_037C)
+    waitmovement
+    playcry(SPECIES_CLEFAIRY, 0)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy, MountMoon_Square_ClefairyEvent_Movement_0384)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_2, MountMoon_Square_ClefairyEvent_Movement_0394)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_3, MountMoon_Square_ClefairyEvent_Movement_03A4)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_4, MountMoon_Square_ClefairyEvent_Movement_03B4)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_5, MountMoon_Square_ClefairyEvent_Movement_03C4)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_6, MountMoon_Square_ClefairyEvent_Movement_03CC)
+    waitmovement
+    playcry(SPECIES_CLEFAIRY, 0)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy, MountMoon_Square_ClefairyEvent_Movement_03D4)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_2, MountMoon_Square_ClefairyEvent_Movement_03F0)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_3, MountMoon_Square_ClefairyEvent_Movement_040C)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_4, MountMoon_Square_ClefairyEvent_Movement_0428)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_5, MountMoon_Square_ClefairyEvent_Movement_0444)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_6, MountMoon_Square_ClefairyEvent_Movement_0468)
+    waitmovement
+    playcry(SPECIES_CLEFAIRY, 0)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy, MountMoon_Square_ClefairyEvent_Movement_048C)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_2, MountMoon_Square_ClefairyEvent_Movement_04A8)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_3, MountMoon_Square_ClefairyEvent_Movement_04C4)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_4, MountMoon_Square_ClefairyEvent_Movement_04E0)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_5, MountMoon_Square_ClefairyEvent_Movement_04FC)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_6, MountMoon_Square_ClefairyEvent_Movement_0520)
+    waitmovement
+    playcry(SPECIES_CLEFAIRY, 0)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy, MountMoon_Square_ClefairyEvent_Movement_0544)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_2, MountMoon_Square_ClefairyEvent_Movement_0560)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_3, MountMoon_Square_ClefairyEvent_Movement_057C)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_4, MountMoon_Square_ClefairyEvent_Movement_0598)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_5, MountMoon_Square_ClefairyEvent_Movement_05B4)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_6, MountMoon_Square_ClefairyEvent_Movement_05D8)
+    waitmovement
+    playcry(SPECIES_CLEFAIRY, 0)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy, MountMoon_Square_ClefairyEvent_Movement_05FC)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_2, MountMoon_Square_ClefairyEvent_Movement_0614)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_3, MountMoon_Square_ClefairyEvent_Movement_0630)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_4, MountMoon_Square_ClefairyEvent_Movement_064C)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_5, MountMoon_Square_ClefairyEvent_Movement_0668)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_6, MountMoon_Square_ClefairyEvent_Movement_068C)
+    waitmovement
+    playcry(SPECIES_CLEFAIRY, 0)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy, MountMoon_Square_ClefairyEvent_Movement_06B0)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_2, MountMoon_Square_ClefairyEvent_Movement_06D4)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_3, MountMoon_Square_ClefairyEvent_Movement_06F8)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_4, MountMoon_Square_ClefairyEvent_Movement_0720)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_5, MountMoon_Square_ClefairyEvent_Movement_0744)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_6, MountMoon_Square_ClefairyEvent_Movement_0760)
+    waitmovement
+    addobject(obj_D02R0104_monstarball)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_4, MountMoon_Square_ClefairyEvent_Movement_077C)
+    applymovement(obj_D02R0104_tsure_poke_static_clefairy_6, MountMoon_Square_ClefairyEvent_Movement_0798)
+    waitmovement
+    removeobject(obj_D02R0104_tsure_poke_static_clefairy)
+    removeobject(obj_D02R0104_tsure_poke_static_clefairy_2)
+    removeobject(obj_D02R0104_tsure_poke_static_clefairy_3)
+    removeobject(obj_D02R0104_tsure_poke_static_clefairy_4)
+    removeobject(obj_D02R0104_tsure_poke_static_clefairy_5)
+    removeobject(obj_D02R0104_tsure_poke_static_clefairy_6)
+    setflag(FLAG_UNK_26E)
+    setvar(VAR_UNK_40F6, 1)
+    setflag(FLAG_UNK_AB5)
+    applymovement(241, MountMoon_Square_ClefairyEvent_Movement_0338)
+    waitmovement
+    removecameratarget
+    releaseall
+    end
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0330 {
+    walk_slightly_fast_up * 2
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0338 {
+    delay_16
+    walk_slightly_fast_down * 2
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0344 {
+    walk_in_place_up * 5
+    walk_in_place_right
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0350 {
+    walk_in_place_left * 5
+    walk_in_place_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_035C {
+    walk_in_place_down * 5
+    walk_in_place_left
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0368 {
+    walk_in_place_right * 5
+    walk_in_place_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0374 {
+    walk_in_place_left * 6
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_037C {
+    walk_in_place_right * 6
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0384 {
+    walk_in_place_right * 6
+    walk_right
+    jump_far_right
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0394 {
+    walk_in_place_up * 6
+    walk_up
+    jump_far_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_03A4 {
+    walk_in_place_left * 6
+    walk_left
+    jump_far_left
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_03B4 {
+    walk_in_place_down * 6
+    walk_down
+    jump_far_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_03C4 {
+    walk_in_place_left * 8
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_03CC {
+    walk_in_place_right * 8
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_03D4 {
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_up * 4
+    jump_far_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_03F0 {
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_left * 4
+    jump_far_left
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_040C {
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_down * 4
+    jump_far_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0428 {
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_right * 4
+    jump_far_right
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0444 {
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0468 {
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_048C {
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_left * 4
+    jump_far_left
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_04A8 {
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_down * 4
+    jump_far_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_04C4 {
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_right * 4
+    jump_far_right
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_04E0 {
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_up * 4
+    jump_far_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_04FC {
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0520 {
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0544 {
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_down * 4
+    jump_far_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0560 {
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_right * 4
+    jump_far_right
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_057C {
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_up * 4
+    jump_far_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0598 {
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_left * 4
+    jump_far_left
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_05B4 {
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_05D8 {
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_05FC {
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    emote_exclamation_mark
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0614 {
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_up * 2
+    jump_far_up
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0630 {
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_left * 2
+    jump_far_left
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_064C {
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_down * 2
+    jump_far_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0668 {
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_068C {
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_down
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_06B0 {
+    jump_in_place_fast_up * 3
+    walk_fast_right * 6
+    walk_fast_up * 3
+    walk_fast_right * 3
+    walk_fast_down * 3
+    walk_fast_right
+    jump_far_right
+    walk_fast_right * 2
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_06D4 {
+    walk_in_place_down
+    emote_exclamation_mark
+    walk_fast_down
+    walk_fast_right * 3
+    walk_fast_down * 2
+    walk_fast_right
+    jump_far_right
+    walk_fast_right * 2
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_06F8 {
+    walk_in_place_down
+    emote_exclamation_mark
+    walk_fast_right * 4
+    walk_fast_down * 3
+    walk_fast_right * 3
+    walk_fast_down * 2
+    walk_fast_right
+    jump_far_right
+    walk_fast_right * 2
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0720 {
+    walk_in_place_down
+    emote_exclamation_mark
+    walk_fast_down * 2
+    walk_fast_right * 6
+    walk_fast_up * 3
+    walk_fast_right * 2
+    walk_fast_down * 3
+    jump_in_place_fast_left * 2
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0744 {
+    walk_in_place_down
+    emote_exclamation_mark
+    walk_fast_down * 2
+    walk_fast_right * 2
+    jump_far_right
+    walk_fast_right * 3
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0760 {
+    walk_in_place_down
+    emote_exclamation_mark
+    walk_right * 2
+    walk_down * 3
+    walk_right * 5
+    jump_in_place_fast_right * 2
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_077C {
+    walk_in_place_fast_left * 2
+    walk_in_place_fast_up * 4
+    jump_in_place_fast_up * 2
+    walk_fast_right * 2
+    jump_far_right
+    walk_fast_right * 3
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_0798 {
+    walk_right
+    walk_up * 3
+    walk_right * 3
+    walk_down * 3
+    walk_right
+    jump_far_right
+    walk_right * 3
+}
+
+movement MountMoon_Square_ClefairyEvent_Movement_07B8 {
+    set_visible
+}
+
+script scr_seq_D02R0104_001 {
+    trainertipsex(2, msg_0051_D02R0104_00001)
+    end
+}
+
+script scr_seq_D02R0104_003 {
+    setvar(VAR_SPECIAL_x8008, 81)
+    setvar(VAR_SPECIAL_x8009, 1)
+    goto(_07E9)
+    end
+_07E9:
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    waitse(SEQ_SE_DP_SELECT)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_x8008)
+    copyvar(VAR_SPECIAL_x8005, VAR_SPECIAL_x8009)
+    hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        callstd(std_hidden_item_fanfare)
+        removeobject(VAR_SPECIAL_LAST_TALKED)
+        giveitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+        bufferplayersname(0)
+        bufferitemname(1, VAR_SPECIAL_x8004)
+        npcmsg(msg_0051_D02R0104_00002)
+        waitfanfare
+        bufferplayersname(0)
+        bufferitemname(1, VAR_SPECIAL_x8004)
+        getitempocket(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+        bufferpocketname(2, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0051_D02R0104_00003)
+        waitbuttonpress
+        setvar(VAR_SPECIAL_RESULT, 1)
+    _0860:
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        bufferitemname(0, VAR_SPECIAL_x8004)
+        npcmsg(msg_0051_D02R0104_00004)
+        waitbuttonpress
+        setvar(VAR_SPECIAL_RESULT, 0)
+        goto(_0860)
+        end
+    }
+    end
+}
+
+script scr_seq_D02R0104_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0051_D02R0104_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts MountMoon_Square_ClefairyEvent_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D02R0104_000
+    INIT_SCRIPT_ON_LOAD: scr_seq_D02R0104_005
+}

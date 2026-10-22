@@ -1,0 +1,327 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T11R0701_000
+	ScrDef scr_seq_T11R0701_001
+	ScrDef scr_seq_T11R0701_002
+	ScrDef scr_seq_T11R0701_003
+	ScrDef scr_seq_T11R0701_004
+	ScrDef scr_seq_T11R0701_005
+	ScrDefEnd
+`
+
+script scr_seq_T11R0701_002 {
+    setvar(VAR_TEMP_x4008, 0)
+    setvar(VAR_TEMP_x4009, 0)
+    if (var(VAR_UNK_4130) != 3) {
+        playerhasspecies(VAR_TEMP_x4000, SPECIES_ROTOM)
+        if (var(VAR_TEMP_x4000) == 1) {
+            setflag(FLAG_UNK_0A0)
+            setflag(FLAG_UNK_281)
+            setflag(FLAG_UNK_282)
+            setflag(FLAG_HIDE_SAFFRON_CITY_STEVEN)
+            call(_00C3)
+            end
+        _00C3:
+            setvar(VAR_TEMP_x4008, 1)
+            return
+        }
+    }
+    setvar(VAR_TEMP_x4009, 1)
+    clearflag(FLAG_UNK_281)
+    clearflag(FLAG_UNK_282)
+    if (flag(FLAG_TRADE_STEVEN_FORRETRESS_BELDUM)) { goto(_0099) }
+    if (var(VAR_UNK_4130) == 4) { goto(_0099) }
+    if (var(VAR_UNK_4130) <= 1) { goto(_0099) }
+    if (var(VAR_UNK_40FD) == 0) { goto(_0099) }
+    clearflag(FLAG_HIDE_SAFFRON_CITY_STEVEN)
+    compare(VAR_UNK_4130, 5)
+    callifeq(_00A5)
+    end
+_0099:
+    setflag(FLAG_HIDE_SAFFRON_CITY_STEVEN)
+    call(_00C3)
+    end
+_00A5:
+    setflag(FLAG_HIDE_STEVEN_IN_HOUSE_AFTER_LATIS)
+    return
+}
+
+script scr_seq_T11R0701_005 {
+    if (var(VAR_TEMP_x4009) == 1) {
+        movewarp(1, 23, 2)
+    }
+    if (var(VAR_TEMP_x4008) == 0) {
+        if (var(VAR_UNK_4130) <= 3) {
+            movepersonfacing(obj_T11R0701_daigo, 22, 0, 8, DIR_NORTH)
+        }
+    }
+    end
+}
+
+script scr_seq_T11R0701_000 {
+    simplenpcmsg(msg_0537_T11R0701_00000)
+    end
+}
+
+script scr_seq_T11R0701_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_UPGRADE_FROM_SAFFRON_CITY_GUARD)) {
+        npcmsg(msg_0537_T11R0701_00001)
+        if (!itemspace(ITEM_UPGRADE, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_UPGRADE_FROM_SAFFRON_CITY_GUARD)
+    }
+    npcmsg(msg_0537_T11R0701_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T11R0701_004 {
+    if (flag(FLAG_GOT_HOENN_STARTER_FROM_STEVEN)) { goto(_03E8) }
+    if (var(VAR_UNK_4130) == 3) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        faceplayer
+        npcmsg(msg_0537_T11R0701_00024)
+        goto(_022C)
+    }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_UNK_4130, 3)
+    npcmsg(msg_0537_T11R0701_00014)
+    closemessage
+    getplayerfacing(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 0) {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03AC)
+    } elif (var(VAR_TEMP_x4002) == 2) {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03BC)
+    } else {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03B4)
+    }
+    waitmovement
+    applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03C4)
+    waitmovement
+    npcmsg(msg_0537_T11R0701_00015)
+    if (var(VAR_TEMP_x4002) == 0) {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03AC)
+    } elif (var(VAR_TEMP_x4002) == 2) {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03BC)
+    } else {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03B4)
+    }
+    waitmovement
+    npcmsg(msg_0537_T11R0701_00016)
+_022C:
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_x8004)
+    menuitemadd(17, 255, 0)
+    menuitemadd(18, 255, 1)
+    menuitemadd(19, 255, 2)
+    menuitemadd(27, 255, 3)
+    menuexec
+    touchscreenmenushow
+    Switch(VAR_SPECIAL_x8004)
+    Case(3, _0346)
+    getpartycount(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 6) { goto(_033B) }
+    if (var(VAR_SPECIAL_x8004) == 0) {
+        setvar(VAR_SPECIAL_x8004, 252)
+    } elif (var(VAR_SPECIAL_x8004) == 1) {
+        setvar(VAR_SPECIAL_x8004, 255)
+    } else {
+        setvar(VAR_SPECIAL_x8004, 258)
+    }
+    bufferspeciesname(1, VAR_SPECIAL_x8004, 0, 0)
+    bufferplayersname(0)
+    npcmsg(msg_0537_T11R0701_00020)
+    playfanfare(SEQ_ME_POKEGET)
+    npcmsg(msg_0537_T11R0701_00021)
+    waitfanfare
+    givemon(VAR_SPECIAL_x8004, 5, 0, 0, 0, VAR_SPECIAL_RESULT)
+    touchscreenmenuhide
+    npcmsg(msg_0537_T11R0701_00025)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0351) }
+    touchscreenmenushow
+_02F3:
+    npcmsg(msg_0537_T11R0701_00022)
+    closemessage
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03DC)
+    } else {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_03CC)
+    }
+    waitmovement
+    removeobject(obj_T11R0701_daigo)
+    setflag(FLAG_HIDE_SAFFRON_CITY_STEVEN)
+    setflag(FLAG_GOT_HOENN_STARTER_FROM_STEVEN)
+    setvar(VAR_UNK_4130, 4)
+    clearflag(FLAG_HIDE_STEVEN_IN_HOUSE_AFTER_LATIS)
+    releaseall
+    end
+_033B:
+    npcmsg(msg_0537_T11R0701_00023)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0346:
+    npcmsg(msg_0537_T11R0701_00028)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0351:
+    closemessage
+    getpartycount(VAR_SPECIAL_RESULT)
+    subvar(VAR_SPECIAL_RESULT, 1)
+    setvar(VAR_TEMP_x4000, 0)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setsavedbottomscreenapp(0)
+    nicknameinput(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_TEMP_x4000) == 1) { goto(_02F3) }
+    npcmsg(msg_0537_T11R0701_00026)
+    goto(_02F3)
+}
+
+movement Saffron_SilphCoHq_Movement_03AC {
+    walk_in_place_down
+}
+
+movement Saffron_SilphCoHq_Movement_03B4 {
+    walk_in_place_left
+}
+
+movement Saffron_SilphCoHq_Movement_03BC {
+    walk_in_place_right
+}
+
+movement Saffron_SilphCoHq_Movement_03C4 {
+    emote_exclamation_mark
+}
+
+movement Saffron_SilphCoHq_Movement_03CC {
+    walk_left * 2
+    walk_down * 3
+    walk_left * 8
+}
+
+movement Saffron_SilphCoHq_Movement_03DC {
+    walk_down * 3
+    walk_left * 10
+}
+
+script(local) _03E8 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_UNK_4130, 6)
+    if (var(VAR_TEMP_x400A) == 77) {
+        npcmsg(msg_0537_T11R0701_00008)
+    } else {
+        npcmsg(msg_0537_T11R0701_00007)
+        setvar(VAR_TEMP_x400A, 77)
+    }
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_04EA) }
+    npcmsg(msg_0537_T11R0701_00009)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    choosepartymonfortrade
+    getpartyselection(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 255) { goto(_04EA) }
+    loadnpctrade(12)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    mongetfriendship(VAR_TEMP_x4002, VAR_SPECIAL_x8004)
+    getpartymonspecies(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    npctradegetreqspecies(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8005) != VAR_SPECIAL_RESULT) {
+        npctradeend
+        npcmsg(msg_0537_T11R0701_00011)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npctradeexec(VAR_SPECIAL_x8004)
+    npctradeend
+    setflag(FLAG_TRADE_STEVEN_FORRETRESS_BELDUM)
+    if (var(VAR_TEMP_x4002) >= 200) {
+        npcmsg(msg_0537_T11R0701_00013)
+    } else {
+        npcmsg(msg_0537_T11R0701_00012)
+    }
+    closemessage
+    getplayerfacing(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 0) {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_0504)
+    } else {
+        applymovement(obj_T11R0701_daigo, Saffron_SilphCoHq_Movement_051C)
+    }
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    removeobject(obj_T11R0701_daigo)
+    setflag(FLAG_HIDE_SAFFRON_CITY_STEVEN)
+    setvar(VAR_UNK_4130, 7)
+    releaseall
+    end
+_04EA:
+    npcmsg(msg_0537_T11R0701_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Saffron_SilphCoHq_Movement_0504 {
+    walk_left * 2
+    walk_down * 5
+    walk_left
+    walk_down
+    set_invisible
+}
+
+movement Saffron_SilphCoHq_Movement_051C {
+    walk_down * 5
+    walk_left * 3
+    walk_down
+    set_invisible
+}
+
+script scr_seq_T11R0701_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0537_T11R0701_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Saffron_SilphCoHq_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11R0701_002
+    INIT_SCRIPT_ON_RESUME: scr_seq_T11R0701_005
+}

@@ -1,0 +1,19 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R44_000 {
+    end
+}
+
+script scr_seq_R44_001 {
+    trainertipsex(2, msg_0404_R44_00000)
+    end
+}
+
+script scr_seq_R44_002 {
+    directionsignpostex(1, 1, msg_0404_R44_00001)
+    end
+}
+
+mapscripts Route44_MapScripts {
+}

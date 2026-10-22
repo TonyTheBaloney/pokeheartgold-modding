@@ -1,0 +1,32 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R26R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0366_R26R0101_00000)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    playfanfare(SEQ_ME_ASA)
+    waitfanfare
+    healparty
+    leaveoverworld
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    npcmsg(msg_0366_R26R0101_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R26R0101_001 {
+    simplenpcmsg(msg_0366_R26R0101_00002)
+    end
+}
+
+mapscripts Route26_NorthHouse_MapScripts {
+}

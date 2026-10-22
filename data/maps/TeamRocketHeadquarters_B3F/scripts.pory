@@ -1,0 +1,429 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D35R0104_000
+	ScrDef scr_seq_D35R0104_001
+	ScrDef scr_seq_D35R0104_002
+	ScrDef scr_seq_D35R0104_003
+	ScrDef scr_seq_D35R0104_004
+	ScrDef scr_seq_D35R0104_005
+	ScrDef scr_seq_D35R0104_006
+	ScrDef scr_seq_D35R0104_007
+	ScrDef scr_seq_D35R0104_008
+	ScrDefEnd
+`
+
+script scr_seq_D35R0104_006 {
+    if (defeated(TRAINER_TEAM_ROCKET_F_GRUNT_5)) {
+        if (defeated(TRAINER_TEAM_ROCKET_GRUNT_19)) {
+            if (var(VAR_UNK_40AC) < 3) {
+                setvar(VAR_UNK_40AC, 2)
+            }
+        }
+    }
+    end
+}
+
+script scr_seq_D35R0104_008 {
+    if (var(VAR_UNK_40AC) >= 4) {
+        movepersonfacing(obj_D35R0104_babyboy1_9, 22, 0, 15, DIR_NORTH)
+        movepersonfacing(obj_D35R0104_babyboy1_9_2, 22, 0, 15, DIR_NORTH)
+        end
+    }
+    end
+}
+
+script scr_seq_D35R0104_001 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, TeamRocketHeadquarters_B3F_Movement_00EC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_D35R0104_wataru, TeamRocketHeadquarters_B3F_Movement_00F4)
+    waitmovement
+    applymovement(obj_D35R0104_wataru, TeamRocketHeadquarters_B3F_Movement_00FC)
+    applymovement(obj_D35R0104_tsure_poke_static_dragonite, TeamRocketHeadquarters_B3F_Movement_010C)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0114_D35R0104_00000, msg_0114_D35R0104_00001)
+    closemessage
+    applymovement(obj_D35R0104_wataru, TeamRocketHeadquarters_B3F_Movement_0124)
+    applymovement(obj_D35R0104_tsure_poke_static_dragonite, TeamRocketHeadquarters_B3F_Movement_012C)
+    waitmovement
+    removeobject(obj_D35R0104_wataru)
+    removeobject(obj_D35R0104_tsure_poke_static_dragonite)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_LANCE)
+    releaseall
+    setvar(VAR_UNK_40AC, 1)
+    end
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_00EC {
+    walk_left
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_00F4 {
+    emote_exclamation_mark
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_00FC {
+    walk_in_place_down
+    walk_down * 3
+    walk_right * 3
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_010C {
+    delay_8
+    delay_2
+    walk_left
+    walk_down * 3
+    walk_right * 2
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_0124 {
+    walk_left * 9
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_012C {
+    delay_2
+    walk_right
+    walk_left * 9
+}
+
+script scr_seq_D35R0104_007 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_D35R0104_tsure_poke_static_murkrow_2, TeamRocketHeadquarters_B3F_Movement_018C)
+    waitmovement
+    npcmsg(msg_0114_D35R0104_00010)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D35R0104_tsure_poke_static_murkrow_2, TeamRocketHeadquarters_B3F_Movement_0194)
+    applymovement(obj_player, TeamRocketHeadquarters_B3F_Movement_01A4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setvar(VAR_UNK_40AC, 6)
+    removeobject(obj_D35R0104_tsure_poke_static_murkrow_2)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_MURKROW_2)
+    clearflag(FLAG_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_2)
+    releaseall
+    end
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_018C {
+    jump_in_place_fast_right * 2
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_0194 {
+    face_down
+    jump_in_place_fast_down
+    walk_fast_down * 10
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_01A4 {
+    delay_8
+    walk_in_place_down
+}
+
+script scr_seq_D35R0104_000 {
+    simplenpcmsg(msg_0114_D35R0104_00002)
+    end
+}
+
+script scr_seq_D35R0104_002 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, TeamRocketHeadquarters_B3F_Movement_00F4)
+    waitmovement
+    callstd(std_play_rival_intro_music)
+    clearflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_RIVAL)
+    addobject(obj_D35R0104_gsrivel)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 17) {
+        applymovement(obj_D35R0104_gsrivel, TeamRocketHeadquarters_B3F_Movement_0290)
+    } elif (var(VAR_TEMP_x4001) == 18) {
+        applymovement(obj_D35R0104_gsrivel, TeamRocketHeadquarters_B3F_Movement_029C)
+    } else {
+        applymovement(obj_D35R0104_gsrivel, TeamRocketHeadquarters_B3F_Movement_02A8)
+    }
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, TeamRocketHeadquarters_B3F_Movement_02B4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferrivalsname(0)
+    npcmsg(msg_0114_D35R0104_00003)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_D35R0104_gsrivel, TeamRocketHeadquarters_B3F_Movement_02BC)
+    applymovement(obj_player, TeamRocketHeadquarters_B3F_Movement_02C4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_D35R0104_gsrivel, TeamRocketHeadquarters_B3F_Movement_02D8)
+    waitmovement
+    callstd(std_fade_end_rival_intro_music)
+    removeobject(obj_D35R0104_gsrivel)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_RIVAL)
+    releaseall
+    setvar(VAR_UNK_40AC, 3)
+    end
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_0290 {
+    walk_down * 9
+    walk_right * 2
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_029C {
+    walk_down * 10
+    walk_right * 2
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_02A8 {
+    walk_down * 11
+    walk_right * 2
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_02B4 {
+    walk_left * 2
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_02BC {
+    walk_fast_right
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_02C4 {
+    lock_dir
+    walk_fast_right
+    jump_near_fast_right
+    unlock_dir
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_02D8 {
+    walk_in_place_faster_up
+    walk_in_place_faster_left
+    delay_8
+    walk_left * 2
+    walk_up * 9
+}
+
+script scr_seq_D35R0104_003 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, TeamRocketHeadquarters_B3F_Movement_00F4)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 23) {
+        applymovement(obj_player, TeamRocketHeadquarters_B3F_Movement_040C)
+    } else {
+        applymovement(obj_player, TeamRocketHeadquarters_B3F_Movement_041C)
+    }
+    applymovement(obj_D35R0104_sakaki, TeamRocketHeadquarters_B3F_Movement_0440)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    npcmsg(msg_0114_D35R0104_00004)
+    closemessage
+    applymovement(obj_D35R0104_sakaki, TeamRocketHeadquarters_B3F_Movement_044C)
+    waitmovement
+    npcmsg(msg_0114_D35R0104_00005)
+    closemessage
+    applymovement(obj_D35R0104_sakaki, TeamRocketHeadquarters_B3F_Movement_0458)
+    waitmovement
+    clearflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_PETREL)
+    addobject(obj_D35R0104_rkanbum2)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_GIOVANNI)
+    removeobject(obj_D35R0104_sakaki)
+    applymovement(obj_D35R0104_rkanbum2, TeamRocketHeadquarters_B3F_Movement_047C)
+    waitmovement
+    npcmsg(msg_0114_D35R0104_00006)
+    closemessage
+    trainerbattle(TRAINER_EXECUTIVE_PETREL_PETREL_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0114_D35R0104_00007)
+    closemessage
+    applymovement(obj_D35R0104_rkanbum2, TeamRocketHeadquarters_B3F_Movement_04A8)
+    waitmovement
+    removeobject(obj_D35R0104_rkanbum2)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_PETREL)
+    applymovement(obj_D35R0104_tsure_poke_static_murkrow, TeamRocketHeadquarters_B3F_Movement_04E4)
+    waitmovement
+    npcmsg(msg_0114_D35R0104_00008)
+    closemessage
+    npcmsg(msg_0114_D35R0104_00009)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D35R0104_tsure_poke_static_murkrow, TeamRocketHeadquarters_B3F_Movement_04F4)
+    applymovement(obj_player, TeamRocketHeadquarters_B3F_Movement_042C)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setvar(VAR_UNK_40AC, 4)
+    removeobject(obj_D35R0104_tsure_poke_static_murkrow)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_MURKROW_1)
+    clearflag(FLAG_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_1)
+    releaseall
+    end
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_040C {
+    walk_up * 5
+    walk_left
+    walk_in_place_left
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_041C {
+    walk_up * 5
+    walk_left * 2
+    walk_in_place_left
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_042C {
+    delay_8 * 3
+    face_down
+    delay_8 * 3
+    walk_down * 3
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_0440 {
+    delay_8 * 4
+    walk_in_place_right
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_044C {
+    emote_exclamation_mark
+    delay_8 * 2
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_0458 {
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_047C {
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_04A0 {
+    walk_right
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_04A8 {
+    lock_dir
+    walk_slow_left
+    unlock_dir
+    delay_8
+    walk_fast_down * 5
+    lock_dir
+    jump_near_fast_up
+    unlock_dir
+    walk_fast_down
+    walk_fast_right * 3
+    walk_fast_down * 5
+    walk_fast_left * 7
+    walk_fast_up * 12
+    walk_fast_left * 4
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_04E4 {
+    walk_down * 3
+    walk_right * 2
+    jump_in_place_fast_right * 2
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_04F4 {
+    face_down
+    walk_fast_down
+    walk_fast_right * 2
+    walk_fast_down * 9
+    walk_fast_left * 7
+    walk_fast_up * 13
+    walk_fast_left * 5
+}
+
+script scr_seq_D35R0104_004 {
+    if (var(VAR_UNK_40AC) < 4) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        faceplayer
+        if (!defeated(TRAINER_TEAM_ROCKET_F_GRUNT_5)) { goto(_0561) }
+        if (!defeated(TRAINER_TEAM_ROCKET_GRUNT_19)) { goto(_0561) }
+        bufferplayersname(0)
+        npcmsg(msg_0114_D35R0104_00012)
+        closemessage
+        playse(SEQ_SE_DP_DOOR10)
+        applymovement(obj_D35R0104_babyboy1_9, TeamRocketHeadquarters_B3F_Movement_056C)
+        applymovement(obj_D35R0104_babyboy1_9_2, TeamRocketHeadquarters_B3F_Movement_056C)
+        waitmovement
+        releaseall
+    }
+    end
+_0561:
+    npcmsg(msg_0114_D35R0104_00011)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement TeamRocketHeadquarters_B3F_Movement_056C {
+    walk_left * 3
+}
+
+script scr_seq_D35R0104_005 {
+    simplenpcmsg(msg_0114_D35R0104_00008)
+    setflag(FLAG_UNK_0D3)
+    end
+}
+
+mapscripts TeamRocketHeadquarters_B3F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D35R0104_006
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40AC, 0: scr_seq_D35R0104_001
+    ]
+    INIT_SCRIPT_ON_RESUME: scr_seq_D35R0104_008
+}

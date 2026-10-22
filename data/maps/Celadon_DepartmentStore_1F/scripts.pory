@@ -1,0 +1,31 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T07R0101_000 {
+    simplenpcmsg(msg_0494_T07R0101_00000)
+    end
+}
+
+script scr_seq_T07R0101_001 {
+    simplenpcmsg(msg_0494_T07R0101_00001)
+    end
+}
+
+script scr_seq_T07R0101_002 {
+    simplenpcmsg(msg_0494_T07R0101_00002)
+    end
+}
+
+script scr_seq_T07R0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0494_T07R0101_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Celadon_DepartmentStore_1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: std_hide_show_deliverymen
+}

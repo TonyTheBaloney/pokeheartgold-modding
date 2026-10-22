@@ -1,0 +1,90 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T24PC0101_000 {
+    setvar(VAR_SPECIAL_x8007, 3)
+    callstd(std_nurse_joy)
+    end
+}
+
+script scr_seq_T24PC0101_001 {
+    simplenpcmsg(msg_0575_T24PC0101_00000)
+    end
+}
+
+script scr_seq_T24PC0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    countpcemptyspace(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 540) {
+        goto(_00E4)
+    _005C:
+        getpartycount(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 1) {
+            goto(_00E4)
+        _007F:
+            npcmsg(msg_0575_T24PC0101_00004)
+            bufferplayersname(0)
+            npcmsg(msg_0575_T24PC0101_00005)
+            playfanfare(SEQ_ME_POKEGET)
+            waitfanfare
+            givemon(SPECIES_TENTACOOL, 15, 0, 0, 0, VAR_SPECIAL_RESULT)
+            npcmsg(msg_0575_T24PC0101_00006)
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 1) {
+                touchscreenmenushow
+                closemessage
+            } else {
+                closemessage
+                setsavedbottomscreenapp(0)
+                fadescreen(6, 1, 0, RGB_BLACK)
+                waitfade
+                nicknameinput(1, VAR_SPECIAL_RESULT)
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+            }
+            releaseall
+            end
+        _00E4:
+            npcmsg(msg_0575_T24PC0101_00001)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        goto(_007F)
+        goto(_007F)
+    }
+    goto(_005C)
+    goto(_005C)
+}
+
+script scr_seq_T24PC0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_STORM, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        bufferplayersname(0)
+        npcmsg(msg_0575_T24PC0101_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0575_T24PC0101_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Cianwood_Pokecenter_1F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: std_wireless_reset_state
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4133, 2: std_union_room_return
+        VAR_UNK_4133, 1: std_wireless_colosseum_return
+    ]
+}

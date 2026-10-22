@@ -1,0 +1,438 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T24_000
+	ScrDef scr_seq_T24_001
+	ScrDef scr_seq_T24_002
+	ScrDef scr_seq_T24_003
+	ScrDef scr_seq_T24_004
+	ScrDef scr_seq_T24_005
+	ScrDef scr_seq_T24_006
+	ScrDef scr_seq_T24_007
+	ScrDef scr_seq_T24_008
+	ScrDef scr_seq_T24_009
+	ScrDef scr_seq_T24_010
+	ScrDef scr_seq_T24_011
+	ScrDef scr_seq_T24_012
+	ScrDef scr_seq_T24_013
+	ScrDef scr_seq_T24_014
+	ScrDef scr_seq_T24_015
+	ScrDefEnd
+`
+
+script scr_seq_T24_005 {
+    clearflag(FLAG_SYS_CIANWOOD_WATERFALL_DISABLE)
+    setvar(VAR_UNK_40EB, 0)
+    end
+}
+
+script scr_seq_T24_006 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T24_middlewoman1_2, Cianwood_Movement_00C4)
+    applymovement(obj_player, Cianwood_Movement_00E4)
+    waitmovement
+    npcmsg(msg_0572_T24_00002)
+    if (!itemspace(ITEM_HM02, 1)) {
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_HM02)
+    setvar(VAR_UNK_4116, 2)
+    npcmsg(msg_0572_T24_00004)
+    waitbuttonpress
+    closemessage
+    applymovement(obj_T24_middlewoman1_2, Cianwood_Movement_00D8)
+    waitmovement
+    if (var(VAR_MIDGAME_BADGES) == 4) { goto(_00F0) }
+    releaseall
+    end
+}
+
+movement Cianwood_Movement_00C4 {
+    walk_in_place_fast_up
+    emote_exclamation_mark
+    walk_up * 2
+    face_left
+}
+
+movement Cianwood_Movement_00D8 {
+    walk_down * 2
+    walk_in_place_fast_up
+}
+
+movement Cianwood_Movement_00E4 {
+    delay_16 * 3
+    face_right
+}
+
+script(local) _00F0 {
+    setvar(VAR_SCENE_ROCKET_TAKEOVER, 2)
+    setflag(FLAG_UNK_0C5)
+    setflag(FLAG_ROCKET_TAKEOVER_ACTIVE)
+    if (var(VAR_UNK_40F8) == 0) {
+        setvar(VAR_UNK_40F8, 2)
+    }
+    phonecall(PHONE_CONTACT_PROF__ELM, 2, 2)
+    setvar(VAR_MIDGAME_BADGES, 5)
+    releaseall
+    end
+}
+
+movement Cianwood_Movement_0134 {
+    emote_exclamation_mark
+}
+
+script scr_seq_T24_001 {
+    end
+}
+
+script scr_seq_T24_002 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Cianwood_Movement_0310)
+    waitmovement
+    playcry(SPECIES_SUICUNE, 0)
+    release(obj_T24_tsure_poke_static_suicune)
+    spinobject(obj_T24_tsure_poke_static_suicune, 2, 90, 2, 0)
+    lock(obj_T24_tsure_poke_static_suicune)
+    waitcry
+    applymovement(obj_T24_tsure_poke_static_suicune, Cianwood_Movement_02F4)
+    waitmovement
+    applymovement(obj_T24_tsure_poke_static_suicune, Cianwood_Movement_0338)
+    applymovement(obj_player, Cianwood_Movement_0320)
+    waitmovement
+    wait(30, VAR_SPECIAL_RESULT)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_T24_tsure_poke_static_suicune, Cianwood_Movement_0300)
+    applymovement(obj_player, Cianwood_Movement_0344)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    removeobject(obj_T24_tsure_poke_static_suicune)
+    setflag(FLAG_HIDE_CIANWOOD_SUICUNE)
+    addvar(VAR_UNK_4076, 1)
+    clearflag(FLAG_HIDE_CIANWOOD_EUSINE)
+    addobject(obj_T24_minaki)
+    callstd(std_play_eusine_music)
+    applymovement(obj_T24_minaki, Cianwood_Movement_0358)
+    applymovement(obj_player, Cianwood_Movement_036C)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0572_T24_00015)
+    waitabpress
+    closemessage
+    trainerbattle(TRAINER_MYSTERY_MAN_EUSINE, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        removeobject(obj_T24_minaki)
+        setflag(FLAG_HIDE_CIANWOOD_EUSINE)
+        clearflag(FLAG_HIDE_ROUTE_42_SUICUNE)
+        setvar(VAR_UNK_4092, 1)
+        whiteout
+        releaseall
+    scr_seq_T24_003:
+        end
+    }
+    bufferplayersname(0)
+    npcmsg(msg_0572_T24_00016)
+    closemessage
+    applymovement(obj_T24_minaki, Cianwood_Movement_037C)
+    waitmovement
+    removeobject(obj_T24_minaki)
+    setflag(FLAG_HIDE_CIANWOOD_EUSINE)
+    clearflag(FLAG_HIDE_ROUTE_42_SUICUNE)
+    setvar(VAR_UNK_4092, 1)
+    releaseall
+    end
+}
+
+script scr_seq_T24_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GAME_CLEAR)) {
+        checkregisteredphonenumber(PHONE_CONTACT_CHUCK, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 1) { goto(_02CD) }
+        if (var(VAR_TEMP_x4002) >= 1) {
+            npcmsg(msg_0572_T24_00011)
+            goto(_0299)
+            end
+        }
+        npcmsg(msg_0572_T24_00007)
+    _0299:
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02BD) }
+        if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_02D8) }
+        end
+    _02BD:
+        bufferplayersname(0)
+        npcmsg(msg_0572_T24_00008)
+        playfanfare(SEQ_ME_POKEGEAR_REGIST)
+        waitfanfare
+        registergearnumber(PHONE_CONTACT_CHUCK)
+    _02CD:
+        npcmsg(msg_0572_T24_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _02D8:
+        setvar(VAR_TEMP_x4002, 1)
+        npcmsg(msg_0572_T24_00010)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_GOT_HM02)) { goto(_026B) }
+    npcmsg(msg_0572_T24_00000)
+    npcmsg(msg_0572_T24_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_026B:
+    npcmsg(msg_0572_T24_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Cianwood_Movement_02F4 {
+    move_action_111
+}
+
+raw `
+	End
+`
+
+movement Cianwood_Movement_0300 {
+    move_action_112
+    set_invisible
+}
+
+raw `
+	End
+`
+
+movement Cianwood_Movement_0310 {
+    face_up
+    emote_exclamation_mark
+}
+
+raw `
+	End
+`
+
+movement Cianwood_Movement_0320 {
+    face_up
+}
+
+raw `
+	End
+`
+
+movement Cianwood_Movement_032C {
+    face_right
+}
+
+raw `
+	End
+`
+
+movement Cianwood_Movement_0338 {
+    face_down
+}
+
+raw `
+	End
+`
+
+movement Cianwood_Movement_0344 {
+    face_right
+    delay_8
+    walk_right * 2
+}
+
+raw `
+	End
+`
+
+movement Cianwood_Movement_0358 {
+    walk_up * 5
+    walk_right * 2
+    walk_up * 2
+}
+
+raw `
+	End
+`
+
+movement Cianwood_Movement_036C {
+    delay_8 * 6
+    face_down
+}
+
+raw `
+	End
+`
+
+movement Cianwood_Movement_037C {
+    walk_down * 2
+    walk_left * 2
+    walk_down * 5
+}
+
+raw `
+	End
+`
+
+script scr_seq_T24_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 6)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 9)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 7)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Cianwood_Movement_0498)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Cianwood_Movement_04B0)
+    } else {
+        applymovement(obj_player, Cianwood_Movement_04BC)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Cianwood_Movement_04D0)
+        waitmovement
+    }
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(35)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 8)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Cianwood_Movement_0498 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Cianwood_Movement_04B0 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Cianwood_Movement_04BC {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Cianwood_Movement_04D0 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_T24_008 {
+    directionsignpostex(0, 15, msg_0572_T24_00018)
+    end
+}
+
+script scr_seq_T24_009 {
+    trainertipsex(2, msg_0572_T24_00019)
+    end
+}
+
+script scr_seq_T24_010 {
+    trainertipsex(2, msg_0572_T24_00020)
+    end
+}
+
+script scr_seq_T24_011 {
+    trainertipsex(2, msg_0572_T24_00021)
+    end
+}
+
+script scr_seq_T24_004 {
+    trainertipsex(2, msg_0572_T24_00022)
+    end
+}
+
+script scr_seq_T24_012 {
+    simplenpcmsg(msg_0572_T24_00012)
+    end
+}
+
+script scr_seq_T24_013 {
+    simplenpcmsg(msg_0572_T24_00013)
+    end
+}
+
+script scr_seq_T24_014 {
+    simplenpcmsg(msg_0572_T24_00014)
+    end
+}
+
+script scr_seq_T24_015 {
+    simplenpcmsg(msg_0572_T24_00017)
+    end
+}
+
+mapscripts Cianwood_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T24_005
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4116, 1: scr_seq_T24_006
+    ]
+}

@@ -1,0 +1,392 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D24R0101_000
+	ScrDef scr_seq_D24R0101_001
+	ScrDef scr_seq_D24R0101_002
+	ScrDef scr_seq_D24R0101_003
+	ScrDef scr_seq_D24R0101_004
+	ScrDef scr_seq_D24R0101_005
+	ScrDef scr_seq_D24R0101_006
+	ScrDef scr_seq_D24R0101_007
+	ScrDefEnd
+`
+
+raw `
+#include "constants/events.h"
+`
+
+script scr_seq_D24R0101_006 {
+    if (var(VAR_UNOWN_REPORT_LEVEL) >= 7) { goto(_005E) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 6) { goto(_0080) }
+_003C:
+    movewarp(11, 418, 284)
+    movewarp(12, 419, 284)
+    movewarp(13, 418, 284)
+    movewarp(14, 419, 284)
+    end
+_005E:
+    movewarp(8, 418, 284)
+    movewarp(9, 419, 284)
+    movewarp(11, 418, 284)
+    movewarp(12, 419, 284)
+    end
+_0080:
+    movewarp(8, 418, 284)
+    movewarp(9, 419, 284)
+    movewarp(13, 418, 284)
+    movewarp(14, 419, 284)
+    end
+}
+
+script scr_seq_D24R0101_005 {
+    if (!flag(FLAG_UNK_189)) {
+        if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) < 9) {
+            setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 1)
+        }
+        checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 0) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 5) { goto(_010E) }
+            if (var(VAR_TEMP_x4000) == 6) { goto(_010E) }
+            if (var(VAR_TEMP_x4000) == 0) { goto(_010E) }
+        }
+        setflag(FLAG_HIDE_CAMERON)
+        goto(_0112)
+    _010E:
+        clearflag(FLAG_HIDE_CAMERON)
+    _0112:
+        if (var(VAR_UNOWN_REPORT_LEVEL) >= 7) { goto(_005E) }
+        if (var(VAR_UNOWN_REPORT_LEVEL) == 6) { goto(_0080) }
+        goto(_003C)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D24R0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, RuinsOfAlph_Movement_0264)
+        applymovement(obj_D24R0101_gsmiddleman1, RuinsOfAlph_Movement_029C)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, RuinsOfAlph_Movement_027C)
+    } else {
+        applymovement(obj_player, RuinsOfAlph_Movement_0288)
+        applymovement(obj_D24R0101_gsmiddleman1, RuinsOfAlph_Movement_029C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, RuinsOfAlph_Movement_02A8)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(3)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement RuinsOfAlph_Movement_0264 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_Movement_027C {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_Movement_0288 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_Movement_029C {
+    delay_8
+    walk_in_place_up
+}
+
+movement RuinsOfAlph_Movement_02A8 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_D24R0101_007 {
+    followmonresetmovement
+    lockall
+    getpartyleadalive(VAR_TEMP_x4005)
+    followerpokeiseventtrigger(EVENT_ARCEUS_MOVIE_GIFT, VAR_TEMP_x4005, VAR_TEMP_x4006)
+    if (var(VAR_TEMP_x4006) != 0) {
+    } else {
+        followerpokeiseventtrigger(EVENT_ARCEUS_HALL_OF_ORIGIN, VAR_TEMP_x4005, VAR_TEMP_x4007)
+        if (var(VAR_TEMP_x4007) == 0) { goto(_0530) }
+    }
+    playeronbikecheck(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 1) {
+        dooranimationload(13, 8, 25, 29, 77)
+        dooranimationopen(77)
+        dooranimationwait(77)
+        clearflag(FLAG_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT)
+        addobject(obj_D24R0101_suit)
+        dooranimationclose(77)
+        dooranimationwait(77)
+        dooranimationunload(77)
+        applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_0534)
+        applymovement(obj_player, RuinsOfAlph_Movement_05C4)
+        getplayerfacing(VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 3) {
+            applymovement(obj_partner_poke, RuinsOfAlph_Movement_05DC)
+        } elif (var(VAR_TEMP_x4001) == 2) {
+            applymovement(obj_partner_poke, RuinsOfAlph_Movement_05F4)
+        } else {
+            applymovement(obj_partner_poke, RuinsOfAlph_Movement_0604)
+        }
+        waitmovement
+        npcmsg(msg_0072_D24R0101_00001)
+        closemessage
+        applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_054C)
+        if (var(VAR_TEMP_x4001) == 3) {
+            applymovement(obj_partner_poke, RuinsOfAlph_Movement_0614)
+        } elif (var(VAR_TEMP_x4001) == 2) {
+            applymovement(obj_partner_poke, RuinsOfAlph_Movement_0624)
+        } else {
+            applymovement(obj_partner_poke, RuinsOfAlph_Movement_0630)
+        }
+        waitmovement
+        npcmsg(msg_0072_D24R0101_00002)
+        closemessage
+        if (var(VAR_TEMP_x4001) == 3) {
+            applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_0554)
+        } else {
+            applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_0570)
+        }
+        waitmovement
+        npcmsg(msg_0072_D24R0101_00003)
+        closemessage
+        applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_0584)
+        waitmovement
+        npcmsg(msg_0072_D24R0101_00004)
+        closemessage
+        applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_05A4)
+        waitmovement
+        npcmsg(msg_0072_D24R0101_00005)
+        closemessage
+        applymovement(obj_D24R0101_suit, RuinsOfAlph_Movement_05B4)
+        waitmovement
+        npcmsg(msg_0072_D24R0101_00006)
+        closemessage
+        setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 2)
+        setflag(FLAG_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT)
+        clearflag(FLAG_HIDE_ALPH_MAIN_CHAMBER_ARCEUS_EVENT_PEOPLE)
+        playse(SEQ_SE_DP_KAIDAN2)
+        if (var(VAR_UNOWN_REPORT_LEVEL) == 6) {
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT, 0, 15, 24, DIR_WEST)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+        } elif (var(VAR_UNOWN_REPORT_LEVEL) == 7) {
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2, 0, 15, 24, DIR_WEST)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+        } elif (var(VAR_UNOWN_REPORT_LEVEL) == 8) {
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2, 0, 15, 24, DIR_WEST)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+        } elif (var(VAR_UNOWN_REPORT_LEVEL) == 9) {
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2, 0, 15, 24, DIR_WEST)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+        } else {
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            warp(MAP_RUINS_OF_ALPH_UNDERGROUND_HALL, 0, 15, 24, DIR_WEST)
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+        }
+    }
+_0530:
+    releaseall
+    end
+}
+
+movement RuinsOfAlph_Movement_0534 {
+    delay_4
+    walk_fast_down * 3
+    lock_dir
+    walk_faster_up
+    unlock_dir
+}
+
+movement RuinsOfAlph_Movement_054C {
+    walk_fast_down
+}
+
+movement RuinsOfAlph_Movement_0554 {
+    walk_in_place_fast_left
+    emote_exclamation_mark
+    delay_8
+    lock_dir
+    walk_right
+    unlock_dir
+}
+
+movement RuinsOfAlph_Movement_0570 {
+    emote_exclamation_mark
+    delay_8
+    walk_right
+    walk_in_place_fast_down
+}
+
+movement RuinsOfAlph_Movement_0584 {
+    walk_right
+    walk_left * 2
+    delay_8
+    walk_right * 2
+    walk_in_place_fast_right
+    walk_left
+    walk_in_place_fast_down
+}
+
+movement RuinsOfAlph_Movement_05A4 {
+    emote_exclamation_mark
+    delay_8
+    walk_in_place_fast_down
+}
+
+movement RuinsOfAlph_Movement_05B4 {
+    walk_left
+    walk_down
+    walk_in_place_fast_down
+}
+
+movement RuinsOfAlph_Movement_05C4 {
+    lock_dir
+    jump_far_down
+    walk_fast_down * 2
+    unlock_dir
+    walk_in_place_up
+}
+
+movement RuinsOfAlph_Movement_05DC {
+    lock_dir
+    walk_fast_left
+    unlock_dir
+    delay_8 * 2
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_Movement_05F4 {
+    jump_in_place_fast_left
+    delay_8 * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_Movement_0604 {
+    lock_dir
+    walk_fast_down * 5
+    unlock_dir
+}
+
+movement RuinsOfAlph_Movement_0614 {
+    walk_down * 3
+    walk_right
+    walk_in_place_up
+}
+
+movement RuinsOfAlph_Movement_0624 {
+    walk_down * 4
+    walk_in_place_up
+}
+
+movement RuinsOfAlph_Movement_0630 {
+    delay_8 * 2
+    walk_up
+    walk_right
+    walk_up
+}
+
+script scr_seq_D24R0101_000 {
+    trainertipsex(2, msg_0072_D24R0101_00010)
+    end
+}
+
+script scr_seq_D24R0101_001 {
+    trainertipsex(2, msg_0072_D24R0101_00009)
+    end
+}
+
+script scr_seq_D24R0101_002 {
+    trainertipsex(2, msg_0072_D24R0101_00007)
+    end
+}
+
+script scr_seq_D24R0101_003 {
+    trainertipsex(2, msg_0072_D24R0101_00008)
+    end
+}
+
+mapscripts RuinsOfAlph_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D24R0101_005
+    INIT_SCRIPT_ON_LOAD: scr_seq_D24R0101_006
+}

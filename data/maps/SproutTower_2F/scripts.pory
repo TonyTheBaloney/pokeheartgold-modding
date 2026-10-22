@@ -1,0 +1,19 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D15R0102_000 {
+    end
+}
+
+script scr_seq_D15R0102_001 {
+    simplenpcmsg(msg_0055_D15R0102_00000)
+    end
+}
+
+script scr_seq_D15R0102_002 {
+    simplenpcmsg(msg_0055_D15R0102_00001)
+    end
+}
+
+mapscripts SproutTower_2F_MapScripts {
+}

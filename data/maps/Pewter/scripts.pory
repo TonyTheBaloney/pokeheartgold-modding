@@ -1,0 +1,425 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T03_000
+	ScrDef scr_seq_T03_001
+	ScrDef scr_seq_T03_002
+	ScrDef scr_seq_T03_003
+	ScrDef scr_seq_T03_004
+	ScrDef scr_seq_T03_005
+	ScrDef scr_seq_T03_006
+	ScrDef scr_seq_T03_007
+	ScrDef scr_seq_T03_008
+	ScrDef scr_seq_T03_009
+	ScrDef scr_seq_T03_010
+	ScrDef scr_seq_T03_011
+	ScrDef scr_seq_T03_012
+	ScrDef scr_seq_T03_013
+	ScrDefEnd
+`
+
+script scr_seq_T03_008 {
+    if (!flag(FLAG_UNK_189)) {
+        goto(_030E)
+    _0051:
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 2) { goto(_0075) }
+        if (var(VAR_TEMP_x4000) == 6) { goto(_0075) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _0075:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T03_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        if (flag(FLAG_UNK_094)) { goto(_0108) }
+    } else {
+        if (flag(FLAG_UNK_093)) { goto(_0108) }
+    }
+    npcmsg(msg_0460_T03_00002)
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        setvar(VAR_SPECIAL_x8004, ITEM_SILVER_WING)
+        setvar(VAR_SPECIAL_x8005, 1)
+        callstd(std_obtain_item_verbose)
+        setflag(FLAG_UNK_094)
+        clearflag(FLAG_HIDE_WHIRL_ISLAND_LUGIA)
+        setflag(FLAG_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS)
+    } else {
+        setvar(VAR_SPECIAL_x8004, ITEM_RAINBOW_WING)
+        setvar(VAR_SPECIAL_x8005, 1)
+        callstd(std_obtain_item_verbose)
+        setflag(FLAG_UNK_093)
+        clearflag(FLAG_HIDE_BELL_TOWER_HO_OH)
+        setflag(FLAG_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS)
+    }
+    closemessage
+    releaseall
+    end
+_0108:
+    npcmsg(msg_0460_T03_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T03_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Pewter_Movement_0240)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Pewter_Movement_0260)
+        applymovement(obj_T03_gsmiddleman1, Pewter_Movement_0274)
+    } else {
+        applymovement(obj_player, Pewter_Movement_024C)
+        applymovement(obj_T03_gsmiddleman1, Pewter_Movement_0274)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Pewter_Movement_0280)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(66)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Pewter_Movement_0240 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Pewter_Movement_024C {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Pewter_Movement_0260 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Pewter_Movement_0274 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Pewter_Movement_0280 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_T03_001 {
+    simplenpcmsg(msg_0460_T03_00000)
+    end
+}
+
+script scr_seq_T03_002 {
+    simplenpcmsg(msg_0460_T03_00001)
+    end
+}
+
+script scr_seq_T03_003 {
+    directionsignpostex(0, 3, msg_0460_T03_00020)
+    end
+}
+
+script scr_seq_T03_004 {
+    trainertipsex(2, msg_0460_T03_00021)
+    end
+}
+
+script scr_seq_T03_005 {
+    trainertipsex(2, msg_0460_T03_00022)
+    end
+}
+
+script scr_seq_T03_006 {
+    directionsignpostex(2, 0, msg_0460_T03_00023)
+    end
+_030E:
+    if (var(VAR_UNK_4083) == 4) { goto(_0341) }
+    if (var(VAR_UNK_4083) == 2) { goto(_033D) }
+    if (var(VAR_UNK_4083) == 3) { goto(_033D) }
+    goto(_0051)
+    end
+_033D:
+    clearflag(FLAG_HIDE_PEWTER_CITY_STEVEN)
+_0341:
+    getgameversion(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 7) {
+        clearflag(FLAG_HIDE_PEWTER_CITY_LATIOS)
+    } else {
+        clearflag(FLAG_HIDE_PEWTER_CITY_LATIAS)
+    }
+    end
+}
+
+script scr_seq_T03_011 {
+    if (var(VAR_UNK_4083) == 2) {
+        movepersonfacing(obj_T03_daigo, 1047, 6, 81, DIR_WEST)
+        end
+    }
+    end
+}
+
+script scr_seq_T03_013 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        getgameversion(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 7) {
+            setflag(FLAG_HIDE_PEWTER_CITY_LATIOS)
+            removeobject(obj_T03_tsure_poke_static_latios)
+        } else {
+            setflag(FLAG_HIDE_PEWTER_CITY_LATIAS)
+            removeobject(obj_T03_tsure_poke_static_latias)
+        }
+        end
+    }
+    end
+}
+
+script scr_seq_T03_012 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Pewter_Movement_0440)
+    waitmovement
+    applymovement(obj_T03_daigo, Pewter_Movement_045C)
+    waitmovement
+    getgameversion(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 7) {
+        npcmsg(msg_0460_T03_00006)
+    } else {
+        npcmsg(msg_0460_T03_00007)
+    }
+    closemessage
+    applymovement(obj_T03_daigo, Pewter_Movement_0464)
+    applymovement(obj_player, Pewter_Movement_0464)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    getgameversion(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 7) {
+        npcmsg(msg_0460_T03_00008)
+    } else {
+        npcmsg(msg_0460_T03_00009)
+    }
+    waitbuttonpress
+    closemessage
+    setvar(VAR_UNK_4083, 3)
+    releaseall
+    end
+}
+
+movement Pewter_Movement_0440 {
+    walk_down * 4
+    face_left
+}
+
+movement Pewter_Movement_044C {
+    delay_8
+    walk_right * 2
+    delay_8
+}
+
+movement Pewter_Movement_045C {
+    walk_in_place_down
+}
+
+movement Pewter_Movement_0464 {
+    walk_left * 3
+}
+
+movement Pewter_Movement_046C {
+    walk_down * 2
+    walk_left
+}
+
+movement Pewter_Movement_0478 {
+    walk_in_place_left
+}
+
+movement Pewter_Movement_0480 {
+    walk_right * 8
+}
+
+script scr_seq_T03_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkeventkey(0, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 0) { goto(_0649) }
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        setvar(VAR_TEMP_x400A, SPECIES_LATIOS)
+        playcry(VAR_TEMP_x400A, 0)
+        npcmsg(msg_0460_T03_00010)
+    } else {
+        setvar(VAR_TEMP_x400A, SPECIES_LATIAS)
+        playcry(VAR_TEMP_x400A, 0)
+        npcmsg(msg_0460_T03_00011)
+    }
+    waitcry
+    closemessage
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(VAR_TEMP_x400A, 40, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    getstaticencounteroutcome(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 2) { goto(_057B) }
+    if (var(VAR_TEMP_x4000) == 3) { goto(_057B) }
+    laticaughtcheck(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 1) {
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            copyvar(VAR_TEMP_x4009, VAR_UNK_4083)
+            setvar(VAR_UNK_4083, 5)
+            if (var(VAR_TEMP_x4009) == 4) { goto(_0649) }
+            goto(_0585)
+            end
+        _057B:
+            whiteout
+            goto(_0649)
+            end
+        _0585:
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_T03_daigo, Pewter_Movement_046C)
+            applymovement(obj_player, Pewter_Movement_044C)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+            if (var(VAR_TEMP_x4000) == 5) {
+                npcmsg(msg_0460_T03_00018)
+                closemessage
+                setvar(VAR_UNK_4083, 4)
+                goto(_061F)
+                end
+            _061F:
+                applymovement(obj_T03_daigo, Pewter_Movement_0478)
+                waitmovement
+                npcmsg(msg_0460_T03_00015)
+                closemessage
+                applymovement(obj_T03_daigo, Pewter_Movement_0480)
+                waitmovement
+                removeobject(obj_T03_daigo)
+                compare(VAR_UNK_4130, 4)
+                callifeq(_064D)
+            _0649:
+                releaseall
+                end
+            _064D:
+                clearflag(FLAG_HIDE_STEVEN_IN_HOUSE_AFTER_LATIS)
+                return
+            }
+            if (var(VAR_TEMP_x4000) != 1) {
+                if (var(VAR_TEMP_x4000) == 4) { goto(_05FF) }
+            }
+            getgameversion(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 7) {
+                npcmsg(msg_0460_T03_00016)
+            } else {
+                npcmsg(msg_0460_T03_00017)
+            }
+            closemessage
+            setvar(VAR_UNK_4083, 4)
+            goto(_061F)
+            end
+        _05FF:
+            npcmsg(msg_0460_T03_00014)
+            closemessage
+            goto(_061F)
+            end
+        }
+    }
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        npcmsg(msg_0460_T03_00012)
+    } else {
+        npcmsg(msg_0460_T03_00013)
+    }
+    closemessage
+    if (var(VAR_UNK_4083) == 4) { goto(_0649) }
+    goto(_0585)
+    end
+}
+
+script scr_seq_T03_009 {
+    simplenpcmsg(msg_0460_T03_00019)
+    end
+}
+
+mapscripts Pewter_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T03_008
+    INIT_SCRIPT_ON_LOAD: scr_seq_T03_013
+    INIT_SCRIPT_ON_RESUME: scr_seq_T03_011
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4083, 2: scr_seq_T03_012
+    ]
+}

@@ -1,0 +1,60 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T26R0301_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_TRADE_OLIVINE_CITY_KRABBY_VOLTORB)) {
+        npcmsg(msg_0608_T26R0301_00004)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0608_T26R0301_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0037) }
+    goto(_00A8)
+_0037:
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    choosepartymonfortrade
+    getpartyselection(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 255) { goto(_00A8) }
+    loadnpctrade(2)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    getpartymonspecies(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    npctradegetreqspecies(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8005) != VAR_SPECIAL_RESULT) { goto(_009B) }
+    npctradeexec(VAR_SPECIAL_x8004)
+    npctradeend
+    setflag(FLAG_TRADE_OLIVINE_CITY_KRABBY_VOLTORB)
+    npcmsg(msg_0608_T26R0301_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_009B:
+    npctradeend
+    npcmsg(msg_0608_T26R0301_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00A8:
+    npcmsg(msg_0608_T26R0301_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Olivine_NorthHouse_MapScripts {
+}

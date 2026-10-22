@@ -1,0 +1,114 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D18R0101_000
+	ScrDef scr_seq_D18R0101_001
+	ScrDef scr_seq_D18R0101_002
+	ScrDef scr_seq_D18R0101_003
+	ScrDefEnd
+`
+
+script scr_seq_D18R0101_003 {
+    followmonresetmovement
+    lockall
+    callstd(std_play_rival_intro_music)
+    applymovement(obj_D18R0101_gsrivel, BurnedTower_1F_Movement_00D0)
+    waitmovement
+    bufferrivalsname(0)
+    npcmsg(msg_0060_D18R0101_00000)
+    closemessage
+    getstarterchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 152) {
+        trainerbattle(TRAINER_RIVAL_SILVER_8, 0, 0, 0)
+    } elif (var(VAR_SPECIAL_RESULT) == 155) {
+        trainerbattle(TRAINER_RIVAL_SILVER_11, 0, 0, 0)
+    } else {
+        trainerbattle(TRAINER_RIVAL_SILVER_4, 0, 0, 0)
+    }
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    callstd(std_play_rival_outro_music)
+    bufferrivalsname(0)
+    npcmsg(msg_0060_D18R0101_00001)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_player, BurnedTower_1F_Movement_00E8)
+    applymovement(obj_D18R0101_gsrivel, BurnedTower_1F_Movement_00F8)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    removeobject(obj_D18R0101_gsrivel)
+    callstd(std_fade_end_rival_outro_music)
+    setflag(FLAG_HIDE_BURNED_TOWER_1F_RIVAL)
+    setvar(VAR_UNK_40A6, 1)
+    releaseall
+    end
+}
+
+movement BurnedTower_1F_Movement_00D0 {
+    face_down
+    emote_exclamation_mark
+    walk_down * 4
+    walk_left
+    face_down
+}
+
+movement BurnedTower_1F_Movement_00E8 {
+    walk_down * 2
+    walk_right
+    face_left
+}
+
+movement BurnedTower_1F_Movement_00F8 {
+    walk_down * 3
+    walk_left
+    walk_down
+    walk_left * 3
+    walk_down
+    walk_left * 4
+    walk_down * 3
+}
+
+script scr_seq_D18R0101_000 {
+    followmonresetmovement
+    lockall
+    callstd(std_play_eusine_music)
+    applymovement(obj_D18R0101_minaki, BurnedTower_1F_Movement_0158)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0060_D18R0101_00002)
+    waitbuttonpress
+    closemessage
+    callstd(std_fade_end_eusine_music)
+    setvar(VAR_UNK_40A2, 1)
+    releaseall
+    end
+}
+
+script scr_seq_D18R0101_001 {
+    simplenpcmsg(msg_0060_D18R0101_00003)
+    end
+}
+
+movement BurnedTower_1F_Movement_0158 {
+    face_left
+    emote_exclamation_mark
+    walk_left * 3
+}
+
+script scr_seq_D18R0101_002 {
+    simplenpcmsg(msg_0060_D18R0101_00004)
+    end
+}
+
+mapscripts BurnedTower_1F_MapScripts {
+}

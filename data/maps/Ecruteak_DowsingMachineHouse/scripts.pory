@@ -1,0 +1,74 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T27R0801_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_DOWSING_MACHINE)) { goto(_0078) }
+    npcmsg(msg_0619_T27R0801_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0619_T27R0801_00001)
+        waitabpress
+        if (!itemspace(ITEM_DOWSING_MCHN, 1)) { goto(_0083) }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_DOWSING_MACHINE)
+        goto(_0078)
+    _0078:
+        npcmsg(msg_0619_T27R0801_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _0083:
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0619_T27R0801_00004)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    end
+}
+
+script scr_seq_T27R0801_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0619_T27R0801_00005)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0619_T27R0801_00006)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0619_T27R0801_00007)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _00F9:
+            closemessage
+            releaseall
+            end
+        }
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00F9) }
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00F9) }
+    end
+}
+
+mapscripts Ecruteak_DowsingMachineHouse_MapScripts {
+}

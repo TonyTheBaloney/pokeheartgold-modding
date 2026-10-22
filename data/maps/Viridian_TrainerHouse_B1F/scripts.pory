@@ -1,0 +1,139 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T02R0302_000
+	ScrDef scr_seq_T02R0302_001
+	ScrDef scr_seq_T02R0302_002
+	ScrDef scr_seq_T02R0302_003
+	ScrDefEnd
+`
+
+script scr_seq_T02R0302_002 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_412E, 2)
+    npcmsg(msg_0458_T02R0302_00007)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0070)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0458_T02R0302_00008)
+    if (!flag(FLAG_UNK_176)) {
+        npcmsg(msg_0458_T02R0302_00009)
+        setflag(FLAG_UNK_25B)
+        dummy486
+        setvar(VAR_UNK_40E5, 2)
+        npcmsg(msg_0458_T02R0302_00011)
+        setflag(FLAG_UNK_176)
+    }
+    npcmsg(msg_0458_T02R0302_00012)
+    goto(_0091)
+    releaseall
+    end
+}
+
+movement Viridian_TrainerHouse_B1F_Movement_0070 {
+    walk_left * 2
+    walk_down
+    walk_left * 2
+}
+
+script scr_seq_T02R0302_000 {
+scr_seq_T02R0302_003:
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0120)
+    waitmovement
+    npcmsg(msg_0458_T02R0302_00000)
+_0091:
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00ED) }
+    setfollowmoninhibitstate(1)
+    setvar(VAR_UNK_412E, 5)
+    callstd(std_prompt_save)
+    copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00ED) }
+    touchscreenmenushow
+    followmonrecall
+    healparty
+    npcmsg(msg_0458_T02R0302_00002)
+    closemessage
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_017C)
+    waitmovement
+    followmonmovetoplayer
+    changeobjectmovement(253, 56)
+    setvar(VAR_UNK_412E, 4)
+    releaseall
+    end
+_00ED:
+    setfollowmoninhibitstate(0)
+    npcmsg(msg_0458_T02R0302_00003)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0184)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setvar(VAR_UNK_412E, 3)
+    releaseall
+    end
+}
+
+movement Viridian_TrainerHouse_B1F_Movement_0120 {
+    walk_in_place_left
+}
+
+script scr_seq_T02R0302_001 {
+    followmonresetmovement
+    lockall
+    npcmsg(msg_0458_T02R0302_00004)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0458_T02R0302_00006)
+        closemessage
+        applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_017C)
+        waitmovement
+        releaseall
+        end
+    }
+    npcmsg(msg_0458_T02R0302_00005)
+    closemessage
+    applymovement(obj_player, Viridian_TrainerHouse_B1F_Movement_0184)
+    waitmovement
+    setfollowmoninhibitstate(0)
+    followmonreleasenexttoplayer
+    changeobjectmovement(253, 48)
+    setvar(VAR_UNK_412E, 3)
+    releaseall
+    end
+}
+
+movement Viridian_TrainerHouse_B1F_Movement_017C {
+    walk_down * 3
+}
+
+movement Viridian_TrainerHouse_B1F_Movement_0184 {
+    walk_right
+}
+
+mapscripts Viridian_TrainerHouse_B1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: std_trainer_house_reset
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_412E, 0: scr_seq_T02R0302_002
+        VAR_UNK_412E, 5: scr_seq_T02R0302_003
+    ]
+}

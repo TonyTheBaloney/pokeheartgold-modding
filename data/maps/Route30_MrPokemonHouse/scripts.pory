@@ -1,0 +1,326 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R30R0201_000
+	ScrDef scr_seq_R30R0201_001
+	ScrDef scr_seq_R30R0201_002
+	ScrDef scr_seq_R30R0201_003
+	ScrDefEnd
+`
+
+script scr_seq_R30R0201_003 {
+    if (var(VAR_SCENE_EMBEDDED_TOWER) == 1) {
+        movepersonfacing(obj_R30R0201_gsgentleman, 5, 0, 6, DIR_EAST)
+        end
+    }
+    end
+}
+
+script scr_seq_R30R0201_001 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03AC)
+    waitmovement
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_041C)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03B4)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0377_R30R0201_00000, msg_0377_R30R0201_00001)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03C4)
+    applymovement(obj_player, Route30_MrPokemonHouse_Movement_0404)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03E4)
+    waitmovement
+    npcmsg(msg_0377_R30R0201_00002)
+    giveitemnocheck(ITEM_MYSTERY_EGG, 1)
+    npcmsg(msg_0377_R30R0201_00003)
+    npcmsg(msg_0377_R30R0201_00004)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    stopbgm(0)
+    playfanfare(SEQ_ME_ASA)
+    waitfanfare
+    healparty
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    goto(_02E8)
+    end
+}
+
+script scr_seq_R30R0201_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_EMBEDDED_TOWER) < 4) {
+        if (var(VAR_SCENE_EMBEDDED_TOWER) >= 2) { goto(_02CD) }
+    }
+    if (flag(FLAG_EXCHANGED_RED_SCALE)) {
+        if (!flag(FLAG_UNK_107)) { goto(_011F) }
+        npcmsg(msg_0377_R30R0201_00007)
+        closemessage
+        getplayerfacing(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 2) {
+            applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_01F8)
+        } elif (var(VAR_TEMP_x4000) == 3) {
+            applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_020C)
+        } else {
+            applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_0220)
+        }
+        waitmovement
+        releaseall
+        end
+    }
+    if (flag(FLAG_GOT_RED_SCALE)) { goto(_012A) }
+    if (var(VAR_SCENE_MR_POKEMONS_HOUSE) >= 2) { goto(_011F) }
+    npcmsg(msg_0377_R30R0201_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_011F:
+    npcmsg(msg_0377_R30R0201_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_012A:
+    bufferplayersname(0)
+    gendermsgbox(msg_0377_R30R0201_00016, msg_0377_R30R0201_00017)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0189) }
+    if (!itemspace(ITEM_EXP__SHARE, 1)) { goto(_0194) }
+    callstd(std_give_item_verbose)
+    closemessage
+    setflag(FLAG_EXCHANGED_RED_SCALE)
+    takeitemnocheck(ITEM_RED_SCALE, 1)
+    releaseall
+    end
+_0189:
+    npcmsg(msg_0377_R30R0201_00020)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0194:
+    npcmsg(msg_0377_R30R0201_00019)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route30_MrPokemonHouse_Movement_01F8 {
+    face_down * 3
+    face_left * 3
+    face_up * 3
+    face_right * 3
+}
+
+movement Route30_MrPokemonHouse_Movement_020C {
+    face_down * 3
+    face_right * 3
+    face_up * 3
+    face_left * 3
+}
+
+movement Route30_MrPokemonHouse_Movement_0220 {
+    face_right * 3
+    face_up * 3
+    face_left * 3
+    face_down * 3
+}
+
+script scr_seq_R30R0201_002 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_SCENE_EMBEDDED_TOWER, 2)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03AC)
+    waitmovement
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_02D8)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0377_R30R0201_00021, msg_0377_R30R0201_00022)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03C4)
+    applymovement(obj_player, Route30_MrPokemonHouse_Movement_0404)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0377_R30R0201_00023)
+    closemessage
+    applymovement(obj_R30R0201_gsgentleman, Route30_MrPokemonHouse_Movement_03E4)
+    waitmovement
+    bufferplayersname(0)
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        setvar(VAR_SPECIAL_x8004, 535)
+    } else {
+        setvar(VAR_SPECIAL_x8004, 534)
+    }
+    setvar(VAR_SPECIAL_x8005, 1)
+    callstd(std_give_item_verbose)
+    closemessage
+    npcmsg(msg_0377_R30R0201_00026)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_02CD:
+    npcmsg(msg_0377_R30R0201_00027)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route30_MrPokemonHouse_Movement_02D8 {
+    walk_down
+    walk_left
+    walk_down
+}
+
+script(local) _02E8 {
+    playbgm(SEQ_GS_OHKIDO)
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0424)
+    waitmovement
+    applymovement(obj_player, Route30_MrPokemonHouse_Movement_0414)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0377_R30R0201_00008, msg_0377_R30R0201_00009)
+    closemessage
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0438)
+    waitmovement
+    npcmsg(msg_0377_R30R0201_00010)
+    closemessage
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0444)
+    waitmovement
+    npcmsg(msg_0377_R30R0201_00011)
+    bufferplayersname(0)
+    npcmsg(msg_0377_R30R0201_00012)
+    givepokedex
+    setflag(FLAG_GOT_POKEDEX)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setmysterygiftactive
+    gendermsgbox(msg_0377_R30R0201_00013, msg_0377_R30R0201_00014)
+    closemessage
+    bufferplayersname(0)
+    npcmsg(msg_0377_R30R0201_00015)
+    registergearnumber(PHONE_CONTACT_PROF__OAK)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    closemessage
+    applymovement(obj_R30R0201_ookido, Route30_MrPokemonHouse_Movement_0450)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    removeobject(obj_R30R0201_ookido)
+    waitse(SEQ_SE_DP_DOOR)
+    fadeoutbgm(0, 30)
+    stopbgm(0)
+    resetbgm
+    releaseall
+    setvar(VAR_SCENE_MR_POKEMONS_HOUSE, 1)
+    setspawn(SPAWN_CHERRYGROVE)
+    setflag(FLAG_HIDE_MR_POKEMONS_HOUSE_OAK)
+    setflag(FLAG_HIDE_COMM_CLUB_CLOSED_LADIES)
+    clearflag(FLAG_HIDE_COMM_CLUB_RECEPTIONISTS)
+    setflag(FLAG_HIDE_NEW_BARK_RIVAL)
+    setvar(VAR_SCENE_CHERRYGROVE_CITY_OW, 3)
+    clearflag(FLAG_HIDE_CHERRYGROVE_RIVAL)
+    setvar(VAR_SCENE_ELMS_LAB, 3)
+    clearflag(FLAG_HIDE_ELMS_LAB_OFFICER)
+    setvar(VAR_SCENE_ROUTE_30_OW, 2)
+    end
+}
+
+movement Route30_MrPokemonHouse_Movement_03AC {
+    emote_exclamation_mark
+}
+
+movement Route30_MrPokemonHouse_Movement_03B4 {
+    walk_fast_down
+    walk_fast_left * 5
+    walk_in_place_down
+}
+
+movement Route30_MrPokemonHouse_Movement_03C4 {
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route30_MrPokemonHouse_Movement_03D4 {
+    walk_in_place_up
+    walk_in_place_right
+    walk_in_place_left
+}
+
+movement Route30_MrPokemonHouse_Movement_03E4 {
+    walk_fast_left * 3
+    walk_fast_up
+    delay_8
+    walk_in_place_slower_up
+    walk_slow_down
+    walk_slow_right * 3
+    walk_in_place_slow_down
+}
+
+movement Route30_MrPokemonHouse_Movement_0404 {
+    walk_up
+    walk_right
+    walk_up * 2
+}
+
+movement Route30_MrPokemonHouse_Movement_0414 {
+    walk_in_place_left
+}
+
+movement Route30_MrPokemonHouse_Movement_041C {
+    walk_in_place_left
+}
+
+movement Route30_MrPokemonHouse_Movement_0424 {
+    walk_slow_down
+    walk_slow_left * 4
+    walk_slow_up * 2
+    walk_in_place_slow_right
+}
+
+movement Route30_MrPokemonHouse_Movement_0438 {
+    walk_slow_down
+    walk_in_place_slow_right
+}
+
+movement Route30_MrPokemonHouse_Movement_0444 {
+    walk_slow_up
+    walk_in_place_slow_right
+}
+
+movement Route30_MrPokemonHouse_Movement_0450 {
+    walk_slow_down * 3
+    delay_8
+}
+
+mapscripts Route30_MrPokemonHouse_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_EMBEDDED_TOWER, 1: scr_seq_R30R0201_002
+        VAR_SCENE_MR_POKEMONS_HOUSE, 0: scr_seq_R30R0201_001
+    ]
+    INIT_SCRIPT_ON_RESUME: scr_seq_R30R0201_003
+}

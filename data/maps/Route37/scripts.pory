@@ -1,0 +1,102 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R37_000 {
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 0) {
+        clearflag(FLAG_UNK_1C3)
+    } else {
+        setflag(FLAG_UNK_1C3)
+    }
+    end
+}
+
+script scr_seq_R37_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpartyleadalive(VAR_SPECIAL_x8002)
+    monhasribbon(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002, RIBBON_SMILE)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 53)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_DAILY_GOT_SHOCK_RIBBON)) {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 55)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_NUM_MET_WEEKDAY_SIBLINGS) == 7) { goto(_0107) }
+    if (flag(FLAG_GOT_MAGNET_FROM_SUNNY)) { goto(_00E9) }
+    getweekday(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 27)
+    } else {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 24)
+        if (!itemspace(ITEM_MAGNET, 1)) { goto(_00FD) }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_MAGNET_FROM_SUNNY)
+        addvar(VAR_NUM_MET_WEEKDAY_SIBLINGS, 1)
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 25)
+    }
+_00E1:
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00E9:
+    getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 26)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00FD:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+_0107:
+    getweekday(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_012A) }
+    getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 27)
+    goto(_00E1)
+_012A:
+    getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 52)
+    buffermonspeciesname(0, VAR_SPECIAL_x8002)
+    msgboxextern(VAR_SPECIAL_RESULT, 54)
+    giveribbon(VAR_SPECIAL_x8002, RIBBON_SMILE)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setflag(FLAG_DAILY_GOT_SHOCK_RIBBON)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R37_002 {
+    directionsignpostex(1, 3, msg_0393_R37_00000)
+    end
+}
+
+script scr_seq_R37_003 {
+    trainertipsex(3, msg_0393_R37_00001)
+    end
+}
+
+mapscripts Route37_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R37_000
+}

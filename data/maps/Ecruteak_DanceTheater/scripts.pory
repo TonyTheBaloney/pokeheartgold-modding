@@ -1,0 +1,951 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T27R0501_000
+	ScrDef scr_seq_T27R0501_001
+	ScrDef scr_seq_T27R0501_002
+	ScrDef scr_seq_T27R0501_003
+	ScrDef scr_seq_T27R0501_004
+	ScrDef scr_seq_T27R0501_005
+	ScrDef scr_seq_T27R0501_006
+	ScrDef scr_seq_T27R0501_007
+	ScrDef scr_seq_T27R0501_008
+	ScrDef scr_seq_T27R0501_009
+	ScrDef scr_seq_T27R0501_010
+	ScrDef scr_seq_T27R0501_011
+	ScrDef scr_seq_T27R0501_012
+	ScrDef scr_seq_T27R0501_013
+	ScrDef scr_seq_T27R0501_014
+	ScrDef scr_seq_T27R0501_015
+	ScrDef scr_seq_T27R0501_016
+	ScrDefEnd
+`
+
+script scr_seq_T27R0501_013 {
+    if (var(VAR_UNK_410C) <= 1) {
+        makeobjectvisible(obj_T27R0501_rocketm_2)
+    }
+    if (var(VAR_UNK_410C) == 0) {
+        movepersonfacing(obj_T27R0501_rocketm, 6, 0, 6, DIR_EAST)
+        movepersonfacing(obj_T27R0501_dancer_3, 8, 0, 6, DIR_WEST)
+    }
+    if (var(VAR_TEMP_x4009) == 222) {
+        movepersonfacing(obj_T27R0501_rocketm, 29, 0, 29, DIR_SOUTH)
+        makeobjectvisible(obj_T27R0501_rocketm)
+        getplayerfacing(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 0) {
+            movepersonfacing(obj_T27R0501_rocketm_2, 7, 0, 6, DIR_SOUTH)
+        } elif (var(VAR_TEMP_x4000) == 1) {
+            movepersonfacing(obj_T27R0501_rocketm_2, 7, 0, 6, DIR_NORTH)
+        } elif (var(VAR_TEMP_x4000) == 2) {
+            movepersonfacing(obj_T27R0501_rocketm_2, 7, 0, 6, DIR_EAST)
+        } else {
+            movepersonfacing(obj_T27R0501_rocketm_2, 7, 0, 6, DIR_WEST)
+        }
+        makeobjectinvisible(obj_T27R0501_rocketm_2)
+        setvar(VAR_TEMP_x4009, 0)
+    }
+    if (var(VAR_TEMP_x400A) != 10) {
+        if (var(VAR_UNK_410C) == 3) {
+            movepersonfacing(obj_T27R0501_dancer_3, 7, 0, 6, DIR_SOUTH)
+        }
+    }
+    end
+}
+
+script scr_seq_T27R0501_015 {
+    followmonresetmovement
+    lockall
+    npcmsg(msg_0618_T27R0501_00000)
+    closemessage
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_01CC)
+    waitmovement
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    applymovement(241, Ecruteak_DanceTheater_Movement_01D4)
+    waitmovement
+    wait(10, VAR_SPECIAL_RESULT)
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_01F0)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00001)
+    closemessage
+    applymovement(obj_T27R0501_dancer_3, Ecruteak_DanceTheater_Movement_01F8)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00002)
+    closemessage
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_0200)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00003)
+    closemessage
+    applymovement(obj_T27R0501_dancer_3, Ecruteak_DanceTheater_Movement_0208)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00004)
+    closemessage
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_0218)
+    waitmovement
+    applymovement(obj_T27R0501_rocketm, Ecruteak_DanceTheater_Movement_0220)
+    applymovement(241, Ecruteak_DanceTheater_Movement_01DC)
+    waitmovement
+    removecameratarget
+    releaseall
+    setvar(VAR_UNK_410C, 1)
+    end
+}
+
+movement Ecruteak_DanceTheater_Movement_01CC {
+    face_right
+}
+
+movement Ecruteak_DanceTheater_Movement_01D4 {
+    walk_slightly_fast_up * 9
+}
+
+movement Ecruteak_DanceTheater_Movement_01DC {
+    delay_32
+    walk_slightly_fast_down * 9
+}
+
+movement Ecruteak_DanceTheater_Movement_01E8 {
+    walk_up * 3
+}
+
+movement Ecruteak_DanceTheater_Movement_01F0 {
+    walk_right
+}
+
+movement Ecruteak_DanceTheater_Movement_01F8 {
+    walk_in_place_fast_left
+}
+
+movement Ecruteak_DanceTheater_Movement_0200 {
+    jump_in_place_fast_right * 2
+}
+
+movement Ecruteak_DanceTheater_Movement_0208 {
+    lock_dir
+    walk_right * 2
+    unlock_dir
+}
+
+movement Ecruteak_DanceTheater_Movement_0218 {
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0220 {
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+}
+
+script scr_seq_T27R0501_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    stopbgm(0)
+    playbgm(SEQ_GS_EYE_ROCKET)
+    npcmsg(msg_0618_T27R0501_00005)
+    closemessage
+    setvar(VAR_TEMP_x4009, 222)
+    trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_26, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0618_T27R0501_00006)
+    closemessage
+    getplayerfacing(VAR_SPECIAL_x8004)
+    if (var(VAR_SPECIAL_x8004) == 0) {
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0414)
+    } elif (var(VAR_SPECIAL_x8004) == 1) {
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0424)
+    } elif (var(VAR_SPECIAL_x8004) == 2) {
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0434)
+    } else {
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0444)
+    }
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00007)
+    closemessage
+    if (var(VAR_SPECIAL_x8004) == 0) {
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0454)
+    } elif (var(VAR_SPECIAL_x8004) == 1) {
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0460)
+    } elif (var(VAR_SPECIAL_x8004) == 2) {
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_046C)
+    } else {
+        applymovement(obj_T27R0501_rocketm_2, Ecruteak_DanceTheater_Movement_0478)
+    }
+    waitmovement
+    removeobject(obj_T27R0501_rocketm_2)
+    setflag(FLAG_UNK_23A)
+    releaseall
+    setvar(VAR_UNK_410C, 2)
+    setvar(VAR_TEMP_x400A, 10)
+    end
+}
+
+movement Ecruteak_DanceTheater_Movement_0414 {
+    lock_dir
+    walk_up
+    unlock_dir
+}
+
+movement Ecruteak_DanceTheater_Movement_0424 {
+    lock_dir
+    walk_down
+    unlock_dir
+}
+
+movement Ecruteak_DanceTheater_Movement_0434 {
+    lock_dir
+    walk_left
+    unlock_dir
+}
+
+movement Ecruteak_DanceTheater_Movement_0444 {
+    lock_dir
+    walk_right
+    unlock_dir
+}
+
+movement Ecruteak_DanceTheater_Movement_0454 {
+    walk_fast_left * 4
+    walk_fast_down * 12
+}
+
+movement Ecruteak_DanceTheater_Movement_0460 {
+    walk_fast_left * 4
+    walk_fast_down * 10
+}
+
+movement Ecruteak_DanceTheater_Movement_046C {
+    walk_fast_left * 3
+    walk_fast_down * 10
+}
+
+movement Ecruteak_DanceTheater_Movement_0478 {
+    walk_fast_down
+    walk_fast_right * 3
+    walk_fast_down * 9
+}
+
+script scr_seq_T27R0501_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_410C) == 1) {
+        npcmsg(msg_0618_T27R0501_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_TEMP_x400A) == 10) {
+        bufferplayersname(0)
+        npcmsg(msg_0618_T27R0501_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0618_T27R0501_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_011 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_05B4)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00026)
+    if (!itemspace(ITEM_HM03, 1)) { goto(_05A9) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_HM03)
+    setvar(VAR_UNK_410C, 3)
+    setvar(VAR_UNK_4090, 1)
+    npcmsg(msg_0618_T27R0501_00028)
+    closemessage
+    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_05C4)
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_012 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_05D8)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00026)
+    if (!itemspace(ITEM_HM03, 1)) { goto(_05A9) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_HM03)
+    setvar(VAR_UNK_4090, 1)
+    setvar(VAR_UNK_410C, 3)
+    npcmsg(msg_0618_T27R0501_00028)
+    closemessage
+    applymovement(obj_T27R0501_gsgentleman, Ecruteak_DanceTheater_Movement_05E8)
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_HM03)) {
+        npcmsg(msg_0618_T27R0501_00029)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _05A9:
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0618_T27R0501_00025)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Ecruteak_DanceTheater_Movement_05B4 {
+    walk_up
+    walk_left * 5
+    walk_up * 2
+}
+
+movement Ecruteak_DanceTheater_Movement_05C4 {
+    walk_down * 2
+    walk_right * 5
+    walk_down
+    face_up
+}
+
+movement Ecruteak_DanceTheater_Movement_05D8 {
+    walk_up
+    walk_right * 3
+    walk_up * 2
+}
+
+movement Ecruteak_DanceTheater_Movement_05E8 {
+    walk_down * 2
+    walk_left * 3
+    walk_down
+    face_up
+}
+
+script scr_seq_T27R0501_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_PSYDUCK, 0)
+    npcmsg(msg_0618_T27R0501_00030)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_TEMP_x400A) == 10) {
+        npcmsg(msg_0618_T27R0501_00033)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNK_410C) == 1) {
+        if (var(VAR_TEMP_x400B) == 0) {
+            npcmsg(msg_0618_T27R0501_00032)
+        } elif (var(VAR_TEMP_x400B) == 1) {
+            npcmsg(msg_0618_T27R0501_00034)
+        } else {
+            npcmsg(msg_0618_T27R0501_00035)
+        }
+        waitbuttonpress
+        closemessage
+        releaseall
+        if (var(VAR_TEMP_x400B) < 2) {
+            addvar(VAR_TEMP_x400B, 1)
+        } else {
+            setvar(VAR_TEMP_x400B, 0)
+        }
+        end
+    }
+    npcmsg(msg_0618_T27R0501_00031)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_014 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_TEMP_x400A) == 10) {
+        npcmsg(msg_0618_T27R0501_00038)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNK_410C) == 1) {
+        npcmsg(msg_0618_T27R0501_00037)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0618_T27R0501_00036)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_010 {
+    simplenpcmsg(msg_0618_T27R0501_00039)
+    end
+}
+
+script scr_seq_T27R0501_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_108)) { goto(_0724) }
+    if (flag(FLAG_UNK_109)) { goto(_0724) }
+    npcmsg(msg_0618_T27R0501_00019)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0724:
+    npcmsg(msg_0618_T27R0501_00040)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_108)) { goto(_0758) }
+    if (flag(FLAG_UNK_109)) { goto(_0758) }
+    npcmsg(msg_0618_T27R0501_00019)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0758:
+    npcmsg(msg_0618_T27R0501_00041)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_SPECIAL_x8000, 77)
+    if (flag(FLAG_UNK_108)) { goto(_0868) }
+    if (flag(FLAG_UNK_109)) { goto(_0868) }
+    npcmsg(msg_0618_T27R0501_00013)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_x8004)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_x8004) == 1) { goto(_0BD3) }
+    closemessage
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    compare(VAR_SPECIAL_RESULT, 0)
+    callifne(_07BA)
+    goto(_0944)
+    end
+_07BA:
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Ecruteak_DanceTheater_Movement_0828)
+    } elif (var(VAR_SPECIAL_RESULT) == 2) {
+        applymovement(obj_player, Ecruteak_DanceTheater_Movement_083C)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Ecruteak_DanceTheater_Movement_084C)
+    }
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_085C)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    return
+}
+
+movement Ecruteak_DanceTheater_Movement_0828 {
+    walk_right
+    walk_down * 2
+    walk_left
+    walk_in_place_up
+}
+
+movement Ecruteak_DanceTheater_Movement_083C {
+    walk_down
+    walk_left
+    walk_in_place_up
+}
+
+movement Ecruteak_DanceTheater_Movement_084C {
+    walk_down
+    walk_right
+    walk_in_place_up
+}
+
+movement Ecruteak_DanceTheater_Movement_085C {
+    delay_8 * 2
+    walk_in_place_down
+}
+
+script(local) _0868 {
+    bufferplayersname(0)
+    npcmsg(msg_0618_T27R0501_00042)
+    waitbuttonpress
+    closemessage
+    setflag(FLAG_UNK_107)
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_108)) { goto(_08A3) }
+    if (flag(FLAG_UNK_109)) { goto(_08A3) }
+    npcmsg(msg_0618_T27R0501_00019)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_08A3:
+    npcmsg(msg_0618_T27R0501_00043)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_108)) { goto(_08D7) }
+    if (flag(FLAG_UNK_109)) { goto(_08D7) }
+    npcmsg(msg_0618_T27R0501_00019)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_08D7:
+    npcmsg(msg_0618_T27R0501_00044)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27R0501_016 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_SPECIAL_x8000, 11)
+    setvar(VAR_UNK_410C, 5)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Ecruteak_DanceTheater_Movement_0BF4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        npcmsg(msg_0618_T27R0501_00011)
+    } else {
+        npcmsg(msg_0618_T27R0501_00012)
+    }
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_x8004)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_x8004) == 1) { goto(_0BD3) }
+    closemessage
+_0944:
+    stopbgm(30)
+    playbgm(SEQ_GS_EYE_MAIKO)
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0D74)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00045)
+    closemessage
+    wait(10, VAR_SPECIAL_RESULT)
+    trainerbattle(TRAINER_KIMONO_GIRL_ZUKI, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0C0C)
+    waitmovement
+    stopbgm(30)
+    playbgm(SEQ_GS_EYE_MAIKO)
+    applymovement(obj_T27R0501_dancer, Ecruteak_DanceTheater_Movement_0C18)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00015)
+    closemessage
+    trainerbattle(TRAINER_KIMONO_GIRL_NAOKO, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
+    applymovement(obj_T27R0501_dancer, Ecruteak_DanceTheater_Movement_0C48)
+    waitmovement
+    stopbgm(30)
+    playbgm(SEQ_GS_EYE_MAIKO)
+    applymovement(obj_T27R0501_dancer_5, Ecruteak_DanceTheater_Movement_0C54)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00016)
+    closemessage
+    trainerbattle(TRAINER_KIMONO_GIRL_MIKI, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
+    applymovement(obj_T27R0501_dancer_5, Ecruteak_DanceTheater_Movement_0C84)
+    waitmovement
+    stopbgm(30)
+    playbgm(SEQ_GS_EYE_MAIKO)
+    applymovement(obj_T27R0501_dancer_2, Ecruteak_DanceTheater_Movement_0C90)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00017)
+    closemessage
+    trainerbattle(TRAINER_KIMONO_GIRL_SAYO, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
+    applymovement(obj_T27R0501_dancer_2, Ecruteak_DanceTheater_Movement_0CBC)
+    waitmovement
+    stopbgm(30)
+    playbgm(SEQ_GS_EYE_MAIKO)
+    applymovement(obj_T27R0501_dancer_4, Ecruteak_DanceTheater_Movement_0CCC)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00018)
+    closemessage
+    trainerbattle(TRAINER_KIMONO_GIRL_KUNI, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0BC9) }
+    applymovement(obj_T27R0501_dancer_4, Ecruteak_DanceTheater_Movement_0CF8)
+    waitmovement
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0D08)
+    waitmovement
+    npcmsg(msg_0618_T27R0501_00020)
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        giveitemnocheck(ITEM_CLEAR_BELL, 1)
+        setflag(FLAG_UNK_103)
+    } else {
+        giveitemnocheck(ITEM_TIDAL_BELL, 1)
+        setflag(FLAG_UNK_104)
+    }
+    closemessage
+    playse(SEQ_SE_DP_KI_GASYAN)
+    screenshake(0, 2, 10, 6)
+    waitse(SEQ_SE_DP_KI_GASYAN)
+    clearflag(FLAG_HIDE_DANCE_STUDIO_LITTLE_GIRL)
+    addobject(obj_T27R0501_gsbabygirl1)
+    applymovement(obj_T27R0501_gsbabygirl1, Ecruteak_DanceTheater_Movement_0D10)
+    waitmovement
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0BEC)
+    waitmovement
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        npcmsg(msg_0618_T27R0501_00021)
+    } else {
+        npcmsg(msg_0618_T27R0501_00022)
+    }
+    closemessage
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0BE4)
+    waitmovement
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        npcmsg(msg_0618_T27R0501_00023)
+    } else {
+        npcmsg(msg_0618_T27R0501_00024)
+    }
+    closemessage
+    applymovement(obj_T27R0501_dancer, Ecruteak_DanceTheater_Movement_0D1C)
+    applymovement(obj_T27R0501_dancer_2, Ecruteak_DanceTheater_Movement_0D28)
+    applymovement(obj_T27R0501_dancer_6, Ecruteak_DanceTheater_Movement_0D38)
+    applymovement(obj_T27R0501_dancer_4, Ecruteak_DanceTheater_Movement_0D48)
+    applymovement(obj_T27R0501_dancer_5, Ecruteak_DanceTheater_Movement_0D58)
+    applymovement(obj_T27R0501_gsbabygirl1, Ecruteak_DanceTheater_Movement_0D64)
+    waitmovement
+    removeobject(obj_T27R0501_dancer)
+    removeobject(obj_T27R0501_dancer_2)
+    removeobject(obj_T27R0501_dancer_6)
+    removeobject(obj_T27R0501_dancer_4)
+    removeobject(obj_T27R0501_dancer_5)
+    removeobject(obj_T27R0501_gsbabygirl1)
+    setflag(FLAG_HIDE_DANCE_STUDIO_KIMONO_GIRLS)
+    setflag(FLAG_HIDE_DANCE_STUDIO_LITTLE_GIRL)
+    call(_0BB0)
+    setvar(VAR_UNK_410C, 6)
+    setvar(VAR_UNK_40FA, 1)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        clearflag(FLAG_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS)
+    } else {
+        clearflag(FLAG_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS)
+    }
+    end
+_0BB0:
+    if (var(VAR_SPECIAL_x8000) == 77) {
+        releaseall
+    } else {
+        releaseall
+    }
+    return
+_0BC9:
+    whiteout
+    call(_0BB0)
+    end
+_0BD3:
+    npcmsg(msg_0618_T27R0501_00014)
+    waitbuttonpress
+    closemessage
+    call(_0BB0)
+    end
+}
+
+movement Ecruteak_DanceTheater_Movement_0BE4 {
+    emote_exclamation_mark
+}
+
+movement Ecruteak_DanceTheater_Movement_0BEC {
+    walk_in_place_left
+}
+
+movement Ecruteak_DanceTheater_Movement_0BF4 {
+    walk_up * 5
+    walk_left * 4
+    walk_up * 5
+    walk_right * 4
+    walk_in_place_up
+}
+
+movement Ecruteak_DanceTheater_Movement_0C0C {
+    walk_up
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0C18 {
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+    face_down
+    delay_2
+    walk_in_place_right
+    walk_right * 5
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0C48 {
+    walk_left * 5
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0C54 {
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    walk_in_place_left
+    walk_left * 5
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0C84 {
+    walk_right * 5
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0C90 {
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+    walk_in_place_down
+    walk_down
+    walk_right * 3
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0CBC {
+    walk_left * 3
+    walk_up
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0CCC {
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    walk_in_place_down
+    walk_down
+    walk_left * 3
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0CF8 {
+    walk_right * 3
+    walk_up
+    walk_in_place_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0D08 {
+    walk_down
+}
+
+movement Ecruteak_DanceTheater_Movement_0D10 {
+    walk_fast_up * 10
+    walk_fast_right * 3
+}
+
+movement Ecruteak_DanceTheater_Movement_0D1C {
+    walk_right
+    walk_down * 11
+}
+
+movement Ecruteak_DanceTheater_Movement_0D28 {
+    delay_8
+    walk_left
+    walk_down * 12
+}
+
+movement Ecruteak_DanceTheater_Movement_0D38 {
+    delay_8
+    walk_right * 4
+    walk_down * 11
+}
+
+movement Ecruteak_DanceTheater_Movement_0D48 {
+    delay_8
+    walk_right
+    walk_down * 12
+}
+
+movement Ecruteak_DanceTheater_Movement_0D58 {
+    walk_left
+    walk_down * 11
+}
+
+movement Ecruteak_DanceTheater_Movement_0D64 {
+    delay_8 * 2
+    walk_right * 5
+    walk_down * 11
+}
+
+movement Ecruteak_DanceTheater_Movement_0D74 {
+    face_left
+    delay_4
+    face_up
+    delay_4
+    face_right
+    delay_4
+    face_down
+    delay_4
+    face_left
+    delay_4
+    face_up
+    delay_4
+    face_right
+    delay_4
+    walk_in_place_down
+}
+
+mapscripts Ecruteak_DanceTheater_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_T27R0501_013
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_410C, 0: scr_seq_T27R0501_015
+        VAR_UNK_410C, 4: scr_seq_T27R0501_016
+    ]
+}

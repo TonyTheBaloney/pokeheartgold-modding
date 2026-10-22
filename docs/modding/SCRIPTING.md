@@ -4,23 +4,22 @@
 
 > AI-generated, local to this fork. Do not upstream.
 
-A map can keep its scripts in `data/maps/<MapName>/scripts.pory`, written in a
+Every map keeps its scripts in `data/maps/<MapName>/scripts.pory`, written in a
 language modeled on [poryscript](https://github.com/huderlem/poryscript): structured
 `if`/`while`/`switch` instead of `GoTo` labels, inline text and movement, a
 `mapscripts` block, and `raw` for anything else. The compiler lives in
-`tools/mapkit/mapkit/pory/`; the build runs it for every map that has a
-`scripts.pory`, and uses `scripts.inc` / `map_scripts.inc` for the rest (the same
-opt-in pokeemerald uses).
+`tools/mapkit/mapkit/pory/`; the build runs it for every map. (A map folder with
+`scripts.inc` / `map_scripts.inc` and no `scripts.pory` still builds from those.)
 
-Today **Cherrygrove** uses `scripts.pory`; its Mystic Water script is written in
-the structured form and the ROM still matches.
+All 452 maps with their own scripts were converted by `mapkit pory init`, which
+decompiles the original assembly into `if`/`elif`/`else` blocks and `movement`
+blocks. HG and SS still match.
 
 ## Quick start
 
 ```sh
 M=tools/mapkit/mapkit.sh
-$M pory init Route30        # scripts.inc + map_scripts.inc -> scripts.pory (ROM unchanged)
-$M pory show Route30        # what it compiles to
+$M pory show Route30        # what scripts.pory compiles to
 $M validate Route30         # checks the compiled output
 make                        # still matching until you change behavior
 ```
@@ -85,7 +84,7 @@ Cherrygrove_EventScript_MysticWaterMan_If_2:
 | `script Name { ... }` | a script with a number (`ScrDef` entry), usable from `map.json` and map scripts |
 | `script(local) Name { ... }` | a label only, for `call`/`goto` from other scripts |
 | `text Name { "..." "..." }` | a named message; adjacent strings join |
-| `movement Name { walk_up * 2  face_left }` | movement data (`EndMovement` added) |
+| `movement Name { walk_up * 2  face_left }` | movement data, placed where it is written (`EndMovement` added) |
 | `mapscripts Name { ... }` | the map's init scripts (compiles to `map_scripts.inc`) |
 | ``raw `...` `` | copied as-is into `scripts.inc` |
 | `const NAME = value` | replaced in arguments and conditions |
@@ -198,24 +197,53 @@ poryswitch(GAME) {
 
 `GAME` is the version being built.
 
-## Converting a map
+## How the maps were converted
 
-1. `mapkit pory init <map>`: the old `scripts.inc` goes into a `raw` block and
-   `map_scripts.inc` becomes a `mapscripts` block. Builds byte-identical; the test
-   suite checks this for all 451 maps with their own scripts.
-2. Rewrite scripts one at a time: cut a script out of the `raw` block (keep its
-   `ScrDef` line), put a `script` block in the same place, and check that `make`
-   still matches. Same commands in the same order = same ROM; labels don't matter.
-3. Leave the rest in `raw` as long as you like.
+`mapkit pory init <map>` (or `--all`) turns `scripts.inc` + `map_scripts.inc` into
+`scripts.pory` and deletes them. It is a decompiler for the patterns the original
+script compiler wrote (`tools/mapkit/mapkit/pory/decompile.py`):
 
-Maps that use `Everywhere`'s scripts can't use `scripts.pory`.
+- `Compare` + `GoToIf*` / `GoToIfSet` / `GoToIfNoItemSpace` jumps around a block
+  become `if`; a `GoTo` past the other branch becomes `else`, and chains become `elif`.
+- A jump to a block that ends the script and sits after the script's `End`
+  becomes an `if` with that block inside (the compiler places it back there).
+- Movement data becomes `movement` blocks, renamed `<Map>_Movement_<offset>`.
+- Commands are lowercased; `WaitButton`, `CloseMsg`, `ApplyMovement`,
+  `WaitMovement`, `HidePerson` and `ShowPerson` use their pokeemerald names.
+
+Each script is compiled back and compared with the original, command by command
+with jump targets resolved to positions. If the structured form doesn't
+reproduce it, a plainer one is used (`if (...) { goto(label) }` and labels), then
+`raw`. The whole file is compared again at the end. Result for the 452 maps:
+2403 scripts structured, 13 structured without the after-`End` blocks, 1 with
+labels and gotos, none raw; 2496 movements.
+
+What stays as written, because the bytes depend on it:
+
+- **Dead code** the original compiler left, such as a `goto` right after another
+  `goto`, or an `end` after movement data. Removing it changes the ROM.
+- **Shared tails**: blocks several branches `goto` keep their label (`_0083:`).
+- **The `ScrDef` table**, as a `raw` block, when the scripts aren't in number
+  order in the file (210 maps). Scripts keep their numbers; new `script` blocks
+  are numbered after the table.
+- Two `ScrDef` names for one script, or a script that runs on into the next:
+  the second name becomes a label inside the first script.
+- Extra `#include`/`#define` lines, in `raw`.
+
+`--raw` keeps the old behavior: `scripts.inc` in one `raw` block, unchanged.
+Maps that use another map's scripts (`@Everywhere` in `maps.txt`) share the
+owner's `scripts.pory`.
+
+To change a script, edit it and run `make`: same commands in the same order give
+the same ROM, whatever the labels are called.
 
 ## Build
 
-`data/maps/meson.build`: if a folder has `scripts.pory`, `mapkit pory build` writes
+`data/maps/meson.build`: for each folder with `scripts.pory`, `mapkit pory build` writes
 the map's `scr_seq_*.s`, `scr_seq_*_hdr.s` and text bank into the build directory
 (under their original names), and the event generator takes script numbers from it.
-Errors point at `scripts.pory:<line>`.
+Errors point at `scripts.pory:<line>`. The compiled file always ends with
+`.balign 4, 0`, as every original bank did.
 
 ## Editor support
 
@@ -235,4 +263,5 @@ macro files; pointing it at `asm/macros/script.inc` and `asm/macros/movement.inc
 ## Tests
 
 `python3 tools/mapkit/tests/test_pory.py`: lowering of every construct, error
-messages, and the all-maps `pory init` round trip.
+messages, decompiler cases, and an all-maps round trip (compile each
+`scripts.pory`, decompile the output, compile again, compare).

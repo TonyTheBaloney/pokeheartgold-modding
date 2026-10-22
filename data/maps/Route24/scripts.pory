@@ -1,0 +1,180 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R24_000
+	ScrDef scr_seq_R24_001
+	ScrDef scr_seq_R24_002
+	ScrDef scr_seq_R24_003
+	ScrDef scr_seq_R24_004
+	ScrDefEnd
+`
+
+script scr_seq_R24_004 {
+    if (var(VAR_SCENE_ROUTE_24_ROCKET) == 2) {
+        setvar(VAR_SCENE_ROUTE_24_ROCKET, 1)
+        end
+    }
+    end
+}
+
+script scr_seq_R24_003 {
+    followmonresetmovement
+    lockall
+    getplayerfacing(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 0) {
+        applymovement(obj_R24_rocketm, Route24_Movement_0084)
+        applymovement(obj_R24_gsman1, Route24_Movement_00A0)
+        applymovement(obj_R24_gswoman2, Route24_Movement_00AC)
+    } else {
+        applymovement(obj_R24_rocketm, Route24_Movement_0090)
+        applymovement(obj_R24_gsman1, Route24_Movement_00A0)
+        applymovement(obj_R24_gswoman2, Route24_Movement_00AC)
+    }
+    waitmovement
+    setvar(VAR_SCENE_ROUTE_24_ROCKET, 2)
+    releaseall
+    end
+}
+
+movement Route24_Movement_0084 {
+    emote_exclamation_mark
+    walk_fast_left * 3
+}
+
+movement Route24_Movement_0090 {
+    face_up
+    emote_exclamation_mark
+    walk_fast_left * 3
+}
+
+movement Route24_Movement_00A0 {
+    delay_16 * 3
+    face_down
+}
+
+movement Route24_Movement_00AC {
+    delay_16 * 3
+    walk_fast_down
+    face_up
+}
+
+script scr_seq_R24_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    stopbgm(SEQ_GS_R_12_24)
+    playbgm(SEQ_GS_EYE_ROCKET)
+    npcmsg(msg_0362_R24_00000)
+    closemessage
+    trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_24, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0362_R24_00002)
+    closemessage
+    fadeoutbgm(0, 30)
+    npcmsg(msg_0362_R24_00003)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_R24_rocketm, Route24_Movement_0150)
+    applymovement(obj_player, Route24_Movement_015C)
+    applymovement(obj_R24_gsman1, Route24_Movement_0170)
+    applymovement(obj_R24_gswoman2, Route24_Movement_017C)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    removeobject(obj_R24_rocketm)
+    setflag(FLAG_HIDE_ROUTE_24_ROCKET)
+    clearflag(FLAG_HIDE_CERULEAN_GYM_MACHINE_PART)
+    playbgm(SEQ_GS_R_12_24)
+    setvar(VAR_SCENE_ROUTE_24_ROCKET, 3)
+    releaseall
+    end
+}
+
+movement Route24_Movement_0150 {
+    walk_fast_right
+    walk_fast_down * 10
+}
+
+movement Route24_Movement_015C {
+    lock_dir
+    walk_fast_right
+    unlock_dir
+    face_down
+}
+
+movement Route24_Movement_0170 {
+    delay_4 * 12
+    face_left
+}
+
+movement Route24_Movement_017C {
+    delay_4
+    face_down
+    delay_4 * 10
+    walk_up
+    face_left
+}
+
+script scr_seq_R24_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    if (var(VAR_SCENE_ROUTE_24_ROCKET) != 2) {
+        if (var(VAR_SCENE_ROUTE_24_ROCKET) != 3) {
+            faceplayer
+            npcmsg(msg_0362_R24_00006)
+            goto(_01DF)
+        _01DC:
+            npcmsg(msg_0362_R24_00004)
+        _01DF:
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        faceplayer
+        npcmsg(msg_0362_R24_00005)
+        goto(_01DF)
+        goto(_01DC)
+    }
+    goto(_01DC)
+    goto(_01DC)
+}
+
+script scr_seq_R24_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    if (var(VAR_SCENE_ROUTE_24_ROCKET) != 2) {
+        if (var(VAR_SCENE_ROUTE_24_ROCKET) != 3) {
+            faceplayer
+            npcmsg(msg_0362_R24_00009)
+            goto(_0232)
+        _022F:
+            npcmsg(msg_0362_R24_00007)
+        _0232:
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        faceplayer
+        npcmsg(msg_0362_R24_00008)
+        goto(_0232)
+        goto(_022F)
+    }
+    goto(_022F)
+    goto(_022F)
+}
+
+mapscripts Route24_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R24_004
+}

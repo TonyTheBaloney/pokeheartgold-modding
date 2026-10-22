@@ -291,10 +291,21 @@ def cmd_pory(repo, args):
             pory.build(repo, entry, args.out_dir, args.game)
             return 0
         if args.action == "init":
-            for q in args.maps:
-                m = _map(repo, q)
-                print("wrote %s" % repo.rel(pory.init(repo, m)))
+            if args.all:
+                maps = [m for m in repo.maps if m.name in repo.migrated
+                        and not repo.migrated[m.name]["scripts"].startswith("@")
+                        and not repo.migrated[m.name]["init"].startswith("@")
+                        and repo.pory_entry(m) is None]
+            elif args.maps:
+                maps = [_map(repo, q) for q in args.maps]
+            else:
+                raise edit.EditError("name the maps to convert, or pass --all")
+            stats = {}
+            for m in maps:
+                print("wrote %s" % repo.rel(pory.init(repo, m, args.raw, stats)))
                 repo = type(repo)(repo.root, repo.version)
+            if stats:
+                print("scripts: " + ", ".join("%d %s" % (v, k) for k, v in sorted(stats.items(), key=lambda kv: -kv[1])))
             return 0
         m = _map(repo, args.map)
         res = repo.pory_result(m)
@@ -397,7 +408,9 @@ def main(argv=None):
     pory_p = sub.add_parser("pory", help="poryscript-style scripts (docs/modding/SCRIPTING.md)")
     ps = pory_p.add_subparsers(dest="action", required=True)
     p = ps.add_parser("init", help="convert a map's scripts.inc/map_scripts.inc to scripts.pory (ROM unchanged)")
-    p.add_argument("maps", nargs="+")
+    p.add_argument("maps", nargs="*")
+    p.add_argument("--all", action="store_true", help="every map that has its own scripts and no scripts.pory yet")
+    p.add_argument("--raw", action="store_true", help="keep scripts.inc as one raw block instead of decompiling it")
     p = ps.add_parser("show", help="print what a map's scripts.pory compiles to")
     p.add_argument("map")
     p = ps.add_parser("sync", help="update the _EV_ defines in ids.h to the compiled script order")

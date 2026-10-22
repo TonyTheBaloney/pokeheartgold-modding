@@ -1,0 +1,20 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R08_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0338_R08_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R08_001 {
+    trainertipsex(2, msg_0338_R08_00001)
+    end
+}
+
+mapscripts Route8_MapScripts {
+}

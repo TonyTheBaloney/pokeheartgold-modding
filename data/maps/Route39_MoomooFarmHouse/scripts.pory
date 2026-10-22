@@ -1,0 +1,115 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R39R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_0AA)) {
+        setvar(VAR_SPECIAL_x8004, 33)
+        setvar(VAR_SPECIAL_x8005, 0)
+        hasitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 999) {
+            showmoneybox(20, 2)
+            npcmsg(msg_0397_R39R0101_00001)
+            touchscreenmenuhide
+            menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+            menuitemadd(12, 255, 1)
+            menuitemadd(13, 255, 2)
+            menuitemadd(14, 255, 3)
+            menuexec
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 3) {
+                npcmsg(msg_0397_R39R0101_00005)
+                waitbuttonpress
+                closemessage
+                hidemoneybox
+                releaseall
+                end
+            _011E:
+                setvar(VAR_TEMP_x4000, 1)
+                setvar(VAR_TEMP_x4001, 500)
+                return
+            _012C:
+                setvar(VAR_TEMP_x4000, 12)
+                setvar(VAR_TEMP_x4001, 6000)
+                return
+            }
+            compare(VAR_SPECIAL_RESULT, 1)
+            callifeq(_011E)
+            compare(VAR_SPECIAL_RESULT, 2)
+            callifeq(_012C)
+            hasenoughmoneyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4001)
+            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00F7) }
+            if (!itemspace(ITEM_MOOMOO_MILK, VAR_TEMP_x4000)) { goto(_0104) }
+            submoneyvar(VAR_TEMP_x4001)
+            updatemoneybox
+            npcmsg(msg_0397_R39R0101_00002)
+            callstd(std_give_item_verbose)
+            closemessage
+            hidemoneybox
+            releaseall
+            end
+        _00F7:
+            npcmsg(msg_0397_R39R0101_00003)
+            waitbuttonpress
+            closemessage
+            hidemoneybox
+            releaseall
+            end
+        _0104:
+            npcmsg(msg_0397_R39R0101_00004)
+            waitbuttonpress
+            closemessage
+            hidemoneybox
+            releaseall
+            end
+        }
+        npcmsg(msg_0397_R39R0101_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    setflag(FLAG_UNK_0A8)
+    npcmsg(msg_0397_R39R0101_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R39R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_0AA)) {
+        if (flag(FLAG_GOT_TM83_FROM_MOOMOO_FARM_WOMAN)) { goto(_0197) }
+        npcmsg(msg_0397_R39R0101_00008)
+        waitabpress
+        if (!itemspace(ITEM_TM83, 1)) {
+            npcmsg(msg_0397_R39R0101_00011)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_TM83_FROM_MOOMOO_FARM_WOMAN)
+        goto(_0197)
+    _0197:
+        npcmsg(msg_0397_R39R0101_00010)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0397_R39R0101_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Route39_MoomooFarmHouse_MapScripts {
+}

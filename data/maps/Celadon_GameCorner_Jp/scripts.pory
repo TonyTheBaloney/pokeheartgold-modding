@@ -1,0 +1,452 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T07R0401_000
+	ScrDef scr_seq_T07R0401_001
+	ScrDef scr_seq_T07R0401_002
+	ScrDef scr_seq_T07R0401_003
+	ScrDef scr_seq_T07R0401_004
+	ScrDef scr_seq_T07R0401_005
+	ScrDef scr_seq_T07R0401_006
+	ScrDef scr_seq_T07R0401_007
+	ScrDef scr_seq_T07R0401_008
+	ScrDef scr_seq_T07R0401_009
+	ScrDef scr_seq_T07R0401_010
+	ScrDef scr_seq_T07R0401_011
+	ScrDef scr_seq_T07R0401_012
+	ScrDef scr_seq_T07R0401_013
+	ScrDef scr_seq_T07R0401_014
+	ScrDef scr_seq_T07R0401_015
+	ScrDef scr_seq_T07R0401_016
+	ScrDef scr_seq_T07R0401_017
+	ScrDef scr_seq_T07R0401_018
+	ScrDef scr_seq_T07R0401_019
+	ScrDef scr_seq_T07R0401_020
+	ScrDef scr_seq_T07R0401_021
+	ScrDef scr_seq_T07R0401_022
+	ScrDef scr_seq_T07R0401_023
+	ScrDefEnd
+`
+
+script(local) _0062 {
+    hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0508_T07R0401_00021)
+        waitbuttonpress
+        closemessage
+        setvar(VAR_TEMP_x4001, 1)
+        return
+    }
+    scriptoverlaycmd(3, 0)
+    checkcoinsimmediate(VAR_SPECIAL_RESULT, 3)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0508_T07R0401_00022)
+        waitbuttonpress
+        closemessage
+        scriptoverlaycmd(3, 1)
+        setvar(VAR_TEMP_x4001, 1)
+        return
+    }
+    scriptoverlaycmd(3, 1)
+    setvar(VAR_TEMP_x4001, 0)
+    return
+}
+
+script scr_seq_T07R0401_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(0, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(1, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_012 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(2, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_013 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(3, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_014 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(4, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_015 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(5, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_016 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(6, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_017 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(7, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_018 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(8, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_019 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(9, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_020 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(10, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_021 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(11, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_022 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        npcmsg(msg_0508_T07R0401_00020)
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(12, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_023 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    call(_0062)
+    if (var(VAR_TEMP_x4001) != 1) {
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        casinogame(13, 1)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+    }
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0508_T07R0401_00000)
+    hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        scriptoverlaycmd(3, 0)
+        npcmsg(msg_0508_T07R0401_00002)
+        touchscreenmenuhide
+        showpointsbox(0, 20, 2)
+        showmoneybox(20, 7)
+    _043E:
+        menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+        menuitemadd(127, 255, 0)
+        menuitemadd(128, 255, 1)
+        menuitemadd(129, 255, 2)
+        menuexec
+        Switch(VAR_SPECIAL_RESULT)
+        Case(0, _048B)
+        Case(1, _04D7)
+        npcmsg(msg_0508_T07R0401_00006)
+        goto(_0531)
+        end
+    _048B:
+        hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 1000)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_052E) }
+        checkgivecoins(VAR_SPECIAL_RESULT, 50)
+        noop
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0523) }
+        submoneyimmediate(1000)
+        givecoins(50)
+        updatepointsbox(0)
+        updatemoneybox
+        playse(SEQ_SE_DP_REGI)
+        waitse(SEQ_SE_DP_REGI)
+        npcmsg(msg_0508_T07R0401_00003)
+        goto(_043E)
+        end
+    _04D7:
+        hasenoughmoneyimmediate(VAR_SPECIAL_RESULT, 10000)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_052E) }
+        checkgivecoins(VAR_SPECIAL_RESULT, 500)
+        noop
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0523) }
+        submoneyimmediate(10000)
+        givecoins(500)
+        updatepointsbox(0)
+        updatemoneybox
+        playse(SEQ_SE_DP_REGI)
+        waitse(SEQ_SE_DP_REGI)
+        npcmsg(msg_0508_T07R0401_00003)
+        goto(_043E)
+        end
+    _0523:
+        npcmsg(msg_0508_T07R0401_00005)
+        goto(_0531)
+        end
+    _052E:
+        npcmsg(msg_0508_T07R0401_00004)
+    _0531:
+        waitbuttonpress
+        closemessage
+        touchscreenmenushow
+        hidepointsbox
+        hidemoneybox
+        scriptoverlaycmd(3, 1)
+        releaseall
+        end
+    }
+    npcmsg(msg_0508_T07R0401_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    scriptoverlaycmd(3, 0)
+    if (!flag(FLAG_UNK_17C)) {
+        npcmsg(msg_0508_T07R0401_00011)
+        hasitem(ITEM_COIN_CASE, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0508_T07R0401_00014)
+            waitbuttonpress
+            closemessage
+            releaseall
+            scriptoverlaycmd(3, 1)
+            end
+        }
+        checkgivecoins(VAR_SPECIAL_RESULT, 18)
+        noop
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0508_T07R0401_00015)
+            waitbuttonpress
+            closemessage
+            releaseall
+            scriptoverlaycmd(3, 1)
+            end
+        }
+        givecoins(18)
+        bufferplayersname(0)
+        npcmsg(msg_0508_T07R0401_00012)
+        playfanfare(SEQ_ME_ITEM)
+        waitfanfare
+        setflag(FLAG_UNK_17C)
+    }
+    npcmsg(msg_0508_T07R0401_00013)
+    waitbuttonpress
+    closemessage
+    releaseall
+    scriptoverlaycmd(3, 1)
+    end
+}
+
+script scr_seq_T07R0401_001 {
+    simplenpcmsg(msg_0508_T07R0401_00007)
+    end
+}
+
+script scr_seq_T07R0401_002 {
+    simplenpcmsg(msg_0508_T07R0401_00008)
+    end
+}
+
+script scr_seq_T07R0401_003 {
+    simplenpcmsg(msg_0508_T07R0401_00009)
+    end
+}
+
+script scr_seq_T07R0401_004 {
+    simplenpcmsg(msg_0508_T07R0401_00010)
+    end
+}
+
+script scr_seq_T07R0401_006 {
+    simplenpcmsg(msg_0508_T07R0401_00016)
+    end
+}
+
+script scr_seq_T07R0401_007 {
+    simplenpcmsg(msg_0508_T07R0401_00017)
+    end
+}
+
+script scr_seq_T07R0401_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0508_T07R0401_00018)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T07R0401_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0508_T07R0401_00019)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Celadon_GameCorner_Jp_MapScripts {
+}

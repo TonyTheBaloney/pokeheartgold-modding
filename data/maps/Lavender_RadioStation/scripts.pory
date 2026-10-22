@@ -1,0 +1,99 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T05R0701_000
+	ScrDef scr_seq_T05R0701_001
+	ScrDef scr_seq_T05R0701_002
+	ScrDef scr_seq_T05R0701_003
+	ScrDef scr_seq_T05R0701_004
+	ScrDef scr_seq_T05R0701_005
+	ScrDef scr_seq_T05R0701_006
+	ScrDefEnd
+`
+
+script scr_seq_T05R0701_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_EXPN_CARD)) { goto(_0069) }
+    if (flag(FLAG_RESTORED_POWER)) {
+        bufferplayersname(0)
+        gendermsgbox(msg_0482_T05R0701_00004, msg_0482_T05R0701_00005)
+        npcmsg(msg_0482_T05R0701_00006)
+        playfanfare(SEQ_ME_KEYITEM)
+        waitfanfare
+        setflag(FLAG_GOT_EXPN_CARD)
+        if (!flag(FLAG_GOT_RADIO_CARD)) {
+            registerpokegearcard(2)
+        }
+    _0069:
+        npcmsg(msg_0482_T05R0701_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0482_T05R0701_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T05R0701_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_EXPN_CARD)) {
+        npcmsg(msg_0482_T05R0701_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0482_T05R0701_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T05R0701_000 {
+    simplenpcmsg(msg_0482_T05R0701_00000)
+    end
+}
+
+script scr_seq_T05R0701_001 {
+    simplenpcmsg(msg_0482_T05R0701_00001)
+    end
+}
+
+script scr_seq_T05R0701_002 {
+    simplenpcmsg(msg_0482_T05R0701_00002)
+    end
+}
+
+script scr_seq_T05R0701_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0482_T05R0701_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T05R0701_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0482_T05R0701_00011)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Lavender_RadioStation_MapScripts {
+}

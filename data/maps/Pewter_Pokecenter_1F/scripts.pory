@@ -1,0 +1,92 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T03PC0101_000 {
+    setvar(VAR_SPECIAL_x8007, 0)
+    callstd(std_nurse_joy)
+    end
+}
+
+script scr_seq_T03PC0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_TRADE_PEWTER_CITY_HAUNTER_XATU)) {
+        npcmsg(msg_0463_T03PC0101_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0463_T03PC0101_00003)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00BE) }
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    choosepartymonfortrade
+    getpartyselection(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 255) { goto(_00BE) }
+    loadnpctrade(9)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    getpartymonspecies(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    npctradegetreqspecies(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8005) != VAR_SPECIAL_RESULT) { goto(_00B1) }
+    npctradeexec(VAR_SPECIAL_x8004)
+    npctradeend
+    setflag(FLAG_TRADE_PEWTER_CITY_HAUNTER_XATU)
+    npcmsg(msg_0463_T03PC0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00B1:
+    npctradeend
+    npcmsg(msg_0463_T03PC0101_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00BE:
+    npcmsg(msg_0463_T03PC0101_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T03PC0101_002 {
+    simplenpcmsg(msg_0463_T03PC0101_00000)
+    end
+}
+
+script scr_seq_T03PC0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_JIGGLYPUFF, 0)
+    npcmsg(msg_0463_T03PC0101_00001)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T03PC0101_004 {
+    simplenpcmsg(msg_0463_T03PC0101_00002)
+    end
+}
+
+mapscripts Pewter_Pokecenter_1F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: std_wireless_reset_state
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4133, 2: std_union_room_return
+        VAR_UNK_4133, 1: std_wireless_colosseum_return
+    ]
+}

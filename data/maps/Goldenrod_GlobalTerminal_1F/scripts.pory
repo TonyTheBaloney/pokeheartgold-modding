@@ -1,0 +1,488 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T25R1201_000
+	ScrDef scr_seq_T25R1201_001
+	ScrDef scr_seq_T25R1201_002
+	ScrDef scr_seq_T25R1201_003
+	ScrDef scr_seq_T25R1201_004
+	ScrDef scr_seq_T25R1201_005
+	ScrDef scr_seq_T25R1201_006
+	ScrDef scr_seq_T25R1201_007
+	ScrDef scr_seq_T25R1201_008
+	ScrDef scr_seq_T25R1201_009
+	ScrDef scr_seq_T25R1201_010
+	ScrDef scr_seq_T25R1201_011
+	ScrDef scr_seq_T25R1201_012
+	ScrDef scr_seq_T25R1201_013
+	ScrDef scr_seq_T25R1201_014
+	ScrDef scr_seq_T25R1201_015
+	ScrDef scr_seq_T25R1201_016
+	ScrDef scr_seq_T25R1201_017
+	ScrDefEnd
+`
+
+raw `
+	ScrDefEnd // not sure why there are two of these...
+`
+
+script scr_seq_T25R1201_001 {
+    compare(VAR_UNK_4133, 6)
+    callifeq(_005B)
+    end
+_005B:
+    makeobjectvisible(obj_player)
+    return
+}
+
+script scr_seq_T25R1201_002 {
+    followmonresetmovement
+    lockall
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 8) {
+        if (var(VAR_TEMP_x4001) != 2) {
+        } else {
+        _0097:
+            call(_00A7)
+        }
+    _009D:
+        setvar(VAR_UNK_4133, 0)
+        releaseall
+        end
+    _00A7:
+        dooranimationload(0, 0, 8, 2, 77)
+        call(_00F5)
+        makeobjectinvisible(obj_player)
+        applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_0108)
+        waitmovement
+        call(_00FD)
+        dooranimationload(0, 0, 8, 4, 77)
+        call(_00F5)
+        applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_0118)
+        waitmovement
+        call(_00FD)
+        setvar(VAR_UNK_4133, 0)
+        return
+    _00F5:
+        dooranimationopen(77)
+        dooranimationwait(77)
+        return
+    _00FD:
+        dooranimationclose(77)
+        dooranimationwait(77)
+        dooranimationunload(77)
+        return
+    }
+    goto(_009D)
+    goto(_0097)
+}
+
+movement Goldenrod_GlobalTerminal_1F_Movement_0108 {
+    walk_down
+}
+
+movement Goldenrod_GlobalTerminal_1F_Movement_0110 {
+    walk_down
+}
+
+movement Goldenrod_GlobalTerminal_1F_Movement_0118 {
+    walk_down * 2
+}
+
+script scr_seq_T25R1201_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    partylegalcheck(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_03C4) }
+    if (flag(FLAG_UNK_112)) {
+        npcmsg(msg_0600_T25R1201_00001)
+        goto(_014B)
+        end
+    _035F:
+        getpartycount(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 6) {
+            countpcemptyspace(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 0) {
+                touchscreenmenushow
+                npcmsg(msg_0600_T25R1201_00008)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            goto(_024D)
+            end
+        }
+        goto(_024D)
+        end
+    }
+    setflag(FLAG_UNK_112)
+    npcmsg(msg_0600_T25R1201_00000)
+_014B:
+    touchscreenmenuhide
+_014D:
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(131, 255, 0)
+    menuitemadd(130, 255, 1)
+    menuitemadd(132, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0227)
+    Case(1, _01A4)
+    Case(2, _0330)
+    goto(_0330)
+    end
+_01A4:
+    npcmsg(msg_0600_T25R1201_00002)
+    goto(_01AF)
+    end
+_01AF:
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(133, 255, 0)
+    menuitemadd(134, 255, 1)
+    menuitemadd(135, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0206)
+    Case(1, _0211)
+    Case(2, _021C)
+    goto(_021C)
+    end
+_0206:
+    npcmsg(msg_0600_T25R1201_00003)
+    goto(_01AF)
+    end
+_0211:
+    npcmsg(msg_0600_T25R1201_00004)
+    goto(_01AF)
+    end
+_021C:
+    npcmsg(msg_0600_T25R1201_00005)
+    goto(_014D)
+    end
+_0227:
+    partycountnotegg(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) < 2) { goto(_0240) }
+    goto(_035F)
+    end
+_0240:
+    npcmsg(msg_0600_T25R1201_00009)
+    waitbuttonpress
+    touchscreenmenushow
+    closemessage
+    releaseall
+    end
+_024D:
+    callstd(std_prompt_save)
+    copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0343) }
+    touchscreenmenushow
+    healparty
+    setvar(VAR_UNK_4133, 6)
+    npcmsg(msg_0600_T25R1201_00007)
+    closemessage
+    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_03A0)
+    waitmovement
+    dooranimationload(0, 0, 8, 4, 77)
+    call(_00F5)
+    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_03B4)
+    waitmovement
+    call(_00FD)
+    dooranimationload(0, 0, 8, 2, 77)
+    call(_00F5)
+    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_03AC)
+    waitmovement
+    makeobjectvisible(obj_player)
+    applymovement(obj_player, Goldenrod_GlobalTerminal_1F_Movement_03BC)
+    waitmovement
+    call(_00FD)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    syncmapobjectstosave
+    setsavedbottomscreenapp(0)
+    openwificlubwithresult(VAR_SPECIAL_RESULT)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    opengts(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0314) }
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    call(_00A7)
+    releaseall
+    end
+_0314:
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    call(_00A7)
+    goto(_0343)
+    end
+_0330:
+    setvar(VAR_UNK_4133, 0)
+    touchscreenmenushow
+    npcmsg(msg_0600_T25R1201_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0343:
+    setvar(VAR_UNK_4133, 0)
+    npcmsg(msg_0600_T25R1201_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Goldenrod_GlobalTerminal_1F_Movement_03A0 {
+    walk_right
+    walk_in_place_up
+}
+
+movement Goldenrod_GlobalTerminal_1F_Movement_03AC {
+    walk_up
+}
+
+movement Goldenrod_GlobalTerminal_1F_Movement_03B4 {
+    walk_up * 2
+}
+
+movement Goldenrod_GlobalTerminal_1F_Movement_03BC {
+    face_down
+}
+
+script(local) _03C4 {
+    callstd(std_party_illegal)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1201_003 {
+    simplenpcmsg(msg_0600_T25R1201_00010)
+    end
+}
+
+script scr_seq_T25R1201_004 {
+    simplenpcmsg(msg_0600_T25R1201_00011)
+    end
+}
+
+script scr_seq_T25R1201_005 {
+    simplenpcmsg(msg_0600_T25R1201_00012)
+    end
+}
+
+script scr_seq_T25R1201_006 {
+    simplenpcmsg(msg_0600_T25R1201_00013)
+    end
+}
+
+script scr_seq_T25R1201_007 {
+    simplenpcmsg(msg_0600_T25R1201_00014)
+    end
+}
+
+script scr_seq_T25R1201_008 {
+    simplenpcmsg(msg_0600_T25R1201_00015)
+    end
+}
+
+script scr_seq_T25R1201_009 {
+    simplenpcmsg(msg_0600_T25R1201_00016)
+    end
+}
+
+script scr_seq_T25R1201_010 {
+    simplenpcmsg(msg_0600_T25R1201_00017)
+    end
+}
+
+script scr_seq_T25R1201_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8005, 3)
+    goto(_047C)
+    end
+_047C:
+    npcmsg(msg_0600_T25R1201_00031)
+    touchscreenmenuhide
+    menuinit(21, 11, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(33, 255, 0)
+    menuitemadd(34, 255, 1)
+    menuitemadd(35, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _04D3)
+    Case(1, _04F8)
+    goto(_04CB)
+    end
+_04CB:
+    touchscreenmenushow
+_04CD:
+    closemessage
+    releaseall
+    end
+_04D3:
+    callstd(std_prompt_save)
+    copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04CD) }
+    closemessage
+    setsavedbottomscreenapp(0)
+    callstd(std_enter_global_terminal)
+    releaseall
+    end
+_04F8:
+    npcmsg(msg_0600_T25R1201_00032)
+    goto(_047C)
+    end
+}
+
+script scr_seq_T25R1201_012 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8005, 4)
+    goto(_0517)
+    end
+_0517:
+    npcmsg(msg_0600_T25R1201_00029)
+    touchscreenmenuhide
+    menuinit(21, 11, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(33, 255, 0)
+    menuitemadd(34, 255, 1)
+    menuitemadd(35, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _056E)
+    Case(1, _0593)
+    goto(_0566)
+    end
+_0566:
+    touchscreenmenushow
+_0568:
+    closemessage
+    releaseall
+    end
+_056E:
+    callstd(std_prompt_save)
+    copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0568) }
+    closemessage
+    setsavedbottomscreenapp(0)
+    callstd(std_enter_global_terminal)
+    releaseall
+    end
+_0593:
+    npcmsg(msg_0600_T25R1201_00030)
+    goto(_0517)
+    end
+}
+
+script scr_seq_T25R1201_013 {
+    simplenpcmsg(msg_0600_T25R1201_00027)
+    end
+}
+
+script scr_seq_T25R1201_014 {
+    simplenpcmsg(msg_0600_T25R1201_00028)
+    end
+}
+
+script scr_seq_T25R1201_015 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    partylegalcheck(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0600_T25R1201_00023)
+        goto(_067F)
+        end
+    _062D:
+        setfavoritemon
+        npcmsg(msg_0600_T25R1201_00020)
+        goto(_067F)
+        end
+    }
+    setvar(VAR_SPECIAL_x8000, 0)
+    getpartymonspecies(VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_064D) }
+    buffermonspeciesname(0, 0)
+    npcmsg(msg_0600_T25R1201_00018)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_062D) }
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        buffermonspeciesname(0, 0)
+        npcmsg(msg_0600_T25R1201_00021)
+        goto(_067F)
+        end
+        npcmsg(msg_0600_T25R1201_00018)
+    _064D:
+        npcmsg(msg_0600_T25R1201_00019)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_062D) }
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0600_T25R1201_00022)
+            goto(_067F)
+            end
+        _067F:
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        end
+    }
+    end
+}
+
+script scr_seq_T25R1201_016 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0600_T25R1201_00024)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_06D1) }
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    closemessage
+    editbattlegreeting(VAR_SPECIAL_x8004)
+    if (var(VAR_SPECIAL_x8004) == 0) { goto(_06D1) }
+    npcmsg(msg_0600_T25R1201_00025)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_06D1:
+    npcmsg(msg_0600_T25R1201_00026)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1201_017 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0600_T25R1201_00036)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Goldenrod_GlobalTerminal_1F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_T25R1201_001
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4133, 6: scr_seq_T25R1201_002
+    ]
+}

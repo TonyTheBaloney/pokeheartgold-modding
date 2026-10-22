@@ -1,0 +1,27 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T11R0501_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_TM29_FROM_MR_PSYCHIC)) {
+        npcmsg(msg_0534_T11R0501_00000)
+        if (!itemspace(ITEM_TM29, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_TM29_FROM_MR_PSYCHIC)
+    }
+    npcmsg(msg_0534_T11R0501_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Saffron_MrPsychicHouse_MapScripts {
+}

@@ -1,0 +1,107 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D51R0101_000
+	ScrDef scr_seq_D51R0101_001
+	ScrDef scr_seq_D51R0101_002
+	ScrDef scr_seq_D51R0101_003
+	ScrDefEnd
+`
+
+script scr_seq_D51R0101_002 {
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 5) {
+        movepersonfacing(obj_D51R0101_mount_2, 13, 1, 28, DIR_NORTH)
+        end
+    }
+    end
+}
+
+script scr_seq_D51R0101_000 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_007C)
+    waitmovement
+    applymovement(obj_player, SinjohRuinsExterior_Movement_0094)
+    waitmovement
+    npcmsg(msg_0145_D51R0101_00000)
+    closemessage
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_009C)
+    waitmovement
+    npcmsg(msg_0145_D51R0101_00001)
+    closemessage
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_00A8)
+    waitmovement
+    movepersonfacing(obj_D51R0101_mount_2, 13, 1, 28, DIR_NORTH)
+    setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 5)
+    releaseall
+    end
+}
+
+movement SinjohRuinsExterior_Movement_007C {
+    walk_in_place_up
+    emote_exclamation_mark
+    delay_8
+    walk_up * 3
+    walk_in_place_left
+}
+
+movement SinjohRuinsExterior_Movement_0094 {
+    walk_in_place_right
+}
+
+movement SinjohRuinsExterior_Movement_009C {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement SinjohRuinsExterior_Movement_00A8 {
+    walk_down * 4
+    walk_left
+    walk_down * 4
+}
+
+script scr_seq_D51R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0145_D51R0101_00002)
+    closemessage
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_0108)
+    waitmovement
+    dooranimationload(0, 0, 20, 25, 77)
+    dooranimationopen(77)
+    dooranimationwait(77)
+    applymovement(obj_D51R0101_mount_2, SinjohRuinsExterior_Movement_0114)
+    waitmovement
+    removeobject(obj_D51R0101_mount_2)
+    setflag(FLAG_UNK_2DB)
+    dooranimationclose(77)
+    dooranimationwait(77)
+    dooranimationunload(77)
+    setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 6)
+    releaseall
+    end
+}
+
+movement SinjohRuinsExterior_Movement_0108 {
+    walk_right * 7
+    walk_up * 2
+}
+
+movement SinjohRuinsExterior_Movement_0114 {
+    walk_up
+}
+
+script scr_seq_D51R0101_003 {
+    trainertipsex(2, msg_0145_D51R0101_00007)
+    end
+}
+
+mapscripts SinjohRuinsExterior_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_SINJOH_MYSTRI_ROOM, 4: scr_seq_D51R0101_000
+    ]
+    INIT_SCRIPT_ON_RESUME: scr_seq_D51R0101_002
+}

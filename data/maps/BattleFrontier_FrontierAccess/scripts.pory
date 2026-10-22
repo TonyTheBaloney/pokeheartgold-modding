@@ -1,0 +1,308 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D32R0102_000
+	ScrDef scr_seq_D32R0102_001
+	ScrDef scr_seq_D32R0102_002
+	ScrDef scr_seq_D32R0102_003
+	ScrDef scr_seq_D32R0102_004
+	ScrDef scr_seq_D32R0102_005
+	ScrDef scr_seq_D32R0102_006
+	ScrDef scr_seq_D32R0102_007
+	ScrDef scr_seq_D32R0102_008
+	ScrDefEnd
+`
+
+script scr_seq_D32R0102_002 {
+    if (var(VAR_UNK_40E5) == 2) {
+        movepersonfacing(obj_D32R0102_gsmiddleman1, 17, 1, 25, DIR_WEST)
+        end
+    }
+    end
+}
+
+script scr_seq_D32R0102_004 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 2) { goto(_0078) }
+        if (var(VAR_TEMP_x4000) == 6) { goto(_0078) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _0078:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D32R0102_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_40E5) == 2) {
+        npcmsg(msg_0104_D32R0102_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0104_D32R0102_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D32R0102_001 {
+    followmonresetmovement
+    lockall
+    npcmsg(msg_0104_D32R0102_00000)
+    closemessage
+    movepersonfacing(obj_D32R0102_gsmiddleman1, 14, 1, 36, DIR_NORTH)
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8004) == 12) {
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_019C)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0224)
+    } elif (var(VAR_SPECIAL_x8004) == 13) {
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_01B4)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0224)
+    } elif (var(VAR_SPECIAL_x8004) == 14) {
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_01C8)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0224)
+    } elif (var(VAR_SPECIAL_x8004) == 15) {
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_01E0)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0230)
+    } elif (var(VAR_SPECIAL_x8004) == 16) {
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_01F4)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0230)
+    } else {
+        applymovement(obj_D32R0102_gsmiddleman1, BattleFrontier_FrontierAccess_Movement_020C)
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_0230)
+    }
+    waitmovement
+    npcmsg(msg_0104_D32R0102_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    setvar(VAR_UNK_40E5, 1)
+    setflag(FLAG_UNK_25B)
+    end
+}
+
+movement BattleFrontier_FrontierAccess_Movement_019C {
+    walk_fast_left
+    walk_fast_up * 5
+    walk_slightly_fast_up * 2
+    walk_up
+    walk_in_place_left
+}
+
+movement BattleFrontier_FrontierAccess_Movement_01B4 {
+    walk_fast_up * 5
+    walk_slightly_fast_up * 2
+    walk_up
+    walk_in_place_left
+}
+
+movement BattleFrontier_FrontierAccess_Movement_01C8 {
+    walk_right
+    walk_fast_up * 5
+    walk_slightly_fast_up * 2
+    walk_up
+    walk_in_place_left
+}
+
+movement BattleFrontier_FrontierAccess_Movement_01E0 {
+    walk_fast_up * 5
+    walk_slightly_fast_up * 2
+    walk_up
+    walk_in_place_right
+}
+
+movement BattleFrontier_FrontierAccess_Movement_01F4 {
+    walk_right
+    walk_fast_up * 5
+    walk_slightly_fast_up * 2
+    walk_up
+    walk_in_place_right
+}
+
+movement BattleFrontier_FrontierAccess_Movement_020C {
+    walk_fast_right * 2
+    walk_fast_up * 5
+    walk_slightly_fast_up * 2
+    walk_up
+    walk_in_place_right
+}
+
+movement BattleFrontier_FrontierAccess_Movement_0224 {
+    delay_8 * 5
+    walk_in_place_right
+}
+
+movement BattleFrontier_FrontierAccess_Movement_0230 {
+    delay_8 * 5
+    walk_in_place_left
+}
+
+script scr_seq_D32R0102_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_038C)
+        applymovement(obj_D32R0102_gsmiddleman1_2, BattleFrontier_FrontierAccess_Movement_03D8)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_03A4)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_03C4)
+        applymovement(obj_D32R0102_gsmiddleman1_2, BattleFrontier_FrontierAccess_Movement_03D8)
+    } else {
+        applymovement(obj_player, BattleFrontier_FrontierAccess_Movement_03B0)
+        applymovement(obj_D32R0102_gsmiddleman1_2, BattleFrontier_FrontierAccess_Movement_03D8)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, BattleFrontier_FrontierAccess_Movement_03E4)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(29)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement BattleFrontier_FrontierAccess_Movement_038C {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement BattleFrontier_FrontierAccess_Movement_03A4 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement BattleFrontier_FrontierAccess_Movement_03B0 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement BattleFrontier_FrontierAccess_Movement_03C4 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement BattleFrontier_FrontierAccess_Movement_03D8 {
+    delay_8
+    walk_in_place_up
+}
+
+movement BattleFrontier_FrontierAccess_Movement_03E4 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_D32R0102_005 {
+    if (!flag(FLAG_UNK_150)) {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        npcmsg(msg_0104_D32R0102_00004)
+        applymovement(obj_D32R0102_gsman1, BattleFrontier_FrontierAccess_Movement_043C)
+        waitmovement
+        npcmsg(msg_0104_D32R0102_00005)
+        closemessage
+        setflag(FLAG_UNK_150)
+    } else {
+        playse(SEQ_SE_DP_SELECT)
+        lockall
+        faceplayer
+        npcmsg(msg_0104_D32R0102_00006)
+        closemessage
+    }
+    applymovement(obj_D32R0102_gsman1, BattleFrontier_FrontierAccess_Movement_0444)
+    waitmovement
+    releaseall
+    end
+}
+
+movement BattleFrontier_FrontierAccess_Movement_043C {
+    face_down
+}
+
+movement BattleFrontier_FrontierAccess_Movement_0444 {
+    face_up
+}
+
+script scr_seq_D32R0102_006 {
+    simplenpcmsg(msg_0104_D32R0102_00007)
+    end
+}
+
+script scr_seq_D32R0102_007 {
+    simplenpcmsg(msg_0104_D32R0102_00008)
+    end
+}
+
+script scr_seq_D32R0102_008 {
+    trainertipsex(2, msg_0104_D32R0102_00009)
+    end
+}
+
+mapscripts BattleFrontier_FrontierAccess_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_D32R0102_002
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0102_004
+}

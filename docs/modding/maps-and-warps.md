@@ -11,8 +11,7 @@ Every map has a folder in `data/maps/`, laid out like pret/pokeemerald:
 | File | Holds |
 |---|---|
 | `data/maps/Cherrygrove/map.json` | header **and** events (`object_events`, `warp_events`, `coord_events`, `bg_events`) |
-| `data/maps/Cherrygrove/scripts.inc` | event scripts |
-| `data/maps/Cherrygrove/map_scripts.inc` | init / level scripts (on load, on transition, frame table) |
+| `data/maps/Cherrygrove/scripts.pory` | event scripts, movement and init / level scripts (`mapscripts`) |
 | `data/maps/Cherrygrove/text.json` | text |
 | `data/maps/Cherrygrove/ids.h` | script and object ids |
 

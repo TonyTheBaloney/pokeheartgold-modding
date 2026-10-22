@@ -1,0 +1,367 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D37R0104_000
+	ScrDef scr_seq_D37R0104_001
+	ScrDef scr_seq_D37R0104_002
+	ScrDef scr_seq_D37R0104_003
+	ScrDef scr_seq_D37R0104_004
+	ScrDef scr_seq_D37R0104_005
+	ScrDef scr_seq_D37R0104_006
+	ScrDefEnd
+`
+
+script scr_seq_D37R0104_006 {
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        clearflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+    }
+    setvar(VAR_TEMP_x4000, GATE_OPEN)
+    setvar(VAR_TEMP_x4001, GATE_OPEN)
+    setvar(VAR_TEMP_x4002, GATE_CLOSED)
+    setvar(VAR_TEMP_x4003, GATE_OPEN)
+    setvar(VAR_TEMP_x4004, GATE_OPEN)
+    setvar(VAR_TEMP_x4005, GATE_OPEN)
+    setvar(VAR_TEMP_x4006, GATE_OPEN)
+    setvar(VAR_TEMP_x4007, GATE_OPEN)
+    setvar(VAR_TEMP_x4008, GATE_OPEN)
+    setvar(VAR_TEMP_x4009, GATE_CLOSED)
+    end
+}
+
+script scr_seq_D37R0104_005 {
+    makeobjectvisible(obj_D37R0104_stop_3)
+    makeobjectvisible(obj_D37R0104_stop_2)
+    makeobjectvisible(obj_D37R0104_stop)
+    makeobjectvisible(obj_D37R0104_stop_4)
+    makeobjectvisible(obj_D37R0104_stop_5)
+    makeobjectvisible(obj_D37R0104_stop_6)
+    if (flag(FLAG_OPENED_GOLDENROD_PURPLE_GATE)) {
+        movepersonfacing(obj_D37R0104_purplegate_left, 18, 0, 14, DIR_NORTH)
+        movepersonfacing(obj_D37R0104_purplegate_right, 24, 0, 14, DIR_NORTH)
+        movepersonfacing(obj_D37R0104_stop_6, 24, 0, 14, DIR_NORTH)
+        end
+    }
+    end
+}
+
+script scr_seq_D37R0104_002 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_GS_ZUKAN06)
+    if (var(VAR_TEMP_x4001) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate1_left, Goldenrod_Tunnel_B2F_Movement_05CC)
+        applymovement(obj_D37R0104_gate1_right, Goldenrod_Tunnel_B2F_Movement_05D4)
+        applymovement(obj_D37R0104_stop_2, Goldenrod_Tunnel_B2F_Movement_060C)
+        setvar(VAR_TEMP_x4001, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate1_left, Goldenrod_Tunnel_B2F_Movement_05DC)
+        applymovement(obj_D37R0104_gate1_right, Goldenrod_Tunnel_B2F_Movement_05E4)
+        applymovement(obj_D37R0104_stop_2, Goldenrod_Tunnel_B2F_Movement_0614)
+        setvar(VAR_TEMP_x4001, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4003) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_05EC)
+        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        setvar(VAR_TEMP_x4003, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_05FC)
+        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        setvar(VAR_TEMP_x4003, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4005) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_05CC)
+        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_05D4)
+        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_060C)
+        setvar(VAR_TEMP_x4005, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_05DC)
+        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_05E4)
+        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_0614)
+        setvar(VAR_TEMP_x4005, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4006) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_05CC)
+        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_05D4)
+        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_060C)
+        setvar(VAR_TEMP_x4006, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_05DC)
+        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_05E4)
+        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_0614)
+        setvar(VAR_TEMP_x4006, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4007) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_05EC)
+        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        setvar(VAR_TEMP_x4007, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_05FC)
+        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        setvar(VAR_TEMP_x4007, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4008) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_05EC)
+        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        setvar(VAR_TEMP_x4008, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_05FC)
+        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        setvar(VAR_TEMP_x4008, GATE_OPEN)
+    }
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_D37R0104_001 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_GS_ZUKAN06)
+    if (var(VAR_TEMP_x4000) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate0_left, Goldenrod_Tunnel_B2F_Movement_05CC)
+        applymovement(obj_D37R0104_gate0_right, Goldenrod_Tunnel_B2F_Movement_05D4)
+        applymovement(obj_D37R0104_stop_3, Goldenrod_Tunnel_B2F_Movement_060C)
+        setvar(VAR_TEMP_x4000, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate0_left, Goldenrod_Tunnel_B2F_Movement_05DC)
+        applymovement(obj_D37R0104_gate0_right, Goldenrod_Tunnel_B2F_Movement_05E4)
+        applymovement(obj_D37R0104_stop_3, Goldenrod_Tunnel_B2F_Movement_0614)
+        setvar(VAR_TEMP_x4000, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4002) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_05EC)
+        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        setvar(VAR_TEMP_x4002, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_05FC)
+        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        setvar(VAR_TEMP_x4002, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4004) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_05CC)
+        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_05D4)
+        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_060C)
+        setvar(VAR_TEMP_x4004, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_05DC)
+        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_05E4)
+        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_0614)
+        setvar(VAR_TEMP_x4004, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4006) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_05CC)
+        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_05D4)
+        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_060C)
+        setvar(VAR_TEMP_x4006, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate6_left, Goldenrod_Tunnel_B2F_Movement_05DC)
+        applymovement(obj_D37R0104_gate6_right, Goldenrod_Tunnel_B2F_Movement_05E4)
+        applymovement(obj_D37R0104_stop_5, Goldenrod_Tunnel_B2F_Movement_0614)
+        setvar(VAR_TEMP_x4006, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4008) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_05EC)
+        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        setvar(VAR_TEMP_x4008, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate8_top, Goldenrod_Tunnel_B2F_Movement_05FC)
+        applymovement(obj_D37R0104_gate8_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        setvar(VAR_TEMP_x4008, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4009) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate9_top, Goldenrod_Tunnel_B2F_Movement_05EC)
+        applymovement(obj_D37R0104_gate9_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        setvar(VAR_TEMP_x4009, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate9_top, Goldenrod_Tunnel_B2F_Movement_05FC)
+        applymovement(obj_D37R0104_gate9_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        setvar(VAR_TEMP_x4009, GATE_OPEN)
+    }
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_D37R0104_000 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_GS_ZUKAN06)
+    if (var(VAR_TEMP_x4002) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_05EC)
+        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        setvar(VAR_TEMP_x4002, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate2_top, Goldenrod_Tunnel_B2F_Movement_05FC)
+        applymovement(obj_D37R0104_gate2_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        setvar(VAR_TEMP_x4002, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4003) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_05EC)
+        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        setvar(VAR_TEMP_x4003, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate3_top, Goldenrod_Tunnel_B2F_Movement_05FC)
+        applymovement(obj_D37R0104_gate3_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        setvar(VAR_TEMP_x4003, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4004) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_05CC)
+        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_05D4)
+        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_060C)
+        setvar(VAR_TEMP_x4004, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate4_left, Goldenrod_Tunnel_B2F_Movement_05DC)
+        applymovement(obj_D37R0104_gate4_right, Goldenrod_Tunnel_B2F_Movement_05E4)
+        applymovement(obj_D37R0104_stop, Goldenrod_Tunnel_B2F_Movement_0614)
+        setvar(VAR_TEMP_x4004, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4005) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_05CC)
+        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_05D4)
+        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_060C)
+        setvar(VAR_TEMP_x4005, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate5_left, Goldenrod_Tunnel_B2F_Movement_05DC)
+        applymovement(obj_D37R0104_gate5_right, Goldenrod_Tunnel_B2F_Movement_05E4)
+        applymovement(obj_D37R0104_stop_4, Goldenrod_Tunnel_B2F_Movement_0614)
+        setvar(VAR_TEMP_x4005, GATE_OPEN)
+    }
+    if (var(VAR_TEMP_x4007) == GATE_OPEN) {
+        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_05EC)
+        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_05F4)
+        setvar(VAR_TEMP_x4007, GATE_CLOSED)
+    } else {
+        applymovement(obj_D37R0104_gate7_top, Goldenrod_Tunnel_B2F_Movement_05FC)
+        applymovement(obj_D37R0104_gate7_bottom, Goldenrod_Tunnel_B2F_Movement_0604)
+        setvar(VAR_TEMP_x4007, GATE_OPEN)
+    }
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_D37R0104_003 {
+    if (flag(FLAG_OPENED_GOLDENROD_PURPLE_GATE)) {
+        end
+    }
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_GS_ZUKAN06)
+    applymovement(obj_D37R0104_purplegate_left, Goldenrod_Tunnel_B2F_Movement_05DC)
+    applymovement(obj_D37R0104_purplegate_right, Goldenrod_Tunnel_B2F_Movement_05E4)
+    applymovement(obj_D37R0104_stop_6, Goldenrod_Tunnel_B2F_Movement_0614)
+    waitmovement
+    setflag(FLAG_OPENED_GOLDENROD_PURPLE_GATE)
+    releaseall
+    end
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_05CC {
+    walk_right * 2
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_05D4 {
+    walk_left * 2
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_05DC {
+    walk_left * 2
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_05E4 {
+    walk_right * 2
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_05EC {
+    walk_down * 2
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_05F4 {
+    walk_up * 2
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_05FC {
+    walk_up * 2
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_0604 {
+    walk_down * 2
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_060C {
+    walk_right * 2
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_0614 {
+    walk_left * 2
+}
+
+script scr_seq_D37R0104_004 {
+    followmonresetmovement
+    lockall
+    callstd(std_play_rival_intro_music)
+    movepersonfacing(obj_D37R0104_gsrivel, 28, 0, 4, DIR_WEST)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D37R0104_gsrivel, Goldenrod_Tunnel_B2F_Movement_06E0)
+    applymovement(obj_player, Goldenrod_Tunnel_B2F_Movement_06F4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferrivalsname(0)
+    npcmsg(msg_0119_D37R0104_00000)
+    closemessage
+    getstarterchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 152) {
+        trainerbattle(TRAINER_RIVAL_SILVER_18, 0, 0, 0)
+    } elif (var(VAR_SPECIAL_RESULT) == 155) {
+        trainerbattle(TRAINER_RIVAL_SILVER_12, 0, 0, 0)
+    } else {
+        trainerbattle(TRAINER_RIVAL_SILVER_17, 0, 0, 0)
+    }
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    callstd(std_play_rival_outro_music)
+    bufferrivalsname(0)
+    npcmsg(msg_0119_D37R0104_00001)
+    closemessage
+    setvar(VAR_UNK_40A0, 1)
+    applymovement(obj_D37R0104_gsrivel, Goldenrod_Tunnel_B2F_Movement_0700)
+    waitmovement
+    removeobject(obj_D37R0104_gsrivel)
+    callstd(std_fade_end_rival_outro_music)
+    releaseall
+    end
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_06E0 {
+    delay_4 * 6
+    walk_left * 3
+    walk_down
+    walk_left * 4
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_06F4 {
+    emote_exclamation_mark
+    walk_right
+}
+
+movement Goldenrod_Tunnel_B2F_Movement_0700 {
+    walk_right * 4
+    walk_up
+    walk_right * 4
+}
+
+mapscripts Goldenrod_Tunnel_B2F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_D37R0104_005
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D37R0104_006
+}

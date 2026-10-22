@@ -1,0 +1,30 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T28R0201_000 {
+    simplenpcmsg(msg_0625_T28R0201_00000)
+    end
+}
+
+script scr_seq_T28R0201_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_BEAT_RADIO_TOWER_ROCKETS)) {
+        if (flag(FLAG_UNK_0C5)) {
+            npcmsg(msg_0625_T28R0201_00002)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+    }
+    npcmsg(msg_0625_T28R0201_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Mahogany_EastHouse_MapScripts {
+}

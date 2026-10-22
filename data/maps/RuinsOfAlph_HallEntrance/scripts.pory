@@ -1,0 +1,272 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D24R0211_000
+	ScrDef scr_seq_D24R0211_001
+	ScrDef scr_seq_D24R0211_002
+	ScrDef scr_seq_D24R0211_003
+	ScrDef scr_seq_D24R0211_004
+	ScrDefEnd
+`
+
+script scr_seq_D24R0211_003 {
+    if (!flag(FLAG_UNK_189)) {
+        checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 0) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 1) { goto(_006B) }
+            if (var(VAR_TEMP_x4000) == 2) { goto(_006B) }
+            if (var(VAR_TEMP_x4000) == 4) { goto(_006B) }
+        }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _006B:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D24R0211_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0079_D24R0211_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D24R0211_001 {
+    followmonresetmovement
+    lockall
+    movepersonfacing(obj_D24R0211_gsassistantm, 25, 0, 30, DIR_NORTH)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_0120)
+    applymovement(obj_D24R0211_gsassistantm, RuinsOfAlph_HallEntrance_Movement_0144)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    wait(15, VAR_SPECIAL_x8005)
+    npcmsg(msg_0079_D24R0211_00001)
+    applymovement(obj_D24R0211_gsassistantm, RuinsOfAlph_HallEntrance_Movement_0160)
+    waitmovement
+    npcmsg(msg_0079_D24R0211_00002)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_RUINS_OF_ALPH_RESEARCH_CENTER, 0, 7, 4, DIR_EAST)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    setobjectfacingandupdatedraw(2, 2)
+    npcmsg(msg_0079_D24R0211_00003)
+    msgfont3(4)
+    npcmsg(msg_0079_D24R0211_00005)
+    bufferplayersname(0)
+    npcmsg(msg_0079_D24R0211_00006)
+    playfanfare(SEQ_ME_LVUP)
+    waitfanfare
+    addvar(VAR_UNOWN_REPORT_LEVEL, 1)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement RuinsOfAlph_HallEntrance_Movement_0120 {
+    delay_4
+    walk_right
+    face_down
+    emote_exclamation_mark
+    walk_right
+    walk_down * 2
+    walk_left * 2
+    face_up
+}
+
+movement RuinsOfAlph_HallEntrance_Movement_0144 {
+    delay_8 * 4
+    walk_fast_up * 4
+    walk_fast_right
+    walk_fast_up * 6
+    walk_fast_left
+    walk_in_place_up
+}
+
+movement RuinsOfAlph_HallEntrance_Movement_0160 {
+    face_down
+}
+
+script scr_seq_D24R0211_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0290) }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02A4) }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02B8)
+        applymovement(obj_D24R0211_gsmiddleman1, RuinsOfAlph_HallEntrance_Movement_0304)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02D0)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02F0)
+        applymovement(obj_D24R0211_gsmiddleman1, RuinsOfAlph_HallEntrance_Movement_0304)
+    } else {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02DC)
+        applymovement(obj_D24R0211_gsmiddleman1, RuinsOfAlph_HallEntrance_Movement_0304)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, RuinsOfAlph_HallEntrance_Movement_0310)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(4)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0290:
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 5)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_02A4:
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 3)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement RuinsOfAlph_HallEntrance_Movement_02B8 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_HallEntrance_Movement_02D0 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_HallEntrance_Movement_02DC {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_HallEntrance_Movement_02F0 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement RuinsOfAlph_HallEntrance_Movement_0304 {
+    delay_8
+    walk_in_place_up
+}
+
+movement RuinsOfAlph_HallEntrance_Movement_0310 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_D24R0211_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0290) }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02A4) }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02B8)
+        applymovement(obj_D24R0211_gsmiddleman1_2, RuinsOfAlph_HallEntrance_Movement_0304)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02D0)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02F0)
+        applymovement(obj_D24R0211_gsmiddleman1_2, RuinsOfAlph_HallEntrance_Movement_0304)
+    } else {
+        applymovement(obj_player, RuinsOfAlph_HallEntrance_Movement_02DC)
+        applymovement(obj_D24R0211_gsmiddleman1_2, RuinsOfAlph_HallEntrance_Movement_0304)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, RuinsOfAlph_HallEntrance_Movement_0310)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(4)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts RuinsOfAlph_HallEntrance_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D24R0211_003
+}

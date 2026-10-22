@@ -1,0 +1,10 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T10_000 {
+    trainertipsex(2, msg_0521_T10_00000)
+    end
+}
+
+mapscripts IndigoPlateau_MapScripts {
+}

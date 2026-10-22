@@ -1,0 +1,1259 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D31R0201_000
+	ScrDef scr_seq_D31R0201_001
+	ScrDef scr_seq_D31R0201_002
+	ScrDef scr_seq_D31R0201_003
+	ScrDef scr_seq_D31R0201_004
+	ScrDef scr_seq_D31R0201_005
+	ScrDef scr_seq_D31R0201_006
+	ScrDef scr_seq_D31R0201_007
+	ScrDef scr_seq_D31R0201_008
+	ScrDef scr_seq_D31R0201_009
+	ScrDef scr_seq_D31R0201_010
+	ScrDef scr_seq_D31R0201_011
+	ScrDef scr_seq_D31R0201_012
+	ScrDef scr_seq_D31R0201_013
+	ScrDef scr_seq_D31R0201_014
+	ScrDef scr_seq_D31R0201_015
+	ScrDef scr_seq_D31R0201_016
+	ScrDef scr_seq_D31R0201_017
+	ScrDef scr_seq_D31R0201_018
+	ScrDef scr_seq_D31R0201_019
+	ScrDef scr_seq_D31R0201_020
+	ScrDef scr_seq_D31R0201_021
+	ScrDef scr_seq_D31R0201_022
+	ScrDef scr_seq_D31R0201_023
+	ScrDefEnd
+`
+
+script scr_seq_D31R0201_021 {
+    compare(VAR_UNK_414B, 1)
+    callifeq(_00A6)
+    compare(VAR_UNK_414B, 3)
+    callifeq(_00A6)
+    compare(VAR_UNK_414B, 255)
+    callifeq(_00A6)
+    battletowergetrecordmilestone(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 0) {
+        clearflag(FLAG_HIDE_BATTLE_TOWER_RECEPTIONIST)
+        end
+    _00A6:
+        clearflagunk975
+        return
+    }
+    setflag(FLAG_HIDE_BATTLE_TOWER_RECEPTIONIST)
+    end
+}
+
+script scr_seq_D31R0201_022 {
+    if (var(VAR_UNK_414B) == 1) {
+        battletowergetrecordmilestone(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 0) { goto(_00F1) }
+        if (var(VAR_TEMP_x4000) == 1) { goto(_00F1) }
+        if (var(VAR_TEMP_x4000) == 2) { goto(_00F1) }
+        if (var(VAR_TEMP_x4000) == 3) { goto(_00F1) }
+    }
+    end
+_00F1:
+    setobjectfacingandupdatedraw(3, 2)
+    end
+_00F9:
+    setvar(VAR_UNK_414B, 255)
+    setvar(VAR_UNK_414D, 1)
+    setvar(VAR_UNK_414E, 1)
+    setvar(VAR_UNK_414C, 1)
+    return
+_0113:
+    setvar(VAR_UNK_414B, 255)
+    setvar(VAR_UNK_414D, 3)
+    setvar(VAR_UNK_414F, 1)
+    setvar(VAR_UNK_4150, 1)
+    setvar(VAR_UNK_4151, 1)
+    return
+_0133:
+    setvar(VAR_UNK_414B, 255)
+    setvar(VAR_UNK_414D, 1)
+    setvar(VAR_UNK_414E, 1)
+    setvar(VAR_UNK_414C, 2)
+    return
+}
+
+script scr_seq_D31R0201_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4001, 0)
+    battletowerclaimrecordmilestone(VAR_TEMP_x4002)
+    goto(_0167)
+    end
+_0167:
+    Switch(VAR_TEMP_x4002)
+    Case(1, _01DA)
+    Case(2, _01ED)
+    Case(3, _0200)
+    Case(4, _01CF)
+    npcmsg(msg_0096_D31R0201_00015)
+    goto(_01AC)
+    end
+_01AC:
+    waitbuttonpress
+    if (var(VAR_TEMP_x4001) == 1) {
+        call(_0872)
+        goto(_0860)
+        end
+    _01CF:
+        npcmsg(msg_0096_D31R0201_00089)
+        goto(_01AC)
+        end
+    _01DA:
+        bufferint(0, 20)
+        setvar(VAR_SPECIAL_x8004, 85)
+        goto(_0213)
+        end
+    _01ED:
+        bufferint(0, 50)
+        setvar(VAR_SPECIAL_x8004, 86)
+        goto(_0213)
+        end
+    _0200:
+        bufferint(0, 100)
+        setvar(VAR_SPECIAL_x8004, 87)
+        goto(_0213)
+        end
+    _0213:
+        npcmsg(msg_0096_D31R0201_00088)
+        playfanfare(SEQ_ME_ITEM)
+        waitfanfare
+        if (var(VAR_SPECIAL_x8004) == 85) {
+            clearflag(FLAG_HIDE_PLAYERS_ROOM_BRONZE_TROPHY)
+        } elif (var(VAR_SPECIAL_x8004) == 86) {
+            clearflag(FLAG_HIDE_PLAYERS_ROOM_SILVER_TROPHY)
+        } else {
+            clearflag(FLAG_HIDE_PLAYERS_ROOM_GOLD_TROPHY)
+        }
+        npcmsg(msg_0096_D31R0201_00015)
+        goto(_01AC)
+        end
+    }
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D31R0201_000 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_DP_SELECT)
+    frontierassertcleared
+    npcmsg(msg_0096_D31R0201_00000)
+    goto(_026E)
+    end
+_026E:
+    npcmsg(msg_0096_D31R0201_00001)
+    call(_02AC)
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _02D2)
+    Case(1, _02A1)
+    touchscreenmenushow
+    goto(_085B)
+    end
+_02A1:
+    npcmsg(msg_0096_D31R0201_00003)
+    goto(_026E)
+    end
+_02AC:
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(143, 255, 0)
+    menuitemadd(144, 255, 1)
+    menuitemadd(145, 255, 2)
+    menuexec
+    return
+_02D2:
+    npcmsg(msg_0096_D31R0201_00004)
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(475, 255, 0)
+    menuitemadd(476, 255, 1)
+    menuitemadd(94, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0321)
+    Case(1, _0356)
+    touchscreenmenushow
+    goto(_085B)
+    end
+_0321:
+    frontierfieldsysteminit(0, 0)
+    goto(_032F)
+    end
+_032F:
+    battletoweraction(1, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0096_D31R0201_00008)
+        call(_0560)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_085B) }
+        battletoweraction(32, 0, VAR_SPECIAL_RESULT)
+        Switch(VAR_SPECIAL_RESULT)
+        Case(1, _0546)
+        Case(2, _0553)
+        battletoweraction(53, 0, VAR_SPECIAL_RESULT)
+        daycaresanitizemon(VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_14C8) }
+        battletoweraction(53, 1, VAR_SPECIAL_RESULT)
+        daycaresanitizemon(VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_14C8) }
+        battletoweraction(53, 2, VAR_SPECIAL_RESULT)
+        daycaresanitizemon(VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_14C8) }
+        battletoweraction(43, 0, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 4) { goto(_0A97) }
+        goto(_04F6)
+        end
+    }
+    touchscreenmenushow
+    msgboxfrontierbannedspecies(91, 3, 0, 0)
+    goto(_085E)
+    end
+_0356:
+    frontierfieldsysteminit(0, 1)
+    battletoweraction(1, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0096_D31R0201_00008)
+        call(_0560)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_085B) }
+        battletoweraction(32, 0, VAR_SPECIAL_RESULT)
+        Switch(VAR_SPECIAL_RESULT)
+        Case(1, _0546)
+        Case(2, _0553)
+        battletoweraction(53, 0, VAR_SPECIAL_RESULT)
+        daycaresanitizemon(VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_14C8) }
+        battletoweraction(53, 1, VAR_SPECIAL_RESULT)
+        daycaresanitizemon(VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_14C8) }
+        battletoweraction(53, 2, VAR_SPECIAL_RESULT)
+        daycaresanitizemon(VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_14C8) }
+        battletoweraction(53, 3, VAR_SPECIAL_RESULT)
+        daycaresanitizemon(VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_14C8) }
+        battletoweraction(43, 0, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 4) { goto(_0A97) }
+        goto(_04F6)
+        end
+    _04F6:
+        call(_00F9)
+        battletoweraction(5, 0, 0)
+        healparty
+        call(_053A)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0855) }
+        setsavedbottomscreenapp(0)
+        battletoweraction(57, 0, VAR_SPECIAL_RESULT)
+        battletoweraction(52, 0, 0)
+        npcmsg(msg_0096_D31R0201_00011)
+        waitabpress
+        goto(_06CD)
+        end
+    _053A:
+        callstd(std_prompt_save)
+        copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+        return
+    _0546:
+        npcmsg(msg_0096_D31R0201_00009)
+        touchscreenmenushow
+        goto(_085B)
+        end
+    _0553:
+        npcmsg(msg_0096_D31R0201_00010)
+        touchscreenmenushow
+        goto(_085B)
+        end
+    _0560:
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        closemessage
+        battletoweraction(30, 0, 0)
+        battletoweraction(31, 0, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            setsavedbottomscreenapp(0)
+        }
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        return
+    }
+    touchscreenmenushow
+    msgboxfrontierbannedspecies(91, 4, 0, 0)
+    goto(_085E)
+    end
+}
+
+script scr_seq_D31R0201_004 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_414B, 0)
+    battletoweraction(4, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(scr_seq_D31R0201_005) }
+    npcmsg(msg_0096_D31R0201_00016)
+    frontierfieldsysteminit(1, 65535)
+    battletoweraction(43, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 2) {
+        call(_062C)
+        battletoweraction(5, 0, 0)
+        call(_0817)
+        battletoweraction(51, 0, VAR_SPECIAL_RESULT)
+        copyvar(VAR_TEMP_x4009, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0096_D31R0201_00032)
+        waitabpress
+        goto(_06CD)
+        end
+    _062C:
+        setvar(VAR_UNK_414B, 255)
+        setvar(VAR_UNK_414D, 2)
+        setvar(VAR_UNK_414F, 1)
+        setvar(VAR_UNK_4150, 2)
+        setvar(VAR_UNK_4151, 0)
+        return
+    }
+    call(_0133)
+    battletoweraction(5, 0, 0)
+    call(_0817)
+    npcmsg(msg_0096_D31R0201_00011)
+    waitabpress
+    goto(_06CD)
+    end
+}
+
+script scr_seq_D31R0201_005 {
+    followmonresetmovement
+    lockall
+    npcmsg(msg_0096_D31R0201_00019)
+    battletoweraction(14, 0, VAR_SPECIAL_RESULT)
+    compare(VAR_BATTLE_TOWER_PRINT_PROGRESS, 1)
+    callifeq(_068A)
+    compare(VAR_BATTLE_TOWER_PRINT_PROGRESS, 3)
+    callifeq(_0692)
+    if (var(VAR_SPECIAL_RESULT) == 4) {
+        battletoweraction(9, 0, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0855) }
+        battletoweraction(10, 0, VAR_SPECIAL_RESULT)
+        copyvar(VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+        bufferint(0, VAR_SPECIAL_x8000)
+        npcmsg(msg_0096_D31R0201_00065)
+        goto(_0855)
+        end
+    _06CD:
+        closemessage
+        battletoweraction(43, 0, VAR_SPECIAL_RESULT)
+        Switch(VAR_SPECIAL_RESULT)
+        Case(4, _0733)
+        Case(5, _0733)
+        Case(2, _074D)
+        Case(3, _0767)
+        goto(_0719)
+        end
+    _0719:
+        setvar(VAR_TEMP_x4002, 0)
+        setvar(VAR_TEMP_x4003, 15)
+        call(_078F)
+        goto(_0829)
+        end
+    _0733:
+        setvar(VAR_TEMP_x4002, 2)
+        setvar(VAR_TEMP_x4003, 19)
+        call(_078F)
+        goto(_0829)
+        end
+    _074D:
+        setvar(VAR_TEMP_x4002, 1)
+        setvar(VAR_TEMP_x4003, 11)
+        call(_078F)
+        goto(_07CF)
+        end
+    _0767:
+        setvar(VAR_TEMP_x4002, 1)
+        setvar(VAR_TEMP_x4003, 11)
+        call(_078F)
+        goto(_0781)
+        end
+    _0781:
+        setvar(VAR_UNK_414D, 2)
+        goto(_0829)
+        end
+    _078F:
+        applymovement(VAR_TEMP_x4002, BattleTower_Movement_1348)
+        applymovement(obj_player, BattleTower_Movement_1360)
+        waitmovement
+        dooranimationload(0, 0, VAR_TEMP_x4003, 2, 77)
+        dooranimationopen(77)
+        dooranimationwait(77)
+        applymovement(VAR_TEMP_x4002, BattleTower_Movement_1354)
+        applymovement(obj_player, BattleTower_Movement_136C)
+        waitmovement
+        dooranimationclose(77)
+        dooranimationwait(77)
+        dooranimationunload(77)
+        return
+    _07CF:
+        goto(_0829)
+        end
+    }
+    goto(_0855)
+    end
+_068A:
+    setvar(VAR_BATTLE_TOWER_PRINT_PROGRESS, 0)
+    return
+_0692:
+    setvar(VAR_BATTLE_TOWER_PRINT_PROGRESS, 2)
+    return
+}
+
+script scr_seq_D31R0201_007 {
+    followmonresetmovement
+    lockall
+    call(_0807)
+    battletoweraction(100, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_085B) }
+    npcmsg(msg_0096_D31R0201_00056)
+    call(_0817)
+    goto(_0855)
+    end
+_0807:
+    call(_0890)
+    battletoweraction(6, 0, 0)
+    return
+_0817:
+    addwaitingicon
+    savegamenormal(VAR_SPECIAL_RESULT)
+    removewaitingicon
+    playse(SEQ_SE_DP_SAVE)
+    waitse(SEQ_SE_DP_SAVE)
+    return
+_0829:
+    incgamestat(59)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_BATTLE_TOWER_ELEVATOR, 0, 3, 6, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+_0855:
+    call(_0872)
+_085B:
+    npcmsg(msg_0096_D31R0201_00002)
+_085E:
+    waitbuttonpress
+_0860:
+    closemessage
+    call(_088C)
+    call(_0890)
+    releaseall
+    end
+_0872:
+    battletoweraction(6, 0, 0)
+    call(_0882)
+    return
+_0882:
+    battletoweraction(3, 0, 0)
+    return
+_088C:
+    frontierfieldsystemfree
+    return
+_0890:
+    setvar(VAR_UNK_414B, 0)
+    setvar(VAR_UNK_414D, 0)
+    setvar(VAR_UNK_414E, 0)
+    setvar(VAR_UNK_414F, 0)
+    setvar(VAR_UNK_414C, 0)
+    setvar(VAR_UNK_4150, 0)
+    setvar(VAR_UNK_4151, 0)
+    return
+}
+
+script scr_seq_D31R0201_002 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_DP_SELECT)
+    frontierassertcleared
+    battletoweraction(12, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0096_D31R0201_00061)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_08E6) }
+        call(_053A)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_085B) }
+        setsavedbottomscreenapp(0)
+        call(_0A42)
+        if (var(VAR_SPECIAL_RESULT) != 0) { goto(_085B) }
+        npcmsg(msg_0096_D31R0201_00060)
+        goto(_085B)
+        end
+    _0A42:
+        closemessage
+        setvar(VAR_TEMP_x4001, 1)
+        call(_0A52)
+        return
+    _0A52:
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        openwificlubwithresult(VAR_TEMP_x4000)
+        battletoweraction(16, VAR_TEMP_x4001, VAR_TEMP_x4000)
+        copyvar(VAR_TEMP_x4001, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4001) != 0) {
+            setsavedbottomscreenapp(0)
+        }
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4001)
+        return
+    _0A97:
+        healparty
+        call(_053A)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0855) }
+        call(_00F9)
+        battletoweraction(5, 0, 0)
+        healparty
+        closemessage
+        setvar(VAR_TEMP_x4001, 0)
+        call(_0A52)
+        if (var(VAR_SPECIAL_RESULT) != 0) { goto(_0855) }
+        goto(_0ADF)
+        end
+    _0ADF:
+        npcmsg(msg_0096_D31R0201_00047)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_06CD) }
+        npcmsg(msg_0096_D31R0201_00048)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0ADF) }
+        setvar(VAR_UNK_414B, 2)
+        battletoweraction(39, 0, 0)
+        frontierfieldsystemfree
+        npcmsg(msg_0096_D31R0201_00056)
+        call(_0817)
+        waitbuttonordelay(30)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        closemessage
+        battletoweraction(2, 0, 0)
+        releaseall
+        end
+    _0B46:
+        call(_053A)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_085B) }
+        closemessage
+        setvar(VAR_TEMP_x4001, 2)
+        setsavedbottomscreenapp(0)
+        call(_0A52)
+        if (var(VAR_SPECIAL_RESULT) != 0) { goto(_085B) }
+        getbattleroomleadersroom(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+        bufferint(0, VAR_SPECIAL_x8004)
+        bufferintex(1, VAR_SPECIAL_x8005, 2, 3)
+        npcmsg(msg_0096_D31R0201_00052)
+        waitabpress
+        goto(_0860)
+        end
+    _0B97:
+        frontierfieldsysteminit(0, 4)
+        goto(_032F)
+        end
+    _0BA5:
+        frontierfieldsysteminit(0, 5)
+        goto(_032F)
+        end
+    _0BB3:
+        applymovement(obj_player, BattleTower_Movement_1378)
+        waitmovement
+        return
+    }
+    npcmsg(msg_0096_D31R0201_00036)
+    goto(_08E6)
+    end
+_08E6:
+    battletoweraction(15, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0974) }
+    goto(_0903)
+    end
+_0903:
+    npcmsg(msg_0096_D31R0201_00037)
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(143, 255, 0)
+    menuitemadd(155, 255, 1)
+    menuitemadd(144, 255, 2)
+    menuitemadd(145, 255, 3)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0B97)
+    Case(1, _0B46)
+    Case(2, _0969)
+    touchscreenmenushow
+    goto(_085B)
+    end
+_0969:
+    npcmsg(msg_0096_D31R0201_00038)
+    goto(_08E6)
+    end
+_0974:
+    npcmsg(msg_0096_D31R0201_00037)
+    call(_09C1)
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0B97)
+    Case(1, _0B46)
+    Case(2, _0BA5)
+    Case(3, _0969)
+    touchscreenmenushow
+    goto(_085B)
+    end
+_09C1:
+    touchscreenmenuhide
+    menuinitstdgmm(12, 7, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(143, 255, 0)
+    menuitemadd(153, 255, 1)
+    menuitemadd(154, 255, 2)
+    menuitemadd(144, 255, 3)
+    menuitemadd(145, 255, 4)
+    menuexec
+    return
+}
+
+script scr_seq_D31R0201_001 {
+    followmonresetmovement
+    lockall
+    playse(SEQ_SE_DP_SELECT)
+    frontierassertcleared
+    npcmsg(msg_0096_D31R0201_00020)
+    goto(_0BD4)
+    end
+_0BD4:
+    npcmsg(msg_0096_D31R0201_00021)
+    call(_02AC)
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0C12)
+    Case(1, _0C07)
+    touchscreenmenushow
+    goto(_085B)
+    end
+_0C07:
+    npcmsg(msg_0096_D31R0201_00023)
+    goto(_0BD4)
+    end
+_0C12:
+    battletoweraction(1, 2, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0096_D31R0201_00026)
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            frontierfieldsysteminit(0, 3)
+            setvar(VAR_TEMP_x4001, 1)
+            goto(_0C7D)
+            end
+        _0C7D:
+            npcmsg(msg_0096_D31R0201_00008)
+            call(_0560)
+            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_085B) }
+            battletoweraction(32, 0, VAR_SPECIAL_RESULT)
+            Switch(VAR_SPECIAL_RESULT)
+            Case(1, _0546)
+            Case(2, _0553)
+            battletoweraction(53, 0, VAR_SPECIAL_RESULT)
+            daycaresanitizemon(VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 255) { goto(_14C8) }
+            battletoweraction(53, 1, VAR_SPECIAL_RESULT)
+            daycaresanitizemon(VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 255) { goto(_14C8) }
+            if (var(VAR_TEMP_x4001) == 1) {
+                healparty
+                call(_053A)
+                if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0855) }
+            _0D55:
+                npcmsg(msg_0096_D31R0201_00027)
+                touchscreenmenuhide
+                menuinitstdgmm(18, 1, 0, 1, VAR_SPECIAL_RESULT)
+                menuitemadd(14, 255, 0)
+                menuitemadd(15, 255, 1)
+                menuitemadd(5, 255, 2)
+                menuexec
+                Switch(VAR_SPECIAL_RESULT)
+                Case(0, _0DA6)
+                Case(1, _0DFE)
+                touchscreenmenushow
+                goto(_0855)
+                end
+            _0DA6:
+                npcmsg(msg_0096_D31R0201_00112)
+                getmenuchoice(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0D55) }
+                touchscreenmenushow
+                closemessage
+                commclubjoin(16, 0, 0, VAR_SPECIAL_RESULT)
+                touchscreenmenushow
+                if (var(VAR_SPECIAL_RESULT) == 1) {
+                    goto(_0D55)
+                    end
+                }
+                if (var(VAR_SPECIAL_RESULT) == 3) {
+                    commclubexit
+                    goto(_0D55)
+                    end
+                _0DFE:
+                    npcmsg(msg_0096_D31R0201_00112)
+                    getmenuchoice(VAR_SPECIAL_RESULT)
+                    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0D55) }
+                    touchscreenmenushow
+                    closemessage
+                    commclubhost(16, 0, 0, VAR_SPECIAL_RESULT)
+                    touchscreenmenushow
+                    if (var(VAR_SPECIAL_RESULT) == 1) {
+                        goto(_0D55)
+                        end
+                    }
+                    if (var(VAR_SPECIAL_RESULT) == 3) {
+                        commclubexit
+                        goto(_0D55)
+                        end
+                    _0E56:
+                        linksyncclearpackets
+                        linksyncandwait(1)
+                        battletoweraction(58, 0, 0)
+                        goto(_0E6C)
+                        end
+                    _0E6C:
+                        battletowersendlinkdata(0, 0, VAR_SPECIAL_RESULT)
+                        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0E6C) }
+                        battletowerchecklinkpartner(0, VAR_TEMP_x4000)
+                        Switch(VAR_TEMP_x4000)
+                        Case(1, _0EE1)
+                        Case(2, _0EFF)
+                        Case(3, _0F1D)
+                        linksyncclearpackets
+                        linksyncandwait(2)
+                        battletoweraction(57, 0, VAR_SPECIAL_x8004)
+                        getlocalnetid(VAR_SPECIAL_RESULT)
+                        if (var(VAR_SPECIAL_RESULT) == 0) {
+                            battletoweraction(52, 0, 0)
+                            battletoweraction(58, 0, 0)
+                            goto(_0F9C)
+                            end
+                        _0F9C:
+                            battletowersendlinkdata(1, 0, VAR_SPECIAL_RESULT)
+                            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0F9C) }
+                            goto(_0F52)
+                            end
+                        }
+                        battletowerchecklinkpartner(1, VAR_TEMP_x4000)
+                        goto(_0F52)
+                        end
+                    _0EE1:
+                        call(_0F48)
+                        battletoweraction(53, 0, VAR_SPECIAL_RESULT)
+                        buffermonspeciesname(0, VAR_SPECIAL_RESULT)
+                        npcmsg(msg_0096_D31R0201_00033)
+                        goto(_0855)
+                        end
+                    _0EFF:
+                        call(_0F48)
+                        battletoweraction(53, 1, VAR_SPECIAL_RESULT)
+                        buffermonspeciesname(0, VAR_SPECIAL_RESULT)
+                        npcmsg(msg_0096_D31R0201_00033)
+                        goto(_0855)
+                        end
+                    _0F1D:
+                        call(_0F48)
+                        battletoweraction(53, 0, VAR_SPECIAL_RESULT)
+                        buffermonspeciesname(0, VAR_SPECIAL_RESULT)
+                        battletoweraction(53, 1, VAR_SPECIAL_RESULT)
+                        buffermonspeciesname(1, VAR_SPECIAL_RESULT)
+                        npcmsg(msg_0096_D31R0201_00034)
+                        goto(_0855)
+                        end
+                    _0F48:
+                        linksyncclearpackets
+                        linksyncandwait(8)
+                        commclubexit
+                        return
+                    _0F52:
+                        call(_0113)
+                        battletoweraction(5, 0, 0)
+                        healparty
+                        npcmsg(msg_0096_D31R0201_00069)
+                        call(_0817)
+                        battletowersetupmultibattle
+                        npcmsg(msg_0096_D31R0201_00032)
+                        wait(30, VAR_SPECIAL_RESULT)
+                        linksyncclearpackets
+                        linksyncandwait(3)
+                        goto(_06CD)
+                        end
+                    }
+                    goto(_0E56)
+                    end
+                }
+                goto(_0E56)
+                end
+            }
+            call(_0113)
+            battletoweraction(5, 0, 0)
+            healparty
+            call(_053A)
+            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0855) }
+            setsavedbottomscreenapp(0)
+            battletoweraction(57, 0, VAR_SPECIAL_RESULT)
+            battletoweraction(52, 0, 0)
+            npcmsg(msg_0096_D31R0201_00035)
+            goto(_06CD)
+            end
+        }
+        goto(_0C55)
+        end
+    _0C55:
+        frontierfieldsysteminit(0, 2)
+        setvar(VAR_TEMP_x4001, 0)
+        goto(_0C7D)
+        end
+    }
+    touchscreenmenushow
+    msgboxfrontierbannedspecies(91, 2, 0, 0)
+    goto(_085E)
+    end
+}
+
+script scr_seq_D31R0201_003 {
+    followmonresetmovement
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    call(_0807)
+    battletoweraction(100, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_085B) }
+    battletoweraction(35, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_107A) }
+    goto(_1001)
+    end
+_1001:
+    npcmsg(msg_0096_D31R0201_00053)
+    battletoweraction(43, 0, VAR_SPECIAL_RESULT)
+    copyvar(VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+    Switch(VAR_TEMP_x4000)
+    Case(5, _104F)
+    Case(4, _12B6)
+    battletoweraction(49, 0, VAR_SPECIAL_RESULT)
+    compare(VAR_SPECIAL_RESULT, 1)
+    callifeq(_106F)
+    goto(_104F)
+    end
+_104F:
+    npcmsg(msg_0096_D31R0201_00056)
+    call(_0817)
+    closemessage
+    if (var(VAR_TEMP_x4000) == 0) { goto(_1286) }
+    goto(_0855)
+    end
+_106F:
+    npcmsg(msg_0096_D31R0201_00073)
+    playfanfare(SEQ_ME_LVUP)
+    waitfanfare
+    return
+_107A:
+    battletoweraction(43, 0, VAR_SPECIAL_RESULT)
+    copyvar(VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+    if (var(VAR_TEMP_x4000) == 5) { goto(_1268) }
+    if (var(VAR_TEMP_x4000) == 0) { goto(_118D) }
+    if (var(VAR_TEMP_x4000) == 4) { goto(_10E6) }
+    battletoweraction(49, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) { goto(_10D2) }
+    call(_1263)
+    goto(_1273)
+    end
+_10D2:
+    npcmsg(msg_0096_D31R0201_00012)
+    npcmsg(msg_0096_D31R0201_00073)
+    playfanfare(SEQ_ME_LVUP)
+    waitfanfare
+    goto(_1273)
+    end
+_10E6:
+    npcmsg(msg_0096_D31R0201_00012)
+    battletoweraction(54, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_115A) }
+    goto(_1106)
+    end
+_1106:
+    battletoweraction(10, 0, VAR_SPECIAL_RESULT)
+    copyvar(VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    bufferint(1, VAR_TEMP_x4000)
+    npcmsg(msg_0096_D31R0201_00055)
+    goto(_1127)
+    end
+_1127:
+    battletoweraction(49, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_12F1) }
+    goto(_1144)
+    end
+_1144:
+    bufferint(0, VAR_TEMP_x4000)
+    npcmsg(msg_0096_D31R0201_00070)
+    playfanfare(SEQ_ME_LVUP)
+    waitfanfare
+    goto(_12F1)
+    end
+_115A:
+    battletoweraction(49, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_12F1) }
+    goto(_1177)
+    end
+_1177:
+    bufferint(0, VAR_TEMP_x4000)
+    npcmsg(msg_0096_D31R0201_00132)
+    playfanfare(SEQ_ME_LVUP)
+    waitfanfare
+    goto(_12F1)
+    end
+_118D:
+    battletoweraction(45, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11AA) }
+    goto(_11F1)
+    end
+_11AA:
+    call(_1263)
+    goto(_11B8)
+    end
+_11B8:
+    npcmsg(msg_0096_D31R0201_00014)
+    call(_0817)
+    battletowerclaimrecordmilestone(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0855) }
+    npcmsg(msg_0096_D31R0201_00113)
+    closemessage
+    copyvar(VAR_TEMP_x4002, VAR_SPECIAL_RESULT)
+    setvar(VAR_TEMP_x4001, 1)
+    call(_0BB3)
+    goto(_0167)
+    end
+_11F1:
+    compare(VAR_BATTLE_TOWER_PRINT_PROGRESS, 1)
+    callifeq(_1231)
+    compare(VAR_BATTLE_TOWER_PRINT_PROGRESS, 3)
+    callifeq(_1248)
+    battletoweraction(48, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_11B8) }
+    npcmsg(msg_0096_D31R0201_00084)
+    playfanfare(SEQ_ME_LVUP)
+    waitfanfare
+    goto(_11B8)
+    end
+_1231:
+    npcmsg(msg_0096_D31R0201_00085)
+    bufferplayersname(0)
+    npcmsg(msg_0096_D31R0201_00087)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setvar(VAR_BATTLE_TOWER_PRINT_PROGRESS, 2)
+    return
+_1248:
+    npcmsg(msg_0096_D31R0201_00085)
+    bufferplayersname(0)
+    npcmsg(msg_0096_D31R0201_00086)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setvar(VAR_BATTLE_TOWER_PRINT_PROGRESS, 4)
+    callstd(std_frontier_gold_prints_check)
+    return
+_1263:
+    npcmsg(msg_0096_D31R0201_00012)
+    return
+_1268:
+    npcmsg(msg_0096_D31R0201_00054)
+    goto(_1273)
+    end
+_1273:
+    npcmsg(msg_0096_D31R0201_00014)
+    call(_0817)
+    closemessage
+    goto(_0855)
+    end
+_1286:
+    battletowerclaimrecordmilestone(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0855) }
+    npcmsg(msg_0096_D31R0201_00113)
+    closemessage
+    copyvar(VAR_TEMP_x4002, VAR_SPECIAL_RESULT)
+    setvar(VAR_TEMP_x4001, 1)
+    call(_0BB3)
+    goto(_0167)
+    end
+_12B6:
+    battletoweraction(9, 0, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_12D3) }
+    goto(_12F1)
+    end
+_12D3:
+    battletoweraction(10, 0, VAR_SPECIAL_RESULT)
+    copyvar(VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+    bufferint(0, VAR_SPECIAL_x8000)
+    npcmsg(msg_0096_D31R0201_00065)
+    goto(_12F1)
+    end
+_12F1:
+    battletoweraction(11, 1, 0)
+    goto(_1301)
+    end
+_1301:
+    call(_0872)
+    npcmsg(msg_0096_D31R0201_00056)
+    call(_0817)
+    npcmsg(msg_0096_D31R0201_00057)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_085B) }
+    call(_0A42)
+    if (var(VAR_SPECIAL_RESULT) != 0) { goto(_085B) }
+    npcmsg(msg_0096_D31R0201_00060)
+    goto(_085B)
+    end
+}
+
+movement BattleTower_Movement_1348 {
+    delay_4
+    walk_up * 2
+}
+
+movement BattleTower_Movement_1354 {
+    walk_up
+    set_invisible
+}
+
+movement BattleTower_Movement_1360 {
+    delay_4
+    walk_up * 2
+}
+
+movement BattleTower_Movement_136C {
+    walk_up * 2
+    set_invisible
+}
+
+movement BattleTower_Movement_1378 {
+    face_right
+}
+
+script scr_seq_D31R0201_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8000, 0)
+    setvar(VAR_SPECIAL_x8001, 0)
+    call(_1404)
+    end
+}
+
+script scr_seq_D31R0201_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8000, 0)
+    setvar(VAR_SPECIAL_x8001, 1)
+    call(_1404)
+    end
+}
+
+script scr_seq_D31R0201_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8000, 0)
+    setvar(VAR_SPECIAL_x8001, 2)
+    call(_1404)
+    end
+}
+
+script scr_seq_D31R0201_012 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    battleroomhasleaders(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0096_D31R0201_00111)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _1404:
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        openbattleroomresults(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        releaseall
+        return
+    }
+    setvar(VAR_SPECIAL_x8000, 1)
+    setvar(VAR_SPECIAL_x8001, 0)
+    call(_1404)
+    end
+}
+
+script scr_seq_D31R0201_013 {
+    simplenpcmsg(msg_0096_D31R0201_00074)
+    end
+}
+
+script scr_seq_D31R0201_014 {
+    simplenpcmsg(msg_0096_D31R0201_00075)
+    end
+}
+
+script scr_seq_D31R0201_015 {
+    simplenpcmsg(msg_0096_D31R0201_00076)
+    end
+}
+
+script scr_seq_D31R0201_016 {
+    simplenpcmsg(msg_0096_D31R0201_00077)
+    end
+}
+
+script scr_seq_D31R0201_017 {
+    simplenpcmsg(msg_0096_D31R0201_00078)
+    end
+}
+
+script scr_seq_D31R0201_018 {
+    simplenpcmsg(msg_0096_D31R0201_00079)
+    end
+}
+
+script scr_seq_D31R0201_019 {
+    simplenpcmsg(msg_0096_D31R0201_00080)
+    end
+}
+
+script scr_seq_D31R0201_008 {
+    end
+}
+
+script scr_seq_D31R0201_020 {
+    playcry(SPECIES_PIKACHU, 0)
+    simplenpcmsg(msg_0096_D31R0201_00081)
+    end
+_14C8:
+    touchscreenmenushow
+    call(_088C)
+    call(_0890)
+    callstd(std_bag_is_full_griseous_orb)
+    end
+}
+
+script scr_seq_D31R0201_023 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callifunset(FLAG_GOT_JUDGE_EXPLANATION, _158E)
+    callifset(FLAG_GOT_JUDGE_EXPLANATION, _1593)
+    setflag(FLAG_GOT_JUDGE_EXPLANATION)
+    goto(_1506)
+    end
+_1506:
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    closemessage
+    partyselectui
+    getpartyselection(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    copyvar(VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_x8000) == 255) {
+        npcmsg(msg_0096_D31R0201_00116)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getpartymonspecies(VAR_SPECIAL_x8000, VAR_SPECIAL_x8004)
+    if (var(VAR_SPECIAL_x8004) == 0) { goto(_1598) }
+    statjudge(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_x8002, VAR_SPECIAL_x8003)
+    if (var(VAR_SPECIAL_x8001) <= 90) { goto(_15E5) }
+    if (var(VAR_SPECIAL_x8001) <= 120) { goto(_15F0) }
+    if (var(VAR_SPECIAL_x8001) <= 150) { goto(_15FB) }
+    if (var(VAR_SPECIAL_x8001) >= 151) { goto(_1606) }
+    end
+_158E:
+    npcmsg(msg_0096_D31R0201_00114)
+    return
+_1593:
+    npcmsg(msg_0096_D31R0201_00115)
+    return
+_1598:
+    npcmsg(msg_0096_D31R0201_00117)
+    goto(_1506)
+    end
+_15A3:
+    nonnpcmsgvar(VAR_SPECIAL_x8002)
+    goto(_15AF)
+    end
+_15AF:
+    if (var(VAR_SPECIAL_x8003) <= 15) { goto(_1611) }
+    if (var(VAR_SPECIAL_x8003) <= 25) { goto(_161C) }
+    if (var(VAR_SPECIAL_x8003) <= 30) { goto(_1627) }
+    if (var(VAR_SPECIAL_x8003) >= 31) { goto(_1632) }
+    end
+_15E5:
+    npcmsg(msg_0096_D31R0201_00118)
+    goto(_15A3)
+    end
+_15F0:
+    npcmsg(msg_0096_D31R0201_00119)
+    goto(_15A3)
+    end
+_15FB:
+    npcmsg(msg_0096_D31R0201_00120)
+    goto(_15A3)
+    end
+_1606:
+    npcmsg(msg_0096_D31R0201_00121)
+    goto(_15A3)
+    end
+_1611:
+    npcmsg(msg_0096_D31R0201_00128)
+    goto(_163D)
+    end
+_161C:
+    npcmsg(msg_0096_D31R0201_00129)
+    goto(_163D)
+    end
+_1627:
+    npcmsg(msg_0096_D31R0201_00130)
+    goto(_163D)
+    end
+_1632:
+    npcmsg(msg_0096_D31R0201_00131)
+    goto(_163D)
+    end
+_163D:
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts BattleTower_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D31R0201_021
+    INIT_SCRIPT_ON_RESUME: scr_seq_D31R0201_022
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_414B, 1: scr_seq_D31R0201_003
+        VAR_UNK_414B, 2: scr_seq_D31R0201_004
+        VAR_UNK_414B, 3: scr_seq_D31R0201_007
+        VAR_UNK_414B, 255: scr_seq_D31R0201_005
+    ]
+}

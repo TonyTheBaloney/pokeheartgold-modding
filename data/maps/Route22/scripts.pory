@@ -1,0 +1,446 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R22_000
+	ScrDef scr_seq_R22_001
+	ScrDef scr_seq_R22_002
+	ScrDef scr_seq_R22_003
+	ScrDef scr_seq_R22_004
+	ScrDefEnd
+`
+
+script scr_seq_R22_001 {
+    if (!flag(FLAG_UNK_189)) {
+        if (var(VAR_UNK_40FE) == 1) {
+            setflag(FLAG_HIDE_CAMERON)
+            end
+        }
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 4) { goto(_0058) }
+        if (var(VAR_TEMP_x4000) == 0) { goto(_0058) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _0058:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_R22_004 {
+    if (var(VAR_UNK_40FE) == 1) {
+        movepersonfacing(obj_R22_sakaki, 947, 1, 266, DIR_WEST)
+        movepersonfacing(obj_R22_gsrivel, 950, 1, 266, DIR_WEST)
+        movepersonfacing(obj_R22_var_1, 952, 1, 280, DIR_EAST)
+        end
+    }
+    end
+}
+
+script scr_seq_R22_003 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Route22_Movement_037C)
+    waitmovement
+    applymovement(obj_R22_var_1, Route22_Movement_02CC)
+    waitmovement
+    gendermsgbox(msg_0360_R22_00012, msg_0360_R22_00011)
+    closemessage
+    applymovement(obj_R22_var_1, Route22_Movement_02E0)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0360_R22_00014, msg_0360_R22_00013)
+    closemessage
+    applymovement(obj_R22_var_1, Route22_Movement_02FC)
+    waitmovement
+    gendermsgbox(msg_0360_R22_00016, msg_0360_R22_00015)
+    closemessage
+    applymovement(obj_R22_var_1, Route22_Movement_0304)
+    applymovement(obj_player, Route22_Movement_03D0)
+    waitmovement
+    gendermsgbox(msg_0360_R22_00018, msg_0360_R22_00017)
+    closemessage
+    applymovement(obj_R22_var_1, Route22_Movement_0338)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0360_R22_00020, msg_0360_R22_00019)
+    closemessage
+    applymovement(obj_player, Route22_Movement_03A0)
+    applymovement(obj_R22_var_1, Route22_Movement_0310)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    applymovement(241, Route22_Movement_03DC)
+    waitmovement
+    fadeoutbgm(0, 30)
+    applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
+    waitmovement
+    bufferrivalsname(0)
+    npcmsg(msg_0360_R22_00002)
+    closemessage
+    applymovement(obj_R22_sakaki, Route22_Movement_0438)
+    waitmovement
+    npcmsg(msg_0360_R22_00008)
+    closemessage
+    applymovement(obj_R22_gsrivel, Route22_Movement_03FC)
+    waitmovement
+    bufferrivalsname(0)
+    npcmsg(msg_0360_R22_00003)
+    closemessage
+    applymovement(obj_R22_sakaki, Route22_Movement_0444)
+    waitmovement
+    npcmsg(msg_0360_R22_00009)
+    closemessage
+    applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
+    waitmovement
+    bufferrivalsname(0)
+    npcmsg(msg_0360_R22_00004)
+    closemessage
+    applymovement(obj_R22_sakaki, Route22_Movement_044C)
+    waitmovement
+    npcmsg(msg_0360_R22_00010)
+    closemessage
+    applymovement(obj_R22_sakaki, Route22_Movement_0454)
+    waitmovement
+    applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
+    waitmovement
+    bufferrivalsname(0)
+    npcmsg(msg_0360_R22_00005)
+    closemessage
+    applymovement(obj_R22_gsrivel, Route22_Movement_03F4)
+    waitmovement
+    npcmsg(msg_0360_R22_00006)
+    closemessage
+    callstd(std_play_rival_intro_music)
+    applymovement(241, Route22_Movement_03E8)
+    applymovement(obj_R22_gsrivel, Route22_Movement_0404)
+    waitmovement
+    removecameratarget
+    bufferrivalsname(0)
+    npcmsg(msg_0360_R22_00007)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_R22_gsrivel, Route22_Movement_0420)
+    playse(SEQ_SE_DP_WALL_HIT2)
+    applymovement(obj_player, Route22_Movement_03B0)
+    applymovement(obj_R22_var_1, Route22_Movement_03D0)
+    waitmovement
+    applymovement(obj_R22_gsrivel, Route22_Movement_042C)
+    applymovement(obj_player, Route22_Movement_03D0)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    removeobject(obj_R22_sakaki)
+    removeobject(obj_R22_gsrivel)
+    setflag(FLAG_HIDE_ROUTE_22_GIOVANNI_RIVAL)
+    callstd(std_fade_end_rival_intro_music)
+    gendermsgbox(msg_0360_R22_00022, msg_0360_R22_00021)
+    closemessage
+    fadeoutbgm(20, 30)
+    applymovement(obj_partner_poke, Route22_Movement_0350)
+    waitmovement
+    playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
+    fadescreen(6, 6, 0, RGB_WHITE)
+    waitfade
+    wait(15, VAR_SPECIAL_RESULT)
+    fadescreen(6, 6, 1, RGB_WHITE)
+    waitfade
+    applymovement(obj_player, Route22_Movement_03C4)
+    applymovement(obj_R22_var_1, Route22_Movement_0320)
+    waitmovement
+    gendermsgbox(msg_0360_R22_00024, msg_0360_R22_00023)
+    closemessage
+    playse(SEQ_SE_GS_TIMESLIP)
+    celebitimetravel
+    setvar(VAR_UNK_40FE, 2)
+    clearflag(FLAG_HIDE_TOHJO_FALLS_GIOVANNI)
+    clearflag(FLAG_HIDE_TOHJO_FALLS_FRIEND)
+    warp(MAP_TOHJO_FALLS_HIDDEN_ROOM, 0, 6, 8, DIR_SOUTH)
+    fadescreen(6, 15, 1, RGB_WHITE)
+    waitfade
+    releaseall
+    end
+}
+
+movement Route22_Movement_02CC {
+    emote_exclamation_mark
+    delay_8
+    walk_in_place_right
+    delay_16
+}
+
+movement Route22_Movement_02E0 {
+    walk_fast_up * 2
+    delay_8
+    walk_in_place_left
+    delay_16
+    walk_in_place_right
+    delay_16
+}
+
+movement Route22_Movement_02FC {
+    walk_down
+}
+
+movement Route22_Movement_0304 {
+    walk_down
+    walk_in_place_right
+}
+
+movement Route22_Movement_0310 {
+    walk_up * 2
+    walk_left * 2
+    walk_up
+}
+
+movement Route22_Movement_0320 {
+    walk_in_place_left
+    delay_16
+    walk_in_place_right
+    delay_16
+    walk_in_place_down
+}
+
+movement Route22_Movement_0338 {
+    emote_exclamation_mark
+    delay_8
+    walk_up * 2
+    walk_right
+    walk_up * 2
+}
+
+movement Route22_Movement_0350 {
+    face_down
+    jump_far_down
+    lock_dir
+    jump_near_fast_up
+    lock_dir
+}
+
+movement Route22_Movement_0368 {
+    lock_dir
+    walk_fast_right * 2
+    unlock_dir
+    face_left
+}
+
+movement Route22_Movement_037C {
+    walk_in_place_up
+    walk_up
+    delay_8
+    walk_in_place_left
+    delay_16
+    walk_in_place_right
+    delay_16
+    walk_in_place_up
+}
+
+movement Route22_Movement_03A0 {
+    walk_up * 5
+    walk_left * 2
+    walk_up * 2
+}
+
+movement Route22_Movement_03B0 {
+    delay_4
+    lock_dir
+    jump_near_fast_down
+    unlock_dir
+}
+
+movement Route22_Movement_03C4 {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement Route22_Movement_03D0 {
+    delay_16
+    walk_in_place_down
+}
+
+movement Route22_Movement_03DC {
+    walk_up * 5
+    walk_left * 2
+}
+
+movement Route22_Movement_03E8 {
+    walk_fast_right * 2
+    walk_fast_down * 4
+}
+
+movement Route22_Movement_03F4 {
+    walk_left
+}
+
+movement Route22_Movement_03FC {
+    walk_in_place_left
+}
+
+movement Route22_Movement_0404 {
+    delay_32
+    walk_fast_right * 6
+    walk_fast_down * 4
+    delay_8
+    emote_exclamation_mark
+    delay_8
+}
+
+movement Route22_Movement_0420 {
+    walk_fast_down * 2
+    delay_16
+}
+
+movement Route22_Movement_042C {
+    walk_fast_right
+    walk_fast_down * 8
+}
+
+movement Route22_Movement_0438 {
+    walk_in_place_right
+    delay_8
+}
+
+movement Route22_Movement_0444 {
+    walk_in_place_right
+}
+
+movement Route22_Movement_044C {
+    walk_in_place_left
+}
+
+movement Route22_Movement_0454 {
+    walk_left * 6
+}
+
+script scr_seq_R22_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Route22_Movement_05AC)
+        applymovement(obj_R22_gsmiddleman1, Route22_Movement_05F8)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Route22_Movement_05C4)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Route22_Movement_05E4)
+        applymovement(obj_R22_gsmiddleman1, Route22_Movement_05F8)
+    } else {
+        applymovement(obj_player, Route22_Movement_05D0)
+        applymovement(obj_R22_gsmiddleman1, Route22_Movement_05F8)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Route22_Movement_0604)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(71)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route22_Movement_05AC {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route22_Movement_05C4 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route22_Movement_05D0 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route22_Movement_05E4 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route22_Movement_05F8 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Route22_Movement_0604 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_R22_002 {
+    trainertipsex(2, msg_0360_R22_00000)
+    end
+}
+
+mapscripts Route22_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R22_001
+    INIT_SCRIPT_ON_RESUME: scr_seq_R22_004
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40FE, 1: scr_seq_R22_003
+    ]
+}

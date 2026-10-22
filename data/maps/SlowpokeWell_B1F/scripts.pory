@@ -1,0 +1,137 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+raw `
+#include "maps/IlexForest/ids.h"
+`
+
+script scr_seq_D26R0102_000 {
+    simplenpcmsg(msg_0091_D26R0102_00005)
+    end
+}
+
+script scr_seq_D26R0102_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0091_D26R0102_00003)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        bufferplayersname(0)
+        npcmsg(msg_0091_D26R0102_00004)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D26R0102_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0091_D26R0102_00001)
+    closemessage
+    trainerbattle(TRAINER_EXECUTIVE_PROTON_PROTON, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0091_D26R0102_00002)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    removeobject(obj_D26R0102_rocketm)
+    removeobject(obj_D26R0102_rocketm_2)
+    removeobject(obj_D26R0102_rocketw)
+    removeobject(obj_D26R0102_rkanbum3)
+    setflag(FLAG_UNK_1A9)
+    wait(20, VAR_SPECIAL_x8004)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    movepersonfacing(obj_D26R0102_gantetsu, 36, 0, 7, DIR_WEST)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_D26R0102_gantetsu, SlowpokeWell_B1F_Movement_019C)
+        applymovement(obj_player, SlowpokeWell_B1F_Movement_01C0)
+    } else {
+        applymovement(obj_D26R0102_gantetsu, SlowpokeWell_B1F_Movement_019C)
+        applymovement(obj_player, SlowpokeWell_B1F_Movement_01DC)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    npcmsg(msg_0091_D26R0102_00000)
+    closemessage
+    clearflag(FLAG_UNK_19E)
+    clearflag(FLAG_HIDE_AZALEA_SLOWPOKES)
+    setflag(FLAG_BEAT_AZALEA_ROCKETS)
+    setvar(VAR_UNK_4075, 1)
+    setvar(VAR_UNK_4080, 2)
+    setvar(VAR_FARFETCHD1_STICKS1, STICKS_ACTIVE)
+    setvar(VAR_FARFETCHD1_STICKS2, STICKS_ACTIVE)
+    setvar(VAR_FARFETCHD2_STICKS4, STICKS_ACTIVE)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_AZALEA_KURT_HOUSE, 0, 4, 5, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    setflag(FLAG_UNK_1AA)
+    setflag(FLAG_UNK_1D5)
+    setflag(FLAG_UNK_1AC)
+    clearflag(FLAG_HIDE_ILEX_APPRENTICE)
+    clearflag(FLAG_HIDE_FARFETCHD_1_LOST)
+    clearflag(FLAG_HIDE_FARFETCHD_2_LOST)
+    setvar(VAR_UNK_40F4, 1)
+    releaseall
+    end
+}
+
+movement SlowpokeWell_B1F_Movement_019C {
+    walk_left * 2
+    walk_down * 2
+    walk_left * 3
+    walk_up * 2
+    delay_4 * 4
+    walk_left
+    walk_up * 3
+    face_left
+}
+
+movement SlowpokeWell_B1F_Movement_01C0 {
+    walk_right * 2
+    face_up
+    delay_8 * 6
+    face_down
+    delay_8 * 5
+    face_right
+}
+
+movement SlowpokeWell_B1F_Movement_01DC {
+    walk_down
+    walk_right
+    face_up
+    delay_8 * 6
+    face_down
+    delay_8 * 5
+    face_right
+}
+
+mapscripts SlowpokeWell_B1F_MapScripts {
+}

@@ -1,0 +1,175 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D49R0107_000
+	ScrDef scr_seq_D49R0107_001
+	ScrDef scr_seq_D49R0107_002
+	ScrDef scr_seq_D49R0107_003
+	ScrDef scr_seq_D49R0107_004
+	ScrDef scr_seq_D49R0107_005
+	ScrDef scr_seq_D49R0107_006
+	ScrDef scr_seq_D49R0107_007
+	ScrDefEnd
+`
+
+script scr_seq_D49R0107_007 {
+    if (var(VAR_UNK_40D3) == 1) {
+        setvar(VAR_TEMP_x400E, 1)
+    } else {
+        setvar(VAR_TEMP_x400E, 0)
+    }
+    end
+}
+
+script scr_seq_D49R0107_006 {
+    if (var(VAR_TEMP_x400F) == 0) {
+        createpokeathlonfriendshiproomstatues
+        setvar(VAR_TEMP_x400F, 1)
+    }
+    getplayergender(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 0) {
+        movepersonfacing(obj_D49R0107_statueheroine, 28, 0, 28, DIR_NORTH)
+    } else {
+        movepersonfacing(obj_D49R0107_statuehero, 28, 0, 28, DIR_NORTH)
+    }
+    if (var(VAR_TEMP_x400E) == 1) {
+        movepersonfacing(obj_D49R0107_thlonowner, 9, 0, 9, DIR_SOUTH)
+        setvar(VAR_TEMP_x400E, 0)
+    }
+    end
+}
+
+script scr_seq_D49R0107_005 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_015C)
+    waitmovement
+    npcmsg(msg_0143_D49R0107_00000)
+    closemessage
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0164)
+    waitmovement
+    wait(15, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    npcmsg(msg_0143_D49R0107_00001)
+    closemessage
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_016C)
+    waitmovement
+    npcmsg(msg_0143_D49R0107_00002)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0174)
+    applymovement(obj_player, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0180)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    npcmsg(msg_0143_D49R0107_00003)
+    closemessage
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0188)
+    waitmovement
+    npcmsg(msg_0143_D49R0107_00004)
+    closemessage
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0164)
+    waitmovement
+    npcmsg(msg_0143_D49R0107_00005)
+    closemessage
+    applymovement(obj_D49R0107_thlonowner, PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0190)
+    waitmovement
+    releaseall
+    setvar(VAR_UNK_40D3, 1)
+    natdexflagaction(2, VAR_TEMP_x4000)
+    compare(VAR_TEMP_x4000, 1)
+    callifeq(_0154)
+    end
+_0154:
+    clearflag(FLAG_HIDE_POKEATHLON_SUPREME_CUP_RECEPTIONIST)
+    return
+}
+
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_015C {
+    emote_exclamation_mark
+}
+
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0164 {
+    walk_in_place_down
+}
+
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_016C {
+    walk_down * 3
+}
+
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0174 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0180 {
+    walk_up * 3
+}
+
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0188 {
+    walk_slow_up
+}
+
+movement PokeathlonDome_Interior_B1FFriendshipRoom_Movement_0190 {
+    walk_in_place_left
+    lock_dir
+    walk_slow_right * 2
+    unlock_dir
+}
+
+script scr_seq_D49R0107_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    npcmsg(msg_0143_D49R0107_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0107_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0143_D49R0107_00007)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    launchpokeathlonrecordsapp(3)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_D49R0107_002 {
+    simplenpcmsg(msg_0143_D49R0107_00008)
+    end
+}
+
+script scr_seq_D49R0107_003 {
+    simplenpcmsg(msg_0143_D49R0107_00008)
+    end
+}
+
+script scr_seq_D49R0107_004 {
+    simplenpcmsg(msg_0143_D49R0107_00008)
+    end
+}
+
+mapscripts PokeathlonDome_Interior_B1FFriendshipRoom_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_D49R0107_006
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D49R0107_007
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40D3, 0: scr_seq_D49R0107_005
+    ]
+}

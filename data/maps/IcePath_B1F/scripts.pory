@@ -1,0 +1,104 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D39R0102_000 {
+    setvar(VAR_TEMP_x4000, 12)
+    setvar(VAR_TEMP_x4001, 12)
+    goto(_0062)
+    end
+}
+
+script scr_seq_D39R0102_001 {
+    setvar(VAR_TEMP_x4000, 10)
+    setvar(VAR_TEMP_x4001, 21)
+    goto(_0062)
+    end
+}
+
+script scr_seq_D39R0102_002 {
+    setvar(VAR_TEMP_x4000, 20)
+    setvar(VAR_TEMP_x4001, 10)
+    goto(_0062)
+    end
+}
+
+script scr_seq_D39R0102_003 {
+    setvar(VAR_TEMP_x4000, 21)
+    setvar(VAR_TEMP_x4001, 23)
+    goto(_0062)
+    end
+_0062:
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_40AB, 1)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, IcePath_B1F_Movement_0118)
+        applymovement(obj_partner_poke, IcePath_B1F_Movement_0124)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, IcePath_B1F_Movement_0134)
+        applymovement(obj_partner_poke, IcePath_B1F_Movement_0140)
+    } elif (var(VAR_SPECIAL_RESULT) == 2) {
+        applymovement(obj_player, IcePath_B1F_Movement_0150)
+        applymovement(obj_partner_poke, IcePath_B1F_Movement_015C)
+    } else {
+        applymovement(obj_player, IcePath_B1F_Movement_016C)
+        applymovement(obj_partner_poke, IcePath_B1F_Movement_0178)
+    }
+    waitmovement
+    playse(SEQ_SE_GS_RAKKA01)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_ICE_PATH_B2F, 0, VAR_TEMP_x4000, VAR_TEMP_x4001, VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement IcePath_B1F_Movement_0118 {
+    walk_in_place_faster_up * 4
+    set_invisible
+}
+
+movement IcePath_B1F_Movement_0124 {
+    delay_4 * 3
+    walk_faster_up
+    set_invisible
+}
+
+movement IcePath_B1F_Movement_0134 {
+    walk_in_place_faster_down * 4
+    set_invisible
+}
+
+movement IcePath_B1F_Movement_0140 {
+    delay_4 * 3
+    walk_faster_down
+    set_invisible
+}
+
+movement IcePath_B1F_Movement_0150 {
+    walk_in_place_faster_left * 4
+    set_invisible
+}
+
+movement IcePath_B1F_Movement_015C {
+    delay_4 * 3
+    walk_faster_left
+    set_invisible
+}
+
+movement IcePath_B1F_Movement_016C {
+    walk_in_place_faster_right * 4
+    set_invisible
+}
+
+movement IcePath_B1F_Movement_0178 {
+    delay_4 * 3
+    walk_faster_right
+    set_invisible
+}
+
+mapscripts IcePath_B1F_MapScripts {
+}

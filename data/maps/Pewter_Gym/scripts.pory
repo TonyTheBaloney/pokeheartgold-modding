@@ -1,0 +1,139 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T03GYM0101_000
+	ScrDef scr_seq_T03GYM0101_001
+	ScrDef scr_seq_T03GYM0101_002
+	ScrDef scr_seq_T03GYM0101_003
+	ScrDefEnd
+`
+
+script scr_seq_T03GYM0101_003 {
+    getphonebookrematch(PHONE_CONTACT_BROCK, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_PEWTER_GYM_BROCK)
+        end
+    }
+    checkregisteredphonenumber(PHONE_CONTACT_BROCK, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_00A4) }
+    checkbadge(BADGE_EARTH, VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 1) { goto(_0053) }
+    goto(_00F5)
+    end
+_0053:
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 12) {
+        setflag(FLAG_HIDE_PEWTER_GYM_BROCK)
+    } elif (var(VAR_TEMP_x4000) == 13) {
+        setflag(FLAG_HIDE_PEWTER_GYM_BROCK)
+    } elif (var(VAR_TEMP_x4000) == 14) {
+        setflag(FLAG_HIDE_PEWTER_GYM_BROCK)
+    } else {
+        goto(_00F5)
+    }
+    end
+_00A4:
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 17) {
+        setflag(FLAG_HIDE_PEWTER_GYM_BROCK)
+    } elif (var(VAR_TEMP_x4000) == 18) {
+        setflag(FLAG_HIDE_PEWTER_GYM_BROCK)
+    } elif (var(VAR_TEMP_x4000) == 19) {
+        setflag(FLAG_HIDE_PEWTER_GYM_BROCK)
+    } else {
+        goto(_00F5)
+    }
+    end
+_00F5:
+    clearflag(FLAG_HIDE_PEWTER_GYM_BROCK)
+    end
+}
+
+script scr_seq_T03GYM0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_BOULDER, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0195) }
+    npcmsg(msg_0462_T03GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_BROCK_BROCK, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    givebadge(BADGE_BOULDER)
+    addvar(VAR_UNK_4135, 1)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    settrainerflag(TRAINER_CAMPER_JERRY)
+    settrainerflag(TRAINER_HIKER_EDWIN)
+    npcmsg(msg_0462_T03GYM0101_00001)
+    bufferplayersname(0)
+    npcmsg(msg_0462_T03GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    bufferplayersname(0)
+    gendermsgbox(msg_0462_T03GYM0101_00003, msg_0462_T03GYM0101_00004)
+    goto(_016C)
+_016C:
+    if (!itemspace(ITEM_TM80, 1)) { goto(_01AE) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM80_FROM_BROCK)
+_0195:
+    if (!flag(FLAG_GOT_TM80_FROM_BROCK)) { goto(_016C) }
+    bufferplayersname(0)
+    npcmsg(msg_0462_T03GYM0101_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_01AE:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T03GYM0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_BOULDER, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0462_T03GYM0101_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0462_T03GYM0101_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T03GYM0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_BOULDER, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0462_T03GYM0101_00008)
+    } else {
+        npcmsg(msg_0462_T03GYM0101_00009)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Pewter_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T03GYM0101_003
+}

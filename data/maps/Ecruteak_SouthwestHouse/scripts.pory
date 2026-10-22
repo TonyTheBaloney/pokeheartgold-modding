@@ -1,0 +1,19 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script(local) _000A {
+    end
+}
+
+script scr_seq_T27R0401_000 {
+    simplenpcmsg(msg_0617_T27R0401_00000)
+    end
+}
+
+script scr_seq_T27R0401_001 {
+    simplenpcmsg(msg_0617_T27R0401_00001)
+    end
+}
+
+mapscripts Ecruteak_SouthwestHouse_MapScripts {
+}

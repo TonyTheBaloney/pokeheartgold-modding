@@ -1,0 +1,35 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_W19_000 {
+    simplenpcmsg(msg_0740_W19_00000)
+    end
+}
+
+script scr_seq_W19_001 {
+    simplenpcmsg(msg_0740_W19_00002)
+    end
+}
+
+script scr_seq_W19_002 {
+    simplenpcmsg(msg_0740_W19_00001)
+    end
+}
+
+script scr_seq_W19_003 {
+    simplenpcmsg(msg_0740_W19_00003)
+    end
+}
+
+script scr_seq_W19_004 {
+    directionsignpostex(1, 4, msg_0740_W19_00004)
+    end
+}
+
+script scr_seq_W19_005 {
+    trainertipsex(3, msg_0740_W19_00005)
+    end
+}
+
+mapscripts Route19_MapScripts {
+}

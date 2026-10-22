@@ -41,7 +41,7 @@ passes on that commit so you know any later mismatch comes from your edit.
 | **Egg moves** | **no**, binary `kowaza_list.narc` |
 | Map headers | yes (`data/maps/<MapName>/map.json`) |
 | NPCs, warps, signs, triggers | yes (`data/maps/<MapName>/map.json`) |
-| Event scripts and text | yes (`scripts.inc`, `map_scripts.inc`, `text.json` in the map folder) |
+| Event scripts and text | yes (`scripts.pory`, `text.json` in the map folder) |
 | Map grid (matrix) | binary per file, no tool yet |
 | Terrain, collision, 3D models | **no**, one prebuilt archive |
 | Wild encounters | yes (`gs_enc_data.json` etc.) |

@@ -1,0 +1,149 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D23R0103_000 {
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        clearflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 5) {
+        clearflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+    }
+    end
+}
+
+script scr_seq_D23R0103_001 {
+    simplenpcmsg(msg_0067_D23R0103_00015)
+    end
+}
+
+script scr_seq_D23R0103_002 {
+    simplenpcmsg(msg_0067_D23R0103_00016)
+    end
+}
+
+script scr_seq_D23R0103_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        npcmsg(msg_0067_D23R0103_00001)
+    } else {
+        npcmsg(msg_0067_D23R0103_00002)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0103_004 {
+    simplenpcmsg(msg_0067_D23R0103_00000)
+    end
+}
+
+script scr_seq_D23R0103_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        getitemquantity(ITEM_BASEMENT_KEY, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 0) {
+            npcmsg(msg_0067_D23R0103_00004)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _0100:
+            if (flag(FLAG_GOT_TM11_FROM_RADIO_TOWER_WOMAN)) {
+                npcmsg(msg_0067_D23R0103_00009)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            npcmsg(msg_0067_D23R0103_00005)
+            if (!itemspace(ITEM_TM11, 1)) { goto(_0142) }
+            callstd(std_give_item_verbose)
+            npcmsg(msg_0067_D23R0103_00007)
+            waitbuttonpress
+            closemessage
+            releaseall
+            setflag(FLAG_GOT_TM11_FROM_RADIO_TOWER_WOMAN)
+            end
+        _0142:
+            npcmsg(msg_0067_D23R0103_00008)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0067_D23R0103_00003)
+    } else {
+        goto(_0100)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0103_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getitemquantity(ITEM_CARD_KEY, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) { goto(_01B4) }
+    npcmsg(msg_0067_D23R0103_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0103_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_090)) {
+        npcmsg(msg_0067_D23R0103_00014)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0067_D23R0103_00011)
+    closemessage
+    getitemquantity(ITEM_CARD_KEY, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) { goto(_01B4) }
+    npcmsg(msg_0067_D23R0103_00013)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_01B4:
+    bufferplayersname(0)
+    npcmsg(msg_0067_D23R0103_00012)
+    closemessage
+    applymovement(obj_D23R0103_babyboy1_9, Goldenrod_RadioTower_3F_Movement_01F0)
+    applymovement(obj_D23R0103_babyboy1_9_2, Goldenrod_RadioTower_3F_Movement_01F8)
+    waitmovement
+    releaseall
+    setflag(FLAG_UNK_1BF)
+    removeobject(obj_D23R0103_babyboy1_9)
+    removeobject(obj_D23R0103_babyboy1_9_2)
+    setflag(FLAG_UNK_090)
+    end
+}
+
+movement Goldenrod_RadioTower_3F_Movement_01F0 {
+    walk_left * 2
+}
+
+movement Goldenrod_RadioTower_3F_Movement_01F8 {
+    walk_right * 2
+}
+
+mapscripts Goldenrod_RadioTower_3F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0103_000
+}

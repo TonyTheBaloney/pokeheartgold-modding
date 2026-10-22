@@ -1,0 +1,37 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T07R0205_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_SPELL_TAG_FROM_CELADON_CITY_MAN)) { goto(_0071) }
+    npcmsg(msg_0505_T07R0205_00000)
+    getcurrenttimeofday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 3) { goto(_0045) }
+    if (var(VAR_TEMP_x4000) == 4) { goto(_0045) }
+    npcmsg(msg_0505_T07R0205_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0045:
+    npcmsg(msg_0505_T07R0205_00002)
+    if (!itemspace(ITEM_SPELL_TAG, 1)) {
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_SPELL_TAG_FROM_CELADON_CITY_MAN)
+_0071:
+    npcmsg(msg_0505_T07R0205_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Celadon_CondominiumsRoof_Room_MapScripts {
+}

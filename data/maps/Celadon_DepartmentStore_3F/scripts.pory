@@ -1,0 +1,47 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T07R0103_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 20)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_T07R0103_001 {
+    simplenpcmsg(msg_0496_T07R0103_00000)
+    end
+}
+
+script scr_seq_T07R0103_002 {
+    simplenpcmsg(msg_0496_T07R0103_00001)
+    end
+}
+
+script scr_seq_T07R0103_003 {
+    simplenpcmsg(msg_0496_T07R0103_00002)
+    end
+}
+
+script scr_seq_T07R0103_004 {
+    simplenpcmsg(msg_0496_T07R0103_00003)
+    end
+}
+
+script scr_seq_T07R0103_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0496_T07R0103_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Celadon_DepartmentStore_3F_MapScripts {
+}

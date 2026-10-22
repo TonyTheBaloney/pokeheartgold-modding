@@ -1,0 +1,24 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R32R0101_000 {
+    end
+}
+
+script scr_seq_R32R0101_001 {
+    simplenpcmsg(msg_0382_R32R0101_00000)
+    end
+}
+
+script scr_seq_R32R0101_002 {
+    simplenpcmsg(msg_0382_R32R0101_00002)
+    end
+}
+
+script scr_seq_R32R0101_003 {
+    simplenpcmsg(msg_0382_R32R0101_00001)
+    end
+}
+
+mapscripts Route32_RuinsOfAlphGatehouse_MapScripts {
+}

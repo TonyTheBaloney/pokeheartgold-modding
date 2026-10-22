@@ -8,7 +8,7 @@ import unittest
 sys.path[:0] = [os.path.join(os.path.dirname(__file__), ".."), os.path.dirname(__file__)]
 
 from mapkit import Repo  # noqa: E402
-from mapkit.pory import compiler, PoryError  # noqa: E402
+from mapkit.pory import compiler, decompile, PoryError  # noqa: E402
 from pory_roundtrip import roundtrip  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
@@ -28,7 +28,7 @@ def body(src, name="S"):
     for l in out[i + 1:]:
         if l and not l.startswith("\t") and not l.startswith(name + "_"):
             break
-        if l:
+        if l and not l.strip().startswith("."):
             lines.append(l.strip())
     return lines
 
@@ -125,16 +125,63 @@ class Lowering(unittest.TestCase):
             self.assertIn(msg, str(cm.exception), src)
 
 
+def decompiled(inc):
+    """scripts.inc text -> (pory lines, stats) for a test map."""
+    ctx = compiler.Context(REPO.macros, compiler.load_config(), None, None, "test.pory")
+    d = decompile.Decompiler(ctx, "Test", inc)
+    lines, stats = d.run(set())
+    res = compiler.compile_source("\n".join(lines) + "\n", ctx)
+    assert decompile.fingerprint(inc, REPO.macros) == decompile.fingerprint(res.scripts_inc, REPO.macros), \
+        "\n".join(lines)
+    return "\n".join(lines), stats
+
+
+HEAD = "\tScrDef A\n\tScrDefEnd\n\nA:\n"
+
+
+class Decompile(unittest.TestCase):
+    def test_elif_chain(self):
+        src, st = decompiled(HEAD + "\tCompare V, 1\n\tGoToIfNe _1\n\tSetFlag F1\n\tGoTo _3\n\n"
+                             "_1:\n\tCompare V, 2\n\tGoToIfNe _2\n\tSetFlag F2\n\tGoTo _3\n\n"
+                             "_2:\n\tSetFlag F3\n_3:\n\tEnd\n\t.balign 4, 0\n")
+        self.assertIn("if (var(V) == 1) {\n        setflag(F1)\n    } elif (var(V) == 2) {\n"
+                      "        setflag(F2)\n    } else {\n        setflag(F3)\n    }\n    end", src)
+        self.assertEqual(st, {"structured": 1})
+
+    def test_early_exit_and_movement(self):
+        src, st = decompiled(HEAD + "\tGoToIfSet F, _1\n\tApplyMovement obj_player, _0010\n\tEnd\n\n"
+                             "_1:\n\tNPCMsg M\n\tEnd\n\n\t.balign 4, 0\n_0010:\n\tWalkNormalNorth 2\n"
+                             "\tFaceWest\n\tEndMovement\n\n\t.balign 4, 0\n")
+        self.assertIn("if (flag(F)) {\n        npcmsg(M)\n        end\n    }\n"
+                      "    applymovement(obj_player, Test_Movement_0010)", src)
+        self.assertIn("movement Test_Movement_0010 {\n    walk_up * 2\n    face_left\n}", src)
+        self.assertNotIn("raw", src)
+
+    def test_shared_numbers_and_fallthrough(self):
+        # two numbers for one script, a script that runs on into the next, ScrDef order != file order
+        src, st = decompiled("\tScrDef B\n\tScrDef A\n\tScrDef C\n\tScrDefEnd\n\n"
+                             "A:\nB:\n\tSetFlag F\nC:\n\tEnd\n\t.balign 4, 0\n")
+        self.assertIn("ScrDef B\n\tScrDef A\n\tScrDef C", src)
+        self.assertIn("script A {\nB:\n    setflag(F)\nC:\n    end\n}", src)
+
+    def test_dead_goto_is_kept(self):
+        src, st = decompiled(HEAD + "\tCompare V, 1\n\tGoToIfNe _1\n\tGoTo _X\n\n_0:\n\tGoTo _2\n\n"
+                             "_1:\n\tSetFlag F\n_2:\n\tEnd\n\n_X:\n\tReturn\n\t.balign 4, 0\n")
+        self.assertEqual(st, {"structured": 1})
+
+
 class Conversion(unittest.TestCase):
-    def test_every_map_converts_without_changing_commands(self):
-        checked = 0
+    def test_every_map_decompiles_to_the_same_commands(self):
+        checked, stats = 0, {}
         for m in REPO.maps:
             e = REPO.migrated[m.name]
-            if e["scripts"].startswith("@") or e["init"].startswith("@") or REPO.pory_entry(m):
+            if e["scripts"].startswith("@") or e["init"].startswith("@"):
                 continue
-            self.assertIsNone(roundtrip(REPO, m), m.name)
+            self.assertIsNotNone(REPO.pory_entry(m), m.name)
+            self.assertIsNone(roundtrip(REPO, m, stats), m.name)
             checked += 1
-        self.assertGreater(checked, 400)
+        self.assertGreater(checked, 450)
+        self.assertNotIn("raw", stats)
 
     def test_cherrygrove_pory_validates(self):
         m = REPO.find_map("Cherrygrove")

@@ -1,0 +1,654 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D40R0107_000
+	ScrDef scr_seq_D40R0107_001
+	ScrDef scr_seq_D40R0107_002
+	ScrDef scr_seq_D40R0107_003
+	ScrDef scr_seq_D40R0107_004
+	ScrDef scr_seq_D40R0107_005
+	ScrDef scr_seq_D40R0107_006
+	ScrDefEnd
+`
+
+script scr_seq_D40R0107_006 {
+    setvar(VAR_TEMP_x4003, 111)
+    setflag(FLAG_UNK_105)
+    end
+}
+
+script scr_seq_D40R0107_002 {
+    setflag(FLAG_UNK_99A)
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_WHIRL_ISLAND_LUGIA)
+        removeobject(obj_D40R0107_lug_obj01)
+        removeobject(obj_D40R0107_stop)
+        removeobject(obj_D40R0107_stop_2)
+        removeobject(obj_D40R0107_stop_3)
+        removeobject(obj_D40R0107_stop_4)
+        removeobject(obj_D40R0107_stop_5)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        end
+    }
+    end
+}
+
+script scr_seq_D40R0107_004 {
+    if (!flag(FLAG_HIDE_WHIRL_ISLAND_LUGIA)) {
+        makeobjectvisible(obj_D40R0107_stop)
+        makeobjectvisible(obj_D40R0107_stop_2)
+        makeobjectvisible(obj_D40R0107_stop_3)
+        makeobjectvisible(obj_D40R0107_stop_4)
+        makeobjectvisible(obj_D40R0107_stop_5)
+    }
+    if (var(VAR_TEMP_x400B) == 123) {
+        stopse(SEQ_SE_GS_N_TAKI)
+        setvar(VAR_TEMP_x400B, 0)
+    }
+    if (flag(FLAG_UNK_109)) { goto(_00FA) }
+    if (!flag(FLAG_UNK_10B)) { goto(_00FA) }
+    if (var(VAR_TEMP_x4003) != 111) { goto(_00FA) }
+    movepersonfacing(obj_D40R0107_dancer_5, 16, 1, 32, DIR_NORTH)
+    movepersonfacing(obj_D40R0107_dancer_3, 13, 1, 33, DIR_NORTH)
+    movepersonfacing(obj_D40R0107_dancer_4, 13, 1, 27, DIR_NORTH)
+    movepersonfacing(obj_D40R0107_dancer, 19, 1, 33, DIR_NORTH)
+    movepersonfacing(obj_D40R0107_dancer_2, 19, 1, 27, DIR_NORTH)
+    setvar(VAR_TEMP_x4003, 0)
+    end
+_00FA:
+    end
+}
+
+script scr_seq_D40R0107_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x400A, 249)
+    playcry(VAR_TEMP_x400A, 0)
+    npcmsg(msg_0125_D40R0107_00004)
+    waitcry
+    closemessage
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        setvar(VAR_SPECIAL_x8004, 70)
+    } else {
+        setvar(VAR_SPECIAL_x8004, 45)
+    }
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(VAR_TEMP_x400A, VAR_SPECIAL_x8004, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    getstaticencounteroutcome(VAR_TEMP_x4005)
+    if (var(VAR_TEMP_x4005) == 2) { goto(_019E) }
+    if (var(VAR_TEMP_x4005) == 3) { goto(_019E) }
+    compare(VAR_TEMP_x4005, 4)
+    callifeq(_01A8)
+    releaseall
+    setflag(FLAG_UNK_109)
+    setvar(VAR_SCENE_NEW_BARK_EAST_EXIT, 3)
+    setflag(FLAG_HIDE_NEW_BARK_FRIEND)
+    setflag(FLAG_HIDE_NEW_BARK_MARILL)
+    setflag(FLAG_HIDE_NEW_BARK_FRIEND_2)
+    clearflag(FLAG_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND)
+    setflag(FLAG_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS)
+    clearflag(FLAG_HIDE_DANCE_STUDIO_KIMONO_GIRLS)
+    clearflag(FLAG_UNK_241)
+    end
+_019E:
+    clearflag(FLAG_HIDE_WHIRL_ISLAND_LUGIA)
+    whiteout
+    releaseall
+    end
+_01A8:
+    setflag(FLAG_CAUGHT_LUGIA)
+    return
+}
+
+script scr_seq_D40R0107_005 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, WhirlIslands_B3F_LugiaCave_Movement_0964)
+    waitmovement
+    loadeventsoundeffects
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    waitmovement
+    npcmsg(msg_0125_D40R0107_00000)
+    closemessage
+    stopse(SEQ_SE_GS_N_TAKI)
+    fadescreen(4, 4, 0, RGB_WHITE)
+    waitfade
+    legendcutsceneclearbellanimbegin
+    legendcutsceneclearbellrisefrombag
+    playse(SEQ_SE_GS_SUZUSYUTUGEN_RU)
+    fadescreen(4, 4, 1, RGB_WHITE)
+    waitfade
+    waitse(SEQ_SE_GS_SUZUSYUTUGEN_RU)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_096C)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0978)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0984)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0990)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_099C)
+    waitmovement
+    wait(16, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    waitmovement
+    wait(16, VAR_SPECIAL_RESULT)
+    stopbgm(0)
+    tempbgm(SEQ_GS_E_MAIKO_MAI)
+    wait(18, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    wait(67, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09B8)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    fadescreen(4, 6, 1, RGB_WHITE)
+    legendcutscenewavesorleaveseffectbegin
+    waitfade
+    wait(6, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    wait(33, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0AF0)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A98)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A6C)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0AC4)
+    wait(15, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(1)
+    playse(SEQ_SE_GS_SUZUNOONPA_RU)
+    waitmovement
+    legendcutscenewavesorleaveseffectend
+    legendcutscenepancamerato(0)
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(29, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A6C)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0AF0)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0AC4)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A98)
+    wait(15, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(41, VAR_SPECIAL_RESULT)
+    legendcutscenewaitcamerapan
+    wait(16, VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    legendcutscenemovecamerato(1)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(29, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    legendcutscenemovecamerato(2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    wait(38, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    legendcutscenepancamerato(1)
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    wait(12, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellshimmer(0)
+    playse(SEQ_SE_GS_SUZUNOONPA2)
+    waitmovement
+    fadeoutbgm(0, 100)
+    stopbgm(0)
+    wait(32, VAR_SPECIAL_RESULT)
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0B24)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0B2C)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0B34)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_0B1C)
+    waitmovement
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer_3, WhirlIslands_B3F_LugiaCave_Movement_0A00)
+    applymovement(obj_D40R0107_dancer_4, WhirlIslands_B3F_LugiaCave_Movement_0A24)
+    applymovement(obj_D40R0107_dancer, WhirlIslands_B3F_LugiaCave_Movement_0A48)
+    applymovement(obj_D40R0107_dancer_2, WhirlIslands_B3F_LugiaCave_Movement_09DC)
+    wait(12, VAR_SPECIAL_RESULT)
+    waitmovement
+    legendcutscenewaitcamerapan
+    wait(32, VAR_SPECIAL_RESULT)
+    tempbgm(SEQ_GS_E_LUGIA)
+    wait(48, VAR_SPECIAL_RESULT)
+    screenshake(3, 3, 15, 5)
+    wait(10, VAR_SPECIAL_RESULT)
+    wait(70, VAR_SPECIAL_RESULT)
+    legendcutscenelugiaeyeglimmereffect
+    wait(26, VAR_SPECIAL_RESULT)
+    legendcutsceneclearbellanimend
+    setvar(VAR_TEMP_x400B, 123)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_HIDE_WHIRL_ISLAND_LUGIA)
+    addobject(obj_D40R0107_lug_obj01)
+    makeobjectvisible(obj_D40R0107_lug_obj01)
+    addobject(obj_D40R0107_stop)
+    addobject(obj_D40R0107_stop_2)
+    addobject(obj_D40R0107_stop_3)
+    addobject(obj_D40R0107_stop_4)
+    addobject(obj_D40R0107_stop_5)
+    release(obj_D40R0107_dancer_5)
+    release(obj_D40R0107_dancer_3)
+    release(obj_D40R0107_dancer_4)
+    release(obj_D40R0107_dancer)
+    release(obj_D40R0107_dancer_2)
+    movepersonfacing(obj_D40R0107_dancer_5, 16, 1, 33, DIR_NORTH)
+    movepersonfacing(obj_D40R0107_dancer_3, 13, 1, 33, DIR_NORTH)
+    movepersonfacing(obj_D40R0107_dancer_4, 13, 1, 27, DIR_NORTH)
+    movepersonfacing(obj_D40R0107_dancer, 19, 1, 33, DIR_NORTH)
+    movepersonfacing(obj_D40R0107_dancer_2, 19, 1, 27, DIR_NORTH)
+    cinematic(1)
+    legendcutscenelugiaarriveseffectbegin
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    wait(59, VAR_SPECIAL_RESULT)
+    legendcutscenebirdfinalapproach
+    stopbgm(15)
+    legendcutscenelugiaarriveseffectcamerapan
+    legendcutscenelugiaarriveseffectend
+    wait(16, VAR_SPECIAL_RESULT)
+    processsoundplate
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_0B3C)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0125_D40R0107_00002)
+    closemessage
+    applymovement(obj_D40R0107_dancer_5, WhirlIslands_B3F_LugiaCave_Movement_09A8)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0125_D40R0107_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    setflag(FLAG_UNK_10B)
+    setvar(VAR_UNK_40FA, 2)
+    end
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0964 {
+    walk_slow_up * 2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_096C {
+    delay_8 * 6
+    walk_up
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0978 {
+    delay_8 * 5
+    walk_left * 2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0984 {
+    walk_left
+    walk_up * 6
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0990 {
+    delay_8 * 5
+    walk_right * 2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_099C {
+    walk_right
+    walk_up * 6
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_09A8 {
+    walk_in_place_down
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_09B0 {
+    walk_in_place_up
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_09B8 {
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+    face_down
+    delay_2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_09DC {
+    face_left
+    delay_2
+    face_down
+    delay_2
+    face_right
+    delay_2
+    face_up
+    delay_2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0A00 {
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+    face_down
+    delay_2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0A24 {
+    face_down
+    delay_2
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0A48 {
+    face_up
+    delay_2
+    face_left
+    delay_2
+    face_down
+    delay_2
+    face_right
+    delay_2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0A6C {
+    face_left
+    delay_2
+    face_down
+    delay_2
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0A98 {
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+    face_down
+    delay_2
+    face_right
+    delay_2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0AC4 {
+    face_down
+    delay_2
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+    face_down
+    delay_2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0AF0 {
+    face_up
+    delay_2
+    face_left
+    delay_2
+    face_down
+    delay_2
+    face_right
+    delay_2
+    face_up
+    delay_2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0B1C {
+    walk_slow_up * 2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0B24 {
+    walk_slow_down * 2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0B2C {
+    walk_slow_left * 2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0B34 {
+    walk_slow_right * 2
+}
+
+movement WhirlIslands_B3F_LugiaCave_Movement_0B3C {
+    walk_slow_up
+}
+
+script scr_seq_D40R0107_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_109)) {
+        if (var(VAR_TEMP_x4005) == 5) {
+            npcmsg(msg_0125_D40R0107_00008)
+        } elif (var(VAR_TEMP_x4005) == 6) {
+            npcmsg(msg_0125_D40R0107_00008)
+        } elif (var(VAR_TEMP_x4005) == 4) {
+            npcmsg(msg_0125_D40R0107_00006)
+        } else {
+            npcmsg(msg_0125_D40R0107_00007)
+        }
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0125_D40R0107_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D40R0107_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_109)) {
+        npcmsg(msg_0125_D40R0107_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0125_D40R0107_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts WhirlIslands_B3F_LugiaCave_MapScripts {
+    INIT_SCRIPT_ON_LOAD: scr_seq_D40R0107_002
+    INIT_SCRIPT_ON_RESUME: scr_seq_D40R0107_004
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D40R0107_006
+}

@@ -1,0 +1,708 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R34_000
+	ScrDef scr_seq_R34_001
+	ScrDef scr_seq_R34_002
+	ScrDef scr_seq_R34_003
+	ScrDef scr_seq_R34_004
+	ScrDef scr_seq_R34_005
+	ScrDef scr_seq_R34_006
+	ScrDef scr_seq_R34_007
+	ScrDef scr_seq_R34_008
+	ScrDef scr_seq_R34_009
+	ScrDef scr_seq_R34_010
+	ScrDef scr_seq_R34_011
+	ScrDef scr_seq_R34_012
+	ScrDefEnd
+`
+
+script scr_seq_R34_000 {
+    getfriendsprite(VAR_OBJ_0)
+    checkdaycareegg(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 0) {
+        setobjectmovementtype(obj_R34_gsoldman1, 16)
+    } else {
+        setobjectmovementtype(obj_R34_gsoldman1, 15)
+    }
+    if (!flag(FLAG_UNK_189)) {
+        checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 0) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 3) { goto(_00A9) }
+            if (var(VAR_TEMP_x4000) == 4) { goto(_00A9) }
+        }
+        setflag(FLAG_HIDE_CAMERON)
+        goto(_00AD)
+    _00A9:
+        clearflag(FLAG_HIDE_CAMERON)
+    _00AD:
+        getcurrenttimeofday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 3) { goto(_00D5) }
+        if (var(VAR_TEMP_x4000) == 4) { goto(_00D5) }
+        clearflag(FLAG_UNK_1D1)
+        setflag(FLAG_UNK_1D2)
+        end
+    _00D5:
+        clearflag(FLAG_UNK_1D2)
+        setflag(FLAG_UNK_1D1)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_R34_001 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_R34_gsoldman1, Route34_Movement_0130)
+    applymovement(obj_player, Route34_Movement_0140)
+    waitmovement
+    npcmsg(msg_0384_R34_00046)
+    bufferplayersname(0)
+    registergearnumber(PHONE_CONTACT_DAY_C_MAN)
+    npcmsg(msg_0384_R34_00047)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    registergearnumber(PHONE_CONTACT_DAY_C_LADY)
+    npcmsg(msg_0384_R34_00048)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    npcmsg(msg_0384_R34_00049)
+    closemessage
+    applymovement(obj_R34_gsoldman1, Route34_Movement_014C)
+    waitmovement
+    setvar(VAR_UNK_408E, 3)
+    releaseall
+    end
+}
+
+movement Route34_Movement_0130 {
+    emote_exclamation_mark
+    walk_down
+    walk_right * 2
+}
+
+movement Route34_Movement_0140 {
+    delay_8 * 3
+    walk_in_place_left
+}
+
+movement Route34_Movement_014C {
+    walk_left * 2
+    walk_up
+    walk_in_place_down
+}
+
+script scr_seq_R34_003 {
+    followmonresetmovement
+    lockall
+    gendermsgbox(msg_0384_R34_00036, msg_0384_R34_00041)
+    closemessage
+    applymovement(obj_R34_gsoldman1, Route34_Movement_0510)
+    waitmovement
+    callstd(std_play_friend_music)
+    applymovement(obj_R34_var_1, Route34_Movement_049C)
+    applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04B0)
+    waitmovement
+    applymovement(obj_R34_gsoldman1, Route34_Movement_0500)
+    waitmovement
+    gendermsgbox(msg_0384_R34_00037, msg_0384_R34_00042)
+    closemessage
+    applymovement(obj_R34_var_1, Route34_Movement_04F8)
+    waitmovement
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_x8004) == 368) {
+        applymovement(obj_R34_var_1, Route34_Movement_04C0)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04CC)
+        applymovement(obj_R34_gsoldman1, Route34_Movement_0494)
+    } elif (var(VAR_SPECIAL_x8004) == 369) {
+        applymovement(obj_R34_var_1, Route34_Movement_04C0)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04CC)
+        applymovement(obj_R34_gsoldman1, Route34_Movement_0494)
+    } else {
+        applymovement(obj_R34_var_1, Route34_Movement_0518)
+    }
+    waitmovement
+    gendermsgbox(msg_0384_R34_00038, msg_0384_R34_00043)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    if (var(VAR_SPECIAL_x8004) == 363) {
+        applymovement(obj_player, Route34_Movement_0528)
+    } elif (var(VAR_SPECIAL_x8004) == 364) {
+        applymovement(obj_player, Route34_Movement_0534)
+    } elif (var(VAR_SPECIAL_x8004) == 365) {
+        applymovement(obj_player, Route34_Movement_053C)
+    } elif (var(VAR_SPECIAL_x8004) == 366) {
+        applymovement(obj_player, Route34_Movement_0548)
+    } elif (var(VAR_SPECIAL_x8004) == 367) {
+        applymovement(obj_player, Route34_Movement_0554)
+    } elif (var(VAR_SPECIAL_x8004) == 368) {
+        applymovement(obj_player, Route34_Movement_0560)
+    } else {
+        applymovement(obj_player, Route34_Movement_056C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    if (var(VAR_SPECIAL_x8004) == 368) {
+        applymovement(obj_R34_var_1, Route34_Movement_0510)
+    } elif (var(VAR_SPECIAL_x8004) == 369) {
+        applymovement(obj_R34_var_1, Route34_Movement_0510)
+    } else {
+        applymovement(obj_R34_var_1, Route34_Movement_0508)
+    }
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0384_R34_00039, msg_0384_R34_00044)
+    closemessage
+    if (var(VAR_SPECIAL_x8004) == 368) {
+        applymovement(obj_R34_var_1, Route34_Movement_04D4)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04E8)
+    } elif (var(VAR_SPECIAL_x8004) == 369) {
+        applymovement(obj_R34_var_1, Route34_Movement_04D4)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04E8)
+    } else {
+        applymovement(obj_R34_var_1, Route34_Movement_04E0)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_04F0)
+    }
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0384_R34_00040, msg_0384_R34_00045)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    if (var(VAR_SPECIAL_x8004) == 368) {
+        applymovement(obj_R34_var_1, Route34_Movement_0578)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_0590)
+        applymovement(obj_player, Route34_Movement_05A4)
+    } elif (var(VAR_SPECIAL_x8004) == 369) {
+        applymovement(obj_R34_var_1, Route34_Movement_0578)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_0590)
+        applymovement(obj_player, Route34_Movement_05A4)
+    } else {
+        applymovement(obj_R34_var_1, Route34_Movement_0584)
+        applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_0598)
+        applymovement(obj_player, Route34_Movement_05B4)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    dooranimationload(11, 12, 16, 26, 77)
+    dooranimationopen(77)
+    dooranimationwait(77)
+    applymovement(obj_R34_var_1, Route34_Movement_05C4)
+    applymovement(obj_R34_tsure_poke_static_marill, Route34_Movement_05D0)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Route34_Movement_05E0)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    playse(SEQ_SE_DP_KAIDAN2)
+    followmonislarge(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        followmonrecall
+    }
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    waitfade
+    dooranimationunload(77)
+    setvar(VAR_UNK_408E, 1)
+    warp(MAP_ROUTE_34_DAYCARE, 0, 3, 12, DIR_NORTH)
+    setspecialspawnwarp(MAP_ROUTE_34, 368, 411)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement Route34_Movement_0494 {
+    walk_in_place_down
+}
+
+movement Route34_Movement_049C {
+    walk_down * 6
+    walk_right * 3
+    walk_down * 2
+    walk_in_place_right
+}
+
+movement Route34_Movement_04B0 {
+    walk_down * 7
+    walk_right * 3
+    walk_down
+}
+
+movement Route34_Movement_04C0 {
+    walk_down
+    walk_in_place_right
+}
+
+movement Route34_Movement_04CC {
+    walk_down
+}
+
+movement Route34_Movement_04D4 {
+    walk_right
+    walk_in_place_down
+}
+
+movement Route34_Movement_04E0 {
+    walk_down
+}
+
+movement Route34_Movement_04E8 {
+    walk_down
+}
+
+movement Route34_Movement_04F0 {
+    walk_down
+}
+
+movement Route34_Movement_04F8 {
+    emote_exclamation_mark
+}
+
+movement Route34_Movement_0500 {
+    walk_in_place_left
+}
+
+movement Route34_Movement_0508 {
+    walk_in_place_right
+}
+
+movement Route34_Movement_0510 {
+    walk_in_place_up
+}
+
+movement Route34_Movement_0518 {
+    walk_in_place_down
+}
+
+movement Route34_Movement_0520 {
+    set_invisible
+}
+
+movement Route34_Movement_0528 {
+    walk_right
+    walk_up
+}
+
+movement Route34_Movement_0534 {
+    walk_up
+}
+
+movement Route34_Movement_053C {
+    walk_left
+    walk_up
+}
+
+movement Route34_Movement_0548 {
+    walk_left * 2
+    walk_up
+}
+
+movement Route34_Movement_0554 {
+    walk_left * 3
+    walk_up
+}
+
+movement Route34_Movement_0560 {
+    walk_left * 3
+    walk_up
+}
+
+movement Route34_Movement_056C {
+    walk_left * 4
+    walk_up
+}
+
+movement Route34_Movement_0578 {
+    walk_right * 3
+    walk_in_place_up
+}
+
+movement Route34_Movement_0584 {
+    walk_right * 4
+    walk_in_place_up
+}
+
+movement Route34_Movement_0590 {
+    walk_right * 3
+}
+
+movement Route34_Movement_0598 {
+    walk_down
+    walk_right * 3
+}
+
+movement Route34_Movement_05A4 {
+    delay_8
+    walk_right * 3
+    walk_in_place_up
+}
+
+movement Route34_Movement_05B4 {
+    delay_8
+    walk_right * 4
+    walk_in_place_up
+}
+
+movement Route34_Movement_05C4 {
+    walk_up
+    set_invisible
+}
+
+movement Route34_Movement_05D0 {
+    walk_right
+    walk_up
+    set_invisible
+}
+
+movement Route34_Movement_05E0 {
+    walk_up * 2
+    set_invisible
+}
+
+script scr_seq_R34_002 {
+    simplenpcmsg(msg_0384_R34_00018)
+    end
+}
+
+script scr_seq_R34_012 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Route34_Movement_0750)
+        applymovement(obj_R34_gsmiddleman1_2, Route34_Movement_079C)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Route34_Movement_0768)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Route34_Movement_0788)
+        applymovement(obj_R34_gsmiddleman1_2, Route34_Movement_079C)
+    } else {
+        applymovement(obj_player, Route34_Movement_0774)
+        applymovement(obj_R34_gsmiddleman1_2, Route34_Movement_079C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Route34_Movement_07A8)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(9)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route34_Movement_0750 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route34_Movement_0768 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route34_Movement_0774 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route34_Movement_0788 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route34_Movement_079C {
+    delay_8
+    walk_in_place_up
+}
+
+movement Route34_Movement_07A8 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_R34_004 {
+    followmonresetmovement
+    lockall
+    countalivemons(VAR_TEMP_x4003, 6)
+    if (var(VAR_TEMP_x4003) != 1) {
+        goto(_087D)
+    _07E1:
+        applymovement(obj_R34_gswoman3, Route34_Movement_0918)
+        stopbgm(0)
+        playbgm(SEQ_GS_EYE_J_SHOUJO)
+        waitmovement
+        applymovement(obj_player, Route34_Movement_0944)
+        waitmovement
+        npcmsg(msg_0384_R34_00019)
+        closemessage
+        trainerbattle(TRAINER_ACE_TRAINER_F_IRENE, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0912) }
+        applymovement(obj_R34_gswoman3, Route34_Movement_094C)
+        waitmovement
+        npcmsg(msg_0384_R34_00021)
+        closemessage
+        applymovement(obj_R34_gswoman3_2, Route34_Movement_0924)
+        stopbgm(0)
+        playbgm(SEQ_GS_EYE_J_SHOUJO)
+        waitmovement
+        applymovement(obj_player, Route34_Movement_093C)
+        waitmovement
+        npcmsg(msg_0384_R34_00024)
+        closemessage
+        trainerbattle(TRAINER_ACE_TRAINER_F_JENN, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0912) }
+        applymovement(obj_R34_gswoman3_2, Route34_Movement_0954)
+        waitmovement
+        npcmsg(msg_0384_R34_00026)
+        waitbuttonpress
+        closemessage
+        goto(_0908)
+        end
+    _087D:
+        applymovement(obj_R34_gswoman3, Route34_Movement_0918)
+        stopbgm(0)
+        playbgm(SEQ_GS_EYE_J_SHOUJO)
+        waitmovement
+        applymovement(obj_player, Route34_Movement_0944)
+        waitmovement
+        npcmsg(msg_0384_R34_00019)
+        closemessage
+        applymovement(obj_R34_gswoman3_2, Route34_Movement_0924)
+        playbgm(SEQ_GS_EYE_J_SHOUJO)
+        waitmovement
+        applymovement(obj_player, Route34_Movement_093C)
+        waitmovement
+        npcmsg(msg_0384_R34_00024)
+        closemessage
+        trainerbattle(TRAINER_ACE_TRAINER_F_JENN, 120, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0912) }
+        applymovement(obj_R34_gswoman3, Route34_Movement_094C)
+        waitmovement
+        applymovement(obj_player, Route34_Movement_0944)
+        waitmovement
+        npcmsg(msg_0384_R34_00021)
+        closemessage
+        applymovement(obj_R34_gswoman3_2, Route34_Movement_0954)
+        waitmovement
+        applymovement(obj_player, Route34_Movement_093C)
+        waitmovement
+        npcmsg(msg_0384_R34_00026)
+        waitbuttonpress
+        closemessage
+    _0908:
+        setvar(VAR_UNK_4097, 1)
+        releaseall
+        end
+    _0912:
+        whiteout
+        releaseall
+        end
+    }
+    goto(_07E1)
+    goto(_07E1)
+}
+
+movement Route34_Movement_0918 {
+    emote_exclamation_mark
+    walk_left * 4
+}
+
+movement Route34_Movement_0924 {
+    emote_exclamation_mark
+    walk_right * 4
+}
+
+movement Route34_Movement_0930 {
+    emote_exclamation_mark
+    walk_up * 2
+}
+
+movement Route34_Movement_093C {
+    face_left
+}
+
+movement Route34_Movement_0944 {
+    face_right
+}
+
+movement Route34_Movement_094C {
+    jump_in_place_fast_left * 2
+}
+
+movement Route34_Movement_0954 {
+    jump_in_place_fast_right * 2
+}
+
+script scr_seq_R34_005 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_TEMP_x4004, 777)
+    applymovement(obj_R34_gswoman3_3, Route34_Movement_0930)
+    stopbgm(0)
+    playbgm(SEQ_GS_EYE_J_SHOUJO)
+    waitmovement
+    npcmsg(msg_0384_R34_00028)
+    closemessage
+    stopbgm(0)
+    trainerbattle(TRAINER_ACE_TRAINER_F_KATE, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0912) }
+    setvar(VAR_UNK_4097, 2)
+_09A0:
+    npcmsg(msg_0384_R34_00030)
+    if (!itemspace(ITEM_POWER_HERB, 1)) {
+        callstd(std_bag_is_full)
+        closemessage
+        goto(_09D5)
+        end
+    }
+    callstd(std_give_item_verbose)
+    setvar(VAR_UNK_4097, 3)
+    npcmsg(msg_0384_R34_00032)
+    waitbuttonpress
+    closemessage
+_09D5:
+    if (var(VAR_TEMP_x4004) == 777) {
+        releaseall
+    } else {
+        releaseall
+    }
+    end
+}
+
+script scr_seq_R34_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4097) == 1) {
+        npcmsg(msg_0384_R34_00022)
+    } else {
+        npcmsg(msg_0384_R34_00023)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R34_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4097) == 1) {
+        npcmsg(msg_0384_R34_00026)
+    } else {
+        npcmsg(msg_0384_R34_00027)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R34_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4004, 555)
+    if (var(VAR_UNK_4097) == 2) { goto(_09A0) }
+    npcmsg(msg_0384_R34_00032)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R34_009 {
+    trainertipsex(3, msg_0384_R34_00034)
+    end
+}
+
+script scr_seq_R34_010 {
+    trainertipsex(2, msg_0384_R34_00035)
+    end
+}
+
+script scr_seq_R34_011 {
+    directionsignpostex(1, 4, msg_0384_R34_00033)
+    end
+}
+
+mapscripts Route34_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R34_000
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_408E, 2: scr_seq_R34_001
+    ]
+}

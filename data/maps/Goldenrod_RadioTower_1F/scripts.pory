@@ -1,0 +1,760 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D23R0101_000
+	ScrDef scr_seq_D23R0101_001
+	ScrDef scr_seq_D23R0101_002
+	ScrDef scr_seq_D23R0101_003
+	ScrDef scr_seq_D23R0101_004
+	ScrDef scr_seq_D23R0101_005
+	ScrDef scr_seq_D23R0101_006
+	ScrDef scr_seq_D23R0101_007
+	ScrDef scr_seq_D23R0101_008
+	ScrDef scr_seq_D23R0101_009
+	ScrDef scr_seq_D23R0101_010
+	ScrDefEnd
+`
+
+script scr_seq_D23R0101_008 {
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_6)
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) != 2) {
+        if (var(VAR_SCENE_ROCKET_TAKEOVER) != 4) {
+            if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+                clearflag(FLAG_HIDE_ROCKET_TAKEOVER_6)
+                clearflag(FLAG_HIDE_RADIO_TOWER_RIVAL)
+            } else {
+                clearflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+            }
+        _0085:
+            setvar(VAR_TEMP_x400A, 0)
+        _008B:
+            end
+        }
+        goto(_008B)
+        goto(_0085)
+    }
+    clearflag(FLAG_HIDE_ROCKET_TAKEOVER_6)
+    goto(_0085)
+}
+
+script scr_seq_D23R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 2) {
+        npcmsg(msg_0065_D23R0101_00001)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        npcmsg(msg_0065_D23R0101_00001)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        npcmsg(msg_0065_D23R0101_00002)
+    } else {
+        npcmsg(msg_0065_D23R0101_00000)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0101_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0065_D23R0101_00014)
+    applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_036C)
+    waitmovement
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_RADIO_CARD)) {
+        npcmsg(msg_0065_D23R0101_00011)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0065_D23R0101_00003)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0221) }
+    npcmsg(msg_0065_D23R0101_00004)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_022E) }
+    playse(SEQ_SE_DP_PINPON)
+    waitse(SEQ_SE_DP_PINPON)
+    npcmsg(msg_0065_D23R0101_00005)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_022E) }
+    playse(SEQ_SE_DP_PINPON)
+    waitse(SEQ_SE_DP_PINPON)
+    npcmsg(msg_0065_D23R0101_00006)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_022E) }
+    playse(SEQ_SE_DP_PINPON)
+    waitse(SEQ_SE_DP_PINPON)
+    npcmsg(msg_0065_D23R0101_00007)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_022E) }
+    playse(SEQ_SE_DP_PINPON)
+    waitse(SEQ_SE_DP_PINPON)
+    npcmsg(msg_0065_D23R0101_00008)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_022E) }
+    wait(30, VAR_SPECIAL_RESULT)
+    playse(SEQ_SE_DP_PINPON)
+    waitse(SEQ_SE_DP_PINPON)
+    touchscreenmenushow
+    npcmsg(msg_0065_D23R0101_00009)
+    bufferplayersname(0)
+    npcmsg(msg_0065_D23R0101_00010)
+    playfanfare(SEQ_ME_KEYITEM)
+    waitfanfare
+    closemessage
+    registerpokegearcard(2)
+    setflag(FLAG_GOT_RADIO_CARD)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_0250)
+    applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_0270)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0065_D23R0101_00015)
+    closemessage
+    applymovement(obj_D23R0101_gsleader3, Goldenrod_RadioTower_1F_Movement_0264)
+    wait(24, VAR_SPECIAL_RESULT)
+    applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_036C)
+    waitmovement
+    removeobject(obj_D23R0101_gsleader3)
+    setflag(FLAG_UNK_318)
+    releaseall
+    end
+_0221:
+    npcmsg(msg_0065_D23R0101_00013)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+_022E:
+    playse(SEQ_SE_DP_BOX03)
+    waitse(SEQ_SE_DP_BOX03)
+    npcmsg(msg_0065_D23R0101_00012)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0250 {
+    emote_exclamation_mark
+    jump_in_place_fast_left * 2
+    walk_slightly_fast_up * 3
+    walk_slightly_fast_left
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0264 {
+    walk_slightly_fast_up
+    walk_slightly_fast_left * 10
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0270 {
+    delay_8 * 6
+    walk_slightly_fast_up
+    face_right
+}
+
+script scr_seq_D23R0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0065_D23R0101_00016)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0065_D23R0101_00017)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0101_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+        if (var(VAR_TEMP_x400A) == 1) {
+            getplayerfacing(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 3) {
+                setvar(VAR_TEMP_x400B, 33)
+            } elif (var(VAR_SPECIAL_RESULT) == 0) {
+                setvar(VAR_TEMP_x400B, 11)
+            }
+            npcmsg(msg_0065_D23R0101_00020)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0065_D23R0101_00019)
+        closemessage
+        getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 5) {
+            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_0354)
+        } elif (var(VAR_TEMP_x4001) == 6) {
+            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_0360)
+        }
+        waitmovement
+        releaseall
+        setvar(VAR_TEMP_x400A, 1)
+        end
+    }
+    npcmsg(msg_0065_D23R0101_00018)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0354 {
+    walk_down
+    walk_in_place_left
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0360 {
+    walk_left
+    walk_in_place_down
+}
+
+movement Goldenrod_RadioTower_1F_Movement_036C {
+    walk_in_place_left
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0374 {
+    walk_in_place_right
+}
+
+movement Goldenrod_RadioTower_1F_Movement_037C {
+    walk_in_place_down
+}
+
+script scr_seq_D23R0101_009 {
+    followmonresetmovement
+    lockall
+    movepersonfacing(obj_D23R0101_gsrivel, 13, 1, 6, DIR_EAST)
+    callstd(std_play_rival_intro_music)
+    getpersoncoords(6, VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 5) {
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0670)
+        if (var(VAR_TEMP_x400B) == 33) {
+            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_069C)
+        }
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_067C)
+        if (var(VAR_TEMP_x400B) == 11) {
+            applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_06A8)
+        }
+    }
+    waitmovement
+    bufferrivalsname(1)
+    npcmsg(msg_0065_D23R0101_00021)
+    closemessage
+    applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0664)
+    waitmovement
+    if (var(VAR_TEMP_x4001) == 5) {
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0684)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_06B4)
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0690)
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_06C8)
+    }
+    waitmovement
+    if (var(VAR_TEMP_x4001) == 5) {
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06E4)
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06EC)
+    }
+    waitmovement
+    bufferplayersname(0)
+    bufferrivalsname(1)
+    npcmsg(msg_0065_D23R0101_00022)
+    closemessage
+    if (var(VAR_TEMP_x4001) == 5) {
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06FC)
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_07BC)
+    }
+    wait(50, VAR_SPECIAL_RESULT)
+    setavatarbits(PLAYER_TRANSITION_WALKING)
+    updateavatarstate
+    rocketcostumeflagaction(0)
+    waitmovement
+    if (var(VAR_TEMP_x4001) == 5) {
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_0874)
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_0890)
+    }
+    waitmovement
+    if (var(VAR_TEMP_x4001) == 5) {
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_08AC)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_08BC)
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_08B4)
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_08D4)
+    }
+    waitmovement
+    npcmsg(msg_0065_D23R0101_00023)
+    closemessage
+    trainerbattle(TRAINER_TEAM_ROCKET_GRUNT_3, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        setvar(VAR_SCENE_ROCKET_TAKEOVER, 2)
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0065_D23R0101_00024)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    if (var(VAR_TEMP_x4001) == 5) {
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_08EC)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_0900)
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_D23R0101_rocketm, Goldenrod_RadioTower_1F_Movement_08F4)
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_0914)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    removeobject(obj_D23R0101_rocketm)
+    callstd(std_play_rival_outro_music)
+    if (var(VAR_TEMP_x4001) == 5) {
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0928)
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0930)
+    }
+    waitmovement
+    if (var(VAR_TEMP_x4001) == 5) {
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06DC)
+    } elif (var(VAR_TEMP_x4001) == 6) {
+        applymovement(obj_player, Goldenrod_RadioTower_1F_Movement_06F4)
+    }
+    waitmovement
+    bufferrivalsname(1)
+    npcmsg(msg_0065_D23R0101_00025)
+    closemessage
+    applymovement(obj_D23R0101_gsrivel, Goldenrod_RadioTower_1F_Movement_0938)
+    waitmovement
+    removeobject(obj_D23R0101_gsrivel)
+    callstd(std_fade_end_rival_outro_music)
+    releaseall
+    setvar(VAR_SCENE_ROCKET_TAKEOVER, 4)
+    setflag(FLAG_HIDE_RADIO_TOWER_RIVAL)
+    setvar(VAR_UNK_409F, 1)
+    end
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0664 {
+    delay_16
+    emote_exclamation_mark
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0670 {
+    walk_fast_right * 9
+    walk_in_place_up
+}
+
+movement Goldenrod_RadioTower_1F_Movement_067C {
+    walk_fast_right * 9
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0684 {
+    walk_up
+    walk_in_place_right
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0690 {
+    walk_right
+    walk_in_place_up
+}
+
+movement Goldenrod_RadioTower_1F_Movement_069C {
+    delay_4 * 9
+    walk_in_place_down
+}
+
+movement Goldenrod_RadioTower_1F_Movement_06A8 {
+    delay_4 * 9
+    walk_in_place_left
+}
+
+movement Goldenrod_RadioTower_1F_Movement_06B4 {
+    face_right
+    lock_dir
+    walk_left
+    unlock_dir
+}
+
+movement Goldenrod_RadioTower_1F_Movement_06C8 {
+    face_up
+    lock_dir
+    walk_down
+    unlock_dir
+}
+
+movement Goldenrod_RadioTower_1F_Movement_06DC {
+    walk_in_place_left
+}
+
+movement Goldenrod_RadioTower_1F_Movement_06E4 {
+    walk_in_place_right
+}
+
+movement Goldenrod_RadioTower_1F_Movement_06EC {
+    walk_in_place_up
+}
+
+movement Goldenrod_RadioTower_1F_Movement_06F4 {
+    walk_in_place_down
+}
+
+movement Goldenrod_RadioTower_1F_Movement_06FC {
+    delay_4
+    face_right
+    delay_4
+    face_down
+    delay_4
+    face_left
+    delay_4
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_2
+    face_right
+    delay_4
+    face_down
+    delay_4
+    face_left
+}
+
+movement Goldenrod_RadioTower_1F_Movement_07BC {
+    delay_4
+    face_left
+    delay_4
+    face_up
+    delay_4
+    face_right
+    delay_4
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_2
+    face_up
+    delay_4
+    face_right
+    delay_4
+    face_down
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0874 {
+    delay_16
+    face_right
+    lock_dir
+    walk_fast_left * 2
+    unlock_dir
+    emote_exclamation_mark
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0890 {
+    delay_16
+    face_up
+    lock_dir
+    walk_fast_down * 2
+    unlock_dir
+    emote_exclamation_mark
+}
+
+movement Goldenrod_RadioTower_1F_Movement_08AC {
+    walk_fast_right * 3
+}
+
+movement Goldenrod_RadioTower_1F_Movement_08B4 {
+    walk_fast_up * 3
+}
+
+movement Goldenrod_RadioTower_1F_Movement_08BC {
+    delay_4
+    face_up
+    lock_dir
+    walk_fast_down
+    unlock_dir
+}
+
+movement Goldenrod_RadioTower_1F_Movement_08D4 {
+    delay_4
+    face_right
+    lock_dir
+    walk_fast_left
+    unlock_dir
+}
+
+movement Goldenrod_RadioTower_1F_Movement_08EC {
+    walk_right * 2
+}
+
+movement Goldenrod_RadioTower_1F_Movement_08F4 {
+    walk_up
+    walk_right
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0900 {
+    face_up
+    lock_dir
+    walk_down
+    unlock_dir
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0914 {
+    face_right
+    lock_dir
+    walk_left
+    unlock_dir
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0928 {
+    walk_in_place_right
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0930 {
+    walk_in_place_up
+}
+
+movement Goldenrod_RadioTower_1F_Movement_0938 {
+    walk_left * 9
+}
+
+script scr_seq_D23R0101_006 {
+    simplenpcmsg(msg_0065_D23R0101_00026)
+    end
+}
+
+script scr_seq_D23R0101_007 {
+    simplenpcmsg(msg_0065_D23R0101_00027)
+    end
+}
+
+script scr_seq_D23R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4136) != 0) { goto(_0B86) }
+    if (flag(FLAG_UNK_AA6)) { goto(_09CF) }
+    if (flag(FLAG_UNK_AA5)) { goto(_09AF) }
+    npcmsg(msg_0065_D23R0101_00028)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_09E5) }
+    goto(_09DA)
+_09AF:
+    npcmsg(msg_0065_D23R0101_00045)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_09E5) }
+    goto(_09DA)
+    end
+_09CF:
+    npcmsg(msg_0065_D23R0101_00029)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_09DA:
+    npcmsg(msg_0065_D23R0101_00030)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_09E5:
+    setflag(FLAG_UNK_AA5)
+    npcmsg(msg_0065_D23R0101_00031)
+    lotoidget(VAR_SPECIAL_x8000)
+    bufferintex(0, VAR_SPECIAL_x8000, 2, 5)
+    npcmsg(msg_0065_D23R0101_00032)
+    lotoidsearch(VAR_SPECIAL_x8001, VAR_SPECIAL_x8002, VAR_SPECIAL_x8003, VAR_SPECIAL_x8000)
+    if (var(VAR_SPECIAL_x8002) == 0) { goto(_0A24) }
+    if (var(VAR_SPECIAL_x8003) == 0) { goto(_0A2F) }
+    goto(_0A3D)
+_0A24:
+    npcmsg(msg_0065_D23R0101_00035)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0A2F:
+    bufferpartymonnick(0, VAR_SPECIAL_x8001)
+    npcmsg(msg_0065_D23R0101_00033)
+    goto(_0A4B)
+_0A3D:
+    bufferboxmonnick(0, VAR_SPECIAL_x8001)
+    npcmsg(msg_0065_D23R0101_00034)
+    goto(_0A4B)
+_0A4B:
+    Switch(VAR_SPECIAL_x8002)
+    Case(1, _0A94)
+    Case(2, _0A9F)
+    Case(3, _0AA8)
+    Case(4, _0AB1)
+    Case(5, _0ABA)
+    end
+_0A94:
+    npcmsg(msg_0065_D23R0101_00036)
+    goto(_0AC3)
+    end
+_0A9F:
+    npcmsg(msg_0065_D23R0101_00038)
+    goto(_0AC3)
+_0AA8:
+    npcmsg(msg_0065_D23R0101_00039)
+    goto(_0AC3)
+_0AB1:
+    npcmsg(msg_0065_D23R0101_00040)
+    goto(_0AC3)
+_0ABA:
+    npcmsg(msg_0065_D23R0101_00041)
+    goto(_0AC3)
+_0AC3:
+    Switch(VAR_SPECIAL_x8002)
+    Case(1, _0B0C)
+    Case(2, _0B1A)
+    Case(3, _0B26)
+    Case(4, _0B32)
+    Case(5, _0B3E)
+    end
+_0B0C:
+    setvar(VAR_SPECIAL_x8003, 2)
+    goto(_0B4A)
+    end
+_0B1A:
+    setvar(VAR_SPECIAL_x8003, 51)
+    goto(_0B4A)
+_0B26:
+    setvar(VAR_SPECIAL_x8003, 216)
+    goto(_0B4A)
+_0B32:
+    setvar(VAR_SPECIAL_x8003, 29)
+    goto(_0B4A)
+_0B3E:
+    setvar(VAR_SPECIAL_x8003, 1)
+    goto(_0B4A)
+_0B4A:
+    if (!itemspace(VAR_SPECIAL_x8003, 1)) { goto(_0B75) }
+    callstd(std_give_item_verbose)
+    goto(_0B98)
+_0B75:
+    copyvar(VAR_UNK_4136, VAR_SPECIAL_x8002)
+    npcmsg(msg_0065_D23R0101_00042)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0B86:
+    bufferplayersname(0)
+    npcmsg(msg_0065_D23R0101_00043)
+    copyvar(VAR_SPECIAL_x8002, VAR_UNK_4136)
+    goto(_0AC3)
+_0B98:
+    setvar(VAR_UNK_4136, 0)
+    setflag(FLAG_UNK_AA6)
+    npcmsg(msg_0065_D23R0101_00044)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Goldenrod_RadioTower_1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0101_008
+}

@@ -1,0 +1,311 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_P01R0101_000
+	ScrDef scr_seq_P01R0101_001
+	ScrDef scr_seq_P01R0101_002
+	ScrDef scr_seq_P01R0101_003
+	ScrDef scr_seq_P01R0101_004
+	ScrDefEnd
+`
+
+script scr_seq_P01R0101_001 {
+    getpreviousmapid(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 330) {
+        setobjectfacing(obj_P01R0101_seaman_2, DIR_SOUTH)
+        end
+    }
+    end
+}
+
+script scr_seq_P01R0101_002 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_00E4)
+    waitmovement
+    stopbgm(0)
+    playbgm(SEQ_GS_OHKIDO)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_00EC)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_0100)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    gendermsgbox(msg_0255_P01R0101_00009, msg_0255_P01R0101_00010)
+    closemessage
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_0110)
+    waitmovement
+    natdexflagaction(1, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    playfanfare(SEQ_ME_ITEM)
+    npcmsg(msg_0255_P01R0101_00011)
+    waitfanfare
+    enablemassoutbreaks
+    npcmsg(msg_0255_P01R0101_00012)
+    closemessage
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_0120)
+    waitmovement
+    npcmsg(msg_0255_P01R0101_00013)
+    closemessage
+    applymovement(obj_P01R0101_ookido, SsAquaOlivinePortInterior_Movement_0128)
+    waitmovement
+    removeobject(obj_P01R0101_ookido)
+    setflag(FLAG_HIDE_OLIVINE_PORT_OAK)
+    setvar(VAR_UNK_411A, 0)
+    fadeoutbgm(0, 30)
+    stopbgm(0)
+    resetbgm
+    releaseall
+    compare(VAR_UNK_40D3, 1)
+    callifeq(_00DE)
+    enablemassoutbreaks
+    end
+_00DE:
+    clearflag(FLAG_HIDE_POKEATHLON_SUPREME_CUP_RECEPTIONIST)
+    return
+}
+
+movement SsAquaOlivinePortInterior_Movement_00E4 {
+    emote_exclamation_mark
+}
+
+movement SsAquaOlivinePortInterior_Movement_00EC {
+    delay_8
+    walk_left * 3
+    walk_up
+    walk_in_place_left
+}
+
+movement SsAquaOlivinePortInterior_Movement_0100 {
+    delay_8 * 3
+    walk_down * 3
+    walk_in_place_right
+}
+
+movement SsAquaOlivinePortInterior_Movement_0110 {
+    walk_in_place_left
+    delay_8 * 2
+    walk_in_place_left
+}
+
+movement SsAquaOlivinePortInterior_Movement_0120 {
+    emote_exclamation_mark
+}
+
+movement SsAquaOlivinePortInterior_Movement_0128 {
+    walk_up * 2
+    walk_left
+    walk_up
+}
+
+script scr_seq_P01R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GAME_CLEAR)) {
+        npcmsg(msg_0255_P01R0101_00000)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_TEMP_x4002) >= 1) { goto(_0356) }
+    getplayerfacing(VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 0) { goto(_0320) }
+    if (var(VAR_SCENE_SS_AQUA) >= 7) { goto(_01FB) }
+    npcmsg(msg_0255_P01R0101_00001)
+    closemessage
+    hasitem(ITEM_S_S__TICKET, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02F9) }
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_036C)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0255_P01R0101_00004)
+    closemessage
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03F4)
+    waitmovement
+    npcmsg(msg_0255_P01R0101_00005)
+    closemessage
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_038C)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_03AC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setvar(VAR_TEMP_x4002, 1)
+    setvar(VAR_BOAT_DIRECTION, 1)
+    setvar(VAR_UNK_40DC, 0)
+    clearflag(FLAG_BOAT_ARRIVED)
+    setflag(FLAG_UNK_22C)
+    setflag(FLAG_UNK_22B)
+    releaseall
+    end
+_01FB:
+    getweekday(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) { goto(_0218) }
+    goto(_02EE)
+    goto(_029B)
+_0218:
+    if (var(VAR_SPECIAL_RESULT) != 1) { goto(_0231) }
+    goto(_029B)
+    goto(_029B)
+_0231:
+    if (var(VAR_SPECIAL_RESULT) != 2) { goto(_024A) }
+    goto(_02EE)
+    goto(_029B)
+_024A:
+    if (var(VAR_SPECIAL_RESULT) != 3) { goto(_0263) }
+    goto(_02EE)
+    goto(_029B)
+_0263:
+    if (var(VAR_SPECIAL_RESULT) != 4) { goto(_027C) }
+    goto(_02EE)
+    goto(_029B)
+_027C:
+    if (var(VAR_SPECIAL_RESULT) != 5) { goto(_0295) }
+    goto(_029B)
+    goto(_029B)
+_0295:
+    goto(_02EE)
+_029B:
+    npcmsg(msg_0255_P01R0101_00007)
+    closemessage
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_038C)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_03AC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setvar(VAR_TEMP_x4002, 1)
+    setvar(VAR_BOAT_DIRECTION, 1)
+    setvar(VAR_UNK_40DC, 0)
+    clearflag(FLAG_BOAT_ARRIVED)
+    setflag(FLAG_UNK_22A)
+    clearflag(FLAG_UNK_22B)
+    setflag(FLAG_UNK_22C)
+    releaseall
+    end
+_02EE:
+    npcmsg(msg_0255_P01R0101_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_02F9:
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_0378)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0255_P01R0101_00002)
+    closemessage
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03F4)
+    waitmovement
+    npcmsg(msg_0255_P01R0101_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0320:
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03B4)
+    waitmovement
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, SsAquaOlivinePortInterior_Movement_03D4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_P01R0101_seaman_2, SsAquaOlivinePortInterior_Movement_03E0)
+    waitmovement
+    releaseall
+    end
+_0356:
+    npcmsg(msg_0255_P01R0101_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement SsAquaOlivinePortInterior_Movement_036C {
+    walk_in_place_right
+    face_down * 2
+}
+
+movement SsAquaOlivinePortInterior_Movement_0378 {
+    jump_in_place_fast_left
+    jump_in_place_fast_right
+    face_down * 2
+    emote_exclamation_mark
+}
+
+movement SsAquaOlivinePortInterior_Movement_038C {
+    lock_dir
+    walk_down
+    unlock_dir
+    face_left * 2
+    lock_dir
+    walk_right
+    unlock_dir
+}
+
+movement SsAquaOlivinePortInterior_Movement_03AC {
+    walk_down * 2
+}
+
+movement SsAquaOlivinePortInterior_Movement_03B4 {
+    lock_dir
+    walk_up
+    unlock_dir
+    face_left * 2
+    lock_dir
+    walk_right
+    unlock_dir
+}
+
+movement SsAquaOlivinePortInterior_Movement_03D4 {
+    delay_8
+    walk_up * 4
+}
+
+movement SsAquaOlivinePortInterior_Movement_03E0 {
+    walk_left
+    face_down * 2
+    walk_down
+    walk_in_place_up
+}
+
+movement SsAquaOlivinePortInterior_Movement_03F4 {
+    walk_in_place_up
+}
+
+script scr_seq_P01R0101_003 {
+    simplenpcmsg(msg_0255_P01R0101_00014)
+    end
+}
+
+script scr_seq_P01R0101_004 {
+    simplenpcmsg(msg_0255_P01R0101_00015)
+    end
+}
+
+mapscripts SsAquaOlivinePortInterior_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0101_001
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_411A, 1: scr_seq_P01R0101_002
+    ]
+}

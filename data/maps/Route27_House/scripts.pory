@@ -1,0 +1,37 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R27R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_TM37_FROM_ROUTE_27_WOMAN)) { goto(_006A) }
+    npcmsg(msg_0370_R27R0101_00000)
+    getpartyleadalive(VAR_TEMP_x4000)
+    mongetfriendship(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) >= 150) {
+        npcmsg(msg_0370_R27R0101_00001)
+        if (!itemspace(ITEM_TM37, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_TM37_FROM_ROUTE_27_WOMAN)
+    _006A:
+        npcmsg(msg_0370_R27R0101_00002)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0370_R27R0101_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Route27_House_MapScripts {
+}

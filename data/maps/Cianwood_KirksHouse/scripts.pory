@@ -1,0 +1,112 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T24R0201_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_RETURNED_OR_INHERITED_LOAN_SHUCKLE)) {
+        npcmsg(msg_0576_T24R0201_00011)
+    _003A:
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (!flag(FLAG_GOT_LOAN_SHUCKLE)) {
+        npcmsg(msg_0576_T24R0201_00000)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) != 1) { goto(_0063) }
+        npcmsg(msg_0576_T24R0201_00004)
+        goto(_003A)
+    _0063:
+        getpartycount(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 6) { goto(_007D) }
+        npcmsg(msg_0576_T24R0201_00003)
+        goto(_003A)
+    _007D:
+        giveloanmon(6, 20, 75)
+        npcmsg(msg_0576_T24R0201_00001)
+        bufferplayersname(0)
+        npcmsg(msg_0576_T24R0201_00002)
+        playfanfare(SEQ_ME_PT_SPECIAL)
+        waitfanfare
+        setflag(FLAG_GOT_LOAN_SHUCKLE)
+        setflag(FLAG_DAILY_GOT_LOAN_SHUCKLE_TODAY)
+        goto(_003A)
+        end
+    }
+    if (flag(FLAG_DAILY_GOT_LOAN_SHUCKLE_TODAY)) {
+        npcmsg(msg_0576_T24R0201_00006)
+        goto(_003A)
+        end
+    _00AD:
+        npcmsg(msg_0576_T24R0201_00005)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01AA) }
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        closemessage
+        partyselectui
+        getpartyselection(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 255) {
+            checkreturnloanmon(6, VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+            compare(VAR_SPECIAL_RESULT, 0)
+            callifne(_019A)
+            nopvar490(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) != 1) {
+                if (var(VAR_SPECIAL_RESULT) != 2) {
+                    if (var(VAR_SPECIAL_RESULT) != 3) {
+                        if (var(VAR_SPECIAL_RESULT) != 4) {
+                            mongetfriendship(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+                            if (var(VAR_SPECIAL_RESULT) <= 149) {
+                                returnloanmon(VAR_TEMP_x4000)
+                                call(_019A)
+                                npcmsg(msg_0576_T24R0201_00007)
+                                setflag(FLAG_RETURNED_OR_INHERITED_LOAN_SHUCKLE)
+                            _0192:
+                                goto(_003A)
+                                end
+                            _019A:
+                                restoreoverworld
+                                fadescreen(6, 1, 1, RGB_BLACK)
+                                waitfade
+                                return
+                            _01AA:
+                                npcmsg(msg_0576_T24R0201_00010)
+                                goto(_003A)
+                                end
+                            _01B5:
+                                npcmsg(msg_0576_T24R0201_00009)
+                                setflag(FLAG_RETURNED_OR_INHERITED_LOAN_SHUCKLE)
+                                goto(_003A)
+                                end
+                            }
+                            call(_019A)
+                            goto(_01B5)
+                        }
+                        npcmsg(msg_0576_T24R0201_00014)
+                        goto(_0192)
+                    }
+                    npcmsg(msg_0576_T24R0201_00013)
+                    goto(_0192)
+                }
+                npcmsg(msg_0576_T24R0201_00012)
+                goto(_0192)
+            }
+            npcmsg(msg_0576_T24R0201_00008)
+            goto(_0192)
+        }
+        call(_019A)
+        goto(_01AA)
+    }
+    goto(_00AD)
+    end
+}
+
+mapscripts Cianwood_KirksHouse_MapScripts {
+}

@@ -1,0 +1,581 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D32R0601_000
+	ScrDef scr_seq_D32R0601_001
+	ScrDef scr_seq_D32R0601_002
+	ScrDef scr_seq_D32R0601_003
+	ScrDef scr_seq_D32R0601_004
+	ScrDef scr_seq_D32R0601_005
+	ScrDef scr_seq_D32R0601_006
+	ScrDef scr_seq_D32R0601_007
+	ScrDef scr_seq_D32R0601_008
+	ScrDef scr_seq_D32R0601_009
+	ScrDef scr_seq_D32R0601_010
+	ScrDef scr_seq_D32R0601_011
+	ScrDef scr_seq_D32R0601_012
+	ScrDef scr_seq_D32R0601_013
+	ScrDef scr_seq_D32R0601_014
+	ScrDef scr_seq_D32R0601_015
+	ScrDef scr_seq_D32R0601_016
+	ScrDefEnd
+`
+
+script scr_seq_D32R0601_014 {
+    end
+}
+
+script scr_seq_D32R0601_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4003, 0)
+    setvar(VAR_TEMP_x4004, 0)
+    goto(_0080)
+    end
+}
+
+script scr_seq_D32R0601_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4003, 0)
+    setvar(VAR_TEMP_x4004, 1)
+    goto(_0080)
+    end
+_0080:
+    checkfieldheapfreesize(0)
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_06A0)
+    compare(VAR_TEMP_x4004, 1)
+    callifeq(_06A5)
+    goto(_00A6)
+    end
+_00A6:
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_06AA)
+    compare(VAR_TEMP_x4004, 1)
+    callifeq(_06C9)
+    menuitemadd(41, 255, 2)
+    menuitemadd(42, 255, 3)
+    menuexec
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        setvar(VAR_UNK_4149, 0)
+        battlearcadeaction(0, 3, VAR_SPECIAL_RESULT)
+        bufferint(0, 3)
+        bufferint(1, 3)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01D2) }
+        goto(_01FC)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        setvar(VAR_UNK_4149, 1)
+        battlearcadeaction(0, 3, VAR_SPECIAL_RESULT)
+        bufferint(0, 3)
+        bufferint(1, 3)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_01D2) }
+        goto(_01FC)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0110) }
+    if (var(VAR_SPECIAL_RESULT) == 4) {
+        setvar(VAR_UNK_4149, 2)
+        battlearcadeaction(0, 2, VAR_SPECIAL_RESULT)
+        bufferint(0, 2)
+        bufferint(1, 2)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            npcmsg(msg_0110_D32R0601_00008)
+            msgboxfrontierbannedspecies(9, 2, 0, 0)
+            touchscreenmenushow
+            goto(_0132)
+            end
+        _01FC:
+            npcmsg(msg_0110_D32R0601_00007)
+            closemessage
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            battlearcadeaction(4, VAR_UNK_4149, VAR_SPECIAL_RESULT)
+            battlearcadegetpartyselection(VAR_TEMP_x4002, VAR_TEMP_x4005, VAR_TEMP_x4006)
+            if (var(VAR_TEMP_x4002) == 255) {
+                setsavedbottomscreenapp(0)
+            }
+            restoreoverworld
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            if (var(VAR_TEMP_x4002) == 255) { goto(_0132) }
+            daycaresanitizemon(VAR_TEMP_x4002, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 255) { goto(_0607) }
+            daycaresanitizemon(VAR_TEMP_x4005, VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 255) { goto(_0607) }
+            if (var(VAR_UNK_4149) != 2) {
+                daycaresanitizemon(VAR_TEMP_x4006, VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 255) { goto(_0607) }
+            }
+            getpartymonspecies(VAR_TEMP_x4002, VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) != 0) {
+                goto(_02B2)
+                end
+            _02B2:
+                goto(_02BA)
+                end
+            _02BA:
+                compare(VAR_UNK_4149, 0)
+                callifeq(_0476)
+                compare(VAR_UNK_4149, 1)
+                callifeq(_0476)
+                setvar(VAR_TEMP_x4000, 0)
+                healparty
+                callstd(std_prompt_save)
+                copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+                if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0132) }
+                touchscreenmenushow
+                if (var(VAR_UNK_4149) == 2) { goto(_030A) }
+                goto(_04D7)
+                end
+            _030A:
+                npcmsg(msg_0110_D32R0601_00043)
+                touchscreenmenuhide
+                menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+                menuitemadd(14, 255, 0)
+                menuitemadd(15, 255, 1)
+                menuitemadd(5, 255, 2)
+                menuexec
+                Switch(VAR_SPECIAL_RESULT)
+                Case(0, _035B)
+                Case(1, _03B3)
+                touchscreenmenushow
+                goto(_0132)
+                end
+            _035B:
+                npcmsg(msg_0110_D32R0601_00044)
+                getmenuchoice(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 1) { goto(_030A) }
+                touchscreenmenushow
+                closemessage
+                commclubjoin(32, 0, 0, VAR_SPECIAL_RESULT)
+                touchscreenmenushow
+                if (var(VAR_SPECIAL_RESULT) == 1) {
+                    goto(_030A)
+                    end
+                }
+                if (var(VAR_SPECIAL_RESULT) == 3) {
+                    commclubexit
+                    goto(_030A)
+                    end
+                _03B3:
+                    npcmsg(msg_0110_D32R0601_00044)
+                    getmenuchoice(VAR_SPECIAL_RESULT)
+                    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_030A) }
+                    touchscreenmenushow
+                    closemessage
+                    commclubhost(32, 0, 0, VAR_SPECIAL_RESULT)
+                    touchscreenmenushow
+                    if (var(VAR_SPECIAL_RESULT) == 1) {
+                        goto(_030A)
+                        end
+                    }
+                    if (var(VAR_SPECIAL_RESULT) == 3) {
+                        commclubexit
+                        goto(_030A)
+                        end
+                    _040B:
+                        linksyncclearpackets
+                        linksyncandwait(154)
+                        getpartymonspecies(VAR_TEMP_x4002, VAR_SPECIAL_x8000)
+                        getpartymonspecies(VAR_TEMP_x4005, VAR_SPECIAL_x8001)
+                        battlearcadecheckteam(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_RESULT)
+                        Switch(VAR_SPECIAL_RESULT)
+                        Case(1, _047E)
+                        Case(2, _0494)
+                        Case(3, _04AA)
+                        linksyncclearpackets
+                        linksyncandwait(156)
+                        npcmsg(msg_0110_D32R0601_00045)
+                        compare(VAR_UNK_4149, 2)
+                        callifeq(_0476)
+                        call(_0711)
+                        goto(_04D7)
+                        end
+                    _0476:
+                        setvar(VAR_UNK_414A, 255)
+                        return
+                    _047E:
+                        call(_04CD)
+                        buffermonspeciesname(0, VAR_TEMP_x4002)
+                        npcmsg(msg_0110_D32R0601_00029)
+                        goto(_04C5)
+                        end
+                    _0494:
+                        call(_04CD)
+                        buffermonspeciesname(0, VAR_TEMP_x4005)
+                        npcmsg(msg_0110_D32R0601_00029)
+                        goto(_04C5)
+                        end
+                    _04AA:
+                        call(_04CD)
+                        buffermonspeciesname(0, VAR_TEMP_x4002)
+                        buffermonspeciesname(1, VAR_TEMP_x4005)
+                        npcmsg(msg_0110_D32R0601_00030)
+                        goto(_04C5)
+                        end
+                    _04C5:
+                        goto(_0132)
+                        end
+                    _04CD:
+                        linksyncclearpackets
+                        linksyncandwait(157)
+                        commclubexit
+                        return
+                    _04D7:
+                        compare(VAR_UNK_4149, 0)
+                        callifeq(_056F)
+                        compare(VAR_UNK_4149, 1)
+                        callifeq(_058A)
+                        compare(VAR_UNK_4149, 2)
+                        callifeq(_05A5)
+                        playse(SEQ_SE_DP_KAIDAN2)
+                        goto(_050A)
+                        end
+                    _050A:
+                        fadescreen(6, 1, 0, RGB_BLACK)
+                        waitfade
+                        setsavedbottomscreenapp(0)
+                        compare(VAR_UNK_4149, 0)
+                        callifeq(_05CB)
+                        compare(VAR_UNK_4149, 1)
+                        callifeq(_05DF)
+                        compare(VAR_UNK_4149, 2)
+                        callifeq(_05F3)
+                        incgamestat(59)
+                        leaveoverworld
+                        launchfrontier(15)
+                        compare(VAR_UNK_4149, 2)
+                        callifeq(_056B)
+                        restoreoverworld
+                        fadescreen(6, 1, 1, RGB_BLACK)
+                        waitfade
+                        checkfieldheapfreesize(1)
+                        end
+                    _056B:
+                        commclubexit
+                        return
+                    _056F:
+                        npcmsg(msg_0110_D32R0601_00032)
+                        waitabpress
+                        closemessage
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0618)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0638)
+                        waitmovement
+                        return
+                    _058A:
+                        npcmsg(msg_0110_D32R0601_00032)
+                        waitabpress
+                        closemessage
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0618)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0638)
+                        waitmovement
+                        return
+                    _05A5:
+                        npcmsgvar(msg_0110_D32R0601_00032)
+                        wait(10, VAR_SPECIAL_RESULT)
+                        linksyncclearpackets
+                        linksyncandwait(155)
+                        closemessage
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_062C)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_064C)
+                        waitmovement
+                        return
+                    _05CB:
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0658)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0680)
+                        waitmovement
+                        return
+                    _05DF:
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0658)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0680)
+                        waitmovement
+                        return
+                    _05F3:
+                        applymovement(obj_player, BattleFrontier_BattleArcade_Movement_0670)
+                        applymovement(VAR_SPECIAL_LAST_TALKED, BattleFrontier_BattleArcade_Movement_0694)
+                        waitmovement
+                        return
+                    _0607:
+                        touchscreenmenushow
+                        setvar(VAR_UNK_414A, 0)
+                        callstd(std_bag_is_full_griseous_orb)
+                        end
+                    }
+                    goto(_040B)
+                    end
+                }
+                goto(_040B)
+                end
+            }
+            touchscreenmenushow
+            goto(_0132)
+        }
+        goto(_01FC)
+        end
+    _01D2:
+        npcmsg(msg_0110_D32R0601_00008)
+        msgboxfrontierbannedspecies(9, 3, 0, 0)
+        touchscreenmenushow
+        goto(_0132)
+        end
+    }
+    touchscreenmenushow
+    goto(_0132)
+    end
+_0110:
+    compare(VAR_TEMP_x4004, 0)
+    callifeq(_06E0)
+    compare(VAR_TEMP_x4004, 1)
+    callifeq(_06E5)
+    goto(_00A6)
+    end
+_0132:
+    goto(_013A)
+    end
+_013A:
+    setvar(VAR_UNK_414A, 0)
+    npcmsg(msg_0110_D32R0601_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement BattleFrontier_BattleArcade_Movement_0618 {
+    walk_up * 2
+    walk_right
+    walk_up * 2
+    set_invisible
+}
+
+movement BattleFrontier_BattleArcade_Movement_062C {
+    walk_up * 4
+    set_invisible
+}
+
+movement BattleFrontier_BattleArcade_Movement_0638 {
+    walk_up
+    walk_right
+    walk_up * 2
+    set_invisible
+}
+
+movement BattleFrontier_BattleArcade_Movement_064C {
+    walk_up * 3
+    set_invisible
+}
+
+movement BattleFrontier_BattleArcade_Movement_0658 {
+    walk_faster_down * 2
+    walk_faster_left
+    walk_faster_down * 2
+    face_up
+    set_visible
+}
+
+movement BattleFrontier_BattleArcade_Movement_0670 {
+    walk_faster_down * 4
+    face_up
+    set_visible
+}
+
+movement BattleFrontier_BattleArcade_Movement_0680 {
+    walk_faster_down
+    walk_faster_left
+    walk_faster_down * 2
+    set_visible
+}
+
+movement BattleFrontier_BattleArcade_Movement_0694 {
+    walk_faster_down * 3
+    set_visible
+}
+
+script(local) _06A0 {
+    npcmsg(msg_0110_D32R0601_00000)
+    return
+_06A5:
+    npcmsg(msg_0110_D32R0601_00003)
+    return
+_06AA:
+    npcmsg(msg_0110_D32R0601_00001)
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(38, 255, 0)
+    menuitemadd(39, 255, 1)
+    return
+_06C9:
+    npcmsg(msg_0110_D32R0601_00004)
+    touchscreenmenuhide
+    menuinit(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(40, 255, 4)
+    return
+_06E0:
+    npcmsg(msg_0110_D32R0601_00002)
+    return
+_06E5:
+    npcmsg(msg_0110_D32R0601_00005)
+    return
+}
+
+script scr_seq_D32R0601_001 {
+    checkfieldheapfreesize(0)
+    setvar(VAR_TEMP_x4003, 1)
+    setvar(VAR_UNK_414A, 0)
+    npcmsg(msg_0110_D32R0601_00033)
+    call(_0476)
+    call(_0711)
+    goto(_04D7)
+    end
+_0711:
+    addwaitingicon
+    savegamenormal(VAR_SPECIAL_RESULT)
+    removewaitingicon
+    playse(SEQ_SE_DP_SAVE)
+    waitse(SEQ_SE_DP_SAVE)
+    return
+}
+
+script scr_seq_D32R0601_002 {
+    npcmsg(msg_0110_D32R0601_00034)
+    battlearcaderesetstreak(VAR_UNK_4149)
+    compare(VAR_BATTLE_ARCADE_PRINT_PROGRESS, 1)
+    callifeq(_074C)
+    compare(VAR_BATTLE_ARCADE_PRINT_PROGRESS, 3)
+    callifeq(_0754)
+    goto(_0132)
+    end
+_074C:
+    setvar(VAR_BATTLE_ARCADE_PRINT_PROGRESS, 0)
+    return
+_0754:
+    setvar(VAR_BATTLE_ARCADE_PRINT_PROGRESS, 2)
+    return
+}
+
+script scr_seq_D32R0601_003 {
+    compare(VAR_UNK_4149, 0)
+    callifeq(_0798)
+    compare(VAR_UNK_4149, 1)
+    callifeq(_0798)
+    compare(VAR_BATTLE_ARCADE_PRINT_PROGRESS, 1)
+    callifeq(_079E)
+    compare(VAR_BATTLE_ARCADE_PRINT_PROGRESS, 3)
+    callifeq(_07B5)
+    goto(_0132)
+    end
+_0798:
+    addspecialgamestat2(SCORE_EVENT_BATTLE_ARCADE_SET_WON)
+    return
+_079E:
+    npcmsg(msg_0110_D32R0601_00035)
+    bufferplayersname(0)
+    npcmsg(msg_0110_D32R0601_00037)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setvar(VAR_BATTLE_ARCADE_PRINT_PROGRESS, 2)
+    return
+_07B5:
+    npcmsg(msg_0110_D32R0601_00035)
+    bufferplayersname(0)
+    npcmsg(msg_0110_D32R0601_00036)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setvar(VAR_BATTLE_ARCADE_PRINT_PROGRESS, 4)
+    callstd(std_frontier_gold_prints_check)
+    return
+}
+
+script scr_seq_D32R0601_004 {
+    goto(_0132)
+    end
+}
+
+movement BattleFrontier_BattleArcade_Movement_07D8 {
+    walk_up * 2
+    delay_8
+    walk_up
+}
+
+movement BattleFrontier_BattleArcade_Movement_07E8 {
+    walk_up * 2
+    delay_8
+    walk_up
+}
+
+script scr_seq_D32R0601_006 {
+    simplenpcmsg(msg_0110_D32R0601_00046)
+    end
+}
+
+script scr_seq_D32R0601_007 {
+    simplenpcmsg(msg_0110_D32R0601_00047)
+    end
+}
+
+script scr_seq_D32R0601_008 {
+    simplenpcmsg(msg_0110_D32R0601_00048)
+    end
+}
+
+script scr_seq_D32R0601_009 {
+    simplenpcmsg(msg_0110_D32R0601_00049)
+    end
+}
+
+script scr_seq_D32R0601_010 {
+    simplenpcmsg(msg_0110_D32R0601_00050)
+    end
+}
+
+script scr_seq_D32R0601_011 {
+    simplenpcmsg(msg_0110_D32R0601_00051)
+    end
+}
+
+script scr_seq_D32R0601_012 {
+    simplenpcmsg(msg_0110_D32R0601_00052)
+    end
+}
+
+script scr_seq_D32R0601_013 {
+    simplenpcmsg(msg_0110_D32R0601_00053)
+    end
+}
+
+script scr_seq_D32R0601_015 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0110_D32R0601_00054)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D32R0601_016 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0110_D32R0601_00055)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts BattleFrontier_BattleArcade_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D32R0601_014
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_414A, 1: scr_seq_D32R0601_003
+        VAR_UNK_414A, 2: scr_seq_D32R0601_001
+        VAR_UNK_414A, 3: scr_seq_D32R0601_004
+        VAR_UNK_414A, 255: scr_seq_D32R0601_002
+    ]
+}

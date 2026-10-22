@@ -1,0 +1,186 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R47_000
+	ScrDef scr_seq_R47_001
+	ScrDef scr_seq_R47_002
+	ScrDef scr_seq_R47_003
+	ScrDef scr_seq_R47_004
+	ScrDefEnd
+`
+
+script scr_seq_R47_000 {
+    setvar(VAR_UNK_40EB, 1)
+    setflag(FLAG_UNK_9C9)
+    getgameversion(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 7) {
+        movewarp(4, 87, 385)
+        movewarp(5, 87, 389)
+        movewarp(6, 87, 385)
+    } else {
+        movewarp(4, 87, 389)
+        movewarp(5, 87, 385)
+        movewarp(6, 87, 385)
+    }
+    if (var(VAR_SCENE_EMBEDDED_TOWER) == 2) { goto(_00E6) }
+    if (var(VAR_SCENE_EMBEDDED_TOWER) == 3) { goto(_00E6) }
+    if (var(VAR_SCENE_EMBEDDED_TOWER) >= 5) {
+        movewarp(4, 87, 385)
+        movewarp(5, 87, 385)
+        movewarp(6, 87, 389)
+        goto(_00E6)
+        end
+    }
+    if (!flag(FLAG_UNK_189)) { goto(_009F) }
+    clearflag(FLAG_UNK_189)
+    end
+_009F:
+    if (flag(FLAG_GAME_CLEAR)) { goto(_00B2) }
+    goto(_00E6)
+    end
+_00B2:
+    getphonebookrematch(PHONE_CONTACT_CHUCK, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) { goto(_00E6) }
+    getweekday(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 0) {
+        clearflag(FLAG_HIDE_ROUTE_47_CHUCK)
+    } else {
+        setflag(FLAG_HIDE_ROUTE_47_CHUCK)
+    }
+    end
+_00E6:
+    setflag(FLAG_HIDE_ROUTE_47_CHUCK)
+    end
+}
+
+script scr_seq_R47_002 {
+    if (var(VAR_SCENE_EMBEDDED_TOWER) >= 5) {
+        movewarp(4, 87, 385)
+        movewarp(5, 87, 385)
+        movewarp(6, 87, 389)
+        end
+    }
+    getgameversion(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 7) {
+        movewarp(4, 87, 385)
+        movewarp(5, 87, 389)
+        movewarp(6, 87, 385)
+    } else {
+        movewarp(4, 87, 389)
+        movewarp(5, 87, 385)
+        movewarp(6, 87, 385)
+    }
+    end
+}
+
+script scr_seq_R47_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_MET_ROUTE_47_EMBEDDED_TOWER_HIKER)) {
+        npcmsg(msg_0407_R47_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0407_R47_00000)
+    waitbuttonpress
+    closemessage
+    setflag(FLAG_MET_ROUTE_47_EMBEDDED_TOWER_HIKER)
+    releaseall
+    end
+}
+
+script scr_seq_R47_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_UNK_157)) {
+        npcmsg(msg_0407_R47_00002)
+        applymovement(obj_R47_leader3, Route47_Movement_022C)
+        waitmovement
+        npcmsg(msg_0407_R47_00003)
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_R47_leader3, Route47_Movement_0234)
+        } elif (var(VAR_SPECIAL_RESULT) == 3) {
+            applymovement(obj_R47_leader3, Route47_Movement_023C)
+        } else {
+            applymovement(obj_R47_leader3, Route47_Movement_0244)
+        }
+        waitmovement
+    }
+    bufferplayersname(0)
+    npcmsg(msg_0407_R47_00004)
+    closemessage
+    applymovement(obj_R47_leader3, Route47_Movement_022C)
+    waitmovement
+    setflag(FLAG_UNK_157)
+    releaseall
+    end
+}
+
+movement Route47_Movement_022C {
+    walk_in_place_up
+}
+
+movement Route47_Movement_0234 {
+    walk_in_place_down
+}
+
+movement Route47_Movement_023C {
+    walk_in_place_left
+}
+
+movement Route47_Movement_0244 {
+    walk_in_place_right
+}
+
+script scr_seq_R47_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0407_R47_00005)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0407_R47_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0407_R47_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0407_R47_00006)
+    closemessage
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(91)
+    faceplayer
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    npcmsg(msg_0407_R47_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Route47_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R47_000
+    INIT_SCRIPT_ON_RESUME: scr_seq_R47_002
+}

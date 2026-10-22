@@ -1,0 +1,38 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D27R0105_000 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_40A7, 1)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        applymovement(obj_player, Olivine_Lighthouse_4F_Movement_0070)
+        applymovement(obj_partner_poke, Olivine_Lighthouse_4F_Movement_007C)
+        waitmovement
+    } else {
+        applymovement(obj_player, Olivine_Lighthouse_4F_Movement_0070)
+        waitmovement
+    }
+    playse(SEQ_SE_GS_RAKKA01)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_OLIVINE_LIGHTHOUSE_EXTERIOR, 0, 15, 3, DIR_SOUTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement Olivine_Lighthouse_4F_Movement_0070 {
+    walk_fast_right
+    set_invisible
+}
+
+movement Olivine_Lighthouse_4F_Movement_007C {
+    walk_fast_right
+    set_invisible
+}
+
+mapscripts Olivine_Lighthouse_4F_MapScripts {
+}

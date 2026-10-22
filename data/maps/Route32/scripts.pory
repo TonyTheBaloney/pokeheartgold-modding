@@ -1,0 +1,472 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R32_000
+	ScrDef scr_seq_R32_001
+	ScrDef scr_seq_R32_002
+	ScrDef scr_seq_R32_003
+	ScrDef scr_seq_R32_004
+	ScrDef scr_seq_R32_005
+	ScrDef scr_seq_R32_006
+	ScrDef scr_seq_R32_007
+	ScrDef scr_seq_R32_008
+	ScrDef scr_seq_R32_009
+	ScrDefEnd
+`
+
+script scr_seq_R32_004 {
+    if (!flag(FLAG_UNK_189)) {
+        checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 0) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 2) { goto(_0083) }
+            if (var(VAR_TEMP_x4000) == 4) { goto(_0083) }
+            if (var(VAR_TEMP_x4000) == 6) { goto(_0083) }
+        }
+        setflag(FLAG_HIDE_CAMERON)
+        goto(_008D)
+    _0083:
+        clearflag(FLAG_HIDE_CAMERON)
+        goto(_008D)
+    _008D:
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 5) {
+            clearflag(FLAG_UNK_208)
+        } else {
+            setflag(FLAG_UNK_208)
+        }
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_R32_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpartyleadalive(VAR_SPECIAL_x8002)
+    monhasribbon(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002, RIBBON_RELAX)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 45)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_DAILY_GOT_SHOCK_RIBBON)) {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 47)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_NUM_MET_WEEKDAY_SIBLINGS) == 7) { goto(_0182) }
+    if (flag(FLAG_GOT_POISON_BARB_FROM_FRIEDA)) { goto(_0164) }
+    getweekday(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 5) {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 19)
+    } else {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 16)
+        if (!itemspace(ITEM_POISON_BARB, 1)) { goto(_0178) }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_POISON_BARB_FROM_FRIEDA)
+        addvar(VAR_NUM_MET_WEEKDAY_SIBLINGS, 1)
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 17)
+    }
+_015C:
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0164:
+    getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 18)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0178:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+_0182:
+    getweekday(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 5) { goto(_01A5) }
+    getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 19)
+    goto(_015C)
+_01A5:
+    getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 44)
+    buffermonspeciesname(0, VAR_SPECIAL_x8002)
+    msgboxextern(VAR_SPECIAL_RESULT, 46)
+    giveribbon(VAR_SPECIAL_x8002, RIBBON_RELAX)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setflag(FLAG_DAILY_GOT_SHOCK_RIBBON)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R32_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_TM05_FROM_ROUTE_32_MAN)) {
+        npcmsg(msg_0380_R32_00010)
+        if (!itemspace(ITEM_TM05, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_TM05_FROM_ROUTE_32_MAN)
+    }
+    npcmsg(msg_0380_R32_00012)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R32_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_ZEPHYR, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0380_R32_00003)
+        goto(_0284)
+        end
+    }
+    if (!flag(FLAG_GOT_EGG_FROM_ELMS_ASSISTANT)) {
+        bufferplayersname(0)
+        npcmsg(msg_0380_R32_00001)
+        goto(_0284)
+        end
+    }
+    if (!flag(FLAG_UNK_074)) {
+        setvar(VAR_TEMP_x4002, 0)
+        call(_02B5)
+        releaseall
+        end
+    _02B5:
+        if (var(VAR_UNK_408D) == 0) {
+            setvar(VAR_UNK_408D, 1)
+        }
+        npcmsg(msg_0380_R32_00005)
+        setvar(VAR_SPECIAL_x8004, 239)
+        setvar(VAR_SPECIAL_x8005, 1)
+        hasspaceforitem(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            if (var(VAR_TEMP_x4002) == 0) {
+                npcmsg(msg_0380_R32_00008)
+                waitbuttonpress
+            } else {
+                npcmsg(msg_0380_R32_00009)
+            }
+        } else {
+            if (var(VAR_TEMP_x4002) == 0) {
+                callstd(std_obtain_item_verbose)
+            } else {
+                callstd(std_give_item_verbose)
+            }
+            setflag(FLAG_UNK_074)
+        }
+        closemessage
+        return
+    }
+    npcmsg(msg_0380_R32_00007)
+_0284:
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R32_002 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_R32_gsmiddleman1, Route32_Movement_046C)
+    waitmovement
+    npcmsg(msg_0380_R32_00000)
+    closemessage
+    if (flag(FLAG_GOT_EGG_FROM_ELMS_ASSISTANT)) {
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(56)
+        getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4000) == 475) {
+            applymovement(obj_R32_gsmiddleman1, Route32_Movement_04D4)
+            applymovement(obj_player, Route32_Movement_04E4)
+            setvar(VAR_TEMP_x4002, 1)
+        } else {
+            applymovement(obj_R32_gsmiddleman1, Route32_Movement_04DC)
+            applymovement(obj_player, Route32_Movement_04F0)
+            setvar(VAR_TEMP_x4002, 0)
+        }
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        call(_02B5)
+        if (var(VAR_TEMP_x4000) == 475) {
+            applymovement(obj_R32_gsmiddleman1, Route32_Movement_04F8)
+            waitmovement
+        }
+        releaseall
+        end
+    }
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 475) {
+        applymovement(obj_R32_gsmiddleman1, Route32_Movement_0478)
+        applymovement(obj_player, Route32_Movement_0494)
+    } else {
+        applymovement(obj_R32_gsmiddleman1, Route32_Movement_0484)
+        applymovement(obj_player, Route32_Movement_04A4)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    checkbadge(BADGE_ZEPHYR, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0380_R32_00004)
+    } else {
+        bufferplayersname(0)
+        npcmsg(msg_0380_R32_00002)
+    }
+    closemessage
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 475) {
+        applymovement(obj_R32_gsmiddleman1, Route32_Movement_04B4)
+    } else {
+        applymovement(obj_R32_gsmiddleman1, Route32_Movement_04C4)
+    }
+    waitmovement
+    releaseall
+    end
+}
+
+movement Route32_Movement_046C {
+    face_left
+    emote_exclamation_mark
+}
+
+movement Route32_Movement_0478 {
+    walk_left * 2
+    walk_up
+}
+
+movement Route32_Movement_0484 {
+    delay_4
+    walk_left
+    walk_up
+}
+
+movement Route32_Movement_0494 {
+    delay_8
+    walk_up * 2
+    face_down
+}
+
+movement Route32_Movement_04A4 {
+    delay_4
+    walk_up * 2
+    face_down
+}
+
+movement Route32_Movement_04B4 {
+    walk_down
+    walk_right * 2
+    face_left
+}
+
+movement Route32_Movement_04C4 {
+    walk_down
+    walk_right
+    face_left
+}
+
+movement Route32_Movement_04D4 {
+    walk_left
+}
+
+movement Route32_Movement_04DC {
+    delay_4
+}
+
+movement Route32_Movement_04E4 {
+    delay_8
+    face_right
+}
+
+movement Route32_Movement_04F0 {
+    face_right
+}
+
+movement Route32_Movement_04F8 {
+    walk_right
+    face_left
+}
+
+script scr_seq_R32_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0380_R32_00014)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0380_R32_00015)
+    } else {
+        npcmsg(msg_0380_R32_00016)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R32_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Route32_Movement_0688)
+        applymovement(obj_R32_gsmiddleman1_2, Route32_Movement_06D4)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Route32_Movement_06A0)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Route32_Movement_06C0)
+        applymovement(obj_R32_gsmiddleman1_2, Route32_Movement_06D4)
+    } else {
+        applymovement(obj_player, Route32_Movement_06AC)
+        applymovement(obj_R32_gsmiddleman1_2, Route32_Movement_06D4)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Route32_Movement_06E0)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(5)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route32_Movement_0688 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route32_Movement_06A0 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route32_Movement_06AC {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route32_Movement_06C0 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route32_Movement_06D4 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Route32_Movement_06E0 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_R32_006 {
+    directionsignpostex(1, 2, msg_0380_R32_00018)
+    end
+}
+
+script scr_seq_R32_007 {
+    directionsignpostex(1, 4, msg_0380_R32_00017)
+    end
+}
+
+script scr_seq_R32_008 {
+    directionsignpostex(1, 13, msg_0380_R32_00019)
+    end
+}
+
+mapscripts Route32_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R32_004
+}

@@ -1,6 +1,7 @@
-// Converted from scripts.inc / map_scripts.inc by `mapkit pory init`.
-// Scripts inside raw keep their ScrDef order; new `script` blocks are numbered after them.
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
 
+// Script numbers (map.json and map scripts refer to these by label).
 raw `
 	ScrDef Cherrygrove_EventScript_GuideGent
 	ScrDef Cherrygrove_EventScript_GuideGentTour
@@ -14,681 +15,564 @@ raw `
 	ScrDef Cherrygrove_EventScript_Cameron
 	ScrDef Cherrygrove_OnTransition
 	ScrDefEnd
-
-Cherrygrove_OnTransition:
-	GoToIfUnset FLAG_UNK_189, _003F
-	ClearFlag FLAG_UNK_189
-	End
-
-_003F:
-	CheckBadge BADGE_PLAIN, VAR_TEMP_x4000
-	Compare VAR_TEMP_x4000, 0
-	GoToIfEq _007D
-	GetWeekday VAR_TEMP_x4000
-	Compare VAR_TEMP_x4000, 1
-	GoToIfEq _0083
-	Compare VAR_TEMP_x4000, 3
-	GoToIfEq _0083
-	Compare VAR_TEMP_x4000, 5
-	GoToIfEq _0083
-_007D:
-	SetFlag FLAG_HIDE_CAMERON
-	End
-
-_0083:
-	ClearFlag FLAG_HIDE_CAMERON
-	End
-
-Cherrygrove_EventScript_GuideGent:
-	End
-
-Cherrygrove_EventScript_GuideGentTour:
-	Lock obj_T21_gsoldman1
-	ApplyMovement obj_T21_gsoldman1, _0350
-	WaitMovement
-	CallStd std_play_follow_music
-	GetPlayerCoords VAR_TEMP_x4000, VAR_TEMP_x4001
-	Compare VAR_TEMP_x4001, 397
-	GoToIfNe _00BE
-	ApplyMovement obj_T21_gsoldman1, _0358
-	GoTo _0109
-
-_00BE:
-	Compare VAR_TEMP_x4001, 398
-	GoToIfNe _00D9
-	ApplyMovement obj_T21_gsoldman1, _0360
-	GoTo _0109
-
-_00D9:
-	Compare VAR_TEMP_x4001, 399
-	GoToIfNe _00F4
-	ApplyMovement obj_T21_gsoldman1, _0368
-	GoTo _0109
-
-_00F4:
-	Compare VAR_TEMP_x4001, 400
-	GoToIfNe _0109
-	ApplyMovement obj_T21_gsoldman1, _0370
-_0109:
-	ApplyMovement obj_player, _0378
-	WaitMovement
-	NPCMsg msg_0550_T21_00000
-	CloseMsg
-	BufferPlayersName 0
-	GetPlayerCoords VAR_TEMP_x4000, VAR_TEMP_x4001
-	Compare VAR_TEMP_x4001, 397
-	GoToIfNe _013C
-	ApplyMovement obj_T21_gsoldman1, _0390
-	GoTo _0187
-
-_013C:
-	Compare VAR_TEMP_x4001, 398
-	GoToIfNe _0157
-	ApplyMovement obj_T21_gsoldman1, _03AC
-	GoTo _0187
-
-_0157:
-	Compare VAR_TEMP_x4001, 399
-	GoToIfNe _0172
-	ApplyMovement obj_T21_gsoldman1, _03D0
-	GoTo _0187
-
-_0172:
-	Compare VAR_TEMP_x4001, 400
-	GoToIfNe _0187
-	ApplyMovement obj_T21_gsoldman1, _03F4
-_0187:
-	WaitMovement
-	ApplyMovement obj_player, _0380
-	WaitMovement
-	NPCMsg msg_0550_T21_00001
-	CloseMsg
-	ToggleFollowingPokemonMovement 0
-	WaitFollowingPokemonMovement
-	FollowingPokemonMovement 55
-	Compare VAR_TEMP_x4001, 397
-	GoToIfNe _01C5
-	ApplyMovement obj_T21_gsoldman1, _0418
-	ApplyMovement obj_player, _0478
-	GoTo _0228
-
-_01C5:
-	Compare VAR_TEMP_x4001, 398
-	GoToIfNe _01E8
-	ApplyMovement obj_T21_gsoldman1, _0430
-	ApplyMovement obj_player, _0488
-	GoTo _0228
-
-_01E8:
-	Compare VAR_TEMP_x4001, 399
-	GoToIfNe _020B
-	ApplyMovement obj_T21_gsoldman1, _0448
-	ApplyMovement obj_player, _0498
-	GoTo _0228
-
-_020B:
-	Compare VAR_TEMP_x4001, 400
-	GoToIfNe _0228
-	ApplyMovement obj_T21_gsoldman1, _0460
-	ApplyMovement obj_player, _04A8
-_0228:
-	WaitMovement
-	WaitFollowingPokemonMovement
-	ToggleFollowingPokemonMovement 1
-	FollowingPokemonMovement 48
-	NPCMsg msg_0550_T21_00002
-	CloseMsg
-	ToggleFollowingPokemonMovement 0
-	WaitFollowingPokemonMovement
-	FollowingPokemonMovement 55
-	ApplyMovement obj_T21_gsoldman1, _04B8
-	ApplyMovement obj_player, _04CC
-	WaitMovement
-	WaitFollowingPokemonMovement
-	ToggleFollowingPokemonMovement 1
-	FollowingPokemonMovement 48
-	NPCMsg msg_0550_T21_00003
-	CloseMsg
-	ToggleFollowingPokemonMovement 0
-	WaitFollowingPokemonMovement
-	FollowingPokemonMovement 55
-	ApplyMovement obj_T21_gsoldman1, _04E0
-	ApplyMovement obj_player, _04FC
-	WaitMovement
-	WaitFollowingPokemonMovement
-	ToggleFollowingPokemonMovement 1
-	FollowingPokemonMovement 48
-	NPCMsg msg_0550_T21_00004
-	CloseMsg
-	ToggleFollowingPokemonMovement 0
-	WaitFollowingPokemonMovement
-	FollowingPokemonMovement 55
-	ApplyMovement obj_T21_gsoldman1, _050C
-	ApplyMovement obj_player, _052C
-	WaitMovement
-	PlaySE SEQ_SE_GS_N_UMIBE
-	WaitFollowingPokemonMovement
-	ToggleFollowingPokemonMovement 1
-	FollowingPokemonMovement 48
-	NPCMsg msg_0550_T21_00005
-	CloseMsg
-	StopSE SEQ_SE_GS_N_UMIBE
-	ToggleFollowingPokemonMovement 0
-	WaitFollowingPokemonMovement
-	FollowingPokemonMovement 55
-	ApplyMovement obj_T21_gsoldman1, _054C
-	ApplyMovement obj_player, _0568
-	WaitMovement
-	WaitFollowingPokemonMovement
-	ToggleFollowingPokemonMovement 1
-	FollowingPokemonMovement 48
-	NPCMsg msg_0550_T21_00006
-	GiveRunningShoes
-	BufferPlayersName 0
-	NPCMsg msg_0550_T21_00007
-	PlayFanfare SEQ_ME_ITEM
-	WaitFanfare
-	NPCMsg msg_0550_T21_00008
-	CloseMsg
-	ApplyMovement obj_T21_gsoldman1, _0580
-	WaitMovement
-	DoorAnimationLoad 17, 12, 14, 17, 77
-	DoorAnimationOpen 77
-	DoorAnimationWait 77
-	ApplyMovement obj_T21_gsoldman1, _0580
-	WaitMovement
-	Release obj_T21_gsoldman1
-	Release obj_partner_poke
-	PlaySE SEQ_SE_DP_KAIDAN2
-	HidePerson obj_T21_gsoldman1
-	WaitSE SEQ_SE_DP_KAIDAN2
-	SetFlag FLAG_HIDE_CHERRYGROVE_GUIDE_GENT
-	DoorAnimationClose 77
-	DoorAnimationWait 77
-	DoorAnimationUnload 77
-	CallStd std_fade_end_mom_music
-	SetVar VAR_SCENE_CHERRYGROVE_CITY_OW, 1
-	End
-
-	.balign 4, 0
-_0350:
-	EmoteExclamationMark
-	EndMovement
-
-	.balign 4, 0
-_0358:
-	Delay4
-	EndMovement
-
-	.balign 4, 0
-_0360:
-	WalkNormalSouth
-	EndMovement
-
-	.balign 4, 0
-_0368:
-	WalkNormalSouth 2
-	EndMovement
-
-	.balign 4, 0
-_0370:
-	WalkNormalSouth 3
-	EndMovement
-
-	.balign 4, 0
-_0378:
-	WalkOnSpotNormalNorth
-	EndMovement
-
-	.balign 4, 0
-_0380:
-	WalkOnSpotNormalWest
-	EndMovement
-
-	.balign 4, 0
-_0388:
-	WalkOnSpotNormalEast
-	EndMovement
-
-	.balign 4, 0
-_0390:
-	WalkFastWest 2
-	WalkFastNorth 2
-	EmoteExclamationMark
-	WalkOnSpotFastSouth
-	WalkFastSouth 3
-	WalkFastEast
-	EndMovement
-
-	.balign 4, 0
-_03AC:
-	WalkFastWest 2
-	WalkFastNorth 3
-	Delay8
-	WalkOnSpotFastSouth
-	Delay32
-	EmoteExclamationMark
-	WalkFastSouth 4
-	WalkFastEast
-	EndMovement
-
-	.balign 4, 0
-_03D0:
-	WalkFastWest 2
-	WalkFastNorth 4
-	Delay8
-	WalkOnSpotFastSouth
-	Delay32
-	EmoteExclamationMark
-	WalkFastSouth 5
-	WalkFastEast
-	EndMovement
-
-	.balign 4, 0
-_03F4:
-	WalkFastWest 2
-	WalkFastNorth 4
-	Delay8
-	WalkOnSpotFastSouth
-	Delay32
-	EmoteExclamationMark
-	WalkFastSouth 5
-	WalkFastEast
-	EndMovement
-
-	.balign 4, 0
-_0418:
-	WalkFastWest
-	WalkFastNorth 3
-	WalkOnSpotFastSouth
-	Delay4 4
-	WalkOnSpotFastNorth
-	EndMovement
-
-	.balign 4, 0
-_0430:
-	WalkFastWest
-	WalkFastNorth 4
-	WalkOnSpotFastSouth
-	Delay4 5
-	WalkOnSpotFastNorth
-	EndMovement
-
-	.balign 4, 0
-_0448:
-	WalkFastWest
-	WalkFastNorth 5
-	WalkOnSpotFastSouth
-	Delay4 6
-	WalkOnSpotFastNorth
-	EndMovement
-
-	.balign 4, 0
-_0460:
-	WalkFastWest
-	WalkFastNorth 6
-	WalkOnSpotFastSouth
-	Delay4 9
-	WalkOnSpotFastNorth
-	EndMovement
-
-	.balign 4, 0
-_0478:
-	WalkNormalWest 2
-	WalkNormalNorth 2
-	Delay8
-	EndMovement
-
-	.balign 4, 0
-_0488:
-	WalkNormalWest 2
-	WalkNormalNorth 3
-	Delay8
-	EndMovement
-
-	.balign 4, 0
-_0498:
-	WalkNormalWest 2
-	WalkNormalNorth 4
-	Delay8
-	EndMovement
-
-	.balign 4, 0
-_04A8:
-	WalkNormalWest 2
-	WalkNormalNorth 5
-	Delay8
-	EndMovement
-
-	.balign 4, 0
-_04B8:
-	WalkFastWest 9
-	WalkOnSpotFastEast
-	Delay4 7
-	WalkOnSpotFastNorth
-	EndMovement
-
-	.balign 4, 0
-_04CC:
-	WalkNormalNorth
-	WalkNormalWest 8
-	Delay8 2
-	WalkOnSpotNormalNorth
-	EndMovement
-
-	.balign 4, 0
-_04E0:
-	WalkFastWest 6
-	WalkFastNorth 2
-	WalkFastWest
-	WalkOnSpotFastEast
-	Delay4 7
-	WalkOnSpotFastNorth
-	EndMovement
-
-	.balign 4, 0
-_04FC:
-	WalkNormalWest 7
-	WalkNormalNorth 2
-	Delay8
-	EndMovement
-
-	.balign 4, 0
-_050C:
-	WalkFastSouth 2
-	WalkFastWest 6
-	WalkFastSouth 8
-	WalkNormalWest 6
-	WalkOnSpotFastNorth
-	Delay4 17
-	WalkOnSpotFastWest
-	EndMovement
-
-	.balign 4, 0
-_052C:
-	WalkNormalWest
-	WalkNormalSouth 2
-	WalkNormalWest 6
-	WalkNormalSouth 7
-	WalkNormalWest 6
-	Delay8 2
-	WalkOnSpotNormalWest
-	EndMovement
-
-	.balign 4, 0
-_054C:
-	WalkFastEast 16
-	WalkOnSpotFastWest
-	Delay4 6
-	WalkFastSouth 2
-	WalkFastEast 6
-	WalkOnSpotFastWest
-	EndMovement
-
-	.balign 4, 0
-_0568:
-	Delay4
-	WalkNormalSouth
-	WalkNormalEast 16
-	WalkNormalSouth 2
-	WalkNormalEast 5
-	EndMovement
-
-	.balign 4, 0
-_0580:
-	WalkNormalNorth 2
-	EndMovement
-
-	.balign 4, 0
-_0588:
-	WalkNormalNorth
-	EndMovement
-
-Cherrygrove_EventScript_GuideGentMapCard:
-	FollowMonResetMovement
-	LockAll
-	ApplyMovement obj_player, _0680
-	WaitMovement
-	CallStd std_play_follow_music
-	ClearFlag FLAG_HIDE_CHERRYGROVE_GUIDE_GENT
-	ShowPerson obj_T21_gsoldman1
-	Lock obj_T21_gsoldman1
-	GetPlayerCoords VAR_TEMP_x4000, VAR_TEMP_x4001
-	MovePersonFacing obj_T21_gsoldman1, VAR_TEMP_x4000, 1, 394, DIR_NORTH
-	Compare VAR_TEMP_x4000, 549
-	GoToIfNe _05DB
-	ApplyMovement obj_T21_gsoldman1, _068C
-	GoTo _05FE
-
-_05DB:
-	Compare VAR_TEMP_x4000, 550
-	GoToIfNe _05F6
-	ApplyMovement obj_T21_gsoldman1, _068C
-	GoTo _05FE
-
-_05F6:
-	ApplyMovement obj_T21_gsoldman1, _069C
-_05FE:
-	WaitMovement
-	Compare VAR_TEMP_x4000, 549
-	GoToIfNe _061B
-	ApplyMovement obj_player, _0380
-	GoTo _063E
-
-_061B:
-	Compare VAR_TEMP_x4000, 550
-	GoToIfNe _0636
-	ApplyMovement obj_player, _0380
-	GoTo _063E
-
-_0636:
-	ApplyMovement obj_player, _0388
-_063E:
-	WaitMovement
-	NPCMsg msg_0550_T21_00009
-	BufferPlayersName 0
-	NPCMsg msg_0550_T21_00010
-	PlayFanfare SEQ_ME_KEYITEM
-	WaitFanfare
-	NPCMsg msg_0550_T21_00011
-	NPCMsg msg_0550_T21_00012
-	CloseMsg
-	ApplyMovement obj_T21_gsoldman1, _06AC
-	WaitMovement
-	CallStd std_fade_end_mom_music
-	Release obj_T21_gsoldman1
-	HidePerson obj_T21_gsoldman1
-	SetFlag FLAG_HIDE_CHERRYGROVE_GUIDE_GENT
-	RegisterPokegearCard 1
-	ReleaseAll
-	SetVar VAR_SCENE_CHERRYGROVE_CITY_OW, 2
-	End
-
-	.balign 4, 0
-_0680:
-	EmoteExclamationMark
-	WalkOnSpotFastSouth
-	EndMovement
-
-	.balign 4, 0
-_068C:
-	WalkFastWest
-	WalkFastNorth 9
-	WalkOnSpotNormalEast
-	EndMovement
-
-	.balign 4, 0
-_069C:
-	WalkFastEast
-	WalkFastNorth 9
-	WalkOnSpotNormalWest
-	EndMovement
-
-	.balign 4, 0
-_06AC:
-	WalkFastSouth 9
-	EndMovement
-
-Cherrygrove_EventScript_RivalBattle:
-	FollowMonResetMovement
-	LockAll
-	FadeOutBGM 0, 3
-	ApplyMovement obj_player, _0350
-	WaitMovement
-	CallStd std_play_rival_intro_music
-	GetPlayerCoords VAR_TEMP_x4000, VAR_TEMP_x4001
-	MovePersonFacing obj_T21_gsrivel, 583, 0, VAR_TEMP_x4001, DIR_WEST
-	ApplyMovement obj_T21_gsrivel, _0808
-	WaitMovement
-	NPCMsg msg_0550_T21_00013
-	CloseMsg
-	GetStarterChoice VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 152
-	GoToIfNe _070C
-	TrainerBattle TRAINER_PASSERBY_BOY_2, 0, 1, 0
-	GoTo _072F
-
-_070C:
-	Compare VAR_SPECIAL_RESULT, 155
-	GoToIfNe _0727
-	TrainerBattle TRAINER_PASSERBY_BOY_3, 0, 1, 0
-	GoTo _072F
-
-_0727:
-	TrainerBattle TRAINER_PASSERBY_BOY, 0, 1, 0
-_072F:
-	CheckBattleWon VAR_SPECIAL_RESULT
-	CallStd std_play_rival_outro_music
-	NPCMsg msg_0550_T21_00014
-	CloseMsg
-	PlaySE SEQ_SE_DP_WALL_HIT2
-	ToggleFollowingPokemonMovement 0
-	WaitFollowingPokemonMovement
-	FollowingPokemonMovement 56
-	GetPlayerCoords VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
-	Compare VAR_SPECIAL_x8005, 398
-	GoToIfNe _076B
-	ApplyMovement obj_player, _0890
-	GoTo _0773
-
-_076B:
-	ApplyMovement obj_player, _08A4
-_0773:
-	WaitMovement
-	WaitFollowingPokemonMovement
-	ToggleFollowingPokemonMovement 1
-	FollowingPokemonMovement 48
-	Compare VAR_SPECIAL_x8005, 398
-	GoToIfNe _079A
-	ApplyMovement obj_T21_gsrivel, _0810
-	GoTo _07A2
-
-_079A:
-	ApplyMovement obj_T21_gsrivel, _0844
-_07A2:
-	WaitMovement
-	NPCMsg msg_0550_T21_00015
-	CloseMsg
-	GetPersonCoords 4, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
-	Compare VAR_SPECIAL_x8005, 401
-	GoToIfNe _07D4
-	ApplyMovement obj_T21_gsrivel, _0880
-	ApplyMovement obj_player, _08B8
-	GoTo _07E4
-
-_07D4:
-	ApplyMovement obj_T21_gsrivel, _0878
-	ApplyMovement obj_player, _08B8
-_07E4:
-	WaitMovement
-	HidePerson obj_T21_gsrivel
-	SetFlag FLAG_HIDE_CHERRYGROVE_RIVAL
-	CallStd std_fade_end_rival_outro_music
-	ReleaseAll
-	SetVar VAR_SCENE_CHERRYGROVE_CITY_OW, 4
-	SetFlag FLAG_MET_PASSERBY_BOY
-	End
-
-_0800:
-	WhiteOut
-	ReleaseAll
-	End
-
-	.balign 4, 0
-_0808:
-	WalkNormalWest 7
-	EndMovement
-
-	.balign 4, 0
-_0810:
-	WalkNormalWest 6
-	EmoteExclamationMark
-	WalkOnSpotFastSouth
-	Delay8
-	WalkOnSpotFastNorth
-	Delay8
-	WalkOnSpotFastSouth
-	Delay8
-	WalkOnSpotNormalEast
-	Delay8
-	WalkNormalEast 5
-	WalkOnSpotNormalSouth
-	EndMovement
-
-	.balign 4, 0
-_0844:
-	WalkNormalWest 6
-	EmoteExclamationMark
-	WalkOnSpotFastSouth
-	Delay8
-	WalkOnSpotFastNorth
-	Delay8
-	WalkOnSpotFastSouth
-	Delay8
-	WalkOnSpotNormalEast
-	Delay8
-	WalkNormalEast 5
-	WalkOnSpotNormalNorth
-	EndMovement
-
-	.balign 4, 0
-_0878:
-	WalkNormalWest 11
-	EndMovement
-
-	.balign 4, 0
-_0880:
-	WalkNormalWest 5
-	WalkNormalNorth
-	WalkNormalWest 6
-	EndMovement
-
-	.balign 4, 0
-_0890:
-	FaceNorth
-	LockDir
-	WalkFastSouth
-	UnlockDir
-	EndMovement
-
-	.balign 4, 0
-_08A4:
-	FaceSouth
-	LockDir
-	WalkFastNorth
-	UnlockDir
-	EndMovement
-
-	.balign 4, 0
-_08B8:
-	Delay8 2
-	WalkOnSpotNormalWest
-	EndMovement
-
 `
 
-// The man who gives Mystic Water: structured version of the original script
-// (same commands in the same order, so the ROM is unchanged).
+script Cherrygrove_OnTransition {
+    if (!flag(FLAG_UNK_189)) {
+        checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 0) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 1) { goto(_0083) }
+            if (var(VAR_TEMP_x4000) == 3) { goto(_0083) }
+            if (var(VAR_TEMP_x4000) == 5) { goto(_0083) }
+        }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _0083:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script Cherrygrove_EventScript_GuideGent {
+    end
+}
+
+script Cherrygrove_EventScript_GuideGentTour {
+    lock(obj_T21_gsoldman1)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0350)
+    waitmovement
+    callstd(std_play_follow_music)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 397) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0358)
+    } elif (var(VAR_TEMP_x4001) == 398) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0360)
+    } elif (var(VAR_TEMP_x4001) == 399) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0368)
+    } elif (var(VAR_TEMP_x4001) == 400) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0370)
+    }
+    applymovement(obj_player, Cherrygrove_Movement_0378)
+    waitmovement
+    npcmsg(msg_0550_T21_00000)
+    closemessage
+    bufferplayersname(0)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 397) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0390)
+    } elif (var(VAR_TEMP_x4001) == 398) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_03AC)
+    } elif (var(VAR_TEMP_x4001) == 399) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_03D0)
+    } elif (var(VAR_TEMP_x4001) == 400) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_03F4)
+    }
+    waitmovement
+    applymovement(obj_player, Cherrygrove_Movement_0380)
+    waitmovement
+    npcmsg(msg_0550_T21_00001)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    if (var(VAR_TEMP_x4001) == 397) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0418)
+        applymovement(obj_player, Cherrygrove_Movement_0478)
+    } elif (var(VAR_TEMP_x4001) == 398) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0430)
+        applymovement(obj_player, Cherrygrove_Movement_0488)
+    } elif (var(VAR_TEMP_x4001) == 399) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0448)
+        applymovement(obj_player, Cherrygrove_Movement_0498)
+    } elif (var(VAR_TEMP_x4001) == 400) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0460)
+        applymovement(obj_player, Cherrygrove_Movement_04A8)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0550_T21_00002)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_04B8)
+    applymovement(obj_player, Cherrygrove_Movement_04CC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0550_T21_00003)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_04E0)
+    applymovement(obj_player, Cherrygrove_Movement_04FC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0550_T21_00004)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_050C)
+    applymovement(obj_player, Cherrygrove_Movement_052C)
+    waitmovement
+    playse(SEQ_SE_GS_N_UMIBE)
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0550_T21_00005)
+    closemessage
+    stopse(SEQ_SE_GS_N_UMIBE)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_054C)
+    applymovement(obj_player, Cherrygrove_Movement_0568)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0550_T21_00006)
+    giverunningshoes
+    bufferplayersname(0)
+    npcmsg(msg_0550_T21_00007)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    npcmsg(msg_0550_T21_00008)
+    closemessage
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0580)
+    waitmovement
+    dooranimationload(17, 12, 14, 17, 77)
+    dooranimationopen(77)
+    dooranimationwait(77)
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_0580)
+    waitmovement
+    release(obj_T21_gsoldman1)
+    release(obj_partner_poke)
+    playse(SEQ_SE_DP_KAIDAN2)
+    removeobject(obj_T21_gsoldman1)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    setflag(FLAG_HIDE_CHERRYGROVE_GUIDE_GENT)
+    dooranimationclose(77)
+    dooranimationwait(77)
+    dooranimationunload(77)
+    callstd(std_fade_end_mom_music)
+    setvar(VAR_SCENE_CHERRYGROVE_CITY_OW, 1)
+    end
+}
+
+movement Cherrygrove_Movement_0350 {
+    emote_exclamation_mark
+}
+
+movement Cherrygrove_Movement_0358 {
+    delay_4
+}
+
+movement Cherrygrove_Movement_0360 {
+    walk_down
+}
+
+movement Cherrygrove_Movement_0368 {
+    walk_down * 2
+}
+
+movement Cherrygrove_Movement_0370 {
+    walk_down * 3
+}
+
+movement Cherrygrove_Movement_0378 {
+    walk_in_place_up
+}
+
+movement Cherrygrove_Movement_0380 {
+    walk_in_place_left
+}
+
+movement Cherrygrove_Movement_0388 {
+    walk_in_place_right
+}
+
+movement Cherrygrove_Movement_0390 {
+    walk_fast_left * 2
+    walk_fast_up * 2
+    emote_exclamation_mark
+    walk_in_place_fast_down
+    walk_fast_down * 3
+    walk_fast_right
+}
+
+movement Cherrygrove_Movement_03AC {
+    walk_fast_left * 2
+    walk_fast_up * 3
+    delay_8
+    walk_in_place_fast_down
+    delay_32
+    emote_exclamation_mark
+    walk_fast_down * 4
+    walk_fast_right
+}
+
+movement Cherrygrove_Movement_03D0 {
+    walk_fast_left * 2
+    walk_fast_up * 4
+    delay_8
+    walk_in_place_fast_down
+    delay_32
+    emote_exclamation_mark
+    walk_fast_down * 5
+    walk_fast_right
+}
+
+movement Cherrygrove_Movement_03F4 {
+    walk_fast_left * 2
+    walk_fast_up * 4
+    delay_8
+    walk_in_place_fast_down
+    delay_32
+    emote_exclamation_mark
+    walk_fast_down * 5
+    walk_fast_right
+}
+
+movement Cherrygrove_Movement_0418 {
+    walk_fast_left
+    walk_fast_up * 3
+    walk_in_place_fast_down
+    delay_4 * 4
+    walk_in_place_fast_up
+}
+
+movement Cherrygrove_Movement_0430 {
+    walk_fast_left
+    walk_fast_up * 4
+    walk_in_place_fast_down
+    delay_4 * 5
+    walk_in_place_fast_up
+}
+
+movement Cherrygrove_Movement_0448 {
+    walk_fast_left
+    walk_fast_up * 5
+    walk_in_place_fast_down
+    delay_4 * 6
+    walk_in_place_fast_up
+}
+
+movement Cherrygrove_Movement_0460 {
+    walk_fast_left
+    walk_fast_up * 6
+    walk_in_place_fast_down
+    delay_4 * 9
+    walk_in_place_fast_up
+}
+
+movement Cherrygrove_Movement_0478 {
+    walk_left * 2
+    walk_up * 2
+    delay_8
+}
+
+movement Cherrygrove_Movement_0488 {
+    walk_left * 2
+    walk_up * 3
+    delay_8
+}
+
+movement Cherrygrove_Movement_0498 {
+    walk_left * 2
+    walk_up * 4
+    delay_8
+}
+
+movement Cherrygrove_Movement_04A8 {
+    walk_left * 2
+    walk_up * 5
+    delay_8
+}
+
+movement Cherrygrove_Movement_04B8 {
+    walk_fast_left * 9
+    walk_in_place_fast_right
+    delay_4 * 7
+    walk_in_place_fast_up
+}
+
+movement Cherrygrove_Movement_04CC {
+    walk_up
+    walk_left * 8
+    delay_8 * 2
+    walk_in_place_up
+}
+
+movement Cherrygrove_Movement_04E0 {
+    walk_fast_left * 6
+    walk_fast_up * 2
+    walk_fast_left
+    walk_in_place_fast_right
+    delay_4 * 7
+    walk_in_place_fast_up
+}
+
+movement Cherrygrove_Movement_04FC {
+    walk_left * 7
+    walk_up * 2
+    delay_8
+}
+
+movement Cherrygrove_Movement_050C {
+    walk_fast_down * 2
+    walk_fast_left * 6
+    walk_fast_down * 8
+    walk_left * 6
+    walk_in_place_fast_up
+    delay_4 * 17
+    walk_in_place_fast_left
+}
+
+movement Cherrygrove_Movement_052C {
+    walk_left
+    walk_down * 2
+    walk_left * 6
+    walk_down * 7
+    walk_left * 6
+    delay_8 * 2
+    walk_in_place_left
+}
+
+movement Cherrygrove_Movement_054C {
+    walk_fast_right * 16
+    walk_in_place_fast_left
+    delay_4 * 6
+    walk_fast_down * 2
+    walk_fast_right * 6
+    walk_in_place_fast_left
+}
+
+movement Cherrygrove_Movement_0568 {
+    delay_4
+    walk_down
+    walk_right * 16
+    walk_down * 2
+    walk_right * 5
+}
+
+movement Cherrygrove_Movement_0580 {
+    walk_up * 2
+}
+
+movement Cherrygrove_Movement_0588 {
+    walk_up
+}
+
+script Cherrygrove_EventScript_GuideGentMapCard {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Cherrygrove_Movement_0680)
+    waitmovement
+    callstd(std_play_follow_music)
+    clearflag(FLAG_HIDE_CHERRYGROVE_GUIDE_GENT)
+    addobject(obj_T21_gsoldman1)
+    lock(obj_T21_gsoldman1)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    movepersonfacing(obj_T21_gsoldman1, VAR_TEMP_x4000, 1, 394, DIR_NORTH)
+    if (var(VAR_TEMP_x4000) == 549) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_068C)
+    } elif (var(VAR_TEMP_x4000) == 550) {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_068C)
+    } else {
+        applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_069C)
+    }
+    waitmovement
+    if (var(VAR_TEMP_x4000) == 549) {
+        applymovement(obj_player, Cherrygrove_Movement_0380)
+    } elif (var(VAR_TEMP_x4000) == 550) {
+        applymovement(obj_player, Cherrygrove_Movement_0380)
+    } else {
+        applymovement(obj_player, Cherrygrove_Movement_0388)
+    }
+    waitmovement
+    npcmsg(msg_0550_T21_00009)
+    bufferplayersname(0)
+    npcmsg(msg_0550_T21_00010)
+    playfanfare(SEQ_ME_KEYITEM)
+    waitfanfare
+    npcmsg(msg_0550_T21_00011)
+    npcmsg(msg_0550_T21_00012)
+    closemessage
+    applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_06AC)
+    waitmovement
+    callstd(std_fade_end_mom_music)
+    release(obj_T21_gsoldman1)
+    removeobject(obj_T21_gsoldman1)
+    setflag(FLAG_HIDE_CHERRYGROVE_GUIDE_GENT)
+    registerpokegearcard(1)
+    releaseall
+    setvar(VAR_SCENE_CHERRYGROVE_CITY_OW, 2)
+    end
+}
+
+movement Cherrygrove_Movement_0680 {
+    emote_exclamation_mark
+    walk_in_place_fast_down
+}
+
+movement Cherrygrove_Movement_068C {
+    walk_fast_left
+    walk_fast_up * 9
+    walk_in_place_right
+}
+
+movement Cherrygrove_Movement_069C {
+    walk_fast_right
+    walk_fast_up * 9
+    walk_in_place_left
+}
+
+movement Cherrygrove_Movement_06AC {
+    walk_fast_down * 9
+}
+
+script Cherrygrove_EventScript_RivalBattle {
+    followmonresetmovement
+    lockall
+    fadeoutbgm(0, 3)
+    applymovement(obj_player, Cherrygrove_Movement_0350)
+    waitmovement
+    callstd(std_play_rival_intro_music)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    movepersonfacing(obj_T21_gsrivel, 583, 0, VAR_TEMP_x4001, DIR_WEST)
+    applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0808)
+    waitmovement
+    npcmsg(msg_0550_T21_00013)
+    closemessage
+    getstarterchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 152) {
+        trainerbattle(TRAINER_PASSERBY_BOY_2, 0, 1, 0)
+    } elif (var(VAR_SPECIAL_RESULT) == 155) {
+        trainerbattle(TRAINER_PASSERBY_BOY_3, 0, 1, 0)
+    } else {
+        trainerbattle(TRAINER_PASSERBY_BOY, 0, 1, 0)
+    }
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    callstd(std_play_rival_outro_music)
+    npcmsg(msg_0550_T21_00014)
+    closemessage
+    playse(SEQ_SE_DP_WALL_HIT2)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) == 398) {
+        applymovement(obj_player, Cherrygrove_Movement_0890)
+    } else {
+        applymovement(obj_player, Cherrygrove_Movement_08A4)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    if (var(VAR_SPECIAL_x8005) == 398) {
+        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0810)
+    } else {
+        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0844)
+    }
+    waitmovement
+    npcmsg(msg_0550_T21_00015)
+    closemessage
+    getpersoncoords(4, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8005) == 401) {
+        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0880)
+        applymovement(obj_player, Cherrygrove_Movement_08B8)
+    } else {
+        applymovement(obj_T21_gsrivel, Cherrygrove_Movement_0878)
+        applymovement(obj_player, Cherrygrove_Movement_08B8)
+    }
+    waitmovement
+    removeobject(obj_T21_gsrivel)
+    setflag(FLAG_HIDE_CHERRYGROVE_RIVAL)
+    callstd(std_fade_end_rival_outro_music)
+    releaseall
+    setvar(VAR_SCENE_CHERRYGROVE_CITY_OW, 4)
+    setflag(FLAG_MET_PASSERBY_BOY)
+    end
+    whiteout
+    releaseall
+    end
+}
+
+movement Cherrygrove_Movement_0808 {
+    walk_left * 7
+}
+
+movement Cherrygrove_Movement_0810 {
+    walk_left * 6
+    emote_exclamation_mark
+    walk_in_place_fast_down
+    delay_8
+    walk_in_place_fast_up
+    delay_8
+    walk_in_place_fast_down
+    delay_8
+    walk_in_place_right
+    delay_8
+    walk_right * 5
+    walk_in_place_down
+}
+
+movement Cherrygrove_Movement_0844 {
+    walk_left * 6
+    emote_exclamation_mark
+    walk_in_place_fast_down
+    delay_8
+    walk_in_place_fast_up
+    delay_8
+    walk_in_place_fast_down
+    delay_8
+    walk_in_place_right
+    delay_8
+    walk_right * 5
+    walk_in_place_up
+}
+
+movement Cherrygrove_Movement_0878 {
+    walk_left * 11
+}
+
+movement Cherrygrove_Movement_0880 {
+    walk_left * 5
+    walk_up
+    walk_left * 6
+}
+
+movement Cherrygrove_Movement_0890 {
+    face_up
+    lock_dir
+    walk_fast_down
+    unlock_dir
+}
+
+movement Cherrygrove_Movement_08A4 {
+    face_down
+    lock_dir
+    walk_fast_up
+    unlock_dir
+}
+
+movement Cherrygrove_Movement_08B8 {
+    delay_8 * 2
+    walk_in_place_left
+}
+
 script Cherrygrove_EventScript_MysticWaterMan {
     playse(SEQ_SE_DP_SELECT)
     lockall
@@ -709,157 +593,138 @@ script Cherrygrove_EventScript_MysticWaterMan {
     waitbuttonpress
     closemessage
     releaseall
+    end
 }
 
-raw `
-Cherrygrove_EventScript_Cameron:
-	PlaySE SEQ_SE_DP_SELECT
-	LockAll
-	FacePlayer
-	GetStdMsgNaix 2, VAR_SPECIAL_RESULT
-	MsgBoxExtern VAR_SPECIAL_RESULT, 0
-	TouchscreenMenuHide
-	GetMenuChoice VAR_SPECIAL_RESULT
-	TouchscreenMenuShow
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfEq _0A41
-	PhotoAlbumIsFull VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfEq _0A55
-	GetStdMsgNaix 2, VAR_SPECIAL_RESULT
-	MsgBoxExtern VAR_SPECIAL_RESULT, 1
-	CloseMsg
-	ToggleFollowingPokemonMovement 0
-	WaitFollowingPokemonMovement
-	FollowingPokemonMovement 55
-	GetPlayerFacing VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 0
-	GoToIfNe _0992
-	ApplyMovement obj_player, _0A6C
-	ApplyMovement obj_T21_gsmiddleman1, _0AC0
-	GoTo _09E0
+script Cherrygrove_EventScript_Cameron {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Cherrygrove_Movement_0A6C)
+        applymovement(obj_T21_gsmiddleman1, Cherrygrove_Movement_0AC0)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Cherrygrove_Movement_0A84)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Cherrygrove_Movement_0AA4)
+        applymovement(obj_T21_gsmiddleman1, Cherrygrove_Movement_0AC0)
+    } else {
+        applymovement(obj_player, Cherrygrove_Movement_0A90)
+        applymovement(obj_T21_gsmiddleman1, Cherrygrove_Movement_0AC0)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Cherrygrove_Movement_0ACC)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(1)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
 
-_0992:
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfNe _09AD
-	ApplyMovement obj_player, _0A84
-	GoTo _09E0
+movement Cherrygrove_Movement_0A6C {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
 
-_09AD:
-	Compare VAR_SPECIAL_RESULT, 3
-	GoToIfNe _09D0
-	ApplyMovement obj_player, _0AA4
-	ApplyMovement obj_T21_gsmiddleman1, _0AC0
-	GoTo _09E0
+movement Cherrygrove_Movement_0A84 {
+    walk_up * 3
+    walk_in_place_down
+}
 
-_09D0:
-	ApplyMovement obj_player, _0A90
-	ApplyMovement obj_T21_gsmiddleman1, _0AC0
-_09E0:
-	WaitMovement
-	WaitFollowingPokemonMovement
-	ToggleFollowingPokemonMovement 1
-	FollowingPokemonMovement 48
-	FollowMonIsActive VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfNe _0A07
-	ApplyMovement obj_partner_poke, _0ACC
-	WaitMovement
-_0A07:
-	SetFlag FLAG_UNK_189
-	FadeScreen 6, 1, 0, RGB_BLACK
-	WaitFade
-	CameronPhoto 1
-	LockAll
-	FadeScreen 6, 1, 1, RGB_BLACK
-	WaitFade
-	ClearFlag FLAG_UNK_189
-	GetStdMsgNaix 2, VAR_SPECIAL_RESULT
-	MsgBoxExtern VAR_SPECIAL_RESULT, 2
-	WaitButton
-	CloseMsg
-	ReleaseAll
-	End
+movement Cherrygrove_Movement_0A90 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
 
-_0A41:
-	GetStdMsgNaix 2, VAR_SPECIAL_RESULT
-	MsgBoxExtern VAR_SPECIAL_RESULT, 5
-	WaitButton
-	CloseMsg
-	ReleaseAll
-	End
+movement Cherrygrove_Movement_0AA4 {
+    walk_down
+    walk_right * 2
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
 
-_0A55:
-	GetStdMsgNaix 2, VAR_SPECIAL_RESULT
-	MsgBoxExtern VAR_SPECIAL_RESULT, 3
-	WaitButton
-	CloseMsg
-	ReleaseAll
-	End
+movement Cherrygrove_Movement_0AC0 {
+    delay_8
+    walk_in_place_up
+}
 
-	.balign 4, 0
-_0A6C:
-	WalkNormalEast
-	WalkNormalNorth 2
-	WalkNormalWest
-	WalkNormalNorth 3
-	WalkOnSpotNormalSouth
-	EndMovement
+movement Cherrygrove_Movement_0ACC {
+    walk_right
+    walk_up
+    face_down
+}
 
-	.balign 4, 0
-_0A84:
-	WalkNormalNorth 3
-	WalkOnSpotNormalSouth
-	EndMovement
+script Cherrygrove_EventScript_GuideGentsHouseSign {
+    trainertipsex(2, msg_0550_T21_00024)
+    end
+}
 
-	.balign 4, 0
-_0A90:
-	WalkNormalNorth
-	WalkNormalWest
-	WalkNormalNorth 3
-	WalkOnSpotNormalSouth
-	EndMovement
+script Cherrygrove_EventScript_CitySign {
+    directionsignpostex(0, 12, msg_0550_T21_00023)
+    end
+}
 
-	.balign 4, 0
-_0AA4:
-	WalkNormalSouth
-	WalkNormalEast 2
-	WalkNormalNorth 2
-	WalkNormalWest
-	WalkNormalNorth 3
-	WalkOnSpotNormalSouth
-	EndMovement
+script Cherrygrove_EventScript_Boy {
+    simplenpcmsg(msg_0550_T21_00019)
+    end
+}
 
-	.balign 4, 0
-_0AC0:
-	Delay8
-	WalkOnSpotNormalNorth
-	EndMovement
-
-	.balign 4, 0
-_0ACC:
-	WalkNormalEast
-	WalkNormalNorth
-	FaceSouth
-	EndMovement
-
-Cherrygrove_EventScript_GuideGentsHouseSign:
-	TrainerTipsEx 2, msg_0550_T21_00024
-	End
-
-Cherrygrove_EventScript_CitySign:
-	DirectionSignpostEx 0, 12, msg_0550_T21_00023
-	End
-
-Cherrygrove_EventScript_Boy:
-	SimpleNPCMsg msg_0550_T21_00019
-	End
-
-Cherrygrove_EventScript_Woman:
-	SimpleNPCMsg msg_0550_T21_00017
-	End
-	.balign 4, 0
-`
+script Cherrygrove_EventScript_Woman {
+    simplenpcmsg(msg_0550_T21_00017)
+    end
+}
 
 mapscripts Cherrygrove_MapScripts {
     INIT_SCRIPT_ON_TRANSITION: Cherrygrove_OnTransition

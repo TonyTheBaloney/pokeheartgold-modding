@@ -1,0 +1,22 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T20R0102_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    gendermsgbox(msg_0544_T20R0102_00000, msg_0544_T20R0102_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T20R0102_001 {
+    simplenpcmsg(msg_0544_T20R0102_00002)
+    end
+}
+
+mapscripts NewBark_ElmsLab_2F_MapScripts {
+}

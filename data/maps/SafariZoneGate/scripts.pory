@@ -1,0 +1,281 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D47_000
+	ScrDef scr_seq_D47_001
+	ScrDef scr_seq_D47_002
+	ScrDef scr_seq_D47_003
+	ScrDef scr_seq_D47_004
+	ScrDef scr_seq_D47_005
+	ScrDef scr_seq_D47_006
+	ScrDef scr_seq_D47_007
+	ScrDef scr_seq_D47_008
+	ScrDef scr_seq_D47_009
+	ScrDef scr_seq_D47_010
+	ScrDef scr_seq_D47_011
+	ScrDef scr_seq_D47_012
+	ScrDef scr_seq_D47_013
+	ScrDef scr_seq_D47_014
+	ScrDef scr_seq_D47_015
+	ScrDef scr_seq_D47_016
+	ScrDefEnd
+`
+
+script scr_seq_D47_014 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 2) { goto(_007B) }
+        if (var(VAR_TEMP_x4000) == 4) { goto(_007B) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _007B:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D47_000 {
+    simplenpcmsg(msg_0133_D47_00002)
+    end
+}
+
+script scr_seq_D47_001 {
+    simplenpcmsg(msg_0133_D47_00003)
+    end
+}
+
+script scr_seq_D47_002 {
+    simplenpcmsg(msg_0133_D47_00004)
+    end
+}
+
+script scr_seq_D47_003 {
+    simplenpcmsg(msg_0133_D47_00005)
+    end
+}
+
+script scr_seq_D47_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_JIGGLYPUFF, 0)
+    npcmsg(msg_0133_D47_00006)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D47_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_TEMP_x400B) == 0) {
+        npcmsg(msg_0133_D47_00007)
+    } else {
+        npcmsg(msg_0133_D47_00008)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    if (var(VAR_TEMP_x400B) == 0) {
+        addvar(VAR_TEMP_x400B, 1)
+    } else {
+        setvar(VAR_TEMP_x400B, 0)
+    }
+    end
+}
+
+script scr_seq_D47_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0133_D47_00009)
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 6)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_D47_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0133_D47_00010)
+    callstd(std_mart_intro)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 14)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_D47_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_BUTTERFREE, 0)
+    npcmsg(msg_0133_D47_00011)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D47_009 {
+    simplenpcmsg(msg_0133_D47_00012)
+    end
+}
+
+script scr_seq_D47_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_SLOWPOKE, 0)
+    npcmsg(msg_0133_D47_00013)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D47_011 {
+    trainertipsex(2, msg_0133_D47_00017)
+    end
+}
+
+script scr_seq_D47_012 {
+    simplenpcmsg(msg_0133_D47_00014)
+    end
+}
+
+script scr_seq_D47_013 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, SafariZoneGate_Movement_0330)
+        applymovement(obj_D47_gsmiddleman1, SafariZoneGate_Movement_037C)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, SafariZoneGate_Movement_0348)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, SafariZoneGate_Movement_0368)
+        applymovement(obj_D47_gsmiddleman1, SafariZoneGate_Movement_037C)
+    } else {
+        applymovement(obj_player, SafariZoneGate_Movement_0354)
+        applymovement(obj_D47_gsmiddleman1, SafariZoneGate_Movement_037C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, SafariZoneGate_Movement_0388)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(38)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement SafariZoneGate_Movement_0330 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SafariZoneGate_Movement_0348 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SafariZoneGate_Movement_0354 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SafariZoneGate_Movement_0368 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SafariZoneGate_Movement_037C {
+    delay_8
+    walk_in_place_up
+}
+
+movement SafariZoneGate_Movement_0388 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_D47_015 {
+    simplenpcmsg(msg_0133_D47_00015)
+    end
+}
+
+script scr_seq_D47_016 {
+    simplenpcmsg(msg_0133_D47_00016)
+    end
+}
+
+mapscripts SafariZoneGate_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D47_014
+}

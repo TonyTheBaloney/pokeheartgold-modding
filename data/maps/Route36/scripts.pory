@@ -1,0 +1,408 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R36_000
+	ScrDef scr_seq_R36_001
+	ScrDef scr_seq_R36_002
+	ScrDef scr_seq_R36_003
+	ScrDef scr_seq_R36_004
+	ScrDef scr_seq_R36_005
+	ScrDef scr_seq_R36_006
+	ScrDef scr_seq_R36_007
+	ScrDef scr_seq_R36_008
+	ScrDef scr_seq_R36_009
+	ScrDef scr_seq_R36_010
+	ScrDefEnd
+`
+
+raw `
+#include "constants/battle.h"
+`
+
+script scr_seq_R36_002 {
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 4) {
+        clearflag(FLAG_UNK_1C4)
+    } else {
+        setflag(FLAG_UNK_1C4)
+    }
+    end
+}
+
+script scr_seq_R36_010 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_ROUTE_36_SUDOWOODO)
+        removeobject(obj_R36_usokky)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        end
+    }
+    end
+}
+
+script scr_seq_R36_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    if (!flag(FLAG_HIDE_GOLDENROD_FLOWERSHOP_GIRL)) {
+        playse(SEQ_SE_GS_KI_UGOKU)
+        applymovement(obj_R36_usokky, Route36_Movement_038C)
+        waitmovement
+        npcmsg(msg_0390_R36_00000)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            bufferplayersname(0)
+            npcmsg(msg_0390_R36_00001)
+            playse(SEQ_SE_GS_ZENIGAME_JOURO)
+            getplayerfacing(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 2) {
+                applymovement(obj_player, Route36_Movement_039C)
+            } elif (var(VAR_SPECIAL_RESULT) == 1) {
+                applymovement(obj_player, Route36_Movement_03AC)
+            } else {
+                applymovement(obj_player, Route36_Movement_03A4)
+            }
+            waitmovement
+            npcmsg(msg_0390_R36_00002)
+            closemessage
+            playse(SEQ_SE_GS_KI_UGOKU)
+            applymovement(obj_R36_usokky, Route36_Movement_0394)
+            waitmovement
+            setflag(FLAG_ENGAGING_STATIC_POKEMON)
+            wildbattle(SPECIES_SUDOWOODO, 20, 0)
+            clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+            checkbattlewon(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0255) }
+            getstaticencounteroutcome(VAR_TEMP_x4001)
+            compare(VAR_TEMP_x4001, BATTLE_OUTCOME_MON_CAUGHT)
+            callifeq(_023F)
+            staticwildwonorcaughtcheck(VAR_TEMP_x4000, 0)
+            if (var(VAR_TEMP_x4000) == TRUE) { goto(_0251) }
+            releaseall
+            end
+        }
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_025B) }
+        end
+    }
+    hasitem(ITEM_SQUIRTBOTTLE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_R36_gsgirl1_2, Route36_Movement_053C)
+        waitmovement
+    }
+    playse(SEQ_SE_GS_KI_UGOKU)
+    applymovement(obj_R36_usokky, Route36_Movement_038C)
+    waitmovement
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00B9) }
+    releaseall
+    end
+_00B9:
+    npcmsg(msg_0390_R36_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00E0) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_025B) }
+    end
+_00E0:
+    bufferplayersname(0)
+    npcmsg(msg_0390_R36_00001)
+    playse(SEQ_SE_GS_ZENIGAME_JOURO)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == DIR_WEST) {
+        applymovement(obj_player, Route36_Movement_039C)
+    } elif (var(VAR_SPECIAL_RESULT) == DIR_SOUTH) {
+        applymovement(obj_player, Route36_Movement_03AC)
+    } else {
+        applymovement(obj_player, Route36_Movement_03A4)
+    }
+    waitmovement
+    setflag(FLAG_UNK_0B4)
+    npcmsg(msg_0390_R36_00002)
+    closemessage
+    playse(SEQ_SE_GS_KI_UGOKU)
+    applymovement(obj_R36_usokky, Route36_Movement_0394)
+    waitmovement
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(SPECIES_SUDOWOODO, 20, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0255) }
+    getstaticencounteroutcome(VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == BATTLE_OUTCOME_DRAW) { goto(_0251) }
+    compare(VAR_TEMP_x4001, BATTLE_OUTCOME_MON_CAUGHT)
+    callifeq(_023F)
+    setflag(FLAG_UNK_0B5)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == DIR_NORTH) {
+        togglefollowingpokemonmovement(FALSE)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        applymovement(obj_player, Route36_Movement_03B4)
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(TRUE)
+        followingpokemonmovement(48)
+    } else {
+        applymovement(obj_R36_gsgirl1_2, Route36_Movement_0360)
+        waitmovement
+    }
+    npcmsg(msg_0390_R36_00015)
+    giveitemnocheck(ITEM_BERRY_POTS, 1)
+    npcmsg(msg_0390_R36_00016)
+    npcmsg(msg_0390_R36_00017)
+    giveitemnocheck(ITEM_ORAN_BERRY, 3)
+    giveitemnocheck(ITEM_PECHA_BERRY, 3)
+    npcmsg(msg_0390_R36_00018)
+    closemessage
+_0200:
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_R36_gsgirl1_2, Route36_Movement_0378)
+        waitmovement
+    } else {
+        applymovement(obj_R36_gsgirl1_2, Route36_Movement_0380)
+        waitmovement
+    }
+    removeobject(obj_R36_gsgirl1_2)
+    setflag(FLAG_HIDE_ROUTE_36_FLOWERSHOP_GIRL)
+    clearflag(FLAG_HIDE_GOLDENROD_FLOWERSHOP_GIRL)
+    releaseall
+    end
+_023F:
+    setflag(FLAG_CAUGHT_SUDOWOODO)
+    return
+    callstd(std_bag_is_full)
+    closemessage
+    goto(_0200)
+_0251:
+    releaseall
+    end
+_0255:
+    whiteout
+    releaseall
+    end
+_025B:
+    closemessage
+    releaseall
+    end
+}
+
+movement Route36_Movement_0340 {
+    walk_up * 2
+    face_down
+}
+
+movement Route36_Movement_034C {
+    delay_4 * 5
+    walk_in_place_fast_up * 2
+}
+
+movement Route36_Movement_0358 {
+    walk_up
+}
+
+movement Route36_Movement_0360 {
+    walk_up * 3
+    face_right
+}
+
+movement Route36_Movement_036C {
+    delay_8
+    face_down
+}
+
+movement Route36_Movement_0378 {
+    walk_left * 10
+}
+
+movement Route36_Movement_0380 {
+    walk_down * 2
+    walk_left * 10
+}
+
+movement Route36_Movement_038C {
+    walk_in_place_up * 3
+}
+
+movement Route36_Movement_0394 {
+    walk_in_place_fast_up * 6
+}
+
+movement Route36_Movement_039C {
+    walk_in_place_slow_left * 4
+}
+
+movement Route36_Movement_03A4 {
+    walk_in_place_slow_up * 4
+}
+
+movement Route36_Movement_03AC {
+    walk_in_place_slow_down * 4
+}
+
+movement Route36_Movement_03B4 {
+    walk_down
+}
+
+script scr_seq_R36_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpartyleadalive(VAR_SPECIAL_x8002)
+    monhasribbon(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002, RIBBON_CARELESS)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 41)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_DAILY_GOT_SHOCK_RIBBON)) {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 43)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_NUM_MET_WEEKDAY_SIBLINGS) == 7) { goto(_0490) }
+    if (flag(FLAG_GOT_HARD_STONE_FROM_ARTHUR)) { goto(_0472) }
+    getweekday(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 4) {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 15)
+    } else {
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 12)
+        if (!itemspace(ITEM_HARD_STONE, 1)) { goto(_0486) }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_HARD_STONE_FROM_ARTHUR)
+        addvar(VAR_NUM_MET_WEEKDAY_SIBLINGS, 1)
+        getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 13)
+    }
+_046A:
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0472:
+    getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 14)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0486:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+_0490:
+    getweekday(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 4) { goto(_04B3) }
+    getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 15)
+    goto(_046A)
+_04B3:
+    getstdmsgnaix(0, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 40)
+    buffermonspeciesname(0, VAR_SPECIAL_x8002)
+    msgboxextern(VAR_SPECIAL_RESULT, 42)
+    giveribbon(VAR_SPECIAL_x8002, RIBBON_CARELESS)
+    playfanfare(SEQ_ME_ITEM)
+    waitfanfare
+    setflag(FLAG_DAILY_GOT_SHOCK_RIBBON)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R36_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    hasitem(ITEM_SQUIRTBOTTLE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0390_R36_00013)
+    } else {
+        npcmsg(msg_0390_R36_00014)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route36_Movement_053C {
+    face_up
+}
+
+script scr_seq_R36_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getitemquantity(ITEM_HM06, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0390_R36_00003)
+        giveitemnocheck(ITEM_HM06, 1)
+    }
+    npcmsg(msg_0390_R36_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+    npcmsg(msg_0390_R36_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R36_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_HIDE_ROUTE_36_SUDOWOODO)) {
+        npcmsg(msg_0390_R36_00007)
+    } else {
+        npcmsg(msg_0390_R36_00008)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R36_003 {
+    directionsignpostex(1, 15, msg_0390_R36_00009)
+    end
+}
+
+script scr_seq_R36_004 {
+    trainertipsex(2, msg_0390_R36_00010)
+    end
+}
+
+script scr_seq_R36_005 {
+    trainertipsex(3, msg_0390_R36_00011)
+    end
+}
+
+script scr_seq_R36_006 {
+    trainertipsex(3, msg_0390_R36_00012)
+    end
+}
+
+mapscripts Route36_MapScripts {
+    INIT_SCRIPT_ON_LOAD: scr_seq_R36_010
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R36_002
+}

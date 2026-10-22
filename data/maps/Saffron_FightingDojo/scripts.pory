@@ -1,0 +1,623 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T11R0101_000
+	ScrDef scr_seq_T11R0101_001
+	ScrDef scr_seq_T11R0101_002
+	ScrDef scr_seq_T11R0101_003
+	ScrDef scr_seq_T11R0101_004
+	ScrDef scr_seq_T11R0101_005
+	ScrDef scr_seq_T11R0101_006
+	ScrDef scr_seq_T11R0101_007
+	ScrDef scr_seq_T11R0101_008
+	ScrDef scr_seq_T11R0101_009
+	ScrDef scr_seq_T11R0101_010
+	ScrDef scr_seq_T11R0101_011
+	ScrDef scr_seq_T11R0101_012
+	ScrDef scr_seq_T11R0101_013
+	ScrDef scr_seq_T11R0101_014
+	ScrDef scr_seq_T11R0101_015
+	ScrDef scr_seq_T11R0101_016
+	ScrDef scr_seq_T11R0101_017
+	ScrDef scr_seq_T11R0101_018
+	ScrDef scr_seq_T11R0101_019
+	ScrDefEnd
+`
+
+script scr_seq_T11R0101_003 {
+    getphonebookrematch(PHONE_CONTACT_WHITNEY, VAR_TEMP_x4000)
+    getphonebookrematch(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
+    getphonebookrematch(PHONE_CONTACT_CLAIR, VAR_TEMP_x4002)
+    getphonebookrematch(PHONE_CONTACT_ERIKA, VAR_TEMP_x4003)
+    getphonebookrematch(PHONE_CONTACT_MISTY, VAR_TEMP_x4004)
+    getphonebookrematch(PHONE_CONTACT_BLAINE, VAR_TEMP_x4005)
+    getphonebookrematch(PHONE_CONTACT_BLUE, VAR_TEMP_x4006)
+    getphonebookrematch(PHONE_CONTACT_CHUCK, VAR_TEMP_x4007)
+    getphonebookrematch(PHONE_CONTACT_BROCK, VAR_TEMP_x4008)
+    getphonebookrematch(PHONE_CONTACT_BUGSY, VAR_TEMP_x4009)
+    getphonebookrematch(PHONE_CONTACT_SABRINA, VAR_TEMP_x400A)
+    getphonebookrematch(PHONE_CONTACT_FALKNER, VAR_TEMP_x400B)
+    getphonebookrematch(PHONE_CONTACT_LT__SURGE, VAR_TEMP_x400C)
+    getphonebookrematch(PHONE_CONTACT_MORTY, VAR_TEMP_x400D)
+    getphonebookrematch(PHONE_CONTACT_JASMINE, VAR_TEMP_x400E)
+    getphonebookrematch(PHONE_CONTACT_PRYCE, VAR_TEMP_x400F)
+    if (var(VAR_TEMP_x4003) == 0) {
+        setflag(FLAG_UNK_2B8)
+    } else {
+        clearflag(FLAG_UNK_2B8)
+    }
+    if (var(VAR_TEMP_x4000) == 0) {
+        setflag(FLAG_UNK_2B5)
+    } else {
+        clearflag(FLAG_UNK_2B5)
+    }
+    if (var(VAR_TEMP_x4001) == 0) {
+        setflag(FLAG_UNK_2B6)
+    } else {
+        clearflag(FLAG_UNK_2B6)
+    }
+    if (var(VAR_TEMP_x4002) == 0) {
+        setflag(FLAG_UNK_2B7)
+    } else {
+        clearflag(FLAG_UNK_2B7)
+    }
+    if (var(VAR_TEMP_x4004) == 0) {
+        setflag(FLAG_UNK_2B9)
+    } else {
+        clearflag(FLAG_UNK_2B9)
+    }
+    if (var(VAR_TEMP_x4005) == 0) {
+        setflag(FLAG_UNK_2BA)
+    } else {
+        clearflag(FLAG_UNK_2BA)
+    }
+    if (var(VAR_TEMP_x4006) == 0) {
+        setflag(FLAG_UNK_2BB)
+    } else {
+        clearflag(FLAG_UNK_2BB)
+    }
+    if (var(VAR_TEMP_x4007) == 0) {
+        setflag(FLAG_UNK_2BC)
+    } else {
+        clearflag(FLAG_UNK_2BC)
+    }
+    if (var(VAR_TEMP_x4008) == 0) {
+        setflag(FLAG_UNK_2BD)
+    } else {
+        clearflag(FLAG_UNK_2BD)
+    }
+    if (var(VAR_TEMP_x4009) == 0) {
+        setflag(FLAG_UNK_2BE)
+    } else {
+        clearflag(FLAG_UNK_2BE)
+    }
+    if (var(VAR_TEMP_x400A) == 0) {
+        setflag(FLAG_UNK_2BF)
+    } else {
+        clearflag(FLAG_UNK_2BF)
+    }
+    if (var(VAR_TEMP_x400B) == 0) {
+        setflag(FLAG_UNK_2C0)
+    } else {
+        clearflag(FLAG_UNK_2C0)
+    }
+    if (var(VAR_TEMP_x400C) == 0) {
+        setflag(FLAG_UNK_2C1)
+    } else {
+        clearflag(FLAG_UNK_2C1)
+    }
+    if (var(VAR_TEMP_x400D) == 0) {
+        setflag(FLAG_UNK_2C2)
+    } else {
+        clearflag(FLAG_UNK_2C2)
+    }
+    if (var(VAR_TEMP_x400E) == 0) {
+        setflag(FLAG_UNK_2C3)
+    } else {
+        clearflag(FLAG_UNK_2C3)
+    }
+    if (var(VAR_TEMP_x400F) == 0) {
+        setflag(FLAG_UNK_2C4)
+    } else {
+        clearflag(FLAG_UNK_2C4)
+    }
+    end
+}
+
+script scr_seq_T11R0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00008)
+    closemessage
+    trainerbattle(TRAINER_LEADER_WHITNEY_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00009)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(17)
+    setflag(FLAG_UNK_2B5)
+    removeobject(obj_T11R0101_gsleader3)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00030)
+    closemessage
+    trainerbattle(TRAINER_LEADER_JANINE_JANINE_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00031)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(26)
+    setflag(FLAG_UNK_2B6)
+    removeobject(obj_T11R0101_gsleader13)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00018)
+    closemessage
+    trainerbattle(TRAINER_LEADER_CLAIR_CLAIR_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00019)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(27)
+    setflag(FLAG_UNK_2B7)
+    removeobject(obj_T11R0101_gsleader8)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00024)
+    closemessage
+    trainerbattle(TRAINER_LEADER_ERIKA_ERIKA_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00025)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(28)
+    setflag(FLAG_UNK_2B8)
+    removeobject(obj_T11R0101_gsleader12)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00026)
+    closemessage
+    trainerbattle(TRAINER_LEADER_MISTY_MISTY_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00027)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(29)
+    setflag(FLAG_UNK_2B9)
+    removeobject(obj_T11R0101_gsleader11)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00032)
+    closemessage
+    trainerbattle(TRAINER_LEADER_BLAINE_BLAINE_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00033)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(30)
+    setflag(FLAG_UNK_2BA)
+    removeobject(obj_T11R0101_gsleader15)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00034)
+    closemessage
+    trainerbattle(TRAINER_LEADER_BLUE_BLUE_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00035)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(31)
+    setflag(FLAG_UNK_2BB)
+    removeobject(obj_T11R0101_gsleader16)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00010)
+    closemessage
+    trainerbattle(TRAINER_LEADER_CHUCK_CHUCK_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00011)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(32)
+    setflag(FLAG_UNK_2BC)
+    removeobject(obj_T11R0101_gsleader5)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_012 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00028)
+    closemessage
+    trainerbattle(TRAINER_LEADER_BROCK_BROCK_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00029)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(33)
+    setflag(FLAG_UNK_2BD)
+    removeobject(obj_T11R0101_gsleader14)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_013 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00006)
+    closemessage
+    trainerbattle(TRAINER_LEADER_BUGSY_BUGSY_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00007)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(34)
+    setflag(FLAG_UNK_2BE)
+    removeobject(obj_T11R0101_gsleader2)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_014 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00022)
+    closemessage
+    trainerbattle(TRAINER_LEADER_SABRINA_SABRINA_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00023)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(35)
+    setflag(FLAG_UNK_2BF)
+    removeobject(obj_T11R0101_gsleader10)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_015 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00004)
+    closemessage
+    trainerbattle(TRAINER_LEADER_FALKNER_FALKNER_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00005)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(18)
+    setflag(FLAG_UNK_2C0)
+    removeobject(obj_T11R0101_gsleader1)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_016 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00020)
+    closemessage
+    trainerbattle(TRAINER_LEADER_LT_SURGE_LT__SURGE_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00021)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(36)
+    setflag(FLAG_UNK_2C1)
+    removeobject(obj_T11R0101_gsleader9)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_017 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00014)
+    closemessage
+    trainerbattle(TRAINER_LEADER_MORTY_MORTY_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00015)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(37)
+    setflag(FLAG_UNK_2C2)
+    removeobject(obj_T11R0101_gsleader4)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_018 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00012)
+    closemessage
+    trainerbattle(TRAINER_LEADER_JASMINE_JASMINE_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00013)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(38)
+    setflag(FLAG_UNK_2C3)
+    removeobject(obj_T11R0101_gsleader6)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_019 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0533_T11R0101_00016)
+    closemessage
+    trainerbattle(TRAINER_LEADER_PRYCE_PRYCE_2, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00017)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    clearphonerematchseeking(39)
+    setflag(FLAG_UNK_2C4)
+    removeobject(obj_T11R0101_gsleader7)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_BEAT_KARATE_KING)) {
+        npcmsg(msg_0533_T11R0101_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0533_T11R0101_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T11R0101_001 {
+    simplenpcmsg(msg_0533_T11R0101_00002)
+    end
+}
+
+script scr_seq_T11R0101_002 {
+    simplenpcmsg(msg_0533_T11R0101_00003)
+    end
+}
+
+mapscripts Saffron_FightingDojo_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11R0101_003
+}

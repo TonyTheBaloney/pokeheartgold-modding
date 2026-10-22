@@ -1,0 +1,377 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T26GYM0101_000
+	ScrDef scr_seq_T26GYM0101_001
+	ScrDef scr_seq_T26GYM0101_002
+	ScrDef scr_seq_T26GYM0101_003
+	ScrDef scr_seq_T26GYM0101_004
+	ScrDef scr_seq_T26GYM0101_005
+	ScrDef scr_seq_T26GYM0101_006
+	ScrDef scr_seq_T26GYM0101_007
+	ScrDefEnd
+`
+
+script scr_seq_T26GYM0101_007 {
+    getphonebookrematch(PHONE_CONTACT_JASMINE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_JASMINE_IN_GYM)
+        end
+    }
+    if (!flag(FLAG_GAME_CLEAR)) { goto(_015A) }
+    clearflag(FLAG_HIDE_JASMINE_IN_GYM)
+    checkregisteredphonenumber(PHONE_CONTACT_JASMINE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_007A) }
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 13) {
+        setflag(FLAG_HIDE_JASMINE_IN_GYM)
+    } else {
+        goto(_009D)
+    }
+    end
+_007A:
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 12) {
+        setflag(FLAG_HIDE_JASMINE_IN_GYM)
+    } else {
+        goto(_009D)
+    }
+    end
+_009D:
+    checkregisteredphonenumber(PHONE_CONTACT_ERIKA, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_015A) }
+    checkbadge(BADGE_EARTH, VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) == 1) { goto(_00CB) }
+    goto(_015A)
+    end
+_00CB:
+    getweekday(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 6) { goto(_00E8) }
+    goto(_0109)
+    goto(_0107)
+_00E8:
+    if (var(VAR_TEMP_x4000) != 0) { goto(_0101) }
+    goto(_0109)
+    goto(_0107)
+_0101:
+    goto(_015A)
+_0107:
+    end
+_0109:
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 14) {
+        setflag(FLAG_HIDE_JASMINE_IN_GYM)
+    } elif (var(VAR_TEMP_x4000) == 15) {
+        setflag(FLAG_HIDE_JASMINE_IN_GYM)
+    } elif (var(VAR_TEMP_x4000) == 16) {
+        setflag(FLAG_HIDE_JASMINE_IN_GYM)
+    } else {
+        goto(_015A)
+    }
+    end
+_015A:
+    end
+}
+
+script scr_seq_T26GYM0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_MINERAL, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        if (!flag(FLAG_GOT_TM23_FROM_JASMINE)) { goto(_01CE) }
+        checkregisteredphonenumber(PHONE_CONTACT_JASMINE, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 1) {
+            if (flag(FLAG_TRADE_JASMINE_STEELIX)) {
+                if (var(VAR_TEMP_x4000) == 55) {
+                    npcmsg(msg_0606_T26GYM0101_00011)
+                } else {
+                    npcmsg(msg_0606_T26GYM0101_00012)
+                }
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+            if (var(VAR_TEMP_x4000) == 77) { goto(_0264) }
+            setvar(VAR_TEMP_x4000, 77)
+            npcmsg(msg_0606_T26GYM0101_00007)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _0264:
+            npcmsg(msg_0606_T26GYM0101_00008)
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_034B) }
+            npcmsg(msg_0606_T26GYM0101_00009)
+            closemessage
+            fadescreen(6, 1, 0, RGB_BLACK)
+            waitfade
+            choosepartymonfortrade
+            getpartyselection(VAR_SPECIAL_RESULT)
+            restoreoverworld
+            fadescreen(6, 1, 1, RGB_BLACK)
+            waitfade
+            if (var(VAR_SPECIAL_RESULT) == 255) { goto(_034B) }
+            copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+            getpartymonspecies(VAR_SPECIAL_x8004, VAR_TEMP_x4003)
+            getpartymonform2(VAR_SPECIAL_x8004, VAR_TEMP_x4004)
+            if (var(VAR_TEMP_x4003) == 0) { goto(_0356) }
+            if (var(VAR_TEMP_x4004) != 0) {
+                if (var(VAR_TEMP_x4003) == 487) { goto(_0364) }
+                if (var(VAR_TEMP_x4003) == 492) { goto(_0364) }
+                if (var(VAR_TEMP_x4003) == 172) { goto(_0364) }
+                if (var(VAR_TEMP_x4003) == 479) { goto(_0364) }
+            }
+            bufferpartymonnick(1, VAR_SPECIAL_x8004)
+            npcmsg(msg_0606_T26GYM0101_00013)
+            touchscreenmenuhide
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            touchscreenmenushow
+            if (var(VAR_SPECIAL_RESULT) == 1) { goto(_034B) }
+            closemessage
+            loadnpctrade(5)
+            npctradeexec(VAR_SPECIAL_x8004)
+            npctradeend
+            setflag(FLAG_TRADE_JASMINE_STEELIX)
+            setvar(VAR_TEMP_x4000, 55)
+            npcmsg(msg_0606_T26GYM0101_00011)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _034B:
+            npcmsg(msg_0606_T26GYM0101_00010)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _0356:
+            bufferplayersname(0)
+            npcmsg(msg_0606_T26GYM0101_00014)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        _0364:
+            npcmsg(msg_0606_T26GYM0101_00015)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0606_T26GYM0101_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0606_T26GYM0101_00000)
+    closemessage
+    trainerbattle(TRAINER_LEADER_JASMINE_JASMINE, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    npcmsg(msg_0606_T26GYM0101_00001)
+    bufferplayersname(0)
+    npcmsg(msg_0606_T26GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    givebadge(BADGE_MINERAL)
+    addvar(VAR_MIDGAME_BADGES, 1)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    if (var(VAR_MIDGAME_BADGES) == 3) {
+        setvar(VAR_SCENE_ROCKET_TAKEOVER, 1)
+    }
+    npcmsg(msg_0606_T26GYM0101_00003)
+_01CE:
+    if (!itemspace(ITEM_TM23, 1)) { goto(_0202) }
+    callstd(std_give_item_verbose)
+    npcmsg(msg_0606_T26GYM0101_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    setflag(FLAG_GOT_TM23_FROM_JASMINE)
+    end
+_0202:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T26GYM0101_001 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_040C)
+    waitmovement
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 5) {
+        applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_0414)
+    } elif (var(VAR_TEMP_x4000) == 6) {
+        applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_041C)
+    } else {
+        applymovement(obj_T26GYM0101_gsgentleman, Olivine_Gym_Movement_0424)
+    }
+    applymovement(obj_player, Olivine_Gym_Movement_042C)
+    waitmovement
+    npcmsg(msg_0606_T26GYM0101_00019)
+    waitbuttonpress
+    closemessage
+    releaseall
+    if (var(VAR_UNK_410E) == 1) {
+        setvar(VAR_UNK_410E, 2)
+    }
+    end
+}
+
+movement Olivine_Gym_Movement_040C {
+    emote_exclamation_mark
+}
+
+movement Olivine_Gym_Movement_0414 {
+    walk_right
+}
+
+movement Olivine_Gym_Movement_041C {
+    walk_right * 2
+}
+
+movement Olivine_Gym_Movement_0424 {
+    walk_right * 3
+}
+
+movement Olivine_Gym_Movement_042C {
+    walk_in_place_left
+}
+
+movement Olivine_Gym_Movement_0434 {
+    walk_in_place_right
+}
+
+script scr_seq_T26GYM0101_002 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_040C)
+    waitmovement
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 5) {
+        applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_04B8)
+    } elif (var(VAR_TEMP_x4000) == 6) {
+        applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_04C0)
+    } else {
+        applymovement(obj_T26GYM0101_gsgirl1, Olivine_Gym_Movement_04C8)
+    }
+    applymovement(obj_player, Olivine_Gym_Movement_0434)
+    waitmovement
+    npcmsg(msg_0606_T26GYM0101_00021)
+    waitbuttonpress
+    closemessage
+    releaseall
+    if (var(VAR_UNK_410E) == 2) {
+        setvar(VAR_UNK_410E, 3)
+    }
+    end
+}
+
+movement Olivine_Gym_Movement_04B8 {
+    walk_left * 3
+}
+
+movement Olivine_Gym_Movement_04C0 {
+    walk_left * 2
+}
+
+movement Olivine_Gym_Movement_04C8 {
+    walk_left
+}
+
+script scr_seq_T26GYM0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_MINERAL, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0606_T26GYM0101_00020)
+    } else {
+        npcmsg(msg_0606_T26GYM0101_00019)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    if (var(VAR_UNK_410E) == 1) {
+        setvar(VAR_UNK_410E, 2)
+    }
+    end
+}
+
+script scr_seq_T26GYM0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_MINERAL, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0606_T26GYM0101_00022)
+    } else {
+        npcmsg(msg_0606_T26GYM0101_00021)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    if (var(VAR_UNK_410E) == 2) {
+        setvar(VAR_UNK_410E, 3)
+    }
+    end
+}
+
+script scr_seq_T26GYM0101_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_MINERAL, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0606_T26GYM0101_00018)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNK_410E) == 0) {
+        npcmsg(msg_0606_T26GYM0101_00016)
+    } else {
+        npcmsg(msg_0606_T26GYM0101_00017)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T26GYM0101_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_MINERAL, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0606_T26GYM0101_00023)
+    } else {
+        npcmsg(msg_0606_T26GYM0101_00024)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Olivine_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T26GYM0101_007
+}

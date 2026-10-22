@@ -1,0 +1,166 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_HIROBA_000 {
+    followmonresetmovement
+    lockall
+    random(VAR_SPECIAL_x8000, 5)
+    Switch(VAR_SPECIAL_x8000)
+    Case(0, _0059)
+    Case(1, _0073)
+    Case(2, _008D)
+    Case(3, _00A7)
+    Case(4, _00C1)
+    end
+_0059:
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_014C)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_01F4)
+    waitmovement
+    goto(_00DB)
+    end
+_0073:
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_0158)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0204)
+    waitmovement
+    goto(_00DB)
+    end
+_008D:
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_0164)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0214)
+    waitmovement
+    goto(_00DB)
+    end
+_00A7:
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_0170)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0224)
+    waitmovement
+    goto(_00DB)
+    end
+_00C1:
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_017C)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0234)
+    waitmovement
+    goto(_00DB)
+    end
+_00DB:
+    npcmsg(msg_0212_HIROBA_00000)
+    waitabpress
+    closemessage
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_0188)
+    applymovement(obj_HIROBA_wifisf, WifiPlazaWarpRoom_Movement_0244)
+    waitmovement
+    playse(SEQ_SE_DP_TELE2)
+    applymovement(obj_player, WifiPlazaWarpRoom_Movement_01EC)
+    waitmovement
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setvar(VAR_TEMP_x4003, 1)
+    warp(VAR_UNK_4056, 0, 5, 2, DIR_SOUTH)
+    leaveoverworld
+    openwificlubwithresult(VAR_SPECIAL_RESULT)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    launchwifiplaza(VAR_SPECIAL_x8004)
+    restoreoverworld
+    setvar(VAR_UNK_4137, 1)
+    makeobjectvisible(obj_player)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement WifiPlazaWarpRoom_Movement_014C {
+    walk_up * 7
+    walk_left * 11
+}
+
+movement WifiPlazaWarpRoom_Movement_0158 {
+    walk_up * 7
+    walk_left * 9
+}
+
+movement WifiPlazaWarpRoom_Movement_0164 {
+    walk_up * 7
+    walk_left * 7
+}
+
+movement WifiPlazaWarpRoom_Movement_0170 {
+    walk_up * 7
+    walk_left * 5
+}
+
+movement WifiPlazaWarpRoom_Movement_017C {
+    walk_up * 7
+    walk_left * 3
+}
+
+movement WifiPlazaWarpRoom_Movement_0188 {
+    walk_up
+    face_left
+    delay_2
+    face_down
+    delay_2
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+    face_down
+    delay_2
+    face_right
+    delay_2
+    face_up
+    delay_2
+    face_left
+    delay_2
+    face_down
+    delay_2
+    face_right
+    delay_2
+    face_up
+}
+
+movement WifiPlazaWarpRoom_Movement_01EC {
+    warp_out
+}
+
+movement WifiPlazaWarpRoom_Movement_01F4 {
+    walk_up * 6
+    walk_left * 12
+    walk_in_place_right
+}
+
+movement WifiPlazaWarpRoom_Movement_0204 {
+    walk_up * 6
+    walk_left * 10
+    walk_in_place_right
+}
+
+movement WifiPlazaWarpRoom_Movement_0214 {
+    walk_up * 6
+    walk_left * 8
+    walk_in_place_right
+}
+
+movement WifiPlazaWarpRoom_Movement_0224 {
+    walk_up * 6
+    walk_left * 6
+    walk_in_place_right
+}
+
+movement WifiPlazaWarpRoom_Movement_0234 {
+    walk_up * 6
+    walk_left * 4
+    walk_in_place_right
+}
+
+movement WifiPlazaWarpRoom_Movement_0244 {
+    walk_in_place_up
+}
+
+mapscripts WifiPlazaWarpRoom_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_x4003, 0: scr_seq_HIROBA_000
+    ]
+}

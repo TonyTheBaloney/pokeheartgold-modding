@@ -1,0 +1,234 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D43R0103_000 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, VictoryRoad_3F_Movement_0168)
+    waitmovement
+    clearflag(FLAG_HIDE_VICTORY_ROAD_RIVAL)
+    addobject(obj_D43R0103_gsrivel)
+    callstd(std_play_rival_intro_music)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 37) {
+        applymovement(obj_D43R0103_gsrivel, VictoryRoad_3F_Movement_0180)
+    } elif (var(VAR_TEMP_x4000) == 38) {
+        applymovement(obj_D43R0103_gsrivel, VictoryRoad_3F_Movement_0198)
+    } else {
+        applymovement(obj_D43R0103_gsrivel, VictoryRoad_3F_Movement_01B0)
+    }
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, VictoryRoad_3F_Movement_0178)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    bufferplayersname(0)
+    npcmsg(msg_0128_D43R0103_00000)
+    closemessage
+    getstarterchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 152) {
+        trainerbattle(TRAINER_RIVAL_SILVER_9, 0, 0, 0)
+    } elif (var(VAR_SPECIAL_RESULT) == 155) {
+        trainerbattle(TRAINER_RIVAL_SILVER_13, 0, 0, 0)
+    } else {
+        trainerbattle(TRAINER_RIVAL_SILVER_5, 0, 0, 0)
+    }
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        removeobject(obj_D43R0103_gsrivel)
+        setflag(FLAG_HIDE_VICTORY_ROAD_RIVAL)
+        whiteout
+        releaseall
+        end
+    }
+    callstd(std_play_rival_outro_music)
+    npcmsg(msg_0128_D43R0103_00001)
+    closemessage
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 37) {
+        applymovement(obj_D43R0103_gsrivel, VictoryRoad_3F_Movement_01C8)
+    } elif (var(VAR_TEMP_x4000) == 38) {
+        applymovement(obj_D43R0103_gsrivel, VictoryRoad_3F_Movement_01E4)
+    } else {
+        applymovement(obj_D43R0103_gsrivel, VictoryRoad_3F_Movement_0200)
+    }
+    waitmovement
+    setflag(FLAG_HIDE_VICTORY_ROAD_RIVAL)
+    removeobject(obj_D43R0103_gsrivel)
+    callstd(std_fade_end_rival_outro_music)
+    setvar(VAR_UNK_40C5, 1)
+    releaseall
+    end
+}
+
+movement VictoryRoad_3F_Movement_0168 {
+    emote_exclamation_mark
+    delay_8 * 2
+    face_down * 2
+}
+
+movement VictoryRoad_3F_Movement_0178 {
+    walk_slow_down
+}
+
+movement VictoryRoad_3F_Movement_0180 {
+    walk_fast_up * 3
+    face_right * 2
+    walk_fast_right * 4
+    face_up * 2
+    walk_fast_up * 3
+}
+
+movement VictoryRoad_3F_Movement_0198 {
+    walk_fast_up * 3
+    face_right * 2
+    walk_fast_right * 5
+    face_up * 2
+    walk_fast_up * 3
+}
+
+movement VictoryRoad_3F_Movement_01B0 {
+    walk_fast_up * 3
+    face_right * 2
+    walk_fast_right * 6
+    face_up * 2
+    walk_fast_up * 3
+}
+
+movement VictoryRoad_3F_Movement_01C8 {
+    face_down * 2
+    walk_down * 2
+    face_left * 2
+    walk_left * 5
+    face_down * 2
+    walk_down * 7
+}
+
+movement VictoryRoad_3F_Movement_01E4 {
+    face_down * 2
+    walk_down * 2
+    face_left * 2
+    walk_left * 6
+    face_down * 2
+    walk_down * 7
+}
+
+movement VictoryRoad_3F_Movement_0200 {
+    face_down * 2
+    walk_down * 2
+    face_left * 2
+    walk_left * 7
+    face_down * 2
+    walk_down * 7
+}
+
+script scr_seq_D43R0103_001 {
+    end
+}
+
+script scr_seq_D43R0103_002 {
+    setvar(VAR_TEMP_x4000, 57)
+    setvar(VAR_TEMP_x4001, 42)
+    goto(_0278)
+}
+
+script scr_seq_D43R0103_003 {
+    setvar(VAR_TEMP_x4000, 28)
+    setvar(VAR_TEMP_x4001, 38)
+    goto(_0278)
+}
+
+script scr_seq_D43R0103_004 {
+    setvar(VAR_TEMP_x4000, 31)
+    setvar(VAR_TEMP_x4001, 44)
+    goto(_0278)
+}
+
+script scr_seq_D43R0103_005 {
+    setvar(VAR_TEMP_x4000, 22)
+    setvar(VAR_TEMP_x4001, 17)
+    goto(_0278)
+}
+
+script scr_seq_D43R0103_006 {
+    setvar(VAR_TEMP_x4000, 58)
+    setvar(VAR_TEMP_x4001, 28)
+    goto(_0278)
+_0278:
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_40CA, 1)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, VictoryRoad_3F_Movement_0330)
+        applymovement(obj_partner_poke, VictoryRoad_3F_Movement_033C)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, VictoryRoad_3F_Movement_034C)
+        applymovement(obj_partner_poke, VictoryRoad_3F_Movement_0358)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, VictoryRoad_3F_Movement_0384)
+        applymovement(obj_partner_poke, VictoryRoad_3F_Movement_0390)
+    } else {
+        applymovement(obj_player, VictoryRoad_3F_Movement_0368)
+        applymovement(obj_partner_poke, VictoryRoad_3F_Movement_0374)
+    }
+    waitmovement
+    playse(SEQ_SE_GS_RAKKA01)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_VICTORY_ROAD_2F, 0, VAR_TEMP_x4000, VAR_TEMP_x4001, VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement VictoryRoad_3F_Movement_0330 {
+    walk_in_place_faster_up * 4
+    set_invisible
+}
+
+movement VictoryRoad_3F_Movement_033C {
+    delay_4 * 3
+    walk_faster_up
+    set_invisible
+}
+
+movement VictoryRoad_3F_Movement_034C {
+    walk_in_place_faster_down * 4
+    set_invisible
+}
+
+movement VictoryRoad_3F_Movement_0358 {
+    delay_4 * 3
+    walk_faster_down
+    set_invisible
+}
+
+movement VictoryRoad_3F_Movement_0368 {
+    walk_in_place_faster_left * 4
+    set_invisible
+}
+
+movement VictoryRoad_3F_Movement_0374 {
+    delay_4 * 3
+    walk_faster_left
+    set_invisible
+}
+
+movement VictoryRoad_3F_Movement_0384 {
+    walk_in_place_faster_right * 4
+    set_invisible
+}
+
+movement VictoryRoad_3F_Movement_0390 {
+    delay_4 * 3
+    walk_faster_right
+    set_invisible
+}
+
+mapscripts VictoryRoad_3F_MapScripts {
+}

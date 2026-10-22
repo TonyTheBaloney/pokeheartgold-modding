@@ -1,0 +1,281 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D51R0301_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_UNK_09E)) {
+        npcmsg(msg_0147_D51R0301_00000)
+        closemessage
+        setflag(FLAG_UNK_09E)
+    }
+    playerhasspecies(VAR_SPECIAL_RESULT, SPECIES_ARCEUS)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_0188)
+        waitmovement
+        npcmsg(msg_0147_D51R0301_00001)
+        closemessage
+        getplayerfacing(VAR_TEMP_x4002)
+        if (var(VAR_TEMP_x4002) != 0) {
+            if (var(VAR_TEMP_x4002) != 1) {
+                goto(_0097)
+            _0097:
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_0194)
+                waitmovement
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01A0)
+                waitmovement
+                npcmsg(msg_0147_D51R0301_00003)
+                closemessage
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01A8)
+                waitmovement
+                npcmsg(msg_0147_D51R0301_00004)
+                closemessage
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01B4)
+                waitmovement
+                goto(_0167)
+            _00CF:
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01C4)
+                waitmovement
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01D0)
+                waitmovement
+                npcmsg(msg_0147_D51R0301_00003)
+                closemessage
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01D8)
+                waitmovement
+                npcmsg(msg_0147_D51R0301_00004)
+                closemessage
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01E0)
+                waitmovement
+                goto(_0167)
+            _0107:
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_01F0)
+                waitmovement
+                togglefollowingpokemonmovement(0)
+                waitfollowingpokemonmovement
+                followingpokemonmovement(55)
+                applymovement(obj_player, SinjohRuinsCabin_Movement_01FC)
+                waitmovement
+                waitfollowingpokemonmovement
+                togglefollowingpokemonmovement(1)
+                followingpokemonmovement(48)
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_0204)
+                waitmovement
+                npcmsg(msg_0147_D51R0301_00003)
+                closemessage
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_020C)
+                waitmovement
+                applymovement(obj_player, SinjohRuinsCabin_Movement_022C)
+                waitmovement
+                npcmsg(msg_0147_D51R0301_00004)
+                closemessage
+                applymovement(obj_D51R0301_champion, SinjohRuinsCabin_Movement_021C)
+                waitmovement
+                goto(_0167)
+            _0167:
+                playse(SEQ_SE_DP_KAIDAN2)
+                setflag(FLAG_UNK_2DD)
+                removeobject(obj_D51R0301_champion)
+                clearflag(FLAG_HIDE_SINJOH_MYSTRI_SHRINE_CYNTHIA)
+                waitse(SEQ_SE_DP_KAIDAN2)
+                setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 7)
+                releaseall
+                end
+            }
+            goto(_00CF)
+            goto(_0097)
+        }
+        goto(_0107)
+        goto(_0097)
+    }
+    npcmsg(msg_0147_D51R0301_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement SinjohRuinsCabin_Movement_0188 {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement SinjohRuinsCabin_Movement_0194 {
+    walk_in_place_up
+    walk_slow_up * 2
+}
+
+movement SinjohRuinsCabin_Movement_01A0 {
+    walk_in_place_down
+}
+
+movement SinjohRuinsCabin_Movement_01A8 {
+    walk_down * 2
+    walk_in_place_right
+}
+
+movement SinjohRuinsCabin_Movement_01B4 {
+    walk_down * 2
+    walk_left * 4
+    walk_in_place_down
+}
+
+movement SinjohRuinsCabin_Movement_01C4 {
+    walk_in_place_down
+    walk_slow_down
+}
+
+movement SinjohRuinsCabin_Movement_01D0 {
+    walk_in_place_up
+}
+
+movement SinjohRuinsCabin_Movement_01D8 {
+    walk_up
+}
+
+movement SinjohRuinsCabin_Movement_01E0 {
+    walk_down * 2
+    walk_left * 4
+    walk_in_place_down
+}
+
+movement SinjohRuinsCabin_Movement_01F0 {
+    walk_in_place_up
+    walk_slow_up * 2
+}
+
+movement SinjohRuinsCabin_Movement_01FC {
+    walk_slow_up
+}
+
+movement SinjohRuinsCabin_Movement_0204 {
+    walk_in_place_down
+}
+
+movement SinjohRuinsCabin_Movement_020C {
+    walk_right
+    walk_down * 2
+    walk_in_place_left
+}
+
+movement SinjohRuinsCabin_Movement_021C {
+    walk_down * 2
+    walk_left * 5
+    walk_in_place_down
+}
+
+movement SinjohRuinsCabin_Movement_022C {
+    walk_in_place_right
+}
+
+script scr_seq_D51R0301_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) >= 13) {
+        npcmsg(msg_0147_D51R0301_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_UNK_09D)) { goto(_0263) }
+    npcmsg(msg_0147_D51R0301_00007)
+    waitbuttonpress
+    closemessage
+    setflag(FLAG_UNK_09D)
+    releaseall
+    end
+_0263:
+    npcmsg(msg_0147_D51R0301_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D51R0301_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0147_D51R0301_00010)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        if (var(VAR_SPECIAL_RESULT) >= 1) {
+            npcmsg(msg_0147_D51R0301_00012)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+    }
+    npcmsg(msg_0147_D51R0301_00011)
+    closemessage
+    playse(SEQ_SE_DP_TELE)
+    applymovement(obj_player, SinjohRuinsCabin_Movement_0318)
+    waitmovement
+    if (var(VAR_SCENE_SINJOH_MYSTRI_ROOM) == 13) {
+        setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 10)
+    } else {
+        setvar(VAR_SCENE_SINJOH_MYSTRI_ROOM, 1)
+        setflag(FLAG_HIDE_SINJOH_MYSTRI_SHRINE_CYNTHIA)
+        clearflag(FLAG_UNK_2DD)
+        clearflag(FLAG_UNK_2DB)
+    }
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_NEW_BARK, 0, 695, 397, DIR_SOUTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement SinjohRuinsCabin_Movement_0318 {
+    face_right
+    delay_4
+    face_down
+    delay_4
+    face_left
+    delay_4
+    face_up
+    delay_4
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+}
+
+script scr_seq_D51R0301_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_ABRA, 0)
+    npcmsg(msg_0147_D51R0301_00013)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts SinjohRuinsCabin_MapScripts {
+}

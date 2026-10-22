@@ -1,0 +1,324 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D35R0101_000
+	ScrDef scr_seq_D35R0101_001
+	ScrDef scr_seq_D35R0101_002
+	ScrDef scr_seq_D35R0101_003
+	ScrDef scr_seq_D35R0101_004
+	ScrDef scr_seq_D35R0101_005
+	ScrDef scr_seq_D35R0101_006
+	ScrDef scr_seq_D35R0101_007
+	ScrDef scr_seq_D35R0101_008
+	ScrDef scr_seq_D35R0101_009
+	ScrDefEnd
+`
+
+script scr_seq_D35R0101_001 {
+    makeobjectvisible(obj_D35R0101_stop)
+    makeobjectvisible(obj_D35R0101_stop_2)
+    makeobjectvisible(obj_D35R0101_stop_3)
+    if (var(VAR_UNK_40AC) >= 9) {
+        movepersonfacing(obj_D35R0101_babyboy1_10, 9, 0, 3, DIR_SOUTH)
+        movepersonfacing(obj_D35R0101_stop, 8, 0, 3, DIR_SOUTH)
+        movepersonfacing(obj_D35R0101_stop_2, 9, 0, 4, DIR_SOUTH)
+        movepersonfacing(obj_D35R0101_stop_3, 8, 0, 4, DIR_SOUTH)
+        end
+    }
+    if (var(VAR_UNK_40A8) >= 2) { goto(_006D) }
+    if (var(VAR_UNK_40A8) == 1) { goto(_005F) }
+    end
+_005F:
+    movepersonfacing(obj_D35R0101_gsfighter, 8, 0, 7, DIR_WEST)
+    end
+_006D:
+    movepersonfacing(obj_D35R0101_gsfighter, 10, 0, 7, DIR_WEST)
+    movepersonfacing(obj_D35R0101_sunglasses, 4, 0, 3, DIR_SOUTH)
+    movepersonfacing(obj_D35R0101_babyboy1_10, 9, 0, 3, DIR_SOUTH)
+    movepersonfacing(obj_D35R0101_stop, 8, 0, 3, DIR_SOUTH)
+    movepersonfacing(obj_D35R0101_stop_2, 9, 0, 4, DIR_SOUTH)
+    movepersonfacing(obj_D35R0101_stop_3, 8, 0, 4, DIR_SOUTH)
+    end
+}
+
+script scr_seq_D35R0101_008 {
+    if (var(VAR_UNK_40AC) == 3) {
+        clearflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_GIOVANNI)
+        setflag(FLAG_HIDE_ROCKET_HIDEOUT_B3F_PETREL)
+        end
+    }
+    if (var(VAR_UNK_40AC) == 8) { goto(_0105) }
+    end
+_0105:
+    setflag(FLAG_UNK_1E5)
+    setflag(FLAG_HIDE_ROCKET_HIDEOUT_B2F_ARIANA)
+    end
+}
+
+script scr_seq_D35R0101_006 {
+    stopbgm(0)
+    playbgm(SEQ_GS_D_AJITO)
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Mahogany_SouvenirShop_Movement_0214)
+    waitmovement
+    npcmsg(msg_0111_D35R0101_00004)
+    closemessage
+    playse(SEQ_SE_GS_ZUTUKI)
+    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02AC)
+    waitse(SEQ_SE_GS_PRESSHIT)
+    applymovement(obj_D35R0101_gsfighter, Mahogany_SouvenirShop_Movement_021C)
+    waitmovement
+    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_022C)
+    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02C0)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0111_D35R0101_00005, msg_0111_D35R0101_00006)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_0240)
+    applymovement(obj_player, Mahogany_SouvenirShop_Movement_025C)
+    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02CC)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_D35R0101_sunglasses, Mahogany_SouvenirShop_Movement_0268)
+    waitmovement
+    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_0280)
+    waitmovement
+    npcmsg(msg_0111_D35R0101_00007)
+    closemessage
+    applymovement(obj_D35R0101_sunglasses, Mahogany_SouvenirShop_Movement_0290)
+    waitmovement
+    playse(SEQ_SE_DP_UG_023)
+    applymovement(obj_D35R0101_babyboy1_10, Mahogany_SouvenirShop_Movement_029C)
+    applymovement(obj_D35R0101_stop, Mahogany_SouvenirShop_Movement_029C)
+    applymovement(obj_D35R0101_stop_2, Mahogany_SouvenirShop_Movement_029C)
+    applymovement(obj_D35R0101_stop_3, Mahogany_SouvenirShop_Movement_029C)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0111_D35R0101_00008, msg_0111_D35R0101_00009)
+    closemessage
+    applymovement(obj_D35R0101_wataru, Mahogany_SouvenirShop_Movement_02A4)
+    waitmovement
+    removeobject(obj_D35R0101_wataru)
+    applymovement(obj_D35R0101_tsure_poke_static_dragonite, Mahogany_SouvenirShop_Movement_02DC)
+    waitmovement
+    removeobject(obj_D35R0101_tsure_poke_static_dragonite)
+    setflag(FLAG_HIDE_MAHOGANY_SHOP_LANCE)
+    setvar(VAR_UNK_40A8, 2)
+    releaseall
+    end
+}
+
+movement Mahogany_SouvenirShop_Movement_0214 {
+    emote_exclamation_mark
+}
+
+movement Mahogany_SouvenirShop_Movement_021C {
+    lock_dir
+    walk_faster_right * 2
+    unlock_dir
+}
+
+movement Mahogany_SouvenirShop_Movement_022C {
+    delay_8 * 3
+    face_down * 2
+    walk_down
+    delay_8 * 5
+}
+
+movement Mahogany_SouvenirShop_Movement_0240 {
+    face_up * 2
+    walk_up * 4
+    face_right * 2
+    walk_right
+    face_up * 2
+    delay_8 * 5
+}
+
+movement Mahogany_SouvenirShop_Movement_025C {
+    delay_8
+    walk_up * 4
+}
+
+movement Mahogany_SouvenirShop_Movement_0268 {
+    emote_exclamation_mark
+    delay_8
+    lock_dir
+    walk_faster_left * 2
+    unlock_dir
+}
+
+movement Mahogany_SouvenirShop_Movement_0280 {
+    walk_up
+    face_right * 2
+    delay_8 * 2
+}
+
+movement Mahogany_SouvenirShop_Movement_0290 {
+    face_right * 2
+    emote_exclamation_mark
+}
+
+movement Mahogany_SouvenirShop_Movement_029C {
+    walk_right
+}
+
+movement Mahogany_SouvenirShop_Movement_02A4 {
+    walk_right
+}
+
+movement Mahogany_SouvenirShop_Movement_02AC {
+    walk_faster_right * 2
+    lock_dir
+    walk_faster_left * 2
+    unlock_dir
+}
+
+movement Mahogany_SouvenirShop_Movement_02C0 {
+    delay_8 * 3
+    face_down * 2
+}
+
+movement Mahogany_SouvenirShop_Movement_02CC {
+    delay_8 * 3
+    face_up * 2
+    walk_up * 2
+}
+
+movement Mahogany_SouvenirShop_Movement_02DC {
+    delay_8 * 3
+    walk_up * 2
+    face_right * 2
+    walk_right
+}
+
+script scr_seq_D35R0101_000 {
+    end
+}
+
+script scr_seq_D35R0101_007 {
+    end
+}
+
+script scr_seq_D35R0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_40A8) >= 2) {
+        npcmsg(msg_0111_D35R0101_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0111_D35R0101_00000)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 28)
+    callstd(std_special_mart)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0101_003 {
+    if (var(VAR_UNK_40A8) >= 2) {
+        simplenpcmsg(msg_0111_D35R0101_00003)
+        end
+    }
+    simplenpcmsg(msg_0111_D35R0101_00002)
+    end
+}
+
+script scr_seq_D35R0101_005 {
+    end
+}
+
+script scr_seq_D35R0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setflag(FLAG_SPECIAL_MART_MAHOGANY_GOOD)
+    npcmsg(msg_0111_D35R0101_00010)
+    holdmsg
+    setvar(VAR_SPECIAL_x8004, 29)
+    callstd(std_special_mart)
+    clearflag(FLAG_SPECIAL_MART_MAHOGANY_GOOD)
+    releaseall
+    end
+}
+
+script scr_seq_D35R0101_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_40AC) >= 10) {
+        if (var(VAR_SCENE_ROCKET_TAKEOVER) == 2) {
+            npcmsg(msg_0111_D35R0101_00014)
+        } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 3) {
+            npcmsg(msg_0111_D35R0101_00014)
+        } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+            npcmsg(msg_0111_D35R0101_00014)
+        } else {
+            goto(_03EB)
+        }
+        goto(_0552)
+    _03EB:
+        getcurrenthour(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 0) {
+            npcmsg(msg_0111_D35R0101_00011)
+        } elif (var(VAR_TEMP_x4000) == 1) {
+            npcmsg(msg_0111_D35R0101_00012)
+        } elif (var(VAR_TEMP_x4000) == 3) {
+            npcmsg(msg_0111_D35R0101_00011)
+        } elif (var(VAR_TEMP_x4000) == 4) {
+            npcmsg(msg_0111_D35R0101_00012)
+        } elif (var(VAR_TEMP_x4000) == 6) {
+            npcmsg(msg_0111_D35R0101_00011)
+        } elif (var(VAR_TEMP_x4000) == 7) {
+            npcmsg(msg_0111_D35R0101_00012)
+        } elif (var(VAR_TEMP_x4000) == 9) {
+            npcmsg(msg_0111_D35R0101_00011)
+        } elif (var(VAR_TEMP_x4000) == 10) {
+            npcmsg(msg_0111_D35R0101_00012)
+        } elif (var(VAR_TEMP_x4000) == 12) {
+            npcmsg(msg_0111_D35R0101_00011)
+        } elif (var(VAR_TEMP_x4000) == 13) {
+            npcmsg(msg_0111_D35R0101_00012)
+        } elif (var(VAR_TEMP_x4000) == 15) {
+            npcmsg(msg_0111_D35R0101_00011)
+        } elif (var(VAR_TEMP_x4000) == 16) {
+            npcmsg(msg_0111_D35R0101_00012)
+        } elif (var(VAR_TEMP_x4000) == 18) {
+            npcmsg(msg_0111_D35R0101_00011)
+        } elif (var(VAR_TEMP_x4000) == 19) {
+            npcmsg(msg_0111_D35R0101_00012)
+        } elif (var(VAR_TEMP_x4000) == 21) {
+            npcmsg(msg_0111_D35R0101_00011)
+        } elif (var(VAR_TEMP_x4000) == 22) {
+            npcmsg(msg_0111_D35R0101_00012)
+        } else {
+            npcmsg(msg_0111_D35R0101_00013)
+        }
+    _0552:
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0111_D35R0101_00015)
+    goto(_0552)
+}
+
+mapscripts Mahogany_SouvenirShop_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_D35R0101_001
+    INIT_SCRIPT_ON_LOAD: scr_seq_D35R0101_008
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40A8, 1: scr_seq_D35R0101_006
+    ]
+}

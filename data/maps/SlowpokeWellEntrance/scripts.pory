@@ -1,0 +1,142 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D26R0101_000
+	ScrDef scr_seq_D26R0101_001
+	ScrDef scr_seq_D26R0101_002
+	ScrDefEnd
+`
+
+script scr_seq_D26R0101_002 {
+    if (!flag(FLAG_UNK_189)) {
+        checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 0) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 1) { goto(_0063) }
+            if (var(VAR_TEMP_x4000) == 3) { goto(_0063) }
+            if (var(VAR_TEMP_x4000) == 5) { goto(_0063) }
+        }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _0063:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D26R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    npcmsg(msg_0090_D26R0101_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D26R0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, SlowpokeWellEntrance_Movement_01AC)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, SlowpokeWellEntrance_Movement_01CC)
+        applymovement(obj_D26R0101_gsmiddleman1, SlowpokeWellEntrance_Movement_01E0)
+    } else {
+        applymovement(obj_player, SlowpokeWellEntrance_Movement_01B8)
+        applymovement(obj_D26R0101_gsmiddleman1, SlowpokeWellEntrance_Movement_01E0)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, SlowpokeWellEntrance_Movement_01EC)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(6)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement SlowpokeWellEntrance_Movement_01AC {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SlowpokeWellEntrance_Movement_01B8 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SlowpokeWellEntrance_Movement_01CC {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement SlowpokeWellEntrance_Movement_01E0 {
+    delay_8
+    walk_in_place_up
+}
+
+movement SlowpokeWellEntrance_Movement_01EC {
+    walk_right
+    walk_up
+    face_down
+}
+
+mapscripts SlowpokeWellEntrance_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D26R0101_002
+}

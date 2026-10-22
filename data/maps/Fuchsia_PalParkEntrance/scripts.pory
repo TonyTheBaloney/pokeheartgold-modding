@@ -1,0 +1,582 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T08R0201_000
+	ScrDef scr_seq_T08R0201_001
+	ScrDef scr_seq_T08R0201_002
+	ScrDef scr_seq_T08R0201_003
+	ScrDef scr_seq_T08R0201_004
+	ScrDef scr_seq_T08R0201_005
+	ScrDef scr_seq_T08R0201_006
+	ScrDef scr_seq_T08R0201_007
+	ScrDef scr_seq_T08R0201_008
+	ScrDef scr_seq_T08R0201_009
+	ScrDefEnd
+`
+
+script scr_seq_T08R0201_000 {
+    if (!flag(FLAG_UNK_9CD)) {
+        setvar(VAR_PAL_PARK_HIGH_SCORE, 2000)
+    }
+    clearflag(FLAG_UNK_999)
+    setflag(FLAG_UNK_9CD)
+    if (var(VAR_UNK_4124) != 0) {
+        moveperson(obj_T08R0201_workman, 8, 9)
+        setobjectfacing(obj_T08R0201_workman, DIR_WEST)
+        end
+    _0062:
+        if (var(VAR_PAL_PARK_HIGH_SCORE) == 2000) {
+            bufferrivalsname(1)
+            bufferint(2, VAR_PAL_PARK_HIGH_SCORE)
+            return
+        }
+        bufferplayersname(1)
+        bufferint(2, VAR_PAL_PARK_HIGH_SCORE)
+        return
+    }
+    end
+}
+
+script scr_seq_T08R0201_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_136)) { goto(_019B) }
+    setflag(FLAG_UNK_136)
+    bufferplayersname(0)
+    gendermsgbox(msg_0516_T08R0201_00000, msg_0516_T08R0201_00001)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00C5) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0190) }
+    end
+_00C5:
+    npcmsg(msg_0516_T08R0201_00002)
+    goto(_00E9)
+_00CE:
+    npcmsg(msg_0516_T08R0201_00003)
+    goto(_00E9)
+_00D7:
+    npcmsg(msg_0516_T08R0201_00004)
+    goto(_00E9)
+_00E0:
+    npcmsg(msg_0516_T08R0201_00005)
+    goto(_00E9)
+_00E9:
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(194, 255, 0)
+    menuitemadd(195, 255, 1)
+    menuitemadd(196, 255, 2)
+    menuitemadd(198, 255, 4)
+    menuexec
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_00CE) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_00D7) }
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_00E0) }
+    goto(_0144)
+_0144:
+    npcmsg(msg_0516_T08R0201_00006)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0190) }
+_015C:
+    setvar(VAR_SPECIAL_RESULT, 0)
+    countpcemptyspace(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) < 6) { goto(_0274) }
+    setvar(VAR_SPECIAL_RESULT, 0)
+    migratedpokemonisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0260) }
+    goto(_01FB)
+_0190:
+    npcmsg(msg_0516_T08R0201_00007)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_019B:
+    bufferplayersname(0)
+    gendermsgbox(msg_0516_T08R0201_00008, msg_0516_T08R0201_00009)
+    goto(_01A8)
+_01A8:
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(199, 255, 0)
+    menuitemadd(200, 255, 1)
+    menuitemadd(201, 255, 2)
+    menuexec
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_015C) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_026B) }
+    if (var(VAR_SPECIAL_RESULT) == 2) { goto(_0190) }
+    goto(_0190)
+_01FB:
+    call(_0062)
+    bufferplayersname(0)
+    gendermsgbox(msg_0516_T08R0201_00010, msg_0516_T08R0201_00011)
+    closemessage
+    applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_0280)
+    waitmovement
+    followmonrecall
+    applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_0294)
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_PAL_PARK, 0, 24, 47, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    lock(obj_partner_poke)
+    followmonreleasenexttoplayer
+    applymovement(obj_partner_poke, Fuchsia_PalParkEntrance_Movement_02A0)
+    waitmovement
+    release(obj_partner_poke)
+    releaseall
+    end
+_0260:
+    npcmsg(msg_0516_T08R0201_00012)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_026B:
+    npcmsg(msg_0516_T08R0201_00013)
+    goto(_00E9)
+_0274:
+    npcmsg(msg_0516_T08R0201_00015)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Fuchsia_PalParkEntrance_Movement_0280 {
+    walk_in_place_fast_up
+    walk_up * 2
+    walk_right
+    walk_in_place_fast_left
+}
+
+movement Fuchsia_PalParkEntrance_Movement_0294 {
+    walk_up * 5
+    set_invisible
+}
+
+movement Fuchsia_PalParkEntrance_Movement_02A0 {
+    face_up
+}
+
+script scr_seq_T08R0201_002 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_4124, 0)
+    applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_03D4)
+    waitmovement
+    applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_03BC)
+    waitmovement
+    followmonreleasenexttoplayer
+    releaseall
+    end
+}
+
+script scr_seq_T08R0201_001 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_UNK_4124, 0)
+    applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_03DC)
+    applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_03C8)
+    waitmovement
+    palparkscoreget(0, VAR_SPECIAL_RESULT)
+    bufferint(0, VAR_SPECIAL_RESULT)
+    palparkscoreget(1, VAR_SPECIAL_RESULT)
+    bufferint(1, VAR_SPECIAL_RESULT)
+    palparkscoreget(2, VAR_SPECIAL_RESULT)
+    bufferint(2, VAR_SPECIAL_RESULT)
+    palparkscoreget(3, VAR_SPECIAL_RESULT)
+    bufferint(3, VAR_SPECIAL_RESULT)
+    npcmsg(msg_0516_T08R0201_00016)
+    palparkscoreget(3, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) <= VAR_PAL_PARK_HIGH_SCORE) {
+        npcmsg(msg_0516_T08R0201_00018)
+        call(_0669)
+    } else {
+        npcmsg(msg_0516_T08R0201_00017)
+        call(_0669)
+        palparkscoreget(3, VAR_PAL_PARK_HIGH_SCORE)
+        goto(_034E)
+    }
+_034E:
+    npcmsg(msg_0516_T08R0201_00019)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        movemigratedpokemontopc
+        npcmsg(msg_0516_T08R0201_00020)
+        npcmsg(msg_0516_T08R0201_00022)
+        closemessage
+        goto(_03A1)
+    _03A1:
+        applymovement(obj_player, Fuchsia_PalParkEntrance_Movement_03E8)
+        waitmovement
+        applymovement(obj_T08R0201_workman, Fuchsia_PalParkEntrance_Movement_03BC)
+        waitmovement
+        followmonreleasenexttoplayer
+        releaseall
+        end
+    }
+    npcmsg(msg_0516_T08R0201_00024)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0384) }
+    goto(_034E)
+_0384:
+    npcmsg(msg_0516_T08R0201_00021)
+    waitabpress
+    closemessage
+    goto(_03A1)
+}
+
+movement Fuchsia_PalParkEntrance_Movement_03BC {
+    walk_left
+    walk_down * 2
+}
+
+movement Fuchsia_PalParkEntrance_Movement_03C8 {
+    delay_8 * 2
+    walk_in_place_left
+}
+
+movement Fuchsia_PalParkEntrance_Movement_03D4 {
+    walk_down * 5
+}
+
+movement Fuchsia_PalParkEntrance_Movement_03DC {
+    walk_down * 2
+    walk_in_place_fast_right
+}
+
+movement Fuchsia_PalParkEntrance_Movement_03E8 {
+    walk_down * 4
+}
+
+script(local) _03F0 {
+    simplenpcmsg(msg_0516_T08R0201_00025)
+    end
+}
+
+script scr_seq_T08R0201_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 2) {
+        npcmsg(msg_0516_T08R0201_00043)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0439) }
+    goto(_042E)
+_042E:
+    npcmsg(msg_0516_T08R0201_00041)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0439:
+    npcmsg(msg_0516_T08R0201_00042)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T08R0201_005 {
+    bufferplayersname(0)
+    simplenpcmsg(msg_0516_T08R0201_00044)
+    end
+}
+
+script scr_seq_T08R0201_006 {
+    simplenpcmsg(msg_0516_T08R0201_00045)
+    end
+}
+
+script scr_seq_T08R0201_007 {
+    simplenpcmsg(msg_0516_T08R0201_00033)
+    end
+}
+
+script scr_seq_T08R0201_008 {
+    call(_0062)
+    simplenpcmsg(msg_0516_T08R0201_00025)
+    end
+}
+
+script scr_seq_T08R0201_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_TEMP_x4009) == 1) {
+        npcmsg(msg_0516_T08R0201_00040)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getagbcartridgeversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 4) {
+        hasitem(ITEM_FASHION_CASE, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0506) }
+        setvar(VAR_SPECIAL_x8004, 97)
+        setvar(VAR_SPECIAL_x8005, 1)
+        cangiveaccessory(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0506) }
+        npcmsg(msg_0516_T08R0201_00035)
+        goto(_0649)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 5) {
+        hasitem(ITEM_FASHION_CASE, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0506) }
+        setvar(VAR_SPECIAL_x8004, 98)
+        setvar(VAR_SPECIAL_x8005, 1)
+        cangiveaccessory(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0506) }
+        npcmsg(msg_0516_T08R0201_00036)
+        goto(_0649)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        hasitem(ITEM_FASHION_CASE, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0506) }
+        setvar(VAR_SPECIAL_x8004, 14)
+        haswallpaper(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0506) }
+        npcmsg(msg_0516_T08R0201_00037)
+        goto(_0659)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 2) {
+        hasitem(ITEM_FASHION_CASE, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0506) }
+        setvar(VAR_SPECIAL_x8004, 15)
+        haswallpaper(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0506) }
+        npcmsg(msg_0516_T08R0201_00038)
+        goto(_0659)
+        end
+    }
+    if (var(VAR_SPECIAL_RESULT) == 3) {
+        hasitem(ITEM_FASHION_CASE, 1, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0506) }
+        setvar(VAR_SPECIAL_x8004, 16)
+        haswallpaper(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0506) }
+        npcmsg(msg_0516_T08R0201_00039)
+        goto(_0659)
+        end
+    _0649:
+        callstd(std_receive_accessory)
+        setvar(VAR_TEMP_x4009, 1)
+        closemessage
+        releaseall
+        end
+    _0659:
+        callstd(std_receive_background)
+        setvar(VAR_TEMP_x4009, 1)
+        closemessage
+        releaseall
+        end
+    _0669:
+        palparkscoreget(3, VAR_SPECIAL_RESULT)
+        compare(VAR_SPECIAL_RESULT, 3000)
+        calliflt(_06A5)
+        compare(VAR_SPECIAL_RESULT, 3300)
+        calliflt(_071B)
+        compare(VAR_SPECIAL_RESULT, 3500)
+        calliflt(_076A)
+        compare(VAR_SPECIAL_RESULT, 10000)
+        calliflt(_07D3)
+        return
+    _06A5:
+        random(VAR_SPECIAL_x8006, 8)
+        compare(VAR_SPECIAL_x8006, 0)
+        callifeq(_0861)
+        compare(VAR_SPECIAL_x8006, 1)
+        callifeq(_0869)
+        compare(VAR_SPECIAL_x8006, 2)
+        callifeq(_0871)
+        compare(VAR_SPECIAL_x8006, 3)
+        callifeq(_0879)
+        compare(VAR_SPECIAL_x8006, 4)
+        callifeq(_0881)
+        compare(VAR_SPECIAL_x8006, 5)
+        callifeq(_0889)
+        compare(VAR_SPECIAL_x8006, 6)
+        callifeq(_0891)
+        compare(VAR_SPECIAL_x8006, 7)
+        callifeq(_0899)
+        call(_082F)
+        return
+    _071B:
+        random(VAR_SPECIAL_x8006, 5)
+        compare(VAR_SPECIAL_x8006, 0)
+        callifeq(_08A1)
+        compare(VAR_SPECIAL_x8006, 1)
+        callifeq(_08A9)
+        compare(VAR_SPECIAL_x8006, 2)
+        callifeq(_08B1)
+        compare(VAR_SPECIAL_x8006, 3)
+        callifeq(_08B9)
+        compare(VAR_SPECIAL_x8006, 4)
+        callifeq(_08C1)
+        call(_082F)
+        return
+    _076A:
+        random(VAR_SPECIAL_x8006, 7)
+        compare(VAR_SPECIAL_x8006, 0)
+        callifeq(_08C9)
+        compare(VAR_SPECIAL_x8006, 1)
+        callifeq(_08D1)
+        compare(VAR_SPECIAL_x8006, 2)
+        callifeq(_08D9)
+        compare(VAR_SPECIAL_x8006, 3)
+        callifeq(_08E1)
+        compare(VAR_SPECIAL_x8006, 4)
+        callifeq(_08E9)
+        compare(VAR_SPECIAL_x8006, 5)
+        callifeq(_08F1)
+        compare(VAR_SPECIAL_x8006, 6)
+        callifeq(_08F9)
+        call(_082F)
+        return
+    _07D3:
+        random(VAR_SPECIAL_x8006, 6)
+        compare(VAR_SPECIAL_x8006, 0)
+        callifeq(_0901)
+        compare(VAR_SPECIAL_x8006, 1)
+        callifeq(_0909)
+        compare(VAR_SPECIAL_x8006, 2)
+        callifeq(_0911)
+        compare(VAR_SPECIAL_x8006, 3)
+        callifeq(_0919)
+        compare(VAR_SPECIAL_x8006, 4)
+        callifeq(_0921)
+        compare(VAR_SPECIAL_x8006, 5)
+        callifeq(_0929)
+        call(_082F)
+        return
+    _082F:
+        hasspaceforitem(VAR_SPECIAL_x8006, 1, VAR_SPECIAL_x8007)
+        compare(VAR_SPECIAL_x8007, 0)
+        callifne(_084C)
+        setvar(VAR_SPECIAL_RESULT, 10000)
+        return
+    _084C:
+        npcmsg(msg_0516_T08R0201_00023)
+        giveitemnocheck(VAR_SPECIAL_x8006, 1)
+        return
+    _0861:
+        setvar(VAR_SPECIAL_x8006, 149)
+        return
+    _0869:
+        setvar(VAR_SPECIAL_x8006, 150)
+        return
+    _0871:
+        setvar(VAR_SPECIAL_x8006, 151)
+        return
+    _0879:
+        setvar(VAR_SPECIAL_x8006, 152)
+        return
+    _0881:
+        setvar(VAR_SPECIAL_x8006, 153)
+        return
+    _0889:
+        setvar(VAR_SPECIAL_x8006, 154)
+        return
+    _0891:
+        setvar(VAR_SPECIAL_x8006, 155)
+        return
+    _0899:
+        setvar(VAR_SPECIAL_x8006, 156)
+        return
+    _08A1:
+        setvar(VAR_SPECIAL_x8006, 159)
+        return
+    _08A9:
+        setvar(VAR_SPECIAL_x8006, 160)
+        return
+    _08B1:
+        setvar(VAR_SPECIAL_x8006, 161)
+        return
+    _08B9:
+        setvar(VAR_SPECIAL_x8006, 162)
+        return
+    _08C1:
+        setvar(VAR_SPECIAL_x8006, 163)
+        return
+    _08C9:
+        setvar(VAR_SPECIAL_x8006, 164)
+        return
+    _08D1:
+        setvar(VAR_SPECIAL_x8006, 165)
+        return
+    _08D9:
+        setvar(VAR_SPECIAL_x8006, 166)
+        return
+    _08E1:
+        setvar(VAR_SPECIAL_x8006, 167)
+        return
+    _08E9:
+        setvar(VAR_SPECIAL_x8006, 168)
+        return
+    _08F1:
+        setvar(VAR_SPECIAL_x8006, 157)
+        return
+    _08F9:
+        setvar(VAR_SPECIAL_x8006, 158)
+        return
+    _0901:
+        setvar(VAR_SPECIAL_x8006, 169)
+        return
+    _0909:
+        setvar(VAR_SPECIAL_x8006, 170)
+        return
+    _0911:
+        setvar(VAR_SPECIAL_x8006, 171)
+        return
+    _0919:
+        setvar(VAR_SPECIAL_x8006, 172)
+        return
+    _0921:
+        setvar(VAR_SPECIAL_x8006, 173)
+        return
+    _0929:
+        setvar(VAR_SPECIAL_x8006, 174)
+        return
+    }
+    goto(_0506)
+    end
+_0506:
+    npcmsg(msg_0516_T08R0201_00034)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Fuchsia_PalParkEntrance_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T08R0201_000
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4124, 1: scr_seq_T08R0201_001
+        VAR_UNK_4124, 2: scr_seq_T08R0201_002
+    ]
+}

@@ -1,0 +1,2146 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D36R0101_000
+	ScrDef scr_seq_D36R0101_farfetchd1
+	ScrDef scr_seq_D36R0101_002
+	ScrDef scr_seq_D36R0101_farfetchd1_sticks1
+	ScrDef scr_seq_D36R0101_farfetchd1_sticks2
+	ScrDef scr_seq_D36R0101_farfetchd2
+	ScrDef scr_seq_D36R0101_farfetchd2_sticks1
+	ScrDef scr_seq_D36R0101_farfetchd2_sticks2
+	ScrDef scr_seq_D36R0101_farfetchd2_sticks3
+	ScrDef scr_seq_D36R0101_farfetchd2_sticks4
+	ScrDef scr_seq_D36R0101_010
+	ScrDef scr_seq_D36R0101_011
+	ScrDef scr_seq_D36R0101_012
+	ScrDef scr_seq_D36R0101_013
+	ScrDef scr_seq_D36R0101_014
+	ScrDef scr_seq_D36R0101_015
+	ScrDef scr_seq_D36R0101_016
+	ScrDef scr_seq_D36R0101_017
+	ScrDef scr_seq_D36R0101_018
+	ScrDef scr_seq_D36R0101_019
+	ScrDef scr_seq_D36R0101_020
+	ScrDef scr_seq_D36R0101_021
+	ScrDef scr_seq_D36R0101_022
+	ScrDefEnd
+`
+
+raw `
+#define FARFETCHD_X_COORD                   VAR_TEMP_x4000
+#define FARFETCHD_Z_COORD                   VAR_TEMP_x4001
+#define FARFETCHD1_BLIND_SPOT               VAR_TEMP_x4002
+#define FARFETCHD2_BLIND_SPOT               VAR_TEMP_x4003
+#define FARFETCHD1_BOTTOM_RIGHT_FACING_UP   VAR_TEMP_x4004
+#include "constants/events.h"
+`
+
+script scr_seq_D36R0101_000 {
+    getfriendsprite(VAR_OBJ_0)
+    if (!flag(FLAG_UNK_189)) {
+        checkbadge(BADGE_PLAIN, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) != 0) {
+            getweekday(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 2) { goto(_00BF) }
+            if (var(VAR_TEMP_x4000) == 6) { goto(_00BF) }
+            if (var(VAR_TEMP_x4000) == 0) { goto(_00BF) }
+        }
+        setflag(FLAG_HIDE_CAMERON)
+        goto(_00C3)
+    _00BF:
+        clearflag(FLAG_HIDE_CAMERON)
+    _00C3:
+        if (flag(FLAG_BEAT_AZALEA_ROCKETS)) {
+            setvar(VAR_FARFETCHD1_STICKS1, STICKS_ACTIVE)
+            setvar(VAR_FARFETCHD2_STICKS1, STICKS_INACTIVE)
+            setvar(VAR_FARFETCHD2_STICKS2, STICKS_INACTIVE)
+            setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+            setvar(VAR_FARFETCHD2_STICKS4, STICKS_ACTIVE)
+            setvar(VAR_TEMP_x4000, 0)
+            setvar(VAR_TEMP_x4001, 0)
+            setvar(FARFETCHD1_BLIND_SPOT, FALSE)
+            setvar(FARFETCHD2_BLIND_SPOT, FALSE)
+            setvar(FARFETCHD1_BOTTOM_RIGHT_FACING_UP, FALSE)
+            if (flag(FLAG_FOUND_FIRST_FARFETCHD)) {
+                if (flag(FLAG_FOUND_SECOND_FARFETCHD)) { goto(_0137) }
+                setvar(VAR_FARFETCHD1_STICKS1, STICKS_INACTIVE)
+                end
+            _0137:
+                setvar(VAR_FARFETCHD1_STICKS1, STICKS_INACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                end
+            }
+            if (flag(FLAG_FOUND_SECOND_FARFETCHD)) {
+                setvar(VAR_FARFETCHD1_STICKS1, STICKS_ACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                end
+            }
+            end
+        }
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    goto(_00C3)
+}
+
+script scr_seq_D36R0101_021 {
+    compare(VAR_UNK_412B, 1)
+    callifeq(_016F)
+    compare(VAR_UNK_40FE, 4)
+    callifeq(_0189)
+    end
+_016F:
+    movepersonfacing(obj_D36R0101_gsoldman1, 15, 0, 58, DIR_SOUTH)
+    movepersonfacing(obj_D36R0101_tsure_poke_static_pichu_spiky, 15, 0, 59, DIR_EAST)
+    return
+_0189:
+    movepersonfacing(obj_D36R0101_var_1, 15, 0, 58, DIR_SOUTH)
+    movepersonfacing(obj_D36R0101_tsure_poke_static_marill, 11, 0, 58, DIR_EAST)
+    return
+}
+
+script scr_seq_D36R0101_farfetchd1 {
+    getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+    if (var(FARFETCHD_X_COORD) != 25) {
+        if (var(FARFETCHD_X_COORD) != 32) { goto(_farfetchd1_left) }
+        goto(_farfetchd1_right)
+    _farfetchd1_left:
+        getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+        if (var(FARFETCHD_Z_COORD) != 52) {
+            if (var(FARFETCHD_Z_COORD) != 62) { goto(_farfetchd1_right) }
+            goto(_farfetchd1_bottom_left)
+        _farfetchd1_right:
+            setvar(FARFETCHD1_BLIND_SPOT, FALSE)
+            getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+            if (var(FARFETCHD_Z_COORD) != 52) {
+                if (var(FARFETCHD_Z_COORD) != 62) { goto(_farfetchd1_top_left) }
+                goto(_farfetchd1_bottom_right)
+            _farfetchd1_top_left:
+                playse(SEQ_SE_DP_SELECT)
+                lockall
+                faceplayer
+                setvar(FARFETCHD1_BLIND_SPOT, FALSE)
+                getplayerfacing(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == DIR_NORTH) {
+                    applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _farfetchd1_run_right)
+                } elif (var(VAR_SPECIAL_RESULT) == DIR_WEST) {
+                    applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _farfetchd_run_down)
+                    setvar(VAR_FARFETCHD1_STICKS2, STICKS_ACTIVE)
+                    setvar(VAR_FARFETCHD1_STICKS1, STICKS_ACTIVE)
+                }
+                waitmovement
+                releaseall
+                end
+            _farfetchd1_bottom_left:
+                getplayerfacing(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) != DIR_WEST) {
+                    if (var(VAR_SPECIAL_RESULT) == DIR_SOUTH) {
+                    } else {
+                    _farfetchd1_bottom_left_flee_up:
+                        playse(SEQ_SE_DP_SELECT)
+                        lockall
+                        faceplayer
+                        setvar(VAR_FARFETCHD1_STICKS1, STICKS_INACTIVE)
+                        setvar(VAR_FARFETCHD1_STICKS2, STICKS_INACTIVE)
+                        applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _farfetchd_run_up)
+                        waitmovement
+                        if (!flag(FLAG_UNK_126)) {
+                            npcmsg(msg_0115_D36R0101_00036)
+                            waitbuttonpress
+                            closemessage
+                            setflag(FLAG_UNK_126)
+                        }
+                        releaseall
+                        end
+                    }
+                    if (var(FARFETCHD1_BLIND_SPOT) == TRUE) {
+                        playse(SEQ_SE_DP_SELECT)
+                        lockall
+                        playcry(SPECIES_FARFETCHD, 0)
+                        npcmsg(msg_0115_D36R0101_00003)
+                        closemessage
+                        applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _walk_in_place_face_down)
+                        waitmovement
+                        removeobject(obj_D36R0101_tsure_poke_static_farfetchd)
+                        npcmsg(msg_0115_D36R0101_00037)
+                        waitbuttonpress
+                        closemessage
+                        setvar(VAR_FARFETCHD1_STICKS1, STICKS_INACTIVE)
+                        setvar(VAR_FARFETCHD1_STICKS2, STICKS_INACTIVE)
+                        setflag(FLAG_HIDE_FARFETCHD_1_LOST)
+                        setflag(FLAG_FOUND_FIRST_FARFETCHD)
+                        if (flag(FLAG_FOUND_SECOND_FARFETCHD)) { goto(_1207) }
+                        clearflag(FLAG_HIDE_FARFETCHD_1_FOUND)
+                        wait(20, VAR_SPECIAL_x8004)
+                        fadescreen(6, 1, 0, RGB_BLACK)
+                        waitfade
+                        warp(MAP_ILEX_FOREST, 0, 15, 65, DIR_NORTH)
+                        fadescreen(6, 1, 1, RGB_BLACK)
+                        waitfade
+                        wait(5, VAR_SPECIAL_x8004)
+                        npcmsg(msg_0115_D36R0101_00001)
+                        waitbuttonpress
+                        closemessage
+                        releaseall
+                        end
+                    _farfetchd1_top_right:
+                        playse(SEQ_SE_DP_SELECT)
+                        lockall
+                        faceplayer
+                        getplayerfacing(VAR_SPECIAL_RESULT)
+                        if (var(VAR_SPECIAL_RESULT) == DIR_EAST) {
+                            applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _farfetchd_run_down)
+                            setvar(VAR_FARFETCHD1_STICKS2, STICKS_ACTIVE)
+                            setvar(VAR_FARFETCHD1_STICKS1, STICKS_ACTIVE)
+                            setvar(FARFETCHD1_BOTTOM_RIGHT_FACING_UP, TRUE)
+                        } elif (var(VAR_SPECIAL_RESULT) == DIR_NORTH) {
+                            applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _farfetchd1_run_left)
+                            setvar(VAR_FARFETCHD1_STICKS1, STICKS_INACTIVE)
+                            setvar(VAR_FARFETCHD1_STICKS2, STICKS_INACTIVE)
+                        }
+                        waitmovement
+                        releaseall
+                        end
+                    _farfetchd1_bottom_right:
+                        playse(SEQ_SE_DP_SELECT)
+                        lockall
+                        faceplayer
+                        setvar(FARFETCHD1_BOTTOM_RIGHT_FACING_UP, FALSE)
+                        getplayerfacing(VAR_SPECIAL_RESULT)
+                        if (var(VAR_SPECIAL_RESULT) == DIR_EAST) {
+                            applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _farfetchd_run_up)
+                            setvar(VAR_FARFETCHD1_STICKS1, STICKS_INACTIVE)
+                            setvar(VAR_FARFETCHD1_STICKS2, STICKS_INACTIVE)
+                        } elif (var(VAR_SPECIAL_RESULT) == DIR_SOUTH) {
+                            applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _farfetchd1_run_left)
+                            setvar(VAR_FARFETCHD1_STICKS1, STICKS_ACTIVE)
+                            setvar(VAR_FARFETCHD1_STICKS2, STICKS_INACTIVE)
+                        }
+                        waitmovement
+                        releaseall
+                        end
+                    }
+                    playse(SEQ_SE_DP_SELECT)
+                    lockall
+                    faceplayer
+                    setvar(VAR_FARFETCHD1_STICKS1, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD1_STICKS2, STICKS_INACTIVE)
+                    applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _farfetchd1_run_right)
+                    waitmovement
+                    if (!flag(FLAG_UNK_126)) {
+                        npcmsg(msg_0115_D36R0101_00036)
+                        waitbuttonpress
+                        closemessage
+                        setflag(FLAG_UNK_126)
+                    }
+                    releaseall
+                    end
+                }
+                goto(_farfetchd1_bottom_left_flee_up)
+                goto(_farfetchd1_bottom_left_flee_up)
+            }
+            goto(_farfetchd1_top_right)
+            goto(_farfetchd1_top_left)
+        }
+        goto(_farfetchd1_top_left)
+        goto(_farfetchd1_right)
+    }
+    goto(_farfetchd1_left)
+    goto(_farfetchd1_left)
+}
+
+script scr_seq_D36R0101_farfetchd1_sticks1 {
+    followmonresetmovement
+    lockall
+    if (var(FARFETCHD1_BOTTOM_RIGHT_FACING_UP) == TRUE) { goto(_farfetchd1_look_left) }
+    setvar(FARFETCHD1_BLIND_SPOT, TRUE)
+    setvar(VAR_FARFETCHD1_STICKS1, STICKS_INACTIVE)
+    setvar(VAR_FARFETCHD1_STICKS2, STICKS_ACTIVE)
+    getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+    if (var(FARFETCHD_X_COORD) != 25) {
+        if (var(FARFETCHD_X_COORD) != 32) { goto(_sticks1_farfetchd1_left) }
+        goto(_sticks1_farfetchd1_right)
+    _sticks1_farfetchd1_left:
+        getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+        if (var(FARFETCHD_Z_COORD) != 52) {
+            if (var(FARFETCHD_Z_COORD) != 62) { goto(_sticks1_farfetchd1_right) }
+            goto(_sticks1_farfetchd1_bottom_left)
+        _sticks1_farfetchd1_right:
+            getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+            if (var(FARFETCHD_Z_COORD) != 52) {
+                if (var(FARFETCHD_Z_COORD) != 62) { goto(_sticks1_farfetchd1_top_left) }
+                goto(_sticks1_farfetchd1_bottom_right)
+            _sticks1_farfetchd1_top_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_down)
+                waitmovement
+                releaseall
+                end
+            _sticks1_farfetchd1_bottom_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_down)
+                waitmovement
+                if (!flag(FLAG_FARFETCHD_NOTICED_YOU)) {
+                    npcmsg(msg_0115_D36R0101_00035)
+                    waitbuttonpress
+                    closemessage
+                    setflag(FLAG_FARFETCHD_NOTICED_YOU)
+                }
+                releaseall
+                end
+            _sticks1_farfetchd1_top_right:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_down)
+                waitmovement
+                releaseall
+                end
+            _sticks1_farfetchd1_bottom_right:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_left)
+                waitmovement
+                releaseall
+                end
+            }
+            goto(_sticks1_farfetchd1_top_right)
+            goto(_sticks1_farfetchd1_top_left)
+        }
+        goto(_sticks1_farfetchd1_top_left)
+        goto(_sticks1_farfetchd1_right)
+    }
+    goto(_sticks1_farfetchd1_left)
+    goto(_sticks1_farfetchd1_left)
+}
+
+script scr_seq_D36R0101_farfetchd1_sticks2 {
+    followmonresetmovement
+    lockall
+    if (var(FARFETCHD1_BOTTOM_RIGHT_FACING_UP) == TRUE) { goto(_farfetchd1_look_left) }
+    setvar(VAR_FARFETCHD1_STICKS1, STICKS_ACTIVE)
+    setvar(VAR_FARFETCHD1_STICKS2, STICKS_INACTIVE)
+    setvar(FARFETCHD1_BLIND_SPOT, FALSE)
+    getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+    if (var(FARFETCHD_X_COORD) != 25) {
+        if (var(FARFETCHD_X_COORD) != 32) { goto(_sticks2_farfetchd1_left) }
+        goto(_sticks2_farfetchd1_right)
+    _sticks2_farfetchd1_left:
+        getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+        if (var(FARFETCHD_Z_COORD) != 52) {
+            if (var(FARFETCHD_Z_COORD) != 62) { goto(_sticks2_farfetchd1_right) }
+            goto(_sticks2_farfetchd1_bottom_left)
+        _sticks2_farfetchd1_right:
+            getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+            if (var(FARFETCHD_Z_COORD) != 52) {
+                if (var(FARFETCHD_Z_COORD) != 62) { goto(_sticks2_farfetchd1_top_left) }
+                goto(_sticks2_farfetchd1_bottom_right)
+            _sticks2_farfetchd1_top_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_down)
+                waitmovement
+                releaseall
+                end
+            _sticks2_farfetchd1_bottom_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_right)
+                waitmovement
+                releaseall
+                end
+            _sticks2_farfetchd1_top_right:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_down)
+                waitmovement
+                releaseall
+                end
+            _sticks2_farfetchd1_bottom_right:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_left)
+                waitmovement
+                releaseall
+                end
+            _farfetchd1_look_left:
+                setvar(VAR_FARFETCHD1_STICKS1, STICKS_INACTIVE)
+                setvar(VAR_FARFETCHD1_STICKS2, STICKS_INACTIVE)
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd, _exclaim_face_left)
+                waitmovement
+                releaseall
+                end
+            }
+            goto(_sticks2_farfetchd1_top_right)
+            goto(_sticks2_farfetchd1_top_left)
+        }
+        goto(_sticks2_farfetchd1_top_left)
+        goto(_sticks2_farfetchd1_right)
+    }
+    goto(_sticks2_farfetchd1_left)
+    goto(_sticks2_farfetchd1_left)
+}
+
+script scr_seq_D36R0101_farfetchd2 {
+    getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+    if (var(FARFETCHD_X_COORD) != 41) {
+        if (var(FARFETCHD_X_COORD) != 49) { goto(_farfetchd2_left) }
+        goto(_farfetchd2_right)
+    _farfetchd2_left:
+        setvar(FARFETCHD2_BLIND_SPOT, FALSE)
+        getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+        if (var(FARFETCHD_Z_COORD) != 54) {
+            if (var(FARFETCHD_Z_COORD) != 64) { goto(_farfetchd2_right) }
+            goto(_farfetchd2_bottom_left)
+        _farfetchd2_right:
+            getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+            if (var(FARFETCHD_Z_COORD) != 54) {
+                if (var(FARFETCHD_Z_COORD) != 64) { goto(_farfetchd_top_left) }
+                goto(_farfetchd2_bottom_right)
+            _farfetchd_top_left:
+                playse(SEQ_SE_DP_SELECT)
+                lockall
+                faceplayer
+                getplayerfacing(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == DIR_NORTH) {
+                    applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _farfetchd2_run_right)
+                    waitmovement
+                    setvar(VAR_FARFETCHD2_STICKS1, STICKS_ACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS2, STICKS_ACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                } elif (var(VAR_SPECIAL_RESULT) == DIR_WEST) {
+                    applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _farfetchd_run_down)
+                    waitmovement
+                    setvar(VAR_FARFETCHD2_STICKS1, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS2, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS3, STICKS_ACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                }
+                if (!flag(FLAG_UNK_126)) {
+                    npcmsg(msg_0115_D36R0101_00036)
+                    waitbuttonpress
+                    closemessage
+                    setflag(FLAG_UNK_126)
+                }
+                releaseall
+                end
+            _farfetchd2_bottom_left:
+                playse(SEQ_SE_DP_SELECT)
+                lockall
+                faceplayer
+                getplayerfacing(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == DIR_SOUTH) {
+                    applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _farfetchd2_run_right)
+                    setvar(VAR_FARFETCHD2_STICKS1, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS2, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                } elif (var(VAR_SPECIAL_RESULT) == DIR_WEST) {
+                    applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _farfetchd_run_up)
+                    setvar(VAR_FARFETCHD2_STICKS1, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS2, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS4, STICKS_ACTIVE)
+                }
+                waitmovement
+                releaseall
+                end
+            _farfetchd2_top_right:
+                getplayerfacing(VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) != DIR_NORTH) {
+                    if (var(VAR_SPECIAL_RESULT) == DIR_EAST) {
+                    } else {
+                    _farfetchd2_top_right_flee_left:
+                        playse(SEQ_SE_DP_SELECT)
+                        lockall
+                        faceplayer
+                        setvar(VAR_FARFETCHD2_STICKS1, STICKS_INACTIVE)
+                        setvar(VAR_FARFETCHD2_STICKS2, STICKS_INACTIVE)
+                        setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                        setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                        applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _farfetchd2_run_left)
+                        waitmovement
+                        releaseall
+                        end
+                    }
+                    if (var(FARFETCHD2_BLIND_SPOT) == TRUE) {
+                        playse(SEQ_SE_DP_SELECT)
+                        lockall
+                        playcry(SPECIES_FARFETCHD, 0)
+                        npcmsg(msg_0115_D36R0101_00003)
+                        closemessage
+                        applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _walk_in_place_face_right)
+                        waitmovement
+                        removeobject(obj_D36R0101_tsure_poke_static_farfetchd_2)
+                        npcmsg(msg_0115_D36R0101_00037)
+                        waitbuttonpress
+                        closemessage
+                        callifunset(FLAG_FOUND_FIRST_FARFETCHD, _097A)
+                        setvar(VAR_FARFETCHD2_STICKS1, STICKS_INACTIVE)
+                        setvar(VAR_FARFETCHD2_STICKS2, STICKS_INACTIVE)
+                        setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                        setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                        setflag(FLAG_HIDE_FARFETCHD_2_LOST)
+                        setflag(FLAG_FOUND_SECOND_FARFETCHD)
+                        if (flag(FLAG_FOUND_FIRST_FARFETCHD)) { goto(_1207) }
+                        clearflag(FLAG_HIDE_FARFETCHD_1_FOUND)
+                        wait(20, VAR_SPECIAL_x8004)
+                        fadescreen(6, 1, 0, RGB_BLACK)
+                        waitfade
+                        warp(MAP_ILEX_FOREST, 0, 15, 65, DIR_NORTH)
+                        fadescreen(6, 1, 1, RGB_BLACK)
+                        waitfade
+                        wait(5, VAR_SPECIAL_x8004)
+                        npcmsg(msg_0115_D36R0101_00001)
+                        waitbuttonpress
+                        closemessage
+                        releaseall
+                        end
+                    _097A:
+                        setvar(VAR_FARFETCHD1_STICKS1, STICKS_ACTIVE)
+                        return
+                    _farfetchd2_bottom_right:
+                        playse(SEQ_SE_DP_SELECT)
+                        lockall
+                        faceplayer
+                        setvar(FARFETCHD2_BLIND_SPOT, FALSE)
+                        getplayerfacing(VAR_SPECIAL_RESULT)
+                        if (var(VAR_SPECIAL_RESULT) == DIR_EAST) {
+                            applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _farfetchd_run_up)
+                            setvar(VAR_FARFETCHD2_STICKS1, STICKS_ACTIVE)
+                            setvar(VAR_FARFETCHD2_STICKS2, STICKS_ACTIVE)
+                            setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                            setvar(VAR_FARFETCHD2_STICKS4, STICKS_ACTIVE)
+                        } elif (var(VAR_SPECIAL_RESULT) == DIR_SOUTH) {
+                            applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _farfetchd2_run_left)
+                            setvar(VAR_FARFETCHD2_STICKS1, STICKS_INACTIVE)
+                            setvar(VAR_FARFETCHD2_STICKS2, STICKS_INACTIVE)
+                            setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                            setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                        }
+                        waitmovement
+                        releaseall
+                        end
+                    }
+                    playse(SEQ_SE_DP_SELECT)
+                    lockall
+                    faceplayer
+                    setvar(VAR_FARFETCHD2_STICKS1, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS2, STICKS_INACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS3, STICKS_ACTIVE)
+                    setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                    applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _farfetchd_run_down)
+                    waitmovement
+                    releaseall
+                    end
+                }
+                goto(_farfetchd2_top_right_flee_left)
+                goto(_farfetchd2_top_right_flee_left)
+            }
+            goto(_farfetchd2_top_right)
+            goto(_farfetchd_top_left)
+        }
+        goto(_farfetchd_top_left)
+        goto(_farfetchd2_right)
+    }
+    goto(_farfetchd2_left)
+    goto(_farfetchd2_left)
+}
+
+script scr_seq_D36R0101_farfetchd2_sticks1 {
+    followmonresetmovement
+    lockall
+    setvar(FARFETCHD2_BLIND_SPOT, FALSE)
+    getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+    if (var(FARFETCHD_X_COORD) != 41) {
+        if (var(FARFETCHD_X_COORD) != 49) { goto(_sticks1_farfetchd2_left) }
+        goto(_sticks1_farfetchd2_right)
+    _sticks1_farfetchd2_left:
+        getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+        if (var(FARFETCHD_Z_COORD) != 54) {
+            if (var(FARFETCHD_Z_COORD) != 64) { goto(_sticks1_farfetchd2_right) }
+            goto(_sticks1_farfetchd2_bottom_left)
+        _sticks1_farfetchd2_right:
+            getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+            if (var(FARFETCHD_Z_COORD) != 54) {
+                if (var(FARFETCHD_Z_COORD) != 64) { goto(_sticks1_farfetchd2_top_left) }
+                goto(_sticks1_farfetchd2_bottom_right)
+            _sticks1_farfetchd2_top_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_right)
+                waitmovement
+                releaseall
+                end
+            _sticks1_farfetchd2_bottom_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_up)
+                waitmovement
+                releaseall
+                end
+            _sticks1_farfetchd2_top_right:
+                setvar(VAR_FARFETCHD2_STICKS1, STICKS_INACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS2, STICKS_ACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS4, STICKS_ACTIVE)
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_up)
+                waitmovement
+                releaseall
+                end
+            _sticks1_farfetchd2_bottom_right:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_up)
+                waitmovement
+                releaseall
+                end
+            }
+            goto(_sticks1_farfetchd2_top_right)
+            goto(_sticks1_farfetchd2_top_left)
+        }
+        goto(_sticks1_farfetchd2_top_left)
+        goto(_sticks1_farfetchd2_right)
+    }
+    goto(_sticks1_farfetchd2_left)
+    goto(_sticks1_farfetchd2_left)
+}
+
+script scr_seq_D36R0101_farfetchd2_sticks2 {
+    followmonresetmovement
+    lockall
+    setvar(FARFETCHD2_BLIND_SPOT, TRUE)
+    getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+    if (var(FARFETCHD_X_COORD) != 41) {
+        if (var(FARFETCHD_X_COORD) != 49) { goto(_sticks2_farfetchd2_left) }
+        goto(_sticks2_farfetchd2_right)
+    _sticks2_farfetchd2_left:
+        getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+        if (var(FARFETCHD_Z_COORD) != 54) {
+            if (var(FARFETCHD_Z_COORD) != 64) { goto(_sticks2_farfetchd2_right) }
+            goto(_sticks2_farfetchd2_bottom_left)
+        _sticks2_farfetchd2_right:
+            getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+            if (var(FARFETCHD_Z_COORD) != 54) {
+                if (var(FARFETCHD_Z_COORD) != 64) { goto(_sticks2_farfetchd2_top_left) }
+                goto(_sticks2_farfetchd2_bottom_right)
+            _sticks2_farfetchd2_top_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_right)
+                waitmovement
+                releaseall
+                end
+            _sticks2_farfetchd2_bottom_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_right)
+                waitmovement
+                releaseall
+                end
+            _sticks2_farfetchd2_top_right:
+                setvar(VAR_FARFETCHD2_STICKS1, STICKS_ACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS2, STICKS_INACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS4, STICKS_ACTIVE)
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_right)
+                waitmovement
+                releaseall
+                end
+            _sticks2_farfetchd2_bottom_right:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_up)
+                waitmovement
+                releaseall
+                end
+            }
+            goto(_sticks2_farfetchd2_top_right)
+            goto(_sticks2_farfetchd2_top_left)
+        }
+        goto(_sticks2_farfetchd2_top_left)
+        goto(_sticks2_farfetchd2_right)
+    }
+    goto(_sticks2_farfetchd2_left)
+    goto(_sticks2_farfetchd2_left)
+}
+
+script scr_seq_D36R0101_farfetchd2_sticks3 {
+    followmonresetmovement
+    lockall
+    setvar(FARFETCHD2_BLIND_SPOT, FALSE)
+    getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+    if (var(FARFETCHD_X_COORD) != 41) {
+        if (var(FARFETCHD_X_COORD) != 49) { goto(_sticks3_farfetchd2_left) }
+        goto(_sticks3_farfetchd2_right)
+    _sticks3_farfetchd2_left:
+        getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+        if (var(FARFETCHD_Z_COORD) != 54) {
+            if (var(FARFETCHD_Z_COORD) != 64) { goto(_sticks3_farfetchd2_right) }
+            goto(_sticks3_farfetchd2_bottom_left)
+        _sticks3_farfetchd2_right:
+            getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+            if (var(FARFETCHD_Z_COORD) != 54) {
+                if (var(FARFETCHD_Z_COORD) != 64) { goto(_sticks3_farfetchd2_top_left) }
+                goto(_sticks3_farfetchd2_bottom_right)
+            _sticks3_farfetchd2_top_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_down)
+                waitmovement
+                releaseall
+                end
+            _sticks3_farfetchd2_bottom_left:
+                setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_right)
+                waitmovement
+                releaseall
+                end
+            _sticks3_farfetchd2_top_right:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_down)
+                waitmovement
+                releaseall
+                end
+            _sticks3_farfetchd2_bottom_right:
+                setvar(VAR_FARFETCHD2_STICKS3, STICKS_INACTIVE)
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_left)
+                waitmovement
+                releaseall
+                end
+            }
+            goto(_sticks3_farfetchd2_top_right)
+            goto(_sticks3_farfetchd2_top_left)
+        }
+        goto(_sticks3_farfetchd2_top_left)
+        goto(_sticks3_farfetchd2_right)
+    }
+    goto(_sticks3_farfetchd2_left)
+    goto(_sticks3_farfetchd2_left)
+}
+
+script scr_seq_D36R0101_farfetchd2_sticks4 {
+    followmonresetmovement
+    lockall
+    setvar(FARFETCHD2_BLIND_SPOT, FALSE)
+    getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+    if (var(FARFETCHD_X_COORD) != 41) {
+        if (var(FARFETCHD_X_COORD) != 49) { goto(_sticks4_farfetchd2_left) }
+        goto(_sticks4_farfetchd2_right)
+    _sticks4_farfetchd2_left:
+        getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+        if (var(FARFETCHD_Z_COORD) != 54) {
+            if (var(FARFETCHD_Z_COORD) != 64) { goto(_sticks4_farfetchd2_right) }
+            goto(_sticks4_farfetchd2_bottom_left)
+        _sticks4_farfetchd2_right:
+            getpersoncoords(obj_D36R0101_tsure_poke_static_farfetchd_2, FARFETCHD_X_COORD, FARFETCHD_Z_COORD)
+            if (var(FARFETCHD_Z_COORD) != 54) {
+                if (var(FARFETCHD_Z_COORD) != 64) { goto(_sticks4_farfetchd2_top_left) }
+                goto(_sticks4_farfetchd2_bottom_right)
+            _sticks4_farfetchd2_top_left:
+                setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_right)
+                waitmovement
+                releaseall
+                end
+            _sticks4_farfetchd2_bottom_left:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_up)
+                waitmovement
+                releaseall
+                end
+            _sticks4_farfetchd2_top_right:
+                setvar(VAR_FARFETCHD2_STICKS1, STICKS_ACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS2, STICKS_ACTIVE)
+                setvar(VAR_FARFETCHD2_STICKS4, STICKS_INACTIVE)
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_left)
+                waitmovement
+                releaseall
+                end
+            _sticks4_farfetchd2_bottom_right:
+                applymovement(obj_D36R0101_tsure_poke_static_farfetchd_2, _exclaim_face_up)
+                waitmovement
+                releaseall
+                end
+            }
+            goto(_sticks4_farfetchd2_top_right)
+            goto(_sticks4_farfetchd2_top_left)
+        }
+        goto(_sticks4_farfetchd2_top_left)
+        goto(_sticks4_farfetchd2_right)
+    }
+    goto(_sticks4_farfetchd2_left)
+    goto(_sticks4_farfetchd2_left)
+}
+
+movement _exclaim_face_down {
+    face_down
+    emote_exclamation_mark
+}
+
+movement _exclaim_face_up {
+    face_up
+    emote_exclamation_mark
+}
+
+movement _exclaim_face_left {
+    face_left
+    emote_exclamation_mark
+}
+
+movement _exclaim_face_right {
+    face_right
+    emote_exclamation_mark
+}
+
+movement _farfetchd_run_up {
+    emote_exclamation_mark
+    walk_fast_up * 10
+    face_down
+}
+
+movement _farfetchd_run_down {
+    emote_exclamation_mark
+    walk_fast_down * 10
+    face_up
+}
+
+movement _farfetchd1_run_right {
+    emote_exclamation_mark
+    walk_fast_right * 7
+    face_left
+}
+
+movement _farfetchd1_run_left {
+    emote_exclamation_mark
+    walk_fast_left * 7
+    face_right
+}
+
+movement _farfetchd2_run_right {
+    emote_exclamation_mark
+    walk_fast_right * 8
+    face_left
+}
+
+movement _farfetchd2_run_left {
+    emote_exclamation_mark
+    walk_fast_left * 8
+    face_right
+}
+
+movement _walk_in_place_face_down {
+    walk_in_place_fast_down * 5
+}
+
+movement _walk_in_place_face_right {
+    walk_in_place_fast_right * 5
+}
+
+script scr_seq_D36R0101_016 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, IlexForest_Movement_0EC4)
+    waitmovement
+    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_0ED0)
+    waitmovement
+    playse(SEQ_SE_DP_KI_GASYAN)
+    screenshake(0, 2, 10, 5)
+    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_0ED8)
+    waitmovement
+    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_0ED0)
+    waitmovement
+    playse(SEQ_SE_DP_KI_GASYAN)
+    screenshake(0, 2, 10, 5)
+    applymovement(obj_D36R0101_gsbigman, IlexForest_Movement_0ED8)
+    waitmovement
+    setvar(VAR_UNK_40EA, 1)
+    releaseall
+    end
+}
+
+movement IlexForest_Movement_0EC4 {
+    emote_exclamation_mark
+    walk_in_place_up
+}
+
+movement IlexForest_Movement_0ED0 {
+    jump_near_fast_up
+}
+
+movement IlexForest_Movement_0ED8 {
+    lock_dir
+    walk_slow_down
+    unlock_dir
+}
+
+script scr_seq_D36R0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0115_D36R0101_00011)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_1086) }
+    npcmsg(msg_0115_D36R0101_00014)
+    closemessage
+_0F0B:
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    partyselectui
+    getpartyselection(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 255) {
+        npcmsg(msg_0115_D36R0101_00013)
+        waitbuttonpress
+        closemessage
+        touchscreenmenushow
+        releaseall
+        end
+    }
+    getpartymonspecies(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005)
+    setorcopyvar(VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8005) == 0) {
+        npcmsg(msg_0115_D36R0101_00015)
+        closemessage
+        goto(_0F0B)
+    _10AB:
+        npcmsg(msg_0115_D36R0101_00019)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0F99) }
+        goto(_1086)
+    _10C7:
+        npcmsg(msg_0115_D36R0101_00019)
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0F99) }
+        goto(_1086)
+    }
+    monhasmove(VAR_SPECIAL_RESULT, MOVE_HEADBUTT, VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        buffermonspeciesname(0, VAR_SPECIAL_x8006)
+        npcmsg(msg_0115_D36R0101_00023)
+        closemessage
+        goto(_0F0B)
+        end
+    }
+    moncanlearnheadbuttfromtutor(VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0F84) }
+    npcmsg(msg_0115_D36R0101_00016)
+    closemessage
+    goto(_0F0B)
+_0F84:
+    countmonmoves(VAR_SPECIAL_x8002, VAR_SPECIAL_x8006)
+    if (var(VAR_SPECIAL_x8002) > 3) {
+        touchscreenmenuhide
+    _0F99:
+        bufferpartymonnick(0, VAR_SPECIAL_x8006)
+        npcmsg(msg_0115_D36R0101_00017)
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_10C7) }
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        pokemonsummaryscreen(1, VAR_SPECIAL_x8006, 29)
+        getmoveselection(1, VAR_SPECIAL_x8001)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        if (var(VAR_SPECIAL_x8001) == 4) { goto(_10AB) }
+        bufferpartymonmovename(1, VAR_SPECIAL_x8006, VAR_SPECIAL_x8001)
+        npcmsg(msg_0115_D36R0101_00018)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_10C7) }
+        setmonmove(VAR_SPECIAL_x8006, VAR_SPECIAL_x8001, MOVE_HEADBUTT)
+        npcmsg(msg_0115_D36R0101_00020)
+        playse(SEQ_SE_DP_KON)
+        waitse(SEQ_SE_DP_KON)
+        wait(30, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0115_D36R0101_00024)
+        wait(32, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0115_D36R0101_00025)
+        playfanfare(SEQ_ME_LVUP)
+        waitfanfare
+        wait(16, VAR_SPECIAL_RESULT)
+        playcry(VAR_SPECIAL_x8005, 0)
+    } else {
+        bufferpartymonnick(0, VAR_SPECIAL_x8006)
+        setmonmove(VAR_SPECIAL_x8006, VAR_SPECIAL_x8002, MOVE_HEADBUTT)
+        npcmsg(msg_0115_D36R0101_00021)
+        wait(30, VAR_SPECIAL_RESULT)
+        npcmsg(msg_0115_D36R0101_00026)
+        playfanfare(SEQ_ME_LVUP)
+        waitfanfare
+        wait(32, VAR_SPECIAL_RESULT)
+        playcry(VAR_SPECIAL_x8005, 0)
+        npcmsg(msg_0115_D36R0101_00022)
+        waitbuttonpress
+        closemessage
+        touchscreenmenushow
+        releaseall
+        end
+    }
+    npcmsg(msg_0115_D36R0101_00022)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+_1086:
+    npcmsg(msg_0115_D36R0101_00013)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+}
+
+script scr_seq_D36R0101_010 {
+    if (!flag(FLAG_FOUND_FIRST_FARFETCHD)) {
+    } else {
+        if (flag(FLAG_FOUND_SECOND_FARFETCHD)) {
+            simplenpcmsg(msg_0115_D36R0101_00002)
+            end
+        _1139:
+            simplenpcmsg(msg_0115_D36R0101_00001)
+            end
+        _114C:
+            playse(SEQ_SE_DP_SELECT)
+            lockall
+            faceplayer
+            npcmsg(msg_0115_D36R0101_00000)
+            waitbuttonpress
+            closemessage
+            setvar(VAR_UNK_40F4, 0)
+            releaseall
+            end
+        }
+        goto(_1139)
+    }
+    if (flag(FLAG_FOUND_SECOND_FARFETCHD)) { goto(_1139) }
+    goto(_114C)
+}
+
+script scr_seq_D36R0101_017 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_D36R0101_gsboy1, IlexForest_Movement_118C)
+    applymovement(obj_player, IlexForest_Movement_1194)
+    waitmovement
+    npcmsg(msg_0115_D36R0101_00000)
+    waitbuttonpress
+    closemessage
+    setvar(VAR_UNK_40F4, 0)
+    releaseall
+    end
+}
+
+movement IlexForest_Movement_118C {
+    emote_exclamation_mark
+}
+
+movement IlexForest_Movement_1194 {
+    delay_8 * 2
+    face_up
+}
+
+script scr_seq_D36R0101_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_HM01)) {
+        npcmsg(msg_0115_D36R0101_00010)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0115_D36R0101_00006)
+    if (!itemspace(ITEM_HM01, 1)) {
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    _1207:
+        clearflag(FLAG_HIDE_ILEX_CUT_MASTER)
+        addobject(obj_D36R0101_gsfighter)
+        clearflag(FLAG_HIDE_FARFETCHD_2_FOUND)
+        wait(20, VAR_SPECIAL_x8004)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        warp(MAP_ILEX_FOREST, 0, 15, 65, DIR_NORTH)
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        wait(5, VAR_SPECIAL_x8004)
+        npcmsg(msg_0115_D36R0101_00002)
+        waitbuttonpress
+        closemessage
+        applymovement(obj_D36R0101_gsfighter, IlexForest_Movement_12EC)
+        applymovement(obj_player, IlexForest_Movement_12F8)
+        waitmovement
+        if (flag(FLAG_GOT_HM01)) {
+            npcmsg(msg_0115_D36R0101_00010)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0115_D36R0101_00006)
+        if (!itemspace(ITEM_HM01, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_HIDE_ILEX_CUT_MASTER)
+        setflag(FLAG_HIDE_ILEX_APPRENTICE)
+        setflag(FLAG_HIDE_FARFETCHD_1_LOST)
+        setflag(FLAG_HIDE_FARFETCHD_2_LOST)
+        setflag(FLAG_HIDE_FARFETCHD_1_FOUND)
+        setflag(FLAG_HIDE_FARFETCHD_2_FOUND)
+        setflag(FLAG_GOT_HM01)
+        clearflag(FLAG_UNK_1AE)
+        clearflag(FLAG_UNK_1AC)
+        npcmsg(msg_0115_D36R0101_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_HM01)
+    clearflag(FLAG_UNK_1AE)
+    clearflag(FLAG_UNK_1AC)
+    npcmsg(msg_0115_D36R0101_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D36R0101_014 {
+    playcry(SPECIES_FARFETCHD, 0)
+    simplenpcmsg(msg_0115_D36R0101_00004)
+    end
+}
+
+movement IlexForest_Movement_12EC {
+    walk_up * 10
+    walk_right * 3
+}
+
+movement IlexForest_Movement_12F8 {
+    delay_8 * 12
+    face_left
+}
+
+script scr_seq_D36R0101_015 {
+    followmonresetmovement
+    lockall
+    callstd(std_play_kimono_girl_music)
+    applymovement(obj_D36R0101_dancer, IlexForest_Movement_1478)
+    waitmovement
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_x8004) == 40) {
+        applymovement(obj_D36R0101_dancer, IlexForest_Movement_1484)
+    } else {
+        applymovement(obj_D36R0101_dancer, IlexForest_Movement_1494)
+    }
+    waitmovement
+    npcmsg(msg_0115_D36R0101_00029)
+    closemessage
+    applymovement(obj_D36R0101_dancer, IlexForest_Movement_14A4)
+    waitmovement
+    npcmsg(msg_0115_D36R0101_00030)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0115_D36R0101_00031)
+    } else {
+        npcmsg(msg_0115_D36R0101_00032)
+    }
+    closemessage
+    getpartyleadalive(VAR_TEMP_x4000)
+    getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 50) {
+        if (var(VAR_TEMP_x4001) == 51) { goto(_13D5) }
+        release(obj_partner_poke)
+        if (var(VAR_SPECIAL_x8004) == 40) {
+            applymovement(obj_player, IlexForest_Movement_14E8)
+            applymovement(obj_partner_poke, IlexForest_Movement_14FC)
+        } else {
+            applymovement(obj_partner_poke, IlexForest_Movement_1518)
+        }
+        waitmovement
+        lock(obj_partner_poke)
+    } else {
+    _13D5:
+        release(obj_partner_poke)
+        if (var(VAR_SPECIAL_x8004) == 40) {
+            applymovement(obj_player, IlexForest_Movement_14E8)
+            applymovement(obj_partner_poke, IlexForest_Movement_1538)
+        } else {
+            applymovement(obj_partner_poke, IlexForest_Movement_1550)
+        }
+        waitmovement
+        lock(obj_partner_poke)
+    }
+    if (var(VAR_SPECIAL_x8004) == 40) {
+        applymovement(obj_D36R0101_dancer, IlexForest_Movement_156C)
+    } else {
+        applymovement(obj_D36R0101_dancer, IlexForest_Movement_1574)
+    }
+    waitmovement
+    npcmsg(msg_0115_D36R0101_00033)
+    closemessage
+    applymovement(obj_D36R0101_dancer, IlexForest_Movement_157C)
+    waitmovement
+    npcmsg(msg_0115_D36R0101_00034)
+    closemessage
+    applymovement(obj_D36R0101_dancer, IlexForest_Movement_159C)
+    waitmovement
+    removeobject(obj_D36R0101_dancer)
+    setflag(FLAG_UNK_23D)
+    callstd(std_fade_end_kimono_girl_music)
+    release(obj_partner_poke)
+    applymovement(obj_partner_poke, IlexForest_Movement_1584)
+    waitmovement
+    lock(obj_partner_poke)
+    releaseall
+    setvar(VAR_UNK_40E9, 1)
+    end
+}
+
+movement IlexForest_Movement_1478 {
+    emote_exclamation_mark
+    walk_in_place_down
+}
+
+movement IlexForest_Movement_1484 {
+    walk_down
+    walk_right * 2
+    walk_down
+}
+
+movement IlexForest_Movement_1494 {
+    walk_down
+    walk_right * 3
+    walk_down
+}
+
+movement IlexForest_Movement_14A4 {
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+}
+
+movement IlexForest_Movement_14E8 {
+    face_left
+    lock_dir
+    walk_right
+    unlock_dir
+}
+
+movement IlexForest_Movement_14FC {
+    walk_up * 2
+    walk_left
+    walk_up * 2
+    walk_left * 3
+    walk_in_place_right
+    jump_in_place_fast_right * 3
+}
+
+movement IlexForest_Movement_1518 {
+    walk_left
+    walk_up * 2
+    walk_left
+    walk_up * 2
+    walk_left * 3
+    walk_in_place_right
+    jump_in_place_fast_right * 3
+}
+
+movement IlexForest_Movement_1538 {
+    walk_up * 2
+    walk_left
+    walk_up * 2
+    walk_left * 3
+    walk_in_place_right
+}
+
+movement IlexForest_Movement_1550 {
+    walk_left
+    walk_up * 2
+    walk_left
+    walk_up * 2
+    walk_left * 3
+    walk_in_place_right
+}
+
+movement IlexForest_Movement_156C {
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_1574 {
+    walk_left
+}
+
+movement IlexForest_Movement_157C {
+    walk_in_place_down
+}
+
+movement IlexForest_Movement_1584 {
+    walk_right * 3
+    walk_down * 2
+    walk_right
+    walk_down
+    walk_in_place_right
+}
+
+movement IlexForest_Movement_159C {
+    walk_left * 2
+    walk_up * 2
+    walk_left * 6
+}
+
+script scr_seq_D36R0101_018 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == DIR_NORTH) {
+        applymovement(obj_player, IlexForest_Movement_1700)
+        applymovement(obj_D36R0101_gsmiddleman1, IlexForest_Movement_174C)
+    } elif (var(VAR_SPECIAL_RESULT) == DIR_SOUTH) {
+        applymovement(obj_player, IlexForest_Movement_1718)
+    } elif (var(VAR_SPECIAL_RESULT) == DIR_EAST) {
+        applymovement(obj_player, IlexForest_Movement_1738)
+        applymovement(obj_D36R0101_gsmiddleman1, IlexForest_Movement_174C)
+    } else {
+        stopse(SEQ_SE_GS_N_SESERAGI)
+        applymovement(obj_player, IlexForest_Movement_1724)
+        applymovement(obj_D36R0101_gsmiddleman1, IlexForest_Movement_174C)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, IlexForest_Movement_1758)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(8)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement IlexForest_Movement_1700 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement IlexForest_Movement_1718 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement IlexForest_Movement_1724 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement IlexForest_Movement_1738 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement IlexForest_Movement_174C {
+    delay_8
+    walk_in_place_up
+}
+
+movement IlexForest_Movement_1758 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_D36R0101_012 {
+    playeronbikecheck(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_1803) }
+    if (var(VAR_UNK_412B) >= 2) { goto(_17C1) }
+    if (var(VAR_UNK_412B) == 1) { goto(_1803) }
+    getpartyleadalive(VAR_TEMP_x4000)
+    followerpokeiseventtrigger(EVENT_SPIKY_EARED_PICHU, VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        clearflag(FLAG_HIDE_ILEX_FOREST_SPIKY_EAR_PICHU)
+        goto(_1816)
+    _17C1:
+        if (var(VAR_UNK_40FE) >= 4) { goto(_1803) }
+        if (!flag(FLAG_BEAT_RADIO_TOWER_ROCKETS)) { goto(_1803) }
+        getpartyleadalive(VAR_TEMP_x4006)
+        followerpokeiseventtrigger(EVENT_CELEBI, VAR_TEMP_x4006, VAR_TEMP_x4007)
+        if (var(VAR_TEMP_x4007) != 0) {
+            goto(_1F48)
+        _1803:
+            simplenpcmsg(msg_0115_D36R0101_00028)
+            end
+        _1816:
+            followmonresetmovement
+            lockall
+            stopbgm(0)
+            clearflag(FLAG_HIDE_ILEX_FOREST_SPIKY_EAR_PICHU)
+            addobject(obj_D36R0101_tsure_poke_static_pichu_spiky)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1C44)
+            waitmovement
+            playcry(SPECIES_PICHU, 0)
+            waitcry
+            applymovement(obj_player, IlexForest_Movement_1C58)
+            waitmovement
+            callstd(std_play_pichu_music)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1C64)
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_player, IlexForest_Movement_1C8C)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+            npcmsg(msg_0115_D36R0101_00038)
+            closemessage
+            applymovement(obj_partner_poke, IlexForest_Movement_1CB4)
+            waitmovement
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1CC4)
+            waitmovement
+            applymovement(obj_partner_poke, IlexForest_Movement_1CF8)
+            waitmovement
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1D08)
+            applymovement(obj_partner_poke, IlexForest_Movement_1D2C)
+            waitmovement
+            clearflag(FLAG_HIDE_ILEX_FOREST_OLD_MAN)
+            addobject(obj_D36R0101_gsoldman1)
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1DE0)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1D48)
+            applymovement(obj_partner_poke, IlexForest_Movement_1DA4)
+            waitmovement
+            applymovement(obj_player, IlexForest_Movement_1E88)
+            waitmovement
+            npcmsg(msg_0115_D36R0101_00046)
+            closemessage
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1DF4)
+            waitmovement
+            npcmsg(msg_0115_D36R0101_00047)
+            closemessage
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E00)
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1E10)
+            applymovement(obj_player, IlexForest_Movement_1ED0)
+            waitmovement
+            npcmsg(msg_0115_D36R0101_00048)
+            closemessage
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1E20)
+            applymovement(obj_partner_poke, IlexForest_Movement_1E2C)
+            waitmovement
+            npcmsg(msg_0115_D36R0101_00049)
+            closemessage
+            applymovement(obj_partner_poke, IlexForest_Movement_1E38)
+            waitmovement
+            applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1E40)
+            waitmovement
+            applymovement(obj_partner_poke, IlexForest_Movement_1E48)
+            waitmovement
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_player, IlexForest_Movement_1E74)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+            npcmsg(msg_0115_D36R0101_00039)
+            playcry(SPECIES_PICHU, 0)
+            npcmsg(msg_0115_D36R0101_00043)
+            waitcry
+            closemessage
+            call(_1987)
+            compare(VAR_SPECIAL_x8004, 1)
+            callifge(_1AFB)
+            compare(VAR_SPECIAL_x8004, 0)
+            callifeq(_19AC)
+            releaseall
+            end
+        _1987:
+            getpartycount(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) >= 6) {
+                setvar(VAR_SPECIAL_x8004, 1)
+            } else {
+                setvar(VAR_SPECIAL_x8004, 0)
+            }
+            return
+        _19AC:
+            npcmsg(msg_0115_D36R0101_00052)
+            closemessage
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            applymovement(obj_player, IlexForest_Movement_1EB4)
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+        _19CF:
+            getplayerfacing(VAR_TEMP_x4005)
+            if (var(VAR_TEMP_x4005) == 3) {
+                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E90)
+            } else {
+                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E98)
+            }
+            waitmovement
+            playfanfare(SEQ_ME_ITEM)
+            bufferplayersname(0)
+            npcmsg(msg_0115_D36R0101_00044)
+            waitfanfare
+            npcmsg(msg_0115_D36R0101_00053)
+            togglefollowingpokemonmovement(0)
+            waitfollowingpokemonmovement
+            followingpokemonmovement(55)
+            if (var(VAR_TEMP_x4005) == 3) {
+                applymovement(obj_player, IlexForest_Movement_1ED8)
+            } else {
+                applymovement(obj_player, IlexForest_Movement_1EE4)
+            }
+            waitmovement
+            waitfollowingpokemonmovement
+            togglefollowingpokemonmovement(1)
+            followingpokemonmovement(48)
+            if (var(VAR_TEMP_x4008) == 0) {
+                callstd(std_fade_end_pichu_music)
+            }
+            givespikyearpichu
+            removeobject(obj_D36R0101_tsure_poke_static_pichu_spiky)
+            setvar(VAR_UNK_412B, 2)
+            playfanfare(SEQ_ME_SHINKAOME)
+            npcmsg(msg_0115_D36R0101_00040)
+            waitfanfare
+            touchscreenmenuhide
+            npcmsg(msg_0115_D36R0101_00045)
+            getmenuchoice(VAR_SPECIAL_RESULT)
+            if (var(VAR_SPECIAL_RESULT) != 1) {
+                closemessage
+                getpartycount(VAR_TEMP_x4009)
+                subvar(VAR_TEMP_x4009, 1)
+                setvar(VAR_TEMP_x400A, 0)
+                nopvar490(VAR_TEMP_x4009)
+                fadescreen(6, 1, 0, RGB_BLACK)
+                waitfade
+                nicknameinput(VAR_TEMP_x4009, VAR_TEMP_x400A)
+                fadescreen(6, 1, 1, RGB_BLACK)
+                waitfade
+                if (var(VAR_TEMP_x400A) != 1) {
+                    bufferpartymonnick(0, VAR_TEMP_x4009)
+                    npcmsg(msg_0115_D36R0101_00054)
+                }
+            }
+            npcmsg(msg_0115_D36R0101_00051)
+            closemessage
+            touchscreenmenushow
+            if (var(VAR_TEMP_x4005) == 3) {
+                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E64)
+            } else {
+                applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E50)
+            }
+            waitmovement
+            removeobject(obj_D36R0101_gsoldman1)
+            setflag(FLAG_HIDE_ILEX_FOREST_OLD_MAN)
+            return
+        _1AFB:
+            npcmsg(msg_0115_D36R0101_00050)
+            waitbuttonpress
+            closemessage
+            if (var(VAR_TEMP_x4008) == 0) {
+                callstd(std_fade_end_pichu_music)
+            }
+            setvar(VAR_UNK_412B, 1)
+            return
+        }
+        goto(_1803)
+        goto(_1803)
+    }
+    goto(_17C1)
+    goto(_17C1)
+}
+
+script scr_seq_D36R0101_019 {
+    followmonresetmovement
+    lockall
+    setvar(VAR_TEMP_x4008, 1)
+    getplayerfacing(VAR_TEMP_x4005)
+    if (var(VAR_TEMP_x4005) == 3) {
+        applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1EF0)
+    } elif (var(VAR_TEMP_x4005) == 2) {
+        applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1EF8)
+    } else {
+        applymovement(obj_D36R0101_tsure_poke_static_pichu_spiky, IlexForest_Movement_1F00)
+    }
+    waitmovement
+    playcry(SPECIES_PICHU, 0)
+    npcmsg(msg_0115_D36R0101_00043)
+    waitcry
+    closemessage
+    call(_1987)
+    if (var(VAR_SPECIAL_x8004) < 1) {
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(55)
+        getplayerfacing(VAR_TEMP_x4005)
+        if (var(VAR_TEMP_x4005) == 3) {
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E90)
+        } elif (var(VAR_TEMP_x4005) == 2) {
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1E98)
+        } else {
+            applymovement(obj_D36R0101_gsoldman1, IlexForest_Movement_1EA0)
+        }
+        waitmovement
+        npcmsg(msg_0115_D36R0101_00052)
+        closemessage
+        getplayerfacing(VAR_TEMP_x4005)
+        if (var(VAR_TEMP_x4005) == 3) {
+            applymovement(obj_player, IlexForest_Movement_1EA8)
+        } elif (var(VAR_TEMP_x4005) == 2) {
+            applymovement(obj_player, IlexForest_Movement_1EB4)
+        } else {
+            applymovement(obj_player, IlexForest_Movement_1EC0)
+        }
+        waitmovement
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+        call(_19CF)
+    } else {
+        npcmsg(msg_0115_D36R0101_00042)
+        waitbuttonpress
+        closemessage
+    }
+    releaseall
+    end
+}
+
+movement IlexForest_Movement_1C44 {
+    lock_dir
+    jump_far_right
+    unlock_dir
+    jump_in_place_fast_down * 2
+}
+
+movement IlexForest_Movement_1C58 {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement IlexForest_Movement_1C64 {
+    walk_fast_down * 7
+    jump_in_place_fast_left
+    walk_fast_left * 4
+    walk_fast_up * 4
+    walk_fast_right * 4
+    walk_fast_down * 4
+    walk_fast_left * 2
+    face_up
+    jump_in_place_fast_up * 2
+}
+
+movement IlexForest_Movement_1C8C {
+    delay_8 * 3
+    face_down
+    delay_8
+    walk_down * 2
+    walk_in_place_right
+    delay_16
+    walk_in_place_left
+    delay_16
+    walk_in_place_down
+}
+
+movement IlexForest_Movement_1CB4 {
+    walk_right
+    walk_down
+    face_down
+}
+
+movement IlexForest_Movement_1CC4 {
+    lock_dir
+    jump_near_fast_right
+    unlock_dir
+    jump_in_place_fast_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+}
+
+movement IlexForest_Movement_1CF8 {
+    emote_exclamation_mark
+    delay_8
+    jump_in_place_fast_down * 2
+}
+
+movement IlexForest_Movement_1D08 {
+    lock_dir
+    jump_near_fast_down
+    unlock_dir
+    delay_16
+    jump_in_place_fast_left
+    walk_fast_left * 7
+    walk_fast_up * 13
+    walk_right
+}
+
+movement IlexForest_Movement_1D2C {
+    delay_16 * 2
+    walk_fast_down
+    walk_fast_left * 6
+    jump_in_place_fast_up
+    walk_fast_up * 13
+    walk_fast_left
+}
+
+movement IlexForest_Movement_1D48 {
+    walk_fast_down * 12
+    walk_fast_right * 6
+    walk_fast_up * 4
+    walk_fast_left * 3
+    walk_fast_down * 4
+    walk_fast_right * 3
+    lock_dir
+    jump_near_fast_left
+    unlock_dir
+    face_down * 6
+    lock_dir
+    walk_slow_left
+    unlock_dir
+    face_left * 6
+    face_up * 6
+    lock_dir
+    walk_slow_right
+    unlock_dir
+    face_right * 6
+    lock_dir
+    walk_slow_left
+    unlock_dir
+}
+
+movement IlexForest_Movement_1DA4 {
+    walk_fast_down * 13
+    walk_fast_right * 7
+    jump_in_place_fast_up
+    jump_in_place_fast_left
+    delay_8 * 4
+    lock_dir
+    jump_near_fast_right
+    unlock_dir
+    face_down * 6
+    face_right * 6
+    face_up * 6
+    face_left * 6
+    delay_32
+    walk_left
+}
+
+movement IlexForest_Movement_1DE0 {
+    delay_16 * 5
+    walk_slow_down * 10
+    walk_slow_right * 4
+    walk_in_place_right
+}
+
+movement IlexForest_Movement_1DF4 {
+    walk_in_place_up
+    delay_16
+}
+
+movement IlexForest_Movement_1E00 {
+    walk_in_place_down
+    delay_16
+    emote_exclamation_mark
+}
+
+movement IlexForest_Movement_1E10 {
+    delay_16
+    walk_in_place_up
+    delay_16
+}
+
+movement IlexForest_Movement_1E20 {
+    jump_in_place_fast_up
+    jump_in_place_fast_right
+}
+
+movement IlexForest_Movement_1E2C {
+    jump_near_fast_left
+    jump_in_place_fast_left * 2
+}
+
+movement IlexForest_Movement_1E38 {
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_1E40 {
+    jump_in_place_fast_right * 2
+}
+
+movement IlexForest_Movement_1E48 {
+    jump_in_place_fast_up * 2
+}
+
+movement IlexForest_Movement_1E50 {
+    walk_in_place_right
+    delay_16
+    walk_slow_left * 4
+    walk_slow_up * 10
+}
+
+movement IlexForest_Movement_1E64 {
+    walk_slow_down * 2
+    walk_slow_left * 4
+    walk_slow_up * 12
+}
+
+movement IlexForest_Movement_1E74 {
+    emote_exclamation_mark
+    delay_8
+    walk_down
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_1E88 {
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_1E90 {
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_1E98 {
+    walk_in_place_right
+}
+
+movement IlexForest_Movement_1EA0 {
+    walk_in_place_down
+}
+
+movement IlexForest_Movement_1EA8 {
+    walk_up
+    walk_in_place_right
+}
+
+movement IlexForest_Movement_1EB4 {
+    walk_up
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_1EC0 {
+    walk_right
+    walk_up * 2
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_1ED0 {
+    walk_in_place_down
+}
+
+movement IlexForest_Movement_1ED8 {
+    walk_down
+    walk_in_place_right
+}
+
+movement IlexForest_Movement_1EE4 {
+    walk_down
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_1EF0 {
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_1EF8 {
+    walk_in_place_right
+}
+
+movement IlexForest_Movement_1F00 {
+    walk_in_place_down
+}
+
+script scr_seq_D36R0101_020 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    setvar(VAR_TEMP_x4008, 1)
+    call(_1987)
+    if (var(VAR_SPECIAL_x8004) == 0) {
+        call(_1F3F)
+    } else {
+        call(_1AFB)
+    }
+    releaseall
+    end
+_1F3F:
+    npcmsg(msg_0115_D36R0101_00055)
+    waitbuttonpress
+    closemessage
+    return
+_1F48:
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    applymovement(obj_partner_poke, IlexForest_Movement_2038)
+    waitmovement
+    fadeoutbgm(0, 30)
+    callstd(std_play_friend_music)
+    touchscreenmenuhide
+    clearflag(FLAG_HIDE_ILEX_FOREST_FRIEND)
+    addobject(obj_D36R0101_var_1)
+    addobject(obj_D36R0101_tsure_poke_static_marill)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_2054)
+    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_2060)
+    waitmovement
+    applymovement(obj_player, IlexForest_Movement_200C)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0115_D36R0101_00057, msg_0115_D36R0101_00056)
+    closemessage
+    callstd(std_fade_end_friend_music)
+    playse(SEQ_SE_GS_SUZUSYUTUGEN_HO)
+    fadescreen(6, 6, 0, RGB_WHITE)
+    waitfade
+    wait(15, VAR_SPECIAL_RESULT)
+    fadescreen(6, 6, 1, RGB_WHITE)
+    waitfade
+    applymovement(obj_player, IlexForest_Movement_2014)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_208C)
+    waitmovement
+    gendermsgbox(msg_0115_D36R0101_00059, msg_0115_D36R0101_00058)
+    closemessage
+    playse(SEQ_SE_GS_TIMESLIP)
+    celebitimetravel
+    setvar(VAR_UNK_40FE, 1)
+    clearflag(FLAG_HIDE_ROUTE_22_GIOVANNI_RIVAL)
+    clearflag(FLAG_HIDE_ROUTE_22_FRIEND)
+    setflag(FLAG_HIDE_ILEX_FOREST_FRIEND)
+    warp(MAP_ROUTE_22, 0, 954, 280, DIR_SOUTH)
+    fadescreen(6, 15, 1, RGB_WHITE)
+    waitfade
+    releaseall
+    end
+}
+
+movement IlexForest_Movement_200C {
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_2014 {
+    emote_exclamation_mark
+    delay_8
+    walk_in_place_up
+    delay_8
+    walk_in_place_left
+    delay_8
+    walk_in_place_down
+    delay_8
+}
+
+movement IlexForest_Movement_2038 {
+    face_down
+    face_down
+    jump_far_down
+    lock_dir
+    jump_near_fast_up
+    lock_dir
+}
+
+movement IlexForest_Movement_2054 {
+    walk_down * 11
+    walk_right * 2
+}
+
+movement IlexForest_Movement_2060 {
+    walk_down * 8
+    walk_in_place_right
+    walk_right
+    lock_dir
+    walk_down
+    delay_8
+    unlock_dir
+    walk_in_place_left
+    delay_8
+    walk_left
+}
+
+movement IlexForest_Movement_208C {
+    delay_16
+    walk_right * 2
+    walk_up * 2
+    walk_in_place_right
+}
+
+script scr_seq_D36R0101_022 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_2148)
+    applymovement(obj_player, IlexForest_Movement_21F4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    gendermsgbox(msg_0115_D36R0101_00061, msg_0115_D36R0101_00060)
+    closemessage
+    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_2170)
+    waitmovement
+    callstd(std_play_friend_music)
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_215C)
+    waitmovement
+    gendermsgbox(msg_0115_D36R0101_00063, msg_0115_D36R0101_00062)
+    closemessage
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_218C)
+    waitmovement
+    gendermsgbox(msg_0115_D36R0101_00065, msg_0115_D36R0101_00064)
+    closemessage
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_219C)
+    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_21A4)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0115_D36R0101_00067, msg_0115_D36R0101_00066)
+    closemessage
+    applymovement(obj_D36R0101_var_1, IlexForest_Movement_21AC)
+    applymovement(obj_D36R0101_tsure_poke_static_marill, IlexForest_Movement_21C4)
+    waitmovement
+    callstd(std_fade_end_friend_music)
+    touchscreenmenushow
+    setvar(VAR_UNK_40FE, 5)
+    removeobject(obj_D36R0101_var_1)
+    removeobject(obj_D36R0101_tsure_poke_static_marill)
+    setflag(FLAG_HIDE_ILEX_FOREST_FRIEND)
+    releaseall
+    end
+}
+
+movement IlexForest_Movement_2148 {
+    walk_in_place_left
+    delay_8
+    walk_in_place_right
+    delay_8
+}
+
+movement IlexForest_Movement_215C {
+    walk_in_place_left
+    emote_exclamation_mark
+    delay_8
+    walk_in_place_left
+}
+
+movement IlexForest_Movement_2170 {
+    delay_8
+    jump_in_place_fast_right * 2
+    lock_dir
+    jump_near_fast_up
+    jump_near_fast_down
+    unlock_dir
+}
+
+movement IlexForest_Movement_218C {
+    walk_left * 3
+    delay_16
+    jump_in_place_fast_left * 2
+}
+
+movement IlexForest_Movement_219C {
+    walk_right * 3
+}
+
+movement IlexForest_Movement_21A4 {
+    walk_right * 3
+}
+
+movement IlexForest_Movement_21AC {
+    walk_left * 4
+    walk_up * 6
+    walk_in_place_down
+    delay_8 * 6
+    walk_up * 5
+}
+
+movement IlexForest_Movement_21C4 {
+    lock_dir
+    jump_near_fast_down
+    unlock_dir
+    walk_in_place_up
+    walk_left * 3
+    delay_8
+    walk_in_place_right
+    delay_8 * 4
+    walk_in_place_up
+    jump_in_place_fast_up
+    walk_up * 10
+}
+
+movement IlexForest_Movement_21F4 {
+    walk_down
+    delay_8
+}
+
+script scr_seq_D36R0101_013 {
+    trainertipsex(3, msg_0115_D36R0101_00027)
+    end
+}
+
+mapscripts IlexForest_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D36R0101_000
+    INIT_SCRIPT_ON_RESUME: scr_seq_D36R0101_021
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40FE, 4: scr_seq_D36R0101_022
+    ]
+}

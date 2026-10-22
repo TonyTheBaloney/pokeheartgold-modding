@@ -1,0 +1,296 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D39R0101_000
+	ScrDef scr_seq_D39R0101_001
+	ScrDef scr_seq_D39R0101_002
+	ScrDef scr_seq_D39R0101_003
+	ScrDef scr_seq_D39R0101_004
+	ScrDefEnd
+`
+
+script scr_seq_D39R0101_001 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 5) { goto(_004B) }
+        if (var(VAR_TEMP_x4000) == 6) { goto(_004B) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _004B:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_D39R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_4100) == 1) { goto(_008A) }
+    if (flag(FLAG_HIDE_ITEMBALL_D39R0101_HM07)) {
+        setvar(VAR_UNK_4100, 1)
+    _008A:
+        npcmsg(msg_0122_D39R0101_00002)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0122_D39R0101_00001)
+    closemessage
+    applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_0114)
+    waitmovement
+    releaseall
+    end
+}
+
+script scr_seq_D39R0101_004 {
+    followmonresetmovement
+    lockall
+    if (flag(FLAG_HIDE_ITEMBALL_D39R0101_HM07)) {
+        applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_0108)
+        applymovement(obj_player, IcePath_1F_Movement_011C)
+        waitmovement
+        npcmsg(msg_0122_D39R0101_00002)
+        waitbuttonpress
+        closemessage
+        releaseall
+        setvar(VAR_UNK_4100, 1)
+        end
+    }
+    applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_0108)
+    applymovement(obj_player, IcePath_1F_Movement_011C)
+    waitmovement
+    npcmsg(msg_0122_D39R0101_00001)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_D39R0101_gsmiddleman1, IcePath_1F_Movement_0114)
+    applymovement(obj_player, IcePath_1F_Movement_0128)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    releaseall
+    end
+}
+
+movement IcePath_1F_Movement_0108 {
+    face_up
+    emote_exclamation_mark
+}
+
+movement IcePath_1F_Movement_0114 {
+    face_down
+}
+
+movement IcePath_1F_Movement_011C {
+    delay_8 * 2
+    face_down
+}
+
+movement IcePath_1F_Movement_0128 {
+    walk_left
+}
+
+script scr_seq_D39R0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    callstd(std_play_kimono_girl_music)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 1) { goto(_0157) }
+    goto(_0169)
+    goto(_0157)
+_0157:
+    bufferplayersname(0)
+    npcmsg(msg_0122_D39R0101_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    callstd(std_fade_end_kimono_girl_music)
+    end
+_0169:
+    bufferplayersname(0)
+    npcmsg(msg_0122_D39R0101_00004)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0193) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01F3) }
+    end
+_0193:
+    playse(SEQ_SE_DP_WALL_HIT)
+    npcmsg(msg_0122_D39R0101_00005)
+    closemessage
+    getplayercoords(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    createcameratarget(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    applymovement(obj_D39R0101_dancer, IcePath_1F_Movement_021C)
+    applymovement(241, IcePath_1F_Movement_0244)
+    waitmovement
+    npcmsg(msg_0122_D39R0101_00007)
+    closemessage
+    applymovement(obj_D39R0101_dancer, IcePath_1F_Movement_023C)
+    waitmovement
+    removeobject(obj_D39R0101_dancer)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    callstd(std_fade_end_kimono_girl_music)
+    setflag(FLAG_UNK_239)
+    setvar(VAR_UNK_40E8, 1)
+    applymovement(241, IcePath_1F_Movement_024C)
+    waitmovement
+    removecameratarget
+    releaseall
+    end
+_01F3:
+    npcmsg(msg_0122_D39R0101_00006)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0193) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_01F3) }
+    end
+}
+
+movement IcePath_1F_Movement_021C {
+    pause_animation * 0
+    walk_fast_down * 5
+    resume_animation * 0
+    walk_down * 2
+    walk_in_place_down
+    delay_8
+    walk_in_place_up * 2
+}
+
+movement IcePath_1F_Movement_023C {
+    walk_down * 4
+}
+
+movement IcePath_1F_Movement_0244 {
+    walk_fast_down * 4
+}
+
+movement IcePath_1F_Movement_024C {
+    walk_fast_up * 4
+}
+
+movement IcePath_1F_Movement_0254 {
+    face_down
+}
+
+script scr_seq_D39R0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, IcePath_1F_Movement_03AC)
+        applymovement(obj_D39R0101_gsmiddleman1_2, IcePath_1F_Movement_03F8)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, IcePath_1F_Movement_03C4)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, IcePath_1F_Movement_03E4)
+        applymovement(obj_D39R0101_gsmiddleman1_2, IcePath_1F_Movement_03F8)
+    } else {
+        applymovement(obj_player, IcePath_1F_Movement_03D0)
+        applymovement(obj_D39R0101_gsmiddleman1_2, IcePath_1F_Movement_03F8)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, IcePath_1F_Movement_0404)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(43)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement IcePath_1F_Movement_03AC {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement IcePath_1F_Movement_03C4 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement IcePath_1F_Movement_03D0 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement IcePath_1F_Movement_03E4 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement IcePath_1F_Movement_03F8 {
+    delay_8
+    walk_in_place_up
+}
+
+movement IcePath_1F_Movement_0404 {
+    walk_right
+    walk_up
+    face_down
+}
+
+mapscripts IcePath_1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D39R0101_001
+}

@@ -1,0 +1,150 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T25R1202_000 {
+    simplenpcmsg(msg_0601_T25R1202_00000)
+    end
+}
+
+script scr_seq_T25R1202_001 {
+    simplenpcmsg(msg_0601_T25R1202_00001)
+    end
+}
+
+script scr_seq_T25R1202_002 {
+    simplenpcmsg(msg_0601_T25R1202_00002)
+    end
+}
+
+script scr_seq_T25R1202_003 {
+    simplenpcmsg(msg_0601_T25R1202_00003)
+    end
+}
+
+script scr_seq_T25R1202_004 {
+    simplenpcmsg(msg_0601_T25R1202_00004)
+    end
+}
+
+script scr_seq_T25R1202_005 {
+    simplenpcmsg(msg_0601_T25R1202_00005)
+    end
+}
+
+script scr_seq_T25R1202_006 {
+    simplenpcmsg(msg_0601_T25R1202_00006)
+    end
+}
+
+script scr_seq_T25R1202_007 {
+    simplenpcmsg(msg_0601_T25R1202_00007)
+    end
+}
+
+script scr_seq_T25R1202_008 {
+    simplenpcmsg(msg_0601_T25R1202_00008)
+    end
+}
+
+script scr_seq_T25R1202_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0601_T25R1202_00009)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1202_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0601_T25R1202_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25R1202_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8005, 6)
+    goto(_0117)
+    end
+_0117:
+    npcmsg(msg_0601_T25R1202_00013)
+    touchscreenmenuhide
+    menuinit(21, 11, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(15, 255, 0)
+    menuitemadd(16, 255, 1)
+    menuitemadd(17, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _016E)
+    Case(1, _0193)
+    goto(_0166)
+    end
+_0166:
+    touchscreenmenushow
+_0168:
+    closemessage
+    releaseall
+    end
+_016E:
+    callstd(std_prompt_save)
+    copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0168) }
+    closemessage
+    setsavedbottomscreenapp(0)
+    callstd(std_enter_global_terminal)
+    releaseall
+    end
+_0193:
+    npcmsg(msg_0601_T25R1202_00014)
+    goto(_0117)
+    end
+}
+
+script scr_seq_T25R1202_012 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    setvar(VAR_SPECIAL_x8005, 5)
+    goto(_01B2)
+    end
+_01B2:
+    npcmsg(msg_0601_T25R1202_00011)
+    touchscreenmenuhide
+    menuinit(21, 11, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(15, 255, 0)
+    menuitemadd(16, 255, 1)
+    menuitemadd(17, 255, 2)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0209)
+    Case(1, _022E)
+    goto(_0201)
+    end
+_0201:
+    touchscreenmenushow
+_0203:
+    closemessage
+    releaseall
+    end
+_0209:
+    callstd(std_prompt_save)
+    copyvar(VAR_SPECIAL_RESULT, VAR_TEMP_x4000)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0203) }
+    closemessage
+    setsavedbottomscreenapp(0)
+    callstd(std_enter_global_terminal)
+    releaseall
+    end
+_022E:
+    npcmsg(msg_0601_T25R1202_00012)
+    goto(_01B2)
+    end
+}
+
+mapscripts Goldenrod_GlobalTerminal_2F_MapScripts {
+}

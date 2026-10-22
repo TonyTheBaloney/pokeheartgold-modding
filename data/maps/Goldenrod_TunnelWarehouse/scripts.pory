@@ -1,0 +1,34 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D37R0105_000 {
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        clearflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+        clearflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+    }
+    end
+}
+
+script scr_seq_D37R0105_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getitemquantity(ITEM_CARD_KEY, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0120_D37R0105_00000)
+        setflag(FLAG_UNK_1C1)
+        giveitemnocheck(ITEM_CARD_KEY, 1)
+    }
+    npcmsg(msg_0120_D37R0105_00002)
+    npcmsg(msg_0120_D37R0105_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Goldenrod_TunnelWarehouse_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D37R0105_000
+}

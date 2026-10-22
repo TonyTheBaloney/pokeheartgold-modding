@@ -1,0 +1,483 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D49R0102_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    stopse(SEQ_SE_GS_N_KANSEI)
+    callstd(std_play_mom_music)
+    if (flag(FLAG_UNK_0FA)) {
+        npcmsg(msg_0139_D49R0102_00001)
+    } else {
+        npcmsg(msg_0139_D49R0102_00000)
+        setflag(FLAG_UNK_0FA)
+    }
+_0071:
+    npcmsg(msg_0139_D49R0102_00002)
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(272, 255, 0)
+    menuitemadd(296, 255, 1)
+    menuitemadd(297, 255, 2)
+    menuitemadd(12, 255, 3)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _03C5)
+    Case(1, _00D5)
+    Case(2, _03D0)
+    goto(_03DB)
+    end
+_00D5:
+    npcmsg(msg_0139_D49R0102_00003)
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(308, 255, 0)
+    menuitemadd(309, 255, 1)
+    menuitemadd(310, 255, 2)
+    menuitemadd(311, 255, 3)
+    menuitemadd(312, 255, 4)
+    menuitemadd(13, 255, 5)
+    menuexec
+    Switch(VAR_SPECIAL_RESULT)
+    Case(5, _0071)
+    npcmsg(msg_0139_D49R0102_00004)
+    Case(0, _0166)
+    Case(1, _01A0)
+    Case(2, _01DA)
+    Case(3, _0214)
+    goto(_024E)
+    end
+_0166:
+    setvar(VAR_TEMP_x4007, 0)
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(298, 255, 0)
+    menuitemadd(299, 255, 1)
+    menuitemadd(304, 255, 6)
+    menuitemadd(13, 255, 10)
+    menuexec
+    goto(_0288)
+    end
+_01A0:
+    setvar(VAR_TEMP_x4007, 1)
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(301, 255, 3)
+    menuitemadd(300, 255, 2)
+    menuitemadd(307, 255, 9)
+    menuitemadd(13, 255, 10)
+    menuexec
+    goto(_0288)
+    end
+_01DA:
+    setvar(VAR_TEMP_x4007, 2)
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(306, 255, 8)
+    menuitemadd(307, 255, 9)
+    menuitemadd(299, 255, 1)
+    menuitemadd(13, 255, 10)
+    menuexec
+    goto(_0288)
+    end
+_0214:
+    setvar(VAR_TEMP_x4007, 3)
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(305, 255, 7)
+    menuitemadd(304, 255, 6)
+    menuitemadd(301, 255, 3)
+    menuitemadd(13, 255, 10)
+    menuexec
+    goto(_0288)
+    end
+_024E:
+    setvar(VAR_TEMP_x4007, 4)
+    touchscreenmenuhide
+    menuinitstdgmm(1, 1, 0, 1, VAR_SPECIAL_RESULT)
+    menuitemadd(303, 255, 5)
+    menuitemadd(302, 255, 4)
+    menuitemadd(298, 255, 0)
+    menuitemadd(13, 255, 10)
+    menuexec
+    goto(_0288)
+    end
+_0288:
+    Switch(VAR_SPECIAL_RESULT)
+    Case(0, _0318)
+    Case(1, _0323)
+    Case(2, _032E)
+    Case(3, _0339)
+    Case(4, _0344)
+    Case(5, _034F)
+    Case(6, _035A)
+    Case(7, _0365)
+    Case(8, _0370)
+    Case(9, _037B)
+    goto(_00D5)
+    end
+_0318:
+    npcmsg(msg_0139_D49R0102_00006)
+    goto(_0386)
+    end
+_0323:
+    npcmsg(msg_0139_D49R0102_00007)
+    goto(_0386)
+    end
+_032E:
+    npcmsg(msg_0139_D49R0102_00008)
+    goto(_0386)
+    end
+_0339:
+    npcmsg(msg_0139_D49R0102_00009)
+    goto(_0386)
+    end
+_0344:
+    npcmsg(msg_0139_D49R0102_00010)
+    goto(_0386)
+    end
+_034F:
+    npcmsg(msg_0139_D49R0102_00011)
+    goto(_0386)
+    end
+_035A:
+    npcmsg(msg_0139_D49R0102_00012)
+    goto(_0386)
+    end
+_0365:
+    npcmsg(msg_0139_D49R0102_00013)
+    goto(_0386)
+    end
+_0370:
+    npcmsg(msg_0139_D49R0102_00014)
+    goto(_0386)
+    end
+_037B:
+    npcmsg(msg_0139_D49R0102_00015)
+    goto(_0386)
+    end
+_0386:
+    npcmsg(msg_0139_D49R0102_00004)
+    if (var(VAR_TEMP_x4007) == 0) { goto(_0166) }
+    if (var(VAR_TEMP_x4007) == 1) { goto(_01A0) }
+    if (var(VAR_TEMP_x4007) == 2) { goto(_01DA) }
+    if (var(VAR_TEMP_x4007) == 3) { goto(_0214) }
+    goto(_024E)
+    end
+_03C5:
+    npcmsg(msg_0139_D49R0102_00005)
+    goto(_0071)
+    end
+_03D0:
+    npcmsg(msg_0139_D49R0102_00017)
+    goto(_0071)
+    end
+_03DB:
+    npcmsg(msg_0139_D49R0102_00016)
+    waitbuttonpress
+    closemessage
+    touchscreenmenushow
+    stopbgm(0)
+    resetbgm
+    processsoundplate
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 500) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00025)
+    } else {
+        npcmsg(msg_0139_D49R0102_00024)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 51) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00027)
+    } else {
+        npcmsg(msg_0139_D49R0102_00026)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 150) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00029)
+    } else {
+        npcmsg(msg_0139_D49R0102_00028)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 1000) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00031)
+    } else {
+        npcmsg(msg_0139_D49R0102_00030)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 10001) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00033)
+    } else {
+        npcmsg(msg_0139_D49R0102_00032)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 75) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00035)
+    } else {
+        npcmsg(msg_0139_D49R0102_00034)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 26) {
+        bufferplayersname(0)
+        gendermsgbox(msg_0139_D49R0102_00037, msg_0139_D49R0102_00038)
+    } else {
+        npcmsg(msg_0139_D49R0102_00036)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 20001) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00040)
+    } else {
+        npcmsg(msg_0139_D49R0102_00039)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 800) {
+        npcmsg(msg_0139_D49R0102_00043)
+    } else {
+        npcmsg(msg_0139_D49R0102_00041)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 800) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00046)
+    } else {
+        npcmsg(msg_0139_D49R0102_00045)
+    }
+    closemessage
+    applymovement(obj_D49R0102_gsmiddleman1, PokeathlonDome_Interior_2F_Movement_0610)
+    waitmovement
+    if (var(VAR_TEMP_x4000) >= 800) {
+        npcmsg(msg_0139_D49R0102_00044)
+    } else {
+        npcmsg(msg_0139_D49R0102_00042)
+    }
+    closemessage
+    applymovement(obj_D49R0102_gsmiddleman1, PokeathlonDome_Interior_2F_Movement_0618)
+    waitmovement
+    releaseall
+    end
+}
+
+movement PokeathlonDome_Interior_2F_Movement_0610 {
+    walk_in_place_right
+}
+
+movement PokeathlonDome_Interior_2F_Movement_0618 {
+    walk_in_place_up
+}
+
+script scr_seq_D49R0102_011 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 201) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00048)
+    } else {
+        npcmsg(msg_0139_D49R0102_00047)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_012 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 250) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00050)
+    } else {
+        npcmsg(msg_0139_D49R0102_00049)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_013 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) >= 101) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00052)
+    } else {
+        npcmsg(msg_0139_D49R0102_00051)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_014 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    playcry(SPECIES_RATTATA, 0)
+    if (var(VAR_TEMP_x4000) >= 15000) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00019)
+    } else {
+        npcmsg(msg_0139_D49R0102_00018)
+    }
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_015 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    playcry(SPECIES_MACHOP, 0)
+    if (var(VAR_TEMP_x4000) >= 15000) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00021)
+    } else {
+        npcmsg(msg_0139_D49R0102_00020)
+    }
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D49R0102_016 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getpokeathlonstat(11, VAR_TEMP_x4000)
+    playcry(SPECIES_BUTTERFREE, 0)
+    if (var(VAR_TEMP_x4000) >= 15000) {
+        bufferplayersname(0)
+        npcmsg(msg_0139_D49R0102_00023)
+    } else {
+        npcmsg(msg_0139_D49R0102_00022)
+    }
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts PokeathlonDome_Interior_2F_MapScripts {
+}

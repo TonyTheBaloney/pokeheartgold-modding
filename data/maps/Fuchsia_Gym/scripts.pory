@@ -1,0 +1,462 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T08GYM0101_000
+	ScrDef scr_seq_T08GYM0101_001
+	ScrDef scr_seq_T08GYM0101_002
+	ScrDef scr_seq_T08GYM0101_003
+	ScrDef scr_seq_T08GYM0101_004
+	ScrDef scr_seq_T08GYM0101_005
+	ScrDef scr_seq_T08GYM0101_006
+	ScrDef scr_seq_T08GYM0101_007
+	ScrDef scr_seq_T08GYM0101_008
+	ScrDefEnd
+`
+
+script scr_seq_T08GYM0101_000 {
+    fuchsiagyminit
+    getphonebookrematch(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_FUCHSIA_GYM_JANINE)
+        end
+    }
+    checkregisteredphonenumber(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_00AF) }
+    checkbadge(BADGE_SOUL, VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 0) { goto(_006D) }
+    goto(_00E9)
+    goto(_0073)
+_006D:
+    goto(_0075)
+_0073:
+    end
+_0075:
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 16) {
+        setflag(FLAG_HIDE_FUCHSIA_GYM_JANINE)
+    } elif (var(VAR_TEMP_x4000) == 17) {
+        setflag(FLAG_HIDE_FUCHSIA_GYM_JANINE)
+    } else {
+        goto(_00E9)
+    }
+    end
+_00AF:
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 18) {
+        setflag(FLAG_HIDE_FUCHSIA_GYM_JANINE)
+    } elif (var(VAR_TEMP_x4000) == 19) {
+        setflag(FLAG_HIDE_FUCHSIA_GYM_JANINE)
+    } else {
+        goto(_00E9)
+    }
+    end
+_00E9:
+    clearflag(FLAG_HIDE_FUCHSIA_GYM_JANINE)
+    end
+}
+
+script scr_seq_T08GYM0101_008 {
+    if (var(VAR_TEMP_x400B) == 111) {
+        callifnotdefeated(TRAINER_LASS_LINDA, _0130)
+        callifnotdefeated(TRAINER_CAMPER_BARRY, _0142)
+        callifnotdefeated(TRAINER_LASS_ALICE, _0154)
+        callifnotdefeated(TRAINER_PICNICKER_CINDY, _0166)
+    }
+    end
+_0130:
+    clearflag(FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_REVEALED)
+    addobject(obj_T08GYM0101_gsgirl1)
+    setflag(FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_DISGUISED)
+    removeobject(obj_T08GYM0101_gsleader13_4)
+    return
+_0142:
+    clearflag(FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_REVEALED)
+    addobject(obj_T08GYM0101_campboy_2)
+    setflag(FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_DISGUISED)
+    removeobject(obj_T08GYM0101_gsleader13_3)
+    return
+_0154:
+    clearflag(FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_REVEALED)
+    addobject(obj_T08GYM0101_gsgirl1_2)
+    setflag(FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_DISGUISED)
+    removeobject(obj_T08GYM0101_gsleader13_5)
+    return
+_0166:
+    clearflag(FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_REVEALED)
+    addobject(obj_T08GYM0101_picnicgirl_2)
+    setflag(FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_DISGUISED)
+    removeobject(obj_T08GYM0101_gsleader13_2)
+    return
+}
+
+script scr_seq_T08GYM0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!defeated(TRAINER_LASS_LINDA)) {
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_0620)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_05E4)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_0604)
+        } else {
+            applymovement(obj_T08GYM0101_gsleader13_4, Fuchsia_Gym_Movement_0638)
+        }
+        waitmovement
+        clearflag(FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_REVEALED)
+        addobject(obj_T08GYM0101_gsgirl1)
+        setflag(FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_DISGUISED)
+        removeobject(obj_T08GYM0101_gsleader13_4)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_0698)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_065C)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_0680)
+        } else {
+            applymovement(obj_T08GYM0101_gsgirl1, Fuchsia_Gym_Movement_06B4)
+        }
+        waitmovement
+        npcmsg(msg_0514_T08GYM0101_00007)
+        closemessage
+        trainerbattle(TRAINER_LASS_LINDA, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            whiteout
+            releaseall
+            setflag(FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_REVEALED)
+            clearflag(FLAG_HIDE_FUCHSIA_GYM_LASS_LINDA_DISGUISED)
+            end
+        }
+        settrainerflag(TRAINER_LASS_LINDA)
+    }
+    npcmsg(msg_0514_T08GYM0101_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T08GYM0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!defeated(TRAINER_CAMPER_BARRY)) {
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_0620)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_05E4)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_0604)
+        } else {
+            applymovement(obj_T08GYM0101_gsleader13_3, Fuchsia_Gym_Movement_0638)
+        }
+        waitmovement
+        clearflag(FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_REVEALED)
+        addobject(obj_T08GYM0101_campboy_2)
+        setflag(FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_DISGUISED)
+        removeobject(obj_T08GYM0101_gsleader13_3)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_0698)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_065C)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_0680)
+        } else {
+            applymovement(obj_T08GYM0101_campboy_2, Fuchsia_Gym_Movement_06B4)
+        }
+        waitmovement
+        npcmsg(msg_0514_T08GYM0101_00009)
+        closemessage
+        trainerbattle(TRAINER_CAMPER_BARRY, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            whiteout
+            releaseall
+            setflag(FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_REVEALED)
+            clearflag(FLAG_HIDE_FUCHSIA_GYM_CAMPER_BARRY_DISGUISED)
+            end
+        }
+        settrainerflag(TRAINER_CAMPER_BARRY)
+    }
+    npcmsg(msg_0514_T08GYM0101_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T08GYM0101_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!defeated(TRAINER_LASS_ALICE)) {
+        npcmsg(msg_0514_T08GYM0101_00011)
+        closemessage
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_0620)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_05E4)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_0604)
+        } else {
+            applymovement(obj_T08GYM0101_gsleader13_5, Fuchsia_Gym_Movement_0638)
+        }
+        waitmovement
+        clearflag(FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_REVEALED)
+        addobject(obj_T08GYM0101_gsgirl1_2)
+        setflag(FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_DISGUISED)
+        removeobject(obj_T08GYM0101_gsleader13_5)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_0698)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_065C)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_0680)
+        } else {
+            applymovement(obj_T08GYM0101_gsgirl1_2, Fuchsia_Gym_Movement_06B4)
+        }
+        waitmovement
+        npcmsg(msg_0514_T08GYM0101_00012)
+        closemessage
+        trainerbattle(TRAINER_LASS_ALICE, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            whiteout
+            releaseall
+            setflag(FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_REVEALED)
+            clearflag(FLAG_HIDE_FUCHSIA_GYM_LASS_ALICE_DISGUISED)
+            end
+        }
+        settrainerflag(TRAINER_LASS_ALICE)
+    }
+    npcmsg(msg_0514_T08GYM0101_00013)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T08GYM0101_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!defeated(TRAINER_PICNICKER_CINDY)) {
+        npcmsg(msg_0514_T08GYM0101_00014)
+        closemessage
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_0620)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_05E4)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_0604)
+        } else {
+            applymovement(obj_T08GYM0101_gsleader13_2, Fuchsia_Gym_Movement_0638)
+        }
+        waitmovement
+        clearflag(FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_REVEALED)
+        addobject(obj_T08GYM0101_picnicgirl_2)
+        setflag(FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_DISGUISED)
+        removeobject(obj_T08GYM0101_gsleader13_2)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_0698)
+        } elif (var(VAR_SPECIAL_RESULT) == 1) {
+            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_065C)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_0680)
+        } else {
+            applymovement(obj_T08GYM0101_picnicgirl_2, Fuchsia_Gym_Movement_06B4)
+        }
+        waitmovement
+        npcmsg(msg_0514_T08GYM0101_00015)
+        closemessage
+        trainerbattle(TRAINER_PICNICKER_CINDY, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            whiteout
+            releaseall
+            setflag(FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_REVEALED)
+            clearflag(FLAG_HIDE_FUCHSIA_GYM_PICNICKER_CINDY_DISGUISED)
+            end
+        }
+        settrainerflag(TRAINER_PICNICKER_CINDY)
+    }
+    npcmsg(msg_0514_T08GYM0101_00016)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Fuchsia_Gym_Movement_05E4 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+movement Fuchsia_Gym_Movement_0604 {
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+movement Fuchsia_Gym_Movement_0620 {
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+movement Fuchsia_Gym_Movement_0638 {
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+movement Fuchsia_Gym_Movement_065C {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+}
+
+movement Fuchsia_Gym_Movement_0680 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+}
+
+movement Fuchsia_Gym_Movement_0698 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+movement Fuchsia_Gym_Movement_06B4 {
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+}
+
+script scr_seq_T08GYM0101_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_SOUL, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0778) }
+    npcmsg(msg_0514_T08GYM0101_00000)
+    closemessage
+    setvar(VAR_TEMP_x400B, 111)
+    trainerbattle(TRAINER_LEADER_JANINE_JANINE, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    setvar(VAR_TEMP_x400B, 0)
+    givebadge(BADGE_SOUL)
+    addvar(VAR_UNK_4135, 1)
+    addspecialgamestat(SCORE_EVENT_BADGE_GET)
+    settrainerflag(TRAINER_PICNICKER_CINDY)
+    settrainerflag(TRAINER_CAMPER_BARRY)
+    settrainerflag(TRAINER_LASS_LINDA)
+    settrainerflag(TRAINER_LASS_ALICE)
+    npcmsg(msg_0514_T08GYM0101_00001)
+    bufferplayersname(0)
+    npcmsg(msg_0514_T08GYM0101_00002)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    npcmsg(msg_0514_T08GYM0101_00003)
+    goto(_074F)
+_074F:
+    if (!itemspace(ITEM_TM84, 1)) {
+        callstd(std_bag_is_full)
+        closemessage
+        releaseall
+        end
+    }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_TM84_FROM_JANINE)
+_0778:
+    if (!flag(FLAG_GOT_TM84_FROM_JANINE)) { goto(_074F) }
+    npcmsg(msg_0514_T08GYM0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T08GYM0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_SOUL, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0514_T08GYM0101_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0514_T08GYM0101_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T08GYM0101_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_SOUL, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0514_T08GYM0101_00017)
+    } else {
+        npcmsg(msg_0514_T08GYM0101_00018)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Fuchsia_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T08GYM0101_000
+    INIT_SCRIPT_ON_LOAD: scr_seq_T08GYM0101_008
+}

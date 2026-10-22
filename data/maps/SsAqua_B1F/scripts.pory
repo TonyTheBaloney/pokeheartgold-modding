@@ -1,0 +1,180 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_P01R0307_000
+	ScrDef scr_seq_P01R0307_001
+	ScrDef scr_seq_P01R0307_002
+	ScrDef scr_seq_P01R0307_003
+	ScrDefEnd
+`
+
+script scr_seq_P01R0307_002 {
+    if (var(VAR_SCENE_SS_AQUA) == 4) {
+        clearflag(FLAG_UNK_219)
+    } else {
+        setflag(FLAG_UNK_219)
+    }
+    end
+}
+
+script scr_seq_P01R0307_001 {
+    followmonresetmovement
+    lockall
+    setflag(FLAG_UNK_0ED)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 19) {
+        applymovement(obj_P01R0307_seaman_2, SsAqua_B1F_Movement_00E4)
+        if (var(VAR_TEMP_x4002) != 0) {
+            applymovement(obj_partner_poke, SsAqua_B1F_Movement_0114)
+        }
+        applymovement(obj_player, SsAqua_B1F_Movement_0104)
+        waitmovement
+        npcmsg(msg_0263_P01R0307_00000)
+        closemessage
+        applymovement(obj_P01R0307_seaman_2, SsAqua_B1F_Movement_00F4)
+        waitmovement
+        releaseall
+        end
+    }
+    applymovement(obj_P01R0307_seaman_2, SsAqua_B1F_Movement_00C4)
+    followmonisactive(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 0) {
+        applymovement(obj_partner_poke, SsAqua_B1F_Movement_0114)
+    }
+    applymovement(obj_player, SsAqua_B1F_Movement_0104)
+    waitmovement
+    npcmsg(msg_0263_P01R0307_00000)
+    closemessage
+    applymovement(obj_P01R0307_seaman_2, SsAqua_B1F_Movement_00D4)
+    waitmovement
+    releaseall
+    end
+}
+
+movement SsAqua_B1F_Movement_00C4 {
+    face_up * 2
+    walk_up
+    face_left * 2
+}
+
+movement SsAqua_B1F_Movement_00D4 {
+    face_down * 2
+    walk_down
+    face_left * 2
+}
+
+movement SsAqua_B1F_Movement_00E4 {
+    face_down * 2
+    walk_down
+    face_left * 2
+}
+
+movement SsAqua_B1F_Movement_00F4 {
+    face_up * 2
+    walk_up
+    face_left * 2
+}
+
+movement SsAqua_B1F_Movement_0104 {
+    lock_dir
+    walk_left
+    unlock_dir
+}
+
+movement SsAqua_B1F_Movement_0114 {
+    lock_dir
+    walk_left
+    unlock_dir
+}
+
+script scr_seq_P01R0307_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_SS_AQUA) >= 3) {
+        npcmsg(msg_0263_P01R0307_00002)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0263_P01R0307_00001)
+    waitbuttonpress
+    closemessage
+    setflag(FLAG_UNK_0ED)
+    releaseall
+    end
+}
+
+script scr_seq_P01R0307_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    applymovement(obj_P01R0307_gsbabygirl1, SsAqua_B1F_Movement_020C)
+    waitmovement
+    followmonisactive(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 0) {
+        togglefollowingpokemonmovement(0)
+        waitfollowingpokemonmovement
+        followingpokemonmovement(56)
+    }
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, SsAqua_B1F_Movement_0218)
+        applymovement(obj_P01R0307_gsbabygirl1, SsAqua_B1F_Movement_0238)
+    } else {
+        applymovement(obj_player, SsAqua_B1F_Movement_0228)
+        applymovement(obj_P01R0307_gsbabygirl1, SsAqua_B1F_Movement_0244)
+    }
+    waitmovement
+    if (var(VAR_TEMP_x4002) != 0) {
+        waitfollowingpokemonmovement
+        togglefollowingpokemonmovement(1)
+        followingpokemonmovement(48)
+    }
+    npcmsg(msg_0263_P01R0307_00006)
+    closemessage
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    setvar(VAR_SCENE_SS_AQUA, 5)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_SS_AQUA_1F_NORTHWEST_ROOMS, 0, 9, 10, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement SsAqua_B1F_Movement_020C {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement SsAqua_B1F_Movement_0218 {
+    lock_dir
+    walk_slow_up
+    unlock_dir
+}
+
+movement SsAqua_B1F_Movement_0228 {
+    lock_dir
+    walk_slow_right * 2
+    unlock_dir
+}
+
+movement SsAqua_B1F_Movement_0238 {
+    face_up * 2
+    walk_slow_up
+}
+
+movement SsAqua_B1F_Movement_0244 {
+    face_right * 2
+    walk_slow_right * 2
+}
+
+mapscripts SsAqua_B1F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_P01R0307_002
+}

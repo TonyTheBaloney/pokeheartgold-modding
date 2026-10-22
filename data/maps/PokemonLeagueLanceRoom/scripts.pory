@@ -1,0 +1,278 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T10R0601_000
+	ScrDef scr_seq_T10R0601_001
+	ScrDef scr_seq_T10R0601_002
+	ScrDefEnd
+`
+
+script scr_seq_T10R0601_001 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_0048)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    playse(SEQ_SE_DP_KI_GASYAN)
+    clearflag(FLAG_UNK_210)
+    addobject(obj_T10R0601_babyboy1_11)
+    setvar(VAR_UNK_40C8, 1)
+    releaseall
+    end
+}
+
+movement PokemonLeagueLanceRoom_Movement_0048 {
+    walk_up * 6
+}
+
+script scr_seq_T10R0601_002 {
+    setflag(FLAG_UNK_210)
+    setvar(VAR_UNK_40C8, 0)
+    end
+}
+
+script scr_seq_T10R0601_000 {
+    followmonresetmovement
+    lockall
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 5) {
+        applymovement(obj_player, PokemonLeagueLanceRoom_Movement_0298)
+    } elif (var(VAR_TEMP_x4000) == 6) {
+        applymovement(obj_player, PokemonLeagueLanceRoom_Movement_02A8)
+    } else {
+        applymovement(obj_player, PokemonLeagueLanceRoom_Movement_02B0)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_02C0)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0527_T10R0601_00000, msg_0527_T10R0601_00001)
+    closemessage
+    if (var(VAR_UNK_4135) >= 8) {
+        trainerbattle(TRAINER_CHAMPION_LANCE_2, 0, 0, 0)
+    } else {
+        trainerbattle(TRAINER_CHAMPION_LANCE, 0, 0, 0)
+    }
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    bufferplayersname(0)
+    gendermsgbox(msg_0527_T10R0601_00002, msg_0527_T10R0601_00003)
+    closemessage
+    wait(10, VAR_SPECIAL_x8004)
+    playse(SEQ_SE_DP_KI_GASYAN)
+    removeobject(obj_T10R0601_leag_door2)
+    movepersonfacing(obj_T10R0601_kurumi, 6, 0, 20, DIR_NORTH)
+    movepersonfacing(obj_T10R0601_ookido, 6, 0, 17, DIR_NORTH)
+    wait(30, VAR_SPECIAL_x8004)
+    stopbgm(0)
+    playbgm(SEQ_GS_EYE_J_SHOUJO)
+    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_02C8)
+    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_02E0)
+    waitmovement
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        if (var(VAR_TEMP_x4000) == 5) {
+            applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_02F8)
+        } elif (var(VAR_TEMP_x4000) == 6) {
+            applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_0308)
+        } else {
+            applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_0320)
+        }
+        waitmovement
+    }
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_0338)
+    waitmovement
+    npcmsg(msg_0527_T10R0601_00005)
+    closemessage
+    applymovement(obj_T10R0601_ookido, PokemonLeagueLanceRoom_Movement_0348)
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_0350)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0527_T10R0601_00006, msg_0527_T10R0601_00007)
+    closemessage
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_0360)
+    waitmovement
+    npcmsg(msg_0527_T10R0601_00008)
+    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_0368)
+    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_0378)
+    waitmovement
+    bufferplayersname(0)
+    gendermsgbox(msg_0527_T10R0601_00009, msg_0527_T10R0601_00010)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_T10R0601_wataru, PokemonLeagueLanceRoom_Movement_0384)
+    applymovement(obj_player, PokemonLeagueLanceRoom_Movement_0394)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 0) {
+        applymovement(obj_partner_poke, PokemonLeagueLanceRoom_Movement_03A4)
+        waitmovement
+    }
+    playse(SEQ_SE_DP_KAIDAN2)
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_03AC)
+    waitmovement
+    npcmsg(msg_0527_T10R0601_00011)
+    applymovement(obj_T10R0601_kurumi, PokemonLeagueLanceRoom_Movement_03BC)
+    waitmovement
+    waitabpress
+    closemessage
+    if (!flag(FLAG_GAME_CLEAR)) {
+        clearflag(FLAG_HIDE_OLIVINE_PORT_OAK)
+        setvar(VAR_UNK_411A, 1)
+    }
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    warp(MAP_POKEMON_LEAGUE_HALL_OF_FAME, 0, 6, 22, DIR_NORTH)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+movement PokemonLeagueLanceRoom_Movement_0298 {
+    walk_up * 2
+    walk_right
+    walk_in_place_up
+}
+
+movement PokemonLeagueLanceRoom_Movement_02A8 {
+    walk_up * 2
+}
+
+movement PokemonLeagueLanceRoom_Movement_02B0 {
+    walk_up * 2
+    walk_left
+    walk_in_place_up
+}
+
+movement PokemonLeagueLanceRoom_Movement_02C0 {
+    walk_in_place_down
+}
+
+movement PokemonLeagueLanceRoom_Movement_02C8 {
+    face_down
+    emote_exclamation_mark * 0
+    lock_dir
+    walk_right
+    unlock_dir
+}
+
+movement PokemonLeagueLanceRoom_Movement_02E0 {
+    face_down
+    delay_8 * 4
+    lock_dir
+    walk_up * 2
+    unlock_dir
+}
+
+movement PokemonLeagueLanceRoom_Movement_02F8 {
+    walk_fast_up * 3
+    walk_fast_right
+    walk_in_place_down
+}
+
+movement PokemonLeagueLanceRoom_Movement_0308 {
+    walk_fast_up * 2
+    walk_fast_left
+    walk_fast_up * 2
+    walk_fast_right
+    walk_in_place_down
+}
+
+movement PokemonLeagueLanceRoom_Movement_0320 {
+    walk_fast_up
+    walk_fast_right
+    walk_fast_up * 2
+    walk_fast_left * 2
+    walk_in_place_down
+}
+
+movement PokemonLeagueLanceRoom_Movement_0338 {
+    walk_fast_up * 12
+    face_down
+    walk_in_place_fast_down * 3
+}
+
+movement PokemonLeagueLanceRoom_Movement_0348 {
+    walk_up * 8
+}
+
+movement PokemonLeagueLanceRoom_Movement_0350 {
+    delay_8 * 6
+    walk_left
+    face_up
+}
+
+movement PokemonLeagueLanceRoom_Movement_0360 {
+    walk_in_place_fast_up * 4
+}
+
+movement PokemonLeagueLanceRoom_Movement_0368 {
+    walk_up * 2
+    walk_left
+    face_down
+}
+
+movement PokemonLeagueLanceRoom_Movement_0378 {
+    delay_8 * 3
+    face_up
+}
+
+movement PokemonLeagueLanceRoom_Movement_0384 {
+    delay_4
+    walk_up * 2
+    set_invisible
+}
+
+movement PokemonLeagueLanceRoom_Movement_0394 {
+    walk_up * 2
+    walk_up * 2
+    set_invisible
+}
+
+movement PokemonLeagueLanceRoom_Movement_03A4 {
+    set_invisible
+}
+
+movement PokemonLeagueLanceRoom_Movement_03AC {
+    walk_fast_up * 4
+    emote_exclamation_mark * 0
+    delay_8 * 2
+}
+
+movement PokemonLeagueLanceRoom_Movement_03BC {
+    walk_fast_right
+    walk_fast_left * 2
+    walk_fast_right * 2
+    walk_fast_left
+    face_up
+}
+
+mapscripts PokemonLeagueLanceRoom_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_40C8, 0: scr_seq_T10R0601_001
+    ]
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T10R0601_002
+}

@@ -1,0 +1,100 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R28R0101_000
+	ScrDef scr_seq_R28R0101_001
+	ScrDef scr_seq_R28R0101_002
+	ScrDefEnd
+`
+
+script scr_seq_R28R0101_002 {
+    applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0020)
+    waitmovement
+    setvar(VAR_UNK_4126, 1)
+    end
+}
+
+movement Route28_House_Movement_0020 {
+    face_down
+    emote_exclamation_mark
+}
+
+script scr_seq_R28R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_GOT_TM47_FROM_ROUTE_28_CELEBRITY)) {
+        faceplayer
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0140)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_014C)
+        } elif (var(VAR_SPECIAL_RESULT) == 3) {
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0158)
+        } else {
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0164)
+        }
+        waitmovement
+        npcmsg(msg_0372_R28R0101_00000)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0164)
+        } elif (var(VAR_SPECIAL_RESULT) == 2) {
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0158)
+        } elif (var(VAR_SPECIAL_RESULT) == 3) {
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_014C)
+        } else {
+            applymovement(obj_R28R0101_gsgirl1, Route28_House_Movement_0140)
+        }
+        waitmovement
+        npcmsg(msg_0372_R28R0101_00001)
+        if (!itemspace(ITEM_TM47, 1)) {
+            callstd(std_bag_is_full)
+            closemessage
+            releaseall
+            end
+        }
+        callstd(std_give_item_verbose)
+        setflag(FLAG_GOT_TM47_FROM_ROUTE_28_CELEBRITY)
+    }
+    npcmsg(msg_0372_R28R0101_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route28_House_Movement_0140 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Route28_House_Movement_014C {
+    delay_8
+    walk_in_place_left
+}
+
+movement Route28_House_Movement_0158 {
+    delay_8
+    walk_in_place_right
+}
+
+movement Route28_House_Movement_0164 {
+    delay_8
+    walk_in_place_down
+}
+
+script scr_seq_R28R0101_001 {
+    playcry(SPECIES_FEAROW, 0)
+    simplenpcmsg(msg_0372_R28R0101_00003)
+    waitcry
+    end
+}
+
+mapscripts Route28_House_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4126, 0: scr_seq_R28R0101_002
+    ]
+}

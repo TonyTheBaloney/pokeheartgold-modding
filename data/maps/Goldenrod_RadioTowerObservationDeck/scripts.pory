@@ -1,0 +1,201 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D23R0106_000 {
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+    setvar(VAR_UNK_4125, 0)
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        clearflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+        clearflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+    }
+    end
+}
+
+script scr_seq_D23R0106_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0070_D23R0106_00000)
+    closemessage
+    trainerbattle(TRAINER_EXECUTIVE_ARCHER_ARCHER, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    _0263:
+        getpersoncoords(253, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+        if (var(VAR_SPECIAL_x8004) == 7) {
+            wait(112, VAR_SPECIAL_RESULT)
+            applymovement(obj_partner_poke, Goldenrod_RadioTowerObservationDeck_Movement_02DC)
+        }
+        return
+    }
+    npcmsg(msg_0070_D23R0106_00001)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    removeobject(obj_D23R0106_rkanbum)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    clearflag(FLAG_ROCKET_TAKEOVER_ACTIVE)
+    fadeoutbgm(0, 30)
+    stopbgm(0)
+    wait(15, VAR_SPECIAL_RESULT)
+    resetbgm
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    movepersonfacing(obj_D23R0106_gsgentleman, 8, 1, 12, DIR_SOUTH)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) == 7) {
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0288)
+    } elif (var(VAR_TEMP_x4000) == 8) {
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_02A4)
+        followmonisactive(VAR_SPECIAL_RESULT)
+        compare(VAR_SPECIAL_RESULT, 1)
+        callifeq(_0263)
+    } elif (var(VAR_TEMP_x4000) == 9) {
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_02C0)
+    }
+    waitmovement
+    if (var(VAR_TEMP_x4000) == 8) {
+        applymovement(obj_player, Goldenrod_RadioTowerObservationDeck_Movement_02EC)
+    }
+    waitmovement
+    npcmsg(msg_0070_D23R0106_00002)
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        giveitemnocheck(ITEM_RAINBOW_WING, 1)
+        setflag(FLAG_UNK_093)
+        npcmsg(msg_0070_D23R0106_00005)
+        closemessage
+    } else {
+        giveitemnocheck(ITEM_SILVER_WING, 1)
+        setflag(FLAG_UNK_094)
+        npcmsg(msg_0070_D23R0106_00006)
+        closemessage
+    }
+    if (var(VAR_TEMP_x4000) == 7) {
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_02F4)
+    } elif (var(VAR_TEMP_x4000) == 8) {
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0304)
+    } elif (var(VAR_TEMP_x4000) == 9) {
+        applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0314)
+    }
+    waitmovement
+    applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0324)
+    waitmovement
+    applymovement(obj_player, Goldenrod_RadioTowerObservationDeck_Movement_02EC)
+    waitmovement
+    getgameversion(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 7) {
+        npcmsg(msg_0070_D23R0106_00007)
+    } else {
+        npcmsg(msg_0070_D23R0106_00008)
+    }
+    closemessage
+    applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_032C)
+    waitmovement
+    npcmsg(msg_0070_D23R0106_00009)
+    closemessage
+    applymovement(obj_D23R0106_gsgentleman, Goldenrod_RadioTowerObservationDeck_Movement_0344)
+    waitmovement
+    playse(SEQ_SE_DP_DOOR10)
+    waitse(SEQ_SE_DP_DOOR10)
+    wait(8, VAR_SPECIAL_RESULT)
+    removeobject(obj_D23R0106_gsgentleman)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    releaseall
+    setvar(VAR_SCENE_ROCKET_TAKEOVER, 5)
+    setflag(FLAG_BEAT_RADIO_TOWER_ROCKETS)
+    clearflag(FLAG_HIDE_RADIO_TOWER_5F_OFFICE_DIRECTOR)
+    setflag(FLAG_HIDE_RADIO_TOWER_5F_PETREL_REVEALED)
+    if (var(VAR_UNK_40F8) == 2) {
+        setvar(VAR_UNK_40F8, 0)
+    }
+    setvar(VAR_UNK_407A, 1)
+    clearflag(FLAG_HIDE_MAHOGANY_SHOP_SALESWOMAN)
+    setflag(FLAG_HIDE_BLACKTHORN_GYM_GUARD_INFRONT)
+    clearflag(FLAG_HIDE_BLACKTHORN_GYM_GUARD_ASIDE)
+    setflag(FLAG_UNK_998)
+    setflag(FLAG_UNK_97D)
+    end
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_0288 {
+    walk_down
+    walk_left * 4
+    walk_up * 7
+    walk_right * 4
+    walk_up * 3
+    walk_in_place_left
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_02A4 {
+    walk_down
+    walk_left * 4
+    walk_up * 7
+    walk_right * 3
+    walk_up * 2
+    walk_in_place_right
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_02C0 {
+    walk_down
+    walk_left * 4
+    walk_up * 7
+    walk_right * 4
+    walk_up * 3
+    walk_in_place_right
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_02DC {
+    walk_up
+    walk_right
+    walk_in_place_down
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_02EC {
+    walk_in_place_left
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_02F4 {
+    walk_down * 3
+    walk_left * 4
+    emote_exclamation_mark
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_0304 {
+    walk_down * 2
+    walk_left * 3
+    emote_exclamation_mark
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_0314 {
+    walk_down * 3
+    walk_left * 4
+    emote_exclamation_mark
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_0324 {
+    walk_right
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_032C {
+    walk_left
+    walk_down
+    emote_exclamation_mark
+    delay_8 * 3
+    walk_in_place_up
+}
+
+movement Goldenrod_RadioTowerObservationDeck_Movement_0344 {
+    walk_down * 6
+    walk_right * 4
+}
+
+mapscripts Goldenrod_RadioTowerObservationDeck_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0106_000
+}

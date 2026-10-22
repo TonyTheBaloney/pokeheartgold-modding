@@ -1,0 +1,195 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T25GYM0101_000
+	ScrDef scr_seq_T25GYM0101_001
+	ScrDef scr_seq_T25GYM0101_002
+	ScrDef scr_seq_T25GYM0101_003
+	ScrDef scr_seq_T25GYM0101_004
+	ScrDefEnd
+`
+
+script scr_seq_T25GYM0101_004 {
+    getphonebookrematch(PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        setflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
+        end
+    }
+    if (!flag(FLAG_GAME_CLEAR)) { goto(_0100) }
+    checkregisteredphonenumber(PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) { goto(_00AF) }
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 12) {
+        setflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
+    } elif (var(VAR_TEMP_x4000) == 13) {
+        setflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
+    } elif (var(VAR_TEMP_x4000) == 14) {
+        setflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
+    } elif (var(VAR_TEMP_x4000) == 15) {
+        setflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
+    } else {
+        goto(_0100)
+    }
+    end
+_00AF:
+    getcurrenthour(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 18) {
+        setflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
+    } elif (var(VAR_TEMP_x4000) == 19) {
+        setflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
+    } elif (var(VAR_TEMP_x4000) == 20) {
+        setflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
+    } else {
+        goto(_0100)
+    }
+    end
+_0100:
+    clearflag(FLAG_HIDE_GOLDENROD_GYM_WHITNEY)
+    end
+}
+
+script scr_seq_T25GYM0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_PLAIN, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        if (!flag(FLAG_GOT_TM45_FROM_WHITNEY)) { goto(_01C4) }
+        npcmsg(msg_0582_T25GYM0101_00008)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_UNK_0B7)) { goto(_01A0) }
+    if (var(VAR_UNK_410A) != 1) {
+        npcmsg(msg_0582_T25GYM0101_00000)
+        closemessage
+        trainerbattle(TRAINER_LEADER_WHITNEY, 0, 0, 0)
+        checkbattlewon(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            whiteout
+            releaseall
+            end
+        }
+        settrainerflag(TRAINER_LASS_CARRIE)
+        settrainerflag(TRAINER_LASS_CATHY)
+        settrainerflag(TRAINER_BEAUTY_VICTORIA)
+        settrainerflag(TRAINER_BEAUTY_SAMANTHA)
+        addspecialgamestat(SCORE_EVENT_BADGE_GET)
+        movepersonfacing(obj_T25GYM0101_gsgirl1, 13, 0, 15, DIR_NORTH)
+    }
+    npcmsg(msg_0582_T25GYM0101_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    setvar(VAR_UNK_410A, 1)
+    setflag(FLAG_UNK_084)
+    setvar(VAR_UNK_40DA, 1)
+    clearflag(FLAG_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_UNLOCKED)
+    setflag(FLAG_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_LOCKED)
+    end
+_01A0:
+    npcmsg(msg_0582_T25GYM0101_00003)
+    bufferplayersname(0)
+    npcmsg(msg_0582_T25GYM0101_00004)
+    playfanfare(SEQ_ME_BADGE)
+    waitfanfare
+    givebadge(BADGE_PLAIN)
+    setvar(VAR_UNK_410A, 2)
+    clearflag(FLAG_UNK_084)
+    setflag(FLAG_UNK_998)
+    npcmsg(msg_0582_T25GYM0101_00005)
+_01C4:
+    if (!itemspace(ITEM_TM45, 1)) { goto(_01F8) }
+    callstd(std_give_item_verbose)
+    npcmsg(msg_0582_T25GYM0101_00007)
+    waitbuttonpress
+    closemessage
+    setflag(FLAG_GOT_TM45_FROM_WHITNEY)
+    releaseall
+    end
+_01F8:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25GYM0101_001 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_T25GYM0101_gsgirl1, Goldenrod_Gym_Movement_0260)
+    waitmovement
+    npcmsg(msg_0582_T25GYM0101_00009)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_T25GYM0101_gsgirl1, Goldenrod_Gym_Movement_026C)
+    applymovement(obj_player, Goldenrod_Gym_Movement_0278)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    setflag(FLAG_UNK_0B7)
+    releaseall
+    end
+}
+
+movement Goldenrod_Gym_Movement_0260 {
+    emote_exclamation_mark
+    walk_up * 3
+}
+
+movement Goldenrod_Gym_Movement_026C {
+    walk_down * 3
+    walk_in_place_up
+}
+
+movement Goldenrod_Gym_Movement_0278 {
+    delay_8
+    walk_up
+}
+
+script scr_seq_T25GYM0101_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_PLAIN, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0582_T25GYM0101_00011)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0582_T25GYM0101_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T25GYM0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkbadge(BADGE_PLAIN, VAR_SPECIAL_RESULT)
+    bufferplayersname(0)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0582_T25GYM0101_00012)
+    } else {
+        npcmsg(msg_0582_T25GYM0101_00013)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Goldenrod_Gym_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T25GYM0101_004
+}

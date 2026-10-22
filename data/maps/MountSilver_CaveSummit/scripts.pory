@@ -1,0 +1,59 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_D41R0108_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0126_D41R0108_00000)
+    closemessage
+    trainerbattle(TRAINER_PKMN_TRAINER_RED_RED, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    _009E:
+        setvar(VAR_UNK_4131, 1)
+        clearflag(FLAG_HIDE_OAKS_LAB_BULBASAUR_BALL)
+        clearflag(FLAG_HIDE_OAKS_LAB_CHARMANDER_BALL)
+        clearflag(FLAG_HIDE_OAKS_LAB_SQUIRTLE_BALL)
+        return
+    _00B2:
+        getpartycount(VAR_SPECIAL_x8004)
+        setvar(VAR_SPECIAL_x8005, 0)
+    _00BC:
+        getpartymonspecies(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 0) {
+            giveribbon(VAR_SPECIAL_x8005, RIBBON_LEGEND)
+        }
+        addvar(VAR_SPECIAL_x8005, 1)
+        if (var(VAR_SPECIAL_x8005) < VAR_SPECIAL_x8004) { goto(_00BC) }
+        return
+    }
+    npcmsg(msg_0126_D41R0108_00001)
+    wait(30, VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    closemessage
+    removeobject(obj_D41R0108_red)
+    setflag(FLAG_UNK_25F)
+    setvar(VAR_UNK_40FD, 1)
+    compare(VAR_UNK_4131, 0)
+    callifeq(_009E)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    call(_00B2)
+    wait(60, VAR_SPECIAL_RESULT)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    hofcredits(1)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+}
+
+mapscripts MountSilver_CaveSummit_MapScripts {
+}

@@ -1,0 +1,156 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D52R0101_000
+	ScrDef scr_seq_D52R0101_001
+	ScrDef scr_seq_D52R0101_002
+	ScrDefEnd
+`
+
+script scr_seq_D52R0101_001 {
+    if (var(VAR_SCENE_EMBEDDED_TOWER) >= 4) { goto(_007C) }
+    getgameversion(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) != 7) {
+        goto(_004A)
+    _003E:
+        end
+    _0040:
+        setflag(FLAG_HIDE_EMBEDDED_TOWER_GROUDON)
+        setflag(FLAG_HIDE_EMBEDDED_TOWER_GROUDON_HIKER)
+        end
+    _004A:
+        if (flag(FLAG_BEAT_OR_ESCAPED_FROM_GROUDON_OR_KYOGRE)) { goto(_007C) }
+        hasitem(ITEM_RED_ORB, 1, VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) >= 1) {
+            setflag(FLAG_HIDE_EMBEDDED_TOWER_GROUDON_HIKER)
+            clearflag(FLAG_HIDE_EMBEDDED_TOWER_GROUDON)
+            end
+        _007C:
+            end
+        }
+        goto(_0040)
+        end
+    }
+    goto(_0040)
+    goto(_003E)
+}
+
+script scr_seq_D52R0101_002 {
+    if (flag(FLAG_ENGAGING_STATIC_POKEMON)) {
+        setflag(FLAG_HIDE_EMBEDDED_TOWER_GROUDON)
+        removeobject(obj_D52R0101_tsure_poke_static_groudon)
+        clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+        end
+    }
+    end
+}
+
+script scr_seq_D52R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_GROUDON, 0)
+    npcmsg(msg_0148_D52R0101_00000)
+    waitcry
+    closemessage
+    setflag(FLAG_ENGAGING_STATIC_POKEMON)
+    wildbattle(SPECIES_GROUDON, 50, 0)
+    clearflag(FLAG_ENGAGING_STATIC_POKEMON)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    getstaticencounteroutcome(VAR_TEMP_x4002)
+    if (var(VAR_TEMP_x4002) != 3) {
+        if (var(VAR_TEMP_x4002) == 4) { goto(_00FB) }
+    }
+    npcmsg(msg_0148_D52R0101_00001)
+    waitbuttonpress
+    closemessage
+    setflag(FLAG_BEAT_OR_ESCAPED_FROM_GROUDON_OR_KYOGRE)
+    releaseall
+    end
+_00FB:
+    setvar(VAR_SCENE_EMBEDDED_TOWER, 4)
+    setflag(FLAG_CAUGHT_GROUDON)
+    clearflag(FLAG_HIDE_EMBEDDED_TOWER_GROUDON_HIKER)
+    addobject(obj_D52R0101_mount_2)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 0) {
+        applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01A4)
+        waitmovement
+        applymovement(obj_player, EmbeddedTowerGroudonRoom_Movement_01B0)
+        waitmovement
+    } else {
+        applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01BC)
+        waitmovement
+        applymovement(obj_player, EmbeddedTowerGroudonRoom_Movement_01C8)
+        waitmovement
+    }
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0148_D52R0101_00002)
+    closemessage
+    applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01D0)
+    waitmovement
+    npcmsg(msg_0148_D52R0101_00003)
+    closemessage
+    applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01E0)
+    waitmovement
+    npcmsg(msg_0148_D52R0101_00004)
+    closemessage
+    applymovement(obj_D52R0101_mount_2, EmbeddedTowerGroudonRoom_Movement_01EC)
+    waitmovement
+    removeobject(obj_D52R0101_mount_2)
+    setflag(FLAG_HIDE_EMBEDDED_TOWER_GROUDON_HIKER)
+    setflag(FLAG_HIDE_ROUTE_47_EMBEDDED_TOWER_HIKER)
+    releaseall
+    end
+}
+
+movement EmbeddedTowerGroudonRoom_Movement_01A4 {
+    walk_up * 8
+    walk_in_place_up
+}
+
+movement EmbeddedTowerGroudonRoom_Movement_01B0 {
+    walk_in_place_down
+    walk_down
+}
+
+movement EmbeddedTowerGroudonRoom_Movement_01BC {
+    walk_up * 10
+    walk_in_place_up
+}
+
+movement EmbeddedTowerGroudonRoom_Movement_01C8 {
+    walk_in_place_down
+}
+
+movement EmbeddedTowerGroudonRoom_Movement_01D0 {
+    walk_in_place_down
+    walk_slow_down * 2
+    walk_in_place_up
+}
+
+movement EmbeddedTowerGroudonRoom_Movement_01E0 {
+    walk_up * 2
+    walk_in_place_up
+}
+
+movement EmbeddedTowerGroudonRoom_Movement_01EC {
+    walk_down * 8
+}
+
+mapscripts EmbeddedTowerGroudonRoom_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D52R0101_001
+    INIT_SCRIPT_ON_LOAD: scr_seq_D52R0101_002
+}

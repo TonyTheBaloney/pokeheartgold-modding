@@ -1,0 +1,23 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R43R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_ROCKET_HIDEOUT_CLEARED)) {
+        npcmsg(msg_0402_R43R0101_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0402_R43R0101_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Route43_MahoganyGatehouse_MapScripts {
+}

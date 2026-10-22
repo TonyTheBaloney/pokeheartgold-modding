@@ -1,0 +1,31 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T25R0503_000 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Goldenrod_MagnetTrainStation_2F_Empty_Movement_0038)
+    waitmovement
+    playse(SEQ_SE_GS_N_LINEAR)
+    wait(40, VAR_SPECIAL_x8004)
+    stopse(SEQ_SE_GS_N_LINEAR)
+    magnettrainride(0, 1, 401, 14, 11)
+    setvar(VAR_UNK_411F, 0)
+    releaseall
+    end
+}
+
+movement Goldenrod_MagnetTrainStation_2F_Empty_Movement_0038 {
+    walk_right * 7
+    walk_up * 2
+}
+
+script(local) _0044 {
+    end
+}
+
+mapscripts Goldenrod_MagnetTrainStation_2F_Empty_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_411E, 1: scr_seq_T25R0503_000
+    ]
+}

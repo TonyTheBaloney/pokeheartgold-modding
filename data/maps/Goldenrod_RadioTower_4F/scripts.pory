@@ -1,0 +1,164 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D23R0104_000
+	ScrDef scr_seq_D23R0104_001
+	ScrDef scr_seq_D23R0104_002
+	ScrDef scr_seq_D23R0104_003
+	ScrDef scr_seq_D23R0104_004
+	ScrDef scr_seq_D23R0104_005
+	ScrDef scr_seq_D23R0104_006
+	ScrDef scr_seq_D23R0104_007
+	ScrDef scr_seq_D23R0104_008
+	ScrDefEnd
+`
+
+script scr_seq_D23R0104_000 {
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+    setflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        clearflag(FLAG_HIDE_ROCKET_TAKEOVER_1)
+    } elif (var(VAR_SCENE_ROCKET_TAKEOVER) == 5) {
+        clearflag(FLAG_HIDE_ROCKET_TAKEOVER_2)
+    }
+    end
+}
+
+script scr_seq_D23R0104_008 {
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        movepersonfacing(obj_D23R0104_kurumi, 18, 1, 12, DIR_EAST)
+        movepersonfacing(obj_D23R0104_tsure_poke_static_meowth, 19, 1, 12, DIR_SOUTH)
+        movepersonfacing(obj_D23R0104_gsman2, 20, 1, 12, DIR_SOUTH)
+    }
+    end
+}
+
+script scr_seq_D23R0104_001 {
+    simplenpcmsg(msg_0068_D23R0104_00008)
+    end
+}
+
+script scr_seq_D23R0104_002 {
+    simplenpcmsg(msg_0068_D23R0104_00009)
+    end
+}
+
+script scr_seq_D23R0104_003 {
+    simplenpcmsg(msg_0068_D23R0104_00000)
+    end
+}
+
+script scr_seq_D23R0104_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        npcmsg(msg_0068_D23R0104_00001)
+    } else {
+        goto(_00F0)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_00F0:
+    if (flag(FLAG_GOT_BRIGHTPOWDER_FROM_MARY)) {
+        npcmsg(msg_0068_D23R0104_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0068_D23R0104_00002)
+    if (!itemspace(ITEM_BRIGHTPOWDER, 1)) { goto(_0132) }
+    callstd(std_give_item_verbose)
+    npcmsg(msg_0068_D23R0104_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    setflag(FLAG_GOT_BRIGHTPOWDER_FROM_MARY)
+    end
+_0132:
+    npcmsg(msg_0068_D23R0104_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0104_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    playcry(SPECIES_MEOWTH, 0)
+    npcmsg(msg_0068_D23R0104_00007)
+    waitcry
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0104_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_SCENE_ROCKET_TAKEOVER) == 4) {
+        npcmsg(msg_0068_D23R0104_00010)
+    } else {
+        npcmsg(msg_0068_D23R0104_00011)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_D23R0104_007 {
+    if (defeated(TRAINER_TEAM_ROCKET_F_GRUNT_4)) {
+        simplenpcmsg(msg_0068_D23R0104_00014)
+        end
+    }
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0068_D23R0104_00012)
+    getplayerfacing(VAR_TEMP_x4000)
+    if (var(VAR_TEMP_x4000) == 2) {
+        applymovement(obj_D23R0104_rocketw, Goldenrod_RadioTower_4F_Movement_0210)
+    } else {
+        applymovement(obj_D23R0104_rocketw, Goldenrod_RadioTower_4F_Movement_021C)
+    }
+    waitmovement
+    npcmsg(msg_0068_D23R0104_00013)
+    closemessage
+    trainerbattle(TRAINER_TEAM_ROCKET_F_GRUNT_4, 0, 0, 0)
+    checkbattlewon(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        whiteout
+        releaseall
+        end
+    }
+    settrainerflag(TRAINER_TEAM_ROCKET_F_GRUNT_4)
+    npcmsg(msg_0068_D23R0104_00014)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Goldenrod_RadioTower_4F_Movement_0210 {
+    emote_exclamation_mark
+    walk_in_place_right
+}
+
+movement Goldenrod_RadioTower_4F_Movement_021C {
+    emote_exclamation_mark
+    walk_in_place_down
+}
+
+mapscripts Goldenrod_RadioTower_4F_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D23R0104_000
+    INIT_SCRIPT_ON_RESUME: scr_seq_D23R0104_008
+}

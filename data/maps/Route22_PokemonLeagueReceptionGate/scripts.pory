@@ -1,0 +1,411 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R22R0101_000
+	ScrDef scr_seq_R22R0101_001
+	ScrDef scr_seq_R22R0101_002
+	ScrDef scr_seq_R22R0101_003
+	ScrDef scr_seq_R22R0101_004
+	ScrDef scr_seq_R22R0101_005
+	ScrDef scr_seq_R22R0101_006
+	ScrDef scr_seq_R22R0101_007
+	ScrDef scr_seq_R22R0101_008
+	ScrDefEnd
+`
+
+script scr_seq_R22R0101_006 {
+    if (flag(FLAG_UNLOCKED_WEST_KANTO)) {
+        movepersonfacing(obj_R22R0101_policeman_3, 15, 0, 8, DIR_SOUTH)
+    }
+    if (flag(FLAG_UNLOCKED_MT_SILVER)) {
+        movepersonfacing(obj_R22R0101_policeman_2, 7, 0, 8, DIR_SOUTH)
+    }
+    end
+}
+
+script scr_seq_R22R0101_007 {
+    setflag(FLAG_SYS_FLYPOINT_VICTORY_ROAD)
+    if (!flag(FLAG_UNK_189)) {
+        checkregisteredphonenumber(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 1) {
+            getphonebookrematch(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) != 0) { goto(_012C) }
+            getcurrenthour(VAR_TEMP_x4000)
+            if (var(VAR_TEMP_x4000) == 18) {
+                clearflag(FLAG_UNK_270)
+            } elif (var(VAR_TEMP_x4000) == 19) {
+                clearflag(FLAG_UNK_270)
+            } else {
+                goto(_012C)
+            }
+            end
+        _012C:
+            setflag(FLAG_UNK_270)
+            end
+        }
+        checkbadge(BADGE_SOUL, VAR_TEMP_x4002)
+        if (var(VAR_TEMP_x4002) != 0) { goto(_009D) }
+        goto(_012C)
+        goto(_00A3)
+    _009D:
+        goto(_00A5)
+    _00A3:
+        end
+    _00A5:
+        getcurrenthour(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 16) {
+            clearflag(FLAG_UNK_270)
+        } elif (var(VAR_TEMP_x4000) == 17) {
+            clearflag(FLAG_UNK_270)
+        } else {
+            goto(_012C)
+        }
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_R22R0101_000 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_R22R0101_policeman, Route22_PokemonLeagueReceptionGate_Movement_015C)
+    waitmovement
+    applymovement(obj_player, Route22_PokemonLeagueReceptionGate_Movement_0164)
+    waitmovement
+    npcmsg(msg_0361_R22R0101_00000)
+    waitbuttonpress
+    closemessage
+    setvar(VAR_UNK_4110, 1)
+    releaseall
+    end
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_015C {
+    emote_exclamation_mark
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0164 {
+    walk_in_place_left
+}
+
+script scr_seq_R22R0101_003 {
+    simplenpcmsg(msg_0361_R22R0101_00000)
+    end
+}
+
+script scr_seq_R22R0101_001 {
+    followmonresetmovement
+    lockall
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 8) {
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_0264)
+    } else {
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_0270)
+    }
+    waitmovement
+    if (var(VAR_TEMP_x4001) == 8) {
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_027C)
+    } elif (var(VAR_TEMP_x4001) == 10) {
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_028C)
+    } else {
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_029C)
+    }
+    waitmovement
+    npcmsg(msg_0361_R22R0101_00005)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_02AC)
+    applymovement(obj_player, Route22_PokemonLeagueReceptionGate_Movement_02B4)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    wait(16, VAR_SPECIAL_RESULT)
+    if (var(VAR_TEMP_x4001) == 8) {
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_02C4)
+    } elif (var(VAR_TEMP_x4001) == 10) {
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_02D0)
+    } else {
+        applymovement(obj_R22R0101_policeman_3, Route22_PokemonLeagueReceptionGate_Movement_02DC)
+    }
+    waitmovement
+    releaseall
+    end
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0264 {
+    walk_in_place_up
+    emote_exclamation_mark
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0270 {
+    walk_in_place_down
+    emote_exclamation_mark
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_027C {
+    walk_fast_right
+    walk_fast_up
+    walk_in_place_fast_left
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_028C {
+    walk_fast_right
+    walk_fast_down
+    walk_in_place_fast_left
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_029C {
+    walk_fast_right
+    walk_fast_down * 2
+    walk_in_place_fast_left
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_02AC {
+    walk_left
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_02B4 {
+    lock_dir
+    walk_left
+    unlock_dir
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_02C4 {
+    walk_down
+    walk_in_place_left
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_02D0 {
+    walk_up
+    walk_in_place_left
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_02DC {
+    walk_up * 2
+    walk_in_place_left
+}
+
+script scr_seq_R22R0101_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNLOCKED_WEST_KANTO)) {
+        npcmsg(msg_0361_R22R0101_00006)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0361_R22R0101_00004)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R22R0101_002 {
+    followmonresetmovement
+    lockall
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 8) {
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_03F8)
+    } else {
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0404)
+    }
+    waitmovement
+    if (var(VAR_TEMP_x4001) == 8) {
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0410)
+    } elif (var(VAR_TEMP_x4001) == 10) {
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0420)
+    } else {
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0430)
+    }
+    waitmovement
+    npcmsg(msg_0361_R22R0101_00002)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0440)
+    applymovement(obj_player, Route22_PokemonLeagueReceptionGate_Movement_0448)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    wait(16, VAR_SPECIAL_RESULT)
+    if (var(VAR_TEMP_x4001) == 8) {
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0458)
+    } elif (var(VAR_TEMP_x4001) == 10) {
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0464)
+    } else {
+        applymovement(obj_R22R0101_policeman_2, Route22_PokemonLeagueReceptionGate_Movement_0470)
+    }
+    waitmovement
+    releaseall
+    end
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_03F8 {
+    walk_in_place_up
+    emote_exclamation_mark
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0404 {
+    walk_in_place_down
+    emote_exclamation_mark
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0410 {
+    walk_fast_left
+    walk_fast_up
+    walk_in_place_fast_right
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0420 {
+    walk_fast_left
+    walk_fast_down
+    walk_in_place_fast_right
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0430 {
+    walk_fast_left
+    walk_fast_down * 2
+    walk_in_place_fast_right
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0440 {
+    walk_right
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0448 {
+    lock_dir
+    walk_right
+    unlock_dir
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0458 {
+    walk_down
+    walk_in_place_right
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0464 {
+    walk_up
+    walk_in_place_right
+}
+
+movement Route22_PokemonLeagueReceptionGate_Movement_0470 {
+    walk_up * 2
+    walk_in_place_right
+}
+
+script scr_seq_R22R0101_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNLOCKED_MT_SILVER)) {
+        npcmsg(msg_0361_R22R0101_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0361_R22R0101_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_R22R0101_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkregisteredphonenumber(PHONE_CONTACT_JANINE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) == 1) {
+        npcmsg(msg_0361_R22R0101_00012)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0361_R22R0101_00015)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        photoalbumisfull(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0361_R22R0101_00016)
+            waitbuttonpress
+            closemessage
+            releaseall
+            end
+        }
+        npcmsg(msg_0361_R22R0101_00013)
+        closemessage
+        setflag(FLAG_UNK_189)
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        cameronphoto(70)
+        faceplayer
+        lockall
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        clearflag(FLAG_UNK_189)
+        npcmsg(msg_0361_R22R0101_00014)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_TEMP_x4005) >= 1) { goto(_0548) }
+    npcmsg(msg_0361_R22R0101_00007)
+_04D0:
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04F4) }
+    if (var(VAR_SPECIAL_RESULT) >= 1) { goto(_0537) }
+    end
+_04F4:
+    bufferplayersname(0)
+    npcmsg(msg_0361_R22R0101_00008)
+    playfanfare(SEQ_ME_POKEGEAR_REGIST)
+    waitfanfare
+    registergearnumber(PHONE_CONTACT_JANINE)
+    npcmsg(msg_0361_R22R0101_00009)
+    waitbuttonpress
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    setflag(FLAG_UNK_270)
+    removeobject(obj_R22R0101_gsleader13)
+    playse(SEQ_SE_DP_KAIDAN2)
+    waitse(SEQ_SE_DP_KAIDAN2)
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    releaseall
+    end
+_0537:
+    setvar(VAR_TEMP_x4005, 1)
+    npcmsg(msg_0361_R22R0101_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0548:
+    npcmsg(msg_0361_R22R0101_00011)
+    goto(_04D0)
+    end
+}
+
+mapscripts Route22_PokemonLeagueReceptionGate_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R22R0101_007
+    INIT_SCRIPT_ON_RESUME: scr_seq_R22R0101_006
+}

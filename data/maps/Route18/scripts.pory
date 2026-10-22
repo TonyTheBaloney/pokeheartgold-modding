@@ -1,0 +1,19 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R18_000 {
+    if (flag(FLAG_UNK_149)) {
+        setbikestatelock(1)
+        end
+    }
+    end
+}
+
+script scr_seq_R18_001 {
+    directionsignpostex(1, 1, msg_0358_R18_00000)
+    end
+}
+
+mapscripts Route18_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_R18_000
+}

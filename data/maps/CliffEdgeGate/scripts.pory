@@ -1,0 +1,215 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D48R0101_000
+	ScrDef scr_seq_D48R0101_001
+	ScrDef scr_seq_D48R0101_002
+	ScrDef scr_seq_D48R0101_003
+	ScrDef scr_seq_D48R0101_004
+	ScrDef scr_seq_D48R0101_005
+	ScrDef scr_seq_D48R0101_006
+	ScrDefEnd
+`
+
+script scr_seq_D48R0101_005 {
+    if (var(VAR_SCENE_EMBEDDED_TOWER) == 2) {
+        clearflag(FLAG_HIDE_CLIFFS_EDGE_GATE_CHUCK)
+        end
+    }
+    setflag(FLAG_HIDE_CLIFFS_EDGE_GATE_CHUCK)
+    end
+}
+
+script scr_seq_D48R0101_006 {
+    if (var(VAR_SCENE_EMBEDDED_TOWER) == 2) {
+        getplayerfacing(VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 2) {
+            end
+        }
+        movepersonfacing(obj_D48R0101_gsleader5, 19, 0, 40, DIR_SOUTH)
+        end
+    }
+    end
+}
+
+script scr_seq_D48R0101_004 {
+    followmonresetmovement
+    lockall
+    if (var(VAR_TEMP_x4001) == 2) {
+        applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0130)
+    } else {
+        applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0148)
+    }
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0136_D48R0101_00007)
+    closemessage
+    if (var(VAR_TEMP_x4001) == 2) {
+        applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0160)
+    } else {
+        applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_016C)
+    }
+    waitmovement
+    npcmsg(msg_0136_D48R0101_00008)
+    closemessage
+    if (var(VAR_TEMP_x4001) == 2) {
+        applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0178)
+    } else {
+        applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0180)
+    }
+    waitmovement
+    npcmsg(msg_0136_D48R0101_00009)
+    closemessage
+    if (var(VAR_TEMP_x4001) == 2) {
+        applymovement(obj_player, CliffEdgeGate_Movement_01A8)
+        applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0188)
+    } else {
+        applymovement(obj_D48R0101_gsleader5, CliffEdgeGate_Movement_0194)
+    }
+    waitmovement
+    playse(SEQ_SE_DP_KAIDAN2)
+    setflag(FLAG_HIDE_CLIFFS_EDGE_GATE_CHUCK)
+    removeobject(obj_D48R0101_gsleader5)
+    setvar(VAR_SCENE_EMBEDDED_TOWER, 3)
+    releaseall
+    end
+}
+
+movement CliffEdgeGate_Movement_0130 {
+    walk_in_place_right
+    delay_8
+    walk_right * 2
+    walk_down
+    walk_right
+}
+
+movement CliffEdgeGate_Movement_0148 {
+    walk_in_place_down
+    delay_8
+    walk_down * 3
+    walk_left
+    walk_down
+}
+
+movement CliffEdgeGate_Movement_0160 {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement CliffEdgeGate_Movement_016C {
+    emote_exclamation_mark
+    delay_8
+}
+
+movement CliffEdgeGate_Movement_0178 {
+    walk_in_place_right
+}
+
+movement CliffEdgeGate_Movement_0180 {
+    walk_in_place_down
+}
+
+movement CliffEdgeGate_Movement_0188 {
+    delay_8
+    walk_right * 2
+}
+
+movement CliffEdgeGate_Movement_0194 {
+    delay_8
+    walk_up * 4
+    walk_right * 2
+    walk_up * 9
+}
+
+movement CliffEdgeGate_Movement_01A8 {
+    lock_dir
+    walk_up
+    unlock_dir
+    walk_in_place_down
+}
+
+script scr_seq_D48R0101_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_40EB) == 1) {
+        npcmsg(msg_0136_D48R0101_00004)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (flag(FLAG_UNK_0F5)) { goto(_01E7) }
+    npcmsg(msg_0136_D48R0101_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_01E7:
+    npcmsg(msg_0136_D48R0101_00001)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_020A) }
+    npcmsg(msg_0136_D48R0101_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_020A:
+    npcmsg(msg_0136_D48R0101_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement CliffEdgeGate_Movement_0220 {
+    walk_in_place_fast_up
+}
+
+movement CliffEdgeGate_Movement_0228 {
+    walk_up
+}
+
+movement CliffEdgeGate_Movement_0230 {
+    walk_up * 2
+}
+
+script scr_seq_D48R0101_001 {
+    simplenpcmsg(msg_0136_D48R0101_00005)
+    end
+}
+
+script scr_seq_D48R0101_002 {
+    simplenpcmsg(msg_0136_D48R0101_00006)
+    end
+}
+
+script scr_seq_D48R0101_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_0F5)) {
+        npcmsg(msg_0136_D48R0101_00011)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0136_D48R0101_00010)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts CliffEdgeGate_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_EMBEDDED_TOWER, 2: scr_seq_D48R0101_004
+    ]
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D48R0101_005
+    INIT_SCRIPT_ON_RESUME: scr_seq_D48R0101_006
+}

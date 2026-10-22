@@ -1,0 +1,428 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T30R0601_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_MAPTEMP_001)) { goto(_0036) }
+    npcmsg(msg_0635_T30R0601_00000)
+    setflag(FLAG_MAPTEMP_001)
+    goto(_0036)
+_0036:
+    npcmsg(msg_0635_T30R0601_00001)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_005D) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_014A) }
+    end
+_005D:
+    npcmsg(msg_0635_T30R0601_00002)
+    closemessage
+    goto(_0068)
+_0068:
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    partyselectui
+    getpartyselection(VAR_SPECIAL_x8002)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_x8002) == 255) { goto(_014A) }
+    getpartymonspecies(VAR_SPECIAL_x8002, VAR_SPECIAL_x8001)
+    if (var(VAR_SPECIAL_x8001) == 0) {
+        npcmsg(msg_0635_T30R0601_00005)
+        closemessage
+        goto(_0068)
+    }
+    countmonmoves(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0635_T30R0601_00004)
+        closemessage
+        goto(_0068)
+    _014A:
+        npcmsg(msg_0635_T30R0601_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0635_T30R0601_00006)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    openlearnforgetmove(VAR_SPECIAL_x8002)
+    getlearnforgetmoveresult(VAR_SPECIAL_x8001)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_x8001) == 255) { goto(_005D) }
+    bufferpartymonmovename(0, VAR_SPECIAL_x8002, VAR_SPECIAL_x8001)
+    npcmsg(msg_0635_T30R0601_00007)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_011D) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_005D) }
+    end
+_011D:
+    monforgetmove(VAR_SPECIAL_x8002, VAR_SPECIAL_x8001)
+    playfanfare(SEQ_ME_WASURE)
+    waitfanfare
+    npcmsg(msg_0635_T30R0601_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T30R0601_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_MET_MOVE_MANIAC)) {
+        npcmsg(msg_0635_T30R0601_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        setflag(FLAG_MET_MOVE_MANIAC)
+        end
+    }
+    hasitem(ITEM_HEART_SCALE, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_022D) }
+    npcmsg(msg_0635_T30R0601_00010)
+    npcmsg(msg_0635_T30R0601_00012)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    partyselectui
+    getpartyselection(VAR_SPECIAL_x8005)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_x8005) == 255) { goto(_022D) }
+    getpartymonspecies(VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        npcmsg(msg_0635_T30R0601_00015)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    monhasrelearnablemoves(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0222) }
+    npcmsg(msg_0635_T30R0601_00013)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    moverelearnerinit(VAR_SPECIAL_x8005)
+    moverelearnergetresult(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 255) { goto(_022D) }
+    takeitem(ITEM_HEART_SCALE, 1, VAR_SPECIAL_RESULT)
+    bufferplayersname(3)
+    npcmsg(msg_0635_T30R0601_00025)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0222:
+    npcmsg(msg_0635_T30R0601_00014)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_022D:
+    npcmsg(msg_0635_T30R0601_00011)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T30R0601_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_186)) {
+        npcmsg(msg_0635_T30R0601_00027)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        touchscreenmenushow
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02A5) }
+        goto(_02EC)
+    _02A5:
+        npcmsg(msg_0635_T30R0601_00028)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _02B0:
+        npcmsg(msg_0635_T30R0601_00029)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _02BB:
+        npcmsg(msg_0635_T30R0601_00032)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _02C6:
+        npcmsg(msg_0635_T30R0601_00033)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _02D1:
+        buffermovename(0, MOVE_DRACO_METEOR)
+        npcmsg(msg_0635_T30R0601_00034)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _02E1:
+        npcmsg(msg_0635_T30R0601_00031)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _02EC:
+        getpartycount(VAR_TEMP_x4000)
+    _02F0:
+        subvar(VAR_TEMP_x4000, 1)
+        getpartymonspecies(VAR_TEMP_x4000, VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 0) {
+            getmontypes(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_TEMP_x4000)
+            if (var(VAR_SPECIAL_x8004) != 16) {
+                if (var(VAR_SPECIAL_x8005) == 16) { goto(_0331) }
+            } else {
+            _0331:
+                monhasmove(VAR_SPECIAL_RESULT, MOVE_DRACO_METEOR, VAR_TEMP_x4000)
+                if (var(VAR_SPECIAL_RESULT) == 0) {
+                    npcmsg(msg_0635_T30R0601_00030)
+                    closemessage
+                    fadescreen(6, 1, 0, RGB_BLACK)
+                    waitfade
+                    partyselectui
+                    getpartyselection(VAR_SPECIAL_x8000)
+                    restoreoverworld
+                    fadescreen(6, 1, 1, RGB_BLACK)
+                    waitfade
+                    if (var(VAR_SPECIAL_x8000) == 255) { goto(_02A5) }
+                    getpartymonspecies(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+                    if (var(VAR_SPECIAL_x8001) == 0) { goto(_02C6) }
+                    call(_042B)
+                    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02BB) }
+                    monhasmove(VAR_SPECIAL_RESULT, MOVE_DRACO_METEOR, VAR_SPECIAL_x8000)
+                    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02D1) }
+                    mongetfriendship(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000)
+                    if (var(VAR_SPECIAL_RESULT) < 255) { goto(_02E1) }
+                    buffermonspeciesname(0, VAR_SPECIAL_x8000)
+                    npcmsg(msg_0635_T30R0601_00062)
+                    closemessage
+                    setvar(VAR_SPECIAL_x8003, 434)
+                    goto(_03EF)
+                _03EF:
+                    fadescreen(6, 1, 0, RGB_BLACK)
+                    waitfade
+                    movetutorinit(VAR_SPECIAL_x8000, MOVE_DRACO_METEOR)
+                    moverelearnergetresult(VAR_SPECIAL_RESULT)
+                    restoreoverworld
+                    fadescreen(6, 1, 1, RGB_BLACK)
+                    waitfade
+                    if (var(VAR_SPECIAL_RESULT) == 255) { goto(_02A5) }
+                    npcmsg(msg_0635_T30R0601_00042)
+                    waitbuttonpress
+                    closemessage
+                    releaseall
+                    end
+                _042B:
+                    getmontypes(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_x8000)
+                    if (var(VAR_SPECIAL_x8004) == 16) { goto(_0455) }
+                    if (var(VAR_SPECIAL_x8005) == 16) { goto(_0455) }
+                    setvar(VAR_SPECIAL_RESULT, 0)
+                    return
+                _0455:
+                    setvar(VAR_SPECIAL_RESULT, 1)
+                    return
+                }
+            }
+        }
+        if (var(VAR_TEMP_x4000) != 0) { goto(_02F0) }
+        goto(_02B0)
+    }
+    setflag(FLAG_UNK_186)
+    npcmsg(msg_0635_T30R0601_00026)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_02A5) }
+    goto(_02EC)
+}
+
+script scr_seq_T30R0601_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_187)) {
+        npcmsg(msg_0635_T30R0601_00044)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04AC) }
+        goto(_06EE)
+    _04AC:
+        npcmsg(msg_0635_T30R0601_00045)
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        partyselectui
+        getpartyselection(VAR_SPECIAL_x8000)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        if (var(VAR_SPECIAL_x8000) == 255) { goto(_06EE) }
+        getpartymonspecies(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+        if (var(VAR_SPECIAL_x8001) == 0) {
+            npcmsg(msg_0635_T30R0601_00049)
+            waitbuttonpress
+            closemessage
+            touchscreenmenushow
+            releaseall
+            end
+        _0715:
+            npcmsg(msg_0635_T30R0601_00050)
+            waitbuttonpress
+            closemessage
+            touchscreenmenushow
+            releaseall
+            end
+        }
+        call(_05F4)
+        if (var(VAR_SPECIAL_RESULT) == 0) { goto(_06FB) }
+        copyvar(VAR_SPECIAL_x8002, VAR_SPECIAL_RESULT)
+        call(_06B0)
+        if (var(VAR_SPECIAL_RESULT) == 1) {
+            npcmsg(msg_0635_T30R0601_00051)
+            waitbuttonpress
+            closemessage
+            touchscreenmenushow
+            releaseall
+            end
+        }
+        mongetfriendship(VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000)
+        if (var(VAR_SPECIAL_RESULT) < 255) { goto(_0715) }
+        buffermonspeciesname(0, VAR_SPECIAL_x8000)
+        if (var(VAR_SPECIAL_x8002) == 1) { goto(_0555) }
+        if (var(VAR_SPECIAL_x8002) == 2) { goto(_0577) }
+        goto(_0599)
+    _0555:
+        npcmsg(msg_0635_T30R0601_00052)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_06EE) }
+        setvar(VAR_SPECIAL_x8003, 307)
+        goto(_05BB)
+    _0577:
+        npcmsg(msg_0635_T30R0601_00053)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_06EE) }
+        setvar(VAR_SPECIAL_x8003, 308)
+        goto(_05BB)
+    _0599:
+        npcmsg(msg_0635_T30R0601_00054)
+        touchscreenmenuhide
+        getmenuchoice(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 1) { goto(_06EE) }
+        setvar(VAR_SPECIAL_x8003, 338)
+        goto(_05BB)
+    _05BB:
+        closemessage
+        fadescreen(6, 1, 0, RGB_BLACK)
+        waitfade
+        movetutorinit(VAR_SPECIAL_x8000, VAR_SPECIAL_x8003)
+        moverelearnergetresult(VAR_SPECIAL_RESULT)
+        restoreoverworld
+        fadescreen(6, 1, 1, RGB_BLACK)
+        waitfade
+        if (var(VAR_SPECIAL_RESULT) == 255) { goto(_06EE) }
+        touchscreenmenushow
+        releaseall
+        end
+    _05F4:
+        if (var(VAR_SPECIAL_x8001) == 6) { goto(_0698) }
+        if (var(VAR_SPECIAL_x8001) == 157) { goto(_0698) }
+        if (var(VAR_SPECIAL_x8001) == 257) { goto(_0698) }
+        if (var(VAR_SPECIAL_x8001) == 392) { goto(_0698) }
+        if (var(VAR_SPECIAL_x8001) == 9) { goto(_06A0) }
+        if (var(VAR_SPECIAL_x8001) == 160) { goto(_06A0) }
+        if (var(VAR_SPECIAL_x8001) == 260) { goto(_06A0) }
+        if (var(VAR_SPECIAL_x8001) == 395) { goto(_06A0) }
+        if (var(VAR_SPECIAL_x8001) == 3) { goto(_06A8) }
+        if (var(VAR_SPECIAL_x8001) == 154) { goto(_06A8) }
+        if (var(VAR_SPECIAL_x8001) == 254) { goto(_06A8) }
+        if (var(VAR_SPECIAL_x8001) == 389) { goto(_06A8) }
+        setvar(VAR_SPECIAL_RESULT, 0)
+        return
+    _0698:
+        setvar(VAR_SPECIAL_RESULT, 1)
+        return
+    _06A0:
+        setvar(VAR_SPECIAL_RESULT, 2)
+        return
+    _06A8:
+        setvar(VAR_SPECIAL_RESULT, 3)
+        return
+    _06B0:
+        if (var(VAR_SPECIAL_x8002) == 1) { goto(_06D0) }
+        if (var(VAR_SPECIAL_x8002) == 2) { goto(_06DA) }
+        goto(_06E4)
+    _06D0:
+        monhasmove(VAR_SPECIAL_RESULT, MOVE_BLAST_BURN, VAR_SPECIAL_x8000)
+        return
+    _06DA:
+        monhasmove(VAR_SPECIAL_RESULT, MOVE_HYDRO_CANNON, VAR_SPECIAL_x8000)
+        return
+    _06E4:
+        monhasmove(VAR_SPECIAL_RESULT, MOVE_FRENZY_PLANT, VAR_SPECIAL_x8000)
+        return
+    _06EE:
+        npcmsg(msg_0635_T30R0601_00046)
+        waitbuttonpress
+        closemessage
+        touchscreenmenushow
+        releaseall
+        end
+    _06FB:
+        npcmsg(msg_0635_T30R0601_00048)
+        waitbuttonpress
+        closemessage
+        touchscreenmenushow
+        releaseall
+        end
+    }
+    setflag(FLAG_UNK_187)
+    npcmsg(msg_0635_T30R0601_00043)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_04AC) }
+    goto(_06EE)
+}
+
+script scr_seq_T30R0601_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0635_T30R0601_00061)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Blackthorn_MoveTutorHouse_MapScripts {
+}

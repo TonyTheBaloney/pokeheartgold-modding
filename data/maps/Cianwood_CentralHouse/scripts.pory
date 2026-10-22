@@ -1,0 +1,20 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T24R0701_000 {
+    simplenpcmsg(msg_0579_T24R0701_00000)
+    end
+}
+
+script scr_seq_T24R0701_001 {
+    simplenpcmsg(msg_0579_T24R0701_00001)
+    end
+}
+
+script scr_seq_T24R0701_002 {
+    simplenpcmsg(msg_0579_T24R0701_00002)
+    end
+}
+
+mapscripts Cianwood_CentralHouse_MapScripts {
+}

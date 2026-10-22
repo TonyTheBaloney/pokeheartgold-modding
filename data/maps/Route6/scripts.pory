@@ -1,0 +1,15 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R06_000 {
+    simplenpcmsg(msg_0334_R06_00000)
+    end
+}
+
+script scr_seq_R06_001 {
+    trainertipsex(2, msg_0334_R06_00001)
+    end
+}
+
+mapscripts Route6_MapScripts {
+}

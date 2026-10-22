@@ -1,0 +1,236 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_R42_000 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Route42_Movement_017C)
+    waitmovement
+    getplayercoords(VAR_SPECIAL_x8000, VAR_SPECIAL_x8001)
+    clearflag(FLAG_HIDE_ROUTE_42_HIKER)
+    addobject(obj_R42_mount_2_2)
+    if (var(VAR_SPECIAL_x8001) == 172) {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_0198)
+    } elif (var(VAR_SPECIAL_x8001) == 173) {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_01A4)
+    } elif (var(VAR_SPECIAL_x8001) == 174) {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_01B0)
+    } elif (var(VAR_SPECIAL_x8001) == 175) {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_01BC)
+    } else {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_01C8)
+    }
+    waitmovement
+    playse(SEQ_SE_DP_WALL_HIT2)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_player, Route42_Movement_0184)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    npcmsg(msg_0399_R42_00005)
+    closemessage
+    applymovement(obj_R42_mount_2_2, Route42_Movement_01D4)
+    waitmovement
+    giveitemnocheck(ITEM_HM04, 1)
+    npcmsg(msg_0399_R42_00006)
+    closemessage
+    if (var(VAR_SPECIAL_x8001) == 172) {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_01DC)
+    } elif (var(VAR_SPECIAL_x8001) == 173) {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_01F0)
+    } elif (var(VAR_SPECIAL_x8001) == 174) {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_0204)
+    } elif (var(VAR_SPECIAL_x8001) == 175) {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_0210)
+    } else {
+        applymovement(obj_R42_mount_2_2, Route42_Movement_0224)
+    }
+    waitmovement
+    setflag(FLAG_HIDE_ROUTE_42_HIKER)
+    removeobject(obj_R42_mount_2_2)
+    setvar(VAR_UNK_4091, 1)
+    releaseall
+    end
+}
+
+movement Route42_Movement_017C {
+    emote_exclamation_mark
+}
+
+movement Route42_Movement_0184 {
+    face_right
+    lock_dir
+    jump_far_left
+    unlock_dir
+}
+
+movement Route42_Movement_0198 {
+    walk_fast_down
+    walk_fast_left
+}
+
+movement Route42_Movement_01A4 {
+    walk_fast_down * 2
+    walk_fast_left
+}
+
+movement Route42_Movement_01B0 {
+    walk_fast_down * 3
+    walk_fast_left
+}
+
+movement Route42_Movement_01BC {
+    walk_fast_down * 4
+    walk_fast_left
+}
+
+movement Route42_Movement_01C8 {
+    walk_fast_down * 5
+    walk_fast_left
+}
+
+movement Route42_Movement_01D4 {
+    walk_left * 2
+}
+
+movement Route42_Movement_01DC {
+    walk_down
+    walk_left * 5
+    walk_down * 2
+    walk_left * 5
+}
+
+movement Route42_Movement_01F0 {
+    walk_down
+    walk_left * 5
+    walk_down
+    walk_left * 5
+}
+
+movement Route42_Movement_0204 {
+    walk_down
+    walk_left * 10
+}
+
+movement Route42_Movement_0210 {
+    walk_down
+    walk_left * 4
+    walk_up
+    walk_left * 5
+}
+
+movement Route42_Movement_0224 {
+    walk_up
+    walk_left * 10
+}
+
+script scr_seq_R42_001 {
+    followmonresetmovement
+    lockall
+    playcry(SPECIES_SUICUNE, 0)
+    release(obj_R42_tsure_poke_static_suicune)
+    spinobject(obj_R42_tsure_poke_static_suicune, 2, 90, 2, 0)
+    lock(obj_R42_tsure_poke_static_suicune)
+    waitcry
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_R42_tsure_poke_static_suicune, Route42_Movement_02EC)
+    applymovement(obj_player, Route42_Movement_0308)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    clearflag(FLAG_HIDE_ROUTE_42_EUSINE)
+    addobject(obj_R42_minaki)
+    callstd(std_play_eusine_music)
+    applymovement(obj_R42_minaki, Route42_Movement_0324)
+    waitmovement
+    npcmsg(msg_0399_R42_00007)
+    closemessage
+    applymovement(obj_R42_minaki, Route42_Movement_0334)
+    waitmovement
+    bufferplayersname(0)
+    npcmsg(msg_0399_R42_00008)
+    closemessage
+    applymovement(obj_R42_minaki, Route42_Movement_0348)
+    waitmovement
+    npcmsg(msg_0399_R42_00009)
+    closemessage
+    applymovement(obj_R42_minaki, Route42_Movement_0340)
+    waitmovement
+    callstd(std_fade_end_eusine_music)
+    removeobject(obj_R42_tsure_poke_static_suicune)
+    removeobject(obj_R42_minaki)
+    setflag(FLAG_HIDE_ROUTE_42_SUICUNE)
+    setflag(FLAG_HIDE_ROUTE_42_EUSINE)
+    setvar(VAR_UNK_4092, 0)
+    setvar(VAR_UNK_4070, 1)
+    setvar(VAR_UNK_4071, 1)
+    clearflag(FLAG_HIDE_VERMILION_SUICUNE)
+    releaseall
+    end
+}
+
+movement Route42_Movement_02EC {
+    delay_4 * 3
+    walk_faster_left * 2
+    jump_far_left
+    walk_faster_left * 2
+    jump_far_up * 2
+    move_action_112
+}
+
+movement Route42_Movement_0308 {
+    emote_exclamation_mark
+    lock_dir
+    walk_fast_up * 4
+    unlock_dir
+    delay_16
+    walk_right
+}
+
+movement Route42_Movement_0324 {
+    walk_right * 4
+    walk_up * 3
+    walk_right * 6
+}
+
+movement Route42_Movement_0334 {
+    walk_up
+    face_left
+}
+
+movement Route42_Movement_0340 {
+    walk_right * 9
+}
+
+movement Route42_Movement_0348 {
+    walk_right
+}
+
+script scr_seq_R42_002 {
+    directionsignpostex(1, 1, msg_0399_R42_00000)
+    end
+}
+
+script scr_seq_R42_003 {
+    trainertipsex(2, msg_0399_R42_00001)
+    end
+}
+
+script scr_seq_R42_004 {
+    trainertipsex(2, msg_0399_R42_00002)
+    end
+}
+
+script scr_seq_R42_005 {
+    directionsignpostex(1, 2, msg_0399_R42_00003)
+    end
+}
+
+mapscripts Route42_MapScripts {
+}

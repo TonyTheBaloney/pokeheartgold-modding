@@ -1,0 +1,437 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_R14_000
+	ScrDef scr_seq_R14_001
+	ScrDef scr_seq_R14_002
+	ScrDef scr_seq_R14_003
+	ScrDef scr_seq_R14_004
+	ScrDef scr_seq_R14_005
+	ScrDefEnd
+`
+
+script scr_seq_R14_001 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 4) { goto(_004F) }
+        if (var(VAR_TEMP_x4000) == 0) { goto(_004F) }
+        setflag(FLAG_HIDE_CAMERON)
+        end
+    _004F:
+        clearflag(FLAG_HIDE_CAMERON)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_R14_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Route14_Movement_01A8)
+        applymovement(obj_R14_gsmiddleman1_3, Route14_Movement_01F4)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Route14_Movement_01C0)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Route14_Movement_01E0)
+        applymovement(obj_R14_gsmiddleman1_3, Route14_Movement_01F4)
+    } else {
+        applymovement(obj_player, Route14_Movement_01CC)
+        applymovement(obj_R14_gsmiddleman1_3, Route14_Movement_01F4)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Route14_Movement_0200)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(60)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Route14_Movement_01A8 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route14_Movement_01C0 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route14_Movement_01CC {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route14_Movement_01E0 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Route14_Movement_01F4 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Route14_Movement_0200 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_R14_002 {
+    followmonresetmovement
+    lockall
+    clearflag(FLAG_HIDE_ROUTE_14_EUSINE)
+    addobject(obj_R14_minaki)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayercoords(VAR_TEMP_x4000, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4000) != 1358) {
+        goto(_0255)
+    _0255:
+        if (var(VAR_TEMP_x4001) == 409) {
+            applymovement(obj_player, Route14_Movement_0450)
+            waitmovement
+        } else {
+            applymovement(obj_player, Route14_Movement_0450)
+            waitmovement
+        }
+    _027C:
+        playcry(SPECIES_SUICUNE, 0)
+        release(obj_R14_tsure_poke_static_suicune)
+        spinobject(obj_R14_tsure_poke_static_suicune, 2, 90, 2, 0)
+        lock(obj_R14_tsure_poke_static_suicune)
+        waitcry
+        if (var(VAR_TEMP_x4000) != 1358) {
+            if (var(VAR_TEMP_x4000) != 1359) {
+                goto(_03AD)
+            _02D0:
+                if (var(VAR_TEMP_x4001) == 409) {
+                    applymovement(obj_player, Route14_Movement_04AC)
+                } elif (var(VAR_TEMP_x4001) == 410) {
+                    applymovement(obj_player, Route14_Movement_04C0)
+                } elif (var(VAR_TEMP_x4001) == 411) {
+                    applymovement(obj_player, Route14_Movement_04D0)
+                } elif (var(VAR_TEMP_x4001) == 412) {
+                    applymovement(obj_player, Route14_Movement_04E0)
+                } elif (var(VAR_TEMP_x4001) == 413) {
+                    applymovement(obj_player, Route14_Movement_04E8)
+                } elif (var(VAR_TEMP_x4001) == 414) {
+                    applymovement(obj_player, Route14_Movement_04F8)
+                } else {
+                    applymovement(obj_player, Route14_Movement_0508)
+                }
+                waitmovement
+                goto(_03D2)
+            _0382:
+                if (var(VAR_TEMP_x4001) == 409) {
+                    applymovement(obj_player, Route14_Movement_051C)
+                } else {
+                    applymovement(obj_player, Route14_Movement_0530)
+                }
+                waitmovement
+                goto(_03D2)
+            _03AD:
+                if (var(VAR_TEMP_x4001) == 409) {
+                    applymovement(obj_player, Route14_Movement_0544)
+                } else {
+                    applymovement(obj_player, Route14_Movement_0550)
+                }
+                waitmovement
+            _03D2:
+                applymovement(obj_R14_tsure_poke_static_suicune, Route14_Movement_0488)
+                applymovement(obj_player, Route14_Movement_055C)
+                waitmovement
+                waitfollowingpokemonmovement
+                togglefollowingpokemonmovement(1)
+                followingpokemonmovement(48)
+                callstd(std_play_eusine_music)
+                applymovement(obj_R14_minaki, Route14_Movement_057C)
+                applymovement(obj_player, Route14_Movement_056C)
+                waitmovement
+                bufferplayersname(0)
+                npcmsg(msg_0351_R14_00006)
+                waitbuttonpress
+                closemessage
+                callstd(std_fade_end_eusine_music)
+                removeobject(obj_R14_tsure_poke_static_suicune)
+                setflag(FLAG_HIDE_ROUTE_14_SUICUNE)
+                setflag(FLAG_HIDE_ROUTE_14_EUSINE)
+                clearflag(FLAG_HIDE_ROUTE_14_EUSINE_2)
+                setvar(VAR_UNK_4086, 0)
+                setflag(FLAG_UNK_14D)
+                checkbadge(BADGE_CASCADE, VAR_SPECIAL_RESULT)
+                if (var(VAR_SPECIAL_RESULT) == 1) {
+                    clearflag(FLAG_HIDE_ROUTE_25_SUICUNE)
+                    setvar(VAR_SCENE_ROUTE_25, 1)
+                }
+                releaseall
+                end
+            }
+            goto(_0382)
+            goto(_02D0)
+        }
+        goto(_02D0)
+        goto(_02D0)
+    }
+    applymovement(obj_player, Route14_Movement_0450)
+    waitmovement
+    goto(_027C)
+    goto(_0255)
+}
+
+movement Route14_Movement_0450 {
+    emote_exclamation_mark
+}
+
+movement Route14_Movement_0458 {
+    delay_4
+    face_left
+}
+
+movement Route14_Movement_0464 {
+    delay_4
+    face_up
+}
+
+movement Route14_Movement_0470 {
+    delay_4
+    face_down
+}
+
+movement Route14_Movement_047C {
+    jump_farther_right
+    face_left
+}
+
+movement Route14_Movement_0488 {
+    walk_faster_up * 2
+    jump_near_fast_up
+    jump_far_up
+    walk_faster_up * 2
+    jump_near_fast_up
+    jump_far_up * 2
+    walk_faster_up * 2
+    jump_near_fast_up
+}
+
+movement Route14_Movement_04AC {
+    walk_down
+    walk_right * 3
+    walk_down * 2
+    face_right
+}
+
+movement Route14_Movement_04C0 {
+    walk_right * 3
+    walk_down * 2
+    face_right
+}
+
+movement Route14_Movement_04D0 {
+    walk_right * 3
+    walk_down
+    face_right
+}
+
+movement Route14_Movement_04E0 {
+    walk_right * 3
+}
+
+movement Route14_Movement_04E8 {
+    walk_right * 3
+    walk_up
+    face_right
+}
+
+movement Route14_Movement_04F8 {
+    walk_right * 3
+    walk_up * 2
+    face_right
+}
+
+movement Route14_Movement_0508 {
+    walk_up
+    walk_right * 3
+    walk_up * 2
+    face_right
+}
+
+movement Route14_Movement_051C {
+    walk_down
+    walk_right * 2
+    walk_down * 2
+    face_right
+}
+
+movement Route14_Movement_0530 {
+    walk_up
+    walk_right * 2
+    walk_up * 2
+    face_right
+}
+
+movement Route14_Movement_0544 {
+    walk_down * 3
+    face_right
+}
+
+movement Route14_Movement_0550 {
+    walk_up * 3
+    face_right
+}
+
+movement Route14_Movement_055C {
+    delay_8
+    face_up
+    walk_up
+}
+
+movement Route14_Movement_056C {
+    delay_16 * 5
+    face_left
+}
+
+movement Route14_Movement_0578 {}
+
+movement Route14_Movement_057C {
+    walk_fast_up * 11
+    walk_up * 2
+    walk_slower_up
+    delay_8 * 3
+    walk_slow_down
+    face_right
+}
+
+script scr_seq_R14_003 {
+    bufferplayersname(0)
+    simplenpcmsg(msg_0351_R14_00007)
+    end
+}
+
+script scr_seq_R14_004 {
+    bufferplayersname(0)
+    simplenpcmsg(msg_0351_R14_00007)
+    end
+}
+
+script scr_seq_R14_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GOT_LUCKY_PUNCH_FROM_ROUTE_14_WOMAN)) {
+        playeronbikecheck(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) != 1) {
+            getpartyleadalive(VAR_TEMP_x4000)
+            getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+            if (var(VAR_TEMP_x4001) == 113) {
+                npcmsg(msg_0351_R14_00004)
+                waitbuttonpress
+                closemessage
+                releaseall
+                end
+            }
+        }
+        npcmsg(msg_0351_R14_00005)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0351_R14_00000)
+    playeronbikecheck(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) != 1) {
+        getpartyleadalive(VAR_TEMP_x4000)
+        getpartymonspecies(VAR_TEMP_x4000, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 113) { goto(_060D) }
+    }
+    npcmsg(msg_0351_R14_00001)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_060D:
+    applymovement(obj_R14_gswoman1, Route14_Movement_0698)
+    waitmovement
+    npcmsg(msg_0351_R14_00002)
+    if (!itemspace(ITEM_LUCKY_PUNCH, 1)) { goto(_064E) }
+    callstd(std_give_item_verbose)
+    setflag(FLAG_GOT_LUCKY_PUNCH_FROM_ROUTE_14_WOMAN)
+    npcmsg(msg_0351_R14_00003)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_064E:
+    callstd(std_bag_is_full)
+    closemessage
+    releaseall
+    end
+}
+
+movement Route14_Movement_0698 {
+    emote_exclamation_mark
+    delay_4
+}
+
+mapscripts Route14_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_R14_001
+}

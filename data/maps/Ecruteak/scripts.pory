@@ -1,0 +1,376 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T27_000
+	ScrDef scr_seq_T27_001
+	ScrDef scr_seq_T27_002
+	ScrDef scr_seq_T27_003
+	ScrDef scr_seq_T27_004
+	ScrDef scr_seq_T27_005
+	ScrDef scr_seq_T27_006
+	ScrDef scr_seq_T27_007
+	ScrDef scr_seq_T27_008
+	ScrDef scr_seq_T27_009
+	ScrDef scr_seq_T27_010
+	ScrDef scr_seq_T27_011
+	ScrDef scr_seq_T27_012
+	ScrDef scr_seq_T27_013
+	ScrDef scr_seq_T27_014
+	ScrDef scr_seq_T27_015
+	ScrDef scr_seq_T27_016
+	ScrDefEnd
+`
+
+script scr_seq_T27_000 {
+    end
+}
+
+script scr_seq_T27_015 {
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 5) {
+            clearflag(FLAG_HIDE_CAMERON)
+        } else {
+            setflag(FLAG_HIDE_CAMERON)
+        }
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T27_012 {
+    followmonresetmovement
+    lockall
+    dooranimationload(11, 5, 25, 23, 1)
+    dooranimationopen(1)
+    dooranimationwait(1)
+    applymovement(obj_player, Ecruteak_Movement_00D0)
+    waitmovement
+    lock(obj_partner_poke)
+    followmonislarge(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        followmonreleasenexttoplayer
+    } else {
+        followmonmovetoplayer
+    }
+    release(obj_partner_poke)
+    setvar(VAR_UNK_4079, 0)
+    dooranimationclose(1)
+    dooranimationwait(1)
+    dooranimationunload(1)
+    releaseall
+    end
+}
+
+movement Ecruteak_Movement_00D0 {
+    walk_fast_down * 2
+    delay_8
+}
+
+script scr_seq_T27_005 {
+    followmonresetmovement
+    lockall
+    clearflag(FLAG_HIDE_ECRUTEAK_RIVAL)
+    addobject(obj_T27_gsrivel)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_T27_gsrivel, Ecruteak_Movement_019C)
+    applymovement(obj_player, Ecruteak_Movement_01B0)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    playse(SEQ_SE_DP_WALL_HIT2)
+    npcmsg(msg_0612_T27_00016)
+    wait(30, VAR_SPECIAL_RESULT)
+    bufferrivalsname(1)
+    npcmsg(msg_0612_T27_00017)
+    closemessage
+    applymovement(obj_T27_gsrivel, Ecruteak_Movement_01C4)
+    waitmovement
+    bufferplayersname(0)
+    bufferrivalsname(1)
+    npcmsg(msg_0612_T27_00018)
+    closemessage
+    playse(SEQ_SE_DP_WALL_HIT2)
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(56)
+    applymovement(obj_T27_gsrivel, Ecruteak_Movement_01D4)
+    applymovement(obj_player, Ecruteak_Movement_01B0)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    applymovement(obj_T27_gsrivel, Ecruteak_Movement_01E0)
+    applymovement(obj_player, Ecruteak_Movement_01F0)
+    waitmovement
+    removeobject(obj_T27_gsrivel)
+    setflag(FLAG_HIDE_ECRUTEAK_RIVAL)
+    releaseall
+    setvar(VAR_UNK_4079, 4)
+    setvar(VAR_UNK_410C, 4)
+    clearflag(FLAG_HIDE_DANCE_STUDIO_KIMONO_GIRLS)
+    setflag(FLAG_UNK_241)
+    end
+}
+
+movement Ecruteak_Movement_0194 {
+    emote_exclamation_mark
+}
+
+movement Ecruteak_Movement_019C {
+    lock_dir
+    walk_fast_down
+    walk_in_place_fast_up
+    unlock_dir
+}
+
+movement Ecruteak_Movement_01B0 {
+    face_up
+    lock_dir
+    walk_fast_down
+    unlock_dir
+}
+
+movement Ecruteak_Movement_01C4 {
+    emote_exclamation_mark
+    delay_8
+    walk_in_place_down
+}
+
+movement Ecruteak_Movement_01D4 {
+    walk_fast_down
+    walk_in_place_fast_down
+}
+
+movement Ecruteak_Movement_01E0 {
+    walk_slow_left * 3
+    delay_8 * 3
+    walk_fast_left * 6
+}
+
+movement Ecruteak_Movement_01F0 {
+    delay_8 * 3
+    walk_in_place_left
+}
+
+script scr_seq_T27_013 {
+    simplenpcmsg(msg_0612_T27_00019)
+    end
+}
+
+script scr_seq_T27_014 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 5)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+        msgboxextern(VAR_SPECIAL_RESULT, 3)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Ecruteak_Movement_033C)
+        applymovement(obj_T27_gsmiddleman1, Ecruteak_Movement_0374)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Ecruteak_Movement_0354)
+    } else {
+        applymovement(obj_player, Ecruteak_Movement_0360)
+        applymovement(obj_T27_gsmiddleman1, Ecruteak_Movement_0374)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Ecruteak_Movement_0380)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(19)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Ecruteak_Movement_033C {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Ecruteak_Movement_0354 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Ecruteak_Movement_0360 {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Ecruteak_Movement_0374 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Ecruteak_Movement_0380 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_T27_001 {
+    directionsignpostex(0, 18, msg_0612_T27_00011)
+    end
+}
+
+script scr_seq_T27_002 {
+    trainertipsex(2, msg_0612_T27_00012)
+    end
+}
+
+script scr_seq_T27_003 {
+    trainertipsex(2, msg_0612_T27_00013)
+    end
+}
+
+script scr_seq_T27_004 {
+    trainertipsex(2, msg_0612_T27_00014)
+    end
+}
+
+script scr_seq_T27_016 {
+    trainertipsex(2, msg_0612_T27_00015)
+    end
+}
+
+script scr_seq_T27_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (!flag(FLAG_UNK_96A)) {
+        npcmsg(msg_0612_T27_00008)
+    } else {
+        npcmsg(msg_0612_T27_00009)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27_009 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GAME_CLEAR)) {
+        npcmsg(msg_0612_T27_00001)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0612_T27_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27_010 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNK_410C) <= 2) {
+        npcmsg(msg_0612_T27_00002)
+    } else {
+        npcmsg(msg_0612_T27_00003)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_GAME_CLEAR)) {
+        npcmsg(msg_0612_T27_00007)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNK_40A1) == 0) {
+        npcmsg(msg_0612_T27_00005)
+    } else {
+        npcmsg(msg_0612_T27_00006)
+    }
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T27_007 {
+    simplenpcmsg(msg_0612_T27_00010)
+    end
+}
+
+script scr_seq_T27_011 {
+    simplenpcmsg(msg_0612_T27_00004)
+    end
+}
+
+mapscripts Ecruteak_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_T27_000
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T27_015
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_UNK_4079, 1: scr_seq_T27_012
+    ]
+}

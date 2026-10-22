@@ -1,0 +1,236 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_D24R0102_000
+	ScrDef scr_seq_D24R0102_001
+	ScrDef scr_seq_D24R0102_002
+	ScrDef scr_seq_D24R0102_003
+	ScrDef scr_seq_D24R0102_004
+	ScrDef scr_seq_D24R0102_005
+	ScrDefEnd
+`
+
+script scr_seq_D24R0102_005 {
+    clearflag(FLAG_UNK_10F)
+    end
+}
+
+script scr_seq_D24R0102_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    countunownlettersregistered(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 28) {
+        npcmsg(msg_0073_D24R0102_00003)
+        goto(_0366)
+    }
+    if (var(VAR_UNK_40EC) >= 1) { goto(_008A) }
+    if (!flag(FLAG_UNK_10F)) {
+        npcmsg(msg_0073_D24R0102_00000)
+        setflag(FLAG_UNK_10F)
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 0) {
+            applymovement(obj_D24R0102_suit, RuinsOfAlph_ResearchCenter_Movement_009C)
+        } else {
+            applymovement(obj_D24R0102_suit, RuinsOfAlph_ResearchCenter_Movement_00E4)
+        }
+        waitmovement
+    }
+    npcmsg(msg_0073_D24R0102_00001)
+    goto(_0366)
+_008A:
+    npcmsg(msg_0073_D24R0102_00002)
+    goto(_0366)
+}
+
+movement RuinsOfAlph_ResearchCenter_Movement_009C {
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    emote_exclamation_mark
+}
+
+movement RuinsOfAlph_ResearchCenter_Movement_00E4 {
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    emote_exclamation_mark
+}
+
+script scr_seq_D24R0102_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 8) {
+        npcmsg(msg_0073_D24R0102_00017)
+        goto(_0366)
+    _0345:
+        bufferplayersname(0)
+        npcmsg(msg_0073_D24R0102_00016)
+        playfanfare(SEQ_ME_LVUP)
+        waitfanfare
+        addvar(VAR_UNOWN_REPORT_LEVEL, 1)
+        goto(_0366)
+    _035D:
+        npcmsg(msg_0073_D24R0102_00015)
+        goto(_0366)
+    _0366:
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 7) { goto(_02C4) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) >= 4) { goto(_0277) }
+    countunownlettersregistered(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_02DB) }
+    checkseenallletterunown(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0223) }
+    if (var(VAR_UNK_40EC) == 4) { goto(_01F6) }
+    if (var(VAR_UNK_40EC) == 3) { goto(_01D6) }
+    if (var(VAR_UNK_40EC) == 2) { goto(_01C3) }
+    if (var(VAR_UNK_40EC) == 1) { goto(_01BA) }
+_01B1:
+    npcmsg(msg_0073_D24R0102_00004)
+    goto(_0366)
+_01BA:
+    npcmsg(msg_0073_D24R0102_00005)
+    goto(_0366)
+_01C3:
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 1) { goto(_035D) }
+    goto(_02FA)
+_01D6:
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 2) { goto(_035D) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 1) { goto(_0303) }
+    goto(_02FA)
+_01F6:
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 3) { goto(_035D) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 2) { goto(_030C) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 1) { goto(_0303) }
+    goto(_02FA)
+_0223:
+    if (var(VAR_UNK_40EC) == 0) { goto(_01B1) }
+    if (var(VAR_UNK_40EC) == 1) { goto(_01BA) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 4) { goto(_035D) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 3) { goto(_0315) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 2) { goto(_030C) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 1) { goto(_0303) }
+    goto(_02FA)
+_0277:
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 6) { goto(_035D) }
+    if (var(VAR_UNK_40F1) == 4) { goto(_02B1) }
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 5) { goto(_035D) }
+    if (var(VAR_UNK_40F1) >= 1) { goto(_0321) }
+    goto(_035D)
+_02B1:
+    if (var(VAR_UNOWN_REPORT_LEVEL) == 5) { goto(_032A) }
+    goto(_0321)
+_02C4:
+    countunownlettersregistered(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 28) { goto(_0333) }
+    goto(_035D)
+_02DB:
+    if (var(VAR_UNK_40EC) == 1) { goto(_02F1) }
+    npcmsg(msg_0073_D24R0102_00004)
+    goto(_0366)
+_02F1:
+    npcmsg(msg_0073_D24R0102_00009)
+    goto(_0366)
+_02FA:
+    npcmsg(msg_0073_D24R0102_00006)
+    goto(_0345)
+_0303:
+    npcmsg(msg_0073_D24R0102_00007)
+    goto(_0345)
+_030C:
+    npcmsg(msg_0073_D24R0102_00008)
+    goto(_0345)
+_0315:
+    npcmsg(msg_0073_D24R0102_00010)
+    npcmsg(msg_0073_D24R0102_00011)
+    goto(_0345)
+_0321:
+    npcmsg(msg_0073_D24R0102_00012)
+    goto(_0345)
+_032A:
+    npcmsg(msg_0073_D24R0102_00013)
+    goto(_0345)
+_0333:
+    npcmsg(msg_0073_D24R0102_00014)
+    goto(_0345)
+}
+
+script scr_seq_D24R0102_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    checkseenallletterunown(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        npcmsg(msg_0073_D24R0102_00020)
+        goto(_0366)
+    }
+    countunownlettersregistered(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_03A1) }
+    npcmsg(msg_0073_D24R0102_00019)
+    goto(_0366)
+_03A1:
+    npcmsg(msg_0073_D24R0102_00018)
+    goto(_0366)
+}
+
+script scr_seq_D24R0102_003 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (var(VAR_UNOWN_REPORT_LEVEL) >= 7) {
+        npcmsg(msg_0073_D24R0102_00023)
+        goto(_0366)
+    }
+    checkseenallletterunown(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_03E2) }
+    npcmsg(msg_0073_D24R0102_00021)
+    goto(_0366)
+_03E2:
+    npcmsg(msg_0073_D24R0102_00022)
+    goto(_0366)
+}
+
+script scr_seq_D24R0102_004 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0073_D24R0102_00024)
+    goto(_0366)
+}
+
+mapscripts RuinsOfAlph_ResearchCenter_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_D24R0102_005
+}

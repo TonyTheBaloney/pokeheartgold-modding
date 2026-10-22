@@ -1,0 +1,227 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T11R0601_000
+	ScrDef scr_seq_T11R0601_001
+	ScrDef scr_seq_T11R0601_002
+	ScrDef scr_seq_T11R0601_003
+	ScrDef scr_seq_T11R0601_004
+	ScrDef scr_seq_T11R0601_005
+	ScrDef scr_seq_T11R0601_006
+	ScrDef scr_seq_T11R0601_007
+	ScrDef scr_seq_T11R0601_008
+	ScrDefEnd
+`
+
+script scr_seq_T11R0601_006 {
+    setspecialspawnwarp(MAP_GOLDENROD, 1290, 209)
+    if (!flag(FLAG_RESTORED_POWER)) {
+    } else {
+        setvar(VAR_UNK_411D, 0)
+    }
+    setflag(FLAG_HIDE_SAFFRON_TRAIN_STATION_LT_SURGE)
+    checkregisteredphonenumber(PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001)
+    if (var(VAR_TEMP_x4001) != 0) {
+        getphonebookrematch(PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001)
+        if (var(VAR_TEMP_x4001) == 0) {
+            if (!flag(FLAG_TRADE_LT_SURGE_PIKACHU)) {
+                clearflag(FLAG_HIDE_SAFFRON_TRAIN_STATION_LT_SURGE)
+            }
+        }
+    }
+    end
+}
+
+script scr_seq_T11R0601_005 {
+    if (flag(FLAG_RESTORED_POWER)) {
+        movepersonfacing(obj_T11R0601_policeman, 12, 0, 7, DIR_EAST)
+        end
+    }
+    end
+}
+
+script scr_seq_T11R0601_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_RESTORED_POWER)) {
+        getplayerfacing(VAR_SPECIAL_RESULT)
+        if (var(VAR_SPECIAL_RESULT) == 2) {
+            npcmsg(msg_0535_T11R0601_00005)
+            waitbuttonpress
+            closemessage
+        } else {
+            npcmsg(msg_0535_T11R0601_00007)
+            closemessage
+            applymovement(obj_T11R0601_policeman, Saffron_MagnetTrainStation_1F_Movement_00EC)
+            waitmovement
+        }
+        releaseall
+        end
+    }
+    npcmsg(msg_0535_T11R0601_00000)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Saffron_MagnetTrainStation_1F_Movement_00EC {
+    face_right
+}
+
+script scr_seq_T11R0601_004 {
+    followmonresetmovement
+    lockall
+    applymovement(obj_player, Saffron_MagnetTrainStation_1F_Movement_017C)
+    waitmovement
+    if (flag(FLAG_UNK_123)) {
+        npcmsg(msg_0535_T11R0601_00003)
+        closemessage
+        goto(_0116)
+    }
+    npcmsg(msg_0535_T11R0601_00001)
+    closemessage
+    setflag(FLAG_UNK_123)
+_0116:
+    wait(50, VAR_SPECIAL_x8004)
+    hasitem(ITEM_PASS, 1, VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) >= 1) {
+        npcmsg(msg_0535_T11R0601_00004)
+        waitbuttonpress
+        closemessage
+        setvar(VAR_UNK_411D, 1)
+        setvar(VAR_UNK_411F, 1)
+        releaseall
+        end
+    }
+    npcmsg(msg_0535_T11R0601_00002)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    applymovement(obj_player, Saffron_MagnetTrainStation_1F_Movement_0184)
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    releaseall
+    end
+}
+
+movement Saffron_MagnetTrainStation_1F_Movement_017C {
+    walk_in_place_left
+}
+
+movement Saffron_MagnetTrainStation_1F_Movement_0184 {
+    walk_down * 2
+}
+
+script scr_seq_T11R0601_007 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    npcmsg(msg_0535_T11R0601_00012)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_024F) }
+    npcmsg(msg_0535_T11R0601_00014)
+    closemessage
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    choosepartymonfortrade
+    getpartyselection(VAR_SPECIAL_RESULT)
+    restoreoverworld
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    if (var(VAR_SPECIAL_RESULT) == 255) { goto(_024F) }
+    loadnpctrade(10)
+    copyvar(VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT)
+    getpartymonspecies(VAR_SPECIAL_x8004, VAR_SPECIAL_x8005)
+    npctradegetreqspecies(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_x8005) != VAR_SPECIAL_RESULT) {
+        npctradeend
+        npcmsg(msg_0535_T11R0601_00017)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _024F:
+        npcmsg(msg_0535_T11R0601_00015)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npctradeexec(VAR_SPECIAL_x8004)
+    npctradeend
+    setflag(FLAG_TRADE_LT_SURGE_PIKACHU)
+    npcmsg(msg_0535_T11R0601_00016)
+    closemessage
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_T11R0601_gsleader9, Saffron_MagnetTrainStation_1F_Movement_025C)
+    } else {
+        applymovement(obj_T11R0601_gsleader9, Saffron_MagnetTrainStation_1F_Movement_0268)
+    }
+    waitmovement
+    removeobject(obj_T11R0601_gsleader9)
+    setflag(FLAG_HIDE_SAFFRON_TRAIN_STATION_LT_SURGE)
+    releaseall
+    end
+}
+
+movement Saffron_MagnetTrainStation_1F_Movement_025C {
+    walk_slightly_fast_left * 5
+    walk_slightly_fast_down * 10
+}
+
+movement Saffron_MagnetTrainStation_1F_Movement_0268 {
+    walk_slightly_fast_down * 10
+}
+
+script scr_seq_T11R0601_001 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_RESTORED_POWER)) {
+        npcmsg(msg_0535_T11R0601_00009)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0535_T11R0601_00008)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T11R0601_002 {
+    simplenpcmsg(msg_0535_T11R0601_00010)
+    end
+}
+
+script scr_seq_T11R0601_003 {
+    simplenpcmsg(msg_0535_T11R0601_00011)
+    end
+}
+
+script scr_seq_T11R0601_008 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0535_T11R0601_00018)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+mapscripts Saffron_MagnetTrainStation_1F_MapScripts {
+    INIT_SCRIPT_ON_RESUME: scr_seq_T11R0601_005
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11R0601_006
+}

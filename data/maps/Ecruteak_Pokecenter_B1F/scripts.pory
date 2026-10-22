@@ -1,0 +1,14 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T27PC0105_000 {
+    end
+}
+
+mapscripts Ecruteak_Pokecenter_B1F_MapScripts {
+    INIT_SCRIPT_ON_FRAME_TABLE [
+        VAR_SCENE_POKECENTER_WIFI_BASEMENT, 0: std_teala_first_intro
+        VAR_UNK_4137, 1: std_wifi_return
+    ]
+    INIT_SCRIPT_ON_LOAD: std_wifi_reset_state
+}

@@ -1,0 +1,307 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+// Script numbers (map.json and map scripts refer to these by label).
+raw `
+	ScrDef scr_seq_T11_000
+	ScrDef scr_seq_T11_001
+	ScrDef scr_seq_T11_002
+	ScrDef scr_seq_T11_003
+	ScrDef scr_seq_T11_004
+	ScrDef scr_seq_T11_005
+	ScrDef scr_seq_T11_006
+	ScrDef scr_seq_T11_007
+	ScrDef scr_seq_T11_008
+	ScrDef scr_seq_T11_009
+	ScrDef scr_seq_T11_010
+	ScrDef scr_seq_T11_011
+	ScrDef scr_seq_T11_012
+	ScrDef scr_seq_T11_013
+	ScrDef scr_seq_T11_014
+	ScrDef scr_seq_T11_015
+	ScrDef scr_seq_T11_016
+	ScrDefEnd
+`
+
+script scr_seq_T11_016 {
+    if (flag(FLAG_UNK_0A0)) {
+        clearflag(FLAG_UNK_0A0)
+    }
+    if (!flag(FLAG_UNK_189)) {
+        getweekday(VAR_TEMP_x4000)
+        if (var(VAR_TEMP_x4000) == 1) { goto(_00B5) }
+        if (var(VAR_TEMP_x4000) == 2) { goto(_00B5) }
+        if (var(VAR_TEMP_x4000) == 3) { goto(_00B5) }
+        if (var(VAR_TEMP_x4000) == 5) { goto(_00BF) }
+        if (var(VAR_TEMP_x4000) == 6) { goto(_00BF) }
+        setflag(FLAG_HIDE_CAMERON)
+        setflag(FLAG_UNK_27F)
+        end
+    _00B5:
+        clearflag(FLAG_HIDE_CAMERON)
+        setflag(FLAG_UNK_27F)
+        end
+    _00BF:
+        setflag(FLAG_HIDE_CAMERON)
+        clearflag(FLAG_UNK_27F)
+        end
+    }
+    clearflag(FLAG_UNK_189)
+    end
+}
+
+script scr_seq_T11_014 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_034C) }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0360) }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Saffron_Movement_01D0)
+        applymovement(obj_T11_gsmiddleman1_2, Saffron_Movement_0208)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Saffron_Movement_01E8)
+    } else {
+        applymovement(obj_player, Saffron_Movement_01F4)
+        applymovement(obj_T11_gsmiddleman1_2, Saffron_Movement_0208)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Saffron_Movement_0214)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(52)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Saffron_Movement_01D0 {
+    walk_left
+    walk_up * 2
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Saffron_Movement_01E8 {
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Saffron_Movement_01F4 {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Saffron_Movement_0208 {
+    delay_8
+    walk_in_place_up
+}
+
+movement Saffron_Movement_0214 {
+    walk_right
+    walk_up
+    face_down
+}
+
+script scr_seq_T11_015 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 0)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    touchscreenmenushow
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_034C) }
+    photoalbumisfull(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_0360) }
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 1)
+    closemessage
+    togglefollowingpokemonmovement(0)
+    waitfollowingpokemonmovement
+    followingpokemonmovement(55)
+    getplayerfacing(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) {
+        applymovement(obj_player, Saffron_Movement_0374)
+        applymovement(obj_T11_gsmiddleman1_3, Saffron_Movement_0208)
+    } elif (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_player, Saffron_Movement_01E8)
+    } elif (var(VAR_SPECIAL_RESULT) == 3) {
+        applymovement(obj_player, Saffron_Movement_01F4)
+        applymovement(obj_T11_gsmiddleman1_3, Saffron_Movement_0208)
+    } else {
+        applymovement(obj_player, Saffron_Movement_038C)
+        applymovement(obj_T11_gsmiddleman1_3, Saffron_Movement_0208)
+    }
+    waitmovement
+    waitfollowingpokemonmovement
+    togglefollowingpokemonmovement(1)
+    followingpokemonmovement(48)
+    followmonisactive(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 1) {
+        applymovement(obj_partner_poke, Saffron_Movement_0214)
+        waitmovement
+    }
+    setflag(FLAG_UNK_189)
+    fadescreen(6, 1, 0, RGB_BLACK)
+    waitfade
+    cameronphoto(53)
+    lockall
+    fadescreen(6, 1, 1, RGB_BLACK)
+    waitfade
+    clearflag(FLAG_UNK_189)
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 2)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_034C:
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 5)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+_0360:
+    getstdmsgnaix(2, VAR_SPECIAL_RESULT)
+    msgboxextern(VAR_SPECIAL_RESULT, 3)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+movement Saffron_Movement_0374 {
+    walk_right
+    walk_up * 2
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+movement Saffron_Movement_038C {
+    walk_up
+    walk_left
+    walk_up * 3
+    walk_in_place_down
+}
+
+script scr_seq_T11_002 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_HIDE_SAFFRON_CITY_COPYCAT_HOUSE_CLEFAIRY_DOLL)) {
+        npcmsg(msg_0529_T11_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    }
+    npcmsg(msg_0529_T11_00002)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T11_000 {
+    simplenpcmsg(msg_0529_T11_00000)
+    end
+}
+
+script scr_seq_T11_001 {
+    simplenpcmsg(msg_0529_T11_00001)
+    end
+}
+
+script scr_seq_T11_003 {
+    simplenpcmsg(msg_0529_T11_00004)
+    end
+}
+
+script scr_seq_T11_004 {
+    simplenpcmsg(msg_0529_T11_00005)
+    end
+}
+
+script scr_seq_T11_005 {
+    simplenpcmsg(msg_0529_T11_00006)
+    end
+}
+
+script scr_seq_T11_006 {
+    simplenpcmsg(msg_0529_T11_00007)
+    end
+}
+
+script scr_seq_T11_007 {
+    simplenpcmsg(msg_0529_T11_00008)
+    end
+}
+
+script scr_seq_T11_008 {
+    trainertipsex(2, msg_0529_T11_00009)
+    end
+}
+
+script scr_seq_T11_009 {
+    directionsignpostex(0, 10, msg_0529_T11_00010)
+    end
+}
+
+script scr_seq_T11_010 {
+    trainertipsex(2, msg_0529_T11_00011)
+    end
+}
+
+script scr_seq_T11_011 {
+    trainertipsex(2, msg_0529_T11_00012)
+    end
+}
+
+script scr_seq_T11_012 {
+    trainertipsex(2, msg_0529_T11_00013)
+    end
+}
+
+script scr_seq_T11_013 {
+    trainertipsex(2, msg_0529_T11_00014)
+    end
+}
+
+mapscripts Saffron_MapScripts {
+    INIT_SCRIPT_ON_TRANSITION: scr_seq_T11_016
+}

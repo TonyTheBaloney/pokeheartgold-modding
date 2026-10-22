@@ -1,0 +1,55 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T02R0301_000 {
+    simplenpcmsg(msg_0457_T02R0301_00000)
+    end
+}
+
+script scr_seq_T02R0301_001 {
+    simplenpcmsg(msg_0457_T02R0301_00001)
+    end
+}
+
+script scr_seq_T02R0301_002 {
+    simplenpcmsg(msg_0457_T02R0301_00002)
+    end
+}
+
+script scr_seq_T02R0301_003 {
+    simplenpcmsg(msg_0457_T02R0301_00003)
+    end
+}
+
+script scr_seq_T02R0301_004 {
+    simplenpcmsg(msg_0457_T02R0301_00004)
+    end
+}
+
+script scr_seq_T02R0301_005 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0457_T02R0301_00005)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T02R0301_006 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    npcmsg(msg_0457_T02R0301_00006)
+    waitbuttonpress
+    closemessage
+    releaseall
+    end
+}
+
+script scr_seq_T02R0301_007 {
+    simplenpcmsg(msg_0457_T02R0301_00007)
+    end
+}
+
+mapscripts Viridian_TrainerHouse_1F_MapScripts {
+}

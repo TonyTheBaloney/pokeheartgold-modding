@@ -1,0 +1,19 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T21R0501_000 {
+    end
+}
+
+script scr_seq_T21R0501_001 {
+    simplenpcmsg(msg_0555_T21R0501_00000)
+    end
+}
+
+script scr_seq_T21R0501_002 {
+    simplenpcmsg(msg_0555_T21R0501_00001)
+    end
+}
+
+mapscripts Cherrygrove_SoutheastHouse_MapScripts {
+}

@@ -433,25 +433,30 @@ class Compiler:
             elif isinstance(it, P.TextBlock):
                 self.add_text(it.name, it.value, it.line)
             elif isinstance(it, P.Movement):
-                self.movements.append(it)
+                body += self.movement_lines(it)  # in place, like the original files
             elif isinstance(it, P.MapScripts):
                 for name, stmts in self._inline_init_scripts(it):
                     body.append("%s:" % name)
                     body += ScriptEmitter(self, name).run(stmts)
                     body.append("")
-        for mv in self.movements:
-            body += ["", "\t.balign 4", "%s:" % mv.name]
-            for name, count in mv.items:
-                macro = self.movement(name, mv.line)
-                if macro == "EndMovement":
-                    continue
-                if "length" in self.ctx.macros.macros[macro].params:
-                    body.append("\t%s%s" % (macro, " %d" % count if count != 1 else ""))
-                else:
-                    body += ["\t%s" % macro] * count
-            body.append("\tEndMovement")
+        for mv in self.movements:  # inline moves(...) go at the end
+            body += self.movement_lines(mv)
+        body += ["", "\t.balign 4, 0"]  # every original bank ends aligned
         scripts_inc = "\n".join(head + body) + "\n"
         return Result(scripts_inc, self.map_scripts(mapscripts[0] if mapscripts else None, number), self.texts, public)
+
+    def movement_lines(self, mv):
+        out = ["", "\t.balign 4, 0", "%s:" % mv.name]
+        for name, count in mv.items:
+            macro = self.movement(name, mv.line)
+            if macro == "EndMovement":
+                continue
+            if "length" in self.ctx.macros.macros[macro].params:
+                out.append("\t%s%s" % (macro, " %d" % count if count != 1 else ""))
+            else:
+                out += ["\t%s" % macro] * count
+        out.append("\tEndMovement")
+        return out
 
     def map_scripts(self, ms, number):
         def ref(label):

@@ -1,0 +1,49 @@
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /
+// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).
+
+script scr_seq_T25R0201_000 {
+    playse(SEQ_SE_DP_SELECT)
+    lockall
+    faceplayer
+    if (flag(FLAG_UNK_089)) {
+        npcmsg(msg_0584_T25R0201_00003)
+        waitbuttonpress
+        closemessage
+        releaseall
+        end
+    _008C:
+        npcmsg(msg_0584_T25R0201_00004)
+        waitbuttonpress
+        closemessage
+        touchscreenmenushow
+        releaseall
+        end
+    }
+    npcmsg(msg_0584_T25R0201_00000)
+    touchscreenmenuhide
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0042) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_008C) }
+    end
+_0042:
+    npcmsg(msg_0584_T25R0201_00001)
+    getmenuchoice(VAR_SPECIAL_RESULT)
+    if (var(VAR_SPECIAL_RESULT) == 0) { goto(_0065) }
+    if (var(VAR_SPECIAL_RESULT) == 1) { goto(_008C) }
+    end
+_0065:
+    giveitemnocheck(ITEM_BICYCLE, 1)
+    setflag(FLAG_UNK_089)
+    closemessage
+    touchscreenmenushow
+    releaseall
+    end
+}
+
+script scr_seq_T25R0201_001 {
+    simplenpcmsg(msg_0584_T25R0201_00005)
+    end
+}
+
+mapscripts Goldenrod_BikeShop_MapScripts {
+}
