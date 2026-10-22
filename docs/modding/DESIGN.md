@@ -149,9 +149,9 @@ this design.
 
 | Field today | In `events.json` |
 |---|---|
-| `"movement": 15` | `"movement": "MOVEMENT_TYPE_..."` (new constants, below) |
-| `"facingDirection": 1` | `"facing": "DIR_SOUTH"` |
-| `"type": 1` | `"type": "OBJECT_TYPE_TRAINER_SIGHT_LINE"` (new constants) |
+| `"movement": 15` | `"movement": "MOVEMENT_TYPE_FACE_DOWN"` (done in phase 1) |
+| `"facingDirection": 1` | `"facingDirection": "DIR_SOUTH"` (done in phase 1) |
+| `"type": 1` | `"type": "OBJECT_TYPE_TRAINER"` (done in phase 1) |
 | `"scriptId": "_EV_scr_seq_T21_000 + 1"` | `"script": "Cherrygrove_EventScript_GuideGent"` |
 | `"x": 566, "z": 396` (global tiles) | `"x": 566, "z": 396` plus `mapkit` can show/accept local `(cell, x, z)` |
 | warp `"header"`, `"anchor"` | `"dest": "MAP_CHERRYGROVE_POKECENTER_1F"`, `"destWarp": 0` |
@@ -159,12 +159,9 @@ this design.
 Unknown or still-numeric values are allowed as plain numbers, so the migration
 never blocks on naming.
 
-New constants needed (headers only; the binary doesn't change):
-
-- `MOVEMENT_TYPE_*` for the 57 entries of `gMapObjectMovementCallbacks`
-  (`asm/map_object_movement_tables.s`)
-- `OBJECT_TYPE_*` for `ObjectEvent.type` (see `MapObject_GetTrainerSightType`
-  in `src/map_object_behavior.c`)
+The constants live in `include/constants/map_object.h` (headers only; the binary
+doesn't change): `MOVEMENT_TYPE_*` for the 57 entries of
+`gMapObjectMovementCallbacks`, `OBJECT_TYPE_*` for `ObjectEvent.type`.
 
 ### Validation (`mapkit validate`)
 
@@ -216,10 +213,11 @@ layout (`NUM_DEX_FLAG_WORDS`), in many file-index-based archives and in about
 
 ## Phases
 
-1. **Foundation.** `tools/mapkit` Python package (stdlib only). Read-only parsers
-   for map headers, zone events, scripts (via `script.inc`), text, wild data and
-   matrices. `mapkit show`, `mapkit validate`. New `MOVEMENT_TYPE_*` /
-   `OBJECT_TYPE_*` constants.
+1. **Foundation. Done (2026-10-21).** `tools/mapkit` Python package (stdlib only),
+   read-only parsers for map headers, zone events, scripts (via `script.inc`), text,
+   wild data and matrices; `list`, `show`, `validate`, `refs`. `MOVEMENT_TYPE_*` /
+   `OBJECT_TYPE_*` in `include/constants/map_object.h`, and the zone_event JSON
+   now uses them (plus `DIR_*`, `BG_TYPE_*`, `BG_DIR_*`) instead of numbers.
 2. **Migration.** `mapkit migrate` writes `data/maps`, `data/layouts`,
    `maps.json` from the current files. `mapkit gen` + meson wiring. Done when
    generated files diff clean and HG/SS checksums pass.

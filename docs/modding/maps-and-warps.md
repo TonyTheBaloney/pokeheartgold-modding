@@ -29,7 +29,8 @@ With the code, find the rest (example `T21`):
 | `files/fielddata/script/scr_seq/event_T21.h` | script and object IDs |
 | `files/msgdata/msg/msg_NNNN_T21.json` | text (`.msgBank` gives NNNN) |
 
-`grep -rl T21 files/fielddata files/msgdata/msg` lists them all.
+`tools/mapkit/mapkit.sh show Cherrygrove` prints all of these paths plus the map's
+events, scripts and wild table. `tools/mapkit/mapkit.sh list goldenrod` finds maps by name.
 
 ## Map header
 
@@ -56,9 +57,9 @@ Event coordinates are **global tile** coordinates over the map's grid (matrix):
 `src/field/field_control.c` converts with `globalX % 32`. Height is `y`
 (usually 0).
 
-To find the coordinates of a spot, the easiest way is to stand there in an
-emulator and read the player position from RAM, or copy the coordinates of a
-nearby object/warp from the same JSON.
+To find the coordinates of a spot, stand there in an emulator and read the
+player position from RAM, or copy the coordinates of a nearby object/warp from the
+same JSON. `mapkit show` prints every event as `global (cell cx,cz +local)`.
 
 ## Events file (zone_event JSON)
 
@@ -101,6 +102,8 @@ Used for exits that depend on where you came from.
 Changing where a door leads:
 1. Edit `header` and `anchor` on the source warp.
 2. In the destination map's JSON, make sure warp `anchor` exists and points back.
+3. `tools/mapkit/mapkit.sh validate -a <map>` reports warps to missing warp indexes
+   (error) and warps whose landing spot leads somewhere else (note).
 
 ### Signs and hidden items (`bgs`)
 

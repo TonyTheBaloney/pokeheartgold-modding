@@ -14,8 +14,9 @@ NPCs are the `objects` array of the map's zone_event JSON
 
 ```json
 { "id": "obj_T21_gsoldman1", "spriteId": "SPRITE_GSOLDMAN1",
-  "movement": 15, "type": 0, "eventFlag": "FLAG_HIDE_CHERRYGROVE_GUIDE_GENT",
-  "scriptId": "_EV_scr_seq_T21_000 + 1", "facingDirection": 1,
+  "movement": "MOVEMENT_TYPE_FACE_DOWN", "type": "OBJECT_TYPE_NORMAL",
+  "eventFlag": "FLAG_HIDE_CHERRYGROVE_GUIDE_GENT",
+  "scriptId": "_EV_scr_seq_T21_000 + 1", "facingDirection": "DIR_SOUTH",
   "param0": 0, "param1": 0, "param2": 0, "xRange": 0, "yRange": 0,
   "x": 566, "z": 396, "y": 0 }
 ```
@@ -24,21 +25,40 @@ NPCs are the `objects` array of the map's zone_event JSON
 |---|---|
 | `id` | object ID, `#define`d in `event_CODE.h`; scripts use it (`ApplyMovement obj_T21_gsoldman1, ...`). Must be unique in the map |
 | `spriteId` | `SPRITE_*` from `include/constants/sprites.h` |
-| `movement` | movement type, a number (see below) |
-| `type` | 0 normal NPC; 1 trainer that looks in its facing direction; 2 trainer that sees in all directions (`MapObject_GetTrainerSightType`, `src/map_object_behavior.c`) |
+| `movement` | `MOVEMENT_TYPE_*` (see below) |
+| `type` | `OBJECT_TYPE_NORMAL`, `OBJECT_TYPE_TRAINER` (sees along its facing direction), `OBJECT_TYPE_TRAINER_ALL_DIRECTIONS`, or a trainer variant; all in `include/constants/map_object.h` |
 | `eventFlag` | hide flag: the NPC is not spawned while this flag is set. `FLAG_NOTHING` = always shown |
 | `scriptId` | script run when you talk to it (see "Script IDs") |
-| `facingDirection` | `DIR_NORTH` 0, `DIR_SOUTH` 1, `DIR_WEST` 2, `DIR_EAST` 3 (`include/constants/global_fieldmap.h`). Constant names work too |
+| `facingDirection` | `DIR_NORTH`, `DIR_SOUTH`, `DIR_WEST`, `DIR_EAST` (`include/constants/global_fieldmap.h`) |
 | `param0` | for trainers: sight range in tiles. Other uses depend on movement type |
 | `xRange`, `yRange` | how far a wandering NPC may move from its start |
 | `x`, `z`, `y` | position in global tiles |
 
 ### Movement types
 
-`movement` is an index into `gMapObjectMovementCallbacks`
-(`asm/map_object_movement_tables.s`). There are no named constants yet
-(adding `MOVEMENT_TYPE_*` is phase 1 of [DESIGN.md](DESIGN.md)). Until then, copy the
-value from an existing NPC that behaves the way you want.
+`MOVEMENT_TYPE_*` in `include/constants/map_object.h` (an index into
+`gMapObjectMovementCallbacks`, `asm/map_object_movement_tables.s`). The common ones:
+
+| Constant | NPC |
+|---|---|
+| `MOVEMENT_TYPE_NONE` | stands still, keeps `facingDirection` |
+| `MOVEMENT_TYPE_FACE_UP` / `_DOWN` / `_LEFT` / `_RIGHT` | stands still facing that way |
+| `MOVEMENT_TYPE_LOOK_AROUND` | stands still, turns randomly |
+| `MOVEMENT_TYPE_LOOK_UP_DOWN`, `MOVEMENT_TYPE_LOOK_LEFT_RIGHT`, `MOVEMENT_TYPE_LOOK_DOWN_LEFT`, ... | turns randomly between those directions |
+| `MOVEMENT_TYPE_WANDER_AROUND` | walks randomly within `xRange`/`yRange` |
+| `MOVEMENT_TYPE_WANDER_UP_DOWN`, `MOVEMENT_TYPE_WANDER_LEFT_RIGHT` | walks randomly along one axis |
+| `MOVEMENT_TYPE_SPIN_CLOCKWISE` / `_COUNTERCLOCKWISE` | turns in a circle |
+| `MOVEMENT_TYPE_PATH_*` | walks a fixed loop; the name is the order of directions |
+
+Don't use `MOVEMENT_TYPE_INVALID_47` (empty slot) or `MOVEMENT_TYPE_PLAYER`.
+`mapkit validate` catches both.
+
+## Checking your edits
+
+`tools/mapkit/mapkit.sh show <map>` lists a map's NPCs, warps, signs and triggers
+with the script each one runs; `tools/mapkit/mapkit.sh validate <map>` reports broken
+references (bad script ids, unknown flags, warps to missing warps, oversized events).
+See [tools/mapkit/README.md](../../tools/mapkit/README.md).
 
 ## Moving an NPC
 
@@ -64,14 +84,16 @@ brings it back (Cherrygrove's `scr_seq_T21_002` does exactly this for the Guide 
 
 ## Trainers
 
-A trainer NPC is an object with `type` 1 or 2, `param0` = sight range, and
+A trainer NPC is an object with a trainer `type` (usually `OBJECT_TYPE_TRAINER`),
+`param0` = sight range, and
 `scriptId` = `std_trainer(TRAINER_X)` (or `std_trainer_2(...)` for the second
 trainer of a double battle pair):
 
 ```json
-{ "id": "obj_R30_gsboy3", "spriteId": "SPRITE_GSBOY3", "movement": 17, "type": 1,
+{ "id": "obj_R30_gsboy3", "spriteId": "SPRITE_GSBOY3",
+  "movement": "MOVEMENT_TYPE_FACE_RIGHT", "type": "OBJECT_TYPE_TRAINER",
   "eventFlag": "FLAG_NOTHING", "scriptId": "std_trainer(TRAINER_BUG_CATCHER_DON)",
-  "facingDirection": 3, "param0": 3, ... }
+  "facingDirection": "DIR_EAST", "param0": 3, ... }
 ```
 
 Parties, class, AI flags and items: `files/poketool/trainer/trainers.json`
