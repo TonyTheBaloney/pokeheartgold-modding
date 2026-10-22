@@ -4052,7 +4052,7 @@ BOOL ScrCmd_CheckEasyChatWordsMatchFixedPhrase(ScriptContext *ctx) {
     String *phraseStr;
     String *answerStr;
     MessageFormat *msgFmt = MessageFormat_New(HEAP_ID_FIELD3);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0202_bin, HEAP_ID_FIELD3);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0202, HEAP_ID_FIELD3);
     BufferECWord(msgFmt, 0, word1);
     BufferECWord(msgFmt, 1, word2);
     BufferECWord(msgFmt, 2, word3);

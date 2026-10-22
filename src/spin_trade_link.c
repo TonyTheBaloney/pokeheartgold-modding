@@ -36,7 +36,6 @@ typedef struct SpinTradeJoinRequest {
     u8 sender, count, command, accepted;
 } SpinTradeJoinRequest;
 
-u32 MATH_CountPopulation(u32 value);
 void CommState_SetMaxEntries(int count);
 void SpinTradeGroup_HandleLinkEvent(struct SpinTradeGroupApp *app, int event, int value);
 void SpinTradeGroup_HandleMemberEvent(struct SpinTradeGroupApp *app, int event, int value);

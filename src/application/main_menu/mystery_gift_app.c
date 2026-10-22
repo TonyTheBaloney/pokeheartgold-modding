@@ -787,7 +787,7 @@ static void MysteryGiftApp_CreateListMenu(OverlayManager *manager, const Mystery
         ListMenuItems_Delete(data->listMenuItems);
     }
     data->listMenuItems = ListMenuItems_New(count, HEAP_ID_84);
-    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_84);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0247, HEAP_ID_84);
     int i = 0;
     if (count > 0) {
         do {
@@ -836,7 +836,7 @@ static void MysteryGiftApp_ShowMainMenu(OverlayManager *manager, int baseTile, i
 static void MysteryGiftApp_PrintMessage(OverlayManager *manager, Window *window, int msgId) {
     MysteryGiftAppData *data = OverlayManager_GetData(manager);
 
-    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_84);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, HEAP_ID_84);
     data->msgFormat = MessageFormat_New(HEAP_ID_84);
     FillWindowPixelBuffer(window, GetFontAttribute(1, 6));
     String *string = data->string;
@@ -954,7 +954,7 @@ void MysteryGiftApp_ShowWfcError(MysteryGiftAppData *data) {
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
     msgFormat = MessageFormat_New(HEAP_ID_84);
     BufferIntegerAsString(msgFormat, 0, data->wfcErrorCode, 5, PRINTING_MODE_LEADING_ZEROS, TRUE);
-    MainMenuTextPrinter_Init(&printer, &data->wfcErrorWindow, 1, NARC_msg_msg_0800_bin, 31, 3);
+    MainMenuTextPrinter_Init(&printer, &data->wfcErrorWindow, 1, msg_0800, 31, 3);
     MainMenuTextPrinter_SetSize(&printer, 24, 16, 100);
     MainMenuTextPrinter_SetFrameAndFont(&printer, 0, 1);
     printer.msgFormat = msgFormat;
@@ -985,7 +985,7 @@ static int MysteryGiftApp_PrintMessageAndWait(OverlayManager *manager, Window *w
     MysteryGiftAppData *data = OverlayManager_GetData(manager);
 
     if (window != NULL && msgId != 0) {
-        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_84);
+        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, HEAP_ID_84);
         MessageFormat *msgFormat = MessageFormat_New(HEAP_ID_84);
         data->string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msgId, HEAP_ID_84);
         data->textSpeed = 1;

@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public FootprintStamp_UpdateIdle
 	.public FootprintStamp_UpdateVanish
 	.public FootprintStamp_DrawVanish

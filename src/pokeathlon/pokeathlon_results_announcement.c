@@ -251,7 +251,7 @@ void PokeathlonResults_PrintTitle(Window *window, enum HeapID heapId) {
     String *string;
 
     FillWindowPixelBuffer(window, 0);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, heapId);
     messageFormat = MessageFormat_New(heapId);
     string = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, msg_0309_00303, heapId);
     AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);

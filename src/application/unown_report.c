@@ -976,7 +976,7 @@ static void UnownReport_FreeScreens(UnownReportApp *app) {
 
 static void UnownReport_InitMessages(UnownReportApp *app) {
     FontID_Alloc(4, app->heapID);
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0001_bin, app->heapID);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0001, app->heapID);
     app->msgFormat = MessageFormat_New_Custom(16, 16, app->heapID);
     app->template = String_New(512, app->heapID);
     app->buffer = String_New(512, app->heapID);

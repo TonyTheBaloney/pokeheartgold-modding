@@ -19,7 +19,6 @@
 #define BLOCK_WIPE_BLOCKS  (BLOCK_WIPE_COLUMNS * BLOCK_WIPE_ROWS)
 #define BLOCK_WIPE_SIZE    32
 
-void GXx_SetMasterBrightness_(vu16 *reg, s32 brightness);
 
 // A width x height rectangle filled with fill, moved from (x.start, y.start) to (x.end, y.end); positions are
 // the rectangle's centre in pixels.

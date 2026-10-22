@@ -1,6 +1,6 @@
 #include "camera.h"
 
-#include <nitro/fx.h>
+#include <nitro.h>
 #include <nnsys/g3d.h>
 
 #include "global.h"

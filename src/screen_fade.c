@@ -74,7 +74,6 @@ static void ScreenFade_QueueBrightnessReset(ScreenFade *fade);
 static void ScreenFade_HoldFadeColor(ScreenFade *fade);
 static void PaletteFade_Clear(PaletteFade *fade);
 
-void GXx_SetMasterBrightness_(vu16 *reg, s32 brightness);
 
 static const FadeFunc sFadeFuncPtrs[] = {
     FadeFunc_00,

@@ -1079,7 +1079,7 @@ static void BattleCastleOpponentApp_InitGraphics(BattleCastleOpponentApp *app) {
     BattleCastleOpponentApp_InitBgGraphics(app);
     BattleCastleOpponentApp_InitSpriteGfx(app);
     FontID_Alloc(4, HEAP_ID_107);
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0033_bin, HEAP_ID_107);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0033, HEAP_ID_107);
     app->msgFormat = MessageFormat_New(HEAP_ID_107);
     app->expandedString = String_New(600, HEAP_ID_107);
     app->rawString = String_New(600, HEAP_ID_107);

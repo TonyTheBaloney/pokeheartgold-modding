@@ -895,9 +895,9 @@ BOOL NintendoWfc_Init(OverlayManager *man, int *state) {
         modes = gNintendoWfcGraphicsModes;
         SetBothScreensModesAndDisable(&modes);
         wfc->msgFormat = MessageFormat_New_Custom(11, 32, HEAP_ID_67);
-        wfc->msgDataTower = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0774_bin, HEAP_ID_67);
-        wfc->msgDataWfc = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0778_bin, HEAP_ID_67);
-        wfc->msgDataError = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0800_bin, HEAP_ID_67);
+        wfc->msgDataTower = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0774, HEAP_ID_67);
+        wfc->msgDataWfc = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0778, HEAP_ID_67);
+        wfc->msgDataError = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0800, HEAP_ID_67);
         SetKeyRepeatTimers(4, 8);
         NintendoWfc_InitArgs(wfc, man);
         NintendoWfc_InitGraphics(wfc);
@@ -3001,7 +3001,7 @@ static void NintendoWfcYesNo_LoadGraphics(NintendoWfcYesNoMenu *menu) {
 }
 
 static void NintendoWfcYesNo_AddWindows(NintendoWfcYesNoMenu *menu) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0191_bin, menu->heapID);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0191, menu->heapID);
     String *yes;
     String *no;
 

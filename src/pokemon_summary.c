@@ -220,13 +220,13 @@ static u8 sPokemonSummaryPartySlotPositions[][2] = {
 };
 
 static const ResdatIdList sPokemonSummarySpriteResdatIds = {
-    .charRes = NARC_resdat_resdat_00000054_bin,
-    .plttRes = NARC_resdat_resdat_00000055_bin,
-    .cellRes = NARC_resdat_resdat_00000053_bin,
-    .animRes = NARC_resdat_resdat_00000052_bin,
+    .charRes = resdat_00000054_bin,
+    .plttRes = resdat_00000055_bin,
+    .cellRes = resdat_00000053_bin,
+    .animRes = resdat_00000052_bin,
     .mcelRes = 0xFFFF,
     .manmRes = 0xFFFF,
-    .headerId = NARC_resdat_resdat_00000085_bin,
+    .headerId = resdat_00000085_bin,
 };
 
 static const OamCharTransferParam sPokemonSummaryOamTransferParam = {
@@ -546,7 +546,7 @@ static void PokemonSummary_VBlank(void *data) {
     PokepicManager_HandleLoadImgAndOrPltt(summary->pokepicManager);
     GF_RunVramTransferTasks();
     SpriteSystem_TransferOam();
-    OS_SetIrqCheckFlag(OS_IE_VBLANK);
+    OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
 static void PokemonSummary_SetGraphicsBanks(void) {
@@ -620,15 +620,15 @@ static void PokemonSummary_SetBlend(void) {
 }
 
 static void PokemonSummary_InitText(PokemonSummary *summary) {
-    summary->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0302_bin, HEAP_ID_19);
-    summary->ribbonMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0424_bin, HEAP_ID_19);
+    summary->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0302, HEAP_ID_19);
+    summary->ribbonMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0424, HEAP_ID_19);
     summary->numberPrinter = MessagePrinter_New(1, 2, 0, HEAP_ID_19);
     summary->msgFormat = MessageFormat_New(HEAP_ID_19);
     summary->mon.speciesName = String_New(12, HEAP_ID_19);
     summary->mon.nickname = String_New(12, HEAP_ID_19);
     summary->mon.otName = String_New(8, HEAP_ID_19);
     summary->buffer = String_New(128, HEAP_ID_19);
-    summary->moveNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0750_bin, HEAP_ID_19);
+    summary->moveNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0750, HEAP_ID_19);
     summary->playerName = String_New(8, HEAP_ID_19);
     if (summary->args->playerName != NULL) {
         CopyU16ArrayToString(summary->playerName, summary->args->playerName);

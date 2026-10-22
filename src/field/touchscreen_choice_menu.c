@@ -354,7 +354,7 @@ static void TouchscreenChoiceMenu_PrintMessage(Window *window, MsgData *msgData,
 
 static void TouchscreenChoiceMenu_LoadMessages(TouchscreenChoiceMenuData *data, u32 unused) {
     data->msgFormat = MessageFormat_New(HEAP_ID_8);
-    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0191_bin, HEAP_ID_8);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0191, HEAP_ID_8);
 }
 
 static void TouchscreenChoiceMenu_FreeMessages(TouchscreenChoiceMenuData *data) {

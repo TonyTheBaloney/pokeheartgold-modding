@@ -1,4 +1,4 @@
-#include <nitro/fs/overlay.h>
+
 #pragma once
 .public ApricornTreeObject_Init
 .public ApricornTreeObject_Update

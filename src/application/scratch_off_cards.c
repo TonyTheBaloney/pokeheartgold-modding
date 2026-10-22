@@ -1065,7 +1065,7 @@ static void ScratchOffCards_InitResources(ScratchOffCardsWork *work) {
     work->narc = NARC_New(NARC_a_2_0_5, HEAP_ID_122);
     ScratchOffCards_InitBgGraphics(work);
     ScratchOffCards_InitSpriteGraphics(work);
-    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0432_bin, HEAP_ID_122);
+    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0432, HEAP_ID_122);
     work->msgFormat = MessageFormat_New(HEAP_ID_122);
     work->string = String_New(600, HEAP_ID_122);
     work->stringBuffer = String_New(600, HEAP_ID_122);

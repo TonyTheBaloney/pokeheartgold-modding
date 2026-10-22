@@ -302,7 +302,7 @@ static const u32 sWiFiPlazaRoomBgIds[4] = { GF_BG_LYR_MAIN_1, GF_BG_LYR_SUB_0, G
 
 static const GXRgb sWiFiPlazaRoomEdgeColors[8] = { GX_RGB(0, 0, 0), GX_RGB(4, 4, 4), GX_RGB(4, 4, 4), GX_RGB(4, 4, 4), GX_RGB(4, 4, 4), GX_RGB(4, 4, 4), GX_RGB(4, 4, 4), GX_RGB(4, 4, 4) };
 
-static const u32 sWiFiPlazaRoomMsgBanks[4] = { NARC_msg_msg_0776_bin, NARC_msg_msg_0777_bin, NARC_msg_msg_0800_bin, NARC_msg_msg_0766_bin };
+static const u32 sWiFiPlazaRoomMsgBanks[4] = { msg_0776, msg_0777, msg_0800, msg_0766 };
 
 BOOL WiFiPlazaObj_UpdateLight(WiFiPlazaObjLight *light, struct WiFiPlazaPlayerObjects *avatars) {
     if (light->active == 0) {

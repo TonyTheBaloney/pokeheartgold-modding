@@ -11,7 +11,6 @@
 // Screen transition effects of the frontier script system: master brightness flashes, window wipes made of 96
 // growing boxes, a scanline wave and a double-buffered HBlank DMA of the BG2/BG3 affine registers.
 
-extern void GXx_SetMasterBrightness_(vu16 *reg, s32 brightness);
 
 typedef struct FrontierTransitionLerp {
     s32 value;

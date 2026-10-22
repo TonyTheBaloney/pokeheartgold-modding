@@ -21,7 +21,6 @@ typedef struct BrightnessTransition {
 
 static BOOL BrightnessTransition_Step(BrightnessTransition *transition);
 static inline void ApplyScanlineSpan(WipeScanlineBuffer *buffer, int line, ScreenWipeScanlines *scanlines);
-static inline int GX_IsHBlank(void);
 static inline void SetOutsidePlane(int planes, BOOL effect, int screen);
 static inline void SetInsidePlane(int planes, BOOL effect, int window, int screen);
 static inline void ApplyLine(LineMask *mask, int line, int index);
@@ -1163,10 +1162,6 @@ static void LineMask_CommitTask(SysTask *task, void *data) {
 }
 
 #define GX_BLEND_ALL 0x3F
-
-static inline int GX_IsHBlank(void) {
-    return reg_GX_DISPSTAT & REG_GX_DISPSTAT_HBLK_MASK;
-}
 
 static inline void SetOutsidePlane(int planes, BOOL effect, int screen) {
     if (screen == 0) {

@@ -688,7 +688,7 @@ void WiFiPlazaPlayer_CopyToProfile(WiFiPlazaPlayer *player, PlayerProfile *profi
         invalid = TRUE;
     }
     if (invalid) {
-        MsgData *msg = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0777_bin, heapID);
+        MsgData *msg = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0777, heapID);
         String *name = NewString_ReadMsgData(msg, msg_0777_00064);
         PlayerName_StringToFlat(profile, name);
         String_Delete(name);

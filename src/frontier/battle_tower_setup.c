@@ -389,9 +389,9 @@ static NarcId BattleTower_GetTrainerNarc(u32 towerMode) {
 
 u32 BattleTower_GetTrainerMessageBank(u32 towerMode) {
     if (BattleTower_UsesNewSetNarcs(towerMode) == FALSE) {
-        return NARC_msg_msg_0723_bin;
+        return msg_0723;
     }
-    return NARC_msg_msg_0724_bin;
+    return msg_0724;
 }
 
 static BOOL BattleTower_UsesNewSetNarcs(u32 towerMode) {

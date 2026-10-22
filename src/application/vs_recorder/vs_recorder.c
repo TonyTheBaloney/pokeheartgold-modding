@@ -260,8 +260,8 @@ void VsRecorder_InitResources(VsRecorderWork *work) {
     OrbitCursor_SetActive(work->orbitCursors[1], 0);
     OrbitCursor_SetVisible(work->orbitCursors[1], 0);
     work->fontSystem = FontSystem_NewInit(20, HEAP_ID_109);
-    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0013_bin, HEAP_ID_109);
-    work->recordMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0026_bin, HEAP_ID_109);
+    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0013, HEAP_ID_109);
+    work->recordMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0026, HEAP_ID_109);
     VsRecorder_LoadSavedVideos(work);
     VsRecorderApp_CountMenuChoices(work);
     VsRecorder_LoadFrameBg(work);

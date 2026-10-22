@@ -17,6 +17,7 @@ import hashlib
 import html
 import json
 import math
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -25,10 +26,10 @@ CODE = {'.text', '.init', '.itcm', '.sinit', '.wram'}
 ROW = re.compile(r'\s+([0-9A-Fa-f]{8}) ([0-9A-Fa-f]{8}) (\.\S+)\s+(.+?)\s+\(([^)]+)\)')
 SOURCE_LANGUAGES = {'.c': 'c', '.cpp': 'cpp', '.s': 'asm'}
 COLORS = {'c': '#35b85a', 'cpp': '#35a9b8', 'inline_asm': '#a5c75a', 'original_asm': '#6f8fd8',
-          'generated': '#8d7bb0', 'veneer': '#9aa5b1', 'mixed': '#e4ad42', 'asm': '#455268', 'unknown': '#b875ae'}
+          'generated': '#8d7bb0', 'veneer': '#9aa5b1', 'prebuilt': '#c98a8a', 'mixed': '#e4ad42', 'asm': '#455268', 'unknown': '#b875ae'}
 LABELS = {'c': 'C-only source', 'cpp': 'C++-only source', 'inline_asm': 'C with original inline asm',
           'original_asm': 'Original hand-written assembly', 'generated': 'Build-tool generated',
-          'veneer': 'Linker-style veneers', 'mixed': 'C/C++ with assembly', 'asm': 'Assembly',
+          'veneer': 'Linker-style veneers', 'prebuilt': 'Prebuilt binary (no source)', 'mixed': 'C/C++ with assembly', 'asm': 'Assembly',
           'unknown': 'Unresolved source'}
 # Assembly written into the build directory by a build tool (dsprot's elfcoder), not source.
 GENERATED_PREFIXES = ('lib/dsprot/build/',)
@@ -74,51 +75,72 @@ def load_original_asm(path=ORIGINAL_ASM):
     return dict(result)
 
 
-def source_index(root, arm7=False):
-    base = root / 'sub' if arm7 else root
-    candidates = defaultdict(set)
-    for folder in ('src', 'asm', 'lib'):
-        for p in (base / folder).rglob('*'):
-            if p.suffix in SOURCE_LANGUAGES:
-                candidates[p.stem + '.o'].add(p.relative_to(root).as_posix())
-    # Archive members appear in the map as "libNAME.a member.o" (mwld lower-cases
-    # member names); libNAME.a is built from lib/NAME/{src,asm}.
-    for folder in ('src', 'asm'):
-        for p in (base / 'lib').glob(f'*/{folder}/*'):
-            if p.suffix in SOURCE_LANGUAGES:
-                member = f'lib{p.parents[1].name}.a {p.stem.lower()}.o'
-                candidates[member].add(p.relative_to(root).as_posix())
-    # Objects a build rule derives from another compiled object (section
-    # partitions) keep that object's source, including any assembly in it.
-    rules = root / 'common.mk'
-    derived = dict(re.findall(r'^\$\(BUILD_DIR\)/(\S+\.o):\s*\$\(BUILD_DIR\)/(\S+\.o)\s',
-                              rules.read_text(), re.M)) if rules.is_file() else {}
-    # The linker spec resolves duplicate source basenames left in the tree.
-    spec = base / ('ichneumon_sub.lsf' if arm7 else 'main.lsf')
-    linked = defaultdict(set)
-    for obj in re.findall(r'^\s*Object\s+(\S+\.o)', spec.read_text(), re.M):
-        for ext in SOURCE_LANGUAGES:
-            p = (base / derived.get(obj, obj)).with_suffix(ext)
-            if p.is_file():
-                linked[Path(obj).name].add(p.relative_to(root).as_posix())
-        # dsprot links encrypted/encoded copies of objects compiled from its C sources
-        # (the decrypter stubs from src/*_decrypter.c).
-        m = re.fullmatch(r'lib/dsprot/(\w+?)_(?:encrypted|encoded)\.o', obj)
-        if m:
-            p = base / 'lib/dsprot/src' / (m[1] + '.c')
-            if p.is_file():
-                linked[Path(obj).name].add(p.relative_to(root).as_posix())
-            # Without a stub source, the stubs are assembled from elfcoder-generated assembly.
-            elif m[1].endswith('_decrypter'):
-                p = base / 'lib/dsprot/build' / (m[1] + '.s')
-                if p.is_file():
-                    linked[Path(obj).name].add(p.relative_to(root).as_posix())
-    candidates.update(linked)
-    return candidates
+def source_index(root, build, arm7=False):
+    """Map linker-map object names to sources, from Meson's compile_commands.json.
+
+    Objects linked directly appear under their file name (src_main.c.o, flattened
+    from the source path); archive members as "libNAME.a member", with the member
+    name cut to the 15 characters mwld prints. An object an executable compiles
+    itself wins over an archive member of the same name.
+    """
+    commands = build / 'compile_commands.json'
+    entries = json.loads(commands.read_text()) if commands.is_file() else []
+    linked, members = defaultdict(set), defaultdict(set)
+    for entry in entries:
+        output = entry['output']
+        if output.startswith('build.subprojects/'):  # native copies of tools
+            continue
+        folder, _, obj = output.rpartition('/')
+        target = Path(folder).name
+        if (target.endswith('_arm7.a.p') or 'ichneumon' in folder) != arm7:
+            continue
+        source = Path(os.path.relpath(Path(entry['directory'], entry['file']).resolve(), root.resolve())).as_posix()
+        if target.endswith('.a.p'):
+            archive = target[:-len('.p')]
+            # mwld prints archive members lower-cased.
+            members[f'{archive} {obj.lower()[:15]}'].add(source)
+            members[obj].add(source)
+        else:
+            linked[obj].add(source)
+    return {**members, **linked}
+
+
+def dsprot_member(root, member):
+    """Source and status of a libdsprot.a member (the archive is checked in prebuilt).
+
+    Encrypted and encoded members are compiled from lib/dsprot/src/NAME.c; the
+    decrypter and decoder stubs come from their own sources when those exist and
+    are otherwise generated by dsprot's build (elfcoder)."""
+    sources = root / 'lib/dsprot/src'
+    stems = sorted((p.stem for p in sources.glob('*.c')), key=len, reverse=True) if sources.is_dir() else []
+    for stem in stems:
+        if member == f'{stem}.o'[:15] or member.startswith((f'{stem}_encr', f'{stem}_enco')):
+            return {f'lib/dsprot/src/{stem}.c'}, None
+    for stem in stems:
+        for kind in ('decrypter', 'decoder'):
+            if member.startswith(f'{stem}_{kind[:4]}') and (sources / f'{stem}_{kind}.c').is_file():
+                return {f'lib/dsprot/src/{stem}_{kind}.c'}, None
+    return set(), 'generated'
+
+
+def prebuilt_archive(root, archive, cache={}):
+    """Path of an archive used as a binary (an SDK prebuilt or the toolchain's runtime), or None."""
+    if (root, archive) not in cache:
+        found = sorted(root.glob(f'subprojects/*/**/prebuilt/{archive}')) + \
+            sorted(root.glob(f'tools/metroskrew/lib/**/{archive}'))
+        cache[root, archive] = found[0].relative_to(root).as_posix() if found else None
+    return cache[root, archive]
 
 
 def classify(root, paths):
-    if len(paths) != 1:
+    if len(paths) > 1:
+        # A cut-down archive member name can match several sources; it is still
+        # resolved when they all classify the same way (mixed needs the one file).
+        statuses = {classify(root, {path})[0] for path in paths}
+        if len(statuses) == 1 and statuses.isdisjoint({'mixed', 'unknown'}):
+            return statuses.pop(), ', '.join(sorted(paths))
+        return 'unknown', None
+    if not paths:
         return 'unknown', None
     path = next(iter(paths))
     if path.endswith('.s'):
@@ -376,10 +398,12 @@ def source_coverage(totals):
                                          denominator - sum(totals.get(s, 0) for s in NOT_COMPILED)))
 
 
-def parse_map(path, root, cpu, original=None):
+def parse_map(path, root, cpu, original=None, build=None):
     if original is None:
         original = load_original_asm()
-    sources = source_index(root, cpu == 'ARM7')
+    if build is None:
+        build = root / 'build' / 'heartgold.us'
+    sources = source_index(root, build, cpu == 'ARM7')
     ranges = defaultdict(list)
     symbols = defaultdict(list)
     module = None
@@ -401,7 +425,14 @@ def parse_map(path, root, cpu, original=None):
         objects[module, obj] += union_size(intervals)
     result = []
     for (module, obj), size in sorted(objects.items()):
-        status, source = classify(root, sources.get(obj, set()))
+        archive, _, member = obj.partition(' ')
+        if archive == 'libdsprot.a':
+            paths, status = dsprot_member(root, member)
+            status, source = (status, 'lib/dsprot/libdsprot.a') if status else classify(root, paths)
+        elif obj not in sources and member and prebuilt_archive(root, archive):
+            status, source = 'prebuilt', prebuilt_archive(root, archive)
+        else:
+            status, source = classify(root, sources.get(obj, set()))
         row = dict(cpu=cpu, module=module, object=obj, bytes=size, status=status, source=source)
         if status == 'mixed':
             result += split_mixed(root, row, symbols[module, obj], original.get((cpu, source), {}))
@@ -510,12 +541,14 @@ def generate(root, game):
     actual = hashlib.sha1(rom.read_bytes()).hexdigest()
     if actual != expected:
         raise ValueError(f'ROM mismatch: expected {expected}, got {actual}')
-    maps = {'ARM9': root / 'build' / game / 'main.elf.xMAP',
-            'ARM7': root / 'sub/build/ichneumon_sub.elf.xMAP'}
+    build = root / 'build' / game
+    maps = {'ARM9': build / 'main.nef.xMAP',
+            'ARM7': next(iter(sorted(build.glob('subprojects/NitroSDK-*/components/ichneumon/ichneumon_sub.nef.xMAP'))),
+                         build / 'ichneumon_sub.nef.xMAP')}
     original = load_original_asm()
     objects = []
     for cpu, path in maps.items():
-        objects += parse_map(path, root, cpu, original)
+        objects += parse_map(path, root, cpu, original, build)
     totals = Counter()
     for item in objects:
         totals[item['status']] += item['bytes']

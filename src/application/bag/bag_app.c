@@ -657,11 +657,11 @@ void BagApp_LoadInfoPanelTilemap(BagApp *app, int mode) {
 }
 
 static void BagApp_CreateMessageData(BagApp *app) {
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0010_bin, HEAP_ID_6);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0010, HEAP_ID_6);
     app->msgPrinter = MessagePrinter_New(1, 2, 0, HEAP_ID_6);
     app->msgFormat = MessageFormat_New(HEAP_ID_6);
-    app->itemNamesMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0222_bin, HEAP_ID_6);
-    app->moveNamesMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0750_bin, HEAP_ID_6);
+    app->itemNamesMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0222, HEAP_ID_6);
+    app->moveNamesMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0750, HEAP_ID_6);
     app->msgBuf = String_New(0x100, HEAP_ID_6);
 }
 
@@ -3294,7 +3294,7 @@ static void BagApp_LoadUnusedStrings(BagApp *app) {
     MsgData *msgData;
     u16 i;
 
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0225_bin, HEAP_ID_6);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0225, HEAP_ID_6);
     for (i = 0; i < 8; i++) {
         app->unusedStrings[i] = NewString_ReadMsgData(msgData, i);
     }

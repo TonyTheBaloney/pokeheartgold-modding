@@ -1252,7 +1252,7 @@ static void ApricornBoxScreen_InitStrings(ApricornBoxScreen *screen) {
     int i;
     int j;
     FontID_Alloc(4, screen->heapId);
-    screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0021_bin, screen->heapId);
+    screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0021, screen->heapId);
     screen->msgFormat = MessageFormat_New_Custom(16, 32, screen->heapId);
     screen->string = String_New(256, screen->heapId);
     screen->string2 = String_New(256, screen->heapId);

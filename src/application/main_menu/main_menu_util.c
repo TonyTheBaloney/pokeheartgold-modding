@@ -38,7 +38,6 @@ u16 CTRDG_GetAgbMakerCode(void);
 BOOL CTRDG_IsAgbCartridge(void);
 BOOL CTRDG_IsExisting(void);
 void CTRDG_Enable(BOOL enable);
-void CTRDG_Read32(const void *src, void *dest);
 BOOL CTRDG_CpuCopy8(const void *src, void *dest, u32 size);
 BOOL CTRDG_CpuCopy16(const void *src, void *dest, u32 size);
 void CRYPTO_SetAllocator(void *(*alloc)(u32), void (*free)(void *));

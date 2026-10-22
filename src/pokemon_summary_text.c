@@ -573,7 +573,7 @@ static void PokemonSummary_PrintStats(PokemonSummary *summary) {
     StringExpandPlaceholders(summary->msgFormat, summary->buffer, template);
     String_Delete(template);
     PokemonSummary_PrintBuffer(summary, &summary->pageWindows[6], MAKE_TEXT_COLOR(1, 2, 0), 0);
-    abilityDescriptions = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0722_bin, HEAP_ID_19);
+    abilityDescriptions = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0722, HEAP_ID_19);
     ReadMsgDataIntoString(abilityDescriptions, summary->mon.ability, summary->buffer);
     DestroyMsgData(abilityDescriptions);
     AddTextPrinterParameterizedWithColor(&summary->pageWindows[7], 0, summary->buffer, 3, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
@@ -731,7 +731,7 @@ void PokemonSummary_PrintMoveInfo(PokemonSummary *summary, u16 move) {
         PokemonSummary_FormatNumber(summary, msg_0302_00151, attr, 3, PRINTING_MODE_LEFT_ALIGN);
     }
     PokemonSummary_PrintBuffer(summary, &summary->pageWindows[14], MAKE_TEXT_COLOR(1, 2, 0), 1);
-    moveDescriptions = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0749_bin, HEAP_ID_19);
+    moveDescriptions = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0749, HEAP_ID_19);
     ReadMsgDataIntoString(moveDescriptions, move, summary->buffer);
     PokemonSummary_PrintBuffer(summary, &summary->pageWindows[15], MAKE_TEXT_COLOR(1, 2, 0), 0);
     DestroyMsgData(moveDescriptions);

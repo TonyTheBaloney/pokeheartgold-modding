@@ -364,7 +364,7 @@ static BOOL WobbuffetPop_Init(OverlayManager *man, int *state) {
     SpriteSystem_InitManagerWithCapacities(game->spriteSystem, game->spriteManager, (SpriteResourceCountsListUnion *)&gWobbuffetPopSpriteResourceCounts);
     G2dRenderer_SetSubSurfaceCoords(SpriteSystem_GetRenderer(game->spriteSystem), 0, 352 * FX32_ONE);
     WobbuffetPop_CreateParticleSystem(game);
-    game->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0012_bin, HEAP_ID_117);
+    game->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0012, HEAP_ID_117);
     game->msgFormat = MessageFormat_New(HEAP_ID_117);
     game->string = String_New(320, HEAP_ID_117);
     game->fontSystem = FontSystem_NewInit(19, HEAP_ID_117);

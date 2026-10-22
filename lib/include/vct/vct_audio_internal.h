@@ -152,7 +152,6 @@ void vct_encode_8bit_raw(u8 *out, s16 *in, u32 count);
 void vct_decode_8bit_raw(s8 *in, s16 *out, u32 count);
 
 // other libraries
-int MATH_CountPopulation(u32 value);
 u64 _ll_udiv(u64 a, u64 b);
 
 #endif // POKEHEARTGOLD_VCT_VCT_AUDIO_INTERNAL_H

@@ -457,7 +457,7 @@ static BOOL MainMenu_PrintWifiInfoErasedWarning(MainMenuAppData *data) {
          .y = 5,
          .width = 22,
          .height = 14,
-         .gmmId = NARC_msg_msg_0800_bin,
+         .gmmId = msg_0800,
          // clang-format off
          .msgId = msg_0800_00016, // "Your Nintendo Wi-Fi Connection User Information may have been erased. [...]"
          .unused18 = 0,
@@ -624,7 +624,7 @@ static BOOL MainMenu_UpdateNoticeBoxes(MainMenuAppData *data) {
         break;
     case 17: {
         MainMenuTextPrinter printer;
-        MainMenuTextPrinter_Init(&printer, &data->noticeWindow, 0, NARC_msg_msg_0017_bin, 0x3F7, 2);
+        MainMenuTextPrinter_Init(&printer, &data->noticeWindow, 0, msg_0017, 0x3F7, 2);
         MainMenuNoticeBox *box;
         u32 unk3 = data->raisedNotices & ~data->shownNotices;
         if (unk3 & (1 << 0)) {
@@ -651,7 +651,7 @@ static BOOL MainMenu_UpdateNoticeBoxes(MainMenuAppData *data) {
         if ((unk3 & (1 << 7)) && !(unk3 & (1 << 1 | 1 << 0))) {
             for (int i = 0; i < (int)NELEMS(data->newGameOptionWindows); i++) {
                 Window *window = &data->newGameOptionWindows[i];
-                MainMenuTextPrinter_Init(&printer, window, 0, NARC_msg_msg_0017_bin, 0x3F7, 2);
+                MainMenuTextPrinter_Init(&printer, window, 0, msg_0017, 0x3F7, 2);
                 MainMenuNoticeBox *unk3 = &ov74_0223BC30[i + 5];
                 printer.textY = 4;
                 MainMenuTextPrinter_SetSize(&printer, unk3->width, unk3->height, (i * 72) + 1);
@@ -882,7 +882,7 @@ static BOOL MainMenu_PrintContinueButton(MainMenuAppData *data, u32 index, MainM
     MessageFormat *messageFormat;
     MsgData *msgData;
 
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0442_bin, HEAP_ID_MAIN_MENU);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0442, HEAP_ID_MAIN_MENU);
     messageFormat = MessageFormat_New(HEAP_ID_MAIN_MENU);
     u32 textColor = (PlayerProfile_GetTrainerGender(data->profile) == PLAYER_GENDER_FEMALE) ? MAKE_TEXT_COLOR(3, 4, 15) : MAKE_TEXT_COLOR(7, 8, 15);
 
@@ -1059,7 +1059,7 @@ static BOOL MainMenu_DrawOptionWindows(MainMenuAppData *data) {
     for (i = 0, y = 1; i < APPOPTION_COUNT; i++) {
         const MainMenuButton *button = &sMainMenuButtons[i];
         MainMenuTextPrinter printer;
-        MainMenuTextPrinter_Init(&printer, &data->optionWindows[i], 1, NARC_msg_msg_0442_bin, 0x3F7, 2);
+        MainMenuTextPrinter_Init(&printer, &data->optionWindows[i], 1, msg_0442, 0x3F7, 2);
         MainMenuTextPrinter_SetSize(&printer, 23, button->height, data->windowBaseTile);
         if (button->printFunction != NULL) {
             if (data->optionIds[i] != 0) {
@@ -1314,7 +1314,7 @@ static void MainMenu_OnVBlank(BgConfig *bgConfig) {
     GF_RunVramTransferTasks();
     OamManager_ApplyAndResetBuffers();
     DoScheduledBgGpuUpdates(bgConfig);
-    OS_SetIrqCheckFlag(OS_IE_VBLANK);
+    OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
 BOOL MainMenuApp_Init(OverlayManager *manager, int *state) {

@@ -11,7 +11,7 @@ typedef struct ParticleSystem {
     void *heapStart;
     void *heapCurrent; // bump pointer of the slot's SPL allocator
     void *heapEnd;
-    texAllocFun texAlloc; // NULL: SPL_LoadTexByVRAMManager
+    texAllocFun texAlloc; // NULL: SPLManager_UploadTextures
     plttAllocFun plttAlloc;
     Camera *camera; // only when created with makeCamera
     u32 unk_24;

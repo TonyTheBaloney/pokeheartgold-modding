@@ -945,7 +945,7 @@ static void AprijuiceScreen_InitStrings(AprijuiceScreen *screen) {
     FontID_Alloc(4, screen->heapId);
     TextFlags_SetCanABSpeedUpPrint(TRUE);
     TextFlags_SetCanTouchSpeedUpPrint(TRUE);
-    screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0022_bin, screen->heapId);
+    screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0022, screen->heapId);
     screen->msgFormat = MessageFormat_New_Custom(16, 16, screen->heapId);
     screen->string = String_New(256, screen->heapId);
     screen->string2 = String_New(256, screen->heapId);

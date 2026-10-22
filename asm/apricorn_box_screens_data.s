@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public gApricornBoxQuantityDigitX
 	.public gApricornBoxListMenu1Messages
 	.public gApricornBoxListMenu0Messages

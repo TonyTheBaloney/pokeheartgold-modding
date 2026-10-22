@@ -188,7 +188,7 @@
 	.extern gPokeathlonRingDropStates
 	.extern gPokeathlonLampJumpTrampolineRed
 	.extern gPokeathlonBlockSmashFramesSinceHit
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "overlay_96.inc"
 	.include "global.inc"
 	.include "overlay_96_exact_bank.inc"

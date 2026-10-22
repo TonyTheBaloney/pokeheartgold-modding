@@ -89,6 +89,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("object", type=Path)
     parser.add_argument("map", type=Path)
+    # With an output path the input object is left untouched (Meson outputs must be new files).
+    parser.add_argument("output", type=Path, nargs="?")
     args = parser.parse_args()
 
     objcopy = shutil.which("arm-none-eabi-objcopy")
@@ -97,6 +99,9 @@ def main() -> None:
         raise SystemExit("arm-none-eabi-objcopy/readelf must be on PATH")
     if not args.object.is_file():
         raise SystemExit(f"object not found: {args.object}")
+    if args.output is not None:
+        shutil.copyfile(args.object, args.output)
+        args.object = args.output
 
     loaded = json.loads(args.map.read_text())
     # A map may also be a JSON list of such configs (several owners in one object).

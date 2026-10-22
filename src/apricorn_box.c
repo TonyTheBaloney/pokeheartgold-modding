@@ -530,7 +530,7 @@ void ApricornBox_StoreJuiceRecords(SaveApricornBox *box, ApricornRecord *records
 String *ApricornBox_GetJuiceName(SaveApricornBox *box, int type, u32 heapId) {
     String *result = String_New(9, (enum HeapID)heapId);
     if (type < 5) {
-        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0021_bin, (enum HeapID)heapId);
+        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0021, (enum HeapID)heapId);
         ReadMsgDataIntoString(msgData, type + msg_0021_00014, result);
         DestroyMsgData(msgData);
     } else if (type < 8) {
@@ -547,7 +547,7 @@ String *ApricornBox_GetJuiceFlavorName(SaveApricornBox *box, u16 type, u32 heapI
     MsgData *msgData;
     String *result;
     ApricornBox_GetJuice(box, type, &data);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0021_bin, (enum HeapID)heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0021, (enum HeapID)heapId);
     result = NewString_ReadMsgData(msgData, ApricornJuice_GetFlavorNameIndex(&data) + msg_0021_00019);
     DestroyMsgData(msgData);
     return result;

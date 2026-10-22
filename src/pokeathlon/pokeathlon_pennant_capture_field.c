@@ -1049,7 +1049,7 @@ static void PokeathlonPennantCapture_PrintScore(PokeathlonPennantCapture *work, 
     String *string;
 
     FillWindowPixelBuffer(&work->scoreWindow, 0);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, work->heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, work->heapId);
     format = MessageFormat_New(work->heapId);
     BufferIntegerAsString(format, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(format, msgData, msg_0309_00157, work->heapId);

@@ -17,7 +17,6 @@ typedef struct BoxTestParams {
 static void GF3d_SetBoxTestParams(s16 x, s16 y, s16 z, s16 width, s16 height, s16 depth, BoxTestParams *box);
 static BOOL GF3d_RunBoxTest(const BoxTestParams *box);
 
-int G3X_GetBoxTestResult(u32 *result);
 
 BOOL GF3d_ModelBoxTest(NNSG3dResMdl *model, const VecFx32 *translation, const MtxFx33 *rotation, VecFx32 *baseScale) {
     BoxTestParams box;

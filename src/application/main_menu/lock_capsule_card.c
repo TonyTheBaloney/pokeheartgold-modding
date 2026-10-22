@@ -286,7 +286,7 @@ static void LockCapsuleCard_CreateListMenu(LockCapsuleCardView *view, const Myst
         DestroyListMenu(view->listMenu, NULL, NULL);
     }
     view->listMenuItems = ListMenuItems_New(count, HEAP_ID_85);
-    view->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_85);
+    view->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0247, HEAP_ID_85);
     for (i = 0; i < count; i++) {
         ListMenuItems_AppendFromMsgData(view->listMenuItems, view->msgData, items[i].msgId, (int)items[i].func);
     }
@@ -383,7 +383,7 @@ static void LockCapsuleCard_DrawCard(LockCapsuleCardView *view, int unused, int 
     u32 color;
     String *string;
 
-    view->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, view->heapId);
+    view->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, view->heapId);
     view->msgFormat = MessageFormat_New(view->heapId);
     view->page = page;
     LockCapsuleCard_LoadCardBg(view, page);
@@ -426,7 +426,7 @@ static int LockCapsuleCard_PrintTextBox(LockCapsuleCardView *view, Window *windo
     }
     FillWindowPixelBuffer(window, box->fillColor);
     if (box->msgId != 0) {
-        view->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_85);
+        view->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, HEAP_ID_85);
         view->msgFormat = MessageFormat_New(HEAP_ID_85);
     }
     view->boxBaseTile = baseTile;

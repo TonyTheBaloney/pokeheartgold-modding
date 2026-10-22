@@ -112,8 +112,6 @@ typedef struct CommBssid {
     u8 data[6];
 } CommBssid;
 
-int WVR_StartUpAsync(int mode, void (*callback)(void *, int), void *arg);
-int WVR_TerminateAsync(void (*callback)(void *), void *arg);
 
 int CommState_GetLinkMode(void);
 int CommState_GetBeaconId(void);
@@ -300,7 +298,7 @@ static void CommWireless_OnTerminated(void *unused) {
 void CommWireless_StartUp(void) {
     Sys_SetSleepDisableFlag(4);
     sCommWireless.state = COMM_WIRELESS_STARTING_UP;
-    if (WVR_StartUpAsync(8, CommWireless_OnStartedUp, NULL) != 1) {
+    if (WVR_StartUpAsync(8, (WVRCallbackFunc)CommWireless_OnStartedUp, NULL) != 1) {
         OS_Terminate();
     }
 }
@@ -314,7 +312,7 @@ BOOL CommWireless_IsOn(void) {
 }
 
 void CommWireless_Terminate(void) {
-    WVR_TerminateAsync(CommWireless_OnTerminated, NULL);
+    WVR_TerminateAsync((WVRCallbackFunc)CommWireless_OnTerminated, NULL);
 }
 
 static void CommWireless_InitManager(int mode) {

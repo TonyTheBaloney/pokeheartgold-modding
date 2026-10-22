@@ -2553,7 +2553,7 @@ static u8 VisitorProfiles_GetHourSprite(u32 hour) {
 }
 
 static void VisitorProfilesMsg_Init(VisitorProfilesMsg *msg, enum HeapID heapID) {
-    msg->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0801_bin, heapID);
+    msg->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0801, heapID);
     msg->format = MessageFormat_New_Custom(8, 64, heapID);
     msg->buffer = String_New(128, heapID);
     msg->raw = String_New(128, heapID);

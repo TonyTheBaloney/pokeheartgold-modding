@@ -425,7 +425,7 @@ static void NumberEntry_CreateButtonLabels(NumberEntryData *data) {
     u16 center;
     u16 x;
 
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0196_bin, HEAP_ID_8);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0196, HEAP_ID_8);
     FontID_Alloc(4, HEAP_ID_8);
     for (i = 0; i < 3; i++) {
         AddWindow(data->bgConfig, &data->windows[i], &sRodata.windowTemplates[i]);

@@ -22,7 +22,6 @@ static void LegendaryCinematic_CaptureTask(SysTask *task, LegendaryCinematicCapt
 static void LegendaryCinematic_CaptureStartTask(SysTask *task, LegendaryCinematicCapture *capture);
 static void LegendaryCinematic_InitCapture(LegendaryCinematicCaptureConfig *config);
 
-u32 GX_GetBankForLCDC(void);
 
 static const VecFx32 sLegendaryCinematicModelScale = { FX32_ONE, FX32_ONE, FX32_ONE };
 

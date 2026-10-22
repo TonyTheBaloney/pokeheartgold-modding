@@ -28,7 +28,7 @@ typedef struct VoiceChatWork {
     u32 callState;
     BOOL muted;
     u32 heapId;
-    SndStrm stream;
+    NNSSndStrm stream;
     VctSession *session;
     u8 samplingState;
     u8 restartSampling;

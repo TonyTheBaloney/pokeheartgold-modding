@@ -311,7 +311,7 @@
       ]
     },
     {
-      "name": "NPCMsgAutoScrollInLink",
+      "name": "ScrCmd_048",
       "args": [
         "message"
       ]
@@ -380,11 +380,11 @@
       ]
     },
     {
-      "name": "ReopenStartMenuOnEnd",
+      "name": "ScrCmd_061",
       "args": []
     },
     {
-      "name": "ScrollMsgBg",
+      "name": "ScrCmd_062",
       "args": [
         1,
         1,
@@ -401,7 +401,7 @@
       ]
     },
     {
-      "name": "MultichoiceInitStdGmm",
+      "name": "ScrCmd_064",
       "args": [
         1,
         1,
@@ -411,7 +411,7 @@
       ]
     },
     {
-      "name": "MultichoiceInit",
+      "name": "ScrCmd_065",
       "args": [
         1,
         1,
@@ -421,18 +421,18 @@
       ]
     },
     {
-      "name": "MultichoiceItemAdd",
+      "name": "ScrCmd_066",
       "args": [
         "message",
         1
       ]
     },
     {
-      "name": "MultichoiceExec",
+      "name": "ScrCmd_067",
       "args": []
     },
     {
-      "name": "ScriptListMenuInitStdGmm",
+      "name": "ScrCmd_068",
       "args": [
         1,
         1,
@@ -442,7 +442,7 @@
       ]
     },
     {
-      "name": "ScriptListMenuInit",
+      "name": "ScrCmd_069",
       "args": [
         1,
         1,
@@ -452,7 +452,7 @@
       ]
     },
     {
-      "name": "ScriptListMenuItemAdd",
+      "name": "ScrCmd_070",
       "args": [
         2,
         2,
@@ -460,11 +460,11 @@
       ]
     },
     {
-      "name": "ScriptListMenuExec",
+      "name": "ScrCmd_071",
       "args": []
     },
     {
-      "name": "MultichoiceGridExec",
+      "name": "ScrCmd_072",
       "args": [
         1
       ]
@@ -525,7 +525,7 @@
       "args": []
     },
     {
-      "name": "SetBGMOverride",
+      "name": "ScrCmd_083",
       "args": [
         2
       ]
@@ -544,7 +544,7 @@
       ]
     },
     {
-      "name": "SetSoundPlayerPause",
+      "name": "ScrCmd_086",
       "args": [
         1,
         1
@@ -557,7 +557,7 @@
       ]
     },
     {
-      "name": "SetBGMDisabled",
+      "name": "ScrCmd_088",
       "args": [
         1
       ]
@@ -583,7 +583,7 @@
       "args": []
     },
     {
-      "name": "SetSoundScene63",
+      "name": "ScrCmd_093",
       "args": []
     },
     {
@@ -630,14 +630,14 @@
       ]
     },
     {
-      "name": "CreateCameraTarget",
+      "name": "ScrCmd_102",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "RemoveCameraTarget",
+      "name": "ScrCmd_103",
       "args": []
     },
     {
@@ -660,7 +660,7 @@
       ]
     },
     {
-      "name": "OffsetPlayerAndCamera",
+      "name": "ScrCmd_107",
       "args": [
         2,
         2,
@@ -668,14 +668,14 @@
       ]
     },
     {
-      "name": "SetObjectKeep",
+      "name": "ScrCmd_108",
       "args": [
         2,
         1
       ]
     },
     {
-      "name": "ChangeObjectMovement",
+      "name": "ScrCmd_109",
       "args": [
         "var",
         2
@@ -716,7 +716,7 @@
       "args": []
     },
     {
-      "name": "ShowPointsBox",
+      "name": "ScrCmd_116",
       "args": [
         1,
         2,
@@ -724,11 +724,11 @@
       ]
     },
     {
-      "name": "HidePointsBox",
+      "name": "ScrCmd_117",
       "args": []
     },
     {
-      "name": "UpdatePointsBox",
+      "name": "ScrCmd_118",
       "args": [
         1
       ]
@@ -852,7 +852,7 @@
       ]
     },
     {
-      "name": "GetPartyMonUnownLetter",
+      "name": "ScrCmd_136",
       "args": [
         2,
         2
@@ -938,7 +938,7 @@
       ]
     },
     {
-      "name": "SetPhoneCallTrigger",
+      "name": "ScrCmd_148",
       "args": [
         1,
         1
@@ -955,21 +955,21 @@
       "args": []
     },
     {
-      "name": "StartPalPadRegistration",
+      "name": "ScrCmd_151",
       "args": []
     },
     {
-      "name": "OpenWifiClub",
+      "name": "ScrCmd_152",
       "args": []
     },
     {
-      "name": "FashionAppGetEntryIndex",
+      "name": "ScrCmd_153",
       "args": [
         2
       ]
     },
     {
-      "name": "OpenDressUp",
+      "name": "ScrCmd_154",
       "args": [
         "var",
         "var",
@@ -977,14 +977,14 @@
       ]
     },
     {
-      "name": "OpenAccessoryPortrait",
+      "name": "ScrCmd_155",
       "args": [
         2,
         "var"
       ]
     },
     {
-      "name": "OpenBallCapsuleEditor",
+      "name": "ScrCmd_156",
       "args": []
     },
     {
@@ -992,25 +992,25 @@
       "args": []
     },
     {
-      "name": "OpenPCBox",
+      "name": "ScrCmd_158",
       "args": [
         1
       ]
     },
     {
-      "name": "OpenDrawingSession",
+      "name": "ScrCmd_159",
       "args": []
     },
     {
-      "name": "OpenLinkTrainerCard",
+      "name": "ScrCmd_160",
       "args": []
     },
     {
-      "name": "OpenWirelessTrade",
+      "name": "ScrCmd_161",
       "args": []
     },
     {
-      "name": "OpenRecordMixing",
+      "name": "ScrCmd_162",
       "args": []
     },
     {
@@ -1020,18 +1020,18 @@
       ]
     },
     {
-      "name": "OpenHallOfFameShowcase",
+      "name": "ScrCmd_164",
       "args": []
     },
     {
-      "name": "OpenGts",
+      "name": "ScrCmd_165",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "OpenWifiClubWithResult",
+      "name": "ScrCmd_166",
       "args": [
         "var"
       ]
@@ -1121,7 +1121,7 @@
       ]
     },
     {
-      "name": "FlyWarp",
+      "name": "ScrCmd_180",
       "args": [
         2,
         2,
@@ -1139,7 +1139,7 @@
       ]
     },
     {
-      "name": "PlayFieldMoveCutIn",
+      "name": "ScrCmd_183",
       "args": [
         "var"
       ]
@@ -1299,14 +1299,14 @@
       ]
     },
     {
-      "name": "Dummy208",
+      "name": "ScrCmd_208",
       "args": [
         1,
         "var"
       ]
     },
     {
-      "name": "Dummy209",
+      "name": "ScrCmd_209",
       "args": [
         1,
         "var"
@@ -1320,7 +1320,7 @@
       ]
     },
     {
-      "name": "GetSwarmMapAndSpecies",
+      "name": "ScrCmd_211",
       "args": [
         2,
         2
@@ -1400,11 +1400,11 @@
       ]
     },
     {
-      "name": "TrainerBattleWithTrainer1",
+      "name": "ScrCmd_223",
       "args": []
     },
     {
-      "name": "SetLastInteractedTrainerFlag",
+      "name": "ScrCmd_224",
       "args": []
     },
     {
@@ -1414,7 +1414,7 @@
       ]
     },
     {
-      "name": "CommClubJoin",
+      "name": "ScrCmd_226",
       "args": [
         "var",
         "var",
@@ -1423,7 +1423,7 @@
       ]
     },
     {
-      "name": "CommClubHost",
+      "name": "ScrCmd_227",
       "args": [
         "var",
         "var",
@@ -1432,39 +1432,39 @@
       ]
     },
     {
-      "name": "Dummy228",
+      "name": "ScrCmd_228",
       "args": [
         2
       ]
     },
     {
-      "name": "Dummy229",
+      "name": "ScrCmd_229",
       "args": [
         2
       ]
     },
     {
-      "name": "LinkBattle",
+      "name": "ScrCmd_230",
       "args": []
     },
     {
-      "name": "Dummy231",
+      "name": "ScrCmd_231",
       "args": []
     },
     {
-      "name": "ConditionalLinkSyncStart",
+      "name": "ScrCmd_232",
       "args": [
         2
       ]
     },
     {
-      "name": "ConditionalLinkSyncWait",
+      "name": "ScrCmd_233",
       "args": [
         2
       ]
     },
     {
-      "name": "ConditionalLinkSyncCreate",
+      "name": "ScrCmd_234",
       "args": [
         "var",
         "var",
@@ -1473,19 +1473,19 @@
       ]
     },
     {
-      "name": "ConditionalLinkSyncDestroy",
+      "name": "ScrCmd_235",
       "args": [
         "var"
       ]
     },
     {
-      "name": "SetVarZero",
+      "name": "ScrCmd_236",
       "args": [
         2
       ]
     },
     {
-      "name": "BeginTextAutoScroll",
+      "name": "ScrCmd_237",
       "args": []
     },
     {
@@ -1551,7 +1551,7 @@
       ]
     },
     {
-      "name": "Dummy247",
+      "name": "ScrCmd_247",
       "args": []
     },
     {
@@ -1570,7 +1570,7 @@
       ]
     },
     {
-      "name": "StartFirstBattle",
+      "name": "ScrCmd_250",
       "args": [
         2,
         2
@@ -1581,7 +1581,7 @@
       "args": []
     },
     {
-      "name": "OpenTrainerCardSignature",
+      "name": "ScrCmd_252",
       "args": []
     },
     {
@@ -1597,112 +1597,112 @@
       ]
     },
     {
-      "name": "FashionEntryIsSaved",
+      "name": "ScrCmd_255",
       "args": [
         2,
         "var"
       ]
     },
     {
-      "name": "FashionEntrySetMailWord",
+      "name": "ScrCmd_256",
       "args": [
         "var"
       ]
     },
     {
-      "name": "LinkSyncAndWait",
+      "name": "ScrCmd_257",
       "args": [
         2
       ]
     },
     {
-      "name": "LinkSyncClearPackets",
+      "name": "ScrCmd_258",
       "args": []
     },
     {
-      "name": "GetUnionRoomPartnerHometownMsg",
+      "name": "ScrCmd_259",
       "args": [
         2
       ]
     },
     {
-      "name": "GetUnionRoomOwnChatMsg",
+      "name": "ScrCmd_260",
       "args": [
         "var"
       ]
     },
     {
-      "name": "UnionRoomSetActivity",
+      "name": "ScrCmd_261",
       "args": [
         2
       ]
     },
     {
-      "name": "UnionRoomRefuseJoins",
+      "name": "ScrCmd_262",
       "args": []
     },
     {
-      "name": "UnionRoomResumeSearch",
+      "name": "ScrCmd_263",
       "args": []
     },
     {
-      "name": "BufferUnionRoomPartnerLanguage",
+      "name": "ScrCmd_264",
       "args": [
         2
       ]
     },
     {
-      "name": "FieldCommRegisterCommands",
+      "name": "ScrCmd_265",
       "args": []
     },
     {
-      "name": "UnionRoomRequestLeaveAll",
+      "name": "ScrCmd_266",
       "args": []
     },
     {
-      "name": "GetUnionRoomTalkMsg",
+      "name": "ScrCmd_267",
       "args": [
         2,
         "var"
       ]
     },
     {
-      "name": "GetUnionRoomPlayerActivity",
+      "name": "ScrCmd_268",
       "args": [
         "var"
       ]
     },
     {
-      "name": "UnionRoomWaitJoinStatus",
+      "name": "ScrCmd_269",
       "args": [
         "var"
       ]
     },
     {
-      "name": "UnionRoomRestoreObjects",
+      "name": "ScrCmd_270",
       "args": []
     },
     {
-      "name": "UnionRoomSendTalkResponse",
+      "name": "ScrCmd_271",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "UnionRoomWaitTalkChoice",
+      "name": "ScrCmd_272",
       "args": [
         "var"
       ]
     },
     {
-      "name": "UnionRoomWaitTalkReply",
+      "name": "ScrCmd_273",
       "args": [
         "var"
       ]
     },
     {
-      "name": "UnionRoomRequestJoinPlayer",
+      "name": "ScrCmd_274",
       "args": [
         "var",
         "var"
@@ -1753,21 +1753,21 @@
       "args": []
     },
     {
-      "name": "CommClubExit",
+      "name": "ScrCmd_283",
       "args": []
     },
     {
-      "name": "CommClubStartCardExchange",
+      "name": "ScrCmd_284",
       "args": []
     },
     {
-      "name": "SetCommPlayerFacing",
+      "name": "ScrCmd_285",
       "args": [
         2
       ]
     },
     {
-      "name": "EnterUnionRoom",
+      "name": "ScrCmd_286",
       "args": []
     },
     {
@@ -1782,7 +1782,7 @@
       ]
     },
     {
-      "name": "SetPlayerProfileAvatar",
+      "name": "ScrCmd_289",
       "args": [
         "var"
       ]
@@ -1827,13 +1827,13 @@
       ]
     },
     {
-      "name": "CheckFlagUnk960",
+      "name": "ScrCmd_297",
       "args": [
         "var"
       ]
     },
     {
-      "name": "SetFlagUnk960",
+      "name": "ScrCmd_298",
       "args": []
     },
     {
@@ -1875,7 +1875,7 @@
       "args": []
     },
     {
-      "name": "DoorAnimationLoad",
+      "name": "ScrCmd_307",
       "args": [
         2,
         2,
@@ -1885,25 +1885,25 @@
       ]
     },
     {
-      "name": "DoorAnimationWait",
+      "name": "ScrCmd_308",
       "args": [
         1
       ]
     },
     {
-      "name": "DoorAnimationUnload",
+      "name": "ScrCmd_309",
       "args": [
         1
       ]
     },
     {
-      "name": "DoorAnimationOpen",
+      "name": "ScrCmd_310",
       "args": [
         1
       ]
     },
     {
-      "name": "DoorAnimationClose",
+      "name": "ScrCmd_311",
       "args": [
         1
       ]
@@ -1923,15 +1923,15 @@
       "args": []
     },
     {
-      "name": "EcruteakGymBindCandleToTrainer",
+      "name": "BindEcruteakGymCandleToTrainerSprite",
       "args": []
     },
     {
-      "name": "EcruteakGymUnbindCandleFromTrainer",
+      "name": "UnbindEcruteakGymCandleFromTrainerSprite",
       "args": []
     },
     {
-      "name": "EcruteakGymExtinguishCandle",
+      "name": "ExtinguishEcruteakGymCandle",
       "args": [
         1
       ]
@@ -2011,19 +2011,19 @@
       ]
     },
     {
-      "name": "BagSelectItem",
+      "name": "ScrCmd_333",
       "args": [
         1
       ]
     },
     {
-      "name": "BagGetSelectedItem",
+      "name": "ScrCmd_334",
       "args": [
         2
       ]
     },
     {
-      "name": "BagPocketHasItems",
+      "name": "ScrCmd_335",
       "args": [
         2,
         2
@@ -2093,7 +2093,7 @@
       ]
     },
     {
-      "name": "SetObjectFacingAndUpdateDraw",
+      "name": "ScrCmd_344",
       "args": [
         2,
         2
@@ -2108,7 +2108,7 @@
       "args": []
     },
     {
-      "name": "WriteScriptEnvField34",
+      "name": "ScrCmd_347",
       "args": [
         "var"
       ]
@@ -2124,7 +2124,7 @@
       "args": []
     },
     {
-      "name": "UnionRoomBattlePartySelect",
+      "name": "ScrCmd_350",
       "args": []
     },
     {
@@ -2249,7 +2249,7 @@
       "args": []
     },
     {
-      "name": "BagSelectItemNoResult",
+      "name": "ScrCmd_370",
       "args": [
         1
       ]
@@ -2274,7 +2274,7 @@
       ]
     },
     {
-      "name": "MakeObjectInvisible",
+      "name": "ScrCmd_374",
       "args": [
         "object2"
       ]
@@ -2286,11 +2286,11 @@
       ]
     },
     {
-      "name": "OpenMailbox",
+      "name": "ScrCmd_376",
       "args": []
     },
     {
-      "name": "CountMailboxMessages",
+      "name": "ScrCmd_377",
       "args": [
         "var"
       ]
@@ -2303,7 +2303,7 @@
       ]
     },
     {
-      "name": "GetCurrentTimeOfDay",
+      "name": "ScrCmd_379",
       "args": [
         "var"
       ]
@@ -2316,7 +2316,7 @@
       ]
     },
     {
-      "name": "Random2",
+      "name": "ScrCmd_381",
       "args": [
         2,
         2
@@ -2407,13 +2407,13 @@
       ]
     },
     {
-      "name": "OpenLearnForgetMove",
+      "name": "ScrCmd_394",
       "args": [
         "var"
       ]
     },
     {
-      "name": "GetLearnForgetMoveResult",
+      "name": "ScrCmd_395",
       "args": [
         "var"
       ]
@@ -2491,14 +2491,14 @@
       "switch_arg": 0
     },
     {
-      "name": "GiveAccessory",
+      "name": "ScrCmd_403",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "CanGiveAccessory",
+      "name": "ScrCmd_404",
       "args": [
         "var",
         "var",
@@ -2506,7 +2506,7 @@
       ]
     },
     {
-      "name": "HasAccessoryCount",
+      "name": "ScrCmd_405",
       "args": [
         2,
         2,
@@ -2514,42 +2514,42 @@
       ]
     },
     {
-      "name": "GiveContestBackground",
+      "name": "ScrCmd_406",
       "args": [
         "var"
       ]
     },
     {
-      "name": "HasWallpaper",
-      "args": [
-        "var",
-        "var"
-      ]
-    },
-    {
-      "name": "OpenBattleRoomResults",
+      "name": "ScrCmd_407",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "FrontierAssertCleared",
+      "name": "ScrCmd_408",
+      "args": [
+        "var",
+        "var"
+      ]
+    },
+    {
+      "name": "ScrCmd_409",
       "args": []
     },
     {
-      "name": "FrontierFieldSystemInit",
+      "name": "ScrCmd_410",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "FrontierFieldSystemFree",
+      "name": "ScrCmd_411",
       "args": []
     },
     {
-      "name": "BattleTowerAction",
+      "name": "ScrCmd_412",
       "args": [
         2,
         "var",
@@ -2557,7 +2557,7 @@
       ]
     },
     {
-      "name": "BattleTowerGetAllyMonSpeciesAndMove",
+      "name": "ScrCmd_413",
       "args": [
         "var",
         2,
@@ -2566,53 +2566,53 @@
       ]
     },
     {
-      "name": "BattleTowerClaimRecordMilestone",
+      "name": "ScrCmd_414",
       "args": [
         "var"
       ]
     },
     {
-      "name": "BattleTowerGetRecordMilestone",
+      "name": "ScrCmd_415",
       "args": [
         "var"
       ]
     },
     {
-      "name": "BattleTowerSendLinkData",
+      "name": "ScrCmd_416",
       "args": [
         2,
-        2,
-        "var"
-      ]
-    },
-    {
-      "name": "BattleTowerCheckLinkPartner",
-      "args": [
         2,
         "var"
       ]
     },
     {
-      "name": "GetBattleRoomLeadersRoom",
+      "name": "ScrCmd_417",
+      "args": [
+        2,
+        "var"
+      ]
+    },
+    {
+      "name": "ScrCmd_418",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "BattleRoomHasLeaders",
+      "name": "ScrCmd_419",
       "args": [
         "var"
       ]
     },
     {
-      "name": "IncGameStat",
+      "name": "ScrCmd_420",
       "args": [
         2
       ]
     },
     {
-      "name": "GetGameStatHiLo",
+      "name": "ScrCmd_421",
       "args": [
         2,
         2,
@@ -2620,7 +2620,7 @@
       ]
     },
     {
-      "name": "ModifyGameStat",
+      "name": "ScrCmd_422",
       "args": [
         2,
         2,
@@ -2655,7 +2655,7 @@
       ]
     },
     {
-      "name": "Dummy427",
+      "name": "ScrCmd_427",
       "args": [
         2
       ]
@@ -2714,7 +2714,7 @@
       ]
     },
     {
-      "name": "LeaveOverworld",
+      "name": "ScrCmd_436",
       "args": []
     },
     {
@@ -2745,7 +2745,7 @@
       ]
     },
     {
-      "name": "NonNPCMsgEasyChat",
+      "name": "ScrCmd_441",
       "args": [
         2,
         2,
@@ -2754,7 +2754,7 @@
       ]
     },
     {
-      "name": "MsgBoxEasyChat",
+      "name": "ScrCmd_442",
       "args": [
         2,
         2,
@@ -2763,13 +2763,13 @@
       ]
     },
     {
-      "name": "MsgBoxFrontierOpponentIntro",
+      "name": "ScrCmd_443",
       "args": [
         1
       ]
     },
     {
-      "name": "MsgBoxFrontierBannedSpecies",
+      "name": "ScrCmd_444",
       "args": [
         1,
         2,
@@ -2778,13 +2778,13 @@
       ]
     },
     {
-      "name": "GetPreviousMapId",
+      "name": "ScrCmd_445",
       "args": [
         "var"
       ]
     },
     {
-      "name": "GetCurrentMapId",
+      "name": "ScrCmd_446",
       "args": [
         "var"
       ]
@@ -2797,7 +2797,7 @@
       ]
     },
     {
-      "name": "WarpToColosseum",
+      "name": "ScrCmd_448",
       "args": [
         "maps",
         2,
@@ -2807,40 +2807,40 @@
       ]
     },
     {
-      "name": "ReturnFromColosseum",
+      "name": "ScrCmd_449",
       "args": []
     },
     {
-      "name": "OpenGeonetGlobe",
+      "name": "ScrCmd_450",
       "args": []
     },
     {
-      "name": "GetLocalNetId",
+      "name": "ScrCmd_451",
       "args": [
         "var"
       ]
     },
     {
-      "name": "ShowPokemonPicWindow",
+      "name": "ScrCmd_452",
       "args": [
         "species",
         2
       ]
     },
     {
-      "name": "ClosePokemonPicWindow",
+      "name": "ScrCmd_453",
       "args": []
     },
     {
-      "name": "SetLastTalkedTrainerMovement",
+      "name": "ScrCmd_454",
       "args": []
     },
     {
-      "name": "NPCMsgByObjectType",
+      "name": "ScrCmd_455",
       "args": []
     },
     {
-      "name": "TogglePlayerAutoHeightUpdate",
+      "name": "ScrCmd_456",
       "args": [
         1
       ]
@@ -2860,7 +2860,7 @@
       ]
     },
     {
-      "name": "LighthouseLightUp",
+      "name": "ScrCmd_459",
       "args": []
     },
     {
@@ -2879,7 +2879,7 @@
       ]
     },
     {
-      "name": "ClearPhoneRematchSeeking",
+      "name": "ScrCmd_462",
       "args": [
         "var"
       ]
@@ -2895,7 +2895,7 @@
       ]
     },
     {
-      "name": "FriendGroupAction",
+      "name": "ScrCmd_465",
       "args": [
         2
       ],
@@ -2930,7 +2930,7 @@
       }
     },
     {
-      "name": "MonHasRelearnableMoves",
+      "name": "ScrCmd_466",
       "args": [
         "var",
         "var"
@@ -2984,7 +2984,7 @@
       "args": []
     },
     {
-      "name": "Dummy475",
+      "name": "ScrCmd_475",
       "args": []
     },
     {
@@ -3106,13 +3106,13 @@
       ]
     },
     {
-      "name": "Dummy491",
+      "name": "ScrCmd_491",
       "args": [
         2
       ]
     },
     {
-      "name": "PromptEasyChatOneWord",
+      "name": "ScrCmd_492",
       "args": [
         "var",
         "var",
@@ -3128,7 +3128,7 @@
       ]
     },
     {
-      "name": "BufferEasyChatWord",
+      "name": "ScrCmd_494",
       "args": [
         2,
         "var"
@@ -3175,19 +3175,19 @@
       ]
     },
     {
-      "name": "PCPropLoadAnimation",
+      "name": "ScrCmd_500",
       "args": [
         1
       ]
     },
     {
-      "name": "PCPropPowerOn",
+      "name": "ScrCmd_501",
       "args": [
         1
       ]
     },
     {
-      "name": "PCPropPowerOff",
+      "name": "ScrCmd_502",
       "args": [
         1
       ]
@@ -3231,13 +3231,13 @@
       ]
     },
     {
-      "name": "MigratedPokemonIsFull",
+      "name": "ScrCmd_509",
       "args": [
         "var"
       ]
     },
     {
-      "name": "MoveMigratedPokemonToPC",
+      "name": "ScrCmd_510",
       "args": []
     },
     {
@@ -3275,40 +3275,40 @@
       ]
     },
     {
-      "name": "PartyHasSpecies",
+      "name": "ScrCmd_517",
       "args": [
         "species",
         "var"
       ]
     },
     {
-      "name": "SetPartyDeoxysForm",
+      "name": "ScrCmd_518",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CountPartyBurmyForms",
+      "name": "ScrCmd_519",
       "args": [
         2
       ]
     },
     {
-      "name": "SetFlagUnk975",
+      "name": "ScrCmd_520",
       "args": []
     },
     {
-      "name": "ClearFlagUnk975",
+      "name": "ScrCmd_521",
       "args": []
     },
     {
-      "name": "GetCurrentHour",
+      "name": "ScrCmd_522",
       "args": [
         "var"
       ]
     },
     {
-      "name": "SpinObject",
+      "name": "ScrCmd_523",
       "args": [
         "object2",
         2,
@@ -3318,7 +3318,7 @@
       ]
     },
     {
-      "name": "BlinkObject",
+      "name": "ScrCmd_524",
       "args": [
         2,
         2,
@@ -3326,25 +3326,25 @@
       ]
     },
     {
-      "name": "HasAllRegisInParty",
+      "name": "ScrCmd_525",
       "args": [
         2
       ]
     },
     {
-      "name": "GetRandomGivableAccessory",
+      "name": "ScrCmd_526",
       "args": [
         2
       ]
     },
     {
-      "name": "MsgFont3",
+      "name": "ScrCmd_527",
       "args": [
         2
       ]
     },
     {
-      "name": "GetAgbCartridgeVersion",
+      "name": "ScrCmd_528",
       "args": [
         "var"
       ]
@@ -3356,7 +3356,7 @@
       ]
     },
     {
-      "name": "MapEventKeyAction",
+      "name": "ScrCmd_530",
       "args": [
         2,
         1
@@ -3384,7 +3384,7 @@
       ]
     },
     {
-      "name": "GetVar4041",
+      "name": "ScrCmd_534",
       "args": [
         2
       ]
@@ -3397,31 +3397,31 @@
       ]
     },
     {
-      "name": "TakeFashionAccessory",
+      "name": "ScrCmd_536",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "RandomizeVar4041",
+      "name": "ScrCmd_537",
       "args": []
     },
     {
-      "name": "UnlockRandomTrendySaying",
+      "name": "ScrCmd_538",
       "args": [
         "var",
         2
       ]
     },
     {
-      "name": "CheckVar4042AtLeast5",
+      "name": "ScrCmd_539",
       "args": [
         2
       ]
     },
     {
-      "name": "CheckAllTrendySayingsUnlocked",
+      "name": "ScrCmd_540",
       "args": [
         "var"
       ]
@@ -3444,87 +3444,87 @@
       ]
     },
     {
-      "name": "CheckIsPlayerBirthday",
+      "name": "ScrCmd_543",
       "args": [
         2
       ]
     },
     {
-      "name": "SetSeqVolume",
+      "name": "ScrCmd_544",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "CountUnownLettersRegistered",
+      "name": "ScrCmd_545",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CheckEventKey",
+      "name": "ScrCmd_546",
       "args": [
         1,
         "var"
       ]
     },
     {
-      "name": "ShowPartyMonPic",
+      "name": "ScrCmd_547",
       "args": [
         "var"
       ]
     },
     {
-      "name": "AnimateMonPic",
+      "name": "ScrCmd_548",
       "args": []
     },
     {
-      "name": "WaitMonPicAnim",
+      "name": "ScrCmd_549",
       "args": [
         "var"
       ]
     },
     {
-      "name": "GetHallOfFameEntryCount",
+      "name": "ScrCmd_550",
       "args": [
         2
       ]
     },
     {
-      "name": "ChoosePartyMonForDayCare",
+      "name": "ScrCmd_551",
       "args": [
         "var"
       ]
     },
     {
-      "name": "GetDayCarePartySelection",
+      "name": "ScrCmd_552",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "RandomChance",
+      "name": "ScrCmd_553",
       "args": [
         1,
         "var"
       ]
     },
     {
-      "name": "GetBattlePoints",
+      "name": "ScrCmd_554",
       "args": [
         2
       ]
     },
     {
-      "name": "GiveBattlePoints",
+      "name": "ScrCmd_555",
       "args": [
         2
       ]
     },
     {
-      "name": "TakeBattlePoints",
+      "name": "ScrCmd_556",
       "args": [
         "var"
       ]
@@ -3544,14 +3544,14 @@
       ]
     },
     {
-      "name": "MultichoiceAddItemVar",
+      "name": "ScrCmd_559",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "StartFieldMoveEffect",
+      "name": "ScrCmd_560",
       "args": [
         2,
         "var"
@@ -3576,7 +3576,7 @@
       ]
     },
     {
-      "name": "WalkPersonToCoords",
+      "name": "ScrCmd_563",
       "args": [
         2,
         2,
@@ -3584,19 +3584,19 @@
       ]
     },
     {
-      "name": "CheckHasWifiProfile",
+      "name": "ScrCmd_564",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CountWifiFriends",
+      "name": "ScrCmd_565",
       "args": [
         "var"
       ]
     },
     {
-      "name": "ChoosePartyMonForTrade",
+      "name": "ScrCmd_566",
       "args": []
     },
     {
@@ -3608,14 +3608,14 @@
       ]
     },
     {
-      "name": "ItemIsPlate",
+      "name": "ScrCmd_568",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "TakeCoinsVar",
+      "name": "ScrCmd_569",
       "args": [
         2
       ]
@@ -3628,7 +3628,7 @@
       ]
     },
     {
-      "name": "CheckEasyChatWordsMatchFixedPhrase",
+      "name": "ScrCmd_571",
       "args": [
         2,
         2,
@@ -3644,39 +3644,39 @@
       ]
     },
     {
-      "name": "SetMysteryGiftActive",
+      "name": "ScrCmd_573",
       "args": []
     },
     {
-      "name": "GetObjectMovementType",
+      "name": "ScrCmd_574",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "CountPlayingSeq",
+      "name": "ScrCmd_575",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "GetUnionRoomPartnerHometownMsg2",
+      "name": "ScrCmd_576",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CreateWirelessStatusIcon",
+      "name": "ScrCmd_577",
       "args": []
     },
     {
-      "name": "DestroyWirelessStatusIcon",
+      "name": "ScrCmd_578",
       "args": []
     },
     {
-      "name": "SyncMapObjectsToSave",
+      "name": "ScrCmd_579",
       "args": []
     },
     {
@@ -3691,7 +3691,7 @@
       "args": []
     },
     {
-      "name": "SetSpecialSpawnWarp",
+      "name": "ScrCmd_582",
       "args": [
         "maps",
         "var",
@@ -3699,7 +3699,7 @@
       ]
     },
     {
-      "name": "ClearObjectFlag18",
+      "name": "ScrCmd_583",
       "args": [
         2,
         1
@@ -3712,17 +3712,17 @@
       ]
     },
     {
-      "name": "MultichoiceShowUnionRoom",
+      "name": "ScrCmd_585",
       "args": []
     },
     {
-      "name": "GetUnionRoomBattleCancel",
+      "name": "ScrCmd_586",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CommClubLinkExit",
+      "name": "ScrCmd_587",
       "args": []
     },
     {
@@ -3746,11 +3746,11 @@
       ]
     },
     {
-      "name": "SetBicycleBGMOverride",
+      "name": "ScrCmd_591",
       "args": []
     },
     {
-      "name": "NonNPCMsgVarAutoScroll",
+      "name": "ScrCmd_592",
       "args": [
         "var"
       ]
@@ -3764,33 +3764,33 @@
       "args": []
     },
     {
-      "name": "SetWarpResetSuppressed",
+      "name": "ScrCmd_595",
       "args": [
         1
       ]
     },
     {
-      "name": "FollowMonIsLarge",
+      "name": "ScrCmd_596",
       "args": [
         "var"
       ]
     },
     {
-      "name": "FollowMonShowEmoteBubble",
+      "name": "ScrCmd_597",
       "args": []
     },
     {
-      "name": "SwapPlayerAndFollowMonPositions",
+      "name": "ScrCmd_598",
       "args": [
         2
       ]
     },
     {
-      "name": "FollowMonHopIntoBall",
+      "name": "ScrCmd_599",
       "args": []
     },
     {
-      "name": "FollowMonRecall",
+      "name": "ScrCmd_600",
       "args": []
     },
     {
@@ -3814,30 +3814,30 @@
       ]
     },
     {
-      "name": "FollowMonSetPositionNextToPlayer",
+      "name": "ScrCmd_605",
       "args": [
         1,
         1
       ]
     },
     {
-      "name": "FollowMonReleaseNextToPlayer",
+      "name": "ScrCmd_606",
       "args": []
     },
     {
-      "name": "FollowMonMoveToPlayer",
+      "name": "ScrCmd_607",
       "args": []
     },
     {
-      "name": "FollowMonSpawnReleaseBall",
+      "name": "ScrCmd_608",
       "args": []
     },
     {
-      "name": "FollowMonResetMovement",
+      "name": "ScrCmd_609",
       "args": []
     },
     {
-      "name": "StartCameraShift",
+      "name": "ScrCmd_610",
       "args": [
         2
       ]
@@ -3911,7 +3911,7 @@
       "args": []
     },
     {
-      "name": "GetObjectFacing",
+      "name": "ScrCmd_622",
       "args": [
         2,
         "var"
@@ -3945,30 +3945,30 @@
       ]
     },
     {
-      "name": "LaunchFrontier",
+      "name": "ScrCmd_627",
       "args": [
         1
       ]
     },
     {
-      "name": "BattleFactoryResetStreak",
+      "name": "ScrCmd_628",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "RunSpinTradeFlow",
+      "name": "ScrCmd_629",
       "args": []
     },
     {
-      "name": "CheckUnionRoomPartnerVersionNotDummy",
+      "name": "ScrCmd_630",
       "args": [
         "var"
       ]
     },
     {
-      "name": "OpenFrontierRecords",
+      "name": "ScrCmd_631",
       "args": [
         "var",
         "var",
@@ -3983,7 +3983,7 @@
       ]
     },
     {
-      "name": "BattleHallAction",
+      "name": "ScrCmd_633",
       "args": [
         2,
         "var",
@@ -3991,27 +3991,27 @@
       ]
     },
     {
-      "name": "BattleHallCheckSpecies",
+      "name": "ScrCmd_634",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "BattleHallGetPartySelection",
+      "name": "ScrCmd_635",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "BattleHallResetStreak",
+      "name": "ScrCmd_636",
       "args": [
         "var"
       ]
     },
     {
-      "name": "BattleCastleAction",
+      "name": "ScrCmd_637",
       "args": [
         2,
         "var",
@@ -4019,7 +4019,7 @@
       ]
     },
     {
-      "name": "BattleCastleCheckTeam",
+      "name": "ScrCmd_638",
       "args": [
         "var",
         "var",
@@ -4027,7 +4027,7 @@
       ]
     },
     {
-      "name": "BattleCastleGetPartySelection",
+      "name": "ScrCmd_639",
       "args": [
         "var",
         "var",
@@ -4035,7 +4035,7 @@
       ]
     },
     {
-      "name": "BattleCastleResetStreak",
+      "name": "ScrCmd_640",
       "args": [
         "var"
       ]
@@ -4045,13 +4045,13 @@
       "args": []
     },
     {
-      "name": "CheckExtraSaveChunksExist",
+      "name": "ScrCmd_642",
       "args": [
         "var"
       ]
     },
     {
-      "name": "BattleArcadeAction",
+      "name": "ScrCmd_643",
       "args": [
         2,
         "var",
@@ -4059,7 +4059,7 @@
       ]
     },
     {
-      "name": "BattleArcadeCheckTeam",
+      "name": "ScrCmd_644",
       "args": [
         "var",
         "var",
@@ -4067,7 +4067,7 @@
       ]
     },
     {
-      "name": "BattleArcadeGetPartySelection",
+      "name": "ScrCmd_645",
       "args": [
         "var",
         "var",
@@ -4075,7 +4075,7 @@
       ]
     },
     {
-      "name": "BattleArcadeResetStreak",
+      "name": "ScrCmd_646",
       "args": [
         "var"
       ]
@@ -4088,7 +4088,7 @@
       ]
     },
     {
-      "name": "BattleHallRecordSpeciesListMenu",
+      "name": "ScrCmd_648",
       "args": [
         2,
         2,
@@ -4114,7 +4114,7 @@
       ]
     },
     {
-      "name": "GetTutorMoveListPageCount",
+      "name": "ScrCmd_652",
       "args": [
         "var",
         "var",
@@ -4146,7 +4146,7 @@
       ]
     },
     {
-      "name": "MonCanLearnHeadbuttFromTutor",
+      "name": "ScrCmd_656",
       "args": [
         "var",
         "var"
@@ -4183,7 +4183,7 @@
       ]
     },
     {
-      "name": "BufferIntExWord",
+      "name": "ScrCmd_661",
       "args": [
         1,
         4,
@@ -4192,7 +4192,7 @@
       ]
     },
     {
-      "name": "LaunchGlobalTerminal",
+      "name": "ScrCmd_662",
       "args": [
         "var",
         "var",
@@ -4200,29 +4200,29 @@
       ]
     },
     {
-      "name": "LaunchWiFiPlaza",
+      "name": "ScrCmd_663",
       "args": [
         "var"
       ]
     },
     {
-      "name": "Dummy664",
+      "name": "ScrCmd_664",
       "args": []
     },
     {
-      "name": "FieldBGMPlay",
+      "name": "ScrCmd_665",
       "args": [
         2
       ]
     },
     {
-      "name": "GetCurrentBGM",
+      "name": "ScrCmd_666",
       "args": [
         2
       ]
     },
     {
-      "name": "CheckABHeld",
+      "name": "ScrCmd_667",
       "args": [
         2
       ]
@@ -4294,21 +4294,21 @@
       ]
     },
     {
-      "name": "MultichoiceShowListAtPosition",
+      "name": "ScrCmd_677",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "CreateCameraFocusObject",
+      "name": "ScrCmd_678",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "RemoveCameraFocusObject",
+      "name": "ScrCmd_679",
       "args": []
     },
     {
@@ -4318,13 +4318,13 @@
       ]
     },
     {
-      "name": "EditBattleGreeting",
+      "name": "ScrCmd_681",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CheckFieldHeapFreeSize",
+      "name": "ScrCmd_682",
       "args": [
         2
       ]
@@ -4336,7 +4336,7 @@
       ]
     },
     {
-      "name": "GetWeatherType",
+      "name": "ScrCmd_684",
       "args": [
         2
       ]
@@ -4350,14 +4350,14 @@
       ]
     },
     {
-      "name": "FatefulWildBattle",
+      "name": "ScrCmd_686",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "SetMonSeenFlag",
+      "name": "ScrCmd_687",
       "args": [
         2
       ]
@@ -4383,7 +4383,7 @@
       ]
     },
     {
-      "name": "CheckPlazaLoginTimeElapsed",
+      "name": "ScrCmd_691",
       "args": [
         "var"
       ]
@@ -4412,19 +4412,19 @@
       ]
     },
     {
-      "name": "MultichoiceShowListWithWidth",
+      "name": "ScrCmd_695",
       "args": [
         2
       ]
     },
     {
-      "name": "UpdatePartyGiratinaFormsAndCaughtFlags",
+      "name": "ScrCmd_696",
       "args": [
         2
       ]
     },
     {
-      "name": "CheckBattleHallStreakIs50",
+      "name": "ScrCmd_697",
       "args": [
         2
       ]
@@ -4438,11 +4438,11 @@
       ]
     },
     {
-      "name": "SetOtherObjectsFlag13",
+      "name": "ScrCmd_699",
       "args": []
     },
     {
-      "name": "ClearOtherObjectsFlag13",
+      "name": "ScrCmd_700",
       "args": []
     },
     {
@@ -4463,21 +4463,21 @@
       ]
     },
     {
-      "name": "AddGameStat",
+      "name": "ScrCmd_704",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "AddGameStatWord",
+      "name": "ScrCmd_705",
       "args": [
         2,
         4
       ]
     },
     {
-      "name": "CheckHallOfFameSaveInvalid",
+      "name": "ScrCmd_706",
       "args": [
         "var"
       ]
@@ -4490,17 +4490,17 @@
       ]
     },
     {
-      "name": "PlayTrapEffect",
+      "name": "ScrCmd_708",
       "args": [
         2
       ]
     },
     {
-      "name": "PlayHideoutAlarm",
+      "name": "ScrCmd_709",
       "args": []
     },
     {
-      "name": "UpdateMapPropAnimsFromFlag96B",
+      "name": "ScrCmd_710",
       "args": []
     },
     {
@@ -4508,7 +4508,7 @@
       "args": []
     },
     {
-      "name": "LaunchPokeathlonRecordsApp",
+      "name": "ScrCmd_712",
       "args": [
         1
       ]
@@ -4530,43 +4530,43 @@
       "args": []
     },
     {
-      "name": "LaunchSafariAreaCustomizer",
+      "name": "ScrCmd_716",
       "args": []
     },
     {
-      "name": "StartSafariDecoration",
+      "name": "ScrCmd_717",
       "args": [
         "var"
       ]
     },
     {
-      "name": "BufferSafariZoneObjectName",
+      "name": "ScrCmd_718",
       "args": [
         1,
         "var"
       ]
     },
     {
-      "name": "GetFacingSafariObject",
+      "name": "ScrCmd_719",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "RemoveSafariObject",
+      "name": "ScrCmd_720",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CheckSafariObjectPlacement",
+      "name": "ScrCmd_721",
       "args": [
         "var"
       ]
     },
     {
-      "name": "MagnetTrainRide",
+      "name": "ScrCmd_722",
       "args": [
         1,
         1,
@@ -4576,7 +4576,7 @@
       ]
     },
     {
-      "name": "ShipVoyage",
+      "name": "ScrCmd_723",
       "args": [
         1,
         1,
@@ -4586,14 +4586,14 @@
       ]
     },
     {
-      "name": "GetPokeathlonStat",
+      "name": "ScrCmd_724",
       "args": [
         2,
         "var"
       ]
     },
     {
-      "name": "AdjustPokeathlonStat11",
+      "name": "ScrCmd_725",
       "args": [
         1,
         2
@@ -4610,49 +4610,49 @@
       ]
     },
     {
-      "name": "FollowMonFlash",
+      "name": "ScrCmd_728",
       "args": [
         1,
         1
       ]
     },
     {
-      "name": "FollowMonIsActive",
+      "name": "ScrCmd_729",
       "args": [
         "var"
       ]
     },
     {
-      "name": "FollowMonIsInactiveOrVisible",
+      "name": "ScrCmd_730",
       "args": [
         "var"
       ]
     },
     {
-      "name": "FollowMonGrowAndShrink",
+      "name": "ScrCmd_731",
       "args": []
     },
     {
-      "name": "FollowMonAddMood",
+      "name": "ScrCmd_732",
       "args": [
         1
       ]
     },
     {
-      "name": "FirstAliveMonHasType",
+      "name": "ScrCmd_733",
       "args": [
         1,
         "var"
       ]
     },
     {
-      "name": "FollowMonJumpOnSpot",
+      "name": "ScrCmd_734",
       "args": [
         1
       ]
     },
     {
-      "name": "GetKurtApricornQuantity",
+      "name": "ScrCmd_735",
       "args": [
         "var"
       ]
@@ -4662,7 +4662,7 @@
       "args": []
     },
     {
-      "name": "GetKurtBall",
+      "name": "ScrCmd_737",
       "args": [
         "var"
       ]
@@ -4674,18 +4674,18 @@
       ]
     },
     {
-      "name": "LaunchApricornBoxForKurt",
+      "name": "ScrCmd_739",
       "args": []
     },
     {
-      "name": "LaunchApricornBoxForJuice",
+      "name": "ScrCmd_740",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "GetApricornJuiceOffer",
+      "name": "ScrCmd_741",
       "args": [
         "var",
         "var",
@@ -4694,7 +4694,7 @@
       ]
     },
     {
-      "name": "MonLearnsetHasMove",
+      "name": "ScrCmd_742",
       "args": [
         2,
         2,
@@ -4702,7 +4702,7 @@
       ]
     },
     {
-      "name": "ShowPokeathlonRecords",
+      "name": "ScrCmd_743",
       "args": [
         "var"
       ]
@@ -4801,7 +4801,7 @@
       "args": []
     },
     {
-      "name": "UnusedHoOhAnim",
+      "name": "ScrCmd_760",
       "args": []
     },
     {
@@ -4851,11 +4851,11 @@
       ]
     },
     {
-      "name": "PokeathlonDailyMart",
+      "name": "ScrCmd_771",
       "args": []
     },
     {
-      "name": "PokeathlonDataCardMart",
+      "name": "ScrCmd_772",
       "args": []
     },
     {
@@ -4871,7 +4871,7 @@
       ]
     },
     {
-      "name": "LanceFlyAway",
+      "name": "ScrCmd_775",
       "args": [
         2,
         2
@@ -4882,7 +4882,7 @@
       "args": []
     },
     {
-      "name": "MonIsFromTogepiEgg",
+      "name": "ScrCmd_777",
       "args": [
         2,
         2
@@ -4996,18 +4996,18 @@
       ]
     },
     {
-      "name": "ShowSavingsBox",
+      "name": "ScrCmd_795",
       "args": [
         2,
         2
       ]
     },
     {
-      "name": "HideSavingsBox",
+      "name": "ScrCmd_796",
       "args": []
     },
     {
-      "name": "UpdateSavingsBox",
+      "name": "ScrCmd_797",
       "args": []
     },
     {
@@ -5017,46 +5017,46 @@
       ]
     },
     {
-      "name": "BufferBattleRegulationName",
+      "name": "ScrCmd_799",
       "args": [
         "var"
       ]
     },
     {
-      "name": "SetActiveBattleRegulation",
+      "name": "ScrCmd_800",
       "args": [
         "var"
       ]
     },
     {
-      "name": "ShowBattleRegulationWindow",
+      "name": "ScrCmd_801",
       "args": [
         "var"
       ]
     },
     {
-      "name": "HideBattleRegulationWindow",
+      "name": "ScrCmd_802",
       "args": []
     },
     {
-      "name": "CheckPartyBattleRegulation",
+      "name": "ScrCmd_803",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "SetPokegearMapUnlockLevel",
+      "name": "ScrCmd_804",
       "args": [
         1
       ]
     },
     {
-      "name": "LoadEventSoundEffects",
+      "name": "ScrCmd_805",
       "args": []
     },
     {
-      "name": "ShayminRevertToLandForm",
+      "name": "ScrCmd_806",
       "args": []
     },
     {
@@ -5067,7 +5067,7 @@
       ]
     },
     {
-      "name": "TrainerHouseBattle",
+      "name": "ScrCmd_808",
       "args": [
         "var"
       ]
@@ -5079,18 +5079,18 @@
       ]
     },
     {
-      "name": "CelebiTimeTravel",
+      "name": "ScrCmd_810",
       "args": []
     },
     {
-      "name": "PeekMomGift",
+      "name": "ScrCmd_811",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "PopMomGift",
+      "name": "ScrCmd_812",
       "args": []
     },
     {
@@ -5100,11 +5100,11 @@
       ]
     },
     {
-      "name": "SetFlag99A",
+      "name": "ScrCmd_814",
       "args": []
     },
     {
-      "name": "SetSavedBottomScreenApp",
+      "name": "ScrCmd_815",
       "args": [
         2
       ]
@@ -5114,7 +5114,7 @@
       "args": []
     },
     {
-      "name": "SinjohGetEggCutscene",
+      "name": "ScrCmd_817",
       "args": [
         1
       ]
@@ -5124,11 +5124,11 @@
       "args": []
     },
     {
-      "name": "SinjohFreezeAllModels",
+      "name": "ScrCmd_819",
       "args": []
     },
     {
-      "name": "SinjohSetChosenLegend",
+      "name": "ScrCmd_820",
       "args": [
         1
       ]
@@ -5141,17 +5141,17 @@
       ]
     },
     {
-      "name": "CustomSafariLinkExchange",
+      "name": "ScrCmd_822",
       "args": []
     },
     {
-      "name": "BufferSafariLinkLeaderName",
+      "name": "ScrCmd_823",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CheckSafariZoneLinked",
+      "name": "ScrCmd_824",
       "args": [
         "var"
       ]
@@ -5185,43 +5185,43 @@
       ]
     },
     {
-      "name": "FollowMonIsNextToPlayer",
+      "name": "ScrCmd_829",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CheckGiftAccessoriesFull",
+      "name": "ScrCmd_830",
       "args": [
         "var"
       ]
     },
     {
-      "name": "GetRandomGiftAccessory",
+      "name": "ScrCmd_831",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CheckHasAllBackdrops",
+      "name": "ScrCmd_832",
       "args": [
         "var"
       ]
     },
     {
-      "name": "GetRandomMissingBackdrop",
+      "name": "ScrCmd_833",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CheckPokeathlonDailyMartHasStock",
+      "name": "ScrCmd_834",
       "args": [
         "var"
       ]
     },
     {
-      "name": "CountPokeathlonDataCardsBought",
+      "name": "ScrCmd_835",
       "args": [
         "var"
       ]
@@ -5233,7 +5233,7 @@
       ]
     },
     {
-      "name": "CheckHasLinkBattleRuleset",
+      "name": "ScrCmd_837",
       "args": [
         "var"
       ]
@@ -5252,20 +5252,20 @@
       ]
     },
     {
-      "name": "GetMapPokeCenterOrLeagueType",
+      "name": "ScrCmd_840",
       "args": [
         "var",
         "var"
       ]
     },
     {
-      "name": "MultichoiceSetAnchorRight",
+      "name": "ScrCmd_841",
       "args": [
         1
       ]
     },
     {
-      "name": "MultichoiceSetAnchorBottom",
+      "name": "ScrCmd_842",
       "args": [
         1
       ]

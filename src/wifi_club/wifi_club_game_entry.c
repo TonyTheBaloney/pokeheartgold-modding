@@ -469,7 +469,7 @@ void FreeWindowList(WifiClubGameEntryScreen *screen, enum HeapID heapID) {
 
 void InitStringAndMsgData(WifiClubGameEntryScreen *screen, WifiClubGameEntryArgs *args, enum HeapID heapID) {
     screen->msgFmt = MessageFormat_New(heapID);
-    screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0778_bin, heapID);
+    screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0778, heapID);
     screen->string1 = String_New(256, heapID);
     screen->string2 = String_New(256, heapID);
     screen->printerId = 255;

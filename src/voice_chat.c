@@ -11,9 +11,6 @@
 #include "heap.h"
 #include "wifi_connection.h"
 
-extern void MIC_StartAutoSamplingAsync(MICAutoParam *param, void (*callback)(MICResult, void *), void *arg);
-extern u8 *MIC_GetLastSamplingAddress(void);
-extern void MIC_StopAutoSampling(void);
 
 static void VoiceChat_InitAudio(void);
 static void VoiceChat_MicCallback(MICResult result, void *arg);
@@ -279,7 +276,7 @@ void VoiceChat_Init(int heapId, int codec, int count) {
     gVoiceChat.work->restartSampling = 1;
     NNS_SndStrmAllocChannel(&gVoiceChat.work->stream, 1, channels);
     NNS_SndStrmSetVolume(&gVoiceChat.work->stream, 0);
-    NNS_SndStrmSetup(&gVoiceChat.work->stream, 1, gVoiceChat.work->streamBuffer, 0x880, 65, 2, VoiceChat_StreamCallback, gVoiceChat.work);
+    NNS_SndStrmSetup(&gVoiceChat.work->stream, 1, gVoiceChat.work->streamBuffer, 0x880, 65, 2, (NNSSndStrmCallback)VoiceChat_StreamCallback, gVoiceChat.work);
     gVoiceChat.work->callState = VOICE_CHAT_CALL_IDLE;
     gVoiceChat.work->session = NULL;
     if (!Comm_IsWifiPeerLinkMode(CommState_GetLinkMode())) {

@@ -76,8 +76,6 @@ static BOOL FashionEntryLarge_IsSaved(SaveFashionDataSub3FC *entry_);
 static void FashionMon_GetSecondText(SaveFashionMon *mon, String *string);
 static BOOL Save_FashionData_IsNewEntry(SaveFashionData *fashionData, SaveFashionDataSub *candidate);
 
-void MATHi_CRC32InitTableRev(u32 *table, u32 polynomial);
-u32 MATH_CalcCRC32(const u32 *table, const void *data, u32 size);
 
 static BOOL IsValidFashionMagic(u32 value) {
     if (value == 0x1234 || value == 0x2345) {
@@ -542,13 +540,13 @@ static BOOL Save_FashionData_IsNewEntry(SaveFashionData *fashionData, SaveFashio
     u32 crc;
     int i;
     if (FashionEntry_IsSaved(candidate) == TRUE) {
-        MATHi_CRC32InitTableRev(table, 0xEDB88320);
-        crc = MATH_CalcCRC32(table, candidate, sizeof(SaveFashionDataSub));
+        MATHi_CRC32InitTableRev((MATHCRC32Table *)table, 0xEDB88320);
+        crc = MATH_CalcCRC32((const MATHCRC32Table *)table, candidate, sizeof(SaveFashionDataSub));
         for (i = 0; i < 11; i++) {
             SaveFashionDataSub *entry = Save_FashionData_GetEntry(fashionData, i);
             u32 other;
-            MATHi_CRC32InitTableRev(table, 0xEDB88320);
-            other = MATH_CalcCRC32(table, entry, sizeof(SaveFashionDataSub));
+            MATHi_CRC32InitTableRev((MATHCRC32Table *)table, 0xEDB88320);
+            other = MATH_CalcCRC32((const MATHCRC32Table *)table, entry, sizeof(SaveFashionDataSub));
             if (other == crc) {
                 result = FALSE;
                 break;

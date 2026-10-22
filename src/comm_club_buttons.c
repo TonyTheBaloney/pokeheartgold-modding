@@ -259,7 +259,7 @@ static void CommClubButtons_DrawButtons(CommClubButtonsData *data) {
     u16 x;
 
     FontID_Alloc(4, HEAP_ID_8);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0191_bin, HEAP_ID_8);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0191, HEAP_ID_8);
     layout = &sCommClubButtonsLayouts[data->count - 1];
 
     for (i = 0; i < data->count; i++) {

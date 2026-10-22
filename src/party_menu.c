@@ -957,7 +957,7 @@ static PartyMenu *PartyMenu_CreateData(OverlayManager *manager) {
     } else {
         ret->pokedex = NULL;
     }
-    ret->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0300_bin, HEAP_ID_PARTY_MENU);
+    ret->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0300, HEAP_ID_PARTY_MENU);
     ret->msgPrinter = MessagePrinter_New(15, 14, 0, HEAP_ID_PARTY_MENU);
     ret->msgFormat = MessageFormat_New(HEAP_ID_PARTY_MENU);
     for (i = 0; i < PARTY_SIZE; ++i) {

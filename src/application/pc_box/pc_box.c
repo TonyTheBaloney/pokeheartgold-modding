@@ -225,7 +225,7 @@ void PCBox_LoadBgGraphics(PCBoxWork *work) {
 }
 
 void PCBox_CreateMsgResources(PCBoxWork *work) {
-    work->view->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0024_bin, HEAP_ID_10);
+    work->view->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0024, HEAP_ID_10);
     work->view->msgPrinter = MessagePrinter_New(1, 2, 0, HEAP_ID_10);
     work->view->msgFormat = MessageFormat_New(HEAP_ID_10);
     work->view->string = String_New(0x400, HEAP_ID_10);

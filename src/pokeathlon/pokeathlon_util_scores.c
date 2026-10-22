@@ -4,7 +4,6 @@
 
 #include "screen_fade.h"
 
-u32 MATH_CountPopulation(u32 value);
 
 static void PokeathlonUtil_SetGfxBanks(void);
 

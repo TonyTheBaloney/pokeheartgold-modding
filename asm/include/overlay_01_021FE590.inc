@@ -1,4 +1,4 @@
-#include <nitro/fs/overlay.h>
+
 #pragma once
 .public BillboardObject_Delete
 .public BillboardObject_SetPosition

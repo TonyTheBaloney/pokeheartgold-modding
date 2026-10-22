@@ -209,7 +209,7 @@ static void CommClub_NewManager(FieldSystem *fieldSystem) {
     sCommClubManager->retCode = 0;
     sCommClubManager->fieldSystem = fieldSystem;
     sCommClubManager->infoWindowOpen = 0;
-    sCommClubManager->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0182_bin, HEAP_ID_FIELD1);
+    sCommClubManager->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0182, HEAP_ID_FIELD1);
     sCommClubManager->playerProfile[0] = Save_PlayerData_GetProfile(FieldSystem_GetSaveData(sCommClubManager->fieldSystem));
     sCommClubManager->playerProfile[1] = PlayerProfile_New(HEAP_ID_FIELD1);
     InitWindow(&sCommClubManager->windows[0]);

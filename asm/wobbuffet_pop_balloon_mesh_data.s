@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public _0225EEA8
 	.public _0225EF20
 	.public _0225EF70

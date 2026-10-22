@@ -47,7 +47,6 @@ enum PokeathlonDiscCatchInitState {
 
 s32 _s32_div_f(s32 dividend, s32 divisor);
 
-void MATH_QSort(void *head, u32 num, u32 size, s32 (*compare)(const void *, const void *), void *work);
 
 extern const VecFx32 gPokeathlonDiscCatchTouchDistances;
 extern const VecFx32 gPokeathlonDiscCatchFacingReference;
@@ -690,7 +689,7 @@ void PokeathlonDiscCatch_UpdateMonSprites(PokeathlonDiscCatchSprites *sprites, P
         shift += 2;
         mon++;
     }
-    MATH_QSort(order, DISC_CATCH_MONS, sizeof(PokeathlonDiscCatchDrawOrder), PokeathlonDiscCatch_CompareDrawOrder, NULL);
+    MATH_QSort(order, DISC_CATCH_MONS, sizeof(PokeathlonDiscCatchDrawOrder), (MATHCompareFunc)PokeathlonDiscCatch_CompareDrawOrder, NULL);
     shift = 0;
     entry = order;
     for (; shift < DISC_CATCH_MONS; shift++) {
@@ -1194,7 +1193,7 @@ static void PokeathlonDiscCatch_InitBgs(PokeathlonDiscCatch *work) {
         BgClearTilemapBufferAndCommit(bgConfig, (u8)gPokeathlonDiscCatchBgLayers[i]);
         BG_ClearCharDataRange((u8)gPokeathlonDiscCatchBgLayers[i], 0x20, 0, heapId);
     }
-    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, work->heapId);
+    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, work->heapId);
     work->messageFormat = MessageFormat_New(work->heapId);
     FontID_Alloc(4, work->heapId);
     GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG2, GF_PLANE_TOGGLE_OFF);

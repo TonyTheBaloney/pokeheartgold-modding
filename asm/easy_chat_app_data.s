@@ -91,7 +91,7 @@
 	.public EasyChatAppView_Cmd_PressPageDown
 	.public EasyChatAppView_Cmd_ReleasePageUp
 	.public EasyChatAppView_Cmd_ReleasePageDown
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "overlay_102.inc"
 	.include "global.inc"
 

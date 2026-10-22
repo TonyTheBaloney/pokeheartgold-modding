@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public gBallCapsuleEditorMenuTemplate
 	.public gBallCapsuleEditorOamCharTransferParam
 	.public gBallCapsuleEditorSpriteResourceCounts

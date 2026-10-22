@@ -78,7 +78,7 @@ static void BoxMon_SetOriginalTrainerData(BoxPokemon *boxMon, PlayerProfile *pro
 TrainerMemo *TrainerMemo_New(Pokemon *mon, BOOL isMine, enum HeapID heapID, int a3) {
     TrainerMemo *ptr = Heap_Alloc(heapID, sizeof(TrainerMemo));
     ptr->heapID = heapID;
-    ptr->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0302_bin, heapID);
+    ptr->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0302, heapID);
     ptr->msgFmt = MessageFormat_New_Custom(9, 32, ptr->heapID);
     ptr->mon = mon;
     ptr->isMine = isMine;

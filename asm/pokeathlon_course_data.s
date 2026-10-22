@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "overlay_96.inc"
 	.include "global.inc"
 
@@ -169,7 +169,7 @@ subOverlayTemplate:
 	.word PokeathlonBox_Init
 	.word PokeathlonBox_Main
 	.word PokeathlonBox_Exit
-	.word FS_OVERLAY_ID(OVY_97)
+	.word SDK_OVERLAY_OVY_97_ID
 
 gPokeathlonCirclePushEvent:
 	.word PokeathlonCirclePush_Init

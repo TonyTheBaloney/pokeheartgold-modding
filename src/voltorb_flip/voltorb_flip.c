@@ -191,7 +191,7 @@ const u8 sCardFaceUpTileIDs[5][2] = {
     { 0x6B, 0x0B },
 };
 
-const TouchscreenListMenuTemplate sListMenuTemplate = {
+static const TouchscreenListMenuTemplate sListMenuTemplate = {
     .wrapAround = TRUE,
     .centered = TRUE,
     .xOffset = 0,
@@ -2293,7 +2293,7 @@ static void VoltorbFlip_CreateOverlayData(OverlayManager *man) {
     work->textFrameDelay = Options_GetTextFrameDelay(work->options);
 
     work->narc = NARC_New(NARC_application_voltorb_flip, work->heapID);
-    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0039_bin, work->heapID);
+    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0039, work->heapID);
     work->msgFmt = MessageFormat_New(work->heapID);
     work->yesNoPrompt = YesNoPrompt_Create(work->heapID);
 

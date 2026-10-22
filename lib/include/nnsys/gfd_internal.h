@@ -26,8 +26,6 @@ typedef struct FrmTexVramRegion {
 void NNSi_GfdSetTexNrmSearchArray(int first, int second, int third, int fourth, int fifth);
 NNSGfdTexKey NNS_GfdAllocFrmTexVram(u32 szByte, BOOL is4x4comp, u32 opt);
 int NNS_GfdFreeFrmTexVram(NNSGfdTexKey key);
-void NNS_GfdGetFrmTexVramState(u32 *state);
-void NNS_GfdSetFrmTexVramState(const u32 *state);
 void NNS_GfdResetFrmTexVramState(void);
 
 // frame palette VRAM manager: allocates from both ends of [0, szByte)
@@ -39,8 +37,6 @@ typedef struct FrmPlttVramManager {
 
 NNSGfdPlttKey NNS_GfdAllocFrmPlttVram(u32 szByte, BOOL b4Pltt, u32 bAllocFromLo);
 int NNS_GfdFreeFrmPlttVram(NNSGfdPlttKey key);
-void NNS_GfdGetFrmPlttVramState(u32 *state);
-void NNS_GfdSetFrmPlttVramState(const u32 *state);
 void NNS_GfdResetFrmPlttVramState(void);
 
 // VRAM transfer manager: ring buffer of NNSGfdVramTransferTask
@@ -95,10 +91,6 @@ void DoTransfer2dObjOamSub(void *src, u32 dstAddr, u32 szByte);
 void DoTransfer2dObjCharSub(void *src, u32 dstAddr, u32 szByte);
 void DoTransfer_(NNSGfdVramTransferTask *task);
 void ResetTaskQueue_(VramTransferTaskQueue *queue);
-BOOL NNSi_GfdPushVramTransferTaskQueue(VramTransferTaskQueue *queue);
-NNSGfdVramTransferTask *NNSi_GfdGetFrontVramTransferTaskQueue(VramTransferTaskQueue *queue);
-NNSGfdVramTransferTask *NNSi_GfdGetEndVramTransferTaskQueue(VramTransferTaskQueue *queue);
-BOOL NNSi_GfdPopVramTransferTaskQueue(VramTransferTaskQueue *queue);
 
 // linked-list VRAM managers: free regions kept in a list of blocks taken from a caller-supplied pool
 typedef struct LnkVramBlock {

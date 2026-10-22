@@ -775,7 +775,7 @@ static void PlazaGameSprites_ApplyOam(PlazaGameSprites *sprites) {
 }
 
 static void PlazaGameText_Init(PlazaGameText *text, enum HeapID heapId) {
-    text->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0236_bin, heapId);
+    text->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0236, heapId);
     text->msgFormat = MessageFormat_New_Custom(8, 64, heapId);
     text->string = String_New(128, heapId);
     text->buffer = String_New(128, heapId);

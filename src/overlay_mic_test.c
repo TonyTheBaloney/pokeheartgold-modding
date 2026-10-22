@@ -617,7 +617,7 @@ static void MicTest_VBlankIntrCB(void *data) {
     NNS_GfdDoVramTransfer();
     MicTest_TransferOam(micTest);
     MicTest_UpdateBgGpu(&micTest->display);
-    OS_SetIrqCheckFlag(OS_IE_VBLANK);
+    OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
 static void MicTest_InitSpriteRenderer(MicTestData *micTest, enum HeapID heapID) {
@@ -734,7 +734,7 @@ static void MicTest_UpdateBgGpu(MicTestDisplay *display) {
 }
 
 static void MicTest_InitWindows(MicTestDisplay *display, enum HeapID heapID) {
-    display->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0234_bin, heapID);
+    display->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0234, heapID);
 
     for (int i = 0; i < 3; i++) {
         AddWindowParameterized(display->bgConfig, &display->window[i], sMicTestTextBoxes[i].bgId, sMicTestTextBoxes[i].x, sMicTestTextBoxes[i].y, sMicTestTextBoxes[i].width, sMicTestTextBoxes[i].height, sMicTestTextBoxes[i].palNum, sMicTestTextBoxes[i].baseTile);

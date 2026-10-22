@@ -88,7 +88,7 @@ void FrontierData_ReadMember(void *dest, s32 fileId, NarcId narcId) {
 }
 
 void *FrontierTrainer_Load(FrontierTrainerRecord *record, int trainerId, enum HeapID heapID, NarcId narcId) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0027_bin, heapID);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0027, heapID);
     FrontierTrainerEntry *trainer;
     String *string;
 
@@ -227,7 +227,7 @@ void FrontierMon_ToPokemon(FrontierMon *frontierMon, Pokemon *mon, int level) {
     SetMonData(mon, MON_DATA_ABILITY, &frontierMon->ability);
     SetMonData(mon, MON_DATA_FRIENDSHIP, &frontierMon->friendship);
     if (frontierMon->hasNickname) {
-        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_FIELD1);
+        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, HEAP_ID_FIELD1);
         String *name = NewString_ReadMsgData(msgData, frontierMon->species);
         SetMonData(mon, MON_DATA_NICKNAME_STRING, name);
         String_Delete(name);
@@ -330,7 +330,7 @@ static void Frontier_SetRentalMonOt(SaveData *saveData, Pokemon *mon) {
     MonSetCatchDataNoHealBall(mon, Save_PlayerData_GetProfile(saveData), 4, 0, 0, HEAP_ID_FIELD2);
     mapSec = MapHeader_GetMapSec(MAP_BATTLE_FRONTIER_BATTLE_FACTORY);
     MonSetTrainerMemo(mon, profile, 0, mapSec, HEAP_ID_FIELD2);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0193_bin, HEAP_ID_FIELD2);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0193, HEAP_ID_FIELD2);
     string = NewString_ReadMsgData(msgData, msg_0193_00000);
     SetMonData(mon, MON_DATA_OT_NAME_STRING, string);
     SetMonData(mon, MON_DATA_OT_ID, &otId);

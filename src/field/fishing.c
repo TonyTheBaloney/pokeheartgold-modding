@@ -471,7 +471,7 @@ static BOOL FishingRod_IsAOrBPressed(void) {
 }
 
 static void FishingRod_InitMessages(FishingRod *rod) {
-    rod->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0040_bin, HEAP_ID_FIELD1);
+    rod->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0040, HEAP_ID_FIELD1);
     rod->string = String_New(1024, HEAP_ID_FIELD1);
     rod->template = String_New(1024, HEAP_ID_FIELD1);
     rod->msgFmt = MessageFormat_New_Custom(8, 64, HEAP_ID_FIELD1);

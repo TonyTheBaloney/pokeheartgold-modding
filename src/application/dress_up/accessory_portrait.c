@@ -422,7 +422,7 @@ static void AccessoryPortrait_DrawCaption(AccessoryPortraitAppWork *work) {
 
 // the mon's name and the saved word ("{STRVAR_1 28}"), both centred
 static void AccessoryPortrait_PrintCaption(AccessoryPortraitAppWork *work) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0215_bin, HEAP_ID_13);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0215, HEAP_ID_13);
     MessageFormat *msgFormat;
     String *string;
     String *template;

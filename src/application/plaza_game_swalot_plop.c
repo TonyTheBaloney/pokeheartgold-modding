@@ -2732,7 +2732,7 @@ static void SwalotPlopGfx_FreeSpriteRes(SwalotPlopGfx *gfx) {
 
 static void SwalotPlopGfx_InitText(SwalotPlopGfx *gfx, enum HeapID heapId) {
     gfx->msgFormat = MessageFormat_New(heapId);
-    gfx->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0230_bin, heapId);
+    gfx->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0230, heapId);
     gfx->string1 = String_New(0x80, heapId);
     gfx->string2 = String_New(0x80, heapId);
 }

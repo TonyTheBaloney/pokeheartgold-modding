@@ -32,7 +32,7 @@ BOOL Wireless_StopScan(void);
 void Wireless_SetGgid(u32);
 void Wireless_SetParentGameInfo(void *, u16);
 u32 Wireless_GetState(void);
-BOOL Wireless_SendData(const void *data, u32 length, int port, WirelessSentFunc callback);
+BOOL Wireless_SendData(const void *data, u16 length, int port, WirelessSentFunc callback);
 u16 Wireless_GetAid(void);
 void Wireless_SetMaxEntries(int maxEntries);
 BOOL Wireless_SetEntry(BOOL enabled);

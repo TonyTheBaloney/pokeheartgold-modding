@@ -402,7 +402,7 @@ static void PalPadGfx_FreeSpriteSystem(PalPadGfx *gfx) {
 
 static void PalPadGfx_InitMsg(PalPadGfx *gfx, enum HeapID heapId) {
     gfx->msgFormat = MessageFormat_New(heapId);
-    gfx->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0779_bin, heapId);
+    gfx->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0779, heapId);
     FontID_Alloc(4, heapId);
 }
 

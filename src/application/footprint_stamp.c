@@ -420,7 +420,7 @@ BOOL FootprintStamp_Init(OverlayManager *man, int *state) {
     GF_TouchpadStartSampling(4);
     FontID_Alloc(2, HEAP_ID_125);
     work->msgFormat = MessageFormat_New(HEAP_ID_125);
-    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0754_bin, HEAP_ID_125);
+    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0754, HEAP_ID_125);
     work->fontSystem = FontSystem_NewInit(4, HEAP_ID_125);
     work->narc = NARC_New(NARC_a_2_0_8, HEAP_ID_125);
     work->footprintNarc = NARC_New(NARC_poketool_pokefoot_pokefoot, HEAP_ID_125);

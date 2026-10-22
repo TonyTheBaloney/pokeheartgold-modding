@@ -288,7 +288,7 @@ BOOL GF_IsAnySEPlaying(void) {
     return FALSE;
 }
 
-void SetSeqTrackPan(u16 seqNo, u32 trackMask, int pan) {
+void SetSeqTrackPan(u16 seqNo, u16 trackMask, int pan) {
     NNSSndHandle *handle = GF_GetSoundHandle(GF_GetSndHandleByPlayerNo(GF_GetPlayerNoBySeq(seqNo)));
     NNS_SndPlayerSetTrackPan(handle, trackMask, pan);
 }

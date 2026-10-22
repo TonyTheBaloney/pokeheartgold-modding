@@ -411,7 +411,7 @@ void PokegearPhone_RemoveWindows(PokegearPhoneAppData *phoneApp) {
 }
 
 void PokegearPhone_InitText(PokegearPhoneAppData *phoneApp) {
-    phoneApp->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0271_bin, phoneApp->heapID);
+    phoneApp->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0271, phoneApp->heapID);
     phoneApp->msgFormat = MessageFormat_New_Custom(2, 32, phoneApp->heapID);
     phoneApp->msgFormatBuf = String_New(640, phoneApp->heapID);
     phoneApp->msgReadBuf = String_New(640, phoneApp->heapID);

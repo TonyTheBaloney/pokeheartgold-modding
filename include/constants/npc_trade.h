@@ -18,7 +18,7 @@ typedef enum NpcTradeNum {
     NPC_TRADE_MAX,
 } NpcTradeNum;
 
-// Used to index into NARC_msg_msg_0200_bin
+// Used to index into msg_0200
 #define NPC_TRADE_OT_NUM(tradeNum) (tradeNum + NPC_TRADE_MAX)
 
 #endif // POKEHEARTGOLD_CONSTANTS_NPC_TRADE_H

@@ -1023,7 +1023,7 @@ static void SwapMonText_Init(SwapMonText *text, BgConfig *bgConfig, int bgLayer,
     text->printerId = -1;
     text->bgLayer = bgLayer;
     text->options = options;
-    text->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0029_bin, text->heapID);
+    text->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0029, text->heapID);
     text->messageFormat = MessageFormat_New(text->heapID);
     ResetAllTextPrinters();
     SwapMonText_LoadGfx(text->bgConfig, (u8)text->bgLayer, text->heapID);

@@ -108,7 +108,7 @@ static BOOL BattleSystem_IsInFrontier(BattleSystem *battleSystem);
 
 // Data
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u16 sBottomScreenBgTilemapId[7] = {
     43,
     36,
@@ -119,7 +119,7 @@ static const u16 sBottomScreenBgTilemapId[7] = {
     39
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u16 sTypeIconPositions[][2] = {
     { 32,  61  },
     { 160, 60  },
@@ -127,7 +127,7 @@ static const u16 sTypeIconPositions[][2] = {
     { 160, 123 }
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u16 sMovePPTextPositions[4][2] = {
     { 59,  61  },
     { 187, 60  },
@@ -135,7 +135,7 @@ static const u16 sMovePPTextPositions[4][2] = {
     { 187, 123 }
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u16 sMovePPMaxTextPositions[4][2] = {
     { 76,  61  },
     { 204, 60  },
@@ -143,7 +143,7 @@ static const u16 sMovePPMaxTextPositions[4][2] = {
     { 204, 123 }
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u16 sTargetPokemonMenuPositions[][2] = {
     { 60,  116 },
     { 196, 32  },
@@ -152,7 +152,7 @@ static const u16 sTargetPokemonMenuPositions[][2] = {
     { 128, 175 }
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u16 sPokemonIconPositions[][2] = {
     { 60,  116 },
     { 196, 56  },
@@ -269,7 +269,7 @@ static const int sTouchArrayMainMenu[] = {
     BATTLE_INPUT_RUN
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sRectPaletteIdsMainMenu[] = {
     1,
     2,
@@ -277,7 +277,7 @@ static const u8 sRectPaletteIdsMainMenu[] = {
     4
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sCursorArrayMainMenu[2][3] = {
     { CURSOR_INPUT_FIGHT, CURSOR_INPUT_FIGHT, CURSOR_INPUT_FIGHT   },
     { CURSOR_INPUT_BAG,   CURSOR_INPUT_RUN,   CURSOR_INPUT_POKEMON }
@@ -330,13 +330,13 @@ static const int sTouchArrayPalPark[] = {
     0
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sRectPaletteIdsPalParkMenu[] = {
     1,
     4
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sCursorArrayPalParkMenu[2][1] = {
     { CURSOR_INPUT_PAL_PARK_BALL },
     { CURSOR_INPUT_PAL_PARK_RUN }
@@ -401,7 +401,7 @@ static const int sTouchArrayFightMenu[] = {
     BATTLE_INPUT_MOVE_4
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sRectPaletteIdsFightMenu[] = {
     4,
     8,
@@ -410,7 +410,7 @@ static const u8 sRectPaletteIdsFightMenu[] = {
     11
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sCursorArrayFightMenu[][2] = {
     { CURSOR_INPUT_MOVE_1,       CURSOR_INPUT_MOVE_2       },
     { CURSOR_INPUT_MOVE_3,       CURSOR_INPUT_MOVE_4       },
@@ -449,13 +449,13 @@ static const int sTouchArrayTwoOptionsMenu[] = {
     BATTLE_INPUT_CANCEL
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sRectPaletteIdsTwoOptionsMenu[] = {
     1,
     4
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sTwoOptionsMenuCursorInput[2][1] = {
     { CURSOR_INPUT_TWO_OPTION_TOP },
     { CURSOR_INPUT_TWO_OPTION_BOTTOM }
@@ -520,7 +520,7 @@ static const int sTouchArrayTargetMenu[] = {
     BATTLE_INPUT_CANCEL
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sRectPaletteIdsTargetMenu[] = {
     6,
     12,
@@ -529,7 +529,7 @@ static const u8 sRectPaletteIdsTargetMenu[] = {
     4
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sTargetMenuButtonInputArray[][2] = {
     { CURSOR_INPUT_TARGET_OPPONENT_LEFT, CURSOR_INPUT_TARGET_OPPONENT_RIGHT },
     { CURSOR_INPUT_TARGET_PLAYER_LEFT,   CURSOR_INPUT_TARGET_PLAYER_RIGHT   },
@@ -559,7 +559,7 @@ static const int sTouchArrayVsRecorderPlayback[] = {
     BATTLE_INPUT_STOP
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sRectPaletteIdsVsRecorderPlayback[] = {
     4
 };
@@ -932,7 +932,7 @@ static const ManagedSpriteTemplate sSpriteTemplateSportBall = {
     .vramTransfer = 0
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const s16 sMainMenuButtonsScreenOffsets[][3] = {
     { 0, 192, 384 },
     { 0, 192, 384 },
@@ -940,7 +940,7 @@ static const s16 sMainMenuButtonsScreenOffsets[][3] = {
     { 0, 192, 384 }
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const TouchscreenHitbox sMainMenuButtonsTouchscreenRect[] = {
     {
      .rect = {
@@ -976,7 +976,7 @@ static const TouchscreenHitbox sMainMenuButtonsTouchscreenRect[] = {
      },
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const s16 sFightMenuButtonsScreenOffsets[5][3] = {
     { 0, 192, 384 },
     { 0, 192, 384 },
@@ -985,7 +985,7 @@ static const s16 sFightMenuButtonsScreenOffsets[5][3] = {
     { 0, 192, 384 }
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const TouchscreenHitbox sFightMenuButtonsTouchscreenRect[] = {
     {
      .rect = {
@@ -1029,10 +1029,10 @@ static const TouchscreenHitbox sFightMenuButtonsTouchscreenRect[] = {
      },
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const s16 sEmptyMoveButtonsScreenOffsets[] = { 0x22F, 0x22C, 0x229, 0x226 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const TouchscreenHitbox sEmptyMoveButtonsTouchscreenRect[] = {
     {
      .rect = {
@@ -1068,7 +1068,7 @@ static const TouchscreenHitbox sEmptyMoveButtonsTouchscreenRect[] = {
      },
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const s16 sTargetMenuButtonsScreenOffsets[][3] = {
     { 0, 192, 384 },
     { 0, 192, 384 },
@@ -1077,7 +1077,7 @@ static const s16 sTargetMenuButtonsScreenOffsets[][3] = {
     { 0, 192, 384 }
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const TouchscreenHitbox sTargetMenuButtonsTouchscreenRect[] = {
     {
      .rect = {
@@ -1121,7 +1121,7 @@ static const TouchscreenHitbox sTargetMenuButtonsTouchscreenRect[] = {
      },
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const s16 sEmptyTargetButtonsScreenOffsets[] = {
     0x238,
     0x235,
@@ -1129,7 +1129,7 @@ static const s16 sEmptyTargetButtonsScreenOffsets[] = {
     0x23B
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const TouchscreenHitbox sEmptyTargetButtonsTouchscreenRect[] = {
     {
      .rect = {
@@ -1165,13 +1165,13 @@ static const TouchscreenHitbox sEmptyTargetButtonsTouchscreenRect[] = {
      },
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const s16 sTwoOptionsMenuButtonsScreenOffsets[][3] = {
     { 0, 5,   10  },
     { 0, 192, 384 }
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const TouchscreenHitbox sTwoOptionsMenuButtonsTouchscreenRect[] = {
     {
      .rect = {
@@ -1191,10 +1191,10 @@ static const TouchscreenHitbox sTwoOptionsMenuButtonsTouchscreenRect[] = {
      },
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const s16 sVsRecorderButtonScreenOffsets[] = { 0, 192, 384 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const TouchscreenHitbox sVsRecorderButtonTouchscreenRect = {
     .rect = {
              .top = 18,
@@ -1204,14 +1204,14 @@ static const TouchscreenHitbox sVsRecorderButtonTouchscreenRect = {
              },
 };
 
-static const ALIGN(4) S16Pos ov12_0226E2D8[] = {
+static const ATTRIBUTE_ALIGN(4) S16Pos ov12_0226E2D8[] = {
     { 128,  76   },
     { 40,   0xA4 },
     { 0xD8, 0xA4 },
     { 128,  168  }
 };
 
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const int sMoveRangeHitMons[][4] = {
     { 1, 1, 1, 1 },
     { 0, 1, 0, 1 },

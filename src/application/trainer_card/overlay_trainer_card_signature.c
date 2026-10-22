@@ -266,7 +266,7 @@ int TrainerCardSignature_Init(OverlayManager *manager, int *state) {
         signature->bgConfig = BgConfig_Alloc(HEAP_ID_39);
         narc = NARC_New(NARC_a_0_9_1, HEAP_ID_39);
         signature->msgFormat = MessageFormat_New(HEAP_ID_39);
-        signature->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0252_bin, HEAP_ID_39);
+        signature->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0252, HEAP_ID_39);
         TextFlags_SetCanTouchSpeedUpPrint(TRUE);
         TextFlags_SetCanABSpeedUpPrint(TRUE);
         SetKeyRepeatTimers(4, 8);
@@ -364,7 +364,7 @@ static void TrainerCardSignature_VBlankCB(BgConfig *bgConfig) {
     GF_RunVramTransferTasks();
     OamManager_ApplyAndResetBuffers();
     DoScheduledBgGpuUpdates(bgConfig);
-    OS_SetIrqCheckFlag(OS_IE_VBLANK);
+    OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
 static void TrainerCardSignature_SetGfxBanks(void) {

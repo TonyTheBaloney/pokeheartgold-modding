@@ -198,7 +198,7 @@ struct SaveStatsPrinter *Field_SaveStatsPrinter_New(FieldSystem *fieldSystem, en
     printer->bgId = bgId;
     printer->bgConfig = fieldSystem->bgConfig;
     printer->msgFmt = MessageFormat_New(heapId);
-    printer->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0423_bin, heapId);
+    printer->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0423, heapId);
     SaveStatsPrinter_GetStats(&printer->stats, printer->fieldSystem);
     SaveStatsPrinter_BufferStats(printer->msgFmt, &printer->stats);
     printer->width = 0xD;
@@ -266,7 +266,7 @@ struct SaveStatsPrinter *Field_SaveStatsPrinter_NewTouchSave(FieldSystem *fieldS
     printer->bgId = bgId;
     printer->bgConfig = fieldSystem->bgConfig;
     printer->msgFmt = MessageFormat_New(heapID);
-    printer->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0423_bin, heapID);
+    printer->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0423, heapID);
     TextFlags_SetCanABSpeedUpPrint(TRUE);
     TextFlags_SetAutoScrollParam(0);
     TextFlags_SetCanTouchSpeedUpPrint(TRUE);

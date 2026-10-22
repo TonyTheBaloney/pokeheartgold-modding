@@ -565,7 +565,7 @@ static void WonderCardAlbum_CreateListMenu(WonderCardAlbum *album, const Mystery
         DestroyListMenu(album->listMenu, NULL, NULL);
     }
     album->listMenuItems = ListMenuItems_New(count, HEAP_ID_85);
-    album->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_85);
+    album->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0247, HEAP_ID_85);
     i = 0;
     if (count > 0) {
         do {
@@ -583,7 +583,7 @@ static void WonderCardAlbum_CreateListMenu(WonderCardAlbum *album, const Mystery
 }
 
 static void WonderCardAlbum_PrintMessage(Window *window, int msgId) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_85);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, HEAP_ID_85);
     MessageFormat *msgFormat = MessageFormat_New(HEAP_ID_85);
     String *string;
 
@@ -794,7 +794,7 @@ static void WonderCardAlbum_DrawCard(WonderCardAlbum *album, int unused, int pag
     u32 x;
     String *string;
 
-    album->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, album->heapId);
+    album->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, album->heapId);
     album->msgFormat = MessageFormat_New(album->heapId);
     album->page = page;
     WonderCardAlbum_LoadCardBg(album, page);
@@ -842,7 +842,7 @@ static int WonderCardAlbum_PrintTextBox(WonderCardAlbum *album, Window *window, 
     }
     FillWindowPixelBuffer(window, box->fillColor);
     if (box->msgId != 0) {
-        album->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_85);
+        album->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, HEAP_ID_85);
         album->msgFormat = MessageFormat_New(HEAP_ID_85);
     }
     album->boxBaseTile = baseTile;
@@ -1470,7 +1470,7 @@ static int WonderCardAlbum_UpdateReceiverList(WonderCardAlbum *album, Window *wi
     netIds[2] = WonderCardAlbum_TakeEarliest((s32 *)order);
     netIds[3] = WonderCardAlbum_TakeEarliest((s32 *)order);
     msgFormat = MessageFormat_New(HEAP_ID_85);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_85);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, HEAP_ID_85);
     y = 0;
     FillWindowPixelBuffer(window, 0);
     for (i = 0; i < count; i++) {
@@ -1503,7 +1503,7 @@ static void WonderCardAlbum_PrintReceiverCount(WonderCardAlbum *album, Window *w
     String *string;
 
     album->numReceivers = count;
-    album->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, HEAP_ID_85);
+    album->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, HEAP_ID_85);
     album->msgFormat = MessageFormat_New(HEAP_ID_85);
     FillWindowPixelBuffer(window, 0);
     BufferIntegerAsString(album->msgFormat, 0, album->numReceivers, 1, PRINTING_MODE_RIGHT_ALIGN, TRUE);

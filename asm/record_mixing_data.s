@@ -20,7 +20,7 @@
 	.extern RecordMixing_BattleRoomTrainer_Load
 	.extern RecordMixing_BattleRoomTrainer_Merge
 #include "config.h"
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "overlay_73.inc"
 	.include "global.inc"
 

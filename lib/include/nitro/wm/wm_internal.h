@@ -3,7 +3,6 @@
 
 #include <nitro.h>
 
-#include "WM.h"
 
 // ARM9 side of the wireless manager (WM): requests to the ARM7 over the PXI FIFO and the state the
 // two processors share.
@@ -152,9 +151,6 @@ typedef struct WmCommandBuffer {
     u8 data[254];
 } WmCommandBuffer;
 
-int MATH_CountPopulation(u32 value);
-RTCResult RTC_GetTime(RTCTime *time);
-
 extern WmWork gWmWork;
 extern OSMessageQueue gWmCommandQueue; // label of gWmWork.commandQueue
 extern OSMessage gWmCommandMessages[]; // label of gWmWork.commandMessages
@@ -164,90 +160,6 @@ extern u16 gWmPortEventData[];         // label of gWmWork.portEvent.ssid
 extern WmCommandBuffer gWmCommandBuffers[WM_COMMAND_BUFFER_COUNT];
 extern u8 gWmGameInfo[]; // WM_SetGameInfo copy (0x80 bytes)
 extern u32 gWmNextTgid;  // 0x10000 until seeded from the RTC
-
-// WM_GetOtherElements: the elements that follow a BSS description's game info.
-typedef struct WMOtherElement {
-    u8 id;
-    u8 length;
-    u8 pad[2];
-    u8 *body;
-} WMOtherElement;
-
-typedef struct WMOtherElementResults {
-    u8 count;
-    u8 pad[3];
-    WMOtherElement element[16];
-} WMOtherElementResults;
-
-// BSS description of a parent or access point found by a scan.
-typedef struct WMBssDesc {
-    u16 length; // in halfwords
-    u16 rssi;
-    u8 bssid[6];
-    u16 ssidLength;
-    u8 ssid[32];
-    u16 capaInfo;
-    u16 basicRateSet;
-    u16 supportRateSet;
-    u16 beaconPeriod;
-    u16 dtimPeriod;
-    u16 channel;
-    u16 cfpPeriod;
-    u16 cfpMaxDuration;
-    u16 gameInfoLength;
-    u16 otherElementCount;
-    u8 elements[1]; // the game info, then the other elements
-} WMBssDesc;
-
-// Head of every WM callback argument (WmCallback receives a pointer to it).
-typedef struct WMCallback {
-    u16 apiid;
-    u16 errcode;
-    u16 wlCmdID;
-    u16 wlResult;
-} WMCallback;
-
-// Argument of the WM_StartParent callback.
-typedef struct WMStartParentCallback {
-    u16 apiid;
-    u16 errcode;
-    u16 wlCmdID;
-    u16 wlResult;
-    u16 state;
-    u8 macAddress[6];
-    u16 aid;
-} WMStartParentCallback;
-
-// Argument of the WM_StartMP callback.
-typedef struct WMStartMPCallback {
-    u16 apiid;
-    u16 errcode;
-    u16 state;
-} WMStartMPCallback;
-
-// Argument of the WM_MeasureChannel callback.
-typedef struct WMMeasureChannelCallback {
-    u16 apiid;
-    u16 errcode;
-    u16 wlCmdID;
-    u16 wlResult;
-    u16 channel;
-    u16 ccaBusyRatio;
-} WMMeasureChannelCallback;
-
-// Argument of the WM_StartScanEx callback.
-typedef struct WMStartScanExCallback {
-    u16 apiid;
-    u16 errcode;
-    u16 wlCmdID;
-    u16 wlResult;
-    u16 state;
-    u16 channelList;
-    u8 reserved[2];
-    u16 bssDescCount;
-    WMBssDesc *bssDesc[16];
-    u16 linkLevel[16];
-} WMStartScanExCallback;
 
 // WM_ReadMPData: MP receive buffer, a list of per-child entries `stride` bytes apart.
 typedef struct WmMPReceiveBuffer {
@@ -313,7 +225,6 @@ typedef struct WmMPParam {
     u8 pad;
 } WmMPParam;
 
-WMErrCode WM_Init(void *buffer, u32 dma);
 WMErrCode WmInitCore(WmSystemWork *buffer, u32 dma, u32 size);
 WMErrCode WM_Finish(void);
 void WMi_SetCallbackTable(int apiid, WmCallback callback);
@@ -326,20 +237,15 @@ WMErrCode WMi_CheckIdle(void);
 WMErrCode WMi_CheckStateEx(int count, ...);
 void WmReceiveFifo(PXIFifoTag tag, u32 data, BOOL err);
 void WmClearFifoRecvFlag(void);
-WmStatus *WMi_GetStatusAddress(void);
 u16 WM_GetAID(void);
 u16 WM_GetConnectedAIDs(void);
 WMErrCode WM_SetIndCallback(WmCallback callback);
 WMErrCode WM_SetPortCallback(u16 port, WmCallback callback, void *arg);
-WMErrCode WM_ReadStatus(WmStatus *status);
 int WM_GetMPSendBufferSize(void);
 int WM_GetMPReceiveBufferSize(void);
-void *WM_ReadMPData(WmMPReceiveBuffer *buffer, u16 aid);
 u16 WM_GetAllowedChannel(void);
-u16 WM_GetLinkLevel(void);
 u16 WM_GetDispersionBeaconPeriod(void);
 u16 WM_GetDispersionScanPeriod(void);
-WMOtherElementResults WM_GetOtherElements(WMBssDesc *bss);
 
 u16 WM_GetNextTgid(void);
 WMErrCode WM_Enable(WmCallback callback);
@@ -347,47 +253,28 @@ WMErrCode WMi_EnableEx(WmCallback callback, u32 flags);
 WMErrCode WM_Disable(WmCallback callback);
 WMErrCode WM_PowerOn(WmCallback callback);
 WMErrCode WM_PowerOff(WmCallback callback);
-WMErrCode WM_Initialize(void *buffer, WmCallback callback, u32 dma);
-WMErrCode WM_InitializeForListening(void *buffer, WmCallback callback, u32 dma, BOOL unk);
-WMErrCode WMi_InitializeEx(void *buffer, WmCallback callback, u32 dma, u32 flags);
 WMErrCode WM_Reset(WmCallback callback);
 WMErrCode WM_End(WmCallback callback);
-WMErrCode WM_SetParentParameter(WmCallback callback, WmParentParam *param);
 BOOL WmCheckParentParameter(WmParentParam *param);
-WMErrCode WMi_StartParentEx(WmCallback callback, u32 unk);
 WMErrCode WM_StartParent(WmCallback callback);
 WMErrCode WM_EndParent(WmCallback callback);
-WMErrCode WM_StartScan(WmCallback callback, WmScanParam *param);
-WMErrCode WM_StartScanEx(WmCallback callback, WmScanExParam *param);
 WMErrCode WM_EndScan(WmCallback callback);
-WMErrCode WM_StartConnectEx(WmCallback callback, const u16 *bssDesc, const void *data, u32 unk, u16 unk2);
 WMErrCode WM_Disconnect(WmCallback callback, u16 aid);
 WMErrCode WMi_StartMP(WmCallback callback, void *recvBuf, u16 recvBufSize, void *sendBuf, u16 sendBufSize, const WmMPParam *param);
-WMErrCode WM_StartMPEx(WmCallback callback, void *recvBuf, u16 recvBufSize, void *sendBuf, u16 sendBufSize, u16 frequency, u16 defaultRetryCount, u32 minPollBmpMode, u32 singlePacketMode, BOOL fixFrequency, u32 ignoreFatalErrorMode);
-WMErrCode WM_StartMP(WmCallback callback, void *recvBuf, u16 recvBufSize, void *sendBuf, u16 sendBufSize, u16 frequency);
-WMErrCode WM_SetMPDataToPortEx(WmCallback callback, void *arg, const void *data, u16 length, u16 aidBitmap, u16 port, u16 priority);
 WMErrCode WM_EndMP(WmCallback callback);
-WMErrCode WM_StartDCF(WmCallback callback, void *recvBuf, u32 recvBufSize);
 WMErrCode WM_SetDCFData(WmCallback callback, const u8 *destAdr, const u16 *sendData, u16 sendDataSize);
 WMErrCode WM_EndDCF(WmCallback callback);
 WMErrCode WM_StartDataSharing(WMDataSharingInfo *info, u16 port, u16 aidBitmap, u16 dataLength, BOOL doubleMode);
 WMErrCode WM_EndDataSharing(WMDataSharingInfo *info);
-WMErrCode WM_StepDataSharing(WMDataSharingInfo *info, const void *sendData, void *receiveData);
 void WmDataSharingSetDataCallback(void *arg);
 void WmDataSharingReceiveCallback_Parent(void *arg);
 void WmDataSharingReceiveCallback_Child(void *arg);
 void WmDataSharingReceiveData(WMDataSharingInfo *info, u32 aid, const void *data);
 void WmDataSharingSendDataSet(WMDataSharingInfo *info, BOOL excludeParent);
-void *WM_GetSharedDataAddress(WMDataSharingInfo *info, WMDataSet *dataSet, int aid);
 void *WmGetSharedDataAddress(WMDataSharingInfo *info, u32 aidBitmap, void *data, int aid);
 WMErrCode WM_StartKeySharing(WMKeySetBuf *buf, u16 port);
 WMErrCode WM_EndKeySharing(WMKeySetBuf *buf);
-WMErrCode WM_SetWEPKey(WmCallback callback, u32 mode, const void *key);
-WMErrCode WM_SetWEPKeyEx(WmCallback callback, u32 mode, u32 keyId, const void *key);
-WMErrCode WM_SetGameInfo(WmCallback callback, const void *gameInfo, u16 size, u32 unk, u16 unk2, u8 unk3);
-WMErrCode WM_SetBeaconIndication(WmCallback callback, u32 flag);
 WMErrCode WM_SetLifeTime(WmCallback callback, u16 unk, u16 unk2, u16 unk3, u16 unk4);
 WMErrCode WM_MeasureChannel(WmCallback callback, u16 unk, u16 unk2, u16 unk3, u16 unk4);
-WMErrCode WM_SetEntry(WmCallback callback, u32 flag);
 
 #endif // NITRO_WM_WM_INTERNAL_H

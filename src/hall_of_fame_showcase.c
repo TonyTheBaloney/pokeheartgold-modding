@@ -373,9 +373,9 @@ static void HallOfFameShowcase_TickSprites(HallOfFameShowcase *showcase) {
 }
 
 static void HallOfFameShowcase_InitStrings(HallOfFameShowcase *showcase) {
-    showcase->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0181_bin, HEAP_ID_59);
-    showcase->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_59);
-    showcase->moveNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0750_bin, HEAP_ID_59);
+    showcase->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0181, HEAP_ID_59);
+    showcase->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, HEAP_ID_59);
+    showcase->moveNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0750, HEAP_ID_59);
     showcase->msgFormat = MessageFormat_New(HEAP_ID_59);
     showcase->stringBuf = String_New(256, HEAP_ID_59);
     showcase->stringBuf2 = String_New(256, HEAP_ID_59);

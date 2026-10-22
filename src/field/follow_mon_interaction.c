@@ -987,7 +987,7 @@ static BOOL FollowMonInteraction_StepHasWait(FollowMonInteraction *interaction, 
 }
 
 static void FollowMon_ExpandInteractionMessage(FieldSystem *fieldSystem, String *dest, enum HeapID heapId, int msgNo) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0265_bin, heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0265, heapId);
     MessageFormat *messageFormat = MessageFormat_New(heapId);
     String *string;
     FollowMon_PlaceholdersSet(fieldSystem, messageFormat);
@@ -1000,7 +1000,7 @@ static void FollowMon_ExpandInteractionMessage(FieldSystem *fieldSystem, String 
 
 // flags: bit 1 set for an accessory, clear for a shiny leaf; bit 0 set when it was given.
 static void FollowMon_ExpandGiftMessage(FieldSystem *fieldSystem, String *dest, enum HeapID heapId, int flags, u8 accessory) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0040_bin, heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0040, heapId);
     MessageFormat *messageFormat = MessageFormat_New(heapId);
     String *string;
     int msgNo;

@@ -287,9 +287,9 @@ BOOL GlobalTerminalConnect_Init(OverlayManager *manager, int *state) {
         MessageFormat *msgFormat = MessageFormat_New_Custom(11, 64, HEAP_ID_124);
         work->msgFormat = msgFormat;
     }
-    work->msgDataGts = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0775_bin, HEAP_ID_124);
-    work->msgDataConnecting = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0778_bin, HEAP_ID_124);
-    work->msgDataWifi = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0800_bin, HEAP_ID_124);
+    work->msgDataGts = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0775, HEAP_ID_124);
+    work->msgDataConnecting = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0778, HEAP_ID_124);
+    work->msgDataWifi = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0800, HEAP_ID_124);
     work->string = String_New(180, HEAP_ID_124);
     work->errorString = String_New(256, HEAP_ID_124);
     work->title = NewString_ReadMsgData(work->msgDataGts, msg_0775_00031);

@@ -82,7 +82,7 @@ BOOL PokeathlonEventRecord_Init(OverlayManager *man, int *state) {
     PokeathlonUtil_ResetDisplay();
     PokeathlonEventRecord_InitBgs(work);
     PokeathlonEventRecord_LoadBgGraphics(work);
-    work->textContext = PokeathlonUtil_CreateTextContext(work->heapId, work->bgConfig, 19, gPokeathlonEventRecordWindowTemplates, NARC_msg_msg_0314_bin);
+    work->textContext = PokeathlonUtil_CreateTextContext(work->heapId, work->bgConfig, 19, gPokeathlonEventRecordWindowTemplates, msg_0314);
     PokeathlonEventRecord_PrintReturnButton(work);
     PokeathlonEventRecord_ShowEvent(work);
     PokeathlonEventRecord_CreateSprites(work);

@@ -150,11 +150,11 @@ BOOL Gts_Init(OverlayManager *man, int *state) {
         SetBothScreensModesAndDisable(&graphicsModes);
         FontID_Alloc(4, HEAP_ID_61);
         app->msgFormat = MessageFormat_New_Custom(11, 64, HEAP_ID_61);
-        app->gtsMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0775_bin, HEAP_ID_61);
-        app->wifiMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0778_bin, HEAP_ID_61);
-        app->wifiErrorMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0800_bin, HEAP_ID_61);
-        app->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_61);
-        app->countryNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0798_bin, HEAP_ID_61);
+        app->gtsMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0775, HEAP_ID_61);
+        app->wifiMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0778, HEAP_ID_61);
+        app->wifiErrorMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0800, HEAP_ID_61);
+        app->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0237, HEAP_ID_61);
+        app->countryNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0798, HEAP_ID_61);
         SetKeyRepeatTimers(4, 8);
         Gts_InitData(app, man);
         Gts_InitGraphics(app);

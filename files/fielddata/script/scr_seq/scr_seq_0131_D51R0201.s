@@ -2,9 +2,8 @@
 #include "constants/scrcmd.h"
 #include "fielddata/script/scr_seq/event_D51R0201.h"
 #include "msgdata/msg/msg_0146_D51R0201.h"
-	.include "asm/macros/script.inc"
+#include "macros/script.inc"
 
-	.rodata
 
 	ScrDef scr_seq_D51R0201_000
 	ScrDef scr_seq_D51R0201_001
@@ -350,7 +349,7 @@ _0430:
 	NPCMsg msg_0146_D51R0201_00013
 _0433:
 	SinjohSetChosenLegend 1
-	SetVar VAR_TEMP_x4009, 483
+	SetVar VAR_TEMP_x4009, SPECIES_DIALGA
 	GoTo _0514
 	End
 
@@ -375,7 +374,7 @@ _0498:
 	NPCMsg msg_0146_D51R0201_00014
 _049B:
 	SinjohSetChosenLegend 2
-	SetVar VAR_TEMP_x4009, 484
+	SetVar VAR_TEMP_x4009, SPECIES_PALKIA
 	GoTo _0514
 	End
 
@@ -521,7 +520,7 @@ _065F:
 	GetPlayerCoords VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
 	CreateCameraTarget VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
 	GetPlayerFacing VAR_TEMP_x4002
-	Compare VAR_TEMP_x4009, 483
+	Compare VAR_TEMP_x4009, SPECIES_DIALGA
 	GoToIfNe _0691
 	GoTo _06B0
 
@@ -529,7 +528,7 @@ _068B:
 	GoTo _06B0
 
 _0691:
-	Compare VAR_TEMP_x4009, 484
+	Compare VAR_TEMP_x4009, SPECIES_PALKIA
 	GoToIfNe _06AA
 	GoTo _0731
 
@@ -636,13 +635,13 @@ _0833:
 	Wait 5, VAR_SPECIAL_RESULT
 	Lock obj_D51R0201_champion
 _086E:
-	Compare VAR_TEMP_x4009, 483
+	Compare VAR_TEMP_x4009, SPECIES_DIALGA
 	GoToIfNe _0889
 	ApplyMovement obj_player, _0CCC
 	GoTo _08AC
 
 _0889:
-	Compare VAR_TEMP_x4009, 484
+	Compare VAR_TEMP_x4009, SPECIES_PALKIA
 	GoToIfNe _08A4
 	ApplyMovement obj_player, _0CD8
 	GoTo _08AC
@@ -660,13 +659,13 @@ _08AC:
 	ApplyMovement 241, _0CF0
 	WaitMovement
 	PlaySE SEQ_SE_GS_TAMASYUTUGEN
-	Compare VAR_TEMP_x4009, 483
+	Compare VAR_TEMP_x4009, SPECIES_DIALGA
 	GoToIfNe _08F6
 	SinjohGetEggCutscene 0
 	GoTo _090F
 
 _08F6:
-	Compare VAR_TEMP_x4009, 484
+	Compare VAR_TEMP_x4009, SPECIES_PALKIA
 	GoToIfNe _090C
 	SinjohGetEggCutscene 1
 	GoTo _090F
@@ -692,21 +691,21 @@ _090F:
 	RemoveCameraTarget
 	ResetBGM
 	NopVar490 VAR_TEMP_x4009
-	Compare VAR_TEMP_x4009, 483
+	Compare VAR_TEMP_x4009, SPECIES_DIALGA
 	GoToIfNe _097B
-	GiveMon SPECIES_DIALGA, 1, 135, 0, 0, VAR_SPECIAL_RESULT
+	GiveMon SPECIES_DIALGA, 1, ITEM_ADAMANT_ORB, 0, 0, VAR_SPECIAL_RESULT
 	SetVar VAR_UNK_4103, 1
 	GoTo _09B6
 
 _097B:
-	Compare VAR_TEMP_x4009, 484
+	Compare VAR_TEMP_x4009, SPECIES_PALKIA
 	GoToIfNe _09A2
-	GiveMon SPECIES_PALKIA, 1, 136, 0, 0, VAR_SPECIAL_RESULT
+	GiveMon SPECIES_PALKIA, 1, ITEM_LUSTROUS_ORB, 0, 0, VAR_SPECIAL_RESULT
 	SetVar VAR_UNK_4103, 2
 	GoTo _09B6
 
 _09A2:
-	GiveMon SPECIES_GIRATINA, 1, 112, 1, 26, VAR_SPECIAL_RESULT
+	GiveMon SPECIES_GIRATINA, 1, ITEM_GRISEOUS_ORB, 1, ABILITY_LEVITATE, VAR_SPECIAL_RESULT
 	SetVar VAR_UNK_4103, 3
 _09B6:
 	TouchscreenMenuHide

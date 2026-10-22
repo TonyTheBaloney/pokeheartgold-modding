@@ -9,6 +9,14 @@ from progress import (CODE, ORIGINAL_ASM, classify, code_family, generate, layou
                       union_size, source_coverage)
 
 
+def link(root, *sources, obj='unit.o', folder='main.nef.p'):
+    """Write a fake Meson compile_commands.json compiling each source to FOLDER/OBJ."""
+    build = root / 'build/heartgold.us'
+    build.mkdir(parents=True, exist_ok=True)
+    entries = [dict(directory=str(build), file=f'../../{source}', output=f'{folder}/{obj}') for source in sources]
+    (build / 'compile_commands.json').write_text(json.dumps(entries))
+
+
 class ProgressTests(unittest.TestCase):
     def test_mismatched_rom_is_rejected_before_reporting(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -23,14 +31,14 @@ class ProgressTests(unittest.TestCase):
     def test_aliases_and_section_symbols_are_not_double_counted(self):
         self.assertEqual(union_size([(0, 100), (0, 20), (20, 60), (95, 110)]), 110)
 
-    def test_overlay_addresses_stay_separate_and_spec_resolves_sources(self):
+    def test_overlay_addresses_stay_separate_and_build_resolves_sources(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             (root / 'src').mkdir()
             (root / 'asm').mkdir()
             (root / 'src/unit.c').write_text('void f(void) {}')
             (root / 'asm/unit.s').write_text('')
-            (root / 'main.lsf').write_text('Object src/unit.o\n')
+            link(root, 'src/unit.c')
             path = root / 'test.xMAP'
             path.write_text('# .OVY_1\n'
                             '  02000000 00000020 .text .text (unit.o)\n'
@@ -81,7 +89,7 @@ class NamedTextTests(unittest.TestCase):
             root = Path(folder)
             (root / 'src').mkdir()
             (root / 'src/unit.c').write_text('void f(void) {}')
-            (root / 'main.lsf').write_text('Object src/unit.o\n')
+            link(root, 'src/unit.c')
             path = root / 'test.xMAP'
             rows = ('# .ITCM\n'
                     '  01FF81B4 00000034 .itcm OSi_DoResetSystem (unit.o)\n'
@@ -108,7 +116,8 @@ class NamedTextTests(unittest.TestCase):
                 (root / source_dir).mkdir()
                 if contents is not None:
                     (root / source_dir / f'unit.{extension}').write_text(contents)
-                (root / 'main.lsf').write_text(f'Object {source_dir}/unit.o\n')
+                if contents is not None:
+                    link(root, f'{source_dir}/unit.{extension}')
                 path = root / 'test.xMAP'
                 ordinary = ('# .main\n'
                             '  02000000 00000020 .text f (unit.o)\n'
@@ -134,7 +143,7 @@ class NamedTextTests(unittest.TestCase):
             root = Path(folder)
             (root / 'src').mkdir()
             (root / 'src/unit.c').write_text('void f(void) {}')
-            (root / 'main.lsf').write_text('Object src/unit.o\n')
+            link(root, 'src/unit.c')
             path = root / 'test.xMAP'
             path.write_text('# .OVY_1\n'
                             '  02200000 00000020 .text.first f (unit.o)\n'
@@ -147,7 +156,7 @@ class NamedTextTests(unittest.TestCase):
             root = Path(folder)
             (root / 'sub/lib').mkdir(parents=True)
             (root / 'sub/lib/unit.c').write_text('void f(void) {}')
-            (root / 'sub/ichneumon_sub.lsf').write_text('Object lib/unit.o\n')
+            link(root, 'sub/lib/unit.c', folder='subprojects/NitroSDK/components/ichneumon/ichneumon_sub.nef.p')
             path = root / 'test.xMAP'
             path.write_text('# .WRAM\n'
                             '  03800000 00000020 .text.driver f (unit.o)\n')
@@ -161,79 +170,99 @@ class DerivedObjectTests(unittest.TestCase):
     def test_archive_member_resolves_to_its_library_source(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
-            (root / 'lib/syscall/asm').mkdir(parents=True)
-            (root / 'lib/syscall/asm/_secure_IPKE.s').write_text('')
-            (root / 'lib/syscall/asm/_secure_IPGE.s').write_text('')
-            (root / 'main.lsf').write_text('')
+            (root / 'lib/os/src').mkdir(parents=True)
+            (root / 'lib/os/src/os_IrqHandler.c').write_text('void f(void) {}')
+            link(root, 'lib/os/src/os_IrqHandler.c', obj='src_os_IrqHandler.c.o', folder='lib/os/libos.a.p')
             path = root / 'test.xMAP'
+            # mwld prints members lower-cased and cut to 15 characters.
             path.write_text('# .main\n'
-                            '  02000000 00000800 .text   .text\t(libsyscall.a _secure_ipke.o )\n'
-                            '  0200008A 00000006 .text   SVC_DivRem\t(libsyscall.a _secure_ipke.o )\n')
+                            '  02000000 00000800 .text   .text\t(libos.a src_os_irqhandl)\n'
+                            '  0200008A 00000006 .text   OS_Irq\t(libos.a src_os_irqhandl)\n')
             row = parse_map(path, root, 'ARM9')[0]
             self.assertEqual((row['status'], row['source'], row['bytes']),
-                             ('asm', 'lib/syscall/asm/_secure_IPKE.s', 0x800))
-            (root / 'lib/syscall/src').mkdir()
-            (root / 'lib/syscall/src/_secure_IPKE.c').write_text('asm void _secure(void) {}')
-            row = parse_map(path, root, 'ARM9')[0]
-            self.assertEqual(row['status'], 'unknown')
-            (root / 'lib/syscall/asm/_secure_IPKE.s').unlink()
-            row = parse_map(path, root, 'ARM9')[0]
-            self.assertEqual((row['status'], row['source']), ('mixed', 'lib/syscall/src/_secure_IPKE.c'))
+                             ('c', 'lib/os/src/os_IrqHandler.c', 0x800))
 
-    def test_partitioned_object_keeps_its_producer_source(self):
+    def test_cut_down_member_name_needs_one_language(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'lib/x/src').mkdir(parents=True)
+            (root / 'lib/x/src/flash_first.c').write_text('void f(void) {}')
+            (root / 'lib/x/src/flash_firstly.c').write_text('void g(void) {}')
+            build = root / 'build/heartgold.us'
+            build.mkdir(parents=True)
+            entries = [dict(directory=str(build), file=f'../../lib/x/src/{n}.c', output=f'lib/x/libx.a.p/src_{n}.c.o')
+                       for n in ('flash_first', 'flash_firstly')]
+            (build / 'compile_commands.json').write_text(json.dumps(entries))
+            path = root / 'test.xMAP'
+            path.write_text('# .main\n  02000000 00000020 .text f\t(libx.a src_flash_first)\n')
+            row = parse_map(path, root, 'ARM9')[0]
+            self.assertEqual((row['status'], row['source']),
+                             ('c', 'lib/x/src/flash_first.c, lib/x/src/flash_firstly.c'))
+            (root / 'lib/x/src/flash_firstly.c').write_text('asm void g(void) {}')
+            self.assertEqual(parse_map(path, root, 'ARM9')[0]['status'], 'unknown')
+
+    def test_executable_object_wins_over_a_library_member_of_the_same_name(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             (root / 'src').mkdir()
-            (root / 'src/unit.c').write_text('void f(void) {}\nasm void g(void) {}')
-            (root / 'common.mk').write_text(
-                '$(BUILD_DIR)/asm/unit_part.o: $(BUILD_DIR)/src/unit.o tools/partition.py\n')
-            (root / 'main.lsf').write_text('Object asm/unit_part.o\n')
+            (root / 'lib/snd/src').mkdir(parents=True)
+            (root / 'src/main.c').write_text('void f(void) {}')
+            (root / 'lib/snd/src/main.c').write_text('asm void g(void) {}')
+            build = root / 'build/heartgold.us'
+            build.mkdir(parents=True)
+            (build / 'compile_commands.json').write_text(json.dumps([
+                dict(directory=str(build), file='../../lib/snd/src/main.c', output='lib/snd/libsnd.a.p/src_main.c.o'),
+                dict(directory=str(build), file='../../src/main.c', output='main.nef.p/src_main.c.o')]))
             path = root / 'test.xMAP'
-            path.write_text('# .main\n  02000000 00000020 .text g (unit_part.o)\n')
-            row = parse_map(path, root, 'ARM9')[0]
-            self.assertEqual((row['status'], row['source']), ('mixed', 'src/unit.c'))
-            (root / 'common.mk').write_text('')
-            self.assertEqual(parse_map(path, root, 'ARM9')[0]['status'], 'unknown')
+            path.write_text('# .main\n  02000000 00000020 .text f\t(src_main.c.o)\n'
+                            '  02000020 00000020 .text g\t(libsnd.a src_main.c.o)\n')
+            rows = {r['object']: (r['status'], r['source']) for r in parse_map(path, root, 'ARM9')}
+            self.assertEqual(rows['src_main.c.o'], ('c', 'src/main.c'))
+            self.assertEqual(rows['libsnd.a src_main.c.o'], ('mixed', 'lib/snd/src/main.c'))
 
-    def test_dsprot_encoded_decrypter_is_generated_assembly(self):
+    def test_prebuilt_archive_is_its_own_status(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'subprojects/Sdk/libraries/cps/prebuilt').mkdir(parents=True)
+            (root / 'subprojects/Sdk/libraries/cps/prebuilt/libcps.a').write_bytes(b'!<arch>\n')
+            link(root)
+            path = root / 'test.xMAP'
+            path.write_text('# .main\n  02000000 00000020 .text f\t(libcps.a network.o      )\n')
+            row = parse_map(path, root, 'ARM9')[0]
+            self.assertEqual((row['status'], row['source']),
+                             ('prebuilt', 'subprojects/Sdk/libraries/cps/prebuilt/libcps.a'))
+
+    def test_dsprot_encrypted_members_are_c_and_stubs_generated(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             (root / 'lib/dsprot/src').mkdir(parents=True)
-            (root / 'lib/dsprot/build').mkdir()
             (root / 'lib/dsprot/src/unit.c').write_text('void f(void) {}')
-            (root / 'lib/dsprot/build/unit_decrypter.s').write_text('')
-            (root / 'main.lsf').write_text('Object lib/dsprot/unit_encrypted.o\n'
-                                           'Object lib/dsprot/unit_decrypter_encoded.o\n')
+            link(root)
             path = root / 'test.xMAP'
-            path.write_text('# .main\n'
-                            '  02000000 00000020 .text f (unit_encrypted.o)\n'
-                            '  02000020 00000010 .text g (unit_decrypter_encoded.o)\n')
+            path.write_text('# .ds_protect\n'
+                            '  02000000 00000020 .text f (libdsprot.a unit_encrypted.)\n'
+                            '  02000020 00000020 .text g (libdsprot.a unit_decrypter_)\n')
             rows = {r['object']: (r['status'], r['source']) for r in parse_map(path, root, 'ARM9')}
-            self.assertEqual(rows['unit_encrypted.o'], ('c', 'lib/dsprot/src/unit.c'))
-            self.assertEqual(rows['unit_decrypter_encoded.o'], ('generated', 'lib/dsprot/build/unit_decrypter.s'))
+            self.assertEqual(rows['libdsprot.a unit_encrypted.'], ('c', 'lib/dsprot/src/unit.c'))
+            self.assertEqual(rows['libdsprot.a unit_decrypter_'], ('generated', 'lib/dsprot/libdsprot.a'))
 
     def test_dsprot_stub_sources_are_asm_functions_in_c(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             (root / 'lib/dsprot/src').mkdir(parents=True)
-            (root / 'lib/dsprot/build').mkdir()
             (root / 'lib/dsprot/src/unit.c').write_text('void f(void) {}')
             (root / 'lib/dsprot/src/unit_decrypter.c').write_text('asm void g(void) { bx lr }')
             (root / 'lib/dsprot/src/unit_decoder.c').write_text('static asm void h(void) { bx lr }')
-            (root / 'lib/dsprot/build/unit_decrypter.ref.s').write_text('')
-            (root / 'lib/dsprot/build/unit_decoder.ref.s').write_text('')
-            (root / 'main.lsf').write_text('Object lib/dsprot/unit_encrypted.o\n'
-                                           'Object lib/dsprot/unit_decrypter_encoded.o\n'
-                                           'Object lib/dsprot/unit_decoder.o\n')
+            link(root)
             path = root / 'test.xMAP'
-            path.write_text('# .main\n'
-                            '  02000000 00000020 .text f (unit_encrypted.o)\n'
-                            '  02000020 00000010 .text g (unit_decrypter_encoded.o)\n'
-                            '  02000030 00000010 .text h (unit_decoder.o)\n')
+            path.write_text('# .ds_protect\n'
+                            '  02000000 00000020 .text f (libdsprot.a unit_encrypted.)\n'
+                            '  02000020 00000020 .text g (libdsprot.a unit_decrypter_)\n'
+                            '  02000040 00000020 .text h (libdsprot.a unit_decoder.o)\n')
             rows = {r['object']: (r['status'], r['source']) for r in parse_map(path, root, 'ARM9')}
-            self.assertEqual(rows['unit_encrypted.o'], ('c', 'lib/dsprot/src/unit.c'))
-            self.assertEqual(rows['unit_decrypter_encoded.o'], ('mixed', 'lib/dsprot/src/unit_decrypter.c'))
-            self.assertEqual(rows['unit_decoder.o'], ('mixed', 'lib/dsprot/src/unit_decoder.c'))
+            self.assertEqual(rows['libdsprot.a unit_encrypted.'], ('c', 'lib/dsprot/src/unit.c'))
+            self.assertEqual(rows['libdsprot.a unit_decrypter_'], ('mixed', 'lib/dsprot/src/unit_decrypter.c'))
+            self.assertEqual(rows['libdsprot.a unit_decoder.o'], ('mixed', 'lib/dsprot/src/unit_decoder.c'))
 
 
 class CppCoverageTests(unittest.TestCase):
@@ -246,21 +275,21 @@ class CppCoverageTests(unittest.TestCase):
             path.write_text('class Unit { public: void release() { __asm__("nop"); } };')
             self.assertEqual(classify(root, {'unit.cpp'}), ('mixed', 'unit.cpp'))
 
-    def test_cpp_manifest_selects_the_actual_source_and_preserves_denominator(self):
+    def test_build_selects_the_actual_source_and_preserves_denominator(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             (root / 'src').mkdir()
             (root / 'asm').mkdir()
             (root / 'src/unit.cpp').write_text('class Unit { public: void release() {} };')
             (root / 'asm/unit.s').write_text('')
-            (root / 'main.lsf').write_text('Object asm/unit.o\n')
+            link(root, 'asm/unit.s')
             mapfile = root / 'test.xMAP'
             mapfile.write_text('# .OVY_1\n'
                                '  02200000 00000030 .text release (unit.o)\n'
                                '  02200000 00000000 .text bridge (unit.o)\n'
                                '  02200030 00000040 .rodata values (unit.o)\n')
             before = parse_map(mapfile, root, 'ARM9')
-            (root / 'main.lsf').write_text('Object src/unit.o\n')
+            link(root, 'src/unit.cpp')
             after = parse_map(mapfile, root, 'ARM9')
             self.assertEqual(before[0]['status'], 'asm')
             self.assertEqual((after[0]['status'], after[0]['source']), ('cpp', 'src/unit.cpp'))
@@ -273,7 +302,7 @@ class CppCoverageTests(unittest.TestCase):
             (root / 'src').mkdir()
             (root / 'src/unit.c').write_text('void release(void) {}')
             (root / 'src/unit.cpp').write_text('class Unit { public: void release() {} };')
-            (root / 'main.lsf').write_text('Object src/unit.o\n')
+            link(root, 'src/unit.c', 'src/unit.cpp')
             mapfile = root / 'test.xMAP'
             mapfile.write_text('# .OVY_1\n  02200000 00000030 .text release (unit.o)\n')
             row = parse_map(mapfile, root, 'ARM9')[0]
@@ -343,7 +372,7 @@ class OriginalAssemblyTests(unittest.TestCase):
             root = Path(folder)
             (root / path).parent.mkdir(parents=True)
             (root / path).write_text(source)
-            (root / 'main.lsf').write_text(f'Object {Path(path).with_suffix(".o").as_posix()}\n')
+            link(root, path)
             (root / 'test.xMAP').write_text(self.MAP)
             original = {(cpu, path): entries}
             return [(r['status'], r['bytes'], r.get('functions')) for r in parse_map(root / 'test.xMAP', root, 'ARM9', original)]
@@ -412,7 +441,7 @@ class OriginalAssemblyTests(unittest.TestCase):
             (root / 'lib/x/include').mkdir(parents=True)
             (root / 'lib/x/include/stub.h').write_text('#define STUB(n) asm void n(void) { bx lr }\n')
             (root / 'lib/x/src/s.c').write_text('#include "stub.h"\nSTUB(f)\nSTUB(g)\nasm void h(void) { bx lr }\n')
-            (root / 'main.lsf').write_text('Object lib/x/src/s.o\n')
+            link(root, 'lib/x/src/s.c', obj='s.o')
             (root / 'test.xMAP').write_text(self.MAP.replace('unit.o', 's.o'))
             def rows(entries):
                 return [(r['status'], r['bytes'], r.get('functions'))
@@ -429,7 +458,7 @@ class OriginalAssemblyTests(unittest.TestCase):
             root = Path(folder)
             (root / 'src').mkdir()
             (root / 'src/unit.cpp').write_text('struct T;\nasm void Jump(T *t, char *p) { bx lr }\nvoid f(void) {}\n')
-            (root / 'main.lsf').write_text('Object src/unit.o\n')
+            link(root, 'src/unit.cpp')
             (root / 'test.xMAP').write_text('# .main\n  02000000 00000030 .text Jump(T*, char*)\t(unit.o)\n'
                                             '  02000030 00000010 .text f()\t(unit.o)\n')
             rows = parse_map(root / 'test.xMAP', root, 'ARM9', {('ARM9', 'src/unit.cpp'): {'Jump(T*, char*)': 'asm'}})

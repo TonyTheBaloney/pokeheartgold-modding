@@ -1,4 +1,4 @@
-    .include "asm/macros.inc"
+    .include "macros.inc"
 	.include "battle_factory_setup_data.inc"
 	.include "global.inc"
 

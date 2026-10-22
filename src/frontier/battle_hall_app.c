@@ -893,7 +893,7 @@ static void BattleHallApp_InitGraphics(BattleHallApp *app) {
     app->narc = NARC_New(NARC_a_1_8_3, HEAP_ID_105);
     BattleHallApp_InitBgGraphics(app);
     BattleHallApp_InitSprites(app);
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0441_bin, HEAP_ID_105);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0441, HEAP_ID_105);
     app->msgFormat = MessageFormat_New(HEAP_ID_105);
     app->expandedString = String_New(600, HEAP_ID_105);
     app->rawString = String_New(600, HEAP_ID_105);
@@ -1080,7 +1080,7 @@ static void BattleHallApp_PrintTypeNames(BattleHallApp *app, Window *window, int
     int x;
 
     FillWindowPixelBuffer(window, bg);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0735_bin, HEAP_ID_105);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0735, HEAP_ID_105);
     string = String_New(11, HEAP_ID_105);
     for (row = 0, base = 0, y = 16; row < TYPE_GRID_ROWS; base += TYPE_GRID_COLUMNS, y += 36, row++) {
         for (column = 0, x = 1; column < TYPE_GRID_COLUMNS; column++, x += 64) {
@@ -1137,7 +1137,7 @@ static void BattleHallApp_PrintSelectPrompt(BattleHallApp *app, Window *window, 
     String *string;
 
     FillWindowPixelBuffer(window, bg);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0441_bin, HEAP_ID_105);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0441, HEAP_ID_105);
     string = NewString_ReadMsgData(msgData, msg_0441_00037);
     FillWindowPixelBuffer(window, 15);
     AddTextPrinterParameterizedWithColor(window, fontId, string, x, y, 0, MAKE_TEXT_COLOR(fg, shadow, bg), NULL);

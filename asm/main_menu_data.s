@@ -1,5 +1,5 @@
 #include "config.h"
-	.include "asm/macros.inc"
+	.include "macros.inc"
 
 	.public gGiftCartridgePublicKey
 	.public gMainMenuUtilObjCharTransferTemplate

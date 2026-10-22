@@ -204,7 +204,7 @@ void BattleAnimUtil_LoadMonIntoPicOppositeFacing(BattleAnimBattlerPicParams *par
 void BattleAnimUtil_RestorePic(BattleAnimBattlerPicParams *params, enum HeapID heapId);
 
 // Sound effect panning
-void SetSeqTrackPan(u16 seqNo, u32 trackMask, int pan);
+void SetSeqTrackPan(u16 seqNo, u16 trackMask, int pan);
 void SetAllSEPan(int pan);
 
 // Particle system camera

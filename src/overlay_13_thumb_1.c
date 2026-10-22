@@ -1,6 +1,6 @@
 #include "overlay_13_thumb_1.h"
 
-#include <nitro/hw/common/io_reg.h>
+#include <nitro.h>
 
 #include "global.h"
 
@@ -20,7 +20,7 @@ void RunWifiSetupApp(enum HeapID HeapID) {
     OSIntrMode interrupts = OS_DisableInterrupts();
     DWC_SetAuthServer(2);
     void *buffer = Heap_Alloc(HeapID, 0x40000);
-    WifiSetupApp_Run(buffer, 1, 0);
+    DWC_StartUtility(buffer, 1, 0);
     Heap_Free(buffer);
     OS_RestoreInterrupts(interrupts);
 

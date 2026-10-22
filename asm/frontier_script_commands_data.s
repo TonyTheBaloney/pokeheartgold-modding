@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "frontier_script_commands_data.inc"
 	.include "global.inc"
 
@@ -56,7 +56,7 @@ gOverlayTemplate_BattleArcadeGameBoard:
 	.word BattleArcadeGameBoard_InitOverlay
 	.word BattleArcadeGameBoard_Main
 	.word BattleArcadeGameBoard_Exit
-	.word FS_OVERLAY_ID(OVY_84)
+	.word SDK_OVERLAY_OVY_84_ID
 
 gBattleArcadeFaintedMonPoints:
 	.byte 0x06, 0x04, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00

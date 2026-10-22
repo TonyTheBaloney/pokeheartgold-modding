@@ -332,7 +332,7 @@ BOOL WirelessTradeSelectMon_Init(OverlayManager *man, int *state) {
     work->msgFormat = MessageFormat_New_Custom(12, 22, HEAP_ID_26);
     work->nicknameFormat = MessageFormat_New(HEAP_ID_26);
     work->unk_18C = MessageFormat_New(HEAP_ID_26);
-    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0183_bin, HEAP_ID_26);
+    work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0183, HEAP_ID_26);
     work->summaryApp = NULL;
     WirelessTradeSelectMon_InitWork(work, man);
     SetKeyRepeatTimers(4, 8);
@@ -1778,7 +1778,7 @@ static int WirelessTradeSelectMon_StartFriendRegistration(WirelessTradeSelectMon
         return 0;
     }
     work->rosterMsgFormat = MessageFormat_New(HEAP_ID_26);
-    work->rosterMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0779_bin, HEAP_ID_26);
+    work->rosterMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0779, HEAP_ID_26);
     work->roster = Save_FriendRoster_Get(work->saveData);
     work->callback = WirelessTradeSelectMon_RegisterNextFriend;
     return 0;

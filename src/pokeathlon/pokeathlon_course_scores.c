@@ -203,7 +203,7 @@ u32 PokeathlonCourseScoreList_GetEventPoints(PokeathlonCourseScoreList *list, in
 // Adds the next score entry and prints its score text (msg 309 #msgno with the score in placeholder idx).
 void PokeathlonCourse_AddScoreEntry(PokeathlonCourseData *course, PokeathlonCourseScoreList *list, u32 participant, u32 score, u8 idx, u8 digits, u32 msgno) {
     enum HeapID heapId = PokeathlonCourse_GetHeapID(course);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, heapId);
     PokeathlonCourseScore *entry = PokeathlonCourseScoreList_AddEntry(list);
     MessageFormat *msgFormat;
     String *string;
@@ -221,7 +221,7 @@ void PokeathlonCourse_AddScoreEntry(PokeathlonCourseData *course, PokeathlonCour
 // As PokeathlonCourse_AddScoreEntry, with two numbers in the text.
 void PokeathlonCourse_AddScoreEntry2(PokeathlonCourseData *course, PokeathlonCourseScoreList *list, u32 participant, u32 score, u32 value1, u32 value2, u8 idx1, u8 idx2, u8 digits1, u8 digits2, u32 msgno) {
     enum HeapID heapId = PokeathlonCourse_GetHeapID(course);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, heapId);
     PokeathlonCourseScore *entry = PokeathlonCourseScoreList_AddEntry(list);
     MessageFormat *msgFormat;
     String *string;

@@ -35,7 +35,6 @@ typedef struct UserExCellAttrBank {
     u32 *pCellAttrArray;
 } UserExCellAttrBank;
 
-void *NNS_G2dFindBinaryBlock(void *pFile, u32 signature);
 BOOL GetUnpackedAnimBankImpl_(void *pNanrFile, NNSG2dAnimBankData **ppAnimBank);
 void NNS_G2dUnpackNAN(NNSG2dAnimBankData *pAnimBank);
 NNSG2dCellOAMAttrData *GetPtrOamArrayHead_(const NNSG2dCellDataBank *pCellBank);
@@ -49,7 +48,6 @@ void NNS_G2dUnpackNCG(NNSG2dCharacterData *pCharData);
 void NNS_G2dUnpackBGNCG(NNSG2dCharacterData *pCharData);
 void NNSi_G2dUnpackNCLCmpInfo(NNSG2dPaletteCompressInfo *pPltCmpInfo);
 void NNS_G2dUnpackNCL(NNSG2dPaletteData *pPlttData);
-void NNSi_G2dUnpackUserExCellAttrBank(UserExCellAttrBank *pAttrBank);
 
 // ---- software sprites
 
@@ -119,16 +117,9 @@ extern OamLoadFunc gOamLoadFuncs[];
 
 void CpuLoadOAMSub_(const void *pSrc, u32 offset, u32 szByte);
 void CpuLoadOAMMain_(const void *pSrc, u32 offset, u32 szByte);
-BOOL NNS_G2dGetNewOamManagerInstance(OamManagerInstance *pMan, u16 oamFirst, u16 numOam, u16 affineFirst, u16 numAffine, int type);
-BOOL NNS_G2dEntryOamManagerOamWithAffineIdx(OamManagerInstance *pMan, const GXOamAttr *pOam, u16 affineIndex);
-u16 NNS_G2dEntryOamManagerAffine(OamManagerInstance *pMan, const MtxFx22 *mtx);
-void NNS_G2dApplyOamManagerToHW(OamManagerInstance *pMan);
-void NNS_G2dResetOamManagerBuffer(OamManagerInstance *pMan);
-void NNS_G2dApplyAndResetOamManagerBuffer(OamManagerInstance *pMan);
 
 // ---- palette swap table
 
-u16 NNS_G2dGetPaletteTableValue(const NNSG2dPaletteSwapTable *pPlttTbl, int index);
 
 // ---- image and palette proxies, VRAM locations
 
@@ -148,7 +139,6 @@ void NNS_G2dSetImagePaletteLocation(NNSG2dImagePaletteProxy *pImg, NNS_G2D_VRAM_
 BOOL NNS_G2dIsImagePaletteReadyToUse(const NNSG2dImagePaletteProxy *pImg, NNS_G2D_VRAM_TYPE type);
 void NNSi_G2dInitializeVRamLocation(NNSG2dVRamLocation *pVramLocation);
 void NNSi_G2dSetVramLocation(NNSG2dVRamLocation *pVramLocation, NNS_G2D_VRAM_TYPE type, u32 addr);
-u32 NNSi_G2dGetVramLocation(NNSG2dVRamLocation *pVramLocation, NNS_G2D_VRAM_TYPE type);
 
 // ---- SRT control
 
@@ -261,7 +251,6 @@ void NNSi_G2dSetOamSoftEmuAutoZOffsetFlag(BOOL flag);
 void NNSi_G2dResetOamSoftEmuAutoZOffset(void);
 void NNSi_G2dSetOamSoftEmuAutoZOffsetStep(fx32 step);
 fx32 NNSi_G2dGetOamSoftEmuAutoZOffsetStep(void);
-void NNS_G2dDrawOneOam3DDirectWithPosFast(int posX, int posY, int posZ, const GXOamAttr *pOam, const NNSG2dImageAttr *pTexAttr, u32 texBaseAddr, u32 pltBaseAddr);
 
 // ---- renderer core
 
@@ -345,15 +334,8 @@ typedef struct G2dTextRect {
     s32 height;
 } G2dTextRect;
 
-BOOL NNSi_G2dGetUnpackedFont(void *pFontFile, G2dFontInfo **ppFontInfo);
 u16 NNSi_G2dSplitCharUTF16(const void **ppChar);
 u16 GetGlyphIndex(const G2dFontCodeMap *pMap, u16 c);
-void NNS_G2dFontInitUTF16(G2dFont *pFont, void *pFontFile);
-u16 NNS_G2dFontFindGlyphIndex(const G2dFont *pFont, u16 c);
-const G2dCharWidths *NNS_G2dFontGetCharWidthsFromIndex(const G2dFont *pFont, u16 glyphIndex);
-s32 NNSi_G2dFontGetStringWidth(const G2dFont *pFont, s32 hSpace, const void *pStr, const void **ppNextLine);
-s32 NNSi_G2dFontGetTextHeight(const G2dFont *pFont, s32 vSpace, const void *pStr);
-void NNSi_G2dFontGetTextRect(G2dTextRect *pRect, const G2dFont *pFont, s32 hSpace, s32 vSpace, const void *pStr);
 
 // ---- character canvas helpers
 

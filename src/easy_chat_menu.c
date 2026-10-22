@@ -3280,7 +3280,7 @@ static u32 ECMenuBuild_TrendySayings(ECMenu *menu, const u16 *words, u32 count, 
     u32 i;
     u32 n;
     SaveEasyChat *saveEasyChat = EasyChatArgs_GetEasyChat(menu->args);
-    u32 base = GetECWordIndexByPair(0x122, 0); // NARC_msg_msg_0290_bin
+    u32 base = GetECWordIndexByPair(0x122, 0); // msg_0290
 
     i = 0;
     n = i;
@@ -3306,7 +3306,7 @@ static u32 ECMenuBuild_Greetings(ECMenu *menu, const u16 *words, u32 count, u16 
     } locals;
 
     locals.saveEasyChat = EasyChatArgs_GetEasyChat(menu->args);
-    u16 base = GetECWordIndexByPair(0x11F, 0); // NARC_msg_msg_0289_bin
+    u16 base = GetECWordIndexByPair(0x11F, 0); // msg_0289
     locals.last = (u16)(base + 5);
 
     n = 0;

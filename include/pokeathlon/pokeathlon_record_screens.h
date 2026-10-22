@@ -26,7 +26,6 @@ enum PokeathlonRecordScreenState {
     RECORD_SCREEN_STATE_EXIT,
 };
 
-u32 MATH_CountPopulation(u32 value);
 
 // Course record app
 

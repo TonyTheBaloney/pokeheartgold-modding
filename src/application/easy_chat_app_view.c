@@ -203,7 +203,7 @@ static void EasyChatAppView_CreateButtonTexts(EasyChatAppView *view) {
     template.x = 0;
     template.y = 0;
     template.heapID = HEAP_ID_35;
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0283_bin, HEAP_ID_35);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0283, HEAP_ID_35);
     string = String_New(21, HEAP_ID_35);
     line = String_New(21, HEAP_ID_35);
     for (i = 0; i < 2; i++) {

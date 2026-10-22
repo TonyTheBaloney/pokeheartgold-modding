@@ -46,7 +46,7 @@ PokeathlonRelayRunHud *PokeathlonRelayRunHud_New(enum HeapID heapId, BgConfig *b
     hud->bgConfig = bgConfig;
     hud->course = course;
     PokeathlonRelayRunHud_InitWindows(hud);
-    hud->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, heapId);
+    hud->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, heapId);
     hud->msgFormat = MessageFormat_New(heapId);
     for (i = 0; i < RELAY_RUN_MEMBERS; i++) {
         hud->names[i] = String_New(11, heapId);

@@ -1371,7 +1371,7 @@ static void BattlePartyMenu_LoadBgGraphics(BattlePartyMenu *menu) {
 }
 
 static void BattlePartyMenu_InitText(BattlePartyMenu *menu) {
-    menu->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0006_bin, menu->context->heapID);
+    menu->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0006, menu->context->heapID);
     menu->msgPrinter = MessagePrinter_New(15, 14, 0, menu->context->heapID);
     menu->msgFormat = MessageFormat_New(menu->context->heapID);
     menu->string = String_New(0x200, menu->context->heapID);
@@ -2159,7 +2159,7 @@ static void BattlePartyMenu_PrintHPStat(BattlePartyMenu *menu, int slot) {
 
 static void BattlePartyMenu_PrintAbilityDescription(BattlePartyMenu *menu, int slot) {
     int window = menu->windowSet * 22;
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0722_bin, menu->context->heapID);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0722, menu->context->heapID);
     u16 msgNo = menu->mons[slot].ability;
     String *string = NewString_ReadMsgData(msgData, msgNo);
 
@@ -2240,7 +2240,7 @@ static void BattlePartyMenu_PrintMovePower(BattlePartyMenu *menu, int window, u3
 static void BattlePartyMenu_PrintMoveDescription(BattlePartyMenu *menu, int window, int move) {
     Window *windows = menu->pageWindows;
     Window *win = &windows[window];
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0749_bin, menu->context->heapID);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0749, menu->context->heapID);
     String *string = NewString_ReadMsgData(msgData, move);
 
     AddTextPrinterParameterizedWithColor(win, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);

@@ -2847,7 +2847,7 @@ void VsRecorder_SanitizeName(VsRecorderWork *work, String *str) {
 static void VsRecorder_SetPlaceholderName(String *str, enum HeapID heapID) {
     MsgData *msgData;
     String_SetEmpty(str);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0013_bin, heapID);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0013, heapID);
     ReadMsgDataIntoString(msgData, msg_0013_00332, str);
     DestroyMsgData(msgData);
 }

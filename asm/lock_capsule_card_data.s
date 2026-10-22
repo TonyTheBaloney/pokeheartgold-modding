@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public LockCapsuleCard_BufferReceiveDate
 	.public LockCapsuleCard_PrintCardText
 	.public LockCapsuleCard_PrintCardTitle

@@ -1149,7 +1149,7 @@ static void BallCapsuleEditor_RemoveMessageWindows(BallCapsuleEditor *editor) {
 
 static void BallCapsuleEditor_PrintExitLabel(BallCapsuleEditor *editor, BOOL show) {
     if (show) {
-        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0011_bin, HEAP_ID_52);
+        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0011, HEAP_ID_52);
         String *string = NewString_ReadMsgData(msgData, msg_0011_00017);
         FillWindowPixelBuffer(&editor->display.windows[2], 0);
         {
@@ -1196,7 +1196,7 @@ static void BallCapsuleEditor_SetButtonLabelsDrawFlag(BallCapsuleEditor *editor,
 }
 
 static void BallCapsuleEditor_CreateButtonLabel(BallCapsuleEditor *editor, int index, int x, int y, int palette) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0011_bin, HEAP_ID_52);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0011, HEAP_ID_52);
     String *string = NewString_ReadMsgData(msgData, index + msg_0011_00005);
     TextOBJTemplate template;
     Window window;
@@ -1415,7 +1415,7 @@ static void BallCapsuleEditor_CreateMenu(BgConfig *bgConfig, Window *unusedWindo
     size = BallCapsuleEditor_GetMenuItems(items, BallCapsuleEditor_GetMenuKind(editor, capsule));
     count = size / 2;
     editor->display.menuItems = ListMenuItems_New(count, HEAP_ID_52);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0011_bin, HEAP_ID_52);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0011, HEAP_ID_52);
     for (i = 0; i < count; i++) {
         string = NewString_ReadMsgData(msgData, gBallCapsuleEditorMenuItems[items[i]].msgId);
         ListMenuItems_AddItem(editor->display.menuItems, string, (int)gBallCapsuleEditorMenuItems[items[i]].func);
@@ -1787,7 +1787,7 @@ static void BallCapsuleEditor_PrintMessage(Window *window, int frameType, u32 ms
         ScheduleWindowCopyToVram(window);
         return;
     }
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0011_bin, HEAP_ID_52);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0011, HEAP_ID_52);
     string = NewString_ReadMsgData(msgData, msgId);
     FillWindowPixelBuffer(window, 15);
     AddTextPrinterParameterized(window, 0, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
@@ -1896,7 +1896,7 @@ static void BallCapsuleEditor_PrintSealName(Window *window, u32 msgId) {
         ScheduleWindowCopyToVram(window);
         return;
     }
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0015_bin, HEAP_ID_52);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0015, HEAP_ID_52);
     string = NewString_ReadMsgData(msgData, msgId);
     FillWindowPixelBuffer(window, 15);
     AddTextPrinterParameterized(window, 0, string, 0, 0, TEXT_SPEED_INSTANT, NULL);

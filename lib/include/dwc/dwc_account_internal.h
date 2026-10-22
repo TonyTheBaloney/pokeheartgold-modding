@@ -88,7 +88,6 @@ void DWC_LoginIdToUserName(const DwcUserData *user, const DwcAccData *loginId, c
 BOOL DWC_IsEqualFriendData(const DwcAccData *a, const DwcAccData *b);
 
 // NitroSDK functions the nitro headers do not declare
-void OSi_ReferSymbol(const void *symbol);
 u8 MATH_CalcCRC8(const MATHCRC8Table *table, const void *data, u32 dataLength);
 void MATHi_CRC32InitTableRev(MATHCRC32Table *table, u32 poly);
 u32 MATH_CalcCRC32(const MATHCRC32Table *table, const void *data, u32 dataLength);

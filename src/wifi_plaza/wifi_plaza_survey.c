@@ -406,15 +406,15 @@ static void WiFiPlazaSurvey_FreeSpriteSystem(WiFiPlazaSurveyWork *work) {
 }
 
 static const int sWiFiPlazaSurveyMsgBanks[WIFI_PLAZA_SURVEY_NUM_MSG_BANKS] = {
-    NARC_msg_msg_0777_bin,
-    NARC_msg_msg_0761_bin,
-    NARC_msg_msg_0765_bin,
-    NARC_msg_msg_0758_bin,
-    NARC_msg_msg_0759_bin,
-    NARC_msg_msg_0760_bin,
-    NARC_msg_msg_0762_bin,
-    NARC_msg_msg_0763_bin,
-    NARC_msg_msg_0764_bin,
+    msg_0777,
+    msg_0761,
+    msg_0765,
+    msg_0758,
+    msg_0759,
+    msg_0760,
+    msg_0762,
+    msg_0763,
+    msg_0764,
 };
 
 static void WiFiPlazaSurvey_InitMessages(WiFiPlazaSurveyMessages *messages, struct WiFiPlazaWork *lobby, enum HeapID heapID) {

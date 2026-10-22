@@ -366,7 +366,7 @@ BOOL DrawingSession_Init(OverlayManager *man, int *state) {
         memset(work, 0, sizeof(DrawingSessionWork));
         work->bgConfig = BgConfig_Alloc(HEAP_ID_39);
         work->msgFormat = MessageFormat_New(HEAP_ID_39);
-        work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0252_bin, HEAP_ID_39);
+        work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0252, HEAP_ID_39);
         SetKeyRepeatTimers(4, 8);
         DrawingSession_SetVramBanks();
         DrawingSession_InitBgs(work->bgConfig);

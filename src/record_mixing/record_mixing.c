@@ -358,7 +358,7 @@ BOOL RecordMixing_Init(OverlayManager *man, int *state) {
         app->saveData = app->args->saveData;
         app->menuInputState = MenuInputStateMgr_GetState(app->args->menuInputStatePtr);
         app->msgFmt = MessageFormat_New(HEAP_ID_50);
-        app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0422_bin, HEAP_ID_50);
+        app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0422, HEAP_ID_50);
         FontID_Alloc(4, HEAP_ID_50);
         SetKeyRepeatTimers(4, 8);
         RecordMixing_SetGfxBanks();

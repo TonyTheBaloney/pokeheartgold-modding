@@ -734,7 +734,7 @@ static void BattleRoomResults_RemoveWindows(BattleRoomResults *results) {
 }
 
 static void BattleRoomResults_InitStrings(BattleRoomResults *results) {
-    results->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0028_bin, results->heapID);
+    results->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0028, results->heapID);
     results->msgFormat = MessageFormat_New_Custom(2, 64, results->heapID);
     results->string = String_New(512, results->heapID);
     results->defaultNames[0] = NewString_ReadMsgData(results->msgData, msg_0028_00033);

@@ -99,7 +99,7 @@ static void ScriptMenu_Init(FieldSystem *fieldSystem, ScriptMenu *menu, u8 x, u8
     int i;
 
     if (msgData == NULL) {
-        menu->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0191_bin, HEAP_ID_FIELD1);
+        menu->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0191, HEAP_ID_FIELD1);
         menu->ownMsgData = TRUE;
     } else {
         menu->msgData = msgData;
@@ -672,7 +672,7 @@ Window *FieldSystem_ShowMoneyBox(FieldSystem *fieldSystem, u8 x, u8 y) {
     LoadUserFrameGfx1(fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, HEAP_ID_FIELD1);
     DrawFrameAndWindow1(window, TRUE, 0x3D9, 11);
     FillWindowPixelBuffer(window, 15);
-    msgData = NewMsgDataFromNarc((MsgDataLoadType)0, NARC_msgdata_msg, NARC_msg_msg_0435_bin, HEAP_ID_FIELD1);
+    msgData = NewMsgDataFromNarc((MsgDataLoadType)0, NARC_msgdata_msg, msg_0435, HEAP_ID_FIELD1);
     string = NewString_ReadMsgData(msgData, msg_0435_00030);
     AddTextPrinterParameterized(window, 0, string, 0, 0, 0xFF, NULL);
     DestroyMsgData(msgData);
@@ -695,7 +695,7 @@ void MoneyBoxSys_Update(FieldSystem *fieldSystem, Window *moneybox) {
     int x;
 
     FillWindowPixelRect(moneybox, 15, 0, 16, 80, 16);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0435_bin, HEAP_ID_FIELD1);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0435, HEAP_ID_FIELD1);
     msgFmt = MessageFormat_New(HEAP_ID_FIELD1);
     string = String_New(16, HEAP_ID_FIELD1);
     template = NewString_ReadMsgData(msgData, msg_0435_00031);
@@ -740,7 +740,7 @@ void PointsBox_Update(FieldSystem *fieldSystem, Window *window, u8 type) {
     int x;
 
     FillWindowPixelBuffer(window, 15);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0191_bin, HEAP_ID_FIELD1);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0191, HEAP_ID_FIELD1);
     msgFmt = MessageFormat_New(HEAP_ID_FIELD1);
     string = String_New(16, HEAP_ID_FIELD1);
     switch (type) {
@@ -778,7 +778,7 @@ Window *SavingsBox_New(FieldSystem *fieldSystem, u8 x, u8 y) {
     LoadUserFrameGfx1(fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, HEAP_ID_FIELD1);
     DrawFrameAndWindow1(window, TRUE, 0x3D9, 11);
     FillWindowPixelBuffer(window, 15);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0191_bin, HEAP_ID_FIELD1);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0191, HEAP_ID_FIELD1);
     string = NewString_ReadMsgData(msgData, msg_0191_00330);
     AddTextPrinterParameterized(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(string);
@@ -798,7 +798,7 @@ void SavingsBox_Delete(Window *window) {
 void SavingsBox_Update(FieldSystem *fieldSystem, Window *window) {
     FillWindowPixelRect(window, 15, 0, 128, 128, 16);
     FillWindowPixelRect(window, 15, 0, 384, 128, 16);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0191_bin, HEAP_ID_FIELD1);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0191, HEAP_ID_FIELD1);
     MessageFormat *msgFmt = MessageFormat_New(HEAP_ID_FIELD1);
     String *string = String_New(16, HEAP_ID_FIELD1);
     String *template = NewString_ReadMsgData(msgData, msg_0191_00332);

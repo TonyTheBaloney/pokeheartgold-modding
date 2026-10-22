@@ -264,7 +264,7 @@ static void DowsingMchn_LoadBgGraphics(DowsingMchn *dowsing, NARC *narc) {
 }
 
 static void DowsingMchn_LoadStrings(DowsingMchn *dowsing) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0196_bin, HEAP_ID_8);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0196, HEAP_ID_8);
     dowsing->strings[1] = NewString_ReadMsgData(msgData, msg_0196_00017); // TALK
     dowsing->strings[0] = NewString_ReadMsgData(msgData, msg_0196_00018); // CHECK
     dowsing->strings[2] = NewString_ReadMsgData(msgData, msg_0196_00022); // FISHING

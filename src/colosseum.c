@@ -125,13 +125,13 @@ static void Colosseum_ShowChoiceMenu(ColosseumEntry *entry, int cursor);
 static void Colosseum_CloseMenu(ColosseumEntry *entry);
 
 // Summary pages shown for a Pokemon of the party being entered.
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 static const u8 sColosseumSummaryPages[8] = { 0, 1, 2, 3, 4, 0, 0, 0 };
 
 // Union Room state.
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 UnionRoomScratch gUnionRoomScratch = { 0 };
-ALIGN(4)
+ATTRIBUTE_ALIGN(4)
 void *gUnionRoomRecords[UNION_ROOM_MAX_RECORDS] = { 0 };
 
 static void Colosseum_OpenSummary(ColosseumEntry *entry, FieldSystem *fieldSystem, Party *party, int partySlot, int mode, enum HeapID heapId) {
@@ -643,7 +643,7 @@ void Colosseum_StartEntry(FieldSystem *fieldSystem, ColosseumEntryCallback callb
     entry->fieldSystem = fieldSystem;
     entry->callback = callback;
     entry->msgFormat = MessageFormat_New(HEAP_ID_FIELD2);
-    entry->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0014_bin, HEAP_ID_FIELD2);
+    entry->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0014, HEAP_ID_FIELD2);
     entry->message = String_New(200, HEAP_ID_FIELD2);
     entry->expandedMessage = String_New(200, HEAP_ID_FIELD2);
     InitWindow(&entry->messageWindow);
@@ -792,7 +792,7 @@ static void Colosseum_ShowOpponentMons(ColosseumEntry *entry, int cursor) {
     MsgData *speciesNames;
     int i, offset, y;
     if (!WindowIsInUse(window)) {
-        speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_FIELD1);
+        speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, HEAP_ID_FIELD1);
         monSize = Pokemon_sizeof();
         AddWindowParameterized(entry->fieldSystem->bgConfig, window, GF_BG_LYR_MAIN_3, 21, 9, 10, 8, 13, 10);
         LoadUserFrameGfx1(entry->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 1, 11, 0, HEAP_ID_FIELD1);
@@ -914,7 +914,7 @@ BOOL Task_ColosseumTrainerCard(TaskManager *taskManager) {
     case COLOSSEUM_CARD_STATE_PRINT: {
         int message;
         env->msgFormat = MessageFormat_New(HEAP_ID_FIELD1);
-        env->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0014_bin, HEAP_ID_FIELD1);
+        env->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0014, HEAP_ID_FIELD1);
         env->strings[0] = String_New(200, HEAP_ID_FIELD1);
         env->strings[1] = String_New(200, HEAP_ID_FIELD1);
         // card[0]: game version; card[3]: stars

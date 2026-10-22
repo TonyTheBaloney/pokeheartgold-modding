@@ -453,7 +453,7 @@ BOOL GeonetGlobe_Main(OverlayManager *man, int *state) {
 
     switch (*state) {
     case GEONET_GLOBE_STATE_LOAD:
-        globe->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0186_bin, globe->heapID);
+        globe->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0186, globe->heapID);
         narc = NARC_New(NARC_a_1_2_3, globe->heapID);
         GeonetGlobe_LoadModels(globe, narc);
         GeonetGlobe_InitBgs(globe, narc);
@@ -538,7 +538,7 @@ case6_no:
             globe->selectedCountry = 0;
             msgIds = LocationGmmDatGetDistrictNameMsgIdsPtr(0);
             count = LocationGmmDatGetDistrictCount(0);
-            GeonetGlobe_CreatePlaceList(globe, &globe->windows[GEONET_GLOBE_WINDOW_LIST], &sGeonetPlaceListWindowTemplate, &sGeonetPlaceListTemplate, NARC_msg_msg_0798_bin, msgIds, count);
+            GeonetGlobe_CreatePlaceList(globe, &globe->windows[GEONET_GLOBE_WINDOW_LIST], &sGeonetPlaceListWindowTemplate, &sGeonetPlaceListTemplate, msg_0798, msgIds, count);
             *state = GEONET_GLOBE_STATE_HANDLE_COUNTRY_LIST;
         }
         break;
@@ -1424,7 +1424,7 @@ static BOOL GeonetGlobe_GetLocationNames(int country, int region, String *countr
     BOOL hasRegions;
     int placeIndex = GeonetGlobe_GetPlaceIndex(country);
     enum HeapID heap = *(volatile enum HeapID *)&heapID;
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0798_bin, heap);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0798, heap);
 
     ReadMsgDataIntoString(msgData, country, countryName);
     DestroyMsgData(msgData);

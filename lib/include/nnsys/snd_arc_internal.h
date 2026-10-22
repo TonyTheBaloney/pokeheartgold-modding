@@ -26,10 +26,6 @@ typedef struct SndArcSeqArcInfo {
 #define SND_ARC_BANK_WAVEARC_NUM 4
 #define SND_ARC_NO_WAVEARC       0xFFFF
 
-struct NNSSndArcBankInfo {
-    u32 fileId;
-    u16 waveArcNo[SND_ARC_BANK_WAVEARC_NUM];
-};
 
 #define SND_ARC_WAVEARC_SINGLE_LOAD 1 // waves are loaded one by one on demand
 
@@ -71,16 +67,9 @@ BOOL NNS_SndArcSetup(NNSSndArc *arc, NNSSndHeapHandle heap, BOOL symbolLoadFlag)
 void NNS_SndArcInitOnMemory(NNSSndArc *arc, void *data);
 NNSSndArc *NNS_SndArcSetCurrent(NNSSndArc *arc);
 NNSSndArc *NNS_SndArcGetCurrent(void);
-const SndArcSeqInfo *NNS_SndArcGetSeqInfo(int seqNo);
-const SndArcSeqArcInfo *NNS_SndArcGetSeqArcInfo(int seqArcNo);
 const struct NNSSndArcBankInfo *NNS_SndArcGetBankInfo(int bankNo);
-const SndArcWaveArcInfo *NNS_SndArcGetWaveArcInfo(int waveArcNo);
-const SndArcPlayerInfo *NNS_SndArcGetStrmInfo(int playerNo); // the player info table
-const SndArcGroupInfo *NNS_SndArcGetGroupInfo(int groupNo);
 u32 NNS_SndArcGetFileSize(u32 fileId);
-int NNS_SndArcReadFile(u32 fileId, void *buffer, int size, u32 offset);
 void *NNS_SndArcGetFileAddress(u32 fileId);
-void NNS_SndArcSetFileAddress(u32 fileId, const void *address);
 void InfoDisposeCallback(void *mem, u32 size, u32 data1, u32 data2);
 void FatDisposeCallback(void *mem, u32 size, u32 data1, u32 data2);
 void SymbolDisposeCallback(void *mem, u32 size, u32 data1, u32 data2);
@@ -150,11 +139,6 @@ typedef struct SndWaveArcTable {
 
 extern SndWaveArcHeader gSndWaveArcHeader;
 
-int NNSi_SndArcLoadGroup(int groupNo, NNSSndHeapHandle heap);
-int NNSi_SndArcLoadSeq(int seqNo, u32 loadFlag, NNSSndHeapHandle heap, BOOL setAddress, void **pData);
-int NNSi_SndArcLoadSeqArc(int seqArcNo, u32 loadFlag, NNSSndHeapHandle heap, BOOL setAddress, void **pData);
-int NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, NNSSndHeapHandle heap, BOOL setAddress, void **pData);
-int NNSi_SndArcLoadWaveArc(int waveArcNo, u32 loadFlag, NNSSndHeapHandle heap, BOOL setAddress, void **pData);
 void *NNSi_SndArcLoadFile(u32 fileId, SndHeapDisposeCallback callback, u32 data1, u32 data2, NNSSndHeapHandle heap);
 void *LoadSeq(u32 fileId, NNSSndHeapHandle heap, BOOL setAddress);
 void *LoadSeqArc(u32 fileId, NNSSndHeapHandle heap, BOOL setAddress);
@@ -166,6 +150,5 @@ void SeqDisposeCallback(void *mem, u32 size, u32 data1, u32 data2);
 void BankDisposeCallback(void *mem, u32 size, u32 data1, u32 data2);
 void WaveArcDisposeCallback(void *mem, u32 size, u32 data1, u32 data2);
 void WaveArcTableDisposeCallback(void *mem, u32 size, u32 data1, u32 data2);
-void SND_AssignWaveArc(void *bank, int index, void *waveArc);
 
 #endif // POKEHEARTGOLD_NNSYS_SND_ARC_INTERNAL_H

@@ -36,7 +36,7 @@ typedef struct PokeathlonBlockSmashSpot {
     s16 y;
 } PokeathlonBlockSmashSpot;
 
-void GF_SndSetTrackPitchBySeqNo(u16 seqNo, u32 trackMask, int pitch);
+void GF_SndSetTrackPitchBySeqNo(u16 seqNo, u16 trackMask, int pitch);
 extern const TouchscreenHitbox *gPokeathlonBlockSmashSpotHitboxes[3];
 
 static void PokeathlonBlockSmashBlocks_UpdateDrop(PokeathlonBlockSmashBlocks *blocks);

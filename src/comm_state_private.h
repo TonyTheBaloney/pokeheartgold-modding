@@ -71,12 +71,6 @@ void Comm_EnableKeySync(void);
 u16 Comm_GetLocalNetId(void);
 BOOL Comm_HasLinkError(void);
 
-typedef struct {
-    u64 x;
-    u64 mul;
-    u64 add;
-} MATHRandContext32;
-
 void CommRandom_Init(MATHRandContext32 *seed);
 void Comm_FreeCommandTable(void);
 void CommWireless_Terminate(void);
@@ -84,7 +78,6 @@ void Comm_ResetWorkAndParents(void);
 int CommWireless_Stop(void);
 void Comm_Shutdown(void);
 int DWC_GetLinkLevel(void);
-s32 WM_GetLinkLevel(void);
 int CommWireless_IsIdle(void);
 void CommWireless_SetManagerEnded(int end);
 void Comm_ResetWork(void);

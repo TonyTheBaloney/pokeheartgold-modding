@@ -132,7 +132,6 @@ extern const u32 gResidentBillboardSequenceIds[];
 extern const SpriteBillboardIndex gObjectEventGraphicsInfos[];
 extern const SpriteBillboardInfo gSpriteBillboardInfos[];
 
-int NNS_G3dMdlGetMdlFogEnableFlag(NNSG3dResMdl *model, int matId);
 
 static void *MapObject_CreateBillboardForSprite(LocalMapObject *object, u32 spriteId);
 static void MapObject_FreeBillboard(LocalMapObject *object, void **billboard, u32 spriteId);

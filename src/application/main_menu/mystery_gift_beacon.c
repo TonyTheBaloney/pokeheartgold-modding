@@ -82,13 +82,6 @@ typedef struct MysteryGiftBeacon {
 #define MYSTERY_GIFT_BEACON_MODE_RECEIVE  3
 #define MYSTERY_GIFT_BEACON_MODE_COMPLETE 4
 
-int WM_Initialize(void *wmBuffer, void (*callback)(void *arg), int dmaNo);
-int WM_SetIndCallback(void (*callback)(void *arg));
-int WM_End(void (*callback)(void *arg));
-int WM_Reset(void (*callback)(void *arg));
-int WM_StartScan(void (*callback)(void *arg), void *scanParam);
-int WM_EndScan(void (*callback)(void *arg));
-int WM_GetAllowedChannel(void);
 
 extern MysteryGiftBeacon gMysteryGiftBeacon;
 extern const char *gMysteryGiftBeaconStateNames[];
@@ -194,7 +187,7 @@ static BOOL MysteryGiftBeacon_ScanChannel(void) {
             gMysteryGiftBeacon.work->scanParam.bssid[i] = gMysteryGiftBeacon.work->parentMac[i];
         }
     }
-    int result = WM_StartScan(MysteryGiftBeacon_ScanCallback, &gMysteryGiftBeacon.work->scanParam);
+    int result = WM_StartScan(MysteryGiftBeacon_ScanCallback, (const WMScanParam *)&gMysteryGiftBeacon.work->scanParam);
     if (result != WM_ERRCODE_OPERATING) {
         MysteryGiftBeacon_SetError(result);
         return FALSE;

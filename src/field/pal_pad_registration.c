@@ -324,7 +324,7 @@ static void PalPadRegistration_PrintMessage(PalPadRegistration *registration, u3
 static void PalPadRegistration_Init(PalPadRegistration *registration) {
     MI_CpuFill8(registration, 0, sizeof(PalPadRegistration));
     registration->msgFormat = MessageFormat_New(HEAP_ID_FIELD1);
-    registration->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0779_bin, HEAP_ID_FIELD1);
+    registration->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0779, HEAP_ID_FIELD1);
     registration->message = String_New(110, HEAP_ID_FIELD1);
     registration->rawMessage = String_New(110, HEAP_ID_FIELD1);
 }

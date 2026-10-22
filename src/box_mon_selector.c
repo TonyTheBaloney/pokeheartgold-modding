@@ -1075,7 +1075,7 @@ static void BoxMonSelector_ReadIconChars(u32 fileId, NNSG2dCharacterData **ppCha
 static void BoxMonSelector_PrintPageName(BoxMonSelector *selector, int page) {
     String *string;
     if (page == BOX_MON_SELECTOR_PARTY_PAGE) {
-        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0298_bin, selector->heapId);
+        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0298, selector->heapId);
         string = NewString_ReadMsgData(msgData, msg_0298_00001);
         DestroyMsgData(msgData);
     } else {
@@ -1089,7 +1089,7 @@ static void BoxMonSelector_PrintPageName(BoxMonSelector *selector, int page) {
 }
 
 static void BoxMonSelector_PrintCancelButton(BoxMonSelector *selector) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0298_bin, selector->heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0298, selector->heapId);
     String *string = NewString_ReadMsgData(msgData, msg_0298_00000);
     FillWindowPixelBuffer(&selector->cancelWindow, 0);
     if (selector->canCancel) {
@@ -1180,7 +1180,7 @@ static void BoxMonSelector_ShowMessage(BoxMonSelector *selector, int msgId, Font
 
     LoadUserFrameGfx2(selector->bgConfig, GF_BG_LYR_MAIN_0, 978, 11, 0, selector->heapId);
     AddWindowParameterized(selector->bgConfig, &selector->messageWindow, GF_BG_LYR_MAIN_3, 2, 21, 21, 2, 13, 198);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0298_bin, selector->heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0298, selector->heapId);
     string = NewString_ReadMsgData(msgData, msgId);
     FillWindowPixelBuffer(&selector->messageWindow, 15);
     AddTextPrinterParameterizedWithColor(&selector->messageWindow, fontId, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);

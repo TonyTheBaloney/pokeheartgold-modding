@@ -134,7 +134,7 @@ SPLEmitter *ParticleSystem_New(texAllocFun texAlloc, plttAllocFun plttAlloc, voi
         system->perspectiveType = FALSE;
         Camera_SetStaticPtr(system->camera);
     }
-    system->manager = SPL_Init(sParticleSystemAllocFuncs[slot], 20, 200, 5, 6, 63);
+    system->manager = SPLManager_New(sParticleSystemAllocFuncs[slot], 20, 200, 5, 6, 63);
     ParticleSystem_SetCameraUp(system, &sParticleCameraUp);
     return (SPLEmitter *)system;
 }
@@ -146,7 +146,7 @@ void ParticleSystem_Free(SPLEmitter *emitter) {
 
     ParticleSystem_DeleteAllEmitters(system);
     if (system->flags & PARTICLE_TEX_VRAM_FRAME) {
-        NNS_GfdSetFrmTexVramState(system->texKeys);
+        NNS_GfdSetFrmTexVramState((const NNSGfdFrmTexVramState *)system->texKeys);
     } else if (system->flags & PARTICLE_TEX_VRAM_LINKED) {
         for (i = 0; i < 16; i++) {
             if (system->texKeys[i] != 0) {
@@ -156,7 +156,7 @@ void ParticleSystem_Free(SPLEmitter *emitter) {
         }
     }
     if (system->flags & PARTICLE_PLTT_VRAM_FRAME) {
-        NNS_GfdSetFrmPlttVramState(system->plttKeys);
+        NNS_GfdSetFrmPlttVramState((const NNSGfdFrmPlttVramState *)system->plttKeys);
     } else if (system->flags & PARTICLE_PLTT_VRAM_LINKED) {
         for (i = 0; i < 16; i++) {
             if (system->plttKeys[i] != 0) {
@@ -236,14 +236,14 @@ void ParticleSystem_SetResource(SPLEmitter *emitter, void *data, u32 flag, BOOL 
     GF_ASSERT(system->resource == NULL);
     system->flags = flag;
     if (flag & PARTICLE_TEX_VRAM_FRAME) {
-        NNS_GfdGetFrmTexVramState(system->texKeys);
+        NNS_GfdGetFrmTexVramState((NNSGfdFrmTexVramState *)system->texKeys);
     } else if (flag & PARTICLE_TEX_VRAM_LINKED) {
         for (i = 0; i < 16; i++) {
             system->texKeys[i] = 0;
         }
     }
     if (flag & PARTICLE_PLTT_VRAM_FRAME) {
-        NNS_GfdGetFrmPlttVramState(system->plttKeys);
+        NNS_GfdGetFrmPlttVramState((NNSGfdFrmPlttVramState *)system->plttKeys);
     } else if (flag & PARTICLE_PLTT_VRAM_LINKED) {
         for (j = 0; j < 16; j++) {
             system->plttKeys[j] = 0;
@@ -262,21 +262,21 @@ static void ParticleSystem_LoadResource(ParticleSystem *system) {
     plttAllocFun plttAlloc;
     SPLManager *manager;
 
-    SPL_Load(system->manager, system->resource);
+    SPLManager_LoadResources(system->manager, system->resource);
     sParticleSystemCallbackState.loadingSystem = system;
     texAlloc = system->texAlloc;
     manager = system->manager;
     if (texAlloc == NULL) {
-        SPL_LoadTexByVRAMManager(manager);
+        SPLManager_UploadTextures(manager);
     } else {
-        SPL_LoadTexByCallbackFunction(manager, texAlloc);
+        SPLManager_UploadTexturesEx(manager, texAlloc);
     }
     plttAlloc = system->plttAlloc;
     manager = system->manager;
     if (plttAlloc == NULL) {
-        SPL_LoadTexPlttByVRAMManager(manager);
+        SPLManager_UploadPalettes(manager);
     } else {
-        SPL_LoadTexPlttByCallbackFunction(manager, plttAlloc);
+        SPLManager_UploadPalettesEx(manager, plttAlloc);
     }
     sParticleSystemCallbackState.loadingSystem = NULL;
 }
@@ -325,7 +325,7 @@ void ParticleSystem_Draw(ParticleSystem *system) {
         Camera_PushLookAtToNNSGlb();
     }
     NNS_G3dGlbFlushP();
-    SPL_Draw(system->manager, &NNS_G3dGlb.cameraMtx);
+    SPLManager_Draw(system->manager, &NNS_G3dGlb.cameraMtx);
     if (system->camera != NULL) {
         Camera_UnsetStaticPtr();
     }
@@ -333,7 +333,7 @@ void ParticleSystem_Draw(ParticleSystem *system) {
 }
 
 void ParticleSystem_Calc(ParticleSystem *system) {
-    SPL_Calc(system->manager);
+    SPLManager_Update(system->manager);
 }
 
 int ParticleSystem_CountActive(void) {
@@ -370,7 +370,7 @@ int ParticleSystem_CalcAll(void) {
 
 SPLEmitter *ParticleSystem_CreateEmitter(SPLEmitter *emitter, int resNo, const VecFx32 *position) {
     ParticleSystem *system = (ParticleSystem *)emitter;
-    return system->emitter = SPL_Create(system->manager, resNo, position);
+    return system->emitter = SPLManager_CreateEmitter(system->manager, resNo, position);
 }
 
 SPLEmitter *ParticleSystem_CreateEmitterWithParam(SPLEmitter *emitter, int resNo, void (*callback)(SPLEmitter *), void *arg) {
@@ -378,7 +378,7 @@ SPLEmitter *ParticleSystem_CreateEmitterWithParam(SPLEmitter *emitter, int resNo
     SPLEmitter *result;
 
     sParticleSystemCallbackState.emitterParam = arg;
-    result = SPL_CreateWithInitialize(system->manager, resNo, callback);
+    result = SPLManager_CreateEmitterWithCallback(system->manager, resNo, callback);
     sParticleSystemCallbackState.emitterParam = NULL;
     system->emitter = result;
     return result;
@@ -389,11 +389,11 @@ int ParticleSystem_GetActiveEmitterCount(SPLEmitter *emitter) {
 }
 
 void ParticleSystem_DeleteAllEmitters(ParticleSystem *system) {
-    SPL_DeleteAll(system->manager);
+    SPLManager_DeleteAllEmitters(system->manager);
 }
 
 void ParticleSystem_DeleteEmitter(ParticleSystem *system, SPLEmitter *emitter) {
-    SPL_Delete(system->manager, emitter);
+    SPLManager_DeleteEmitter(system->manager, emitter);
 }
 
 void *ParticleSystem_GetHeap(SPLEmitter *emitter) {
@@ -451,32 +451,32 @@ static void *ParticleEmitter_FindField(SPLEmitter *emitter, int type) {
         }
         switch (type) {
         case PARTICLE_FIELD_GRAVITY:
-            if (field->p_exec == spl_calc_gravity) {
+            if (field->p_exec == SPLBehavior_ApplyGravity) {
                 return (void *)field->p_obj;
             }
             break;
         case PARTICLE_FIELD_RANDOM:
-            if (field->p_exec == spl_calc_random) {
+            if (field->p_exec == SPLBehavior_ApplyRandom) {
                 return (void *)field->p_obj;
             }
             break;
         case PARTICLE_FIELD_MAGNET:
-            if (field->p_exec == spl_calc_magnet) {
+            if (field->p_exec == SPLBehavior_ApplyMagnet) {
                 return (void *)field->p_obj;
             }
             break;
         case PARTICLE_FIELD_SPIN:
-            if (field->p_exec == spl_calc_spin) {
+            if (field->p_exec == SPLBehavior_ApplySpin) {
                 return (void *)field->p_obj;
             }
             break;
         case PARTICLE_FIELD_SCFIELD:
-            if (field->p_exec == spl_calc_scfield) {
+            if (field->p_exec == SPLBehavior_ApplyCollisionPlane) {
                 return (void *)field->p_obj;
             }
             break;
         case PARTICLE_FIELD_CONVERGENCE:
-            if (field->p_exec == spl_calc_convergence) {
+            if (field->p_exec == SPLBehavior_ApplyConvergence) {
                 return (void *)field->p_obj;
             }
             break;

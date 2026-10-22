@@ -11,7 +11,7 @@
 	.public sGlobalTerminalSocketThread
 	.public sGlobalTerminalSocketMutex
 	.public sGlobalTerminalSocketThreadStackEnd
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "overlay_39_arm.inc"
 	.include "global.inc"
 

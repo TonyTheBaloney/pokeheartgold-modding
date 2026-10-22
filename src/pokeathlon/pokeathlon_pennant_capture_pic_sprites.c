@@ -8,14 +8,14 @@
 
 // The definition order fixes the .rodata layout: the display parts and the CPU read the ids through
 // gPokeathlonPennantCaptureSpriteIds as an array.
-static const PokeathlonPennantCaptureSpriteIds sPicKinds = {
-    { 4, 5 }
-};
 static const PokeathlonPennantCaptureSpriteIds sPicResIds2 = {
     { 0x66, 0x67 }
 };
 const PokeathlonPennantCaptureSpriteIds gPokeathlonPennantCaptureSpriteIds = {
     { 0x66, 0x67 }
+};
+static const PokeathlonPennantCaptureSpriteIds sPicKinds = {
+    { 4, 5 }
 };
 static const PokeathlonPennantCaptureSpriteIds sPicResIds3 = {
     { 0x66, 0x67 }

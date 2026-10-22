@@ -283,7 +283,7 @@ int HatchEggApp_PrintMessage(Window *window, int msgId, Pokemon *mon, int textSp
     String *string;
     int printerId;
     FillWindowPixelBuffer(window, 0xF);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0187_bin, HEAP_ID_70);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0187, HEAP_ID_70);
     msgFormat = MessageFormat_New(HEAP_ID_70);
     template = NewString_ReadMsgData(msgData, msgId);
     string = String_New(0xFF, HEAP_ID_70);

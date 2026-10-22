@@ -217,10 +217,10 @@ BOOL WiFiPlazaConnect_Init(OverlayManager *man, int *state) {
     Sound_SetSceneAndPlayBGM(11, SEQ_GS_WIFI_ACCESS, 0);
     args->connected = FALSE;
     WiFiPlazaConnect_InitGraphics(work, HEAP_ID_119);
-    WiFiPlazaConnect_InitMessageBox(&work->msgBox, work->bgConfig, 1, NARC_msg_msg_0778_bin, 2, 19, 27, 4, 0x28, work->saveData, HEAP_ID_119);
-    WiFiPlazaConnect_InitMessageBox(&work->statusBox, work->bgConfig, 1, NARC_msg_msg_0800_bin, 2, 19, 27, 4, 0x28, work->saveData, HEAP_ID_119);
-    WiFiPlazaConnect_InitMessageBox(&work->errorBox, work->bgConfig, 0, NARC_msg_msg_0800_bin, 4, 4, 23, 16, 0x94, work->saveData, HEAP_ID_119);
-    WiFiPlazaConnect_InitMessageBox(&work->titleBox, work->bgConfig, 1, NARC_msg_msg_0778_bin, 5, 1, 22, 2, 0x204, work->saveData, HEAP_ID_119);
+    WiFiPlazaConnect_InitMessageBox(&work->msgBox, work->bgConfig, 1, msg_0778, 2, 19, 27, 4, 0x28, work->saveData, HEAP_ID_119);
+    WiFiPlazaConnect_InitMessageBox(&work->statusBox, work->bgConfig, 1, msg_0800, 2, 19, 27, 4, 0x28, work->saveData, HEAP_ID_119);
+    WiFiPlazaConnect_InitMessageBox(&work->errorBox, work->bgConfig, 0, msg_0800, 4, 4, 23, 16, 0x94, work->saveData, HEAP_ID_119);
+    WiFiPlazaConnect_InitMessageBox(&work->titleBox, work->bgConfig, 1, msg_0778, 5, 1, 22, 2, 0x204, work->saveData, HEAP_ID_119);
     WiFiPlazaConnect_PrintCenteredTitle(&work->titleBox, msg_0778_00021);
     Main_SetVBlankIntrCB(WiFiPlazaConnect_VBlankCB, work);
     HBlankInterruptDisable();
@@ -415,9 +415,9 @@ BOOL WiFiPlazaConnect_DisconnectInit(OverlayManager *man, int *state) {
     args = OverlayManager_GetArgs(man);
     work->saveData = args->saveData;
     WiFiPlazaConnect_InitGraphics(work, HEAP_ID_119);
-    WiFiPlazaConnect_InitMessageBox(&work->msgBox, work->bgConfig, 1, NARC_msg_msg_0800_bin, 2, 19, 27, 4, 0x28, work->saveData, HEAP_ID_119);
-    WiFiPlazaConnect_InitMessageBox(&work->errorBox, work->bgConfig, 0, NARC_msg_msg_0800_bin, 4, 4, 23, 16, 0x94, work->saveData, HEAP_ID_119);
-    WiFiPlazaConnect_InitMessageBox(&work->titleBox, work->bgConfig, 1, NARC_msg_msg_0778_bin, 5, 1, 22, 2, 0x204, work->saveData, HEAP_ID_119);
+    WiFiPlazaConnect_InitMessageBox(&work->msgBox, work->bgConfig, 1, msg_0800, 2, 19, 27, 4, 0x28, work->saveData, HEAP_ID_119);
+    WiFiPlazaConnect_InitMessageBox(&work->errorBox, work->bgConfig, 0, msg_0800, 4, 4, 23, 16, 0x94, work->saveData, HEAP_ID_119);
+    WiFiPlazaConnect_InitMessageBox(&work->titleBox, work->bgConfig, 1, msg_0778, 5, 1, 22, 2, 0x204, work->saveData, HEAP_ID_119);
     WiFiPlazaConnect_PrintCenteredTitle(&work->titleBox, msg_0778_00021);
     WirelessStatusIcon_Create();
     Main_SetVBlankIntrCB(WiFiPlazaConnect_VBlankCB, work);

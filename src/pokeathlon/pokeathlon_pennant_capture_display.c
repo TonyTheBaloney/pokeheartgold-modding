@@ -43,7 +43,7 @@ PokeathlonPennantCaptureDisplay *PokeathlonPennantCaptureDisplay_New(enum HeapID
     display->bgConfig = bgConfig;
     display->course = course;
     PokeathlonPennantCaptureDisplay_InitWindow(display);
-    display->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, heapId);
+    display->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, heapId);
     display->msgFormat = MessageFormat_New(heapId);
     for (i = 0; i < 3; i++) {
         display->names[i] = String_New(11, heapId);

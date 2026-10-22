@@ -72,14 +72,14 @@ static void SinjohGymmick_Load3dGraphics(SinjohGymmickLocalData *localData) {
     enum HeapID heapID = HEAP_ID_FIELD1;
 
     const int animIds[3][2] = {
-        { NARC_legend_legend_00000102_NSBCA, NARC_legend_legend_00000103_NSBTA },
-        { NARC_legend_legend_00000105_NSBCA, NARC_legend_legend_00000106_NSBTA },
-        { NARC_legend_legend_00000108_NSBCA, NARC_legend_legend_00000109_NSBTA },
+        { legend_00000102_NSBCA, legend_00000103_NSBTA },
+        { legend_00000105_NSBCA, legend_00000106_NSBTA },
+        { legend_00000108_NSBCA, legend_00000109_NSBTA },
     };
     const int modelIds[3] = {
-        NARC_legend_legend_00000101_NSBMD,
-        NARC_legend_legend_00000104_NSBMD,
-        NARC_legend_legend_00000107_NSBMD,
+        legend_00000101_NSBMD,
+        legend_00000104_NSBMD,
+        legend_00000107_NSBMD,
     };
 
     HeapExp_FndInitAllocator(&localData->allocator, heapID, 0x20);

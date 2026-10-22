@@ -1519,7 +1519,7 @@ static void MimeJrTopGame_ShowInstructions(MimeJrTopGame *game) {
     InitWindow(&game->instructions);
     AddWindowParameterized(game->resources->bgConfig, &game->instructions, GF_BG_LYR_SUB_3, 2, 0x13, 0x1C, 4, 0xE, 0x130);
     FillWindowPixelBuffer(&game->instructions, 0xFF);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0235_bin, HEAP_ID_113);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0235, HEAP_ID_113);
     string = NewString_ReadMsgData(msgData, msg_0235_00000);
     AddTextPrinterParameterized(&game->instructions, 0, string, 0, 0, 0, NULL);
     String_Delete(string);

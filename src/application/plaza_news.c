@@ -1041,7 +1041,7 @@ static void PlazaNewsTitles_Init(PlazaNewsTitles *titles, PlazaNewsGraphics *gra
     const PlazaNewsTitleTemplate *titleTemplate;
 
     memset(titles, 0, sizeof(PlazaNewsTitles));
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0757_bin, heapID);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0757, heapID);
     message = String_New(0x80, heapID);
     messageNo = 0;
     sound = sPlazaNewsTitleSEs;

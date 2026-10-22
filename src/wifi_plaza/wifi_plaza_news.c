@@ -291,7 +291,7 @@ BOOL WiFiPlazaNews_FormatEvent(WiFiPlazaNews *news, const u8 *flags, int unused,
     int type;
     GF_ASSERT(WiFiPlazaNews_HasEvent(news));
     event = news->events.head.next;
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0757_bin, heapID);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0757, heapID);
     format = MessageFormat_New(heapID);
     type = event->type;
     if ((u32)type < WIFI_PLAZA_NEWS_EVENT_COUNT) {

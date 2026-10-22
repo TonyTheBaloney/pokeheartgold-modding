@@ -811,7 +811,7 @@ BOOL Sound_PlayReversedWaveArc(int waveArcNo, int volume, int pan, int channel, 
     SoundWaveOutParam param;
     BOOL success;
     GF_ASSERT(channel == 14 || channel == 15);
-    info = NNS_SndArcGetWaveArcInfo(waveArcNo);
+    info = (const SndArcWaveArcInfo *)NNS_SndArcGetWaveArcInfo(waveArcNo);
     if (info == NULL) {
         GF_ASSERT(FALSE);
         return FALSE;
@@ -888,19 +888,19 @@ static void Sound_StopCaptureReverb(int frames) {
     NNS_SndCaptureStopReverb(frames);
 }
 
-void GF_SndHandleSetTrackPitch(int handleNo, u32 tracks, int pitch) {
+void GF_SndHandleSetTrackPitch(int handleNo, u16 tracks, int pitch) {
     NNS_SndPlayerSetTrackPitch(GF_GetSoundHandle(handleNo), tracks, pitch);
 }
 
-void GF_SndSetTrackPitchBySeqNo(u16 seqNo, u32 tracks, int pitch) {
+void GF_SndSetTrackPitchBySeqNo(u16 seqNo, u16 tracks, int pitch) {
     GF_SndHandleSetTrackPitch(GF_GetSndHandleByPlayerNo(GF_GetPlayerNoBySeq(seqNo)), tracks, pitch);
 }
 
-void GF_SndSetTrackPitchByPlayerNo(int playerNo, u32 tracks, int pitch) {
+void GF_SndSetTrackPitchByPlayerNo(int playerNo, u16 tracks, int pitch) {
     GF_SndHandleSetTrackPitch(GF_GetSndHandleByPlayerNo(playerNo), tracks, pitch);
 }
 
-void GF_SndHandleSetTrackPan(int handleNo, u32 tracks, int pan) {
+void GF_SndHandleSetTrackPan(int handleNo, u16 tracks, int pan) {
     NNS_SndPlayerSetTrackPan(GF_GetSoundHandle(handleNo), tracks, pan);
 }
 

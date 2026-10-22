@@ -852,7 +852,7 @@ static BOOL FrtCmd_BufferSpeciesName(FrontierScriptContext *ctx) {
 }
 
 static String *FrontierScript_ReadString(u32 msgId, enum HeapID heapId) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, heapId);
     String *string = NewString_ReadMsgData(msgData, msgId);
     DestroyMsgData(msgData);
     return string;

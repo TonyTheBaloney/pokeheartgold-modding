@@ -97,7 +97,6 @@ void DrawCellAnimationImpl_(const NNSG2dCellAnimation *pCellAnim);
 void DrawNode_(const NNSG2dNode *pNode);
 void NNS_G2dAddRendererTargetSurface(NNSG2dRendererInstance *pRend, NNSG2dRenderSurface *pNew);
 void NNS_G2dInitRenderSurface(NNSG2dRenderSurface *pSurface);
-const NNSG2dPaletteSwapTable *NNS_G2dGetRendererPaletteTbl(const NNSG2dRendererInstance *pRend);
 void NNSi_G2dMtxConcat32(const MtxFx32 *a, const MtxFx32 *b, MtxFx32 *ab);
 
 #endif // POKEHEARTGOLD_NNSYS_G2D_RENDERER_INTERNAL_H

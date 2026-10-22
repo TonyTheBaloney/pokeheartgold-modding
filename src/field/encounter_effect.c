@@ -1,6 +1,6 @@
 #include "field/encounter_effect.h"
 
-#include <nitro/os/tick.h>
+#include <nitro.h>
 
 #include "global.h"
 
@@ -48,7 +48,6 @@ typedef struct EncounterEffectFlash {
     BOOL *done;
 } EncounterEffectFlash;
 
-void GXx_SetMasterBrightness_(vu16 *reg, s32 brightness);
 
 extern void (*const gEncounterEffectFuncs[])(SysTask *task, EncounterEffectTask *effect);
 

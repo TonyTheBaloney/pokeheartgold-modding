@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public gMigrateFromAgbIcons
 	.public gPmAgbSave
 	.public gPmAgbSaveCounter

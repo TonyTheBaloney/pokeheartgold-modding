@@ -1005,10 +1005,6 @@ BOOL WiFiPlazaSurvey_Exit(OverlayManager *man, int *state);
 void WiFiPlazaMap_PosToVecFx32(const s16 *gridPos, s32 *position);
 void WiFiPlazaMap_LoadModelFile(NNSG3dResFileHeader **file, NARC *narc, int fileId, enum HeapID heapID);
 // billboards
-u32 NNS_G3dMdlGetMdlLightEnableFlag(const NNSG3dResMdl *pResMdl, u32 matID);
-void NNS_G3dMdlSetMdlLightEnableFlagAll(NNSG3dResMdl *pResMdl, u32 light);
-void NNS_G3dMdlSetMdlPolygonIDAll(NNSG3dResMdl *pResMdl, u32 polygonID);
-void NNS_G3dMdlSetMdlAlphaAll(NNSG3dResMdl *pResMdl, u32 alpha);
 void *Save_PlazaSurvey_Get(SaveData *save);
 void PlazaSurvey_SetSurveyId(void *data, u32 surveyId);
 void PlazaSurvey_SetAnswer(void *data, u32 answer);

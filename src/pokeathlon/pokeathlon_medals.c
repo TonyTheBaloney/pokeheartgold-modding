@@ -352,7 +352,7 @@ BOOL PokeathlonMedals_Init(OverlayManager *man, int *state) {
     PokeathlonMedals_BuildSpeciesList(work);
     PokeathlonMedals_InitBgs(work);
     PokeathlonMedals_LoadBgGraphics(work);
-    work->textContext = PokeathlonUtil_CreateTextContext(work->heapId, work->bgConfig, 12, gPokeathlonMedalsWindowTemplates, NARC_msg_msg_0314_bin);
+    work->textContext = PokeathlonUtil_CreateTextContext(work->heapId, work->bgConfig, 12, gPokeathlonMedalsWindowTemplates, msg_0314);
     PokeathlonMedals_CreateSprites(work);
     PokeathlonMedals_CreateGridInput(work);
     PokeathlonMedals_UpdatePageIndicator(work);

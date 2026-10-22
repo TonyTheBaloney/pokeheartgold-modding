@@ -215,23 +215,23 @@ static BOOL AlphHiddenRoom_IsAButtonPressed(void);
 static LanceFliesAwayEnv *LanceFliesAway_CreateTaskEnv(FieldSystem *fieldSystem, LocalMapObject *lance, LocalMapObject *dragoniteObject);
 static BOOL Task_LanceFliesAway(TaskManager *taskManager);
 
-static const u16 sElectricTrapAnims[1] = { NARC_legend_legend_00000011_NSBCA };
+static const u16 sElectricTrapAnims[1] = { legend_00000011_NSBCA };
 
-static const u16 sPoisonTrapAnims[2] = { NARC_legend_legend_00000004_NSBCA, NARC_legend_legend_00000005_NSBMA };
+static const u16 sPoisonTrapAnims[2] = { legend_00000004_NSBCA, legend_00000005_NSBMA };
 
-static const u16 sLegendaryWingLoopAnims1[3] = { NARC_legend_legend_00000069_NSBCA, NARC_legend_legend_00000070_NSBMA, NARC_legend_legend_00000071_NSBTP };
+static const u16 sLegendaryWingLoopAnims1[3] = { legend_00000069_NSBCA, legend_00000070_NSBMA, legend_00000071_NSBTP };
 
-static const u16 sRockTrapAnims[3] = { NARC_legend_legend_00000007_NSBCA, NARC_legend_legend_00000008_NSBMA, NARC_legend_legend_00000009_NSBTA };
+static const u16 sRockTrapAnims[3] = { legend_00000007_NSBCA, legend_00000008_NSBMA, legend_00000009_NSBTA };
 
-static const u16 sLegendaryWingEndAnims0[3] = { NARC_legend_legend_00000062_NSBCA, NARC_legend_legend_00000063_NSBMA, NARC_legend_legend_00000064_NSBTP };
+static const u16 sLegendaryWingEndAnims0[3] = { legend_00000062_NSBCA, legend_00000063_NSBMA, legend_00000064_NSBTP };
 
-static const u16 sLegendaryWingEndAnims1[3] = { NARC_legend_legend_00000072_NSBCA, NARC_legend_legend_00000073_NSBMA, NARC_legend_legend_00000074_NSBTP };
+static const u16 sLegendaryWingEndAnims1[3] = { legend_00000072_NSBCA, legend_00000073_NSBMA, legend_00000074_NSBTP };
 
-static const u16 sLegendaryWingIntroAnims0[3] = { NARC_legend_legend_00000057_NSBCA, NARC_legend_legend_00000056_NSBMA, NARC_legend_legend_00000058_NSBTP };
+static const u16 sLegendaryWingIntroAnims0[3] = { legend_00000057_NSBCA, legend_00000056_NSBMA, legend_00000058_NSBTP };
 
-static const u16 sLegendaryWingLoopAnims0[3] = { NARC_legend_legend_00000059_NSBCA, NARC_legend_legend_00000060_NSBMA, NARC_legend_legend_00000061_NSBTP };
+static const u16 sLegendaryWingLoopAnims0[3] = { legend_00000059_NSBCA, legend_00000060_NSBMA, legend_00000061_NSBTP };
 
-static const u16 sLegendaryWingIntroAnims1[3] = { NARC_legend_legend_00000067_NSBCA, NARC_legend_legend_00000066_NSBMA, NARC_legend_legend_00000068_NSBTP };
+static const u16 sLegendaryWingIntroAnims1[3] = { legend_00000067_NSBCA, legend_00000066_NSBMA, legend_00000068_NSBTP };
 
 static const WindowTemplate sAlphHiddenRoomWindowTemplate = {
     .bgId = GF_BG_LYR_MAIN_1,
@@ -246,13 +246,13 @@ static const WindowTemplate sAlphHiddenRoomWindowTemplate = {
 static const FieldAnimModelTemplate sLegendaryWingModels[2] = {
     {
      .narcId = NARC_demo_legend,
-     .modelFileId = NARC_legend_legend_00000055_NSBMD,
+     .modelFileId = legend_00000055_NSBMD,
      .animCount = 3,
      .animFileIds = sLegendaryWingIntroAnims0,
      },
     {
      .narcId = NARC_demo_legend,
-     .modelFileId = NARC_legend_legend_00000065_NSBMD,
+     .modelFileId = legend_00000065_NSBMD,
      .animCount = 3,
      .animFileIds = sLegendaryWingIntroAnims1,
      },
@@ -262,7 +262,7 @@ static const TrapEffectTemplate sTrapEffects[3] = {
     {
      .model = {
             .narcId = NARC_demo_legend,
-            .modelFileId = NARC_legend_legend_00000010_NSBMD,
+            .modelFileId = legend_00000010_NSBMD,
             .animCount = 1,
             .animFileIds = sElectricTrapAnims,
         },
@@ -271,7 +271,7 @@ static const TrapEffectTemplate sTrapEffects[3] = {
     {
      .model = {
             .narcId = NARC_demo_legend,
-            .modelFileId = NARC_legend_legend_00000003_NSBMD,
+            .modelFileId = legend_00000003_NSBMD,
             .animCount = 2,
             .animFileIds = sPoisonTrapAnims,
         },
@@ -280,7 +280,7 @@ static const TrapEffectTemplate sTrapEffects[3] = {
     {
      .model = {
             .narcId = NARC_demo_legend,
-            .modelFileId = NARC_legend_legend_00000006_NSBMD,
+            .modelFileId = legend_00000006_NSBMD,
             .animCount = 3,
             .animFileIds = sRockTrapAnims,
         },
@@ -374,9 +374,9 @@ static BOOL Task_ShowLighthouseLightUp(TaskManager *taskManager) {
 
 static void LighthouseLightUp_Load(LighthouseLightUpEnv *env) {
     HeapExp_FndInitAllocator(&env->allocator, env->heapId, 32);
-    Field3dModel_LoadFromFilesystem(&env->model, NARC_demo_legend, NARC_legend_legend_00000000_NSBMD, env->heapId);
-    Field3dModelAnimation_LoadFromFilesystem(&env->anims[0], &env->model, NARC_demo_legend, NARC_legend_legend_00000001_NSBCA, env->heapId, &env->allocator);
-    Field3dModelAnimation_LoadFromFilesystem(&env->anims[1], &env->model, NARC_demo_legend, NARC_legend_legend_00000002_NSBTP, env->heapId, &env->allocator);
+    Field3dModel_LoadFromFilesystem(&env->model, NARC_demo_legend, legend_00000000_NSBMD, env->heapId);
+    Field3dModelAnimation_LoadFromFilesystem(&env->anims[0], &env->model, NARC_demo_legend, legend_00000001_NSBCA, env->heapId, &env->allocator);
+    Field3dModelAnimation_LoadFromFilesystem(&env->anims[1], &env->model, NARC_demo_legend, legend_00000002_NSBTP, env->heapId, &env->allocator);
     Field3dObject_InitFromModel(&env->object, &env->model);
     Field3dObject_AddAnimation(&env->object, &env->anims[0]);
     Field3dObject_AddAnimation(&env->object, &env->anims[1]);
@@ -623,9 +623,9 @@ static void HideoutAlarm_Load(HideoutAlarmEnv *env) {
     env->blend = 0;
     G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG1, GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG2, env->blend, 31 - env->blend);
     narc = NARC_New(NARC_demo_legend, env->heapId);
-    GfGfxLoader_GXLoadPalFromOpenNarc(narc, NARC_legend_legend_00000012_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 32, env->heapId);
-    GfGfxLoader_LoadCharDataFromOpenNarc(narc, NARC_legend_legend_00000013_NCGR, env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1, 0, 64, FALSE, env->heapId);
-    GfGfxLoader_LoadScrnDataFromOpenNarc(narc, NARC_legend_legend_00000014_NSCR, env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, env->heapId);
+    GfGfxLoader_GXLoadPalFromOpenNarc(narc, legend_00000012_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 32, env->heapId);
+    GfGfxLoader_LoadCharDataFromOpenNarc(narc, legend_00000013_NCGR, env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1, 0, 64, FALSE, env->heapId);
+    GfGfxLoader_LoadScrnDataFromOpenNarc(narc, legend_00000014_NSCR, env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, env->heapId);
     env->bg0Priority = GetBgPriority(env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_0);
     env->bg1Priority = GetBgPriority(env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1);
     SetBgPriority(GF_BG_LYR_MAIN_0, 1);
@@ -819,16 +819,16 @@ static void AlphHiddenRoom_ShowMessage(AlphHiddenRoomEnv *env) {
     int x;
 
     narc = NARC_New(NARC_demo_legend, env->heapId);
-    GfGfxLoader_GXLoadPalFromOpenNarc(narc, NARC_legend_legend_00000015_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 32, env->heapId);
-    GfGfxLoader_LoadCharDataFromOpenNarc(narc, NARC_legend_legend_00000016_NCGR, env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, env->heapId);
-    GfGfxLoader_LoadScrnDataFromOpenNarc(narc, NARC_legend_legend_00000017_NSCR, env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, env->heapId);
+    GfGfxLoader_GXLoadPalFromOpenNarc(narc, legend_00000015_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 32, env->heapId);
+    GfGfxLoader_LoadCharDataFromOpenNarc(narc, legend_00000016_NCGR, env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, env->heapId);
+    GfGfxLoader_LoadScrnDataFromOpenNarc(narc, legend_00000017_NSCR, env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, env->heapId);
     env->bg1Priority = GetBgPriority(env->fieldSystem->bgConfig, GF_BG_LYR_MAIN_1);
     SetBgPriority(GF_BG_LYR_MAIN_1, 0);
     GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG1, GF_PLANE_TOGGLE_ON);
     NARC_Delete(narc);
     AddWindow(env->fieldSystem->bgConfig, &env->window, &sAlphHiddenRoomWindowTemplate);
     FillWindowPixelBuffer(&env->window, 9);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0198_bin, env->heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0198, env->heapId);
     string = NewString_ReadMsgData(msgData, env->msgNo);
     width = FontID_String_GetWidth(3, string, 0);
     x = 112 - width;

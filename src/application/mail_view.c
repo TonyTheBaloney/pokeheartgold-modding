@@ -956,7 +956,7 @@ static void MailView_PrintTexts(MailView *mailView) {
     if (mailView->screen == MAIL_VIEW_SCREEN_WRITE) {
         int x;
 
-        mailView->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0233_bin, mailView->heapID);
+        mailView->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0233, mailView->heapID);
         string = String_New(16, mailView->heapID);
         i = 0;
         window = &mailView->windows[0];

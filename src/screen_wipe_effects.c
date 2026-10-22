@@ -11,7 +11,6 @@ enum RectShutterWipePhase {
     RECT_SHUTTER_WIPE_DONE,
 };
 
-u32 FX_Sqrt(u32 value);
 
 static void CircleWipe_BuildScanlines(CircleWipe *wipe);
 static BOOL CircleWipe_Step(CircleWipe *wipe);

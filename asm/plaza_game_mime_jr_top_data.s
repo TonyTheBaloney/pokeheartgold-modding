@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public gMimeJrTopPlayerPalettes
 	.public MimeJrTopDance_Routine1
 	.public MimeJrTopDance_Routine2

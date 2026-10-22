@@ -228,8 +228,8 @@ static void PokewalkerApp_LoadBgGraphics(PokewalkerApp *app) {
 }
 
 static void PokewalkerApp_InitMessages(PokewalkerApp *app) {
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0274_bin, HEAP_ID_154);
-    app->msgDataItemNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0222_bin, HEAP_ID_154);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0274, HEAP_ID_154);
+    app->msgDataItemNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0222, HEAP_ID_154);
     app->msgFormat = MessageFormat_New_Custom(16, 32, HEAP_ID_154);
     app->string = String_New(400, HEAP_ID_154);
 }

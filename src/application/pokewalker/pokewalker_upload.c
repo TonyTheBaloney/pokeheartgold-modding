@@ -518,7 +518,7 @@ static void PokewalkerApp_PrintPlayerName(Window *window, PokewalkerApp *app) {
 // Prints the course's item names (windows 0-9), the chosen Pokemon's names (10-12), the course name (13) and
 // the stroll Pokemon's nickname (14).
 static void PokewalkerApp_PrintStrollTexts(Window *windows, PokewalkerApp *app, const PokewalkerCourse *course, const u8 *chosen) {
-    MsgData *speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_154);
+    MsgData *speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, HEAP_ID_154);
     String *string;
     int i;
 

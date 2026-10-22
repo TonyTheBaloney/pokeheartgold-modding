@@ -4,7 +4,7 @@
 #include "constants/items.h"
 #include "constants/pokemon.h"
 #include "constants/std_script.h"
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public FlyLandingEffect_Init
 	.public FlyLandingEffect_Destroy
 	.public FlyLandingEffect_Update

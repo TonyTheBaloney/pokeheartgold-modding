@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "map_object_movement_tables.inc"
 	.include "global.inc"
 

@@ -15,7 +15,6 @@ int Comm_GetLocalNetId(void);
 void Comm_SendParentCommand(int, const void *, int);
 int Comm_CountConnected(void);
 int Wireless_GetConnectedBitmap(void);
-int MATH_CountPopulation(u32);
 void CommState_SetMaxEntries(int);
 void GF_AssertFail(void);
 void CommState_SetErrorWatch(int, int);

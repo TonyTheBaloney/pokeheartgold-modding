@@ -796,7 +796,7 @@ void PokedexApp_FreePaletteData(PokedexAppData *pokedexApp) {
 }
 
 void PokedexApp_InitMsgData(PokedexAppData *pokedexApp) {
-    pokedexApp->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0802_bin, HEAP_ID_POKEDEX_APP);
+    pokedexApp->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0802, HEAP_ID_POKEDEX_APP);
     pokedexApp->msgFormat = MessageFormat_New(HEAP_ID_POKEDEX_APP);
     pokedexApp->strBufFormatted = String_New(0x400, HEAP_ID_POKEDEX_APP);
 }
@@ -809,8 +809,12 @@ void PokedexApp_FreeMsgData(PokedexAppData *pokedexApp) {
 
 void PokedexApp_LoadSearchTables(PokedexAppData *pokedexApp) {
     NARC *narc = NARC_New(NARC_application_zukanlist_zkn_data_zukan_hw_data, HEAP_ID_POKEDEX_APP);
-    pokedexApp->sliderValues = GfGfxLoader_LoadFromOpenNarc(narc, NARC_zukan_hw_data_zukan_hw_data_0_bin, FALSE, HEAP_ID_POKEDEX_APP, FALSE);
-    pokedexApp->speciesAreaMasks = GfGfxLoader_LoadFromOpenNarc(narc, NARC_zukan_hw_data_zukan_hw_data_1_bin, FALSE, HEAP_ID_POKEDEX_APP, FALSE);
+    pokedexApp->sliderValues = GfGfxLoader_LoadFromOpenNarc(narc, zukan_hw_data_0_bin, FALSE, HEAP_ID_POKEDEX_APP, FALSE);
+#ifdef HEARTGOLD
+    pokedexApp->speciesAreaMasks = GfGfxLoader_LoadFromOpenNarc(narc, zukan_hw_data_1_gold_bin, FALSE, HEAP_ID_POKEDEX_APP, FALSE);
+#else
+    pokedexApp->speciesAreaMasks = GfGfxLoader_LoadFromOpenNarc(narc, zukan_hw_data_1_silver_bin, FALSE, HEAP_ID_POKEDEX_APP, FALSE);
+#endif
     NARC_Delete(narc);
 }
 
@@ -1879,28 +1883,28 @@ static void PokedexApp_LoadEncounterMaps(PokedexMapList *mapList, u16 species, i
 
     switch (table) {
     case 0:
-        base = NARC_zukan_enc_zukan_enc_00000002; // 0 * 495 + 2
+        base = NARC_zukan_enc_gEncounters_method_0_mon_000_none; // 0 * 495 + 2
         break;
     case 1:
-        base = NARC_zukan_enc_zukan_enc_00000497; // 1 * 495 + 2
+        base = NARC_zukan_enc_gEncounters_method_1_mon_000_none; // 1 * 495 + 2
         break;
     case 2:
-        base = NARC_zukan_enc_zukan_enc_00000992; // 2 * 495 + 2
+        base = NARC_zukan_enc_gEncounters_method_2_mon_000_none; // 2 * 495 + 2
         break;
     case 3:
-        base = NARC_zukan_enc_zukan_enc_00002972; // 6 * 495 + 2
+        base = NARC_zukan_enc_gEncounters_method_6_mon_000_none; // 6 * 495 + 2
         break;
     case 4:
-        base = NARC_zukan_enc_zukan_enc_00001487; // 3 * 495 + 2
+        base = NARC_zukan_enc_gEncounters_method_3_mon_000_none; // 3 * 495 + 2
         break;
     case 5:
-        base = NARC_zukan_enc_zukan_enc_00001982; // 4 * 495 + 2
+        base = NARC_zukan_enc_gEncounters_method_4_mon_000_none; // 4 * 495 + 2
         break;
     case 6:
-        base = NARC_zukan_enc_zukan_enc_00002477; // 5 * 495 + 2
+        base = NARC_zukan_enc_gEncounters_method_5_mon_000_none; // 5 * 495 + 2
         break;
     case 7:
-        base = NARC_zukan_enc_zukan_enc_00003467; // 7 * 495 + 2
+        base = NARC_zukan_enc_gEncounters_method_7_mon_000_none; // 7 * 495 + 2
         break;
     }
     // UB: if unexpected a2, r3 is uninitialized
@@ -2094,8 +2098,8 @@ static u32 PokedexApp_GetRoute16AreaIndex(void) {
 void PokedexApp_LoadAreaTables(PokedexAppData *pokedexApp) {
     u32 size;
 
-    pokedexApp->overworldAreaTable = GfGfxLoader_LoadFromNarc_GetSizeOut(NARC_application_zukanlist_zkn_data_zukan_enc, NARC_zukan_enc_zukan_enc_00000001, FALSE, HEAP_ID_POKEDEX_APP, FALSE, &size);
-    pokedexApp->dungeonAreaTable = GfGfxLoader_LoadFromNarc_GetSizeOut(NARC_application_zukanlist_zkn_data_zukan_enc, NARC_zukan_enc_zukan_enc_00000000, FALSE, HEAP_ID_POKEDEX_APP, FALSE, &size);
+    pokedexApp->overworldAreaTable = GfGfxLoader_LoadFromNarc_GetSizeOut(NARC_application_zukanlist_zkn_data_zukan_enc, NARC_zukan_enc_gOverworlds, FALSE, HEAP_ID_POKEDEX_APP, FALSE, &size);
+    pokedexApp->dungeonAreaTable = GfGfxLoader_LoadFromNarc_GetSizeOut(NARC_application_zukanlist_zkn_data_zukan_enc, NARC_zukan_enc_gDungeons, FALSE, HEAP_ID_POKEDEX_APP, FALSE, &size);
 }
 
 void PokedexApp_FreeAreaTables(PokedexAppData *pokedexApp) {

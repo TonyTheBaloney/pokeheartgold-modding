@@ -276,7 +276,7 @@ PokeathlonTextContext *PokeathlonUtil_CreateTextContext(enum HeapID heapId, BgCo
         FillWindowPixelBuffer(&ctx->windows[i], 0);
         ClearWindowTilemap(&ctx->windows[i]);
     }
-    ctx->msgDataFixed = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, heapId);
+    ctx->msgDataFixed = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, heapId);
     ctx->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msgBank, heapId);
     ctx->msgFormat = MessageFormat_New(heapId);
     ctx->string = String_New(0x400, heapId);

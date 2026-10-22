@@ -609,7 +609,7 @@ EvolutionTaskData *EvolutionScene_New(Party *party, Pokemon *mon, int species, O
     data->pokepicAnimManager = PokepicAnimManager_New(heapID, 1, 0);
     data->done = FALSE;
     data->timer = 2;
-    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0197_bin, heapID);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0197, heapID);
     data->msgFormat = MessageFormat_New(heapID);
     data->string = String_New(320, heapID);
     data->summaryArgs = Heap_Alloc(heapID, sizeof(PokemonSummaryArgs));

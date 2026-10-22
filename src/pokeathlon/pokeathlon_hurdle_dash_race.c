@@ -955,7 +955,7 @@ void PokeathlonHurdleDash_InitTimeWindow(PokeathlonHurdleDash *hurdleDash) {
 
 // Prints the team's time (frames) as seconds and tenths.
 void PokeathlonHurdleDash_PrintTime(PokeathlonHurdleDash *hurdleDash, s32 frames) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, hurdleDash->heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, hurdleDash->heapId);
     MessageFormat *messageFormat = MessageFormat_New(hurdleDash->heapId);
     String *string;
     BufferIntegerAsString(messageFormat, 0, frames / 30, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);

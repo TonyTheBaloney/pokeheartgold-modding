@@ -372,7 +372,7 @@ static void PokedexEntryPopup_DrawWindows(PokedexEntryPopup *popup) {
         AddWindow(popup->bgConfig, &popup->windows[i], &sEntryPopupWindowTemplates[i]);
         FillWindowPixelBuffer(&popup->windows[i], 0);
     }
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0802_bin, popup->heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0802, popup->heapId);
     msgFormat = MessageFormat_New(popup->heapId);
     strbuf = String_New(0x400, popup->heapId);
     PokedexApp_PrintMessage(&popup->windows[0], msgData, msg_0802_00144, 112, 0, 4, MAKE_TEXT_COLOR(2, 1, 0), 2);

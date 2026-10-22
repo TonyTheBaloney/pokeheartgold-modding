@@ -115,10 +115,4 @@ void TimeOfDayPropAnimManager_AddProp(TimeOfDayPropAnimManager *manager, NNSG3dR
 void TimeOfDayPropAnimManager_Update(TimeOfDayPropAnimManager *manager);
 u8 TimeOfDayPropAnimManager_GetVisualState(TimeOfDayPropAnimManager *manager);
 
-void *NNS_FndAllocFromAllocator(NNSFndAllocator *pAllocator, u32 size);
-
-typedef struct NNSG3dMatAnmResult NNSG3dMatAnmResult;
-typedef void (*NNSG3dFuncAnmMat)(NNSG3dMatAnmResult *, const NNSG3dAnmObj *, u32);
-extern NNSG3dFuncAnmMat gAnmCalcFuncNsBta; // NNS_G3dFuncAnmMatNsBtaDefault = &NNSi_G3dAnmCalcNsBta
-
 #endif // POKEHEARTGOLD_FIELD_MAP_PROP_RENDER_H

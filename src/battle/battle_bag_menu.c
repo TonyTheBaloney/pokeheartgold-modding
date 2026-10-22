@@ -525,7 +525,7 @@ static int BattleBagMenu_TryUseItem(BattleBagMenu *menu) {
                 BattleBagMenu_ConsumeItem(context->battleSystem, context->selectedItem, menu->pocket, context->heapID);
                 return BATTLE_BAG_STATE_FADE_OUT;
             }
-            msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0040_bin, context->heapID);
+            msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0040, context->heapID);
             string = NewString_ReadMsgData(msgData, msg_0040_00037);
             BufferPlayersName(menu->msgFormat, 0, context->profile);
             StringExpandPlaceholders(menu->msgFormat, menu->string, string);
@@ -759,7 +759,7 @@ static void BattleBagMenu_LoadBgGraphics(BattleBagMenu *menu) {
 }
 
 static void BattleBagMenu_InitText(BattleBagMenu *menu) {
-    menu->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0005_bin, menu->context->heapID);
+    menu->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0005, menu->context->heapID);
     menu->msgPrinter = MessagePrinter_New(15, 14, 0, menu->context->heapID);
     menu->msgFormat = MessageFormat_New(menu->context->heapID);
     menu->string = String_New(0x200, menu->context->heapID);

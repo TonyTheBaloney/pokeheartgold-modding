@@ -858,7 +858,7 @@ static int LinkBattleScreen_InitResultScreen(LinkBattleScreen *screen) {
         screen->shakeRangeX = 4;
         screen->shakeRangeY = 2;
         screen->slideSpeed = 12;
-        screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0638_bin, screen->args->heapId);
+        screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0638, screen->args->heapId);
         screen->msgFormat = MessageFormat_New(screen->args->heapId);
         screen->string = String_New(320, screen->args->heapId);
         screen->videoPromptState = VIDEO_PROMPT_STATE_SHOW_PROMPT;
@@ -2086,7 +2086,7 @@ static void LinkBattleScreen_DrawMonPanelText(LinkBattleScreen *screen, MsgData 
 }
 
 static void LinkBattleScreen_DrawAllMonPanelText(LinkBattleScreen *screen) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0300_bin, screen->args->heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0300, screen->args->heapId);
     MessagePrinter *printer = MessagePrinter_New(15, 14, 0, screen->args->heapId);
     MessageFormat *msgFormat = MessageFormat_New(screen->args->heapId);
     String *string = String_New(32, screen->args->heapId);

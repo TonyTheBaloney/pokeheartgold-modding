@@ -1,4 +1,4 @@
-#include <nitro/fs/overlay.h>
+
 #pragma once
 .public Math_CalcRotationMatrixXYZDeg
 .public MetatileBehavior_IsWarpEntranceEast

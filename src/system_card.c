@@ -5,7 +5,7 @@
 // The NitroSDK headers below need the types from global.h.
 #include <nitro/card.h>
 #include <nitro/fs.h>
-#include <nitro/hw/ARM9/mmap.h>
+#include <nitro.h>
 #include <nitro/mi.h>
 #include <nitro/os.h>
 

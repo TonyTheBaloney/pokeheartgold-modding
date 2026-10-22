@@ -2216,7 +2216,7 @@ static void PokeathlonRelayRun_PrintResult(PokeathlonRelayRun *relayRun, int lap
     FillWindowPixelBuffer(&relayRun->window, 0);
     tenths = (int)(x * 10 / 1024.0);
     GF_ASSERT(tenths <= 9);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, relayRun->heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, relayRun->heapId);
     msgFormat = MessageFormat_New(relayRun->heapId);
     BufferIntegerAsString(msgFormat, 0, laps, 2, PRINTING_MODE_LEADING_ZEROS, TRUE);
     BufferIntegerAsString(msgFormat, 1, tenths, 1, PRINTING_MODE_LEADING_ZEROS, TRUE);

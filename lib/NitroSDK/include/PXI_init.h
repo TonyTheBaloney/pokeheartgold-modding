@@ -1,6 +1,0 @@
-#ifndef POKEDIAMOND_PXI_INIT_H
-#define POKEDIAMOND_PXI_INIT_H
-
-void PXI_Init(void);
-
-#endif //POKEDIAMOND_PXI_INIT_H

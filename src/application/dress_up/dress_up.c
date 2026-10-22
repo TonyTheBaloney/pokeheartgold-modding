@@ -1383,7 +1383,7 @@ BOOL DressUp_Main(OverlayManager *man, int *state) {
     case DRESS_UP_STATE_TUTORIAL:
         if (args->showTutorial == 1) {
             TextFlags_SetCanTouchSpeedUpPrint(TRUE);
-            work->printerId = DressUpHud_PrintMsg(&work->hud, NARC_msgdata_msg, NARC_msg_msg_0215_bin, msg_0215_00047);
+            work->printerId = DressUpHud_PrintMsg(&work->hud, NARC_msgdata_msg, msg_0215, msg_0215_00047);
             (*state)++;
         } else {
             *state = DRESS_UP_STATE_EDIT;
@@ -1397,7 +1397,7 @@ BOOL DressUp_Main(OverlayManager *man, int *state) {
         break;
     case DRESS_UP_STATE_WAIT_TUTORIAL_INPUT:
         if (((gSystem.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B)) | gSystem.touchNew) != 0) {
-            DressUpHud_PrintMsgInstant(&work->hud, NARC_msgdata_msg, NARC_msg_msg_0215_bin, msg_0215_00048);
+            DressUpHud_PrintMsgInstant(&work->hud, NARC_msgdata_msg, msg_0215, msg_0215_00048);
             TextFlags_SetCanTouchSpeedUpPrint(FALSE);
             (*state)++;
         }
@@ -1958,7 +1958,7 @@ static void DressUp_CreateMsgWindow(DressUpWork *work, int msgId, u8 x, u8 y, u8
     FillWindowPixelBuffer(work->msgWindow, 15);
     LoadUserFrameGfx2(work->gfx.bgConfig, GF_BG_LYR_MAIN_3, 0x3C, 8, frame, HEAP_ID_14);
     DrawFrameAndWindow2(work->msgWindow, FALSE, 0x3C, 8);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0215_bin, HEAP_ID_13);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0215, HEAP_ID_13);
     string = NewString_ReadMsgData(msgData, msgId);
     AddTextPrinterParameterizedWithColor(work->msgWindow, 1, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     String_Delete(string);
@@ -1971,7 +1971,7 @@ static void DressUp_PrintMsgWindow(DressUpWork *work, int msgId) {
     String *raw;
     String *expanded;
     FillWindowPixelBuffer(work->msgWindow, 15);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0215_bin, HEAP_ID_13);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0215, HEAP_ID_13);
     raw = NewString_ReadMsgData(msgData, msgId);
     expanded = String_New(0x100, HEAP_ID_13);
     StringExpandPlaceholders(work->msgFormat, expanded, raw);
@@ -3220,7 +3220,7 @@ static void DressUpDrag_OnReleaseAccessory(DressUpTouch *touch) {
                 x = drag->originX;
                 y = drag->originY;
                 PlaySE(SEQ_SE_DP_HYUN2);
-                DressUpHud_PrintMsgInstant(drag->hud, NARC_msgdata_msg, NARC_msg_msg_0215_bin, msg_0215_00003);
+                DressUpHud_PrintMsgInstant(drag->hud, NARC_msgdata_msg, msg_0215, msg_0215_00003);
                 DressUp_StartTweenToTray(drag, 4, x, y, drag->selected->mode, drag->trayPage);
             } else {
                 DressUpCanvas_RefreshPriorities(drag->canvas);
@@ -3410,9 +3410,9 @@ static void DressUp_TweenToTrayTask(SysTask *task, DressUpTrayTween *tween) {
 
 static void DressUp_PrintSelectedItemName(DressUpDrag *drag) {
     if (drag->selected->mode == 0) {
-        DressUpHud_PrintMsgInstant(drag->hud, NARC_msgdata_msg, NARC_msg_msg_0216_bin, ((DressUpSlot *)drag->selected->object)->id);
+        DressUpHud_PrintMsgInstant(drag->hud, NARC_msgdata_msg, msg_0216, ((DressUpSlot *)drag->selected->object)->id);
     } else if (drag->selected->mode == 1) {
-        DressUpHud_PrintMsgInstant(drag->hud, NARC_msgdata_msg, NARC_msg_msg_0218_bin, ((DressUpSlot *)drag->selected->object)->id);
+        DressUpHud_PrintMsgInstant(drag->hud, NARC_msgdata_msg, msg_0218, ((DressUpSlot *)drag->selected->object)->id);
     }
 }
 
@@ -4089,7 +4089,7 @@ static void DressUpButtonPanel_Create(DressUpButtonPanel *panel, DressUpGfx *gfx
     DressUp_SetHitboxRect(panel->hitboxes, 3, 136, 156, 40, 34);
     FontID_Alloc(2, HEAP_ID_14);
     {
-        Window *label = DressUpButton_CreateTextBitmap(gfx, NARC_msgdata_msg, NARC_msg_msg_0215_bin, msg_0215_00000, 9, 5);
+        Window *label = DressUpButton_CreateTextBitmap(gfx, NARC_msgdata_msg, msg_0215, msg_0215_00000, 9, 5);
         DressUpButton_CreateTextSprite(&panel->done, 4, gfx, panel->fontSystem, label, 184, 144, 72, 42);
         DressUp_SetHitboxRect(panel->hitboxes, 4, 184, 156, 72, 34);
         DressUpButton_DeleteTextBitmap(label);
@@ -4676,8 +4676,8 @@ static void DressUpCountdown_Create(DressUpCountdown *countdown, SpriteList *spr
     DressUpCountdown_DrawDigits(countdown);
     DressUpHud_AddWindow(&countdown->window, bgConfig, 10, 8, 14, 4, 193, FALSE);
     FillWindowPixelBuffer(countdown->window, 0);
-    DressUp_PrintMsg(countdown->window, NARC_msgdata_msg, NARC_msg_msg_0215_bin, msg_0215_00004, 0, 4, MAKE_TEXT_COLOR(1, 2, 0), TEXT_SPEED_NOTRANSFER);
-    DressUp_PrintMsg(countdown->window, NARC_msgdata_msg, NARC_msg_msg_0215_bin, msg_0215_00005, 72, 4, MAKE_TEXT_COLOR(1, 2, 0), TEXT_SPEED_NOTRANSFER);
+    DressUp_PrintMsg(countdown->window, NARC_msgdata_msg, msg_0215, msg_0215_00004, 0, 4, MAKE_TEXT_COLOR(1, 2, 0), TEXT_SPEED_NOTRANSFER);
+    DressUp_PrintMsg(countdown->window, NARC_msgdata_msg, msg_0215, msg_0215_00005, 72, 4, MAKE_TEXT_COLOR(1, 2, 0), TEXT_SPEED_NOTRANSFER);
     CopyWindowToVram(countdown->window);
 }
 

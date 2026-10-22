@@ -446,7 +446,7 @@ int PCBox_DrawMoveWindows(PCBoxWork *work, PCBoxMonInfo *monInfo) {
     view->infoWindowToggle = next;
     allocation = GfGfxLoader_GetCharData(NARC_a_0_1_9, 6, TRUE, &charData, HEAP_ID_10);
     pixels = charData->pRawData;
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0750_bin, HEAP_ID_10);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0750, HEAP_ID_10);
     if (!monInfo->isEgg) {
         for (i = 0; i < 4; i++) {
             index = start + i;
@@ -910,7 +910,7 @@ void PCBox_DrawSummaryButton(PCBoxWork *work, u32 unused) {
 }
 
 static MsgData *PCBox_LoadBoxMessages(void) {
-    return NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0025_bin, HEAP_ID_10);
+    return NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0025, HEAP_ID_10);
 }
 
 static void PCBox_DrawMessageFrame(Window *window) {

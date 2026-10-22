@@ -1,12 +1,22 @@
 #ifndef POKEHEARTGOLD_GLOBAL_H
 #define POKEHEARTGOLD_GLOBAL_H
 
-#include <MSL.h>
+#ifndef PM_ASM
 #include <nitro.h>
-#include <nitro/code16.h>
+// Like <nitro/code16.h>, but FX_Mul stays inline: game code was built that way.
+#pragma thumb on
+#undef FX_Mul32x64c
+#undef MATH_CountLeadingZeros
+#define FX_Mul32x64c(v32, v64c)   FX_Mul32x64cFunc(v32, v64c)
+#define MATH_CountLeadingZeros(x) MATH_CountLeadingZerosFunc(x)
 #include <nnsys.h>
 #include <stddef.h>
+#include <stdlib.h>
 #include <string.h>
+// MSL defines NULL as 0L; the game was built with the SDK's C definition.
+#undef NULL
+#define NULL ((void *)0)
+#endif
 
 #include "constants/global.h"
 

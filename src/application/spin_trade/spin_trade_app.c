@@ -1721,7 +1721,7 @@ static void SpinTrade_InitText(SpinTradeApp *app) {
     LoadUserFrameGfx2(app->bgConfig, GF_BG_LYR_MAIN_1, 10, 14, app->args->input.frame, HEAP_ID_102);
     PaletteData_LoadNarc(app->paletteData, NARC_a_0_3_8, GetUserFrameGfx2PaletteMember(app->args->input.frame), HEAP_ID_102, PLTTBUF_MAIN_BG, 0x20, 14 * 16);
     PaletteData_LoadNarc(app->paletteData, NARC_graphic_font, 8, HEAP_ID_102, PLTTBUF_MAIN_BG, 0x20, 15 * 16);
-    text->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0206_bin, HEAP_ID_102);
+    text->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0206, HEAP_ID_102);
     text->msgFormat = MessageFormat_New(HEAP_ID_102);
     AddWindow(app->bgConfig, &text->msgWindow, &gSpinTradeMsgWindowTemplate);
     text->string = String_New(256, HEAP_ID_102);

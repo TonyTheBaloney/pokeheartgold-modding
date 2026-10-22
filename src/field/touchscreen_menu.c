@@ -300,7 +300,7 @@ SysTask *TouchscreenMenu_Create(BgConfig *bgConfig, u16 *lastTouchMenuInput, Fie
     TouchscreenMenu_LoadBgAndWindows(bgConfig, data->bgVariant, &data->actionWindow, &data->menuWindow, data->iconWindows);
     FontID_Alloc(4, HEAP_ID_8);
     msgFormat = MessageFormat_New(HEAP_ID_8);
-    msgBank = NARC_msg_msg_0196_bin;
+    msgBank = msg_0196;
     data->msgFormat = msgFormat;
     data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msgBank, HEAP_ID_8);
     TouchscreenMenu_InitIconFlags(data);

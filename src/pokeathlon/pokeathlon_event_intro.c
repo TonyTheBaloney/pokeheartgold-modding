@@ -626,7 +626,7 @@ static void PokeathlonEventIntro_LoadGraphics(PokeathlonEventIntro *intro) {
         GfGfxLoader_LoadScrnDataFromOpenNarc(intro->narc, 8, intro->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, TRUE, intro->heapId);
     }
     PokeathlonEventIntro_LoadDetailsBg(intro);
-    intro->text = PokeathlonUtil_CreateTextContext(intro->heapId, intro->bgConfig, 12, sPokeathlonEventIntroWindowTemplates, NARC_msg_msg_0309_bin);
+    intro->text = PokeathlonUtil_CreateTextContext(intro->heapId, intro->bgConfig, 12, sPokeathlonEventIntroWindowTemplates, msg_0309);
     PokeathlonEventIntro_PrintDetails(intro);
 }
 

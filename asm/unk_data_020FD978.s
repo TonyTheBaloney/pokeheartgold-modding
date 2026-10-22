@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "unk_data_020FD978.inc"
 	.include "global.inc"
 

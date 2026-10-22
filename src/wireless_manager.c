@@ -5,7 +5,7 @@
 
 #include "global.h"
 
-#include "WM.h"
+#include <nitro.h>
 
 // Local wireless manager: drives the WM library for the communication layer. Every request is asynchronous: the
 // state is WIRELESS_STATE_BUSY until its callback arrives.
@@ -24,7 +24,6 @@
 
 #define WM_OK 2 // asynchronous request accepted
 
-typedef void (*WMCallback)(void *arg);
 typedef void (*WirelessReceiveFunc)(u16 aid, void *data, u16 length);
 
 // Common head of the WM callback arguments.
@@ -175,14 +174,14 @@ static BOOL Wireless_Disconnect(void);
 static void Wireless_OnDisconnected(void *arg);
 static BOOL Wireless_Reset(void);
 static void Wireless_OnReset(void *arg);
-static BOOL Wireless_SetSendData(const void *data, u32 length, int port, WirelessSentFunc callback);
+static BOOL Wireless_SetSendData(const void *data, u16 length, int port, WirelessSentFunc callback);
 static void Wireless_OnDataSent(void *arg);
 static void Wireless_OnPortEvent(void *arg);
 static void Wireless_OnEnded(void *arg);
 static u16 Wireless_CountConnected(void);
 static u16 Wireless_MeasureFromChannel(u16 channel);
 static void Wireless_OnChannelMeasured(void *arg);
-static int Wireless_MeasureChannel(WMCallback callback, u16 channel);
+static int Wireless_MeasureChannel(WMCallbackFunc callback, u16 channel);
 static s16 Wireless_PickChannel(u16 channels);
 static void Wireless_OnIndication(void *arg);
 static BOOL Wireless_Initialize(int mode);
@@ -191,29 +190,8 @@ static void Wireless_OnLifeTimeSet(void);
 static void Wireless_ForceReset(void);
 static void Wireless_OnEntrySet(void *arg);
 
-int WM_Initialize(void *work, WMCallback callback, int dma);
-int WM_InitializeForListening(void *work, WMCallback callback, int dma, int flags);
-int WM_SetIndCallback(WMCallback callback);
-int WM_SetLifeTime(void (*callback)(void), u16 tableNumber, u16 camLifeTime, u16 frameLifeTime, u16 mpLifeTime);
-int WM_SetParentParameter(WMCallback callback, void *param);
-int WM_StartParent(WMCallback callback);
-int WM_EndParent(WMCallback callback);
-int WM_StartScan(WMCallback callback, void *param);
-int WM_EndScan(WMCallback callback);
-int WM_StartConnectEx(WMCallback callback, void *bssDesc, void *ssid, int powerSave, int authMode);
-int WM_Disconnect(WMCallback callback, u16 aid);
-int WM_StartMP(WMCallback callback, void *recvBuf, int recvSize, void *sendBuf, int sendSize, int frequency);
-int WM_EndMP(WMCallback callback);
-int WM_SetMPDataToPortEx(WMCallback callback, u32 arg, const void *data, u32 length, u16 aidBitmap, u16 port, u32 priority);
-int WM_SetPortCallback(u16 port, WMCallback callback, void *arg);
-int WM_Reset(WMCallback callback);
-int WM_End(WMCallback callback);
-int WM_SetGameInfo(void *callback, const void *data, u16 length, u32 ggid, u16 tgid, u32 attr);
-int WM_SetEntry(WMCallback callback, BOOL enabled);
-int WM_MeasureChannel(WMCallback callback, u16 ccaMode, u16 edThreshold, u16 channel, u16 measureTime);
 u16 WM_GetAllowedChannel(void);
 u16 WM_GetDispersionScanPeriod(void);
-void *WMi_GetStatusAddress(void);
 
 int CommState_GetLinkMode(void);
 int CommState_ReportsErrors(void);
@@ -238,7 +216,7 @@ static void Wireless_SetError(int error) {
 static BOOL Wireless_SendParentParameter(void) {
     int result;
     Wireless_SetState(WIRELESS_STATE_BUSY);
-    result = WM_SetParentParameter(Wireless_OnParentParameterSet, sWirelessManager.work);
+    result = WM_SetParentParameter(Wireless_OnParentParameterSet, (const WMParentParam *)sWirelessManager.work);
     if (result != WM_OK) {
         Wireless_SetError(result);
         Wireless_SetState(WIRELESS_STATE_ERROR);
@@ -263,7 +241,7 @@ static BOOL Wireless_StartParentRun(void) {
     if ((u32)(sWirelessManager.work->state - WIRELESS_STATE_PARENT) <= 2) {
         return TRUE;
     }
-    status = WMi_GetStatusAddress();
+    status = (u8 *)WMi_GetStatusAddress();
     DC_InvalidateRange(status + 0x198, 4);
     *(u32 *)(status + 0x198) = 0;
     DC_FlushRange(status + 0x198, 4);
@@ -481,7 +459,7 @@ static BOOL Wireless_ScanNextChannel(void) {
     }
     sWirelessManager.work->scanParam.time = WM_GetDispersionScanPeriod() / 3;
     sWirelessManager.work->scanParam.buffer = sWirelessManager.work->parentInfo;
-    error = WM_StartScan(Wireless_OnScanEvent, &sWirelessManager.work->scanParam);
+    error = WM_StartScan(Wireless_OnScanEvent, (const WMScanParam *)&sWirelessManager.work->scanParam);
     if (error != WM_OK) {
         Wireless_SetError(error);
         return FALSE;
@@ -605,7 +583,7 @@ static BOOL Wireless_StartConnect(void) {
     Wireless_SetState(WIRELESS_STATE_BUSY);
     MI_CpuCopy8(sWirelessConnectTag, data + 1, 3);
     data[0] = CommState_GetLinkMode();
-    result = WM_StartConnectEx(Wireless_OnConnectEvent, sWirelessManager.work->parentInfo, data, 1, 0);
+    result = WM_StartConnectEx(Wireless_OnConnectEvent, (const WMBssDesc *)sWirelessManager.work->parentInfo, data, 1, 0);
     if (result != WM_OK) {
         Wireless_SetError(result);
         return FALSE;
@@ -773,7 +751,7 @@ static void Wireless_OnReset(void *arg) {
 }
 
 // Sends data to every AID on port; callback (the request's argument) learns whether it was sent.
-static BOOL Wireless_SetSendData(const void *data, u32 length, int port, WirelessSentFunc callback) {
+static BOOL Wireless_SetSendData(const void *data, u16 length, int port, WirelessSentFunc callback) {
     int result;
     DC_FlushRange(sWirelessManager.work->sendBuffer, sWirelessManager.work->sendBufferSize);
     result = WM_SetMPDataToPortEx(Wireless_OnDataSent, (u32)callback, data, length, 0xFFFF, port, 2);
@@ -817,7 +795,6 @@ static void Wireless_OnPortEvent(void *arg) {
     }
 }
 
-void WVR_TerminateAsync(void (*callback)(void *), void *arg);
 
 static void Wireless_OnEnded(void *arg) {
     WirelessEvent *event = arg;
@@ -958,7 +935,7 @@ static void Wireless_OnChannelMeasured(void *arg) {
     }
 }
 
-static int Wireless_MeasureChannel(WMCallback callback, u16 channel) {
+static int Wireless_MeasureChannel(WMCallbackFunc callback, u16 channel) {
     return WM_MeasureChannel(callback, 3, 0x11, channel, 30);
 }
 
@@ -1081,7 +1058,7 @@ static void Wireless_OnLifeTimeSet(void) {
 BOOL Wireless_StartParent(int mode, u16 tgid, u16 channel, u16 maxEntry, u16 beaconPeriod, u32 entryFlag) {
     int value;
     if (Comm_IsCommClubLinkMode(CommState_GetLinkMode())) {
-        WM_SetLifeTime(Wireless_OnLifeTimeSet, 0xFFFF, 100, 5, 100);
+        WM_SetLifeTime((WMCallbackFunc)Wireless_OnLifeTimeSet, 0xFFFF, 100, 5, 100);
     }
     sWirelessManager.work->receiveBufferSize = 0x1C0;
     sWirelessManager.work->sendBufferSize = 0xE0;
@@ -1122,7 +1099,7 @@ BOOL Wireless_StartParent(int mode, u16 tgid, u16 channel, u16 maxEntry, u16 bea
 // Connects as a child (mode 1, 3 or 5) to the parent described by parentInfo.
 BOOL Wireless_StartChild(int mode, const void *parentInfo) {
     if (Comm_IsCommClubLinkMode(CommState_GetLinkMode())) {
-        WM_SetLifeTime(Wireless_OnLifeTimeSet, 0xFFFF, 100, 5, 100);
+        WM_SetLifeTime((WMCallbackFunc)Wireless_OnLifeTimeSet, 0xFFFF, 100, 5, 100);
     }
     sWirelessManager.work->receiveBufferSize = 0x200;
     sWirelessManager.work->sendBufferSize = 0x40;
@@ -1148,7 +1125,7 @@ void Wireless_SetReceiveCallback(void *callback, int port) {
 }
 
 // A parent sends only while a child is connected.
-BOOL Wireless_SendData(const void *data, u32 length, int port, WirelessSentFunc callback) {
+BOOL Wireless_SendData(const void *data, u16 length, int port, WirelessSentFunc callback) {
     if (Wireless_GetAid() == 0) {
         if ((Wireless_GetConnectedBitmap() & 0xFE) == 0) {
             return FALSE;

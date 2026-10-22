@@ -466,7 +466,7 @@ static void TrainerCardMain_LoadStrings(TrainerCardMain *cardMain) {
     int i;
 
     FontID_Alloc(4, HEAP_ID_25);
-    cardMain->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0727_bin, HEAP_ID_25);
+    cardMain->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0727, HEAP_ID_25);
     cardMain->unk_33C8 = String_New(4, HEAP_ID_25);
     cardMain->formattedString = String_New(0x20, HEAP_ID_25);
     cardMain->numberString = String_New(10, HEAP_ID_25);
@@ -903,7 +903,7 @@ static void TrainerCardMain_VBlankCB(TrainerCardMain *cardMain) {
     DoScheduledBgGpuUpdates(cardMain->bgConfig);
     GF_RunVramTransferTasks();
     OamManager_ApplyAndResetBuffers();
-    OS_SetIrqCheckFlag(OS_IE_VBLANK);
+    OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
 static void TrainerCardMain_ResetBgAffine(void) {
@@ -1171,7 +1171,7 @@ static void TrainerCardMain_PrintLivePlayTime(Window *windows, TrainerCardMainCa
     GF_ASSERT(card->igt != NULL);
     GetIGTHours(card->igt);
     FillWindowPixelRect(&windows[5], 0, 184, 0, 40, 16);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0727_bin, HEAP_ID_25);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0727, HEAP_ID_25);
     formatted = String_New(32, HEAP_ID_25);
     template = String_New(32, HEAP_ID_25);
     format = MessageFormat_New_Custom(2, 32, HEAP_ID_25);

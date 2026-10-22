@@ -6,10 +6,7 @@
 #include "gf_g2d_renderer.h"
 #include "sprite.h"
 
-// NNS OAM manager instance (opaque here)
-typedef struct OamInstance {
-    u32 data[7];
-} OamInstance;
+typedef NNSG2dOamManagerInstance OamInstance;
 
 typedef struct OamManager {
     OamInstance main;
@@ -23,10 +20,6 @@ static BOOL OamManager_EntrySubOam(const GXOamAttr *oam, u16 affine, BOOL double
 static u16 OamManager_EntryMainAffine(const MtxFx22 *matrix);
 static u16 OamManager_EntrySubAffine(const MtxFx22 *matrix);
 
-BOOL NNS_G2dGetNewOamManagerInstance(OamInstance *, u16, u16, u16, u16, int);
-void NNS_G2dApplyAndResetOamManagerBuffer(OamInstance *);
-BOOL NNS_G2dEntryOamManagerOamWithAffineIdx(OamInstance *, const GXOamAttr *, u16);
-u16 NNS_G2dEntryOamManagerAffine(OamInstance *, const MtxFx22 *);
 
 static OamManager *sOamManager;
 

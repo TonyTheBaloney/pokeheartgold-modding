@@ -1,5 +1,5 @@
 #include "msgdata/msg/msg_0013.h"
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "vs_recorder_screen_data.inc"
 	.include "global.inc"
 

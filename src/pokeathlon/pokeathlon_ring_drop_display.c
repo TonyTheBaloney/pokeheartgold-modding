@@ -40,7 +40,6 @@ extern const PokeathlonRingDropBgTemplates gPokeathlonRingDropBgTemplates;
 
 BOOL PlaySE_SetVolume(u16 seqNo, int volume);
 
-void MATH_QSort(void *base, u32 count, u32 width, int (*compare)(const void *, const void *), void *context);
 
 #define PokeathlonRingDropUi_SetMemberSwitching(ui, participant, member, switching) (((void (*)(PokeathlonRingDropUi *, u8, int, int))PokeathlonRingDropUi_SetSwitching)((ui), (participant), (member), (switching)))
 #define PokeathlonRingDrop_GetTeamMemberParams(course, participant, member)         (((PokeathlonRingDropMemberParams * (*)(PokeathlonCourseData *, u8, int)) PokeathlonRingDrop_GetMemberParams)((course), (participant), (member)))
@@ -133,7 +132,7 @@ void PokeathlonRingDrop_InitBgs(PokeathlonRingDrop *ringDrop) {
         BgClearTilemapBufferAndCommit(bgConfig, (u8)gPokeathlonRingDropBgLayers[i]);
         BG_ClearCharDataRange((u8)gPokeathlonRingDropBgLayers[i], 0x20, 0, heapId);
     }
-    ringDrop->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, ringDrop->heapId);
+    ringDrop->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, ringDrop->heapId);
     ringDrop->msgFormat = MessageFormat_New(ringDrop->heapId);
     FontID_Alloc((FontID)4, ringDrop->heapId);
     GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG3, GF_PLANE_TOGGLE_OFF);
@@ -601,7 +600,7 @@ static void PokeathlonRingDropDisplay_ApplyFramePacket(PokeathlonRingDropDisplay
             depth->y = y;
             depth->monObject = monObject;
         }
-        MATH_QSort(depths, RING_DROP_PARTICIPANTS, sizeof(PokeathlonRingDropDepth), PokeathlonRingDropDisplay_CompareDepth, NULL);
+        MATH_QSort(depths, RING_DROP_PARTICIPANTS, sizeof(PokeathlonRingDropDepth), (MATHCompareFunc)PokeathlonRingDropDisplay_CompareDepth, NULL);
         for (i = 0; i < RING_DROP_PARTICIPANTS; i++) {
             PokeathlonCourseMonObject_SetDrawPriority(depths[i].monObject, i + 7);
         }
@@ -704,7 +703,7 @@ void PokeathlonRingDropDisplay_Update(PokeathlonRingDropDisplay *display, Pokeat
         sorted[i][1] = (u8)i;
         sorted[i][0] = packet->mons[i].score;
     }
-    MATH_QSort(sorted, RING_DROP_PARTICIPANTS, 2, PokeathlonRingDropDisplay_CompareScores, NULL);
+    MATH_QSort(sorted, RING_DROP_PARTICIPANTS, 2, (MATHCompareFunc)PokeathlonRingDropDisplay_CompareScores, NULL);
     for (i = 0; i < RING_DROP_PARTICIPANTS; i++) {
         if (packet->mons[i].score != display->scores[i]) {
             PokeathlonRingDropUi_SetRanks(display->ui, (u8)i, packet->mons[i].score, sorted[0]);

@@ -113,7 +113,7 @@ void PokeathlonBox_SetupGraphics(PokeathlonBox_Graphics *graphics, BgConfig *bgC
     AddWindowParameterized(graphics->bgConfig, &graphics->window4, GF_BG_LYR_SUB_1, 9, 15, 3, 2, 15, 0x45);
     AddWindowParameterized(graphics->bgConfig, &graphics->window5, GF_BG_LYR_SUB_1, 13, 5, 10, 10, 15, 0x4B);
     AddWindowParameterized(graphics->bgConfig, &graphics->window6, GF_BG_LYR_SUB_1, 1, 19, 12, 4, 15, 0xAF);
-    graphics->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0278_bin, graphics->heapID);
+    graphics->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0278, graphics->heapID);
     graphics->msgFormat = MessageFormat_New(graphics->heapID);
     graphics->nickname = String_New(11, graphics->heapID);
     graphics->courseId = courseId;

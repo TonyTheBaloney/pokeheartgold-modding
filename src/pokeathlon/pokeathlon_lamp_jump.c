@@ -78,7 +78,7 @@ static u8 PokeathlonLampJump_FindTouchedMon(PokeathlonLampJump *lampJump, u16 to
 static void PokeathlonLampJump_LaunchMon(PokeathlonLampJump *lampJump, s32 mon, VecFx32 *flick);
 static void PokeathlonLampJump_Init3D(PokeathlonLampJump *lampJump);
 
-void GF_SndSetTrackPitchByPlayerNo(int playerNo, u32 tracks, int pitch);
+void GF_SndSetTrackPitchByPlayerNo(int playerNo, u16 tracks, int pitch);
 
 extern int gPokeathlonLampJumpTrampolineRed; // red of the next trampoline vertex
 extern u8 gPokeathlonLampJumpSoundPlayers[]; // sound player of each Pokemon
@@ -1569,7 +1569,7 @@ void PokeathlonLampJump_PrintTotal(PokeathlonLampJump *lampJump, u16 score) {
     MessageFormat *messageFormat;
     String *string;
     FillWindowPixelBuffer(&lampJump->windows[4], 0);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, lampJump->heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, lampJump->heapId);
     messageFormat = MessageFormat_New(lampJump->heapId);
     BufferIntegerAsString(messageFormat, 0, score, 3, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, msg_0309_00161, lampJump->heapId);

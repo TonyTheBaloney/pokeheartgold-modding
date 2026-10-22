@@ -474,7 +474,7 @@ BOOL FrontierRecordsApp_Init(OverlayManager *man, int *state) {
     app->options = Save_PlayerData_GetOptionsAddr(app->saveData);
     FontID_Alloc(4, HEAP_ID_121);
     FrontierRecordsApp_InitGraphics(app);
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0019_bin, HEAP_ID_121);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0019, HEAP_ID_121);
     app->msgFormat = MessageFormat_New(HEAP_ID_121);
     app->string = String_New(800, HEAP_ID_121);
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_13_OFFSET, HEAP_ID_121);
@@ -943,7 +943,7 @@ static void FrontierRecordsApp_PrintHallRecords(FrontierRecordsApp *app) {
 }
 
 static void FrontierRecordsApp_BufferSpeciesName(FrontierRecordsApp *app, int species) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_121);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, HEAP_ID_121);
     String *name = NewString_ReadMsgData(msgData, species);
     DestroyMsgData(msgData);
     BufferString(app->msgFormat, 0, name, 0, 0, 2);

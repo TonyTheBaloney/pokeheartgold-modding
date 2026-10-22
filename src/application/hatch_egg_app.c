@@ -932,7 +932,7 @@ static void HatchEggYesNoMenu_RemoveWindows(HatchEggYesNoMenu *menu) {
 }
 
 static void HatchEggYesNoMenu_PrintButton(HatchEggYesNoMenu *menu, Window *window, u32 msgId) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0187_bin, menu->heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0187, menu->heapId);
     String *string = ReadMsgData_ExpandPlaceholders(menu->msgFormat, msgData, msgId, menu->heapId);
     FillWindowPixelBuffer(window, 0);
     AddTextPrinterParameterizedWithColor(window, 4, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);

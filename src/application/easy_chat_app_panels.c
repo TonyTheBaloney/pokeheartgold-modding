@@ -260,7 +260,7 @@ EasyChatSentenceView *EasyChatSentenceView_Create(EasyChatAppView *view, EasyCha
     sentence->sliderBar = NULL;
     sentence->sliderThumb = NULL;
     sentence->string = String_New(128, HEAP_ID_35);
-    sentence->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0283_bin, HEAP_ID_35);
+    sentence->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0283, HEAP_ID_35);
     sentence->listCursor = ListMenuCursorNew(HEAP_ID_35);
     sentence->mainScrollY = 0;
     sentence->subScrollY = 0;
@@ -861,7 +861,7 @@ EasyChatMenuView *EasyChatMenuView_Create(EasyChatAppView *view, EasyChatApp *ap
     menuView->cursor = NULL;
     menuView->modeSwitchTask = NULL;
     menuView->bgConfig = EasyChatAppView_GetBgConfig(menuView->view);
-    menuView->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0284_bin, HEAP_ID_35);
+    menuView->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0284, HEAP_ID_35);
     return menuView;
 }
 
@@ -1096,7 +1096,7 @@ void EasyChatCategoryView_Load(EasyChatCategoryView *categories, NARC *narc) {
 static u32 EasyChatCategoryView_DrawCategories(EasyChatCategoryView *categories, BgConfig *bgConfig, u32 tile) {
     Window window;
     int y;
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0282_bin, HEAP_ID_35);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0282, HEAP_ID_35);
     int x = 1, i;
 
     y = 9;

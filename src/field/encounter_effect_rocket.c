@@ -226,7 +226,7 @@ static void RocketEffect_LoadBgScreen(EncounterEffectTask *effect, u8 bgId, int 
 }
 
 static String *RocketEffect_GetTrainerNameString(u32 trainerId, enum HeapID heapID) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0189_bin, heapID);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0189, heapID);
     MessageFormat *msgFormat = MessageFormat_New(heapID);
     String *string = String_New(128, heapID);
     String *template = String_New(128, heapID);

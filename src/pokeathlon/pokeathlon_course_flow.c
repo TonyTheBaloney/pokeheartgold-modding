@@ -1733,7 +1733,7 @@ void PokeathlonCourse_SetupNpcParticipants(PokeathlonCourseData *course, int cou
     NARC *performanceNarc;
     NARC *teamNarc;
     s32 i;
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0310_bin, PokeathlonCourse_GetHeapID(course));
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0310, PokeathlonCourse_GetHeapID(course));
     i = 4 - count;
     PokeathlonCourse_ChooseNpcTeams(count, ((PokeathlonCourseLayout *)course)->args->course, ((PokeathlonCourseLayout *)course)->args->isSupreme, npcTeams);
     performanceNarc = NARC_New(NARC_poketool_personal_performance, PokeathlonCourse_GetHeapID(course));

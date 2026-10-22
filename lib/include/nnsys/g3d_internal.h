@@ -5,6 +5,7 @@
 
 #include <nitro.h>
 #include <nnsys/g3d/binres/res_struct.h>
+#include <nnsys/g3d/binres/res_struct_accessor.h>
 #include <nnsys/g3d/binres/res_struct_accessor_inline.h>
 #include <nnsys/g3d/glbstate.h>
 #include <nnsys/g3d/kernel.h>
@@ -95,7 +96,6 @@ typedef struct G3dResPlttData {
 
 #define G3D_RESPLTTDATA_4COLOR 1 // offset in 8-byte units; other palettes are placed in 16-byte units
 
-void *NNS_G3dGetResDataByName(const NNSG3dResDict *pDict, const NNSG3dResName *pName);
 void bindMdlTex_Internal_(G3dResMat *pMat, G3dResBindEntry *pBind, const NNSG3dResTex *pTex, const G3dResTexData *pTexData);
 void releaseMdlTex_Internal_(G3dResMat *pMat, G3dResBindEntry *pBind);
 void bindMdlPltt_Internal_(G3dResMat *pMat, G3dResBindEntry *pBind, const NNSG3dResTex *pTex, const G3dResPlttData *pPlttData);

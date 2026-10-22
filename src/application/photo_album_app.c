@@ -246,13 +246,13 @@ static u8 Photo_CountPartyMons(Photo *photo);
 static const u8 sPhotoAlbumGridSlots[] = { 0, 1, 6, 7, 2, 3, 8, 9, 4, 5, 10, 11 };
 
 static const ResdatIdList sPhotoAlbumSpriteResources = {
-    .charRes = NARC_resdat_resdat_00000002_bin,
-    .plttRes = NARC_resdat_resdat_00000003_bin,
-    .cellRes = NARC_resdat_resdat_00000001_bin,
-    .animRes = NARC_resdat_resdat_00000000_bin,
+    .charRes = resdat_00000002_bin,
+    .plttRes = resdat_00000003_bin,
+    .cellRes = resdat_00000001_bin,
+    .animRes = resdat_00000000_bin,
     .mcelRes = 0xFFFF,
     .manmRes = 0xFFFF,
-    .headerId = NARC_resdat_resdat_00000072_bin,
+    .headerId = resdat_00000072_bin,
 };
 
 static const OamCharTransferParam sPhotoAlbumAppOamCharTransferParam = {
@@ -1312,7 +1312,7 @@ static void PhotoAlbumApp_FreeScreenData(PhotoAlbumApp *app) {
 static void PhotoAlbumApp_LoadStrings(PhotoAlbumApp *app) {
     int i;
     FontID_Alloc(4, app->heapId);
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0000_bin, app->heapId);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0000, app->heapId);
     app->messageFormat = MessageFormat_New_Custom(6, 0x16, app->heapId);
     app->str_2C = String_New(0x80, app->heapId);
     app->str_30 = NewString_ReadMsgData(app->msgData, msg_0000_00000);

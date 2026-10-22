@@ -8,7 +8,7 @@
 	.public TallGrassUnusedEffect_Draw
 	.public gTallGrassEffectTemplate
 	.public gTallGrassUnusedEffectTemplate
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "field_tall_grass_data.inc"
 	.include "global.inc"
 

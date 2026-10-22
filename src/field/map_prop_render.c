@@ -410,7 +410,7 @@ static void *AreaMapAnimation_AllocAnimObjMem(NNSFndAllocator *pAllocator, ResAn
 }
 
 static void AreaMapAnimation_InitAnimObjMapData(NNSG3dAnmObj *alloc, ResAnim_4004 *anim) {
-    alloc->funcAnm = gAnmCalcFuncNsBta;
+    alloc->funcAnm = NNS_G3dFuncAnmMatNsBtaDefault;
     u8 numMapData = anim->numMapData;
     alloc->numMapData = numMapData;
     MIi_CpuClear16(0, alloc->mapData, numMapData * 2);

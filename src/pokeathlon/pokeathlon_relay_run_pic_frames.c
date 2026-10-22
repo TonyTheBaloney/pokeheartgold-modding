@@ -14,13 +14,13 @@ typedef struct PokeathlonRelayRunPicIds {
 
 // The definition order fixes the .rodata layout: the HUD and the CPU read the ids through
 // gPokeathlonRelayRunPicIds as one array.
-static const PokeathlonRelayRunPicIds sPicResIds2 = {
-    { 0x66, 0x67 }
-};
 static const PokeathlonRelayRunPicIds sPicKinds = {
     { 4, 5 }
 };
 const PokeathlonRelayRunPicIds gPokeathlonRelayRunPicIds = {
+    { 0x66, 0x67 }
+};
+static const PokeathlonRelayRunPicIds sPicResIds2 = {
     { 0x66, 0x67 }
 };
 static const PokeathlonRelayRunPicIds sPicResIds3 = {

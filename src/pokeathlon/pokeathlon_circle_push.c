@@ -76,7 +76,6 @@ enum PokeathlonCirclePushInitState {
     CIRCLE_PUSH_INIT_DONE,
 };
 
-void MATH_QSort(void *head, u32 num, u32 width, int (*compare)(const void *, const void *), void *stackBuffer);
 
 void PokeathlonCourseMonObjects_SetPalette(PokeathlonCourseMonObjects *objects, u8 index, int vram, void *palette);
 
@@ -2126,7 +2125,7 @@ static void PokeathlonCirclePush_PrintScore(PokeathlonCirclePush *circlePush, s3
     String *string;
 
     FillWindowPixelBuffer(&circlePush->scoreWindow, 0);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, circlePush->heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, circlePush->heapId);
     msgFormat = MessageFormat_New(circlePush->heapId);
     BufferIntegerAsString(msgFormat, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0309_00158, circlePush->heapId);
@@ -2179,7 +2178,7 @@ static void PokeathlonCirclePush_SortByDepth(PokeathlonCirclePush *circlePush, P
         PokeathlonCourseObject_CenterToGround(circlePush->mons[i / 3][i % 3].object, packet->x[i], packet->y[i], &groundX, &groundY);
         depths[i].y = groundY;
     }
-    MATH_QSort(depths, 12, sizeof(CirclePushDepth), PokeathlonCirclePush_CompareDepth, circlePush->sortBuffer);
+    MATH_QSort(depths, 12, sizeof(CirclePushDepth), (MATHCompareFunc)PokeathlonCirclePush_CompareDepth, circlePush->sortBuffer);
     for (i = 0; i < 12; i++) {
         u8 mon = depths[i].mon;
         int team = mon / 3;

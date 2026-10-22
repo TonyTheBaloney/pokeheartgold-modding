@@ -43,17 +43,17 @@ typedef void (*SplAnimFunc)(SPLParticle *ptcl, SPLResource *res, int life_rate);
 typedef void (*SplDrawFunc)(SPLManager *mgr, SPLParticle *ptcl);
 
 // Manager
-SPLManager *SPL_Init(SPLAlloc alloc, int max_emtr_num, int max_ptcl_num, u16 fix_polygon_id, u16 min_polygon_id, u16 max_polygon_id);
-void SPL_Load(SPLManager *mgr, const void *data);
-BOOL SPL_LoadTexByVRAMManager(SPLManager *mgr);
-BOOL SPL_LoadTexPlttByVRAMManager(SPLManager *mgr);
-BOOL SPL_LoadTexByCallbackFunction(SPLManager *mgr, u32 (*alloc)(u32 size, BOOL is4x4comp));
-BOOL SPL_LoadTexPlttByCallbackFunction(SPLManager *mgr, u32 (*alloc)(u32 size, BOOL is4pltt));
-SPLEmitter *SPL_Create(SPLManager *mgr, int res_no, const VecFx32 *pos);
-void SPL_Delete(SPLManager *mgr, SPLEmitter *emtr);
-void SPL_DeleteAll(SPLManager *mgr);
-void SPL_Calc(SPLManager *mgr);
-void SPL_Draw(SPLManager *mgr, const MtxFx43 *camera);
+SPLManager *SPLManager_New(SPLAlloc alloc, int max_emtr_num, int max_ptcl_num, u16 fix_polygon_id, u16 min_polygon_id, u16 max_polygon_id);
+void SPLManager_LoadResources(SPLManager *mgr, const void *data);
+BOOL SPLManager_UploadTextures(SPLManager *mgr);
+BOOL SPLManager_UploadPalettes(SPLManager *mgr);
+BOOL SPLManager_UploadTexturesEx(SPLManager *mgr, u32 (*alloc)(u32 size, BOOL is4x4comp));
+BOOL SPLManager_UploadPalettesEx(SPLManager *mgr, u32 (*alloc)(u32 size, BOOL is4pltt));
+SPLEmitter *SPLManager_CreateEmitter(SPLManager *mgr, int res_no, const VecFx32 *pos);
+void SPLManager_DeleteEmitter(SPLManager *mgr, SPLEmitter *emtr);
+void SPLManager_DeleteAllEmitters(SPLManager *mgr);
+void SPLManager_Update(SPLManager *mgr);
+void SPLManager_Draw(SPLManager *mgr, const MtxFx43 *camera);
 u32 sAllocTex(u32 size, BOOL is4x4comp);
 u32 sAllocTexPalette(u32 size, BOOL is4pltt);
 
@@ -140,12 +140,12 @@ typedef struct SplGravityField {
     u16 reserved;
 } SplGravityField;
 
-void spl_calc_convergence(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
-void spl_calc_scfield(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
-void spl_calc_spin(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
-void spl_calc_magnet(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
-void spl_calc_random(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
-void spl_calc_gravity(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
+void SPLBehavior_ApplyConvergence(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
+void SPLBehavior_ApplyCollisionPlane(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
+void SPLBehavior_ApplySpin(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
+void SPLBehavior_ApplyMagnet(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
+void SPLBehavior_ApplyRandom(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
+void SPLBehavior_ApplyGravity(const void *obj, SPLParticle *ptcl, VecFx32 *acc, SPLEmitter *emtr);
 
 // Lists
 SplNode *spl_del(SplList *list, SplNode *node);

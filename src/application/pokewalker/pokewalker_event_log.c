@@ -60,7 +60,6 @@ extern const u8 gEventLogBgLayers[5];
 extern const s8 gEventLogFleeHopHeights[]; // ends with 111
 extern const u32 gEventLogCourseBgm[8];
 
-void MATH_QSort(void *base, u32 count, u32 width, int (*compare)(const void *, const void *, void *), void *context);
 
 static void PokewalkerEventLog_CreateMonSprite(PokewalkerEventLogMonSprite *monSprite, SpriteSystem *spriteSystem, SpriteManager *spriteManager, s16 x, s16 y, u8 animation, int side);
 static void PokewalkerEventLog_CreateMonSprites(PokewalkerEventLog *eventLog);
@@ -295,7 +294,7 @@ static void PokewalkerEventLog_BuildEntryList(PokewalkerEventLog *eventLog) {
             break;
         }
     }
-    MATH_QSort(slots, eventLog->count, sizeof(PokewalkerEventLogSlot), (int (*)(const void *, const void *, void *))PokewalkerEventLog_CompareEntryTimes, NULL);
+    MATH_QSort(slots, eventLog->count, sizeof(PokewalkerEventLogSlot), (MATHCompareFunc)PokewalkerEventLog_CompareEntryTimes, NULL);
     if (eventLog->count < 2) {
         slots[eventLog->count - 1].record->course = 0;
         slots[eventLog->count - 1].record->value = GF_RTC_DateTimeToSec();
@@ -342,9 +341,9 @@ static void PokewalkerEventLog_InitText(PokewalkerEventLog *eventLog) {
     int i;
     GF_ASSERT(eventLog != NULL);
     GF_ASSERT(eventLog->bgConfig != NULL);
-    eventLog->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0275_bin, eventLog->heapId);
-    eventLog->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, eventLog->heapId);
-    eventLog->itemNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0222_bin, eventLog->heapId);
+    eventLog->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0275, eventLog->heapId);
+    eventLog->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, eventLog->heapId);
+    eventLog->itemNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0222, eventLog->heapId);
     eventLog->msgFormat = MessageFormat_New_Custom(13, 32, eventLog->heapId);
     windowTemplate = gEventLogWindowTemplates;
     i = 0;

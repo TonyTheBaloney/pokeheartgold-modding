@@ -212,7 +212,7 @@ static void UnionChatLog_InitText(UnionChatLogData *data) {
     data->scroll = 0;
     data->scrollbarVisible = FALSE;
     data->msgFormat = MessageFormat_New(HEAP_ID_FIELD1);
-    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0738_UNION_bin, HEAP_ID_FIELD1);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0738_UNION, HEAP_ID_FIELD1);
     data->screenFile = GfGfxLoader_GetScrnData(NARC_a_0_7_3, 3, TRUE, &data->screenData, HEAP_ID_FIELD1);
 }
 

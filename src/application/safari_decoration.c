@@ -1115,7 +1115,7 @@ static void SafariDecoration_CreateStrings(SafariDecoration *decor) {
     int i;
 
     FontID_Alloc(4, decor->heapId);
-    decor->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0430_bin, decor->heapId);
+    decor->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0430, decor->heapId);
     decor->msgFormat = MessageFormat_New_Custom(2, 16, decor->heapId);
     decor->tmpString = String_New(256, decor->heapId);
     decor->string = String_New(256, decor->heapId);

@@ -1282,8 +1282,8 @@ static void BattleCastlePartyApp_InitGraphics(BattleCastlePartyApp *app) {
     BattleCastlePartyApp_InitBgGraphics(app);
     BattleCastlePartyApp_InitSpriteGfx(app);
     FontID_Alloc(4, HEAP_ID_107);
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0031_bin, HEAP_ID_107);
-    app->itemDescMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0221_bin, HEAP_ID_107);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0031, HEAP_ID_107);
+    app->itemDescMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0221, HEAP_ID_107);
     app->msgFormat = MessageFormat_New(HEAP_ID_107);
     app->expandedString = String_New(600, HEAP_ID_107);
     app->rawString = String_New(600, HEAP_ID_107);
@@ -1947,7 +1947,7 @@ static void BattleCastlePartyApp_PrintSelectedMonInfo(BattleCastlePartyApp *app)
 
 // Builds the rental list for the player's rental rank and draws the item grid
 static void BattleCastlePartyApp_SetupItemGrid(BattleCastlePartyApp *app, int mode) {
-    MsgData *itemNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0222_bin, HEAP_ID_107);
+    MsgData *itemNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0222, HEAP_ID_107);
     int rank = BattleCastle_GetRank(app->saveData, app->frontierType, CASTLE_RANK_RENTAL);
     const u16 *items;
     u16 i;

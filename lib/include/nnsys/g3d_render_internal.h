@@ -11,12 +11,9 @@
 // ---- NitroSDK functions the nitro headers do not declare
 
 fx64c FX_InvFx64c(fx32 x);
-fx32 MTX_Inverse43(const MtxFx43 *pSrc, MtxFx43 *pDst);
 void MTX_ScaleApply43(const MtxFx43 *pSrc, MtxFx43 *pDst, fx32 x, fx32 y, fx32 z);
 void MTX_Copy43To44_(const MtxFx43 *pSrc, MtxFx44 *pDst);
 void VEC_CrossProduct(const VecFx32 *a, const VecFx32 *b, VecFx32 *pDst);
-u32 G3X_GetClipMtx(void *dst);
-u32 G3X_GetVectorMtx(void *dst);
 void G3_LoadMtx43(const MtxFx43 *mtx);
 void G3_MultMtx43(const MtxFx43 *mtx);
 void G3_MultMtx33(const MtxFx33 *mtx);
@@ -30,19 +27,13 @@ void NNS_G3dGetCurrentMtx(MtxFx43 *pPos, MtxFx33 *pDir);
 
 // ---- global state
 
-MtxFx43 *NNS_G3dGlbGetInvV(void);
 int mtx_inverse44(const MtxFx44 *pSrc, MtxFx44 *pDst);
-MtxFx44 *NNS_G3dGlbGetInvP(void);
 void calcSrtCameraMtx_(void);
-MtxFx43 *NNS_G3dGlbGetWV(void);
-MtxFx43 *NNS_G3dGlbGetInvWV(void);
-MtxFx44 *NNS_G3dGlbGetInvVP(void);
-void NNS_G3dGlbGetViewPort(u32 *x1, u32 *y1, u32 *x2, u32 *y2);
 
 // ---- animation blending
 
 // joint animation result: scale, rotation and translation of one node
-typedef struct NNSG3dJntAnmResult_ {
+typedef struct G3dJntAnmResult_ {
     u32 flag; // G3D_JNTANM_FLAG_*
     VecFx32 scale;
     VecFx32 scaleEx0;
@@ -64,7 +55,7 @@ typedef struct NNSG3dJntAnmResult_ {
 
 // material animation result: the material's colours, polygon attributes, texture parameters and
 // texture matrix (scale, rotation, translation) after the animations
-typedef struct NNSG3dMatAnmResult_ {
+typedef struct G3dMatAnmResult_ {
     u32 flag;         // G3D_MATANM_FLAG_*
     u32 prmMatColor0; // diffuse, ambient
     u32 prmMatColor1; // specular, emission
@@ -90,14 +81,11 @@ typedef struct NNSG3dMatAnmResult_ {
 #define G3D_MATANM_FLAG_TEXMTX_MASK      0x18 // a texture matrix has to be sent
 #define G3D_MATANM_FLAG_WIREFRAME        0x20
 
-typedef void (*G3dFuncAnmMat)(struct NNSG3dMatAnmResult_ *pResult, const NNSG3dAnmObj *pAnmObj, u32 dataIdx);
+typedef void (*G3dFuncAnmMat)(struct G3dMatAnmResult_ *pResult, const NNSG3dAnmObj *pAnmObj, u32 dataIdx);
 typedef void (*G3dFuncAnmJnt)(G3dJntAnmResult *pResult, const NNSG3dAnmObj *pAnmObj, u32 dataIdx);
 typedef void (*G3dFuncAnmVis)(u32 *pResult, const NNSG3dAnmObj *pAnmObj, u32 dataIdx);
 
-BOOL NNSi_G3dAnmBlendMat(struct NNSG3dMatAnmResult_ *pResult, const NNSG3dAnmObj *pAnmObj, u32 matID);
 void blendScaleVec_(VecFx32 *pDst, const VecFx32 *pSrc, fx32 ratio, BOOL isOne);
-BOOL NNSi_G3dAnmBlendJnt(G3dJntAnmResult *pResult, const NNSG3dAnmObj *pAnmObj, u32 nodeID);
-BOOL NNSi_G3dAnmBlendVis(u32 *pResult, const NNSG3dAnmObj *pAnmObj, u32 nodeID);
 
 // ---- model drawing: render state and SBC (structure byte code) interpreter
 
@@ -106,7 +94,7 @@ typedef void (*G3dFuncSendJointSRT)(const G3dJntAnmResult *pResult);
 typedef void (*G3dFuncSendTexSRT)(const G3dMatAnmResult *pResult);
 
 // state of one NNS_G3dDraw call (size 0x188); the callbacks are indexed by SBC command
-typedef struct NNSG3dRS_ {
+typedef struct G3dRS_ {
     const u8 *c; // current SBC command
     NNSG3dRenderObj *pRenderObj;
     u32 flag; // G3D_RS_FLAG_*
@@ -284,21 +272,5 @@ void G3dDrawInternal_Loop_(G3dRS *pRS);
 void G3dDrawInternal_(G3dRS *pRS, NNSG3dRenderObj *pRenderObj);
 void updateHintVec___g3d(u32 *pHintVec, const NNSG3dAnmObj *pAnmObj);
 
-void NNSi_G3dFuncSbc_NOP(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_RET(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_NODE(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_MTX(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_MAT_InternalDefault(G3dRS *pRS, u32 opt, const G3dResMatData *pMatData, u32 matID);
-void NNSi_G3dFuncSbc_MAT(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_SHP_InternalDefault(G3dRS *pRS, u32 opt, const G3dResShpData *pShpData);
-void NNSi_G3dFuncSbc_SHP(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_NODEDESC(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_BB(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_BBY(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_NODEMIX(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_CALLDL(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_POSSCALE(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_ENVMAP(G3dRS *pRS, u32 opt);
-void NNSi_G3dFuncSbc_PRJMAP(G3dRS *pRS, u32 opt);
 
 #endif // POKEHEARTGOLD_NNSYS_G3D_RENDER_INTERNAL_H

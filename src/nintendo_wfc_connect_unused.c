@@ -106,9 +106,9 @@ BOOL NintendoWfcUnused_Init(OverlayManager *man, int *state) {
         modes = sNintendoWfcUnusedGraphicsModes;
         SetBothScreensModesAndDisable(&modes);
         wfc->msgFormat = MessageFormat_New_Custom(11, 32, HEAP_ID_150);
-        wfc->msgDataTower = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0799_bin, HEAP_ID_150);
-        wfc->msgDataWfc = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0778_bin, HEAP_ID_150);
-        wfc->msgDataError = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0800_bin, HEAP_ID_150);
+        wfc->msgDataTower = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0799, HEAP_ID_150);
+        wfc->msgDataWfc = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0778, HEAP_ID_150);
+        wfc->msgDataError = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0800, HEAP_ID_150);
         SetKeyRepeatTimers(4, 8);
         NintendoWfcUnused_InitArgs(wfc, man);
         NintendoWfcUnused_InitGraphics(wfc);

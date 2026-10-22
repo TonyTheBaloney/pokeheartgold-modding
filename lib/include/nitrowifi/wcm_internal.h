@@ -2,7 +2,7 @@
 #define POKEHEARTGOLD_NITROWIFI_WCM_INTERNAL_H
 
 #include <nitro.h>
-#include "WM.h"
+#include <nitro.h>
 
 // NitroWiFi wireless connection manager (WCM): drives the WM library (start-up, scan, connect,
 // DCF data, disconnect, clean-up) as a state machine on the caller's work area, keeps the list of
@@ -266,26 +266,6 @@ int WcmGetLinkLevel(void);
 void WCMi_ShelterRssi(int sample);
 
 // WM library
-int WM_Init(void *work, u16 dmaNo);
-int WM_Finish(void);
-int WM_Enable(void (*callback)(void *));
-int WM_Disable(void (*callback)(void *));
-int WM_PowerOn(void (*callback)(void *));
-int WM_PowerOff(void (*callback)(void *));
-int WM_Reset(void (*callback)(void *));
-int WM_SetIndCallback(void (*callback)(void *));
-int WM_GetAllowedChannel(void);
 u16 WM_GetDispersionScanPeriod(void);
-int WM_StartScanEx(void (*callback)(void *), WcmScanParam *param);
-int WM_EndScan(void (*callback)(void *));
-int WM_SetLifeTime(void (*callback)(void *), u16 frameLifeTime, u16 camLifeTime, u16 multicastLifeTime, u16 keepAliveTime);
-int WM_SetBeaconIndication(void (*callback)(void *), int enable);
-int WM_SetWEPKeyEx(void (*callback)(void *), int mode, int keyId, u8 *key);
-int WM_StartConnectEx(void (*callback)(void *), WcmBssDesc *ap, u8 *ssidMask, int authMode, u16 powerSave);
-int WM_StartDCF(void (*callback)(void *), void *recvBuffer, int recvBufferSize);
-int WM_SetDCFData(void (*callback)(void *), const u8 *destination, const void *data, u16 length);
-int WM_EndDCF(void (*callback)(void *));
-int WM_Disconnect(void (*callback)(void *), int aid);
-u16 *WMi_GetStatusAddress(void);
 
 #endif // POKEHEARTGOLD_NITROWIFI_WCM_INTERNAL_H

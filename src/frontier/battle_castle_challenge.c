@@ -662,7 +662,7 @@ void BattleCastle_PrintPoints(FrontierSystem *system, BattleCastleData *data) {
 static void BattleCastle_PrintPlayerPoints(FrontierSystem *system, Window *window, PlayerProfile *profile, u16 points) {
     String *tmp = String_New(20, system->heapId);
     String *buf = String_New(20, system->heapId);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0031_bin, HEAP_ID_FIELD2);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0031, HEAP_ID_FIELD2);
 
     BufferIntegerAsString(system->msgFormat, 0, points, 4, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     ReadMsgDataIntoString(msgData, msg_0031_00002, tmp);

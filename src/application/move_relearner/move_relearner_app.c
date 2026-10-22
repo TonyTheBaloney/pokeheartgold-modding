@@ -807,7 +807,7 @@ static void MoveRelearner_RemoveWindows(MoveRelearner *relearner) {
 }
 
 static void MoveRelearner_InitStrings(MoveRelearner *relearner) {
-    relearner->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0747_bin, HEAP_ID_66);
+    relearner->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0747, HEAP_ID_66);
     relearner->msgFormat = MessageFormat_New(HEAP_ID_66);
     relearner->string = String_New(256, HEAP_ID_66);
     relearner->ppLabel = NewString_ReadMsgData(relearner->msgData, msg_0747_00025);  // "PP"
@@ -1033,7 +1033,7 @@ static void MoveRelearner_PrintStaticTexts(MoveRelearner *relearner) {
     ScheduleWindowCopyToVram(&relearner->windows[12]);
 
     // the Pokemon's current moves
-    moveNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0750_bin, HEAP_ID_66);
+    moveNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0750, HEAP_ID_66);
     boxMon = Mon_GetBoxMon(relearner->args->mon);
     for (i = 0; i < MAX_MON_MOVES; i++) {
         u16 move = GetBoxMonData(boxMon, MON_DATA_MOVE1 + i, NULL);
@@ -1121,7 +1121,7 @@ static void MoveRelearner_InitMoveList(MoveRelearner *relearner) {
 
     relearner->numMoves = MoveRelearner_CountEligibleMoves(relearner);
     relearner->moveList = ListMenuItems_New(relearner->numMoves, HEAP_ID_66);
-    moveNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0750_bin, HEAP_ID_66);
+    moveNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0750, HEAP_ID_66);
 
     for (i = 0; i < relearner->numMoves; i++) {
         u16 move = relearner->args->eligibleMoves[i];
@@ -1169,7 +1169,7 @@ static void MoveRelearner_PrintMoveInfo(MoveRelearner *relearner, s32 move) {
         }
         MoveRelearner_PrintString(relearner, 4, 0, MAKE_TEXT_COLOR(1, 2, 0), 1, 0);
 
-        moveDescriptions = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0749_bin, HEAP_ID_66);
+        moveDescriptions = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0749, HEAP_ID_66);
         ReadMsgDataIntoString(moveDescriptions, move, relearner->string);
         MoveRelearner_PrintString(relearner, 5, 0, MAKE_TEXT_COLOR(1, 2, 0), 0, 0);
         DestroyMsgData(moveDescriptions);

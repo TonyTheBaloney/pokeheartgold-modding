@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "global_terminal_bg_cell_data.inc"
 	.include "global.inc"
 

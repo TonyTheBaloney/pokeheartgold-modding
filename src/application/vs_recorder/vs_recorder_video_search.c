@@ -1143,7 +1143,7 @@ void VsRecorder_BuildSearchSpeciesList(VsRecorderWork *work, int category) {
         search->entries[i].msgId = search->speciesList[i];
         search->entries[i].value = search->speciesList[i];
     }
-    search->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_109);
+    search->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0237, HEAP_ID_109);
     search->categoryChosen = TRUE;
 }
 

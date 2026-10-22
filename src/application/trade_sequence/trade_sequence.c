@@ -161,7 +161,7 @@ BOOL TradeSequence_Init(OverlayManager *man, int *state) {
             ts->scene = 0;
             ts->bgConfig = BgConfig_Alloc(HEAP_ID_56);
             ts->string = String_New(400, HEAP_ID_56);
-            ts->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0179_bin, HEAP_ID_56);
+            ts->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0179, HEAP_ID_56);
             ts->msgFormat = MessageFormat_New(HEAP_ID_56);
             switch (ts->args->is_ingame) {
             case TRADE_SEQUENCE_MODE_FULL:

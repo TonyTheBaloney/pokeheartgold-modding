@@ -172,7 +172,7 @@
 	.public SpinTrade_State_WaitDisconnect
 	.public SpinTrade_State_WaitFadeOut
 	.public SpinTrade_State_Exit
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.include "overlay_85.inc"
 	.include "global.inc"
 

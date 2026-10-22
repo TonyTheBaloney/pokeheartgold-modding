@@ -491,11 +491,11 @@ BOOL WiiMessageSettingsScreen_Init(OverlayManager *man, int *state) {
     GF_TouchpadResetSampling();
     GF_TouchpadStartSampling(4);
     screen->msgFormat = MessageFormat_New_Custom(11, 64, HEAP_ID_116);
-    screen->gtsMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0775_bin, HEAP_ID_116);
-    screen->wfcMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0778_bin, HEAP_ID_116);
-    screen->wfcErrorMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0800_bin, HEAP_ID_116);
-    screen->speciesNamesMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_116);
-    screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0188_bin, HEAP_ID_116);
+    screen->gtsMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0775, HEAP_ID_116);
+    screen->wfcMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0778, HEAP_ID_116);
+    screen->wfcErrorMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0800, HEAP_ID_116);
+    screen->speciesNamesMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0237, HEAP_ID_116);
+    screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0188, HEAP_ID_116);
     screen->messageBuffer = String_New(270, HEAP_ID_116);
     screen->errorBuffer = String_New(256, HEAP_ID_116);
     screen->title = NewString_ReadMsgData(screen->gtsMsgData, msg_0775_00031); // "Nintendo Wi-Fi Connection"

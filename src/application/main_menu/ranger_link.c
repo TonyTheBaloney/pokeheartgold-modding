@@ -7,30 +7,11 @@
 
 typedef void (*RangerLinkWmCallback)(void *arg);
 
-int WM_Init(void *workBuffer, u16 dmaNo);
-int WM_SetIndCallback(RangerLinkWmCallback callback);
-int WM_Enable(RangerLinkWmCallback callback);
-int WM_Disable(RangerLinkWmCallback callback);
-int WM_PowerOn(RangerLinkWmCallback callback);
-int WM_PowerOff(RangerLinkWmCallback callback);
-int WM_Reset(RangerLinkWmCallback callback);
-int WM_End(RangerLinkWmCallback callback);
-int WM_Finish(void);
-int WM_MeasureChannel(RangerLinkWmCallback callback, u16 ccaMode, u16 edThreshold, u16 channel, u16 measureTime);
-int WM_SetParentParameter(RangerLinkWmCallback callback, void *parentParam);
-int WM_StartParent(RangerLinkWmCallback callback);
-int WM_StartScan(RangerLinkWmCallback callback, void *scanParam);
-int WM_EndScan(RangerLinkWmCallback callback);
-int WM_StartConnectEx(RangerLinkWmCallback callback, void *bssDesc, void *ssid, int powerSave, u16 authMode);
-int WM_SetPortCallback(u16 port, RangerLinkWmCallback callback, void *arg);
-int WM_StartMP(RangerLinkWmCallback callback, void *recvBuf, u16 recvSize, void *sendBuf, u16 sendSize, u16 mode);
-int WM_SetMPDataToPortEx(RangerLinkWmCallback callback, void *arg, void *data, u16 size, u32 destBitmap, u16 port, int priority);
 u16 SVC_GetCRC16(u32 value, const void *data, u32 size);
 u16 WM_GetAllowedChannel(void);
 u16 WM_GetDispersionBeaconPeriod(void);
 u16 WM_GetDispersionScanPeriod(void);
 u16 WM_GetNextTgid(void);
-int WM_GetLinkLevel(void);
 
 #define WM_OK        0
 #define WM_OPERATING 2
@@ -400,7 +381,7 @@ static void RangerLink_ResetCallback(void *arg);
 static void RangerLink_EndCallback(void *arg);
 static int RangerLink_SetIndicationCallback(void);
 static void RangerLink_Begin(void);
-static void RangerLink_SendData(void *data, u32 size, u32 destBitmap);
+static void RangerLink_SendData(void *data, u32 size, u16 destBitmap);
 static u32 RangerLink_GetSendBufferSize(void);
 static u32 RangerLink_GetRecvBufferSize(void);
 static void RangerLink_UpdateSend(void);
@@ -456,7 +437,7 @@ static void RangerLink_DebugScan(void);
 static void RangerLink_DebugFoundParents(RangerLinkChildPeers *peers);
 static void RangerLink_DebugChildren(RangerLinkParentPeers *peers);
 static void RangerLink_DebugPacket(RangerLinkPacket *packet);
-static BOOL RangerLink_SetMPData(void *data, int size, u32 destBitmap);
+static BOOL RangerLink_SetMPData(void *data, int size, u16 destBitmap);
 static BOOL RangerLink_WmEnable(void);
 static BOOL RangerLink_WmDisable(void);
 static BOOL RangerLink_WmMeasureChannel(u32 channel);
@@ -1268,7 +1249,7 @@ static void RangerLink_Begin(void) {
     }
 }
 
-static void RangerLink_SendData(void *data, u32 size, u32 destBitmap) {
+static void RangerLink_SendData(void *data, u32 size, u16 destBitmap) {
     if (size <= RangerLink_GetParentParam()->maxSendSize) {
         DC_FlushRange(data, size);
         RangerLink_SetMPData(data, size, destBitmap);
@@ -1943,7 +1924,7 @@ static void RangerLink_DebugChildren(RangerLinkParentPeers *peers) {
 static void RangerLink_DebugPacket(RangerLinkPacket *packet) {
 }
 
-static BOOL RangerLink_SetMPData(void *data, int size, u32 destBitmap) {
+static BOOL RangerLink_SetMPData(void *data, int size, u16 destBitmap) {
     u16 port = RangerLink_GetPort();
     if (WM_SetMPDataToPortEx(RangerLink_SetMPDataCallback, NULL, data, (u16)size, destBitmap, port, 2) != WM_OPERATING) {
         RangerLink_DebugError();
@@ -1984,7 +1965,7 @@ static BOOL RangerLink_WmSetParentParameter(void) {
     param->channel = peers->quietestChannel;
     param->gameInfo = gameInfo;
     param->gameInfoLength = RangerLink_GetGameInfoLength();
-    if (WM_SetParentParameter(RangerLink_SetParentParameterCallback, param) != WM_OPERATING) {
+    if (WM_SetParentParameter(RangerLink_SetParentParameterCallback, (const WMParentParam *)param) != WM_OPERATING) {
         RangerLink_DebugError();
         return FALSE;
     }
@@ -2000,7 +1981,7 @@ static BOOL RangerLink_WmStartParent(void) {
 }
 
 static BOOL RangerLink_WmStartScan(void) {
-    if (WM_StartScan(RangerLink_ScanCallback, RangerLink_GetScanParam()) != WM_OPERATING) {
+    if (WM_StartScan(RangerLink_ScanCallback, (const WMScanParam *)RangerLink_GetScanParam()) != WM_OPERATING) {
         RangerLink_DebugError();
         return FALSE;
     }
@@ -2017,7 +1998,7 @@ static BOOL RangerLink_WmStartScanSelected(void) {
     scanParam->bssid[3] = source[(((u32)source[0x1C3] << 28) >> 28) * FOUND_PARENT_SIZE + 1];
     scanParam->bssid[4] = source[(((u32)source[0x1C3] << 28) >> 28) * FOUND_PARENT_SIZE + 2];
     scanParam->bssid[5] = source[(((u32)source[0x1C3] << 28) >> 28) * FOUND_PARENT_SIZE + 3];
-    if (WM_StartScan(RangerLink_ScanSelectedCallback, RangerLink_GetScanParam()) != WM_OPERATING) {
+    if (WM_StartScan(RangerLink_ScanSelectedCallback, (const WMScanParam *)RangerLink_GetScanParam()) != WM_OPERATING) {
         RangerLink_DebugError();
         return FALSE;
     }

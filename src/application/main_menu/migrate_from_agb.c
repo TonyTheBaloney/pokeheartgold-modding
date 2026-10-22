@@ -53,7 +53,6 @@ extern u8 TextPrinterCheckActive(u8 printerId);
 extern void TextFlags_SetCanTouchSpeedUpPrint(BOOL enable);
 
 BOOL CTRDG_IsExisting(void);
-void CTRDG_ReadAgbFlash(u16 sector, u32 offset, void *dest, u32 size);
 
 extern int gAgbCartridgePulledOutInSleep;
 extern MigrateFromAgbIcon *gMigrateFromAgbIcons;
@@ -474,7 +473,7 @@ static void MigrateFromAgb_PrintText(MigrateFromAgbApp *app, MigrateFromAgbText 
         FillWindowPixelBuffer(text->window, text->fillColor);
     }
     if (text->msgId != -1) {
-        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0301_bin, HEAP_ID_76);
+        MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0301, HEAP_ID_76);
         MessageFormat *msgFormat = text->msgFormat;
         String *raw;
         if (!msgFormat) {
@@ -1015,7 +1014,7 @@ static void MigrateFromAgb_PrintMonInfo(MigrateFromAgbApp *app, AgbBoxMon *mon) 
     text.printY = 0;
     MigrateFromAgb_PrintText(app, &text, 6);
     string = String_New(64, HEAP_ID_76);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_76);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, HEAP_ID_76);
     species = TranslateAgbSpecies(AGB_GetBoxMonData(mon, AGB_MON_DATA_SPECIES, NULL));
     ReadMsgDataIntoString(msgData, species, string);
     text.msgId = -1;

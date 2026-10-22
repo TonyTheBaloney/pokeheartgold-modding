@@ -324,7 +324,7 @@ static void FriendRosterApp_LoadBgGraphics(FriendRosterAppData *data, NARC *narc
 }
 
 static void FriendRosterApp_InitText(FriendRosterAppData *data) {
-    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0196_bin, HEAP_ID_8);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0196, HEAP_ID_8);
     data->msgFormat = MessageFormat_New(HEAP_ID_8);
 }
 

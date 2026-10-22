@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public VsRecorder_BoxDataInit
 	.public VsRecorder_BoxDataEnter
 	.public VsRecorder_BoxDataSendChangeBox

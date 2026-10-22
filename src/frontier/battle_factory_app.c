@@ -2179,7 +2179,7 @@ static void BattleFactoryApp_PrintPartnerMonName(BattleFactoryApp *app, Window *
     int color;
 
     FillWindowPixelBuffer(window, bg);
-    speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_100);
+    speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0237, HEAP_ID_100);
     string = NewString_ReadMsgData(speciesNames, (u16)species);
     DestroyMsgData(speciesNames);
     AddTextPrinterParameterizedWithColor(window, (u8)fontId, string, x, y, TEXT_SPEED_NOTRANSFER, TEXT_COLOR(fg, shadow, bg), NULL);
@@ -2271,7 +2271,7 @@ static void BattleFactoryApp_InitGraphics(BattleFactoryApp *app) {
     BattleFactoryApp_InitBgGraphics(app);
     BattleFactoryApp_InitSprites(app);
     FontID_Alloc(4, HEAP_ID_100);
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0194_bin, HEAP_ID_100);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0194, HEAP_ID_100);
     app->msgFormat = MessageFormat_New(HEAP_ID_100);
     app->expandedString = String_New(800, HEAP_ID_100);
     app->rawString = String_New(800, HEAP_ID_100);

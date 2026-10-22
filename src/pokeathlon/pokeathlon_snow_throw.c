@@ -65,7 +65,6 @@ typedef struct PokeathlonSnowThrowTeamMarkPositions {
     VecFx32 positions[SNOW_THROW_TEAMS - 1];
 } PokeathlonSnowThrowTeamMarkPositions;
 
-void MATH_QSort(void *base, u32 count, u32 width, int (*compare)(const void *, const void *), void *context);
 
 // A snowball as sorted for drawing.
 typedef struct PokeathlonSnowThrowDrawOrder {
@@ -1288,7 +1287,7 @@ static void PokeathlonSnowThrow_PrintScore(PokeathlonSnowThrow *work, u16 score)
     String *string;
 
     FillWindowPixelBuffer(&work->scoreWindow, 0);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, work->heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, work->heapId);
     format = MessageFormat_New(work->heapId);
     BufferIntegerAsString(format, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(format, msgData, msg_0309_00164, work->heapId);
@@ -1551,7 +1550,7 @@ static void PokeathlonSnowThrow_SortSprites(PokeathlonSnowThrow *work, u16 own) 
         orders[i].y = position->y;
         orders[i].own = own;
     }
-    MATH_QSort(orders, SNOW_THROW_MONS, sizeof(PokeathlonSnowThrowDrawOrder), PokeathlonSnowThrow_CompareDrawOrder, work->sortBuffer);
+    MATH_QSort(orders, SNOW_THROW_MONS, sizeof(PokeathlonSnowThrowDrawOrder), (MATHCompareFunc)PokeathlonSnowThrow_CompareDrawOrder, work->sortBuffer);
     for (i = 0; i < SNOW_THROW_MONS; i++) {
         ball = (u8)orders[i].index;
         PokeathlonCourseSpritePoolSprite_SetDrawPriority(work->balls[ball].sprite, i + 20);

@@ -420,7 +420,7 @@ void UnionRoom_BufferPartnerLanguage(MessageFormat *msgFmt, u16 mode, u16 objId,
     int msgNo;
     String *str;
 
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0738_UNION_bin, HEAP_ID_FIELD1);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0738_UNION, HEAP_ID_FIELD1);
     if (mode == 0) {
         partner = CommWireless_GetParentProfile(objId - 1);
     } else {

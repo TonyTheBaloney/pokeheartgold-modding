@@ -100,8 +100,6 @@ void PokeathlonCourseMonObjects_SetPalette(PokeathlonCourseMonObjects *objects, 
 
 void SetBothScreensBrightnessByColor(u16 color);
 
-u32 MATH_CountPopulation(u32 value);
-void MATH_QSort(void *head, u32 num, u32 width, int (*compare)(const void *, const void *), void *stackBuffer);
 
 static BOOL PokeathlonCourseCeremony_IsCryActive(PokeathlonCourseCeremony *ceremony);
 static void PokeathlonCourseCeremony_LoadWinnerBg(BgConfig *bgConfig, enum HeapID heapId);
@@ -1245,7 +1243,7 @@ static void PokeathlonCourseCeremony_RankTeams(PokeathlonCourseCeremonyScore *sc
         ranks[i].drawingLot = drawingLots[i];
     }
 
-    MATH_QSort(ranks, 4, sizeof(PokeathlonCourseCeremonyRank), PokeathlonCourseCeremony_CompareRanks, NULL);
+    MATH_QSort(ranks, 4, sizeof(PokeathlonCourseCeremonyRank), (MATHCompareFunc)PokeathlonCourseCeremony_CompareRanks, NULL);
 
     for (i = 0; i < 4; i++) {
         ranks[i].place = place;
@@ -2221,7 +2219,7 @@ static void PokeathlonCourseCeremony_BreakTie(PokeathlonCourseCeremonyRank *rank
     }
     ranks[winner].place--;
     ranks[winner].points++;
-    MATH_QSort(ranks, 4, 4, PokeathlonCourseCeremony_CompareRanks, NULL);
+    MATH_QSort(ranks, 4, 4, (MATHCompareFunc)PokeathlonCourseCeremony_CompareRanks, NULL);
     ranks[0].points--;
 }
 

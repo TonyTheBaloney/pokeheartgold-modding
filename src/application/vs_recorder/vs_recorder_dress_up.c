@@ -1478,7 +1478,7 @@ static void VsRecorder_BuildDressUpSpeciesList(VsRecorderWork *work, int categor
         dressUp->entries[i].msgId = dressUp->speciesList[i];
         dressUp->entries[i].value = dressUp->speciesList[i];
     }
-    dressUp->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0237_bin, HEAP_ID_109);
+    dressUp->speciesNames = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0237, HEAP_ID_109);
     dressUp->categoryChosen = TRUE;
 }
 

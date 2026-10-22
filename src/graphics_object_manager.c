@@ -72,7 +72,7 @@ void GraphicsManager_DrawObjects(GraphicsManager *manager) {
 GraphicsImage *GraphicsManager_LoadImage(GraphicsImageTemplate *template) {
     GraphicsImage *image = GraphicsManager_FindFreeImage(template->manager);
     GF_ASSERT(image != NULL);
-    GF_ASSERT(template->character->mapingType == GX_OBJVRAMMODE_CHAR_2D);
+    GF_ASSERT(template->character->mappingType == GX_OBJVRAMMODE_CHAR_2D);
     image->key = GraphicsImage_AllocVram(template->character);
     GF_ASSERT(image->key != 0);
     GraphicsImage_LoadToVram(template->character, image->key, &image->proxy);

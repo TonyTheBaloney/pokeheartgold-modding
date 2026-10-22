@@ -1,4 +1,4 @@
-#include <nitro/fs/overlay.h>
+
 #pragma once
 .public MapObjectMovement_NoOpInit
 .public MapObjectMovement_NoOpUpdate

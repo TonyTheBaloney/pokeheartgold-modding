@@ -507,7 +507,7 @@ static void CodeEntry_CreateButtonLabel(CodeEntryApp *app, int button, int x, in
     s16 centerX, centerY;
     int size;
 
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0038_bin, HEAP_ID_108);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0038, HEAP_ID_108);
     string = NewString_ReadMsgData(msgData, button + msg_0038_00002);
     InitWindow(&window);
     AddTextWindowTopLeftCorner(app->bgConfig, &window, 10, 2, 0, 0);
@@ -549,7 +549,7 @@ static void CodeEntry_PrintPrompt(Window *window, int msgNo) {
     String *string;
 
     FillWindowPixelBuffer(window, 15);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0038_bin, HEAP_ID_108);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0038, HEAP_ID_108);
     string = NewString_ReadMsgData(msgData, msgNo);
     FillWindowPixelBuffer(window, 15);
     AddTextPrinterParameterized(window, 1, string, 0, 0, TEXT_SPEED_INSTANT, NULL);

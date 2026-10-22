@@ -600,7 +600,7 @@ BOOL PokeathlonCourseRecord_Init(OverlayManager *man, int *state) {
     PokeathlonUtil_ResetDisplay();
     PokeathlonCourseRecord_InitBgs(work);
     PokeathlonCourseRecord_LoadBgGraphics(work);
-    work->textContext = PokeathlonUtil_CreateTextContext(work->heapId, work->bgConfig, 17, sPokeathlonCourseRecordWindowTemplates, NARC_msg_msg_0314_bin);
+    work->textContext = PokeathlonUtil_CreateTextContext(work->heapId, work->bgConfig, 17, sPokeathlonCourseRecordWindowTemplates, msg_0314);
     counts = sPokeathlonCourseRecordSpriteResourceCounts;
     work->spriteContext = PokeathlonUtil_CreateSpriteContext(work->heapId, &counts, 26);
     PokeathlonCourseRecord_LoadSpriteResources(work);

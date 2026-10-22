@@ -282,7 +282,7 @@ BOOL PokeathlonTrophies_Init(OverlayManager *man, int *state) {
     PokeathlonUtil_ResetDisplay();
     PokeathlonTrophies_InitBgs(work);
     PokeathlonTrophies_LoadBgGraphics(work);
-    work->textContext = PokeathlonUtil_CreateTextContext(work->heapId, work->bgConfig, 15, sPokeathlonTrophiesWindowTemplates, NARC_msg_msg_0314_bin);
+    work->textContext = PokeathlonUtil_CreateTextContext(work->heapId, work->bgConfig, 15, sPokeathlonTrophiesWindowTemplates, msg_0314);
     counts = sPokeathlonTrophiesSpriteResourceCounts;
     work->spriteContext = PokeathlonUtil_CreateSpriteContext(work->heapId, &counts, 67);
     PokeathlonTrophies_LoadSpriteResources(work);

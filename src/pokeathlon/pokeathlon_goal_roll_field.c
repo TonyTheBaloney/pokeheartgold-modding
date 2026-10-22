@@ -806,7 +806,7 @@ void PokeathlonGoalRoll_PrintTotalPoints(PokeathlonGoalRoll *goalRoll, u32 score
     MessageFormat *msgFormat;
     String *string;
     FillWindowPixelBuffer(&goalRoll->scoreWindow, 0);
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, goalRoll->heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, goalRoll->heapId);
     msgFormat = MessageFormat_New(goalRoll->heapId);
     BufferIntegerAsString(msgFormat, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0309_00165, goalRoll->heapId);
@@ -1265,7 +1265,7 @@ void PokeathlonGoalRoll_PrintPlate(PokeathlonGoalRoll *goalRoll, u8 participant,
 void PokeathlonGoalRoll_LoadStrings(PokeathlonCourseData *course) {
     u8 i;
     PokeathlonGoalRoll *goalRoll = PokeathlonCourse_GetWork(course);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, goalRoll->heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, goalRoll->heapId);
     MessageFormat *msgFormat = MessageFormat_New(goalRoll->heapId);
     goalRoll->plateStrings[0] = NewString_ReadMsgData(msgData, msg_0309_00307);
     goalRoll->plateStrings[1] = NewString_ReadMsgData(msgData, msg_0309_00308);

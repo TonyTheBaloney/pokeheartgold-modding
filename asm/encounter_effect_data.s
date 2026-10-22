@@ -1,5 +1,5 @@
-#include <nitro/fs/overlay.h>
-	.include "asm/macros.inc"
+
+	.include "macros.inc"
 	.include "global.inc"
 
 	.public ov01_022067D0

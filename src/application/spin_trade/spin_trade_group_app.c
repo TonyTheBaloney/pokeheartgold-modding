@@ -465,7 +465,7 @@ BOOL SpinTradeGroupApp_Init(OverlayManager *manager, int *state) {
         app->menu = args->menu;
         app->bgConfig = BgConfig_Alloc(HEAP_ID_102);
         app->msgFormat = MessageFormat_New(HEAP_ID_102);
-        app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0207_bin, HEAP_ID_102);
+        app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0207, HEAP_ID_102);
         SetKeyRepeatTimers(4, 8);
         SpinTradeGroup_SetGraphicsBanks();
         SpinTradeGroup_InitBgLayers(app->bgConfig);

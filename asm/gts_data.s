@@ -1,6 +1,6 @@
 #include "config.h"
 #include "constants/pokemon.h"
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public gGtsServer
 	.public GtsWanted_Start
 	.public GtsWanted_HandleInput
@@ -317,7 +317,7 @@ gGtsViewMonSummaryPages:
 	.byte 0x00, 0x01, 0x02, 0x03, 0x04, 0x00, 0x00, 0x00
 
 gGtsTradeSequenceTemplate:
-	.word TradeSequence_Init, TradeSequence_Main, TradeSequence_Exit, FS_OVERLAY_ID(OVY_71)
+	.word TradeSequence_Init, TradeSequence_Main, TradeSequence_Exit, SDK_OVERLAY_OVY_71_ID
 
 gGtsSelectorGenderWindowPositions:
 	.byte 0x04, 0x03, 0x04, 0x07, 0x04, 0x0B

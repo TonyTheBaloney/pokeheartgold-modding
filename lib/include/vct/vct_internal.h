@@ -53,7 +53,6 @@ s32 VCT_HandleData(u32 sender, VctPacketHeader *data, u32 size, void *); // the 
 int VCTi_HandleData(u32 sender, VctPacketHeader *data, u32 size, Event *event);
 
 // NitroSDK / NitroDWC functions the headers do not declare
-void OSi_ReferSymbol(const void *symbol);
 
 extern char _version_Abiosso_libVCT[];
 

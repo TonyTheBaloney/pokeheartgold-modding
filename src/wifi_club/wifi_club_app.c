@@ -855,8 +855,8 @@ void WifiClub_SetupGraphics(WifiClubApp *app) {
     NARC *narc = NARC_New(NARC_a_0_8_8, HEAP_ID_53);
     app->bgConfig = BgConfig_Alloc(HEAP_ID_53);
     app->msgFormat = MessageFormat_New(HEAP_ID_53);
-    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0778_bin, HEAP_ID_53);
-    app->connectionMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0800_bin, HEAP_ID_53);
+    app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0778, HEAP_ID_53);
+    app->connectionMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0800, HEAP_ID_53);
     WifiClub_SetVramBanks();
     WifiClub_InitBgs(app->bgConfig);
     WifiClub_LoadBgGraphics(app, narc);

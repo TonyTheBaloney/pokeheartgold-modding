@@ -1,4 +1,4 @@
-	.include "asm/macros.inc"
+	.include "macros.inc"
 	.public PokedexApp_WeightAnim_Even
 	.public PokedexApp_WeightAnim_Tip1
 	.public PokedexApp_WeightAnim_Tip2

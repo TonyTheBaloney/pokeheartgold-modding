@@ -532,7 +532,7 @@ static void ConnectToRanger_LoadSubScreenBg(ConnectToRangerApp *app) {
 static BOOL ConnectToRanger_ShowPokedexRequiredMessage(ConnectToRangerApp *app) {
     MainMenuTextPrinter printer;
     if (WindowIsInUse(&app->messageWindow) == FALSE) {
-        MainMenuTextPrinter_Init(&printer, &app->messageWindow, 0, NARC_msg_msg_0017_bin, 1, 1);
+        MainMenuTextPrinter_Init(&printer, &app->messageWindow, 0, msg_0017, 1, 1);
         MainMenuTextPrinter_SetSize(&printer, 22, 16, app->nextFreeTile);
         MainMenuTextPrinter_AddWindowAndPrint(app->bgConfig, &printer, 5, 4, msg_0017_00002);
         return TRUE;
@@ -546,13 +546,13 @@ static BOOL ConnectToRanger_ShowPokedexRequiredMessage(ConnectToRangerApp *app) 
 }
 
 static void ConnectToRanger_PrintScreen(ConnectToRangerApp *app) {
-    MainMenuTextPrinter_Init(&app->statusText, &app->statusWindow, 0, NARC_msg_msg_0247_bin, 10, 2);
+    MainMenuTextPrinter_Init(&app->statusText, &app->statusWindow, 0, msg_0247, 10, 2);
     MainMenuTextPrinter_SetSize(&app->statusText, 27, 4, app->nextFreeTile);
     MainMenuTextPrinter_SetFrameAndFont(&app->statusText, 1, 1);
     MainMenuTextPrinter_AddWindowAndPrint(app->bgConfig, &app->statusText, 2, 19, msg_0247_00072);
     app->nextFreeTile += MainMenuTextPrinter_GetTileCount(&app->statusText);
 
-    MainMenuTextPrinter_Init(&app->titleText, &app->messageWindow, 0, NARC_msg_msg_0247_bin, 1, 1);
+    MainMenuTextPrinter_Init(&app->titleText, &app->messageWindow, 0, msg_0247, 1, 1);
     MainMenuTextPrinter_SetSize(&app->titleText, 30, 4, app->nextFreeTile);
     MainMenuTextPrinter_SetFrameAndFont(&app->titleText, 0, 1);
     MainMenuTextPrinter_AddWindowAndPrint(app->bgConfig, &app->titleText, 1, 1, msg_0247_00011);
@@ -582,7 +582,7 @@ static void ConnectToRanger_PrintPlayerInfo(ConnectToRangerApp *app) {
     u8 macAddress[6];
     RangerApplicationNo applicationNo;
 
-    MainMenuTextPrinter_Init(&app->playerText, &app->playerInfoWindow, 0, NARC_msg_msg_0247_bin, 1, 1);
+    MainMenuTextPrinter_Init(&app->playerText, &app->playerInfoWindow, 0, msg_0247, 1, 1);
     MainMenuTextPrinter_SetSize(&app->playerText, 26, 4, app->nextFreeTile);
     MainMenuTextPrinter_SetFrameAndFont(&app->playerText, 0, 1);
     app->playerText.msgFormat = msgFormat;
@@ -743,7 +743,7 @@ static void ConnectToRanger_StoreManaphyEggCard(ConnectToRangerApp *app) {
     RTCDate date;
 
     MI_CpuFill8(wonderCard, 0, sizeof(WonderCard));
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0247_bin, app->heapID);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, app->heapID);
     msgFormat = MessageFormat_New(app->heapID);
     wonderCard->tag = 7;
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0247_00078, app->heapID);

@@ -19,7 +19,6 @@ enum {
     PLATE_STATE_FLASH,
 };
 
-void MATH_QSort(void *base, u32 count, u32 width, int (*compare)(const void *, const void *), void *context);
 
 void PokeathlonCourse_SetRecordScore(PokeathlonCourseData *course, u32 score);
 Sprite *PokeathlonCourseSprites_CreateTimerDigit(PokeathlonCourseSpriteResources *resources, SpriteList *spriteList, int priority, enum HeapID heapId);
@@ -287,7 +286,7 @@ void PokeathlonGoalRoll_SortOtherMonsOrder(PokeathlonGoalRoll *goalRoll, Pokeath
             count++;
         }
     }
-    MATH_QSort(mons, 9, sizeof(PokeathlonGoalRollMonY), PokeathlonGoalRoll_CompareMonY, goalRoll->sortWork);
+    MATH_QSort(mons, 9, sizeof(PokeathlonGoalRollMonY), (MATHCompareFunc)PokeathlonGoalRoll_CompareMonY, goalRoll->sortWork);
     {
         u8 j;
         for (j = 0; j < 9; j++) {
@@ -315,7 +314,7 @@ PokeathlonGoalRollDisplay *PokeathlonGoalRollDisplay_New(enum HeapID heapId, BgC
     display->bgConfig = bgConfig;
     display->course = course;
     PokeathlonGoalRollDisplay_InitWindows(display);
-    display->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0309_bin, heapId);
+    display->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, heapId);
     display->msgFormat = MessageFormat_New(heapId);
     return display;
 }

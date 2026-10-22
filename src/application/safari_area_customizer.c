@@ -1238,7 +1238,7 @@ static void SafariAreaCustomizer_CreateStrings(SafariAreaCustomizer *s) {
     int i;
 
     FontID_Alloc(4, s->heapId);
-    s->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0429_bin, s->heapId);
+    s->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0429, s->heapId);
     s->msgFormat = MessageFormat_New_Custom(1, 17, s->heapId);
     s->string = String_New(81, s->heapId);
     s->pageTemplate = NewString_ReadMsgData(s->msgData, msg_0429_00009);

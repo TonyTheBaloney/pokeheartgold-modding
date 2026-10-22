@@ -1,7 +1,7 @@
 #include "global_terminal/global_terminal_net.h"
 
-#include <nitro/os/alloc.h>
-#include <nitro/os/arena.h>
+#include <nitro.h>
+#include <nitro.h>
 
 #include "global.h"
 
@@ -227,7 +227,7 @@ BOOL GlobalTerminalNet_Init(GlobalTerminalNet *net, GlobalTerminalNetArgs *args)
     net->activeCommand = GTS_REQUEST_NONE;
     net->responseBuffer = Heap_Alloc(args->heapID, GlobalTerminalServer_GetResponseBufferSize(-1));
     MI_CpuFill8(net->responseBuffer, 0, GlobalTerminalServer_GetResponseBufferSize(-1));
-    net->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, NARC_msg_msg_0800_bin, args->heapID);
+    net->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0800, args->heapID);
     net->msgFormat = MessageFormat_New(args->heapID);
     net->string = String_New(256, args->heapID);
     net->osHeapMemory = GlobalTerminalNet_CreateOsHeap(args->heapID);

@@ -181,7 +181,7 @@ static void GlobalTerminalSocket_PrepareUploadStub(void *request, void *arg);
 
 void *DWC_Alloc(int category, int size);
 void DWC_Free(int category, void *ptr, int size);
-int gsSocketInetAddr(char *address);
+int inet_addr(char *address);
 int DWC_SVLGetTokenAsync(const char *arg, void *request);
 int DWC_SVLProcess(void);
 int DWC_GetLastErrorEx(int *errorCode, int *errorType);
@@ -538,7 +538,7 @@ static int GlobalTerminalSocket_Open(void) {
         sGlobalTerminalSocket.error = GTS_SOCKET_ERROR_RESOLVE;
         return 0;
     }
-    sGlobalTerminalSocket.address = gsSocketInetAddr(address);
+    sGlobalTerminalSocket.address = inet_addr(address);
     return 1;
 }
 

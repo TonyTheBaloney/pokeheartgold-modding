@@ -1083,7 +1083,7 @@ static void PokewalkerBoxDisplay_Init(PokewalkerBoxDisplay *display, BgConfig *b
     AddWindowParameterized(display->bgConfig, &display->windows[BOX_DISPLAY_WIN_NICKNAME], GF_BG_LYR_SUB_1, 14, 6, 8, 2, 15, 1);
     AddWindowParameterized(display->bgConfig, &display->windows[BOX_DISPLAY_WIN_GENDER], GF_BG_LYR_SUB_1, 22, 6, 1, 2, 15, 27);
     AddWindowParameterized(display->bgConfig, &display->windows[BOX_DISPLAY_WIN_ITEM], GF_BG_LYR_SUB_1, 14, 14, 16, 2, 15, 65);
-    display->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, NARC_msg_msg_0276_bin, display->heapId);
+    display->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0276, display->heapId);
     display->msgFormat = MessageFormat_New(display->heapId);
     display->string = String_New(11, display->heapId);
     PokewalkerBoxDisplay_InitSprites(&display->sprites);

@@ -1,4 +1,4 @@
-#include <nitro/fs/overlay.h>
+
 #pragma once
 .public DWCi_BM_GetWiFiInfo
 .public DWCi_BACKUPlRead
@@ -189,7 +189,7 @@
 .public memcmp
 .public strlen
 .public strncpy
-.public atol
+.public atoi
 .public swprintf
 .public _ll_udiv
 .public _ull_mod
@@ -197,7 +197,7 @@
 .public DWC_AC_Process
 .public DWC_AC_GetStatus
 .public DWC_AC_Destroy
-.public DWCi_AC_SetUserProfile
+.public DWCi_AC_InsertApInfo
 .public MB_CommSetParentStateCallback
 .public MB_CommGetChildUser
 .public MB_CommIsBootable
@@ -210,12 +210,11 @@
 .public MB_StartParentFromIdle
 .public MB_End
 .public MB_DisconnectChild
-.public WifiSetup_RunAoss
-.public WifiSetup_Startup
-.public WifiSetup_Cleanup
-.public WifiSetup_StartSimpleStart
-.public WifiSetup_StopSimpleStart
-.public WifiSetup_GetSimpleStartResult
-.public WifiSetupApp_Run
-.public gFrontierMovementSteps
-.public gBattleArcadeEventColorThresholds
+.public ov13_02220908
+.public ov13_02222C1C
+.public ov13_02222CE0
+.public ov13_02226D74
+.public ov13_02226E5C
+.public ov13_02226F28
+.public DWC_StartUtility
+.public _0223DC20

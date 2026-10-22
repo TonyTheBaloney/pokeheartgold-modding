@@ -64,7 +64,9 @@ asm void OS_SpinWait(register u32 cycles) {
 }
 #include <nitro/codereset.h>
 #else
-// OS_SpinWait ARM7 C body is supplied by the separately linked pure C producer.
+void OS_SpinWait(u32 cycles) {
+    SVC_WaitByLoop((s32)cycles / 4);
+}
 #endif
 
 void OS_WaitVBlankIntr(void) {
