@@ -355,6 +355,9 @@ static void InheritIVs(Pokemon *egg, Daycare *dayCare) {
     }
 }
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// Status: MATCHING
+// Partially AI-edited: literals 2045 and 20000 replaced by EGG_MOVES_TABLE_SIZE and EGG_MOVES_SPECIES_OFFSET
 static u8 LoadEggMoves(Pokemon *mon, u16 *dest) {
     u16 numEggMoves;
     u16 i;
@@ -363,14 +366,14 @@ static u8 LoadEggMoves(Pokemon *mon, u16 *dest) {
     u16 offset = 0;
 
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    for (i = 0; i < 2045; i++) {
-        if (species + 20000 == eggMoveList[i]) {
+    for (i = 0; i < EGG_MOVES_TABLE_SIZE; i++) {
+        if (species + EGG_MOVES_SPECIES_OFFSET == eggMoveList[i]) {
             offset = i + 1;
             break;
         }
     }
     for (i = 0; i < MAX_EGG_MOVES; i++) {
-        if (eggMoveList[offset + i] > 20000) {
+        if (eggMoveList[offset + i] > EGG_MOVES_SPECIES_OFFSET) {
             break;
         }
         dest[i] = eggMoveList[offset + i];

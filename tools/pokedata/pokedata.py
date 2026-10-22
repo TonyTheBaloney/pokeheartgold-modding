@@ -28,16 +28,16 @@ import struct
 import subprocess
 import sys
 
-# wotbl member: u16 move | level << 9, ..., 0xFFFF, zero-padded to 4 bytes
-LEVEL_SHIFT = 9
-MOVE_MASK = (1 << LEVEL_SHIFT) - 1
-LEARNSET_END = 0xFFFF
-MAX_LEARNED_MOVES = 22      # include/constants/pokemon.h: buffer the game reads a member into
-MAX_LEVEL = 100
-# kowaza_list: one list of u16; 20000 + species starts a species' moves, 0xFFFF ends it
-EGG_SPECIES_OFFSET = 20000
-EGG_MOVES_SEARCHED = 2045   # src/get_egg.c LoadEggMoves only looks for species this far in
-MAX_EGG_MOVES = 16          # include/constants/daycare.h
+# Format and limits come from the game's headers (Limits), so they can't drift from the C:
+# wotbl member: u16 move | level << LEVEL_UP_LEARNSET_LEVEL_SHIFT, ..., LEVEL_UP_LEARNSET_END,
+# zero-padded to 4 bytes. kowaza_list: one list of u16; EGG_MOVES_SPECIES_OFFSET + species starts
+# a species' moves, EGG_MOVES_TERMINATOR ends it.
+LIMITS = {
+    "constants/pokemon.h": ("MAX_LEVEL", "MAX_LEARNED_MOVES"),
+    "pokemon.h": ("LEVEL_UP_LEARNSET_END", "LEVEL_UP_LEARNSET_LEVEL_SHIFT", "LEVEL_UP_LEARNSET_MOVEID_MASK"),
+    "constants/daycare.h": ("MAX_EGG_MOVES", "EGG_MOVES_SPECIES_OFFSET", "EGG_MOVES_TERMINATOR",
+                            "EGG_MOVES_TABLE_SIZE"),
+}
 
 
 class DataError(Exception):
@@ -64,6 +64,12 @@ def read_defines(path, prefix):
 
 class Constants:
     def __init__(self, include):
+        for header, names in LIMITS.items():
+            d = read_defines(os.path.join(include, header), "")
+            for n in names:
+                if n not in d:
+                    raise DataError("%s doesn't define %s" % (header, n))
+                setattr(self, n, d[n])
         self.species = read_defines(os.path.join(include, "constants/species.h"), "SPECIES_")
         moves = read_defines(os.path.join(include, "constants/moves.h"), "MOVE_")
         last = moves.get("NUM_MOVES") or max(v for k, v in moves.items() if not k.startswith("MOVE_ATTRIBUTE_"))
@@ -138,36 +144,36 @@ def write_egg_moves_json(path, lists):
 
 # --- binary --------------------------------------------------------------------------
 
-def learnset_member(moves):
-    data = b"".join(struct.pack("<H", move | level << LEVEL_SHIFT) for level, move in moves)
-    data += struct.pack("<H", LEARNSET_END)
+def learnset_member(moves, c):
+    data = b"".join(struct.pack("<H", move | level << c.LEVEL_UP_LEARNSET_LEVEL_SHIFT) for level, move in moves)
+    data += struct.pack("<H", c.LEVEL_UP_LEARNSET_END)
     return data + b"\0" * (-len(data) % 4)
 
 
 def build_learnsets(path, c):
     doc = load_json(path)
-    members = [learnset_member([])] * c.num_species
+    members = [learnset_member([], c)] * c.num_species
     for species, moves in doc.items():
         sid = c.species_id(species, path)
         if not isinstance(moves, list):
             raise DataError("%s: %s: expected a list of { level, move }" % (path, species))
-        if len(moves) > MAX_LEARNED_MOVES - 1:
+        if len(moves) > c.MAX_LEARNED_MOVES - 1:
             raise DataError("%s: %s has %d moves; the game reads at most %d"
-                            % (path, species, len(moves), MAX_LEARNED_MOVES - 1))
+                            % (path, species, len(moves), c.MAX_LEARNED_MOVES - 1))
         out = []
         for i, m in enumerate(moves):
             where = "%s: %s[%d]" % (path, species, i)
             if not isinstance(m, dict) or set(m) != {"level", "move"}:
                 raise DataError("%s: expected { \"level\": n, \"move\": \"MOVE_X\" }" % where)
             level, move = m["level"], c.move_id(m["move"], where)
-            if not isinstance(level, int) or not 1 <= level <= MAX_LEVEL:
-                raise DataError("%s: level %r is not 1-%d" % (where, level, MAX_LEVEL))
+            if not isinstance(level, int) or not 1 <= level <= c.MAX_LEVEL:
+                raise DataError("%s: level %r is not 1-%d" % (where, level, c.MAX_LEVEL))
             # Levels should go up: the game stops at the first move above the Pokémon's
             # level. Not enforced, because retail Banette's don't.
-            if move > MOVE_MASK:
+            if move > c.LEVEL_UP_LEARNSET_MOVEID_MASK:
                 raise DataError("%s: %s doesn't fit in a learnset entry" % (where, m["move"]))
             out.append((level, move))
-        members[sid] = learnset_member(out)
+        members[sid] = learnset_member(out, c)
     return members
 
 
@@ -178,15 +184,15 @@ def build_egg_moves(path, c):
         sid = c.species_id(species, path)
         if not isinstance(moves, list):
             raise DataError("%s: %s: expected a list of moves" % (path, species))
-        if len(moves) > MAX_EGG_MOVES:
+        if len(moves) > c.MAX_EGG_MOVES:
             raise DataError("%s: %s has %d egg moves; the game takes at most %d"
-                            % (path, species, len(moves), MAX_EGG_MOVES))
-        if len(words) >= EGG_MOVES_SEARCHED:
+                            % (path, species, len(moves), c.MAX_EGG_MOVES))
+        if len(words) >= c.EGG_MOVES_TABLE_SIZE:
             raise DataError("%s: %s starts at entry %d, but the game only searches the first %d "
-                            "(src/get_egg.c); the table is full" % (path, species, len(words), EGG_MOVES_SEARCHED))
-        words.append(EGG_SPECIES_OFFSET + sid)
+                            "(src/get_egg.c); the table is full" % (path, species, len(words), c.EGG_MOVES_TABLE_SIZE))
+        words.append(c.EGG_MOVES_SPECIES_OFFSET + sid)
         words += [c.move_id(m, "%s: %s" % (path, species)) for m in moves]
-    words.append(LEARNSET_END)
+    words.append(c.EGG_MOVES_TERMINATOR)
     return [b"".join(struct.pack("<H", w) for w in words)]
 
 
@@ -223,9 +229,9 @@ def extract_learnsets(narc, c):
     for sid, data in enumerate(narc_members(narc)):
         moves = []
         for (v,) in struct.iter_unpack("<H", data):
-            if v == LEARNSET_END:
+            if v == c.LEVEL_UP_LEARNSET_END:
                 break
-            moves.append((v >> LEVEL_SHIFT, c.move_name[v & MOVE_MASK]))
+            moves.append((v >> c.LEVEL_UP_LEARNSET_LEVEL_SHIFT, c.move_name[v & c.LEVEL_UP_LEARNSET_MOVEID_MASK]))
         sets.append((c.species_name[sid], moves))
     return sets
 
@@ -234,10 +240,10 @@ def extract_egg_moves(narc, c):
     (data,) = narc_members(narc)
     lists = []
     for (v,) in struct.iter_unpack("<H", data):
-        if v == LEARNSET_END:
+        if v == c.EGG_MOVES_TERMINATOR:
             break
-        if v > EGG_SPECIES_OFFSET:
-            lists.append((c.species_name[v - EGG_SPECIES_OFFSET], []))
+        if v > c.EGG_MOVES_SPECIES_OFFSET:
+            lists.append((c.species_name[v - c.EGG_MOVES_SPECIES_OFFSET], []))
         else:
             lists[-1][1].append(c.move_name[v])
     return lists
