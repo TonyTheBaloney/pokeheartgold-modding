@@ -39,153 +39,162 @@ Measured facts that shape the design (from `map_headers.h`, 540 maps):
   number in the file name (`scr_seq_0850_…`, `064_T21`, `msg_0542_…`) and from
   file lists in `meson.build` / `NARC_msg.txt`.
 
-## Target layout
+## Target layout (pokeemerald style)
+
+The layout follows pret/pokeemerald so it reads like the other pret repos.
+Where the DS forces a difference, it's noted.
 
 ```
 data/
   maps/
+    maps.txt                 index of migrated maps (pokeemerald: map_groups.json)
+    meson.build              reads maps.txt; regenerates/copies files for the build
     Cherrygrove/
-      map.json        header fields + bank numbers + map code
-      events.json     objects, warps, bgs, coords (names instead of numbers)
-      scripts.s       event scripts with named labels
-      init.s          on-load / on-transition / on-frame scripts (was _hdr.s)
-      text.json       messages (msgenc JSON, unchanged format)
-      wild.json       optional; this map's wild table
-    Cherrygrove_PokeMart/
+      map.json               header fields + object/warp/coord/bg events
+      scripts.inc            event scripts
+      map_scripts.inc        on-load/on-transition/on-frame scripts (separate binary on DS)
+      text.json              messages (msgenc JSON; DS text isn't .inc)
+      ids.h                  script and object id defines (was event_T21.h)
+    Cherrygrove_Pokecenter_1F/
       ...
-  layouts/
-    0064_T21/
-      layout.json     matrix (width, height, header ids, altitudes, land ids)
-  maps.json           ordered index: map id -> folder, and every bank number
+  layouts/                   (later) map grids, pokeemerald's data/layouts
+files/fielddata/encountdata/gs_enc_data.json   wild data stays central, like
+                                               pokeemerald's src/data/wild_encounters.json
 ```
 
-Folder names come from the `MAP_*` constant (`MAP_CHERRYGROVE_POKEMART` ->
-`Cherrygrove_PokeMart`). `map.json` keeps the original Game Freak code (`T21FS0101`).
+Folder names are CamelCase from the `MAP_*` constant, with `_` before a sub-map
+and a floor: `MAP_CHERRYGROVE_POKECENTER_1F` -> `Cherrygrove_Pokecenter_1F`,
+`MAP_ROUTE_29` -> `Route29`.
+
+### map.json
+
+Top-level keys follow pokeemerald (`id`, `name`, `layout`, `music_*`,
+`region_map_section`, `weather`, `map_type`, `battle_scene`, `allow_cycling`,
+`allow_escaping`, `allow_running`, ...), plus DS fields (`code`, `camera_type`,
+`follow_mode`, `area_icon`, `mom_call_intro`, `allow_fly`, call/radio flags,
+`wild_encounters`). The four bank fields aren't stored; they follow from
+`maps.txt`. The C field names are in `HEADER_KEYS` in `tools/mapkit/mapkit/layout.py`.
+
+Events use pokeemerald's section and field names:
+
+| pokeemerald key | DS template field | Notes |
+|---|---|---|
+| `object_events[].local_id` | `id` | `obj_T21_*`, defined in `ids.h` |
+| `graphics_id` | `spriteId` | `SPRITE_*` |
+| `x`, `y`, `elevation` | `x`, `z`, `y` | global tiles; DS calls the north-south axis z |
+| `movement_type`, `movement_range_x/y` | `movement`, `xRange`/`yRange` | `MOVEMENT_TYPE_*` |
+| `facing_dir` | `facingDirection` | DS only (pokeemerald folds facing into the movement type) |
+| `trainer_type`, `trainer_sight_or_param0`, `param1`, `param2` | `type`, `param0..2` | `OBJECT_TYPE_*` |
+| `script`, `flag` | `scriptId`, `eventFlag` | |
+| `warp_events[].dest_map`, `dest_warp_id` | `header`, `anchor` | |
+| `coord_events[].width`, `height`, `var`, `var_value` | `w`, `h`, `var`, `val` | |
+| `bg_events[].type`, `player_facing_dir` | `type`, `dir` | `BG_TYPE_*`, `BG_DIR_*` |
 
 ### Why bank numbers stay explicit
 
-The ROM stores banks by position, so `maps.json` records each map's
-`scriptBank`, `initBank`, `textBank`, `eventsBank`, `wildBank` numbers. The
-generator writes members back in that order. Renaming or moving a folder never
-changes the ROM. Adding a map appends new bank numbers at the end.
+The ROM stores banks by position, and the `.naix` constants come from file
+names. `maps.txt` keeps each map's original base names:
+
+```
+Cherrygrove MAP_CHERRYGROVE events=064_T21 scripts=scr_seq_0850_T21 init=scr_seq_0623_T21_hdr text=msg_0550_T21
+```
+
+Renaming or moving a folder never changes the ROM. A new map gets new names
+appended at the end.
 
 ## How the build uses it
 
-The existing pipeline stays. A new generator step (`tools/mapkit gen`) runs
-first and writes the same intermediate files the build reads today, into the
-build directory:
+The existing pipeline stays. `data/maps/meson.build` runs before `files/` and,
+for each line of `maps.txt`:
 
 ```
-data/maps/*  --mapkit gen-->  build/<game>/gen/
-                                zone_event/NNN_CODE.json   -> json2bin.sh -> zone_event.narc
-                                scr_seq_NNNN_CODE.s, _hdr.s, event_CODE.h -> makescript.sh -> scr_seq.narc
-                                msg_NNNN_CODE.json          -> msgenc -> msg.narc
-                                map_headers.h, encounter_tables_narc.h
-                                gs_enc_data.json            -> jsonproc -> g/s_enc_data.narc
-                                map_matrix/NNNN_*.bin       -> nitroarc
+map.json        --mapkit gen-events-->  build/.../data/maps/064_T21.json  -> zone_event.narc
+map.json        --mapkit gen-header-->  build/.../data/maps/header_MAP_CHERRYGROVE.h
+                                        (#included in place of the entry in src/data/map_headers.h)
+scripts.inc     --copy-->               scr_seq_0850_T21.s       -> scr_seq.narc
+map_scripts.inc --copy-->               scr_seq_0623_T21_hdr.s   -> scr_seq.narc
+text.json       --copy-->               msg_0550_T21.json        -> msg.narc
 ```
 
-The meson file lists that are hand-written today (`zone_event/meson.build`,
-`scr_seq/meson.build`, `NARC_msg.txt`) are produced from `maps.json` instead.
+`files/.../zone_event/meson.build`, `scr_seq/meson.build` and the msg list skip
+migrated maps and take these outputs instead.
 
-**Matching invariant:** for the unmodified tree, every generated file is
-byte-identical to the file it replaces. The migration is checked in two ways:
-`mapkit gen` output diffed against the current files, then the four
-`meson test` checksums for HG and SS.
+**Matching invariant:** for the unmodified tree, every generated file produces the
+same bytes as the file it replaces. Checked by the four `meson test` checksums for
+HG and SS after every migration (and the generated zone_event JSON is compared to
+the original).
 
 ## Scripts and events
 
 ### Named script references
 
-Today an object points at its script with `"scriptId": "_EV_scr_seq_T21_000 + 1"`,
-and `event_T21.h` plus the `ScrDef` table at the top of the `.s` file must be
-kept in sync by hand, by position.
+In `map.json`, `"script"` can be a script **label**, as in pokeemerald:
 
-In `scripts.s` the `ScrDef` table and `event_*.h` go away. Each public script is
-a labeled entry:
-
-```asm
-	.script Cherrygrove_EventScript_GuideGent
-	LockAll
-	FacePlayer
-	NPCMsg Cherrygrove_Text_GuideGentIntro
-	...
+```json
+"script": "Cherrygrove_EventScript_MysticWaterMan"
 ```
 
-`mapkit gen` collects `.script` labels in file order, writes the `ScrDef`
-table and `event_*.h` (keeping the old `_EV_scr_seq_*` names as aliases), and
-resolves `"script": "Cherrygrove_EventScript_GuideGent"` in `events.json` to the
-right numeric ID (index + 1 for map scripts; the std ranges 2000+ stay as
-`std_*` constants). For the migration, labels are seeded from the current names
-(`scr_seq_T21_000`) and renamed over time.
+`ids.h` defines `_EV_<label>` as the label's index in the `ScrDef` table (true
+for all 451 existing headers), and the build turns a bare label into
+`_EV_<label> + 1`. `std_*` constants, numbers and expressions pass through.
 
-Internal jump labels (`_005F`) can be renamed freely; they don't affect the ROM.
+`mapkit script rename` renames a label in `scripts.inc`, `map_scripts.inc`,
+`ids.h` and `map.json` at once; `mapkit script add` appends a script, its
+`ScrDef` entry and its `_EV_` define. Script labels follow pokeemerald:
+`Cherrygrove_EventScript_*`, `Cherrygrove_OnTransition`. Internal jump labels
+(`_005F`) can be renamed freely.
+
+Not done yet: generating the `ScrDef` table and the `_EV_` block of `ids.h`
+from the labels instead of keeping them by hand.
 
 ### Text
 
-`text.json` keeps the msgenc JSON format. Message IDs become map-scoped names
-(`Cherrygrove_Text_GuideGentIntro`); `mapkit gen` writes the numeric
-`msg_NNNN_*.h` in the existing order.
+`text.json` keeps the msgenc JSON format. Possible later: map-scoped message
+names (`Cherrygrove_Text_GuideGentIntro`) instead of `msg_0550_T21_00020`.
 
 ### Script parser
 
-`mapkit` reads `asm/macros/script.inc` and builds a command table from the
-`.macro` definitions (name, arguments, byte widths, command ID). That table is
-used to:
-
-- list each map's scripts, the text, flags, vars and objects they touch, and
-  where they jump (`mapkit show-scripts Cherrygrove`)
-- validate: unknown macros, missing labels, message IDs that don't exist,
-  `ApplyMovement` on objects that aren't on the map
-- later, decompile a `.bin` back to `.s` for round-trip tests
-
-The script text stays GAS macros. A higher-level script language (in the style
-of poryscript) is possible later on top of the same parser, but is not part of
-this design.
+`mapkit` builds a command table from `asm/macros/script.inc` (name, arguments,
+command ID, which arguments are jump targets). `show` lists each script's flags,
+vars and text, following jumps; `validate` reports unknown commands, undefined
+labels, text not in the bank and undefined symbols. A higher-level script
+language (poryscript style) could sit on this parser later.
 
 ## Events, NPCs and warps
 
-`events.json` is the current zone_event JSON with names instead of raw numbers:
-
-| Field today | In `events.json` |
-|---|---|
-| `"movement": 15` | `"movement": "MOVEMENT_TYPE_FACE_DOWN"` (done in phase 1) |
-| `"facingDirection": 1` | `"facingDirection": "DIR_SOUTH"` (done in phase 1) |
-| `"type": 1` | `"type": "OBJECT_TYPE_TRAINER"` (done in phase 1) |
-| `"scriptId": "_EV_scr_seq_T21_000 + 1"` | `"script": "Cherrygrove_EventScript_GuideGent"` |
-| `"x": 566, "z": 396` (global tiles) | `"x": 566, "z": 396` plus `mapkit` can show/accept local `(cell, x, z)` |
-| warp `"header"`, `"anchor"` | `"dest": "MAP_CHERRYGROVE_POKECENTER_1F"`, `"destWarp": 0` |
-
-Unknown or still-numeric values are allowed as plain numbers, so the migration
-never blocks on naming.
-
-The constants live in `include/constants/map_object.h` (headers only; the binary
-doesn't change): `MOVEMENT_TYPE_*` for the 57 entries of
-`gMapObjectMovementCallbacks`, `OBJECT_TYPE_*` for `ObjectEvent.type`.
+Constants in `include/constants/map_object.h`: `MOVEMENT_TYPE_*` (57 entries of
+`gMapObjectMovementCallbacks`) and `OBJECT_TYPE_*`. All event files use names
+instead of numbers.
 
 ### Validation (`mapkit validate`)
 
-- every warp's destination map exists and has that warp index; report one-way warps
-- coord triggers name a var; objects/bgs sit inside the map's layout
+- every warp's destination map exists and has that warp index; one-way warps noted
+- objects/bgs/coords sit inside the map grid
 - each events binary stays under the engine's 0x800-byte buffer (`src/map_events.c`)
-- object IDs unique per map; hide flags exist; scripts and text resolve
+- object ids unique per map; flags, vars, sprites, scripts and text resolve
 
 ### Edit commands
 
 ```
-mapkit npc move  Cherrygrove gsoldman1 --x 570 --z 398
-mapkit npc add   Cherrygrove --sprite SPRITE_GSBOY1 --at 570,398 --script ...
-mapkit warp link Cherrygrove:0 Cherrygrove_PokeCenter_1F:0   # sets both directions
-mapkit wild set  Route29 land 0 --species SPECIES_PIDGEY --level 3
+mapkit npc move    Cherrygrove gsboy1 556 400
+mapkit npc set     Cherrygrove gsboy1 movement_type=MOVEMENT_TYPE_LOOK_AROUND
+mapkit npc add     Cherrygrove fisher SPRITE_FISHING_2 532 404 --script Cherrygrove_EventScript_Fisher
+mapkit warp link   Cherrygrove:1 Cherrygrove_Pokemart:0      # both directions
+mapkit warp add    Cherrygrove 540 390 --to Route30:2
+mapkit wild set    Cherrygrove surf 0 SPECIES_MARILL --level 10-15
+mapkit text add    Cherrygrove 'Hello!\nNice day.'
+mapkit script add  Cherrygrove Cherrygrove_EventScript_Fisher --msg msg_0550_T21_00025
+mapkit script rename Cherrygrove Cherrygrove_EventScript_Boy Cherrygrove_EventScript_TiredBoy
 ```
+
+These work on migrated maps and on maps still in `files/`. Edits keep each file's indentation and line endings, so diffs show only the change.
 
 ## Wild data
 
-`gs_enc_data.json` is one array whose order must match `encounter_tables_narc.h`.
-After migration each map's table lives in its folder's `wild.json` (same schema,
-including the `{"HEARTGOLD": x, "SOULSILVER": y}` form). `mapkit gen` rebuilds the
-array in `maps.json` order and writes `encounter_tables_narc.h`, so tables are
-found by map, not by position.
+Like pokeemerald's `wild_encounters.json`, wild data stays in one file,
+`gs_enc_data.json`. Its order must still match `encounter_tables_narc.h`; a
+later step can key entries by map id and generate that header. `mapkit wild set`
+finds a map's table through its `wild_encounters` header field.
 
 Headbutt, Safari Zone, Bug Contest and Pal Park data are already JSON/CSV and
 stay where they are. Roamers and swarm locations are C tables; documenting them
@@ -218,11 +227,13 @@ layout (`NUM_DEX_FLAG_WORDS`), in many file-index-based archives and in about
    wild data and matrices; `list`, `show`, `validate`, `refs`. `MOVEMENT_TYPE_*` /
    `OBJECT_TYPE_*` in `include/constants/map_object.h`, and the zone_event JSON
    now uses them (plus `DIR_*`, `BG_TYPE_*`, `BG_DIR_*`) instead of numbers.
-2. **Migration.** `mapkit migrate` writes `data/maps`, `data/layouts`,
-   `maps.json` from the current files. `mapkit gen` + meson wiring. Done when
-   generated files diff clean and HG/SS checksums pass.
-3. **Editing.** `npc`, `warp`, `wild` commands; named script references and
-   `.script` labels.
+2. **Migration.** Pilot done (2026-10-21): Cherrygrove is in `data/maps/Cherrygrove/`
+   and both ROMs match. `mapkit migrate <map>` does one map; the rest still to run.
+   Maps sharing placeholder banks (`EVERYWHERE` scripts/text, `DUMMY` events) need
+   a decision first. Map grids (`data/layouts`) not started.
+3. **Editing.** Done for the pilot (2026-10-21): `npc`, `warp`, `wild`, `text` and
+   `script add/rename` commands; label references in `map.json`. Not done: generate
+   the `ScrDef` table and `ids.h` from labels; map-scoped text names.
 4. **Blobs.** Learnsets and egg moves first, then trainer text, then the rest.
 5. **Later.** Land data parsing, a map viewer, new species.
 

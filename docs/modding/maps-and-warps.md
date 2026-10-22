@@ -32,6 +32,23 @@ With the code, find the rest (example `T21`):
 `tools/mapkit/mapkit.sh show Cherrygrove` prints all of these paths plus the map's
 events, scripts and wild table. `tools/mapkit/mapkit.sh list goldenrod` finds maps by name.
 
+### Maps in `data/maps/` (pokeemerald layout)
+
+Migrated maps (so far: Cherrygrove; list in `data/maps/maps.txt`) keep everything
+in one folder instead:
+
+| File | Holds |
+|---|---|
+| `data/maps/Cherrygrove/map.json` | header **and** events (`object_events`, `warp_events`, `coord_events`, `bg_events`) |
+| `data/maps/Cherrygrove/scripts.inc` | event scripts |
+| `data/maps/Cherrygrove/map_scripts.inc` | init / level scripts |
+| `data/maps/Cherrygrove/text.json` | text |
+| `data/maps/Cherrygrove/ids.h` | script and object ids |
+
+In `map.json` the event fields use pokeemerald names: `x`/`y`/`elevation` are the
+DS `x`/`z`/`y`, a warp's `dest_map`/`dest_warp_id` are `header`/`anchor`, and a
+`script` can be a script label. The full table is in [DESIGN.md](DESIGN.md#mapjson).
+
 ## Map header
 
 `src/data/map_headers.h`, struct in `include/map_header.h`. Fields you'll edit
@@ -102,6 +119,9 @@ Used for exits that depend on where you came from.
 Changing where a door leads:
 1. Edit `header` and `anchor` on the source warp.
 2. In the destination map's JSON, make sure warp `anchor` exists and points back.
+
+Or with mapkit, which sets both sides: `tools/mapkit/mapkit.sh warp link Cherrygrove:1 Cherrygrove_Pokemart:0`.
+`warp add Cherrygrove 540 390 --to Route30:2` adds a new warp tile.
 3. `tools/mapkit/mapkit.sh validate -a <map>` reports warps to missing warp indexes
    (error) and warps whose landing spot leads somewhere else (note).
 

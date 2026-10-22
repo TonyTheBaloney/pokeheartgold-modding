@@ -4,10 +4,11 @@
 
 > AI-generated, local to this fork. Do not upstream.
 
-Reads and checks map data: headers, events (NPCs, warps, signs, triggers),
-scripts, text, map grids and wild encounters. Phase 1 of
-[docs/modding/DESIGN.md](../../docs/modding/DESIGN.md): **read-only**, nothing is
-written. Python 3.10+, standard library only.
+Reads, checks and edits map data: headers, events (NPCs, warps, signs,
+triggers), scripts, text, map grids and wild encounters, and migrates maps into
+pokeemerald-style `data/maps/<MapName>/` folders. See
+[docs/modding/DESIGN.md](../../docs/modding/DESIGN.md). Python 3.10+, standard
+library only. Edits keep each file's indentation and line endings.
 
 ## Run
 
@@ -29,6 +30,12 @@ PYTHONPATH=tools/mapkit python3 -m mapkit <command> ...
 | `show MAP [--text]` | header, file paths, NPCs/warps/signs/triggers with local cell coordinates, scripts (with the flags, vars and text each one reaches), wild table |
 | `validate [MAP ...] [-w] [-a]` | broken references; exit code 1 on errors. `-w` adds warnings, `-a` adds notes |
 | `refs SYMBOL` | every event field and script line using a flag, var, object, sprite, ... |
+| `npc move/set/add` | move an NPC, change any field, add one (and its `#define` in `ids.h`) |
+| `warp link A:i B:j` / `warp add` | point two warps at each other / add a warp tile |
+| `wild set MAP METHOD SLOT SPECIES` | change a wild slot (`--level`, `--time` for grass) |
+| `text add MAP 'text'` | append a message; prints its id |
+| `script add MAP LABEL [--msg ID]` / `script rename MAP OLD NEW` | add a script / rename one everywhere |
+| `migrate MAP [--dry-run]` | move a map into `data/maps/<MapName>/` (pokeemerald layout); ROM unchanged |
 
 `MAP` can be `MAP_CHERRYGROVE`, `Cherrygrove`, `cherrygrove`, the code `T21`, or the id `67`.
 
@@ -69,12 +76,15 @@ On the unmodified repo, both versions report 0 errors.
 | `matrix.py` | map grid `.bin` (round-trips byte for byte) |
 | `wild.py` | `gs_enc_data.json`, `encounter_tables_narc.h` |
 | `validate.py` | the checks above |
+| `layout.py` | `data/maps` folders: migration, `map.json` <-> header/zone_event, build generators |
+| `edit.py` | the edit commands |
 | `cli.py` | commands |
 
 ## Tests
 
 ```sh
 python3 tools/mapkit/tests/test_mapkit.py
+python3 tools/mapkit/tests/test_edit.py    # edits run on a temporary copy of the data
 ```
 
 Checks the parsers against the real data (every matrix file round-trips; the

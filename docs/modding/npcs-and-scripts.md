@@ -60,6 +60,25 @@ with the script each one runs; `tools/mapkit/mapkit.sh validate <map>` reports b
 references (bad script ids, unknown flags, warps to missing warps, oversized events).
 See [tools/mapkit/README.md](../../tools/mapkit/README.md).
 
+## Editing with mapkit
+
+The commands below edit the right file for both layouts and keep its formatting.
+A full example, adding a fisherman who says one line:
+
+```sh
+M=tools/mapkit/mapkit.sh
+msg=$($M text add Cherrygrove 'The sea breeze here\nis so refreshing!')   # prints msg_0550_T21_00025
+$M script add Cherrygrove Cherrygrove_EventScript_Fisher --msg $msg     # talk-to-NPC script
+$M npc add Cherrygrove fisher SPRITE_FISHING_2 532 404 \
+    --movement MOVEMENT_TYPE_LOOK_AROUND --script Cherrygrove_EventScript_Fisher
+$M npc move Cherrygrove gsboy1 556 400
+$M validate Cherrygrove
+make release
+```
+
+`npc set Cherrygrove gsboy1 flag=FLAG_X movement_type=MOVEMENT_TYPE_FACE_UP` changes
+any field; `script rename` renames a script and every reference to it.
+
 ## Moving an NPC
 
 Change `x` and `z` (and `facingDirection` if needed). If it wanders, check
