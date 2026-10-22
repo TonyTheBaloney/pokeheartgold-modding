@@ -11,7 +11,7 @@ in one place per thing, with a tool that can parse, validate and change them,
 **without breaking the matching build**: before any mod, the migrated tree must
 still produce the retail ROM, byte for byte.
 
-## Where things are today
+## Where things were (before the migration)
 
 One map's data is split across four places, keyed by bank numbers:
 
@@ -117,7 +117,10 @@ text.json       --copy-->               msg_0550_T21.json        -> msg.narc
 ```
 
 `files/.../zone_event/meson.build`, `scr_seq/meson.build` and the msg list skip
-migrated maps and take these outputs instead.
+migrated maps and take these outputs instead. A bank written `@Folder` in
+`maps.txt` belongs to that folder (the lowest map id using a shared bank owns it);
+only the owner builds it. `data/` is on every include path, so all tools include
+`"maps/<MapName>/ids.h"` (the Metrowerks tools ignore `-I../..`).
 
 **Matching invariant:** for the unmodified tree, every generated file produces the
 same bytes as the file it replaces. Checked by the four `meson test` checksums for
@@ -227,10 +230,10 @@ layout (`NUM_DEX_FLAG_WORDS`), in many file-index-based archives and in about
    wild data and matrices; `list`, `show`, `validate`, `refs`. `MOVEMENT_TYPE_*` /
    `OBJECT_TYPE_*` in `include/constants/map_object.h`, and the zone_event JSON
    now uses them (plus `DIR_*`, `BG_TYPE_*`, `BG_DIR_*`) instead of numbers.
-2. **Migration.** Pilot done (2026-10-21): Cherrygrove is in `data/maps/Cherrygrove/`
-   and both ROMs match. `mapkit migrate <map>` does one map; the rest still to run.
-   Maps sharing placeholder banks (`EVERYWHERE` scripts/text, `DUMMY` events) need
-   a decision first. Map grids (`data/layouts`) not started.
+2. **Migration. Done (2026-10-22)** for all 540 maps; both ROMs match. Placeholder
+   maps borrow the `Everywhere` folder's banks (`@Everywhere` in `maps.txt`). C, asm
+   and script includes of event headers point at `maps/<MapName>/ids.h`. Map grids
+   (`data/layouts`) not started.
 3. **Editing.** Done for the pilot (2026-10-21): `npc`, `warp`, `wild`, `text` and
    `script add/rename` commands; label references in `map.json`. Not done: generate
    the `ScrDef` table and `ids.h` from labels; map-scoped text names.

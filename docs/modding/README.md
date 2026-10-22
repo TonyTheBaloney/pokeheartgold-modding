@@ -4,9 +4,9 @@
 
 > AI-generated, local to this fork. Do not upstream.
 
-These guides describe how to change game data **as the repo is today**. When the
-`mapkit` tool and the per-map layout from [DESIGN.md](DESIGN.md) land, the guides
-will be updated to match.
+These guides describe how to change game data in this fork. Maps live in
+pokeemerald-style folders (`data/maps/<MapName>/`); `tools/mapkit` reads, checks and
+edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 
 | Guide | Covers |
 |---|---|
@@ -15,6 +15,7 @@ will be updated to match.
 | [npcs-and-scripts.md](npcs-and-scripts.md) | Moving/adding NPCs, trainers, event scripts, text, flags |
 | [wild-encounters.md](wild-encounters.md) | Grass/surf/fishing tables, headbutt, Safari, Bug Contest, roamers |
 | [DESIGN.md](DESIGN.md) | Plan for per-map folders and the `mapkit` tool |
+| [SCRIPTING.md](SCRIPTING.md) | Proposal: poryscript-style language for map scripts |
 
 ## Building a modified ROM
 
@@ -38,9 +39,9 @@ passes on that commit so you know any later mismatch comes from your edit.
 | Sprites, icons, footprints | yes (PNG) |
 | **Level-up moves** | **no**, binary `wotbl.narc` |
 | **Egg moves** | **no**, binary `kowaza_list.narc` |
-| Map headers | yes (`src/data/map_headers.h`) |
-| NPCs, warps, signs, triggers | yes (zone_event JSON) |
-| Event scripts and text | yes (`.s` and msg JSON) |
+| Map headers | yes (`data/maps/<MapName>/map.json`) |
+| NPCs, warps, signs, triggers | yes (`data/maps/<MapName>/map.json`) |
+| Event scripts and text | yes (`scripts.inc`, `map_scripts.inc`, `text.json` in the map folder) |
 | Map grid (matrix) | binary per file, no tool yet |
 | Terrain, collision, 3D models | **no**, one prebuilt archive |
 | Wild encounters | yes (`gs_enc_data.json` etc.) |
