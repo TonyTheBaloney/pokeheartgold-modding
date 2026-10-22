@@ -200,13 +200,21 @@ Each cell's terrain is one folder, `data/landdata/NNNN/` (NNNN is the number
 (x east, y height, z south), in steps of 1/4096. At most 32 props per cell
 (`MAP_PROP_MAX`, `include/field/map_load_manager.h`).
 
+The terrain model's textures aren't in `model.nsbmd`: they come from the map's
+area (`area_data` in `map.json` -> area header `files/a/0/4/2` -> textures in
+`files/a/0/4/4`), and props use the area's prop models and textures
+(`src/field/area_data.c`). The game loads one area at a time, the current map's,
+and draws the cells it can see with it. In outdoor layouts each cell's terrain
+is raised by its `altitudes` value × 8 units (half a tile).
+
 `tools/mapkit/mapkit.sh landdata pack` rebuilds `files/a/0/6/5`; the unmodified
 folders give the retail archive (checked by `tools/mapkit/tests`).
 
 ## Map editor
 
-`tools/mapeditor/mapeditor.sh Cherrygrove` opens a porymap-style editor for
-layouts, collision, behaviors and events; see
+`tools/mapeditor/mapeditor.sh Cherrygrove` opens a porymap-style editor that
+draws the map from its 3D models (top-down and in a 3D tab) and edits collision,
+behaviors and events; see
 [tools/mapeditor/README.md](../../tools/mapeditor/README.md).
 
 ## Adding a new map

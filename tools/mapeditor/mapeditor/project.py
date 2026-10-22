@@ -153,6 +153,14 @@ class MapDoc:
             self.chunks[n] = Chunk(self.repo.root, n)
         return self.chunks[n]
 
+    def area_for_cell(self, cx, cy):
+        """Area data id to draw a cell with. The game loads one area at a time, the
+        current map's (src/field/area_data.c), and draws every visible cell with it."""
+        return int(self.data.get("area_data", 0))
+
+    def cell_altitude(self, cx, cy):
+        return self.layout.altitudes[cy * self.width + cx] if self.layout.altitudes else 0
+
     def chunk_users(self, number):
         """Layout cells (in this layout) that use land data `number`: edits show in all of them."""
         return [(i % self.width, i // self.width) for i, v in enumerate(self.layout.land_ids) if v == number]

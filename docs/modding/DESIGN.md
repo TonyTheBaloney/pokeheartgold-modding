@@ -252,8 +252,10 @@ layout (`NUM_DEX_FLAG_WORDS`), in many file-index-based archives and in about
 5. **Map editor.** Done (2026-10-22): layouts (`data/layouts`) and land data
    (`data/landdata`) as files, both ROMs match; `tools/mapeditor` (PySide6) shows
    a map top-down, paints collision and behaviors, and edits events and the
-   header with undo. Next: draw the NSBMD terrain and props (3D view), move props,
-   edit layouts (resize, reassign cells), sprites for objects.
+   header with undo. NSBMD/NSBTX renderer (`tools/mapkit/mapkit/nitro.py`, done
+   2026-10-22): terrain and props drawn top-down in the map view and in a 3D tab.
+   Next: move props, edit layouts (resize, reassign cells), sprites for objects,
+   texture animations.
 6. **Later.** New species.
 
 ## Building a modified ROM

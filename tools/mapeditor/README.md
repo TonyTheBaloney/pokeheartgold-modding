@@ -5,8 +5,9 @@
 > AI-generated, local to this fork. Do not upstream.
 
 A porymap-style editor for this fork's maps: the layout's cells seen from
-above, with collision and tile behaviors to paint and the map's events (NPCs,
-warps, triggers, signs) to drag and edit. It edits the text files in
+above, drawn from the game's own 3D models, with collision and tile behaviors
+to paint and the map's events (NPCs, warps, triggers, signs) to drag and edit,
+plus a 3D view. It edits the text files in
 `data/maps/`, `data/layouts/` and `data/landdata/`
 ([maps-and-warps.md](../../docs/modding/maps-and-warps.md)); build the ROM
 afterwards with `make release`.
@@ -30,12 +31,16 @@ tools/mapeditor/mapeditor.sh Cherrygrove
 ## Window
 
 - **Maps** (left): every map in `data/maps`. Type to filter; double-click to open.
-- **Map view** (centre): the map's cells plus one ring of neighbours, dimmed when
+- **Map tab** (centre): the map's cells plus one ring of neighbours, dimmed when
   they belong to another map. Wheel zooms, middle button drags.
-  - tile colors are behaviors (green grass, blue water, sand, ice...; others get a
-    fixed color each); red overlay = blocked;
+  - the terrain and props as the game draws them, seen from straight above
+    (*Terrain (3D)* layer); red overlay = blocked; *Behavior colors* overlays each
+    tile's behavior (green grass, blue water, sand, ice...; others a fixed color each);
   - blue **O** objects, magenta **W** warps, green **T** trigger zones (sized),
-    yellow **S** signs / hidden items, orange diamonds props (hover for details).
+    yellow **S** signs / hidden items; *Prop markers* adds a diamond per prop
+    (hover for its model and position).
+- **3D tab**: the same cells in perspective. Left drag turns, right or middle drag
+  pans, wheel zooms. Needs OpenGL 3.3.
 - **Properties** (right):
   - *Event*: every field of the selected event. Fields with constants (sprites,
     movement types, flags, vars, maps...) complete as you type.
@@ -55,7 +60,8 @@ tools/mapeditor/mapeditor.sh Cherrygrove
 
 `Delete` removes the selected event, `Ctrl+Z` / `Ctrl+Shift+Z` undo and redo
 (strokes, moves, field edits, adds and deletes), `Ctrl+S` saves. The View menu
-and toolbar toggle behavior colors, collision, grid, props, events and cell labels.
+and toolbar toggle terrain, behavior colors, collision, grid, prop markers,
+events and cell labels.
 
 ## What saving writes
 
@@ -70,13 +76,35 @@ New objects get a `local_id` like `obj_T21_new1` and script 0; add the id to
 [npcs-and-scripts.md](../../docs/modding/npcs-and-scripts.md). `mapkit validate`
 checks the result.
 
+## How the terrain is drawn
+
+`tools/mapkit/mapkit/nitro.py` decodes NSBMD models and NSBTX textures (all
+seven texture formats, node transforms, skinned envelopes, the GX display lists),
+following NitroSystem's own code in `subprojects/NitroSystem-*`. For each cell
+the editor takes `data/landdata/NNNN/model.nsbmd` with the textures of the open
+map's area (`map.json` `area_data`: area header `files/a/0/4/2`, map textures
+`files/a/0/4/4`), and each prop in `props.json` with the area's prop models
+(`files/a/0/4/0` outdoors, `files/a/1/4/8` indoors) and prop textures
+(`files/a/0/7/0`). Like the game, every visible cell uses the open map's area, the
+terrain is raised by the layout's `altitudes` (8 units each) and props are not.
+
+The map tab draws each cell once from above with QPainter (an exact affine
+texture mapping per triangle, lowest first) and caches it; the 3D tab uploads the
+same triangles to OpenGL (`mapeditor/view3d.py`).
+
+Not drawn: texture and material animations (water ripples, flowers), billboard
+props turning to the camera, lighting, and polygons in the DS's shadow mode. The
+3D tab multiplies textures by vertex colors as the DS does; the map tab ignores
+vertex colors.
+
 ## Not yet
 
-- The 3D terrain (`model.nsbmd`) and props aren't drawn; tiles are colored by
-  behavior. Next step: render the NSBMD models and textures under the grid.
 - Props can't be moved yet, layouts can't be resized and cells can't be
   reassigned to other land data in the editor (edit `layout.json` / `props.json`).
 - Object sprites are shown as boxes, not their overworld graphics.
+- Map models can't be edited here. The build packs whatever `model.nsbmd` holds, so
+  a model made in another tool should drop in (its textures must be in the area's
+  texture set, and collision and behaviors must match it); not tried yet.
 
 ## Code
 
@@ -85,7 +113,10 @@ checks the result.
 | `mapeditor/project.py` | data layer, no Qt: `MapDoc` (map.json + layout + land data), tested |
 | `mapeditor/commands.py` | undoable edits (`QUndoCommand`) |
 | `mapeditor/canvas.py` | map view: cells, events, props, painting |
+| `mapeditor/terrain.py` | top-down pictures of cells from their models and props |
+| `mapeditor/view3d.py` | the 3D tab (OpenGL) |
 | `mapeditor/window.py` | main window, panels, actions |
 | `tests/test_editor.py` | `QT_QPA_PLATFORM=offscreen tools/mapeditor/.venv/bin/python -m unittest discover -s tools/mapeditor/tests` |
 
-It reads and writes through `tools/mapkit` (`layouts.py`, `landdata.py`, `edit.py`).
+It reads and writes through `tools/mapkit` (`layouts.py`, `landdata.py`, `edit.py`,
+`nitro.py`).

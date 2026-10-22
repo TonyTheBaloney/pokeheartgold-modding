@@ -11,6 +11,7 @@ from PySide6.QtGui import QBrush, QColor, QFont, QImage, QPainter, QPen
 from PySide6.QtWidgets import QGraphicsItem, QGraphicsObject, QGraphicsScene, QGraphicsView
 
 from .project import CELL
+from .terrain import TerrainRenderer
 
 TILE = 16
 
@@ -52,13 +53,24 @@ class CellItem(QGraphicsItem):
         self.setPos(cx * CELL * TILE, cy * CELL * TILE)
         self.setZValue(0)
         self._behavior = self._collision = None
+        self._terrain = None
 
     def boundingRect(self):
         return QRectF(0, 0, CELL * TILE, CELL * TILE)
 
-    def invalidate(self):
+    def invalidate(self, terrain=False):
         self._behavior = self._collision = None
+        if terrain:
+            self._terrain = None
         self.update()
+
+    def _terrain_image(self):
+        if self._terrain is None:
+            v = self.view
+            chunk = v.doc.chunk(self.cx, self.cy)
+            self._terrain = v.renderer.render_cell(chunk.number, v.doc.area_for_cell(self.cx, self.cy), chunk.props,
+                                                   v.doc.cell_altitude(self.cx, self.cy))
+        return self._terrain
 
     def _images(self):
         chunk = self.view.doc.chunk(self.cx, self.cy)
@@ -71,7 +83,7 @@ class CellItem(QGraphicsItem):
                     c, b, a = chunk.tile(tx, ty)
                     beh.setPixelColor(tx, ty, behavior_color(b))
                     if c:
-                        col.setPixelColor(tx, ty, QColor(220, 30, 30, 150))
+                        col.setPixelColor(tx, ty, QColor(220, 30, 30, 110))
             self._behavior, self._collision = beh, col
         return self._behavior, self._collision
 
@@ -82,7 +94,14 @@ class CellItem(QGraphicsItem):
             return
         beh, col = self._images()
         target = QRectF(0, 0, size, size)
-        if v.layers["behavior"]:
+        if v.layers["terrain"]:
+            p.fillRect(target, QColor(24, 24, 28))
+            p.drawImage(target, self._terrain_image())
+            if v.layers["behavior"]:
+                p.setOpacity(0.5)
+                p.drawImage(target, beh)
+                p.setOpacity(1.0)
+        elif v.layers["behavior"]:
             p.drawImage(target, beh)
         else:
             p.fillRect(target, QColor(236, 236, 228))
@@ -203,8 +222,9 @@ class MapView(QGraphicsView):
         self.tool = "select"
         self.brush_behavior = 0
         self.brush_size = 1
-        self.layers = {"behavior": True, "collision": True, "grid": True, "props": True, "events": True,
-                     "cells": False}
+        self.layers = {"terrain": True, "behavior": False, "collision": True, "grid": True, "props": False,
+                       "events": True, "cells": False}
+        self.renderer = None
         self.cells = {}
         self.event_items = []
         self.prop_items = []
@@ -215,6 +235,8 @@ class MapView(QGraphicsView):
 
     def set_doc(self, doc):
         self.doc = doc
+        if doc is not None and (self.renderer is None or self.renderer.root != doc.repo.root):
+            self.renderer = TerrainRenderer(doc.repo.root)
         self.scene().clear()
         self.cells, self.event_items, self.prop_items = {}, [], []
         if doc is None:

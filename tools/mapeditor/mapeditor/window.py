@@ -95,7 +95,13 @@ class MainWindow(QMainWindow):
         self.behaviors = project.behavior_names(repo.root)
 
         self.view = MapView(self)
-        self.setCentralWidget(self.view)
+        self.view3d = None            # created on first use (needs OpenGL)
+        self._3d_stale = True
+        self.center = QTabWidget()
+        self.center.addTab(self.view, "Map")
+        self.center.addTab(QWidget(), "3D")
+        self.center.currentChanged.connect(self._center_tab_changed)
+        self.setCentralWidget(self.center)
         self.view.hovered.connect(self._hovered)
         self.view.stroke.connect(self._stroke)
         self.view.picked.connect(self._pick_behavior)
@@ -223,8 +229,8 @@ class MainWindow(QMainWindow):
             if key == "select":
                 a.setChecked(True)
         tb.addSeparator()
-        for key, name in (("behavior", "Behavior colors"), ("collision", "Collision"), ("grid", "Grid"),
-                          ("props", "Props"), ("events", "Events"), ("cells", "Cell labels")):
+        for key, name in (("terrain", "Terrain (3D)"), ("behavior", "Behavior colors"), ("collision", "Collision"),
+                          ("grid", "Grid"), ("props", "Prop markers"), ("events", "Events"), ("cells", "Cell labels")):
             a = QAction(name, self, checkable=True, checked=self.view.layers[key])
             a.toggled.connect(lambda on, k=key: self._toggle(k, on))
             view_menu.addAction(a)
@@ -250,6 +256,26 @@ class MainWindow(QMainWindow):
         else:
             self.view.refresh_tiles()
             self.view.viewport().update()
+
+    # --- 3D view ----------------------------------------------------------------------
+
+    def _center_tab_changed(self, index):
+        if index == 1:
+            self._show_3d()
+
+    def _show_3d(self):
+        if self.view3d is None:
+            from .view3d import Map3DView
+            self.view3d = Map3DView()
+            self.center.blockSignals(True)
+            self.center.removeTab(1)
+            self.center.insertTab(1, self.view3d, "3D")
+            self.center.setCurrentIndex(1)
+            self.center.blockSignals(False)
+        if self.doc is not None and self._3d_stale:
+            self.view3d.show_doc(self.doc, self.view.renderer, sorted(self.view.cells))
+            self._3d_stale = False
+        self.statusBar().showMessage("3D: left drag turns, right drag pans, wheel zooms", 5000)
 
     # --- opening and saving -----------------------------------------------------------
 
@@ -281,6 +307,9 @@ class MainWindow(QMainWindow):
         self.doc = doc
         self.undo.clear()
         self.view.set_doc(doc)
+        self._3d_stale = True
+        if self.center.currentIndex() == 1:
+            self._show_3d()
         self.header_form.set_fields(doc.folder, doc.header_fields())
         self.event_form.set_fields("", [])
         self._update_title()

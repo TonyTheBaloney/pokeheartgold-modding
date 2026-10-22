@@ -145,5 +145,58 @@ class UndoTest(unittest.TestCase):
         w.close()
 
 
+class TerrainTest(unittest.TestCase):
+    """Drawing the game's models (reads the checkout, writes nothing)."""
+
+    @classmethod
+    def setUpClass(cls):
+        from PySide6.QtWidgets import QApplication
+        cls.app = QApplication.instance() or QApplication([])
+
+    def test_top_down_cell(self):
+        from mapeditor.terrain import CELL_PX, TerrainRenderer
+        doc = project.MapDoc(project.open_repo(), "Cherrygrove")
+        r = TerrainRenderer(project.ROOT)
+        chunk = doc.chunk(17, 12)
+        img = r.render_cell(chunk.number, doc.area_for_cell(17, 12), chunk.props, doc.cell_altitude(17, 12))
+        self.assertEqual(r.errors, [])
+        self.assertEqual((img.width(), img.height()), (CELL_PX, CELL_PX))
+        drawn = sum(1 for y in range(0, CELL_PX, 8) for x in range(0, CELL_PX, 8) if img.pixelColor(x, y).alpha())
+        self.assertGreater(drawn, 0.95 * (CELL_PX // 8) ** 2)   # the town covers its whole cell
+
+    def test_3d_scene_renders(self):
+        from PySide6.QtGui import QOffscreenSurface, QOpenGLContext, QVector3D
+        from PySide6.QtOpenGL import QOpenGLFramebufferObject, QOpenGLFramebufferObjectFormat
+        from mapeditor.terrain import TerrainRenderer
+        from mapeditor.view3d import Camera, SceneGL, build_batches, default_format
+        ctx = QOpenGLContext()
+        ctx.setFormat(default_format())
+        surf = QOffscreenSurface()
+        surf.setFormat(ctx.format())
+        surf.create()
+        if not ctx.create() or not ctx.makeCurrent(surf):
+            self.skipTest("no OpenGL 3.3 context")
+        fmt = QOpenGLFramebufferObjectFormat()
+        fmt.setAttachment(QOpenGLFramebufferObject.CombinedDepthStencil)
+        fbo = QOpenGLFramebufferObject(320, 240, fmt)
+        fbo.bind()
+        doc = project.MapDoc(project.open_repo(), "Cherrygrove")
+        batches = build_batches(doc, TerrainRenderer(project.ROOT), doc.own_cells())
+        self.assertGreater(sum(b.count for b in batches.values()), 3000)
+        scene = SceneGL()
+        scene.init(ctx)
+        scene.set_batches(batches)
+        cam = Camera()
+        cam.target = QVector3D(17 * 512, 0, 12.5 * 512)
+        scene.draw(cam.matrix(320 / 240), 320, 240)
+        img = fbo.toImage()
+        scene.release()
+        fbo.release()
+        ctx.doneCurrent()
+        background = img.pixelColor(0, 0)
+        centre = img.pixelColor(160, 120)
+        self.assertNotEqual(centre, background)
+
+
 if __name__ == "__main__":
     unittest.main()
