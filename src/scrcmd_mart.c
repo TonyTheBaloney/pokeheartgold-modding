@@ -6,6 +6,7 @@
 
 #include "field_system.h"
 #include "mart.h"
+#include "overlay_03.h"
 #include "pokedex.h"
 #include "save_vars_flags.h"
 #include "scrcmd.h"
@@ -15,7 +16,10 @@ struct BadgeMartItems {
     u16 tier;
 };
 
-const struct BadgeMartItems _020FBF22[] = {
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Status: MATCHING (rename only)
+// Regular Poke Mart stock; an item is sold once the badge tier reaches .tier
+const struct BadgeMartItems sBadgeMartItems[] = {
     { ITEM_POKE_BALL,    1 },
     { ITEM_GREAT_BALL,   3 },
     { ITEM_ULTRA_BALL,   4 },
@@ -37,6 +41,8 @@ const struct BadgeMartItems _020FBF22[] = {
     { ITEM_MAX_REPEL,    4 },
 };
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_MartBuy(ScriptContext *ctx) {
     u16 unused;
     u8 badge_count;
@@ -80,145 +86,169 @@ BOOL ScrCmd_MartBuy(ScriptContext *ctx) {
         tier = 6;
         break;
     }
-    for (i = 0; i < NELEMS(_020FBF22); i++) {
-        if (tier >= _020FBF22[i].tier) {
-            items[nitems] = _020FBF22[i].item_id;
+    for (i = 0; i < NELEMS(sBadgeMartItems); i++) {
+        if (tier >= sBadgeMartItems[i].tier) {
+            items[nitems] = sBadgeMartItems[i].item_id;
             nitems++;
         }
     }
     items[nitems] = 0xFFFF;
-    Mart_Init(ctx->taskman, ctx->fieldSystem, items, 0, 0, 0, 0);
+    Mart_Init(ctx->taskman, ctx->fieldSystem, items, MART_TYPE_NORMAL, MART_BUY, 0, 0);
     return TRUE;
 }
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_MartSell(ScriptContext *ctx) {
     u16 dummy[1];
 
     dummy[0] = 0xFFFF;
-    Mart_Init(ctx->taskman, ctx->fieldSystem, dummy, 0, 1, 0, 0);
+    Mart_Init(ctx->taskman, ctx->fieldSystem, dummy, MART_TYPE_NORMAL, MART_SELL, 0, 0);
     return TRUE;
 }
 
-const u16 _020FBA54[] = { ITEM_AIR_MAIL, ITEM_HEAL_BALL, 0xFFFF };
-const u16 _020FBA78[] = { ITEM_TUNNEL_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF };
-const u16 _020FBAB0[] = { ITEM_BLOOM_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF };
-const u16 _020FBBEA[] = { ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_ANTIDOTE, ITEM_PARLYZ_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING, ITEM_FULL_HEAL, 0xFFFF };
-const u16 _020FBC1A[] = { ITEM_POKE_BALL, ITEM_GREAT_BALL, ITEM_ULTRA_BALL, ITEM_ESCAPE_ROPE, ITEM_POKE_DOLL, ITEM_REPEL, ITEM_SUPER_REPEL, ITEM_MAX_REPEL, ITEM_GRASS_MAIL, ITEM_FLAME_MAIL, ITEM_BUBBLE_MAIL, ITEM_SPACE_MAIL, 0xFFFF };
-const u16 _020FBBB4[] = { ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC_, ITEM_DIRE_HIT, ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP__DEF, 0xFFFF };
-const u16 _020FBAFA[] = { ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS, ITEM_HP_UP, 0xFFFF };
-const u16 _020FBC34[] = { ITEM_TM70, ITEM_TM17, ITEM_TM54, ITEM_TM83, ITEM_TM16, ITEM_TM33, ITEM_TM22, ITEM_TM52, ITEM_TM38, ITEM_TM25, ITEM_TM14, ITEM_TM15, 0xFFFF };
-const u16 _020FBACA[] = { ITEM_HEAL_POWDER, ITEM_ENERGYPOWDER, ITEM_ENERGY_ROOT, ITEM_REVIVAL_HERB, 0xFFFF };
-const u16 _020FBA60[] = { ITEM_AIR_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF };
-const u16 _020FBA88[] = { ITEM_HEART_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF };
-const u16 _020FBAD4[] = { ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_FULL_HEAL, ITEM_REVIVE, 0xFFFF };
-const u16 _020FBA80[] = { ITEM_AIR_MAIL, ITEM_NET_BALL, ITEM_DUSK_BALL, 0xFFFF };
-const u16 _020FBB84[] = { ITEM_ULTRA_BALL, ITEM_MAX_REPEL, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_FULL_RESTORE, ITEM_REVIVE, ITEM_FULL_HEAL, 0xFFFF };
-const u16 _020FBAC0[] = { ITEM_AIR_MAIL, ITEM_NEST_BALL, ITEM_DUSK_BALL, ITEM_QUICK_BALL, 0xFFFF };
-const u16 _020FBA70[] = { ITEM_AIR_MAIL, ITEM_DUSK_BALL, ITEM_QUICK_BALL, 0xFFFF };
-const u16 _020FBA98[] = { ITEM_SNOW_MAIL, ITEM_DUSK_BALL, ITEM_QUICK_BALL, 0xFFFF };
-const u16 _020FBA5A[] = { ITEM_AIR_MAIL, ITEM_QUICK_BALL, 0xFFFF };
-const u16 _020FBC02[] = { ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_ANTIDOTE, ITEM_PARLYZ_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING, ITEM_FULL_HEAL, 0xFFFF };
-const u16 _020FBC4E[] = { ITEM_POKE_BALL, ITEM_GREAT_BALL, ITEM_ULTRA_BALL, ITEM_ESCAPE_ROPE, ITEM_POKE_DOLL, ITEM_REPEL, ITEM_SUPER_REPEL, ITEM_MAX_REPEL, ITEM_GRASS_MAIL, ITEM_FLAME_MAIL, ITEM_BUBBLE_MAIL, ITEM_SPACE_MAIL, 0xFFFF };
-const u16 _020FBC68[] = { ITEM_TM21, ITEM_TM27, ITEM_TM87, ITEM_TM78, ITEM_TM12, ITEM_TM41, ITEM_TM20, ITEM_TM28, ITEM_TM76, ITEM_TM55, ITEM_TM72, ITEM_TM79, 0xFFFF };
-const u16 _020FBA68[] = { ITEM_AIR_MAIL, ITEM_TUNNEL_MAIL, ITEM_BLOOM_MAIL, 0xFFFF };
-const u16 _020FBBC6[] = { ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC_, ITEM_DIRE_HIT, ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP__DEF, 0xFFFF };
-const u16 _020FBB08[] = { ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS, ITEM_HP_UP, 0xFFFF };
-const u16 _020FBA90[] = { ITEM_STEEL_MAIL, ITEM_DUSK_BALL, ITEM_QUICK_BALL, 0xFFFF };
-const u16 _020FBAA0[] = { ITEM_STEEL_MAIL, ITEM_NEST_BALL, ITEM_QUICK_BALL, 0xFFFF };
-const u16 _020FBAA8[] = { ITEM_STEEL_MAIL, ITEM_NET_BALL, ITEM_HEAL_BALL, 0xFFFF };
-const u16 _020FBB16[] = { ITEM_POKE_DOLL, ITEM_FRESH_WATER, ITEM_SODA_POP, ITEM_LEMONADE, ITEM_REPEL, ITEM_HEART_MAIL, 0xFFFF };
-const u16 _020FBAB8[] = { ITEM_TINYMUSHROOM, ITEM_POKE_BALL, ITEM_POTION, 0xFFFF };
-const u16 _020FBBD8[] = { ITEM_GREAT_BALL, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_ANTIDOTE, ITEM_PARLYZ_HEAL, ITEM_SUPER_REPEL, ITEM_REVIVE, ITEM_AIR_MAIL, 0xFFFF };
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Status: MATCHING (rename only)
+// Per-location stock for std_special_mart (index = VAR_SPECIAL_x8004).
+// Names come from the map scripts that pass each index. Shared lists:
+// GoldenrodDeptStore4F is also used by the Safari Zone Gate, BlackthornPokemart
+// by the Frontier Access mart, VermilionPokemart by the Safari Zone Gate.
+// MahoganySouvenirShop_Rockets is sold while the Rockets run the shop.
+const u16 sSpecialMartItems_CherrygrovePokemart[] = { ITEM_AIR_MAIL, ITEM_HEAL_BALL, 0xFFFF };
+const u16 sSpecialMartItems_VioletPokemart[] = { ITEM_TUNNEL_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF };
+const u16 sSpecialMartItems_AzaleaPokemart[] = { ITEM_BLOOM_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF };
+const u16 sSpecialMartItems_GoldenrodDeptStore2F_Medicine[] = { ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_ANTIDOTE, ITEM_PARLYZ_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING, ITEM_FULL_HEAL, 0xFFFF };
+const u16 sSpecialMartItems_GoldenrodDeptStore2F_Supplies[] = { ITEM_POKE_BALL, ITEM_GREAT_BALL, ITEM_ULTRA_BALL, ITEM_ESCAPE_ROPE, ITEM_POKE_DOLL, ITEM_REPEL, ITEM_SUPER_REPEL, ITEM_MAX_REPEL, ITEM_GRASS_MAIL, ITEM_FLAME_MAIL, ITEM_BUBBLE_MAIL, ITEM_SPACE_MAIL, 0xFFFF };
+const u16 sSpecialMartItems_GoldenrodDeptStore3F[] = { ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC_, ITEM_DIRE_HIT, ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP__DEF, 0xFFFF };
+const u16 sSpecialMartItems_GoldenrodDeptStore4F[] = { ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS, ITEM_HP_UP, 0xFFFF };
+const u16 sSpecialMartItems_GoldenrodDeptStore5F[] = { ITEM_TM70, ITEM_TM17, ITEM_TM54, ITEM_TM83, ITEM_TM16, ITEM_TM33, ITEM_TM22, ITEM_TM52, ITEM_TM38, ITEM_TM25, ITEM_TM14, ITEM_TM15, 0xFFFF };
+const u16 sSpecialMartItems_GoldenrodTunnelHerbShop[] = { ITEM_HEAL_POWDER, ITEM_ENERGYPOWDER, ITEM_ENERGY_ROOT, ITEM_REVIVAL_HERB, 0xFFFF };
+const u16 sSpecialMartItems_EcruteakPokemart[] = { ITEM_AIR_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF };
+const u16 sSpecialMartItems_OlivinePokemart[] = { ITEM_HEART_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF };
+const u16 sSpecialMartItems_CianwoodPharmacy[] = { ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_FULL_HEAL, ITEM_REVIVE, 0xFFFF };
+const u16 sSpecialMartItems_BlackthornPokemart[] = { ITEM_AIR_MAIL, ITEM_NET_BALL, ITEM_DUSK_BALL, 0xFFFF };
+const u16 sSpecialMartItems_PokemonLeague[] = { ITEM_ULTRA_BALL, ITEM_MAX_REPEL, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_FULL_RESTORE, ITEM_REVIVE, ITEM_FULL_HEAL, 0xFFFF };
+const u16 sSpecialMartItems_VermilionPokemart[] = { ITEM_AIR_MAIL, ITEM_NEST_BALL, ITEM_DUSK_BALL, ITEM_QUICK_BALL, 0xFFFF };
+const u16 sSpecialMartItems_SaffronPokemart[] = { ITEM_AIR_MAIL, ITEM_DUSK_BALL, ITEM_QUICK_BALL, 0xFFFF };
+const u16 sSpecialMartItems_LavenderPokemart[] = { ITEM_SNOW_MAIL, ITEM_DUSK_BALL, ITEM_QUICK_BALL, 0xFFFF };
+const u16 sSpecialMartItems_CeruleanPokemart[] = { ITEM_AIR_MAIL, ITEM_QUICK_BALL, 0xFFFF };
+const u16 sSpecialMartItems_CeladonDeptStore2F_Medicine[] = { ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_ANTIDOTE, ITEM_PARLYZ_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING, ITEM_FULL_HEAL, 0xFFFF };
+const u16 sSpecialMartItems_CeladonDeptStore2F_Supplies[] = { ITEM_POKE_BALL, ITEM_GREAT_BALL, ITEM_ULTRA_BALL, ITEM_ESCAPE_ROPE, ITEM_POKE_DOLL, ITEM_REPEL, ITEM_SUPER_REPEL, ITEM_MAX_REPEL, ITEM_GRASS_MAIL, ITEM_FLAME_MAIL, ITEM_BUBBLE_MAIL, ITEM_SPACE_MAIL, 0xFFFF };
+const u16 sSpecialMartItems_CeladonDeptStore3F[] = { ITEM_TM21, ITEM_TM27, ITEM_TM87, ITEM_TM78, ITEM_TM12, ITEM_TM41, ITEM_TM20, ITEM_TM28, ITEM_TM76, ITEM_TM55, ITEM_TM72, ITEM_TM79, 0xFFFF };
+const u16 sSpecialMartItems_CeladonDeptStore4F[] = { ITEM_AIR_MAIL, ITEM_TUNNEL_MAIL, ITEM_BLOOM_MAIL, 0xFFFF };
+const u16 sSpecialMartItems_CeladonDeptStore5F_BattleItems[] = { ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC_, ITEM_DIRE_HIT, ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP__DEF, 0xFFFF };
+const u16 sSpecialMartItems_CeladonDeptStore5F_Vitamins[] = { ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS, ITEM_HP_UP, 0xFFFF };
+const u16 sSpecialMartItems_FuchsiaPokemart[] = { ITEM_STEEL_MAIL, ITEM_DUSK_BALL, ITEM_QUICK_BALL, 0xFFFF };
+const u16 sSpecialMartItems_PewterPokemart[] = { ITEM_STEEL_MAIL, ITEM_NEST_BALL, ITEM_QUICK_BALL, 0xFFFF };
+const u16 sSpecialMartItems_ViridianPokemart[] = { ITEM_STEEL_MAIL, ITEM_NET_BALL, ITEM_HEAL_BALL, 0xFFFF };
+const u16 sSpecialMartItems_MtMoonSquareShop[] = { ITEM_POKE_DOLL, ITEM_FRESH_WATER, ITEM_SODA_POP, ITEM_LEMONADE, ITEM_REPEL, ITEM_HEART_MAIL, 0xFFFF };
+const u16 sSpecialMartItems_MahoganySouvenirShop_Rockets[] = { ITEM_TINYMUSHROOM, ITEM_POKE_BALL, ITEM_POTION, 0xFFFF };
+const u16 sSpecialMartItems_MahoganySouvenirShop[] = { ITEM_GREAT_BALL, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_ANTIDOTE, ITEM_PARLYZ_HEAL, ITEM_SUPER_REPEL, ITEM_REVIVE, ITEM_AIR_MAIL, 0xFFFF };
 
-const u16 *_0210FA3C[] = {
-    _020FBA54,
-    _020FBA78,
-    _020FBAB0,
-    _020FBBEA,
-    _020FBC1A,
-    _020FBBB4,
-    _020FBAFA,
-    _020FBC34,
-    _020FBACA,
-    _020FBA60,
-    _020FBA88,
-    _020FBAD4,
-    _020FBA80,
-    _020FBB84,
-    _020FBAC0,
-    _020FBA70,
-    _020FBA98,
-    _020FBA5A,
-    _020FBC02,
-    _020FBC4E,
-    _020FBC68,
-    _020FBA68,
-    _020FBBC6,
-    _020FBB08,
-    _020FBA90,
-    _020FBAA0,
-    _020FBAA8,
-    _020FBB16,
-    _020FBAB8,
-    _020FBBD8,
+const u16 *sSpecialMartItems[] = {
+    sSpecialMartItems_CherrygrovePokemart,
+    sSpecialMartItems_VioletPokemart,
+    sSpecialMartItems_AzaleaPokemart,
+    sSpecialMartItems_GoldenrodDeptStore2F_Medicine,
+    sSpecialMartItems_GoldenrodDeptStore2F_Supplies,
+    sSpecialMartItems_GoldenrodDeptStore3F,
+    sSpecialMartItems_GoldenrodDeptStore4F,
+    sSpecialMartItems_GoldenrodDeptStore5F,
+    sSpecialMartItems_GoldenrodTunnelHerbShop,
+    sSpecialMartItems_EcruteakPokemart,
+    sSpecialMartItems_OlivinePokemart,
+    sSpecialMartItems_CianwoodPharmacy,
+    sSpecialMartItems_BlackthornPokemart,
+    sSpecialMartItems_PokemonLeague,
+    sSpecialMartItems_VermilionPokemart,
+    sSpecialMartItems_SaffronPokemart,
+    sSpecialMartItems_LavenderPokemart,
+    sSpecialMartItems_CeruleanPokemart,
+    sSpecialMartItems_CeladonDeptStore2F_Medicine,
+    sSpecialMartItems_CeladonDeptStore2F_Supplies,
+    sSpecialMartItems_CeladonDeptStore3F,
+    sSpecialMartItems_CeladonDeptStore4F,
+    sSpecialMartItems_CeladonDeptStore5F_BattleItems,
+    sSpecialMartItems_CeladonDeptStore5F_Vitamins,
+    sSpecialMartItems_FuchsiaPokemart,
+    sSpecialMartItems_PewterPokemart,
+    sSpecialMartItems_ViridianPokemart,
+    sSpecialMartItems_MtMoonSquareShop,
+    sSpecialMartItems_MahoganySouvenirShop_Rockets,
+    sSpecialMartItems_MahoganySouvenirShop,
 };
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_SpecialMartBuy(ScriptContext *ctx) {
     u16 which;
 
     which = ScriptGetVar(ctx);
-    Mart_Init(ctx->taskman, ctx->fieldSystem, _0210FA3C[which], 0, 0, 0, NULL);
+    Mart_Init(ctx->taskman, ctx->fieldSystem, sSpecialMartItems[which], MART_TYPE_NORMAL, MART_BUY, 0, NULL);
     return TRUE;
 }
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Status: MATCHING (rename only)
 // Sinnoh leftover, unused in HGSS
-const u16 _020FBAE0[] = {
+const u16 sDecorationMartItems_Furniture[] = {
     DECORATION_YELLOW_CUSHION, DECORATION_CUPBOARD, DECORATION_TV, DECORATION_REFRIGERATOR, DECORATION_PRETTY_SINK, 0xFFFF
 };
-const u16 _020FBAEC[] = {
+const u16 sDecorationMartItems_Dolls[] = {
     DECORATION_MUNCHLAX_DOLL, DECORATION_BONSLY_DOLL, DECORATION_MIME_JR__DOLL, DECORATION_MANTYKE_DOLL, DECORATION_BUIZEL_DOLL, DECORATION_CHATOT_DOLL, 0xFFFF
 };
 
-const u16 *_0210F9CC[] = {
-    _020FBAE0,
-    _020FBAEC,
+const u16 *sDecorationMartItems[] = {
+    sDecorationMartItems_Furniture,
+    sDecorationMartItems_Dolls,
 };
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_DecorationMart(ScriptContext *ctx) {
     u16 which;
 
     which = ScriptGetVar(ctx);
-    Mart_Init(ctx->taskman, ctx->fieldSystem, _0210F9CC[which], 1, 0, which <= 1 ? 1 : 0, NULL);
+    Mart_Init(ctx->taskman, ctx->fieldSystem, sDecorationMartItems[which], MART_TYPE_DECOR, MART_BUY, which <= 1 ? 1 : 0, NULL);
     return TRUE;
 }
 
-const u16 _020FBB94[] = { SEAL_HEART_A, SEAL_STAR_B, SEAL_FIRE_A, SEAL_SONG_A, SEAL_LINE_C, SEAL_ELE_B, SEAL_PARTY_D, 0xFFFF };
-const u16 _020FBB24[] = { SEAL_HEART_B, SEAL_STAR_C, SEAL_FIRE_B, SEAL_FLORA_A, SEAL_SONG_B, SEAL_LINE_D, SEAL_ELE_C, 0xFFFF };
-const u16 _020FBB34[] = { SEAL_HEART_C, SEAL_STAR_D, SEAL_FIRE_C, SEAL_FLORA_B, SEAL_SONG_C, SEAL_SMOKE_A, SEAL_ELE_D, 0xFFFF };
-const u16 _020FBB44[] = { SEAL_HEART_D, SEAL_FOAMY_A, SEAL_FIRE_D, SEAL_FLORA_C, SEAL_SONG_D, SEAL_STAR_E, SEAL_SMOKE_B, 0xFFFF };
-const u16 _020FBB54[] = { SEAL_FOAMY_B, SEAL_PARTY_A, SEAL_FLORA_D, SEAL_SONG_E, SEAL_HEART_E, SEAL_STAR_F, SEAL_SMOKE_C, 0xFFFF };
-const u16 _020FBB64[] = { SEAL_FOAMY_C, SEAL_PARTY_B, SEAL_FLORA_E, SEAL_SONG_F, SEAL_HEART_F, SEAL_LINE_A, SEAL_SMOKE_D, 0xFFFF };
-const u16 _020FBB74[] = { SEAL_STAR_A, SEAL_SONG_G, SEAL_FOAMY_D, SEAL_FLORA_F, SEAL_LINE_B, SEAL_ELE_A, SEAL_PARTY_C, 0xFFFF };
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Status: MATCHING (rename only)
+// No HGSS script calls SealMart; the seven lists may be per weekday (unverified).
+const u16 sSealMartItems_0[] = { SEAL_HEART_A, SEAL_STAR_B, SEAL_FIRE_A, SEAL_SONG_A, SEAL_LINE_C, SEAL_ELE_B, SEAL_PARTY_D, 0xFFFF };
+const u16 sSealMartItems_1[] = { SEAL_HEART_B, SEAL_STAR_C, SEAL_FIRE_B, SEAL_FLORA_A, SEAL_SONG_B, SEAL_LINE_D, SEAL_ELE_C, 0xFFFF };
+const u16 sSealMartItems_2[] = { SEAL_HEART_C, SEAL_STAR_D, SEAL_FIRE_C, SEAL_FLORA_B, SEAL_SONG_C, SEAL_SMOKE_A, SEAL_ELE_D, 0xFFFF };
+const u16 sSealMartItems_3[] = { SEAL_HEART_D, SEAL_FOAMY_A, SEAL_FIRE_D, SEAL_FLORA_C, SEAL_SONG_D, SEAL_STAR_E, SEAL_SMOKE_B, 0xFFFF };
+const u16 sSealMartItems_4[] = { SEAL_FOAMY_B, SEAL_PARTY_A, SEAL_FLORA_D, SEAL_SONG_E, SEAL_HEART_E, SEAL_STAR_F, SEAL_SMOKE_C, 0xFFFF };
+const u16 sSealMartItems_5[] = { SEAL_FOAMY_C, SEAL_PARTY_B, SEAL_FLORA_E, SEAL_SONG_F, SEAL_HEART_F, SEAL_LINE_A, SEAL_SMOKE_D, 0xFFFF };
+const u16 sSealMartItems_6[] = { SEAL_STAR_A, SEAL_SONG_G, SEAL_FOAMY_D, SEAL_FLORA_F, SEAL_LINE_B, SEAL_ELE_A, SEAL_PARTY_C, 0xFFFF };
 
-const u16 *_0210F9E8[] = {
-    _020FBB94,
-    _020FBB24,
-    _020FBB34,
-    _020FBB44,
-    _020FBB54,
-    _020FBB64,
-    _020FBB74,
+const u16 *sSealMartItems[] = {
+    sSealMartItems_0,
+    sSealMartItems_1,
+    sSealMartItems_2,
+    sSealMartItems_3,
+    sSealMartItems_4,
+    sSealMartItems_5,
+    sSealMartItems_6,
 };
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_SealMart(ScriptContext *ctx) {
     u16 which;
 
     which = ScriptGetVar(ctx);
-    Mart_Init(ctx->taskman, ctx->fieldSystem, _0210F9E8[which], 2, 0, 0, NULL);
+    Mart_Init(ctx->taskman, ctx->fieldSystem, sSealMartItems[which], MART_TYPE_SEAL, MART_BUY, 0, NULL);
     return TRUE;
 }
 
-const struct MartItem _020FBCD6[] = {
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Status: MATCHING (names taken from pret upstream)
+// Despite the name, these are the full stock for MART_TYPE_POKEATHLON_DAILY,
+// indexed by RTC weekday (0 = Sunday), +7 once the National Dex is obtained.
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Monday[] = {
     { ITEM_RED_APRICORN, 200  },
     { ITEM_BLU_APRICORN, 200  },
     { ITEM_GRN_APRICORN, 200  },
@@ -227,7 +257,7 @@ const struct MartItem _020FBCD6[] = {
     { ITEM_RARE_CANDY,   2000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBCF2[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Tuesday[] = {
     { ITEM_YLW_APRICORN, 200  },
     { ITEM_PNK_APRICORN, 200  },
     { ITEM_WHT_APRICORN, 200  },
@@ -236,7 +266,7 @@ const struct MartItem _020FBCF2[] = {
     { ITEM_PP_UP,        1000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBD2A[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Wednesday[] = {
     { ITEM_BLU_APRICORN, 200  },
     { ITEM_PNK_APRICORN, 200  },
     { ITEM_BLK_APRICORN, 200  },
@@ -245,7 +275,7 @@ const struct MartItem _020FBD2A[] = {
     { ITEM_HEART_SCALE,  1000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBD46[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Thursday[] = {
     { ITEM_YLW_APRICORN, 200  },
     { ITEM_PNK_APRICORN, 200  },
     { ITEM_WHT_APRICORN, 200  },
@@ -254,7 +284,7 @@ const struct MartItem _020FBD46[] = {
     { ITEM_PP_UP,        1000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBD62[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Friday[] = {
     { ITEM_RED_APRICORN, 200  },
     { ITEM_YLW_APRICORN, 200  },
     { ITEM_GRN_APRICORN, 200  },
@@ -263,7 +293,7 @@ const struct MartItem _020FBD62[] = {
     { ITEM_NUGGET,       500  },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBD7E[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Saturday[] = {
     { ITEM_GRN_APRICORN, 200  },
     { ITEM_WHT_APRICORN, 200  },
     { ITEM_BLK_APRICORN, 200  },
@@ -272,7 +302,7 @@ const struct MartItem _020FBD7E[] = {
     { ITEM_RARE_CANDY,   2000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBC82[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Sunday[] = {
     { ITEM_RED_APRICORN, 200  },
     { ITEM_BLU_APRICORN, 200  },
     { ITEM_BLK_APRICORN, 200  },
@@ -281,7 +311,7 @@ const struct MartItem _020FBC82[] = {
     { ITEM_HEART_SCALE,  1000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBDB6[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Sunday_NatDex[] = {
     { ITEM_RED_APRICORN, 200  },
     { ITEM_BLU_APRICORN, 200  },
     { ITEM_BLK_APRICORN, 200  },
@@ -296,7 +326,7 @@ const struct MartItem _020FBDB6[] = {
     { ITEM_DAWN_STONE,   3000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBDEA[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Monday_NatDex[] = {
     { ITEM_RED_APRICORN, 200  },
     { ITEM_BLU_APRICORN, 200  },
     { ITEM_GRN_APRICORN, 200  },
@@ -311,7 +341,7 @@ const struct MartItem _020FBDEA[] = {
     { ITEM_DUSK_STONE,   3000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBE1E[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Tuesday_NatDex[] = {
     { ITEM_YLW_APRICORN, 200  },
     { ITEM_PNK_APRICORN, 200  },
     { ITEM_WHT_APRICORN, 200  },
@@ -326,7 +356,7 @@ const struct MartItem _020FBE1E[] = {
     { ITEM_DAWN_STONE,   3000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBE52[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Wednesday_NatDex[] = {
     { ITEM_BLU_APRICORN, 200  },
     { ITEM_PNK_APRICORN, 200  },
     { ITEM_BLK_APRICORN, 200  },
@@ -341,7 +371,7 @@ const struct MartItem _020FBE52[] = {
     { ITEM_DAWN_STONE,   3000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBE86[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Thursday_NatDex[] = {
     { ITEM_YLW_APRICORN, 200  },
     { ITEM_PNK_APRICORN, 200  },
     { ITEM_WHT_APRICORN, 200  },
@@ -356,7 +386,7 @@ const struct MartItem _020FBE86[] = {
     { ITEM_DUSK_STONE,   3000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBEBA[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Friday_NatDex[] = {
     { ITEM_RED_APRICORN, 200  },
     { ITEM_YLW_APRICORN, 200  },
     { ITEM_GRN_APRICORN, 200  },
@@ -371,7 +401,7 @@ const struct MartItem _020FBEBA[] = {
     { ITEM_DAWN_STONE,   3000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBEEE[] = {
+const struct MartItem sPokeathlonPrizeExchangePriceOverrides_Saturday_NatDex[] = {
     { ITEM_GRN_APRICORN, 200  },
     { ITEM_WHT_APRICORN, 200  },
     { ITEM_BLK_APRICORN, 200  },
@@ -387,23 +417,26 @@ const struct MartItem _020FBEEE[] = {
     { 0xFFFF,            0    },
 };
 
-const struct MartItem *_0210FA04[] = {
-    _020FBC82,
-    _020FBCD6,
-    _020FBCF2,
-    _020FBD2A,
-    _020FBD46,
-    _020FBD62,
-    _020FBD7E,
-    _020FBDB6,
-    _020FBDEA,
-    _020FBE1E,
-    _020FBE52,
-    _020FBE86,
-    _020FBEBA,
-    _020FBEEE,
+const struct MartItem *sPokeathlonPrizeExchangePriceOverrides[] = {
+    sPokeathlonPrizeExchangePriceOverrides_Sunday,
+    sPokeathlonPrizeExchangePriceOverrides_Monday,
+    sPokeathlonPrizeExchangePriceOverrides_Tuesday,
+    sPokeathlonPrizeExchangePriceOverrides_Wednesday,
+    sPokeathlonPrizeExchangePriceOverrides_Thursday,
+    sPokeathlonPrizeExchangePriceOverrides_Friday,
+    sPokeathlonPrizeExchangePriceOverrides_Saturday,
+    sPokeathlonPrizeExchangePriceOverrides_Sunday_NatDex,
+    sPokeathlonPrizeExchangePriceOverrides_Monday_NatDex,
+    sPokeathlonPrizeExchangePriceOverrides_Tuesday_NatDex,
+    sPokeathlonPrizeExchangePriceOverrides_Wednesday_NatDex,
+    sPokeathlonPrizeExchangePriceOverrides_Thursday_NatDex,
+    sPokeathlonPrizeExchangePriceOverrides_Friday_NatDex,
+    sPokeathlonPrizeExchangePriceOverrides_Saturday_NatDex,
 };
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Partially AI-edited: Mart_Init constants. The item list argument is ignored for
+// this mart type, so indexing past sDecorationMartItems is harmless (original behavior).
 BOOL ScrCmd_PokeathlonDailyMart(ScriptContext *ctx) {
     SaveVarsFlags *flagsys;
     RTCDate date;
@@ -411,16 +444,19 @@ BOOL ScrCmd_PokeathlonDailyMart(ScriptContext *ctx) {
     flagsys = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
     GF_RTC_CopyDate(&date);
 
-    // UB: Possibly illegal access to _0210F9CC between Tuesday and Saturday, inclusive
+    // UB: Possibly illegal access to sDecorationMartItems between Tuesday and Saturday, inclusive
     if (Pokedex_GetNatDexFlag(Save_Pokedex_Get(ctx->fieldSystem->saveData))) {
-        Mart_Init(ctx->taskman, ctx->fieldSystem, _0210F9CC[date.week], 3, 0, 0, _0210FA04[date.week + 7]);
+        Mart_Init(ctx->taskman, ctx->fieldSystem, sDecorationMartItems[date.week], MART_TYPE_POKEATHLON_DAILY, MART_BUY, 0, sPokeathlonPrizeExchangePriceOverrides[date.week + 7]);
     } else {
-        Mart_Init(ctx->taskman, ctx->fieldSystem, _0210F9CC[date.week], 3, 0, 0, _0210FA04[date.week]);
+        Mart_Init(ctx->taskman, ctx->fieldSystem, sDecorationMartItems[date.week], MART_TYPE_POKEATHLON_DAILY, MART_BUY, 0, sPokeathlonPrizeExchangePriceOverrides[date.week]);
     }
     return TRUE;
 }
 
-const struct MartItem _020FBCBA[] = {
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Status: MATCHING (rename only)
+// Data card stock, indexed by (first card not yet bought) / 6
+const struct MartItem sPokeathlonDataCardPrices_01To06[] = {
     { ITEM_DATA_CARD_01, 500  },
     { ITEM_DATA_CARD_02, 500  },
     { ITEM_DATA_CARD_03, 1000 },
@@ -429,7 +465,7 @@ const struct MartItem _020FBCBA[] = {
     { ITEM_DATA_CARD_06, 500  },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBD0E[] = {
+const struct MartItem sPokeathlonDataCardPrices_07To12[] = {
     { ITEM_DATA_CARD_07, 1000 },
     { ITEM_DATA_CARD_08, 1000 },
     { ITEM_DATA_CARD_09, 1000 },
@@ -438,7 +474,7 @@ const struct MartItem _020FBD0E[] = {
     { ITEM_DATA_CARD_12, 1000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBD9A[] = {
+const struct MartItem sPokeathlonDataCardPrices_13To18[] = {
     { ITEM_DATA_CARD_13, 1500 },
     { ITEM_DATA_CARD_14, 1500 },
     { ITEM_DATA_CARD_15, 1500 },
@@ -447,7 +483,7 @@ const struct MartItem _020FBD9A[] = {
     { ITEM_DATA_CARD_18, 1000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBC9E[] = {
+const struct MartItem sPokeathlonDataCardPrices_19To24[] = {
     { ITEM_DATA_CARD_19, 500  },
     { ITEM_DATA_CARD_20, 500  },
     { ITEM_DATA_CARD_21, 2000 },
@@ -456,21 +492,23 @@ const struct MartItem _020FBC9E[] = {
     { ITEM_DATA_CARD_24, 1000 },
     { 0xFFFF,            0    },
 };
-const struct MartItem _020FBBA4[] = {
+const struct MartItem sPokeathlonDataCardPrices_25To27[] = {
     { ITEM_DATA_CARD_25, 2000 },
     { ITEM_DATA_CARD_26, 3000 },
     { ITEM_DATA_CARD_27, 9999 },
     { 0xFFFF,            0    },
 };
 
-const struct MartItem *_0210F9D4[] = {
-    _020FBCBA,
-    _020FBD0E,
-    _020FBD9A,
-    _020FBC9E,
-    _020FBBA4,
+const struct MartItem *sPokeathlonDataCardPrices[] = {
+    sPokeathlonDataCardPrices_01To06,
+    sPokeathlonDataCardPrices_07To12,
+    sPokeathlonDataCardPrices_13To18,
+    sPokeathlonDataCardPrices_19To24,
+    sPokeathlonDataCardPrices_25To27,
 };
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_PokeathlonDataCardMart(ScriptContext *ctx) {
     PokeathlonSave *pokeathlon;
     int i;
@@ -481,7 +519,7 @@ BOOL ScrCmd_PokeathlonDataCardMart(ScriptContext *ctx) {
             break;
         }
     }
-    Mart_Init(ctx->taskman, ctx->fieldSystem, _0210F9CC[0], 4, 0, 0, _0210F9D4[i / 6]);
+    Mart_Init(ctx->taskman, ctx->fieldSystem, sDecorationMartItems[0], MART_TYPE_DATA_CARDS, MART_BUY, 0, sPokeathlonDataCardPrices[i / 6]);
     return TRUE;
 }
 
@@ -502,9 +540,9 @@ BOOL ScrCmd_CheckPokeathlonDailyMartHasStock(ScriptContext *ctx) {
     varsFlags = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
     GF_RTC_CopyDate(&date);
     if (Pokedex_GetNatDexFlag(Save_Pokedex_Get(ctx->fieldSystem->saveData))) {
-        items = _0210FA04[date.week + 7];
+        items = sPokeathlonPrizeExchangePriceOverrides[date.week + 7];
     } else {
-        items = _0210FA04[date.week];
+        items = sPokeathlonPrizeExchangePriceOverrides[date.week];
     }
     for (i = 0; i < 12; i++) {
         if (items[i].item_id == 0xFFFF) {

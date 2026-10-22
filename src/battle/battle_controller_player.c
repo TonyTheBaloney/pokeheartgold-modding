@@ -3924,7 +3924,7 @@ static BOOL BattleControllerPlayer_TryAfterMoveItems(BattleSystem *battleSystem,
             break;
         case 3:
             ctx->attackerAfterMoveState = 0;
-            ctx->unk_34 = 0;
+            ctx->unused_34 = 0;
             flag = 2;
             break;
         }

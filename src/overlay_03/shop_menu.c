@@ -163,7 +163,7 @@ static void RocketHQ_UpdateElectrodePropAnimation(FieldSystem *fieldSystem, u8 i
 
 static u32 Mart_CountItems(const u16 *items, u16 *priceOverrides, u32 martType) {
     int i;
-    if (martType == MART_TYPE_3 || martType == MART_TYPE_4) {
+    if (martType == MART_TYPE_POKEATHLON_DAILY || martType == MART_TYPE_DATA_CARDS) {
         for (i = 0; i < 256; i++) {
             if (*priceOverrides != 0xFFFF) {
                 priceOverrides += 2;
@@ -214,7 +214,7 @@ static void MartData_InitItemList(MartData *data, const u16 *items, BOOL flag09A
         GF_AssertFail();
     }
     data->itemIds = Heap_Alloc(HEAP_ID_FIELD2, data->numItems * 2);
-    if (data->martType == MART_TYPE_3 || data->martType == MART_TYPE_4) {
+    if (data->martType == MART_TYPE_POKEATHLON_DAILY || data->martType == MART_TYPE_DATA_CARDS) {
         MartData_CopyPriceOverrideItems(data, (u16 *)priceOverrides);
     } else {
         MartData_CopyItems(data, items, flag09A);
@@ -245,7 +245,7 @@ void Mart_Init(TaskManager *taskManager, FieldSystem *fieldSystem, const u16 *it
     martData->pokeathlonSave = Save_Pokeathlon_Get(fieldSystem->saveData);
     martData->priceOverrides = priceOverrides;
     martData->sellOnly = buy_sell;
-    if (martData->martType == MART_TYPE_NORMAL || martData->martType == MART_TYPE_3 || martData->martType == MART_TYPE_4) {
+    if (martData->martType == MART_TYPE_NORMAL || martData->martType == MART_TYPE_POKEATHLON_DAILY || martData->martType == MART_TYPE_DATA_CARDS) {
         martData->inventory = Save_Bag_Get(fieldSystem->saveData);
     } else {
         martData->inventory = Save_SealCase_Get(fieldSystem->saveData);
@@ -435,7 +435,7 @@ static void MartData_InitCamera(FieldSystem *fieldSystem, MartData *data) {
 
 static void MartData_AddWindows(MartData *data) {
     for (u32 i = 0; i < 6; i++) {
-        if (data->martType != MART_TYPE_NORMAL && data->martType != MART_TYPE_3 && data->martType != MART_TYPE_4 && i == 1) {
+        if (data->martType != MART_TYPE_NORMAL && data->martType != MART_TYPE_POKEATHLON_DAILY && data->martType != MART_TYPE_DATA_CARDS && i == 1) {
             AddWindow(data->bgConfig, &data->windows[i], &ov03_02259464);
         } else {
             AddWindow(data->bgConfig, &data->windows[i], &sMartWindowTemplates[i]);
@@ -453,7 +453,7 @@ static void MartData_RemoveWindows(MartData *data) {
 
 static void MartData_LoadBgGraphics(MartData *data) { // MartData_LoadGraphics?
     GfGfxLoader_LoadCharData(NARC_a_0_6_0, 0, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, HEAP_ID_FIELD2);
-    if (data->martType == MART_TYPE_NORMAL || data->martType == MART_TYPE_3 || data->martType == MART_TYPE_4) {
+    if (data->martType == MART_TYPE_NORMAL || data->martType == MART_TYPE_POKEATHLON_DAILY || data->martType == MART_TYPE_DATA_CARDS) {
         GfGfxLoader_LoadScrnData(NARC_a_0_6_0, 2, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, HEAP_ID_FIELD2);
     } else {
         GfGfxLoader_LoadScrnData(NARC_a_0_6_0, 3, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, HEAP_ID_FIELD2);
@@ -537,10 +537,10 @@ static void MartData_PrintItemDescription(MartData *data, u32 position) {
     case 5:
         FillWindowPixelBuffer(&data->windows[1], 0);
         if (data->cursorPos + data->pageStart < data->numItems) {
-            if (data->martType == MART_TYPE_NORMAL || data->martType == MART_TYPE_3 || data->martType == MART_TYPE_4) {
+            if (data->martType == MART_TYPE_NORMAL || data->martType == MART_TYPE_POKEATHLON_DAILY || data->martType == MART_TYPE_DATA_CARDS) {
                 string = String_New(130, HEAP_ID_FIELD2);
                 GetItemDescIntoString(string, itemID, HEAP_ID_FIELD2);
-            } else if (data->martType == MART_TYPE_1) {
+            } else if (data->martType == MART_TYPE_DECOR) {
                 msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0737, HEAP_ID_FIELD2);
                 string = NewString_ReadMsgData(msgData, itemID + 138);
                 DestroyMsgData(msgData);
@@ -710,7 +710,7 @@ static u8 MartData_CloseMenu(MartData *data) {
 }
 
 static u32 MartData_GetCurrency(MartData *data, u32 martType) {
-    if (martType == MART_TYPE_3 || martType == MART_TYPE_4) {
+    if (martType == MART_TYPE_POKEATHLON_DAILY || martType == MART_TYPE_DATA_CARDS) {
         return PokeathlonSave_GetAthletePoints(data->pokeathlonSave);
     } else {
         return PlayerProfile_GetMoney(data->playerProfile);
@@ -718,11 +718,11 @@ static u32 MartData_GetCurrency(MartData *data, u32 martType) {
 }
 
 int MartData_CheckCannotBuy(MartData *data, u32 money) {
-    if (data->martType == MART_TYPE_3) {
+    if (data->martType == MART_TYPE_POKEATHLON_DAILY) {
         if (PokeathlonSave_IsDailyItemBought(data->pokeathlonSave, data->cursorPos + data->pageStart)) {
             return 2;
         }
-    } else if (data->martType == MART_TYPE_4 && PokeathlonSave_IsDataCardBought(data->pokeathlonSave, data->item - 505)) {
+    } else if (data->martType == MART_TYPE_DATA_CARDS && PokeathlonSave_IsDataCardBought(data->pokeathlonSave, data->item - 505)) {
         return 3;
     }
 
@@ -747,7 +747,7 @@ static u8 MartData_BeginPurchase(MartData *data, u16 itemID) {
     if (data->maxQuantity > 99) {
         data->maxQuantity = 99;
     }
-    if (data->martType == MART_TYPE_1 || data->martType == MART_TYPE_3 || data->martType == MART_TYPE_4) {
+    if (data->martType == MART_TYPE_DECOR || data->martType == MART_TYPE_POKEATHLON_DAILY || data->martType == MART_TYPE_DATA_CARDS) {
         return MartData_CheckInventorySpace(data);
     }
     MartData_UpdateButtonSprites(data, 1);
@@ -765,7 +765,7 @@ static u8 MartData_WaitQuantityPrompt(MartData *data) {
 }
 
 int MartData_GetOwnedQuantity(MartData *data, int itemID) {
-    if (data->martType == MART_TYPE_NORMAL || data->martType == MART_TYPE_1 || data->martType == MART_TYPE_3 || data->martType == MART_TYPE_4) {
+    if (data->martType == MART_TYPE_NORMAL || data->martType == MART_TYPE_DECOR || data->martType == MART_TYPE_POKEATHLON_DAILY || data->martType == MART_TYPE_DATA_CARDS) {
         if (itemID >= ITEM_RED_APRICORN && itemID <= ITEM_BLK_APRICORN) {
             return ApricornBox_CountApricorn(data->apricornBox, itemID - ITEM_RED_APRICORN);
         }
@@ -876,9 +876,9 @@ static u8 MartData_CheckInventorySpace(MartData *data) {
     int quantity;
     if (data->martType == MART_TYPE_NORMAL) {
         quantity = Bag_HasSpaceForItem(data->inventory, data->item, data->quantity, HEAP_ID_FIELD2);
-    } else if (data->martType == MART_TYPE_1) {
+    } else if (data->martType == MART_TYPE_DECOR) {
         quantity = 0;
-    } else if (data->martType == MART_TYPE_3 || data->martType == MART_TYPE_4) {
+    } else if (data->martType == MART_TYPE_POKEATHLON_DAILY || data->martType == MART_TYPE_DATA_CARDS) {
         if (data->item >= ITEM_RED_APRICORN && data->item <= ITEM_BLK_APRICORN) {
             if (ApricornBox_CountApricorn(data->apricornBox, data->item - ITEM_RED_APRICORN) == 99) {
                 data->touchMartAction = 12;
@@ -931,7 +931,7 @@ static u8 MartData_HandleConfirmInput(MartData *data, u32 button) {
 }
 
 static void MartData_SubCurrency(MartData *data, int currency) {
-    if (data->martType == MART_TYPE_3 || data->martType == MART_TYPE_4) {
+    if (data->martType == MART_TYPE_POKEATHLON_DAILY || data->martType == MART_TYPE_DATA_CARDS) {
         PokeathlonSave_SubAthletePoints(data->pokeathlonSave, currency);
     } else {
         PlayerProfile_SubMoney(data->playerProfile, data->cost * data->quantity);
@@ -952,10 +952,10 @@ static u8 MartData_PerformTransaction(MartData *data) {
     }
     if (data->martType == MART_TYPE_NORMAL) {
         Bag_AddItem(data->inventory, data->item, data->quantity, HEAP_ID_FIELD2);
-    } else if (data->martType == MART_TYPE_3) {
+    } else if (data->martType == MART_TYPE_POKEATHLON_DAILY) {
         MartData_Inventory_AddApricornOrItem(data, data->item);
         PokeathlonSave_SetDailyItemBought(data->pokeathlonSave, data->cursorPos + data->pageStart);
-    } else if (data->martType == MART_TYPE_4) {
+    } else if (data->martType == MART_TYPE_DATA_CARDS) {
         PokeathlonSave_SetDataCardBought(data->pokeathlonSave, data->item - 505);
     } else {
         GiveOrTakeSeal(data->inventory, data->item, data->quantity);
@@ -1037,9 +1037,9 @@ static u16 Mart_GetPriceOverride(u16 itemID, const struct MartItem *priceOverrid
 u32 MartData_GetItemPrice(MartData *data, u16 itemID) {
     if (data->martType == MART_TYPE_NORMAL) {
         return GetItemAttr(itemID, 0, HEAP_ID_FIELD2);
-    } else if (data->martType == MART_TYPE_1) {
+    } else if (data->martType == MART_TYPE_DECOR) {
         return 100;
-    } else if (data->martType == MART_TYPE_3 || data->martType == MART_TYPE_4) {
+    } else if (data->martType == MART_TYPE_POKEATHLON_DAILY || data->martType == MART_TYPE_DATA_CARDS) {
         return Mart_GetPriceOverride(itemID, data->priceOverrides, data->numItems);
     }
     return 100;

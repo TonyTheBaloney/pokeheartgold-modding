@@ -20,12 +20,25 @@ enum PokeathlonData {
     ACTION_DATA
 };
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Status: MATCHING (renames only; values unchanged)
+// DECOR: ScrCmd_DecorationMart. POKEATHLON_DAILY: ScrCmd_PokeathlonDailyMart.
+// DATA_CARDS: ScrCmd_PokeathlonDataCardMart. The two Pokeathlon types take
+// their stock from the price-override table and ignore the item list.
 enum MartTypes {
     MART_TYPE_NORMAL = 0,
-    MART_TYPE_1, // MART_TYPE_DECOR?
+    MART_TYPE_DECOR,
     MART_TYPE_SEAL,
-    MART_TYPE_3, // MART_TYPE_FRONTIER?
-    MART_TYPE_4, // MART_TYPE_POKEATHLON?
+    MART_TYPE_POKEATHLON_DAILY,
+    MART_TYPE_DATA_CARDS,
+};
+
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// Status: MATCHING
+// Mart_Init buy_sell argument (stored in MartData.sellOnly)
+enum MartBuySell {
+    MART_BUY = 0,
+    MART_SELL,
 };
 
 enum BattleRegulationValidationResult {

@@ -884,11 +884,11 @@ static void TouchMartApp_PrintBuyButton(TouchMartAppData *data) {
 static void TouchMartApp_BufferItemName(int martType, MessageFormat *messageFormat, int itemId, int fieldno) {
     switch (martType) {
     case MART_TYPE_NORMAL:
-    case MART_TYPE_3:
-    case MART_TYPE_4:
+    case MART_TYPE_POKEATHLON_DAILY:
+    case MART_TYPE_DATA_CARDS:
         BufferItemName(messageFormat, fieldno, itemId);
         break;
-    case MART_TYPE_1:
+    case MART_TYPE_DECOR:
         BufferDecorationName(messageFormat, fieldno, itemId);
         break;
     }
@@ -897,11 +897,11 @@ static void TouchMartApp_BufferItemName(int martType, MessageFormat *messageForm
 static void TouchMartApp_BufferItemNamePlural(int martType, MessageFormat *messageFormat, int itemId, int fieldno) {
     switch (martType) {
     case MART_TYPE_NORMAL:
-    case MART_TYPE_3:
-    case MART_TYPE_4:
+    case MART_TYPE_POKEATHLON_DAILY:
+    case MART_TYPE_DATA_CARDS:
         BufferItemNamePlural(messageFormat, fieldno, itemId);
         break;
-    case MART_TYPE_1:
+    case MART_TYPE_DECOR:
         BufferDecorationName(messageFormat, fieldno, itemId);
         break;
     }
@@ -910,11 +910,11 @@ static void TouchMartApp_BufferItemNamePlural(int martType, MessageFormat *messa
 static void TouchMartApp_BufferItemNameWithIndefArticle(int martType, MessageFormat *messageFormat, int itemId, int fieldno) {
     switch (martType) {
     case MART_TYPE_NORMAL:
-    case MART_TYPE_3:
-    case MART_TYPE_4:
+    case MART_TYPE_POKEATHLON_DAILY:
+    case MART_TYPE_DATA_CARDS:
         BufferItemNameWithIndefArticle(messageFormat, fieldno, itemId);
         break;
-    case MART_TYPE_1:
+    case MART_TYPE_DECOR:
         BufferDecorationName(messageFormat, fieldno, itemId);
         break;
     }
@@ -1001,7 +1001,7 @@ static void TouchMartApp_PrintPurchaseDone(TouchMartAppData *data) {
         template = NewString_ReadMsgData(data->msgData, msg_0435_00015);
         BufferPocketName(data->messageFormat, 1, GetItemAttr(data->martData->item, ITEMATTR_FIELD_POCKET, HEAP_ID_FIELD2));
         break;
-    case MART_TYPE_3:
+    case MART_TYPE_POKEATHLON_DAILY:
         if (data->martData->item >= 485 && data->martData->item <= 491) {
             template = NewString_ReadMsgData(data->msgData, msg_0435_00049);
         } else {
@@ -1009,10 +1009,10 @@ static void TouchMartApp_PrintPurchaseDone(TouchMartAppData *data) {
             BufferPocketName(data->messageFormat, 1, GetItemAttr(data->martData->item, ITEMATTR_FIELD_POCKET, HEAP_ID_FIELD2));
         }
         break;
-    case MART_TYPE_4:
+    case MART_TYPE_DATA_CARDS:
         template = NewString_ReadMsgData(data->msgData, msg_0435_00049);
         break;
-    case MART_TYPE_1:
+    case MART_TYPE_DECOR:
         template = NewString_ReadMsgData(data->msgData, msg_0435_00021);
         break;
     default:
@@ -1062,13 +1062,13 @@ static String *TouchMartApp_GetNoRoomMessage(const MartData *martData, MsgData *
     int msgId;
     if (martData->martType == MART_TYPE_NORMAL) {
         msgId = msg_0435_00016;
-    } else if (martData->martType == MART_TYPE_1) {
+    } else if (martData->martType == MART_TYPE_DECOR) {
         msgId = msg_0435_00022;
     } else if (martData->martType == MART_TYPE_SEAL) {
         msgId = msg_0435_00024;
-    } else if (martData->martType == MART_TYPE_3) {
+    } else if (martData->martType == MART_TYPE_POKEATHLON_DAILY) {
         msgId = msg_0435_00025;
-    } else if (martData->martType == MART_TYPE_4) {
+    } else if (martData->martType == MART_TYPE_DATA_CARDS) {
         msgId = msg_0435_00026;
     }
     return NewString_ReadMsgData(msgData, msgId);

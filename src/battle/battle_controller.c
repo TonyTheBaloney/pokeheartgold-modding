@@ -72,9 +72,9 @@ BOOL BattleController_RecvData(BattleSystem *battleSystem, const u8 *data) {
             ret = TRUE;
         }
     } else if (direction == 1) {
-        if (battleSystem->opponentData[battlerId]->unk8C[8] == 0) {
+        if (battleSystem->opponentData[battlerId]->controllerData[8] == 0) {
             for (ret = 0; ret < size; ret++) {
-                battleSystem->opponentData[battlerId]->unk8C[8 + ret] = data[4 + ret];
+                battleSystem->opponentData[battlerId]->controllerData[8 + ret] = data[4 + ret];
             }
             ret = TRUE;
         }
@@ -1197,7 +1197,7 @@ BOOL BattleController_RecvLinkData(BattleSystem *battleSystem, u8 *data) {
         if (battleSystem->opponentData[battlerId]->commandReceived == 0) {
             battleSystem->opponentData[battlerId]->commandReceived = 1;
             for (i = 0; i < size; i++) {
-                battleSystem->opponentData[battlerId]->unk8C[8 + i] = data[4 + i];
+                battleSystem->opponentData[battlerId]->controllerData[8 + i] = data[4 + i];
             }
         } else {
             ret = FALSE;

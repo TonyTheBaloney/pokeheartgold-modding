@@ -361,10 +361,10 @@ enum {
 };
 
 // The command the battle controller sent to this battler
-#define OPPONENT_COMMAND(opponentData) ((void *)&(opponentData)->unk8C[8])
-#define OPPONENT_COMMAND_ID(opponentData) ((opponentData)->unk8C[0x08])
+#define OPPONENT_COMMAND(opponentData) ((void *)&(opponentData)->controllerData[8])
+#define OPPONENT_COMMAND_ID(opponentData) ((opponentData)->controllerData[0x08])
 // The OAM copy of the battler's pokepic
-#define OPPONENT_SPRITE_OAM(opponentData) (*(void **)&(opponentData)->unk8C[0x00])
+#define OPPONENT_SPRITE_OAM(opponentData) (*(void **)&(opponentData)->controllerData[0x00])
 
 extern const s16 gBattlerSlideInTargetX[][2];
 // Pokemon/trainer positions (x, y, z) by battler type: [0] on the field, [1] off screen where a slide-in starts.
@@ -6462,7 +6462,7 @@ void *OpponentData_GetPokepic(OpponentData *opponentData) {
     if (opponentData->pokepic != NULL) {
         return opponentData->pokepic;
     }
-    return opponentData->unk1C;
+    return opponentData->unusedPokepic;
 }
 
 BattleHpBar *OpponentData_GetHpBar(OpponentData *opponentData) {
