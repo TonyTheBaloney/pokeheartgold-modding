@@ -63,7 +63,6 @@ zone_event_json = files(
     '061_T20R0202.json',
     '062_T20R0301.json',
     '063_T20R0401.json',
-    '064_T21.json',
     '065_T21FS0101.json',
     '066_T21PC0101.json',
     '067_T21R0301.json',

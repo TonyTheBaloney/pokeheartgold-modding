@@ -163,12 +163,12 @@ class Validator:
         defs = r.defines.child()
         msg_ids = set()
         for inc in sf.includes:
-            p = r.path("files", inc)
-            if inc.startswith("fielddata/script/scr_seq/event_") and os.path.exists(p):
+            p = r.include_path(inc)
+            if p and (inc.startswith("fielddata/script/scr_seq/event_") or inc.endswith("/ids.h")):
                 defs.load(p)
             mm = re.match(r"msgdata/msg/(msg_\w+)\.h$", inc)
             if mm:
-                jp = r.path("files/msgdata/msg", mm.group(1) + ".json")
+                jp = r.text_bank_path(mm.group(1))
                 if os.path.exists(jp):
                     msg_ids |= set(text.load(jp).ids)
         for label in sf.scrdefs:

@@ -130,7 +130,10 @@ subdir('lib')
 ############################################################
 ###                     FILE SYSTEM                      ###
 ############################################################
+# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] per-map folders (data/maps); see tools/mapkit
+subdir('data/maps')
 subdir('files')
+naix_headers += maps_headers
 
 ############################################################
 ###                     ARM9 BINARY                      ###

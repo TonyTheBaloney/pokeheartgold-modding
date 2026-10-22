@@ -16,6 +16,8 @@ zone_event_gen = generator(json2bin_sh,
         '-i', relative_source_root / 'include',
         '-i', relative_source_root / 'subprojects' / 'NitroSDK-4.2.30001' / 'include',
         '-i', relative_source_root / 'files',
+        # mwasm ignores '-I../..' but accepts '-I../../' (for data/maps/<MapName>/ids.h)
+        '-i', relative_source_root + '/',
         '--language', 'asm',
         '-D', 'PM_ASM',
         '-y',
@@ -31,7 +33,7 @@ zone_event_gen = generator(json2bin_sh,
 subdir('zone_event')
 
 zone_event_narc = custom_target('zone_event.narc',
-    input : zone_event_gen.process(zone_event_json),
+    input : zone_event_gen.process(zone_event_json + maps_zone_event_json),
     output: [
         'zone_event.narc',
         'zone_event.naix',

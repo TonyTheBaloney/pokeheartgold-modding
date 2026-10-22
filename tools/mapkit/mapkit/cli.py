@@ -7,7 +7,7 @@ import re
 import sys
 
 from . import events as ev_mod
-from . import scripts, wild
+from . import layout, scripts, wild
 from .matrix import CELL_SIZE
 from .repo import Repo, VERSIONS
 from .validate import ERROR, INFO, WARNING, Validator
@@ -184,6 +184,30 @@ def cmd_refs(repo, args):
     return 0
 
 
+def cmd_migrate(repo, args):
+    for q in args.maps:
+        m = repo.find_map(q)
+        if m is None:
+            print("no map matches %r" % q, file=sys.stderr)
+            return 2
+        try:
+            if args.dry_run:
+                p = layout.plan(repo, m)
+                print("%s -> %s/%s/" % (m.name, layout.MAPS_DIR, p["dir"]))
+                for field, path in p["paths"].items():
+                    print("  %-18s %s" % (field, repo.rel(path)))
+                print("  %-18s files/%s" % ("event header", p["event_header"]))
+                print("  %-18s src/data/map_headers.h [%s]" % ("header", m.name))
+                continue
+            p = layout.migrate(repo, m)
+        except layout.MigrationError as e:
+            print("%s: %s" % (m.name, e), file=sys.stderr)
+            return 1
+        print("migrated %s -> %s/%s/" % (m.name, layout.MAPS_DIR, p["dir"]))
+        repo = type(repo)(repo.root, repo.version)  # reload after files moved
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="mapkit", description="Read and check pokeheartgold map data.")
     ap.add_argument("--root", help="repo root (default: search upward from the current directory)")
@@ -208,6 +232,18 @@ def main(argv=None):
     p = sub.add_parser("refs", help="find where a constant (flag, var, object, sprite, ...) is used")
     p.add_argument("symbol")
     p.set_defaults(func=cmd_refs)
+
+    p = sub.add_parser("migrate", help="move maps into data/maps/<Folder>/ (keeps the ROM identical)")
+    p.add_argument("maps", nargs="+")
+    p.add_argument("--dry-run", action="store_true", help="only show what would move")
+    p.set_defaults(func=cmd_migrate)
+
+    # build-time generators (called from data/maps/meson.build)
+    for name, fn in (("gen-header", layout.gen_header), ("gen-events", layout.gen_events)):
+        p = sub.add_parser(name, help=argparse.SUPPRESS)
+        p.add_argument("map_json")
+        p.add_argument("out")
+        p.set_defaults(func=lambda repo, a, fn=fn: fn(repo.root, a.map_json, a.out) or 0)
 
     args = ap.parse_args(argv)
     repo = Repo(args.root, args.version)

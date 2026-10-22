@@ -2,11 +2,12 @@
 """The repository as a set of maps, each tied to its data files."""
 
 import glob
+import json
 import os
 import re
 from dataclasses import dataclass
 
-from . import cdefs, events, matrix, scripts, text, wild
+from . import cdefs, events, layout, matrix, scripts, text, wild
 
 VERSIONS = ("HEARTGOLD", "SOULSILVER")
 
@@ -91,6 +92,9 @@ class Repo:
                 src = f.read()
             for name, body in _HEADER_ENTRY_RE.findall(src):
                 headers[name] = {k: v.strip() for k, v in _HEADER_FIELD_RE.findall(body)}
+            for entry in self.migrated.values():  # data/maps/<MapName>/map.json
+                with open(layout.folder_paths(self.root, entry)["map.json"], encoding="utf-8") as f:
+                    headers[entry["map"]] = layout.header_from_map_json(json.load(f), entry)
             out = []
             for name, (num, code) in sorted(ids.items(), key=lambda kv: kv[1][0]):
                 if name in headers:
@@ -119,7 +123,19 @@ class Repo:
 
     # --- per-map files ---------------------------------------------------
 
+    @property
+    def migrated(self):
+        """MAP_* name -> data/maps/maps.txt entry, for maps that live in data/maps."""
+        return self._cached("migrated", lambda: {e["map"]: e for e in layout.read_index(self.root)})
+
+    def map_dir(self, m):
+        e = self.migrated.get(m.name)
+        return self.path(layout.MAPS_DIR, e["dir"]) if e else None
+
     def bank_path(self, m, field):
+        e = self.migrated.get(m.name)
+        if e and field in layout.BANK_FIELDS:
+            return layout.folder_paths(self.root, e)[field]
         v = m.header.get(field, "")
         if field in ("scriptsBank", "scriptHeaderBank"):
             mm = re.match(r"(scr_seq_\w+?)_bin$", v)
@@ -141,7 +157,30 @@ class Repo:
 
     def events(self, m):
         p = self.bank_path(m, "eventsBank")
-        return self._cached(("events", p), lambda: events.load(p)) if p and os.path.exists(p) else None
+        if not p or not os.path.exists(p):
+            return None
+        e = self.migrated.get(m.name)
+        if e:
+            def from_map_json():
+                with open(p, encoding="utf-8") as f:
+                    ze = layout.zone_event_from_map_json(json.load(f), "%s/%s/ids.h" % (layout.MAPS_DIR, e["dir"]))
+                return events.Events(p, ze["header"], ze["bgs"], ze["objects"], ze["warps"], ze["coords"])
+            return self._cached(("events", p), from_map_json)
+        return self._cached(("events", p), lambda: events.load(p))
+
+    def text_bank_path(self, base):
+        """msg_NNNN[_CODE] -> its JSON, in data/maps/<MapName>/ if the map was migrated."""
+        for e in self.migrated.values():
+            if e["text"] == base:
+                return layout.folder_paths(self.root, e)["msgBank"]
+        return self.path("files/msgdata/msg", base + ".json")
+
+    def include_path(self, inc):
+        """Resolve an include as the build does (files/ or the repo root)."""
+        for p in (self.path("files", inc), self.path(inc)):
+            if os.path.exists(p):
+                return p
+        return None
 
     def event_defines(self, m):
         """Repo constants plus the map's event_CODE.h (script and object ids)."""
@@ -150,8 +189,9 @@ class Repo:
 
         def build():
             d = self.defines.child()
-            if hdr and os.path.exists(self.path("files", hdr)):
-                d.load(self.path("files", hdr))
+            p = self.include_path(hdr) if hdr else None
+            if p:
+                d.load(p)
             return d
         return self._cached(("evdefs", hdr), build)
 

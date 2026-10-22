@@ -1,0 +1,2 @@
+# Maps migrated to data/maps/<MapName>/ (maintained by tools/mapkit, see layout.py)
+Cherrygrove MAP_CHERRYGROVE events=064_T21 scripts=scr_seq_0850_T21 init=scr_seq_0623_T21_hdr text=msg_0550_T21

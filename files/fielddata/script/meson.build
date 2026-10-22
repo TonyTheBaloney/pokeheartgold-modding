@@ -31,7 +31,7 @@ scr_seq_narc = custom_target(
         'scr_seq.narc',
         'scr_seq.naix',
     ],
-    input: scr_seq_gen.process(scr_seq_asm),
+    input: scr_seq_gen.process(scr_seq_asm + maps_scr_seq_asm),
     command: [
         nitroarc_exe,
         '--create',
