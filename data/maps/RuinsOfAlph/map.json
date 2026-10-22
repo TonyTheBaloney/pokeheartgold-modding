@@ -1,0 +1,408 @@
+{
+    "id": "MAP_RUINS_OF_ALPH",
+    "name": "RuinsOfAlph",
+    "code": "D24R0101",
+    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "music_day": "SEQ_GS_D_CHIKATSUURO",
+    "music_night": "SEQ_GS_D_CHIKATSUURO",
+    "region_map_section": "MAPSEC_RUINS_OF_ALPH",
+    "weather": 0,
+    "map_type": "MAP_TYPE_ROUTE",
+    "battle_scene": "BATTLE_BG_MOUNTAIN",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": true,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_D24R0101",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 4,
+    "mom_call_intro": 9,
+    "world_map_x": 0,
+    "world_map_y": 0,
+    "area_data": 20,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_D24R0101_mystery_2",
+            "graphics_id": "SPRITE_MYSTERY_2",
+            "x": 422,
+            "y": 290,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_EAST",
+            "trainer_type": "OBJECT_TYPE_TRAINER",
+            "trainer_sight_or_param0": 3,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_trainer(TRAINER_PSYCHIC_M_NATHAN)",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_D24R0101_monstarball",
+            "graphics_id": "SPRITE_MONSTARBALL",
+            "x": 435,
+            "y": 274,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_itemball_d24r0101_potion",
+            "flag": "FLAG_HIDE_ITEMBALL_D24R0101_POTION"
+        },
+        {
+            "local_id": "obj_D24R0101_breakrock",
+            "graphics_id": "SPRITE_BREAKROCK",
+            "x": 424,
+            "y": 262,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_field_rock_smash",
+            "flag": "FLAG_MAPTEMP_010"
+        },
+        {
+            "local_id": "obj_D24R0101_breakrock_2",
+            "graphics_id": "SPRITE_BREAKROCK",
+            "x": 423,
+            "y": 263,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_field_rock_smash",
+            "flag": "FLAG_MAPTEMP_011"
+        },
+        {
+            "local_id": "obj_D24R0101_breakrock_3",
+            "graphics_id": "SPRITE_BREAKROCK",
+            "x": 426,
+            "y": 264,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_field_rock_smash",
+            "flag": "FLAG_MAPTEMP_013"
+        },
+        {
+            "local_id": "obj_D24R0101_breakrock_4",
+            "graphics_id": "SPRITE_BREAKROCK",
+            "x": 417,
+            "y": 272,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_field_rock_smash",
+            "flag": "FLAG_MAPTEMP_015"
+        },
+        {
+            "local_id": "obj_D24R0101_breakrock_5",
+            "graphics_id": "SPRITE_BREAKROCK",
+            "x": 416,
+            "y": 273,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_field_rock_smash",
+            "flag": "FLAG_MAPTEMP_016"
+        },
+        {
+            "local_id": "obj_D24R0101_monstarball_2",
+            "graphics_id": "SPRITE_MONSTARBALL",
+            "x": 418,
+            "y": 273,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_itemball_d24r0101_hyper_potion",
+            "flag": "FLAG_HIDE_ITEMBALL_D24R0101_HYPER_POTION"
+        },
+        {
+            "local_id": "obj_D24R0101_gsmiddleman1",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 435,
+            "y": 284,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D24R0101_004 + 1",
+            "flag": "FLAG_HIDE_CAMERON"
+        },
+        {
+            "local_id": "obj_D24R0101_suit",
+            "graphics_id": "SPRITE_SUIT",
+            "x": 441,
+            "y": 285,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": 0,
+            "flag": "FLAG_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 430,
+            "y": 261,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_36_RUINS_OF_ALPH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 431,
+            "y": 261,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_36_RUINS_OF_ALPH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 447,
+            "y": 293,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_32_RUINS_OF_ALPH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 447,
+            "y": 294,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_32_RUINS_OF_ALPH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 436,
+            "y": 266,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_NORTHEAST_ENTRANCE_FIRST_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 436,
+            "y": 309,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_SOUTHEAST_ENTRANCE_FIRST_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 425,
+            "y": 309,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_SOUTHWEST_ENTRANCE_FIRST_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 425,
+            "y": 289,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_NORTHWEST_ENTRANCE_FIRST_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 430,
+            "y": 284,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_HALL_ENTRANCE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 431,
+            "y": 284,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_HALL_ENTRANCE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 441,
+            "y": 285,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_RESEARCH_CENTER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 430,
+            "y": 284,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_HALL_ENTRANCE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 431,
+            "y": 284,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_HALL_ENTRANCE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 430,
+            "y": 284,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 431,
+            "y": 284,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 419,
+            "y": 308,
+            "elevation": 0,
+            "dest_map": "MAP_UNION_CAVE_1F",
+            "dest_warp_id": 6
+        },
+        {
+            "x": 419,
+            "y": 289,
+            "elevation": 0,
+            "dest_map": "MAP_UNION_CAVE_1F",
+            "dest_warp_id": 7
+        }
+    ],
+    "coord_events": [
+        {
+            "x": 441,
+            "y": 286,
+            "elevation": 0,
+            "width": 1,
+            "height": 1,
+            "var": "VAR_SCENE_SINJOH_MYSTRI_ROOM",
+            "var_value": 1,
+            "script": "_EV_scr_seq_D24R0101_007 + 1"
+        }
+    ],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 429,
+            "y": 266,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0101_002 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 429,
+            "y": 286,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0101_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 440,
+            "y": 287,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0101_001 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 443,
+            "y": 292,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0101_003 + 1"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 442,
+            "y": 296,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d24r0101_great_ball"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 422,
+            "y": 263,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d24r0101_rare_candy"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 424,
+            "y": 278,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d24r0101_tinymushroom"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 418,
+            "y": 314,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d24r0101_big_mushroom"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 423,
+            "y": 311,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d24r0101_nugget"
+        }
+    ]
+}

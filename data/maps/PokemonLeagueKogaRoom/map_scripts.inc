@@ -1,0 +1,16 @@
+#include "constants/scrcmd.h"
+#include "maps/PokemonLeagueKogaRoom/ids.h"
+#include "constants/init_script_types.h"
+#include "macros/script.inc"
+
+
+
+	InitScriptEntry_OnFrameTable scr_seq_T10R0301_map_scripts_2
+	InitScriptEntry_OnLoad _EV_scr_seq_T10R0301_002 + 1
+	InitScriptEntryEnd
+
+scr_seq_T10R0301_map_scripts_2:
+	InitScriptGoToIfEqual VAR_TEMP_x4001, 0, _EV_scr_seq_T10R0301_000 + 1
+	InitScriptFrameTableEnd
+
+	InitScriptEnd

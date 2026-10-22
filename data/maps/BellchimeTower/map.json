@@ -1,0 +1,114 @@
+{
+    "id": "MAP_BELLCHIME_TOWER",
+    "name": "BellchimeTower",
+    "code": "D17R1101",
+    "layout": "NARC_map_matrix_map_matrix_0067_D17R1101_bin",
+    "music_day": "SEQ_SILENCE_FIELD",
+    "music_night": "SEQ_SILENCE_FIELD",
+    "region_map_section": "MAPSEC_BELLCHIME_TRAIL",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CITY_TOWN",
+    "battle_scene": "BATTLE_BG_GENERAL",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": true,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 1,
+    "mom_call_intro": 9,
+    "world_map_x": 12,
+    "world_map_y": 4,
+    "area_data": 88,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_D17R1101_gsleader4",
+            "graphics_id": "SPRITE_GSLEADER4",
+            "x": 30,
+            "y": 11,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D17R1101_001 + 1",
+            "flag": "FLAG_UNK_2CA"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 9,
+            "y": 9,
+            "elevation": 0,
+            "dest_map": "MAP_ECRUTEAK_BELL_TOWER_BARRIER_STATION_CORRIDOR",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 9,
+            "y": 10,
+            "elevation": 0,
+            "dest_map": "MAP_ECRUTEAK_BELL_TOWER_BARRIER_STATION_CORRIDOR",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 37,
+            "y": 16,
+            "elevation": 0,
+            "dest_map": "MAP_BELL_TOWER_1F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 33,
+            "y": 10,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d17r1101_tinymushroom"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 39,
+            "y": 20,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d17r1101_big_mushroom"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 14,
+            "y": 7,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d17r1101_tinymushroom_2"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 23,
+            "y": 7,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d17r1101_big_mushroom_2"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 17,
+            "y": 7,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d17r1101_tinymushroom_3"
+        }
+    ]
+}

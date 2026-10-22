@@ -7,8 +7,8 @@
 #include "field/map_prop_animation.h"
 #include "field/field_3d_model.h"
 #include "field/map_prop_render.h"
-#include "fielddata/script/scr_seq/event_D17R0110.h"
-#include "fielddata/script/scr_seq/event_D40R0107.h"
+#include "maps/BellTowerRoof/ids.h"
+#include "maps/WhirlIslands_B3F_LugiaCave/ids.h"
 
 #include "camera_translation.h"
 #include "gf_gfx_loader.h"

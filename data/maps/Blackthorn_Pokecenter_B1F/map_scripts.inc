@@ -1,0 +1,17 @@
+#include "constants/scrcmd.h"
+#include "maps/Blackthorn_Pokecenter_B1F/ids.h"
+#include "constants/init_script_types.h"
+#include "macros/script.inc"
+
+
+
+	InitScriptEntry_OnFrameTable scr_seq_T30PC0102_map_scripts_2
+	InitScriptEntry_OnLoad std_wifi_reset_state
+	InitScriptEntryEnd
+
+scr_seq_T30PC0102_map_scripts_2:
+	InitScriptGoToIfEqual VAR_SCENE_POKECENTER_WIFI_BASEMENT, 0, std_teala_first_intro
+	InitScriptGoToIfEqual VAR_UNK_4137, 1, std_wifi_return
+	InitScriptFrameTableEnd
+
+	InitScriptEnd

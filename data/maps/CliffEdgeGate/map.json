@@ -1,0 +1,150 @@
+{
+    "id": "MAP_CLIFF_EDGE_GATE",
+    "name": "CliffEdgeGate",
+    "code": "D48R0101",
+    "layout": "NARC_map_matrix_map_matrix_0152_D48R0101_bin",
+    "music_day": "SEQ_GS_R_5_34",
+    "music_night": "SEQ_GS_R_5_34",
+    "region_map_section": "MAPSEC_CLIFF_EDGE_GATE",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CAVE",
+    "battle_scene": "BATTLE_BG_CAVE_1",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_D48R0101",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 4,
+    "mom_call_intro": 10,
+    "world_map_x": 5,
+    "world_map_y": 10,
+    "area_data": 70,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_D48R0101_workman",
+            "graphics_id": "SPRITE_WORKMAN",
+            "x": 30,
+            "y": 21,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_EAST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D48R0101_001 + 1",
+            "flag": "FLAG_UNK_249"
+        },
+        {
+            "local_id": "obj_D48R0101_workman_2",
+            "graphics_id": "SPRITE_WORKMAN",
+            "x": 30,
+            "y": 22,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_EAST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D48R0101_002 + 1",
+            "flag": "FLAG_UNK_249"
+        },
+        {
+            "local_id": "obj_D48R0101_middlewoman1_2",
+            "graphics_id": "SPRITE_MIDDLEWOMAN1_2",
+            "x": 34,
+            "y": 19,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D48R0101_000 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_D48R0101_gsleader5",
+            "graphics_id": "SPRITE_GSLEADER5",
+            "x": 35,
+            "y": 21,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_EAST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": 0,
+            "flag": "FLAG_HIDE_CLIFFS_EDGE_GATE_CHUCK"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 40,
+            "y": 22,
+            "elevation": 0,
+            "dest_map": "MAP_CIANWOOD",
+            "dest_warp_id": 6
+        },
+        {
+            "x": 18,
+            "y": 46,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_47",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 37,
+            "y": 19,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D48R0101_003 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 38,
+            "y": 19,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D48R0101_003 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 39,
+            "y": 19,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D48R0101_003 + 1"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 40,
+            "y": 25,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d48r0101_big_pearl"
+        }
+    ]
+}

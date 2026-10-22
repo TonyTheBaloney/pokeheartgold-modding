@@ -1,0 +1,13 @@
+#include "constants/scrcmd.h"
+#include "maps/IndigoPlateau/ids.h"
+#include "msgdata/msg/msg_0521_T10.h"
+#include "macros/script.inc"
+
+
+	ScrDef scr_seq_T10_000
+	ScrDefEnd
+
+scr_seq_T10_000:
+	TrainerTipsEx 2, msg_0521_T10_00000
+	End
+	.balign 4, 0

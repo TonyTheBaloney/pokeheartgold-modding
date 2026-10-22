@@ -1,0 +1,17 @@
+#include "constants/scrcmd.h"
+#include "maps/Cerulean_Gym/ids.h"
+#include "constants/init_script_types.h"
+#include "macros/script.inc"
+
+
+
+	InitScriptEntry_OnFrameTable scr_seq_T04GYM0101_map_scripts_2
+	InitScriptEntry_OnLoad _EV_scr_seq_T04GYM0101_006 + 1
+	InitScriptEntry_OnTransition _EV_scr_seq_T04GYM0101_007 + 1
+	InitScriptEntryEnd
+
+scr_seq_T04GYM0101_map_scripts_2:
+	InitScriptGoToIfEqual VAR_UNK_411C, 1, _EV_scr_seq_T04GYM0101_004 + 1
+	InitScriptFrameTableEnd
+
+	InitScriptEnd

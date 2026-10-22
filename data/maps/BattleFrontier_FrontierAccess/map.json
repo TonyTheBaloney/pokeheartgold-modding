@@ -1,0 +1,197 @@
+{
+    "id": "MAP_BATTLE_FRONTIER_FRONTIER_ACCESS",
+    "name": "BattleFrontier_FrontierAccess",
+    "code": "D32R0102",
+    "layout": "NARC_map_matrix_map_matrix_0240_D32R0102_bin",
+    "music_day": "SEQ_GS_BATTLETOWER",
+    "music_night": "SEQ_GS_BATTLETOWER",
+    "region_map_section": "MAPSEC_FRONTIER_ACCESS",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CITY_TOWN",
+    "battle_scene": "BATTLE_BG_CITY",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": false,
+    "allow_fly": true,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 8,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 1,
+    "mom_call_intro": 9,
+    "world_map_x": 7,
+    "world_map_y": 7,
+    "area_data": 93,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_D32R0102_gsmiddleman1",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 0,
+            "y": 0,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D32R0102_000 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_D32R0102_gsmiddleman1_2",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 13,
+            "y": 16,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D32R0102_003 + 1",
+            "flag": "FLAG_HIDE_CAMERON"
+        },
+        {
+            "local_id": "obj_D32R0102_gsman1",
+            "graphics_id": "SPRITE_GSMAN1",
+            "x": 2,
+            "y": 20,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D32R0102_005 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_D32R0102_mount_2",
+            "graphics_id": "SPRITE_MOUNT_2",
+            "x": 22,
+            "y": 21,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D32R0102_006 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_D32R0102_gsgirl2",
+            "graphics_id": "SPRITE_GSGIRL2",
+            "x": 9,
+            "y": 22,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_UP_DOWN",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D32R0102_007 + 1",
+            "flag": "FLAG_NOTHING"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 14,
+            "y": 34,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_40_BATTLE_FRONTIER_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 15,
+            "y": 34,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_40_BATTLE_FRONTIER_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 14,
+            "y": 7,
+            "elevation": 0,
+            "dest_map": "MAP_BATTLE_FRONTIER_FRONTIER_ACCESS_GATEHOUSE",
+            "dest_warp_id": 4
+        },
+        {
+            "x": 15,
+            "y": 7,
+            "elevation": 0,
+            "dest_map": "MAP_BATTLE_FRONTIER_FRONTIER_ACCESS_GATEHOUSE",
+            "dest_warp_id": 4
+        },
+        {
+            "x": 8,
+            "y": 14,
+            "elevation": 0,
+            "dest_map": "MAP_FRONTIER_ACCESS_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 19,
+            "y": 14,
+            "elevation": 0,
+            "dest_map": "MAP_FRONTIER_ACCESS_POKEMART",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 4,
+            "y": 23,
+            "elevation": 0,
+            "dest_map": "MAP_FRONTIER_ACCESS_MOVE_TUTOR_HOUSE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [
+        {
+            "x": 12,
+            "y": 28,
+            "elevation": 0,
+            "width": 6,
+            "height": 1,
+            "var": "VAR_UNK_40E5",
+            "var_value": 0,
+            "script": "_EV_scr_seq_D32R0102_001 + 1"
+        }
+    ],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 24,
+            "y": 21,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d32r0102_rare_candy"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 12,
+            "y": 10,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D32R0102_008 + 1"
+        }
+    ]
+}

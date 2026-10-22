@@ -1,0 +1,307 @@
+{
+    "id": "MAP_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2",
+    "name": "RuinsOfAlph_UndergroundHall_SinjohEvent_2",
+    "code": "D24R0218",
+    "layout": "NARC_map_matrix_map_matrix_0037_D24R0205_bin",
+    "music_day": "SEQ_GS_D_UNKNOWN_ISEKI",
+    "music_night": "SEQ_GS_D_UNKNOWN_ISEKI",
+    "region_map_section": "MAPSEC_RUINS_OF_ALPH",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CAVE",
+    "battle_scene": "BATTLE_BG_BUILDING_3",
+    "allow_cycling": false,
+    "allow_escaping": true,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_D24R0218",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 4,
+    "mom_call_intro": 9,
+    "world_map_x": 13,
+    "world_map_y": 8,
+    "area_data": 105,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_D24R0218_suit",
+            "graphics_id": "SPRITE_SUIT",
+            "x": 14,
+            "y": 24,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": 0,
+            "flag": "FLAG_HIDE_ALPH_MAIN_CHAMBER_ARCEUS_EVENT_PEOPLE"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 18,
+            "y": 24,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 18,
+            "y": 23,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": [],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 3,
+            "y": 6,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 7,
+            "y": 6,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 11,
+            "y": 6,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 15,
+            "y": 6,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 19,
+            "y": 6,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 23,
+            "y": 6,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 27,
+            "y": 6,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 3,
+            "y": 15,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 7,
+            "y": 15,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 11,
+            "y": 15,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 15,
+            "y": 15,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 19,
+            "y": 15,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 23,
+            "y": 15,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 27,
+            "y": 15,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 27,
+            "y": 24,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 3,
+            "y": 24,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 3,
+            "y": 33,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 7,
+            "y": 33,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 11,
+            "y": 33,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 15,
+            "y": 33,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 19,
+            "y": 33,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 23,
+            "y": 33,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 27,
+            "y": 33,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 27,
+            "y": 42,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 23,
+            "y": 42,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 19,
+            "y": 42,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 15,
+            "y": 42,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 11,
+            "y": 42,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 7,
+            "y": 42,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 3,
+            "y": 42,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0218_000 + 1"
+        }
+    ]
+}

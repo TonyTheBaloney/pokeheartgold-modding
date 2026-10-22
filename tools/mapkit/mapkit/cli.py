@@ -191,6 +191,9 @@ def cmd_migrate(repo, args):
         if m is None:
             print("no map matches %r" % q, file=sys.stderr)
             return 2
+        if m.name in repo.migrated:
+            print("%s is already in %s/%s/" % (m.name, layout.MAPS_DIR, repo.migrated[m.name]["dir"]))
+            continue
         try:
             if args.dry_run:
                 p = layout.plan(repo, m)

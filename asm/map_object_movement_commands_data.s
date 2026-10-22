@@ -6,7 +6,7 @@
 #include "constants/vars.h"
 #include "constants/items.h"
 #include "constants/std_script.h"
-#include "fielddata/script/scr_seq/event_D24R0204.h"
+#include "maps/RuinsOfAlph_SoutheastEntranceFirstRoom/ids.h"
 #include "constants/field_move_response.h"
 	.include "macros.inc"
 	.include "map_object_movement_commands_data.inc"

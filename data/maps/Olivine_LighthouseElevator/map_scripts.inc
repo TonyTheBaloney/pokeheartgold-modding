@@ -1,0 +1,15 @@
+#include "constants/scrcmd.h"
+#include "maps/Olivine_LighthouseElevator/ids.h"
+#include "constants/init_script_types.h"
+#include "macros/script.inc"
+
+
+
+	InitScriptEntry_OnFrameTable scr_seq_D27R0108_map_scripts_2
+	InitScriptEntryEnd
+
+scr_seq_D27R0108_map_scripts_2:
+	InitScriptGoToIfEqual VAR_UNK_4125, 0, _EV_scr_seq_D27R0108_000 + 1
+	InitScriptFrameTableEnd
+
+	InitScriptEnd

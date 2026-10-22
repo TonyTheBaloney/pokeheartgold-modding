@@ -1,0 +1,66 @@
+{
+    "id": "MAP_ROUTE_19_FUCHSIA_GATEHOUSE",
+    "name": "Route19_FuchsiaGatehouse",
+    "code": "W19R0101",
+    "layout": "NARC_map_matrix_map_matrix_0069_R35R0101_bin",
+    "music_day": "SEQ_GS_R_15_03",
+    "music_night": "SEQ_GS_R_15_03",
+    "region_map_section": "MAPSEC_ROUTE_19",
+    "weather": 0,
+    "map_type": "MAP_TYPE_INTERIOR",
+    "battle_scene": "BATTLE_BG_BUILDING_1",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 4,
+    "follow_mode": "MAP_FOLLOWMODE_HEIGHT_RESTRICT",
+    "region": "MAP_REGION_KANTO",
+    "area_icon": 9,
+    "mom_call_intro": 12,
+    "world_map_x": 37,
+    "world_map_y": 14,
+    "area_data": 63,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_W19R0101_counterm",
+            "graphics_id": "SPRITE_COUNTERM",
+            "x": 1,
+            "y": 7,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_EAST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_W19R0101_000 + 1",
+            "flag": "FLAG_NOTHING"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 5,
+            "y": 2,
+            "elevation": 0,
+            "dest_map": "MAP_FUCHSIA",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 5,
+            "y": 12,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_19",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": []
+}

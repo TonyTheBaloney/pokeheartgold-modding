@@ -1,0 +1,154 @@
+{
+    "id": "MAP_RUINS_OF_ALPH_SOUTHEAST_ENTRANCE_SECOND_ROOM",
+    "name": "RuinsOfAlph_SoutheastEntranceSecondRoom",
+    "code": "D24R0213",
+    "layout": "NARC_map_matrix_map_matrix_0182_D24R0212_bin",
+    "music_day": "SEQ_GS_D_CHIKATSUURO",
+    "music_night": "SEQ_GS_D_CHIKATSUURO",
+    "region_map_section": "MAPSEC_RUINS_OF_ALPH",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CAVE",
+    "battle_scene": "BATTLE_BG_BUILDING_3",
+    "allow_cycling": false,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 4,
+    "follow_mode": "MAP_FOLLOWMODE_HEIGHT_RESTRICT",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 4,
+    "mom_call_intro": 9,
+    "world_map_x": 13,
+    "world_map_y": 9,
+    "area_data": 72,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_D24R0213_monstarball",
+            "graphics_id": "SPRITE_MONSTARBALL",
+            "x": 4,
+            "y": 8,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_itemball_d24r0213_heal_powder",
+            "flag": "FLAG_HIDE_ITEMBALL_D24R0213_HEAL_POWDER"
+        },
+        {
+            "local_id": "obj_D24R0213_monstarball_2",
+            "graphics_id": "SPRITE_MONSTARBALL",
+            "x": 8,
+            "y": 8,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_itemball_d24r0213_energy_root",
+            "flag": "FLAG_HIDE_ITEMBALL_D24R0213_ENERGY_ROOT"
+        },
+        {
+            "local_id": "obj_D24R0213_monstarball_3",
+            "graphics_id": "SPRITE_MONSTARBALL",
+            "x": 4,
+            "y": 12,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_itemball_d24r0213_sitrus_berry",
+            "flag": "FLAG_HIDE_ITEMBALL_D24R0213_SITRUS_BERRY"
+        },
+        {
+            "local_id": "obj_D24R0213_monstarball_4",
+            "graphics_id": "SPRITE_MONSTARBALL",
+            "x": 8,
+            "y": 12,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_itemball_d24r0213_moon_stone",
+            "flag": "FLAG_HIDE_ITEMBALL_D24R0213_MOON_STONE"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 6,
+            "y": 17,
+            "elevation": 0,
+            "dest_map": "MAP_RUINS_OF_ALPH_SOUTHEAST_ENTRANCE_FIRST_ROOM",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": [
+        {
+            "x": 6,
+            "y": 3,
+            "elevation": 0,
+            "width": 1,
+            "height": 1,
+            "var": "VAR_UNK_40D0",
+            "var_value": 0,
+            "script": "_EV_scr_seq_D24R0213_000 + 1"
+        }
+    ],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 4,
+            "y": 4,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0213_001 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 8,
+            "y": 4,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0213_001 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 4,
+            "y": 3,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0213_001 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 8,
+            "y": 3,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_D24R0213_001 + 1"
+        }
+    ]
+}

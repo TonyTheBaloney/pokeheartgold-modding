@@ -1,0 +1,41 @@
+{
+    "id": "MAP_NATIONAL_PARK_UNUSED_GATEHOUSE",
+    "name": "NationalPark_Unused_Gatehouse",
+    "code": "D22R0201",
+    "layout": "NARC_map_matrix_map_matrix_0069_R35R0101_bin",
+    "music_day": "SEQ_GS_PT_ENTR",
+    "music_night": "SEQ_GS_PT_ENTR",
+    "region_map_section": "MAPSEC_POKEATHLON_DOME",
+    "weather": 0,
+    "map_type": "MAP_TYPE_INTERIOR",
+    "battle_scene": "BATTLE_BG_BUILDING_1",
+    "allow_cycling": false,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 4,
+    "follow_mode": "MAP_FOLLOWMODE_HEIGHT_RESTRICT",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 9,
+    "mom_call_intro": 9,
+    "world_map_x": 11,
+    "world_map_y": 7,
+    "area_data": 63,
+    "move_model_bank": 15,
+    "object_events": [],
+    "warp_events": [
+        {
+            "x": 5,
+            "y": 12,
+            "elevation": 0,
+            "dest_map": "MAP_NATIONAL_PARK",
+            "dest_warp_id": 5
+        }
+    ],
+    "coord_events": [],
+    "bg_events": []
+}

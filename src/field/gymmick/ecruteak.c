@@ -4,7 +4,7 @@
 
 #include "field/map_object_billboard_motion.h"
 #include "field/map_object_render.h"
-#include "fielddata/script/scr_seq/event_T27GYM0101.h"
+#include "maps/Ecruteak_Gym/ids.h"
 
 #include "billboard_lists.h"
 #include "field_system.h"

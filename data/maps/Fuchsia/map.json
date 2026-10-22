@@ -1,0 +1,272 @@
+{
+    "id": "MAP_FUCHSIA",
+    "name": "Fuchsia",
+    "code": "T08",
+    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "music_day": "SEQ_GS_C_SEKICHIKU",
+    "music_night": "SEQ_GS_C_SEKICHIKU",
+    "region_map_section": "MAPSEC_FUCHSIA_CITY",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CITY_TOWN",
+    "battle_scene": "BATTLE_BG_CITY",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": true,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_T08",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_KANTO",
+    "area_icon": 1,
+    "mom_call_intro": 12,
+    "world_map_x": 0,
+    "world_map_y": 0,
+    "area_data": 16,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_T08_gsmiddleman1",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 1198,
+            "y": 441,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 2,
+            "movement_range_y": 1,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T08_001 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T08_gswoman1",
+            "graphics_id": "SPRITE_GSWOMAN1",
+            "x": 1213,
+            "y": 426,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T08_002 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T08_gsboy2",
+            "graphics_id": "SPRITE_GSBOY2",
+            "x": 1212,
+            "y": 413,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T08_000 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T08_tree",
+            "graphics_id": "SPRITE_TREE",
+            "x": 1211,
+            "y": 424,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_field_cut",
+            "flag": "FLAG_MAPTEMP_010"
+        },
+        {
+            "local_id": "obj_T08_bonguri",
+            "graphics_id": "SPRITE_BONGURI",
+            "x": 1206,
+            "y": 421,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 28,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_apricorn_tree",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T08_gsmiddleman1_2",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 1201,
+            "y": 445,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T08_006 + 1",
+            "flag": "FLAG_HIDE_CAMERON"
+        },
+        {
+            "local_id": "obj_T08_juggrer",
+            "graphics_id": "SPRITE_JUGGRER",
+            "x": 1220,
+            "y": 411,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T08_008 + 1",
+            "flag": "FLAG_NOTHING"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1241,
+            "y": 422,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_15_FUCHSIA_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1241,
+            "y": 423,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_15_FUCHSIA_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1203,
+            "y": 445,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_19_FUCHSIA_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1204,
+            "y": 445,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_19_FUCHSIA_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1197,
+            "y": 416,
+            "elevation": 0,
+            "dest_map": "MAP_FUCHSIA_POKEMART",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1214,
+            "y": 403,
+            "elevation": 0,
+            "dest_map": "MAP_FUCHSIA_PAL_PARK_ENTRANCE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1215,
+            "y": 403,
+            "elevation": 0,
+            "dest_map": "MAP_FUCHSIA_PAL_PARK_ENTRANCE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1195,
+            "y": 439,
+            "elevation": 0,
+            "dest_map": "MAP_FUCHSIA_GYM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1200,
+            "y": 439,
+            "elevation": 0,
+            "dest_map": "MAP_FUCHSIA_SOUTHWEST_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1209,
+            "y": 439,
+            "elevation": 0,
+            "dest_map": "MAP_FUCHSIA_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1222,
+            "y": 435,
+            "elevation": 0,
+            "dest_map": "MAP_FUCHSIA_SAFARI_ZONE_WARDEN_HOUSE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1213,
+            "y": 405,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T08_004 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1220,
+            "y": 435,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T08_005 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1193,
+            "y": 441,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T08_003 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1208,
+            "y": 424,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T08_009 + 1"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 1232,
+            "y": 413,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_t08_nugget"
+        }
+    ]
+}

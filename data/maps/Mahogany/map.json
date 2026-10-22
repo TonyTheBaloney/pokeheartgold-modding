@@ -1,0 +1,181 @@
+{
+    "id": "MAP_MAHOGANY",
+    "name": "Mahogany",
+    "code": "T28",
+    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "music_day": "SEQ_GS_T_CHOUJI",
+    "music_night": "SEQ_GS_T_CHOUJI",
+    "region_map_section": "MAPSEC_MAHOGANY_TOWN",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CITY_TOWN",
+    "battle_scene": "BATTLE_BG_GENERAL",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": true,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 2,
+    "mom_call_intro": 10,
+    "world_map_x": 0,
+    "world_map_y": 0,
+    "area_data": 8,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_T28_gsmiddleman1",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 540,
+            "y": 175,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T28_000 + 1",
+            "flag": "FLAG_UNK_205"
+        },
+        {
+            "local_id": "obj_T28_gsoldman1",
+            "graphics_id": "SPRITE_GSOLDMAN1",
+            "x": 523,
+            "y": 175,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_RIGHT",
+            "movement_range_x": 1,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T28_002 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T28_gsbigman",
+            "graphics_id": "SPRITE_GSBIGMAN",
+            "x": 523,
+            "y": 184,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T28_004 + 1",
+            "flag": "FLAG_UNK_1F9"
+        },
+        {
+            "local_id": "obj_T28_gsgirl1",
+            "graphics_id": "SPRITE_GSGIRL1",
+            "x": 530,
+            "y": 175,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T28_003 + 1",
+            "flag": "FLAG_HIDE_MAHOGANY_SHOP_SALESWOMAN"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 524,
+            "y": 165,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_43_MAHOGANY_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 525,
+            "y": 165,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_43_MAHOGANY_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 523,
+            "y": 183,
+            "elevation": 0,
+            "dest_map": "MAP_MAHOGANY_GYM_ROOM_1",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 534,
+            "y": 183,
+            "elevation": 0,
+            "dest_map": "MAP_MAHOGANY_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 537,
+            "y": 174,
+            "elevation": 0,
+            "dest_map": "MAP_MAHOGANY_EAST_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 528,
+            "y": 174,
+            "elevation": 0,
+            "dest_map": "MAP_MAHOGANY_SOUVENIR_SHOP",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [
+        {
+            "x": 540,
+            "y": 176,
+            "elevation": 0,
+            "width": 1,
+            "height": 2,
+            "var": "VAR_UNK_407A",
+            "var_value": 0,
+            "script": "_EV_scr_seq_T28_001 + 1"
+        }
+    ],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 516,
+            "y": 172,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T28_006 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 526,
+            "y": 174,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T28_007 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 520,
+            "y": 184,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T28_008 + 1"
+        }
+    ]
+}

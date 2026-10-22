@@ -1,0 +1,16 @@
+#include "constants/scrcmd.h"
+#include "maps/Blackthorn/ids.h"
+#include "constants/init_script_types.h"
+#include "macros/script.inc"
+
+
+
+	InitScriptEntry_OnTransition _EV_scr_seq_T30_005 + 1
+	InitScriptEntry_OnFrameTable scr_seq_T30_map_scripts_2
+	InitScriptEntryEnd
+
+scr_seq_T30_map_scripts_2:
+	InitScriptGoToIfEqual VAR_UNK_407B, 1, _EV_scr_seq_T30_007 + 1
+	InitScriptFrameTableEnd
+
+	InitScriptEnd

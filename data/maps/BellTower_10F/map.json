@@ -1,0 +1,55 @@
+{
+    "id": "MAP_BELL_TOWER_10F",
+    "name": "BellTower_10F",
+    "code": "D17R0112",
+    "layout": "NARC_map_matrix_map_matrix_0183_D17R0112_bin",
+    "music_day": "SEQ_GS_TO_SUZU",
+    "music_night": "SEQ_GS_TO_SUZU",
+    "region_map_section": "MAPSEC_BELL_TOWER",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CAVE",
+    "battle_scene": "BATTLE_BG_BUILDING_3",
+    "allow_cycling": false,
+    "allow_escaping": true,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": false,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_D17R0112",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 4,
+    "mom_call_intro": 9,
+    "world_map_x": 12,
+    "world_map_y": 4,
+    "area_data": 77,
+    "move_model_bank": 15,
+    "object_events": [],
+    "warp_events": [
+        {
+            "x": 11,
+            "y": 17,
+            "elevation": 0,
+            "dest_map": "MAP_BELL_TOWER_9F",
+            "dest_warp_id": 6
+        },
+        {
+            "x": 15,
+            "y": 25,
+            "elevation": 0,
+            "dest_map": "MAP_BELL_TOWER_ROOF",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 15,
+            "y": 24,
+            "elevation": 0,
+            "dest_map": "MAP_BELL_TOWER_ROOF",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": []
+}

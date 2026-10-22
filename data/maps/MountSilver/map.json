@@ -1,0 +1,100 @@
+{
+    "id": "MAP_MOUNT_SILVER",
+    "name": "MountSilver",
+    "code": "T31",
+    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "music_day": "SEQ_GS_CHAMPROAD",
+    "music_night": "SEQ_GS_CHAMPROAD",
+    "region_map_section": "MAPSEC_MT_SILVER",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CITY_TOWN",
+    "battle_scene": "BATTLE_BG_GENERAL",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": true,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_T31",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 3,
+    "mom_call_intro": 9,
+    "world_map_x": 0,
+    "world_map_y": 0,
+    "area_data": 10,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_T31_monstarball",
+            "graphics_id": "SPRITE_MONSTARBALL",
+            "x": 808,
+            "y": 277,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_itemball_t31_reaper_cloth",
+            "flag": "FLAG_HIDE_ITEMBALL_T31_REAPER_CLOTH"
+        },
+        {
+            "local_id": "obj_T31_gsmiddleman1",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 820,
+            "y": 271,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T31_000 + 1",
+            "flag": "FLAG_HIDE_CAMERON"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 811,
+            "y": 260,
+            "elevation": 0,
+            "dest_map": "MAP_MOUNT_SILVER_CAVE_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 820,
+            "y": 265,
+            "elevation": 0,
+            "dest_map": "MAP_MOUNT_SILVER_POKECENTER_1F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 827,
+            "y": 263,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_t31_full_restore"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 810,
+            "y": 262,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T31_002 + 1"
+        }
+    ]
+}

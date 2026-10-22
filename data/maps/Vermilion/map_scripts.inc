@@ -1,0 +1,16 @@
+#include "constants/scrcmd.h"
+#include "maps/Vermilion/ids.h"
+#include "constants/init_script_types.h"
+#include "macros/script.inc"
+
+
+
+	InitScriptEntry_OnTransition _EV_scr_seq_T06_009 + 1
+	InitScriptEntry_OnFrameTable scr_seq_T06_map_scripts_2
+	InitScriptEntryEnd
+
+scr_seq_T06_map_scripts_2:
+	InitScriptGoToIfEqual VAR_UNK_4130, 1, _EV_scr_seq_T06_013 + 1
+	InitScriptFrameTableEnd
+
+	InitScriptEnd

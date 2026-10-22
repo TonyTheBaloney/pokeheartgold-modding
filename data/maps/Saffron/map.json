@@ -1,0 +1,373 @@
+{
+    "id": "MAP_SAFFRON",
+    "name": "Saffron",
+    "code": "T11",
+    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "music_day": "SEQ_GS_C_YAMABUKI",
+    "music_night": "SEQ_GS_C_YAMABUKI",
+    "region_map_section": "MAPSEC_SAFFRON_CITY",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CITY_TOWN",
+    "battle_scene": "BATTLE_BG_CITY",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": true,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_KANTO",
+    "area_icon": 1,
+    "mom_call_intro": 12,
+    "world_map_x": 0,
+    "world_map_y": 0,
+    "area_data": 12,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_T11_gsboy1",
+            "graphics_id": "SPRITE_GSBOY1",
+            "x": 1325,
+            "y": 211,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 2,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_001 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T11_gsgirl2",
+            "graphics_id": "SPRITE_GSGIRL2",
+            "x": 1299,
+            "y": 212,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_000 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T11_gswoman2",
+            "graphics_id": "SPRITE_GSWOMAN2",
+            "x": 1293,
+            "y": 220,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_002 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T11_gsbigman",
+            "graphics_id": "SPRITE_GSBIGMAN",
+            "x": 1324,
+            "y": 220,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_004 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T11_gsman1",
+            "graphics_id": "SPRITE_GSMAN1",
+            "x": 1332,
+            "y": 236,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_006 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T11_gsboy2",
+            "graphics_id": "SPRITE_GSBOY2",
+            "x": 1301,
+            "y": 224,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_003 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T11_gswoman1",
+            "graphics_id": "SPRITE_GSWOMAN1",
+            "x": 1311,
+            "y": 234,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_005 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T11_gsmiddleman1",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 1313,
+            "y": 243,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 2,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_007 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T11_gsmiddleman1_2",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 1287,
+            "y": 215,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_014 + 1",
+            "flag": "FLAG_HIDE_CAMERON"
+        },
+        {
+            "local_id": "obj_T11_gsmiddleman1_3",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 1307,
+            "y": 236,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T11_015 + 1",
+            "flag": "FLAG_UNK_27F"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1300,
+            "y": 253,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_6_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 1301,
+            "y": 253,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_6_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 1337,
+            "y": 240,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_8_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1337,
+            "y": 241,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_8_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1300,
+            "y": 197,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_5_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1301,
+            "y": 197,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_5_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1290,
+            "y": 208,
+            "elevation": 0,
+            "dest_map": "MAP_SAFFRON_MAGNET_TRAIN_STATION_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1297,
+            "y": 218,
+            "elevation": 0,
+            "dest_map": "MAP_SAFFRON_COPYCAT_HOUSE_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1308,
+            "y": 229,
+            "elevation": 0,
+            "dest_map": "MAP_SAFFRON_SILPH_CO_HQ",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1309,
+            "y": 229,
+            "elevation": 0,
+            "dest_map": "MAP_SAFFRON_SILPH_CO_HQ",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1321,
+            "y": 204,
+            "elevation": 0,
+            "dest_map": "MAP_SAFFRON_FIGHTING_DOJO",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1328,
+            "y": 204,
+            "elevation": 0,
+            "dest_map": "MAP_SAFFRON_GYM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1318,
+            "y": 218,
+            "elevation": 0,
+            "dest_map": "MAP_SAFFRON_POKEMART",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1294,
+            "y": 242,
+            "elevation": 0,
+            "dest_map": "MAP_SAFFRON_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1323,
+            "y": 242,
+            "elevation": 0,
+            "dest_map": "MAP_SAFFRON_MR_PSYCHIC_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1280,
+            "y": 240,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_7_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1280,
+            "y": 241,
+            "elevation": 0,
+            "dest_map": "MAP_ROUTE_7_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1321,
+            "y": 242,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T11_013 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1306,
+            "y": 234,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T11_012 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1292,
+            "y": 210,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T11_008 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1303,
+            "y": 210,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T11_009 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1323,
+            "y": 208,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T11_010 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1330,
+            "y": 208,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T11_011 + 1"
+        }
+    ]
+}

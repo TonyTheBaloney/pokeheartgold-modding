@@ -1,0 +1,185 @@
+{
+    "id": "MAP_LAVENDER",
+    "name": "Lavender",
+    "code": "T05",
+    "layout": "NARC_map_matrix_map_matrix_0000_EVERYWHERE_bin",
+    "music_day": "SEQ_GS_T_CHION",
+    "music_night": "SEQ_GS_T_CHION",
+    "region_map_section": "MAPSEC_LAVENDER_TOWN",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CITY_TOWN",
+    "battle_scene": "BATTLE_BG_CITY",
+    "allow_cycling": true,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": true,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_KANTO",
+    "area_icon": 2,
+    "mom_call_intro": 12,
+    "world_map_x": 0,
+    "world_map_y": 0,
+    "area_data": 14,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_T05_gswoman1",
+            "graphics_id": "SPRITE_GSWOMAN1",
+            "x": 1415,
+            "y": 252,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T05_001 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T05_gsboy1",
+            "graphics_id": "SPRITE_GSBOY1",
+            "x": 1414,
+            "y": 244,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T05_003 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T05_gsoldman1",
+            "graphics_id": "SPRITE_GSOLDMAN1",
+            "x": 1434,
+            "y": 249,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T05_002 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_T05_gsmiddleman1",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 1426,
+            "y": 239,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_T05_000 + 1",
+            "flag": "FLAG_NOTHING"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1418,
+            "y": 234,
+            "elevation": 0,
+            "dest_map": "MAP_LAVENDER_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1419,
+            "y": 242,
+            "elevation": 0,
+            "dest_map": "MAP_LAVENDER_VOLUNTEER_POKEMON_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1414,
+            "y": 249,
+            "elevation": 0,
+            "dest_map": "MAP_LAVENDER_SOUTHWEST_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1419,
+            "y": 249,
+            "elevation": 0,
+            "dest_map": "MAP_LAVENDER_NAME_RATER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1412,
+            "y": 234,
+            "elevation": 0,
+            "dest_map": "MAP_LAVENDER_POKEMART",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1431,
+            "y": 246,
+            "elevation": 0,
+            "dest_map": "MAP_LAVENDER_HOUSE_OF_MEMORIES",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1429,
+            "y": 234,
+            "elevation": 0,
+            "dest_map": "MAP_LAVENDER_RADIO_STATION",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1421,
+            "y": 235,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T05_004 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1430,
+            "y": 236,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T05_005 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1426,
+            "y": 246,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T05_007 + 1"
+        },
+        {
+            "type": "BG_TYPE_SIGNPOST",
+            "x": 1417,
+            "y": 242,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "_EV_scr_seq_T05_006 + 1"
+        }
+    ]
+}

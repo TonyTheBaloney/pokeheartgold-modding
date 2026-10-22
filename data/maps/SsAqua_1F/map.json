@@ -1,0 +1,205 @@
+{
+    "id": "MAP_SS_AQUA_1F",
+    "name": "SsAqua_1F",
+    "code": "P01R0301",
+    "layout": "NARC_map_matrix_map_matrix_0171_P01R0301_bin",
+    "music_day": "SEQ_GS_KOUSOKUSEN",
+    "music_night": "SEQ_GS_KOUSOKUSEN",
+    "region_map_section": "MAPSEC_SS_AQUA",
+    "weather": 0,
+    "map_type": "MAP_TYPE_INTERIOR",
+    "battle_scene": "BATTLE_BG_BUILDING_1",
+    "allow_cycling": false,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 4,
+    "follow_mode": "MAP_FOLLOWMODE_HEIGHT_RESTRICT",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 9,
+    "mom_call_intro": 10,
+    "world_map_x": 25,
+    "world_map_y": 14,
+    "area_data": 42,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_P01R0301_seaman_2",
+            "graphics_id": "SPRITE_SEAMAN_2",
+            "x": 16,
+            "y": 10,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_RIGHT",
+            "movement_range_x": 1,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_EAST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_P01R0301_002 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_P01R0301_seaman_2_2",
+            "graphics_id": "SPRITE_SEAMAN_2",
+            "x": 24,
+            "y": 17,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_SOUTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_P01R0301_000 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_P01R0301_seaman_2_3",
+            "graphics_id": "SPRITE_SEAMAN_2",
+            "x": 37,
+            "y": 13,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_P01R0301_001 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_P01R0301_gsgentleman",
+            "graphics_id": "SPRITE_GSGENTLEMAN",
+            "x": 35,
+            "y": 14,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_P01R0301_003 + 1",
+            "flag": "FLAG_UNK_215"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 24,
+            "y": 19,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_OLIVINE_PORT_EXTERIOR",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 13,
+            "y": 14,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_1F_SOUTHWEST_ROOMS",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 19,
+            "y": 14,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_1F_SOUTHWEST_ROOMS",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 30,
+            "y": 14,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_1F_SOUTHEAST_ROOMS",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 36,
+            "y": 14,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_1F_SOUTHEAST_ROOMS",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 13,
+            "y": 8,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_1F_NORTHWEST_ROOMS",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 19,
+            "y": 8,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_1F_NORTHWEST_ROOMS",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 30,
+            "y": 8,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_1F_NORTHEAST_ROOMS",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 36,
+            "y": 8,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_1F_NORTHEAST_ROOMS",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 24,
+            "y": 3,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_B1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 42,
+            "y": 9,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_B1F",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 49,
+            "y": 15,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_CAPTAIN_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 24,
+            "y": 19,
+            "elevation": 0,
+            "dest_map": "MAP_SS_AQUA_VERMILION_PORT_EXTERIOR",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": [
+        {
+            "x": 22,
+            "y": 14,
+            "elevation": 0,
+            "width": 5,
+            "height": 1,
+            "var": "VAR_SCENE_SS_AQUA",
+            "var_value": 0,
+            "script": "_EV_scr_seq_P01R0301_004 + 1"
+        }
+    ],
+    "bg_events": []
+}

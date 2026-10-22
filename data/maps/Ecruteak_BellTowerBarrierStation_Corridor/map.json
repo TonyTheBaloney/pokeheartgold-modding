@@ -1,0 +1,48 @@
+{
+    "id": "MAP_ECRUTEAK_BELL_TOWER_BARRIER_STATION_CORRIDOR",
+    "name": "Ecruteak_BellTowerBarrierStation_Corridor",
+    "code": "T27R0202",
+    "layout": "NARC_map_matrix_map_matrix_0130_T27R0202_bin",
+    "music_day": "SEQ_GS_C_ENJU",
+    "music_night": "SEQ_GS_C_ENJU",
+    "region_map_section": "MAPSEC_ECRUTEAK_CITY",
+    "weather": 0,
+    "map_type": "MAP_TYPE_INTERIOR",
+    "battle_scene": "BATTLE_BG_BUILDING_1",
+    "allow_cycling": false,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 4,
+    "follow_mode": "MAP_FOLLOWMODE_HEIGHT_RESTRICT",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 9,
+    "mom_call_intro": 7,
+    "world_map_x": 12,
+    "world_map_y": 4,
+    "area_data": 61,
+    "move_model_bank": 15,
+    "object_events": [],
+    "warp_events": [
+        {
+            "x": 3,
+            "y": 19,
+            "elevation": 0,
+            "dest_map": "MAP_ECRUTEAK_BELL_TOWER_BARRIER_STATION",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 6,
+            "y": 3,
+            "elevation": 0,
+            "dest_map": "MAP_BELLCHIME_TOWER",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": []
+}

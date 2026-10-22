@@ -1,0 +1,143 @@
+{
+    "id": "MAP_MOUNT_SILVER_CAVE_1F",
+    "name": "MountSilver_Cave_1F",
+    "code": "D41R0101",
+    "layout": "NARC_map_matrix_map_matrix_0265_D41R0101_bin",
+    "music_day": "SEQ_GS_TO_TOUDAI",
+    "music_night": "SEQ_GS_TO_TOUDAI",
+    "region_map_section": "MAPSEC_MT_SILVER_CAVE",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CAVE",
+    "battle_scene": "BATTLE_BG_CAVE_1",
+    "allow_cycling": true,
+    "allow_escaping": true,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_D41R0101",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 4,
+    "mom_call_intro": 10,
+    "world_map_x": 25,
+    "world_map_y": 8,
+    "area_data": 80,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_D41R0101_monstarball",
+            "graphics_id": "SPRITE_MONSTARBALL",
+            "x": 54,
+            "y": 15,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_itemball_d41r0101_full_restore",
+            "flag": "FLAG_HIDE_ITEMBALL_D41R0101_FULL_RESTORE"
+        },
+        {
+            "local_id": "obj_D41R0101_gsmiddleman1",
+            "graphics_id": "SPRITE_GSMIDDLEMAN1",
+            "x": 12,
+            "y": 40,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D41R0101_000 + 1",
+            "flag": "FLAG_HIDE_CAMERON"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 40,
+            "y": 61,
+            "elevation": 0,
+            "dest_map": "MAP_MOUNT_SILVER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 15,
+            "y": 12,
+            "elevation": 0,
+            "dest_map": "MAP_MOUNT_SILVER_CAVE_MOLTRES_CHAMBER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 34,
+            "y": 47,
+            "elevation": 0,
+            "dest_map": "MAP_MOUNT_SILVER_CAVE_EXPERT_BELT_CHAMBER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 51,
+            "y": 46,
+            "elevation": 0,
+            "dest_map": "MAP_MOUNT_SILVER_CAVE_LOWER_MOUNTAINSIDE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 53,
+            "y": 41,
+            "elevation": 0,
+            "dest_map": "MAP_MOUNT_SILVER_CAVE_LOWER_MOUNTAINSIDE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 55,
+            "y": 24,
+            "elevation": 0,
+            "dest_map": "MAP_MOUNT_SILVER_CAVE_LOWER_MOUNTAINSIDE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 32,
+            "y": 9,
+            "elevation": 0,
+            "dest_map": "MAP_MOUNT_SILVER_CAVE_2F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 45,
+            "y": 45,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d41r0101_dire_hit"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 10,
+            "y": 39,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d41r0101_ultra_ball"
+        },
+        {
+            "type": "BG_TYPE_HIDDEN_ITEM",
+            "x": 45,
+            "y": 17,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_ALL",
+            "script": "std_hiddenitem_d41r0101_revive"
+        }
+    ]
+}

@@ -8,7 +8,7 @@
 
 #include "battle/battle_setup.h"
 #include "field/encounter_check.h"
-#include "fielddata/script/scr_seq/event_D10R0101.h"
+#include "maps/PalPark/ids.h"
 
 #include "blackout.h"
 #include "catching_show.h"

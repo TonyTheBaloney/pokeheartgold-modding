@@ -55,12 +55,10 @@ class EditTest(unittest.TestCase):
         o = Repo(self.tmp).events(self.m).objects[1]
         self.assertEqual((o["x"], o["z"]), (560, 400))
 
-    def test_npc_move_unmigrated_map(self):
-        m = self.repo.find_map("MAP_ROUTE_30")
+    def test_npc_move_by_index_on_route(self):
+        m = self.repo.find_map("Route30")
         edit.npc_set(self.repo, m, "0", x=551, y=300)
-        files = self.changed_files()
-        self.assertEqual(list(files.values()), [(2, 2)])
-        self.assertTrue(list(files)[0].startswith("files/fielddata/eventdata/zone_event/"))
+        self.assertEqual(self.changed_files(), {"data/maps/Route30/map.json": (2, 2)})
 
     def test_add_npc_with_new_script_and_text(self):
         msg = edit.text_add(self.repo, self.m, "Hello!\\nNice day.")

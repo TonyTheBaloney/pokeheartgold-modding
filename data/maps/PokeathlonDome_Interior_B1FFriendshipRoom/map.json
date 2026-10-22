@@ -1,0 +1,126 @@
+{
+    "id": "MAP_POKEATHLON_DOME_INTERIOR_B1F_FRIENDSHIP_ROOM",
+    "name": "PokeathlonDome_Interior_B1FFriendshipRoom",
+    "code": "D49R0107",
+    "layout": "NARC_map_matrix_map_matrix_0160_D49R0107_bin",
+    "music_day": "SEQ_GS_PT_END_FIELD",
+    "music_night": "SEQ_GS_PT_END_FIELD",
+    "region_map_section": "MAPSEC_POKEATHLON_DOME",
+    "weather": 0,
+    "map_type": "MAP_TYPE_INTERIOR",
+    "battle_scene": "BATTLE_BG_BUILDING_1",
+    "allow_cycling": false,
+    "allow_escaping": false,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 4,
+    "follow_mode": "MAP_FOLLOWMODE_HEIGHT_RESTRICT",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 9,
+    "mom_call_intro": 13,
+    "world_map_x": 10,
+    "world_map_y": 6,
+    "area_data": 37,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_D49R0107_thlonowner",
+            "graphics_id": "SPRITE_THLONOWNER",
+            "x": 7,
+            "y": 10,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D49R0107_000 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_D49R0107_statuehero",
+            "graphics_id": "SPRITE_STATUEHERO",
+            "x": 7,
+            "y": 8,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": 0,
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_D49R0107_statueheroine",
+            "graphics_id": "SPRITE_STATUEHEROINE",
+            "x": 7,
+            "y": 8,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": 0,
+            "flag": "FLAG_NOTHING"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 7,
+            "y": 14,
+            "elevation": 0,
+            "dest_map": "MAP_POKEATHLON_DOME_INTERIOR_B1F_POTENTIAL_ROOM",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": [
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 7,
+            "y": 8,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_SOUTH",
+            "script": "_EV_scr_seq_D49R0107_001 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 7,
+            "y": 5,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_SOUTH",
+            "script": "_EV_scr_seq_D49R0107_002 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 10,
+            "y": 10,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_SOUTH",
+            "script": "_EV_scr_seq_D49R0107_003 + 1"
+        },
+        {
+            "type": "BG_TYPE_NORMAL",
+            "x": 4,
+            "y": 10,
+            "elevation": 0,
+            "player_facing_dir": "BG_DIR_SOUTH",
+            "script": "_EV_scr_seq_D49R0107_004 + 1"
+        }
+    ]
+}

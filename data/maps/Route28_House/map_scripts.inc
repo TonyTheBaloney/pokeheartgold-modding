@@ -1,0 +1,15 @@
+#include "constants/scrcmd.h"
+#include "maps/Route28_House/ids.h"
+#include "constants/init_script_types.h"
+#include "macros/script.inc"
+
+
+
+	InitScriptEntry_OnFrameTable scr_seq_R28R0101_map_scripts_2
+	InitScriptEntryEnd
+
+scr_seq_R28R0101_map_scripts_2:
+	InitScriptGoToIfEqual VAR_UNK_4126, 0, _EV_scr_seq_R28R0101_002 + 1
+	InitScriptFrameTableEnd
+
+	InitScriptEnd

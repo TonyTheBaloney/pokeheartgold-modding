@@ -4,8 +4,8 @@
 #include "constants/sndseq.h"
 
 #include "field/fieldmap.h"
-#include "fielddata/script/scr_seq/event_D24R0202.h"
-#include "fielddata/script/scr_seq/event_D24R0206.h"
+#include "maps/RuinsOfAlph_NortheastEntranceFirstRoom/ids.h"
+#include "maps/RuinsOfAlph_SouthwestEntranceFirstRoom/ids.h"
 #include "msgdata/msg.naix"
 #include "msgdata/msg/msg_0010.h"
 

@@ -1,0 +1,97 @@
+{
+    "id": "MAP_ICE_PATH_B3F",
+    "name": "IcePath_B3F",
+    "code": "D39R0104",
+    "layout": "NARC_map_matrix_map_matrix_0135_D39R0104_bin",
+    "music_day": "SEQ_GS_D_KOORINONUKE",
+    "music_night": "SEQ_GS_D_KOORINONUKE",
+    "region_map_section": "MAPSEC_ICE_PATH",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CAVE",
+    "battle_scene": "BATTLE_BG_CAVE_3",
+    "allow_cycling": true,
+    "allow_escaping": true,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_D39R0104",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 4,
+    "mom_call_intro": 8,
+    "world_map_x": 21,
+    "world_map_y": 4,
+    "area_data": 76,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_EVERYWHERE_breakrock",
+            "graphics_id": "SPRITE_BREAKROCK",
+            "x": 10,
+            "y": 12,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_field_rock_smash",
+            "flag": "FLAG_MAPTEMP_010"
+        },
+        {
+            "local_id": "obj_EVERYWHERE_monstarball",
+            "graphics_id": "SPRITE_MONSTARBALL",
+            "x": 12,
+            "y": 13,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_NORTH",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "std_itemball_d39r0104_nevermeltice",
+            "flag": "FLAG_HIDE_ITEMBALL_D39R0104_NEVERMELTICE"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 5,
+            "y": 11,
+            "elevation": 0,
+            "dest_map": "MAP_ICE_PATH_B2F",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 5,
+            "y": 10,
+            "elevation": 0,
+            "dest_map": "MAP_ICE_PATH_B2F",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 24,
+            "y": 12,
+            "elevation": 0,
+            "dest_map": "MAP_ICE_PATH_B2F",
+            "dest_warp_id": 3
+        },
+        {
+            "x": 24,
+            "y": 11,
+            "elevation": 0,
+            "dest_map": "MAP_ICE_PATH_B2F",
+            "dest_warp_id": 3
+        }
+    ],
+    "coord_events": [],
+    "bg_events": []
+}

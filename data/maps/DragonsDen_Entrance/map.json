@@ -1,0 +1,48 @@
+{
+    "id": "MAP_DRAGONS_DEN_ENTRANCE",
+    "name": "DragonsDen_Entrance",
+    "code": "D44R0101",
+    "layout": "NARC_map_matrix_map_matrix_0145_D44R0101_bin",
+    "music_day": "SEQ_GS_RYUUNOANA",
+    "music_night": "SEQ_GS_RYUUNOANA",
+    "region_map_section": "MAPSEC_DRAGONS_DEN",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CAVE",
+    "battle_scene": "BATTLE_BG_CAVE_1",
+    "allow_cycling": true,
+    "allow_escaping": true,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_ALLOW",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 4,
+    "mom_call_intro": 11,
+    "world_map_x": 20,
+    "world_map_y": 4,
+    "area_data": 86,
+    "move_model_bank": 15,
+    "object_events": [],
+    "warp_events": [
+        {
+            "x": 6,
+            "y": 9,
+            "elevation": 0,
+            "dest_map": "MAP_BLACKTHORN",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 6,
+            "y": 5,
+            "elevation": 0,
+            "dest_map": "MAP_DRAGONS_DEN",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": []
+}

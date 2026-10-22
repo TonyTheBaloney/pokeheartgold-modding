@@ -1,0 +1,90 @@
+{
+    "id": "MAP_OLIVINE_LIGHTHOUSE_1F",
+    "name": "Olivine_Lighthouse_1F",
+    "code": "D27R0101",
+    "layout": "NARC_map_matrix_map_matrix_0047_D27R0101_bin",
+    "music_day": "SEQ_GS_TO_TOUDAI",
+    "music_night": "SEQ_GS_TO_TOUDAI",
+    "region_map_section": "MAPSEC_LIGHTHOUSE",
+    "weather": 0,
+    "map_type": "MAP_TYPE_CAVE",
+    "battle_scene": "BATTLE_BG_BUILDING_1",
+    "allow_cycling": false,
+    "allow_escaping": true,
+    "allow_running": true,
+    "allow_fly": false,
+    "allow_outgoing_calls": true,
+    "allow_incoming_calls": true,
+    "radio_signal": true,
+    "wild_encounters": "ENCDATA_NA",
+    "camera_type": 0,
+    "follow_mode": "MAP_FOLLOWMODE_HEIGHT_RESTRICT",
+    "region": "MAP_REGION_JOHTO",
+    "area_icon": 9,
+    "mom_call_intro": 9,
+    "world_map_x": 9,
+    "world_map_y": 8,
+    "area_data": 47,
+    "move_model_bank": 15,
+    "object_events": [
+        {
+            "local_id": "obj_D27R0101_middlewoman1_2",
+            "graphics_id": "SPRITE_MIDDLEWOMAN1_2",
+            "x": 9,
+            "y": 12,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D27R0101_001 + 1",
+            "flag": "FLAG_NOTHING"
+        },
+        {
+            "local_id": "obj_D27R0101_seaman_2",
+            "graphics_id": "SPRITE_SEAMAN_2",
+            "x": 4,
+            "y": 5,
+            "elevation": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "movement_range_x": 3,
+            "movement_range_y": 0,
+            "facing_dir": "DIR_WEST",
+            "trainer_type": "OBJECT_TYPE_NORMAL",
+            "trainer_sight_or_param0": 0,
+            "param1": 0,
+            "param2": 0,
+            "script": "_EV_scr_seq_D27R0101_000 + 1",
+            "flag": "FLAG_NOTHING"
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 8,
+            "y": 17,
+            "elevation": 0,
+            "dest_map": "MAP_OLIVINE",
+            "dest_warp_id": 3
+        },
+        {
+            "x": 8,
+            "y": 4,
+            "elevation": 0,
+            "dest_map": "MAP_OLIVINE_LIGHTHOUSE_ELEVATOR",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 2,
+            "y": 3,
+            "elevation": 0,
+            "dest_map": "MAP_OLIVINE_LIGHTHOUSE_2F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": [],
+    "bg_events": []
+}

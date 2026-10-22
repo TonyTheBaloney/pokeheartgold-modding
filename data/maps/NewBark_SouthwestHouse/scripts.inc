@@ -1,0 +1,13 @@
+#include "constants/scrcmd.h"
+#include "maps/NewBark_SouthwestHouse/ids.h"
+#include "msgdata/msg/msg_0547_T20R0301.h"
+#include "macros/script.inc"
+
+
+	ScrDef scr_seq_T20R0301_000
+	ScrDefEnd
+
+scr_seq_T20R0301_000:
+	SimpleNPCMsg msg_0547_T20R0301_00000
+	End
+	.balign 4, 0

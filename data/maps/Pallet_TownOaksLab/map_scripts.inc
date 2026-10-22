@@ -1,0 +1,16 @@
+#include "constants/scrcmd.h"
+#include "maps/Pallet_TownOaksLab/ids.h"
+#include "constants/init_script_types.h"
+#include "macros/script.inc"
+
+
+
+	InitScriptEntry_OnTransition _EV_scr_seq_T01R0301_010 + 1
+	InitScriptEntry_OnFrameTable scr_seq_T01R0301_map_scripts_2
+	InitScriptEntryEnd
+
+scr_seq_T01R0301_map_scripts_2:
+	InitScriptGoToIfEqual VAR_UNK_4131, 1, _EV_scr_seq_T01R0301_006 + 1
+	InitScriptFrameTableEnd
+
+	InitScriptEnd

@@ -7,7 +7,7 @@
 #include "constants/std_script.h"
 #include "constants/weather.h"
 
-#include "fielddata/script/scr_seq/event_D24R0204.h"
+#include "maps/RuinsOfAlph_SoutheastEntranceFirstRoom/ids.h"
 
 #include "alph_checks.h"
 #include "field_move_environment.h"

@@ -1,0 +1,11 @@
+#include "constants/scrcmd.h"
+#include "maps/Goldenrod_GameCorner_Jp/ids.h"
+#include "constants/init_script_types.h"
+#include "macros/script.inc"
+
+
+
+	InitScriptEntry_OnTransition _EV_scr_seq_T25R1101_032 + 1
+	InitScriptEntryEnd
+
+	InitScriptEnd

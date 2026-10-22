@@ -303,12 +303,12 @@ def plan(repo, m):
         raise MigrationError("%s is already migrated" % m.name)
     p = {"dir": folder_name(m.name, [o.name for o in repo.maps]), "map": m.name, "paths": {}, "owned": []}
     for field in BANK_FIELDS:
-        path = repo.bank_path(m, field)
-        if path is None or not os.path.exists(path):
-            raise MigrationError("%s file not found" % field)
         users = [o for o in repo.maps if o.header.get(field) == m.header.get(field)]
         owner = users[0]  # repo.maps is in id order: the lowest id owns a shared bank
         if owner.name == m.name:
+            path = repo.bank_path(m, field)
+            if path is None or not os.path.exists(path):
+                raise MigrationError("%s file not found" % field)
             p[_KIND[field]] = os.path.splitext(os.path.basename(path))[0]
             p["paths"][field] = path
             p["owned"].append(field)
