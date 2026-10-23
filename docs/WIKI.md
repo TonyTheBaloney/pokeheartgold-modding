@@ -85,6 +85,8 @@ the command, if there is one. Commands run from the repository root;
 | add a species | [pokemon.md](modding/pokemon.md#adding-a-new-species) | |
 | change wild encounters | [wild-encounters.md](modding/wild-encounters.md) | `mapkit wild set` |
 | change headbutt, Safari, Bug Contest, roamers | [wild-encounters.md](modding/wild-encounters.md#headbutt-trees) | |
+| add an ability | [abilities.md](modding/abilities.md#adding-an-ability) | |
+| find where an ability's effect is coded | [abilities.md](modding/abilities.md#where-an-ability-can-act) | `grep -rn ABILITY_X src files/battledata` |
 
 ## Items
 
@@ -138,7 +140,6 @@ guide here yet, in rough order of how often a hack needs them:
 | **Trainer battle text** | binary (`trtbl.narc`); classes and sprites are in [trainer-classes.md](modding/trainer-classes.md) | |
 | **Level scaling** of trainers and wild Pokémon | levels are fixed (`src/trainer_data.c`, `src/field/encounter_check.c`) | "Set trainer / wild levels dynamically" |
 | **New game**: start location, starting flags, starter choice | code only (`src/choose_starter.c`) | "Modifying the start location", "Change starter Pokémon" |
-| **Abilities**: add an ability | not covered | "How to add a new ability" |
 | **Graphics in general**: NCGR/NCLR/NCER, overworld sprites, battle backgrounds | `tools/nitrogfx` exists, no guide | sprite, tileset and battle background guides |
 | **Area textures**: add textures for terrain | binary NSBTX; needs a writer | tileset PNGs (`tiles.png`, palettes) |
 | **Music and sound** (SDAT) | binary `gs_sound_data.sdat` | m4a / Porydaw guides |

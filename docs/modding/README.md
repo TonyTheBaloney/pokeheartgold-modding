@@ -30,6 +30,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [ui.md](ui.md) | How screens and menus work: applications, BG layers, windows, text, list and script menus, sprites, input, fades |
 | [story-progression.md](story-progression.md) | How flags and vars store progress; every story roadblock from New Game to Red, with its flag, var and script |
 | [gyms.md](gyms.md) | What badges do (HMs, obedience), each gym's leader script, entry gate, puzzle and rematch schedule |
+| [abilities.md](abilities.md) | Adding an ability: constant, names and descriptions, species, where each kind of effect is coded in battle, messages and battle scripts |
 
 ## Building a modified ROM
 
