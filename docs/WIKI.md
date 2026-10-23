@@ -49,6 +49,18 @@ the command, if there is one. Commands run from the repository root;
 | find a free flag or var | [unknown-flags-vars.md](modding/unknown-flags-vars.md#free-flags) | `tools/flagusage` |
 | find where a flag, var or sprite is used | [mapkit README](../tools/mapkit/README.md#commands) | `mapkit refs FLAG_X` |
 
+## Story and gyms
+
+| I want to... | Guide | Command |
+|---|---|---|
+| understand flag and var ranges (hide flags, scene vars, temp, daily) | [story-progression.md](modding/story-progression.md#how-progress-is-stored) | |
+| find what blocks a route and what opens it | [story-progression.md](modding/story-progression.md#story-beats) | `mapkit refs VAR_X` |
+| change the order of story events or skip one | [story-progression.md](modding/story-progression.md#changing-progression) | |
+| know what unlocks after the League (`FLAG_GAME_CLEAR`) | [story-progression.md](modding/story-progression.md#elite-four-and-game-clear) | |
+| change which badge an HM needs, or obedience levels | [gyms.md](modding/gyms.md#what-badges-do) | |
+| change a leader's reward, entry gate or puzzle | [gyms.md](modding/gyms.md#summary) | |
+| require badges for a gate | [gyms.md](modding/gyms.md#changing-gyms) | `checkbadge`, `countbadges` |
+
 ## Trainers and battles
 
 | I want to... | Guide | Command |
@@ -124,7 +136,6 @@ guide here yet, in rough order of how often a hack needs them:
 | Topic | State in this fork | pokeemerald equivalent |
 |---|---|---|
 | **Trainer battle text** | binary (`trtbl.narc`); classes and sprites are in [trainer-classes.md](modding/trainer-classes.md) | |
-| **Progression gates**: every story roadblock, its flag and script | not listed | (hack-specific; needed for open-world hacks) |
 | **Level scaling** of trainers and wild Pokémon | levels are fixed (`src/trainer_data.c`, `src/field/encounter_check.c`) | "Set trainer / wild levels dynamically" |
 | **New game**: start location, starting flags, starter choice | code only (`src/choose_starter.c`) | "Modifying the start location", "Change starter Pokémon" |
 | **Abilities**: add an ability | not covered | "How to add a new ability" |

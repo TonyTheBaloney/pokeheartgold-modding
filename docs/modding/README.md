@@ -28,6 +28,8 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [items.md](items.md) | Items: `data/items/items.json` (names, prices, effects, pockets), icons, adding items, marts |
 | [terrain.md](terrain.md) | 3D terrain models (OBJ export/import, e.g. Blender) and the heights the player walks on |
 | [ui.md](ui.md) | How screens and menus work: applications, BG layers, windows, text, list and script menus, sprites, input, fades |
+| [story-progression.md](story-progression.md) | How flags and vars store progress; every story roadblock from New Game to Red, with its flag, var and script |
+| [gyms.md](gyms.md) | What badges do (HMs, obedience), each gym's leader script, entry gate, puzzle and rematch schedule |
 
 ## Building a modified ROM
 
