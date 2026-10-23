@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21 -->
 
 # Design: per-map data and the `mapkit` tool
 
-> AI-generated, local to this fork. Do not upstream.
+> AI-generated; not affiliated with pret. See AI.md at the repository root.
 
 ## Goal
 

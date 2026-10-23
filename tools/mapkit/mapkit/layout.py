@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 """Per-map folders in the style of pret/pokeemerald:
 
     data/maps/<MapName>/

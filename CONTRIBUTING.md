@@ -1,12 +1,54 @@
 # Contributing
 
 <!--toc:start-->
+- [Ground rules](#ground-rules)
+- [Checks](#checks)
+- [Labeling AI-generated work](#labeling-ai-generated-work)
 - [Code Formatting](#code-formatting)
 <!--toc:end-->
 
-This document provides a synopsis and loose guidelines for how to contribute to this project. It is a work in progress. Maintainers should expand this document.
+This repository is AI-generated and not affiliated with pret (see [AI.md](AI.md)).
+Issues and pull requests are welcome **here**. Please don't take anything from this
+repository to pret, or ask pret about it.
 
-ALL PERSONS OPENING PULL REQUESTS TO THIS REPOSITORY AGREE TO ABIDE BY THE POLICIES OUTLINED IN THIS DOCUMENT.
+## Ground rules
+
+- **`main` builds matching ROMs.** This is a base for mods: a pull request must keep
+  HeartGold and SoulSilver byte for byte identical to retail (`make` and
+  `make soulsilver` pass). Changes to the game itself belong in your own fork.
+- **New layouts and tools come with tests** that rebuild the original files from the
+  new sources byte for byte, and with a guide in `docs/modding/` linked from
+  [docs/WIKI.md](docs/WIKI.md).
+- **Guides say what they're based on**: name the file and line, and list what wasn't
+  tried in the game under a **Not verified** heading.
+- **Follow pret's conventions where the DS allows it**, pokeemerald's in particular, so
+  pret users feel at home.
+
+## Checks
+
+Build both versions with their checksums:
+
+```bash
+make
+make soulsilver
+```
+
+Then the tool tests (some need a build first, for `nitrogfx` and `nitroarc`):
+
+```bash
+for t in tools/mapkit/tests/test_*.py tools/mapeditor/tests/test_*.py tools/pokedata/test_*.py tools/sound/test_sound.py tools/progress/test_progress.py; do
+    python3 "$t" || echo "FAILED: $t"
+done
+```
+
+## Labeling AI-generated work
+
+AI-generated contributions are fine; label them:
+
+- start new files you generated with a comment such as
+  `// [AI-GENERATED / NOT AFFILIATED WITH PRET] <model>, <date>`;
+- say in the pull request which model or tool wrote it and how you checked it;
+- keep a `Co-Authored-By:` line for the model in the commit message if your tool adds one.
 
 ## Code Formatting
 

@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22 -->
 
 # NPCs, trainers, event scripts and text
 
-> AI-generated, local to this fork. Do not upstream.
+> AI-generated; not affiliated with pret. See AI.md at the repository root.
 
 Read [maps-and-warps.md](maps-and-warps.md) first for how to find a map's files
 and how coordinates work.

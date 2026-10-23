@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] move data from JSON (tools/pokedata)
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] move data from JSON (tools/pokedata)
 nitrofs_files += custom_target('waza_tbl.narc',
     input : files('battle_moves.json'),
     output : 'waza_tbl.narc',

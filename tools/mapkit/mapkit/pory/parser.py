@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """Lexer and parser for the poryscript-style map script language.
 
 Syntax follows poryscript (https://github.com/huderlem/poryscript) where it

@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """Terrain cells as editable 3D files: export to OBJ, import from OBJ.
 
     mapkit terrain export 0383 out/      model.obj, model.mtl, textures/*.png, terrain.json

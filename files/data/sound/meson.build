@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-23
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-23
 # The sound archive, built from sound/ (pokeemerald-style): sound/sound_data.json lists
 # every sequence, bank and wave archive; tools/sound/sdat.py packs them, converting
 # .mid sequences and .json banks / wave archives (with their WAV samples) on the way.

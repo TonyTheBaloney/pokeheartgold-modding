@@ -1,4 +1,4 @@
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
 // Partially AI-edited: IV and daycare/egg literals replaced by named constants (MAX_PER_STAT_IVS, USE_RANDOM_IVS, EGG_*, DAYCARE_*) (see AI_WORK_LOG.md)
 #include "get_egg.h"
@@ -358,7 +358,7 @@ static void InheritIVs(Pokemon *egg, Daycare *dayCare) {
     }
 }
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
 // Partially AI-edited: literals 2045 and 20000 replaced by EGG_MOVES_TABLE_SIZE and EGG_MOVES_SPECIES_OFFSET
 static u8 LoadEggMoves(Pokemon *mon, u16 *dest) {

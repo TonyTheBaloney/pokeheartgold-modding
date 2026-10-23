@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22 -->
 
 # Idea: shiny Pokémon icons (parked)
 
-> AI-generated, local to this fork. Do not upstream. **Not built.** These are notes from
+> AI-generated; not affiliated with pret. See AI.md at the repository root. **Not built.** These are notes from
 > exploring the idea (2026-10-22), kept so the work can pick up where it stopped.
 
 **Goal:** show shiny Pokémon with shiny colors in their small icons (party, PC box,

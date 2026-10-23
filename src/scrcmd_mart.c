@@ -16,7 +16,7 @@ struct BadgeMartItems {
     u16 tier;
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING (rename only)
 // Regular Poke Mart stock; an item is sold once the badge tier reaches .tier
 const struct BadgeMartItems sBadgeMartItems[] = {
@@ -41,7 +41,7 @@ const struct BadgeMartItems sBadgeMartItems[] = {
     { ITEM_MAX_REPEL,    4 },
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_MartBuy(ScriptContext *ctx) {
     u16 unused;
@@ -97,7 +97,7 @@ BOOL ScrCmd_MartBuy(ScriptContext *ctx) {
     return TRUE;
 }
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_MartSell(ScriptContext *ctx) {
     u16 dummy[1];
@@ -107,7 +107,7 @@ BOOL ScrCmd_MartSell(ScriptContext *ctx) {
     return TRUE;
 }
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING (rename only)
 // Per-location stock for std_special_mart (index = VAR_SPECIAL_x8004).
 // Names come from the map scripts that pass each index. Shared lists:
@@ -178,7 +178,7 @@ const u16 *sSpecialMartItems[] = {
     sSpecialMartItems_MahoganySouvenirShop,
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_SpecialMartBuy(ScriptContext *ctx) {
     u16 which;
@@ -188,7 +188,7 @@ BOOL ScrCmd_SpecialMartBuy(ScriptContext *ctx) {
     return TRUE;
 }
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING (rename only)
 // Sinnoh leftover, unused in HGSS
 const u16 sDecorationMartItems_Furniture[] = {
@@ -203,7 +203,7 @@ const u16 *sDecorationMartItems[] = {
     sDecorationMartItems_Dolls,
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_DecorationMart(ScriptContext *ctx) {
     u16 which;
@@ -213,7 +213,7 @@ BOOL ScrCmd_DecorationMart(ScriptContext *ctx) {
     return TRUE;
 }
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING (rename only)
 // No HGSS script calls SealMart; the seven lists may be per weekday (unverified).
 const u16 sSealMartItems_0[] = { SEAL_HEART_A, SEAL_STAR_B, SEAL_FIRE_A, SEAL_SONG_A, SEAL_LINE_C, SEAL_ELE_B, SEAL_PARTY_D, 0xFFFF };
@@ -234,7 +234,7 @@ const u16 *sSealMartItems[] = {
     sSealMartItems_6,
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_SealMart(ScriptContext *ctx) {
     u16 which;
@@ -244,7 +244,7 @@ BOOL ScrCmd_SealMart(ScriptContext *ctx) {
     return TRUE;
 }
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING (names taken from pret upstream)
 // Despite the name, these are the full stock for MART_TYPE_POKEATHLON_DAILY,
 // indexed by RTC weekday (0 = Sunday), +7 once the National Dex is obtained.
@@ -434,7 +434,7 @@ const struct MartItem *sPokeathlonPrizeExchangePriceOverrides[] = {
     sPokeathlonPrizeExchangePriceOverrides_Saturday_NatDex,
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Partially AI-edited: Mart_Init constants. The item list argument is ignored for
 // this mart type, so indexing past sDecorationMartItems is harmless (original behavior).
 BOOL ScrCmd_PokeathlonDailyMart(ScriptContext *ctx) {
@@ -453,7 +453,7 @@ BOOL ScrCmd_PokeathlonDailyMart(ScriptContext *ctx) {
     return TRUE;
 }
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING (rename only)
 // Data card stock, indexed by (first card not yet bought) / 6
 const struct MartItem sPokeathlonDataCardPrices_01To06[] = {
@@ -507,7 +507,7 @@ const struct MartItem *sPokeathlonDataCardPrices[] = {
     sPokeathlonDataCardPrices_25To27,
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Partially AI-edited: Mart_Init constants
 BOOL ScrCmd_PokeathlonDataCardMart(ScriptContext *ctx) {
     PokeathlonSave *pokeathlon;

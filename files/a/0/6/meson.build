@@ -11,7 +11,7 @@ prebuilt_files = [
 foreach f : prebuilt_files
     nitrofs_files += fs.copyfile(f)
 endforeach
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] land data (terrain cells) from
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] land data (terrain cells) from
 # data/landdata/NNNN/ (tools/mapkit/mapkit/landdata.py); same bytes as the old prebuilt '5'.
 # The pack step writes a depfile listing every file it read and the cell folders, so
 # adding, removing or replacing a cell's files (terrain.bdhc -> heights.json after

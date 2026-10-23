@@ -1,5 +1,5 @@
 {
-    "_comment": "[AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Target config for mapkit's poryscript-style compiler (docs/modding/SCRIPTING.md). Lowering for conditions, jumps and result-writing commands lives here, not in the compiler.",
+    "_comment": "[AI-GENERATED / NOT AFFILIATED WITH PRET] Target config for mapkit's poryscript-style compiler (docs/modding/SCRIPTING.md). Lowering for conditions, jumps and result-writing commands lives here, not in the compiler.",
     "jumps": {
         "goto": "GoTo {label}",
         "call": "Call {label}",

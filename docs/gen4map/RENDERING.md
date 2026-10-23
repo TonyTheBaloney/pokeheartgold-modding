@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22 -->
 
 # gen4map rendering: drawing a map from its NSBMD models
 
-> AI-generated, local to this fork. Do not upstream.
+> AI-generated; not affiliated with pret. See AI.md at the repository root.
 
 How the map editor turns a map's data into pictures, precise enough to
 reimplement in another tool. The reference is the game itself and

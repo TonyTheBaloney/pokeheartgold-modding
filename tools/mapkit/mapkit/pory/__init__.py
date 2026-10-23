@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """poryscript-style map scripts for HGSS: data/maps/<Map>/scripts.pory.
 
     compile_map(repo, entry)  -> Result (scripts.inc, map_scripts.inc, texts, script order)
@@ -213,7 +213,7 @@ def init_source(repo, m, raw=False, stats=None):
         head = ["// Converted from scripts.inc / map_scripts.inc by `mapkit pory init --raw`.",
                 "// Scripts inside raw keep their ScrDef order; new `script` blocks are numbered after them.", ""]
     else:
-        head = ["// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Converted from scripts.inc /",
+        head = ["// [AI-GENERATED / NOT AFFILIATED WITH PRET] Converted from scripts.inc /",
                 "// map_scripts.inc by `mapkit pory init` (decompiler written by claude-opus-5-5).", ""]
     pory = head + scripts_part + ["mapscripts %s_MapScripts {" % name] + ms + ["}", ""]
     return "\n".join(pory)

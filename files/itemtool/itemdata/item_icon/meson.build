@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] icons are PNG and palettes JASC .pal (pokeemerald-style
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] icons are PNG and palettes JASC .pal (pokeemerald-style
 # graphics sources); nitrogfx builds the same NCGR/NCLR files the game had. Which item uses which
 # icon and palette: data/items/items.json ("icon", "palette"). See docs/modding/items.md.
 item_icon_nanr = copy_gen.process(files(

@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 """Edit commands, run on a temporary copy of the data. Run: python3 tools/mapkit/tests/test_edit.py"""
 
 import json

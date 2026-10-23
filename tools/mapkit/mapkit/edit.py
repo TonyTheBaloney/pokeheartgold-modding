@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 """Edits to map data. Every write keeps the file's existing JSON indentation,
 trailing newline and line endings, so a diff shows only the change.
 

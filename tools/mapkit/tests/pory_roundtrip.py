@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """Shared by the tests: decompile what a map's scripts.pory compiles to, compile
 that again and compare the two, command by command with jump targets resolved
 to positions (mapkit/pory/decompile.py's fingerprint)."""

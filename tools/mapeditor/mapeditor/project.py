@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """The editor's data layer, without Qt: one open map, its layout cells, their
 permissions and props, and its events. Edits change these objects; save()
 writes map.json and the permissions.txt of every changed cell.

@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-23 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-23 -->
 
 # Music and sound
 
-> AI-generated, local to this fork. Do not upstream.
+> AI-generated; not affiliated with pret. See AI.md at the repository root.
 
 All music, sound effects and cries are in one Nintendo sound archive (SDAT). It used
 to be a binary file; it is now built from `sound/`, the way pokeemerald builds its

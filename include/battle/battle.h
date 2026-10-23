@@ -1,4 +1,4 @@
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
 // Partially AI-edited: game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #ifndef POKEHEARTGOLD_BATTLE_H
@@ -124,7 +124,7 @@ typedef struct TrainerAIData {
     u32 aiFlags;
     u8 stateFlags;
     u8 aiBitShift;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (renames only). unused_* fields: // no code reads or writes it
     u8 unused_12;
     u8 unused_13;
@@ -145,7 +145,7 @@ typedef struct TrainerAIData {
     u8 selectedTarget[4];
     MoveTbl moveData[NUM_MOVES + 1];
     ItemData *itemData;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (renames only; old names had wrong offsets). // no code reads or writes it
     u16 unused_1DD0[4];
     u16 unused_1DD8[4];
@@ -261,7 +261,7 @@ typedef struct BattleMon {
     u32 status2;
     u32 otid;
     u16 item;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (rename only; real offset is 0x7A). // no code reads or writes it
     u16 unused_7A;
     u8 hitCount;
@@ -299,7 +299,7 @@ typedef struct BattleContext {
     int stateBeforeTurn;
     int beforeTurnData;
     int attackerAfterMoveState;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (rename only). Cleared when the after-move sequence ends; never read
     int unused_34;
     int afterMoveMessageType;
@@ -312,7 +312,7 @@ typedef struct BattleContext {
     int checkMoveImmunityState;
     int sendOutState;
     int vanishOffBattlerId;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (rename only). // no code reads or writes it
     int unused_60;
     int battlerIdAttacker;
@@ -428,7 +428,7 @@ typedef struct BattleContext {
     int turnOrderIndexTemp;
     u8 switchInFlag;
     u8 levelUpMons;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (rename only). // no code reads or writes it
     u16 unused_310A;
     u16 quickClawRandom[4];
@@ -461,7 +461,7 @@ typedef struct BattleHpBar {
     ManagedSprite *arrowObj;
     BattleSystem *battleSystem;
     SysTask *task;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (rename only). // no code reads or writes it
     Window unused_14;
     u8 battlerId;
@@ -485,7 +485,7 @@ typedef struct BattleHpBar {
     u8 expSoundTimer;
     u8 slideOut : 1;
     u8 slideDone : 1;
-    u8 unused_4F_2 : 1; // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21, MATCHING. no code reads or writes it
+    u8 unused_4F_2 : 1; // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21, MATCHING. no code reads or writes it
     u8 showHpNumbers : 1;
     SysTask *sysTask;
     u16 bobAngle;
@@ -496,7 +496,7 @@ typedef struct BallThrow BallThrow;
 typedef struct OpponentData {
     u32 inputTasks[6];
     ManagedSprite *managedSprite;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (renames only)
     // Returned by OpponentData_GetPokepic when pokepic is NULL, but never assigned.
     u32 *unusedPokepic;
@@ -519,7 +519,7 @@ typedef struct OpponentData {
     int substituteShown;
     u32 *pokepicAnimNarc;
     u8 commandReceived;
-    u8 padding_1A9[3]; // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21, MATCHING. Alignment padding
+    u8 padding_1A9[3]; // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21, MATCHING. Alignment padding
 } OpponentData;
 
 typedef struct BattleTerrain {
@@ -527,7 +527,7 @@ typedef struct BattleTerrain {
     BattleSystem *battleSystem;
     u8 side;
     u8 terrainId;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (renames only). // no code reads or writes it
     s16 unused_A;
     s16 unused_C;
@@ -541,7 +541,7 @@ typedef struct MonPicData {
     int height;
 } MonPicData;
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING (renames only). // no code reads or writes it
 typedef struct BattleSystemUnusedWords {
     int unused_0;
@@ -578,7 +578,7 @@ struct BattleSystem {
     u32 *animSystem;
     SpriteSystem *spriteRenderer;
     SpriteManager *gfxHandler;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (renames/retype only)
     // Copied from BattleSetup.unk_128 / unk_134 at battle start and written back at the end;
     // the battle itself never uses them. setupSub134 is the 0x24-byte block from BattleSetupSub134_New.
@@ -601,7 +601,7 @@ struct BattleSystem {
     void *pokepicAnimManager; // related to animations
     u32 *cellTransferState;
     MonPicData monPicData[4];
-    BattleSystemUnusedWords unused_210; // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21, MATCHING
+    BattleSystemUnusedWords unused_210; // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21, MATCHING
     GameStats *gameStats;
     u8 *bgTiles;
     u16 *bgPalette;
@@ -637,7 +637,7 @@ struct BattleSystem {
     u8 tutorialState;
     u16 ballsThrown;
     int evolutionLocation;
-    // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+    // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
     // Status: MATCHING (rename only)
     // Copy of BattleSetup.unk_164, never read. (The setup value is forwarded to
     // EvolutionScene_New and on to PokemonSummaryArgs.unk2C, which the summary never reads.)
@@ -741,7 +741,7 @@ struct BallThrow { // TODO: Give a better name.
     u8 fadeAlphaA;
     u8 fadeAlphaB;
     s8 randomDir;
-    u8 unused_23; // [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21, MATCHING. no code reads or writes it
+    u8 unused_23; // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21, MATCHING. no code reads or writes it
     BOOL animateSprite;
     int opened;
     SpriteManager *spriteManager;

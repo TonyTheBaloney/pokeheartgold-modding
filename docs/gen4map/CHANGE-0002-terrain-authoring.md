@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22 -->
 
 # Change 0002: editable terrain models and heights
 
-> AI-generated, local to this fork. Do not upstream.
+> AI-generated; not affiliated with pret. See AI.md at the repository root.
 
 | | |
 |---|---|

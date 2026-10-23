@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-23
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-23
 """Sequences (SSEQ): read, write, and convert to and from MIDI.
 
 An SSEQ is the DS's MIDI: one stream of commands for up to 16 tracks. Track 0

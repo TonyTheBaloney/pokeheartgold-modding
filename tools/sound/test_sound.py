@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-23
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-23
 """Run: python3 tools/sound/test_sound.py   (about a minute: it packs the whole archive)"""
 
 import hashlib

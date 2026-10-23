@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 # Per-map folders (pokeemerald-style data/maps/<MapName>/). Each line of
 # maps.txt names a folder and the original bank names. The zone_event JSON and
 # the MapHeader entry are generated from map.json; scripts and text are copied

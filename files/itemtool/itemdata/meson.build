@@ -3,7 +3,7 @@ build_dir = meson.current_build_dir()
 ############################################################
 ###                      ITEM_DATA                       ###
 ############################################################
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] the CSV is made from data/items/items.json
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] the CSV is made from data/items/items.json
 item_data_manifest = files('item_data.txt')
 
 item_data_narc = custom_target('item_data.narc',

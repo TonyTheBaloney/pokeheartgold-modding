@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """Top-down pictures of a cell's 3D terrain and props, for the map view.
 
 Each cell's model.nsbmd (data/landdata/NNNN/) is drawn with the textures of

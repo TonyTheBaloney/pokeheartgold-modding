@@ -1,9 +1,11 @@
-<!--- Provide a general summary of your changes in the Title above -->
+<!--- Summarize your changes in the title above. This repository is not pret's: see AI.md. -->
 
-## PR checklist
+## What and why
 
-- [ ] This comment contains a description of changes (with reason).
-- [ ] The ROM compiles to matching locally (`make compare_heartgold && make compare_soulsilver`).
-- [ ] All C code is correctly formatted (`git clang-format`).
-- [ ] This pull request is labeled according to the kind of work it represents.
-- [ ] New or updated code labels follow the [style guide](https://docs.google.com/document/d/17D62q1v4dcBmet8T8uYoTAP_0IdGTci0-3p0fPcf-a8/edit)
+## Checklist
+
+- [ ] Both ROMs still match (`make` and `make soulsilver` pass).
+- [ ] The tool tests pass (see CONTRIBUTING.md#checks).
+- [ ] C code is formatted (`git clang-format`).
+- [ ] New layouts or tools have a guide in `docs/modding/`, linked from `docs/WIKI.md`.
+- [ ] AI-generated work is labeled, and the description says which model or tool wrote it and how it was checked.

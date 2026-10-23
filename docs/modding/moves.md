@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22 -->
 
 # Changing and adding moves
 
-> AI-generated, local to this fork. Do not upstream.
+> AI-generated; not affiliated with pret. See AI.md at the repository root.
 
 Moves are numbered by `MOVE_*` in `include/constants/moves.h`: `MOVE_NONE` is 0,
 then 1 (`MOVE_POUND`) to 467 (`MOVE_SHADOW_FORCE`). `NUM_MOVES` is the last move,

@@ -104,7 +104,7 @@ naix_headers += personal_narc[1]
 ############################################################
 ###                       WOTBL                          ###
 ############################################################
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] level-up learnsets from JSON
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] level-up learnsets from JSON
 wotbl_narc = custom_target('wotbl.narc',
     input : files('level_up_learnsets.json'),
     output : 'wotbl.narc',

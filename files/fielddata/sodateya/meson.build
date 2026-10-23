@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] egg moves from JSON (kept with the
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] egg moves from JSON (kept with the
 # other species data in files/poketool/personal/)
 nitrofs_files += custom_target('kowaza_list.narc',
     input : files('../../poketool/personal/egg_moves.json'),

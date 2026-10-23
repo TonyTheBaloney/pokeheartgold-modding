@@ -20,7 +20,7 @@ enum PokeathlonData {
     ACTION_DATA
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING (renames only; values unchanged)
 // DECOR: ScrCmd_DecorationMart. POKEATHLON_DAILY: ScrCmd_PokeathlonDailyMart.
 // DATA_CARDS: ScrCmd_PokeathlonDataCardMart. The two Pokeathlon types take
@@ -33,7 +33,7 @@ enum MartTypes {
     MART_TYPE_DATA_CARDS,
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING
 // Mart_Init buy_sell argument (stored in MartData.sellOnly)
 enum MartBuySell {

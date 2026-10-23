@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """NSBMD files as data: a lossless reader and a writer.
 
 `nitro.py` decodes models to triangles for drawing; this module keeps a model's

@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 """Zone event JSON (files/fielddata/eventdata/zone_event/NNN_CODE.json).
 
 Binary layout (files/fielddata/eventdata/zone_event.json.txt): four sections,

@@ -1,4 +1,4 @@
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 // Status: MATCHING
 // Partially AI-edited: stat-stage literals and misused BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE replaced by MIN/DEFAULT/MAX_STAT_STAGE; game-rule literals replaced by existing constants (MAX_MON_MOVES, PARTY_SIZE, MAX_LEVEL, FRIENDSHIP_*, NATURE_NUM, ...) (see AI_WORK_LOG.md)
 #include "battle/battle_util.h"

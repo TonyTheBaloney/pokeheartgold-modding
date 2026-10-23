@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """Map layouts (map matrices), in the style of pokeemerald's data/layouts.
 
 A layout is the grid of 32x32-tile cells a map is made of. Each cell names a

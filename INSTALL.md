@@ -20,6 +20,7 @@ This document details the steps necessary to build a copy of Pokémon Heart Gold
     - [Fedora (and derivatives, e.g., AlmaLinux, Red Hat Enterprise Linux)](#fedora-and-derivatives-eg-almalinux-red-hat-enterprise-linux)
 - [2. Downloading the Repository](#2-downloading-the-repository)
 - [3. Building the Repository](#3-building-the-repository)
+  - [Progress reports](#progress-reports)
 - [Troubleshooting FAQ](#troubleshooting-faq)
   - [My Build is Failing After Merging from Main](#my-build-is-failing-after-merging-from-main)
 
@@ -312,8 +313,8 @@ From your terminal, navigate to the path in which you will store the repository.
 Users of WSL 1 should ensure that their target is on the Windows file drive.
 
 ```bash
-git clone https://github.com/pret/pokeheartgold
-cd pokeheartgold
+git clone https://github.com/TonyTheBaloney/pokeheartgold-modding
+cd pokeheartgold-modding
 ```
 
 ## 3. Building the Repository
@@ -326,7 +327,7 @@ make
 
 If everything works, then the following ROM should be built:
 
-- [build/pokeheartgold.us.nds](https://datomatic.no-intro.org/index.php?page=show_record&s=28&n=4787) `sha1: 4fcded0e2713dc03929845de631d0932ea2b5a37`
+- [build/heartgold.us/pokeheartgold.us.nds](https://datomatic.no-intro.org/index.php?page=show_record&s=28&n=4787) `sha1: 4fcded0e2713dc03929845de631d0932ea2b5a37`
 
 To build Soul Silver, instead of the above command, run the following:
 
@@ -334,11 +335,25 @@ To build Soul Silver, instead of the above command, run the following:
 make soulsilver
 ```
 If everything works, then the following ROM should be built:
-- [build/pokeheartgold.us.nds](https://datomatic.no-intro.org/index.php?page=show_record&s=28&n=4788) `sha1: f8dc38ea20c17541a43b58c5e6d18c1732c7e582`
+- [build/soulsilver.us/pokesoulsilver.us.nds](https://datomatic.no-intro.org/index.php?page=show_record&s=28&n=4788) `sha1: f8dc38ea20c17541a43b58c5e6d18c1732c7e582`
 
-If you need further assistance, feel free to ask a question in the `#pokeheartgold`
-channel of the `pret` Discord (see `README.md` for contact information) or [open
-an issue](https://github.com/pret/pokeheartgold/issues/new).
+`make` builds the ROM and checks it against the retail checksums. Once you have
+changed the game it won't match any more; build with `make release` (HeartGold) or
+`make release GAME_VERSION=SOULSILVER` instead.
+
+If you need help, [open an issue](https://github.com/TonyTheBaloney/pokeheartgold-modding/issues/new)
+here. This fork is AI-generated and not affiliated with pret: please don't ask in pret's
+Discord or repository about it.
+
+### Progress reports
+
+```bash
+make progress
+```
+
+builds and checks HeartGold, then runs `tools/progress/progress.py`, which measures
+the ROM's code by source language from the linker maps and writes
+`docs/progress/progress.json` and the treemap in `docs/progress/treemap.svg`.
 
 ## Troubleshooting FAQ
 

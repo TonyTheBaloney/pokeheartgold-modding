@@ -130,13 +130,13 @@ subdir('lib')
 ############################################################
 ###                     FILE SYSTEM                      ###
 ############################################################
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] per-map folders (data/maps); see tools/mapkit
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] species and move data: JSON -> NARCs (tools/pokedata)
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] per-map folders (data/maps); see tools/mapkit
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] species and move data: JSON -> NARCs (tools/pokedata)
 pokedata_py = find_program('tools/pokedata/pokedata.py')
 pokedata_depends = files('tools/pokedata/pokedata.py', 'include/constants/species.h', 'include/constants/moves.h',
     'include/constants/pokemon.h', 'include/pokemon.h', 'include/constants/daycare.h',
     'include/constants/move_effects.h')
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] trainer sprites: PNG + table -> a/0/5/8, a/0/0/6
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] trainer sprites: PNG + table -> a/0/5/8, a/0/0/6
 trainer_pics_py = find_program('tools/pokedata/trainer_pics.py')
 trainer_pics_depends = files('tools/pokedata/trainer_pics.py', 'tools/pokedata/pokedata.py',
     'include/constants/trainer_class.h')

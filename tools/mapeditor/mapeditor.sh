@@ -1,5 +1,5 @@
 #!/bin/sh
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 # Start the map editor: tools/mapeditor/mapeditor.sh [MapFolder]
 # First run: python3 -m venv tools/mapeditor/.venv && tools/mapeditor/.venv/bin/pip install PySide6
 here=$(dirname "$(readlink -f "$0")")

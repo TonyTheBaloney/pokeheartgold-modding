@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """3D view of a map: its cells' terrain and props (NSBMD, via mapkit.nitro)
 drawn with OpenGL, with an orbit camera.
 

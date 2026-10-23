@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22 -->
 
 # gen4map binaries: what the text formats become in the ROM
 
-> AI-generated, local to this fork. Do not upstream.
+> AI-generated; not affiliated with pret. See AI.md at the repository root.
 
 The ROM-side formats behind [FORMAT.md](FORMAT.md), as HeartGold/SoulSilver use
 them. Each section names the game code that reads the data (paths in this

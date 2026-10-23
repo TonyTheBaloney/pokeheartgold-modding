@@ -1,7 +1,7 @@
 #ifndef POKEHEARTGOLD_CONSTANTS_MAP_OBJECT_H
 #define POKEHEARTGOLD_CONSTANTS_MAP_OBJECT_H
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 // Status: MATCHING (constants only)
 
 // ObjectEvent.movement: index into gMapObjectMovementCallbacks

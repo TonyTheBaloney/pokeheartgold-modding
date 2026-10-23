@@ -1,5 +1,5 @@
 {
-    "_comment": "[AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] Who an object sprite is, for `mapkit pory name-scripts` (pokeemerald-style <Map>_EventScript_<Name>). `characters` are specific people and win over dialog; `classes` are generic and lose to a speaker name in the dialog or a trainer the script battles. Classes come from the trainers that use each sprite (trainers.json) where there are any; gym leaders and Elite Four from their gyms. Sprites not listed fall back to their CamelCased name.",
+    "_comment": "[AI-GENERATED / NOT AFFILIATED WITH PRET] Who an object sprite is, for `mapkit pory name-scripts` (pokeemerald-style <Map>_EventScript_<Name>). `characters` are specific people and win over dialog; `classes` are generic and lose to a speaker name in the dialog or a trainer the script battles. Classes come from the trainers that use each sprite (trainers.json) where there are any; gym leaders and Elite Four from their gyms. Sprites not listed fall back to their CamelCased name.",
     "characters": {
         "SPRITE_GSLEADER1": "Falkner",
         "SPRITE_GSLEADER2": "Bugsy",

@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """scripts.inc -> structured scripts.pory.
 
 Each script (a ScrDef label up to the next one) is rewritten as a `script` block:

@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """The map view: layout cells drawn top-down (behavior colors, collision,
 grid), props as markers and events as draggable boxes. One scene unit is
 one pixel; a tile is TILE pixels."""

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """Species move data as JSON, built into the game's archives.
 
     level_up_learnsets.json  -> poketool/personal/wotbl.narc

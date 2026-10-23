@@ -131,7 +131,7 @@ static const u16 sTMHMMoves[] = {
     MOVE_ROCK_CLIMB,   // HM08
 };
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] generated from data/items/items.json (tools/pokedata/items.py)
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] generated from data/items/items.json (tools/pokedata/items.py)
 #include "data/items/item_narc_ids.h"
 
 void MoveItemSlotInList(ItemSlot *slots, int from, int to, int pocket, enum HeapID heapID) {

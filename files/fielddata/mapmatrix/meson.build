@@ -3,7 +3,7 @@ build_dir = meson.current_build_dir()
 ############################################################
 ###                      MAP_MATRIX                      ###
 ############################################################
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] map matrices come from data/layouts
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] map matrices come from data/layouts
 # (tools/mapkit/mapkit/layouts.py): each layout.json is written back to its
 # original <base>.bin, so the NARC and its .naix names are unchanged.
 layout_jsons = []

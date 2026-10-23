@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22 -->
 
 # gen4map: a file format and tools for Gen 4 Pokémon maps
 
-> AI-generated, local to this fork. Do not upstream.
+> AI-generated; not affiliated with pret. See AI.md at the repository root.
 
 gen4map is the format this fork keeps its maps in: header and events
 (`map.json`), grids (`layout.json`), terrain cells (collision, behaviors, props,

@@ -11,7 +11,7 @@
 #define POCKET_KEY_ITEMS    7
 #define POCKETS_COUNT       8
 
-// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 // ItemData.fieldUseFunc: what using the item from the bag does; an index into
 // sItemFieldUseFuncs (src/field_use_item.c). The bag offers "Use" only for values
 // other than NONE.

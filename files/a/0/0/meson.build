@@ -8,7 +8,7 @@ foreach f : prebuilt_files
     nitrofs_files += fs.copyfile(f)
 endforeach
 
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] trainer back sprites (a/0/0/6), built from
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] trainer back sprites (a/0/0/6), built from
 # graphics/trainers (PNG, JASC .pal) and data/trainer_graphics/back_pics.json, pokeemerald-style.
 # See docs/modding/trainer-classes.md.
 nitrofs_files += custom_target('trainer_back_pics',

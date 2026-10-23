@@ -1,4 +1,4 @@
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 # Items (pokeemerald-style src/data/items.h, as JSON): data/items/items.json holds every
 # item's name, description, data, icon and Gen 3 id; tools/pokedata/items.py makes the
 # files the game used to keep separately. See docs/modding/items.md.

@@ -1,8 +1,8 @@
-<!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-21 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21 -->
 
 # Changing Pokémon data
 
-> AI-generated, local to this fork. Do not upstream.
+> AI-generated; not affiliated with pret. See AI.md at the repository root.
 
 Species are numbered by `SPECIES_*` in `include/constants/species.h`
 (1–493, then `SPECIES_EGG` 494, `SPECIES_BAD_EGG` 495, then alternate forms from 496).

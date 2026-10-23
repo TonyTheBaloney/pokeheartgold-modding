@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """Print the save file layout of a build: every chunk's size and offset, how full
 each block is, and the extra chunks. docs/modding/save-data.md explains it.
 

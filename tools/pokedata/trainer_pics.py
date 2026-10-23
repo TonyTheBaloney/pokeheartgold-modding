@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """Trainer battle sprites as PNG strips and a short table per class, built into the two archives.
 
 Like pokeemerald's graphics/trainers and src/data/trainer_graphics:
