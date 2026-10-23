@@ -412,7 +412,7 @@ void PokeathlonRingDrop_PrintScore(PokeathlonCourseData *course, u32 score) {
     FillWindowPixelBuffer(&ringDrop->window, 0);
     BufferIntegerAsString(msgFormat, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0309_00163, ringDrop->heapId);
-    AddTextPrinterParameterizedWithColor(&ringDrop->window, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&ringDrop->window, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(&ringDrop->window);
 }

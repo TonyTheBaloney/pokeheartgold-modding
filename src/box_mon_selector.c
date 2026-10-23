@@ -103,7 +103,7 @@ static void BoxMonSelector_InitBgLayers(BgConfig *bgConfig);
 static void BoxMonSelector_UpdatePickMarks(BoxMonSelector *selector);
 static void BoxMonSelector_GetPartyMon(BoxMonSelector *selector, int slot, BoxMonSelectorMon *mon);
 static void BoxMonSelector_RemovePick(BoxMonSelector *selector, int pick);
-static void BoxMonSelector_ShowMessage(BoxMonSelector *selector, int msgId, FontID fontId);
+static void BoxMonSelector_ShowMessage(BoxMonSelector *selector, int msgId, enum Font fontId);
 static void BoxMonSelector_ShowTakePrompt(BoxMonSelector *selector);
 static void BoxMonSelector_RemoveTakePrompt(BoxMonSelector *selector);
 static void BoxMonSelector_ClearMessageWindow(Window *window, BOOL hidePlane);
@@ -220,7 +220,7 @@ void BoxMonSelector_Delete(BoxMonSelector *selector) {
     YesNoPrompt_Destroy(selector->yesNoPrompt);
     Heap_Free(selector->hitboxes);
     Heap_Free(selector->marks);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     gSystem.screensFlipped = FALSE;
     GfGfx_SwapDisplay();
     reg_G2_BLDCNT = 0;
@@ -247,7 +247,7 @@ void BoxMonSelector_Init(BoxMonSelector *selector, BgConfig *bgConfig, void *sto
     BoxMonSelector_InitSpriteHeader(selector);
     BoxMonSelector_CreateButtons(selector);
     GfGfx_EngineATogglePlanes(GX_PLANEMASK_OBJ, GF_PLANE_TOGGLE_ON);
-    FontID_Alloc(4, selector->heapId);
+    FontID_Alloc(FONT_UNK_4, selector->heapId);
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_13_OFFSET, selector->heapId);
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_12_OFFSET, selector->heapId);
     selector->unused_11 = unused11;
@@ -437,9 +437,9 @@ static void BoxMonSelector_ShowConfirmPrompt(BoxMonSelector *selector) {
     YesNoPrompt_InitFromTemplate(selector->yesNoPrompt, &template);
     if (selector->maxPicks == 1) {
         BoxMonSelector_ClearMessageWindow(&selector->messageWindow, FALSE);
-        BoxMonSelector_ShowMessage(selector, msg_0298_00003, 1);
+        BoxMonSelector_ShowMessage(selector, msg_0298_00003, FONT_MESSAGE);
     } else {
-        BoxMonSelector_ShowMessage(selector, msg_0298_00002, 1);
+        BoxMonSelector_ShowMessage(selector, msg_0298_00002, FONT_MESSAGE);
     }
     BoxMonSelector_DimScreen();
     selector->state = BOX_MON_SELECTOR_STATE_CONFIRM;
@@ -474,7 +474,7 @@ static void BoxMonSelector_ShowRemovePrompt(BoxMonSelector *selector) {
     template.x = 25;
     template.y = 15;
     YesNoPrompt_InitFromTemplate(selector->yesNoPrompt, &template);
-    BoxMonSelector_ShowMessage(selector, msg_0298_00004, 0);
+    BoxMonSelector_ShowMessage(selector, msg_0298_00004, FONT_SYSTEM);
     BoxMonSelector_DimScreen();
     selector->state = BOX_MON_SELECTOR_STATE_REMOVE;
 }
@@ -1083,7 +1083,7 @@ static void BoxMonSelector_PrintPageName(BoxMonSelector *selector, int page) {
         selector->getPageName(string, selector->storage, page);
     }
     FillWindowPixelBuffer(&selector->pageNameWindow, 0);
-    AddTextPrinterParameterizedWithColor(&selector->pageNameWindow, 0, string, FontID_String_GetCenterAlignmentX(0, string, 0, 96), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&selector->pageNameWindow, FONT_SYSTEM, string, FontID_String_GetCenterAlignmentX(FONT_SYSTEM, string, 0, 96), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     CopyWindowToVram(&selector->pageNameWindow);
     String_Delete(string);
 }
@@ -1094,7 +1094,7 @@ static void BoxMonSelector_PrintCancelButton(BoxMonSelector *selector) {
     FillWindowPixelBuffer(&selector->cancelWindow, 0);
     if (selector->canCancel) {
         int width = GetWindowWidth(&selector->cancelWindow) << 3;
-        AddTextPrinterParameterizedWithColor(&selector->cancelWindow, 4, string, FontID_String_GetCenterAlignmentX(4, string, 0, width), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&selector->cancelWindow, FONT_UNK_4, string, FontID_String_GetCenterAlignmentX(FONT_UNK_4, string, 0, width), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
     }
     CopyWindowToVram(&selector->cancelWindow);
     String_Delete(string);
@@ -1174,7 +1174,7 @@ static void BoxMonSelector_RemovePick(BoxMonSelector *selector, int pick) {
     selector->pickDropAreas[pick].occupied = FALSE;
 }
 
-static void BoxMonSelector_ShowMessage(BoxMonSelector *selector, int msgId, FontID fontId) {
+static void BoxMonSelector_ShowMessage(BoxMonSelector *selector, int msgId, enum Font fontId) {
     MsgData *msgData;
     String *string;
 
@@ -1192,7 +1192,7 @@ static void BoxMonSelector_ShowMessage(BoxMonSelector *selector, int msgId, Font
 
 static void BoxMonSelector_ShowTakePrompt(BoxMonSelector *selector) {
     if (selector->maxPicks == 1) {
-        BoxMonSelector_ShowMessage(selector, msg_0298_00005, 1);
+        BoxMonSelector_ShowMessage(selector, msg_0298_00005, FONT_MESSAGE);
     }
 }
 

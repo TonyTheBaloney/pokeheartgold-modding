@@ -191,7 +191,7 @@ static u32 ScriptMenu_GetItemsWidth(ScriptMenu *menu) {
             break;
         }
         {
-            u32 width = FontID_String_GetWidth(0, menu->entries[i].text, 0);
+            u32 width = FontID_String_GetWidth(FONT_SYSTEM, menu->entries[i].text, 0);
             if (maxWidth < width) {
                 maxWidth = width;
             }
@@ -367,7 +367,7 @@ static u32 ScriptMenu_GetListItemsWidth(ScriptMenu *menu) {
             break;
         }
         {
-            u32 width = FontID_String_GetWidth(0, menu->items[i].text, 0);
+            u32 width = FontID_String_GetWidth(FONT_SYSTEM, menu->items[i].text, 0);
             if (maxWidth < width) {
                 maxWidth = width;
             }
@@ -482,7 +482,7 @@ static void ScriptMenu_PrintHelpMessage(ScriptMenu *menu, u32 msgId, u32 textSpe
     FillWindowPixelBuffer(menu->printWindow, 15);
     ReadMsgDataIntoString(menu->msgData, msgId, tmp);
     StringExpandPlaceholders(menu->msgFmt, dest, tmp);
-    AddTextPrinterParameterized(menu->printWindow, 1, dest, 0, 0, textSpeed, NULL);
+    AddTextPrinterParameterized(menu->printWindow, FONT_MESSAGE, dest, 0, 0, textSpeed, NULL);
     String_Delete(tmp);
     String_Delete(dest);
 }
@@ -531,7 +531,7 @@ static void ScriptMenu_PrintMessage(ScriptMenu *menu, u16 msgId, u8 x, u8 y) {
     String *dest = String_New(90, HEAP_ID_FIELD1);
     ReadMsgDataIntoString(menu->msgData, msgId, tmp);
     StringExpandPlaceholders(menu->msgFmt, dest, tmp);
-    AddTextPrinterParameterized(&menu->window, 0, dest, x, y, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(&menu->window, FONT_SYSTEM, dest, x, y, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(tmp);
     String_Delete(dest);
 }
@@ -674,7 +674,7 @@ Window *FieldSystem_ShowMoneyBox(FieldSystem *fieldSystem, u8 x, u8 y) {
     FillWindowPixelBuffer(window, 15);
     msgData = NewMsgDataFromNarc((MsgDataLoadType)0, NARC_msgdata_msg, msg_0435, HEAP_ID_FIELD1);
     string = NewString_ReadMsgData(msgData, msg_0435_00030);
-    AddTextPrinterParameterized(window, 0, string, 0, 0, 0xFF, NULL);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, string, 0, 0, 0xFF, NULL);
     DestroyMsgData(msgData);
     String_Delete(string);
     MoneyBoxSys_Update(fieldSystem, window);
@@ -701,8 +701,8 @@ void MoneyBoxSys_Update(FieldSystem *fieldSystem, Window *moneybox) {
     template = NewString_ReadMsgData(msgData, msg_0435_00031);
     BufferIntegerAsString(msgFmt, 0, PlayerProfile_GetMoney(Save_PlayerData_GetProfile(fieldSystem->saveData)), 6, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(msgFmt, string, template);
-    x = 80 - FontID_String_GetWidth(0, string, 0);
-    AddTextPrinterParameterized(moneybox, 0, string, x, 16, TEXT_SPEED_NOTRANSFER, NULL);
+    x = 80 - FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+    AddTextPrinterParameterized(moneybox, FONT_SYSTEM, string, x, 16, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(template);
     String_Delete(string);
     MessageFormat_Delete(msgFmt);
@@ -760,8 +760,8 @@ void PointsBox_Update(FieldSystem *fieldSystem, Window *window, u8 type) {
     }
     BufferIntegerAsString(msgFmt, 0, value, 5, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(msgFmt, string, template);
-    x = 80 - FontID_String_GetWidth(0, string, 0);
-    AddTextPrinterParameterized(window, 0, string, x, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    x = 80 - FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(template);
     String_Delete(string);
     MessageFormat_Delete(msgFmt);
@@ -780,10 +780,10 @@ Window *SavingsBox_New(FieldSystem *fieldSystem, u8 x, u8 y) {
     FillWindowPixelBuffer(window, 15);
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0191, HEAP_ID_FIELD1);
     string = NewString_ReadMsgData(msgData, msg_0191_00330);
-    AddTextPrinterParameterized(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(msgData, msg_0191_00331);
-    AddTextPrinterParameterized(window, 0, string, 0, 32, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, string, 0, 32, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(string);
     DestroyMsgData(msgData);
     SavingsBox_Update(fieldSystem, window);
@@ -805,13 +805,13 @@ void SavingsBox_Update(FieldSystem *fieldSystem, Window *window) {
     u32 money = PhoneCallPersistentState_MomSavings_BalanceAction(SaveData_GetPhoneCallPersistentState(fieldSystem->saveData), 0, 0);
     BufferIntegerAsString(msgFmt, 0, money, 6, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(msgFmt, string, template);
-    u32 x = 128 - FontID_String_GetWidth(0, string, 0);
-    AddTextPrinterParameterized(window, 0, string, x, 16, TEXT_SPEED_NOTRANSFER, NULL);
+    u32 x = 128 - FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, string, x, 16, TEXT_SPEED_NOTRANSFER, NULL);
     money = PlayerProfile_GetMoney(Save_PlayerData_GetProfile(fieldSystem->saveData));
     BufferIntegerAsString(msgFmt, 0, money, 6, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(msgFmt, string, template);
-    x = 128 - FontID_String_GetWidth(0, string, 0);
-    AddTextPrinterParameterized(window, 0, string, x, 48, TEXT_SPEED_NOTRANSFER, NULL);
+    x = 128 - FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, string, x, 48, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(template);
     String_Delete(string);
     MessageFormat_Delete(msgFmt);
@@ -850,7 +850,7 @@ void ScriptMenu_PrintItemHelpMessage(ScriptMenu *menu, int idx) {
     FillWindowPixelBuffer(menu->printWindow, 15);
     ReadMsgDataIntoString(menu->msgData, menu->msgIds[idx], tmp);
     StringExpandPlaceholders(menu->msgFmt, dest, tmp);
-    AddTextPrinterParameterized(menu->printWindow, 1, dest, 0, 0, 0, NULL);
+    AddTextPrinterParameterized(menu->printWindow, FONT_MESSAGE, dest, 0, 0, 0, NULL);
     String_Delete(tmp);
     String_Delete(dest);
 }

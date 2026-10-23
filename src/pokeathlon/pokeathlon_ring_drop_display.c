@@ -134,7 +134,7 @@ void PokeathlonRingDrop_InitBgs(PokeathlonRingDrop *ringDrop) {
     }
     ringDrop->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, ringDrop->heapId);
     ringDrop->msgFormat = MessageFormat_New(ringDrop->heapId);
-    FontID_Alloc((FontID)4, ringDrop->heapId);
+    FontID_Alloc(FONT_UNK_4, ringDrop->heapId);
     GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG3, GF_PLANE_TOGGLE_OFF);
 }
 
@@ -147,7 +147,7 @@ void PokeathlonRingDrop_FreeBgs(PokeathlonRingDrop *ringDrop) {
     for (i = 0; i < 7; i++) {
         FreeBgTilemapBuffer(ringDrop->bgConfig, (u8)gPokeathlonRingDropBgLayers[i]);
     }
-    FontID_Release((FontID)4);
+    FontID_Release(FONT_UNK_4);
     Heap_Free(ringDrop->bgConfig);
 }
 

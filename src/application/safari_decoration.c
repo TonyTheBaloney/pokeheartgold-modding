@@ -1114,7 +1114,7 @@ static void SafariDecoration_FreeModelView(SafariDecoration *decor) {
 static void SafariDecoration_CreateStrings(SafariDecoration *decor) {
     int i;
 
-    FontID_Alloc(4, decor->heapId);
+    FontID_Alloc(FONT_UNK_4, decor->heapId);
     decor->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0430, decor->heapId);
     decor->msgFormat = MessageFormat_New_Custom(2, 16, decor->heapId);
     decor->tmpString = String_New(256, decor->heapId);
@@ -1138,7 +1138,7 @@ static void SafariDecoration_DeleteStrings(SafariDecoration *decor) {
     String_Delete(decor->tmpString);
     MessageFormat_Delete(decor->msgFormat);
     DestroyMsgData(decor->msgData);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void SafariDecoration_AddWindows(SafariDecoration *decor) {
@@ -1214,8 +1214,8 @@ static void SafariDecoration_SetBackButtonState(SafariDecoration *decor, int sta
     Sprite_SetAnimCtrlSeq(decor->sprites[1], state + 2);
     Sprite_ResetAnimCtrlState(decor->sprites[1]);
     FillWindowPixelBuffer(&decor->windows[2], 0);
-    width = FontID_String_GetWidth(4, decor->backText, 0);
-    AddTextPrinterParameterizedWithColor(&decor->windows[2], 4, decor->backText, (u32)(48 - width) / 2, 4, TEXT_SPEED_NOTRANSFER, gSafariDecorationBackButtonColors[state], NULL);
+    width = FontID_String_GetWidth(FONT_UNK_4, decor->backText, 0);
+    AddTextPrinterParameterizedWithColor(&decor->windows[2], FONT_UNK_4, decor->backText, (u32)(48 - width) / 2, 4, TEXT_SPEED_NOTRANSFER, gSafariDecorationBackButtonColors[state], NULL);
     ScheduleWindowCopyToVram(&decor->windows[2]);
 }
 
@@ -1254,8 +1254,8 @@ static void SafariDecoration_DrawObjectList(SafariDecoration *decor) {
             screen = decor->listFrameScreen;
             CopyToBgTilemapRect(decor->bgConfig, GF_BG_LYR_SUB_2, (u8)((i % 2) * 16), (u8)((i / 2 + 1) * 5), 16, 4, screen->rawData, unavailable * 16, 0, (u8)(screen->screenWidth / 8), (u8)(screen->screenHeight / 8));
             ReadMsgDataIntoString(decor->msgData, decor->objects[index].objectId + 14, decor->string);
-            x = 112 - FontID_String_GetWidth(4, decor->string, 0);
-            AddTextPrinterParameterizedWithColor(&windows[i + 6], 4, decor->string, x / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+            x = 112 - FontID_String_GetWidth(FONT_UNK_4, decor->string, 0);
+            AddTextPrinterParameterizedWithColor(&windows[i + 6], FONT_UNK_4, decor->string, x / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
             ScheduleWindowCopyToVram(&windows[i + 6]);
         }
     }
@@ -1263,7 +1263,7 @@ static void SafariDecoration_DrawObjectList(SafariDecoration *decor) {
     BufferIntegerAsString(decor->msgFormat, 0, decor->page + 1, 1, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     BufferIntegerAsString(decor->msgFormat, 1, decor->numPages, 1, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(decor->msgFormat, decor->tmpString, decor->pageTemplate);
-    AddTextPrinterParameterizedWithColor(&decor->windows[3], 0, decor->tmpString, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&decor->windows[3], FONT_SYSTEM, decor->tmpString, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
     ScheduleWindowCopyToVram(&decor->windows[3]);
     ScheduleBgTilemapBufferTransfer(decor->bgConfig, GF_BG_LYR_SUB_1);
     ScheduleBgTilemapBufferTransfer(decor->bgConfig, GF_BG_LYR_SUB_2);
@@ -1286,8 +1286,8 @@ static void SafariDecoration_PrintSelectedObjectName(SafariDecoration *decor) {
     FillWindowPixelBuffer(&decor->windows[4], 0);
     selection = decor->selection;
     ReadMsgDataIntoString(decor->msgData, decor->objects[selection].objectId + 14, decor->string);
-    x = 112 - FontID_String_GetWidth(4, decor->string, 0);
-    AddTextPrinterParameterizedWithColor(&decor->windows[4], 4, decor->string, x / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    x = 112 - FontID_String_GetWidth(FONT_UNK_4, decor->string, 0);
+    AddTextPrinterParameterizedWithColor(&decor->windows[4], FONT_UNK_4, decor->string, x / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ScheduleWindowCopyToVram(&decor->windows[4]);
     ClearWindowTilemapAndScheduleTransfer(&decor->windows[3]);
 }
@@ -1335,7 +1335,7 @@ static void SafariDecoration_PrintMessage(SafariDecoration *decor, int msg) {
     } else {
         ReadMsgDataIntoString(decor->msgData, msg, decor->string);
     }
-    AddTextPrinterParameterizedWithColor(&decor->windows[0], 0, decor->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&decor->windows[0], FONT_SYSTEM, decor->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
     ScheduleWindowCopyToVram(&decor->windows[0]);
 }
 
@@ -1343,7 +1343,7 @@ static void SafariDecoration_ShowErrorMessage(SafariDecoration *decor, int msg) 
     FillWindowPixelBuffer(&decor->windows[1], 15);
     ReadMsgDataIntoString(decor->msgData, msg + 4, decor->string);
     DrawFrameAndWindow2(&decor->windows[1], TRUE, 994, 12);
-    AddTextPrinterParameterizedWithColor(&decor->windows[1], 1, decor->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    AddTextPrinterParameterizedWithColor(&decor->windows[1], FONT_MESSAGE, decor->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     ScheduleWindowCopyToVram(&decor->windows[1]);
 }
 
@@ -1358,7 +1358,7 @@ static void SafariDecoration_PrintObjectDescription(SafariDecoration *decor) {
         return;
     }
     ReadMsgDataIntoString(decor->msgData, decor->objects[index].objectId + 38, decor->string);
-    AddTextPrinterParameterizedWithColor(&decor->windows[5], 0, decor->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&decor->windows[5], FONT_SYSTEM, decor->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ScheduleWindowCopyToVram(&decor->windows[5]);
 }
 

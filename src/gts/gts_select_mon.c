@@ -453,7 +453,7 @@ void GtsSearch_PrintMessage(GtsApp *app, int msgId, int textSpeed, int unused3, 
     ReadMsgDataIntoString(app->gtsMsgData, msgId, app->msgBuffer);
     FillWindowPixelBuffer(&app->waitingIconWindow, 15);
     DrawFrameAndWindow2(&app->waitingIconWindow, FALSE, 1, 14);
-    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, 1, app->msgBuffer, 0, 0, textSpeed, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, FONT_MESSAGE, app->msgBuffer, 0, 0, textSpeed, NULL);
 }
 
 void GtsSearch_DrawFieldLabels(Window *fieldWindows, Window *lineWindow, MsgData *msgData) {
@@ -1213,7 +1213,7 @@ static void GtsSelectMon_PrintMessage(GtsApp *app, int msgId, int textSpeed, int
     window = inPromptWindow == FALSE ? &app->waitingIconWindow : &app->promptWindow;
     FillWindowPixelBuffer(window, 15);
     DrawFrameAndWindow2(window, FALSE, 1, 14);
-    app->textPrinterId = AddTextPrinterParameterized(window, 1, app->msgBuffer, 0, 0, textSpeed, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(window, FONT_MESSAGE, app->msgBuffer, 0, 0, textSpeed, NULL);
     String_Delete(string);
 }
 

@@ -472,7 +472,7 @@ BOOL FrontierRecordsApp_Init(OverlayManager *man, int *state) {
     app->facility = args->facility;
     app->species = args->species;
     app->options = Save_PlayerData_GetOptionsAddr(app->saveData);
-    FontID_Alloc(4, HEAP_ID_121);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_121);
     FrontierRecordsApp_InitGraphics(app);
     app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0019, HEAP_ID_121);
     app->msgFormat = MessageFormat_New(HEAP_ID_121);
@@ -528,7 +528,7 @@ BOOL FrontierRecordsApp_Exit(OverlayManager *man, int *state) {
     FrontierRecordsApp_RemoveReturnButtonWindow(&app->returnButtonWindow);
     FrontierRecordsApp_RemoveWindows(app->windows, FrontierRecordsApp_GetWindowSet(app->facility));
     FrontierRecordsApp_FreeBgLayers(app->bgConfig);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     OverlayManager_FreeData(man);
     Main_SetVBlankIntrCB(NULL, NULL);
     Heap_Destroy(HEAP_ID_121);
@@ -812,7 +812,7 @@ static void FrontierRecordsApp_PrintFactoryLevel50Records(FrontierRecordsApp *ap
     FillWindowPixelBuffer(&app->windows[1], 0);
     FillWindowPixelBuffer(&app->windows[2], 0);
     FillWindowPixelBuffer(&app->windows[3], 0);
-    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00022, 0, 0, 0, COLOR_HEADER, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00022, 0, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_LEFT);
     if (app->mode == 0) {
         msgOrValue = msg_0019_00026;
     } else if (app->mode == 1) {
@@ -820,23 +820,23 @@ static void FrontierRecordsApp_PrintFactoryLevel50Records(FrontierRecordsApp *ap
     } else {
         msgOrValue = msg_0019_00028;
     }
-    FrontierRecordsApp_PrintMessage(app, 0, msgOrValue, 224, 0, 0, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 1, msg_0019_00046, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
-    FrontierRecordsApp_PrintMessage(app, 1, msg_0019_00048, 224, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 2, FrontierRecordsApp_GetFactoryStreakLabel(app, 0), 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msgOrValue, 224, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 1, msg_0019_00046, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 1, msg_0019_00048, 224, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 2, FrontierRecordsApp_GetFactoryStreakLabel(app, 0), 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     msgOrValue = FrontierSave_GetStat(app->frontierSave, BattleFactory_GetWinStreakStat(0, app->mode), 0xFF);
     FrontierRecordsApp_BufferNumber(app, 0, msgOrValue);
-    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00050, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00050, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     msgOrValue = FrontierSave_GetStat(app->frontierSave, BattleFactory_GetTradeCountStat(0, app->mode), 0xFF);
     FrontierRecordsApp_BufferNumber(app, 0, msgOrValue);
-    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00052, 224, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 3, msg_0019_00043, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00052, 224, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 3, msg_0019_00043, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     msgOrValue = FrontierSave_GetStat(app->frontierSave, BattleFactory_GetBestStreakStat(0, app->mode), 0xFF);
     FrontierRecordsApp_BufferNumber(app, 0, msgOrValue);
-    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00050, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00050, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     msgOrValue = FrontierSave_GetStat(app->frontierSave, BattleFactory_GetBestTradeCountStat(0, app->mode), 0xFF);
     FrontierRecordsApp_BufferNumber(app, 0, msgOrValue);
-    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00052, 224, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00052, 224, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
     ScheduleWindowCopyToVram(&app->windows[0]);
     ScheduleWindowCopyToVram(&app->windows[1]);
     ScheduleWindowCopyToVram(&app->windows[2]);
@@ -849,22 +849,22 @@ static void FrontierRecordsApp_PrintFactoryOpenLevelRecords(FrontierRecordsApp *
     FillWindowPixelBuffer(&app->windows[4], 0);
     FillWindowPixelBuffer(&app->windows[5], 0);
     FillWindowPixelBuffer(&app->windows[6], 0);
-    FrontierRecordsApp_PrintMessage(app, 4, msg_0019_00047, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
-    FrontierRecordsApp_PrintMessage(app, 4, msg_0019_00048, 224, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 5, FrontierRecordsApp_GetFactoryStreakLabel(app, 1), 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 4, msg_0019_00047, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 4, msg_0019_00048, 224, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 5, FrontierRecordsApp_GetFactoryStreakLabel(app, 1), 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     value = FrontierSave_GetStat(app->frontierSave, BattleFactory_GetWinStreakStat(1, app->mode), 0xFF);
     FrontierRecordsApp_BufferNumber(app, 0, value);
-    FrontierRecordsApp_PrintFormattedMessage(app, 5, msg_0019_00050, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 5, msg_0019_00050, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     value = FrontierSave_GetStat(app->frontierSave, BattleFactory_GetTradeCountStat(1, app->mode), 0xFF);
     FrontierRecordsApp_BufferNumber(app, 0, value);
-    FrontierRecordsApp_PrintFormattedMessage(app, 5, msg_0019_00052, 224, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 6, msg_0019_00043, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 5, msg_0019_00052, 224, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 6, msg_0019_00043, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     value = FrontierSave_GetStat(app->frontierSave, BattleFactory_GetBestStreakStat(1, app->mode), 0xFF);
     FrontierRecordsApp_BufferNumber(app, 0, value);
-    FrontierRecordsApp_PrintFormattedMessage(app, 6, msg_0019_00050, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 6, msg_0019_00050, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     value = FrontierSave_GetStat(app->frontierSave, BattleFactory_GetBestTradeCountStat(1, app->mode), 0xFF);
     FrontierRecordsApp_BufferNumber(app, 0, value);
-    FrontierRecordsApp_PrintFormattedMessage(app, 6, msg_0019_00052, 224, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 6, msg_0019_00052, 224, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
     ScheduleWindowCopyToVram(&app->windows[4]);
     ScheduleWindowCopyToVram(&app->windows[5]);
     ScheduleWindowCopyToVram(&app->windows[6]);
@@ -902,7 +902,7 @@ static void FrontierRecordsApp_PrintHallRecords(FrontierRecordsApp *app) {
     FillWindowPixelBuffer(&app->windows[1], 0);
     FillWindowPixelBuffer(&app->windows[2], 0);
     FillWindowPixelBuffer(&app->windows[3], 0);
-    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00024, 0, 0, 0, COLOR_HEADER, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00024, 0, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_LEFT);
     if (app->mode == 0) {
         value = msg_0019_00026;
     } else if (app->mode == 1) {
@@ -910,10 +910,10 @@ static void FrontierRecordsApp_PrintHallRecords(FrontierRecordsApp *app) {
     } else {
         value = msg_0019_00028;
     }
-    FrontierRecordsApp_PrintMessage(app, 0, value, 224, 0, 0, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 0, value, 224, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
     FrontierRecordsApp_BufferSpeciesName(app, app->species);
-    FrontierRecordsApp_PrintFormattedMessage(app, 1, msg_0019_00051, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
-    FrontierRecordsApp_PrintMessage(app, 2, msg_0019_00029, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 1, msg_0019_00051, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 2, msg_0019_00029, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     frontierSave = Save_Frontier_GetStatic(app->saveData);
     stat = BattleHall_GetSpeciesStat(app->mode);
     value = FrontierSave_GetStat(frontierSave, stat, FrontierStat_GetFriendIndex(BattleHall_GetSpeciesStat(app->mode)));
@@ -923,8 +923,8 @@ static void FrontierRecordsApp_PrintHallRecords(FrontierRecordsApp *app) {
         value = FrontierSave_GetStat(app->frontierSave, BattleHall_GetWinStreakStat(app->mode), 0xFF);
     }
     FrontierRecordsApp_BufferNumber(app, 0, value);
-    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00050, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
-    FrontierRecordsApp_PrintMessage(app, 3, msg_0019_00043, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00050, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintMessage(app, 3, msg_0019_00043, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     records = FrontierSpeciesRecords_Load(app->saveData, 11, &flag);
     if (flag != 1) {
         value = 0;
@@ -935,7 +935,7 @@ static void FrontierRecordsApp_PrintHallRecords(FrontierRecordsApp *app) {
         Heap_Free(records);
     }
     FrontierRecordsApp_BufferNumber(app, 0, value);
-    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00050, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00050, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     ScheduleWindowCopyToVram(&app->windows[0]);
     ScheduleWindowCopyToVram(&app->windows[1]);
     ScheduleWindowCopyToVram(&app->windows[2]);
@@ -958,7 +958,7 @@ static void FrontierRecordsApp_PrintCastleRecords(FrontierRecordsApp *app) {
     FillWindowPixelBuffer(&app->windows[1], 0);
     FillWindowPixelBuffer(&app->windows[2], 0);
     FillWindowPixelBuffer(&app->windows[3], 0);
-    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00023, 0, 0, 0, COLOR_HEADER, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00023, 0, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_LEFT);
     if (app->mode == 0) {
         msg = msg_0019_00026;
     } else if (app->mode == 1) {
@@ -966,22 +966,22 @@ static void FrontierRecordsApp_PrintCastleRecords(FrontierRecordsApp *app) {
     } else {
         msg = msg_0019_00028;
     }
-    FrontierRecordsApp_PrintMessage(app, 0, msg, 224, 0, 0, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 1, msg_0019_00049, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 2, FrontierRecordsApp_GetCastleStreakLabel(app), 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg, 224, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 1, msg_0019_00049, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 2, FrontierRecordsApp_GetCastleStreakLabel(app), 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_BufferNumber(app, 0, FrontierSave_GetStat(app->frontierSave, BattleCastle_GetWinStreakStat(app->mode), 0xFF));
-    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00054, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00054, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     frontierSave = Save_Frontier_GetStatic(app->saveData);
     stat = BattleCastle_GetPointsStat(app->mode);
     FrontierRecordsApp_BufferNumber(app, 0, FrontierSave_GetStat(frontierSave, stat, FrontierStat_GetFriendIndex(BattleCastle_GetPointsStat(app->mode))));
-    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00053, 224, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 3, msg_0019_00043, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00053, 224, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 3, msg_0019_00043, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_BufferNumber(app, 0, FrontierSave_GetStat(app->frontierSave, BattleCastle_GetBestStreakStat(app->mode), 0xFF));
-    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00054, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00054, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     frontierSave = Save_Frontier_GetStatic(app->saveData);
     stat = BattleCastle_GetBestStreakPointsStat(app->mode);
     FrontierRecordsApp_BufferNumber(app, 0, FrontierSave_GetStat(frontierSave, stat, FrontierStat_GetFriendIndex(BattleCastle_GetBestStreakPointsStat(app->mode))));
-    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00053, 224, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00053, 224, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
     ScheduleWindowCopyToVram(&app->windows[0]);
     ScheduleWindowCopyToVram(&app->windows[1]);
     ScheduleWindowCopyToVram(&app->windows[2]);
@@ -1007,7 +1007,7 @@ static void FrontierRecordsApp_PrintArcadeRecords(FrontierRecordsApp *app) {
     FillWindowPixelBuffer(&app->windows[0], 0);
     FillWindowPixelBuffer(&app->windows[1], 0);
     FillWindowPixelBuffer(&app->windows[2], 0);
-    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00025, 0, 0, 0, COLOR_HEADER, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00025, 0, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_LEFT);
     if (app->mode == 0) {
         msg = msg_0019_00026;
     } else if (app->mode == 1) {
@@ -1015,13 +1015,13 @@ static void FrontierRecordsApp_PrintArcadeRecords(FrontierRecordsApp *app) {
     } else {
         msg = msg_0019_00028;
     }
-    FrontierRecordsApp_PrintMessage(app, 0, msg, 224, 0, 0, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 1, FrontierRecordsApp_GetArcadeStreakLabel(app), 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg, 224, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 1, FrontierRecordsApp_GetArcadeStreakLabel(app), 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_BufferNumber(app, 0, FrontierSave_GetStat(app->frontierSave, BattleArcade_GetWinStreakStat(app->mode), 0xFF));
-    FrontierRecordsApp_PrintFormattedMessage(app, 1, msg_0019_00055, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
-    FrontierRecordsApp_PrintMessage(app, 2, msg_0019_00043, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 1, msg_0019_00055, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintMessage(app, 2, msg_0019_00043, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_BufferNumber(app, 0, FrontierSave_GetStat(app->frontierSave, BattleArcade_GetBestStreakStat(app->mode), 0xFF));
-    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00055, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00055, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     ScheduleWindowCopyToVram(&app->windows[0]);
     ScheduleWindowCopyToVram(&app->windows[1]);
     ScheduleWindowCopyToVram(&app->windows[2]);
@@ -1046,15 +1046,15 @@ static void FrontierRecordsApp_PrintTowerRecords(FrontierRecordsApp *app) {
     FillWindowPixelBuffer(&app->windows[0], 0);
     FillWindowPixelBuffer(&app->windows[2], 0);
     FillWindowPixelBuffer(&app->windows[3], 0);
-    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00021, 0, 0, 0, COLOR_HEADER, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00021, 0, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_LEFT);
     msg = app->mode == 0 ? msg_0019_00026 : msg_0019_00027;
-    FrontierRecordsApp_PrintMessage(app, 0, msg, 224, 0, 0, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 2, FrontierRecordsApp_GetTowerStreakLabel(app, app->mode), 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg, 224, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 2, FrontierRecordsApp_GetTowerStreakLabel(app, app->mode), 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_BufferNumber(app, 0, FrontierSave_GetStat(app->frontierSave, BattleTower_GetWinStreakStat(app->mode), 0xFF));
-    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00050, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
-    FrontierRecordsApp_PrintMessage(app, 3, msg_0019_00043, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 2, msg_0019_00050, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintMessage(app, 3, msg_0019_00043, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_BufferNumber(app, 0, FrontierSave_GetStat(app->frontierSave, BattleTower_GetBestStreakStat(app->mode), 0xFF));
-    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00050, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 3, msg_0019_00050, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     ScheduleWindowCopyToVram(&app->windows[0]);
     ScheduleWindowCopyToVram(&app->windows[2]);
     ScheduleWindowCopyToVram(&app->windows[3]);
@@ -1062,7 +1062,7 @@ static void FrontierRecordsApp_PrintTowerRecords(FrontierRecordsApp *app) {
 
 static inline void FrontierRecordsApp_PrintTowerStreak(FrontierRecordsApp *app, u32 windowId, u32 stat) {
     FrontierRecordsApp_BufferNumber(app, 0, FrontierSave_GetStat(app->frontierSave, stat, 0xFF));
-    FrontierRecordsApp_PrintFormattedMessage(app, windowId, msg_0019_00050, 112, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, windowId, msg_0019_00050, 112, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
 }
 
 static void FrontierRecordsApp_PrintTowerMultiRecords(FrontierRecordsApp *app) {
@@ -1073,17 +1073,17 @@ static void FrontierRecordsApp_PrintTowerMultiRecords(FrontierRecordsApp *app) {
     FillWindowPixelBuffer(&app->windows[6], 0);
     FillWindowPixelBuffer(&app->windows[7], 0);
     FillWindowPixelBuffer(&app->windows[8], 0);
-    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00021, 0, 0, 0, COLOR_HEADER, RECORDS_ALIGN_LEFT);
-    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00028, 224, 0, 0, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 1, msg_0019_00044, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
-    FrontierRecordsApp_PrintMessage(app, 4, FrontierRecordsApp_GetTowerStreakLabel(app, app->mode), 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00021, 0, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 0, msg_0019_00028, 224, 0, FONT_SYSTEM, COLOR_HEADER, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 1, msg_0019_00044, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 4, FrontierRecordsApp_GetTowerStreakLabel(app, app->mode), 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_PrintTowerStreak(app, 4, BattleTower_GetWinStreakStat(app->mode));
-    FrontierRecordsApp_PrintMessage(app, 5, msg_0019_00043, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 5, msg_0019_00043, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_PrintTowerStreak(app, 5, BattleTower_GetBestStreakStat(app->mode));
-    FrontierRecordsApp_PrintMessage(app, 6, msg_0019_00045, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
-    FrontierRecordsApp_PrintMessage(app, 7, FrontierRecordsApp_GetTowerStreakLabel(app, 3), 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 6, msg_0019_00045, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 7, FrontierRecordsApp_GetTowerStreakLabel(app, 3), 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_PrintTowerStreak(app, 7, BattleTower_GetWinStreakStat(3));
-    FrontierRecordsApp_PrintMessage(app, 8, msg_0019_00043, 0, 0, 0, COLOR_TEXT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 8, msg_0019_00043, 0, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_LEFT);
     FrontierRecordsApp_PrintTowerStreak(app, 8, BattleTower_GetBestStreakStat(3));
     ScheduleWindowCopyToVram(&app->windows[0]);
     ScheduleWindowCopyToVram(&app->windows[1]);
@@ -1127,7 +1127,7 @@ static u32 FrontierRecordsApp_GetTowerStreakLabel(FrontierRecordsApp *app, u32 m
 static void FrontierRecordsApp_PrintReturnButton(FrontierRecordsApp *app) {
     String *string = NewString_ReadMsgData(app->msgData, msg_0019_00039);
     FillWindowPixelBuffer(&app->returnButtonWindow, 0);
-    FrontierRecordsApp_PrintStringAligned(&app->returnButtonWindow, string, GetWindowWidth(&app->returnButtonWindow) * 8 / 2, 0, 4, COLOR_BUTTON, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintStringAligned(&app->returnButtonWindow, string, GetWindowWidth(&app->returnButtonWindow) * 8 / 2, 0, FONT_UNK_4, COLOR_BUTTON, RECORDS_ALIGN_CENTER);
     ScheduleWindowCopyToVram(&app->returnButtonWindow);
     String_Delete(string);
 }
@@ -1374,7 +1374,7 @@ static void FrontierRecordsApp_LoadWindowFrame(FrontierRecordsApp *app) {
 static void FrontierRecordsApp_ShowPrompt(FrontierRecordsApp *app) {
     DrawFrameAndWindow2(&app->windows[23], TRUE, 0x3E2, 14);
     FillWindowPixelBuffer(&app->windows[23], 15);
-    FrontierRecordsApp_PrintMessage(app, 23, msg_0019_00042, 0, 0, 1, COLOR_PROMPT, RECORDS_ALIGN_LEFT);
+    FrontierRecordsApp_PrintMessage(app, 23, msg_0019_00042, 0, 0, FONT_MESSAGE, COLOR_PROMPT, RECORDS_ALIGN_LEFT);
     ScheduleWindowCopyToVram(&app->windows[23]);
 }
 
@@ -1391,7 +1391,7 @@ static void FrontierRecordsApp_PrintLetters(FrontierRecordsApp *app) {
     for (i = 0; i < NUM_LETTERS; i++) {
         position = sFrontierRecordsLetterPositions[i];
         column = position % 7;
-        FrontierRecordsApp_PrintMessage(app, 4, i + msg_0019_00056, (column << 5) + 24, (position / 7) << 5, 4, COLOR_BUTTON, RECORDS_ALIGN_CENTER);
+        FrontierRecordsApp_PrintMessage(app, 4, i + msg_0019_00056, (column << 5) + 24, (position / 7) << 5, FONT_UNK_4, COLOR_BUTTON, RECORDS_ALIGN_CENTER);
     }
 }
 
@@ -1660,7 +1660,7 @@ static void FrontierRecordsApp_PrintSpeciesPage(FrontierRecordsApp *app) {
         FillWindowPixelBuffer(&app->windows[windowId + i], 0);
         if (app->groups[app->letter].count > start + i) {
             FrontierRecordsApp_BufferSpeciesName(app, app->groups[app->letter].species[start + i]);
-            FrontierRecordsApp_PrintFormattedMessage(app, windowId + i, msg_0019_00019, GetWindowWidth(&app->windows[windowId + i]) * 8 / 2, 0, 4, COLOR_BUTTON, RECORDS_ALIGN_CENTER);
+            FrontierRecordsApp_PrintFormattedMessage(app, windowId + i, msg_0019_00019, GetWindowWidth(&app->windows[windowId + i]) * 8 / 2, 0, FONT_UNK_4, COLOR_BUTTON, RECORDS_ALIGN_CENTER);
             palette = 0;
         } else {
             palette = 1;
@@ -1691,17 +1691,17 @@ static void FrontierRecordsApp_PrintLetterTitle(FrontierRecordsApp *app) {
 
     FillWindowPixelBuffer(&app->windows[21], 0);
     width = GetWindowWidth(&app->windows[21]);
-    FrontierRecordsApp_PrintMessage(app, 21, app->letter + msg_0019_00056, (width * 8) / 2, 0, 4, COLOR_BUTTON, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintMessage(app, 21, app->letter + msg_0019_00056, (width * 8) / 2, 0, FONT_UNK_4, COLOR_BUTTON, RECORDS_ALIGN_CENTER);
     ScheduleWindowCopyToVram(&app->windows[21]);
 }
 
 static void FrontierRecordsApp_PrintPageNumber(FrontierRecordsApp *app) {
     FillWindowPixelBuffer(&app->windows[22], 0);
     FrontierRecordsApp_BufferNumber(app, 0, app->page + 1);
-    FrontierRecordsApp_PrintFormattedMessage(app, 22, msg_0019_00040, 8, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
-    FrontierRecordsApp_PrintMessage(app, 22, msg_0019_00041, 16, 0, 0, COLOR_TEXT, RECORDS_ALIGN_CENTER);
+    FrontierRecordsApp_PrintFormattedMessage(app, 22, msg_0019_00040, 8, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintMessage(app, 22, msg_0019_00041, 16, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_CENTER);
     FrontierRecordsApp_BufferNumber(app, 0, app->lastPage + 1);
-    FrontierRecordsApp_PrintFormattedMessage(app, 22, msg_0019_00040, 32, 0, 0, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
+    FrontierRecordsApp_PrintFormattedMessage(app, 22, msg_0019_00040, 32, 0, FONT_SYSTEM, COLOR_TEXT, RECORDS_ALIGN_RIGHT);
     ScheduleWindowCopyToVram(&app->windows[22]);
 }
 

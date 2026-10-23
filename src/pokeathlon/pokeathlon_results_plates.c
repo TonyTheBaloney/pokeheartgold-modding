@@ -335,7 +335,7 @@ static void PokeathlonResults_CreateText(PokeathlonResultsAnnouncementPlates *pl
     ObjCharSpaceReservation charSlot;
     TextOBJ *textObj;
     FillWindowPixelBufferText_AssumeTileSize32(&window->window, 0);
-    AddTextPrinterParameterizedWithColorAndSpacing(&window->window, 0, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0, 0, NULL);
+    AddTextPrinterParameterizedWithColorAndSpacing(&window->window, FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0, 0, NULL);
     ObjCharTransfer_ReserveCharSpace(window->charSize, TRUE, NNS_G2D_VRAM_TYPE_2DMAIN, &charSlot);
     template.fontSystem = plates->fontSystem;
     template.window = &window->window;
@@ -460,7 +460,7 @@ static void PokeathlonResults_CreateScoreboardText(PokeathlonResultsAnnouncement
     ObjCharSpaceReservation charSlot;
     TextOBJ *textObj;
     FillWindowPixelBufferText_AssumeTileSize32(&window->window, 0);
-    AddTextPrinterParameterizedWithColorAndSpacing(&window->window, 0, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0, 0, NULL);
+    AddTextPrinterParameterizedWithColorAndSpacing(&window->window, FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0, 0, NULL);
     ObjCharTransfer_ReserveCharSpace(window->charSize, TRUE, NNS_G2D_VRAM_TYPE_2DSUB, &charSlot);
     template.fontSystem = scoreboard->fontSystem;
     template.window = &window->window;

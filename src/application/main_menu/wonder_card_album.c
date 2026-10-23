@@ -20,6 +20,7 @@
 #include "comm_wireless.h"
 #include "communication_core.h"
 #include "communication_player_state.h"
+#include "font.h"
 #include "gf_gfx_loader.h"
 #include "gf_gfx_planes.h"
 #include "heap.h"
@@ -96,9 +97,6 @@ struct WonderCardAlbum {
 };
 
 extern void ResetAllTextPrinters(void);
-extern void LoadFontPal0(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, enum HeapID heapID);
-extern u8 GetFontAttribute(u8 fontId, int attr);
-extern u32 FontID_String_GetCenterAlignmentX(u32 fontId, String *string, u32 letterSpacing, u32 windowWidth);
 extern u8 AddTextPrinterParameterizedWithColor(Window *window, u32 fontId, String *string, u32 x, u32 y, u32 textSpeed, u32 color, void *callback);
 
 extern void RTC_ConvertDayToDate(RTCDate *date, s32 day);
@@ -587,9 +585,9 @@ static void WonderCardAlbum_PrintMessage(Window *window, int msgId) {
     MessageFormat *msgFormat = MessageFormat_New(HEAP_ID_85);
     String *string;
 
-    FillWindowPixelBuffer(window, GetFontAttribute(1, 6));
+    FillWindowPixelBuffer(window, GetFontAttribute(FONT_MESSAGE, 6));
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msgId, HEAP_ID_85);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, 0xFF, 0x010200, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, 0xFF, 0x010200, NULL);
     CopyWindowToVram(window);
     String_Delete(string);
     DestroyMsgData(msgData);
@@ -677,7 +675,7 @@ static BOOL WonderCardAlbum_PrintCardTitle(WonderCardAlbum *album, Window *windo
     String *string = String_New(37, album->heapId);
 
     CopyU16ArrayToStringN(string, album->cards[album->cardIndex]->info.name, 36);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, 0xFF, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, 0xFF, color, NULL);
     String_Delete(string);
     return TRUE;
 }
@@ -695,7 +693,7 @@ static BOOL WonderCardAlbum_PrintGiftStatus(WonderCardAlbum *album, Window *wind
         msgId = msg_0247_00039;
     }
     string = ReadMsgData_ExpandPlaceholders(album->msgFormat, album->msgData, msgId, album->heapId);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, 0xFF, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, 0xFF, color, NULL);
     String_Delete(string);
     return TRUE;
 }
@@ -714,7 +712,7 @@ static BOOL WonderCardAlbum_PrintCardText(WonderCardAlbum *album, Window *window
     String *string = String_New(251, HEAP_ID_85);
 
     CopyU16ArrayToStringN(string, album->cards[album->cardIndex]->text, 250);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, 0xFF, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, 0xFF, color, NULL);
     String_Delete(string);
     return FALSE;
 }
@@ -724,7 +722,7 @@ static BOOL WonderCardAlbum_PrintSharesLeft(WonderCardAlbum *album, Window *wind
 
     if (shareMax == 0xFF) {
         String *string = ReadMsgData_ExpandPlaceholders(album->msgFormat, album->msgData, msg_0247_00052, HEAP_ID_85);
-        AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, 0xFF, color, NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, 0xFF, color, NULL);
         String_Delete(string);
         return FALSE;
     }
@@ -1479,14 +1477,14 @@ static int WonderCardAlbum_UpdateReceiverList(WonderCardAlbum *album, Window *wi
             BufferPlayersName(msgFormat, 0, profile);
             string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0247_00054, HEAP_ID_85);
             if (PlayerProfile_GetTrainerGender(profile) == PLAYER_GENDER_MALE) {
-                AddTextPrinterParameterizedWithColor(window, 0, string, 0, y, 0xFF, 0x050600, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, y, 0xFF, 0x050600, NULL);
             } else {
-                AddTextPrinterParameterizedWithColor(window, 0, string, 0, y, 0xFF, 0x030400, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, y, 0xFF, 0x030400, NULL);
             }
             String_Delete(string);
             BufferIntegerAsString(msgFormat, 0, (u16)PlayerProfile_GetTrainerID(profile), 5, PRINTING_MODE_LEADING_ZEROS, TRUE);
             string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0247_00055, HEAP_ID_85);
-            AddTextPrinterParameterizedWithColor(window, 0, string, 80, y, 0xFF, 0x0E0F00, NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 80, y, 0xFF, 0x0E0F00, NULL);
             String_Delete(string);
             y += 24;
         }
@@ -1508,7 +1506,7 @@ static void WonderCardAlbum_PrintReceiverCount(WonderCardAlbum *album, Window *w
     FillWindowPixelBuffer(window, 0);
     BufferIntegerAsString(album->msgFormat, 0, album->numReceivers, 1, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(album->msgFormat, album->msgData, msg_0247_00057, HEAP_ID_85);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, 0xFF, 0x010200, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, 0xFF, 0x010200, NULL);
     CopyWindowToVram(window);
     String_Delete(string);
     DestroyMsgData(album->msgData);

@@ -1390,7 +1390,7 @@ static void NintendoWfcUnused_PrintFormattedMessage(NintendoWfcUnused *wfc, MsgD
     StringExpandPlaceholders(wfc->msgFormat, wfc->msgString, string);
     FillWindowPixelBuffer(&wfc->msgWindow, 15);
     DrawFrameAndWindow2(&wfc->msgWindow, FALSE, 1, 14);
-    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->msgWindow, 1, wfc->msgString, 0, 0, textSpeed, NULL);
+    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->msgWindow, FONT_MESSAGE, wfc->msgString, 0, 0, textSpeed, NULL);
     String_Delete(string);
 }
 
@@ -1413,7 +1413,7 @@ static void NintendoWfcUnused_PrintMessage(NintendoWfcUnused *wfc, MsgData *msgD
     ReadMsgDataIntoString(msgData, msgNo, wfc->msgString);
     FillWindowPixelBuffer(&wfc->msgWindow, 15);
     DrawFrameAndWindow2(&wfc->msgWindow, FALSE, 1, 14);
-    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->msgWindow, 1, wfc->msgString, 0, 0, textSpeed, NULL);
+    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->msgWindow, FONT_MESSAGE, wfc->msgString, 0, 0, textSpeed, NULL);
 }
 
 static int NintendoWfcUnused_GetAlignedTextX(const Window *window, String *string, int x, int alignment, int unused, int fontId) {
@@ -1432,13 +1432,13 @@ static int NintendoWfcUnused_GetAlignedTextX(const Window *window, String *strin
 }
 
 static void NintendoWfcUnused_PrintAlignedText(Window *window, String *string, int x, int y, int alignment, u32 color) {
-    x = NintendoWfcUnused_GetAlignedTextX(window, string, x, alignment, color, 1);
-    AddTextPrinterParameterizedWithColor(window, 1, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
+    x = NintendoWfcUnused_GetAlignedTextX(window, string, x, alignment, color, FONT_MESSAGE);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 static void NintendoWfcUnused_PrintAlignedTextSmall(Window *window, String *string, int x, int y, int alignment, u32 color) {
-    x = NintendoWfcUnused_GetAlignedTextX(window, string, x, alignment, color, 0);
-    AddTextPrinterParameterizedWithColor(window, 0, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
+    x = NintendoWfcUnused_GetAlignedTextX(window, string, x, alignment, color, FONT_SYSTEM);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 static void NintendoWfcUnused_PrintNumber(Window *window, String *string, int number, int digits) {
@@ -1478,7 +1478,7 @@ static void NintendoWfcUnused_PrintErrorMessage(NintendoWfcUnused *wfc, int msgN
     StringExpandPlaceholders(wfc->msgFormat, wfc->errorString, string);
     FillWindowPixelBuffer(&wfc->errorWindow, 15);
     DrawFrameAndWindow1(&wfc->errorWindow, TRUE, 31, 11);
-    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->errorWindow, 1, wfc->errorString, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->errorWindow, FONT_MESSAGE, wfc->errorString, 0, 0, TEXT_SPEED_INSTANT, NULL);
     String_Delete(string);
 }
 

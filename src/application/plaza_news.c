@@ -980,11 +980,11 @@ static void PlazaNewsTicker_SetText(PlazaNewsTicker *ticker, String *text, u32 d
     ticker->active = TRUE;
     ticker->position = 0;
     ticker->duration = duration;
-    ticker->width = FontID_String_GetWidth(1, text, 0);
+    ticker->width = FontID_String_GetWidth(FONT_MESSAGE, text, 0);
     ticker->width += 256;
     GF_ASSERT(ticker->width <= 1440);
     FillWindowPixelBuffer(&ticker->bitmap, 0);
-    AddTextPrinterParameterized(&ticker->bitmap, 1, ticker->text, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(&ticker->bitmap, FONT_MESSAGE, ticker->text, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     ticker->nameColors[0] = nameColors[0];
     ticker->nameColors[1] = nameColors[1];
     ticker->nameColors[2] = nameColors[2];
@@ -1068,15 +1068,15 @@ static void PlazaNewsTitles_Init(PlazaNewsTitles *titles, PlazaNewsGraphics *gra
                 x = titleTemplate->x;
                 break;
             case 1:
-                x = titleTemplate->x - ((FontID_String_GetWidthMultiline(0, line, 0) + 1) >> 1);
+                x = titleTemplate->x - ((FontID_String_GetWidthMultiline(FONT_SYSTEM, line, 0) + 1) >> 1);
                 break;
             case 2:
-                x = titleTemplate->x - FontID_String_GetWidthMultiline(0, line, 0);
+                x = titleTemplate->x - FontID_String_GetWidthMultiline(FONT_SYSTEM, line, 0);
                 break;
             default:
                 break;
             }
-            AddTextPrinterParameterizedWithColor(window, 0, line, x, y, TEXT_SPEED_NOTRANSFER, titleTemplate->color, NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, line, x, y, TEXT_SPEED_NOTRANSFER, titleTemplate->color, NULL);
             y += 0x10;
         }
         String_Delete(line);

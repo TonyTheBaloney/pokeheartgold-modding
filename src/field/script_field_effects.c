@@ -833,9 +833,9 @@ static void AlphHiddenRoom_ShowMessage(AlphHiddenRoomEnv *env) {
     FillWindowPixelBuffer(&env->window, 9);
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0198, env->heapId);
     string = NewString_ReadMsgData(msgData, env->msgNo);
-    width = FontID_String_GetWidth(3, string, 0);
+    width = FontID_String_GetWidth(FONT_UNOWN, string, 0);
     x = 112 - width;
-    AddTextPrinterParameterizedWithColor(&env->window, 3, string, x / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 9), NULL);
+    AddTextPrinterParameterizedWithColor(&env->window, FONT_UNOWN, string, x / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 9), NULL);
     ScheduleWindowCopyToVram(&env->window);
     String_Delete(string);
     DestroyMsgData(msgData);

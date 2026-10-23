@@ -1059,7 +1059,7 @@ static void PokeathlonDiscCatch_PrintScore(PokeathlonCourseData *course, int sco
     FillWindowPixelBuffer(&work->window, 0);
     BufferIntegerAsString(messageFormat, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, msg_0309_00160, work->heapId);
-    AddTextPrinterParameterizedWithColor(&work->window, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&work->window, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(&work->window);
 }
@@ -1195,7 +1195,7 @@ static void PokeathlonDiscCatch_InitBgs(PokeathlonDiscCatch *work) {
     }
     work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, work->heapId);
     work->messageFormat = MessageFormat_New(work->heapId);
-    FontID_Alloc(4, work->heapId);
+    FontID_Alloc(FONT_UNK_4, work->heapId);
     GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG2, GF_PLANE_TOGGLE_OFF);
 }
 
@@ -1208,7 +1208,7 @@ static void PokeathlonDiscCatch_FreeBgs(PokeathlonDiscCatch *work) {
     for (i = 0; i < 7; i++) {
         FreeBgTilemapBuffer(work->bgConfig, (u8)gPokeathlonDiscCatchBgLayers[i]);
     }
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     Heap_Free(work->bgConfig);
 }
 

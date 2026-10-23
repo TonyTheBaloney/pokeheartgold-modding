@@ -162,7 +162,7 @@ static void UnionChatLog_PressArrow(UnionChatLogData *data, int arrow);
 
 static void UnionChatLog_PrintMenuButton(UnionChatLogData *data) {
     String *string = NewString_ReadMsgData(data->msgData, msg_0738_UNION_00219);
-    AddTextPrinterParameterizedWithColor(&data->menuWindow, 0, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->menuWindow, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     String_Delete(string);
 }
 
@@ -284,7 +284,7 @@ UnionChatLogData *UnionChatLog_Init(FieldSystem *fieldSystem) {
     UnionChatLog_SetThumbFollowsScroll(data, TRUE);
     UnionChatLog_InitSpriteResources(data);
     UnionChatLog_CreateSprites(data);
-    FontID_SetAccessDirect(1, HEAP_ID_FIELD1);
+    FontID_SetAccessDirect(FONT_MESSAGE, HEAP_ID_FIELD1);
     UnionChatLog_AddWindows(data->bgConfig, data->rows, &data->menuWindow);
     UnionChatLog_PrintMenuButton(data);
     GfGfx_EngineBTogglePlanes(GX_PLANEMASK_OBJ, GF_PLANE_TOGGLE_ON);
@@ -303,7 +303,7 @@ void UnionChatLog_Exit(UnionChatLogData *data) {
     if (data->state - UNION_CHAT_LOG_STATE_RUNNING <= UNION_CHAT_LOG_STATE_CLOSING - UNION_CHAT_LOG_STATE_RUNNING) {
         bgConfig = data->bgConfig;
         data->state = UNION_CHAT_LOG_STATE_FREED;
-        FontID_SetAccessLazy(1);
+        FontID_SetAccessLazy(FONT_MESSAGE);
         SpriteTransfer_DeleteCharTransferTask(data->resObjs[GF_GFX_RES_TYPE_CHAR]);
         SpriteTransfer_DeletePlttTransferTask(data->resObjs[GF_GFX_RES_TYPE_PLTT]);
         for (i = 0; i < 4; i++) {
@@ -421,12 +421,12 @@ static void UnionChatLog_DrawRow(UnionChatLogData *data, int row, UnionRoomMessa
     FillWindowPixelBuffer(&data->rows[row].name, 0);
     FillWindowPixelBuffer(&data->rows[row].message, 0);
     FillWindowPixelBuffer(&data->rows[row].friendOf, 0);
-    AddTextPrinterParameterizedWithColor(&data->rows[row].name, 1, slot->name, 0, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
-    AddTextPrinterParameterizedWithColor(&data->rows[row].message, 1, slot->string1, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->rows[row].name, FONT_MESSAGE, slot->name, 0, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->rows[row].message, FONT_MESSAGE, slot->string1, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ScheduleWindowCopyToVram(&data->rows[row].name);
     ScheduleWindowCopyToVram(&data->rows[row].message);
     if (slot->string2 != NULL) {
-        AddTextPrinterParameterizedWithColor(&data->rows[row].friendOf, 1, slot->string2, 0, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&data->rows[row].friendOf, FONT_MESSAGE, slot->string2, 0, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     }
     ScheduleWindowCopyToVram(&data->rows[row].friendOf);
 }

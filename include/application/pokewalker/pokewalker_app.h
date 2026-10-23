@@ -6,6 +6,7 @@
 
 #include "bag.h"
 #include "bg_window.h"
+#include "font.h"
 #include "font_types_def.h"
 #include "message_format.h"
 #include "msgdata.h"
@@ -285,9 +286,9 @@ void PokewalkerApp_LoadStrings(PokewalkerApp *app);
 void PokewalkerApp_FreeStrings(PokewalkerApp *app);
 void PokewalkerApp_PrintExit(PokewalkerApp *app, int window);
 void PokewalkerApp_PrintMessage(PokewalkerApp *app, int window, int msgId, u32 color);
-void PokewalkerApp_PrintString(PokewalkerApp *app, int window, String *string, FontID fontId, u32 color);
-void PokewalkerApp_PrintStringDefaultColor(PokewalkerApp *app, int window, String *string, FontID fontId);
-void PokewalkerApp_PrintSubString(PokewalkerApp *app, int window, String *string, FontID fontId, u32 color);
+void PokewalkerApp_PrintString(PokewalkerApp *app, int window, String *string, enum Font fontId, u32 color);
+void PokewalkerApp_PrintStringDefaultColor(PokewalkerApp *app, int window, String *string, enum Font fontId);
+void PokewalkerApp_PrintSubString(PokewalkerApp *app, int window, String *string, enum Font fontId, u32 color);
 void PokewalkerApp_PrintSubMessage(PokewalkerApp *app, int window, int msgId, u32 color);
 u8 PokewalkerApp_StartMessageBox(PokewalkerApp *app, int window, int msgId);
 void PokewalkerApp_ShowMessageBox(PokewalkerApp *app, int window, int msgId);

@@ -122,8 +122,8 @@ void PokeathlonEventBanner_PrintTexts(PokeathlonEventBanner *banner) {
     u8 event = banner->event;
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, banner->heapId);
     String *string = String_New(256, banner->heapId);
-    PokeathlonEventBanner_PrintText(&banner->nameWindow, msgData, string, event + msg_0309_00166, 4);
-    PokeathlonEventBanner_PrintText(&banner->placeWindow, msgData, string, event + msg_0309_00187, 0);
+    PokeathlonEventBanner_PrintText(&banner->nameWindow, msgData, string, event + msg_0309_00166, FONT_UNK_4);
+    PokeathlonEventBanner_PrintText(&banner->placeWindow, msgData, string, event + msg_0309_00187, FONT_SYSTEM);
     String_Delete(string);
     DestroyMsgData(msgData);
 }
@@ -246,7 +246,7 @@ static u8 PokeathlonCourseMessageBox_PrintToWindow(BgConfig *bgConfig, Window *w
     }
     FillWindowPixelBuffer(window, 15);
     *string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msgId, heapId);
-    printerId = AddTextPrinterParameterizedWithColor(window, 1, *string, 0, 0, textSpeed, 0x1020F, NULL); // colours 1, 2, 15
+    printerId = AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, *string, 0, 0, textSpeed, 0x1020F, NULL); // colours 1, 2, 15
     DrawFrameAndWindow2(window, FALSE, 0x3D2, 13);
     return printerId;
 }

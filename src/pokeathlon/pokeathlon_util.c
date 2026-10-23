@@ -266,7 +266,7 @@ PokeathlonTextContext *PokeathlonUtil_CreateTextContext(enum HeapID heapId, BgCo
     u32 windowsSize;
     int i;
 
-    FontID_Alloc(4, heapId);
+    FontID_Alloc(FONT_UNK_4, heapId);
     ctx = Heap_Alloc(heapId, sizeof(PokeathlonTextContext));
     MI_CpuFill8(ctx, 0, sizeof(PokeathlonTextContext));
     windowsSize = windowCount * sizeof(Window);
@@ -290,7 +290,7 @@ PokeathlonTextContext *PokeathlonUtil_CreateTextContext(enum HeapID heapId, BgCo
 
 void PokeathlonUtil_FreeTextContext(PokeathlonTextContext *ctx, int count) {
     int i;
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     String_Delete(ctx->string);
     MessageFormat_Delete(ctx->msgFormat);
     DestroyMsgData(ctx->msgDataFixed);
@@ -304,7 +304,7 @@ void PokeathlonUtil_FreeTextContext(PokeathlonTextContext *ctx, int count) {
 }
 
 void PokeathlonUtil_PrintAlignedMessage(PokeathlonTextContext *ctx, u32 window, u32 message, BOOL center) {
-    PokeathlonUtil_PrintAlignedMessageAtY(ctx, window, message, center, 0, 0);
+    PokeathlonUtil_PrintAlignedMessageAtY(ctx, window, message, center, 0, FONT_SYSTEM);
 }
 
 void PokeathlonUtil_PrintAlignedMessageAtY(PokeathlonTextContext *ctx, u32 window, u32 message, BOOL center, u8 y, u32 font) {
@@ -312,11 +312,11 @@ void PokeathlonUtil_PrintAlignedMessageAtY(PokeathlonTextContext *ctx, u32 windo
 }
 
 void PokeathlonUtil_PrintMessageAtXY(PokeathlonTextContext *ctx, u32 window, u32 message, u8 x, u8 y) {
-    PokeathlonUtil_PrintMessageEx(ctx, window, message, FALSE, x, y, 0, 0);
+    PokeathlonUtil_PrintMessageEx(ctx, window, message, FALSE, x, y, FONT_SYSTEM, 0);
 }
 
 void PokeathlonUtil_PrintMessageCentered(PokeathlonTextContext *ctx, u32 window, u32 message, u8 fill) {
-    PokeathlonUtil_PrintMessageEx(ctx, window, message, TRUE, 0, 0, 0, fill);
+    PokeathlonUtil_PrintMessageEx(ctx, window, message, TRUE, 0, 0, FONT_SYSTEM, fill);
 }
 
 static void PokeathlonUtil_PrintMessageEx(PokeathlonTextContext *ctx, u32 window, u32 message, BOOL center, u8 x, u8 y, u32 fontId, u8 fill) {
@@ -342,7 +342,7 @@ void PokeathlonUtil_PrintMessageWithNumber(PokeathlonTextContext *ctx, u32 windo
     source = NewString_ReadMsgData(ctx->msgData, message);
     StringExpandPlaceholders(ctx->msgFormat, ctx->string, source);
     PokeathlonUtil_ClearWindow(ctx, window);
-    AddTextPrinterParameterizedWithColor(&ctx->windows[window], 0, ctx->string, 0, 0, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
+    AddTextPrinterParameterizedWithColor(&ctx->windows[window], FONT_SYSTEM, ctx->string, 0, 0, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
     ScheduleWindowCopyToVram(&ctx->windows[window]);
     String_Delete(source);
 }
@@ -355,7 +355,7 @@ void PokeathlonUtil_PrintMessageAt(PokeathlonTextContext *ctx, u32 window, u32 m
     String *source = NewString_ReadMsgData(ctx->msgData, message);
     StringExpandPlaceholders(ctx->msgFormat, ctx->string, source);
     PokeathlonUtil_ClearWindow(ctx, window);
-    AddTextPrinterParameterizedWithColor(&ctx->windows[window], 0, ctx->string, x, y, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
+    AddTextPrinterParameterizedWithColor(&ctx->windows[window], FONT_SYSTEM, ctx->string, x, y, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
     ScheduleWindowCopyToVram(&ctx->windows[window]);
     String_Delete(source);
 }
@@ -370,7 +370,7 @@ void PokeathlonUtil_PrintMessageWithPlayerName(PokeathlonTextContext *ctx, u32 w
     source = NewString_ReadMsgData(ctx->msgData, message);
     StringExpandPlaceholders(ctx->msgFormat, ctx->string, source);
     PokeathlonUtil_ClearWindow(ctx, window);
-    AddTextPrinterParameterizedWithColor(&ctx->windows[window], 0, ctx->string, 0, 0, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
+    AddTextPrinterParameterizedWithColor(&ctx->windows[window], FONT_SYSTEM, ctx->string, 0, 0, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
     ScheduleWindowCopyToVram(&ctx->windows[window]);
     String_Delete(source);
 }
@@ -380,7 +380,7 @@ void PokeathlonUtil_PrintSpeciesName(PokeathlonTextContext *ctx, u32 window, u32
     GF_ASSERT(message <= MAX_SPECIES);
     ReadMsgDataIntoString(msgData, message, ctx->string);
     FillWindowPixelBuffer(&ctx->windows[window], 0);
-    AddTextPrinterParameterizedWithColor(&ctx->windows[window], 0, ctx->string, 0, 0, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
+    AddTextPrinterParameterizedWithColor(&ctx->windows[window], FONT_SYSTEM, ctx->string, 0, 0, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
     ScheduleWindowCopyToVram(&ctx->windows[window]);
 }
 
@@ -391,7 +391,7 @@ void PokeathlonUtil_ClearAndCopyWindow(PokeathlonTextContext *ctx, u32 index) {
 
 void PokeathlonUtil_PrintString(PokeathlonTextContext *ctx, u32 window, String *string, u32 x, u8 y) {
     PokeathlonUtil_ClearWindow(ctx, window);
-    AddTextPrinterParameterizedWithColor(&ctx->windows[window], 0, string, x, y, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
+    AddTextPrinterParameterizedWithColor(&ctx->windows[window], FONT_SYSTEM, string, x, y, TEXT_SPEED_NOTRANSFER, TEXT_COLOR_BLACK_ON_WHITE, NULL);
     ScheduleWindowCopyToVram(&ctx->windows[window]);
 }
 

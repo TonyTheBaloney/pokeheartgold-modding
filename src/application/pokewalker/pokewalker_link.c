@@ -177,13 +177,13 @@ void PokewalkerApp_PrintCoursePage(PokewalkerApp *app) {
         } else {
             string = NewString_ReadMsgData(app->msgData, msg_0274_00118);
         }
-        PokewalkerApp_PrintString(app, i, string, 4, MAKE_TEXT_COLOR(15, 1, 0));
+        PokewalkerApp_PrintString(app, i, string, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
         String_Delete(string);
     }
     BufferIntegerAsString(app->msgFormat, 10, app->coursePage + 1, 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
     BufferIntegerAsString(app->msgFormat, 11, PokewalkerApp_GetCoursePageCount(app), 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(app->msgFormat, app->msgData, msg_0274_00081, HEAP_ID_154);
-    PokewalkerApp_PrintString(app, 7, string, 0, MAKE_TEXT_COLOR(1, 14, 0));
+    PokewalkerApp_PrintString(app, 7, string, FONT_SYSTEM, MAKE_TEXT_COLOR(1, 14, 0));
     String_Delete(string);
     PokewalkerApp_PrintCourseInfo(app, app->coursePage, app->menuSelection);
 }
@@ -193,16 +193,16 @@ void PokewalkerApp_PrintCourseInfo(PokewalkerApp *app, int page, int selection) 
     String *string;
     if (selection == 5 || PokewalkerApp_GetSelectedCourse(app) == -1) {
         string = NewString_ReadMsgData(app->msgData, msg_0274_00118);
-        PokewalkerApp_PrintSubString(app, 0, string, 0, MAKE_TEXT_COLOR(1, 2, 0));
+        PokewalkerApp_PrintSubString(app, 0, string, FONT_SYSTEM, MAKE_TEXT_COLOR(1, 2, 0));
         String_Delete(string);
         FillWindowPixelBuffer(&app->subWindows[1], 0);
         CopyWindowToVram(&app->subWindows[1]);
     } else {
         string = NewString_ReadMsgData(app->msgData, PokewalkerApp_GetSelectedCourse(app) + msg_0274_00091);
-        PokewalkerApp_PrintSubString(app, 0, string, 0, MAKE_TEXT_COLOR(1, 2, 0));
+        PokewalkerApp_PrintSubString(app, 0, string, FONT_SYSTEM, MAKE_TEXT_COLOR(1, 2, 0));
         String_Delete(string);
         string = NewString_ReadMsgData(app->msgData, PokewalkerApp_GetSelectedCourse(app) + msg_0274_00119);
-        PokewalkerApp_PrintSubString(app, 1, string, 0, MAKE_TEXT_COLOR(1, 2, 0));
+        PokewalkerApp_PrintSubString(app, 1, string, FONT_SYSTEM, MAKE_TEXT_COLOR(1, 2, 0));
         String_Delete(string);
     }
 }
@@ -1239,7 +1239,7 @@ int PokewalkerApp_Link_WaitWillSendBack(PokewalkerApp *app) {
 
 int PokewalkerApp_Link_ShowSendBackMenu(PokewalkerApp *app) {
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 10);
-    PokewalkerApp_PrintString(app, 5, app->sendHomeText, 4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 5, app->sendHomeText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
     PokewalkerApp_PrintExit(app, 1);
     app->menuSelection = 0;
     PokewalkerApp_SetCursorPosition(app, 2);

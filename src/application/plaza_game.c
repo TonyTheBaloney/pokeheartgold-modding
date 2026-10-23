@@ -835,23 +835,23 @@ static int PlazaGameText_PrintRightAligned(PlazaGameText *text, int msgNo, Windo
     int x;
     ReadMsgDataIntoString(text->msgData, msgNo, text->buffer);
     StringExpandPlaceholders(text->msgFormat, text->string, text->buffer);
-    x = right - FontID_String_GetWidth(0, text->string, 0);
+    x = right - FontID_String_GetWidth(FONT_SYSTEM, text->string, 0);
     if (x < 0) {
         x = 0;
     }
-    return AddTextPrinterParameterizedWithColor(window, 0, text->string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    return AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, text->string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
 }
 
 static int PlazaGameText_PrintMessage(PlazaGameText *text, int msgNo, Window *window, String *string, int textSpeed) {
     ReadMsgDataIntoString(text->msgData, msgNo, text->buffer);
     StringExpandPlaceholders(text->msgFormat, string, text->buffer);
-    return AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    return AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
 }
 
 static int PlazaGameText_PrintWithColor(PlazaGameText *text, int msgNo, Window *window, u8 x, u8 y, u32 color) {
     ReadMsgDataIntoString(text->msgData, msgNo, text->buffer);
     StringExpandPlaceholders(text->msgFormat, text->string, text->buffer);
-    return AddTextPrinterParameterizedWithColor(window, 0, text->string, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+    return AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, text->string, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
 }
 
 static void PlazaGameMessageBox_Init(PlazaGameMessageBox *messageBox, PlazaGameBg *bg, SaveData *saveData, u32 colorVariant, enum HeapID heapId) {
@@ -1496,10 +1496,10 @@ static void PlazaGameTitle_StartSlideIn(PlazaGameTitle *title, PlazaGameBg *bg, 
     title->state = PLAZA_GAME_TITLE_SLIDE_IN;
     PlazaGameMotion_Init(&title->motion, gPlazaGameTitleSlideInStartX[title->game], gPlazaGameTitleRestX[title->game], gPlazaGameTitleSlideInVelocity[title->game], 16);
     PlazaGameTitle_SetScroll(title, bg, title->motion.current >> FX32_SHIFT);
-    FontID_Alloc(2, heapId);
-    width = FontID_String_GetWidth(2, title->string, 0);
-    AddTextPrinterParameterizedWithColor(&title->window, 2, title->string, 80 - (width >> 1), 0, TEXT_SPEED_INSTANT, gPlazaGameTitleColors[title->game], NULL);
-    FontID_Release(2);
+    FontID_Alloc(FONT_SUBSCREEN, heapId);
+    width = FontID_String_GetWidth(FONT_SUBSCREEN, title->string, 0);
+    AddTextPrinterParameterizedWithColor(&title->window, FONT_SUBSCREEN, title->string, 80 - (width >> 1), 0, TEXT_SPEED_INSTANT, gPlazaGameTitleColors[title->game], NULL);
+    FontID_Release(FONT_SUBSCREEN);
     GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG0, GF_PLANE_TOGGLE_ON);
 }
 

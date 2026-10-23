@@ -362,10 +362,10 @@ static void TouchMartApp_PrintCancel(TouchMartAppData *data, int leftAligned) {
     ClearWindowTilemapAndCopyToVram(&data->cancelWindow);
     FillWindowPixelBuffer(&data->cancelWindow, 0);
     if (leftAligned == FALSE) {
-        u32 width = FontID_String_GetWidth(0, string, 0);
-        AddTextPrinterParameterizedWithColor(&data->cancelWindow, 0, string, ((48 - width) >> 1) + 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+        u32 width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+        AddTextPrinterParameterizedWithColor(&data->cancelWindow, FONT_SYSTEM, string, ((48 - width) >> 1) + 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     } else {
-        AddTextPrinterParameterizedWithColor(&data->cancelWindow, 0, string, 5, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&data->cancelWindow, FONT_SYSTEM, string, 5, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     }
     ScheduleWindowCopyToVram(&data->cancelWindow);
     String_Delete(string);
@@ -675,7 +675,7 @@ static void TouchMartApp_PrintItemList(TouchMartAppData *data) {
 }
 
 static void TouchMartApp_PrintItemName(TouchMartAppData *data, Window *window, String *string, int slot) {
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
 }
 
 static void TouchMartApp_PrintPrice(MessageFormat *messageFormat, MsgData *msgData, Window *window, s32 price, int martType) {
@@ -686,7 +686,7 @@ static void TouchMartApp_PrintPrice(MessageFormat *messageFormat, MsgData *msgDa
     }
     BufferIntegerAsString(messageFormat, 0, price, 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, msgId, HEAP_ID_8);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 36, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 36, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
 }
 
@@ -707,7 +707,7 @@ static void TouchMartApp_PrintMoney(TouchMartAppData *data) {
             label = NewString_ReadMsgData(data->msgData, msg_0435_00030);
         }
     }
-    AddTextPrinterParameterizedWithColor(&data->moneyWindow, 0, label, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->moneyWindow, FONT_SYSTEM, label, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(label);
     string = String_New(16, HEAP_ID_FIELD2);
     {
@@ -723,8 +723,8 @@ static void TouchMartApp_PrintMoney(TouchMartAppData *data) {
     }
     BufferIntegerAsString(data->messageFormat, 0, amount, 6, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(data->messageFormat, string, template);
-    width = FontID_String_GetWidth(0, string, 0);
-    AddTextPrinterParameterizedWithColor(&data->moneyWindow, 0, string, 72 - width, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+    AddTextPrinterParameterizedWithColor(&data->moneyWindow, FONT_SYSTEM, string, 72 - width, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(template);
     String_Delete(string);
     ScheduleWindowCopyToVram(&data->moneyWindow);
@@ -751,7 +751,7 @@ static void TouchMartApp_PrintPageNumber(TouchMartAppData *data) {
     BufferIntegerAsString(data->messageFormat, 0, page, 2, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     BufferIntegerAsString(data->messageFormat, 1, pageCount, 2, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(data->messageFormat, string, template);
-    AddTextPrinterParameterizedWithColor(&data->pageWindow, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->pageWindow, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(template);
     String_Delete(string);
     ScheduleWindowCopyToVram(&data->pageWindow);
@@ -823,15 +823,15 @@ static void TouchMartApp_PrintInBag(TouchMartAppData *data, int unused) {
     int width;
 
     template = NewString_ReadMsgData(data->msgData, msg_0435_00035);
-    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_IN_BAG], 0, template, 0, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_IN_BAG], FONT_SYSTEM, template, 0, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(template);
     string = String_New(5, HEAP_ID_FIELD2);
     template = NewString_ReadMsgData(data->msgData, msg_0435_00036);
     count = MartData_GetOwnedQuantity(data->martData, data->martData->item);
     BufferIntegerAsString(data->messageFormat, 0, count, 3, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(data->messageFormat, string, template);
-    width = FontID_String_GetWidth(0, string, 0);
-    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_IN_BAG], 0, string, 64 - width, 20, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_IN_BAG], FONT_SYSTEM, string, 64 - width, 20, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     String_Delete(template);
     ScheduleWindowCopyToVram(&data->windows[TOUCH_MART_WINDOW_IN_BAG]);
@@ -854,8 +854,8 @@ static void TouchMartApp_PrintQuantity(TouchMartAppData *data, int quantity) {
     StringExpandPlaceholders(data->messageFormat, onesString, onesTemplate);
     FillWindowPixelBuffer(&data->windows[TOUCH_MART_WINDOW_QUANTITY_TENS], 0);
     FillWindowPixelBuffer(&data->windows[TOUCH_MART_WINDOW_QUANTITY_ONES], 0);
-    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_QUANTITY_TENS], 0, tensString, 0, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
-    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_QUANTITY_ONES], 0, onesString, 0, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_QUANTITY_TENS], FONT_SYSTEM, tensString, 0, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_QUANTITY_ONES], FONT_SYSTEM, onesString, 0, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(tensString);
     String_Delete(onesString);
     String_Delete(tensTemplate);
@@ -867,8 +867,8 @@ static void TouchMartApp_PrintQuantity(TouchMartAppData *data, int quantity) {
     tensTemplate = NewString_ReadMsgData(data->msgData, msg_0435_00038);
     BufferIntegerAsString(data->messageFormat, 0, data->martData->cost * quantity, 6, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(data->messageFormat, tensString, tensTemplate);
-    width = FontID_String_GetWidth(0, tensString, 0);
-    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_TOTAL_PRICE], 0, tensString, 64 - width, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    width = FontID_String_GetWidth(FONT_SYSTEM, tensString, 0);
+    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_TOTAL_PRICE], FONT_SYSTEM, tensString, 64 - width, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(tensString);
     String_Delete(tensTemplate);
     ScheduleWindowCopyToVram(&data->windows[TOUCH_MART_WINDOW_TOTAL_PRICE]);
@@ -876,7 +876,7 @@ static void TouchMartApp_PrintQuantity(TouchMartAppData *data, int quantity) {
 
 static void TouchMartApp_PrintBuyButton(TouchMartAppData *data) {
     String *string = NewString_ReadMsgData(data->msgData, msg_0435_00042);
-    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_BUY], 0, string, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->windows[TOUCH_MART_WINDOW_BUY], FONT_SYSTEM, string, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     ScheduleWindowCopyToVram(&data->windows[TOUCH_MART_WINDOW_BUY]);
     String_Delete(string);
 }
@@ -929,7 +929,7 @@ static void TouchMartApp_PrintHowMany(TouchMartAppData *data) {
     String_Delete(template);
     LoadUserFrameGfx2(data->bgConfig, GF_BG_LYR_SUB_0, 437, 5, (u8)Options_GetFrame(data->options), HEAP_ID_FIELD1);
     DrawFrameAndWindow2(&data->windows[TOUCH_MART_WINDOW_PROMPT], TRUE, 437, 5);
-    data->martData->printerID = AddTextPrinterParameterized(&data->windows[TOUCH_MART_WINDOW_PROMPT], 1, data->string, 0, 0, Options_GetTextFrameDelay(data->options), NULL);
+    data->martData->printerID = AddTextPrinterParameterized(&data->windows[TOUCH_MART_WINDOW_PROMPT], FONT_MESSAGE, data->string, 0, 0, Options_GetTextFrameDelay(data->options), NULL);
 }
 
 static void TouchMartApp_PrintConfirmPurchase(TouchMartAppData *data) {
@@ -947,7 +947,7 @@ static void TouchMartApp_PrintConfirmPurchase(TouchMartAppData *data) {
     String_Delete(template);
     LoadUserFrameGfx2(data->bgConfig, GF_BG_LYR_SUB_0, 437, 5, (u8)Options_GetFrame(data->options), HEAP_ID_FIELD1);
     DrawFrameAndWindow2(&data->windows[TOUCH_MART_WINDOW_PROMPT], TRUE, 437, 5);
-    data->printerId = AddTextPrinterParameterized(&data->windows[TOUCH_MART_WINDOW_PROMPT], 1, data->string, 0, 0, Options_GetTextFrameDelay(data->options), NULL);
+    data->printerId = AddTextPrinterParameterized(&data->windows[TOUCH_MART_WINDOW_PROMPT], FONT_MESSAGE, data->string, 0, 0, Options_GetTextFrameDelay(data->options), NULL);
 }
 
 static void TouchMartApp_CreateYesNoPrompt(TouchMartAppData *data) {
@@ -1023,7 +1023,7 @@ static void TouchMartApp_PrintPurchaseDone(TouchMartAppData *data) {
     String_Delete(template);
     FillWindowPixelBuffer(&data->messageWindow, 15);
     DrawFrameAndWindow2(&data->messageWindow, TRUE, 437, 5);
-    data->martData->printerID = AddTextPrinterParameterized(&data->messageWindow, 1, data->string, 0, 0, Options_GetTextFrameDelay(data->options), TouchMartApp_PurchaseDonePrinterCallback);
+    data->martData->printerID = AddTextPrinterParameterized(&data->messageWindow, FONT_MESSAGE, data->string, 0, 0, Options_GetTextFrameDelay(data->options), TouchMartApp_PurchaseDonePrinterCallback);
 }
 
 static BOOL TouchMartApp_PurchaseDonePrinterCallback(TextPrinterTemplate *template, u16 glyphId) {
@@ -1087,7 +1087,7 @@ static String *TouchMartApp_GetNoRoomMessage(const MartData *martData, MsgData *
         LoadUserFrameGfx2((data)->bgConfig, GF_BG_LYR_SUB_0, 437, 5, (u8)frame_, HEAP_ID_FIELD1);                                 \
         DrawFrameAndWindow2(&(data)->messageWindow, TRUE, 437, 5);                                                                \
         delay_ = Options_GetTextFrameDelay((data)->options);                                                                      \
-        (data)->martData->printerID = AddTextPrinterParameterized(&(data)->messageWindow, 1, (data)->string, 0, 0, delay_, NULL); \
+        (data)->martData->printerID = AddTextPrinterParameterized(&(data)->messageWindow, FONT_MESSAGE, (data)->string, 0, 0, delay_, NULL); \
     }
 
 static void TouchMartApp_PrintCannotAfford(TouchMartAppData *data) {

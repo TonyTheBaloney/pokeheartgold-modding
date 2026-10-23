@@ -133,7 +133,7 @@ int PokewalkerApp_EraseRecords_PrintWillErase(PokewalkerApp *app) {
 
 int PokewalkerApp_EraseRecords_ShowEraseMenu(PokewalkerApp *app) {
     if (!TextPrinterCheckActive(app->textPrinterId)) {
-        PokewalkerApp_PrintString(app, 5, app->eraseRecordsText, 4, MAKE_TEXT_COLOR(15, 1, 0));
+        PokewalkerApp_PrintString(app, 5, app->eraseRecordsText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
         PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 10);
         PokewalkerApp_PrintExit(app, 1);
         PokewalkerApp_SetCursorPosition(app, 2);

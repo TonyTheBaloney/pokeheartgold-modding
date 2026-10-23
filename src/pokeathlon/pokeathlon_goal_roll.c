@@ -168,7 +168,7 @@ BOOL PokeathlonGoalRoll_Init(PokeathlonCourseData *course) {
         NNS_G2dInitOamManagerModule();
         OamManager_Create(0, 126, 0, 32, 1, 126, 0, 32, HEAP_ID_147);
         goalRoll->heapId = HEAP_ID_147;
-        FontID_Alloc((FontID)4, HEAP_ID_147);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_147);
         PokeathlonGoalRoll_InitBgs(goalRoll->bgConfig);
         PokeathlonGoalRoll_InitWindows(goalRoll);
         PokeathlonGoalRoll_LoadStrings(course);
@@ -451,7 +451,7 @@ BOOL PokeathlonGoalRoll_Exit(PokeathlonCourseData *course) {
     ObjPlttTransfer_Destroy();
     PokeathlonGoalRollCpu_Free(goalRoll->cpu);
     PokeathlonGoalRollDisplay_Free(goalRoll->display);
-    FontID_Release((FontID)4);
+    FontID_Release(FONT_UNK_4);
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
     Heap_Free(goalRoll->sortWork);

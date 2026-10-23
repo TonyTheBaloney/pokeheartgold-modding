@@ -268,7 +268,7 @@ BOOL PokeathlonRelayRun_Init(PokeathlonCourseData *course) {
         NNS_G2dInitOamManagerModule();
         OamManager_Create(0, 126, 0, 32, 0, 126, 0, 32, HEAP_ID_144);
         data->heapId = HEAP_ID_144;
-        FontID_Alloc(4, HEAP_ID_144);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_144);
         PokeathlonRelayRun_InitBgs(data->bgConfig);
         PokeathlonRelayRun_AddResultWindow(data);
         gSystem.screensFlipped = TRUE;
@@ -467,7 +467,7 @@ BOOL PokeathlonRelayRun_Exit(PokeathlonCourseData *course) {
     ObjPlttTransfer_Destroy();
     PokeathlonRelayRunCpu_Delete(relayRun->cpu);
     PokeathlonRelayRunHud_Free(relayRun->hud);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
     PokeathlonCourse_FreeWork(course);
@@ -2221,7 +2221,7 @@ static void PokeathlonRelayRun_PrintResult(PokeathlonRelayRun *relayRun, int lap
     BufferIntegerAsString(msgFormat, 0, laps, 2, PRINTING_MODE_LEADING_ZEROS, TRUE);
     BufferIntegerAsString(msgFormat, 1, tenths, 1, PRINTING_MODE_LEADING_ZEROS, TRUE);
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0309_00162, relayRun->heapId);
-    AddTextPrinterParameterizedWithColor(&relayRun->window, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&relayRun->window, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     MessageFormat_Delete(msgFormat);
     DestroyMsgData(msgData);

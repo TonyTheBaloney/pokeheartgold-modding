@@ -102,7 +102,7 @@ void VsRecorder_PrintVideoNumber(VsRecorderVideoSearch *search, VsRecorderWork *
     BufferString(msgFmt, 0, high, 0, 1, 2);
     StringExpandPlaceholders(msgFmt, out, msg);
     FillWindowPixelBuffer(&work->messageWindow, 0xCC);
-    AddTextPrinterParameterizedWithColor(&work->messageWindow, 0, out, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&work->messageWindow, FONT_SYSTEM, out, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(&work->messageWindow);
     String_Delete(low);
     String_Delete(mid);

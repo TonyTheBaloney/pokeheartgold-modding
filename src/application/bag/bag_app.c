@@ -1811,11 +1811,11 @@ static BOOL BagApp_TryUseItemInPlace(BagApp *app, u16 itemId) {
     BufferItemName(app->msgFormat, 1, itemId);
     if (itemId == ITEM_BLACK_FLUTE) {
         template = NewString_ReadMsgData(app->msgData, msg_0010_00065);
-        BagApp_SetFlute(app, 1);
+        BagApp_SetFlute(app, FLUTE_BLACK);
         app->quantity = 0;
     } else if (itemId == ITEM_WHITE_FLUTE) {
         template = NewString_ReadMsgData(app->msgData, msg_0010_00064);
-        BagApp_SetFlute(app, 2);
+        BagApp_SetFlute(app, FLUTE_WHITE);
         app->quantity = 0;
     } else if (itemId == ITEM_MAX_REPEL || itemId == ITEM_SUPER_REPEL || itemId == ITEM_REPEL) {
         template = BagApp_TryUseRepel(app, itemId);
@@ -3335,7 +3335,7 @@ void BagApp_PrintItemDescription(BagApp *app, u16 itemId) {
     } else {
         string = NewString_ReadMsgData(app->msgData, msg_0010_00097);
     }
-    AddTextPrinterParameterizedWithColor(&app->windows[0], 0, string, 20, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->windows[0], FONT_SYSTEM, string, 20, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
 }
 
@@ -3347,19 +3347,19 @@ void BagApp_PrintTMHMMoveInfo(BagApp *app, u16 itemId) {
     u16 value;
 
     string = NewString_ReadMsgData(app->msgData, msg_0010_00101);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(app->msgData, msg_0010_00089);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(app->msgData, msg_0010_00092);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 72, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 72, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(app->msgData, msg_0010_00090);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 168, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 168, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(app->msgData, msg_0010_00091);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 168, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 168, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
 
     maxPP = GetMoveMaxPP(move, 0);
@@ -3367,7 +3367,7 @@ void BagApp_PrintTMHMMoveInfo(BagApp *app, u16 itemId) {
     BufferIntegerAsString(app->msgFormat, 0, maxPP, 2, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(app->msgFormat, app->msgBuf, string);
     String_Delete(string);
-    AddTextPrinterParameterizedWithColor(window, 0, app->msgBuf, 48, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, app->msgBuf, 48, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
 
     value = GetMoveAttr(move, MOVEATTR_POWER);
     if (value <= 1) {
@@ -3378,7 +3378,7 @@ void BagApp_PrintTMHMMoveInfo(BagApp *app, u16 itemId) {
     BufferIntegerAsString(app->msgFormat, 0, value, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(app->msgFormat, app->msgBuf, string);
     String_Delete(string);
-    AddTextPrinterParameterizedWithColor(window, 0, app->msgBuf, 232, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, app->msgBuf, 232, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
 
     value = GetMoveAttr(move, MOVEATTR_ACCURACY);
     if (value == 0) {
@@ -3389,7 +3389,7 @@ void BagApp_PrintTMHMMoveInfo(BagApp *app, u16 itemId) {
     BufferIntegerAsString(app->msgFormat, 0, value, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(app->msgFormat, app->msgBuf, string);
     String_Delete(string);
-    AddTextPrinterParameterizedWithColor(window, 0, app->msgBuf, 232, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, app->msgBuf, 232, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     ScheduleWindowCopyToVram(window);
 }
 
@@ -3411,7 +3411,7 @@ static void BagApp_MeasureQuantityText(BagApp *app, u16 number, u32 unused2, u32
     String *string = String_New(10, HEAP_ID_6);
     BufferIntegerAsString(app->msgFormat, 0, number, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(app->msgFormat, string, app->quantityTemplate);
-    FontID_String_GetWidth(0, string, 0);
+    FontID_String_GetWidth(FONT_SYSTEM, string, 0);
     String_Delete(string);
 }
 

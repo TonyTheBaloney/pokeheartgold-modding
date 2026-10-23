@@ -452,7 +452,7 @@ static void PokeathlonRelayRunHud_PrintMonName(PokeathlonRelayRunHud *hud, s32 m
     FillWindowPixelBuffer(&hud->nameWindow, 0);
     BufferString(hud->msgFormat, 0, hud->names[member], 2, 1, 2);
     string = ReadMsgData_ExpandPlaceholders(hud->msgFormat, hud->msgData, msg_0309_00154, hud->heapId);
-    AddTextPrinterParameterizedWithColor(&hud->nameWindow, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&hud->nameWindow, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(&hud->nameWindow);
 }
@@ -462,7 +462,7 @@ static void PokeathlonRelayRunHud_PrintLaps(PokeathlonRelayRunHud *hud) {
     String *string;
     FillWindowPixelBuffer(&hud->lapsWindow, 0);
     string = NewString_ReadMsgData(hud->msgData, msg_0309_00305);
-    AddTextPrinterParameterizedWithColor(&hud->lapsWindow, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&hud->lapsWindow, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(&hud->lapsWindow);
 }

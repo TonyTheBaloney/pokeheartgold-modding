@@ -1421,7 +1421,7 @@ static void SwalotPlopIntro_Init(SwalotPlopIntro *intro, SwalotPlopGfx *gfx, Swa
     FillWindowPixelRect(&intro->window, 15, 0, 0, 224, 32);
     String *string = String_New(128, heapId);
     ReadMsgDataIntoString(gfx->msgData, msg_0230_00000, string);
-    AddTextPrinterParameterizedWithColor(&intro->window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    AddTextPrinterParameterizedWithColor(&intro->window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     String_Delete(string);
     GfGfxLoader_LoadCharDataFromOpenNarc(narc, 18, gfx->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, heapId);
     GfGfxLoader_LoadScrnDataFromOpenNarc(narc, playerCount + 18, gfx->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, heapId);
@@ -1445,8 +1445,8 @@ static void SwalotPlopIntro_Init(SwalotPlopIntro *intro, SwalotPlopGfx *gfx, Swa
             SetWindowX(&window, (u8)x);
             SetWindowY(&window, (u8)y);
             window.baseTile = (u16)baseTile;
-            u32 width = FontID_String_GetWidth(0, string, 0);
-            AddTextPrinterParameterizedWithColor(&window, 0, string, (64 - width) >> 1, 0, TEXT_SPEED_INSTANT, color, NULL);
+            u32 width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+            AddTextPrinterParameterizedWithColor(&window, FONT_SYSTEM, string, (64 - width) >> 1, 0, TEXT_SPEED_INSTANT, color, NULL);
             baseTile += 16;
         }
     }
@@ -3718,7 +3718,7 @@ static void SwalotPlopCombo_Free(SwalotPlopCombo *combo, SwalotPlopGfx *gfx) {
 static void SwalotPlopCombo_Show(SwalotPlopCombo *combo, SwalotPlopGfx *gfx, int count) {
     String16_FormatInteger(combo->string, count, 2, PRINTING_MODE_LEADING_ZEROS, TRUE);
     AddTextWindowTopLeftCorner(gfx->bgConfig, &combo->window, 3, 2, 0, 0);
-    AddTextPrinterParameterizedWithColor(&combo->window, 0, combo->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&combo->window, FONT_SYSTEM, combo->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     TextOBJ_CopyFromBGWindow(combo->textObj, combo->textLayout, &combo->window, combo->heapId);
     RemoveWindow(&combo->window);
     TextOBJ_SetSpritesDrawFlag(combo->textObj, TRUE);
@@ -3741,7 +3741,7 @@ static void SwalotPlopCombo_SetCount(SwalotPlopCombo *combo, SwalotPlopGfx *gfx,
     if (combo->state != SWALOT_PLOP_COMBO_SLIDE_OUT) {
         String16_FormatInteger(combo->string, count, 2, PRINTING_MODE_LEADING_ZEROS, TRUE);
         AddTextWindowTopLeftCorner(gfx->bgConfig, &combo->window, 3, 2, 0, 0);
-        AddTextPrinterParameterizedWithColor(&combo->window, 0, combo->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&combo->window, FONT_SYSTEM, combo->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
         TextOBJ_CopyFromBGWindow(combo->textObj, combo->textLayout, &combo->window, combo->heapId);
         RemoveWindow(&combo->window);
         combo->bounceFrame = 0;

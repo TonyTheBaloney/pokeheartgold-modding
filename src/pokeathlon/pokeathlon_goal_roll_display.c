@@ -370,7 +370,7 @@ void PokeathlonGoalRollDisplay_PrintName(PokeathlonGoalRollDisplay *display) {
     FillWindowPixelBuffer(&display->nameWindow, 0);
     own = PokeathlonCourse_GetNetId(display->course);
     name = PlayerProfile_GetPlayerName_NewString(PokeathlonCourse_GetPlayerProfileFromData(display->course, own), display->heapId);
-    AddTextPrinterParameterizedWithColor(&display->nameWindow, 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->nameWindow, FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(name);
     CopyWindowToVram(&display->nameWindow);
 }
@@ -379,7 +379,7 @@ void PokeathlonGoalRollDisplay_PrintSecondWind(PokeathlonGoalRollDisplay *displa
     String *string;
     FillWindowPixelBuffer(&display->messageWindow, 0);
     string = ReadMsgData_ExpandPlaceholders(display->msgFormat, display->msgData, msg_0309_00311, display->heapId);
-    AddTextPrinterParameterizedWithColor(&display->messageWindow, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->messageWindow, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(&display->messageWindow);
 }

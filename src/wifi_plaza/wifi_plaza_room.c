@@ -1024,7 +1024,7 @@ static void WiFiPlazaMsgWindow_Print(WiFiPlazaMsgWindow *window, String *string)
     }
     FillWindowPixelBuffer(&window->window, 15);
     String_Copy(window->string, string);
-    window->printerId = AddTextPrinterParameterizedWithColor(&window->window, 1, window->string, 0, 0, window->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    window->printerId = AddTextPrinterParameterizedWithColor(&window->window, FONT_MESSAGE, window->string, 0, 0, window->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     DrawFrameAndWindow2(&window->window, TRUE, 1, 1);
 }
 
@@ -1034,7 +1034,7 @@ static void WiFiPlazaMsgWindow_PrintInstant(WiFiPlazaMsgWindow *window, String *
     }
     FillWindowPixelBuffer(&window->window, 15);
     String_Copy(window->string, string);
-    AddTextPrinterParameterizedWithColor(&window->window, 1, window->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    AddTextPrinterParameterizedWithColor(&window->window, FONT_MESSAGE, window->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     DrawFrameAndWindow2(&window->window, TRUE, 1, 1);
     ScheduleWindowCopyToVram(&window->window);
 }
@@ -1095,7 +1095,7 @@ static void WiFiPlazaSignWindow_Print(WiFiPlazaMsgWindow *window, String *string
     }
     FillWindowPixelBuffer(&window->window, 15);
     String_Copy(window->string, string);
-    window->printerId = AddTextPrinterParameterized(&window->window, 1, window->string, 0, 0, window->textSpeed, NULL);
+    window->printerId = AddTextPrinterParameterized(&window->window, FONT_MESSAGE, window->string, 0, 0, window->textSpeed, NULL);
     DrawFrameAndWindow3(&window->window, TRUE, 0x1F, 2, 3);
 }
 
@@ -1292,7 +1292,7 @@ static void WiFiPlazaTextWindow_Close(Window *window) {
 }
 
 static void WiFiPlazaTextWindow_Print(Window *window, String *string, u32 x, u32 y) {
-    AddTextPrinterParameterizedWithColor(window, 0, string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     ScheduleWindowCopyToVram(window);
 }
 
@@ -1331,7 +1331,7 @@ static void WiFiPlazaErrorWindow_Free(Window *window) {
 }
 
 static void WiFiPlazaErrorWindow_Print(Window *window, String *string) {
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     DrawFrameAndWindow1(window, TRUE, 0x55, 3);
     ScheduleWindowCopyToVram(window);
 }
@@ -2198,16 +2198,16 @@ static void WiFiPlazaPlayerCard_ClearWindows(WiFiPlazaPlayerCard *card) {
 
 static void WiFiPlazaPlayerCard_Print(WiFiPlazaPlayerCard *card, WiFiPlazaRoomMsg *msg, int window, int msgId, u8 x, u8 y, u32 color) {
     String *string = WiFiPlazaRoomMsg_GetString(msg, 1, msgId);
-    AddTextPrinterParameterizedWithColor(&card->windows[window], 0, string, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&card->windows[window], FONT_SYSTEM, string, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
 }
 
 static void WiFiPlazaPlayerCard_PrintRightAligned(WiFiPlazaPlayerCard *card, WiFiPlazaRoomMsg *msg, int window, int msgId, u8 width, u8 y, u32 color) {
     String *string = WiFiPlazaRoomMsg_GetString(msg, 1, msgId);
-    int x = width - FontID_String_GetWidth(0, string, 0);
+    int x = width - FontID_String_GetWidth(FONT_SYSTEM, string, 0);
     if (x < 0) {
         x = 0;
     }
-    AddTextPrinterParameterizedWithColor(&card->windows[window], 0, string, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&card->windows[window], FONT_SYSTEM, string, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
 }
 
 static void WiFiPlazaPlayerCard_CopyWindow(WiFiPlazaPlayerCard *card, int window) {
@@ -2397,7 +2397,7 @@ static void WiFiPlazaPanelButton_ShowOwnCard(WiFiPlazaPanelButton *button, WiFiP
     WiFiPlazaInfoPanel_LoadScreen(graphics, narc, button->graphic + 0x1B, GF_BG_LYR_SUB_2, 0x140, heapID);
     text = WiFiPlazaRoomMsg_GetString(msg, 1, msg_0777_00063);
     FillWindowPixelBuffer(&button->window, 0);
-    AddTextPrinterParameterizedWithColor(&button->window, 0, text, 0, 4, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&button->window, FONT_SYSTEM, text, 0, 4, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     if (button->active == FALSE) {
         WiFiPlazaPanelButton_Draw(button, graphics, 0, narc, heapID);
     } else {

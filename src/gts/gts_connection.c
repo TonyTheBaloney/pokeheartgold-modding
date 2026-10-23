@@ -861,7 +861,7 @@ void Gts_PrintMessage(GtsApp *app, MsgData *msgData, int msgId, int textSpeed, u
     String_Delete(string);
     FillWindowPixelBuffer(&app->waitingIconWindow, 15);
     DrawFrameAndWindow2(&app->waitingIconWindow, FALSE, 1, 14);
-    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, 1, app->msgBuffer, 0, 0, textSpeed, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, FONT_MESSAGE, app->msgBuffer, 0, 0, textSpeed, NULL);
     app->waitFrames = 0;
 }
 
@@ -882,18 +882,18 @@ static int Gts_GetAlignedX(Window *window, String *string, int x, int align, u32
 }
 
 static void Gts_PrintAlignedFont1(Window *window, String *string, int x, int y, int align, u32 color) {
-    x = Gts_GetAlignedX(window, string, x, align, color, 1);
-    AddTextPrinterParameterizedWithColor(window, 1, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
+    x = Gts_GetAlignedX(window, string, x, align, color, FONT_MESSAGE);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 void Gts_PrintAlignedFont0(Window *window, String *string, int x, int y, int align, u32 color) {
-    x = Gts_GetAlignedX(window, string, x, align, color, 0);
-    AddTextPrinterParameterizedWithColor(window, 0, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
+    x = Gts_GetAlignedX(window, string, x, align, color, FONT_SYSTEM);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 void Gts_PrintAlignedFont4(Window *window, String *string, int x, int y, int align, u32 color) {
-    x = Gts_GetAlignedX(window, string, x, align, color, 0);
-    AddTextPrinterParameterizedWithColor(window, 4, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
+    x = Gts_GetAlignedX(window, string, x, align, color, FONT_SYSTEM);
+    AddTextPrinterParameterizedWithColor(window, FONT_UNK_4, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 void Gts_PrintPanelCaption(Window *window, MsgData *msgData, int caption) {
@@ -912,7 +912,7 @@ static void GtsConnection_PrintError(GtsApp *app, int msgId) {
     StringExpandPlaceholders(app->msgFormat, app->errorBuffer, string);
     FillWindowPixelBuffer(&app->boxNameWindow, 15);
     DrawFrameAndWindow1(&app->boxNameWindow, TRUE, 31, 11);
-    app->textPrinterId = AddTextPrinterParameterized(&app->boxNameWindow, 1, app->errorBuffer, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->boxNameWindow, FONT_MESSAGE, app->errorBuffer, 0, 0, TEXT_SPEED_INSTANT, NULL);
     String_Delete(string);
 }
 

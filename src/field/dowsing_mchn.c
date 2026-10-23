@@ -284,11 +284,11 @@ static void DowsingMchn_FreeStrings(DowsingMchn *dowsing) {
 static void DowsingMchn_CreateWindows(DowsingMchn *dowsing) {
     u32 i;
 
-    FontID_Alloc(4, HEAP_ID_8);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_8);
     for (i = 0; i < DOWSING_MCHN_NUM_STRINGS; i++) {
         AddWindow(dowsing->bgConfig, &dowsing->windows[i], &gDowsingMchnWindowTemplates[i]);
         FillWindowPixelBuffer(&dowsing->windows[i], 0);
-        AddTextPrinterParameterizedWithColor(&dowsing->windows[i], 4, dowsing->strings[i], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&dowsing->windows[i], FONT_UNK_4, dowsing->strings[i], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
         CopyWindowPixelsToVram_TextMode(&dowsing->windows[i]);
     }
     ScheduleWindowCopyToVram(&dowsing->windows[gDowsingMchnActionTypeToWindow[dowsing->actionType]]);
@@ -300,7 +300,7 @@ static void DowsingMchn_RemoveWindows(DowsingMchn *dowsing) {
     for (i = 0; i < DOWSING_MCHN_NUM_STRINGS; i++) {
         RemoveWindow(&dowsing->windows[i]);
     }
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void DowsingMchn_CreateSprites(DowsingMchn *dowsing, NARC *narc) {

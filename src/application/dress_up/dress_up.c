@@ -1960,7 +1960,7 @@ static void DressUp_CreateMsgWindow(DressUpWork *work, int msgId, u8 x, u8 y, u8
     DrawFrameAndWindow2(work->msgWindow, FALSE, 0x3C, 8);
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0215, HEAP_ID_13);
     string = NewString_ReadMsgData(msgData, msgId);
-    AddTextPrinterParameterizedWithColor(work->msgWindow, 1, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    AddTextPrinterParameterizedWithColor(work->msgWindow, FONT_MESSAGE, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     String_Delete(string);
     DestroyMsgData(msgData);
     CopyWindowToVram(work->msgWindow);
@@ -1975,7 +1975,7 @@ static void DressUp_PrintMsgWindow(DressUpWork *work, int msgId) {
     raw = NewString_ReadMsgData(msgData, msgId);
     expanded = String_New(0x100, HEAP_ID_13);
     StringExpandPlaceholders(work->msgFormat, expanded, raw);
-    AddTextPrinterParameterizedWithColor(work->msgWindow, 1, expanded, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    AddTextPrinterParameterizedWithColor(work->msgWindow, FONT_MESSAGE, expanded, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     String_Delete(expanded);
     String_Delete(raw);
     DestroyMsgData(msgData);
@@ -4087,14 +4087,14 @@ static void DressUpButtonPanel_Create(DressUpButtonPanel *panel, DressUpGfx *gfx
     DressUp_SetHitboxRect(panel->hitboxes, 2, 96, 156, 40, 34);
     DressUpButton_CreateSprite(&panel->buttons[3], 3, gfx, 136, 144, 40, 42);
     DressUp_SetHitboxRect(panel->hitboxes, 3, 136, 156, 40, 34);
-    FontID_Alloc(2, HEAP_ID_14);
+    FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_14);
     {
         Window *label = DressUpButton_CreateTextBitmap(gfx, NARC_msgdata_msg, msg_0215, msg_0215_00000, 9, 5);
         DressUpButton_CreateTextSprite(&panel->done, 4, gfx, panel->fontSystem, label, 184, 144, 72, 42);
         DressUp_SetHitboxRect(panel->hitboxes, 4, 184, 156, 72, 34);
         DressUpButton_DeleteTextBitmap(label);
     }
-    FontID_Release(2);
+    FontID_Release(FONT_SUBSCREEN);
     panel->visible = TRUE;
     DressUpButtonPanel_FreeResources(gfx);
     DressUpButton_SetAnimSelected(&panel->buttons[2]);
@@ -4376,8 +4376,8 @@ static Window *DressUpButton_CreateTextBitmap(DressUpGfx *gfx, NarcId narcId, in
     window = AllocWindows(HEAP_ID_14, 1);
     InitWindow(window);
     AddTextWindowTopLeftCorner(gfx->bgConfig, window, width, height, 0, 0);
-    x = FontID_String_GetCenterAlignmentX(2, string, 0, width * 8);
-    AddTextPrinterParameterizedWithColor(window, 2, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 3), NULL);
+    x = FontID_String_GetCenterAlignmentX(FONT_SUBSCREEN, string, 0, width * 8);
+    AddTextPrinterParameterizedWithColor(window, FONT_SUBSCREEN, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 3), NULL);
     String_Delete(string);
     DestroyMsgData(msgData);
     return window;
@@ -4541,7 +4541,7 @@ static u8 DressUp_PrintMsg(Window *window, NarcId narcId, int bank, int msgId, i
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, narcId, bank, HEAP_ID_13);
     GF_ASSERT(msgData);
     String *string = NewString_ReadMsgData(msgData, msgId);
-    u8 printerId = AddTextPrinterParameterizedWithColor(window, 1, string, x, y, textSpeed, color, NULL);
+    u8 printerId = AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, x, y, textSpeed, color, NULL);
     String_Delete(string);
     DestroyMsgData(msgData);
     return printerId;
@@ -4553,7 +4553,7 @@ static u8 DressUp_PrintMsgKeepString(Window *window, NarcId narcId, int bank, in
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, narcId, bank, HEAP_ID_13);
     GF_ASSERT(msgData);
     *string = NewString_ReadMsgData(msgData, msgId);
-    u8 printerId = AddTextPrinterParameterizedWithColor(window, 1, *string, x, y, textSpeed, color, NULL);
+    u8 printerId = AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, *string, x, y, textSpeed, color, NULL);
     DestroyMsgData(msgData);
     return printerId;
 }

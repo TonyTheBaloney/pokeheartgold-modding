@@ -836,7 +836,7 @@ static void PokeathlonCourseRecord_ShowCoursePanel(PokeathlonCourseRecord *work,
 
 static void PokeathlonCourseRecord_PrintStaticText(PokeathlonCourseRecord *work) {
     PokeathlonUtil_PrintMessageAtXY(work->textContext, 0, msg_0314_00002, 1, 0);
-    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 2, msg_0314_00000, TRUE, 0, 4);
+    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 2, msg_0314_00000, TRUE, 0, FONT_UNK_4);
     PokeathlonUtil_PrintAlignedMessage(work->textContext, 11, msg_0314_00007, FALSE);
 }
 

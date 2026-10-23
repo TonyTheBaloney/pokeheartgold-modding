@@ -110,7 +110,7 @@ BOOL PokeathlonPennantCapture_Init(PokeathlonCourseData *course) {
         NNS_G2dInitOamManagerModule();
         OamManager_Create(0, 126, 0, 32, 0, 126, 0, 32, HEAP_ID_139);
         data->heapId = HEAP_ID_139;
-        FontID_Alloc(4, HEAP_ID_139);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_139);
         PokeathlonPennantCapture_InitBgs(data->bgConfig);
         PokeathlonPennantCapture_InitScoreWindow(data);
         gSystem.screensFlipped = TRUE;
@@ -282,7 +282,7 @@ BOOL PokeathlonPennantCapture_Exit(PokeathlonCourseData *course) {
     ObjPlttTransfer_Destroy();
     PokeathlonPennantCaptureCpu_Delete(work->cpu);
     PokeathlonPennantCaptureDisplay_Delete(work->display);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     PokeathlonCourse_FreeWork(course);
     gSystem.screensFlipped = FALSE;
     GfGfx_SwapDisplay();

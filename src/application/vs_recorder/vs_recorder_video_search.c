@@ -481,7 +481,7 @@ static void VsRecorder_CreateSearchConditionWindows(VsRecorderWork *work, int mo
         if (center) {
             VsRecorder_GetCenteredTextX(window, str);
         }
-        AddTextPrinterParameterizedWithColor(window, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
         ScheduleWindowCopyToVram(window);
         String_Delete(str);
         msgId++;
@@ -501,7 +501,7 @@ static void VsRecorder_PrintSearchFacility(VsRecorderWork *work, u32 facility) {
     } else {
         str = NewString_ReadMsgData(work->msgData, facility + 0x84);
     }
-    AddTextPrinterParameterizedWithColor(window, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(str);
 }
@@ -520,7 +520,7 @@ static void VsRecorder_PrintSearchSpecies(VsRecorderWork *work, u16 species) {
         GetSpeciesNameIntoArray(species, HEAP_ID_109, name);
         CopyU16ArrayToString(str, name);
     }
-    AddTextPrinterParameterizedWithColor(window, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(str);
 }
@@ -550,7 +550,7 @@ void VsRecorder_PrintSearchLocation(VsRecorderWork *work, u32 country, u32 regio
         String_Delete(template);
         MessageFormat_Delete(msgFormat);
     }
-    AddTextPrinterParameterizedWithColor(&search->windows[5], 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&search->windows[5], FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(&search->windows[5]);
     String_Delete(str);
 }
@@ -569,7 +569,7 @@ void VsRecorder_PrintLocationButtonLabel(VsRecorderWork *work) {
     }
     str = NewString_ReadMsgData(work->msgData, msgId);
     FillWindowPixelBuffer(window, 0);
-    AddTextPrinterParameterizedWithColor(window, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(str);
 }
@@ -606,7 +606,7 @@ static void VsRecorder_CreateSearchButtonWindows(VsRecorderWork *work, int mode)
     for (j = 0; j < 2; j++) {
         String *str = NewString_ReadMsgData(work->msgData, *msgId);
 
-        AddTextPrinterParameterizedWithColor(labelWindow, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+        AddTextPrinterParameterizedWithColor(labelWindow, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
         ScheduleWindowCopyToVram(labelWindow);
         String_Delete(str);
         labelWindow++;
@@ -652,7 +652,7 @@ static void VsRecorder_CreateSearchResultWindows(VsRecorderWork *work) {
     AddWindowParameterized(work->bgConfig, window, GF_BG_LYR_MAIN_2, 3, 3, 20, 4, 14, 0x20);
     FillWindowPixelBuffer(window, 0);
     str = NewString_ReadMsgData(work->msgData, msg_0013_00126);
-    AddTextPrinterParameterizedWithColor(window, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(str);
     window = &search->buttonWindows[0];
@@ -660,8 +660,8 @@ static void VsRecorder_CreateSearchResultWindows(VsRecorderWork *work) {
     AddWindowParameterized(work->bgConfig, window, GF_BG_LYR_SUB_2, 11, 6, 10, 4, 14, 0x100);
     FillWindowPixelBuffer(window, 0);
     str = NewString_ReadMsgData(work->msgData, msg_0013_00095);
-    x = (80 - FontID_String_GetWidthMultiline(0, str, 0)) / 2;
-    AddTextPrinterParameterizedWithColor(window, 0, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    x = (80 - FontID_String_GetWidthMultiline(FONT_SYSTEM, str, 0)) / 2;
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(str);
     search->buttonWindowCount = 1;
@@ -921,9 +921,9 @@ static void VsRecorder_CreateSearchCategoryWindows(VsRecorderWork *work) {
         textX = VsRecorder_GetCenteredTextX(window, str);
         textY = (height * 8 - 16) / 2;
         if (VsRecorder_SearchCategoryHasSeen(work, i) == TRUE) {
-            AddTextPrinterParameterizedWithColor(window, 0, str, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
         } else {
-            AddTextPrinterParameterizedWithColor(window, 0, str, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(12, 11, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(12, 11, 0), NULL);
         }
         ScheduleWindowCopyToVram(window);
         String_Delete(str);

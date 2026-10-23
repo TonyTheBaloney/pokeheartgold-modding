@@ -1755,7 +1755,7 @@ static void SpinTrade_PrintMessage(SpinTradeApp *app, int msgNo) {
     DrawFrameAndWindow2(window, TRUE, 10, 14);
     FillWindowPixelBuffer(window, 15);
     ReadMsgDataIntoString(text->msgData, msgNo, text->string);
-    AddTextPrinterParameterized(window, 1, text->string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(window, FONT_MESSAGE, text->string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     ScheduleWindowCopyToVram(window);
 }
 
@@ -1772,7 +1772,7 @@ static void SpinTrade_PrintPlayerMessage(SpinTradeApp *app, int msgNo, PlayerPro
     String_Delete(template);
     DrawFrameAndWindow2(window, TRUE, 10, 14);
     FillWindowPixelBuffer(window, 15);
-    AddTextPrinterParameterized(window, 1, text->string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(window, FONT_MESSAGE, text->string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     ScheduleWindowCopyToVram(window);
 }
 
@@ -1788,7 +1788,7 @@ static void SpinTrade_PrintItemMessage(SpinTradeApp *app, int msgNo, int item) {
     String_Delete(template);
     DrawFrameAndWindow2(window, TRUE, 10, 14);
     FillWindowPixelBuffer(window, 15);
-    AddTextPrinterParameterized(window, 1, text->string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(window, FONT_MESSAGE, text->string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     ScheduleWindowCopyToVram(window);
 }
 
@@ -1827,8 +1827,8 @@ static void SpinTrade_PrintNameWindow(SpinTradeApp *app, String *name, int index
 
     DrawFrameAndWindow1(window, TRUE, 1, 14);
     FillWindowPixelBuffer(window, 15);
-    x = FontID_String_GetCenterAlignmentX(0, name, 0, 64);
-    AddTextPrinterParameterizedWithColor(window, 0, name, x, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
+    x = FontID_String_GetCenterAlignmentX(FONT_SYSTEM, name, 0, 64);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, name, x, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
     ScheduleWindowCopyToVram(window);
 }
 

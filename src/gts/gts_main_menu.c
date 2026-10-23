@@ -383,7 +383,7 @@ static void GtsMainMenu_CreateWindows(GtsApp *app) {
 
     AddWindowParameterized(app->bgConfig, &app->titleWindow, GF_BG_LYR_MAIN_1, 2, 1, 28, 2, 13, 0x28);
     FillWindowPixelBuffer(&app->titleWindow, 0);
-    AddTextPrinterParameterizedWithColor(&app->titleWindow, 1, app->titleString, 0, 2, 0, MAKE_TEXT_COLOR(15, 6, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->titleWindow, FONT_MESSAGE, app->titleString, 0, 2, 0, MAKE_TEXT_COLOR(15, 6, 0), NULL);
 
     i = 0;
     baseTile = 0x61;
@@ -632,7 +632,7 @@ static void GtsMainMenu_DrawButtons(GtsApp *app) {
         FillWindowPixelRect(window, 15, 0, 0, 120, 8);
         FillWindowPixelRect(window, 14, 0, 8, 120, 2);
         FillWindowPixelRect(window, 13, 0, 10, 120, 6);
-        GtsMainMenu_PrintButtonLabel(window, app->gtsMsgData, 4, msgIds[i], 0);
+        GtsMainMenu_PrintButtonLabel(window, app->gtsMsgData, FONT_UNK_4, msgIds[i], 0);
         CopyWindowToVram(window);
         window++;
     }
@@ -642,14 +642,14 @@ static void GtsMainMenu_PrintMessage(GtsApp *app, int msgId, int textSpeed, int 
     ReadMsgDataIntoString(app->gtsMsgData, msgId, app->msgBuffer);
     FillWindowPixelBuffer(&app->waitingIconWindow, 15);
     DrawFrameAndWindow2(&app->waitingIconWindow, FALSE, 1, 14);
-    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, 1, app->msgBuffer, 0, 0, textSpeed, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, FONT_MESSAGE, app->msgBuffer, 0, 0, textSpeed, NULL);
 }
 
 static void GtsMainMenu_PrintPrompt(GtsApp *app, int msgId, int textSpeed, int unused3, u32 unused4) {
     ReadMsgDataIntoString(app->gtsMsgData, msgId, app->msgBuffer);
     FillWindowPixelBuffer(&app->promptWindow, 15);
     DrawFrameAndWindow2(&app->promptWindow, FALSE, 1, 14);
-    app->textPrinterId = AddTextPrinterParameterized(&app->promptWindow, 1, app->msgBuffer, 0, 0, textSpeed, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->promptWindow, FONT_MESSAGE, app->msgBuffer, 0, 0, textSpeed, NULL);
 }
 
 static void GtsMainMenu_PrintButtonLabel(Window *window, MsgData *msgData, int fontId, int msgId, u32 unused) {

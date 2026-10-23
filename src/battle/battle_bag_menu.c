@@ -135,7 +135,7 @@ static void BattleBagMenu_AddPageWindows(BattleBagMenu *menu, int page);
 static void BattleBagMenu_RemovePageWindows(BattleBagMenu *menu);
 static void BattleBagMenu_RemoveWindows(BattleBagMenu *menu);
 static void BattleBagMenu_PrintPageText(BattleBagMenu *menu, int page);
-static void BattleBagMenu_PrintCenteredText(BattleBagMenu *menu, u32 window, u32 msgNo, FontID fontId, u32 y, u32 color);
+static void BattleBagMenu_PrintCenteredText(BattleBagMenu *menu, u32 window, u32 msgNo, enum Font fontId, u32 y, u32 color);
 static void BattleBagMenu_PrintPocketMenuPage(BattleBagMenu *menu);
 static void BattleBagMenu_PrintItemName(BattleBagMenu *menu, int slot, int entry, int window, u32 fontId, u32 color);
 static void BattleBagMenu_PrintItemQuantity(BattleBagMenu *menu, int slot, int entry, int window, u32 fontId, int y, int color);
@@ -312,7 +312,7 @@ static int BattleBagMenu_Setup(BattleBagMenu *menu) {
     BattleBagMenu_InitBgs(menu);
     BattleBagMenu_LoadBgGraphics(menu);
     BattleBagMenu_InitText(menu);
-    FontID_Alloc(4, menu->context->heapID);
+    FontID_Alloc(FONT_UNK_4, menu->context->heapID);
     menu->pocket = BagCursor_Battle_GetPocket(BattleSystem_GetBagCursor(menu->context->battleSystem));
     BattleBagMenu_SortItemsIntoPockets(menu);
     BattleBagMenu_DrawPageButtons(menu, menu->page);
@@ -636,7 +636,7 @@ static int BattleBagMenu_Exit(SysTask *task, BattleBagMenu *menu) {
     BattleBagMenu_FreeBgs(menu->bgConfig);
     menu->context->cursorActive = BattleDpadCursor_IsActive(menu->cursor);
     BattleDpadCursor_Free(menu->cursor);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     if (menu->context->selectedItem) {
         bagCursor = BattleSystem_GetBagCursor(menu->context->battleSystem);
         for (i = 0; i < 5; i++) {
@@ -878,7 +878,7 @@ static void BattleBagMenu_PrintPageText(BattleBagMenu *menu, int page) {
     }
 }
 
-static void BattleBagMenu_PrintCenteredText(BattleBagMenu *menu, u32 window, u32 msgNo, FontID fontId, u32 y, u32 color) {
+static void BattleBagMenu_PrintCenteredText(BattleBagMenu *menu, u32 window, u32 msgNo, enum Font fontId, u32 y, u32 color) {
     Window *windows = menu->pageWindows;
     Window *win = &windows[window];
     String *string = NewString_ReadMsgData(menu->msgData, msgNo);
@@ -895,15 +895,15 @@ static void BattleBagMenu_PrintPocketMenuPage(BattleBagMenu *menu) {
     for (i = 0; i < 5; i++) {
         FillWindowPixelBuffer(&menu->pageWindows[i], 0);
     }
-    BattleBagMenu_PrintCenteredText(menu, 0, msg_0005_00000, 4, 7, MAKE_TEXT_COLOR(3, 2, 1));
-    BattleBagMenu_PrintCenteredText(menu, 0, msg_0005_00001, 4, 0x17, MAKE_TEXT_COLOR(3, 2, 1));
-    BattleBagMenu_PrintCenteredText(menu, 1, msg_0005_00002, 4, 7, MAKE_TEXT_COLOR(3, 2, 1));
-    BattleBagMenu_PrintCenteredText(menu, 1, msg_0005_00003, 4, 0x17, MAKE_TEXT_COLOR(3, 2, 1));
-    BattleBagMenu_PrintCenteredText(menu, 2, msg_0005_00007, 4, 7, MAKE_TEXT_COLOR(3, 2, 1));
-    BattleBagMenu_PrintCenteredText(menu, 3, msg_0005_00006, 4, 7, MAKE_TEXT_COLOR(3, 2, 1));
+    BattleBagMenu_PrintCenteredText(menu, 0, msg_0005_00000, FONT_UNK_4, 7, MAKE_TEXT_COLOR(3, 2, 1));
+    BattleBagMenu_PrintCenteredText(menu, 0, msg_0005_00001, FONT_UNK_4, 0x17, MAKE_TEXT_COLOR(3, 2, 1));
+    BattleBagMenu_PrintCenteredText(menu, 1, msg_0005_00002, FONT_UNK_4, 7, MAKE_TEXT_COLOR(3, 2, 1));
+    BattleBagMenu_PrintCenteredText(menu, 1, msg_0005_00003, FONT_UNK_4, 0x17, MAKE_TEXT_COLOR(3, 2, 1));
+    BattleBagMenu_PrintCenteredText(menu, 2, msg_0005_00007, FONT_UNK_4, 7, MAKE_TEXT_COLOR(3, 2, 1));
+    BattleBagMenu_PrintCenteredText(menu, 3, msg_0005_00006, FONT_UNK_4, 7, MAKE_TEXT_COLOR(3, 2, 1));
     if (menu->context->lastUsedItem != ITEM_NONE) {
         String *string = NewString_ReadMsgData(menu->msgData, msg_0005_00008);
-        AddTextPrinterParameterizedWithColor(&menu->pageWindows[4], 4, string, 0, 5, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 2, 1), NULL);
+        AddTextPrinterParameterizedWithColor(&menu->pageWindows[4], FONT_UNK_4, string, 0, 5, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 2, 1), NULL);
         String_Delete(string);
         ScheduleWindowCopyToVram(&menu->pageWindows[4]);
     }
@@ -954,8 +954,8 @@ static void BattleBagMenu_PrintItemListEntry(BattleBagMenu *menu, int entry) {
     } else {
         firstWindow = 12;
     }
-    BattleBagMenu_PrintItemName(menu, entry + firstSlot, entry, firstWindow + entry * 2, 4, MAKE_TEXT_COLOR(3, 2, 1));
-    BattleBagMenu_PrintItemQuantity(menu, entry + firstSlot, entry, firstWindow + 1 + entry * 2, 0, 4, MAKE_TEXT_COLOR(1, 2, 0));
+    BattleBagMenu_PrintItemName(menu, entry + firstSlot, entry, firstWindow + entry * 2, FONT_UNK_4, MAKE_TEXT_COLOR(3, 2, 1));
+    BattleBagMenu_PrintItemQuantity(menu, entry + firstSlot, entry, firstWindow + 1 + entry * 2, FONT_SYSTEM, 4, MAKE_TEXT_COLOR(1, 2, 0));
 }
 
 static void BattleBagMenu_PrintItemList(BattleBagMenu *menu) {
@@ -978,19 +978,19 @@ static void BattleBagMenu_PrintPageNumber(BattleBagMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[25], 0);
     windows = menu->pageWindows;
     slash = NewString_ReadMsgData(menu->msgData, msg_0005_00028);
-    width = FontID_String_GetWidth(0, slash, 0);
+    width = FontID_String_GetWidth(FONT_SYSTEM, slash, 0);
     x = (GetWindowWidth(PAGE_NUMBER_WINDOW(windows)) * 8 - width) / 2;
-    AddTextPrinterParameterizedWithColor(PAGE_NUMBER_WINDOW(windows), 0, slash, x, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(PAGE_NUMBER_WINDOW(windows), FONT_SYSTEM, slash, x, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(slash);
     lastPage = NewString_ReadMsgData(menu->msgData, msg_0005_00029);
     BufferIntegerAsString(menu->msgFormat, 0, menu->lastPages[menu->pocket] + 1, 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, menu->string, lastPage);
-    AddTextPrinterParameterizedWithColor(PAGE_NUMBER_WINDOW(windows), 0, menu->string, x + width, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(PAGE_NUMBER_WINDOW(windows), FONT_SYSTEM, menu->string, x + width, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(lastPage);
     currentPage = NewString_ReadMsgData(menu->msgData, msg_0005_00030);
     BufferIntegerAsString(menu->msgFormat, 0, menu->context->pocketPages[menu->pocket] + 1, 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, menu->string, currentPage);
-    AddTextPrinterParameterizedWithColor(PAGE_NUMBER_WINDOW(windows), 0, menu->string, x - FontID_String_GetWidth(0, menu->string, 0), 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(PAGE_NUMBER_WINDOW(windows), FONT_SYSTEM, menu->string, x - FontID_String_GetWidth(FONT_SYSTEM, menu->string, 0), 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(currentPage);
     ScheduleWindowCopyToVram(PAGE_NUMBER_WINDOW(windows));
 }
@@ -999,18 +999,18 @@ static void BattleBagMenu_PrintPocketName(BattleBagMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[24], 0);
     switch (menu->pocket) {
     case BTLPOCKETLIST_HP_PP_RESTORE:
-        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00022, 0, 4, MAKE_TEXT_COLOR(1, 2, 0));
-        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00023, 0, 0x14, MAKE_TEXT_COLOR(1, 2, 0));
+        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00022, FONT_SYSTEM, 4, MAKE_TEXT_COLOR(1, 2, 0));
+        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00023, FONT_SYSTEM, 0x14, MAKE_TEXT_COLOR(1, 2, 0));
         break;
     case BTLPOCKETLIST_STATUS_RESTORE:
-        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00024, 0, 4, MAKE_TEXT_COLOR(1, 2, 0));
-        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00025, 0, 0x14, MAKE_TEXT_COLOR(1, 2, 0));
+        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00024, FONT_SYSTEM, 4, MAKE_TEXT_COLOR(1, 2, 0));
+        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00025, FONT_SYSTEM, 0x14, MAKE_TEXT_COLOR(1, 2, 0));
         break;
     case BTLPOCKETLIST_BALLS:
-        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00026, 0, 0xC, MAKE_TEXT_COLOR(1, 2, 0));
+        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00026, FONT_SYSTEM, 0xC, MAKE_TEXT_COLOR(1, 2, 0));
         break;
     case BTLPOCKETLIST_BATTLE_ITEMS:
-        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00027, 0, 0xC, MAKE_TEXT_COLOR(1, 2, 0));
+        BattleBagMenu_PrintCenteredText(menu, 24, msg_0005_00027, FONT_SYSTEM, 0xC, MAKE_TEXT_COLOR(1, 2, 0));
         break;
     }
 }
@@ -1028,7 +1028,7 @@ static void BattleBagMenu_PrintUseItemName(BattleBagMenu *menu, int slot) {
     BufferItemName(menu->msgFormat, 0, items[slot].id);
     StringExpandPlaceholders(menu->msgFormat, menu->string, string);
     FillWindowPixelBuffer(window, 0);
-    AddTextPrinterParameterizedWithColor(window, 0, menu->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, menu->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(window);
 }
@@ -1037,7 +1037,7 @@ static void BattleBagMenu_PrintItemDescription(BattleBagMenu *menu, int slot) {
     Window *window = &menu->pageWindows[2];
     String *string = String_New(130, menu->context->heapID);
     GetItemDescIntoString(string, menu->pocketItems[menu->pocket][slot].id, (enum HeapID)(u16)menu->context->heapID);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(window);
 }
@@ -1052,9 +1052,9 @@ static void BattleBagMenu_PrintUseItemPage(BattleBagMenu *menu) {
     position = menu->context->pocketPositions[menu->pocket];
     page = menu->context->pocketPages[menu->pocket];
     BattleBagMenu_PrintUseItemName(menu, position + page * 6);
-    BattleBagMenu_PrintItemQuantity(menu, position + page * 6, 0, 1, 0, 0, MAKE_TEXT_COLOR(1, 2, 0));
+    BattleBagMenu_PrintItemQuantity(menu, position + page * 6, 0, 1, FONT_SYSTEM, 0, MAKE_TEXT_COLOR(1, 2, 0));
     BattleBagMenu_PrintItemDescription(menu, position + page * 6);
-    BattleBagMenu_PrintCenteredText(menu, 3, msg_0005_00031, 4, 5, MAKE_TEXT_COLOR(3, 2, 1));
+    BattleBagMenu_PrintCenteredText(menu, 3, msg_0005_00031, FONT_UNK_4, 5, MAKE_TEXT_COLOR(3, 2, 1));
 }
 
 static void BattleBagMenu_ShowMessage(BattleBagMenu *menu) {
@@ -1065,7 +1065,7 @@ static void BattleBagMenu_ShowMessage(BattleBagMenu *menu) {
 
 static void BattleBagMenu_PrintMessage(BattleBagMenu *menu) {
     TextFlags_SetCanABSpeedUpPrint(TRUE);
-    menu->textPrinterId = AddTextPrinterParameterized(&menu->messageWindow, 1, menu->string, 0, 0, BattleSystem_GetTextFrameDelay(menu->context->battleSystem), NULL);
+    menu->textPrinterId = AddTextPrinterParameterized(&menu->messageWindow, FONT_MESSAGE, menu->string, 0, 0, BattleSystem_GetTextFrameDelay(menu->context->battleSystem), NULL);
 }
 
 static BOOL BattleBagMenu_ValidateLastUsedItem(BattleBagMenu *menu) {

@@ -113,9 +113,9 @@ static void PokewalkerApp_ShowWalkerRecords(PokewalkerApp *app, BOOL onStroll) {
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_SUB_1, 16);
     PokewalkerApp_ShowSubBg1(app, TRUE);
     app->subBgScrollX = 0;
-    PokewalkerApp_PrintSubString(app, 1, app->totalWattsText, 0, MAKE_TEXT_COLOR(1, 2, 0));
+    PokewalkerApp_PrintSubString(app, 1, app->totalWattsText, FONT_SYSTEM, MAKE_TEXT_COLOR(1, 2, 0));
     PokewalkerApp_PrintSubMessage(app, 2, msg_0274_00083, MAKE_TEXT_COLOR(1, 2, 0));
-    PokewalkerApp_PrintSubString(app, 3, app->totalStepsText, 0, MAKE_TEXT_COLOR(1, 2, 0));
+    PokewalkerApp_PrintSubString(app, 3, app->totalStepsText, FONT_SYSTEM, MAKE_TEXT_COLOR(1, 2, 0));
     PokewalkerApp_PrintSubMessage(app, 4, msg_0274_00084, MAKE_TEXT_COLOR(1, 2, 0));
     if (wattsNeeded < 0) {
         PokewalkerApp_PrintSubMessage(app, 0, msg_0274_00088, MAKE_TEXT_COLOR(1, 2, 0));
@@ -156,7 +156,7 @@ int PokewalkerApp_MainMenu_ShowTopMenu(PokewalkerApp *app) {
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 23);
     for (i = 0; i < 4; i++) {
         String *string = NewString_ReadMsgData(app->msgData, msg_0274_00152 + i);
-        PokewalkerApp_PrintString(app, i, string, 4, MAKE_TEXT_COLOR(15, 1, 0));
+        PokewalkerApp_PrintString(app, i, string, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
         String_Delete(string);
     }
     PokewalkerApp_PrintExit(app, 6);
@@ -243,7 +243,7 @@ int PokewalkerApp_MainMenu_PrintStrollReady(PokewalkerApp *app) {
 // "Save, then go for a Stroll" / exit.
 int PokewalkerApp_MainMenu_ShowStrollMenu(PokewalkerApp *app) {
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 10);
-    PokewalkerApp_PrintString(app, 5, app->saveAndStrollText, 4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 5, app->saveAndStrollText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
     PokewalkerApp_PrintExit(app, 1);
     app->menuSelection = 0;
     PokewalkerApp_SetCursorPosition(app, 2);
@@ -312,8 +312,8 @@ int PokewalkerApp_MainMenu_WaitReceive(PokewalkerApp *app) {
 int PokewalkerApp_MainMenu_ShowReceiveMenu(PokewalkerApp *app) {
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 11);
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_SUB_1, 16);
-    PokewalkerApp_PrintString(app, 3, app->returnFromStrollText, 4, MAKE_TEXT_COLOR(15, 1, 0));
-    PokewalkerApp_PrintString(app, 4, app->receiveGiftText, 4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 3, app->returnFromStrollText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 4, app->receiveGiftText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
     PokewalkerApp_PrintExit(app, 1);
     app->menuSelection = 0;
     PokewalkerApp_SetCursorPosition(app, gReceiveMenuCursorPositions[app->menuSelection]);
@@ -394,9 +394,9 @@ int PokewalkerApp_MainMenu_WaitStrollReady2(PokewalkerApp *app) {
 int PokewalkerApp_MainMenu_ShowFullMenu(PokewalkerApp *app) {
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 12);
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_SUB_1, 16);
-    PokewalkerApp_PrintString(app, 3, app->goForStrollText, 4, MAKE_TEXT_COLOR(15, 1, 0));
-    PokewalkerApp_PrintString(app, 4, app->receiveGiftText, 4, MAKE_TEXT_COLOR(15, 1, 0));
-    PokewalkerApp_PrintString(app, 5, app->returnFromStrollText, 4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 3, app->goForStrollText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 4, app->receiveGiftText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 5, app->returnFromStrollText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
     PokewalkerApp_PrintExit(app, 1);
     app->menuSelection = 0;
     PokewalkerApp_SetCursorPosition(app, gFullMenuCursorPositions[app->menuSelection]);

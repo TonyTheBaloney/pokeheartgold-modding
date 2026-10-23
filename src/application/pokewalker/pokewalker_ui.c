@@ -145,8 +145,8 @@ int PokewalkerApp_GetWattsToNextCourse(PokewalkerApp *app, int watts) {
 void PokewalkerApp_ShowYesNoMenu(PokewalkerApp *app, int selection) {
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 13);
     PokewalkerApp_SetCursorPosition(app, 0);
-    PokewalkerApp_PrintString(app, 3, app->yesText, 4, MAKE_TEXT_COLOR(15, 1, 0));
-    PokewalkerApp_PrintString(app, 4, app->noText, 4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 3, app->yesText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 4, app->noText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
     PokewalkerApp_SetCursorPosition(app, selection);
     app->menuSelection = selection;
     app->menuState = 0;
@@ -157,8 +157,8 @@ void PokewalkerApp_ShowSaveEraseStepsMenu(PokewalkerApp *app, int selection) {
     String *eraseSteps = NewString_ReadMsgData(app->msgData, msg_0274_00151);
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 13);
     PokewalkerApp_SetCursorPosition(app, 0);
-    PokewalkerApp_PrintString(app, 3, saveSteps, 4, MAKE_TEXT_COLOR(15, 1, 0));
-    PokewalkerApp_PrintString(app, 4, eraseSteps, 4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 3, saveSteps, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, 4, eraseSteps, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
     PokewalkerApp_SetCursorPosition(app, selection);
     app->menuSelection = selection;
     app->menuState = 0;
@@ -426,29 +426,29 @@ void PokewalkerApp_FreeStrings(PokewalkerApp *app) {
 }
 
 void PokewalkerApp_PrintExit(PokewalkerApp *app, int window) {
-    PokewalkerApp_PrintString(app, window, app->exitText, 4, MAKE_TEXT_COLOR(15, 1, 0));
+    PokewalkerApp_PrintString(app, window, app->exitText, FONT_UNK_4, MAKE_TEXT_COLOR(15, 1, 0));
 }
 
 void PokewalkerApp_PrintMessage(PokewalkerApp *app, int window, int msgId, u32 color) {
     String *string = NewString_ReadMsgData(app->msgData, msgId);
     StringExpandPlaceholders(app->msgFormat, app->string, string);
-    PokewalkerApp_PrintString(app, window, app->string, 0, color);
+    PokewalkerApp_PrintString(app, window, app->string, FONT_SYSTEM, color);
     String_Delete(string);
 }
 
-void PokewalkerApp_PrintString(PokewalkerApp *app, int window, String *string, FontID fontId, u32 color) {
+void PokewalkerApp_PrintString(PokewalkerApp *app, int window, String *string, enum Font fontId, u32 color) {
     Window *win = &app->windows[window];
     FillWindowPixelBuffer(win, 0);
     AddTextPrinterParameterizedWithColor(win, fontId, string, 0, 0, TEXT_SPEED_INSTANT, color, NULL);
 }
 
-void PokewalkerApp_PrintStringDefaultColor(PokewalkerApp *app, int window, String *string, FontID fontId) {
+void PokewalkerApp_PrintStringDefaultColor(PokewalkerApp *app, int window, String *string, enum Font fontId) {
     Window *win = &app->windows[window];
     FillWindowPixelBuffer(win, 0);
     AddTextPrinterParameterizedWithColor(win, fontId, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
 }
 
-void PokewalkerApp_PrintSubString(PokewalkerApp *app, int window, String *string, FontID fontId, u32 color) {
+void PokewalkerApp_PrintSubString(PokewalkerApp *app, int window, String *string, enum Font fontId, u32 color) {
     Window *win = &app->subWindows[window];
     FillWindowPixelBuffer(win, 0);
     AddTextPrinterParameterizedWithColor(win, fontId, string, 0, 0, TEXT_SPEED_INSTANT, color, NULL);
@@ -457,7 +457,7 @@ void PokewalkerApp_PrintSubString(PokewalkerApp *app, int window, String *string
 void PokewalkerApp_PrintSubMessage(PokewalkerApp *app, int window, int msgId, u32 color) {
     String *string = NewString_ReadMsgData(app->msgData, msgId);
     StringExpandPlaceholders(app->msgFormat, app->string, string);
-    PokewalkerApp_PrintSubString(app, window, app->string, 0, color);
+    PokewalkerApp_PrintSubString(app, window, app->string, FONT_SYSTEM, color);
     String_Delete(string);
 }
 
@@ -469,7 +469,7 @@ u8 PokewalkerApp_StartMessageBox(PokewalkerApp *app, int window, int msgId) {
     DrawFrameAndWindow2(&windows[window], TRUE, 0x3E2, 13);
     FillWindowPixelBuffer(&windows[window], 0xFF);
     StringExpandPlaceholders(app->msgFormat, app->string, string);
-    printerId = AddTextPrinterParameterized(&windows[window], 1, app->string, 0, 0, Options_GetTextFrameDelay(app->options), NULL);
+    printerId = AddTextPrinterParameterized(&windows[window], FONT_MESSAGE, app->string, 0, 0, Options_GetTextFrameDelay(app->options), NULL);
     String_Delete(string);
     return printerId;
 }
@@ -480,7 +480,7 @@ void PokewalkerApp_ShowMessageBox(PokewalkerApp *app, int window, int msgId) {
     DrawFrameAndWindow2(&windows[window], TRUE, 0x3E2, 13);
     FillWindowPixelBuffer(&windows[window], 0xFF);
     StringExpandPlaceholders(app->msgFormat, app->string, string);
-    AddTextPrinterParameterized(&windows[window], 1, app->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(&windows[window], FONT_MESSAGE, app->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
     String_Delete(string);
 }
 

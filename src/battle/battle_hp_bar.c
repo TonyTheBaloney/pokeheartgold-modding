@@ -907,7 +907,7 @@ static void BattleHpBar_DrawNickname(BattleHpBar *hpBar) {
     StringExpandPlaceholders(msgFormat, string, string2);
 
     AddTextWindowTopLeftCorner(bgConfig, &window, 8, 2, 0, 15);
-    AddTextPrinterParameterizedWithColorAndSpacing(&window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 15), 0, 0, NULL);
+    AddTextPrinterParameterizedWithColorAndSpacing(&window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 15), 0, 0, NULL);
     srcBuf = window.pixelBuffer;
 
     {
@@ -1039,7 +1039,7 @@ static void BattleHpBar_PrintSafariOrParkBallsString(BattleHpBar *hpBar, u32 fla
         string = NewString_ReadMsgData(msgData, msg_0197_01220); // PARK BALLS
     }
     AddTextWindowTopLeftCorner(bgConfig, &window, 13, 2, 0, 15);
-    AddTextPrinterParameterizedWithColorAndSpacing(&window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 15), 0, 0, NULL);
+    AddTextPrinterParameterizedWithColorAndSpacing(&window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 15), 0, 0, NULL);
     windowBuf = window.pixelBuffer;
 
     {
@@ -1084,7 +1084,7 @@ static void BattleHpBar_PrintNumRemainingSafariOrParkBalls(BattleHpBar *hpBar, u
     BufferIntegerAsString(msgFormat, 0, hpBar->safariBallCount, 2, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(msgFormat, string, string2);
     AddTextWindowTopLeftCorner(bgConfig, &window, 13, 2, 0, 15);
-    AddTextPrinterParameterizedWithColorAndSpacing(&window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 15), 0, 0, NULL);
+    AddTextPrinterParameterizedWithColorAndSpacing(&window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 15), 0, 0, NULL);
     windowBuf = window.pixelBuffer;
 
     {

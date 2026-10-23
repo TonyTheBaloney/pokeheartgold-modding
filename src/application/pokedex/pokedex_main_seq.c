@@ -266,7 +266,7 @@ static int PokedexApp_MainSeq_00(PokedexAppData *pokedexApp) {
     PokedexApp_LoadSearchTables(pokedexApp);
     PokedexApp_LoadSizeData(pokedexApp);
     BeginAppScreenFade(0, HEAP_ID_POKEDEX_APP);
-    FontID_Alloc(4, HEAP_ID_POKEDEX_APP);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_POKEDEX_APP);
     pokedexApp->gfxNarc = NARC_New(NARC_graphic_zukan_gra, HEAP_ID_POKEDEX_APP);
     PokedexApp_ResetSearchCriteria(pokedexApp);
     PokedexApp_RunSearch(pokedexApp, pokedexApp->dexMode, 0, DEX_SEARCH_LETTERS_ALL, DEX_SEARCH_TYPE_ALL, DEX_SEARCH_TYPE_ALL, 0, 152, 0, 152, 1 << DEX_SEARCH_AREA_ALL, DEX_SEARCH_BODYTYPE_ALL);
@@ -293,7 +293,7 @@ static int PokedexApp_MainSeq_01(PokedexAppData *pokedexApp) {
     PokedexApp_FreeBgCells(pokedexApp);
     PokedexApp_FreeBgs(pokedexApp);
     NARC_Delete(pokedexApp->gfxNarc);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     PokedexApp_FreeSizeData(pokedexApp);
     PokedexApp_FreeSearchTables(pokedexApp);
     GF_TouchpadStopSampling();

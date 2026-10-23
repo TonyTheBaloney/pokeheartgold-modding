@@ -548,13 +548,13 @@ static BOOL ConnectToRanger_ShowPokedexRequiredMessage(ConnectToRangerApp *app) 
 static void ConnectToRanger_PrintScreen(ConnectToRangerApp *app) {
     MainMenuTextPrinter_Init(&app->statusText, &app->statusWindow, 0, msg_0247, 10, 2);
     MainMenuTextPrinter_SetSize(&app->statusText, 27, 4, app->nextFreeTile);
-    MainMenuTextPrinter_SetFrameAndFont(&app->statusText, 1, 1);
+    MainMenuTextPrinter_SetFrameAndFont(&app->statusText, 1, FONT_MESSAGE);
     MainMenuTextPrinter_AddWindowAndPrint(app->bgConfig, &app->statusText, 2, 19, msg_0247_00072);
     app->nextFreeTile += MainMenuTextPrinter_GetTileCount(&app->statusText);
 
     MainMenuTextPrinter_Init(&app->titleText, &app->messageWindow, 0, msg_0247, 1, 1);
     MainMenuTextPrinter_SetSize(&app->titleText, 30, 4, app->nextFreeTile);
-    MainMenuTextPrinter_SetFrameAndFont(&app->titleText, 0, 1);
+    MainMenuTextPrinter_SetFrameAndFont(&app->titleText, 0, FONT_MESSAGE);
     MainMenuTextPrinter_AddWindowAndPrint(app->bgConfig, &app->titleText, 1, 1, msg_0247_00011);
     app->nextFreeTile += MainMenuTextPrinter_GetTileCount(&app->titleText);
 
@@ -584,13 +584,13 @@ static void ConnectToRanger_PrintPlayerInfo(ConnectToRangerApp *app) {
 
     MainMenuTextPrinter_Init(&app->playerText, &app->playerInfoWindow, 0, msg_0247, 1, 1);
     MainMenuTextPrinter_SetSize(&app->playerText, 26, 4, app->nextFreeTile);
-    MainMenuTextPrinter_SetFrameAndFont(&app->playerText, 0, 1);
+    MainMenuTextPrinter_SetFrameAndFont(&app->playerText, 0, FONT_MESSAGE);
     app->playerText.msgFormat = msgFormat;
     BufferPlayersName(msgFormat, 0, app->profile);
     BufferIntegerAsString(msgFormat, 1, PlayerProfile_GetTrainerID_VisibleHalf(app->profile), 5, PRINTING_MODE_LEADING_ZEROS, TRUE);
     MainMenuTextPrinter_AddWindowAndPrint(app->bgConfig, &app->playerText, 3, 13, msg_0247_00068);
     app->playerText.clearWindow = FALSE;
-    MainMenuTextPrinter_SetTextPos(&app->playerText, 0, GetFontAttribute(0, 1));
+    MainMenuTextPrinter_SetTextPos(&app->playerText, 0, GetFontAttribute(FONT_SYSTEM, 1));
     MainMenuTextPrinter_AddWindowAndPrint(app->bgConfig, &app->playerText, -1, -1, msg_0247_00070);
 
     OS_GetMacAddress(macAddress);

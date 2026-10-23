@@ -577,8 +577,8 @@ static int GlobalTerminalConnect_GetAlignedX(Window *window, String *string, int
 }
 
 static void GlobalTerminalConnect_PrintAligned(Window *window, String *string, int x, int y, int alignment, u32 color) {
-    x = GlobalTerminalConnect_GetAlignedX(window, string, x, alignment, color, 1);
-    AddTextPrinterParameterizedWithColor(window, 1, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
+    x = GlobalTerminalConnect_GetAlignedX(window, string, x, alignment, color, FONT_MESSAGE);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 static void GlobalTerminalConnect_ShowErrorWindow(GlobalTerminalConnectWork *work, int msgId) {
@@ -587,7 +587,7 @@ static void GlobalTerminalConnect_ShowErrorWindow(GlobalTerminalConnectWork *wor
     StringExpandPlaceholders(work->msgFormat, work->errorString, string);
     FillWindowPixelBuffer(&work->errorWindow, 15);
     DrawFrameAndWindow1(&work->errorWindow, TRUE, 0x1F, 11);
-    AddTextPrinterParameterized(&work->errorWindow, 1, work->errorString, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(&work->errorWindow, FONT_MESSAGE, work->errorString, 0, 0, TEXT_SPEED_INSTANT, NULL);
     work->printerId = 0xFF;
     String_Delete(string);
 }
@@ -645,7 +645,7 @@ static void GlobalTerminalConnect_PrintMessage(GlobalTerminalConnectWork *work, 
     String_Delete(string);
     FillWindowPixelBuffer(&work->messageWindow, 15);
     DrawFrameAndWindow2(&work->messageWindow, FALSE, 1, 10);
-    work->printerId = AddTextPrinterParameterized(&work->messageWindow, 1, work->string, 0, 0, textSpeed, NULL);
+    work->printerId = AddTextPrinterParameterized(&work->messageWindow, FONT_MESSAGE, work->string, 0, 0, textSpeed, NULL);
     work->unk_8C = 0;
     if (textSpeed == TEXT_SPEED_NOTRANSFER || textSpeed == TEXT_SPEED_INSTANT) {
         work->printerId = 0xFF;

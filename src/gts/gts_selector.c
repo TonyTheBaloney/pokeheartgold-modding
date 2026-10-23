@@ -1186,7 +1186,7 @@ static void GtsSelector_ShowLevels(GtsSelector *selector) {
 }
 
 static void GtsSelector_PrintString(BgCellManager *cellManager, Window *window, String *string, int x, u32 color) {
-    AddTextPrinterParameterizedWithColor(window, 0, string, x, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
     CopyWindowPixelsToVram_TextMode(window);
     BgCellManager_PutWindowTiles(cellManager, 0, window);
 }
@@ -1837,7 +1837,7 @@ static void GtsSelector_PrintMessage(BgCellManager *cellManager, MsgData *msgDat
 
 static void GtsSelector_PrintButtonLabel(BgCellManager *cellManager, MsgData *msgData, Window *window, int msgId) {
     String *string = NewString_ReadMsgData(msgData, msgId);
-    AddTextPrinterParameterizedWithColor(window, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 2), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 2), NULL);
     CopyWindowPixelsToVram_TextMode(window);
     BgCellManager_PutWindowTiles(cellManager, 0, window);
     String_Delete(string);

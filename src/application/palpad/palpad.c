@@ -403,11 +403,11 @@ static void PalPadGfx_FreeSpriteSystem(PalPadGfx *gfx) {
 static void PalPadGfx_InitMsg(PalPadGfx *gfx, enum HeapID heapId) {
     gfx->msgFormat = MessageFormat_New(heapId);
     gfx->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0779, heapId);
-    FontID_Alloc(4, heapId);
+    FontID_Alloc(FONT_UNK_4, heapId);
 }
 
 static void PalPadGfx_FreeMsg(PalPadGfx *gfx) {
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     DestroyMsgData(gfx->msgData);
     MessageFormat_Delete(gfx->msgFormat);
 }
@@ -461,7 +461,7 @@ void PalPadGfx_PrintTitle(PalPadGfx *gfx, Window *window, int msgId) {
     ReadMsgDataIntoString(gfx->msgData, msgId, gfx->titleBuffer);
     StringExpandPlaceholders(gfx->msgFormat, gfx->titleText, gfx->titleBuffer);
     TextFlags_SetCanTouchSpeedUpPrint(TRUE);
-    gfx->titlePrinterId = AddTextPrinterParameterizedWithColor(window, 1, gfx->titleText, 0, 4, 2, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    gfx->titlePrinterId = AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, gfx->titleText, 0, 4, 2, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     ScheduleWindowCopyToVram(window);
 }
 

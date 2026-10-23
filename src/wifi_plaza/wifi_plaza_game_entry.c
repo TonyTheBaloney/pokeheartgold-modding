@@ -864,7 +864,7 @@ static void WiFiPlazaGameStatus_Draw(WiFiPlazaGameStatus *status, WiFiPlazaRoomW
         WiFiPlazaRoom_FillTextWindowRect(room, 0, 16, 104, 16);
         if (showInPlay == TRUE && status->accepting == FALSE && status->sessionActive == TRUE) {
             message = WiFiPlazaRoom_GetMsgString(room, 1, msg_0777_00069); // "GAME IN PLAY..."
-            x = 104 - FontID_String_GetWidth(0, message, 0);
+            x = 104 - FontID_String_GetWidth(FONT_SYSTEM, message, 0);
             WiFiPlazaRoom_PrintTextWindow(room, message, x, 16);
         }
     }

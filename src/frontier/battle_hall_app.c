@@ -446,9 +446,9 @@ static BOOL BattleHallApp_FadeIn(BattleHallApp *app) {
 }
 
 static void BattleHallApp_PrintTypeGrid(BattleHallApp *app) {
-    BattleHallApp_PrintTypeNames(app, &app->windows[2], 1, 2, 0, 0);
+    BattleHallApp_PrintTypeNames(app, &app->windows[2], 1, 2, 0, FONT_SYSTEM);
     BattleHallApp_PrintTypeRanks(app, &app->windows[2]);
-    BattleHallApp_PrintMonName(app, &app->windows[1], 0, 0, 1, 2, 0, 0);
+    BattleHallApp_PrintMonName(app, &app->windows[1], 0, 0, 1, 2, 0, FONT_SYSTEM);
 }
 
 static void BattleHallApp_PrintTitle(BattleHallApp *app) {
@@ -458,7 +458,7 @@ static void BattleHallApp_PrintTitle(BattleHallApp *app) {
     u8 height = GetWindowHeight(&app->windows[3]) + 2;
     u8 bgId = GetWindowBgId(&app->windows[3]);
 
-    BattleHallApp_PrintSelectPrompt(app, &app->windows[3], 0, 0, 1, 2, 15, 0);
+    BattleHallApp_PrintSelectPrompt(app, &app->windows[3], 0, 0, 1, 2, 15, FONT_SYSTEM);
     BattleHallApp_LoadTitleFrameGraphics(app, GF_BG_LYR_SUB_0);
     BattleHallApp_DrawFrame(app->bgConfig, bgId, x, y, width, height, 1, 1);
     ScheduleBgTilemapBufferTransfer(app->bgConfig, bgId);
@@ -553,7 +553,7 @@ static BOOL BattleHallApp_SelectType(BattleHallApp *app) {
                 app->subState = HALL_SELECT_HANDLE_YES_NO;
             } else {
                 BattleHallApp_DrawMessageFrame(&app->windows[0], Options_GetFrame(app->options));
-                app->printerId = BattleHallApp_ShowMessage(app, msg_0441_00000, 1);
+                app->printerId = BattleHallApp_ShowMessage(app, msg_0441_00000, FONT_MESSAGE);
                 app->linkCursor = app->cursor;
                 app->linkDecided = 1;
                 return TRUE;
@@ -600,7 +600,7 @@ static BOOL BattleHallApp_SelectType(BattleHallApp *app) {
     case HALL_SELECT_MATRON_MESSAGE:
         // The Hall Matron interrupts the selection
         BattleHallApp_DrawMessageFrame(&app->windows[0], Options_GetFrame(app->options));
-        app->printerId = BattleHallApp_PrintMessage(app, &app->windows[0], msg_0441_00032, 1, 1, Options_GetTextFrameDelay(Save_PlayerData_GetOptionsAddr(app->saveData)), 1, 2, 15, 1);
+        app->printerId = BattleHallApp_PrintMessage(app, &app->windows[0], msg_0441_00032, 1, 1, Options_GetTextFrameDelay(Save_PlayerData_GetOptionsAddr(app->saveData)), 1, 2, 15, FONT_MESSAGE);
         CopyWindowToVram(&app->windows[0]);
         app->subState = HALL_SELECT_WAIT_MATRON_MESSAGE;
         break;
@@ -688,7 +688,7 @@ static BOOL BattleHallApp_LinkDecide(BattleHallApp *app) {
         BattleHallSprite_SetVisible(app->monIcon, FALSE);
         BattleHallApp_DrawMessageFrame(&app->windows[0], Options_GetFrame(app->options));
         Frontier_BufferPartnerName(app->msgFormat, 0);
-        app->printerId = BattleHallApp_ShowMessage(app, msg_0441_00011, 1);
+        app->printerId = BattleHallApp_ShowMessage(app, msg_0441_00011, FONT_MESSAGE);
         app->timer = 10;
         BattleHallApp_SetCellPalette(app->bgConfig, app->partnerCursor, HALL_CELL_PARTNER_CHOICE);
         ScheduleBgTilemapBufferTransfer(app->bgConfig, GF_BG_LYR_MAIN_3);
@@ -1506,7 +1506,7 @@ static void BattleHallApp_ShowConfirmPrompt(BattleHallApp *app) {
     } else {
         msgId = msg_0441_00024;
     }
-    app->printerId = BattleHallApp_ShowMessage(app, msgId, 1);
+    app->printerId = BattleHallApp_ShowMessage(app, msgId, FONT_MESSAGE);
     BattleHallSprite_SetAnim(app->cursorSprite, 0);
     BattleHallApp_InitYesNo(app->yesNoPrompt, app->bgConfig, app->usedTouch);
     app->yesNoActive = 1;
@@ -1522,7 +1522,7 @@ static void BattleHallApp_CancelConfirm(BattleHallApp *app) {
 static void BattleHallApp_ClearMessage(BattleHallApp *app) {
     BattleHallSprite_SetVisible(app->monIcon, TRUE);
     ClearFrameAndWindow2(&app->windows[0], FALSE);
-    BattleHallApp_PrintMonName(app, &app->windows[1], 0, 0, 1, 2, 0, 0);
+    BattleHallApp_PrintMonName(app, &app->windows[1], 0, 0, 1, 2, 0, FONT_SYSTEM);
 }
 
 static void BattleHallApp_SetBrightness(s32 brightness) {

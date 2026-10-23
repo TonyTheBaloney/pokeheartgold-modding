@@ -313,7 +313,7 @@ static void RocketEffect_RunExecutiveIntro(SysTask *task, EncounterEffectTask *e
         AddWindowParameterized(effect->fieldSystem->bgConfig, &work->window, GF_BG_LYR_MAIN_2, 0, 20, 16, 2, 2, 1);
         FillWindowPixelBuffer(&work->window, 0);
         string = RocketEffect_GetTrainerNameString(params->trainerId, heapID);
-        AddTextPrinterParameterizedWithColor(&work->window, 0, string, 0, 0, 0, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&work->window, FONT_SYSTEM, string, 0, 0, 0, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         String_Delete(string);
         EncounterEffect_LoadBgGraphics(effect->narc, 218, 216, 215, 0, 2, effect->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3);
         {

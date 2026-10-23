@@ -298,7 +298,7 @@ SysTask *TouchscreenMenu_Create(BgConfig *bgConfig, u16 *lastTouchMenuInput, Fie
     data->layout = layout;
     data->selectedIconAnim = FALSE;
     TouchscreenMenu_LoadBgAndWindows(bgConfig, data->bgVariant, &data->actionWindow, &data->menuWindow, data->iconWindows);
-    FontID_Alloc(4, HEAP_ID_8);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_8);
     msgFormat = MessageFormat_New(HEAP_ID_8);
     msgBank = msg_0196;
     data->msgFormat = msgFormat;
@@ -309,8 +309,8 @@ SysTask *TouchscreenMenu_Create(BgConfig *bgConfig, u16 *lastTouchMenuInput, Fie
     TouchscreenMenu_LoadSpriteResources(data);
     TouchscreenMenu_CreateSprites(data);
     TouchscreenMenu_LoadStrings(data, data->fieldSystem->startMenuState);
-    AddTextPrinterParameterizedWithColor(&data->actionWindow, 4, data->actionStrings[1], 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 1, 0), NULL);
-    AddTextPrinterParameterizedWithColor(&data->menuWindow, 0, data->menuString, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->actionWindow, FONT_UNK_4, data->actionStrings[1], 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->menuWindow, FONT_SYSTEM, data->menuString, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
     TouchscreenMenu_PrintIconLabels(data);
     TouchscreenMenu_CopyIconLabelsToVram(data);
     TouchscreenMenu_SetButtonsActive(data, TRUE);
@@ -365,7 +365,7 @@ void TouchscreenMenu_Destroy(BgConfig *bgConfig, SysTask *task) {
     RemoveWindow(&data->menuWindow);
     RemoveWindow(&data->actionWindow);
     TouchscreenMenu_FreeStrings(data);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     DestroySysTaskAndEnvironment(task);
     FreeBgTilemapBuffer(bgConfig, GF_BG_LYR_SUB_1);
     FreeBgTilemapBuffer(bgConfig, GF_BG_LYR_SUB_0);
@@ -533,7 +533,7 @@ static int TouchscreenMenu_GetActionType(TouchscreenMenuData *data) {
 
 static void TouchscreenMenu_PrintActionLabel(TouchscreenMenuData *data, int actionType) {
     FillWindowPixelBuffer(&data->actionWindow, 0);
-    AddTextPrinterParameterizedWithColor(&data->actionWindow, 4, data->actionStrings[gTouchscreenMenuActionTypeToString[actionType]], 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->actionWindow, FONT_UNK_4, data->actionStrings[gTouchscreenMenuActionTypeToString[actionType]], 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 1, 0), NULL);
     Sprite_SetDrawFlag(data->sprites[TOUCHSCREEN_MENU_SPRITE_ACTION], TRUE);
 }
 
@@ -1182,7 +1182,7 @@ static void TouchscreenMenu_DrawWindowFrame(Window *window, u32 mode) {
 static void TouchscreenMenu_PrintFramedText(Window *window, String *string, int colorIndex) {
     u32 color = gTouchscreenMenuTextColors[colorIndex];
     FillWindowPixelBuffer(window, color);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 3, 0, TEXT_SPEED_INSTANT, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 3, 0, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 static void TouchscreenMenu_LoadStrings(TouchscreenMenuData *data, u32 unused) {
@@ -1244,8 +1244,8 @@ static void TouchscreenMenu_PrintIconLabels(TouchscreenMenuData *data) {
 
     while (i < TOUCHSCREEN_MENU_NUM_ICONS) {
         if (data->icons[i].label != NULL) {
-            int margin = 0x48 - (int)FontID_String_GetWidth(0, data->icons[i].label, 0);
-            AddTextPrinterParameterizedWithColor(window, 0, data->icons[i].label, margin / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 0), NULL);
+            int margin = 0x48 - (int)FontID_String_GetWidth(FONT_SYSTEM, data->icons[i].label, 0);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, data->icons[i].label, margin / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 0), NULL);
         }
         i++;
         window++;
@@ -1304,7 +1304,7 @@ static void TouchscreenMenu_UpdatePhoneRing(TouchscreenMenuPhoneRing *phoneRing)
     if (phoneRing->shown == FALSE) {
         if (ringing == TRUE && phoneRing->shown == FALSE) {
             String *name = GetPhoneBookEntryName(phoneRing->phoneRingManager, HEAP_ID_8);
-            int width = (int)FontID_String_GetWidth(0, name, 0) / 8 + 2;
+            int width = (int)FontID_String_GetWidth(FONT_SYSTEM, name, 0) / 8 + 2;
             if (width > 9) {
                 width = 9;
             }
@@ -1341,10 +1341,10 @@ static void TouchscreenMenu_PrintMessageAt(TouchscreenMenuData *data, u32 msgId,
     FillWindowPixelBuffer(&window, 0);
     string = ReadMsgData_ExpandPlaceholders(data->msgFormat, data->msgData, msgId, HEAP_ID_8);
     if (textX == -1) {
-        textX = (width * 8 - FontID_String_GetWidth(0, string, 0));
+        textX = (width * 8 - FontID_String_GetWidth(FONT_SYSTEM, string, 0));
         textX /= 2;
     }
-    AddTextPrinterParameterizedWithColor(&window, 0, string, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&window, FONT_SYSTEM, string, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 2, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(&window);
     RemoveWindow(&window);

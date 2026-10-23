@@ -745,7 +745,7 @@ static void PokeathlonBlockSmash_InitBgs(BgConfig *bgConfig, enum HeapID heapId)
             BgClearTilemapBufferAndCommit(bgConfig, (u8)sPokeathlonBlockSmashBgLayers[i]);
             BG_ClearCharDataRange((u8)sPokeathlonBlockSmashBgLayers[i], 0x20, 0, heapId);
         }
-        FontID_Alloc(4, heapId);
+        FontID_Alloc(FONT_UNK_4, heapId);
         GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG2, GF_PLANE_TOGGLE_OFF);
         BgSetPosTextAndCommit(bgConfig, GF_BG_LYR_MAIN_0, BG_POS_OP_SET_Y, 16);
     }
@@ -764,7 +764,7 @@ static void PokeathlonBlockSmash_FreeBgsAndText(PokeathlonBlockSmash *work) {
     for (i = 0; i < 6; i++) {
         FreeBgTilemapBuffer(work->bgConfig, (u8)sPokeathlonBlockSmashBgLayers[i]);
     }
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     Heap_Free(work->bgConfig);
 }
 
@@ -825,7 +825,7 @@ static void PokeathlonBlockSmash_PrintMessage(Window *window, MessageFormat *msg
     String *string;
     FillWindowPixelBuffer(window, 0);
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msgId, heapId);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(window);
 }
@@ -1060,7 +1060,7 @@ static void PokeathlonBlockSmash_PrintScore(PokeathlonCourseData *course, u32 sc
     FillWindowPixelBuffer(&work->windows[2], 0);
     BufferIntegerAsString(msgFormat, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0309_00159, work->heapId);
-    AddTextPrinterParameterizedWithColor(&work->windows[2], 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&work->windows[2], FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(&work->windows[2]);
 }

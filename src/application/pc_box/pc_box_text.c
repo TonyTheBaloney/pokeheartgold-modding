@@ -270,7 +270,7 @@ static void PCBox_CopyWindowToTextObj(PCBoxView *view, Window *window, u32 index
 void PCBox_AddWindows(PCBoxWork *work) {
     u32 i;
 
-    FontID_Alloc(4, HEAP_ID_10);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_10);
     for (i = 0; i < 44; i++) {
         AddWindow(work->view->bgConfig, &work->view->windows[i], &gPCBoxWindowTemplates[i]);
     }
@@ -282,7 +282,7 @@ void PCBox_RemoveWindows(PCBoxWork *work) {
     for (i = 0; i < 0x2c; i++) {
         RemoveWindow(&work->view->windows[i]);
     }
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void PCBox_PrintAligned(Window *window, String *str, s32 x, s32 y, u32 font, u32 color, u32 align) {
@@ -317,7 +317,7 @@ static void PCBox_PrintSpeciesName(PCBoxView *view, PCBoxMonInfo *monInfo, u32 w
     FillWindowPixelBuffer(&view->windows[win], 0);
     if (!monInfo->isEgg) {
         BufferBoxMonSpeciesName(view->msgFormat, 0, monInfo->boxMon);
-        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00000, 0, 0, 0, 0x10200, 0);
+        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00000, 0, 0, FONT_SYSTEM, 0x10200, 0);
     }
     ScheduleWindowCopyToVram(&view->windows[win]);
 }
@@ -325,7 +325,7 @@ static void PCBox_PrintSpeciesName(PCBoxView *view, PCBoxMonInfo *monInfo, u32 w
 static void PCBox_PrintNickname(PCBoxView *view, PCBoxMonInfo *monInfo, u32 win) {
     FillWindowPixelBuffer(&view->windows[win], 0);
     BufferBoxMonNickname(view->msgFormat, 0, monInfo->boxMon);
-    PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00001, 0, 0, 0, 0x10200, 0);
+    PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00001, 0, 0, FONT_SYSTEM, 0x10200, 0);
     ScheduleWindowCopyToVram(&view->windows[win]);
 }
 
@@ -334,7 +334,7 @@ static void PCBox_PrintLevel(PCBoxView *view, PCBoxMonInfo *monInfo, u32 win) {
     if (!monInfo->isEgg) {
         MessagePrinter_PrintGlyph(view->msgPrinter, 1, &view->windows[win], 0, 5);
         BufferIntegerAsString(view->msgFormat, 0, monInfo->level, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
-        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00090, 0x10, 0, 0, 0x10200, 0);
+        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00090, 0x10, 0, FONT_SYSTEM, 0x10200, 0);
     }
     ScheduleWindowCopyToVram(&view->windows[win]);
 }
@@ -344,9 +344,9 @@ static void PCBox_PrintGender(PCBoxView *view, PCBoxMonInfo *monInfo, u32 win) {
     if (!monInfo->isEgg) {
         if (monInfo->showGender == 1) {
             if (monInfo->gender == 0) {
-                PCBox_PrintMsg(view, view->msgData, win, msg_0024_00082, 0, 0, 0, 0x70800, 0);
+                PCBox_PrintMsg(view, view->msgData, win, msg_0024_00082, 0, 0, FONT_SYSTEM, 0x70800, 0);
             } else if (monInfo->gender == 1) {
-                PCBox_PrintMsg(view, view->msgData, win, msg_0024_00083, 0, 0, 0, 0x30400, 0);
+                PCBox_PrintMsg(view, view->msgData, win, msg_0024_00083, 0, 0, FONT_SYSTEM, 0x30400, 0);
             }
         }
     }
@@ -362,7 +362,7 @@ static void PCBox_PrintDexNumber(PCBoxWork *work, PCBoxMonInfo *monInfo, u32 win
         if (dexno) {
             MessagePrinter_PrintGlyph(work->view->msgPrinter, 2, &work->view->windows[win], 0, 5);
             BufferIntegerAsString(work->view->msgFormat, 0, dexno, 3, PRINTING_MODE_LEADING_ZEROS, TRUE);
-            PCBox_PrintExpandedMsg(work->view, work->view->msgData, win, msg_0024_00091, 0x10, 0, 0, 0x10200, 0);
+            PCBox_PrintExpandedMsg(work->view, work->view->msgData, win, msg_0024_00091, 0x10, 0, FONT_SYSTEM, 0x10200, 0);
         }
     }
     ScheduleWindowCopyToVram(&work->view->windows[win]);
@@ -372,9 +372,9 @@ static void PCBox_PrintNature(PCBoxView *view, PCBoxMonInfo *monInfo, u32 win) {
     FillWindowPixelBuffer(&view->windows[win], 0);
     if (!monInfo->isEgg) {
         BufferNatureName(view->msgFormat, 0, monInfo->nature);
-        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00085, 0, 0, 0, 0x10200, 0);
+        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00085, 0, 0, FONT_SYSTEM, 0x10200, 0);
     } else {
-        PCBox_PrintMsg(view, view->msgData, win, msg_0024_00093, 0, 0, 0, 0x10200, 0);
+        PCBox_PrintMsg(view, view->msgData, win, msg_0024_00093, 0, 0, FONT_SYSTEM, 0x10200, 0);
     }
     ScheduleWindowCopyToVram(&view->windows[win]);
 }
@@ -383,9 +383,9 @@ static void PCBox_PrintAbility(PCBoxView *view, PCBoxMonInfo *monInfo, u32 win) 
     FillWindowPixelBuffer(&view->windows[win], 0);
     if (!monInfo->isEgg) {
         BufferAbilityName(view->msgFormat, 0, monInfo->ability);
-        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00084, 0, 0, 0, 0x10200, 0);
+        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00084, 0, 0, FONT_SYSTEM, 0x10200, 0);
     } else {
-        PCBox_PrintMsg(view, view->msgData, win, msg_0024_00093, 0, 0, 0, 0x10200, 0);
+        PCBox_PrintMsg(view, view->msgData, win, msg_0024_00093, 0, 0, FONT_SYSTEM, 0x10200, 0);
     }
     ScheduleWindowCopyToVram(&view->windows[win]);
 }
@@ -394,9 +394,9 @@ static void PCBox_PrintHeldItem(PCBoxView *view, PCBoxMonInfo *monInfo, u32 win)
     FillWindowPixelBuffer(&view->windows[win], 0);
     if (monInfo->heldItem) {
         BufferItemName(view->msgFormat, 0, monInfo->heldItem);
-        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00086, 0, 0, 0, 0x10200, 0);
+        PCBox_PrintExpandedMsg(view, view->msgData, win, msg_0024_00086, 0, 0, FONT_SYSTEM, 0x10200, 0);
     } else {
-        PCBox_PrintMsg(view, view->msgData, win, msg_0024_00092, 0, 0, 0, 0x10200, 0);
+        PCBox_PrintMsg(view, view->msgData, win, msg_0024_00092, 0, 0, FONT_SYSTEM, 0x10200, 0);
     }
     ScheduleWindowCopyToVram(&view->windows[win]);
 }
@@ -457,7 +457,7 @@ int PCBox_DrawMoveWindows(PCBoxWork *work, PCBoxMonInfo *monInfo) {
                 BlitBitmapRect(&work->view->windows[index], (u8 *)pixels + 0x160, 0, 0, 8, 8, x, 0, 8, 8, 255);
                 BlitBitmapRect(&work->view->windows[index], (void *)second, 0, 0, 8, 8, x, 8, 8, 8, 255);
             }
-            PCBox_PrintMsg(work->view, msgData, index, monInfo->moves[i], 0, 0, 0, 0x10200, 0);
+            PCBox_PrintMsg(work->view, msgData, index, monInfo->moves[i], 0, 0, FONT_SYSTEM, 0x10200, 0);
             CopyWindowPixelsToVram_TextMode(&work->view->windows[index]);
         }
         work->view->movesDrawn = 1;
@@ -488,10 +488,10 @@ u32 PCBox_PrintItemNameAndDesc(PCBoxWork *work, u16 itemId) {
     FillWindowPixelBuffer(window + 1, 13);
     if (itemId != ITEM_NONE) {
         GetItemNameIntoString(work->view->string, itemId, HEAP_ID_10);
-        PCBox_PrintAligned(window, work->view->string, 0, 0, 0, 0x10200, 0);
+        PCBox_PrintAligned(window, work->view->string, 0, 0, FONT_SYSTEM, 0x10200, 0);
         CopyWindowPixelsToVram_TextMode(window);
         GetItemDescIntoString(work->view->string, itemId, HEAP_ID_10);
-        PCBox_PrintAligned(window + 1, work->view->string, 0, 0, 0, 0x10200, 0);
+        PCBox_PrintAligned(window + 1, work->view->string, 0, 0, FONT_SYSTEM, 0x10200, 0);
         CopyWindowPixelsToVram_TextMode(window + 1);
     }
     return windowId;
@@ -502,7 +502,7 @@ void PCBox_PrintModeTitle(PCBoxWork *work) {
 
     msg = PCBox_LoadBoxMessages();
     FillWindowPixelBuffer(&work->view->windows[3], 0);
-    PCBox_PrintMsg(work->view, msg, 3, work->args->mode + 0x32, 0, 8, 0, 0x10200, 0);
+    PCBox_PrintMsg(work->view, msg, 3, work->args->mode + 0x32, 0, 8, FONT_SYSTEM, 0x10200, 0);
     DestroyMsgData(msg);
     CopyWindowToVram(&work->view->windows[3]);
 }
@@ -511,9 +511,9 @@ void PCBox_PrintInfoLabels(PCBoxWork *work) {
     FillWindowPixelBuffer(&work->view->windows[0x11], 0);
     FillWindowPixelBuffer(&work->view->windows[0x12], 0);
     FillWindowPixelBuffer(&work->view->windows[0x13], 0);
-    PCBox_PrintMsg(work->view, work->view->msgData, 0x11, msg_0024_00087, 0, 0, 0, 0x10200, 0);
-    PCBox_PrintMsg(work->view, work->view->msgData, 0x12, msg_0024_00088, 0, 0, 0, 0x10200, 0);
-    PCBox_PrintMsg(work->view, work->view->msgData, 0x13, msg_0024_00089, 0, 0, 0, 0x10200, 0);
+    PCBox_PrintMsg(work->view, work->view->msgData, 0x11, msg_0024_00087, 0, 0, FONT_SYSTEM, 0x10200, 0);
+    PCBox_PrintMsg(work->view, work->view->msgData, 0x12, msg_0024_00088, 0, 0, FONT_SYSTEM, 0x10200, 0);
+    PCBox_PrintMsg(work->view, work->view->msgData, 0x13, msg_0024_00089, 0, 0, FONT_SYSTEM, 0x10200, 0);
     CopyWindowToVram(&work->view->windows[0x11]);
     CopyWindowToVram(&work->view->windows[0x12]);
     CopyWindowToVram(&work->view->windows[0x13]);
@@ -528,7 +528,7 @@ void PCBox_DrawBoxNameOnWallpaper(PCBoxWork *work, void *src, u32 baseTile, u32 
     MIi_CpuCopy32(src, window->pixelBuffer, width * height * 32);
     string = String_New(20, HEAP_ID_10);
     PCStorage_GetBoxName(work->storage, work->activeBox, string);
-    PCBox_PrintAligned(window, string, width * 8 / 2, height * 8 / 2 - 8, 0, 0x20100, 2);
+    PCBox_PrintAligned(window, string, width * 8 / 2, height * 8 / 2 - 8, FONT_SYSTEM, 0x20100, 2);
     String_Delete(string);
     CopyWindowPixelsToVram_TextMode(window);
     RemoveWindow(window);
@@ -543,7 +543,7 @@ void PCBox_DrawTrayBoxNameAndCount(PCBoxWork *work) {
     AddTextWindowTopLeftCorner(work->view->bgConfig, &window, 0xc, 2, 0, 0);
     str = String_New(0x14, HEAP_ID_10);
     PCStorage_GetBoxName(work->storage, work->trayBox, str);
-    PCBox_PrintAligned(&window, str, 0x30, 0, 0, 0x10200, 2);
+    PCBox_PrintAligned(&window, str, 0x30, 0, FONT_SYSTEM, 0x10200, 2);
     String_Delete(str);
     PCBox_CopyWindowToTextObj(work->view, &window, 0);
     RemoveWindow(&window);
@@ -553,7 +553,7 @@ void PCBox_DrawTrayBoxNameAndCount(PCBoxWork *work) {
     BufferIntegerAsString(work->view->msgFormat, 0, PCStorage_CountMonsAndEggsInBox(work->storage, work->trayBox), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     BufferIntegerAsString(work->view->msgFormat, 1, 0x1e, 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(work->view->msgFormat, work->view->string, str);
-    PCBox_PrintAligned(&window, work->view->string, 0x14, 0, 0, 0x10200, 2);
+    PCBox_PrintAligned(&window, work->view->string, 0x14, 0, FONT_SYSTEM, 0x10200, 2);
     String_Delete(str);
     PCBox_CopyWindowToTextObj(work->view, &window, 1);
     RemoveWindow(&window);
@@ -574,7 +574,7 @@ void PCBox_DrawWallpaperName(PCBoxWork *work) {
     } else {
         str = NewString_ReadMsgData(work->view->msgData, work->view->wallpaperSelection + 0x23);
     }
-    PCBox_PrintAligned(&window, str, 0x30, 0, 0, 0x10200, 2);
+    PCBox_PrintAligned(&window, str, 0x30, 0, FONT_SYSTEM, 0x10200, 2);
     String_Delete(str);
     PCBox_CopyWindowToTextObj(work->view, &window, 0);
     RemoveWindow(&window);
@@ -620,7 +620,7 @@ static void PCBox_DrawButtonWindow(PCBoxWork *work, u32 win, u32 msgId, u32 styl
     }
     Heap_Free(buf);
     str = NewString_ReadMsgData(work->view->msgData, msgId);
-    PCBox_PrintAligned(w, str, width * 8 / 2, 4, 4, color, 2);
+    PCBox_PrintAligned(w, str, width * 8 / 2, 4, FONT_UNK_4, color, 2);
     String_Delete(str);
     CopyWindowPixelsToVram_TextMode(w);
 }
@@ -644,9 +644,9 @@ static void PCBox_PrintWindowMessage(PCBoxWork *work, u32 win, u32 msgId, u32 st
     }
     str = NewString_ReadMsgData(work->view->msgData, msgId);
     if (align == 2 || align == 3) {
-        PCBox_PrintAligned(w, str, width * 8 / 2, 0, 4, color, align);
+        PCBox_PrintAligned(w, str, width * 8 / 2, 0, FONT_UNK_4, color, align);
     } else {
-        PCBox_PrintAligned(w, str, 0, 0, 4, color, align);
+        PCBox_PrintAligned(w, str, 0, 0, FONT_UNK_4, color, align);
     }
     String_Delete(str);
     CopyWindowPixelsToVram_TextMode(w);
@@ -680,7 +680,7 @@ static void PCBox_DrawTabWindow(PCBoxWork *work, u32 win, u32 msgId) {
     }
     Heap_Free(buf);
     str = NewString_ReadMsgData(work->view->msgData, msgId);
-    PCBox_PrintAligned(w, str, width * 8 / 2, 4, 4, 0x90A00, 2);
+    PCBox_PrintAligned(w, str, width * 8 / 2, 4, FONT_UNK_4, 0x90A00, 2);
     String_Delete(str);
     CopyWindowPixelsToVram_TextMode(w);
 }
@@ -843,7 +843,7 @@ static void PCBox_PrintCenteredLabel(PCBoxView *view, u32 windowIndex, u32 messa
 
     FillWindowPixelBuffer(window, 0xD);
     x = GetWindowWidth(window) * 8 / 2;
-    PCBox_PrintMsg(view, view->msgData, windowIndex, messageId, x, 0, 4, 0x00090A0D, 2);
+    PCBox_PrintMsg(view, view->msgData, windowIndex, messageId, x, 0, FONT_UNK_4, 0x00090A0D, 2);
     CopyWindowPixelsToVram_TextMode(window);
 }
 
@@ -904,7 +904,7 @@ void PCBox_DrawSummaryButton(PCBoxWork *work, u32 unused) {
     }
     Heap_Free(allocation);
     string = NewString_ReadMsgData(work->view->msgData, msg_0024_00065);
-    PCBox_PrintAligned(&view->windows[43], string, width * 8 / 2, 4, 4, 0x90a00, 2);
+    PCBox_PrintAligned(&view->windows[43], string, width * 8 / 2, 4, FONT_UNK_4, 0x90a00, 2);
     String_Delete(string);
     CopyWindowPixelsToVram_TextMode(&view->windows[43]);
 }
@@ -936,7 +936,7 @@ static void PCBox_PrintMessage(PCBoxWork *work, int msgNo, int windowId) {
     MsgData *msgData = PCBox_LoadBoxMessages();
 
     PCBox_DrawMessageFrame(&work->view->windows[windowId]);
-    PCBox_PrintExpandedMsg(work->view, msgData, windowId, msgNo, 0, 0, 1, 0x1020f, 0);
+    PCBox_PrintExpandedMsg(work->view, msgData, windowId, msgNo, 0, 0, FONT_MESSAGE, 0x1020f, 0);
     ScheduleWindowCopyToVram(&work->view->windows[windowId]);
     DestroyMsgData(msgData);
 }
@@ -1142,7 +1142,7 @@ void PCBox_PrintPanelHint(PCBoxWork *work, u32 idx, u32 kind) {
     StringExpandPlaceholders(work->view->msgFormat, work->view->string, str);
     String_Delete(str);
     FillWindowPixelBuffer(&work->view->windows[idx], 0xf);
-    AddTextPrinterParameterizedWithColor(&work->view->windows[idx], 1, work->view->string, 0, 0, 0xff, 0x1020f, NULL);
+    AddTextPrinterParameterizedWithColor(&work->view->windows[idx], FONT_MESSAGE, work->view->string, 0, 0, 0xff, 0x1020f, NULL);
     DestroyMsgData(msgData);
 }
 

@@ -316,7 +316,7 @@ BOOL LockCapsuleCard_PrintCardTitle(LockCapsuleCardView *view, Window *window, u
     String *string = String_New(37, view->heapId);
 
     CopyU16ArrayToStringN(string, view->card->info.name, 36);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, 0xFF, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, 0xFF, color, NULL);
     String_Delete(string);
     return TRUE;
 }
@@ -325,7 +325,7 @@ BOOL LockCapsuleCard_PrintStatus(LockCapsuleCardView *view, Window *window, u32 
     int msgId = view->card->shareCount == 0 ? msg_0247_00081 : msg_0247_00082;
     String *string = ReadMsgData_ExpandPlaceholders(view->msgFormat, view->msgData, msgId, view->heapId);
 
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, 0xFF, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, 0xFF, color, NULL);
     String_Delete(string);
     return TRUE;
 }
@@ -344,7 +344,7 @@ BOOL LockCapsuleCard_PrintCardText(LockCapsuleCardView *view, Window *window, u3
     String *string = String_New(251, HEAP_ID_85);
 
     CopyU16ArrayToStringN(string, view->card->text, 250);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, 0xFF, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, 0xFF, color, NULL);
     String_Delete(string);
     return FALSE;
 }

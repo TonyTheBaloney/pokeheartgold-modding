@@ -175,7 +175,7 @@ SysTask *TouchscreenChoiceMenu_Create(BgConfig *bgConfig, u16 *lastTouchMenuInpu
     data->selectionCallbackArg = NULL;
     data->yesWindow.pixelBuffer = NULL;
     data->noWindow.pixelBuffer = NULL;
-    FontID_Alloc(4, HEAP_ID_8);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_8);
     TouchscreenChoiceMenu_LoadMessages(data, data->fieldSystem->startMenuState);
     TouchscreenChoiceMenu_LoadBgGraphics(data);
     TouchscreenChoiceMenu_LoadSpriteResources(data);
@@ -201,7 +201,7 @@ void TouchscreenChoiceMenu_Destroy(BgConfig *bgConfig, SysTask *task) {
     SpriteList_Delete(data->spriteList);
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
     TouchscreenChoiceMenu_FreeMessages(data);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     DestroySysTaskAndEnvironment(task);
     FreeBgTilemapBuffer(bgConfig, GF_BG_LYR_SUB_2);
     FreeBgTilemapBuffer(bgConfig, GF_BG_LYR_SUB_1);
@@ -289,7 +289,7 @@ static void TouchscreenChoiceMenu_ShowList(TouchscreenChoiceMenuData *data) {
     }
     for (i = 0; i < count; i++) {
         FillWindowPixelBuffer(&data->listWindows[i], 0);
-        AddTextPrinterParameterizedWithColor(&data->listWindows[i], 4, items[i].text, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(2, 1, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&data->listWindows[i], FONT_UNK_4, items[i].text, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(2, 1, 0), NULL);
         ScheduleWindowCopyToVram(&data->listWindows[i]);
     }
     data->itemCount = count;
@@ -347,7 +347,7 @@ static void TouchscreenChoiceMenu_CreateCursor(TouchscreenChoiceMenuData *data, 
 static void TouchscreenChoiceMenu_PrintMessage(Window *window, MsgData *msgData, u32 msgId) {
     String *string = NewString_ReadMsgData(msgData, msgId);
     FillWindowPixelBuffer(window, 0);
-    AddTextPrinterParameterizedWithColor(window, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(2, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(2, 1, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(string);
 }

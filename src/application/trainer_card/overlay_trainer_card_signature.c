@@ -280,7 +280,7 @@ int TrainerCardSignature_Init(OverlayManager *manager, int *state) {
         GF_TouchpadResetSampling();
         GF_TouchpadStartSampling(1);
         Main_SetVBlankIntrCB((GFIntrCB)TrainerCardSignature_VBlankCB, signature->bgConfig);
-        FontID_Alloc(2, HEAP_ID_39);
+        FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_39);
         TrainerCardSignature_InitStrings(signature);
         TrainerCardSignature_InitObjTransfer();
         TrainerCardSignature_InitSpriteResources(signature, narc);
@@ -345,7 +345,7 @@ int TrainerCardSignature_Exit(OverlayManager *manager, int *state) {
     ObjCharTransfer_Destroy();
     ObjPlttTransfer_Destroy();
     TrainerCardSignature_RemoveWindows(signature);
-    FontID_Release(2);
+    FontID_Release(FONT_SUBSCREEN);
     TrainerCardSignature_FreeBgLayers(signature->bgConfig);
     GF_TouchpadStopSampling();
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
@@ -520,7 +520,7 @@ static void TrainerCardSignature_CreateDoneButtonSprite(TrainerCardSignature *si
 }
 
 static void *TrainerCardSignature_PrintCentered(Window *window, String *string, u32 y, u8 fontId, u32 color) {
-    int width = FontID_String_GetWidth(2, string, 0);
+    int width = FontID_String_GetWidth(FONT_SUBSCREEN, string, 0);
     int x = ((window->width << 3) - width) / 2;
     AddTextPrinterParameterizedWithColor(window, fontId, string, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
     return window->pixelBuffer;
@@ -539,7 +539,7 @@ static void TrainerCardSignature_CreateWindows(TrainerCardSignature *signature, 
     FillWindowPixelBuffer(&signature->canvasWindow, 2);
     AddWindowParameterized(signature->bgConfig, &signature->doneButtonWindow, GF_BG_LYR_MAIN_1, 0x1A, 0x15, 8, 2, 2, 0xC1);
     FillWindowPixelBuffer(&signature->doneButtonWindow, 0);
-    DC_FlushRange(TrainerCardSignature_PrintCentered(&signature->doneButtonWindow, signature->doneString, 1, 2, MAKE_TEXT_COLOR(14, 7, 2)), 0x200);
+    DC_FlushRange(TrainerCardSignature_PrintCentered(&signature->doneButtonWindow, signature->doneString, 1, FONT_SUBSCREEN, MAKE_TEXT_COLOR(14, 7, 2)), 0x200);
     i = 0;
     x = 0;
     vramOffset = x;
@@ -552,9 +552,9 @@ static void TrainerCardSignature_CreateWindows(TrainerCardSignature *signature, 
         x += 4;
     }
     AddWindowParameterized(signature->bgConfig, &signature->titleWindow, GF_BG_LYR_MAIN_1, 2, 2, 0x1C, 2, 0xD, 0xD1);
-    width = FontID_String_GetWidth(1, signature->titleString, 0);
+    width = FontID_String_GetWidth(FONT_MESSAGE, signature->titleString, 0);
     FillWindowPixelBuffer(&signature->titleWindow, 0);
-    AddTextPrinterParameterizedWithColor(&signature->titleWindow, 1, signature->titleString, (0xE0 - width) / 2, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&signature->titleWindow, FONT_MESSAGE, signature->titleString, (0xE0 - width) / 2, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     {
         Window *window;
         int baseTile;
@@ -917,7 +917,7 @@ static void TrainerCardSignature_PrintMessage(TrainerCardSignature *signature, i
     String_Delete(template);
     FillWindowPixelBuffer(&signature->messageWindow, 15);
     DrawFrameAndWindow2(&signature->messageWindow, FALSE, 1, 10);
-    signature->textPrinterId = AddTextPrinterParameterized(&signature->messageWindow, 1, signature->messageString, 0, 0, Options_GetTextFrameDelay(signature->options), NULL);
+    signature->textPrinterId = AddTextPrinterParameterized(&signature->messageWindow, FONT_MESSAGE, signature->messageString, 0, 0, Options_GetTextFrameDelay(signature->options), NULL);
 }
 
 static BOOL TrainerCardSignature_IsPrinterDone(u32 textPrinterId) {

@@ -835,7 +835,7 @@ static HatchEggYesNoMenu *HatchEggYesNoMenu_New(BgConfig *bgConfig, SpriteSystem
     menu->spriteSystem = spriteSystem;
     menu->spriteManager = spriteManager;
     menu->msgFormat = MessageFormat_New(heapId);
-    FontID_Alloc(4, menu->heapId);
+    FontID_Alloc(FONT_UNK_4, menu->heapId);
     HatchEggYesNoMenu_AddWindows(menu);
     return menu;
 }
@@ -844,7 +844,7 @@ static void HatchEggYesNoMenu_Free(HatchEggYesNoMenu *menu) {
     GF_ASSERT(menu);
     HatchEggYesNoMenu_RemoveWindows(menu);
     HatchEggYesNoMenu_DeleteCursor(menu);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     MessageFormat_Delete(menu->msgFormat);
     FreeBgTilemapBuffer(menu->bgConfig, GF_BG_LYR_SUB_0);
     FreeBgTilemapBuffer(menu->bgConfig, GF_BG_LYR_SUB_1);
@@ -935,7 +935,7 @@ static void HatchEggYesNoMenu_PrintButton(HatchEggYesNoMenu *menu, Window *windo
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0187, menu->heapId);
     String *string = ReadMsgData_ExpandPlaceholders(menu->msgFormat, msgData, msgId, menu->heapId);
     FillWindowPixelBuffer(window, 0);
-    AddTextPrinterParameterizedWithColor(window, 4, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_UNK_4, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     CopyWindowToVram(window);
     DestroyMsgData(msgData);
     String_Delete(string);

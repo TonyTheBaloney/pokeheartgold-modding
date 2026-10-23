@@ -149,11 +149,11 @@ static void SaveStatsPrinter_PrintStats(struct SaveStatsPrinter *printer) {
     int lineHeight;
     u32 i;
 
-    lineHeight = GetFontAttribute(0, 1) + GetFontAttribute(0, 3);
+    lineHeight = GetFontAttribute(FONT_SYSTEM, 1) + GetFontAttribute(FONT_SYSTEM, 3);
     y = 0;
 
     str = ReadMsgData_ExpandPlaceholders(printer->msgFmt, printer->msgData, msg_0423_00000, printer->heapId);
-    AddTextPrinterParameterized(printer->window, 0, str, 0, 0, 0xFF, NULL);
+    AddTextPrinterParameterized(printer->window, FONT_SYSTEM, str, 0, 0, 0xFF, NULL);
     String_Delete(str);
 
     for (i = 1; i < 5; i++) {
@@ -164,12 +164,12 @@ static void SaveStatsPrinter_PrintStats(struct SaveStatsPrinter *printer) {
         }
         y += lineHeight;
         str = NewString_ReadMsgData(printer->msgData, sMsgIdsSub[i]);
-        AddTextPrinterParameterized(printer->window, 0, str, 0, y, 0xFF, NULL);
+        AddTextPrinterParameterized(printer->window, FONT_SYSTEM, str, 0, y, 0xFF, NULL);
         String_Delete(str);
         str = ReadMsgData_ExpandPlaceholders(printer->msgFmt, printer->msgData, sMsgIdsMain[i - 1], printer->heapId);
         {
-            int x = 0x68 - FontID_String_GetWidth(0, str, GetFontAttribute(0, 2));
-            AddTextPrinterParameterized(printer->window, 0, str, x, y, 0xFF, NULL);
+            int x = 0x68 - FontID_String_GetWidth(FONT_SYSTEM, str, GetFontAttribute(FONT_SYSTEM, 2));
+            AddTextPrinterParameterized(printer->window, FONT_SYSTEM, str, x, y, 0xFF, NULL);
         }
         String_Delete(str);
     }
@@ -179,7 +179,7 @@ void Field_SaveStatsPrinter_Print(struct SaveStatsPrinter *printer) {
     printer->window = Heap_Alloc(printer->heapId, sizeof(Window));
     AddWindowParameterized(printer->bgConfig, printer->window, printer->bgId, 1, 1, printer->width, printer->height, 0xD, 0x189);
     LoadUserFrameGfx1(printer->bgConfig, (GFBgLayer)printer->bgId, 0x3D9, 0xB, 0, printer->heapId);
-    FillWindowPixelBuffer(printer->window, GetFontAttribute(0, 6));
+    FillWindowPixelBuffer(printer->window, GetFontAttribute(FONT_SYSTEM, 6));
     SaveStatsPrinter_PrintStats(printer);
     DrawFrameAndWindow1(printer->window, FALSE, 0x3D9, 0xB);
 }
@@ -233,14 +233,14 @@ static void SaveStatsPrinter_PrintStatRows(struct SaveStatsPrinter *printer) {
     int lineHeight;
     const struct SaveStatsRow *row;
 
-    lineHeight = GetFontAttribute(0, 1) + GetFontAttribute(0, 3);
+    lineHeight = GetFontAttribute(FONT_SYSTEM, 1) + GetFontAttribute(FONT_SYSTEM, 3);
     row = sStatRows;
     for (i = 0; i < 9; i++, row++) {
         if (printer->stats.dexOwned == 0 && (row->msgId == msg_0423_00011 || row->msgId == msg_0423_00007)) {
             continue;
         }
         str = ReadMsgData_ExpandPlaceholders(printer->msgFmt, printer->msgData, row->msgId, printer->heapId);
-        AddTextPrinterParameterizedWithColor(printer->window, 0, str, SaveStatsPrinter_GetAlignedX(printer->window, str, row->align, 0), lineHeight * row->row, 0, sTextColors[row->color], NULL);
+        AddTextPrinterParameterizedWithColor(printer->window, FONT_SYSTEM, str, SaveStatsPrinter_GetAlignedX(printer->window, str, row->align, FONT_SYSTEM), lineHeight * row->row, 0, sTextColors[row->color], NULL);
         String_Delete(str);
     }
 }

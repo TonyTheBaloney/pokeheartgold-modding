@@ -426,19 +426,19 @@ static void NumberEntry_CreateButtonLabels(NumberEntryData *data) {
     u16 x;
 
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0196, HEAP_ID_8);
-    FontID_Alloc(4, HEAP_ID_8);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_8);
     for (i = 0; i < 3; i++) {
         AddWindow(data->bgConfig, &data->windows[i], &sRodata.windowTemplates[i]);
         FillWindowPixelBuffer(&data->windows[i], 0);
         string = NewString_ReadMsgData(msgData, msg_0196_00024 + i);
         center = GetWindowWidth(&data->windows[i]) * 8 / 2;
-        x = center - FontID_String_GetWidth(4, string, 0) / 2;
-        AddTextPrinterParameterizedWithColor(&data->windows[i], 4, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+        x = center - FontID_String_GetWidth(FONT_UNK_4, string, 0) / 2;
+        AddTextPrinterParameterizedWithColor(&data->windows[i], FONT_UNK_4, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
         String_Delete(string);
         CopyWindowPixelsToVram_TextMode(&data->windows[i]);
         ScheduleWindowCopyToVram(&data->windows[i]);
     }
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     DestroyMsgData(msgData);
 }
 

@@ -783,7 +783,7 @@ void PalPadDetails_PrintBattleHallPage(PalPadDetailsSlot *slot, PalPadShared *sh
     PalPadDetailsSlot_Print(slot, 5, 0, shared, gfx, msg_0779_00032, 0, 0, 0x10200, raw, expanded, 0);
     species = GetSpeciesName(FrontierSave_GetStat(frontier, 0x7c, shared->friends.slots[shared->selectedFriend]), heapId);
     AddTextPrinterParameterizedWithColor(slot->windows[5],
-        0,
+        FONT_SYSTEM,
         species,
         0,
         0x18,

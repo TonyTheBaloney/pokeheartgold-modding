@@ -393,7 +393,7 @@ static void PokeathlonRingDropUi_PrintNames(PokeathlonRingDropUi *ui) {
     String *name;
     FillWindowPixelBuffer(&ui->windows[RING_DROP_UI_WINDOW_NAME], 0);
     name = PlayerProfile_GetPlayerName_NewString(PokeathlonCourse_GetPlayerProfileFromData(ui->course, ui->participant), ui->heapId);
-    AddTextPrinterParameterizedWithColor(&ui->windows[RING_DROP_UI_WINDOW_NAME], 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&ui->windows[RING_DROP_UI_WINDOW_NAME], FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     PokeathlonRingDropUi_PrintMessageAt(&ui->windows[RING_DROP_UI_WINDOW_LABEL], ui->msgFormat, ui->msgData, msg_0309_00304, ui->heapId, 2, 2);
     String_Delete(name);
     CopyWindowToVram(&ui->windows[RING_DROP_UI_WINDOW_NAME]);
@@ -409,7 +409,7 @@ static void PokeathlonRingDropUi_PrintMessageAt(Window *window, MessageFormat *m
     String *string;
     FillWindowPixelBuffer(window, 0);
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msgId, heapId);
-    AddTextPrinterParameterizedWithColor(window, 0, string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(window);
 }

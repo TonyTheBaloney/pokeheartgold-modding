@@ -757,9 +757,9 @@ static void SpinTradeGroup_InitWindows(SpinTradeGroupApp *app) {
 }
 
 static void SpinTradeGroup_PrintTitle(Window *window, String *str, u32 speed) {
-    u32 width = FontID_String_GetWidth(1, str, 0);
+    u32 width = FontID_String_GetWidth(FONT_MESSAGE, str, 0);
     FillWindowPixelBuffer(window, 0);
-    AddTextPrinterParameterizedWithColor(window, 1, str, (u32)((0xD0 - (int)width) / 2), 1, speed, 0x10400, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, str, (u32)((0xD0 - (int)width) / 2), 1, speed, 0x10400, NULL);
 }
 
 static void SpinTradeGroup_RemoveWindows(SpinTradeGroupApp *app) {
@@ -1360,11 +1360,11 @@ static BOOL SpinTradeGroup_PrintMemberList(Window *window, u32 unused, u32 color
             BufferIntegerAsString(app->msgFormat, 0, (s32)tid, 5, PRINTING_MODE_LEADING_ZEROS, TRUE);
             str = ReadMsgData_ExpandPlaceholders(app->msgFormat, app->msgData, msg_0207_00001, HEAP_ID_102);
             if (sel == i) {
-                AddTextPrinterParameterizedWithColor(window, 0, app->names[i], 5, i * 0x12 + 1, TEXT_SPEED_NOTRANSFER, 0x20300, NULL);
-                AddTextPrinterParameterizedWithColor(window, 0, str, 0x46, i * 0x12 + 1, TEXT_SPEED_NOTRANSFER, 0x20300, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, app->names[i], 5, i * 0x12 + 1, TEXT_SPEED_NOTRANSFER, 0x20300, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0x46, i * 0x12 + 1, TEXT_SPEED_NOTRANSFER, 0x20300, NULL);
             } else {
-                AddTextPrinterParameterizedWithColor(window, 0, app->names[i], 5, i * 0x12 + 1, TEXT_SPEED_NOTRANSFER, color, NULL);
-                AddTextPrinterParameterizedWithColor(window, 0, str, 0x46, i * 0x12 + 1, TEXT_SPEED_NOTRANSFER, color, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, app->names[i], 5, i * 0x12 + 1, TEXT_SPEED_NOTRANSFER, color, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0x46, i * 0x12 + 1, TEXT_SPEED_NOTRANSFER, color, NULL);
             }
             String_Delete(str);
         }
@@ -1446,9 +1446,9 @@ static void SpinTradeGroup_PrintMessage(SpinTradeGroupApp *app, int msgId, int i
     FillWindowPixelBuffer(&app->msgWindow, 0xF);
     DrawFrameAndWindow2(&app->msgWindow, FALSE, 1, 0xA);
     if (instant == 0) {
-        app->printerId = AddTextPrinterParameterized(&app->msgWindow, 1, app->msgString, 0, 0, SpinTradeGroup_GetTextSpeed(app), NULL);
+        app->printerId = AddTextPrinterParameterized(&app->msgWindow, FONT_MESSAGE, app->msgString, 0, 0, SpinTradeGroup_GetTextSpeed(app), NULL);
     } else {
-        AddTextPrinterParameterized(&app->msgWindow, 1, app->msgString, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        AddTextPrinterParameterized(&app->msgWindow, FONT_MESSAGE, app->msgString, 0, 0, TEXT_SPEED_INSTANT, NULL);
         app->printerId = 0xFF;
     }
 }

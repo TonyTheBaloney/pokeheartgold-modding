@@ -418,7 +418,7 @@ BOOL FootprintStamp_Init(OverlayManager *man, int *state) {
     FootprintStamp_InitBgs(work->bgConfig);
     GF_TouchpadResetSampling();
     GF_TouchpadStartSampling(4);
-    FontID_Alloc(2, HEAP_ID_125);
+    FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_125);
     work->msgFormat = MessageFormat_New(HEAP_ID_125);
     work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0754, HEAP_ID_125);
     work->fontSystem = FontSystem_NewInit(4, HEAP_ID_125);
@@ -511,7 +511,7 @@ BOOL FootprintStamp_Main(OverlayManager *man, int *state) {
         FillWindowPixelBuffer(&work->msgWindow, 15);
         DrawFrameAndWindow2(&work->msgWindow, FALSE, 1, 14);
         ReadMsgDataIntoString(work->msgData, msg_0754_00002, work->string);
-        work->printerId = AddTextPrinterParameterized(&work->msgWindow, 1, work->string, 0, 0, Options_GetTextFrameDelay(Save_PlayerData_GetOptionsAddr(work->saveData)), NULL);
+        work->printerId = AddTextPrinterParameterized(&work->msgWindow, FONT_MESSAGE, work->string, 0, 0, Options_GetTextFrameDelay(Save_PlayerData_GetOptionsAddr(work->saveData)), NULL);
         (*state)++;
         break;
     case FOOTPRINT_STAMP_STATE_SHOW_YES_NO:
@@ -553,7 +553,7 @@ BOOL FootprintStamp_Main(OverlayManager *man, int *state) {
         FillWindowPixelBuffer(&work->msgWindow, 15);
         DrawFrameAndWindow2(&work->msgWindow, FALSE, 1, 14);
         ReadMsgDataIntoString(work->msgData, msg_0754_00003, work->string);
-        work->printerId = AddTextPrinterParameterized(&work->msgWindow, 1, work->string, 0, 0, Options_GetTextFrameDelay(Save_PlayerData_GetOptionsAddr(work->saveData)), NULL);
+        work->printerId = AddTextPrinterParameterized(&work->msgWindow, FONT_MESSAGE, work->string, 0, 0, Options_GetTextFrameDelay(Save_PlayerData_GetOptionsAddr(work->saveData)), NULL);
         (*state)++;
         break;
     case FOOTPRINT_STAMP_STATE_WAIT_CLOSED_MSG:
@@ -620,7 +620,7 @@ BOOL FootprintStamp_Exit(OverlayManager *man, int *state) {
     YesNoPrompt_Destroy(work->yesNoPrompt);
     FootprintStampBoard_Free(&work->board);
     String_Delete(work->string);
-    FontID_Release(2);
+    FontID_Release(FONT_SUBSCREEN);
     FontSystem_Delete(work->fontSystem);
     DestroyMsgData(work->msgData);
     MessageFormat_Delete(work->msgFormat);
@@ -817,7 +817,7 @@ static void FootprintStamp_CreatePartySprites(FootprintStamp *work) {
         Sprite_TickFrame(work->footprintSprites[i]->sprite);
     }
     string = NewString_ReadMsgData(work->msgData, msg_0754_00001);
-    FootprintStamp_CreateTextSprite(work, &work->exitText, string, 2, MAKE_TEXT_COLOR(1, 2, 3), 0, 10003, 224, 176, TRUE);
+    FootprintStamp_CreateTextSprite(work, &work->exitText, string, FONT_SUBSCREEN, MAKE_TEXT_COLOR(1, 2, 3), 0, 10003, 224, 176, TRUE);
     TextOBJ_SetSpritesDrawFlag(work->exitText.textObj, TRUE);
     String_Delete(string);
 }

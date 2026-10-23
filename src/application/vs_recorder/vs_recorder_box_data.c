@@ -747,7 +747,7 @@ void VsRecorder_CreateBoxDataCategoryButtons(VsRecorderWork *work) {
         str = NewString_ReadMsgData(work->msgData, i + 60); // FAVORITE ... SELECT
         x = VsRecorder_GetCenteredTextX(window, str);
         FillWindowPixelBuffer(window, 0);
-        AddTextPrinterParameterizedWithColor(window, 0, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
         ScheduleWindowCopyToVram(window);
         String_Delete(str);
         baseTile += rect->width * rect->height;
@@ -784,7 +784,7 @@ void VsRecorder_PrintBoxDataMessage(VsRecorderWork *work, int msgId) {
     MsgData *msgData = work->msgData;
     String *str = NewString_ReadMsgData(msgData, msgId);
     FillWindowPixelBuffer(window, 0xCC);
-    AddTextPrinterParameterizedWithColor(window, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(str);
 }
@@ -802,7 +802,7 @@ void VsRecorder_PrintBoxDataOwnerMessage(VsRecorderWork *work, int unused) {
     BufferString(msgFormat, 0, name, 0, 1, 2);
     StringExpandPlaceholders(msgFormat, str, template);
     FillWindowPixelBuffer(window, 0xCC);
-    AddTextPrinterParameterizedWithColor(window, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(template);
     String_Delete(name);
@@ -816,7 +816,7 @@ static void VsRecorder_PrintBoxName(VsRecorderWork *work) {
     String *str = String_New(255, HEAP_ID_109);
     CopyU16ArrayToString(str, boxData->form.name);
     FillWindowPixelBuffer(window, 0);
-    AddTextPrinterParameterizedWithColor(window, 0, str, VsRecorder_GetCenteredTextX(window, str), 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, VsRecorder_GetCenteredTextX(window, str), 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(str);
 }
@@ -860,7 +860,7 @@ static void VsRecorder_PrintBoxMonName(VsRecorderWork *work, int slot) {
     GetSpeciesNameIntoArray(species, HEAP_ID_109, name);
     CopyU16ArrayToString(str, name);
     x = VsRecorder_GetCenteredTextX(window, str);
-    AddTextPrinterParameterizedWithColor(window, 0, str, x, 6, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, x, 6, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(str);
 }
@@ -1185,7 +1185,7 @@ void VsRecorder_CreateBoxListButtons(VsRecorderWork *work) {
         AddWindowParameterized(work->bgConfig, window, GF_BG_LYR_SUB_2, rect->x, rect->y, rect->width, rect->height, 14, (u16)baseTile);
         FillWindowPixelBuffer(window, 0);
         str = NewString_ReadMsgData(work->msgData, msgIds.msgIds[i]);
-        AddTextPrinterParameterizedWithColor(window, 0, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
         ScheduleWindowCopyToVram(window);
         baseTile += rect->width * rect->height;
         String_Delete(str);
@@ -1204,7 +1204,7 @@ void VsRecorder_PrintBoxListProfileButton(VsRecorderWork *work, u32 msgId) {
     FillWindowPixelBuffer(window, 0);
     str = NewString_ReadMsgData(work->msgData, msgId);
     x = VsRecorder_GetCenteredTextX(window, str);
-    AddTextPrinterParameterizedWithColor(window, 0, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     String_Delete(str);
     ScheduleWindowCopyToVram(window);
 }
@@ -1220,8 +1220,8 @@ void VsRecorder_CreateNextMonButton(VsRecorderWork *work) {
     AddWindowParameterized(work->bgConfig, window, GF_BG_LYR_SUB_2, 12, 6, 8, 4, 14, 1);
     FillWindowPixelBuffer(window, 0);
     str = NewString_ReadMsgData(work->msgData, msg_0013_00034); // Next Pokemon
-    x = (64 - FontID_String_GetWidthMultiline(0, str, 0)) >> 1;
-    AddTextPrinterParameterizedWithColor(window, 0, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    x = (64 - FontID_String_GetWidthMultiline(FONT_SYSTEM, str, 0)) >> 1;
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(str);
 }
@@ -1271,7 +1271,7 @@ void VsRecorder_CreateBoxListTitle(VsRecorderWork *work) {
             textY = 0;
         }
         if (str != NULL) {
-            AddTextPrinterParameterizedWithColor(window, 0, str, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
             String_Delete(str);
         }
         ScheduleWindowCopyToVram(window);

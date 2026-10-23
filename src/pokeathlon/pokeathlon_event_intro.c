@@ -648,7 +648,7 @@ static void PokeathlonEventIntro_PrintDetails(PokeathlonEventIntro *intro) {
     PokeathlonUtil_PrintMessageAtXY(intro->text, 3, event * 3 + msg_0309_00209, 0, 0);
     PokeathlonUtil_PrintMessageWithNumber(intro->text, 5, msg_0309_00239, number, 1, 0);
     if (!intro->linkMode) {
-        PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 4, msg_0309_00240, FALSE, 0, 4);
+        PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 4, msg_0309_00240, FALSE, 0, FONT_UNK_4);
     }
     PokeathlonEventBanner_PrintTexts(intro->banner);
     if (intro->showRecord) {
@@ -676,16 +676,16 @@ static void PokeathlonEventIntro_PrintDetails(PokeathlonEventIntro *intro) {
 static void PokeathlonEventIntro_PrintRules(PokeathlonEventIntro *intro) {
     int msgId = intro->event * 3 + 210;
     PokeathlonUtil_PrintAlignedMessage(intro->text, 8, msg_0309_00244, FALSE);
-    PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 9, msg_0309_00242, FALSE, 0, 4);
-    PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 10, msg_0309_00243, FALSE, 0, 4);
+    PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 9, msg_0309_00242, FALSE, 0, FONT_UNK_4);
+    PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 10, msg_0309_00243, FALSE, 0, FONT_UNK_4);
     PokeathlonUtil_PrintMessageAtXY(intro->text, 11, msgId, 0, 0);
 }
 
 static void PokeathlonEventIntro_PrintControls(PokeathlonEventIntro *intro) {
     int msgId = intro->event * 3 + 211;
     PokeathlonUtil_PrintAlignedMessage(intro->text, 8, msg_0309_00245, FALSE);
-    PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 9, msg_0309_00241, FALSE, 0, 4);
-    PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 10, msg_0309_00243, FALSE, 0, 4);
+    PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 9, msg_0309_00241, FALSE, 0, FONT_UNK_4);
+    PokeathlonUtil_PrintAlignedMessageAtY(intro->text, 10, msg_0309_00243, FALSE, 0, FONT_UNK_4);
     PokeathlonUtil_PrintMessageAtXY(intro->text, 11, msgId, 0, 0);
 }
 

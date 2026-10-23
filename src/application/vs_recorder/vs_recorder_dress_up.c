@@ -1245,7 +1245,7 @@ static void VsRecorder_PrintDressUpToggleLabel(VsRecorderWork *work, u32 msgId) 
     String *str;
     FillWindowPixelBuffer(window, 0);
     str = NewString_ReadMsgData(work->msgData, msgId);
-    AddTextPrinterParameterizedWithColor(window, 0, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     String_Delete(str);
     ScheduleWindowCopyToVram(window);
 }
@@ -1361,9 +1361,9 @@ static void VsRecorder_PrintOwnPhotoCaption(VsRecorderWork *work) {
         y = i * 16;
         u32 x;
         String_GetLineN(line, formatted, i);
-        x = FontID_String_GetWidth(0, line, 0);
+        x = FontID_String_GetWidth(FONT_SYSTEM, line, 0);
         x = (128 - x) >> 1;
-        AddTextPrinterParameterizedWithColor(window, 0, line, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, line, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     }
     ScheduleWindowCopyToVram(window);
     String_Delete(line);
@@ -1407,9 +1407,9 @@ static void VsRecorder_PrintPhotoCaption(VsRecorderWork *work, int index) {
         y = i * 16;
         u32 x;
         String_GetLineN(line, formatted, i);
-        x = FontID_String_GetWidth(0, line, 0);
+        x = FontID_String_GetWidth(FONT_SYSTEM, line, 0);
         x = (128 - x) >> 1;
-        AddTextPrinterParameterizedWithColor(window, 0, line, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, line, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     }
     ScheduleWindowCopyToVram(window);
     String_Delete(line);
@@ -1527,9 +1527,9 @@ static void VsRecorder_CreateDressUpCategoryWindows(VsRecorderWork *work) {
         textX = VsRecorder_GetCenteredTextX(window, string);
         textY = (height * 8 - 16) / 2;
         if (VsRecorder_DressUpCategoryHasSeen(work, i) == TRUE) {
-            AddTextPrinterParameterizedWithColor(window, 0, string, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
         } else {
-            AddTextPrinterParameterizedWithColor(window, 0, string, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(12, 11, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, textX, textY, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(12, 11, 0), NULL);
         }
         ScheduleWindowCopyToVram(window);
         String_Delete(string);

@@ -455,7 +455,7 @@ static void EvolutionScene_PrintMenuOption(EvolutionTaskData *data, Window *wind
     String *string = ReadMsgData_ExpandPlaceholders(data->msgFormat, data->msgData, msgNo, data->heapId);
 
     FillWindowPixelBuffer(window, 0);
-    AddTextPrinterParameterizedWithColor(window, 4, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_UNK_4, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     CopyWindowToVram(window);
     String_Delete(string);
 }
@@ -568,7 +568,7 @@ EvolutionTaskData *EvolutionScene_New(Party *party, Pokemon *mon, int species, O
 
     gSystem.screensFlipped = FALSE;
     GfGfx_SwapDisplay();
-    FontID_Alloc(4, heapID);
+    FontID_Alloc(FONT_UNK_4, heapID);
     data = Heap_Alloc(heapID, sizeof(EvolutionTaskData));
     MI_CpuClearFast(data, sizeof(EvolutionTaskData));
     MI_CpuClear16(GetMainBgPlttAddr(), GetMainBgPlttSize());
@@ -658,7 +658,7 @@ void EvolutionScene_Delete(EvolutionTaskData *data) {
     SetMasterBrightnessByColor(PM_LCD_TOP, RGB_BLACK);
     SetMasterBrightnessByColor(PM_LCD_BOTTOM, RGB_BLACK);
     Main_SetVBlankIntrCB(NULL, NULL);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     EvolutionScene_FreeSprites(data);
     WindowArray_Delete(data->window, 1);
     RemoveWindow(&data->menuWindows[0]);
@@ -1316,7 +1316,7 @@ static u8 EvolutionScene_PrintMessage(EvolutionTaskData *data, int msgNo) {
     StringExpandPlaceholders(data->msgFormat, data->string, string);
     Heap_Free(string);
     FillWindowPixelBuffer(data->window, 0xFF);
-    return AddTextPrinterParameterized(data->window, 1, data->string, 0, 0, Options_GetTextFrameDelay(data->options), EvolutionScene_TextCallback);
+    return AddTextPrinterParameterized(data->window, FONT_MESSAGE, data->string, 0, 0, Options_GetTextFrameDelay(data->options), EvolutionScene_TextCallback);
 }
 
 // {WAIT n} commands of the scene's messages

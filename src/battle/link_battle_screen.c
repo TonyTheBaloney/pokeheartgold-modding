@@ -679,7 +679,7 @@ static void LinkBattleScreen_UpdateBattleVideoPrompt(LinkBattleScreen *screen) {
     case VIDEO_PROMPT_STATE_SHOW_PROMPT:
         LinkBattleScreen_DrawMessageBox(screen);
         ReadMsgDataIntoString(screen->msgData, msg_0638_00000, screen->string);
-        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, 1, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, FONT_MESSAGE, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
         ScheduleBgTilemapBufferTransfer(screen->bgConfig, GF_BG_LYR_MAIN_0);
         screen->videoPromptState = VIDEO_PROMPT_STATE_WAIT_BUTTON;
         break;
@@ -696,7 +696,7 @@ static void LinkBattleScreen_UpdateBattleVideoPrompt(LinkBattleScreen *screen) {
         }
         FillWindowPixelRect(&screen->yesNoWindow, 15, 0, 0, 216, 32);
         DrawFrameAndWindow2(&screen->yesNoWindow, FALSE, 1, 15);
-        screen->printerId = AddTextPrinterParameterized(&screen->yesNoWindow, 1, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        screen->printerId = AddTextPrinterParameterized(&screen->yesNoWindow, FONT_MESSAGE, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
         screen->yesNoMenu = CreateYesNoMenu(screen->bgConfig, &sBattleVideoYesNoTemplate, 31, 14, 1, screen->args->heapId);
         ScheduleBgTilemapBufferTransfer(screen->bgConfig, GF_BG_LYR_MAIN_0);
         screen->videoPromptState = VIDEO_PROMPT_STATE_WAIT_YES_NO;
@@ -716,7 +716,7 @@ static void LinkBattleScreen_UpdateBattleVideoPrompt(LinkBattleScreen *screen) {
     case VIDEO_PROMPT_STATE_START_SAVE:
         LinkBattleScreen_DrawMessageBox(screen);
         ReadMsgDataIntoString(screen->msgData, msg_0638_00005, screen->string);
-        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, 1, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, FONT_MESSAGE, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
         ScheduleBgTilemapBufferTransfer(screen->bgConfig, GF_BG_LYR_MAIN_0);
         screen->videoPromptState = VIDEO_PROMPT_STATE_SAVING;
         break;
@@ -1130,7 +1130,7 @@ static int LinkBattleScreen_SaveBattleVideo(LinkBattleScreen *screen) {
     case 0:
         LinkBattleScreen_DrawMessageBox(screen);
         ReadMsgDataIntoString(screen->msgData, msg_0638_00008, screen->string);
-        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, 1, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, FONT_MESSAGE, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
         LinkBattleScreen_ShowWaitingIcon(screen);
         screen->frame++;
         break;
@@ -1146,7 +1146,7 @@ static int LinkBattleScreen_SaveBattleVideo(LinkBattleScreen *screen) {
         }
         LinkBattleScreen_HideWaitingIcon(screen);
         FillWindowPixelRect(&screen->msgWindow, 15, 0, 0, 216, 32);
-        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, 1, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, FONT_MESSAGE, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
         screen->delayFrames = 0;
         screen->frame++;
         break;
@@ -1176,7 +1176,7 @@ static int LinkBattleScreen_WaitForPartner(LinkBattleScreen *screen) {
         }
         LinkBattleScreen_DrawMessageBox(screen);
         ReadMsgDataIntoString(screen->msgData, msg_0638_00009, screen->string);
-        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, 1, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        screen->printerId = AddTextPrinterParameterized(&screen->msgWindow, FONT_MESSAGE, screen->string, 0, 0, TEXT_SPEED_INSTANT, NULL);
         LinkSync_StartSync(0x3E);
         if (screen->canSaveVideo == FALSE && LinkBattleScreen_IsBattleRecordActive(screen) == TRUE) {
             GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG0, TRUE);
@@ -1528,7 +1528,7 @@ static void LinkBattleScreen_CreateNameTextObj(LinkBattleScreen *screen, int ind
     TextOBJTemplate template;
     Window *window = &screen->partyWindows[0];
     AddTextWindowTopLeftCorner(screen->bgConfig, window, 8, 2, 0, 0);
-    AddTextPrinterParameterizedWithColor(window, 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
     template.fontSystem = screen->fontSystem;
     template.window = window;
     template.spriteList = SpriteManager_GetSpriteList(screen->spriteManager);
@@ -2024,14 +2024,14 @@ static void LinkBattleScreen_PrintMonName(LinkBattleScreen *screen, MsgData *msg
     BufferBoxMonNickname(msgFormat, 0, Mon_GetBoxMon(mon));
     StringExpandPlaceholders(msgFormat, string, template);
     String_Delete(template);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     if (screen->monInfo[index].hideGender == 0) {
         if (screen->monInfo[index].gender == MON_MALE) {
             ReadMsgDataIntoString(msgData, msg_0300_00027, string);
-            AddTextPrinterParameterizedWithColor(window, 0, string, 64, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 64, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
         } else if (screen->monInfo[index].gender == MON_FEMALE) {
             ReadMsgDataIntoString(msgData, msg_0300_00028, string);
-            AddTextPrinterParameterizedWithColor(window, 0, string, 64, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 64, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
         }
     }
 }

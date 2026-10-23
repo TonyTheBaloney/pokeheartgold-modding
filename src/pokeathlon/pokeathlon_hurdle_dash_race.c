@@ -961,7 +961,7 @@ void PokeathlonHurdleDash_PrintTime(PokeathlonHurdleDash *hurdleDash, s32 frames
     BufferIntegerAsString(messageFormat, 0, frames / 30, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     BufferIntegerAsString(messageFormat, 1, 10 * (frames % 30) / 30, 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, msg_0309_00156, hurdleDash->heapId);
-    AddTextPrinterParameterizedWithColor(&hurdleDash->window, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&hurdleDash->window, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     MessageFormat_Delete(messageFormat);
     DestroyMsgData(msgData);

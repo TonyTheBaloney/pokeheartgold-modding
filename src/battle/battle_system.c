@@ -1378,7 +1378,7 @@ u8 BattleSystem_PrintTrainerMessage(BattleSystem *battleSystem, int trainerId, i
             }
             FillWindowPixelBuffer(window, 0xFF);
             String_Copy(battleSystem->msgBuffer, msg);
-            index = AddTextPrinterParameterized(window, 1, battleSystem->msgBuffer, 0, 0, delay, BattleSystem_TextPrinterCallback);
+            index = AddTextPrinterParameterized(window, FONT_MESSAGE, battleSystem->msgBuffer, 0, 0, delay, BattleSystem_TextPrinterCallback);
             String_Delete(msg);
         } else {
             MsgData *data;
@@ -1409,14 +1409,14 @@ u8 BattleSystem_PrintTrainerMessage(BattleSystem *battleSystem, int trainerId, i
             msg = NewString_ReadMsgData(data, stringId);
             FillWindowPixelBuffer(window, 0xFF);
             String_Copy(battleSystem->msgBuffer, msg);
-            index = AddTextPrinterParameterized(window, 1, battleSystem->msgBuffer, 0, 0, delay, BattleSystem_TextPrinterCallback);
+            index = AddTextPrinterParameterized(window, FONT_MESSAGE, battleSystem->msgBuffer, 0, 0, delay, BattleSystem_TextPrinterCallback);
             String_Delete(msg);
             DestroyMsgData(data);
         }
     } else {
         GetTrainerMessageByIdPair(trainerId, msgType, battleSystem->msgBuffer, HEAP_ID_BATTLE);
         FillWindowPixelBuffer(window, 0xFF);
-        index = AddTextPrinterParameterized(window, 1, battleSystem->msgBuffer, 0, 0, delay, BattleSystem_TextPrinterCallback);
+        index = AddTextPrinterParameterized(window, FONT_MESSAGE, battleSystem->msgBuffer, 0, 0, delay, BattleSystem_TextPrinterCallback);
     }
     return index;
 }
@@ -1427,7 +1427,7 @@ u32 BattleSystem_PrintBattleMessage(BattleSystem *battleSystem, MsgData *data, B
     BattleSystem_BufferMessage(battleSystem, msg);
     BattleMessage_ExpandPlaceholders(battleSystem, data, msg);
     FillWindowPixelBuffer(window, 0xFF);
-    return AddTextPrinterParameterized(window, 1, battleSystem->msgBuffer, 0, 0, delay, BattleSystem_TextPrinterCallback);
+    return AddTextPrinterParameterized(window, FONT_MESSAGE, battleSystem->msgBuffer, 0, 0, delay, BattleSystem_TextPrinterCallback);
 }
 
 u32 BattleSystem_PrintMessageToWindow(BattleSystem *battleSystem, Window *window, MsgData *data, BattleMessage *msg, int x, int y, int flag, int width, int delay) {
@@ -1442,12 +1442,12 @@ u32 BattleSystem_PrintMessageToWindow(BattleSystem *battleSystem, Window *window
     }
 
     if (flag & 2) {
-        dx = width - FontID_String_GetWidth(0, battleSystem->msgBuffer, 0);
+        dx = width - FontID_String_GetWidth(FONT_SYSTEM, battleSystem->msgBuffer, 0);
     } else {
         dx = 0;
     }
 
-    return AddTextPrinterParameterized(window, 0, battleSystem->msgBuffer, x + dx, y, delay, BattleSystem_TextPrinterCallback);
+    return AddTextPrinterParameterized(window, FONT_SYSTEM, battleSystem->msgBuffer, x + dx, y, delay, BattleSystem_TextPrinterCallback);
 }
 
 static void BattleSystem_AdjustMessageForSide(BattleSystem *battleSystem, BattleMessage *msg) {

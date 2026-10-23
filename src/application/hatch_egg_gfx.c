@@ -289,7 +289,7 @@ int HatchEggApp_PrintMessage(Window *window, int msgId, Pokemon *mon, int textSp
     string = String_New(0xFF, HEAP_ID_70);
     BufferBoxMonSpeciesName(msgFormat, 0, Mon_GetBoxMon(mon));
     StringExpandPlaceholders(msgFormat, string, template);
-    printerId = AddTextPrinterParameterized(window, 1, string, 0, 0, textSpeed, NULL);
+    printerId = AddTextPrinterParameterized(window, FONT_MESSAGE, string, 0, 0, textSpeed, NULL);
     DestroyMsgData(msgData);
     String_Delete(string);
     String_Delete(template);

@@ -1123,7 +1123,7 @@ static u8 SwapMonText_ShowMessageBox(BgConfig *bgConfig, Window *window, String 
     textSpeed = Options_GetTextFrameDelay(options);
     FillWindowPixelBuffer(window, 15);
     *string = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, msgId, heapID);
-    printerId = AddTextPrinterParameterizedWithColor(window, 1, *string, 0, 0, textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    printerId = AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, *string, 0, 0, textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     DrawFrameAndWindow2(window, FALSE, 978, 13);
     return printerId;
 }
@@ -1132,6 +1132,6 @@ static void SwapMonText_PrintOnWindow(BgConfig *bgConfig, Window *window, Messag
     String *string;
     FillWindowPixelBuffer(window, 0);
     string = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, msgId, heapID);
-    AddTextPrinterParameterizedWithColor(window, 0, string, x, y, 0, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, x, y, 0, color, NULL);
     String_Delete(string);
 }

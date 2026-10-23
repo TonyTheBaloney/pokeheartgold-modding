@@ -601,7 +601,7 @@ int PokewalkerApp_StrollReport_Start(PokewalkerApp *app) {
         return STROLL_REPORT_RECORDS_FADE_OUT;
     }
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 15);
-    PokewalkerApp_PrintStringDefaultColor(app, 1, app->strollResultsText, 0);
+    PokewalkerApp_PrintStringDefaultColor(app, 1, app->strollResultsText, FONT_SYSTEM);
     return STROLL_REPORT_SHOW_RESULTS;
 }
 
@@ -626,9 +626,9 @@ int PokewalkerApp_StrollReport_ShowResults(PokewalkerApp *app) {
     PokewalkerApp_PrintMessage(app, 2, msg_0274_00056, MAKE_TEXT_COLOR(3, 4, 0));
     PokewalkerApp_PrintMessage(app, 3, msg_0274_00057, MAKE_TEXT_COLOR(3, 4, 0));
     PokewalkerApp_PrintMessage(app, 4, msg_0274_00058, MAKE_TEXT_COLOR(3, 4, 0));
-    PokewalkerApp_PrintString(app, 5, app->stepsToDateText, 0, MAKE_TEXT_COLOR(3, 4, 0));
+    PokewalkerApp_PrintString(app, 5, app->stepsToDateText, FONT_SYSTEM, MAKE_TEXT_COLOR(3, 4, 0));
     PokewalkerApp_PrintMessage(app, 6, msg_0274_00060, MAKE_TEXT_COLOR(3, 4, 0));
-    PokewalkerApp_PrintString(app, 7, app->wattsToDateText, 0, MAKE_TEXT_COLOR(3, 4, 0));
+    PokewalkerApp_PrintString(app, 7, app->wattsToDateText, FONT_SYSTEM, MAKE_TEXT_COLOR(3, 4, 0));
     PokewalkerApp_PrintMessage(app, 8, msg_0274_00062, MAKE_TEXT_COLOR(3, 4, 0));
     PokewalkerApp_ShowSprite(app, 9);
     PokewalkerApp_SetSpritePosition(app, 9, 210, 64);
@@ -758,8 +758,8 @@ int PokewalkerApp_StrollReport_ShowCaughtMons(PokewalkerApp *app) {
         return STROLL_REPORT_SHOW_ITEMS;
     }
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 15);
-    PokewalkerApp_PrintStringDefaultColor(app, 1, app->yourPokemonText, 0);
-    PokewalkerApp_PrintStringDefaultColor(app, 1, app->yourPokemonText, 0);
+    PokewalkerApp_PrintStringDefaultColor(app, 1, app->yourPokemonText, FONT_SYSTEM);
+    PokewalkerApp_PrintStringDefaultColor(app, 1, app->yourPokemonText, FONT_SYSTEM);
     for (i = 0; i < 4; i++) {
         PokewalkerApp_HideSprite(app, i + 9);
     }
@@ -862,7 +862,7 @@ int PokewalkerApp_StrollReport_ShowItems(PokewalkerApp *app) {
     }
     FillBgTilemapRect(app->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, 0, 32, 24, TILEMAP_FILL_KEEP_PAL);
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 15);
-    PokewalkerApp_PrintStringDefaultColor(app, 1, app->itemsObtainedText, 0);
+    PokewalkerApp_PrintStringDefaultColor(app, 1, app->itemsObtainedText, FONT_SYSTEM);
     MI_CpuClearFast(items, sizeof(items));
     for (i = 0; i < 3; i++) {
         PokewalkerApp_AddItemToList(items, app->irStatus.items[i].item);
@@ -881,7 +881,7 @@ int PokewalkerApp_StrollReport_ShowItems(PokewalkerApp *app) {
             break;
         }
         GetItemNameIntoString(string, items[i], HEAP_ID_154);
-        PokewalkerApp_PrintString(app, i + 2, string, 0, MAKE_TEXT_COLOR(3, 4, 0));
+        PokewalkerApp_PrintString(app, i + 2, string, FONT_SYSTEM, MAKE_TEXT_COLOR(3, 4, 0));
     }
     String_Delete(string);
     BeginNormalPaletteFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, RGB_BLACK, 6, 1, HEAP_ID_154);
@@ -935,7 +935,7 @@ int PokewalkerApp_StrollReport_ShowGifts(PokewalkerApp *app) {
 
     FillBgTilemapRect(app->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, 0, 32, 24, TILEMAP_FILL_KEEP_PAL);
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 15);
-    PokewalkerApp_PrintStringDefaultColor(app, 1, app->giftsReceivedText, 0);
+    PokewalkerApp_PrintStringDefaultColor(app, 1, app->giftsReceivedText, FONT_SYSTEM);
     BufferPokewalkerCourseName(app->msgFormat, 2, (u8)Pokewalker_GetCourse(app->pokewalker));
     currentSteps = app->peerIdentity.steps;
     startSteps = app->walkerSteps;
@@ -947,9 +947,9 @@ int PokewalkerApp_StrollReport_ShowGifts(PokewalkerApp *app) {
     BufferIntegerAsString(app->msgFormat, 3, app->irStatus.watts, 5, PRINTING_MODE_LEFT_ALIGN, TRUE);
     BufferIntegerAsString(app->msgFormat, 6, totalSteps, 7, PRINTING_MODE_LEFT_ALIGN, TRUE);
     BufferIntegerAsString(app->msgFormat, 7, totalWatts, 7, PRINTING_MODE_LEFT_ALIGN, TRUE);
-    PokewalkerApp_PrintString(app, 5, app->stepsToDateText, 0, MAKE_TEXT_COLOR(3, 4, 0));
+    PokewalkerApp_PrintString(app, 5, app->stepsToDateText, FONT_SYSTEM, MAKE_TEXT_COLOR(3, 4, 0));
     PokewalkerApp_PrintMessage(app, 6, msg_0274_00060, MAKE_TEXT_COLOR(3, 4, 0));
-    PokewalkerApp_PrintString(app, 7, app->wattsToDateText, 0, MAKE_TEXT_COLOR(3, 4, 0));
+    PokewalkerApp_PrintString(app, 7, app->wattsToDateText, FONT_SYSTEM, MAKE_TEXT_COLOR(3, 4, 0));
     PokewalkerApp_PrintMessage(app, 8, msg_0274_00062, MAKE_TEXT_COLOR(3, 4, 0));
     BeginNormalPaletteFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, RGB_BLACK, 6, 1, HEAP_ID_154);
     return STROLL_REPORT_WAIT_GIFTS_FADE;
@@ -1017,7 +1017,7 @@ int PokewalkerApp_StrollReport_ShowRecords(PokewalkerApp *app) {
 
     FillBgTilemapRect(app->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, 0, 32, 24, TILEMAP_FILL_KEEP_PAL);
     PokewalkerApp_LoadTilemap(app, GF_BG_LYR_MAIN_2, 15);
-    PokewalkerApp_PrintStringDefaultColor(app, 1, app->walkerRecordsText, 0);
+    PokewalkerApp_PrintStringDefaultColor(app, 1, app->walkerRecordsText, FONT_SYSTEM);
     BufferPokewalkerCourseName(app->msgFormat, 2, (u8)Pokewalker_GetCourse(app->pokewalker));
     currentSteps = app->peerIdentity.steps;
     startSteps = app->walkerSteps;
@@ -1029,9 +1029,9 @@ int PokewalkerApp_StrollReport_ShowRecords(PokewalkerApp *app) {
     BufferIntegerAsString(app->msgFormat, 3, app->irStatus.watts, 5, PRINTING_MODE_LEFT_ALIGN, TRUE);
     BufferIntegerAsString(app->msgFormat, 6, totalSteps, 7, PRINTING_MODE_LEFT_ALIGN, TRUE);
     BufferIntegerAsString(app->msgFormat, 7, totalWatts, 7, PRINTING_MODE_LEFT_ALIGN, TRUE);
-    PokewalkerApp_PrintString(app, 5, app->stepsToDateText, 0, MAKE_TEXT_COLOR(3, 4, 0));
+    PokewalkerApp_PrintString(app, 5, app->stepsToDateText, FONT_SYSTEM, MAKE_TEXT_COLOR(3, 4, 0));
     PokewalkerApp_PrintMessage(app, 6, msg_0274_00060, MAKE_TEXT_COLOR(3, 4, 0));
-    PokewalkerApp_PrintString(app, 7, app->wattsToDateText, 0, MAKE_TEXT_COLOR(3, 4, 0));
+    PokewalkerApp_PrintString(app, 7, app->wattsToDateText, FONT_SYSTEM, MAKE_TEXT_COLOR(3, 4, 0));
     PokewalkerApp_PrintMessage(app, 8, msg_0274_00062, MAKE_TEXT_COLOR(3, 4, 0));
     BeginNormalPaletteFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, RGB_BLACK, 6, 1, HEAP_ID_154);
     return STROLL_REPORT_WAIT_RECORDS_FADE;
@@ -1180,7 +1180,7 @@ static void PokewalkerBoxDisplay_PrintMonInfo(PokewalkerBoxDisplay *display, Pok
 
     CopyU16ArrayToString(display->string, info->nickname);
     FillWindowPixelBuffer(&display->windows[BOX_DISPLAY_WIN_NICKNAME], 0);
-    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_NICKNAME], 0, display->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_NICKNAME], FONT_SYSTEM, display->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     CopyWindowToVram(&display->windows[BOX_DISPLAY_WIN_NICKNAME]);
 
     string = GetSpeciesName(info->species, display->heapId);
@@ -1188,7 +1188,7 @@ static void PokewalkerBoxDisplay_PrintMonInfo(PokewalkerBoxDisplay *display, Pok
     String_Delete(string);
     string = ReadMsgData_ExpandPlaceholders(display->msgFormat, display->msgData, msg_0276_00000, display->heapId);
     FillWindowPixelBuffer(&display->windows[BOX_DISPLAY_WIN_SPECIES], 0);
-    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_SPECIES], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_SPECIES], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     CopyWindowToVram(&display->windows[BOX_DISPLAY_WIN_SPECIES]);
     String_Delete(string);
 
@@ -1196,22 +1196,22 @@ static void PokewalkerBoxDisplay_PrintMonInfo(PokewalkerBoxDisplay *display, Pok
     string = ReadMsgData_ExpandPlaceholders(display->msgFormat, display->msgData, msg_0276_00003, display->heapId);
     FillWindowPixelBuffer(&display->windows[BOX_DISPLAY_WIN_LEVEL], 0);
     windowWidth = GetWindowWidth(&display->windows[BOX_DISPLAY_WIN_LEVEL]);
-    x = FontID_String_GetWidth(0, string, 0);
+    x = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
     x = windowWidth * 8 - x;
-    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_LEVEL], 0, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_LEVEL], FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     CopyWindowToVram(&display->windows[BOX_DISPLAY_WIN_LEVEL]);
     String_Delete(string);
 
     if (info->gender == MON_MALE) {
         string = NewString_ReadMsgData(display->msgData, msg_0276_00001);
         FillWindowPixelBuffer(&display->windows[BOX_DISPLAY_WIN_GENDER], 0);
-        AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_GENDER], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_GENDER], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 0), NULL);
         CopyWindowToVram(&display->windows[BOX_DISPLAY_WIN_GENDER]);
         String_Delete(string);
     } else if (info->gender == MON_FEMALE) {
         string = NewString_ReadMsgData(display->msgData, msg_0276_00002);
         FillWindowPixelBuffer(&display->windows[BOX_DISPLAY_WIN_GENDER], 0);
-        AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_GENDER], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_GENDER], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
         CopyWindowToVram(&display->windows[BOX_DISPLAY_WIN_GENDER]);
         String_Delete(string);
     } else {
@@ -1221,14 +1221,14 @@ static void PokewalkerBoxDisplay_PrintMonInfo(PokewalkerBoxDisplay *display, Pok
 
     string = NewString_ReadMsgData(display->msgData, msg_0276_00004);
     FillWindowPixelBuffer(&display->windows[BOX_DISPLAY_WIN_ITEM_LABEL], 0);
-    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_ITEM_LABEL], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_ITEM_LABEL], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     CopyWindowToVram(&display->windows[BOX_DISPLAY_WIN_ITEM_LABEL]);
     String_Delete(string);
 
     BufferItemName(display->msgFormat, 0, heldItem);
     string = ReadMsgData_ExpandPlaceholders(display->msgFormat, display->msgData, msg_0276_00005, display->heapId);
     FillWindowPixelBuffer(&display->windows[BOX_DISPLAY_WIN_ITEM], 0);
-    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_ITEM], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->windows[BOX_DISPLAY_WIN_ITEM], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     CopyWindowToVram(&display->windows[BOX_DISPLAY_WIN_ITEM]);
     String_Delete(string);
 }

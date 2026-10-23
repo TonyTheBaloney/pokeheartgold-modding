@@ -477,11 +477,11 @@ void CodeEntry_UpdateDigitHitboxes(CodeEntryApp *app) {
 
 void CodeEntry_InitFont(CodeEntryApp *app) {
     app->fontSystem = FontSystem_NewInit(2, HEAP_ID_108);
-    FontID_Alloc(2, HEAP_ID_108);
+    FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_108);
 }
 
 static void CodeEntry_FreeButtonLabels(CodeEntryApp *app) {
-    FontID_Release(2);
+    FontID_Release(FONT_SUBSCREEN);
     FontOAM_Delete(app->buttonLabels[0]);
     ObjCharTransfer_FreeCharSpace(&app->buttonLabelAllocs[0].charAlloc);
     FontOAM_Delete(app->buttonLabels[1]);
@@ -511,7 +511,7 @@ static void CodeEntry_CreateButtonLabel(CodeEntryApp *app, int button, int x, in
     string = NewString_ReadMsgData(msgData, button + msg_0038_00002);
     InitWindow(&window);
     AddTextWindowTopLeftCorner(app->bgConfig, &window, 10, 2, 0, 0);
-    AddTextPrinterParameterizedWithColor(&window, 2, string, FontID_String_GetCenterAlignmentX(2, string, 0, 80), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 2), NULL);
+    AddTextPrinterParameterizedWithColor(&window, FONT_SUBSCREEN, string, FontID_String_GetCenterAlignmentX(FONT_SUBSCREEN, string, 0, 80), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 2), NULL);
     size = FontOAM_GetCharSize(&window, NNS_G2D_VRAM_TYPE_2DMAIN, HEAP_ID_108);
     ObjCharTransfer_ReserveCharSpace(size, TRUE, NNS_G2D_VRAM_TYPE_2DMAIN, &app->buttonLabelAllocs[button].charAlloc);
     centerX = (app->hitboxes[button + CODE_ENTRY_HITBOX_BACK].rect.left + app->hitboxes[button + CODE_ENTRY_HITBOX_BACK].rect.right) / 2;
@@ -552,7 +552,7 @@ static void CodeEntry_PrintPrompt(Window *window, int msgNo) {
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0038, HEAP_ID_108);
     string = NewString_ReadMsgData(msgData, msgNo);
     FillWindowPixelBuffer(window, 15);
-    AddTextPrinterParameterized(window, 1, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(window, FONT_MESSAGE, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
     CopyWindowToVram(window);
     String_Delete(string);
     DestroyMsgData(msgData);

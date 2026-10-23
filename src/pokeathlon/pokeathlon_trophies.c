@@ -478,7 +478,7 @@ static void PokeathlonTrophies_DrawScreen(PokeathlonTrophies *work) {
     PokeathlonUtil_PrintAlignedMessage(work->textContext, 3, msg_0314_00014, FALSE);
     PokeathlonUtil_PrintAlignedMessage(work->textContext, 4, msg_0314_00015, FALSE);
     PokeathlonUtil_PrintMessageAtXY(work->textContext, 5, msg_0314_00032, 2, 0);
-    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 7, msg_0314_00000, TRUE, 0, 4);
+    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 7, msg_0314_00000, TRUE, 0, FONT_UNK_4);
     PokeathlonTrophies_PrintTitle(work, trophyCount);
     PokeathlonUtil_PrintAlignedMessage(work->textContext, 8, msg_0314_00016, FALSE);
     PokeathlonUtil_PrintAlignedMessage(work->textContext, 13, msg_0314_00031, FALSE);

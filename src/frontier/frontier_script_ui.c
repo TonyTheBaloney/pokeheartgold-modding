@@ -188,9 +188,9 @@ static void FrontierSystem_PrintMailMessage(FrontierSystem *system, int speed, u
     FrontierSystem_ShowMessageWindow(system);
     FrontierScript_GetMailMessageString(system->msgBuffer, bank, number, field0, field1);
     if (canABSpeedUp != 0xFF) {
-        FrontierSystem_StartTextPrinter(system, 1, speed, canABSpeedUp, FALSE);
+        FrontierSystem_StartTextPrinter(system, FONT_MESSAGE, speed, canABSpeedUp, FALSE);
     } else {
-        FrontierSystem_StartTextPrinter(system, 1, 0, canABSpeedUp, FALSE);
+        FrontierSystem_StartTextPrinter(system, FONT_MESSAGE, 0, canABSpeedUp, FALSE);
     }
 }
 
@@ -310,7 +310,7 @@ static u32 FrontierMenu_GetWidth(FrontierMenu *menu) {
             if (string == NULL) {
                 break;
             }
-            itemWidth = FontID_String_GetWidth(0, string, 0);
+            itemWidth = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
             if (width < itemWidth) {
                 width = itemWidth;
             }
@@ -477,7 +477,7 @@ static u32 FrontierListMenu_GetWidth(FrontierMenu *menu) {
             if (string == NULL) {
                 break;
             }
-            itemWidth = FontID_String_GetWidth(0, string, 0);
+            itemWidth = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
             if (width < itemWidth) {
                 width = itemWidth;
             }
@@ -602,7 +602,7 @@ static void FrontierMenu_PrintMessage(FrontierMenu *menu, u16 msgId, u32 speed) 
     FillWindowPixelBuffer(menu->messageWindow, 15);
     ReadMsgDataIntoString(menu->msgData, msgId, raw);
     StringExpandPlaceholders(menu->msgFormat, expanded, raw);
-    AddTextPrinterParameterized(menu->messageWindow, 1, expanded, 0, 0, speed, NULL);
+    AddTextPrinterParameterized(menu->messageWindow, FONT_MESSAGE, expanded, 0, 0, speed, NULL);
     String_Delete(raw);
     String_Delete(expanded);
 }

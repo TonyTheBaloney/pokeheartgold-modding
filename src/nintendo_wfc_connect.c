@@ -912,7 +912,7 @@ BOOL NintendoWfc_Init(OverlayManager *man, int *state) {
     }
     case NINTENDO_WFC_INIT_START_WIRELESS:
         CommWireless_StartUp();
-        FontID_Alloc(4, HEAP_ID_67);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_67);
         *state = NINTENDO_WFC_INIT_SETUP;
         return TRUE;
     }
@@ -963,7 +963,7 @@ BOOL NintendoWfc_Exit(OverlayManager *man, int *state) {
         return FALSE;
     }
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     Heap_Free(wfc->heapMem);
     UnloadOVY38();
     UnloadDwcOverlay();
@@ -2371,7 +2371,7 @@ static void NintendoWfc_PrintFormattedMessage(NintendoWfcConnect *wfc, MsgData *
     StringExpandPlaceholders(wfc->msgFormat, wfc->msgString, string);
     FillWindowPixelBuffer(&wfc->msgWindow, 15);
     DrawFrameAndWindow2(&wfc->msgWindow, FALSE, 1, 14);
-    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->msgWindow, 1, wfc->msgString, 0, 0, textSpeed, NULL);
+    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->msgWindow, FONT_MESSAGE, wfc->msgString, 0, 0, textSpeed, NULL);
     String_Delete(string);
 }
 
@@ -2394,7 +2394,7 @@ static void NintendoWfc_PrintMessage(NintendoWfcConnect *wfc, MsgData *msgData, 
     ReadMsgDataIntoString(msgData, msgNo, wfc->msgString);
     FillWindowPixelBuffer(&wfc->msgWindow, 15);
     DrawFrameAndWindow2(&wfc->msgWindow, FALSE, 1, 14);
-    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->msgWindow, 1, wfc->msgString, 0, 0, textSpeed, NULL);
+    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->msgWindow, FONT_MESSAGE, wfc->msgString, 0, 0, textSpeed, NULL);
 }
 
 static int NintendoWfc_GetAlignedTextX(const Window *window, String *string, int x, int alignment, int unused, int fontId) {
@@ -2413,8 +2413,8 @@ static int NintendoWfc_GetAlignedTextX(const Window *window, String *string, int
 }
 
 static void NintendoWfc_PrintAlignedText(Window *window, String *string, int x, int y, int alignment, u32 color) {
-    x = NintendoWfc_GetAlignedTextX(window, string, x, alignment, color, 1);
-    AddTextPrinterParameterizedWithColor(window, 1, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
+    x = NintendoWfc_GetAlignedTextX(window, string, x, alignment, color, FONT_MESSAGE);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, x, y, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 static void NintendoWfc_CreateWirelessIcon(NintendoWfcConnect *wfc) {
@@ -2445,7 +2445,7 @@ static void NintendoWfc_PrintErrorMessage(NintendoWfcConnect *wfc, int msgNo) {
     StringExpandPlaceholders(wfc->msgFormat, wfc->errorString, string);
     FillWindowPixelBuffer(&wfc->errorWindow, 15);
     DrawFrameAndWindow1(&wfc->errorWindow, TRUE, 31, 11);
-    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->errorWindow, 1, wfc->errorString, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    wfc->textPrinterId = AddTextPrinterParameterized(&wfc->errorWindow, FONT_MESSAGE, wfc->errorString, 0, 0, TEXT_SPEED_INSTANT, NULL);
     String_Delete(string);
 }
 
@@ -2808,7 +2808,7 @@ static void NintendoWfc_AddNumberInputWindows(NintendoWfcConnect *wfc) {
 static void NintendoWfc_PrintButtonLabel(Window *window, MsgData *msgData, int msgNo) {
     String *string = NewString_ReadMsgData(msgData, msgNo);
     FillWindowPixelBuffer(window, 0);
-    AddTextPrinterParameterizedWithColor(window, 4, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_UNK_4, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     CopyWindowToVram(window);
     String_Delete(string);
 }
@@ -3011,8 +3011,8 @@ static void NintendoWfcYesNo_AddWindows(NintendoWfcYesNoMenu *menu) {
     FillWindowPixelBuffer(&menu->noWindow, 0);
     yes = NewString_ReadMsgData(msgData, msg_0191_00046);
     no = NewString_ReadMsgData(msgData, msg_0191_00047);
-    AddTextPrinterParameterizedWithColor(&menu->yesWindow, 4, yes, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 1, 0), NULL);
-    AddTextPrinterParameterizedWithColor(&menu->noWindow, 4, no, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->yesWindow, FONT_UNK_4, yes, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->noWindow, FONT_UNK_4, no, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 1, 0), NULL);
     CopyWindowToVram(&menu->yesWindow);
     CopyWindowToVram(&menu->noWindow);
     String_Delete(no);

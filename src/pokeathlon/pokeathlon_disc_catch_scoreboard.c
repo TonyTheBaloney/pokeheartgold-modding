@@ -280,7 +280,7 @@ static void PokeathlonDiscCatchScoreboard_PrintNames(PokeathlonDiscCatchScoreboa
         }
         name = PlayerProfile_GetPlayerName_NewString(PokeathlonCourse_GetPlayerProfileFromData(scoreboard->course, i), scoreboard->heapId);
         FillWindowPixelBuffer(&scoreboard->windows[window], 0);
-        AddTextPrinterParameterizedWithColor(&scoreboard->windows[window], 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&scoreboard->windows[window], FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
         CopyWindowToVram(&scoreboard->windows[window]);
         String_Delete(name);
         scoreboard->sprites[DISC_CATCH_SCOREBOARD_BADGES + i] = PokeathlonDiscCatchScoreboard_NewSprite(scoreboard->spriteSystem, scoreboard->spriteManager, x, y, i, 65);

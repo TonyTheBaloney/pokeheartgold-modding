@@ -805,12 +805,12 @@ static void Colosseum_ShowOpponentMons(ColosseumEntry *entry, int cursor) {
         y = i;
         for (; i < COLOSSEUM_MIX_BATTLE_MONS; i++) {
             ReadMsgDataIntoString(speciesNames, GetMonData((Pokemon *)(entry->receivedMons + offset), MON_DATA_SPECIES, NULL), entry->message);
-            AddTextPrinterParameterized(window, 0, entry->message, 16, y, TEXT_SPEED_NOTRANSFER, NULL);
+            AddTextPrinterParameterized(window, FONT_SYSTEM, entry->message, 16, y, TEXT_SPEED_NOTRANSFER, NULL);
             offset += monSize;
             y += 16;
         }
         ReadMsgDataIntoString(entry->msgData, msg_0014_00021, entry->message);
-        AddTextPrinterParameterized(window, 0, entry->message, 16, i << 4, TEXT_SPEED_NOTRANSFER, NULL);
+        AddTextPrinterParameterized(window, FONT_SYSTEM, entry->message, 16, i << 4, TEXT_SPEED_NOTRANSFER, NULL);
         DestroyMsgData(speciesNames);
     }
     FillWindowPixelRect(window, 15, 0, 0, 16, window->height * 8);
@@ -833,7 +833,7 @@ static void Colosseum_ShowChoiceMenu(ColosseumEntry *entry, int cursor) {
         FillWindowPixelBuffer(window, 15);
         for (i = 0, y = 0; i < 3; i++, y += 16) {
             ReadMsgDataIntoString(entry->msgData, i + msg_0014_00022, entry->message);
-            AddTextPrinterParameterized(window, 0, entry->message, 16, y, TEXT_SPEED_NOTRANSFER, NULL);
+            AddTextPrinterParameterized(window, FONT_SYSTEM, entry->message, 16, y, TEXT_SPEED_NOTRANSFER, NULL);
         }
     }
     entry->menuCount = 3;

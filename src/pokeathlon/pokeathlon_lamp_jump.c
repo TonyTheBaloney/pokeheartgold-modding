@@ -350,7 +350,7 @@ BOOL PokeathlonLampJump_Init(PokeathlonCourseData *course) {
         NNS_G2dInitOamManagerModule();
         OamManager_Create(0, 126, 0, 32, 0, 126, 0, 32, HEAP_ID_143);
         lampJump->heapId = HEAP_ID_143;
-        FontID_Alloc(4, lampJump->heapId);
+        FontID_Alloc(FONT_UNK_4, lampJump->heapId);
         PokeathlonLampJump_InitBgs(lampJump->bgConfig);
         PokeathlonLampJump_Init3D(lampJump);
         gSystem.screensFlipped = TRUE;
@@ -516,7 +516,7 @@ BOOL PokeathlonLampJump_Exit(PokeathlonCourseData *course) {
     PokeathlonCourseMonObjects_Free(lampJump->monSpriteManager);
     PokeathlonCourseSprites_FreeResources(lampJump->spriteResources);
     PokeathlonLampJump_FreeCpuPlayers(lampJump->cpuPlayers);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     OamManager_Free();
     ObjCharTransfer_Destroy();
     ObjPlttTransfer_Destroy();
@@ -1534,7 +1534,7 @@ void PokeathlonLampJump_PrintPlayerNames(PokeathlonCourseData *course, Pokeathlo
     }
     self = PokeathlonCourse_GetNetId(course);
     name = PlayerProfile_GetPlayerName_NewString(PokeathlonCourse_GetPlayerProfileFromData(course, self), lampJump->heapId);
-    AddTextPrinterParameterizedWithColor(&lampJump->windows[0], 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&lampJump->windows[0], FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(name);
     line = 1;
     participant = 0;
@@ -1542,7 +1542,7 @@ void PokeathlonLampJump_PrintPlayerNames(PokeathlonCourseData *course, Pokeathlo
     for (; participant < 4; participant++) {
         if (participant != self) {
             name = PlayerProfile_GetPlayerName_NewString(PokeathlonCourse_GetPlayerProfileFromData(course, participant), lampJump->heapId);
-            AddTextPrinterParameterizedWithColor(window + line, 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window + line, FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
             String_Delete(name);
             line++;
         }
@@ -1573,7 +1573,7 @@ void PokeathlonLampJump_PrintTotal(PokeathlonLampJump *lampJump, u16 score) {
     messageFormat = MessageFormat_New(lampJump->heapId);
     BufferIntegerAsString(messageFormat, 0, score, 3, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, msg_0309_00161, lampJump->heapId);
-    AddTextPrinterParameterizedWithColor(&lampJump->windows[4], 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&lampJump->windows[4], FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     MessageFormat_Delete(messageFormat);
     DestroyMsgData(msgData);

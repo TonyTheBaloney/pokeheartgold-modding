@@ -359,7 +359,7 @@ static void PokewalkerEventLog_InitText(PokewalkerEventLog *eventLog) {
     BG_FillCharDataRange(eventLog->bgConfig, GF_BG_LYR_MAIN_2, 0, 1, 0);
     LoadFontPal1(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_14_OFFSET, eventLog->heapId);
     LoadFontPal1(GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_14_OFFSET, eventLog->heapId);
-    FontID_Alloc(4, eventLog->heapId);
+    FontID_Alloc(FONT_UNK_4, eventLog->heapId);
 }
 
 static void PokewalkerEventLog_FreeText(PokewalkerEventLog *eventLog) {
@@ -376,7 +376,7 @@ static void PokewalkerEventLog_FreeText(PokewalkerEventLog *eventLog) {
     DestroyMsgData(eventLog->msgData);
     DestroyMsgData(eventLog->speciesNames);
     DestroyMsgData(eventLog->itemNames);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void PokewalkerEventLog_PrintToWindowWithFont(PokewalkerEventLog *eventLog, u32 windowId, u32 msgId, u16 x, int fontId) {
@@ -390,7 +390,7 @@ static void PokewalkerEventLog_PrintToWindowWithFont(PokewalkerEventLog *eventLo
 }
 
 static void PokewalkerEventLog_PrintToWindow(PokewalkerEventLog *eventLog, u32 windowId, u32 msgId, u16 x) {
-    PokewalkerEventLog_PrintToWindowWithFont(eventLog, windowId, msgId, x, 1);
+    PokewalkerEventLog_PrintToWindowWithFont(eventLog, windowId, msgId, x, FONT_MESSAGE);
 }
 
 // Prints msgId, and msgId2 on the next line when it is not 0.
@@ -408,11 +408,11 @@ static void PokewalkerEventLog_PrintMessage(PokewalkerEventLog *eventLog, int ms
         String_Copy(joined, string);
         String_AddChar(joined, CHAR_LF);
         String_Cat(joined, string2);
-        AddTextPrinterParameterizedWithColor(window, 1, joined, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, joined, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         String_Delete(string2);
         String_Delete(joined);
     } else {
-        AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     }
     String_Delete(string);
     CopyWindowToVram(window);
@@ -533,13 +533,13 @@ static void PokewalkerEventLog_PrintEntry(PokewalkerEventLog *eventLog, int msgI
     PokewalkerEventLog_PrintToWindow(eventLog, 0, msg_0275_00086, 0);
     PokewalkerEventLog_BufferNumber(eventLog, 6, hour, 2, PRINTING_MODE_RIGHT_ALIGN);
     string = ReadMsgData_ExpandPlaceholders(eventLog->msgFormat, eventLog->msgData, amPmMsg, eventLog->heapId);
-    x = FontID_String_GetCenterAlignmentX(1, string, 0, GetWindowWidth(&eventLog->windows[1]) * 8);
+    x = FontID_String_GetCenterAlignmentX(FONT_MESSAGE, string, 0, GetWindowWidth(&eventLog->windows[1]) * 8);
     String_Delete(string);
     PokewalkerEventLog_PrintToWindow(eventLog, 1, amPmMsg, (u8)x);
 }
 
 static void PokewalkerEventLog_PrintQuit(PokewalkerEventLog *eventLog) {
-    PokewalkerEventLog_PrintToWindowWithFont(eventLog, 3, msg_0275_00089, 4, 4);
+    PokewalkerEventLog_PrintToWindowWithFont(eventLog, 3, msg_0275_00089, 4, FONT_UNK_4);
 }
 
 static void PokewalkerEventLog_InitBgs(PokewalkerEventLog *eventLog) {

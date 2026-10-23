@@ -365,7 +365,7 @@ BOOL PokeathlonSnowThrow_Init(PokeathlonCourseData *course) {
         NNS_G2dInitOamManagerModule();
         OamManager_Create(0, 126, 0, 32, 0, 126, 0, 32, HEAP_ID_146);
         data->heapId = HEAP_ID_146;
-        FontID_Alloc(4, HEAP_ID_146);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_146);
         PokeathlonSnowThrow_InitBgs(data->bgConfig);
         PokeathlonSnowThrow_InitWindows(data);
         PokeathlonSnowThrow_PrintNames(data, course);
@@ -542,7 +542,7 @@ BOOL PokeathlonSnowThrow_Exit(PokeathlonCourseData *course) {
     ObjPlttTransfer_Destroy();
     PokeathlonSnowThrowCpu_Delete(work->cpu);
     PokeathlonSnowThrowDisplay_Delete(work->display);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
     Heap_Free(work->sortBuffer);
@@ -1291,7 +1291,7 @@ static void PokeathlonSnowThrow_PrintScore(PokeathlonSnowThrow *work, u16 score)
     format = MessageFormat_New(work->heapId);
     BufferIntegerAsString(format, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(format, msgData, msg_0309_00164, work->heapId);
-    AddTextPrinterParameterizedWithColor(&work->scoreWindow, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&work->scoreWindow, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     MessageFormat_Delete(format);
     DestroyMsgData(msgData);
@@ -1485,7 +1485,7 @@ static void PokeathlonSnowThrow_PrintNames(PokeathlonSnowThrow *work, Pokeathlon
     window = work->nameWindows;
     for (; i < SNOW_THROW_TEAMS - 1; i++) {
         name = PlayerProfile_GetPlayerName_NewString(PokeathlonCourse_GetPlayerProfileFromData(course, (u8)(participant % SNOW_THROW_TEAMS)), work->heapId);
-        AddTextPrinterParameterizedWithColor(window, 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
         String_Delete(name);
         CopyWindowToVram(window);
         participant++;

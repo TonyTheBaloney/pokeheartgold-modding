@@ -294,7 +294,7 @@ static BOOL LeadersEffect_RunGymLeaderIntro(EncounterEffectTask *effect, enum He
         } else {
             string = LeadersEffect_GetTrainerNameString(params->trainerId, heapID);
         }
-        AddTextPrinterParameterizedWithColor(&work->window, 0, string, 0, 0, 0, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&work->window, FONT_SYSTEM, string, 0, 0, 0, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         String_Delete(string);
         EncounterEffect_InitSprites(&work->spriteManager, 8, 3);
         EncounterEffect_LoadSpriteResources(effect->narc, &work->spriteManager, &work->leaderResources, params->spriteMembers[0], 1, params->spriteMembers[1], params->spriteMembers[2], params->spriteMembers[3], 600000);
@@ -657,7 +657,7 @@ static BOOL LeadersEffect_RunEliteFourIntro(EncounterEffectTask *effect, enum He
         AddWindowParameterized(effect->fieldSystem->bgConfig, &work->window, GF_BG_LYR_MAIN_2, 21, 13, 11, 2, 2, 1);
         FillWindowPixelBuffer(&work->window, 0);
         string = LeadersEffect_GetTrainerNameString(params->trainerId, heapID);
-        AddTextPrinterParameterizedWithColor(&work->window, 0, string, 0, 0, 0, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&work->window, FONT_SYSTEM, string, 0, 0, 0, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         String_Delete(string);
         effect->fadeDone = 3; // reused as a frame counter from here on
         effect->state++;

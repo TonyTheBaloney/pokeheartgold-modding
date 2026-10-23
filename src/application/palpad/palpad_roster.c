@@ -314,7 +314,7 @@ void PalPadRoster_Setup(PalPadRoster *roster, PalPadShared *shared, PalPadGfx *g
     CharSpriteManager_LoadAvatarChars(roster->trainerIcons, 1, 2, heapId);
     PalPad_AddWindow(gfx->bgConfig, &roster->returnWindow, GF_BG_LYR_MAIN_1, 21, 21, 9, 2, 11, 0x14F, 0);
     string = NewString_ReadMsgData(gfx->msgData, msg_0779_00007);
-    AddTextPrinterParameterizedWithColor(&roster->returnWindow, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 15, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&roster->returnWindow, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 15, 0), NULL);
     String_Delete(string);
     for (i = 0; i < 2; i++) {
         roster->menuItems[i] = ListMenuItems_New(4, heapId);
@@ -754,7 +754,7 @@ static void PalPadRoster_PrintMessage(PalPadRoster *roster, PalPadGfx *gfx, int 
     ReadMsgDataIntoString(gfx->msgData, msgId, buffer);
     StringExpandPlaceholders(gfx->msgFormat, roster->msgText, buffer);
     TextFlags_SetCanTouchSpeedUpPrint(TRUE);
-    roster->printerId = AddTextPrinterParameterizedWithColor(&roster->msgWindow, 1, roster->msgText, 0, 0, roster->textSpeed, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    roster->printerId = AddTextPrinterParameterizedWithColor(&roster->msgWindow, FONT_MESSAGE, roster->msgText, 0, 0, roster->textSpeed, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     DrawFrameAndWindow2(&roster->msgWindow, TRUE, 70, 12);
     ScheduleWindowCopyToVram(&roster->msgWindow);
     String_Delete(buffer);
@@ -959,7 +959,7 @@ static void PalPadRosterPage_DrawFriend(PalPadRosterPage *page, CharSpriteManage
     }
     string = String_New(0x80, heapId);
     CopyU16ArrayToString(string, FriendRoster_GetPlayerName(wifiList, friendSlot));
-    AddTextPrinterParameterizedWithColor((Window *)(owner + offsetof(PalPadRosterPage, window)), 4, string, gPalPadRosterSlotRects[slot].x * 8, gPalPadRosterSlotY[slot].y * 8 - 24, TEXT_SPEED_NOTRANSFER, gPalPadRosterNameColors[gender], NULL);
+    AddTextPrinterParameterizedWithColor((Window *)(owner + offsetof(PalPadRosterPage, window)), FONT_UNK_4, string, gPalPadRosterSlotRects[slot].x * 8, gPalPadRosterSlotY[slot].y * 8 - 24, TEXT_SPEED_NOTRANSFER, gPalPadRosterNameColors[gender], NULL);
     String_Delete(string);
 }
 

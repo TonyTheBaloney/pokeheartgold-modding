@@ -549,7 +549,7 @@ static void MartData_PrintItemDescription(MartData *data, u32 position) {
                 string = NewString_ReadMsgData(msgData, Seal_GetDescriptionMsgId((u8)itemID));
                 DestroyMsgData(msgData);
             }
-            AddTextPrinterParameterizedWithColor(&data->windows[1], 0, string, 0, 0, 0xFF, 0xF0E00, 0);
+            AddTextPrinterParameterizedWithColor(&data->windows[1], FONT_SYSTEM, string, 0, 0, 0xFF, 0xF0E00, 0);
             String_Delete(string);
             MartData_SetSelectedItemIcon(data, itemID);
         } else {

@@ -75,7 +75,7 @@ BOOL PokewalkerApp_Init(OverlayManager *manager, int *state) {
 
 void PokewalkerApp_Setup(PokewalkerApp *app) {
     app->bgConfig = BgConfig_Alloc(HEAP_ID_154);
-    FontID_Alloc(4, HEAP_ID_154);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_154);
     PokewalkerApp_InitMessages(app);
     PokewalkerApp_SetGxBanks();
     PokewalkerApp_InitBgs(app->bgConfig);
@@ -100,7 +100,7 @@ void PokewalkerApp_Teardown(PokewalkerApp *app) {
     GF_DestroyVramTransferManager();
     PokewalkerApp_FreeStrings(app);
     PokewalkerApp_FreeMessages(app);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     Main_SetVBlankIntrCB(NULL, NULL);
     app->spriteManager = NULL;
 }

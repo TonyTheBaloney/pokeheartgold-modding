@@ -838,12 +838,12 @@ static void MysteryGiftApp_PrintMessage(OverlayManager *manager, Window *window,
 
     data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0247, HEAP_ID_84);
     data->msgFormat = MessageFormat_New(HEAP_ID_84);
-    FillWindowPixelBuffer(window, GetFontAttribute(1, 6));
+    FillWindowPixelBuffer(window, GetFontAttribute(FONT_MESSAGE, 6));
     String *string = data->string;
     if (string == NULL) {
         string = ReadMsgData_ExpandPlaceholders(data->msgFormat, data->msgData, msgId, HEAP_ID_84);
     }
-    data->textPrinterId = AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, data->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    data->textPrinterId = AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, data->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     if (data->string == NULL) {
         String_Delete(string);
     }
@@ -859,8 +859,8 @@ static void MysteryGiftApp_PrintGiftTitle(OverlayManager *manager, Window *windo
     OverlayManager_GetData(manager);
     string = String_New(37, HEAP_ID_84);
     CopyU16ArrayToStringN(string, text, 36);
-    FillWindowPixelBuffer(window, GetFontAttribute(0, 6));
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    FillWindowPixelBuffer(window, GetFontAttribute(FONT_SYSTEM, 6));
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     DrawFrameAndWindow1(window, FALSE, 31, 3);
     String_Delete(string);
 }
@@ -956,7 +956,7 @@ void MysteryGiftApp_ShowWfcError(MysteryGiftAppData *data) {
     BufferIntegerAsString(msgFormat, 0, data->wfcErrorCode, 5, PRINTING_MODE_LEADING_ZEROS, TRUE);
     MainMenuTextPrinter_Init(&printer, &data->wfcErrorWindow, 1, msg_0800, 31, 3);
     MainMenuTextPrinter_SetSize(&printer, 24, 16, 100);
-    MainMenuTextPrinter_SetFrameAndFont(&printer, 0, 1);
+    MainMenuTextPrinter_SetFrameAndFont(&printer, 0, FONT_MESSAGE);
     printer.msgFormat = msgFormat;
     MainMenuTextPrinter_AddWindowAndPrint(data->bgConfig, &printer, 4, 4, msgId);
     MessageFormat_Delete(msgFormat);

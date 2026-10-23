@@ -632,11 +632,11 @@ static void WiFiPlazaSurveyAnswer_PrintAnswers(WiFiPlazaSurveyAnswer *answer, Wi
     String *string;
     FillWindowPixelBuffer(&answer->window, 0);
     string = WiFiPlazaSurvey_GetAnswerText(&answer->question, messages, 0);
-    AddTextPrinterParameterizedWithColor(&answer->window, 1, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&answer->window, FONT_MESSAGE, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     string = WiFiPlazaSurvey_GetAnswerText(&answer->question, messages, 1);
-    AddTextPrinterParameterizedWithColor(&answer->window, 1, string, 0, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&answer->window, FONT_MESSAGE, string, 0, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     string = WiFiPlazaSurvey_GetAnswerText(&answer->question, messages, 2);
-    AddTextPrinterParameterizedWithColor(&answer->window, 1, string, 0, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&answer->window, FONT_MESSAGE, string, 0, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ScheduleWindowCopyToVram(&answer->window);
 }
 
@@ -678,7 +678,7 @@ static void WiFiPlazaSurvey_PrintMessage(WiFiPlazaSurveyMessageBox *msgBox, Stri
     }
     FillWindowPixelBuffer(&msgBox->window, 15);
     String_Copy(msgBox->string, string);
-    msgBox->printerId = AddTextPrinterParameterizedWithColor(&msgBox->window, 1, msgBox->string, 0, 0, msgBox->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    msgBox->printerId = AddTextPrinterParameterizedWithColor(&msgBox->window, FONT_MESSAGE, msgBox->string, 0, 0, msgBox->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     DrawFrameAndWindow2(&msgBox->window, TRUE, 1, 5);
 }
 
@@ -688,7 +688,7 @@ static void WiFiPlazaSurvey_PrintMessageInstant(WiFiPlazaSurveyMessageBox *msgBo
     }
     FillWindowPixelBuffer(&msgBox->window, 15);
     String_Copy(msgBox->string, string);
-    AddTextPrinterParameterizedWithColor(&msgBox->window, 1, msgBox->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    AddTextPrinterParameterizedWithColor(&msgBox->window, FONT_MESSAGE, msgBox->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     DrawFrameAndWindow2(&msgBox->window, TRUE, 1, 5);
     ScheduleWindowCopyToVram(&msgBox->window);
 }
@@ -998,8 +998,8 @@ static void WiFiPlazaSurveyResults_PrintTitle(Window *window, WiFiPlazaSurveyMes
     u32 width;
     FillWindowPixelBuffer(window, 0);
     string = WiFiPlazaSurvey_GetMessage(messages, 0, msgId);
-    width = FontID_String_GetWidth(1, string, 0);
-    AddTextPrinterParameterizedWithColor(window, 1, string, (0x90 - width) / 2, 4, TEXT_SPEED_NOTRANSFER, color, NULL);
+    width = FontID_String_GetWidth(FONT_MESSAGE, string, 0);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, (0x90 - width) / 2, 4, TEXT_SPEED_NOTRANSFER, color, NULL);
     ScheduleWindowCopyToVram(window);
 }
 
@@ -1011,20 +1011,20 @@ static void WiFiPlazaSurveyResults_PrintQuestion(WiFiPlazaSurveyResults *results
     FillWindowPixelBuffer(&results->windows[1], 0);
     FillWindowPixelBuffer(&results->windows[5], 0);
     string = WiFiPlazaSurvey_GetAnswerText(question, messages, 0);
-    AddTextPrinterParameterizedWithColor(&results->windows[1], 1, string, 0, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&results->windows[1], FONT_MESSAGE, string, 0, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
     string = WiFiPlazaSurvey_GetAnswerText(question, messages, 1);
-    AddTextPrinterParameterizedWithColor(&results->windows[1], 1, string, 0, 24, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&results->windows[1], FONT_MESSAGE, string, 0, 24, TEXT_SPEED_NOTRANSFER, color, NULL);
     string = WiFiPlazaSurvey_GetAnswerText(question, messages, 2);
-    AddTextPrinterParameterizedWithColor(&results->windows[1], 1, string, 0, 48, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&results->windows[1], FONT_MESSAGE, string, 0, 48, TEXT_SPEED_NOTRANSFER, color, NULL);
     if (record->surveyId == question->surveyId && record->answer < WIFI_PLAZA_SURVEY_NUM_ANSWERS) {
         nameColor = highlight == TRUE ? highlightColor : color;
         WiFiPlazaSurvey_BufferPlayerName(messages, 0, heapID);
         string = WiFiPlazaSurvey_GetMessage(messages, 0, msg_0777_00110);
-        width = FontID_String_GetWidth(1, string, 0);
-        AddTextPrinterParameterizedWithColor(&results->windows[5], 1, string, (96 - width) / 2, 0, TEXT_SPEED_NOTRANSFER, nameColor, NULL);
+        width = FontID_String_GetWidth(FONT_MESSAGE, string, 0);
+        AddTextPrinterParameterizedWithColor(&results->windows[5], FONT_MESSAGE, string, (96 - width) / 2, 0, TEXT_SPEED_NOTRANSFER, nameColor, NULL);
         string = WiFiPlazaSurvey_GetAnswerText(question, messages, record->answer);
-        width = FontID_String_GetWidth(1, string, 0);
-        AddTextPrinterParameterizedWithColor(&results->windows[5], 1, string, (104 - width) / 2 + 96, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
+        width = FontID_String_GetWidth(FONT_MESSAGE, string, 0);
+        AddTextPrinterParameterizedWithColor(&results->windows[5], FONT_MESSAGE, string, (104 - width) / 2 + 96, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
     }
     ScheduleWindowCopyToVram(&results->windows[5]);
     ScheduleWindowCopyToVram(&results->windows[1]);

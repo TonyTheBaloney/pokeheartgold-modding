@@ -224,31 +224,31 @@ static void PokeathlonBox_PrintStaticTexts(PokeathlonBox_Graphics *graphics) {
     BufferPokeathlonCourseName(graphics->msgFormat, 0, (u8)graphics->courseId);
     String *str = ReadMsgData_ExpandPlaceholders(graphics->msgFormat, graphics->msgData, msg_0278_00000, graphics->heapID);
     FillWindowPixelBuffer(&graphics->window1, 0);
-    AddTextPrinterParameterizedWithColor(&graphics->window1, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&graphics->window1, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     CopyWindowToVram(&graphics->window1);
     String_Delete(str);
     FillWindowPixelBuffer(&graphics->window2, 0);
     if (graphics->isSupreme != 0) {
         str = NewString_ReadMsgData(graphics->msgData, msg_0278_00001);
-        AddTextPrinterParameterizedWithColor(&graphics->window2, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&graphics->window2, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         String_Delete(str);
     }
     CopyWindowToVram(&graphics->window2);
     FillWindowPixelBuffer(&graphics->window5, 0);
     str = NewString_ReadMsgData(graphics->msgData, msg_0278_00008);
-    AddTextPrinterParameterizedWithColor(&graphics->window5, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&graphics->window5, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(str);
     str = NewString_ReadMsgData(graphics->msgData, msg_0278_00004);
-    AddTextPrinterParameterizedWithColor(&graphics->window5, 0, str, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&graphics->window5, FONT_SYSTEM, str, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(str);
     str = NewString_ReadMsgData(graphics->msgData, msg_0278_00006);
-    AddTextPrinterParameterizedWithColor(&graphics->window5, 0, str, 0, 32, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&graphics->window5, FONT_SYSTEM, str, 0, 32, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(str);
     str = NewString_ReadMsgData(graphics->msgData, msg_0278_00005);
-    AddTextPrinterParameterizedWithColor(&graphics->window5, 0, str, 0, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&graphics->window5, FONT_SYSTEM, str, 0, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(str);
     str = NewString_ReadMsgData(graphics->msgData, msg_0278_00007);
-    AddTextPrinterParameterizedWithColor(&graphics->window5, 0, str, 0, 64, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&graphics->window5, FONT_SYSTEM, str, 0, 64, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(str);
     CopyWindowToVram(&graphics->window5);
 }
@@ -258,18 +258,18 @@ static void PokeathlonBox_PrintMonTexts(PokeathlonBox_Graphics *graphics, Pokeat
 
     CopyU16ArrayToString(graphics->nickname, mon->nickname);
     FillWindowPixelBuffer(&graphics->window3, 0);
-    AddTextPrinterParameterizedWithColor(&graphics->window3, 0, graphics->nickname, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0);
+    AddTextPrinterParameterizedWithColor(&graphics->window3, FONT_SYSTEM, graphics->nickname, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0);
     CopyWindowToVram(&graphics->window3);
     if (mon->gender == 0) {
         str = NewString_ReadMsgData(graphics->msgData, msg_0278_00002);
         FillWindowPixelBuffer(&graphics->window4, 0);
-        AddTextPrinterParameterizedWithColor(&graphics->window4, 0, str, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 0), 0);
+        AddTextPrinterParameterizedWithColor(&graphics->window4, FONT_SYSTEM, str, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 0), 0);
         CopyWindowToVram(&graphics->window4);
         String_Delete(str);
     } else if (mon->gender == 1) {
         str = NewString_ReadMsgData(graphics->msgData, msg_0278_00003);
         FillWindowPixelBuffer(&graphics->window4, 0);
-        AddTextPrinterParameterizedWithColor(&graphics->window4, 0, str, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), 0);
+        AddTextPrinterParameterizedWithColor(&graphics->window4, FONT_SYSTEM, str, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), 0);
         CopyWindowToVram(&graphics->window4);
         String_Delete(str);
     } else {
@@ -281,7 +281,7 @@ static void PokeathlonBox_PrintMonTexts(PokeathlonBox_Graphics *graphics, Pokeat
     String_Delete(str);
     str = ReadMsgData_ExpandPlaceholders(graphics->msgFormat, graphics->msgData, msg_0278_00009, graphics->heapID);
     FillWindowPixelBuffer(&graphics->window6, 0);
-    AddTextPrinterParameterizedWithColor(&graphics->window6, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0);
+    AddTextPrinterParameterizedWithColor(&graphics->window6, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0);
     CopyWindowToVram(&graphics->window6);
     String_Delete(str);
 }

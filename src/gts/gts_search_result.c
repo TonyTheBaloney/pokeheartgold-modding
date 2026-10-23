@@ -482,7 +482,7 @@ static void GtsSearchResult_PrintMessage(GtsApp *app, int msgId, int textSpeed, 
     ReadMsgDataIntoString(app->gtsMsgData, msgId, app->msgBuffer);
     FillWindowPixelBuffer(&app->waitingIconWindow, 15);
     DrawFrameAndWindow2(&app->waitingIconWindow, FALSE, 1, 2);
-    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, 1, app->msgBuffer, 0, 0, textSpeed, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, FONT_MESSAGE, app->msgBuffer, 0, 0, textSpeed, NULL);
 }
 
 static void GtsSearchResult_PrintLabel(MsgData *msgData, Window *window, int msgId) {

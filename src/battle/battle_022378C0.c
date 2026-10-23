@@ -172,7 +172,7 @@ void BattleSystem_FreeInputForSubMenu(BattleSystem *battleSystem) {
     BattleInput_Free(battleSystem->battleInput);
     BgConfig_CleanupBattleMenuBackgrounds(battleSystem->bgConfig);
     battleSystem->subMenuBanksRequested = 1;
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     BattleSystem_SetGraphicsState(battleSystem, 3);
 
     if (battleSystem->trainerAIOverlayLoaded == 0) {
@@ -192,7 +192,7 @@ void BattleSystem_FreeGraphics(BattleSystem *battleSystem) {
     SpriteSystem_FreeResourcesAndManager(battleSystem->spriteRenderer, battleSystem->gfxHandler);
     SpriteSystem_Free(battleSystem->spriteRenderer);
     GF_DestroyVramTransferManager();
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 void BattleSystem_RestoreInputAfterSubMenu(BattleSystem *battleSystem) {
@@ -215,7 +215,7 @@ void BattleSystem_RestoreInputAfterSubMenu(BattleSystem *battleSystem) {
 
     battleSystem->battleInput = BattleInput_NewInit(narc0, narc1, battleSystem, BattleSystem_GetTrainerGender(battleSystem, BattleSystem_GetNetworkId(battleSystem)), battleSystem->keyPressedSave);
 
-    FontID_Alloc(4, HEAP_ID_BATTLE);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_BATTLE);
 
     battleSystem->battleBanksRequested = 1;
 

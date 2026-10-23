@@ -230,7 +230,7 @@ BOOL PokeathlonHurdleDash_Init(PokeathlonCourseData *course) {
         NNS_G2dInitOamManagerModule();
         OamManager_Create(0, 126, 0, 32, 0, 126, 0, 32, HEAP_ID_138);
         hurdleDash->heapId = HEAP_ID_138;
-        FontID_Alloc(4, HEAP_ID_138);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_138);
         PokeathlonHurdleDash_InitBgs(hurdleDash->bgConfig);
         PokeathlonHurdleDash_InitTimeWindow(hurdleDash);
         gSystem.screensFlipped = TRUE;
@@ -469,7 +469,7 @@ BOOL PokeathlonHurdleDash_Exit(PokeathlonCourseData *course) {
     PokeathlonCourseSprites_FreeResources(hurdleDash->spriteResources);
     PokeathlonCourseSpritePool_Free(hurdleDash->scene);
     PokeathlonCourse_FreeObjTransfer();
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
     PokeathlonCourse_FreeWork(course);

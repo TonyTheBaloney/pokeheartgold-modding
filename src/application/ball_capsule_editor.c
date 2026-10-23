@@ -1153,8 +1153,8 @@ static void BallCapsuleEditor_PrintExitLabel(BallCapsuleEditor *editor, BOOL sho
         String *string = NewString_ReadMsgData(msgData, msg_0011_00017);
         FillWindowPixelBuffer(&editor->display.windows[2], 0);
         {
-            u32 x = 64 - FontID_String_GetWidth(4, string, 0);
-            AddTextPrinterParameterizedWithColor(&editor->display.windows[2], 4, string, x >> 1, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 15, 0), NULL);
+            u32 x = 64 - FontID_String_GetWidth(FONT_UNK_4, string, 0);
+            AddTextPrinterParameterizedWithColor(&editor->display.windows[2], FONT_UNK_4, string, x >> 1, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 15, 0), NULL);
         }
         String_Delete(string);
         DestroyMsgData(msgData);
@@ -1166,13 +1166,13 @@ static void BallCapsuleEditor_PrintExitLabel(BallCapsuleEditor *editor, BOOL sho
 
 static void BallCapsuleEditor_InitFonts(BallCapsuleEditor *editor) {
     editor->fontSystem = FontSystem_NewInit(2, HEAP_ID_52);
-    FontID_Alloc(2, HEAP_ID_52);
-    FontID_Alloc(4, HEAP_ID_52);
+    FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_52);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_52);
 }
 
 static void BallCapsuleEditor_FreeFonts(BallCapsuleEditor *editor) {
-    FontID_Release(4);
-    FontID_Release(2);
+    FontID_Release(FONT_UNK_4);
+    FontID_Release(FONT_SUBSCREEN);
     FontOAM_Delete(editor->buttonLabels[0]);
     ObjCharTransfer_FreeCharSpace(&editor->buttonLabelChars[0]);
     FontOAM_Delete(editor->buttonLabels[1]);
@@ -1204,7 +1204,7 @@ static void BallCapsuleEditor_CreateButtonLabel(BallCapsuleEditor *editor, int i
 
     InitWindow(&window);
     AddTextWindowTopLeftCorner(editor->display.bgConfig, &window, 10, 2, 0, 0);
-    AddTextPrinterParameterizedWithColor(&window, 2, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 2), NULL);
+    AddTextPrinterParameterizedWithColor(&window, FONT_SUBSCREEN, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 2), NULL);
     chars = FontOAM_GetCharSize(&window, NNS_G2D_VRAM_TYPE_2DSUB, HEAP_ID_52);
     ObjCharTransfer_ReserveCharSpace(chars, TRUE, NNS_G2D_VRAM_TYPE_2DSUB, &editor->buttonLabelChars[index]);
     template.fontSystem = editor->fontSystem;
@@ -1213,7 +1213,7 @@ static void BallCapsuleEditor_CreateButtonLabel(BallCapsuleEditor *editor, int i
     template.plttResourceProxy = SpriteManager_FindPlttResourceProxy(editor->display.spriteManager, 30000);
     template.sprite = NULL;
     template.offset = editor->buttonLabelChars[index].offset;
-    template.x = x - FontID_String_GetWidth(2, string, 0) / 2;
+    template.x = x - FontID_String_GetWidth(FONT_SUBSCREEN, string, 0) / 2;
     template.y = y + 192;
     template.bgPriority = 1;
     template.drawPriority = 40;
@@ -1790,7 +1790,7 @@ static void BallCapsuleEditor_PrintMessage(Window *window, int frameType, u32 ms
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0011, HEAP_ID_52);
     string = NewString_ReadMsgData(msgData, msgId);
     FillWindowPixelBuffer(window, 15);
-    AddTextPrinterParameterized(window, 0, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(string);
     DestroyMsgData(msgData);
@@ -1846,7 +1846,7 @@ static void BallCapsuleEditor_PrintSealCounts(BallCapsuleEditor *editor) {
             FillWindowPixelBuffer(window, 0);
             string = String_New(100, HEAP_ID_52);
             String16_FormatInteger(string, SealCaseInventory_GetSealQuantity(editor->sealBag, seal - 1), 3, PRINTING_MODE_RIGHT_ALIGN, TRUE);
-            AddTextPrinterParameterizedWithColor(window, 0, string, 7, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 7, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
             ScheduleWindowCopyToVram(window);
             String_Delete(string);
         }
@@ -1868,7 +1868,7 @@ static void BallCapsuleEditor_PrintSealCount(BallCapsuleEditor *editor, int inde
     FillWindowPixelBuffer(window, 0);
     string = String_New(100, HEAP_ID_52);
     String16_FormatInteger(string, SealCaseInventory_GetSealQuantity(editor->sealBag, seal - 1), 3, PRINTING_MODE_RIGHT_ALIGN, TRUE);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 7, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 7, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(string);
 }
@@ -1899,7 +1899,7 @@ static void BallCapsuleEditor_PrintSealName(Window *window, u32 msgId) {
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0015, HEAP_ID_52);
     string = NewString_ReadMsgData(msgData, msgId);
     FillWindowPixelBuffer(window, 15);
-    AddTextPrinterParameterized(window, 0, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(string);
     DestroyMsgData(msgData);

@@ -714,7 +714,7 @@ static BOOL BattleFactoryApp_ShowScreen(BattleFactoryApp *app) {
             BattleFactoryApp_SetupSwapOutScreen(app);
         }
         if (BattleFactory_IsMultiType(app->frontierType) == TRUE) {
-            BattleFactoryApp_PrintPartnerName(app, &app->windows[1], 0, 0, 0);
+            BattleFactoryApp_PrintPartnerName(app, &app->windows[1], 0, 0, FONT_SYSTEM);
             GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG2, GF_PLANE_TOGGLE_ON);
         }
         if (app->shown == TRUE) {
@@ -756,7 +756,7 @@ static void BattleFactoryApp_SetupRentalScreen(BattleFactoryApp *app) {
     BattleFactoryApp_ShowMonIcon(app, app->party, app->cursorPos, 6);
     BattleFactoryApp_PrintRentalNames(app, app->cursorPos, 6);
     BgCellManager_DrawCellAt(app->bgCellManager, 0, 7, 0);
-    BattleFactoryApp_PrintPlayerName(app, &app->windows[0], 0, 0, 0);
+    BattleFactoryApp_PrintPlayerName(app, &app->windows[0], 0, 0, FONT_SYSTEM);
     for (i = 0; i < app->numPicked; i++) {
         BattleFactoryBall_Select(app->balls[app->picked[i]]);
         BattleFactoryBall_SetPaletteOverride(app->balls[app->picked[i]], 0);
@@ -781,7 +781,7 @@ static void BattleFactoryApp_SetupRentalScreen(BattleFactoryApp *app) {
             for (i = 0; i < maxPartnerMons; i++) {
                 FillWindowPixelBuffer(&app->windows[i + 5], 0);
                 if (i < app->numPartnerMons) {
-                    BattleFactoryApp_PrintPartnerMonName(app, &app->windows[i + 5], 0, 0, 15, 2, 0, 0, app->partnerSpecies[i], app->partnerGender[i]);
+                    BattleFactoryApp_PrintPartnerMonName(app, &app->windows[i + 5], 0, 0, 15, 2, 0, FONT_SYSTEM, app->partnerSpecies[i], app->partnerGender[i]);
                 }
                 ScheduleWindowCopyToVram(&app->windows[i + 5]);
             }
@@ -826,7 +826,7 @@ static void BattleFactoryApp_SetupSwapOutScreen(BattleFactoryApp *app) {
     BattleFactoryApp_ShowMonIcon(app, app->party, app->cursorPos, 4);
     BattleFactoryApp_PrintPartyNames(app, app->party);
     BgCellManager_DrawCellAt(app->bgCellManager, 0, 7, 0);
-    BattleFactoryApp_PrintPlayerName(app, &app->windows[0], 0, 0, 0);
+    BattleFactoryApp_PrintPlayerName(app, &app->windows[0], 0, 0, FONT_SYSTEM);
     BattleFactoryApp_DrawMessageFrame(&app->windows[7], Options_GetFrame(app->options));
     app->printerId = BattleFactoryApp_ShowMessage(app, msg_0194_00009);
     if (app->summaryOpen == TRUE) {
@@ -864,7 +864,7 @@ static void BattleFactoryApp_SetupSwapInScreen(BattleFactoryApp *app) {
     BattleFactoryApp_ShowMonIcon(app, app->otherParty, 0, 4);
     BattleFactoryApp_PrintSwapNames(app, 0);
     BgCellManager_DrawCellAt(app->bgCellManager, 0, 7, 0);
-    BattleFactoryApp_PrintPlayerName(app, &app->windows[0], 0, 0, 0);
+    BattleFactoryApp_PrintPlayerName(app, &app->windows[0], 0, 0, FONT_SYSTEM);
     app->cursorPos = 0;
     BattleFactoryApp_CloseSwapInMenu(app);
 }
@@ -1844,7 +1844,7 @@ static BOOL BattleFactoryApp_ShowLinkTradeResult(BattleFactoryApp *app) {
         BattleFactoryApp_BufferSpeciesName(app, 1, Mon_GetBoxMon(Party_GetMonByIndex(app->party, app->picked[0] + 2)));
         BattleFactoryApp_BufferSpeciesName(app, 2, Mon_GetBoxMon(Party_GetMonByIndex(app->otherParty, app->picked[1])));
         BattleFactoryApp_DrawMessageFrame(&app->windows[7], Options_GetFrame(app->options));
-        app->printerId = BattleFactoryApp_PrintMessage(app, &app->windows[7], msg_0194_00016, 1, 1, Options_GetTextFrameDelay(Save_PlayerData_GetOptionsAddr(app->saveData)), 1, 2, 15, 1);
+        app->printerId = BattleFactoryApp_PrintMessage(app, &app->windows[7], msg_0194_00016, 1, 1, Options_GetTextFrameDelay(Save_PlayerData_GetOptionsAddr(app->saveData)), 1, 2, 15, FONT_MESSAGE);
         ScheduleWindowCopyToVram(&app->windows[7]);
         app->timer = 80;
         app->subState++;
@@ -2092,7 +2092,7 @@ static u8 BattleFactoryApp_PrintMessage(BattleFactoryApp *app, Window *window, u
 }
 
 static u8 BattleFactoryApp_ShowMessage(BattleFactoryApp *app, u32 msgId) {
-    u8 printerId = BattleFactoryApp_PrintMessage(app, &app->windows[7], msgId, 1, 1, TEXT_SPEED_NOTRANSFER, 1, 2, 15, 1);
+    u8 printerId = BattleFactoryApp_PrintMessage(app, &app->windows[7], msgId, 1, 1, TEXT_SPEED_NOTRANSFER, 1, 2, 15, FONT_MESSAGE);
     ScheduleWindowCopyToVram(&app->windows[7]);
     return printerId;
 }
@@ -2237,7 +2237,7 @@ static void BattleFactoryApp_FreeGraphics(BattleFactoryApp *app) {
             String_Delete(app->strings[i]);
         }
     }
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     BattleFactoryApp_RemoveWindows(app->windows);
     BattleFactoryApp_FreeBgLayers(app->bgConfig);
     NARC_Delete(app->narc);
@@ -2270,7 +2270,7 @@ static void BattleFactoryApp_InitGraphics(BattleFactoryApp *app) {
     app->narc = NARC_New(NARC_a_1_8_3, HEAP_ID_100);
     BattleFactoryApp_InitBgGraphics(app);
     BattleFactoryApp_InitSprites(app);
-    FontID_Alloc(4, HEAP_ID_100);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_100);
     app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0194, HEAP_ID_100);
     app->msgFormat = MessageFormat_New(HEAP_ID_100);
     app->expandedString = String_New(800, HEAP_ID_100);
@@ -2444,11 +2444,11 @@ static void BattleFactoryApp_PrintPartnerRentals(BattleFactoryApp *app) {
             Window *window = &app->windows[i + 5];
             FillWindowPixelBuffer(window, 0);
             if (i < app->numPartnerMons) {
-                BattleFactoryApp_PrintPartnerMonName(app, window, 0, 0, 15, 2, 0, 0, app->partnerSpecies[i], app->partnerGender[i]);
+                BattleFactoryApp_PrintPartnerMonName(app, window, 0, 0, 15, 2, 0, FONT_SYSTEM, app->partnerSpecies[i], app->partnerGender[i]);
             }
             ScheduleWindowCopyToVram(window);
         }
-        BattleFactoryApp_PrintPartnerName(app, &app->windows[1], 0, 0, 0);
+        BattleFactoryApp_PrintPartnerName(app, &app->windows[1], 0, 0, FONT_SYSTEM);
         GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG2, GF_PLANE_TOGGLE_ON);
     }
     app->partnerUpdated = FALSE;
@@ -2583,13 +2583,13 @@ static void BattleFactoryApp_PrintRentalMenu(BattleFactoryApp *app) {
     FillWindowPixelBuffer(&app->windows[13], 2);
     FillWindowPixelBuffer(&app->windows[14], 2);
     width = GetWindowWidth(&app->windows[11]);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[11], app->msgData, msg_0194_00005, (width * 8) / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[11], app->msgData, msg_0194_00005, (width * 8) / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
     width = GetWindowWidth(&app->windows[12]);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[12], app->msgData, msg_0194_00006, (width * 8) / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[12], app->msgData, msg_0194_00006, (width * 8) / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
     width = GetWindowWidth(&app->windows[13]);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[13], app->msgData, msg_0194_00008, (width * 8) / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[13], app->msgData, msg_0194_00008, (width * 8) / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
     width = GetWindowWidth(&app->windows[14]);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[14], app->msgData, msg_0194_00007, (width * 8) / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[14], app->msgData, msg_0194_00007, (width * 8) / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
     CopyWindowPixelsToVram_TextMode(&app->windows[11]);
     CopyWindowPixelsToVram_TextMode(&app->windows[12]);
     CopyWindowPixelsToVram_TextMode(&app->windows[13]);
@@ -2671,10 +2671,10 @@ static void BattleFactoryApp_PrintSwapOutMenu(BattleFactoryApp *app) {
     FillWindowPixelBuffer(&app->windows[15], 2);
     FillWindowPixelBuffer(&app->windows[14], 2);
     FillWindowPixelBuffer(&app->windows[10], 2);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[11], app->msgData, msg_0194_00020, GetWindowWidth(&app->windows[11]) * 8 / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[15], app->msgData, msg_0194_00021, GetWindowWidth(&app->windows[15]) * 8 / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[14], app->msgData, msg_0194_00022, GetWindowWidth(&app->windows[14]) * 8 / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[10], app->msgData, msg_0194_00019, GetWindowWidth(&app->windows[10]) * 8 / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[11], app->msgData, msg_0194_00020, GetWindowWidth(&app->windows[11]) * 8 / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[15], app->msgData, msg_0194_00021, GetWindowWidth(&app->windows[15]) * 8 / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[14], app->msgData, msg_0194_00022, GetWindowWidth(&app->windows[14]) * 8 / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[10], app->msgData, msg_0194_00019, GetWindowWidth(&app->windows[10]) * 8 / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
     CopyWindowPixelsToVram_TextMode(&app->windows[11]);
     CopyWindowPixelsToVram_TextMode(&app->windows[15]);
     CopyWindowPixelsToVram_TextMode(&app->windows[14]);
@@ -2726,13 +2726,13 @@ static void BattleFactoryApp_PrintSwapInMenu(BattleFactoryApp *app) {
     FillWindowPixelBuffer(&app->windows[9], 2);
     FillWindowPixelBuffer(&app->windows[10], 2);
     width = GetWindowWidth(&app->windows[16]);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[16], app->msgData, msg_0194_00025, (width * 8) / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[16], app->msgData, msg_0194_00025, (width * 8) / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
     width = GetWindowWidth(&app->windows[17]);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[17], app->msgData, msg_0194_00022, (width * 8) / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[17], app->msgData, msg_0194_00022, (width * 8) / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
     width = GetWindowWidth(&app->windows[9]);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[9], app->msgData, msg_0194_00023, (width * 8) / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[9], app->msgData, msg_0194_00023, (width * 8) / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
     width = GetWindowWidth(&app->windows[10]);
-    BattleFactoryApp_PrintMsgAligned(&app->windows[10], app->msgData, msg_0194_00024, (width * 8) / 2, 0, 4, MAKE_TEXT_COLOR(15, 14, 2), 2);
+    BattleFactoryApp_PrintMsgAligned(&app->windows[10], app->msgData, msg_0194_00024, (width * 8) / 2, 0, FONT_UNK_4, MAKE_TEXT_COLOR(15, 14, 2), 2);
     CopyWindowPixelsToVram_TextMode(&app->windows[16]);
     CopyWindowPixelsToVram_TextMode(&app->windows[17]);
     CopyWindowPixelsToVram_TextMode(&app->windows[9]);
@@ -3050,7 +3050,7 @@ static void BattleFactoryApp_ShowMonIcon(BattleFactoryApp *app, Party *party, u3
     app->monIconIndex ^= 1;
     icon = app->monIcons[app->monIconIndex];
     BattleFactorySprite_SetVisible(icon, FALSE);
-    BattleFactoryApp_PrintMonName(app, &app->windows[8], (u8)index, 4, 0, 15, 2, 0, 0, party);
+    BattleFactoryApp_PrintMonName(app, &app->windows[8], (u8)index, 4, 0, 15, 2, 0, FONT_SYSTEM, party);
 }
 
 static void BattleFactoryApp_PrintRentalNames(BattleFactoryApp *app, u32 target, u32 limit) {
@@ -3070,12 +3070,12 @@ static void BattleFactoryApp_PrintRentalNames(BattleFactoryApp *app, u32 target,
             if (target == picked) {
                 found = TRUE;
             }
-            BattleFactoryApp_PrintMonName(app, &app->windows[i + 2], (u8)picked, 4, 0, 15, 2, 0, 0, app->party);
+            BattleFactoryApp_PrintMonName(app, &app->windows[i + 2], (u8)picked, 4, 0, 15, 2, 0, FONT_SYSTEM, app->party);
             i++;
         } while (i < app->numPicked);
     }
     if (!found) {
-        BattleFactoryApp_PrintMonName(app, &app->windows[i + 2], (u8)target, 4, 0, 15, 2, 0, 0, app->party);
+        BattleFactoryApp_PrintMonName(app, &app->windows[i + 2], (u8)target, 4, 0, 15, 2, 0, FONT_SYSTEM, app->party);
         i++;
     }
     for (; i < app->numPokepics; i++) {
@@ -3088,7 +3088,7 @@ static void BattleFactoryApp_PrintPartyNames(BattleFactoryApp *app, Party *party
     u32 i;
 
     for (i = 0; i < app->numPokepics; i++) {
-        BattleFactoryApp_PrintMonName(app, &app->windows[i + 2], (u8)i, 4, 0, 15, 2, 0, 0, party);
+        BattleFactoryApp_PrintMonName(app, &app->windows[i + 2], (u8)i, 4, 0, 15, 2, 0, FONT_SYSTEM, party);
     }
 }
 
@@ -3100,9 +3100,9 @@ static void BattleFactoryApp_PrintSwapNames(BattleFactoryApp *app, u32 swapIn) {
         u8 swapInIndex = swapIn;
         do {
             if (app->picked[0] == i) {
-                BattleFactoryApp_PrintMonName(app, &windows[i + 2], swapInIndex, 4, 0, 15, 2, 0, 0, app->otherParty);
+                BattleFactoryApp_PrintMonName(app, &windows[i + 2], swapInIndex, 4, 0, 15, 2, 0, FONT_SYSTEM, app->otherParty);
             } else {
-                BattleFactoryApp_PrintMonName(app, &windows[i + 2], (u8)i, 4, 0, 15, 2, 0, 0, app->party);
+                BattleFactoryApp_PrintMonName(app, &windows[i + 2], (u8)i, 4, 0, 15, 2, 0, FONT_SYSTEM, app->party);
             }
             i++;
         } while (i < app->numPokepics);
@@ -3115,7 +3115,7 @@ static void BattleFactoryApp_PrintSwapInName(BattleFactoryApp *app, u32 index) {
     if (index >= 4) {
         ClearWindowTilemapAndScheduleTransfer(&app->windows[slot]);
     } else {
-        BattleFactoryApp_PrintMonName(app, &app->windows[slot], (u8)index, 4, 0, 15, 2, 0, 0, app->otherParty);
+        BattleFactoryApp_PrintMonName(app, &app->windows[slot], (u8)index, 4, 0, 15, 2, 0, FONT_SYSTEM, app->otherParty);
         ScheduleWindowCopyToVram(&app->windows[slot]);
     }
 }

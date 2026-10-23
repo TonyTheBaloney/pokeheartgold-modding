@@ -16,7 +16,7 @@
 static TouchscreenListMenu *TouchscreenListMenu_CreateInternal(TouchscreenListMenuSpawner *spawner, TouchscreenListMenuHeader *header, u8 isTouch, u8 x, u8 y, u8 width, u8 selection, TouchscreenListMenuCallback callback, void *callbackArg, BOOL silent, enum TouchscreenListMenuTextAlignment alignment);
 static void TouchscreenListMenuSpawner_ScheduleLoadGraphicsToVram(TouchscreenListMenuSpawner *spawner, TouchscreenListMenuHeader *header, PaletteData *paletteData, enum HeapID heapID);
 static void Task_LoadTouchscreenListMenuGraphicsToVram(SysTask *task, void *taskData);
-static u8 TouchscreenListMenu_GetItemsTextMaxWidth(ListMenuItem *listMenuItem, u8 num, FontID fontId, u8 margin);
+static u8 TouchscreenListMenu_GetItemsTextMaxWidth(ListMenuItem *listMenuItem, u8 num, u8 fontId, u8 margin);
 static void TouchscreenListMenu_CreateWindows(TouchscreenListMenu *menu);
 static void TouchscreenListMenu_DeleteWindows(TouchscreenListMenu *menu);
 static void TouchscreenListMenu_DrawButtons(TouchscreenListMenu *menu);
@@ -65,7 +65,7 @@ static TouchscreenListMenu *TouchscreenListMenu_CreateInternal(TouchscreenListMe
     ret->callbackArg = callbackArg;
     ret->silent = silent;
     if (width == 0) {
-        ret->width = TouchscreenListMenu_GetItemsTextMaxWidth(header->listMenuItems, ret->header.numWindows, 4, ret->header.template.xOffset);
+        ret->width = TouchscreenListMenu_GetItemsTextMaxWidth(header->listMenuItems, ret->header.numWindows, FONT_UNK_4, ret->header.template.xOffset);
     } else {
         ret->width = width;
     }
@@ -202,7 +202,7 @@ static void Task_LoadTouchscreenListMenuGraphicsToVram(SysTask *task, void *task
     Heap_Free(taskData);
 }
 
-static u8 TouchscreenListMenu_GetItemsTextMaxWidth(ListMenuItem *listMenuItem, u8 num, FontID fontId, u8 margin) {
+static u8 TouchscreenListMenu_GetItemsTextMaxWidth(ListMenuItem *listMenuItem, u8 num, u8 fontId, u8 margin) {
     u8 maxWidth = 0;
     for (int i = 0; i < num; ++i) {
         GF_ASSERT(listMenuItem[i].text != NULL);
@@ -302,9 +302,9 @@ static void TouchscreenListMenu_PrintOptions(TouchscreenListMenu *menu) {
         if (menu->header.template.centered == 0) {
             x = menu->header.template.xOffset;
         } else {
-            x = (width - FontID_String_GetWidth(4, menu->header.listMenuItems[i].text, 0)) / 2;
+            x = (width - FontID_String_GetWidth(FONT_UNK_4, menu->header.listMenuItems[i].text, 0)) / 2;
         }
-        AddTextPrinterParameterizedWithColor(&menu->windows[i], 4, menu->header.listMenuItems[i].text, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 3), NULL);
+        AddTextPrinterParameterizedWithColor(&menu->windows[i], FONT_UNK_4, menu->header.listMenuItems[i].text, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 3), NULL);
         ScheduleWindowCopyToVram(&menu->windows[i]);
     }
     ScheduleBgTilemapBufferTransfer(menu->header.bgConfig, menu->header.template.bgId);
@@ -327,10 +327,10 @@ static void TouchscreenListMenu_ToggleButtonPalette(TouchscreenListMenu *menu, u
     if (menu->header.template.centered == 0) {
         x = menu->header.template.xOffset;
     } else {
-        x = (width - FontID_String_GetWidth(4, menu->header.listMenuItems[index].text, 0)) / 2;
+        x = (width - FontID_String_GetWidth(FONT_UNK_4, menu->header.listMenuItems[index].text, 0)) / 2;
     }
     FillWindowPixelBuffer(&menu->windows[index], fillValue);
-    AddTextPrinterParameterizedWithColor(&menu->windows[index], 4, menu->header.listMenuItems[index].text, x, 0, TEXT_SPEED_NOTRANSFER, textColor, NULL);
+    AddTextPrinterParameterizedWithColor(&menu->windows[index], FONT_UNK_4, menu->header.listMenuItems[index].text, x, 0, TEXT_SPEED_NOTRANSFER, textColor, NULL);
     ScheduleWindowCopyToVram(&menu->windows[index]);
 }
 

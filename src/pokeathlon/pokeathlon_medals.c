@@ -705,7 +705,7 @@ static void PokeathlonMedals_PrintStaticText(PokeathlonMedals *work) {
 
     PokeathlonUtil_PrintMessageCentered(work->textContext, 11, msg_0314_00126, 3);
     PokeathlonUtil_PrintMessageAtXY(work->textContext, 0, msg_0314_00127, 1, 0);
-    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 4, msg_0314_00000, TRUE, 0, 4);
+    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 4, msg_0314_00000, TRUE, 0, FONT_UNK_4);
     for (i = 0; i < 5; i++) {
         BufferPokeathlonMedalName(msgFormat, 0, (u8)i);
         PokeathlonUtil_PrintAlignedMessage(work->textContext, i + 6, msg_0314_00004, FALSE);

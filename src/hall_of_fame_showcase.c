@@ -400,14 +400,14 @@ static void HallOfFameShowcase_InitWindows(HallOfFameShowcase *showcase) {
     u32 i;
     u32 width;
 
-    FontID_Alloc(4, HEAP_ID_59);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_59);
     for (i = 0; i < HOF_SHOWCASE_NUM_WINDOWS; i++) {
         AddWindow(showcase->bgConfig, &showcase->windows[i], &gHallOfFameShowcaseWindowTemplates[i]);
     }
     FillWindowPixelBuffer(&showcase->windows[16], 0);
     ReadMsgDataIntoString(showcase->msgData, msg_0181_00006, showcase->stringBuf);
-    width = FontID_String_GetWidth(4, showcase->stringBuf, 0);
-    AddTextPrinterParameterizedWithColor(&showcase->windows[16], 4, showcase->stringBuf, 24 - width / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
+    width = FontID_String_GetWidth(FONT_UNK_4, showcase->stringBuf, 0);
+    AddTextPrinterParameterizedWithColor(&showcase->windows[16], FONT_UNK_4, showcase->stringBuf, 24 - width / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 1, 0), NULL);
     CopyWindowPixelsToVram_TextMode(&showcase->windows[16]);
     ScheduleWindowCopyToVram(&showcase->windows[16]);
 }
@@ -418,7 +418,7 @@ static void HallOfFameShowcase_FreeWindows(HallOfFameShowcase *showcase) {
     for (i = 0; i < HOF_SHOWCASE_NUM_WINDOWS; i++) {
         RemoveWindow(&showcase->windows[i]);
     }
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void HallOfFameShowcase_CreateGridInput(HallOfFameShowcase *showcase) {
@@ -625,7 +625,7 @@ static void HallOfFameShowcase_ChangeRecord(HallOfFameShowcase *showcase, int de
     BufferMonthNameAbbr(showcase->msgFormat, 2, page.date.month);
     BufferIntegerAsString(showcase->msgFormat, 3, page.date.day, 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(showcase->msgFormat, showcase->stringBuf2, showcase->stringBuf);
-    AddTextPrinterParameterizedWithColor(window, 0, showcase->stringBuf2, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, showcase->stringBuf2, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     CopyWindowPixelsToVram_TextMode(window);
     ScheduleWindowCopyToVram(window);
     showcase->iconSet ^= 1;
@@ -644,34 +644,34 @@ static inline void HallOfFameShowcase_PrintMonDetail(HallOfFameShowcase *showcas
     for (i = 0; i < 7; i++) {
         FillWindowPixelBuffer(&showcase->windows[firstWindow + i], 0);
     }
-    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow], 0, showcase->mon.nickname, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow], FONT_SYSTEM, showcase->mon.nickname, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     ReadMsgDataIntoString(showcase->speciesNames, showcase->mon.species, showcase->stringBuf);
-    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 1], 0, showcase->stringBuf, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 1], FONT_SYSTEM, showcase->stringBuf, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     if (showcase->mon.species != SPECIES_NIDORAN_F && showcase->mon.species != SPECIES_NIDORAN_M) {
         if (gender == MON_MALE) {
             ReadMsgDataIntoString(showcase->msgData, msg_0181_00003, showcase->stringBuf2);
-            width = FontID_String_GetWidth(0, showcase->stringBuf, 0);
-            AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 1], 0, showcase->stringBuf2, width + 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+            width = FontID_String_GetWidth(FONT_SYSTEM, showcase->stringBuf, 0);
+            AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 1], FONT_SYSTEM, showcase->stringBuf2, width + 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
         } else if (gender == MON_FEMALE) {
             ReadMsgDataIntoString(showcase->msgData, msg_0181_00004, showcase->stringBuf2);
-            width = FontID_String_GetWidth(0, showcase->stringBuf, 0);
-            AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 1], 0, showcase->stringBuf2, width + 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+            width = FontID_String_GetWidth(FONT_SYSTEM, showcase->stringBuf, 0);
+            AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 1], FONT_SYSTEM, showcase->stringBuf2, width + 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
         }
     }
     ReadMsgDataIntoString(showcase->msgData, msg_0181_00001, showcase->stringBuf);
     BufferIntegerAsString(showcase->msgFormat, 0, showcase->mon.level, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(showcase->msgFormat, showcase->stringBuf2, showcase->stringBuf);
-    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 1], 0, showcase->stringBuf2, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 1], FONT_SYSTEM, showcase->stringBuf2, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     ReadMsgDataIntoString(showcase->msgData, msg_0181_00002, showcase->stringBuf);
-    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 2], 0, showcase->stringBuf, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
-    width = FontID_String_GetWidth(0, showcase->stringBuf, 0);
-    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 2], 0, showcase->mon.otname, width, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 2], FONT_SYSTEM, showcase->stringBuf, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    width = FontID_String_GetWidth(FONT_SYSTEM, showcase->stringBuf, 0);
+    AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 2], FONT_SYSTEM, showcase->mon.otname, width, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     for (i = 0; i < MAX_MON_MOVES; i++) {
         u16 move = showcase->mon.moves[i];
         if (move != MOVE_NONE) {
             ReadMsgDataIntoString(showcase->moveNames, move, showcase->stringBuf);
-            width = FontID_String_GetWidth(0, showcase->stringBuf, 0);
-            AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 3 + i], 0, showcase->stringBuf, 56 - (width >> 1), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+            width = FontID_String_GetWidth(FONT_SYSTEM, showcase->stringBuf, 0);
+            AddTextPrinterParameterizedWithColor(&showcase->windows[firstWindow + 3 + i], FONT_SYSTEM, showcase->stringBuf, 56 - (width >> 1), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
         }
     }
     for (i = 0; i < 7; i++) {

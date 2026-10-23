@@ -28,19 +28,19 @@ void PalPadDetailsSlot_Print(PalPadDetailsSlot *slot, u32 page, u32 window, PalP
     StringExpandPlaceholders(gfx->msgFormat, text, buffer);
     switch (align) {
     case 1:
-        x -= (FontID_String_GetWidth(1, text, 0) + 1) / 2;
+        x -= (FontID_String_GetWidth(FONT_MESSAGE, text, 0) + 1) / 2;
         break;
     case 2:
-        x -= FontID_String_GetWidth(1, text, 0);
+        x -= FontID_String_GetWidth(FONT_MESSAGE, text, 0);
         break;
     }
-    AddTextPrinterParameterizedWithColor(&slot->windows[page][window], 1, text, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&slot->windows[page][window], FONT_MESSAGE, text, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
 }
 
 void PalPadDetails_PrintProfileText(Window *window, PalPadShared *shared, PalPadGfx *gfx, int msgId, int x, int y, u32 color) {
     ReadMsgDataIntoString(gfx->msgData, msgId, gfx->pageBuffer);
     StringExpandPlaceholders(gfx->msgFormat, gfx->pageText, gfx->pageBuffer);
-    AddTextPrinterParameterizedWithColor(window, 1, gfx->pageText, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, gfx->pageText, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
 }
 
 void PalPadDetails_MovePage(PalPadDetails *details, int delta) {

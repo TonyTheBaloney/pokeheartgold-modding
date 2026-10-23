@@ -1237,7 +1237,7 @@ static void SafariAreaCustomizer_FreeScreenData(SafariAreaCustomizer *s) {
 static void SafariAreaCustomizer_CreateStrings(SafariAreaCustomizer *s) {
     int i;
 
-    FontID_Alloc(4, s->heapId);
+    FontID_Alloc(FONT_UNK_4, s->heapId);
     s->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0429, s->heapId);
     s->msgFormat = MessageFormat_New_Custom(1, 17, s->heapId);
     s->string = String_New(81, s->heapId);
@@ -1265,7 +1265,7 @@ static void SafariAreaCustomizer_DeleteStrings(SafariAreaCustomizer *s) {
     String_Delete(s->string);
     MessageFormat_Delete(s->msgFormat);
     DestroyMsgData(s->msgData);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void SafariAreaCustomizer_AddWindows(SafariAreaCustomizer *s) {
@@ -1394,8 +1394,8 @@ static void SafariAreaCustomizer_CreateCancelTextObj(SafariAreaCustomizer *s) {
     s->fontLayout = TextOBJLayout_New(&s->textObjWindow, s->heapId);
     size = TextOBJLayout_GetCharSize(s->fontLayout, NNS_G2D_VRAM_TYPE_2DMAIN);
     width = GetWindowWidth(&s->textObjWindow);
-    x = (width * 8 - FontID_String_GetWidth(0, s->labelStrings[0], 0)) / 2;
-    AddTextPrinterParameterizedWithColor(&s->textObjWindow, 0, s->labelStrings[0], x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(11, 6, 0), NULL);
+    x = (width * 8 - FontID_String_GetWidth(FONT_SYSTEM, s->labelStrings[0], 0)) / 2;
+    AddTextPrinterParameterizedWithColor(&s->textObjWindow, FONT_SYSTEM, s->labelStrings[0], x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(11, 6, 0), NULL);
     template.fontSystem = s->fontSystem;
     template.window = &s->textObjWindow;
     template.spriteList = SpriteManager_GetSpriteList(s->spriteManager);
@@ -1455,10 +1455,10 @@ static void SafariAreaCustomizer_PrintWindowText(SafariAreaCustomizer *s, u8 win
         }
     } else {
         strings = s->labelStrings;
-        x = (u8)((width - FontID_String_GetWidth(0, strings[msg], 0)) / 2);
+        x = (u8)((width - FontID_String_GetWidth(FONT_SYSTEM, strings[msg], 0)) / 2);
         y = 4;
     }
-    AddTextPrinterParameterizedWithColor(&s->windows[windowId], 0, strings[msg], x, y, TEXT_SPEED_INSTANT, color, NULL);
+    AddTextPrinterParameterizedWithColor(&s->windows[windowId], FONT_SYSTEM, strings[msg], x, y, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 static void SafariAreaCustomizer_PrintPageNumber(SafariAreaCustomizer *s) {
@@ -1467,8 +1467,8 @@ static void SafariAreaCustomizer_PrintPageNumber(SafariAreaCustomizer *s) {
     FillWindowPixelBuffer(&s->windows[3], 2);
     BufferIntegerAsString(s->msgFormat, 0, s->page + 1, 1, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     StringExpandPlaceholders(s->msgFormat, s->string, s->pageTemplate);
-    x = (GetWindowWidth(&s->windows[3]) * 8 - FontID_String_GetWidth(0, s->string, 0)) / 2;
-    AddTextPrinterParameterizedWithColor(&s->windows[3], 0, s->string, x, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(3, 1, 2), NULL);
+    x = (GetWindowWidth(&s->windows[3]) * 8 - FontID_String_GetWidth(FONT_SYSTEM, s->string, 0)) / 2;
+    AddTextPrinterParameterizedWithColor(&s->windows[3], FONT_SYSTEM, s->string, x, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(3, 1, 2), NULL);
     ScheduleBgTilemapBufferTransfer(s->bgConfig, GF_BG_LYR_MAIN_3);
     Sprite_SetAnimActiveFlag(s->sprites[4], FALSE);
     if (s->page == 0) {
@@ -1624,7 +1624,7 @@ static void SafariAreaCustomizer_PrintObjectTypeLabels(SafariAreaCustomizer *s) 
         for (i = 0; i < 5; i++) {
             Window *window = &s->windows[5 + i * 2];
             ReadMsgDataIntoString(s->msgData, i + 10, s->string);
-            AddTextPrinterParameterizedWithColor(window, 0, s->string, 0, 0, TEXT_SPEED_INSTANT, gSafariAreaCustomizerLabelColors[i % 2], NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, s->string, 0, 0, TEXT_SPEED_INSTANT, gSafariAreaCustomizerLabelColors[i % 2], NULL);
             CopyWindowToVram(window);
         }
     }
@@ -1653,9 +1653,9 @@ static void SafariAreaCustomizer_PrintSlotInfo(SafariAreaCustomizer *s, u32 slot
     {
         Window *window = &s->windows[4];
         ReadMsgDataIntoString(s->msgData, area->area_no + 16, s->string);
-        x = (GetWindowWidth(window) * 8 - FontID_String_GetWidth(0, s->string, 0)) / 2;
+        x = (GetWindowWidth(window) * 8 - FontID_String_GetWidth(FONT_SYSTEM, s->string, 0)) / 2;
         FillWindowPixelBuffer(window, 12);
-        AddTextPrinterParameterizedWithColor(window, 0, s->string, x, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(8, 11, 12), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, s->string, x, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(8, 11, 12), NULL);
         ScheduleWindowCopyToVram(window);
     }
     if (s->objectsUnlocked) {
@@ -1673,7 +1673,7 @@ static void SafariAreaCustomizer_PrintSlotInfo(SafariAreaCustomizer *s, u32 slot
             BufferIntegerAsString(s->msgFormat, 0, counts[i], 2, PRINTING_MODE_RIGHT_ALIGN, TRUE);
             StringExpandPlaceholders(s->msgFormat, s->string, s->countTemplate);
             FillWindowPixelBuffer(window, gSafariAreaCustomizerLabelColors[i % 2]);
-            AddTextPrinterParameterizedWithColor(window, 0, s->string, 0, 0, TEXT_SPEED_NOTRANSFER, gSafariAreaCustomizerLabelColors[i % 2], NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, s->string, 0, 0, TEXT_SPEED_NOTRANSFER, gSafariAreaCustomizerLabelColors[i % 2], NULL);
             ScheduleWindowCopyToVram(window);
         }
     }
@@ -1687,12 +1687,12 @@ static void SafariAreaCustomizer_PrintAreaNames(SafariAreaCustomizer *s) {
     FillWindowPixelBuffer(window, 12);
     area = &s->areaSet.areas[s->selectedSlot];
     ReadMsgDataIntoString(s->msgData, area->area_no + 16, s->string);
-    x = (96 - FontID_String_GetWidth(0, s->string, 0)) / 2;
-    AddTextPrinterParameterizedWithColor(window, 0, s->string, x, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(8, 11, 12), NULL);
+    x = (96 - FontID_String_GetWidth(FONT_SYSTEM, s->string, 0)) / 2;
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, s->string, x, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(8, 11, 12), NULL);
     if (s->cursorPos < NUM_AREA_SLOTS) {
         ReadMsgDataIntoString(s->msgData, s->cursorPos + 16 + s->page * NUM_AREA_SLOTS, s->string);
-        x = (96 - FontID_String_GetWidth(0, s->string, 0)) / 2;
-        AddTextPrinterParameterizedWithColor(window, 0, s->string, x + 144, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(8, 11, 12), NULL);
+        x = (96 - FontID_String_GetWidth(FONT_SYSTEM, s->string, 0)) / 2;
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, s->string, x + 144, 4, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(8, 11, 12), NULL);
     }
     ScheduleWindowCopyToVram(window);
 }

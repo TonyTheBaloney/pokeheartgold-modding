@@ -173,7 +173,7 @@ static void GtsWanted_PrintMessage(GtsApp *app, int msgId, int textSpeed, int un
     StringExpandPlaceholders(app->msgFormat, app->msgBuffer, string);
     FillWindowPixelBuffer(&app->waitingIconWindow, 15);
     DrawFrameAndWindow2(&app->waitingIconWindow, FALSE, 1, 14);
-    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, 1, app->msgBuffer, 0, 0, textSpeed, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, FONT_MESSAGE, app->msgBuffer, 0, 0, textSpeed, NULL);
     String_Delete(string);
 }
 
@@ -515,7 +515,7 @@ void Gts_PrintSpeciesNameNoTransfer(Window *window, MsgData *speciesNames, int s
     String *string;
     if (species != SPECIES_NONE) {
         string = NewString_ReadMsgData(speciesNames, species);
-        AddTextPrinterParameterizedWithColor(window, 0, string, 0, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, y, TEXT_SPEED_NOTRANSFER, color, NULL);
         String_Delete(string);
     }
 }
@@ -563,7 +563,7 @@ void Gts_PrintGenderNoTransfer(Window *window, MsgData *msgData, int gender, BOO
     String *string;
     if (showAny || gender != GTS_GENDER_ANY) {
         string = NewString_ReadMsgData(msgData, gGtsGenderSymbolMsgs[gender]);
-        AddTextPrinterParameterizedWithColor(window, 0, string, x, y, TEXT_SPEED_NOTRANSFER, Gts_GetGenderColor(gender, color), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, x, y, TEXT_SPEED_NOTRANSFER, Gts_GetGenderColor(gender, color), NULL);
         String_Delete(string);
     }
 }

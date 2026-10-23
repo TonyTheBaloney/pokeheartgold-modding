@@ -947,7 +947,7 @@ static void GeonetGlobe_InitBgs(GeonetGlobe *globe, NARC *narc) {
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 0x20, 0, globe->heapID);
     BG_SetMaskColor(GF_BG_LYR_MAIN_2, RGB_BLACK);
     string = String_New(16, globe->heapID);
-    FontID_Alloc(4, globe->heapID);
+    FontID_Alloc(FONT_UNK_4, globe->heapID);
     colors[3] = RGB_WHITE;
     colors[2] = RGB(7, 7, 7);
     colors[1] = RGB(18, 19, 19);
@@ -959,13 +959,13 @@ static void GeonetGlobe_InitBgs(GeonetGlobe *globe, NARC *narc) {
     AddWindow(globe->bgConfig, &globe->windows[GEONET_GLOBE_WINDOW_EXIT_BUTTON], &sGeonetExitButtonWindowTemplate);
     FillWindowPixelRect(&globe->windows[GEONET_GLOBE_WINDOW_EXIT_BUTTON], 15, 0, 0, 216, 32);
     ReadMsgDataIntoString(globe->msgData, msg_0186_00016, string);
-    AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_EXIT_BUTTON], 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_EXIT_BUTTON], FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     AddWindow(globe->bgConfig, &globe->windows[GEONET_GLOBE_WINDOW_INFO_BUTTON], &sGeonetInfoButtonWindowTemplate);
     FillWindowPixelRect(&globe->windows[GEONET_GLOBE_WINDOW_INFO_BUTTON], 15, 0, 0, 216, 32);
     ReadMsgDataIntoString(globe->msgData, msg_0186_00013, string);
-    AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_INFO_BUTTON], 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_INFO_BUTTON], FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(string);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void GeonetGlobe_FreeBgs(GeonetGlobe *globe) {
@@ -986,7 +986,7 @@ static BOOL GeonetGlobe_PrintMessage(GeonetGlobe *globe, int msgId, BOOL noWait)
         FillWindowPixelRect(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], 15, 0, 0, 216, 32);
         globe->printString = String_New(1024, globe->heapID);
         ReadMsgDataIntoString(globe->msgData, msgId, globe->printString);
-        globe->printerId = AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], 1, globe->printString, 0, 0, Options_GetTextFrameDelay(globe->options), NULL);
+        globe->printerId = AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], FONT_MESSAGE, globe->printString, 0, 0, Options_GetTextFrameDelay(globe->options), NULL);
         globe->printState = 1;
         break;
     case 1:
@@ -1075,7 +1075,7 @@ static void GeonetGlobe_ShowPlayerLocation(GeonetGlobe *globe) {
     BufferCityName(globe->msgFormat, 1, globe->playerCountry, globe->playerRegion);
     ReadMsgDataIntoString(globe->msgData, msg_0186_00014, template);
     StringExpandPlaceholders(globe->msgFormat, string, template);
-    AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION], 0, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
     String_Delete(template);
     String_Delete(string);
     CopyWindowToVram(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION]);
@@ -1090,9 +1090,9 @@ static void GeonetGlobe_ShowLocation(GeonetGlobe *globe, int country, int region
     DrawFrameAndWindow1(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION], FALSE, 473, 7);
     GeonetGlobe_GetLocationNames(country, region, countryName, regionName, globe->heapID);
     if (region != 0) {
-        AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION], 0, regionName, 0, 16, TEXT_SPEED_NOTRANSFER, NULL);
+        AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION], FONT_SYSTEM, regionName, 0, 16, TEXT_SPEED_NOTRANSFER, NULL);
     }
-    AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION], 0, countryName, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION], FONT_SYSTEM, countryName, 0, 0, TEXT_SPEED_INSTANT, NULL);
     String_Delete(regionName);
     String_Delete(countryName);
     CopyWindowToVram(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION]);
@@ -1176,7 +1176,7 @@ static void GeonetGlobe_UpdateLocationName(GeonetGlobe *globe) {
         String *string = String_New(1024, globe->heapID);
         FillWindowPixelRect(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], 15, 0, 0, 216, 48);
         ReadMsgDataIntoString(globe->msgData, msg_0186_00015, string);
-        AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], 1, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], FONT_MESSAGE, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
         String_Delete(string);
         return;
     }
@@ -1186,9 +1186,9 @@ static void GeonetGlobe_UpdateLocationName(GeonetGlobe *globe) {
         FillWindowPixelRect(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], 15, 0, 0, 216, 48);
         GeonetGlobe_GetLocationNames(globe->locations[index].country, globe->locations[index].region, countryName, regionName, globe->heapID);
         if (globe->locations[index].region != 0) {
-            AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], 1, regionName, 0, 16, TEXT_SPEED_NOTRANSFER, NULL);
+            AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], FONT_MESSAGE, regionName, 0, 16, TEXT_SPEED_NOTRANSFER, NULL);
         }
-        AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], 1, countryName, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        AddTextPrinterParameterized(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], FONT_MESSAGE, countryName, 0, 0, TEXT_SPEED_INSTANT, NULL);
         String_Delete(regionName);
         String_Delete(countryName);
         globe->rotation.x = globe->locations[index].x;

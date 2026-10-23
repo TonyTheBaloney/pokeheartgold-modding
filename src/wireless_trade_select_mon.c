@@ -327,7 +327,7 @@ BOOL WirelessTradeSelectMon_Init(OverlayManager *man, int *state) {
     GX_SetVisiblePlane(GX_PLANEMASK_NONE);
     GXS_SetVisiblePlane(GX_PLANEMASK_NONE);
     Heap_Create(HEAP_ID_3, HEAP_ID_26, 0x70FA0);
-    FontID_Alloc(4, HEAP_ID_26);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_26);
     narc = NARC_New(NARC_a_0_5_2, HEAP_ID_26);
     work = OverlayManager_CreateAndGetData(man, sizeof(WirelessTradeSelectMon), HEAP_ID_26);
     MI_CpuClearFast(work, sizeof(WirelessTradeSelectMon));
@@ -883,7 +883,7 @@ BOOL WirelessTradeSelectMon_Exit(OverlayManager *man, int *state) {
     String_Delete(work->playerName);
     OverlayManager_FreeData(man);
     Main_SetVBlankIntrCB(NULL, NULL);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     Heap_Destroy(HEAP_ID_26);
     return TRUE;
 }
@@ -2349,10 +2349,10 @@ static void WirelessTradeSelectMon_PrintString(Window *window, String *string, i
     int printX = x;
 
     if (x == 1) {
-        int width = FontID_String_GetWidth(0, string, 0);
+        int width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
         printX = (window->width * 8 - width) / 2;
     }
-    AddTextPrinterParameterizedWithColor(window, 0, string, printX, y, textSpeed, MAKE_TEXT_COLOR(11, 12, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, printX, y, textSpeed, MAKE_TEXT_COLOR(11, 12, 0), NULL);
 }
 
 static u32 WirelessTradeSelectMon_PrintMessage(Window *window, u32 msgId, u32 frame, MsgData *msgData, MessageFormat *msgFormat) {

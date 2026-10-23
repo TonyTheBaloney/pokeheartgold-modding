@@ -69,7 +69,7 @@ static const WindowTemplate sMailboxWindowTemplates[MAILBOX_NUM_WINDOWS] = {
 void MailboxApp_AddWindows(MailboxApp *app) {
     u32 i;
 
-    FontID_Alloc(4, HEAP_ID_157);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_157);
     for (i = 0; i < MAILBOX_NUM_WINDOWS; i++) {
         AddWindow(app->data->bgConfig, &app->data->windows[i], &sMailboxWindowTemplates[i]);
     }
@@ -81,7 +81,7 @@ void MailboxApp_RemoveWindows(MailboxApp *app) {
     for (i = 0; i < MAILBOX_NUM_WINDOWS; i++) {
         RemoveWindow(&app->data->windows[i]);
     }
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 // align: 0 left, 1 right, 2 centred on x
@@ -115,9 +115,9 @@ void MailboxApp_DrawNameplate(MailboxApp *app, u32 cell, u32 windowId, u32 mailI
         x += 8;
     }
     if (Mail_GetAuthorGender(mail) == 0) {
-        MailboxApp_PrintString(window, app->data->string, 0, 0, 4, 0x30200, 0);
+        MailboxApp_PrintString(window, app->data->string, 0, 0, FONT_UNK_4, 0x30200, 0);
     } else {
-        MailboxApp_PrintString(window, app->data->string, 0, 0, 4, 0x50400, 0);
+        MailboxApp_PrintString(window, app->data->string, 0, 0, FONT_UNK_4, 0x50400, 0);
     }
     CopyWindowPixelsToVram_TextMode(window);
     BgCellManager_PutWindowTiles(app->data->cellManager, cell, window);
@@ -125,13 +125,13 @@ void MailboxApp_DrawNameplate(MailboxApp *app, u32 cell, u32 windowId, u32 mailI
 
 void MailboxApp_PrintTitleAndButtons(MailboxApp *app) {
     FillWindowPixelBuffer(&app->data->windows[MAILBOX_WIN_TITLE], 0);
-    MailboxAppData_PrintMsg(app->data, app->data->msgData, MAILBOX_WIN_TITLE, msg_0232_00000, 44, 0, 0, 0x10200, 2);
+    MailboxAppData_PrintMsg(app->data, app->data->msgData, MAILBOX_WIN_TITLE, msg_0232_00000, 44, 0, FONT_SYSTEM, 0x10200, 2);
     ScheduleWindowCopyToVram(&app->data->windows[MAILBOX_WIN_TITLE]);
     FillWindowPixelBuffer(&app->data->windows[MAILBOX_WIN_CANCEL], 0);
-    MailboxAppData_PrintMsg(app->data, app->data->msgData, MAILBOX_WIN_CANCEL, msg_0232_00003, 24, 0, 4, 0xF0100, 2);
+    MailboxAppData_PrintMsg(app->data, app->data->msgData, MAILBOX_WIN_CANCEL, msg_0232_00003, 24, 0, FONT_UNK_4, 0xF0100, 2);
     ScheduleWindowCopyToVram(&app->data->windows[MAILBOX_WIN_CANCEL]);
     FillWindowPixelBuffer(&app->data->windows[MAILBOX_WIN_CLOSE], 0);
-    MailboxAppData_PrintMsg(app->data, app->data->msgData, MAILBOX_WIN_CLOSE, msg_0232_00004, 24, 0, 4, 0xF0100, 2);
+    MailboxAppData_PrintMsg(app->data, app->data->msgData, MAILBOX_WIN_CLOSE, msg_0232_00004, 24, 0, FONT_UNK_4, 0xF0100, 2);
 }
 
 void MailboxAppData_ShowCloseButton(MailboxAppData *data) {
@@ -152,19 +152,19 @@ void MailboxApp_PrintPageNumber(MailboxApp *app) {
 
     FillWindowPixelBuffer(&app->data->windows[MAILBOX_WIN_PAGE], 0);
     ReadMsgDataIntoString(app->data->msgData, msg_0232_00002, app->data->string);
-    MailboxApp_PrintString(&app->data->windows[MAILBOX_WIN_PAGE], app->data->string, 20, 0, 0, 0x10200, 2);
-    slashWidth = FontID_String_GetWidth(0, app->data->string, 0);
+    MailboxApp_PrintString(&app->data->windows[MAILBOX_WIN_PAGE], app->data->string, 20, 0, FONT_SYSTEM, 0x10200, 2);
+    slashWidth = FontID_String_GetWidth(FONT_SYSTEM, app->data->string, 0);
     BufferIntegerAsString(app->data->msgFormat, 0, app->page + 1, 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
     template = NewString_ReadMsgData(app->data->msgData, msg_0232_00001);
     StringExpandPlaceholders(app->data->msgFormat, app->data->string, template);
     String_Delete(template);
-    pageWidth = FontID_String_GetWidth(0, app->data->string, 0);
-    MailboxApp_PrintString(&app->data->windows[MAILBOX_WIN_PAGE], app->data->string, 20 - (slashWidth / 2) - pageWidth, 0, 0, 0x10200, 0);
+    pageWidth = FontID_String_GetWidth(FONT_SYSTEM, app->data->string, 0);
+    MailboxApp_PrintString(&app->data->windows[MAILBOX_WIN_PAGE], app->data->string, 20 - (slashWidth / 2) - pageWidth, 0, FONT_SYSTEM, 0x10200, 0);
     BufferIntegerAsString(app->data->msgFormat, 0, app->data->lastPage + 1, 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
     template = NewString_ReadMsgData(app->data->msgData, msg_0232_00001);
     StringExpandPlaceholders(app->data->msgFormat, app->data->string, template);
     String_Delete(template);
-    MailboxApp_PrintString(&app->data->windows[MAILBOX_WIN_PAGE], app->data->string, slashWidth / 2 + 20, 0, 0, 0x10200, 0);
+    MailboxApp_PrintString(&app->data->windows[MAILBOX_WIN_PAGE], app->data->string, slashWidth / 2 + 20, 0, FONT_SYSTEM, 0x10200, 0);
     ScheduleWindowCopyToVram(&app->data->windows[MAILBOX_WIN_PAGE]);
 }
 
@@ -186,7 +186,7 @@ static void MailboxApp_PrintMessageBox(MailboxApp *app) {
     u32 offset = MailboxAppData_GetMessageWindowOffset();
 
     FillWindowPixelBuffer((Window *)((u32)data + offset), 15);
-    *(u8 *)((u32)app->data + offset + (offsetof(MailboxAppData, printerId) - offsetof(MailboxAppData, windows[MAILBOX_WIN_MESSAGE]))) = AddTextPrinterParameterizedWithColor((Window *)((u32)data + offset), 1, *(String **)((u32)app->data + offset + (offsetof(MailboxAppData, string) - offsetof(MailboxAppData, windows[MAILBOX_WIN_MESSAGE]))), 0, 0, Options_GetTextFrameDelay(app->options), 0x1020F, NULL);
+    *(u8 *)((u32)app->data + offset + (offsetof(MailboxAppData, printerId) - offsetof(MailboxAppData, windows[MAILBOX_WIN_MESSAGE]))) = AddTextPrinterParameterizedWithColor((Window *)((u32)data + offset), FONT_MESSAGE, *(String **)((u32)app->data + offset + (offsetof(MailboxAppData, string) - offsetof(MailboxAppData, windows[MAILBOX_WIN_MESSAGE]))), 0, 0, Options_GetTextFrameDelay(app->options), 0x1020F, NULL);
 }
 
 void MailboxApp_PrintMailPrompt(MailboxApp *app) {
@@ -240,7 +240,7 @@ void MailboxApp_PrintMail(MailboxApp *app) {
     }
     FillWindowPixelBuffer(&app->data->windows[MAILBOX_WIN_AUTHOR], 0);
     CopyU16ArrayToString(app->data->string, Mail_GetAuthorNamePtr(app->data->mail[app->selectedMail]));
-    MailboxApp_PrintString(&app->data->windows[MAILBOX_WIN_AUTHOR], app->data->string, 0, 1, 1, 0x10200, 0);
+    MailboxApp_PrintString(&app->data->windows[MAILBOX_WIN_AUTHOR], app->data->string, 0, 1, FONT_MESSAGE, 0x10200, 0);
     ScheduleWindowCopyToVram(&app->data->windows[MAILBOX_WIN_AUTHOR]);
 }
 
@@ -253,7 +253,7 @@ static void MailboxApp_PrintMailLine(MailboxApp *app, u32 windowId, u32 line) {
     message = Mail_GetMessage(mail, (u8)line);
     if (MailMsg_IsInit(message)) {
         string = MailMsg_GetExpandedString(message, HEAP_ID_157);
-        MailboxApp_PrintString(&app->data->windows[windowId], string, 0, 0, 1, 0x10200, 0);
+        MailboxApp_PrintString(&app->data->windows[windowId], string, 0, 0, FONT_MESSAGE, 0x10200, 0);
         String_Delete(string);
     }
 }

@@ -713,9 +713,9 @@ static void ApricornBoxScreen_DrawScreen(ApricornBoxScreen *screen) {
     ApricornBoxScreen_DrawCloseButton(screen, 0);
     ApricornBoxScreen_UpdateCursor(screen);
     ReadMsgDataIntoString(screen->msgData, msg_0021_00000, screen->string);
-    width = (u8)FontID_String_GetWidth(0, screen->string, 0);
+    width = (u8)FontID_String_GetWidth(FONT_SYSTEM, screen->string, 0);
     x = (80 - width) / 2;
-    AddTextPrinterParameterizedWithColor(&screen->windows[3], 0, screen->string, x, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&screen->windows[3], FONT_SYSTEM, screen->string, x, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     for (i = 0; i < 7; i++) {
         ApricornBoxScreen_DrawApricornCount(screen, i);
     }
@@ -754,8 +754,8 @@ void ApricornBoxScreen_DrawCloseButton(ApricornBoxScreen *screen, int sequence) 
     Sprite_SetAnimCtrlSeq(screen->sprites[0], sequence);
     Sprite_ResetAnimCtrlState(screen->sprites[0]);
     FillWindowPixelBuffer(&screen->windows[2], 0);
-    width = FontID_String_GetWidth(4, screen->closeText, 0);
-    AddTextPrinterParameterizedWithColor(&screen->windows[2], 4, screen->closeText, (48 - width) >> 1, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    width = FontID_String_GetWidth(FONT_UNK_4, screen->closeText, 0);
+    AddTextPrinterParameterizedWithColor(&screen->windows[2], FONT_UNK_4, screen->closeText, (48 - width) >> 1, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ScheduleWindowCopyToVram(&screen->windows[2]);
 }
 
@@ -767,8 +767,8 @@ void ApricornBoxScreen_DrawConfirmButton(ApricornBoxScreen *screen, int index, i
     Window *window = &screen->windows[index + 6];
     FillWindowPixelBuffer(window, 0);
     ReadMsgDataIntoString(screen->msgData, index + msg_0021_00005, screen->string2);
-    width.value = FontID_String_GetWidth(4, screen->string2, 0);
-    AddTextPrinterParameterizedWithColor(window, 4, screen->string2, (48 - width.value) / 2, 0, TEXT_SPEED_NOTRANSFER, sApricornBoxConfirmButtonColors[index], NULL);
+    width.value = FontID_String_GetWidth(FONT_UNK_4, screen->string2, 0);
+    AddTextPrinterParameterizedWithColor(window, FONT_UNK_4, screen->string2, (48 - width.value) / 2, 0, TEXT_SPEED_NOTRANSFER, sApricornBoxConfirmButtonColors[index], NULL);
     ScheduleWindowCopyToVram(window);
     Sprite_SetAnimCtrlSeq(screen->sprites[index + 9], sequence + (index * 2 + 28));
     Sprite_ResetAnimCtrlState(screen->sprites[index + 9]);
@@ -820,8 +820,8 @@ static void ApricornBoxScreen_DrawApricornCount(ApricornBoxScreen *screen, u8 in
         FillWindowPixelBuffer((Window *)(windowBase + windowOffset), 0);
         BufferIntegerAsString(screen->msgFormat, 0, counts[index], 2, PRINTING_MODE_RIGHT_ALIGN, TRUE);
         StringExpandPlaceholders(screen->msgFormat, screen->string, screen->numberTemplate);
-        width = FontID_String_GetWidth(0, screen->string, 0);
-        AddTextPrinterParameterizedWithColor((Window *)(windowBase + windowOffset), 0, screen->string, (16 - width) / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        width = FontID_String_GetWidth(FONT_SYSTEM, screen->string, 0);
+        AddTextPrinterParameterizedWithColor((Window *)(windowBase + windowOffset), FONT_SYSTEM, screen->string, (16 - width) / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         ScheduleWindowCopyToVram((Window *)(windowBase + windowOffset));
     }
     Sprite_SetPositionXY(*spriteSlot, gApricornBoxApricornPositions[index][0], gApricornBoxApricornPositions[index][1]);
@@ -836,7 +836,7 @@ void ApricornBoxScreen_PrintQuantity(ApricornBoxScreen *screen, int value) {
         BufferIntegerAsString(screen->msgFormat, 0, digits[i], 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
         StringExpandPlaceholders(screen->msgFormat, screen->string, screen->numberTemplate);
         FillWindowPixelBuffer(&screen->windows[i + 8], 0);
-        AddTextPrinterParameterizedWithColor(&screen->windows[i + 8], 0, screen->string, gApricornBoxQuantityDigitX[i], 3, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&screen->windows[i + 8], FONT_SYSTEM, screen->string, gApricornBoxQuantityDigitX[i], 3, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         ScheduleWindowCopyToVram(&screen->windows[i + 8]);
         if (screen->apricornCounts[screen->selectedApricorn] < 10) {
             break;
@@ -852,11 +852,11 @@ static void ApricornBoxScreen_ShowQuantityPanel(ApricornBoxScreen *screen, int s
         ApricornBoxScreen_DrawConfirmButton(screen, 0, 0);
         ApricornBoxScreen_DrawConfirmButton(screen, 1, 0);
         FillWindowPixelBuffer(&screen->windows[5], 0);
-        AddTextPrinterParameterizedWithColor(&screen->windows[5], 0, screen->apricornNames[screen->selectedApricorn], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&screen->windows[5], FONT_SYSTEM, screen->apricornNames[screen->selectedApricorn], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         ScheduleWindowCopyToVram(&screen->windows[5]);
         ReadMsgDataIntoString(screen->msgData, msg_0021_00026, screen->string2);
         FillWindowPixelBuffer(&screen->windows[10], 0);
-        AddTextPrinterParameterizedWithColor(&screen->windows[10], 0, screen->string2, 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&screen->windows[10], FONT_SYSTEM, screen->string2, 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         ScheduleWindowCopyToVram(&screen->windows[10]);
     } else {
         FillBgTilemapRect(screen->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, 0, 32, 24, 17);
@@ -889,7 +889,7 @@ static void ApricornBoxScreen_PrintHeader(ApricornBoxScreen *screen, int msgNo) 
     Window *window = &screen->windows[1];
     FillWindowPixelBuffer(window, 0);
     ApricornBoxScreen_ReadMessage(screen, msgNo);
-    AddTextPrinterParameterized(window, 0, screen->string2, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, screen->string2, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     ScheduleWindowCopyToVram(window);
 }
 
@@ -913,7 +913,7 @@ static void ApricornBoxScreen_PrintDescription(ApricornBoxScreen *screen) {
     } else {
         ApricornBoxScreen_ReadMessage(screen, 20);
     }
-    AddTextPrinterParameterized(window, 0, screen->string2, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, screen->string2, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     ScheduleWindowCopyToVram(window);
 }
 
@@ -924,9 +924,9 @@ void ApricornBoxScreen_PrintMessage(ApricornBoxScreen *screen, int msgNo, int sp
     ApricornBoxScreen_ReadMessage(screen, msgNo);
     if (speed != TEXT_SPEED_NOTRANSFER && speed != TEXT_SPEED_INSTANT) {
         TextFlags_SetCanTouchSpeedUpPrint(TRUE);
-        screen->textPrinterId = AddTextPrinterParameterized(window, 1, screen->string2, 0, 0, speed, NULL);
+        screen->textPrinterId = AddTextPrinterParameterized(window, FONT_MESSAGE, screen->string2, 0, 0, speed, NULL);
     } else {
-        AddTextPrinterParameterized(window, 1, screen->string2, 0, 0, speed, NULL);
+        AddTextPrinterParameterized(window, FONT_MESSAGE, screen->string2, 0, 0, speed, NULL);
         screen->textPrinterId = 0xFF;
     }
     ScheduleWindowCopyToVram(window);
@@ -945,7 +945,7 @@ static void ApricornBoxScreen_PrintJuiceTaste(ApricornBoxScreen *screen) {
         int msgNo = ApricornBoxScreen_GetJuiceTasteMsg(screen, &screen->juice.entries[0], 0);
         ReadMsgDataIntoString(screen->msgData, msgNo, screen->string2);
     }
-    AddTextPrinterParameterized(window, 1, screen->string2, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(window, FONT_MESSAGE, screen->string2, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     if (screen->juice.entries[0].stat == 5) {
         ScheduleWindowCopyToVram(window);
         return;
@@ -955,17 +955,17 @@ static void ApricornBoxScreen_PrintJuiceTaste(ApricornBoxScreen *screen) {
             int msgNo = ApricornBoxScreen_GetJuiceTasteMsg(screen, &screen->juice.entries[1], 1);
             ReadMsgDataIntoString(screen->msgData, msgNo, screen->string2);
         }
-        AddTextPrinterParameterized(window, 1, screen->string2, 0, 16, TEXT_SPEED_NOTRANSFER, NULL);
+        AddTextPrinterParameterized(window, FONT_MESSAGE, screen->string2, 0, 16, TEXT_SPEED_NOTRANSFER, NULL);
     }
     if (screen->juice.count > 2) {
         {
             int msgNo = ApricornBoxScreen_GetJuiceTasteMsg(screen, &screen->juice.entries[2], 2);
             ReadMsgDataIntoString(screen->msgData, msgNo, screen->string2);
         }
-        AddTextPrinterParameterized(window, 1, screen->string2, 0, 32, TEXT_SPEED_NOTRANSFER, NULL);
+        AddTextPrinterParameterized(window, FONT_MESSAGE, screen->string2, 0, 32, TEXT_SPEED_NOTRANSFER, NULL);
     } else if ((u8)(screen->juice.count + 255) <= 1) {
         ReadMsgDataIntoString(screen->msgData, msg_0021_00122, screen->string2);
-        AddTextPrinterParameterized(window, 1, screen->string2, 0, (screen->juice.count - 1) * 16 + 16, TEXT_SPEED_NOTRANSFER, NULL);
+        AddTextPrinterParameterized(window, FONT_MESSAGE, screen->string2, 0, (screen->juice.count - 1) * 16 + 16, TEXT_SPEED_NOTRANSFER, NULL);
     }
     ScheduleWindowCopyToVram(window);
 }
@@ -1251,7 +1251,7 @@ static void ApricornBoxScreen_FreeBgGraphics(ApricornBoxScreen *screen) {
 static void ApricornBoxScreen_InitStrings(ApricornBoxScreen *screen) {
     int i;
     int j;
-    FontID_Alloc(4, screen->heapId);
+    FontID_Alloc(FONT_UNK_4, screen->heapId);
     screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0021, screen->heapId);
     screen->msgFormat = MessageFormat_New_Custom(16, 32, screen->heapId);
     screen->string = String_New(256, screen->heapId);
@@ -1280,7 +1280,7 @@ static void ApricornBoxScreen_FreeStrings(ApricornBoxScreen *screen) {
     String_Delete(screen->string);
     MessageFormat_Delete(screen->msgFormat);
     DestroyMsgData(screen->msgData);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void ApricornBoxScreen_AddWindows(ApricornBoxScreen *screen) {

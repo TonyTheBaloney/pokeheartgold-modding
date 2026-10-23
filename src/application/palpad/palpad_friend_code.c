@@ -197,19 +197,19 @@ void PalPadFriendCode_Setup(PalPadFriendCode *friendCode, PalPadShared *shared, 
     ownCode = DWC_CreateFriendKey(FriendRoster_GetUserData(Save_FriendRoster_Get(shared->saveData)));
     if (ownCode) {
         ReadMsgDataIntoString(gfx->msgData, msg_0779_00053, text);
-        x = (192 - FontID_String_GetWidthMultiline(0, text, 0)) / 2;
-        AddTextPrinterParameterizedWithColor(&friendCode->windows[0], 0, text, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        x = (192 - FontID_String_GetWidthMultiline(FONT_SYSTEM, text, 0)) / 2;
+        AddTextPrinterParameterizedWithColor(&friendCode->windows[0], FONT_SYSTEM, text, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         PalPadGfx_BufferFriendCode(gfx, ownCode);
         ReadMsgDataIntoString(gfx->msgData, msg_0779_00052, buffer);
         StringExpandPlaceholders(gfx->msgFormat, text, buffer);
-        AddTextPrinterParameterizedWithColor(&friendCode->windows[1], 0, text, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&friendCode->windows[1], FONT_SYSTEM, text, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     } else { // no friend code yet (never connected)
         ReadMsgDataIntoString(gfx->msgData, msg_0779_00054, text);
-        x = (192 - FontID_String_GetWidthMultiline(0, text, 0)) / 2;
-        AddTextPrinterParameterizedWithColor(&friendCode->windows[0], 0, text, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        x = (192 - FontID_String_GetWidthMultiline(FONT_SYSTEM, text, 0)) / 2;
+        AddTextPrinterParameterizedWithColor(&friendCode->windows[0], FONT_SYSTEM, text, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     }
     ReadMsgDataIntoString(gfx->msgData, msg_0779_00051, text);
-    AddTextPrinterParameterizedWithColor(&friendCode->windows[2], 4, text, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 15, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&friendCode->windows[2], FONT_UNK_4, text, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 15, 0), NULL);
     String_Delete(text);
     String_Delete(buffer);
     friendCode->screenFile = GfGfxLoader_GetScrnDataFromOpenNarc(gfx->narc, 14, TRUE, &friendCode->screen, heapId);

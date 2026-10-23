@@ -258,7 +258,7 @@ static void CommClubButtons_DrawButtons(CommClubButtonsData *data) {
     u16 halfWidth;
     u16 x;
 
-    FontID_Alloc(4, HEAP_ID_8);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_8);
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0191, HEAP_ID_8);
     layout = &sCommClubButtonsLayouts[data->count - 1];
 
@@ -266,15 +266,15 @@ static void CommClubButtons_DrawButtons(CommClubButtonsData *data) {
         LoadRectToBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, data->tilemap, layout->x, (u8)(layout->y + (layout->spacing + 6) * i), 0x20, 6);
         str = NewString_ReadMsgData(msgData, data->args->msgIds[i]);
         halfWidth = GetWindowWidth(&data->windows[i]) * 8 / 2;
-        x = halfWidth - FontID_String_GetWidth(4, str, 0) / 2;
-        AddTextPrinterParameterizedWithColor(&data->windows[i], 4, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(2, 1, 0), NULL);
+        x = halfWidth - FontID_String_GetWidth(FONT_UNK_4, str, 0) / 2;
+        AddTextPrinterParameterizedWithColor(&data->windows[i], FONT_UNK_4, str, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(2, 1, 0), NULL);
         CopyWindowPixelsToVram_TextMode(&data->windows[i]);
         ScheduleWindowCopyToVram(&data->windows[i]);
         String_Delete(str);
     }
 
     DestroyMsgData(msgData);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     ScheduleBgTilemapBufferTransfer(data->bgConfig, GF_BG_LYR_SUB_1);
 }
 

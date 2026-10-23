@@ -503,13 +503,13 @@ void WifiClubGameEntry_PrintTitle(WifiClubGameEntryScreen *screen, WifiClubGameE
     // Seeking Poffin cooks! OR // Seeking {STRVAR_3 0, 0, 0} players!
     ReadMsgDataIntoString(screen->msgData, sWifiClubGameEntryTitleMsgIds[args->game], screen->string2);
     StringExpandPlaceholders(screen->msgFmt, screen->string1, screen->string2);
-    AddTextPrinterParameterizedWithColor(&screen->windowList[1], 0, screen->string1, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), 0);
+    AddTextPrinterParameterizedWithColor(&screen->windowList[1], FONT_SYSTEM, screen->string1, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), 0);
     ScheduleWindowCopyToVram(&screen->windowList[1]);
     ScheduleWindowCopyToVram(&screen->windowList[3]);
 
     // Voice Chat ON/OFF: X Button
     ReadMsgDataIntoString(screen->msgData, msg_0778_00128, screen->string1);
-    AddTextPrinterParameterizedWithColor(&screen->windowList[2], 0, screen->string1, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0);
+    AddTextPrinterParameterizedWithColor(&screen->windowList[2], FONT_SYSTEM, screen->string1, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), 0);
     ScheduleWindowCopyToVram(&screen->windowList[2]);
     ScheduleWindowCopyToVram(&screen->windowList[0]);
 }
@@ -562,7 +562,7 @@ void Wifi_LoadAndPrintTextToWindow(WifiClubGameEntryScreen *screen, WifiClubGame
     String *string = String_New(256, heapID);
     ReadMsgDataIntoString(screen->msgData, strno, string);
     StringExpandPlaceholders(screen->msgFmt, screen->string1, string);
-    screen->printerId = AddTextPrinterParameterizedWithColor(&screen->windowList[0], 1, screen->string1, 0, 0, screen->textFrameDelay, MAKE_TEXT_COLOR(1, 2, 15), 0);
+    screen->printerId = AddTextPrinterParameterizedWithColor(&screen->windowList[0], FONT_MESSAGE, screen->string1, 0, 0, screen->textFrameDelay, MAKE_TEXT_COLOR(1, 2, 15), 0);
     ScheduleWindowCopyToVram(&screen->windowList[0]);
     String_Delete(string);
     Options *options = Save_PlayerData_GetOptionsAddr(args->saveData);
@@ -608,7 +608,7 @@ void WifiClubGameEntry_ShowApplicantInfo(WifiClubGameEntryScreen *screen, WifiCl
     ReadMsgDataIntoString(screen->msgData, msg_0778_00131, string1);
     StringExpandPlaceholders(screen->msgFmt, string2, string1);
     FillWindowPixelBuffer(&screen->windowList[4], 15);
-    AddTextPrinterParameterizedWithColor(&screen->windowList[4], 0, string2, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), 0);
+    AddTextPrinterParameterizedWithColor(&screen->windowList[4], FONT_SYSTEM, string2, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), 0);
     DrawFrameAndWindow1(&screen->windowList[4], 1, 31, 3);
     ScheduleWindowCopyToVram(&screen->windowList[4]);
     String_Delete(string1);
@@ -648,13 +648,13 @@ void WifiClubGameEntry_DrawMember(WifiClubGameEntry *gameEntry, WifiClubGameEntr
 
     u32 y = netId * 16;
     FillWindowPixelRect(&screen->windowList[3], 15, 0, y, 160, 16);
-    AddTextPrinterParameterizedWithColor(&screen->windowList[3], 0, string2, 0, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), 0);
+    AddTextPrinterParameterizedWithColor(&screen->windowList[3], FONT_SYSTEM, string2, 0, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), 0);
     WifiClubGameEntry_BufferTrainerId(screen, args, netId, 0, heapID);
 
     // ID {STRVAR_1 54, 0, 0}
     ReadMsgDataIntoString(screen->msgData, msg_0778_00130, string1);
     StringExpandPlaceholders(screen->msgFmt, string2, string1);
-    AddTextPrinterParameterizedWithColor(&screen->windowList[3], 0, string2, 72, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), 0);
+    AddTextPrinterParameterizedWithColor(&screen->windowList[3], FONT_SYSTEM, string2, 72, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), 0);
     ScheduleWindowCopyToVram(&screen->windowList[3]);
     s32 voiceChatIcon;
     if (netId == Comm_GetLocalNetId()) {

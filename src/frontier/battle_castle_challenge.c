@@ -670,11 +670,11 @@ static void BattleCastle_PrintPlayerPoints(FrontierSystem *system, Window *windo
     BufferIntegerAsString(system->msgFormat, 0, points, 4, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     ReadMsgDataIntoString(msgData, msg_0031_00002, tmp);
     StringExpandPlaceholders(system->msgFormat, buf, tmp);
-    AddTextPrinterParameterized(window, 0, buf, 16, 16, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, buf, 16, 16, TEXT_SPEED_NOTRANSFER, NULL);
     BufferPlayersName(system->msgFormat, 0, profile);
     ReadMsgDataIntoString(msgData, msg_0031_00000, tmp);
     StringExpandPlaceholders(system->msgFormat, buf, tmp);
-    AddTextPrinterParameterized(window, 0, buf, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(window, FONT_SYSTEM, buf, 0, 0, TEXT_SPEED_INSTANT, NULL);
     String_Delete(tmp);
     String_Delete(buf);
     DestroyMsgData(msgData);

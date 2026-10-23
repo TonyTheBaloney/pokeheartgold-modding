@@ -292,7 +292,7 @@ static void PokeathlonEventRecord_SwitchMode(PokeathlonEventRecord *work) {
 }
 
 static void PokeathlonEventRecord_PrintReturnButton(PokeathlonEventRecord *work) {
-    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 4, msg_0314_00000, TRUE, 0, 4);
+    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 4, msg_0314_00000, TRUE, 0, FONT_UNK_4);
 }
 
 static void PokeathlonEventRecord_PrintRecordValue(PokeathlonEventRecord *work, int value, int window, int unused, int highlight) {
@@ -311,7 +311,7 @@ static void PokeathlonEventRecord_PrintRecordValue(PokeathlonEventRecord *work, 
 
 static void PokeathlonEventRecord_PrintModeTitle(PokeathlonEventRecord *work) {
     PokeathlonUtil_PrintMessageAtXY(work->textContext, 0, gPokeathlonEventRecordModeTitleMsgIds[work->linkMode], 1, 0);
-    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 1, gPokeathlonEventRecordModeSubtitleMsgIds[work->linkMode], TRUE, 0, 4);
+    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 1, gPokeathlonEventRecordModeSubtitleMsgIds[work->linkMode], TRUE, 0, FONT_UNK_4);
 }
 
 static void PokeathlonEventRecord_PrintEventRecord(PokeathlonEventRecord *work) {
@@ -321,7 +321,7 @@ static void PokeathlonEventRecord_PrintEventRecord(PokeathlonEventRecord *work) 
 
     BufferPokeathlonEventName(PokeathlonUtil_GetMessageFormat(work->textContext), 0, (u8)work->cursor);
     PokeathlonUtil_PrintMessageAtXY(work->textContext, 2, msg_0314_00062, 1, 1);
-    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 5, work->cursor + msg_0314_00065, FALSE, 1, 0);
+    PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, 5, work->cursor + msg_0314_00065, FALSE, 1, FONT_SYSTEM);
     msgFormat = PokeathlonUtil_GetMessageFormat(work->textContext);
     BufferIntegerAsString(msgFormat, 0, PokeathlonEventRecord_GetTimesJoined(work->data, (u8)work->cursor, work->linkMode), 7, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     PokeathlonUtil_PrintMessageAtXY(work->textContext, 3, msg_0314_00054, 1, 0);
@@ -335,7 +335,7 @@ static void PokeathlonEventRecord_PrintEventRecord(PokeathlonEventRecord *work) 
             u32 score = PokeathlonEventRecord_GetRecordScore(work->data, work->cursor, i, work->linkMode);
             PokeathlonEventRecord_PrintRecordValue(work, score, i + 7, work->cursor + 86, highlight);
         } else {
-            PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, i + 7, work->cursor + msg_0314_00096, FALSE, (u8)highlight, 0);
+            PokeathlonUtil_PrintAlignedMessageAtY(work->textContext, i + 7, work->cursor + msg_0314_00096, FALSE, (u8)highlight, FONT_SYSTEM);
         }
     }
     if (work->linkMode) {

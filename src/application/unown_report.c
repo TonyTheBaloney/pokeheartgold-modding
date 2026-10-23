@@ -166,7 +166,7 @@ static void UnownReport_DrawCoverPage(UnownReportApp *app);
 static void UnownReport_DrawFormSpread(UnownReportApp *app, u8 spread);
 static void UnownReport_DrawInfoPage(UnownReportApp *app, u8 infoPage);
 static void UnownReport_ShowScreen(UnownReportApp *app, UnownReportScreen *screen, u32 bgId);
-static void UnownReport_PrintText(Window *window, String *string, FontID fontId, int x, u16 y);
+static void UnownReport_PrintText(Window *window, String *string, enum Font fontId, int x, u16 y);
 static void UnownReport_PrintTextFont0(Window *window, String *string, int x, u16 y);
 static void UnownReport_VBlankCallback(void *data);
 static void UnownReport_SetVramBanks(UnownReportApp *app);
@@ -692,7 +692,7 @@ static void UnownReport_DrawPage(UnownReportApp *app, int unused) {
     BufferIntegerAsString(app->msgFormat, 0, app->page + 1, 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
     BufferIntegerAsString(app->msgFormat, 1, app->numPages, 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(app->msgFormat, app->buffer, app->pageNumberTemplate);
-    AddTextPrinterParameterizedWithColor(&app->windows[UNOWN_REPORT_WIN_FOOTER], 0, app->buffer, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->windows[UNOWN_REPORT_WIN_FOOTER], FONT_SYSTEM, app->buffer, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     ScheduleWindowCopyToVram(&app->windows[UNOWN_REPORT_WIN_LEFT_PAGE]);
     ScheduleWindowCopyToVram(&app->windows[UNOWN_REPORT_WIN_RIGHT_PAGE]);
     ScheduleWindowCopyToVram(&app->windows[UNOWN_REPORT_WIN_FOOTER]);
@@ -706,9 +706,9 @@ static void UnownReport_DrawTitle(UnownReportApp *app, int bookAnimSeq) {
     Sprite_SetAnimCtrlSeq(app->sprites[UNOWN_REPORT_SPRITE_BOOK], bookAnimSeq);
     Sprite_ResetAnimCtrlState(app->sprites[UNOWN_REPORT_SPRITE_BOOK]);
     FillWindowPixelBuffer(&app->windows[UNOWN_REPORT_WIN_TITLE], 0);
-    width = FontID_String_GetWidth(4, app->title, 0);
+    width = FontID_String_GetWidth(FONT_UNK_4, app->title, 0);
     x = (48 - width) / 2;
-    AddTextPrinterParameterizedWithColor(&app->windows[UNOWN_REPORT_WIN_TITLE], 4, app->title, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 15, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->windows[UNOWN_REPORT_WIN_TITLE], FONT_UNK_4, app->title, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 15, 0), NULL);
     ScheduleWindowCopyToVram(&app->windows[UNOWN_REPORT_WIN_TITLE]);
 }
 
@@ -782,7 +782,7 @@ static void UnownReport_DrawCoverPage(UnownReportApp *app) {
     }
     ReadMsgDataIntoString(app->msgData, msg_0001_00001, app->buffer);
     UnownReport_PrintTextFont0(&app->windows[UNOWN_REPORT_WIN_LEFT_PAGE], app->buffer, 0, 56);
-    width = FontID_String_GetWidth(0, app->playerName, 0);
+    width = FontID_String_GetWidth(FONT_SYSTEM, app->playerName, 0);
     UnownReport_PrintTextFont0(&app->windows[UNOWN_REPORT_WIN_LEFT_PAGE], app->playerName, (u16)(176 - width), 72);
     ReadMsgDataIntoString(app->msgData, msg_0001_00003, app->buffer);
     UnownReport_PrintTextFont0(&app->windows[UNOWN_REPORT_WIN_RIGHT_PAGE], app->buffer, 4, 60);
@@ -843,7 +843,7 @@ static void UnownReport_DrawInfoPage(UnownReportApp *app, u8 infoPage) {
         for (i = 0; i < page->left.numMsgs; i++) {
             ReadMsgDataIntoString(app->msgData, page->left.firstMsg + i, app->buffer);
             if (page->left.firstMsg + i == 15) {
-                UnownReport_PrintText(&app->windows[UNOWN_REPORT_WIN_LEFT_PAGE], app->buffer, 3, 4, 0);
+                UnownReport_PrintText(&app->windows[UNOWN_REPORT_WIN_LEFT_PAGE], app->buffer, FONT_UNOWN, 4, 0);
             } else {
                 UnownReport_PrintTextFont0(&app->windows[UNOWN_REPORT_WIN_LEFT_PAGE], app->buffer, 4, 24);
             }
@@ -862,12 +862,12 @@ static void UnownReport_ShowScreen(UnownReportApp *app, UnownReportScreen *scree
     ScheduleBgTilemapBufferTransfer(app->bgConfig, (u8)bgId);
 }
 
-static void UnownReport_PrintText(Window *window, String *string, FontID fontId, int x, u16 y) {
+static void UnownReport_PrintText(Window *window, String *string, enum Font fontId, int x, u16 y) {
     AddTextPrinterParameterizedWithColor(window, fontId, string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
 }
 
 static void UnownReport_PrintTextFont0(Window *window, String *string, int x, u16 y) {
-    UnownReport_PrintText(window, string, 0, x, y);
+    UnownReport_PrintText(window, string, FONT_SYSTEM, x, y);
 }
 
 static void UnownReport_VBlankCallback(void *data) {
@@ -975,7 +975,7 @@ static void UnownReport_FreeScreens(UnownReportApp *app) {
 }
 
 static void UnownReport_InitMessages(UnownReportApp *app) {
-    FontID_Alloc(4, app->heapID);
+    FontID_Alloc(FONT_UNK_4, app->heapID);
     app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0001, app->heapID);
     app->msgFormat = MessageFormat_New_Custom(16, 16, app->heapID);
     app->template = String_New(512, app->heapID);
@@ -993,7 +993,7 @@ static void UnownReport_FreeMessages(UnownReportApp *app) {
     String_Delete(app->template);
     MessageFormat_Delete(app->msgFormat);
     DestroyMsgData(app->msgData);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void UnownReport_InitWindows(UnownReportApp *app) {

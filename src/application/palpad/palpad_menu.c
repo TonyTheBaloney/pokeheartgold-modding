@@ -184,8 +184,8 @@ void PalPadMenu_Setup(PalPadMenu *menu, PalPadShared *shared, PalPadGfx *gfx, en
 
         ReadMsgDataIntoString(gfx->msgData, i + 1, buffer);
         StringExpandPlaceholders(gfx->msgFormat, text, buffer);
-        width = FontID_String_GetWidth(4, text, 0);
-        AddTextPrinterParameterizedWithColor(&menu->menuWindow, 4, text, (192 - width) / 2, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 15, 0), NULL);
+        width = FontID_String_GetWidth(FONT_UNK_4, text, 0);
+        AddTextPrinterParameterizedWithColor(&menu->menuWindow, FONT_UNK_4, text, (192 - width) / 2, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 15, 0), NULL);
     }
     String_Delete(text);
     String_Delete(buffer);
@@ -330,7 +330,7 @@ static void PalPadMenu_PrintMessage(PalPadMenu *menu, PalPadGfx *gfx, int msgId,
     ReadMsgDataIntoString(gfx->msgData, msgId, buffer);
     StringExpandPlaceholders(gfx->msgFormat, menu->msgText, buffer);
     TextFlags_SetCanTouchSpeedUpPrint(TRUE);
-    menu->printerId = AddTextPrinterParameterizedWithColor(&menu->msgWindow, 1, menu->msgText, 0, 0, menu->textSpeed, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    menu->printerId = AddTextPrinterParameterizedWithColor(&menu->msgWindow, FONT_MESSAGE, menu->msgText, 0, 0, menu->textSpeed, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     DrawFrameAndWindow2(&menu->msgWindow, TRUE, 70, 12);
     ScheduleWindowCopyToVram(&menu->msgWindow);
     String_Delete(buffer);

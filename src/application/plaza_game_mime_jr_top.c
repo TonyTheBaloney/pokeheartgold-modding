@@ -1521,7 +1521,7 @@ static void MimeJrTopGame_ShowInstructions(MimeJrTopGame *game) {
     FillWindowPixelBuffer(&game->instructions, 0xFF);
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0235, HEAP_ID_113);
     string = NewString_ReadMsgData(msgData, msg_0235_00000);
-    AddTextPrinterParameterized(&game->instructions, 0, string, 0, 0, 0, NULL);
+    AddTextPrinterParameterized(&game->instructions, FONT_SYSTEM, string, 0, 0, 0, NULL);
     String_Delete(string);
     DestroyMsgData(msgData);
     DrawFrameAndWindow1(&game->instructions, FALSE, 0xB4, 0xD);
@@ -1547,7 +1547,7 @@ static void MimeJrTop_LoadPlayerPalettes(MimeJrTopApp *app, int index) {
 }
 
 static int MimeJrTop_GetCenteredX(Window *window, String *string) {
-    int width = FontID_String_GetWidth(0, string, 0);
+    int width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
     return (GetWindowWidth(window) * 8 - width) / 2;
 }
 
@@ -1588,9 +1588,9 @@ static void MimeJrTopGame_ShowRivalNames(MimeJrTopApp *app, MimeJrTopGame *game)
                 String *name = PlayerProfile_GetPlayerName_NewString(profile, HEAP_ID_113);
                 int x = MimeJrTop_GetCenteredX(window, name);
                 if (flag) {
-                    AddTextPrinterParameterizedWithColorAndSpacing(window, 0, name, x, 0, 0, MAKE_TEXT_COLOR(5, 6, 15), 0, 0, NULL);
+                    AddTextPrinterParameterizedWithColorAndSpacing(window, FONT_SYSTEM, name, x, 0, 0, MAKE_TEXT_COLOR(5, 6, 15), 0, 0, NULL);
                 } else {
-                    AddTextPrinterParameterizedWithColorAndSpacing(window, 0, name, x, 0, 0, MAKE_TEXT_COLOR(1, 2, 15), 0, 0, NULL);
+                    AddTextPrinterParameterizedWithColorAndSpacing(window, FONT_SYSTEM, name, x, 0, 0, MAKE_TEXT_COLOR(1, 2, 15), 0, 0, NULL);
                 }
                 String_Delete(name);
                 CopyWindowToVram(window);

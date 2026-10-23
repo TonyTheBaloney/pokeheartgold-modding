@@ -359,7 +359,7 @@ BOOL RecordMixing_Init(OverlayManager *man, int *state) {
         app->menuInputState = MenuInputStateMgr_GetState(app->args->menuInputStatePtr);
         app->msgFmt = MessageFormat_New(HEAP_ID_50);
         app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0422, HEAP_ID_50);
-        FontID_Alloc(4, HEAP_ID_50);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_50);
         SetKeyRepeatTimers(4, 8);
         RecordMixing_SetGfxBanks();
         RecordMixing_InitBgs(app->bgConfig);
@@ -464,7 +464,7 @@ BOOL RecordMixing_Exit(OverlayManager *man, int *state) {
     CommState_ResumeAlternateSearch();
     UnionRoomObjects_ResetSlots(app->args->unionRoomObjects);
     GF_TouchpadStopSampling();
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     DestroyMsgData(app->msgData);
     MessageFormat_Delete(app->msgFmt);
     MenuInputStateMgr_SetState(app->args->menuInputStatePtr, app->menuInputState);
@@ -691,9 +691,9 @@ static void RecordMixing_AddWindows(RecordMixingApp *app, OverlayManager *unused
 }
 
 static void RecordMixing_PrintCenteredString(Window *window, String *string, int textSpeed) {
-    int width = FontID_String_GetWidth(1, string, 0);
+    int width = FontID_String_GetWidth(FONT_MESSAGE, string, 0);
     FillWindowPixelBuffer(window, 0);
-    AddTextPrinterParameterizedWithColor(window, 1, string, (208 - width) / 2, 1, textSpeed, 0x10400, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, (208 - width) / 2, 1, textSpeed, 0x10400, NULL);
 }
 
 static void RecordMixing_RemoveWindows(RecordMixingApp *app) {
@@ -1349,15 +1349,15 @@ static void RecordMixing_PrintButtons(RecordMixingApp *app) {
     if (!Comm_GetLocalNetId()) {
         RecordMixing_SetButtonState(app, 0, 0);
         string = NewString_ReadMsgData(app->msgData, msg_0422_00021);
-        x = 64 - FontID_String_GetWidth(4, string, 0);
-        AddTextPrinterParameterizedWithColor(&app->buttonWindows[0], 4, string, x / 2, 0, TEXT_SPEED_INSTANT, 0x40100, NULL);
+        x = 64 - FontID_String_GetWidth(FONT_UNK_4, string, 0);
+        AddTextPrinterParameterizedWithColor(&app->buttonWindows[0], FONT_UNK_4, string, x / 2, 0, TEXT_SPEED_INSTANT, 0x40100, NULL);
         String_Delete(string);
     }
     app->buttonHighlightTimer = -1;
     RecordMixing_SetButtonState(app, 1, 0);
     string = NewString_ReadMsgData(app->msgData, msg_0422_00022);
-    x = 64 - FontID_String_GetWidth(4, string, 0);
-    AddTextPrinterParameterizedWithColor(&app->buttonWindows[1], 4, string, x / 2, 0, TEXT_SPEED_INSTANT, 0x40100, NULL);
+    x = 64 - FontID_String_GetWidth(FONT_UNK_4, string, 0);
+    AddTextPrinterParameterizedWithColor(&app->buttonWindows[1], FONT_UNK_4, string, x / 2, 0, TEXT_SPEED_INSTANT, 0x40100, NULL);
     String_Delete(string);
     ScheduleBgTilemapBufferTransfer(app->bgConfig, GF_BG_LYR_MAIN_1);
     ScheduleBgTilemapBufferTransfer(app->bgConfig, GF_BG_LYR_MAIN_0);
@@ -1408,11 +1408,11 @@ static BOOL RecordMixing_PrintMemberList(Window *window, int unused, u32 color, 
             BufferIntegerAsString(app->msgFmt, 0, id, 5, PRINTING_MODE_LEADING_ZEROS, TRUE);
             idText = ReadMsgData_ExpandPlaceholders(app->msgFmt, app->msgData, msg_0422_00001, HEAP_ID_50);
             if (localId == i) {
-                AddTextPrinterParameterizedWithColor(window, 0, nameWalk->memberNames[0], 5, y, TEXT_SPEED_NOTRANSFER, 0x20300, NULL);
-                AddTextPrinterParameterizedWithColor(window, 0, idText, 70, y, TEXT_SPEED_NOTRANSFER, 0x20300, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, nameWalk->memberNames[0], 5, y, TEXT_SPEED_NOTRANSFER, 0x20300, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, idText, 70, y, TEXT_SPEED_NOTRANSFER, 0x20300, NULL);
             } else {
-                AddTextPrinterParameterizedWithColor(window, 0, nameWalk->memberNames[0], 5, y, TEXT_SPEED_NOTRANSFER, color, NULL);
-                AddTextPrinterParameterizedWithColor(window, 0, idText, 70, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, nameWalk->memberNames[0], 5, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+                AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, idText, 70, y, TEXT_SPEED_NOTRANSFER, color, NULL);
             }
             String_Delete(idText);
         }
@@ -1489,9 +1489,9 @@ static void RecordMixing_PrintMessage(RecordMixingApp *app, int msgId, BOOL imme
     DrawFrameAndWindow2(&app->messageWindow, FALSE, 1, 11);
     if (immediate == FALSE) {
         int textSpeed = RecordMixing_GetTextSpeed(app);
-        app->printerId = AddTextPrinterParameterized(&app->messageWindow, 1, app->messageText, 0, 0, textSpeed, NULL);
+        app->printerId = AddTextPrinterParameterized(&app->messageWindow, FONT_MESSAGE, app->messageText, 0, 0, textSpeed, NULL);
     } else {
-        AddTextPrinterParameterized(&app->messageWindow, 1, app->messageText, 0, 0, TEXT_SPEED_INSTANT, NULL);
+        AddTextPrinterParameterized(&app->messageWindow, FONT_MESSAGE, app->messageText, 0, 0, TEXT_SPEED_INSTANT, NULL);
         app->printerId = 0xFF;
     }
 }

@@ -810,7 +810,7 @@ void PokeathlonGoalRoll_PrintTotalPoints(PokeathlonGoalRoll *goalRoll, u32 score
     msgFormat = MessageFormat_New(goalRoll->heapId);
     BufferIntegerAsString(msgFormat, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0309_00165, goalRoll->heapId);
-    AddTextPrinterParameterizedWithColor(&goalRoll->scoreWindow, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&goalRoll->scoreWindow, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     MessageFormat_Delete(msgFormat);
     DestroyMsgData(msgData);
@@ -1250,14 +1250,14 @@ void PokeathlonGoalRoll_PrintPlate(PokeathlonGoalRoll *goalRoll, u8 participant,
             GF_ASSERT(FALSE);
             string = goalRoll->plateStrings[0];
         }
-        AddTextPrinterParameterizedWithColor(&goalRoll->nameWindows[participant], 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&goalRoll->nameWindows[participant], FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     } else {
         if (goalRoll->leading[participant]) {
             color = MAKE_TEXT_COLOR(3, 4, 0);
         } else {
             color = MAKE_TEXT_COLOR(1, 2, 0);
         }
-        AddTextPrinterParameterizedWithColor(&goalRoll->nameWindows[participant], 4, goalRoll->nameStrings[participant], 0, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
+        AddTextPrinterParameterizedWithColor(&goalRoll->nameWindows[participant], FONT_UNK_4, goalRoll->nameStrings[participant], 0, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
     }
     CopyWindowToVram(&goalRoll->nameWindows[participant]);
 }

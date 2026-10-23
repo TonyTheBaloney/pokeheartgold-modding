@@ -596,13 +596,13 @@ static void AprijuiceScreen_DrawScreen(AprijuiceScreen *screen) {
     Window *windows;
     AprijuiceScreen_DrawButtons(screen, 2);
     ReadMsgDataIntoString(screen->msgData, msg_0022_00000, screen->string2);
-    AddTextPrinterParameterizedWithColor(&screen->windows[3], 0, screen->string2, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&screen->windows[3], FONT_SYSTEM, screen->string2, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ScheduleWindowCopyToVram(&screen->windows[3]);
     i = 0;
     windows = screen->windows;
     for (; i < 5; i++) {
         ReadMsgDataIntoString(screen->msgData, sAprijuiceStatOrder[i] + msg_0022_00005, screen->string2);
-        AddTextPrinterParameterizedWithColor(&windows[i + 5], 0, screen->string2, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&windows[i + 5], FONT_SYSTEM, screen->string2, 4, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         ScheduleWindowCopyToVram(&windows[i + 5]);
     }
     AprijuiceScreen_ShowMon(screen, screen->selectedMon);
@@ -656,7 +656,7 @@ static void AprijuiceScreen_DrawButtons(AprijuiceScreen *screen, u32 state) {
         FillWindowPixelBuffer(&screen->windows[1], 0);
         for (i = 0; i < 2; i++) {
             ReadMsgDataIntoString(screen->msgData, i + msg_0022_00001, screen->string2);
-            AddTextPrinterParameterizedWithColor(&screen->windows[1], 4, screen->string2, 0, 4 + i * 24, TEXT_SPEED_NOTRANSFER, sAprijuiceButtonColors[i], NULL);
+            AddTextPrinterParameterizedWithColor(&screen->windows[1], FONT_UNK_4, screen->string2, 0, 4 + i * 24, TEXT_SPEED_NOTRANSFER, sAprijuiceButtonColors[i], NULL);
             Sprite_SetDrawFlag(screen->sprites[i], TRUE);
         }
         ScheduleWindowCopyToVram(&screen->windows[1]);
@@ -942,7 +942,7 @@ static void AprijuiceScreen_FreeBgGraphics(AprijuiceScreen *screen) {
 
 static void AprijuiceScreen_InitStrings(AprijuiceScreen *screen) {
     int i;
-    FontID_Alloc(4, screen->heapId);
+    FontID_Alloc(FONT_UNK_4, screen->heapId);
     TextFlags_SetCanABSpeedUpPrint(TRUE);
     TextFlags_SetCanTouchSpeedUpPrint(TRUE);
     screen->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0022, screen->heapId);
@@ -967,7 +967,7 @@ static void AprijuiceScreen_FreeStrings(AprijuiceScreen *screen) {
     DestroyMsgData(screen->msgData);
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
     TextFlags_SetCanABSpeedUpPrint(FALSE);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void AprijuiceScreen_AddWindows(AprijuiceScreen *screen) {
@@ -1179,7 +1179,7 @@ static void AprijuiceScreen_PrintMessage(AprijuiceScreen *screen, int message) {
         break;
     }
     ReadMsgDataIntoString(screen->msgData, message, screen->string2);
-    screen->textPrinterId = AddTextPrinterParameterizedWithColor(&screen->windows[0], 1, screen->string2, 0, 0, speed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    screen->textPrinterId = AddTextPrinterParameterizedWithColor(&screen->windows[0], FONT_MESSAGE, screen->string2, 0, 0, speed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     if (speed == 0) {
         ScheduleWindowCopyToVram(&screen->windows[0]);
     }
@@ -1188,14 +1188,14 @@ static void AprijuiceScreen_PrintMessage(AprijuiceScreen *screen, int message) {
 static void AprijuiceScreen_ShowMon(AprijuiceScreen *screen, int index) {
     AprijuiceMon *entry = &screen->mons[index];
     FillWindowPixelBuffer(&screen->windows[4], 0);
-    AddTextPrinterParameterizedWithColor(&screen->windows[4], 0, entry->name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&screen->windows[4], FONT_SYSTEM, entry->name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
     if (entry->gender != MON_GENDERLESS) {
         int gender = entry->gender;
-        AddTextPrinterParameterizedWithColor(&screen->windows[4], 0, screen->genderSymbols[gender], 64, 0, TEXT_SPEED_NOTRANSFER, sAprijuiceGenderColors[gender], NULL);
+        AddTextPrinterParameterizedWithColor(&screen->windows[4], FONT_SYSTEM, screen->genderSymbols[gender], 64, 0, TEXT_SPEED_NOTRANSFER, sAprijuiceGenderColors[gender], NULL);
     }
     BufferIntegerAsString(screen->msgFormat, 0, entry->level, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(screen->msgFormat, screen->string2, screen->levelTemplate);
-    AddTextPrinterParameterizedWithColor(&screen->windows[4], 0, screen->string2, 16, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&screen->windows[4], FONT_SYSTEM, screen->string2, 16, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ScheduleWindowCopyToVram(&screen->windows[4]);
     AprijuiceScene_DeletePokepic(screen->scene);
     AprijuiceScene_CreatePokepic(screen->scene, entry);

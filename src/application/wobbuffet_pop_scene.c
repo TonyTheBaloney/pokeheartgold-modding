@@ -1941,7 +1941,7 @@ void WobbuffetPop_CreateScoreLabels(WobbuffetPop *game) {
         string = NewString_ReadMsgData(game->msgData, score % 10 + 4);
         score /= 10;
         TextOBJ_GetPosition(game->scoreDisplay.digits[i].top.textObj, &x, &y);
-        WobbuffetPop_NewTextObj(game->bgConfig, game->spriteManager, game->fontSystem, &game->scoreDisplay.labels[i], string, 0, MAKE_TEXT_COLOR(14, 15, 0), 0, 10003, x, 168, 0, 1, 12, 2);
+        WobbuffetPop_NewTextObj(game->bgConfig, game->spriteManager, game->fontSystem, &game->scoreDisplay.labels[i], string, FONT_SYSTEM, MAKE_TEXT_COLOR(14, 15, 0), 0, 10003, x, 168, 0, 1, 12, 2);
         String_Delete(string);
     }
 }

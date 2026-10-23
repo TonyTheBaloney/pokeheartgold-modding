@@ -527,7 +527,7 @@ static BOOL MailView_ShowEmptyMailWarning(MailView *mailView) {
         FillWindowPixelBuffer(&mailView->windows[5], 0xFF);
         string = String_New(76, mailView->heapID);
         ReadMsgDataIntoString(mailView->msgData, msg_0233_00002, string);
-        AddTextPrinterParameterizedWithColor(&mailView->windows[5], 1, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+        AddTextPrinterParameterizedWithColor(&mailView->windows[5], FONT_MESSAGE, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 15), NULL);
         String_Delete(string);
         break;
     case MAIL_VIEW_EMPTY_WARNING_WAIT_INPUT:
@@ -607,7 +607,7 @@ static BOOL MailView_ConfirmQuit(MailView *mailView) {
         FillWindowPixelBuffer(&mailView->windows[5], 0xFF);
         string = String_New(76, mailView->heapID);
         ReadMsgDataIntoString(mailView->msgData, msg_0233_00003, string);
-        mailView->textPrinterId = AddTextPrinterParameterizedWithColor(&mailView->windows[5], 1, string, 0, 0, mailView->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+        mailView->textPrinterId = AddTextPrinterParameterizedWithColor(&mailView->windows[5], FONT_MESSAGE, string, 0, 0, mailView->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
         String_Delete(string);
         MailView_ResetCursorHighlight(mailView);
         mailView->prevCursorPos = mailView->cursorPos;
@@ -948,7 +948,7 @@ static void MailView_PrintTexts(MailView *mailView) {
     for (i = 0, msgOffset = 0, window = &mailView->windows[0]; i < 3; i++, msgOffset += sizeof(MailMessage), window++) {
         if (MailMsg_IsInit((MailMessage *)((u8 *)mailView->args->mailMessages + msgOffset))) {
             string = MailMsg_GetExpandedString((MailMessage *)((u8 *)mailView->args->mailMessages + msgOffset), mailView->heapID);
-            AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+            AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
             String_Delete(string);
             CopyWindowToVram(window);
         }
@@ -963,14 +963,14 @@ static void MailView_PrintTexts(MailView *mailView) {
         do {
             String_SetEmpty(string);
             ReadMsgDataIntoString(mailView->msgData, i, string);
-            x = 64 - FontID_String_GetWidth(1, string, 0);
-            AddTextPrinterParameterizedWithColor(&window[i + 3], 1, string, x / 2, 2, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+            x = 64 - FontID_String_GetWidth(FONT_MESSAGE, string, 0);
+            AddTextPrinterParameterizedWithColor(&window[i + 3], FONT_MESSAGE, string, x / 2, 2, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
             CopyWindowToVram(&window[i + 3]);
             i++;
         } while (i < 2);
         String_Delete(string);
     } else {
-        AddTextPrinterParameterizedWithColor(&mailView->windows[4], 1, mailView->args->mailAuthorName, 0, 1, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&mailView->windows[4], FONT_MESSAGE, mailView->args->mailAuthorName, 0, 1, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         CopyWindowToVram(&mailView->windows[4]);
     }
 }

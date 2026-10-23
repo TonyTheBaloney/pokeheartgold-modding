@@ -1311,7 +1311,7 @@ static void PhotoAlbumApp_FreeScreenData(PhotoAlbumApp *app) {
 
 static void PhotoAlbumApp_LoadStrings(PhotoAlbumApp *app) {
     int i;
-    FontID_Alloc(4, app->heapId);
+    FontID_Alloc(FONT_UNK_4, app->heapId);
     app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0000, app->heapId);
     app->messageFormat = MessageFormat_New_Custom(6, 0x16, app->heapId);
     app->str_2C = String_New(0x80, app->heapId);
@@ -1342,7 +1342,7 @@ static void PhotoAlbumApp_FreeStrings(PhotoAlbumApp *app) {
     String_Delete(app->str_2C);
     MessageFormat_Delete(app->messageFormat);
     DestroyMsgData(app->msgData);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void PhotoAlbumApp_CreateWindows(PhotoAlbumApp *app) {
@@ -1529,7 +1529,7 @@ static void PhotoAlbumApp_PrintPhotoDetails(PhotoAlbumApp *app, Photo *photo) {
     } else {
         StringExpandPlaceholders(app->messageFormat, app->str_2C, app->strs_48[0]);
     }
-    AddTextPrinterParameterizedWithColor(&app->windows[2], 0, app->str_2C, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->windows[2], FONT_SYSTEM, app->str_2C, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 2, 0), NULL);
     ScheduleWindowCopyToVram(&app->windows[2]);
     PhotoAlbumApp_DrawPhotoIcon(app, (u8)(photo->iconId + 1), GF_BG_LYR_SUB_3, 13, 8);
 }
@@ -1540,7 +1540,7 @@ static void PhotoAlbumApp_PrintCloseButton(PhotoAlbumApp *app, int a) {
         Sprite_SetAnimCtrlSeq(app->sprites[4], 9);
         Sprite_ResetAnimCtrlState(app->sprites[4]);
     }
-    AddTextPrinterParameterizedWithColor(&app->windows[0], 4, app->str_30, (0x40 - FontID_String_GetWidth(4, app->str_30, 0)) >> 1, 0, 0xFF, 0x00010500, NULL);
+    AddTextPrinterParameterizedWithColor(&app->windows[0], FONT_UNK_4, app->str_30, (0x40 - FontID_String_GetWidth(FONT_UNK_4, app->str_30, 0)) >> 1, 0, 0xFF, 0x00010500, NULL);
     ScheduleWindowCopyToVram(&app->windows[0]);
     ScheduleBgTilemapBufferTransfer(app->bgConfig, GF_BG_LYR_MAIN_1);
 }
@@ -1551,9 +1551,9 @@ static void PhotoAlbumApp_PrintMessage(PhotoAlbumApp *app, int msgIdx, BOOL draw
     }
     FillWindowPixelBuffer(&app->windows[1], 15);
     if (textDelay == 0) {
-        AddTextPrinterParameterizedWithColor(&app->windows[1], 0, app->strs_34[msgIdx], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+        AddTextPrinterParameterizedWithColor(&app->windows[1], FONT_SYSTEM, app->strs_34[msgIdx], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     } else {
-        app->printerId = AddTextPrinterParameterizedWithColor(&app->windows[1], 0, app->strs_34[msgIdx], 0, 0, textDelay, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+        app->printerId = AddTextPrinterParameterizedWithColor(&app->windows[1], FONT_SYSTEM, app->strs_34[msgIdx], 0, 0, textDelay, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     }
     ScheduleWindowCopyToVram(&app->windows[1]);
 }

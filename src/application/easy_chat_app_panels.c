@@ -548,8 +548,8 @@ static int EasyChatSentenceView_DrawMessage(EasyChatSentenceView *sentence, Wind
     do {
         switch (EasyChatMessageParser_Next(&sentence->parser, string)) {
         case EC_PARSE_TEXT:
-            AddTextPrinterParameterizedWithColor(window, 1, string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 13), NULL);
-            x += FontID_String_GetWidth(1, string, 0);
+            AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 13), NULL);
+            x += FontID_String_GetWidth(FONT_MESSAGE, string, 0);
             break;
         case EC_PARSE_WORD:
             cur->slotPositions[0].x = x + 50;
@@ -676,8 +676,8 @@ static void EasyChatSentenceView_DrawWord(EasyChatSentenceView *sentence, Window
     if (word != EC_WORD_NULL) {
         EasyChatSentenceView_GetSlotTextPos(slot, &pos);
         GetECWordIntoStringByIndexInt(word, sentence->string);
-        FontID_String_GetWidth(1, sentence->string, 0);
-        AddTextPrinterParameterizedWithColor(window, 1, sentence->string, pos.x, pos.y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 14), NULL);
+        FontID_String_GetWidth(FONT_MESSAGE, sentence->string, 0);
+        AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, sentence->string, pos.x, pos.y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 14), NULL);
     }
 }
 
@@ -708,21 +708,21 @@ void EasyChatSentenceView_PrintMessage(EasyChatSentenceView *sentence, u32 messa
         BufferPocketName(msgFormat, 0, 0);
         ReadMsgDataIntoString(sentence->msgData, EasyChatApp_GetPromptMsgNo(sentence->app), sentence->string);
         StringExpandPlaceholders(msgFormat, string, sentence->string);
-        AddTextPrinterParameterizedWithColor(sentence->messageWindow, 1, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 9), NULL);
+        AddTextPrinterParameterizedWithColor(sentence->messageWindow, FONT_MESSAGE, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 9), NULL);
         String_Delete(string);
         MessageFormat_Delete(msgFormat);
         break;
     case 2:
         ReadMsgDataIntoString(sentence->msgData, msg_0283_00006, sentence->string);
-        AddTextPrinterParameterizedWithColor(sentence->messageWindow, 1, sentence->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 9), NULL);
+        AddTextPrinterParameterizedWithColor(sentence->messageWindow, FONT_MESSAGE, sentence->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 9), NULL);
         break;
     case 1:
         ReadMsgDataIntoString(sentence->msgData, msg_0283_00007, sentence->string);
-        AddTextPrinterParameterizedWithColor(sentence->messageWindow, 1, sentence->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 9), NULL);
+        AddTextPrinterParameterizedWithColor(sentence->messageWindow, FONT_MESSAGE, sentence->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 9), NULL);
         break;
     case 3:
         ReadMsgDataIntoString(sentence->msgData, msg_0283_00008, sentence->string);
-        AddTextPrinterParameterizedWithColor(sentence->messageWindow, 1, sentence->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 9), NULL);
+        AddTextPrinterParameterizedWithColor(sentence->messageWindow, FONT_MESSAGE, sentence->string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 9), NULL);
         break;
     }
     CopyWindowToVram(sentence->messageWindow);
@@ -920,8 +920,8 @@ void EasyChatMenuView_DrawMainButtons(EasyChatMenuView *menuView, BOOL draw, BOO
     for (i = 0, window = menuView->windows; i < 2; i++) {
         int x;
         FillWindowPixelBuffer(window, 14);
-        x = 56 - FontID_String_GetWidth(4, menuView->labels[i], 0);
-        AddTextPrinterParameterizedWithColor(window, 4, menuView->labels[i], x / 2, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(3, 1, 14), NULL);
+        x = 56 - FontID_String_GetWidth(FONT_UNK_4, menuView->labels[i], 0);
+        AddTextPrinterParameterizedWithColor(window, FONT_UNK_4, menuView->labels[i], x / 2, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(3, 1, 14), NULL);
         window++;
     }
     BgCommitTilemapBufferToVram(bgConfig, GF_BG_LYR_MAIN_0);
@@ -939,8 +939,8 @@ static void EasyChatMenuView_DrawListButton(EasyChatMenuView *menuView, BOOL dra
     }
     CopyToBgTilemapRect(bgConfig, GF_BG_LYR_MAIN_0, 24, 20, 8, 4, menuView->buttonsScreen->rawData, 0, 7, menuView->buttonsScreen->screenWidth / 8, menuView->buttonsScreen->screenHeight / 8);
     FillWindowPixelBuffer(&menuView->windows[2], 14);
-    x = 48 - FontID_String_GetWidth(4, menuView->labels[2], 0);
-    AddTextPrinterParameterizedWithColor(&menuView->windows[2], 4, menuView->labels[2], x / 2, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(3, 1, 14), NULL);
+    x = 48 - FontID_String_GetWidth(FONT_UNK_4, menuView->labels[2], 0);
+    AddTextPrinterParameterizedWithColor(&menuView->windows[2], FONT_UNK_4, menuView->labels[2], x / 2, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(3, 1, 14), NULL);
     ScheduleBgTilemapBufferTransfer(bgConfig, GF_BG_LYR_MAIN_0);
 }
 
@@ -1118,8 +1118,8 @@ static u32 EasyChatCategoryView_DrawCategories(EasyChatCategoryView *categories,
         GF_ASSERT(tile < 1006);
         AddWindowParameterized(bgConfig, &window, GF_BG_LYR_MAIN_1, x, y, 9, 2, 11, tile);
         FillWindowPixelBuffer(&window, 15);
-        center = (72 - FontID_String_GetWidth(0, string, 0)) / 2;
-        AddTextPrinterParameterizedWithColor(&window, 0, string, center, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
+        center = (72 - FontID_String_GetWidth(FONT_SYSTEM, string, 0)) / 2;
+        AddTextPrinterParameterizedWithColor(&window, FONT_SYSTEM, string, center, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
         PutWindowTilemap(&window);
         CopyWindowPixelsToVram_TextMode(&window);
         String_Delete(string);
@@ -1147,7 +1147,7 @@ static u32 EasyChatCategoryView_DrawInitials(EasyChatCategoryView *categories, B
         EasyChatInitialGrid_GetLetter(i, string);
         EasyChatInitialGrid_GetPosition(i, &x, &y);
         color = ECMenu_GetInitialCount(categories->menu, i) != 0 ? MAKE_TEXT_COLOR(1, 2, 15) : MAKE_TEXT_COLOR(3, 4, 15);
-        AddTextPrinterParameterizedWithColor(&window, 0, string, x + 3, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+        AddTextPrinterParameterizedWithColor(&window, FONT_SYSTEM, string, x + 3, y, TEXT_SPEED_NOTRANSFER, color, NULL);
     }
     CopyWindowPixelsToVram_TextMode(&window);
     PutWindowTilemap(&window);
@@ -1542,13 +1542,13 @@ static void EasyChatWordListView_DrawWord(EasyChatWordListView *wordList, int in
 
     EasyChatApp_GetCategoryWord(wordList->app, index, wordList->word);
     if (y <= 240) {
-        AddTextPrinterParameterizedWithColor(&wordList->listWindow, 0, wordList->word, (index & 1) * 112, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&wordList->listWindow, FONT_SYSTEM, wordList->word, (index & 1) * 112, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         return;
     }
     // the word wraps around the bottom of the 256 pixel high window: print it apart and copy both halves
     height = 256 - y;
     FillWindowPixelBuffer(&wordList->wordWindow, 0);
-    AddTextPrinterParameterizedWithColor(&wordList->wordWindow, 0, wordList->word, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&wordList->wordWindow, FONT_SYSTEM, wordList->word, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     x = (index & 1) * 112;
     BlitBitmapRectToWindow(&wordList->listWindow, wordList->wordWindow.pixelBuffer, 0, 0, 96, 16, x, y, 96, height);
     BlitBitmapRectToWindow(&wordList->listWindow, wordList->wordWindow.pixelBuffer, 0, height, 96, 16, x, 0, 96, 16 - height);

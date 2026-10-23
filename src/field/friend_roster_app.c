@@ -259,7 +259,7 @@ SysTask *FriendRosterApp_Init(BgConfig *bgConfig, void *lastTouchMenuInput, Fiel
     data->roster = Save_FriendRoster_Get(fieldSystem->saveData);
     data->result = result;
     *data->result = -1;
-    FontID_Alloc(4, HEAP_ID_8);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_8);
     narc = NARC_New(NARC_a_2_5_9, HEAP_ID_8);
     FriendRosterApp_SetVramBanks();
     FriendRosterApp_InitBgs(bgConfig);
@@ -279,7 +279,7 @@ void FriendRosterApp_Exit(void *unused, SysTask *task) {
     FriendRosterApp_RemoveWindows(data);
     FriendRosterApp_FreeText(data);
     FriendRosterApp_FreeBgs(data->bgConfig);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     DestroySysTaskAndEnvironment(task);
     Heap_Destroy(HEAP_ID_8);
 }
@@ -345,8 +345,8 @@ static void FriendRosterApp_InitWindows(FriendRosterAppData *data) {
     FillWindowPixelBuffer(&data->windows[0], 0);
     string = NewString_ReadMsgData(data->msgData, msg_0196_00029);
     center = GetWindowWidth(&data->windows[0]) * 8 / 2;
-    x = center - FontID_String_GetWidth(4, string, 0) / 2;
-    AddTextPrinterParameterizedWithColor(&data->windows[0], 4, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
+    x = center - FontID_String_GetWidth(FONT_UNK_4, string, 0) / 2;
+    AddTextPrinterParameterizedWithColor(&data->windows[0], FONT_UNK_4, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
     String_Delete(string);
     CopyWindowPixelsToVram_TextMode(&data->windows[0]);
     ScheduleWindowCopyToVram(&data->windows[0]);
@@ -374,21 +374,21 @@ static void FriendRosterApp_PrintPageNumber(FriendRosterAppData *data) {
 
     FillWindowPixelBuffer(&data->windows[1], 0);
     string = NewString_ReadMsgData(data->msgData, msg_0196_00028);
-    width = FontID_String_GetWidth(0, string, 0);
+    width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
     center = (GetWindowWidth(&data->windows[1]) * 8 - width) / 2;
-    AddTextPrinterParameterizedWithColor(&data->windows[1], 0, string, center, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->windows[1], FONT_SYSTEM, string, center, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
     String_Delete(string);
     buf = String_New(4, HEAP_ID_8);
     template = NewString_ReadMsgData(data->msgData, msg_0196_00027);
     BufferIntegerAsString(data->msgFormat, 0, FRIEND_ROSTER_APP_NUM_PAGES, 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(data->msgFormat, buf, template);
-    AddTextPrinterParameterizedWithColor(&data->windows[1], 0, buf, center + width, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&data->windows[1], FONT_SYSTEM, buf, center + width, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
     String_Delete(template);
     template = NewString_ReadMsgData(data->msgData, msg_0196_00027);
     BufferIntegerAsString(data->msgFormat, 0, data->page + 1, 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(data->msgFormat, buf, template);
-    x = center - FontID_String_GetWidth(0, buf, 0);
-    AddTextPrinterParameterizedWithColor(&data->windows[1], 0, buf, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
+    x = center - FontID_String_GetWidth(FONT_SYSTEM, buf, 0);
+    AddTextPrinterParameterizedWithColor(&data->windows[1], FONT_SYSTEM, buf, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
     String_Delete(template);
     String_Delete(buf);
     CopyWindowPixelsToVram_TextMode(&data->windows[1]);
@@ -418,7 +418,7 @@ static void FriendRosterApp_PrintNames(FriendRosterAppData *data) {
         BufferPlayersName(data->msgFormat, 0, profile);
         StringExpandPlaceholders(data->msgFormat, buf, template);
         FillWindowPixelBuffer(&windows[i], 0);
-        AddTextPrinterParameterizedWithColor(&windows[i], 4, buf, center - FontID_String_GetWidth(0, buf, 0) / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&windows[i], FONT_UNK_4, buf, center - FontID_String_GetWidth(FONT_SYSTEM, buf, 0) / 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(5, 6, 0), NULL);
         CopyWindowPixelsToVram_TextMode(&windows[i]);
         ScheduleWindowCopyToVram(&windows[i]);
     }

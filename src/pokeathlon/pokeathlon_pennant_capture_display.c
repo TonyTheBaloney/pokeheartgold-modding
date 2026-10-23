@@ -440,7 +440,7 @@ static void PokeathlonPennantCaptureDisplay_PrintName(PokeathlonPennantCaptureDi
     FillWindowPixelBuffer(&display->window, 0);
     BufferString(display->msgFormat, 0, display->names[member], 2, 1, 2);
     string = ReadMsgData_ExpandPlaceholders(display->msgFormat, display->msgData, msg_0309_00154, display->heapId);
-    AddTextPrinterParameterizedWithColor(&display->window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     CopyWindowToVram(&display->window);
 }

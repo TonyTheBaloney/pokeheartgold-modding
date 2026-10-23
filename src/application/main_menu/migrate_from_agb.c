@@ -456,7 +456,7 @@ static void MigrateFromAgb_MovePicksToPalPark(MigrateFromAgbApp *app) {
 
 static int MigrateFromAgb_GetTextX(MigrateFromAgbText *text, String *string, int flags) {
     if (flags & 1) {
-        int width = FontID_String_GetWidth(1, string, 0);
+        int width = FontID_String_GetWidth(FONT_MESSAGE, string, 0);
         return (text->width * 8 - width) / 2;
     }
     return text->printX;
@@ -1098,7 +1098,7 @@ static void MigrateFromAgb_InitGraphics(MigrateFromAgbApp *app) {
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_15_OFFSET, HEAP_ID_76);
     GfGfxLoader_GXLoadPal(NARC_a_1_1_3, 23, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 0xC0, HEAP_ID_76);
     GfGfxLoader_LoadCharData(NARC_a_1_1_3, 26, app->bgConfig, GF_BG_LYR_MAIN_2, 0, 0x1400, TRUE, HEAP_ID_76);
-    FontID_Alloc(2, HEAP_ID_76);
+    FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_76);
 }
 
 // The box screen background, in the colour of the game
@@ -1224,7 +1224,7 @@ static void MigrateFromAgb_FreeGraphics(MigrateFromAgbApp *app) {
     MigrateFromAgb_RemoveWindow(&app->boxNameWindow);
     MigrateFromAgb_RemoveWindow(&app->monInfoWindow);
     MigrateFromAgb_RemoveWindow(&app->msgWindow);
-    FontID_Release(2);
+    FontID_Release(FONT_SUBSCREEN);
     SpriteTransfer_DeleteCharTransferTask(app->resources[GF_GFX_RES_TYPE_CHAR]);
     SpriteTransfer_DeletePlttTransferTask(app->resources[GF_GFX_RES_TYPE_PLTT]);
     for (i = 0; i < 6; i++) {

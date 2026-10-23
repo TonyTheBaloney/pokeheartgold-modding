@@ -435,7 +435,7 @@ static void GtsSummary_PrintMonMessage(GtsApp *app, int msgId, int textSpeed, in
     StringExpandPlaceholders(app->msgFormat, app->msgBuffer, string);
     FillWindowPixelBuffer(&app->waitingIconWindow, 15);
     DrawFrameAndWindow2(&app->waitingIconWindow, FALSE, 1, 14);
-    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, 1, app->msgBuffer, 0, 0, textSpeed, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->waitingIconWindow, FONT_MESSAGE, app->msgBuffer, 0, 0, textSpeed, NULL);
     String_Delete(string);
 }
 

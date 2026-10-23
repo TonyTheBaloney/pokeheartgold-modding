@@ -1342,7 +1342,7 @@ void FootprintStamp_PrintPlayerName(MsgData *msgData, MessageFormat *msgFormat, 
     window = &windows[index];
     FillWindowPixelBuffer(window, 0);
     color = WiFiPlazaWork_IsSpecialVisitor(lobby, slot) == 1 ? MAKE_TEXT_COLOR(7, 8, 0) : MAKE_TEXT_COLOR(1, 2, 0);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_INSTANT, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_INSTANT, color, NULL);
     CopyWindowToVram(window);
     String_Delete(name);
     String_Delete(template);

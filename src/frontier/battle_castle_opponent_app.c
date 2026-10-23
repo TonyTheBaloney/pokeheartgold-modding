@@ -393,7 +393,7 @@ BOOL BattleCastleOpponentApp_Main(OverlayManager *manager, int *state) {
             }
             BattleCastle_DrawWindowFrame(&app->windows[CASTLE_OPP_WIN_MESSAGE], Options_GetFrame(app->options));
             Frontier_BufferPartnerName(app->msgFormat, 0);
-            app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00007, 1);
+            app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00007, FONT_MESSAGE);
             BattleCastleOpponentApp_SetMainState(app, state, CASTLE_OPP_MAIN_LINK_EXIT);
         }
     } else if (app->linkSlot != 0xFF && (*state == CASTLE_OPP_MAIN_MENU || *state == CASTLE_OPP_MAIN_LINK_EXIT)) {
@@ -574,7 +574,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
                 BattleCastleOpponentApp_CloseMainMenu(app);
                 BattleCastleOpponentApp_OpenMessageBox(app);
                 BattleCastleOpponentApp_BufferNumber(app, 0, CASTLE_CP_CHECK, 4, 0);
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00016, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00016, FONT_MESSAGE);
                 BattleCastleOpponentApp_ShowYesNoPrompt(app);
                 app->subState = CASTLE_OPP_STATE_CONFIRM_CHECK;
             } else {
@@ -582,7 +582,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
                 mon = Party_GetMonByIndex(app->party, BattleCastle_GetMonIndex(app->numMons, app->cursorPos));
                 BattleCastleOpponentApp_OpenMessageBox(app);
                 BattleCastleOpponentApp_BufferSpeciesName(app, 0, Mon_GetBoxMon(mon));
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00020, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00020, FONT_MESSAGE);
                 app->subState = CASTLE_OPP_STATE_MESSAGE;
             }
             break;
@@ -591,7 +591,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
             BattleCastleOpponentApp_CloseMainMenu(app);
             BattleCastleOpponentApp_OpenMessageBox(app);
             BattleCastleOpponentApp_BufferSpeciesName(app, 0, app->summary.boxMon);
-            app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00021, 1);
+            app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00021, FONT_MESSAGE);
             BattleCastleOpponentApp_OpenLevelMenu(app);
             app->subState = CASTLE_OPP_STATE_LEVEL_MENU;
             break;
@@ -621,7 +621,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
             points = FrontierSave_GetStat(app->frontierSave, BattleCastle_GetPointsStat(app->frontierType), FrontierStat_GetFriendIndex(BattleCastle_GetPointsStat(app->frontierType)));
             if (points < CASTLE_CP_CHECK) {
                 BattleCastleOpponentApp_OpenMessageBox(app);
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00028, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00028, FONT_MESSAGE);
                 app->subState = CASTLE_OPP_STATE_MESSAGE;
             } else if (BattleCastle_IsMultiType(app->frontierType) == FALSE) {
                 BattleCastle_SpendPoints(app->frontierSave, app->frontierType, CASTLE_CP_CHECK);
@@ -659,7 +659,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
             BattleCastleOpponentApp_CloseLevelMenu(app);
             if (app->levelChanges[BattleCastle_GetMonIndex(app->numMons, app->cursorPos)] == CASTLE_LEVEL_UP) {
                 BattleCastleOpponentApp_OpenMessageBox(app);
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00029, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00029, FONT_MESSAGE);
                 app->subState = CASTLE_OPP_STATE_MESSAGE;
             } else {
                 BattleCastleOpponentApp_ConfirmLevelChange(app, CASTLE_LEVEL_UP);
@@ -671,7 +671,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
             BattleCastleOpponentApp_CloseLevelMenu(app);
             if (app->levelChanges[BattleCastle_GetMonIndex(app->numMons, app->cursorPos)] == CASTLE_LEVEL_DOWN) {
                 BattleCastleOpponentApp_OpenMessageBox(app);
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00030, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00030, FONT_MESSAGE);
                 app->subState = CASTLE_OPP_STATE_MESSAGE;
             } else {
                 BattleCastleOpponentApp_ConfirmLevelChange(app, CASTLE_LEVEL_DOWN);
@@ -689,7 +689,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
             points = FrontierSave_GetStat(app->frontierSave, BattleCastle_GetPointsStat(app->frontierType), FrontierStat_GetFriendIndex(BattleCastle_GetPointsStat(app->frontierType)));
             if (points < (u32)BattleCastleOpponentApp_GetLevelChangeCost(app->levelChange)) {
                 BattleCastleOpponentApp_OpenMessageBox(app);
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00028, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00028, FONT_MESSAGE);
                 app->subState = CASTLE_OPP_STATE_MESSAGE;
                 return FALSE;
             }
@@ -730,7 +730,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
             if (app->statsBought[BattleCastle_GetMonIndex(app->numMons, app->cursorPos)] == FALSE) {
                 BattleCastleOpponentApp_OpenMessageBox(app);
                 BattleCastleOpponentApp_BufferNumber(app, 0, CASTLE_CP_STATS, 4, 0);
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00043, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00043, FONT_MESSAGE);
                 BattleCastleOpponentApp_ShowYesNoPrompt(app);
                 app->subState = CASTLE_OPP_STATE_CONFIRM_STATS;
             } else {
@@ -741,14 +741,14 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
             app->action = input;
             BattleCastleOpponentApp_CloseSummaryMenu(app);
             if (BattleCastle_GetRank(app->saveData, app->frontierType, CASTLE_RANK_INFO) == 1) {
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00042, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00042, FONT_MESSAGE);
                 app->subState = CASTLE_OPP_STATE_SUMMARY_MENU_MESSAGE;
                 return FALSE;
             }
             if (app->movesBought[BattleCastle_GetMonIndex(app->numMons, app->cursorPos)] == FALSE) {
                 BattleCastleOpponentApp_OpenMessageBox(app);
                 BattleCastleOpponentApp_BufferNumber(app, 0, CASTLE_CP_MOVES, 4, 0);
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00079, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00079, FONT_MESSAGE);
                 BattleCastleOpponentApp_ShowYesNoPrompt(app);
                 app->subState = CASTLE_OPP_STATE_CONFIRM_MOVES;
             } else {
@@ -766,7 +766,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
                 BattleCastleOpponentApp_CloseSummaryMenu(app);
                 FrontierSave_GetStat(app->frontierSave, BattleCastle_GetPointsStat(app->frontierType), FrontierStat_GetFriendIndex(BattleCastle_GetPointsStat(app->frontierType)));
                 BattleCastleOpponentApp_BufferNumber(app, 0, CASTLE_CP_RANK_UP, 4, 0);
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00091, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00091, FONT_MESSAGE);
                 BattleCastleOpponentApp_ShowYesNoPrompt(app);
                 app->subState = CASTLE_OPP_STATE_CONFIRM_RANK_UP;
             }
@@ -813,7 +813,7 @@ static BOOL BattleCastleOpponentApp_HandleMenu(BattleCastleOpponentApp *app) {
             BattleCastle_GetRank(app->saveData, app->frontierType, CASTLE_RANK_INFO);
             if (points < CASTLE_CP_RANK_UP) {
                 BattleCastle_DrawWindowFrame(&app->windows[CASTLE_OPP_WIN_MESSAGE], Options_GetFrame(app->options));
-                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00082, 1);
+                app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00082, FONT_MESSAGE);
                 app->subState = CASTLE_OPP_STATE_SUMMARY_MENU_MESSAGE;
             } else if (BattleCastle_IsMultiType(app->frontierType) == FALSE) {
                 BattleCastleOpponentApp_RankUp(app, app->cursorPos, CASTLE_OPP_ACTION_RANK_UP);
@@ -1045,7 +1045,7 @@ static void BattleCastleOpponentApp_FreeResources(BattleCastleOpponentApp *app) 
     String_Delete(app->expandedString);
     String_Delete(app->rawString);
     MessagePrinter_Delete(app->msgPrinter);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     for (i = 0; i < 3; i++) {
         String_Delete(app->strings[i]);
     }
@@ -1081,7 +1081,7 @@ static void BattleCastleOpponentApp_InitGraphics(BattleCastleOpponentApp *app) {
     app->narc = NARC_New(NARC_a_1_8_3, HEAP_ID_107);
     BattleCastleOpponentApp_InitBgGraphics(app);
     BattleCastleOpponentApp_InitSpriteGfx(app);
-    FontID_Alloc(4, HEAP_ID_107);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_107);
     app->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0033, HEAP_ID_107);
     app->msgFormat = MessageFormat_New(HEAP_ID_107);
     app->expandedString = String_New(600, HEAP_ID_107);
@@ -1370,7 +1370,7 @@ static void BattleCastleOpponentApp_PrintPartyLevels(BattleCastleOpponentApp *ap
         value = GetMonData(mon, MON_DATA_LEVEL, NULL);
         MessagePrinter_PrintGlyphAndUInt(app->msgPrinter, 1, value, 3, PRINTING_MODE_LEFT_ALIGN, window, x, 1);
         value = GetMonData(mon, MON_DATA_GENDER, NULL);
-        BattleCastleOpponentApp_PrintGenderSymbol(app, window, genderX, 1, 0, value);
+        BattleCastleOpponentApp_PrintGenderSymbol(app, window, genderX, 1, FONT_SYSTEM, value);
     }
     ScheduleWindowCopyToVram(window);
 }
@@ -1416,7 +1416,7 @@ static void BattleCastleOpponentApp_PrintPartnerName(BattleCastleOpponentApp *ap
     u32 color = PlayerProfile_GetTrainerGender(profile) == PLAYER_GENDER_MALE ? CASTLE_OPP_TEXT_COLOR_MALE_NAME : CASTLE_OPP_TEXT_COLOR_FEMALE;
 
     BufferPlayersName(app->msgFormat, 0, profile);
-    BattleCastleOpponentApp_AddMessage(app, window, msg_0033_00001, x, y, TEXT_SPEED_NOTRANSFER, (color >> 16) & 0xFF, (color >> 8) & 0xFF, color & 0xFF, 0);
+    BattleCastleOpponentApp_AddMessage(app, window, msg_0033_00001, x, y, TEXT_SPEED_NOTRANSFER, (color >> 16) & 0xFF, (color >> 8) & 0xFF, color & 0xFF, FONT_SYSTEM);
 }
 
 static void BattleCastleOpponentApp_PrintGenderSymbol(BattleCastleOpponentApp *app, Window *window, int x, int y, u8 fontId, u8 gender) {
@@ -1442,9 +1442,9 @@ static void BattleCastleOpponentApp_PrintGenderSymbol(BattleCastleOpponentApp *a
 }
 
 static void BattleCastleOpponentApp_PrintChoosePrompt(BattleCastleOpponentApp *app) {
-    app->printerId = BattleCastleOpponentApp_PrintMessage(app, &app->windows[CASTLE_OPP_WIN_TRAINER_NAMES], msg_0033_00005, 0, 5, TEXT_SPEED_NOTRANSFER, 1, 2, 0, 0); // "EXIT"
+    app->printerId = BattleCastleOpponentApp_PrintMessage(app, &app->windows[CASTLE_OPP_WIN_TRAINER_NAMES], msg_0033_00005, 0, 5, TEXT_SPEED_NOTRANSFER, 1, 2, 0, FONT_SYSTEM); // "EXIT"
     BattleCastle_DrawWindowFrame(&app->windows[CASTLE_OPP_WIN_CHOOSE_PROMPT], Options_GetFrame(app->options));
-    app->printerId = BattleCastleOpponentApp_PrintMessage(app, &app->windows[CASTLE_OPP_WIN_CHOOSE_PROMPT], msg_0033_00004, 1, 1, TEXT_SPEED_NOTRANSFER, 1, 2, 15, 1);
+    app->printerId = BattleCastleOpponentApp_PrintMessage(app, &app->windows[CASTLE_OPP_WIN_CHOOSE_PROMPT], msg_0033_00004, 1, 1, TEXT_SPEED_NOTRANSFER, 1, 2, 15, FONT_MESSAGE);
 }
 
 static void BattleCastleOpponentApp_HideChoosePrompt(BattleCastleOpponentApp *app) {
@@ -1804,7 +1804,7 @@ static void BattleCastleOpponentApp_SetStatsBought(BattleCastleOpponentApp *app,
 static void BattleCastleOpponentApp_BuyStats(BattleCastleOpponentApp *app, int slot) {
     BattleCastle_DrawWindowFrame(&app->windows[CASTLE_OPP_WIN_MESSAGE], Options_GetFrame(app->options));
     BattleCastleOpponentApp_BufferSpeciesName(app, 0, Mon_GetBoxMon(Party_GetMonByIndex(app->party, BattleCastle_GetMonIndex(app->numMons, slot))));
-    app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00047, 1);
+    app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00047, FONT_MESSAGE);
     BattleCastleOpponentApp_SetStatsBought(app, slot);
     BattleCastleOpponentApp_ShowBoughtMarks(app);
     if (app->cursorPos == slot) {
@@ -1822,7 +1822,7 @@ static void BattleCastleOpponentApp_SetMovesBought(BattleCastleOpponentApp *app,
 static void BattleCastleOpponentApp_BuyMoves(BattleCastleOpponentApp *app, int slot) {
     BattleCastle_DrawWindowFrame(&app->windows[CASTLE_OPP_WIN_MESSAGE], Options_GetFrame(app->options));
     BattleCastleOpponentApp_BufferSpeciesName(app, 0, Mon_GetBoxMon(Party_GetMonByIndex(app->party, BattleCastle_GetMonIndex(app->numMons, slot))));
-    app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00083, 1);
+    app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00083, FONT_MESSAGE);
     BattleCastleOpponentApp_SetMovesBought(app, slot);
     BattleCastleOpponentApp_ShowBoughtMarks(app);
     if (app->cursorPos == slot) {
@@ -1862,7 +1862,7 @@ static void BattleCastleOpponentApp_PrintCastlePoints(BattleCastleOpponentApp *a
         cpStat = BattleCastle_GetPointsStat(app->frontierType);
         leftPoints = FrontierSave_GetStat(app->frontierSave, cpStat, FrontierStat_GetFriendIndex(BattleCastle_GetPointsStat(app->frontierType)));
         BattleCastleOpponentApp_BufferNumber(app, 0, leftPoints, 4, 0);
-        app->printerId = BattleCastleOpponentApp_AddMessage(app, window, msg_0033_00002, x, y, TEXT_SPEED_NOTRANSFER, 1, 2, 0, 0);
+        app->printerId = BattleCastleOpponentApp_AddMessage(app, window, msg_0033_00002, x, y, TEXT_SPEED_NOTRANSFER, 1, 2, 0, FONT_SYSTEM);
     } else {
         FillWindowPixelRect(window, 0, 64, 0, 48, 16);
         FillWindowPixelRect(window, 0, 192, 0, 48, 16);
@@ -1876,9 +1876,9 @@ static void BattleCastleOpponentApp_PrintCastlePoints(BattleCastleOpponentApp *a
             rightPoints = FrontierSave_GetStat(app->frontierSave, cpStat, FrontierStat_GetFriendIndex(BattleCastle_GetPointsStat(app->frontierType)));
         }
         BattleCastleOpponentApp_BufferNumber(app, 0, leftPoints, 4, 0);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, window, app->msgData, msg_0033_00002, 112, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, window, app->msgData, msg_0033_00002, 112, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
         BattleCastleOpponentApp_BufferNumber(app, 0, rightPoints, 4, 0);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, window, app->msgData, msg_0033_00003, 240, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, window, app->msgData, msg_0033_00003, 240, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
     }
     ScheduleWindowCopyToVram(window);
 }
@@ -1887,7 +1887,7 @@ static void BattleCastleOpponentApp_ConfirmLevelChange(BattleCastleOpponentApp *
     int cost = BattleCastleOpponentApp_GetLevelChangeCost(levelChange);
 
     BattleCastleOpponentApp_BufferNumber(app, 0, cost, 4, 0);
-    app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00025, 1);
+    app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00025, FONT_MESSAGE);
     BattleCastleOpponentApp_ShowYesNoPrompt(app);
     app->levelChange = levelChange;
 }
@@ -1900,17 +1900,17 @@ static void BattleCastleOpponentApp_PrintTrainerNames(BattleCastleOpponentApp *a
 
     BattleCastleOpponentApp_GetTrainerNamePositions(app, &x1, &y1, &x2, &y2);
     if (!BattleCastle_IsMultiType(app->frontierType)) {
-        BattleCastleOpponentApp_PrintPlayerName(app, window, (u16)(x1 + 4), (u16)(y1 + 1), 0);
+        BattleCastleOpponentApp_PrintPlayerName(app, window, (u16)(x1 + 4), (u16)(y1 + 1), FONT_SYSTEM);
     } else if (!Comm_GetLocalNetId()) {
         int y = y1;
         y = (u16)(y + 1);
-        BattleCastleOpponentApp_PrintPlayerName(app, window, x1, y, 0);
-        BattleCastleOpponentApp_PrintPartnerName(app, window, x2, (u16)(y2 + 1), 0);
+        BattleCastleOpponentApp_PrintPlayerName(app, window, x1, y, FONT_SYSTEM);
+        BattleCastleOpponentApp_PrintPartnerName(app, window, x2, (u16)(y2 + 1), FONT_SYSTEM);
     } else {
         int y = y1;
         y = (u16)(y + 1);
-        BattleCastleOpponentApp_PrintPartnerName(app, window, x1, y, 0);
-        BattleCastleOpponentApp_PrintPlayerName(app, window, x2, (u16)(y2 + 1), 0);
+        BattleCastleOpponentApp_PrintPartnerName(app, window, x1, y, FONT_SYSTEM);
+        BattleCastleOpponentApp_PrintPlayerName(app, window, x2, (u16)(y2 + 1), FONT_SYSTEM);
     }
     ScheduleWindowCopyToVram(window);
 }
@@ -1981,7 +1981,7 @@ static void BattleCastleOpponentApp_CheckMon(BattleCastleOpponentApp *app, u32 s
     mon = Party_GetMonByIndex(app->party, index);
     BattleCastle_DrawWindowFrame(&app->windows[CASTLE_OPP_WIN_MESSAGE], Options_GetFrame(app->options));
     BattleCastleOpponentApp_BufferSpeciesName(app, 0, Mon_GetBoxMon(mon));
-    app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00020, 1);
+    app->printerId = BattleCastleOpponentApp_ShowMessage(app, msg_0033_00020, FONT_MESSAGE);
 
     index = BattleCastle_GetMonIndex(app->numMons, slot);
     app->checked[index] = TRUE;
@@ -2016,10 +2016,10 @@ static void BattleCastleOpponentApp_ChangeLevel(BattleCastleOpponentApp *app, in
     mon = Party_GetMonByIndex(app->party, BattleCastle_GetMonIndex(app->numMons, slot));
     BattleCastleOpponentApp_BufferSpeciesName(app, 0, Mon_GetBoxMon(mon));
     if (levelChange == CASTLE_LEVEL_UP) {
-        app->printerId = (u8)BattleCastleOpponentApp_ShowMessage(app, msg_0033_00031, 1);
+        app->printerId = (u8)BattleCastleOpponentApp_ShowMessage(app, msg_0033_00031, FONT_MESSAGE);
         PlaySE(SEQ_SE_DP_OPEN7);
     } else {
-        app->printerId = (u8)BattleCastleOpponentApp_ShowMessage(app, msg_0033_00032, 1);
+        app->printerId = (u8)BattleCastleOpponentApp_ShowMessage(app, msg_0033_00032, FONT_MESSAGE);
         PlaySE(SEQ_SE_DP_CLOSE7);
     }
     if (app->levelChanges[BattleCastle_GetMonIndex(app->numMons, slot)] == CASTLE_LEVEL_NORMAL) {
@@ -2080,7 +2080,7 @@ static int BattleCastleOpponentApp_TryBuy(BattleCastleOpponentApp *app, int cost
 
     if (FrontierSave_GetStat(app->frontierSave, cpStat, cpStatKind) < (u32)cost) {
         BattleCastleOpponentApp_OpenMessageBox(app);
-        app->printerId = BattleCastleOpponentApp_ShowMessage(app, failMsg, 1);
+        app->printerId = BattleCastleOpponentApp_ShowMessage(app, failMsg, FONT_MESSAGE);
         app->subState = CASTLE_OPP_STATE_MESSAGE;
         return FALSE;
     }
@@ -2160,7 +2160,7 @@ static void BattleCastleOpponentApp_RankUp(BattleCastleOpponentApp *app, u8 slot
     BattleCastleOpponentApp_CloseMenus(app);
     BattleCastleOpponentApp_PrintCastlePoints(app, &app->windows[CASTLE_OPP_WIN_POINTS]);
     BattleCastle_DrawWindowFrame(&app->windows[CASTLE_OPP_WIN_MESSAGE], Options_GetFrame(app->options));
-    app->printerId = BattleCastleOpponentApp_ShowMessage(app, gBattleCastleOpponentAppRankUpMessages[kind][slot], 1);
+    app->printerId = BattleCastleOpponentApp_ShowMessage(app, gBattleCastleOpponentAppRankUpMessages[kind][slot], FONT_MESSAGE);
 }
 
 static void BattleCastleOpponentApp_ShowBoughtMarks(BattleCastleOpponentApp *app) {
@@ -2243,16 +2243,16 @@ static void BattleCastleOpponentApp_PrintSummaryLabels(BattleCastleOpponentApp *
     FillWindowPixelBuffer(&app->windows[CASTLE_OPP_WIN_DEFENSE_LABEL], 0);
     FillWindowPixelBuffer(&app->windows[CASTLE_OPP_WIN_SP_DEF_LABEL], 0);
     FillWindowPixelBuffer(&app->windows[CASTLE_OPP_WIN_SPEED_LABEL], 0);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_LEVEL_LABEL], app->msgData, msg_0033_00066, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ABILITY_LABEL], app->msgData, msg_0033_00052, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_NATURE_LABEL], app->msgData, msg_0033_00050, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ITEM_LABEL], app->msgData, msg_0033_00048, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_HP_LABEL], app->msgData, msg_0033_00067, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ATTACK_LABEL], app->msgData, msg_0033_00054, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SP_ATK_LABEL], app->msgData, msg_0033_00058, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_DEFENSE_LABEL], app->msgData, msg_0033_00056, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SP_DEF_LABEL], app->msgData, msg_0033_00060, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SPEED_LABEL], app->msgData, msg_0033_00062, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_LEVEL_LABEL], app->msgData, msg_0033_00066, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ABILITY_LABEL], app->msgData, msg_0033_00052, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_NATURE_LABEL], app->msgData, msg_0033_00050, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ITEM_LABEL], app->msgData, msg_0033_00048, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_HP_LABEL], app->msgData, msg_0033_00067, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ATTACK_LABEL], app->msgData, msg_0033_00054, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SP_ATK_LABEL], app->msgData, msg_0033_00058, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_DEFENSE_LABEL], app->msgData, msg_0033_00056, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SP_DEF_LABEL], app->msgData, msg_0033_00060, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SPEED_LABEL], app->msgData, msg_0033_00062, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
     CopyWindowPixelsToVram_TextMode(&app->windows[CASTLE_OPP_WIN_LEVEL_LABEL]);
     CopyWindowPixelsToVram_TextMode(&app->windows[CASTLE_OPP_WIN_ABILITY_LABEL]);
     CopyWindowPixelsToVram_TextMode(&app->windows[CASTLE_OPP_WIN_NATURE_LABEL]);
@@ -2293,90 +2293,90 @@ static void BattleCastleOpponentApp_PrintMonSummary(BattleCastleOpponentApp *app
 
     if (!app->summary.hideGender) {
         if (app->summary.gender == MON_MALE) {
-            BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_GENDER], app->msgData, msg_0033_00064, 0, 0, 0, CASTLE_OPP_TEXT_COLOR_MALE, CASTLE_ALIGN_LEFT);
+            BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_GENDER], app->msgData, msg_0033_00064, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR_MALE, CASTLE_ALIGN_LEFT);
         } else if (app->summary.gender == MON_FEMALE) {
-            BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_GENDER], app->msgData, msg_0033_00065, 0, 0, 0, CASTLE_OPP_TEXT_COLOR_FEMALE, CASTLE_ALIGN_LEFT);
+            BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_GENDER], app->msgData, msg_0033_00065, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR_FEMALE, CASTLE_ALIGN_LEFT);
         }
     }
     BattleCastleOpponentApp_BufferNumber(app, 0, app->summary.level, 3, 0);
-    BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_LEVEL], app->msgData, msg_0033_00072, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+    BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_LEVEL], app->msgData, msg_0033_00072, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
 
     // CHECK: species and HP
     if (app->checked[index]) {
         BufferBoxMonSpeciesName(app->msgFormat, 0, Mon_GetBoxMon(app->summary.mon));
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SPECIES], app->msgData, msg_0033_00069, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SPECIES], app->msgData, msg_0033_00069, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
         BattleCastleOpponentApp_BufferNumber(app, 0, app->summary.hp, 3, 0);
         BattleCastleOpponentApp_BufferNumber(app, 1, app->summary.maxHp, 3, 0);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SUMMARY_HP], app->msgData, msg_0033_00078, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SUMMARY_HP]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SUMMARY_HP], app->msgData, msg_0033_00078, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SUMMARY_HP]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
     } else {
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SPECIES], app->msgData, msg_0033_00075, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SUMMARY_HP], app->msgData, msg_0033_00077, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SUMMARY_HP]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SPECIES], app->msgData, msg_0033_00075, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SUMMARY_HP], app->msgData, msg_0033_00077, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SUMMARY_HP]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
     }
 
     // stats summary: ability, nature, item and stats
     if (app->statsBought[index]) {
         BufferAbilityName(app->msgFormat, 0, app->summary.ability);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_ABILITY], app->msgData, msg_0033_00053, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_ABILITY], app->msgData, msg_0033_00053, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
         BufferNatureName(app->msgFormat, 0, app->summary.nature);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_NATURE], app->msgData, msg_0033_00051, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_NATURE], app->msgData, msg_0033_00051, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
         BufferItemName(app->msgFormat, 0, app->summary.heldItem);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_ITEM], app->msgData, msg_0033_00049, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_ITEM], app->msgData, msg_0033_00049, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
         BattleCastleOpponentApp_BufferNumber(app, 0, app->summary.attack, 3, 0);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_ATTACK], app->msgData, msg_0033_00055, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_ATTACK]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_ATTACK], app->msgData, msg_0033_00055, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_ATTACK]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
         BattleCastleOpponentApp_BufferNumber(app, 0, app->summary.spAttack, 3, 0);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SP_ATK], app->msgData, msg_0033_00059, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SP_ATK]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SP_ATK], app->msgData, msg_0033_00059, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SP_ATK]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
         BattleCastleOpponentApp_BufferNumber(app, 0, app->summary.defense, 3, 0);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_DEFENSE], app->msgData, msg_0033_00057, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_DEFENSE]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_DEFENSE], app->msgData, msg_0033_00057, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_DEFENSE]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
         BattleCastleOpponentApp_BufferNumber(app, 0, app->summary.spDefense, 3, 0);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SP_DEF], app->msgData, msg_0033_00061, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SP_DEF]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SP_DEF], app->msgData, msg_0033_00061, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SP_DEF]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
         BattleCastleOpponentApp_BufferNumber(app, 0, app->summary.speed, 3, 0);
-        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SPEED], app->msgData, msg_0033_00063, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SPEED]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_SPEED], app->msgData, msg_0033_00063, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SPEED]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
     } else {
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ABILITY], app->msgData, msg_0033_00075, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_NATURE], app->msgData, msg_0033_00075, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ITEM], app->msgData, msg_0033_00075, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ATTACK], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_ATTACK]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SP_ATK], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SP_ATK]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_DEFENSE], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_DEFENSE]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SP_DEF], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SP_DEF]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SPEED], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SPEED]) * 8, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ABILITY], app->msgData, msg_0033_00075, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_NATURE], app->msgData, msg_0033_00075, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ITEM], app->msgData, msg_0033_00075, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_ATTACK], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_ATTACK]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SP_ATK], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SP_ATK]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_DEFENSE], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_DEFENSE]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SP_DEF], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SP_DEF]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_SPEED], app->msgData, msg_0033_00074, GetWindowWidth(&app->windows[CASTLE_OPP_WIN_SPEED]) * 8, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_RIGHT);
     }
 
     // move list: one line per move, "pp / maxPp" centered on the slash at x = 120
     if (infoRank == 1) {
-        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00076, 0, 0, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+        BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00076, 0, 0, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
     } else if (app->movesBought[index] == FALSE) {
         for (i = 0; i < 4; i++) {
-            BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00075, 0, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+            BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00075, 0, i * 16, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
             string = NewString_ReadMsgData(app->msgData, msg_0033_00068);
-            halfSlashWidth = (u8)(FontID_String_GetWidth(0, string, 0) >> 1);
-            BattleCastle_PrintString(&app->windows[CASTLE_OPP_WIN_MOVES], string, 120, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_CENTER);
+            halfSlashWidth = (u8)(FontID_String_GetWidth(FONT_SYSTEM, string, 0) >> 1);
+            BattleCastle_PrintString(&app->windows[CASTLE_OPP_WIN_MOVES], string, 120, i * 16, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_CENTER);
             String_Delete(string);
             string = NewString_ReadMsgData(app->msgData, msg_0033_00073);
-            width = FontID_String_GetWidth(0, string, 0);
-            BattleCastle_PrintString(&app->windows[CASTLE_OPP_WIN_MOVES], string, 120 - halfSlashWidth - width, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+            width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+            BattleCastle_PrintString(&app->windows[CASTLE_OPP_WIN_MOVES], string, 120 - halfSlashWidth - width, i * 16, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
             String_Delete(string);
-            BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00073, 120 + halfSlashWidth, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+            BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00073, 120 + halfSlashWidth, i * 16, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
         }
     } else {
         for (i = 0; i < MAX_MON_MOVES; i++) {
             BufferMoveName(app->msgFormat, i, app->summary.moves[i]);
-            BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00084 + i, 0, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+            BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00084 + i, 0, i * 16, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
             if (app->summary.moves[i] == MOVE_NONE) {
-                BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00090, 120, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_CENTER);
+                BattleCastle_PrintMsg(&app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00090, 120, i * 16, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_CENTER);
             } else {
                 string = NewString_ReadMsgData(app->msgData, msg_0033_00068);
-                halfSlashWidth = (u8)(FontID_String_GetWidth(0, string, 0) >> 1);
-                BattleCastle_PrintString(&app->windows[CASTLE_OPP_WIN_MOVES], string, 120, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_CENTER);
+                halfSlashWidth = (u8)(FontID_String_GetWidth(FONT_SYSTEM, string, 0) >> 1);
+                BattleCastle_PrintString(&app->windows[CASTLE_OPP_WIN_MOVES], string, 120, i * 16, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_CENTER);
                 String_Delete(string);
                 BattleCastleOpponentApp_BufferNumber(app, 0, app->summary.pp[i], 2, 0);
                 string = NewString_ReadMsgData(app->msgData, msg_0033_00089);
                 StringExpandPlaceholders(app->msgFormat, app->expandedString, string);
-                width = FontID_String_GetWidth(0, app->expandedString, 0);
-                BattleCastle_PrintString(&app->windows[CASTLE_OPP_WIN_MOVES], app->expandedString, 120 - halfSlashWidth - width, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+                width = FontID_String_GetWidth(FONT_SYSTEM, app->expandedString, 0);
+                BattleCastle_PrintString(&app->windows[CASTLE_OPP_WIN_MOVES], app->expandedString, 120 - halfSlashWidth - width, i * 16, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
                 String_Delete(string);
                 BattleCastleOpponentApp_BufferNumber(app, 0, app->summary.maxPp[i], 2, 0);
-                BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00089, 120 + halfSlashWidth, i * 16, 0, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
+                BattleCastleOpponentApp_PrintExpandedMessage(app, &app->windows[CASTLE_OPP_WIN_MOVES], app->msgData, msg_0033_00089, 120 + halfSlashWidth, i * 16, FONT_SYSTEM, CASTLE_OPP_TEXT_COLOR, CASTLE_ALIGN_LEFT);
             }
         }
     }
@@ -2555,7 +2555,7 @@ static void BattleCastleOpponentApp_PrintMainMenuHelp(BattleCastleOpponentApp *a
             msgNo = msg_0033_00015;
             break;
         }
-        BattleCastleOpponentApp_PrintMessage(app, &app->windows[CASTLE_OPP_WIN_MESSAGE], msgNo, 1, 1, TEXT_SPEED_NOTRANSFER, 1, 2, 15, 1);
+        BattleCastleOpponentApp_PrintMessage(app, &app->windows[CASTLE_OPP_WIN_MESSAGE], msgNo, 1, 1, TEXT_SPEED_NOTRANSFER, 1, 2, 15, FONT_MESSAGE);
         app->listCursorPos = app->listMenu->cursorPos;
     }
 }
@@ -2580,7 +2580,7 @@ static void BattleCastleOpponentApp_PrintSummaryMenuHelp(BattleCastleOpponentApp
             msgNo = gBattleCastleOpponentAppCancelHelpMessages[variant];
             break;
         }
-        BattleCastleOpponentApp_PrintMessage(app, &app->windows[CASTLE_OPP_WIN_MESSAGE], msgNo, 1, 1, TEXT_SPEED_NOTRANSFER, 1, 2, 15, 1);
+        BattleCastleOpponentApp_PrintMessage(app, &app->windows[CASTLE_OPP_WIN_MESSAGE], msgNo, 1, 1, TEXT_SPEED_NOTRANSFER, 1, 2, 15, FONT_MESSAGE);
         app->listCursorPos = app->listMenu->cursorPos;
     }
 }

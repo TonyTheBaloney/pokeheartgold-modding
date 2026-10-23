@@ -139,7 +139,7 @@ EasyChatAppView *EasyChatAppView_Create(EasyChatApp *app, ECMenu *menu) {
     for (i = 0; i < 4; i++) {
         view->commandTasks[i] = NULL;
     }
-    FontID_Alloc(4, HEAP_ID_35);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_35);
     return view;
 }
 
@@ -150,7 +150,7 @@ void EasyChatAppView_Delete(EasyChatAppView *view) {
         return;
     }
     Main_SetVBlankIntrCB(NULL, NULL);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     for (i = 0; i < 4; i++) {
         if (view->commandTasks[i] != NULL) {
             SysTask_Destroy(view->commandTasks[i]);
@@ -219,7 +219,7 @@ static void EasyChatAppView_CreateButtonTexts(EasyChatAppView *view) {
         y = (32 - (numLines << 4)) >> 1;
         for (j = 0; j < numLines; j++, y += 16) {
             String_GetLineN(line, string, j);
-            AddTextPrinterParameterizedWithColor(&view->buttonWindow, 4, line, FontID_String_GetCenterAlignmentX(4, line, 0, 72), y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 15, 0), NULL);
+            AddTextPrinterParameterizedWithColor(&view->buttonWindow, FONT_UNK_4, line, FontID_String_GetCenterAlignmentX(FONT_UNK_4, line, 0, 72), y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(14, 15, 0), NULL);
         }
         view->buttonTexts[i].textObj = TextOBJ_Create(&template, view->textLayout);
         TextOBJ_SetSpritesDrawFlag(view->buttonTexts[i].textObj, TRUE);
@@ -388,7 +388,7 @@ void EasyChatAppView_Cmd_Unload(SysTask *task, EasyChatViewCommand *command) {
                 Heap_Free(view->animFiles[i]);
             }
         }
-        FontID_Release(2);
+        FontID_Release(FONT_SUBSCREEN);
         FreeBgTilemapBuffer(view->bgConfig, GF_BG_LYR_MAIN_0);
         FreeBgTilemapBuffer(view->bgConfig, GF_BG_LYR_MAIN_1);
         FreeBgTilemapBuffer(view->bgConfig, GF_BG_LYR_MAIN_2);
@@ -418,7 +418,7 @@ static void EasyChatAppView_InitBgs(EasyChatViewCommand *command) {
     for (i = 0; i < 6; i++) {
         BgClearTilemapBufferAndCommit(view->bgConfig, i);
     }
-    FontID_Alloc(2, HEAP_ID_35);
+    FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_35);
 }
 
 void EasyChatAppView_Cmd_FadeIn(SysTask *task, EasyChatViewCommand *command) {

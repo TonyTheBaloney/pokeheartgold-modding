@@ -207,7 +207,7 @@ void PokeathlonCirclePushDisplay_PrintPlayerNames(PokeathlonCirclePushDisplay *d
 
     self = (u8)PokeathlonCourse_GetNetId(display->course);
     name = PlayerProfile_GetPlayerName_NewString(PokeathlonCourse_GetPlayerProfileFromData(display->course, self), display->heapId);
-    AddTextPrinterParameterizedWithColor(&display->windows[0], 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->windows[0], FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(name);
     Sprite_SetAnimCtrlSeq(PokeathlonCourseSpritePoolSprite_GetSprite(display->anim.nameplateSprites[0]), self + 14);
     display->windowOfParticipant[self] = 0;
@@ -216,7 +216,7 @@ void PokeathlonCirclePushDisplay_PrintPlayerNames(PokeathlonCirclePushDisplay *d
     for (i = 0; i < 4; i++) {
         if (i != self) {
             name = PlayerProfile_GetPlayerName_NewString(PokeathlonCourse_GetPlayerProfileFromData(display->course, i), display->heapId);
-            AddTextPrinterParameterizedWithColor(&display->windows[window], 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+            AddTextPrinterParameterizedWithColor(&display->windows[window], FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
             String_Delete(name);
             Sprite_SetAnimCtrlSeq(PokeathlonCourseSpritePoolSprite_GetSprite(display->anim.nameplateSprites[window]), i + 14);
             display->windowOfParticipant[i] = window;
@@ -335,7 +335,7 @@ static void PokeathlonCirclePushDisplay_PrintRound(PokeathlonCirclePushDisplay *
     FillWindowPixelBuffer(&display->windows[4], 0);
     BufferIntegerAsString(display->msgFormat, 0, round, 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(display->msgFormat, display->msgData, msg_0309_00152, display->heapId);
-    AddTextPrinterParameterizedWithColor(&display->windows[4], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->windows[4], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
 }
 

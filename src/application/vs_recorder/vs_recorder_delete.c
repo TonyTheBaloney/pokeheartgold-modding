@@ -91,7 +91,7 @@ static void VsRecorder_PrintDeleteMessage(VsRecorderWork *work, int msgId, int s
         text = NewString_ReadMsgData(work->msgData, msgId);
     }
     FillWindowPixelBuffer(window, 0xCC);
-    AddTextPrinterParameterizedWithColor(window, 0, text, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 12), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, text, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 12), NULL);
     ScheduleWindowCopyToVram(window);
     String_Delete(text);
 }
@@ -105,7 +105,7 @@ static void VsRecorder_ShowDeleteYesNo(VsRecorderWork *work) {
     AddWindowParameterized(work->bgConfig, window, GF_BG_LYR_SUB_2, 4, 6, 0xA, 2, 0xE, 1);
     FillWindowPixelBuffer(window, 0);
     str = NewString_ReadMsgData(work->msgData, msg_0013_00130);
-    AddTextPrinterParameterizedWithColor(window, 0, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     String_Delete(str);
     ScheduleWindowCopyToVram(window);
     window = &deleteWork->yesNoWindows[1];
@@ -113,7 +113,7 @@ static void VsRecorder_ShowDeleteYesNo(VsRecorderWork *work) {
     AddWindowParameterized(work->bgConfig, window, GF_BG_LYR_SUB_2, 0x12, 6, 0xA, 2, 0xE, 0x15);
     FillWindowPixelBuffer(window, 0);
     str = NewString_ReadMsgData(work->msgData, msg_0013_00131);
-    AddTextPrinterParameterizedWithColor(window, 0, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     String_Delete(str);
     ScheduleWindowCopyToVram(window);
 }

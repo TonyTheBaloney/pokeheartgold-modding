@@ -407,7 +407,7 @@ static BOOL MicTest_Init(OverlayManager *overlayMan, int *state) {
     MicTest_InitGraphics(micTest->heapID);
     MicTest_SetBanks();
     Main_SetVBlankIntrCB(MicTest_VBlankIntrCB, micTest);
-    FontID_Alloc(4, HEAP_ID_MIC_TEST);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_MIC_TEST);
     MicTest_InitBgs(&micTest->display, micTest->heapID);
     MicTest_LoadTextResources(&micTest->display, micTest->heapID);
     MicTest_InitWindows(&micTest->display, micTest->heapID);
@@ -430,7 +430,7 @@ static BOOL MicTest_Exit(OverlayManager *overlayMan, int *state) {
     MicTest_FreeWindows(&micTest->display);
     MicTest_FreeBgs(&micTest->display);
     MicTest_FreeGraphics();
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     OverlayManager_FreeData(overlayMan);
     Heap_Destroy(micTest->heapID);
     RegisterMainOverlay(FS_OVERLAY_ID(intro_title), &gApplication_TitleScreen);

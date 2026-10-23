@@ -465,7 +465,7 @@ int TrainerCardMainApp_Exit(OverlayManager *manager, int *state) {
 static void TrainerCardMain_LoadStrings(TrainerCardMain *cardMain) {
     int i;
 
-    FontID_Alloc(4, HEAP_ID_25);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_25);
     cardMain->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0727, HEAP_ID_25);
     cardMain->unk_33C8 = String_New(4, HEAP_ID_25);
     cardMain->formattedString = String_New(0x20, HEAP_ID_25);
@@ -499,7 +499,7 @@ static void TrainerCardMain_FreeStrings(TrainerCardMain *cardMain) {
     String_Delete(cardMain->formattedString);
     String_Delete(cardMain->unk_33C8);
     DestroyMsgData(cardMain->msgData);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
 }
 
 static void TrainerCardMain_SetGfxBanks(void) {
@@ -1027,7 +1027,7 @@ static void TrainerCardMain_PrintFront(TrainerCardMain *cardMain, Window *window
     for (i = 0; i < 7; i++) {
         FillWindowPixelBuffer(&windows[i], 0);
         if (i != 3 || (i == 3 && card->pokedexObtained)) {
-            AddTextPrinterParameterizedWithColor(&windows[i], 0, cardMain->labelStrings[i], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+            AddTextPrinterParameterizedWithColor(&windows[i], FONT_SYSTEM, cardMain->labelStrings[i], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         }
     }
     template = String_New(32, HEAP_ID_25);
@@ -1040,14 +1040,14 @@ static void TrainerCardMain_PrintFront(TrainerCardMain *cardMain, Window *window
     BufferIntegerAsString(format, 5, card->money, 6, PRINTING_MODE_LEFT_ALIGN, TRUE);
     ReadMsgDataIntoString(msgData, msg_0727_00019, template);
     StringExpandPlaceholders(format, formatted, template);
-    x = 136 - FontID_String_GetWidth(0, formatted, 0);
-    AddTextPrinterParameterizedWithColor(&windows[2], 0, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    x = 136 - FontID_String_GetWidth(FONT_SYSTEM, formatted, 0);
+    AddTextPrinterParameterizedWithColor(&windows[2], FONT_SYSTEM, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     if (card->pokedexObtained) {
         BufferIntegerAsString(format, 5, card->pokedexCount, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
         ReadMsgDataIntoString(msgData, msg_0727_00026, template);
         StringExpandPlaceholders(format, formatted, template);
-        x = 136 - FontID_String_GetWidth(0, formatted, 0);
-        AddTextPrinterParameterizedWithColor(&windows[3], 0, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        x = 136 - FontID_String_GetWidth(FONT_SYSTEM, formatted, 0);
+        AddTextPrinterParameterizedWithColor(&windows[3], FONT_SYSTEM, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     }
     TrainerCardMain_PrintNumberRightAligned(&windows[4], 136, 0, 0, number, card->score, 9, 1, 255);
     if (card->liveIgt) {
@@ -1060,15 +1060,15 @@ static void TrainerCardMain_PrintFront(TrainerCardMain *cardMain, Window *window
         ReadMsgDataIntoString(msgData, msg_0727_00020, template);
     }
     StringExpandPlaceholders(format, formatted, template);
-    x = 224 - FontID_String_GetWidth(0, formatted, 0);
-    AddTextPrinterParameterizedWithColor(&windows[5], 0, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    x = 224 - FontID_String_GetWidth(FONT_SYSTEM, formatted, 0);
+    AddTextPrinterParameterizedWithColor(&windows[5], FONT_SYSTEM, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     BufferIntegerAsString(format, 2, card->startYear, 2, PRINTING_MODE_LEADING_ZEROS, TRUE);
     BufferMonthNameAbbr(format, 3, card->startMonth);
     BufferIntegerAsString(format, 4, card->startDay, 2, PRINTING_MODE_LEADING_ZEROS, TRUE);
     ReadMsgDataIntoString(msgData, msg_0727_00022, template);
     StringExpandPlaceholders(format, formatted, template);
-    x = 224 - FontID_String_GetWidth(0, formatted, 0);
-    AddTextPrinterParameterizedWithColor(&windows[6], 0, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    x = 224 - FontID_String_GetWidth(FONT_SYSTEM, formatted, 0);
+    AddTextPrinterParameterizedWithColor(&windows[6], FONT_SYSTEM, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(template);
     MessageFormat_Delete(format);
 }
@@ -1097,7 +1097,7 @@ static void TrainerCardMain_PrintBack(TrainerCardMain *cardMain, Window *windows
     msgData = cardMain->msgData;
     for (i = 7; i < 11; i++) {
         FillWindowPixelBuffer(&windows[i], 0);
-        AddTextPrinterParameterizedWithColor(&windows[i], 0, cardMain->labelStrings[i], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&windows[i], FONT_SYSTEM, cardMain->labelStrings[i], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     }
     template = String_New(0x20, HEAP_ID_25);
     formatted = cardMain->formattedString;
@@ -1116,28 +1116,28 @@ static void TrainerCardMain_PrintBack(TrainerCardMain *cardMain, Window *windows
         BufferString(format, 1, template, 0, 0, 2);
         ReadMsgDataIntoString(msgData, msg_0727_00025, formatted);
     }
-    x = 0xE0 - FontID_String_GetWidth(0, formatted, 0);
-    AddTextPrinterParameterizedWithColor(&windows[7], 0, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    x = 0xE0 - FontID_String_GetWidth(FONT_SYSTEM, formatted, 0);
+    AddTextPrinterParameterizedWithColor(&windows[7], FONT_SYSTEM, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ReadMsgDataIntoString(msgData, msg_0727_00020, template);
     StringExpandPlaceholders(format, formatted, template);
-    x = 0xE0 - FontID_String_GetWidth(0, formatted, 0);
-    AddTextPrinterParameterizedWithColor(&windows[7], 0, formatted, x, 0x10, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    x = 0xE0 - FontID_String_GetWidth(FONT_SYSTEM, formatted, 0);
+    AddTextPrinterParameterizedWithColor(&windows[7], FONT_SYSTEM, formatted, x, 0x10, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     BufferIntegerAsString(format, 5, card->linkCount, 6, PRINTING_MODE_LEFT_ALIGN, TRUE);
     ReadMsgDataIntoString(msgData, msg_0727_00027, template);
     StringExpandPlaceholders(format, formatted, template);
-    x = 0xE0 - FontID_String_GetWidth(0, formatted, 0);
-    AddTextPrinterParameterizedWithColor(&windows[8], 0, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    x = 0xE0 - FontID_String_GetWidth(FONT_SYSTEM, formatted, 0);
+    AddTextPrinterParameterizedWithColor(&windows[8], FONT_SYSTEM, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     ReadMsgDataIntoString(msgData, msg_0727_00023, formatted);
-    AddTextPrinterParameterizedWithColor(&windows[9], 0, formatted, 0x70, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&windows[9], FONT_SYSTEM, formatted, 0x70, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     TrainerCardMain_PrintNumberRightAligned(&windows[9], 0xE0, 0, 0, formatted, card->linkBattleLosses, 4, 1, 0xFF);
     ReadMsgDataIntoString(msgData, msg_0727_00024, formatted);
-    AddTextPrinterParameterizedWithColor(&windows[9], 0, formatted, 0xB0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&windows[9], FONT_SYSTEM, formatted, 0xB0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     TrainerCardMain_PrintNumberRightAligned(&windows[9], 0xE0, 0x40, 0, formatted, card->linkBattleWins, 4, 1, 0xFF);
     BufferIntegerAsString(format, 5, card->linkTrades, 6, PRINTING_MODE_LEFT_ALIGN, TRUE);
     ReadMsgDataIntoString(msgData, msg_0727_00027, template);
     StringExpandPlaceholders(format, formatted, template);
-    x = 0xE0 - FontID_String_GetWidth(0, formatted, 0);
-    AddTextPrinterParameterizedWithColor(&windows[10], 0, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    x = 0xE0 - FontID_String_GetWidth(FONT_SYSTEM, formatted, 0);
+    AddTextPrinterParameterizedWithColor(&windows[10], FONT_SYSTEM, formatted, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(template);
     MessageFormat_Delete(format);
 }
@@ -1152,13 +1152,13 @@ static void TrainerCardMain_ClearWindows(Window *windows, u8 first, u8 last) {
 static void TrainerCardMain_PrintNumberRightAligned(Window *window, int right, int gap, int y, String *string, int value, u8 digits, int mode, int unused) {
     int width;
     String16_FormatInteger(string, value, digits, (PrintingMode)mode, TRUE);
-    width = FontID_String_GetWidth(0, string, 0);
-    AddTextPrinterParameterizedWithColor(window, 0, string, right - (width + gap), y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, right - (width + gap), y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
 }
 
 static void TrainerCardMain_PrintStringRightAligned(Window *window, int right, int gap, int y, String *string) {
-    int width = FontID_String_GetWidth(0, string, 0);
-    AddTextPrinterParameterizedWithColor(window, 0, string, right - (width + gap), y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    int width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, right - (width + gap), y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
 }
 
 static void TrainerCardMain_PrintLivePlayTime(Window *windows, TrainerCardMainCard *card, String *unused) {
@@ -1179,8 +1179,8 @@ static void TrainerCardMain_PrintLivePlayTime(Window *windows, TrainerCardMainCa
     BufferIntegerAsString(format, 1, GetIGTMinutes(card->igt), 2, PRINTING_MODE_LEADING_ZEROS, TRUE);
     ReadMsgDataIntoString(msgData, msg_0727_00021, template);
     StringExpandPlaceholders(format, formatted, template);
-    x = 224 - FontID_String_GetWidth(0, formatted, 0);
-    AddTextPrinterParameterizedWithColor(&windows[5], 0, formatted, x, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    x = 224 - FontID_String_GetWidth(FONT_SYSTEM, formatted, 0);
+    AddTextPrinterParameterizedWithColor(&windows[5], FONT_SYSTEM, formatted, x, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     DestroyMsgData(msgData);
     String_Delete(formatted);
     String_Delete(template);
@@ -1189,7 +1189,7 @@ static void TrainerCardMain_PrintLivePlayTime(Window *windows, TrainerCardMainCa
 
 static void TrainerCardMain_DrawPlayTimeColon(Window *window, BOOL show, String *string) {
     if (show != FALSE) {
-        AddTextPrinterParameterizedWithColor(window, 0, string, 0xcd, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0xcd, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     } else {
         FillWindowPixelRect(window, 0, 0xcd, 0, 5, 0x10);
         CopyWindowToVram(window);
@@ -1197,9 +1197,9 @@ static void TrainerCardMain_DrawPlayTimeColon(Window *window, BOOL show, String 
 }
 
 static void TrainerCardMain_PrintCancelButton(TrainerCardMain *cardMain, int unused) {
-    int x = 0x30 - FontID_String_GetWidth(4, cardMain->buttonStrings[0], 0);
+    int x = 0x30 - FontID_String_GetWidth(FONT_UNK_4, cardMain->buttonStrings[0], 0);
     FillWindowPixelBuffer(&cardMain->windows[13], 0);
-    AddTextPrinterParameterizedWithColor(&cardMain->windows[13], 4, cardMain->buttonStrings[0], (u32)x >> 1, 4, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(5, 4, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&cardMain->windows[13], FONT_UNK_4, cardMain->buttonStrings[0], (u32)x >> 1, 4, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(5, 4, 0), NULL);
 }
 
 static void TrainerCardMain_PrintActionButton(TrainerCardMain *cardMain, int mode) {
@@ -1213,14 +1213,14 @@ static void TrainerCardMain_PrintActionButton(TrainerCardMain *cardMain, int mod
     case 0: {
         int width;
         FillWindowPixelBuffer(window, 0);
-        width = 0x60 - FontID_String_GetWidth(4, cardMain->buttonStrings[2], 0);
-        AddTextPrinterParameterizedWithColor(window, 4, cardMain->buttonStrings[2], (u32)width >> 1, 4, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(5, 4, 0), NULL);
+        width = 0x60 - FontID_String_GetWidth(FONT_UNK_4, cardMain->buttonStrings[2], 0);
+        AddTextPrinterParameterizedWithColor(window, FONT_UNK_4, cardMain->buttonStrings[2], (u32)width >> 1, 4, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(5, 4, 0), NULL);
         TrainerCardMain_SetButtonSpriteAnim(&cardMain->sprites, 1, 2, 1);
         break;
     }
     case 1:
         FillWindowPixelBuffer(window, 0);
-        AddTextPrinterParameterizedWithColor(window, 0, cardMain->buttonStrings[1], 0, 4, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(5, 4, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, cardMain->buttonStrings[1], 0, 4, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(5, 4, 0), NULL);
         TrainerCardMain_SetButtonSpriteAnim(&cardMain->sprites, 1, 4, 1);
         break;
     }
@@ -1231,7 +1231,7 @@ static void TrainerCardMain_PrintSignPrompt(TrainerCardMain *cardMain, int messa
         DrawFrameAndWindow2(&cardMain->windows[11], TRUE, 0x3e1, 0xd);
     }
     FillWindowPixelBuffer(&cardMain->windows[11], 0xf);
-    cardMain->textPrinterId = AddTextPrinterParameterizedWithColor(&cardMain->windows[11], 1, cardMain->promptStrings[message], 0, 0, cardMain->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    cardMain->textPrinterId = AddTextPrinterParameterizedWithColor(&cardMain->windows[11], FONT_MESSAGE, cardMain->promptStrings[message], 0, 0, cardMain->textSpeed, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     ScheduleBgTilemapBufferTransfer(cardMain->bgConfig, GF_BG_LYR_SUB_0);
 }
 

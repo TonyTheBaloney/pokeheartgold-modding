@@ -32,8 +32,8 @@ static void ovFieldMain_GetMsgBoxParametersEx(FieldSystem *fieldSystem, MessageF
 static void ovFieldMain_CreateMessageBox(FieldSystem *fieldSystem, MessageBox *messageBox);
 static void ovFieldMain_ReadAndExpandMsgDataViaBuffer(MessageBox *messageBox, MsgData *messageData, u32 messageNum);
 static void ovFieldMain_GetFormattedECMessage(MessageBox *messageBox, u16 messageBank, u16 messageNum, u16 word1, u16 word2);
-static void ovFieldMain_PrintMessageEx(MessageBox *messageBox, FontID fontId, u32 textFrameDelay, BOOL canABSpeedUp, u32 autoScrollParam);
-static void ovFieldMain_AddTextPrinterParameterized(MessageBox *messageBox, FontID fontId);
+static void ovFieldMain_PrintMessageEx(MessageBox *messageBox, enum Font fontId, u32 textFrameDelay, BOOL canABSpeedUp, u32 autoScrollParam);
+static void ovFieldMain_AddTextPrinterParameterized(MessageBox *messageBox, enum Font fontId);
 
 const u16 gScriptStdMsgBanks[] = {
     msg_0752, // day of the week siblings
@@ -228,7 +228,7 @@ static void ovFieldMain_ShowMessageInField(ScriptContext *ctx, MsgData *messageD
     ovFieldMain_GetMsgBoxParameters(ctx->fieldSystem, &messageBox);
     ovFieldMain_CreateMessageBox(ctx->fieldSystem, &messageBox);
     ovFieldMain_ReadAndExpandMsgDataViaBuffer(&messageBox, messageData, messageNum);
-    ovFieldMain_AddTextPrinterParameterized(&messageBox, 1);
+    ovFieldMain_AddTextPrinterParameterized(&messageBox, FONT_MESSAGE);
 }
 
 // word2 needs to be signed to match
@@ -238,9 +238,9 @@ void ovFieldMain_ShowEasyChatMessage(ScriptContext *ctx, u16 messageBank, u16 me
     ovFieldMain_CreateMessageBox(ctx->fieldSystem, &messageBox);
     ovFieldMain_GetFormattedECMessage(&messageBox, messageBank, messageNum, word1, (u16)word2);
     if (canABSpeedUp != 0xFF) {
-        ovFieldMain_PrintMessageEx(&messageBox, 1, ovFieldMain_GetTextFrameDelay(ctx), canABSpeedUp, 0);
+        ovFieldMain_PrintMessageEx(&messageBox, FONT_MESSAGE, ovFieldMain_GetTextFrameDelay(ctx), canABSpeedUp, 0);
     } else {
-        ovFieldMain_AddTextPrinterParameterized(&messageBox, 1);
+        ovFieldMain_AddTextPrinterParameterized(&messageBox, FONT_MESSAGE);
     }
 }
 
@@ -249,7 +249,7 @@ static void ovFieldMain_ShowMessageWithFormat(ScriptContext *ctx, MessageFormat 
     ovFieldMain_GetMsgBoxParametersEx(ctx->fieldSystem, messageFormat, &messageBox);
     ovFieldMain_CreateMessageBox(ctx->fieldSystem, &messageBox);
     ovFieldMain_ReadAndExpandMsgDataViaBuffer(&messageBox, ctx->msgdata, messageNum);
-    ovFieldMain_PrintMessageEx(&messageBox, 1, ovFieldMain_GetTextFrameDelay(ctx), canABSpeedUp, 0);
+    ovFieldMain_PrintMessageEx(&messageBox, FONT_MESSAGE, ovFieldMain_GetTextFrameDelay(ctx), canABSpeedUp, 0);
 }
 
 static u32 ovFieldMain_GetTextFrameDelay(ScriptContext *ctx) {
@@ -300,10 +300,10 @@ static void ovFieldMain_GetFormattedECMessage(MessageBox *messageBox, u16 messag
     String_Delete(string);
 }
 
-static void ovFieldMain_PrintMessageEx(MessageBox *messageBox, FontID fontId, u32 textFrameDelay, BOOL canABSpeedUp, u32 autoScrollParam) {
+static void ovFieldMain_PrintMessageEx(MessageBox *messageBox, enum Font fontId, u32 textFrameDelay, BOOL canABSpeedUp, u32 autoScrollParam) {
     *(messageBox->textPrinterNumPtr) = DialogBox_PrintMessageEx(messageBox->window, messageBox->message, fontId, textFrameDelay, canABSpeedUp, autoScrollParam);
 }
 
-static void ovFieldMain_AddTextPrinterParameterized(MessageBox *messageBox, FontID fontId) {
+static void ovFieldMain_AddTextPrinterParameterized(MessageBox *messageBox, enum Font fontId) {
     *(messageBox->textPrinterNumPtr) = AddTextPrinterParameterized(messageBox->window, fontId, messageBox->message, 0, 0, 0, NULL);
 }

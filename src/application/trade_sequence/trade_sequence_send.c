@@ -315,7 +315,7 @@ static BOOL TradeSequenceSend_ShowMessages(TradeSequenceSend *send, u32 *state) 
             }
             ReadMsgDataIntoString(msgData, msgId, send->msgTemplate);
             StringExpandPlaceholders(msgFormat, send->msgString, send->msgTemplate);
-            AddTextPrinterParameterized(&send->window, 1, send->msgString, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+            AddTextPrinterParameterized(&send->window, FONT_MESSAGE, send->msgString, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
             DrawFrame2AroundWindow(&send->window, 109, 2);
             CopyWindowToVram(&send->window);
             send->timer = 0;
@@ -336,7 +336,7 @@ static BOOL TradeSequenceSend_ShowMessages(TradeSequenceSend *send, u32 *state) 
                 PlayCryDelayed(species, cryDelay, (u8)TradeSequence_GetSentForm(send->ts));
             }
             FillWindowPixelBuffer(&send->window, 15);
-            AddTextPrinterParameterized(&send->window, 1, send->msgString, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+            AddTextPrinterParameterized(&send->window, FONT_MESSAGE, send->msgString, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
             CopyWindowPixelsToVram_TextMode(&send->window);
             send->timer = 0;
             (*state)++;

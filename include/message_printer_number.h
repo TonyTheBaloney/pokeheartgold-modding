@@ -3,11 +3,11 @@
 
 #include "global.h"
 
-#include "font_types_def.h"
+#include "font.h"
 #include "message_printer.h"
 
 typedef struct BattleNumberPrinter {
-    FontID fontId;
+    enum Font fontId;
     NNSG2dCharacterData *charData;
     u16 strbuf[16];
     int fillVal;

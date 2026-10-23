@@ -289,7 +289,7 @@ static void PokeathlonSnowThrowDisplay_PrintName(PokeathlonSnowThrowDisplay *dis
     PlayerProfile *profile = PokeathlonCourse_GetPlayerProfileFromData(display->course, own);
     String *name = PlayerProfile_GetPlayerName_NewString(profile, display->heapId);
 
-    AddTextPrinterParameterizedWithColor(&display->nameWindow, 0, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&display->nameWindow, FONT_SYSTEM, name, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(name);
     CopyWindowToVram(&display->nameWindow);
 }

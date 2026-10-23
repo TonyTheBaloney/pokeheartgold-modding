@@ -405,7 +405,7 @@ BOOL PokemonSummary_Init(OverlayManager *manager, int *state) {
     *(u32 *)summary->args->monModified = 0;
     summary->pokepicAnimManager = PokepicAnimManager_New(HEAP_ID_19, 1, 1);
     summary->pokepicAnimNarc = NARC_New(NARC_a_1_8_0, HEAP_ID_19);
-    FontID_SetAccessDirect(0, HEAP_ID_19);
+    FontID_SetAccessDirect(FONT_SYSTEM, HEAP_ID_19);
     GF_TouchpadResetSampling();
     GF_TouchpadStartSampling(4);
     PokemonSummary_SetGraphicsBanks();
@@ -413,7 +413,7 @@ BOOL PokemonSummary_Init(OverlayManager *manager, int *state) {
     PokemonSummary_LoadBgGraphics(summary, ribbonNarc, graphicsNarc);
     PokemonSummary_SetBlend();
     PokemonSummary_Init3D(summary);
-    FontID_Alloc(4, HEAP_ID_19);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_19);
     PokemonSummary_InitText(summary);
     PokemonSummary_InitBgCells(summary, graphicsNarc);
     PokemonSummary_ReadShownMon(summary);
@@ -534,9 +534,9 @@ BOOL PokemonSummary_Exit(OverlayManager *manager, int *state) {
     GF_DestroyVramTransferManager();
     PokemonSummary_FreeBgCells(summary);
     PokemonSummary_FreeText(summary);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     NARC_Delete(summary->pokepicAnimNarc);
-    FontID_SetAccessLazy(0);
+    FontID_SetAccessLazy(FONT_SYSTEM);
     reg_G2_BLDCNT = 0;
     OverlayManager_FreeData(manager);
     Heap_Destroy(HEAP_ID_19);

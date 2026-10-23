@@ -17,7 +17,7 @@ void Save_Roamers_Init(RoamerSaveData *roamer) {
     roamer->outbreak = FALSE;
     roamer->repelSteps = 0;
     roamer->unk_66 = 0;
-    roamer->flutePlayed = 0;
+    roamer->flutePlayed = FLUTE_NONE;
 }
 
 void Roamers_SetRand(RoamerSaveData *roamer, u32 param) {
@@ -150,7 +150,7 @@ BOOL RoamerSave_RepelNotInUse(RoamerSaveData *roamerSave) {
 }
 
 void RoamerSave_SetFlute(RoamerSaveData *roamerSave, u8 flute) {
-    GF_ASSERT(flute <= 2);
+    GF_ASSERT(flute <= FLUTE_MAX);
     roamerSave->flutePlayed = flute;
 }
 

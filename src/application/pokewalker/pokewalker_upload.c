@@ -509,9 +509,9 @@ void PokewalkerApp_BuildStrollData(PokewalkerStrollData *data, PokewalkerApp *ap
 
 static void PokewalkerApp_PrintPlayerName(Window *window, PokewalkerApp *app) {
     String *name = PlayerProfile_GetPlayerName_NewString(Save_PlayerData_GetProfile(app->saveData), HEAP_ID_154);
-    FontID_Alloc(5, HEAP_ID_154);
-    AddTextPrinterParameterizedWithColor(window, 5, name, 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
-    FontID_Release(5);
+    FontID_Alloc(FONT_UNK_5, HEAP_ID_154);
+    AddTextPrinterParameterizedWithColor(window, FONT_UNK_5, name, 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
+    FontID_Release(FONT_UNK_5);
     String_Delete(name);
 }
 
@@ -522,25 +522,25 @@ static void PokewalkerApp_PrintStrollTexts(Window *windows, PokewalkerApp *app, 
     String *string;
     int i;
 
-    FontID_Alloc(5, HEAP_ID_154);
+    FontID_Alloc(FONT_UNK_5, HEAP_ID_154);
     for (i = 0; i < 10; i++) {
         string = NewString_ReadMsgData(app->msgDataItemNames, course->items[i].item);
-        AddTextPrinterParameterizedWithColor(&windows[i], 5, string, 2, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&windows[i], FONT_UNK_5, string, 2, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
         String_Delete(string);
     }
     for (i = 0; i < 3; i++) {
         string = NewString_ReadMsgData(speciesNames, course->mons[chosen[i]].species);
-        AddTextPrinterParameterizedWithColor(&windows[i + 10], 5, string, 2, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&windows[i + 10], FONT_UNK_5, string, 2, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
         String_Delete(string);
     }
     string = NewString_ReadMsgData(app->msgData, msg_0274_00091 + app->courseId);
-    AddTextPrinterParameterizedWithColor(&windows[13], 5, string, 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&windows[13], FONT_UNK_5, string, 2, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
     String_Delete(string);
     string = String_New(12, HEAP_ID_154);
     GetBoxMonData(app->strollMon, MON_DATA_NICKNAME_STRING, string);
-    AddTextPrinterParameterizedWithColor(&windows[14], 5, string, 2, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&windows[14], FONT_UNK_5, string, 2, 1, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 1, 0), NULL);
     String_Delete(string);
-    FontID_Release(5);
+    FontID_Release(FONT_UNK_5);
     DestroyMsgData(speciesNames);
 }
 

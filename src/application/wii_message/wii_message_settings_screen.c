@@ -986,10 +986,10 @@ static void WiiMessageSettingsScreen_PrintRegisterChoice(WiiMessageSettingsScree
 
     FillWindowPixelBuffer(&screen->choiceWindow, 15);
     string = NewString_ReadMsgData(screen->msgData, msg_0188_00042);
-    AddTextPrinterParameterized(&screen->choiceWindow, 0, string, sWiiMessageSettingsRegisterChoicePositions[0].x + 12, sWiiMessageSettingsRegisterChoicePositions[0].y, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(&screen->choiceWindow, FONT_SYSTEM, string, sWiiMessageSettingsRegisterChoicePositions[0].x + 12, sWiiMessageSettingsRegisterChoicePositions[0].y, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(screen->msgData, msg_0188_00043);
-    AddTextPrinterParameterized(&screen->choiceWindow, 0, string, sWiiMessageSettingsRegisterChoicePositions[1].x + 12, sWiiMessageSettingsRegisterChoicePositions[1].y, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(&screen->choiceWindow, FONT_SYSTEM, string, sWiiMessageSettingsRegisterChoicePositions[1].x + 12, sWiiMessageSettingsRegisterChoicePositions[1].y, TEXT_SPEED_NOTRANSFER, NULL);
     String_Delete(string);
     ((void (*)(struct ListMenuCursor *, Window *, u32, u32))ListMenuUpdateCursorObj)(screen->cursor, &screen->choiceWindow, sWiiMessageSettingsRegisterChoicePositions[screen->registerChoice].x, sWiiMessageSettingsRegisterChoicePositions[screen->registerChoice].y);
     CopyWindowToVram(&screen->choiceWindow);
@@ -1051,7 +1051,7 @@ static void WiiMessageSettingsScreen_PrintExplanation(WiiMessageSettingsScreen *
         window = (y = 0, &screen->explanationWindow);
         do {
             String_GetLineN(line, text[0], i);
-            AddTextPrinterParameterized(window, 0, line, 4, y, TEXT_SPEED_NOTRANSFER, NULL);
+            AddTextPrinterParameterized(window, FONT_SYSTEM, line, 4, y, TEXT_SPEED_NOTRANSFER, NULL);
             i++;
             y += 16;
         } while (i < screen->explanationScroll + 6);
@@ -1080,7 +1080,7 @@ static int WiiMessageSettingsScreen_RunExplanation(WiiMessageSettingsScreen *scr
         line = String_New(String_GetLength(text), HEAP_ID_116);
         for (i = 0; i < 6; i++) {
             String_GetLineN(line, text, i);
-            AddTextPrinterParameterized(&screen->explanationWindow, 0, line, 4, i * 16, TEXT_SPEED_NOTRANSFER, NULL);
+            AddTextPrinterParameterized(&screen->explanationWindow, FONT_SYSTEM, line, 4, i * 16, TEXT_SPEED_NOTRANSFER, NULL);
         }
         String_Delete(text);
         String_Delete(line);
@@ -2033,7 +2033,7 @@ static void WiiMessageSettingsScreen_PrintMessage(WiiMessageSettingsScreen *scre
     String_Delete(string);
     FillWindowPixelBuffer(&screen->messageWindow, 15);
     DrawFrameAndWindow2(&screen->messageWindow, FALSE, 1, 10);
-    screen->textPrinterId = AddTextPrinterParameterized(&screen->messageWindow, 1, screen->messageBuffer, 0, 0, textSpeed, NULL);
+    screen->textPrinterId = AddTextPrinterParameterized(&screen->messageWindow, FONT_MESSAGE, screen->messageBuffer, 0, 0, textSpeed, NULL);
     screen->timer = 0;
     if (textSpeed == TEXT_SPEED_NOTRANSFER || textSpeed == TEXT_SPEED_INSTANT) {
         screen->textPrinterId = WII_MESSAGE_SETTINGS_TEXT_PRINTER_NONE;
@@ -2113,8 +2113,8 @@ static int WiiMessageSettingsScreen_GetAlignedX(Window *window, String *string, 
 }
 
 static int WiiMessageSettingsScreen_PrintAligned(Window *window, String *string, int x, int y, int alignment, u32 color) {
-    int alignedX = WiiMessageSettingsScreen_GetAlignedX(window, string, x, alignment, color, 1);
-    return AddTextPrinterParameterizedWithColor(window, 1, string, alignedX, y, TEXT_SPEED_INSTANT, color, NULL);
+    int alignedX = WiiMessageSettingsScreen_GetAlignedX(window, string, x, alignment, color, FONT_MESSAGE);
+    return AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, alignedX, y, TEXT_SPEED_INSTANT, color, NULL);
 }
 
 static void WiiMessageSettingsScreen_PrintError(WiiMessageSettingsScreen *screen, int msgId) {
@@ -2123,7 +2123,7 @@ static void WiiMessageSettingsScreen_PrintError(WiiMessageSettingsScreen *screen
     StringExpandPlaceholders(screen->msgFormat, screen->errorBuffer, string);
     FillWindowPixelBuffer(&screen->errorWindow, 15);
     DrawFrameAndWindow1(&screen->errorWindow, TRUE, 31, 11);
-    AddTextPrinterParameterized(&screen->errorWindow, 1, screen->errorBuffer, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(&screen->errorWindow, FONT_MESSAGE, screen->errorBuffer, 0, 0, TEXT_SPEED_INSTANT, NULL);
     screen->textPrinterId = WII_MESSAGE_SETTINGS_TEXT_PRINTER_NONE;
     String_Delete(string);
 }

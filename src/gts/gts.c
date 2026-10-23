@@ -148,7 +148,7 @@ BOOL Gts_Init(OverlayManager *man, int *state) {
         gGtsGlobals.app = app;
         graphicsModes = sGtsGraphicsModes;
         SetBothScreensModesAndDisable(&graphicsModes);
-        FontID_Alloc(4, HEAP_ID_61);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_61);
         app->msgFormat = MessageFormat_New_Custom(11, 64, HEAP_ID_61);
         app->gtsMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0775, HEAP_ID_61);
         app->wifiMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0778, HEAP_ID_61);
@@ -243,7 +243,7 @@ BOOL Gts_Exit(OverlayManager *man, int *state) {
     Heap_Free(app->bgConfig);
     Heap_Free(app->args);
     OverlayManager_FreeData(man);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     reg_GX_DISPCNT &= 0xFFFF1FFF;
     reg_GXS_DB_DISPCNT &= 0xFFFF1FFF;
     Main_SetVBlankIntrCB(NULL, NULL);

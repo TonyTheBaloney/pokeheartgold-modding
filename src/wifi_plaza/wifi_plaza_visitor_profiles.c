@@ -1688,10 +1688,10 @@ static void VisitorProfilesTouch_Init(VisitorProfilesTouch *touch, VisitorProfil
     AddWindowParameterized(gfx->bgConfig, &touch->exitButton, GF_BG_LYR_MAIN_1, 25, 21, 6, 2, 1, 40);
     FillWindowPixelBuffer(&touch->exitButton, 15);
     string = VisitorProfilesMsg_Get(msg, msg_0801_00001);
-    FontID_Alloc(2, heapID);
-    x = FontID_String_GetCenterAlignmentX(2, string, 0, 48);
-    AddTextPrinterParameterizedWithColor(&touch->exitButton, 2, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(2, 1, 15), NULL);
-    FontID_Release(2);
+    FontID_Alloc(FONT_SUBSCREEN, heapID);
+    x = FontID_String_GetCenterAlignmentX(FONT_SUBSCREEN, string, 0, 48);
+    AddTextPrinterParameterizedWithColor(&touch->exitButton, FONT_SUBSCREEN, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(2, 1, 15), NULL);
+    FontID_Release(FONT_SUBSCREEN);
     DrawFrameAndWindow1(&touch->exitButton, FALSE, 31, 0);
 }
 
@@ -1792,7 +1792,7 @@ static void VisitorProfilesExitPrompt_Open(VisitorProfilesExitPrompt *prompt) {
     FillWindowPixelBuffer(&prompt->window, 15);
     DrawFrameAndWindow2(&prompt->window, TRUE, 1, 2);
     ScheduleWindowCopyToVram(&prompt->window);
-    prompt->printerId = AddTextPrinterParameterized(&prompt->window, 1, prompt->string, 0, 0, prompt->textSpeed, NULL);
+    prompt->printerId = AddTextPrinterParameterized(&prompt->window, FONT_MESSAGE, prompt->string, 0, 0, prompt->textSpeed, NULL);
     prompt->state = VISITOR_PROFILES_EXIT_PROMPT_WAIT_PRINT;
 }
 
@@ -1835,7 +1835,7 @@ static void VisitorProfilesPanel_Init(VisitorProfilesPanel *panel, VisitorProfil
     }
     AddWindowParameterized(gfx->bgConfig, &panel->hintWindow, GF_BG_LYR_SUB_0, 2, 19, 27, 4, 11, 40);
     FillWindowPixelBuffer(&panel->hintWindow, 15);
-    AddTextPrinterParameterized(&panel->hintWindow, 1, VisitorProfilesMsg_Get(msg, msg_0801_00000), 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(&panel->hintWindow, FONT_MESSAGE, VisitorProfilesMsg_Get(msg, msg_0801_00000), 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     DrawFrameAndWindow2(&panel->hintWindow, FALSE, 10, 10);
     VisitorProfilesPanel_AddWindows(panel, gfx, heapID);
     panel->baseScreenRaw = GfGfxLoader_GetScrnDataFromOpenNarc(gfx->narc, 19, FALSE, &panel->baseScreen, heapID);
@@ -2190,11 +2190,11 @@ static void VisitorProfilesPanel_PrintPlace(VisitorProfilesPanel *panel, u32 ind
     FillWindowPixelBuffer(window, 0);
     color = VisitorProfiles_GetHourBgAnim(info->hour);
     string = VisitorProfilesMsg_Get(msg, msg_0801_00002);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 0, TEXT_SPEED_NOTRANSFER, sVisitorProfilesPlaceNameColors[color], NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 0, TEXT_SPEED_NOTRANSFER, sVisitorProfilesPlaceNameColors[color], NULL);
     string = VisitorProfilesMsg_GetCountryName(msg, info->country);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     string = VisitorProfilesMsg_GetRegionName(msg, info->country, info->region);
-    AddTextPrinterParameterizedWithColor(window, 1, string, 0, 32, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, string, 0, 32, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
 }
 
 // One row (8 pixel lines) of a 27-tile wide window is 27 * 32 = 0x360 bytes.

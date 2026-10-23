@@ -254,7 +254,7 @@ void PokeathlonResults_PrintTitle(Window *window, enum HeapID heapId) {
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0309, heapId);
     messageFormat = MessageFormat_New(heapId);
     string = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, msg_0309_00303, heapId);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     MessageFormat_Delete(messageFormat);
     DestroyMsgData(msgData);
@@ -281,7 +281,7 @@ BOOL PokeathlonResults_Init(PokeathlonCourseData *course) {
         announcement = PokeathlonCourse_AllocWork(course, sizeof(PokeathlonResultsAnnouncement));
         MI_CpuFill8(announcement, 0, sizeof(PokeathlonResultsAnnouncement));
         announcement->heapId = HEAP_ID_137;
-        FontID_Alloc(4, HEAP_ID_137);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_137);
         announcement->bgConfig = BgConfig_Alloc(HEAP_ID_137);
         announcement->messageBox = PokeathlonCourseMessageBox_New(announcement->heapId);
         PokeathlonResults_CreatePlates(&announcement->ranking.plates, HEAP_ID_137, announcement->bgConfig, course);
@@ -380,7 +380,7 @@ BOOL PokeathlonResults_Exit(PokeathlonCourseData *course) {
 
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     G2_SetBlendBrightness(0x3F, 0);
     PokeathlonEventBanner_Free(announcement->banner);
     RemoveWindow(&announcement->window);

@@ -420,7 +420,7 @@ BOOL PokeathlonCirclePush_Init(PokeathlonCourseData *course) {
         NNS_G2dInitOamManagerModule();
         OamManager_Create(0, 126, 0, 32, 0, 126, 0, 32, HEAP_ID_140);
         circlePush->heapId = HEAP_ID_140;
-        FontID_Alloc(4, HEAP_ID_140);
+        FontID_Alloc(FONT_UNK_4, HEAP_ID_140);
         PokeathlonCirclePush_InitBgs(circlePush->bgConfig);
         PokeathlonCirclePush_AddScoreWindow(circlePush);
         gSystem.screensFlipped = TRUE;
@@ -670,7 +670,7 @@ BOOL PokeathlonCirclePush_Exit(PokeathlonCourseData *course) {
     ObjPlttTransfer_Destroy();
     PokeathlonCirclePushAi_Free(circlePush->ai);
     PokeathlonCirclePushDisplay_Free(circlePush->display);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
     Heap_Free(circlePush->sortBuffer);
@@ -2129,7 +2129,7 @@ static void PokeathlonCirclePush_PrintScore(PokeathlonCirclePush *circlePush, s3
     msgFormat = MessageFormat_New(circlePush->heapId);
     BufferIntegerAsString(msgFormat, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(msgFormat, msgData, msg_0309_00158, circlePush->heapId);
-    AddTextPrinterParameterizedWithColor(&circlePush->scoreWindow, 4, string, 0, 0, 0xFF, 0xF0E00, NULL); // no transfer; colours 15, 14, 0
+    AddTextPrinterParameterizedWithColor(&circlePush->scoreWindow, FONT_UNK_4, string, 0, 0, 0xFF, 0xF0E00, NULL); // no transfer; colours 15, 14, 0
     String_Delete(string);
     MessageFormat_Delete(msgFormat);
     DestroyMsgData(msgData);

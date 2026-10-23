@@ -1453,7 +1453,7 @@ void WifiClub_PrintTitleBar(WifiClubApp *app) {
 
     // Nintendo Wi-Fi Connection
     ReadMsgDataIntoString(app->msgData, msg_0778_00021, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->titleWindow, 1, app->tmpString, FontID_String_GetCenterAlignmentX(0, app->tmpString, 0, 176), 0, TEXT_SPEED_NOTRANSFER, 0xF0E00, NULL);
+    AddTextPrinterParameterizedWithColor(&app->titleWindow, FONT_MESSAGE, app->tmpString, FontID_String_GetCenterAlignmentX(FONT_SYSTEM, app->tmpString, 0, 176), 0, TEXT_SPEED_NOTRANSFER, 0xF0E00, NULL);
     ScheduleWindowCopyToVram(&app->titleWindow);
 }
 
@@ -2062,7 +2062,7 @@ void WifiClub_PrintOwnStatus(WifiClubApp *app) {
     } else {
         color = MAKE_TEXT_COLOR(3, 4, 0);
     }
-    AddTextPrinterParameterizedWithColor(&app->statusWindow, 0, strPlayerName, 32, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&app->statusWindow, FONT_SYSTEM, strPlayerName, 32, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
     String_Delete(strPlayerName);
     s32 ownStatus = WifiClub_GetPlayerStatus(app, &app->clubData->own);
     s32 statusMsgId = WifiClub_GetStatusLabel(ownStatus, &color);
@@ -2081,7 +2081,7 @@ void WifiClub_PrintOwnStatus(WifiClubApp *app) {
     } else {
         ReadMsgDataIntoString(app->msgData, statusMsgId, app->msgRaw);
     }
-    AddTextPrinterParameterizedWithColor(&app->statusWindow, 0, app->msgRaw, 102, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&app->statusWindow, FONT_SYSTEM, app->msgRaw, 102, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
     WifiClub_DrawStatusIconToBg(app->bgConfig, &app->statusIcons, 1, 2, 1, ownStatus);
     s32 var_r0_2;
     if (app->clubData->own.voiceChat != 0) {
@@ -4022,7 +4022,7 @@ void WifiClub_PrintMessage(WifiClubApp *app, s32 msgId, s32 isConnectionMsg) {
     TextFlags_SetCanABSpeedUpPrint(TRUE);
     TextFlags_SetAutoScrollParam(0);
     TextFlags_SetCanTouchSpeedUpPrint(TRUE);
-    app->textPrinterId = AddTextPrinterParameterized(&app->msgWindow, 1, app->msgExpanded, 0, 0, textSpeed, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->msgWindow, FONT_MESSAGE, app->msgExpanded, 0, 0, textSpeed, NULL);
     ScheduleWindowCopyToVram(&app->msgWindow);
 }
 
@@ -4046,7 +4046,7 @@ void WifiClub_ShowConnectionNotice(WifiClubApp *app, s32 msgId) {
     StringExpandPlaceholders(app->msgFormat, app->msgExpanded, app->msgRaw);
     FillWindowPixelBuffer(&app->noticeWindow, 15);
     DrawFrameAndWindow1(&app->noticeWindow, TRUE, 473, 11);
-    app->textPrinterId = AddTextPrinterParameterized(&app->noticeWindow, 1, app->msgExpanded, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    app->textPrinterId = AddTextPrinterParameterized(&app->noticeWindow, FONT_MESSAGE, app->msgExpanded, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     ScheduleWindowCopyToVram(&app->noticeWindow);
 }
 
@@ -4487,64 +4487,64 @@ void WifiClub_DrawProfileSummary(WifiClubApp *app, enum HeapID heapID) {
     // {STRVAR_1 3, 0, 0}
     ReadMsgDataIntoString(app->msgData, msg_0778_00042, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 1, app->tmpString, 32, 8, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_MESSAGE, app->tmpString, 32, 8, TEXT_SPEED_NOTRANSFER, color, NULL);
     WifiClubPlayerStatus *friendStatusData = WifiClub_GetFriendStatusData(app, friendIndex);
     u32 friendStatus = WifiClub_GetPlayerStatus(app, friendStatusData);
     ReadMsgDataIntoString(app->msgData, WifiClub_GetStatusLabel(friendStatus, &color), app->msgRaw);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->msgRaw, 104, 8, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->msgRaw, 104, 8, TEXT_SPEED_NOTRANSFER, color, NULL);
     PlayerProfile *playerProfile = PlayerProfile_New(HEAP_ID_53);
     Save_Profile_PlayerName_Set(playerProfile, FriendRoster_GetGroupName(app->friendRoster, friendIndex));
     BufferPlayersName(app->roster.msgFormat, 0, playerProfile);
     Heap_Free(playerProfile);
     // GROUP
     ReadMsgDataIntoString(app->msgData, msg_0778_00043, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 32, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 32, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     // {STRVAR_1 3, 0, 0}
     ReadMsgDataIntoString(app->msgData, msg_0778_00150, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
 
-    u32 width = 232 - FontID_String_GetWidth(0, app->tmpString, 0);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, width, 32, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    u32 width = 232 - FontID_String_GetWidth(FONT_SYSTEM, app->tmpString, 0);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, width, 32, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     // BATTLE RECORD
     ReadMsgDataIntoString(app->msgData, msg_0778_00044, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 56, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 56, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     BufferIntegerAsString(app->roster.msgFormat, 0, FriendRoster_GetEntryField(app->friendRoster, friendIndex, 1), 4, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     // W: {STRVAR_1 53, 0, 0}
     ReadMsgDataIntoString(app->msgData, msg_0778_00045, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 120, 56, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 120, 56, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     BufferIntegerAsString(app->roster.msgFormat, 0, FriendRoster_GetEntryField(app->friendRoster, friendIndex, 2), 4, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     // L: {STRVAR_1 53, 0, 0}
     ReadMsgDataIntoString(app->msgData, msg_0778_00046, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
 
-    width = 232 - FontID_String_GetWidth(0, app->tmpString, 0);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, width, 56, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    width = 232 - FontID_String_GetWidth(FONT_SYSTEM, app->tmpString, 0);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, width, 56, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     // POKéMON TRADES
     ReadMsgDataIntoString(app->msgData, msg_0778_00047, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 80, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 80, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     BufferIntegerAsString(app->roster.msgFormat, 0, FriendRoster_GetEntryField(app->friendRoster, friendIndex, 3), 4, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     // {STRVAR_1 53, 0, 0}
     ReadMsgDataIntoString(app->msgData, msg_0778_00048, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
 
-    width = 232 - FontID_String_GetWidth(0, app->tmpString, 0);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, width, 80, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    width = 232 - FontID_String_GetWidth(FONT_SYSTEM, app->tmpString, 0);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, width, 80, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     if (WifiClub_IsPoffinCookingAvailable(app) == 1) {
         // POFFIN SESSIONS
         ReadMsgDataIntoString(app->msgData, msg_0778_00049, app->tmpString);
-        AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 104, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 104, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         BufferIntegerAsString(app->roster.msgFormat, 0, FriendRoster_GetEntryField(app->friendRoster, friendIndex, 9), 4, PRINTING_MODE_RIGHT_ALIGN, TRUE);
         // {STRVAR_1 53, 0, 0}
         ReadMsgDataIntoString(app->msgData, msg_0778_00050, app->msgRaw);
         StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
 
-        width = 232 - FontID_String_GetWidth(0, app->tmpString, 0);
-        AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, width, 104, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        width = 232 - FontID_String_GetWidth(FONT_SYSTEM, app->tmpString, 0);
+        AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, width, 104, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     }
     // DATE LAST PLAYED
     ReadMsgDataIntoString(app->msgData, msg_0778_00051, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 128, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 128, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     s32 temp_r0_2 = FriendRoster_GetEntryField(app->friendRoster, friendIndex, 6);
     if (temp_r0_2 != 0) {
         BufferIntegerAsString(app->roster.msgFormat, 2, temp_r0_2, 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
@@ -4554,8 +4554,8 @@ void WifiClub_DrawProfileSummary(WifiClubApp *app, enum HeapID heapID) {
         ReadMsgDataIntoString(app->msgData, msg_0778_00074, app->msgRaw);
         StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
 
-        width = 232 - FontID_String_GetWidth(0, app->tmpString, 0);
-        AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, width, 128, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        width = 232 - FontID_String_GetWidth(FONT_SYSTEM, app->tmpString, 0);
+        AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, width, 128, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     }
     WifiClub_DrawStatusIconToBg(app->bgConfig, &app->statusIcons, 6, 2, 2, friendStatus);
 
@@ -4572,13 +4572,13 @@ void WifiClub_DrawProfileBattleTower(WifiClubApp *app, enum HeapID heapID) {
     s32 friendIndex = app->roster.selectedFriend - 1;
     // BATTLE TOWER
     ReadMsgDataIntoString(app->msgData, msg_0778_00052, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     WifiClub_GetFrontierStreakLabel(app, app->tmpString, 0, friendIndex);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00065, 113, friendIndex, 120, 24);
     // RECORD
     ReadMsgDataIntoString(app->msgData, msg_0778_00059, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00065, 112, friendIndex, 120, 48);
 }
 
@@ -4586,39 +4586,39 @@ void WifiClub_DrawProfileBattleFactory(WifiClubApp *app, enum HeapID heapID) {
     s32 friendIndex = app->roster.selectedFriend - 1;
     // BATTLE FACTORY
     ReadMsgDataIntoString(app->msgData, msg_0778_00053, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     // LEVEL 50
     ReadMsgDataIntoString(app->msgData, msg_0778_00060, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     // RENTAL/TRADE
     ReadMsgDataIntoString(app->msgData, msg_0778_00062, app->tmpString);
 
-    u32 width = 232 - FontID_String_GetWidth(0, app->tmpString, 0);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    u32 width = 232 - FontID_String_GetWidth(FONT_SYSTEM, app->tmpString, 0);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_GetFrontierStreakLabel(app, app->tmpString, 1, friendIndex);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00065, 115, friendIndex, 104, 48);
     WifiClub_PrintFrontierStat(app, msg_0778_00066, 117, friendIndex, 212, 48);
     // RECORD
     ReadMsgDataIntoString(app->msgData, msg_0778_00059, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 64, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 64, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00065, 114, friendIndex, 104, 64);
     WifiClub_PrintFrontierStat(app, msg_0778_00066, 116, friendIndex, 212, 64);
     // OPEN LEVEL
     ReadMsgDataIntoString(app->msgData, msg_0778_00061, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 88, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 88, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     // RENTAL/TRADE
     ReadMsgDataIntoString(app->msgData, msg_0778_00062, app->tmpString);
 
-    width = 232 - FontID_String_GetWidth(0, app->tmpString, 0);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, width, 88, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    width = 232 - FontID_String_GetWidth(FONT_SYSTEM, app->tmpString, 0);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, width, 88, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_GetFrontierStreakLabel(app, app->tmpString, 2, friendIndex);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 112, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 112, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00065, 119, friendIndex, 104, 112);
     WifiClub_PrintFrontierStat(app, msg_0778_00066, 121, friendIndex, 212, 112);
     // RECORD
     ReadMsgDataIntoString(app->msgData, msg_0778_00059, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 128, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 128, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00065, 118, friendIndex, 104, 128);
     WifiClub_PrintFrontierStat(app, msg_0778_00066, 120, friendIndex, 212, 128);
 }
@@ -4627,19 +4627,19 @@ void WifiClub_DrawProfileBattleCastle(WifiClubApp *app, enum HeapID heapID) {
     s32 friendIndex = app->roster.selectedFriend - 1;
     // BATTLE CASTLE
     ReadMsgDataIntoString(app->msgData, msg_0778_00054, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     // CASTLE POINTS
     ReadMsgDataIntoString(app->msgData, msg_0778_00063, app->tmpString);
 
-    u32 width = 180 - (FontID_String_GetWidth(0, app->tmpString, 0) + 1) / 2;
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    u32 width = 180 - (FontID_String_GetWidth(FONT_SYSTEM, app->tmpString, 0) + 1) / 2;
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_GetFrontierStreakLabel(app, app->tmpString, 3, friendIndex);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00068, 135, friendIndex, 104, 48);
     WifiClub_PrintFrontierStat(app, msg_0778_00067, 136, friendIndex, 212, 48);
     // RECORD
     ReadMsgDataIntoString(app->msgData, msg_0778_00059, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 80, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 80, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00068, 134, friendIndex, 104, 80);
     WifiClub_PrintFrontierStat(app, msg_0778_00067, 138, friendIndex, 212, 80);
 }
@@ -4649,17 +4649,17 @@ void WifiClub_DrawProfileBattleHall(WifiClubApp *app, enum HeapID heapID) {
     s32 friendIndex = app->roster.selectedFriend - 1;
     // BATTLE HALL
     ReadMsgDataIntoString(app->msgData, msg_0778_00055, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String *speciesName = GetSpeciesName(FrontierSave_GetStat(frontierSave, 124, friendIndex), heapID);
-    u32 width = 33 - (FontID_String_GetWidth(0, speciesName, 0) + 1) / 2;
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, speciesName, width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    u32 width = 33 - (FontID_String_GetWidth(FONT_SYSTEM, speciesName, 0) + 1) / 2;
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, speciesName, width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(speciesName);
     WifiClub_GetFrontierStreakLabel(app, app->tmpString, 4, friendIndex);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00065, 123, friendIndex, 108, 48);
     // RECORD
     ReadMsgDataIntoString(app->msgData, msg_0778_00059, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 80, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 80, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00065, 122, friendIndex, 108, 80);
 }
 
@@ -4667,13 +4667,13 @@ void WifiClub_DrawProfileBattleArcade(WifiClubApp *app, enum HeapID heapID) {
     s32 friendIndex = app->roster.selectedFriend - 1;
     // BATTLE ARCADE
     ReadMsgDataIntoString(app->msgData, msg_0778_00056, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     WifiClub_GetFrontierStreakLabel(app, app->tmpString, 5, friendIndex);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00069, 143, friendIndex, 112, 24);
     // RECORD
     ReadMsgDataIntoString(app->msgData, msg_0778_00059, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     WifiClub_PrintFrontierStat(app, msg_0778_00069, 142, friendIndex, 112, 48);
 }
 
@@ -4682,26 +4682,26 @@ void WifiClub_DrawProfilePlazaGames(WifiClubApp *app, enum HeapID heapID) {
     s32 friendIndex = app->roster.selectedFriend - 1;
     // PLAZA GAMES PLAYED
     ReadMsgDataIntoString(app->msgData, msg_0778_00070, app->tmpString);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     BufferWiFiPlazaActivityName(app->roster.msgFormat, 0, 0);
     // {STRVAR_3 0, 0, 0}
     ReadMsgDataIntoString(app->msgData, msg_0778_00071, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     // {STRVAR_1 53, 0, 0}
     WifiClub_PrintCenteredNumber(app, msg_0778_00072, FriendRoster_GetEntryField(friendRoster, friendIndex, 10), 164, 24);
     BufferWiFiPlazaActivityName(app->roster.msgFormat, 0, 1);
     // {STRVAR_3 0, 0, 0}
     ReadMsgDataIntoString(app->msgData, msg_0778_00071, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 48, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     // {STRVAR_1 53, 0, 0}
     WifiClub_PrintCenteredNumber(app, msg_0778_00072, FriendRoster_GetEntryField(friendRoster, friendIndex, 11), 164, 48);
     BufferWiFiPlazaActivityName(app->roster.msgFormat, 0, 2);
     // {STRVAR_3 0, 0, 0}
     ReadMsgDataIntoString(app->msgData, msg_0778_00071, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, 8, 72, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, 8, 72, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     // {STRVAR_1 53, 0, 0}
     WifiClub_PrintCenteredNumber(app, msg_0778_00072, FriendRoster_GetEntryField(friendRoster, friendIndex, 12), 164, 72);
 }
@@ -4735,8 +4735,8 @@ void WifiClub_PrintCenteredNumber(WifiClubApp *app, s32 msgId, s32 value, s32 ce
     BufferIntegerAsString(app->roster.msgFormat, 0, value, 4, PRINTING_MODE_RIGHT_ALIGN, TRUE);
     ReadMsgDataIntoString(app->msgData, msgId, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
-    u32 width = centerX - (FontID_String_GetWidth(0, app->tmpString, 0) + 1) / 2;
-    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, 0, app->tmpString, width, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    u32 width = centerX - (FontID_String_GetWidth(FONT_SYSTEM, app->tmpString, 0) + 1) / 2;
+    AddTextPrinterParameterizedWithColor(&app->roster.profileWindow, FONT_SYSTEM, app->tmpString, width, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
 }
 
 void WifiClub_DrawRosterSlotFrame(WifiClubApp *app, u8 x, u8 y, u8 frameStyle, u8 animStep) {
@@ -4840,7 +4840,7 @@ void WifiClub_PrintRosterSlotName(WifiClubApp *app, Window *window, s32 friendId
     // {STRVAR_1 3, 0, 0}
     ReadMsgDataIntoString(app->msgData, msg_0778_00042, app->msgRaw);
     StringExpandPlaceholders(app->roster.msgFormat, app->tmpString, app->msgRaw);
-    AddTextPrinterParameterizedWithColor(window, 1, app->tmpString, 0, textY, TEXT_SPEED_NOTRANSFER, color, NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_MESSAGE, app->tmpString, 0, textY, TEXT_SPEED_NOTRANSFER, color, NULL);
     ScheduleWindowCopyToVram(window);
 }
 
@@ -4933,14 +4933,14 @@ void WifiClub_CreateProfileButtons(WifiClubApp *app, NARC *narc, enum HeapID hea
         app->roster.buttonSprites[i] = Sprite_CreateAffine(&spriteTemplateList[i]);
         Sprite_SetAnimCtrlSeq(app->roster.buttonSprites[i], sProfileButtonIdleAnims[i]);
     }
-    FontID_Alloc(2, heapID);
+    FontID_Alloc(FONT_SUBSCREEN, heapID);
     Window window;
     InitWindow(&window);
     AddTextWindowTopLeftCorner(app->bgConfig, &window, 8, 2, 0, 0);
     String *string = String_New(64, heapID);
     // CLOSE
     ReadMsgDataIntoString(app->msgData, msg_0778_00073, string);
-    AddTextPrinterParameterizedWithColor(&window, 2, string, FontID_String_GetCenterAlignmentX(2, string, 0, 64), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&window, FONT_SUBSCREEN, string, FontID_String_GetCenterAlignmentX(FONT_SUBSCREEN, string, 0, 64), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     TextOBJLayout *textLayout = TextOBJLayout_New(&window, heapID);
     GF_ASSERT(ObjCharTransfer_ReserveCharSpace(TextOBJLayout_GetCharSize(textLayout, NNS_G2D_VRAM_TYPE_2DSUB), TRUE, NNS_G2D_VRAM_TYPE_2DSUB, &app->roster.closeTextCharSpace) != 0);
@@ -4961,7 +4961,7 @@ void WifiClub_CreateProfileButtons(WifiClubApp *app, NARC *narc, enum HeapID hea
     app->roster.closeText = TextOBJ_Create(&textObjTemplate, textLayout);
     TextOBJLayout_Delete(textLayout);
     RemoveWindow(&window);
-    FontID_Release(2);
+    FontID_Release(FONT_SUBSCREEN);
     app->roster.buttonHitboxes = TouchHitboxController_Create(sProfileButtonHitboxes, 3, (TouchHitboxControllerCallback)WifiClub_ProfileButtonHitboxCallback, app, heapID);
 }
 

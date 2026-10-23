@@ -131,7 +131,7 @@ BOOL PokeathlonBox_Exit(OverlayManager *manager, int *state) {
     Main_SetVBlankIntrCB(NULL, NULL);
     PokeathlonBox_ReleaseGraphics(data->graphics);
     BoxMonSelector_Delete(data->monSelector);
-    FontID_Release(2);
+    FontID_Release(FONT_SUBSCREEN);
     OamManager_Free();
     ObjCharTransfer_Destroy();
     ObjPlttTransfer_Destroy();
@@ -194,7 +194,7 @@ static BOOL PokeathlonBox_Setup(OverlayManager *manager) {
 
     ResetAllTextPrinters();
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_15_OFFSET, HEAP_ID_POKEATHLON);
-    FontID_Alloc(2, HEAP_ID_POKEATHLON);
+    FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_POKEATHLON);
 
     return TRUE;
 }

@@ -237,7 +237,7 @@ static void VsRecorder_CreateRankingsButtonLabels(VsRecorderWork *work) {
         baseTile += rect->width * rect->height;
         FillWindowPixelBuffer(window, 0);
         str = NewString_ReadMsgData(work->msgData, i + 80); // SWITCH RANKINGS, SWITCH TEAMS
-        AddTextPrinterParameterizedWithColor(window, 0, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, VsRecorder_GetCenteredTextX(window, str), 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
         ScheduleWindowCopyToVram(window);
         String_Delete(str);
         window++;
@@ -276,7 +276,7 @@ static void VsRecorder_CreateRankingsWindows(VsRecorderWork *work) {
         }
         FillWindowPixelBuffer(window, 0);
         str = NewString_ReadMsgData(work->msgData, msg_0013_00067);
-        AddTextPrinterParameterizedWithColor(window, 0, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+        AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, str, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
         ScheduleWindowCopyToVram(window);
         String_Delete(str);
         window++;
@@ -328,7 +328,7 @@ static void VsRecorder_PrintRankingsInfo(VsRecorderWork *work) {
     } else {
         template = NewString_ReadMsgData(work->recordMsgData, rankings->results[rankings->ranking].recordId - 1);
     }
-    AddTextPrinterParameterizedWithColor(&rankings->windows[0], 0, template, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&rankings->windows[0], FONT_SYSTEM, template, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(&rankings->windows[0]);
     String_Delete(template);
     FillWindowPixelBuffer(&rankings->windows[1], 0);
@@ -337,7 +337,7 @@ static void VsRecorder_PrintRankingsInfo(VsRecorderWork *work) {
     } else {
         template = NewString_ReadMsgData(work->msgData, msg_0013_00091); // LAST WEEK'S RESULTS!
     }
-    AddTextPrinterParameterizedWithColor(&rankings->windows[1], 0, template, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&rankings->windows[1], FONT_SYSTEM, template, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(&rankings->windows[1]);
     String_Delete(template);
     name = FrontierCard_NewNameString((const u16 *)work->videoOwners[0], HEAP_ID_109);
@@ -374,7 +374,7 @@ static void VsRecorder_PrintRankingsInfo(VsRecorderWork *work) {
     }
     BufferString(msgFormat, 1, name, 0, 1, 2);
     StringExpandPlaceholders(msgFormat, str, template);
-    AddTextPrinterParameterizedWithColor(&rankings->windows[1], 0, str, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&rankings->windows[1], FONT_SYSTEM, str, 0, 16, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 13, 0), NULL);
     ScheduleWindowCopyToVram(&rankings->windows[1]);
     String_Delete(template);
     String_Delete(team);

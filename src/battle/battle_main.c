@@ -273,7 +273,7 @@ void Battle_BattleInit(OverlayManager *manager) {
     MIi_CpuClear16(0, GetSubBgPlttAddr(), paletteSize);
     battleSystem->gf3dVramMan = (void *)Battle_Create3DVramMan();
     HBlankInterruptDisable();
-    FontID_Alloc(4, HEAP_ID_BATTLE);
+    FontID_Alloc(FONT_UNK_4, HEAP_ID_BATTLE);
     battleSystem->hpNumPrinter = (void *)MessagePrinter_New(14, 2, 15, HEAP_ID_BATTLE);
     battleSystem->levelNumPrinter = battleSystem->hpNumPrinter;
     battleSystem->palette = PaletteData_Init(HEAP_ID_BATTLE);
@@ -1151,7 +1151,7 @@ void Battle_LinkInit(OverlayManager *man, BattleSetup *setup) {
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0197, HEAP_ID_BATTLE);
     string = String_New(0x100, HEAP_ID_BATTLE);
     ReadMsgDataIntoString(msgData, msg_0197_00923, string);
-    AddTextPrinterParameterized(work->window, 1, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
+    AddTextPrinterParameterized(work->window, FONT_MESSAGE, string, 0, 0, TEXT_SPEED_INSTANT, NULL);
     String_Delete(string);
     DestroyMsgData(msgData);
     Main_SetVBlankIntrCB(Battle_LinkVBlankCallback, work);

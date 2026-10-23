@@ -262,7 +262,7 @@ static BOOL FrontierBrainIntro_Run(FrontierBrainIntro *intro, enum HeapID heapID
         intro->fontSystem = FontSystem_NewInit(4, HEAP_ID_101);
         msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0729, heapID);
         string = NewString_ReadMsgData(msgData, args->nameMsgId);
-        FrontierBrainIntro_CreateText(intro, &sprites->name, string, 0, MAKE_TEXT_COLOR(1, 2, 0), 0, 2004, intro->x + 116, intro->y + 88, 0, NULL);
+        FrontierBrainIntro_CreateText(intro, &sprites->name, string, FONT_SYSTEM, MAKE_TEXT_COLOR(1, 2, 0), 0, 2004, intro->x + 116, intro->y + 88, 0, NULL);
         TextOBJ_SetSpritesDrawFlag(sprites->name.textObj, FALSE);
         String_Delete(string);
         DestroyMsgData(msgData);

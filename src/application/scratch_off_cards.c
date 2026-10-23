@@ -1032,7 +1032,7 @@ static void ScratchOffCards_FreeResources(ScratchOffCardsWork *work) {
     if (work->winSprite) {
         ScratchOffCardsSprite_Delete(work->winSprite);
     }
-    FontID_Release(2);
+    FontID_Release(FONT_SUBSCREEN);
     PaletteData_FreeBuffers(work->paletteData, PLTTBUF_MAIN_OBJ);
     PaletteData_FreeBuffers(work->paletteData, PLTTBUF_MAIN_BG);
     PaletteData_Free(work->paletteData);
@@ -1073,7 +1073,7 @@ static void ScratchOffCards_InitResources(ScratchOffCardsWork *work) {
     LoadFontPal0(GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_13_OFFSET, HEAP_ID_122);
     LoadFontPal1(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_12_OFFSET, HEAP_ID_122);
     LoadFontPal1(GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_12_OFFSET, HEAP_ID_122);
-    FontID_Alloc(2, HEAP_ID_122);
+    FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_122);
     work->messagePrinter = MessagePrinter_New(15, 14, 0, HEAP_ID_122);
     ScratchOffCards_AddWindows(work->bgConfig, work->windows);
     work->paletteBlink = PaletteBlink_New(NULL, PM_LCD_BOTTOM, 12, HEAP_ID_122);
@@ -1247,7 +1247,7 @@ static int ScratchOffCards_PrintMessage(ScratchOffCardsWork *work, Window *windo
     FillWindowPixelBuffer(window, bg);
     ReadMsgDataIntoString(work->msgData, msgNo, work->stringBuffer);
     StringExpandPlaceholders(work->msgFormat, work->string, work->stringBuffer);
-    return AddTextPrinterParameterizedWithColor(window, fontId, work->string, x, y, textSpeed, MAKE_TEXT_COLOR(fg, shadow, bg), NULL);
+    return AddTextPrinterParameterizedWithColor(window, (u32)fontId, work->string, x, y, textSpeed, MAKE_TEXT_COLOR(fg, shadow, bg), NULL);
 }
 
 static int ScratchOffCards_PrintMessageCentered(ScratchOffCardsWork *work, Window *window, int msgNo, u32 x, u32 y, u32 textSpeed, u8 fg, u8 shadow, u8 bg, u8 fontId) {
@@ -1255,13 +1255,13 @@ static int ScratchOffCards_PrintMessageCentered(ScratchOffCardsWork *work, Windo
     ReadMsgDataIntoString(work->msgData, msgNo, work->stringBuffer);
     StringExpandPlaceholders(work->msgFormat, work->string, work->stringBuffer);
     x -= (FontID_String_GetWidth(fontId, work->string, 0) + 1) / 2;
-    return AddTextPrinterParameterizedWithColor(window, fontId, work->string, x, y, textSpeed, MAKE_TEXT_COLOR(fg, shadow, bg), NULL);
+    return AddTextPrinterParameterizedWithColor(window, (u32)fontId, work->string, x, y, textSpeed, MAKE_TEXT_COLOR(fg, shadow, bg), NULL);
 }
 
 static int ScratchOffCards_PrintStopPrompt(ScratchOffCardsWork *work) {
     int ret;
     ScratchOffCards_DrawMessageFrame(work->bgConfig, &work->windows[0]);
-    ret = ScratchOffCards_PrintMessage(work, &work->windows[0], msg_0432_00006, 1, 1, TEXT_SPEED_INSTANT, 1, 2, 15, 0);
+    ret = ScratchOffCards_PrintMessage(work, &work->windows[0], msg_0432_00006, 1, 1, TEXT_SPEED_INSTANT, 1, 2, 15, FONT_SYSTEM);
     ScheduleWindowCopyToVram(&work->windows[0]);
     return ret;
 }
@@ -1269,7 +1269,7 @@ static int ScratchOffCards_PrintStopPrompt(ScratchOffCardsWork *work) {
 static int ScratchOffCards_PrintSelectCardMessage(ScratchOffCardsWork *work) {
     int ret;
     ScratchOffCards_BufferNumber(work, 0, work->cardNo + 1);
-    ret = ScratchOffCards_PrintMessage(work, &work->windows[15], msg_0432_00012, 1, 1, TEXT_SPEED_INSTANT, 1, 2, 15, 1);
+    ret = ScratchOffCards_PrintMessage(work, &work->windows[15], msg_0432_00012, 1, 1, TEXT_SPEED_INSTANT, 1, 2, 15, FONT_MESSAGE);
     ScheduleWindowCopyToVram(&work->windows[15]);
     return ret;
 }
@@ -1277,7 +1277,7 @@ static int ScratchOffCards_PrintSelectCardMessage(ScratchOffCardsWork *work) {
 static int ScratchOffCards_PrintStartCardMessage(ScratchOffCardsWork *work) {
     int ret;
     ScratchOffCards_BufferNumber(work, 0, work->cardNo + 1);
-    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[10], msg_0432_00009, 0x30, 5, TEXT_SPEED_INSTANT, 1, 2, 0, 0);
+    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[10], msg_0432_00009, 0x30, 5, TEXT_SPEED_INSTANT, 1, 2, 0, FONT_SYSTEM);
     ScheduleWindowCopyToVram(&work->windows[10]);
     return ret;
 }
@@ -1297,21 +1297,21 @@ static int ScratchOffCards_ShowResult(ScratchOffCardsWork *work) {
 static int ScratchOffCards_PrintTooBadMessage(ScratchOffCardsWork *work) {
     int ret;
     PlaySE(SEQ_SE_DP_BOX03);
-    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[12], msg_0432_00011, 0x30, 5, TEXT_SPEED_INSTANT, 1, 2, 0, 0);
+    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[12], msg_0432_00011, 0x30, 5, TEXT_SPEED_INSTANT, 1, 2, 0, FONT_SYSTEM);
     ScheduleWindowCopyToVram(&work->windows[12]);
     return ret;
 }
 
 static int ScratchOffCards_PrintNextCardButton(ScratchOffCardsWork *work) {
     int ret;
-    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[13], msg_0432_00004, 0x30, 1, TEXT_SPEED_INSTANT, 1, 1, 0, 2);
+    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[13], msg_0432_00004, 0x30, 1, TEXT_SPEED_INSTANT, 1, 1, 0, FONT_SUBSCREEN);
     ScheduleWindowCopyToVram(&work->windows[13]);
     return ret;
 }
 
 static int ScratchOffCards_PrintCancelButton(ScratchOffCardsWork *work) {
     int ret;
-    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[14], msg_0432_00005, 0x18, 1, TEXT_SPEED_INSTANT, 1, 1, 0, 2);
+    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[14], msg_0432_00005, 0x18, 1, TEXT_SPEED_INSTANT, 1, 1, 0, FONT_SUBSCREEN);
     ScheduleWindowCopyToVram(&work->windows[14]);
     return ret;
 }
@@ -1319,7 +1319,7 @@ static int ScratchOffCards_PrintCancelButton(ScratchOffCardsWork *work) {
 static int ScratchOffCards_PrintPrizeName(ScratchOffCardsWork *work, int prizeNo) {
     int ret;
     BufferItemName(work->msgFormat, 0, work->prizes[prizeNo]);
-    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[prizeNo + 2], msg_0432_00001, 44, gScratchOffCardsPrizeNameY[prizeNo], TEXT_SPEED_INSTANT, 1, 2, 0, 0);
+    ret = ScratchOffCards_PrintMessageCentered(work, &work->windows[prizeNo + 2], msg_0432_00001, 44, gScratchOffCardsPrizeNameY[prizeNo], TEXT_SPEED_INSTANT, 1, 2, 0, FONT_SYSTEM);
     ScheduleWindowCopyToVram(&work->windows[prizeNo + 2]);
     return ret;
 }

@@ -671,7 +671,7 @@ static void WiFiPlazaConnect_PrintMessage(WiFiPlazaConnectMessageBox *box, int m
     FillWindowPixelBuffer(&box->window, 15);
     ReadMsgDataIntoString(box->msgData, msgId, box->raw);
     StringExpandPlaceholders(box->format, box->expanded, box->raw);
-    AddTextPrinterParameterized(&box->window, 1, box->expanded, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
+    AddTextPrinterParameterized(&box->window, FONT_MESSAGE, box->expanded, 0, 0, TEXT_SPEED_NOTRANSFER, NULL);
     if (box->frameType == 0) {
         DrawFrameAndWindow1(&box->window, TRUE, 31, 12);
     } else {
@@ -730,8 +730,8 @@ static void WiFiPlazaConnect_PrintCenteredTitle(WiFiPlazaConnectMessageBox *box,
     FillWindowPixelBuffer(&box->window, 0);
     ReadMsgDataIntoString(box->msgData, msgId, box->raw);
     StringExpandPlaceholders(box->format, box->expanded, box->raw);
-    x = FontID_String_GetCenterAlignmentX(0, box->expanded, 0, 0xB0);
-    AddTextPrinterParameterizedWithColor(&box->window, 1, box->expanded, x, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    x = FontID_String_GetCenterAlignmentX(FONT_SYSTEM, box->expanded, 0, 0xB0);
+    AddTextPrinterParameterizedWithColor(&box->window, FONT_MESSAGE, box->expanded, x, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 14, 0), NULL);
 }
 
 static void WiFiPlazaConnect_BufferErrorCode(WiFiPlazaConnectMessageBox *box, int errorCode) {

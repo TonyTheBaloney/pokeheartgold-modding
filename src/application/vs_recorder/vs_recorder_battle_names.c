@@ -37,7 +37,7 @@ void VsRecorder_SanitizeBattleSetupNames(BattleRecord *record, BattleSetup *setu
         } else {
             String_SetEmpty(str);
             CopyU16ArrayToString(str, setup->trainer[i].name);
-            if (!FontID_String_AllCharsValid(0, str, checked)) {
+            if (!FontID_String_AllCharsValid(FONT_SYSTEM, str, checked)) {
                 VsRecorder_LoadPlaceholderTrainerName(checked, heapID);
                 CopyStringToU16Array(checked, setup->trainer[i].name, PLAYER_NAME_LENGTH + 1);
             }
@@ -55,7 +55,7 @@ void VsRecorder_SanitizeBattleSetupNames(BattleRecord *record, BattleSetup *setu
             GetMonData(mon, MON_DATA_NICKNAME, nickname);
             String_SetEmpty(str);
             CopyU16ArrayToString(str, nickname);
-            if (!FontID_String_AllCharsValid(0, str, checked)) {
+            if (!FontID_String_AllCharsValid(FONT_SYSTEM, str, checked)) {
                 SetMonData(mon, MON_DATA_SPECIES_NAME, NULL);
             }
         }

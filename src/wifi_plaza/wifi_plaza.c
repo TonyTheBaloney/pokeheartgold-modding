@@ -679,7 +679,7 @@ void WiFiPlazaPlayer_CopyToProfile(WiFiPlazaPlayer *player, PlayerProfile *profi
         a = String_New(0x20, heapID);
         b = String_New(0x20, heapID);
         PlayerName_FlatToString(profile, b);
-        if (!FontID_String_AllCharsValid((FontID)0, b, a)) {
+        if (!FontID_String_AllCharsValid(FONT_SYSTEM, b, a)) {
             invalid = TRUE;
         }
         String_Delete(a);

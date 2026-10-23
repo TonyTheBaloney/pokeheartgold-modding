@@ -709,7 +709,7 @@ static int BattlePartyMenu_Setup(BattlePartyMenu *menu) {
     BattlePartyMenu_InitBgs(menu);
     BattlePartyMenu_LoadBgGraphics(menu);
     BattlePartyMenu_InitText(menu);
-    FontID_Alloc(4, menu->context->heapID);
+    FontID_Alloc(FONT_UNK_4, menu->context->heapID);
     BattlePartyMenu_LoadPageTilemaps(menu, menu->page);
     BattlePartyMenu_DrawPageButtons(menu, menu->page);
     BattlePartyMenu_LoadPagePalette(menu, menu->page);
@@ -1297,7 +1297,7 @@ static int BattlePartyMenu_Exit(SysTask *task, BattlePartyMenu *menu) {
     BattlePartyMenu_FreeBgs(menu->bgConfig);
     menu->context->cursorActive = BattleDpadCursor_IsActive(menu->cursor);
     BattleDpadCursor_Free(menu->cursor);
-    FontID_Release(4);
+    FontID_Release(FONT_UNK_4);
     menu->context->done = TRUE;
     DestroySysTaskAndEnvironment(task);
     return 1;
@@ -1913,21 +1913,21 @@ static void BattlePartyMenu_PrintMonName(BattlePartyMenu *menu, int window, int 
         if (mon->gender == MON_MALE) {
             String *symbol = NewString_ReadMsgData(menu->msgData, msg_0006_00016);
             u32 width = GetWindowWidth(win);
-            int symbolX = width * 8 - FontID_String_GetWidth(0, symbol, 0);
+            int symbolX = width * 8 - FontID_String_GetWidth(FONT_SYSTEM, symbol, 0);
             if (fontId == 0) {
-                AddTextPrinterParameterizedWithColor(win, 0, symbol, symbolX, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 0), NULL);
+                AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, symbol, symbolX, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 0), NULL);
             } else {
-                AddTextPrinterParameterizedWithColor(win, 0, symbol, symbolX, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(10, 11, 0), NULL);
+                AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, symbol, symbolX, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(10, 11, 0), NULL);
             }
             String_Delete(symbol);
         } else if (mon->gender == MON_FEMALE) {
             String *symbol = NewString_ReadMsgData(menu->msgData, msg_0006_00017);
             u32 width = GetWindowWidth(win);
-            int symbolX = width * 8 - FontID_String_GetWidth(0, symbol, 0);
+            int symbolX = width * 8 - FontID_String_GetWidth(FONT_SYSTEM, symbol, 0);
             if (fontId == 0) {
-                AddTextPrinterParameterizedWithColor(win, 0, symbol, symbolX, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
+                AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, symbol, symbolX, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 0), NULL);
             } else {
-                AddTextPrinterParameterizedWithColor(win, 0, symbol, symbolX, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(12, 13, 0), NULL);
+                AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, symbol, symbolX, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(12, 13, 0), NULL);
             }
             String_Delete(symbol);
         }
@@ -1984,7 +1984,7 @@ static void BattlePartyMenu_PrintAbilityName(BattlePartyMenu *menu, int window, 
 
     BufferAbilityName(menu->msgFormat, 0, menu->mons[slot].ability);
     StringExpandPlaceholders(menu->msgFormat, string, template);
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[window], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[window], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(template);
     String_Delete(string);
     ScheduleWindowCopyToVram(&menu->pageWindows[window]);
@@ -2004,7 +2004,7 @@ static void BattlePartyMenu_PrintHeldItemName(BattlePartyMenu *menu, int window,
         StringExpandPlaceholders(menu->msgFormat, string, template);
         String_Delete(template);
     }
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[window], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[window], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(&menu->pageWindows[window]);
 }
@@ -2031,7 +2031,7 @@ static void BattlePartyMenu_PrintMoveName(BattlePartyMenu *menu, int move, int w
 static void BattlePartyMenu_PrintPPLabel(BattlePartyMenu *menu, int window, u16 x, u32 y) {
     String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00014);
 
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[window], 0, string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[window], FONT_SYSTEM, string, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(&menu->pageWindows[window]);
 }
@@ -2042,7 +2042,7 @@ static void BattlePartyMenu_PrintPrompt(BattlePartyMenu *menu, int msgNo) {
     DrawFrameAndWindow2(&menu->windows[0], TRUE, 1, 14);
     FillWindowPixelBuffer(&menu->windows[0], 15);
     string = NewString_ReadMsgData(menu->msgData, msgNo);
-    AddTextPrinterParameterizedWithColor(&menu->windows[0], 1, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->windows[0], FONT_MESSAGE, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(&menu->windows[0]);
 }
@@ -2051,10 +2051,10 @@ static void BattlePartyMenu_PrintButtonLabel(BattlePartyMenu *menu, int window, 
     Window *windows = menu->pageWindows;
     Window *win = &windows[window];
     String *string = NewString_ReadMsgData(menu->msgData, msgNo);
-    u32 width = FontID_String_GetWidth(4, string, 0);
+    u32 width = FontID_String_GetWidth(FONT_UNK_4, string, 0);
     u32 windowWidth = GetWindowWidth(win);
 
-    AddTextPrinterParameterizedWithColor(win, 4, string, (windowWidth * 8 - width) / 2, 5, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 9), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_UNK_4, string, (windowWidth * 8 - width) / 2, 5, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 9), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(win);
 }
@@ -2065,19 +2065,19 @@ static void BattlePartyMenu_PrintLevelAndNextExp(BattlePartyMenu *menu, int slot
     u16 base = menu->windowSet * 22;
     String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00023);
 
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[19], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[19], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
 
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00024);
     String *expanded = String_New(8, menu->context->heapID);
     BufferIntegerAsString(menu->msgFormat, 0, mon->level, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, expanded, string);
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 11], 0, expanded, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 11], FONT_SYSTEM, expanded, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     String_Delete(expanded);
 
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00025);
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[20], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[20], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
 
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00026);
@@ -2089,8 +2089,8 @@ static void BattlePartyMenu_PrintLevelAndNextExp(BattlePartyMenu *menu, int slot
     }
     StringExpandPlaceholders(menu->msgFormat, expanded, string);
     u32 width = GetWindowWidth(&menu->pageWindows[base + 12]);
-    u16 x = width * 8 - FontID_String_GetWidth(0, expanded, 0);
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 12], 0, expanded, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    u16 x = width * 8 - FontID_String_GetWidth(FONT_SYSTEM, expanded, 0);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 12], FONT_SYSTEM, expanded, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     String_Delete(expanded);
     ScheduleWindowCopyToVram(&menu->pageWindows[19]);
@@ -2103,16 +2103,16 @@ static void BattlePartyMenu_PrintLevelAndNextExp(BattlePartyMenu *menu, int slot
     static void name(BattlePartyMenu *menu, int slot) {                                                                                                         \
         u16 base = menu->windowSet * 22;                                                                                                                        \
         String *string = NewString_ReadMsgData(menu->msgData, labelMsgNo);                                                                                      \
-        AddTextPrinterParameterizedWithColor(&menu->pageWindows[labelWindow], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);        \
+        AddTextPrinterParameterizedWithColor(&menu->pageWindows[labelWindow], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);        \
         String_Delete(string);                                                                                                                                  \
         String *template = NewString_ReadMsgData(menu->msgData, valueMsgNo);                                                                                    \
         String *expanded = String_New(8, menu->context->heapID);                                                                                                \
         u16 value = menu->mons[slot].field;                                                                                                                     \
         BufferIntegerAsString(menu->msgFormat, 0, value, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);                                                                    \
         StringExpandPlaceholders(menu->msgFormat, expanded, template);                                                                                          \
-        u8 width = FontID_String_GetWidth(0, expanded, 0);                                                                                                      \
+        u8 width = FontID_String_GetWidth(FONT_SYSTEM, expanded, 0);                                                                                                      \
         u8 x = GetWindowWidth(&menu->pageWindows[base + valueWindow]) * 8 - width;                                                                              \
-        AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + valueWindow], 0, expanded, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL); \
+        AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + valueWindow], FONT_SYSTEM, expanded, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL); \
         String_Delete(template);                                                                                                                                \
         String_Delete(expanded);                                                                                                                                \
         ScheduleWindowCopyToVram(&menu->pageWindows[labelWindow]);                                                                                              \
@@ -2130,22 +2130,22 @@ static void BattlePartyMenu_PrintHPStat(BattlePartyMenu *menu, int slot) {
     u16 base = menu->windowSet * 22;
     String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00028);
 
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[13], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[13], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
 
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00031);
-    u32 slashWidth = FontID_String_GetWidth(0, string, 0);
+    u32 slashWidth = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
     u32 windowWidth = GetWindowWidth(&menu->pageWindows[4]);
     u16 middle = (windowWidth * 8 - slashWidth) / 2;
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 4], 0, string, middle, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 4], FONT_SYSTEM, string, middle, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
 
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00029);
     String *expanded = String_New(8, menu->context->heapID);
     BufferIntegerAsString(menu->msgFormat, 0, mon->hp, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, expanded, string);
-    u32 width = FontID_String_GetWidth(0, expanded, 0);
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 4], 0, expanded, middle - width, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    u32 width = FontID_String_GetWidth(FONT_SYSTEM, expanded, 0);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 4], FONT_SYSTEM, expanded, middle - width, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     String_Delete(expanded);
 
@@ -2153,7 +2153,7 @@ static void BattlePartyMenu_PrintHPStat(BattlePartyMenu *menu, int slot) {
     expanded = String_New(8, menu->context->heapID);
     BufferIntegerAsString(menu->msgFormat, 0, mon->maxHp, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, expanded, string);
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 4], 0, expanded, middle + slashWidth, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[base + 4], FONT_SYSTEM, expanded, middle + slashWidth, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     String_Delete(expanded);
     ScheduleWindowCopyToVram(&menu->pageWindows[13]);
@@ -2166,7 +2166,7 @@ static void BattlePartyMenu_PrintAbilityDescription(BattlePartyMenu *menu, int s
     u16 msgNo = menu->mons[slot].ability;
     String *string = NewString_ReadMsgData(msgData, msgNo);
 
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[window + 2], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[window + 2], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     DestroyMsgData(msgData);
     ScheduleWindowCopyToVram(&menu->pageWindows[window + 2]);
@@ -2177,7 +2177,7 @@ static void BattlePartyMenu_PrintAccuracyLabel(BattlePartyMenu *menu, int window
     Window *win = &windows[window];
     String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00051);
 
-    AddTextPrinterParameterizedWithColor(win, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(win);
 }
@@ -2188,18 +2188,18 @@ static void BattlePartyMenu_PrintMoveAccuracy(BattlePartyMenu *menu, int window,
 
     if (accuracy == 0) {
         String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00050);
-        u16 width = FontID_String_GetWidth(0, string, 0);
+        u16 width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
         u16 x = GetWindowWidth(win) * 8 - width;
-        AddTextPrinterParameterizedWithColor(win, 0, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         String_Delete(string);
     } else {
         String *template = NewString_ReadMsgData(menu->msgData, msg_0006_00052);
         String *string = String_New(8, menu->context->heapID);
         BufferIntegerAsString(menu->msgFormat, 0, accuracy, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
         StringExpandPlaceholders(menu->msgFormat, string, template);
-        u16 width = FontID_String_GetWidth(0, string, 0);
+        u16 width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
         u16 x = GetWindowWidth(win) * 8 - width;
-        AddTextPrinterParameterizedWithColor(win, 0, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         String_Delete(template);
         String_Delete(string);
     }
@@ -2211,7 +2211,7 @@ static void BattlePartyMenu_PrintPowerLabel(BattlePartyMenu *menu, int window) {
     Window *win = &windows[window];
     String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00048);
 
-    AddTextPrinterParameterizedWithColor(win, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(win);
 }
@@ -2222,18 +2222,18 @@ static void BattlePartyMenu_PrintMovePower(BattlePartyMenu *menu, int window, u3
 
     if (power <= 1) {
         String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00050);
-        u16 width = FontID_String_GetWidth(0, string, 0);
+        u16 width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
         u16 x = GetWindowWidth(win) * 8 - width;
-        AddTextPrinterParameterizedWithColor(win, 0, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         String_Delete(string);
     } else {
         String *template = NewString_ReadMsgData(menu->msgData, msg_0006_00049);
         String *string = String_New(8, menu->context->heapID);
         BufferIntegerAsString(menu->msgFormat, 0, power, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
         StringExpandPlaceholders(menu->msgFormat, string, template);
-        u16 width = FontID_String_GetWidth(0, string, 0);
+        u16 width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
         u16 x = GetWindowWidth(win) * 8 - width;
-        AddTextPrinterParameterizedWithColor(win, 0, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+        AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         String_Delete(template);
         String_Delete(string);
     }
@@ -2246,7 +2246,7 @@ static void BattlePartyMenu_PrintMoveDescription(BattlePartyMenu *menu, int wind
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0749, menu->context->heapID);
     String *string = NewString_ReadMsgData(msgData, move);
 
-    AddTextPrinterParameterizedWithColor(win, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     DestroyMsgData(msgData);
     ScheduleWindowCopyToVram(win);
@@ -2256,10 +2256,10 @@ static void BattlePartyMenu_PrintCategoryLabel(BattlePartyMenu *menu, int window
     Window *windows = menu->pageWindows;
     Window *win = &windows[window];
     String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00053);
-    u16 width = FontID_String_GetWidth(0, string, 0);
+    u16 width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
     u16 x = (GetWindowWidth(win) * 8 - width) / 2;
 
-    AddTextPrinterParameterizedWithColor(win, 0, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, x, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(win);
 }
@@ -2280,7 +2280,7 @@ static void BattlePartyMenu_PrintMoveCategory(BattlePartyMenu *menu, int window,
         string = NewString_ReadMsgData(menu->msgData, msg_0006_00055);
         break;
     }
-    AddTextPrinterParameterizedWithColor(win, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(win);
 }
@@ -2289,24 +2289,24 @@ static void BattlePartyMenu_PrintMovePP(BattlePartyMenu *menu, int window, int p
     Window *windows = menu->pageWindows;
     Window *win = &windows[window];
     String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00046);
-    u32 slashWidth = FontID_String_GetWidth(0, string, 0);
+    u32 slashWidth = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
     u32 middle = (GetWindowWidth(win) * 8 - slashWidth) / 2;
 
-    AddTextPrinterParameterizedWithColor(win, 0, string, middle, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, middle, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00044);
     String *expanded = String_New(6, menu->context->heapID);
     BufferIntegerAsString(menu->msgFormat, 0, pp, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, expanded, string);
-    u32 width = FontID_String_GetWidth(0, expanded, 0);
-    AddTextPrinterParameterizedWithColor(win, 0, expanded, middle - width, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    u32 width = FontID_String_GetWidth(FONT_SYSTEM, expanded, 0);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, expanded, middle - width, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     String_Delete(expanded);
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00045);
     expanded = String_New(6, menu->context->heapID);
     BufferIntegerAsString(menu->msgFormat, 0, maxPP, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, expanded, string);
-    AddTextPrinterParameterizedWithColor(win, 0, expanded, middle + slashWidth, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, expanded, middle + slashWidth, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     String_Delete(expanded);
     ScheduleWindowCopyToVram(win);
@@ -2323,8 +2323,8 @@ static void BattlePartyMenu_PrintForgetButtonLabel(BattlePartyMenu *menu, int wi
     } else {
         string = NewString_ReadMsgData(menu->msgData, msg_0006_00058);
     }
-    width = FontID_String_GetWidth(4, string, 0);
-    AddTextPrinterParameterizedWithColor(win, 4, string, (96 - width) / 2, 5, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 9), NULL);
+    width = FontID_String_GetWidth(FONT_UNK_4, string, 0);
+    AddTextPrinterParameterizedWithColor(win, FONT_UNK_4, string, (96 - width) / 2, 5, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 9), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(win);
 }
@@ -2340,7 +2340,7 @@ static void BattlePartyMenu_PrintHMCantBeForgotten(BattlePartyMenu *menu) {
     }
     FillWindowPixelBuffer(window, 0);
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00060);
-    AddTextPrinterParameterizedWithColor(window, 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
+    AddTextPrinterParameterizedWithColor(window, FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(1, 2, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(window);
 }
@@ -2351,23 +2351,23 @@ static void BattlePartyMenu_PrintMoveListPP(BattlePartyMenu *menu, BattlePartyMe
     String *expanded = String_New(6, menu->context->heapID);
     String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00043);
 
-    AddTextPrinterParameterizedWithColor(win, 0, string, 40, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, 40, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00046);
-    u32 width = FontID_String_GetWidth(0, string, 0);
-    AddTextPrinterParameterizedWithColor(win, 0, string, 80, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    u32 width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, string, 80, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00045);
     BufferIntegerAsString(menu->msgFormat, 0, move->maxPP, 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, expanded, string);
     width += 80;
-    AddTextPrinterParameterizedWithColor(win, 0, expanded, width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, expanded, width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00044);
     BufferIntegerAsString(menu->msgFormat, 0, move->pp, 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, expanded, string);
-    width = FontID_String_GetWidth(0, expanded, 0);
-    AddTextPrinterParameterizedWithColor(win, 0, expanded, 80 - width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    width = FontID_String_GetWidth(FONT_SYSTEM, expanded, 0);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, expanded, 80 - width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     String_Delete(expanded);
     ScheduleWindowCopyToVram(win);
@@ -2378,7 +2378,7 @@ static void BattlePartyMenu_UpdateMoveListPP(BattlePartyMenu *menu, BattlePartyM
     Window *win = &windows[window];
     String *expanded = String_New(6, menu->context->heapID);
     String *string = NewString_ReadMsgData(menu->msgData, msg_0006_00043);
-    u32 width = FontID_String_GetWidth(0, string, 0);
+    u32 width = FontID_String_GetWidth(FONT_SYSTEM, string, 0);
 
     String_Delete(string);
     width += 40;
@@ -2386,8 +2386,8 @@ static void BattlePartyMenu_UpdateMoveListPP(BattlePartyMenu *menu, BattlePartyM
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00044);
     BufferIntegerAsString(menu->msgFormat, 0, move->pp, 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     StringExpandPlaceholders(menu->msgFormat, expanded, string);
-    width = FontID_String_GetWidth(0, expanded, 0);
-    AddTextPrinterParameterizedWithColor(win, 0, expanded, 80 - width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    width = FontID_String_GetWidth(FONT_SYSTEM, expanded, 0);
+    AddTextPrinterParameterizedWithColor(win, FONT_SYSTEM, expanded, 80 - width, 24, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     String_Delete(expanded);
     ScheduleWindowCopyToVram(win);
@@ -2481,23 +2481,23 @@ static void BattlePartyMenu_PrintMonNameCentered(BattlePartyMenu *menu, int slot
     StringExpandPlaceholders(menu->msgFormat, locals.name, template);
     String_Delete(template);
     symbol = BattlePartyMenu_ReadGenderSymbol(menu, &locals);
-    width = FontID_String_GetWidth(4, locals.name, 0);
+    width = FontID_String_GetWidth(FONT_UNK_4, locals.name, 0);
     if (symbol == NULL) {
         symbolWidth = 0;
         gap = 0;
     } else {
-        symbolWidth = FontID_String_GetWidth(0, symbol, 0);
+        symbolWidth = FontID_String_GetWidth(FONT_SYSTEM, symbol, 0);
         gap = 8;
     }
     x = (GetWindowWidth(locals.window) * 8 - width - symbolWidth - gap) / 2;
     name = locals.name;
-    AddTextPrinterParameterizedWithColor(locals.window, 4, name, x, 7, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 9), NULL);
+    AddTextPrinterParameterizedWithColor(locals.window, FONT_UNK_4, name, x, 7, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(7, 8, 9), NULL);
     String_Delete(locals.name);
     if (symbol) {
         if (locals.mon->gender == MON_MALE) {
-            AddTextPrinterParameterizedWithColor(locals.window, 0, symbol, gap + (x + width), 8, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(10, 11, 0), NULL);
+            AddTextPrinterParameterizedWithColor(locals.window, FONT_SYSTEM, symbol, gap + (x + width), 8, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(10, 11, 0), NULL);
         } else {
-            AddTextPrinterParameterizedWithColor(locals.window, 0, symbol, gap + (x + width), 8, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(12, 13, 0), NULL);
+            AddTextPrinterParameterizedWithColor(locals.window, FONT_SYSTEM, symbol, gap + (x + width), 8, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(12, 13, 0), NULL);
         }
         String_Delete(symbol);
     }
@@ -2514,11 +2514,11 @@ static void BattlePartyMenu_PrintCheckMovesPage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[base + 3], 0);
     FillWindowPixelBuffer(&menu->pageWindows[base + 4], 0);
     FillWindowPixelBuffer(&menu->pageWindows[5], 0);
-    BattlePartyMenu_PrintMonName(menu, base, 0, menu->context->selectedMon, 0, 0);
+    BattlePartyMenu_PrintMonName(menu, base, FONT_SYSTEM, menu->context->selectedMon, 0, 0);
     for (i = 0; i < MAX_MON_MOVES; i++) {
         BattlePartyMenuMove *move = &menu->mons[menu->context->selectedMon].moves[i];
         if (move->move) {
-            BattlePartyMenu_PrintMoveName(menu, move->move, base + 1 + i, gBattlePartyMoveNameMsgIds[i], 4, 7, MAKE_TEXT_COLOR(7, 8, 9));
+            BattlePartyMenu_PrintMoveName(menu, move->move, base + 1 + i, gBattlePartyMoveNameMsgIds[i], FONT_UNK_4, 7, MAKE_TEXT_COLOR(7, 8, 9));
             BattlePartyMenu_PrintMoveListPP(menu, move, base + 1 + i);
         }
     }
@@ -2555,7 +2555,7 @@ static void BattlePartyMenu_PrintSummaryPage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[base + 1], 0);
     FillWindowPixelBuffer(&menu->pageWindows[base + 2], 0);
     FillWindowPixelBuffer(&menu->pageWindows[base + 3], 0);
-    BattlePartyMenu_PrintMonName(menu, base, 0, menu->context->selectedMon, 0, 0);
+    BattlePartyMenu_PrintMonName(menu, base, FONT_SYSTEM, menu->context->selectedMon, 0, 0);
     BattlePartyMenu_PrintHPStat(menu, menu->context->selectedMon);
     BattlePartyMenu_DrawHPBar(menu, base + 10, menu->context->selectedMon, 0, 0);
     BattlePartyMenu_PrintLevelAndNextExp(menu, menu->context->selectedMon);
@@ -2590,9 +2590,9 @@ static void BattlePartyMenu_PrintMoveDetailPage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[base + 4], 0);
     slot = menu->context->selectedMon;
     move = &menu->mons[slot].moves[menu->context->selectedMove];
-    BattlePartyMenu_PrintMonName(menu, 6, 0, slot, 0, 0);
+    BattlePartyMenu_PrintMonName(menu, 6, FONT_SYSTEM, slot, 0, 0);
     BattlePartyMenu_PrintPPLabel(menu, 7, 0, 0);
-    BattlePartyMenu_PrintMoveName(menu, move->move, base, gBattlePartyMoveNameMsgIds[menu->context->selectedMove], 0, 0, MAKE_TEXT_COLOR(15, 14, 0));
+    BattlePartyMenu_PrintMoveName(menu, move->move, base, gBattlePartyMoveNameMsgIds[menu->context->selectedMove], FONT_SYSTEM, 0, MAKE_TEXT_COLOR(15, 14, 0));
     BattlePartyMenu_PrintAccuracyLabel(menu, 8);
     BattlePartyMenu_PrintMoveAccuracy(menu, base + 2, move->accuracy);
     BattlePartyMenu_PrintPowerLabel(menu, 9);
@@ -2614,15 +2614,15 @@ static void BattlePartyMenu_PrintLearnMovePage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[3], 0);
     FillWindowPixelBuffer(&menu->pageWindows[4], 0);
     FillWindowPixelBuffer(&menu->pageWindows[5], 0);
-    BattlePartyMenu_PrintMonName(menu, 0, 0, menu->context->selectedMon, 0, 0);
+    BattlePartyMenu_PrintMonName(menu, 0, FONT_SYSTEM, menu->context->selectedMon, 0, 0);
     for (i = 0; i < MAX_MON_MOVES; i++) {
         BattlePartyMenuMove *moves = menu->mons[menu->context->selectedMon].moves;
         if (moves[i].move) {
-            BattlePartyMenu_PrintMoveName(menu, moves[i].move, i + 1, gBattlePartyMoveNameMsgIds[i], 4, 7, MAKE_TEXT_COLOR(7, 8, 9));
+            BattlePartyMenu_PrintMoveName(menu, moves[i].move, i + 1, gBattlePartyMoveNameMsgIds[i], FONT_UNK_4, 7, MAKE_TEXT_COLOR(7, 8, 9));
             BattlePartyMenu_PrintMoveListPP(menu, &moves[i], i + 1);
         }
     }
-    BattlePartyMenu_PrintMoveName(menu, menu->context->move, 5, msg_0006_00073, 4, 7, MAKE_TEXT_COLOR(7, 8, 9));
+    BattlePartyMenu_PrintMoveName(menu, menu->context->move, 5, msg_0006_00073, FONT_UNK_4, 7, MAKE_TEXT_COLOR(7, 8, 9));
     newMove.pp = GetMoveAttr(menu->context->move, MOVEATTR_PP);
     newMove.maxPP = newMove.pp;
     BattlePartyMenu_PrintMoveListPP(menu, &newMove, 5);
@@ -2650,7 +2650,7 @@ static void BattlePartyMenu_PrintForgetMovePage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[10], 0);
     FillWindowPixelBuffer(&menu->pageWindows[8], 0);
     FillWindowPixelBuffer(&menu->pageWindows[11], 0);
-    BattlePartyMenu_PrintMonName(menu, 0, 0, menu->context->selectedMon, 0, 0);
+    BattlePartyMenu_PrintMonName(menu, 0, FONT_SYSTEM, menu->context->selectedMon, 0, 0);
     BattlePartyMenu_PrintPPLabel(menu, 2, 0, 0);
     BattlePartyMenu_PrintAccuracyLabel(menu, 4);
     BattlePartyMenu_PrintPowerLabel(menu, 5);
@@ -2659,7 +2659,7 @@ static void BattlePartyMenu_PrintForgetMovePage(BattlePartyMenu *menu) {
     if (moveSlot < 4) {
         moves = menu->mons[menu->context->selectedMon].moves;
         move = &moves[moveSlot];
-        BattlePartyMenu_PrintMoveName(menu, move->move, 1, gBattlePartyMoveNameMsgIds[moveSlot], 0, 0, MAKE_TEXT_COLOR(15, 14, 0));
+        BattlePartyMenu_PrintMoveName(menu, move->move, 1, gBattlePartyMoveNameMsgIds[moveSlot], FONT_SYSTEM, 0, MAKE_TEXT_COLOR(15, 14, 0));
         BattlePartyMenu_PrintMoveAccuracy(menu, 6, move->accuracy);
         BattlePartyMenu_PrintMovePower(menu, 7, move->power);
         BattlePartyMenu_PrintMoveDescription(menu, 8, move->move);
@@ -2667,7 +2667,7 @@ static void BattlePartyMenu_PrintForgetMovePage(BattlePartyMenu *menu) {
         BattlePartyMenu_PrintMovePP(menu, 3, move->pp, move->maxPP);
     } else {
         pp = GetMoveAttr(menu->context->move, MOVEATTR_PP);
-        BattlePartyMenu_PrintMoveName(menu, menu->context->move, 1, msg_0006_00073, 0, 0, MAKE_TEXT_COLOR(15, 14, 0));
+        BattlePartyMenu_PrintMoveName(menu, menu->context->move, 1, msg_0006_00073, FONT_SYSTEM, 0, MAKE_TEXT_COLOR(15, 14, 0));
         BattlePartyMenu_PrintMoveDescription(menu, 8, menu->context->move);
         BattlePartyMenu_PrintMoveAccuracy(menu, 6, GetMoveAttr(menu->context->move, MOVEATTR_ACCURACY));
         BattlePartyMenu_PrintMovePower(menu, 7, GetMoveAttr(menu->context->move, MOVEATTR_POWER));
@@ -2686,11 +2686,11 @@ static void BattlePartyMenu_PrintRestorePPPage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[2], 0);
     FillWindowPixelBuffer(&menu->pageWindows[3], 0);
     FillWindowPixelBuffer(&menu->pageWindows[4], 0);
-    BattlePartyMenu_PrintMonName(menu, 0, 0, menu->context->selectedMon, 0, 0);
+    BattlePartyMenu_PrintMonName(menu, 0, FONT_SYSTEM, menu->context->selectedMon, 0, 0);
     for (i = 0; i < MAX_MON_MOVES; i++) {
         moves = menu->mons[menu->context->selectedMon].moves;
         if (moves[i].move) {
-            BattlePartyMenu_PrintMoveName(menu, moves[i].move, i + 1, gBattlePartyMoveNameMsgIds[i], 4, 7, MAKE_TEXT_COLOR(7, 8, 9));
+            BattlePartyMenu_PrintMoveName(menu, moves[i].move, i + 1, gBattlePartyMoveNameMsgIds[i], FONT_UNK_4, 7, MAKE_TEXT_COLOR(7, 8, 9));
             BattlePartyMenu_PrintMoveListPP(menu, &moves[i], i + 1);
         }
     }
@@ -2721,21 +2721,21 @@ static void BattlePartyMenu_PrintContestForgetMovePage(BattlePartyMenu *menu) {
     FillWindowPixelBuffer(&menu->pageWindows[4], 0);
     FillWindowPixelBuffer(&menu->pageWindows[5], 0);
     FillWindowPixelBuffer(&menu->pageWindows[6], 0);
-    BattlePartyMenu_PrintMonName(menu, 0, 0, menu->context->selectedMon, 0, 0);
+    BattlePartyMenu_PrintMonName(menu, 0, FONT_SYSTEM, menu->context->selectedMon, 0, 0);
     BattlePartyMenu_PrintPPLabel(menu, 2, 0, 0);
     string = NewString_ReadMsgData(menu->msgData, msg_0006_00057);
-    AddTextPrinterParameterizedWithColor(&menu->pageWindows[4], 0, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&menu->pageWindows[4], FONT_SYSTEM, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(&menu->pageWindows[4]);
     if (menu->context->selectedMove < 4) {
         u32 moveSlot = menu->context->selectedMove;
         moves = menu->mons[menu->context->selectedMon].moves;
         move = &moves[moveSlot];
-        BattlePartyMenu_PrintMoveName(menu, move->move, 1, gBattlePartyMoveNameMsgIds[moveSlot], 0, 0, MAKE_TEXT_COLOR(15, 14, 0));
+        BattlePartyMenu_PrintMoveName(menu, move->move, 1, gBattlePartyMoveNameMsgIds[moveSlot], FONT_SYSTEM, 0, MAKE_TEXT_COLOR(15, 14, 0));
         BattlePartyMenu_PrintMovePP(menu, 3, move->pp, move->maxPP);
     } else {
         pp = GetMoveAttr(menu->context->move, MOVEATTR_PP);
-        BattlePartyMenu_PrintMoveName(menu, menu->context->move, 1, msg_0006_00073, 0, 0, MAKE_TEXT_COLOR(15, 14, 0));
+        BattlePartyMenu_PrintMoveName(menu, menu->context->move, 1, msg_0006_00073, FONT_SYSTEM, 0, MAKE_TEXT_COLOR(15, 14, 0));
         BattlePartyMenu_PrintMovePP(menu, 3, pp, pp);
     }
     BattlePartyMenu_PrintForgetButtonLabel(menu, 6);
@@ -2752,7 +2752,7 @@ static void BattlePartyMenu_PrintMessage(BattlePartyMenu *menu) {
 
     TextFlags_SetCanABSpeedUpPrint(TRUE);
     delay = BattleSystem_GetTextFrameDelay(menu->context->battleSystem);
-    menu->textPrinterId = AddTextPrinterParameterized(&menu->windows[1], 1, menu->string, 0, 0, delay, NULL);
+    menu->textPrinterId = AddTextPrinterParameterized(&menu->windows[1], FONT_MESSAGE, menu->string, 0, 0, delay, NULL);
 }
 
 static void BattlePartyMenu_BufferItemResultMessage(BattlePartyMenu *menu) {

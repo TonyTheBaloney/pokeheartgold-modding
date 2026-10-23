@@ -716,7 +716,7 @@ static void DrawingSession_AddWindows(DrawingSessionWork *work, OverlayManager *
     FillWindowPixelBuffer(&work->canvasWindow, 2);
     AddWindowParameterized(work->bgConfig, &work->quitWindow, GF_BG_LYR_MAIN_1, 25, 21, 7, 2, 13, 0x1C3);
     FillWindowPixelBuffer(&work->quitWindow, 0);
-    AddTextPrinterParameterizedWithColor(&work->quitWindow, 1, work->quitText, FontID_String_GetCenterAlignmentX(1, work->quitText, 0, 0x30) + 2, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(7, 1, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&work->quitWindow, FONT_MESSAGE, work->quitText, FontID_String_GetCenterAlignmentX(FONT_MESSAGE, work->quitText, 0, 0x30) + 2, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(7, 1, 0), NULL);
     baseTile = 1;
     y = 3;
     for (i = 0; i < DRAWING_SESSION_MAX_MEMBERS; i++) {
@@ -1466,9 +1466,9 @@ static void DrawingSession_PrintMemberNames(Window *windows, int unused, u32 col
             if (work->members[i].cur) {
                 PlayerName_FlatToString(work->members[i].cur, work->memberNames[i]);
                 if (ownId == i) {
-                    AddTextPrinterParameterizedWithColor(windows, 1, work->memberNames[i], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 15), NULL);
+                    AddTextPrinterParameterizedWithColor(windows, FONT_MESSAGE, work->memberNames[i], 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(3, 4, 15), NULL);
                 } else {
-                    AddTextPrinterParameterizedWithColor(windows, 1, work->memberNames[i], 0, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
+                    AddTextPrinterParameterizedWithColor(windows, FONT_MESSAGE, work->memberNames[i], 0, 0, TEXT_SPEED_NOTRANSFER, color, NULL);
                 }
             }
             CopyWindowToVram(windows);
@@ -1544,7 +1544,7 @@ static void DrawingSession_PrintMessage(DrawingSessionWork *work, u32 msgId, u32
     if (speed == 0) {
         speed = TEXT_SPEED_INSTANT;
     }
-    work->printerId = AddTextPrinterParameterized(&work->messageWindow, 1, work->messageText, 0, 0, speed, NULL);
+    work->printerId = AddTextPrinterParameterized(&work->messageWindow, FONT_MESSAGE, work->messageText, 0, 0, speed, NULL);
     if (speed == 0) {
         work->printerId = 0xFF;
     }

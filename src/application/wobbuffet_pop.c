@@ -746,7 +746,7 @@ static void WobbuffetPop_ShowMessage(WobbuffetPop *game) {
 
     DrawFrameAndWindow1(&game->messageWindow, TRUE, 0x350, 6);
     string = NewString_ReadMsgData(game->msgData, msg_0012_00003);
-    AddTextPrinterParameterizedWithColor(&game->messageWindow, 0, string, 0, 0, 0, MAKE_TEXT_COLOR(1, 2, 15), NULL);
+    AddTextPrinterParameterizedWithColor(&game->messageWindow, FONT_SYSTEM, string, 0, 0, 0, MAKE_TEXT_COLOR(1, 2, 15), NULL);
     String_Delete(string);
     ScheduleWindowCopyToVram(&game->messageWindow);
 }
@@ -777,12 +777,12 @@ static void WobbuffetPop_PrintPlayerNames(WobbuffetPop *game) {
             } else {
                 color = MAKE_TEXT_COLOR(1, 2, 15);
             }
-            width = FontID_String_GetWidth(0, name, 0);
+            width = FontID_String_GetWidth(FONT_SYSTEM, name, 0);
             x = 40 - width / 2;
             if (width & 1) {
                 x--;
             }
-            AddTextPrinterParameterizedWithColor(&game->playerNameWindows[(gWobbuffetPopNameWindowIndices + 4 * game->app->playerCount)[position]], 0, name, x, 0, 0, color, NULL);
+            AddTextPrinterParameterizedWithColor(&game->playerNameWindows[(gWobbuffetPopNameWindowIndices + 4 * game->app->playerCount)[position]], FONT_SYSTEM, name, x, 0, 0, color, NULL);
             Heap_Free(name);
         }
     }
@@ -870,8 +870,8 @@ static void WobbuffetPop_LoadMainObjGraphics(WobbuffetPop *game, NARC *narc) {
 
     SpriteSystem_LoadPaletteBufferFromOpenNarc(game->paletteData, PLTTBUF_MAIN_OBJ, game->spriteSystem, game->spriteManager, narc, 27, FALSE, 1, NNS_G2D_VRAM_TYPE_2DMAIN, 10003);
     string = NewString_ReadMsgData(game->msgData, msg_0012_00002);
-    x = ((30 - FontID_String_GetWidth(0, string, 0)) >> 1) + 6;
-    WobbuffetPop_NewTextObj(game->bgConfig, game->spriteManager, game->fontSystem, &game->scoreDisplay.title, string, 0, MAKE_TEXT_COLOR(14, 15, 0), 0, 10003, x + 36, 168, 0, 1, 12, 2);
+    x = ((30 - FontID_String_GetWidth(FONT_SYSTEM, string, 0)) >> 1) + 6;
+    WobbuffetPop_NewTextObj(game->bgConfig, game->spriteManager, game->fontSystem, &game->scoreDisplay.title, string, FONT_SYSTEM, MAKE_TEXT_COLOR(14, 15, 0), 0, 10003, x + 36, 168, 0, 1, 12, 2);
     String_Delete(string);
     string0 = NewString_ReadMsgData(game->msgData, msg_0012_00000);
     string1 = NewString_ReadMsgData(game->msgData, msg_0012_00001);
@@ -879,8 +879,8 @@ static void WobbuffetPop_LoadMainObjGraphics(WobbuffetPop *game, NARC *narc) {
     top = &game->scoreDisplay.digits[0].top;
     bottom = &game->scoreDisplay.digits[0].bottom;
     for (; i < 6; i++) {
-        WobbuffetPop_NewTextObj(game->bgConfig, game->spriteManager, game->fontSystem, top, string0, 0, MAKE_TEXT_COLOR(14, 15, 0), 0, 10003, x, 168, 0, 3, 12, 10);
-        WobbuffetPop_NewTextObj(game->bgConfig, game->spriteManager, game->fontSystem, bottom, string1, 0, MAKE_TEXT_COLOR(14, 15, 0), 0, 10003, x, 168, 0, 3, 12, 10);
+        WobbuffetPop_NewTextObj(game->bgConfig, game->spriteManager, game->fontSystem, top, string0, FONT_SYSTEM, MAKE_TEXT_COLOR(14, 15, 0), 0, 10003, x, 168, 0, 3, 12, 10);
+        WobbuffetPop_NewTextObj(game->bgConfig, game->spriteManager, game->fontSystem, bottom, string1, FONT_SYSTEM, MAKE_TEXT_COLOR(14, 15, 0), 0, 10003, x, 168, 0, 3, 12, 10);
         x += 6;
         top += 2; // next digit: skip its top and bottom text
         bottom += 2;

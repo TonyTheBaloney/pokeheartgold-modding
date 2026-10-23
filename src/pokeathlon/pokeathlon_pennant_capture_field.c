@@ -1053,7 +1053,7 @@ static void PokeathlonPennantCapture_PrintScore(PokeathlonPennantCapture *work, 
     format = MessageFormat_New(work->heapId);
     BufferIntegerAsString(format, 0, score, 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
     string = ReadMsgData_ExpandPlaceholders(format, msgData, msg_0309_00157, work->heapId);
-    AddTextPrinterParameterizedWithColor(&work->scoreWindow, 4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
+    AddTextPrinterParameterizedWithColor(&work->scoreWindow, FONT_UNK_4, string, 0, 0, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 14, 0), NULL);
     String_Delete(string);
     MessageFormat_Delete(format);
     DestroyMsgData(msgData);
