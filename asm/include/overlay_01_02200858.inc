@@ -1,6 +1,6 @@
 
 #pragma once
-.public Math_CalcRotationMatrixXYZDeg
+.public MTX_Rot33Angles
 .public MetatileBehavior_IsWarpEntranceEast
 .public MetatileBehavior_IsWarpEntranceWest
 .public MetatileBehavior_IsWarpEntranceNorth

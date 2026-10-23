@@ -1293,7 +1293,7 @@ static void WeatherWork_GetCameraScroll(fx32 *x, fx32 *z, WeatherWork *work) {
 
     aspect = FX_Div(FX32_CONST(4), FX32_CONST(3));
 
-    Math_CalcPerspectiveViewSize(Camera_GetPerspectiveAngle(work->weatherSystem->fieldSystem->camera), Camera_GetDistance(work->weatherSystem->fieldSystem->camera), aspect, &dx, &dz);
+    FX_CalcLinearFov(Camera_GetPerspectiveAngle(work->weatherSystem->fieldSystem->camera), Camera_GetDistance(work->weatherSystem->fieldSystem->camera), aspect, &dx, &dz);
 
     dx = FX_Div(dx, 256 * FX32_ONE);
 

@@ -685,7 +685,7 @@ static void WiFiPlazaConnect_ClearMessageBox(WiFiPlazaConnectMessageBox *box) {
         RemoveTextPrinter((u8)box->printerId);
     }
     if (box->frameType == 0) {
-        EraseFrameAndWindow1(&box->window, TRUE);
+        ClearWindowPixelBuffer(&box->window, TRUE);
         ClearWindowTilemapAndScheduleTransfer(&box->window);
         return;
     }

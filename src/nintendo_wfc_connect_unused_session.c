@@ -1403,7 +1403,7 @@ static int NintendoWfcUnused_ShowDwcError(NintendoWfcUnused *wfc) {
 
 static int NintendoWfcUnused_WaitErrorDismiss(NintendoWfcUnused *wfc) {
     if ((gSystem.newKeys & PAD_BUTTON_A) || (gSystem.newKeys & PAD_BUTTON_B)) {
-        EraseFrameAndWindow1(&wfc->errorWindow, FALSE);
+        ClearWindowPixelBuffer(&wfc->errorWindow, FALSE);
         wfc->state = NINTENDO_WFC_UNUSED_STATE_ASK_CONNECT;
     }
     return NINTENDO_WFC_UNUSED_MAIN_SESSION_MAIN;

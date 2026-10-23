@@ -54,7 +54,7 @@
 .public MessagePrinter_Delete
 .public LoadUserFrameGfx1Tiles
 .public DrawFrameAndWindow1
-.public EraseFrameAndWindow1
+.public ClearWindowPixelBuffer
 .public LoadUserFrameGfx2
 .public DrawFrameAndWindow2
 .public ClearFrameAndWindow2
@@ -95,9 +95,9 @@
 .public GF_CreateVramTransferManager
 .public GF_DestroyVramTransferManager
 .public GF_RunVramTransferTasks
-.public GF_TouchpadResetSampling
-.public GF_TouchpadStartSampling
-.public GF_TouchpadStopSampling
+.public EnableTouchPad
+.public InitializeTouchPad
+.public DisableTouchPad
 .public GF_TouchpadUpdate
 .public ObjCharTransfer_InitEx
 .public ObjCharTransfer_Destroy

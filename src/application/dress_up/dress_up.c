@@ -1345,8 +1345,8 @@ BOOL DressUp_Init(OverlayManager *man, int *state) {
     } else {
         work->menuInputState = MENU_INPUT_STATE_BUTTONS;
     }
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     DressUp_LoadFashionCaseTable(args->fashionCase, work->caseTable);
     DressUp_InitGraphics(work);
     DressUpNodePool_Init(&work->nodePool, 0x2CF, HEAP_ID_13);
@@ -1502,7 +1502,7 @@ BOOL DressUp_Exit(OverlayManager *man, int *state) {
     DressUp_FreeGraphics(work);
     Main_SetVBlankIntrCB(NULL, NULL);
     HBlankInterruptDisable();
-    if (GF_TouchpadStopSampling() != TRUE) {
+    if (DisableTouchPad() != TRUE) {
         GF_ASSERT(FALSE);
     }
     OverlayManager_FreeData(man);

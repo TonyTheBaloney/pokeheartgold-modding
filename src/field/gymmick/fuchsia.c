@@ -45,11 +45,11 @@ static void SysTask_AnimateFuchsiaWall(SysTask *sysTask, void *data);
 static void FuchsiaGymmick_Load3DGraphics(FuchsiaGymmickLocalData *localData, enum HeapID heapID);
 static void FuchsiaGymmick_Unload3DGraphics(FuchsiaGymmickLocalData *localData);
 static s16 FuchsiaGymmick_GetWallIdAt(int x, int z);
-static BOOL FuchsiaGymmick_IsWallAnimPlaying(FuchsiaGymmickWallAnimTask *animtask, s16 wallId);
+static BOOL FuchsiaGymmick_IsWallAnimationAlreadyPlaying(FuchsiaGymmickWallAnimTask *animtask, s16 wallId);
 static void FuchsiaGymmick_StartWallAnimation(FuchsiaGymmickLocalData *localData, FieldSystem *fieldSystem, u8 wallId);
-static BOOL FuchsiaGymmick_AdvanceWallAnims(Field3DModelAnimation *anim, u8 num);
+static BOOL FuchsiaGymmick_FrameAdvanceWallAnimations_CheckAllDone(Field3DModelAnimation *anim, u8 num);
 static FuchsiaGymmickWallAnimState *FuchsiaGymmick_AllocateWallAnimState(FuchsiaGymmickWallAnimsManager *animsManager);
-static void FuchsiaGymmick_KillNeighborAnims(FuchsiaGymmickLocalData *localData, const u8 baseWallId);
+static void FuchsiaGymmick_KillNeighboringSegmentsAnims(FuchsiaGymmickLocalData *localData, const u8 baseWallId);
 static void FuchsiaGymmick_KillWallAnimTask(FuchsiaGymmickWallAnimTask *animTask);
 
 static const FuchsiaGymmickWallData sWallData[] = {
@@ -568,7 +568,7 @@ void FuchsiaGymmick_CheckCollision(FieldSystem *fieldSystem, int x, int z) {
         PlaySE(SEQ_SE_DP_WALL_HIT);
         return;
     }
-    if (!FuchsiaGymmick_IsWallAnimPlaying(localData->wallAnimTasks, wallId)) {
+    if (!FuchsiaGymmick_IsWallAnimationAlreadyPlaying(localData->wallAnimTasks, wallId)) {
         FuchsiaGymmick_StartWallAnimation(localData, fieldSystem, wallId);
         PlaySE(SEQ_SE_GS_TOUMEINAKABEHIT);
     }
@@ -577,7 +577,7 @@ void FuchsiaGymmick_CheckCollision(FieldSystem *fieldSystem, int x, int z) {
 static void SysTask_AnimateFuchsiaWall(SysTask *sysTask, void *data) {
     FuchsiaGymmickWallAnimTask *animtask = data;
     FuchsiaGymmickWallAnimState *animState = animtask->animState;
-    if (FuchsiaGymmick_AdvanceWallAnims(animState->anims, 4)) {
+    if (FuchsiaGymmick_FrameAdvanceWallAnimations_CheckAllDone(animState->anims, 4)) {
         FuchsiaGymmick_KillWallAnimTask(animtask);
     } else {
         Field3dObject_Draw(&animState->object);
@@ -641,7 +641,7 @@ static s16 FuchsiaGymmick_GetWallIdAt(int x, int z) {
     return -1;
 }
 
-static BOOL FuchsiaGymmick_IsWallAnimPlaying(FuchsiaGymmickWallAnimTask *animTask, s16 wallId) {
+static BOOL FuchsiaGymmick_IsWallAnimationAlreadyPlaying(FuchsiaGymmickWallAnimTask *animTask, s16 wallId) {
     for (u8 i = 0; i < 3; ++i) {
         if (animTask[i].active && animTask[i].wallId == wallId) {
             return TRUE;
@@ -660,7 +660,7 @@ static void FuchsiaGymmick_StartWallAnimation(FuchsiaGymmickLocalData *localData
         GF_ASSERT(FALSE);
         return;
     }
-    FuchsiaGymmick_KillNeighborAnims(localData, wallId);
+    FuchsiaGymmick_KillNeighboringSegmentsAnims(localData, wallId);
     animTask->active = TRUE;
     animTask->wallId = wallId;
     animManagerIdx = sWallData[wallId].modelId;
@@ -678,7 +678,7 @@ static void FuchsiaGymmick_StartWallAnimation(FuchsiaGymmickLocalData *localData
     localData->wallAnimTaskPointer = (localData->wallAnimTaskPointer + 1) % 3;
 }
 
-static BOOL FuchsiaGymmick_AdvanceWallAnims(Field3DModelAnimation *anim, u8 num) {
+static BOOL FuchsiaGymmick_FrameAdvanceWallAnimations_CheckAllDone(Field3DModelAnimation *anim, u8 num) {
     u8 i;
     u8 count = 0;
 
@@ -699,7 +699,7 @@ static FuchsiaGymmickWallAnimState *FuchsiaGymmick_AllocateWallAnimState(Fuchsia
     return ret;
 }
 
-static void FuchsiaGymmick_KillNeighborAnims(FuchsiaGymmickLocalData *localData, const u8 baseWallId) {
+static void FuchsiaGymmick_KillNeighboringSegmentsAnims(FuchsiaGymmickLocalData *localData, const u8 baseWallId) {
     u8 i;
     u8 j;
     for (i = 0; i < 6; ++i) {

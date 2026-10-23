@@ -682,8 +682,8 @@ static BOOL AlphPuzzle_OverlayEnterStep(AlphPuzzleData *data) {
         break;
     case 1:
         AlphPuzzle_DrawHintTextAndHideCursor(data);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(1);
+        EnableTouchPad();
+        InitializeTouchPad(1);
         data->stepState = 0;
         return TRUE;
     }
@@ -691,7 +691,7 @@ static BOOL AlphPuzzle_OverlayEnterStep(AlphPuzzleData *data) {
 }
 
 static BOOL AlphPuzzle_OverlayExitStep(AlphPuzzleData *data) {
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     AlphPuzzle_TeardownGraphics(data);
     return TRUE;
 }

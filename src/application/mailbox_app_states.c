@@ -153,8 +153,8 @@ static int MailboxApp_State_Setup(MailboxApp *app) {
     GfGfx_EngineBSetPlanes(GX_PLANEMASK_NONE);
     G2_BlendNone();
     G2S_BlendNone();
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
     Heap_Create(HEAP_ID_3, HEAP_ID_157, 0x60000);
     app->data = Heap_Alloc(HEAP_ID_157, sizeof(MailboxAppData));
@@ -189,7 +189,7 @@ static int MailboxApp_State_Teardown(MailboxApp *app) {
     MailboxApp_RemoveWindows(app);
     MailboxApp_FreeBgLayers(app);
     MailboxApp_FreeMail(app);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     G2_BlendNone();
     G2S_BlendNone();
     GfGfx_EngineASetPlanes(GX_PLANEMASK_NONE);

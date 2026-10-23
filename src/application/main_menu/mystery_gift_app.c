@@ -396,7 +396,7 @@ static void MysteryGiftApp_SetSpriteAnim(MysteryGiftAppData *data, int animSeq) 
 
 static void MysteryGiftApp_EraseWindowIfInUse(Window *window, BOOL dontCopyToVram) {
     if (WindowIsInUse(window) == TRUE) {
-        EraseFrameAndWindow1(window, dontCopyToVram);
+        ClearWindowPixelBuffer(window, dontCopyToVram);
     }
 }
 

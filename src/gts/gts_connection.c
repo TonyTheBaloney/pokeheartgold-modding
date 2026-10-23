@@ -725,7 +725,7 @@ int GtsConnection_ShowConnectionError(GtsApp *app) {
 
 int GtsConnection_WaitCloseError(GtsApp *app) {
     if ((gSystem.newKeys & PAD_BUTTON_A) || (gSystem.newKeys & PAD_BUTTON_B) || gSystem.touchNew != 0) {
-        EraseFrameAndWindow1(&app->boxNameWindow, FALSE);
+        ClearWindowPixelBuffer(&app->boxNameWindow, FALSE);
         app->state = GTS_CONNECTION_STATE_ASK_CONNECT;
     }
     return GTS_APP_STATE_RUN_SCREEN;

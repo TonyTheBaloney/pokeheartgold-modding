@@ -385,8 +385,8 @@ static BOOL BerryPotsApp_Setup(BerryPotsAppData *data) {
         break;
     case 1:
         BerryPotsApp_InitDisplay(data);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(1);
+        EnableTouchPad();
+        InitializeTouchPad(1);
         Sound_SetSceneAndPlayBGM(0x45, 0, 0);
 
         data->state70 = 0;
@@ -397,7 +397,7 @@ static BOOL BerryPotsApp_Setup(BerryPotsAppData *data) {
 }
 
 static BOOL BerryPotsApp_Teardown(BerryPotsAppData *data) {
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     BerryPotsApp_FreeResources(data);
     return TRUE;
 }

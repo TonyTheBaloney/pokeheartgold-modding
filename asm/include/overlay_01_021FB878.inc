@@ -76,5 +76,5 @@
 .public Field3dObject_SetPosEx
 .public Field3dObject_SetPos
 .public Field3dObject_SetXRotation
-.public Field3dObjectList_AddShared
+.public Field3dRenderObjManager_AllocRenderObj
 .public AreaMapAnimation_Load

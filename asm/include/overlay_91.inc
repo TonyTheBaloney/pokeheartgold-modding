@@ -44,7 +44,7 @@
 .public MessageFormat_Delete
 .public LoadUserFrameGfx1
 .public DrawFrameAndWindow1
-.public EraseFrameAndWindow1
+.public ClearWindowPixelBuffer
 .public BeginNormalPaletteFade
 .public IsPaletteFadeFinished
 .public StopPaletteFade
@@ -110,8 +110,8 @@
 .public GF_CreateVramTransferManager
 .public GF_DestroyVramTransferManager
 .public GF_RunVramTransferTasks
-.public GF_TouchpadStartRecording
-.public GF_TouchpadStopSampling
+.public InitializeTouchPadWithExternalBuffer
+.public DisableTouchPad
 .public GF_TouchpadUpdate
 .public ObjCharTransfer_InitEx
 .public ObjCharTransfer_Destroy

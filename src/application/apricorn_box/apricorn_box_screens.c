@@ -267,8 +267,8 @@ static BOOL ApricornBoxScreen_Setup(ApricornBoxScreen *screen) {
         break;
     case 1:
         ApricornBoxScreen_DrawScreen(screen);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(1);
+        EnableTouchPad();
+        InitializeTouchPad(1);
         screen->subState = 0;
         return TRUE;
     }
@@ -278,7 +278,7 @@ static BOOL ApricornBoxScreen_Setup(ApricornBoxScreen *screen) {
 static BOOL ApricornBoxScreen_Teardown(ApricornBoxScreen *screen) {
     switch (screen->subState) {
     case 0:
-        GF_TouchpadStopSampling();
+        DisableTouchPad();
         ApricornBoxScreen_FreeGraphics(screen);
         screen->subState++;
         break;

@@ -747,8 +747,8 @@ static BOOL SafariDecoration_Setup(SafariDecoration *decor) {
     case 1:
         SafariDecoration_ShowObjectList(decor);
         Main_SetVBlankIntrCB(SafariDecoration_VBlankCB, decor);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(4);
+        EnableTouchPad();
+        InitializeTouchPad(4);
         decor->setupState = 0;
         return TRUE;
     }
@@ -770,7 +770,7 @@ static BOOL SafariDecoration_Teardown(SafariDecoration *decor) {
         SafariDecoration_FreeBgLayers(decor);
         break;
     case 2:
-        GF_TouchpadStopSampling();
+        DisableTouchPad();
         GX_SetVisiblePlane(0);
         GXS_SetVisiblePlane(0);
         GfGfx_DisableEngineAPlanes();

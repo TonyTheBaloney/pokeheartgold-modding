@@ -982,7 +982,7 @@ BOOL WifiClub_Init(OverlayManager *man, int *state) {
             LoadDwcOverlay();
             Comm_InitDwc(HEAP_ID_53);
         }
-        GF_ASSERT(GF_TouchpadStartSampling(4) == 1);
+        GF_ASSERT(InitializeTouchPad(4) == 1);
         *state += 1;
         break;
     case 1:
@@ -1068,7 +1068,7 @@ BOOL WifiClub_Exit(OverlayManager *man, int *state) {
     }
     WifiClub_FreeStrings(data);
     OverlayManager_FreeData(man);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     GF_DestroyVramTransferManager();
     Heap_Destroy(HEAP_ID_53);
     switch (data->exitChoice) {
@@ -1445,7 +1445,7 @@ void WifiClub_EnableObjPlane(WifiClubApp *app) {
 
 void WifiClub_PrintTitleBar(WifiClubApp *app) {
     if (WindowIsInUse(&app->titleWindow) != 0) {
-        EraseFrameAndWindow1(&app->titleWindow, FALSE);
+        ClearWindowPixelBuffer(&app->titleWindow, FALSE);
         RemoveWindow(&app->titleWindow);
     }
     AddWindowParameterized(app->bgConfig, &app->titleWindow, GF_BG_LYR_MAIN_3, 5, 1, 22, 2, 13, 458);
@@ -1893,7 +1893,7 @@ s32 WifiClub_State_Reconnect(WifiClubApp *app, s32 mainState) {
             WifiClub_FreeRosterScreen(app);
         }
         if (WindowIsInUse(&app->titleWindow) != 0) {
-            EraseFrameAndWindow1(&app->titleWindow, FALSE);
+            ClearWindowPixelBuffer(&app->titleWindow, FALSE);
             RemoveWindow(&app->titleWindow);
         }
         if (WindowIsInUse(&app->statusWindow) != 0) {
@@ -2104,7 +2104,7 @@ void WifiClub_CreateStatusBarWindows(WifiClubApp *app) {
         RemoveWindow(&app->statusWindow);
     }
     if (WindowIsInUse(&app->titleWindow) != 0) {
-        EraseFrameAndWindow1(&app->titleWindow, FALSE);
+        ClearWindowPixelBuffer(&app->titleWindow, FALSE);
         RemoveWindow(&app->titleWindow);
     }
     AddWindowParameterized(app->bgConfig, &app->statusWindow, GF_BG_LYR_MAIN_3, 1, 1, 28, 2, 13, 402);
@@ -2776,7 +2776,7 @@ s32 WifiClub_State_OpenSeekMenu(WifiClubApp *app, s32 mainState) {
         ListMenuItems_AppendFromMsgData(app->menuItems, app->msgData, listMenuItems[i].strno, listMenuItems[i].value);
     }
     if (WindowIsInUse(&app->menuWindow) != 0) {
-        EraseFrameAndWindow1(&app->menuWindow, FALSE);
+        ClearWindowPixelBuffer(&app->menuWindow, FALSE);
         RemoveWindow(&app->menuWindow);
     }
     s32 height = (listLen + 1) * 2;
@@ -2797,7 +2797,7 @@ s32 WifiClub_State_SeekMenu(WifiClubApp *app, s32 mainState) {
     s32 cookingError = WifiClub_GetCookingError(app);
     WifiClubRoom_UpdateLights(&app->room);
     if (CommState_HasWifiFailed() != 0) {
-        EraseFrameAndWindow1(&app->menuWindow, FALSE);
+        ClearWindowPixelBuffer(&app->menuWindow, FALSE);
         RemoveWindow(&app->menuWindow);
         DestroyListMenu(app->listMenu, NULL, &app->seekMenuCursor);
         ListMenuItems_Delete(app->menuItems);
@@ -2808,7 +2808,7 @@ s32 WifiClub_State_SeekMenu(WifiClubApp *app, s32 mainState) {
     if (TextPrinterCheckActive(app->textPrinterId) != 0) {
         if (WifiClub_CheckIncomingContact(app) != 0) {
             app->state = WIFI_CLUB_STATE_ROOM;
-            EraseFrameAndWindow1(&app->menuWindow, FALSE);
+            ClearWindowPixelBuffer(&app->menuWindow, FALSE);
             RemoveWindow(&app->menuWindow);
             DestroyListMenu(app->listMenu, NULL, &app->seekMenuCursor);
             ListMenuItems_Delete(app->menuItems);
@@ -2846,7 +2846,7 @@ s32 WifiClub_State_SeekMenu(WifiClubApp *app, s32 mainState) {
             WifiClub_PrintMessage(app, msg_0778_00103, 0);
             app->state = WIFI_CLUB_STATE_MESSAGE_THEN_RETURN_TO_ROOM;
         } else if ((selection == WIFI_CLUB_SEEK_MENU_SINGLE_BATTLE) || (selection == WIFI_CLUB_SEEK_MENU_DOUBLE_BATTLE) || (selection == WIFI_CLUB_SEEK_MENU_PLAZA_GAMES)) {
-            EraseFrameAndWindow1(&app->menuWindow, FALSE);
+            ClearWindowPixelBuffer(&app->menuWindow, FALSE);
             RemoveWindow(&app->menuWindow);
             DestroyListMenu(app->listMenu, NULL, &app->seekMenuCursor);
             ListMenuItems_Delete(app->menuItems);
@@ -2875,7 +2875,7 @@ s32 WifiClub_State_SeekMenu(WifiClubApp *app, s32 mainState) {
         }
     }
 
-    EraseFrameAndWindow1(&app->menuWindow, FALSE);
+    ClearWindowPixelBuffer(&app->menuWindow, FALSE);
     RemoveWindow(&app->menuWindow);
     DestroyListMenu(app->listMenu, NULL, &app->seekMenuCursor);
     ListMenuItems_Delete(app->menuItems);
@@ -2940,7 +2940,7 @@ s32 WifiClub_OpenSeekSubmenu(WifiClubApp *app, s32 menuChoice) {
         }
     }
     if (WindowIsInUse(&app->menuWindow) != 0) {
-        EraseFrameAndWindow1(&app->menuWindow, FALSE);
+        ClearWindowPixelBuffer(&app->menuWindow, FALSE);
         RemoveWindow(&app->menuWindow);
     }
     u32 windowHeight = listLen * 2;
@@ -2956,7 +2956,7 @@ s32 WifiClub_OpenSeekSubmenu(WifiClubApp *app, s32 menuChoice) {
 s32 WifiClub_State_SeekSubmenu(WifiClubApp *app, s32 mainState) {
     WifiClubRoom_UpdateLights(&app->room);
     if (CommState_HasWifiFailed() != 0) {
-        EraseFrameAndWindow1(&app->menuWindow, FALSE);
+        ClearWindowPixelBuffer(&app->menuWindow, FALSE);
         RemoveWindow(&app->menuWindow);
         DestroyListMenu(app->listMenu, NULL, &app->submenuCursors + app->submenuKind);
         ListMenuItems_Delete(app->menuItems);
@@ -2966,7 +2966,7 @@ s32 WifiClub_State_SeekSubmenu(WifiClubApp *app, s32 mainState) {
     }
     if (WifiClub_CheckIncomingContact(app) != 0) {
         app->state = WIFI_CLUB_STATE_ROOM;
-        EraseFrameAndWindow1(&app->menuWindow, FALSE);
+        ClearWindowPixelBuffer(&app->menuWindow, FALSE);
         RemoveWindow(&app->menuWindow);
         DestroyListMenu(app->listMenu, NULL, &app->submenuCursors + app->submenuKind);
         ListMenuItems_Delete(app->menuItems);
@@ -3005,7 +3005,7 @@ s32 WifiClub_State_SeekSubmenu(WifiClubApp *app, s32 mainState) {
         }
         WifiClub_StartSeeking(app, showMessage);
     }
-    EraseFrameAndWindow1(&app->menuWindow, FALSE);
+    ClearWindowPixelBuffer(&app->menuWindow, FALSE);
     RemoveWindow(&app->menuWindow);
     DestroyListMenu(app->listMenu, NULL, &app->submenuCursors + app->submenuKind);
     ListMenuItems_Delete(app->menuItems);
@@ -3195,7 +3195,7 @@ s32 WifiClub_State_ApplyMenu(WifiClubApp *app, s32 mainState) {
     s32 partnerId = WifiClubRoom_GetTalkPartnerId(&app->room);
     WifiClubRoomPerson *partnerPerson = WifiClub_FindPlayerObject(app, partnerId);
     if (CommState_HasWifiFailed() != 0) {
-        EraseFrameAndWindow1(&app->menuWindow, FALSE);
+        ClearWindowPixelBuffer(&app->menuWindow, FALSE);
         RemoveWindow(&app->menuWindow);
         DestroyListMenu(app->listMenu, NULL, NULL);
         ListMenuItems_Delete(app->menuItems);
@@ -3326,7 +3326,7 @@ s32 WifiClub_State_ApplyMenu(WifiClubApp *app, s32 mainState) {
     if (messageShown == 0) {
         WifiClub_CloseMessage(app);
     }
-    EraseFrameAndWindow1(&app->menuWindow, FALSE);
+    ClearWindowPixelBuffer(&app->menuWindow, FALSE);
     RemoveWindow(&app->menuWindow);
     DestroyListMenu(app->listMenu, NULL, NULL);
     ListMenuItems_Delete(app->menuItems);

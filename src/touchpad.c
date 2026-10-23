@@ -15,12 +15,12 @@ void GF_TouchpadInit(void) {
     memset(&gTouchpadState, 0, sizeof(gTouchpadState));
 }
 
-void GF_TouchpadResetSampling(void) {
+void EnableTouchPad(void) {
     GF_ASSERT(gTouchpadState.mode == TOUCHPAD_MODE_OFF);
     gTouchpadState.mode = TOUCHPAD_MODE_OFF;
 }
 
-BOOL GF_TouchpadStartRecording(TPData *data, u32 capacity, u32 frequency) {
+BOOL InitializeTouchPadWithExternalBuffer(TPData *data, u32 capacity, u32 frequency) {
     int result;
     if (gTouchpadState.paused) {
         GF_TouchpadSetSamplingState(TOUCHPAD_MODE_RECORDING, 1, data, capacity, 0, frequency * 2);
@@ -40,7 +40,7 @@ BOOL GF_TouchpadStartRecording(TPData *data, u32 capacity, u32 frequency) {
     return result;
 }
 
-BOOL GF_TouchpadStartSampling(int frequency) {
+BOOL InitializeTouchPad(int frequency) {
     int result;
     if (gTouchpadState.paused) {
         GF_TouchpadSetSamplingState(TOUCHPAD_MODE_SAMPLING, 1, NULL, 0, 0, frequency * 2);
@@ -97,7 +97,7 @@ int GF_TouchpadStopAutoSampling(void) {
     return 1;
 }
 
-BOOL GF_TouchpadStopSampling(void) {
+BOOL DisableTouchPad(void) {
     int result;
     if (gTouchpadState.paused) {
         GF_TouchpadSetSamplingState(TOUCHPAD_MODE_OFF, 0, NULL, 0, 0, 0);

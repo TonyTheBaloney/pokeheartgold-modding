@@ -3,10 +3,10 @@
 
 #include "global.h"
 
-u8 Seal_GetGfxCharId(u32 idx);
-u8 Seal_GetNameMsgId(u8 idx);
-u8 Seal_GetBattleAnimResId(u32 idx);
-BOOL Seal_IsLetterSeal(u32 idx);
-u32 Seal_GetDescriptionMsgId(u32 idx);
+u8 CapsuleMenu_GetSealMemberIdx(u32 idx);
+u8 CapsuleMenu_GetSealNameIndex(u8 idx);
+u8 CapsuleMenu_GetSealParticleIndex(u32 idx);
+BOOL CapsuleMenu_IsAlphabetSeal(u32 idx);
+u32 CapsuleMenu_GetSealNonAlphabetIndex(u32 idx);
 
 #endif // POKEHEARTGOLD_SEAL_DATA_H

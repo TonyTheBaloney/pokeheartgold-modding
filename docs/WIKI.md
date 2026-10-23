@@ -123,6 +123,7 @@ the command, if there is one. Commands run from the repository root;
 | make a new screen or menu | [ui.md](modding/ui.md#adding-a-new-application), [checklist](modding/ui.md#11-checklist-for-a-new-screen) | |
 | open a screen from the field | [ui.md](modding/ui.md#launching-an-application) | |
 | decompile or match a function | [DECOMP-NOTES.md](DECOMP-NOTES.md) | |
+| find a function under its old name (renamed to pret's) | [pret-names.md](modding/pret-names.md) | |
 
 ## File formats (for tool writers)
 

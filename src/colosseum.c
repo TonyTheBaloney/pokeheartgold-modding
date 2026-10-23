@@ -878,7 +878,7 @@ int Colosseum_HandleMenuInput(ColosseumEntry *entry) {
 }
 
 static void Colosseum_CloseMenu(ColosseumEntry *entry) {
-    EraseFrameAndWindow1(entry->menuWindow, TRUE);
+    ClearWindowPixelBuffer(entry->menuWindow, TRUE);
 }
 
 void Colosseum_RecvMixBattleMons(int netId, int size, void *data, FieldSystem *fieldSystem) {

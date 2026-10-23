@@ -181,7 +181,7 @@ static u32 BerryPots_MainSeq_RunBag(BerryPotsOverlayData *data) {
         return BERRY_POTS_MAIN_RUN_BAG;
     }
 
-    data->itemId = ((u8)BagView_GetSelectedAction(data->bagView) == 4) ? BagView_GetItemId(data->bagView) : 0xFFFF;
+    data->itemId = ((u8)BagView_GetReturnCode(data->bagView) == 4) ? BagView_GetItemId(data->bagView) : 0xFFFF;
     Heap_Free(data->bagView);
     data->bagView = NULL;
 

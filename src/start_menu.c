@@ -152,7 +152,7 @@ static BOOL Task_StartMenu_HandleSelection_Pokegear(TaskManager *taskManager);
 static BOOL Task_StartMenu_Pokegear(TaskManager *taskManager);
 static BOOL Task_StartMenu_HandleReturn_Pokegear(TaskManager *taskManager);
 static BOOL Task_StartMenu_HandleReturn_Summary(TaskManager *taskManager);
-static void StartMenu_HandleBagAction1(TaskManager *taskManager, int itemId);
+static void StartMenu_ShowBerryTag(TaskManager *taskManager, int itemId);
 static BOOL StartMenu_ReopenBagAtBerries(TaskManager *taskManager);
 static void StartMenu_ReturnToPartyMenuAfterMail(FieldSystem *fieldSystem, StartMenuTaskData *startMenu, u8 context);
 static void Task_StartMenu_Evolution(TaskManager *taskManager);
@@ -1028,7 +1028,7 @@ static BOOL Task_StartMenu_HandleReturn(TaskManager *taskManager) {
     memcpy(bagView, startMenu->exitTaskEnvironment, BagView_sizeof());
     Heap_Free(startMenu->exitTaskEnvironment);
 
-    switch (BagView_GetSelectedAction(bagView)) {
+    switch (BagView_GetReturnCode(bagView)) {
     case 0: {
         ItemMenuUseData itemMenuUseData;
         itemMenuUseData.itemId = BagView_GetItemId(bagView);
@@ -1039,7 +1039,7 @@ static BOOL Task_StartMenu_HandleReturn(TaskManager *taskManager) {
         break;
     }
     case 1:
-        StartMenu_HandleBagAction1(taskManager, BagView_GetItemId(bagView));
+        StartMenu_ShowBerryTag(taskManager, BagView_GetItemId(bagView));
         break;
     case 2: {
         PartyMenuArgs *partyMenuArgs = Heap_Alloc(HEAP_ID_FIELD2, sizeof(PartyMenuArgs));
@@ -1331,7 +1331,7 @@ static BOOL Task_StartMenu_HandleReturn_Summary(TaskManager *taskManager) {
     return FALSE;
 }
 
-static void StartMenu_HandleBagAction1(TaskManager *taskManager, int itemId) {
+static void StartMenu_ShowBerryTag(TaskManager *taskManager, int itemId) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     StartMenuTaskData *startMenu = (StartMenuTaskData *)TaskManager_GetEnvironment(taskManager);
 

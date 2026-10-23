@@ -141,7 +141,7 @@ static BOOL Task_BallCapsuleEditor(TaskManager *taskManager) {
             Pokemon *mon = taskData->editorArgs->mons[partyMenu->partySlot];
             SetMonData(mon, MON_DATA_BALL_CAPSULE_ID, &index);
             SetMonData(mon, MON_DATA_BALL_CAPSULE, SealCase_GetCapsuleI(editorArgs->sealCase, index - 1));
-            Seal_GetNameMsgId(SealOnCapsuleGetID(CapsuleGetSealI(SealCase_GetCapsuleI(editorArgs->sealCase, index - 1), 0)));
+            CapsuleMenu_GetSealNameIndex(SealOnCapsuleGetID(CapsuleGetSealI(SealCase_GetCapsuleI(editorArgs->sealCase, index - 1), 0)));
             Save_Block23_Get(fieldSystem->saveData);
         }
         taskData->state = 1;

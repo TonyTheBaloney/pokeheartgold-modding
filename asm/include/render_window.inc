@@ -20,7 +20,7 @@
 .public GetUserFrameGfx1PaletteMember
 .public LoadUserFrameGfx1
 .public DrawFrameAndWindow1
-.public EraseFrameAndWindow1
+.public ClearWindowPixelBuffer
 .public GetUserFrameGfx2TilesMember
 .public GetUserFrameGfx2PaletteMember
 .public LoadUserFrameGfx2

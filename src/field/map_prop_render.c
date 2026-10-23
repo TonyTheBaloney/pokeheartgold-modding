@@ -5,15 +5,15 @@
 #include "filesystem.h"
 #include "filesystem_files_def.h"
 
-static BOOL Field3dObjectList_IsShared(Field3dRenderObjManager *renderObjManager, int index);
-static Field3dRenderObj *Field3dObjectList_InitNextObject(Field3dRenderObjManager *renderObjManager, NNSG3dResFileHeader **resFileHeader, int index);
+static BOOL Field3dRenderObjManager_IsModelAllocatedByIndex(Field3dRenderObjManager *renderObjManager, int index);
+static Field3dRenderObj *Field3dRenderObjManager_AllocInternal(Field3dRenderObjManager *renderObjManager, NNSG3dResFileHeader **resFileHeader, int index);
 static void MapPropAnimation_AdvanceFrame(MapPropAnimation *animation);
 static BOOL MapPropAnimation_IsOnLastFrame(MapPropAnimation *animation);
 static void AreaMapAnimation_AllocAnimObj(NNSFndAllocator *pAllocator, NNSG3dAnmObj **pAlloc, void *res);
 static void *AreaMapAnimation_AllocAnimObjMem(NNSFndAllocator *pAllocator, ResAnim_4004 *anim);
 static void AreaMapAnimation_InitAnimObj(NNSG3dAnmObj *alloc, ResAnim_4004 *anim);
 
-Field3dRenderObjManager *Field3dObjectList_New(enum HeapID heapID, int indexMax, int objectMax, NNSG3dResFileHeader **resFileHeaders) {
+Field3dRenderObjManager *Field3dRenderObjManager_New(enum HeapID heapID, int indexMax, int objectMax, NNSG3dResFileHeader **resFileHeaders) {
     Field3dRenderObjManager *renderObjManager = Heap_Alloc(heapID, sizeof(Field3dRenderObjManager));
     renderObjManager->numObjects = 0;
     renderObjManager->indexMax = indexMax;
@@ -34,20 +34,20 @@ Field3dRenderObjManager *Field3dObjectList_New(enum HeapID heapID, int indexMax,
     return renderObjManager;
 }
 
-void Field3dObjectList_Free(Field3dRenderObjManager *renderObjManager) {
+void Field3dRenderObjManager_Delete(Field3dRenderObjManager *renderObjManager) {
     Heap_Free(renderObjManager->modelNumToLoadedSlot);
     Heap_Free(renderObjManager->objectHeap);
     Heap_Free(renderObjManager->objects);
     Heap_Free(renderObjManager);
 }
 
-Field3dRenderObj *Field3dObjectList_AddShared(Field3dRenderObjManager *renderObjManager, int index) {
+Field3dRenderObj *Field3dRenderObjManager_AllocRenderObj(Field3dRenderObjManager *renderObjManager, int index) {
     renderObjManager->modelNumToLoadedSlot[index] = renderObjManager->numObjects;
     NNSG3dResFileHeader *resFileHeader = renderObjManager->resFileHeaders[index];
-    return Field3dObjectList_InitNextObject(renderObjManager, &resFileHeader, index);
+    return Field3dRenderObjManager_AllocInternal(renderObjManager, &resFileHeader, index);
 }
 
-static void Field3dObjectList_ReturnObject(Field3dRenderObjManager *renderObjManager, Field3dRenderObj *object) {
+static void Field3dRenderObjManager_FreeRenderObjInternal(Field3dRenderObjManager *renderObjManager, Field3dRenderObj *object) {
     renderObjManager->numObjects--;
     renderObjManager->objects[renderObjManager->numObjects] = object;
 }
@@ -60,39 +60,39 @@ Field3dRenderObj *Field3dObjectList_GetRenderObjectByID(Field3dRenderObjManager 
     return NULL;
 }
 
-static Field3dRenderObj *Field3dObjectList_AddInstance(Field3dRenderObjManager *renderObjManager, int index) {
+static Field3dRenderObj *Field3dRenderObjManager_AllocRenderObjByIDInternal(Field3dRenderObjManager *renderObjManager, int index) {
     NNSG3dResFileHeader *resFileHeader = renderObjManager->resFileHeaders[index];
-    return Field3dObjectList_InitNextObject(renderObjManager, &resFileHeader, index);
+    return Field3dRenderObjManager_AllocInternal(renderObjManager, &resFileHeader, index);
 }
 
-Field3dRenderObj *Field3dObjectList_GetOrAddInstance(Field3dRenderObjManager *renderObjManager, int index) {
-    if (Field3dObjectList_IsShared(renderObjManager, index)) {
+Field3dRenderObj *Field3dRenderObjManager_GetOrAllocRenderObjByID(Field3dRenderObjManager *renderObjManager, int index) {
+    if (Field3dRenderObjManager_IsModelAllocatedByIndex(renderObjManager, index)) {
         return Field3dObjectList_GetRenderObjectByID(renderObjManager, index);
     }
-    return Field3dObjectList_AddInstance(renderObjManager, index);
+    return Field3dRenderObjManager_AllocRenderObjByIDInternal(renderObjManager, index);
 }
 
-BOOL Field3dObjectList_ReleaseInstance(Field3dRenderObjManager *renderObjManager, Field3dRenderObj *object) {
+BOOL Field3dRenderObjManager_FreeRenderObj(Field3dRenderObjManager *renderObjManager, Field3dRenderObj *object) {
     if (object == NULL) {
         return FALSE;
     }
 
-    if (Field3dObjectList_IsShared(renderObjManager, object->index) == FALSE) {
-        Field3dObjectList_ReturnObject(renderObjManager, object);
+    if (Field3dRenderObjManager_IsModelAllocatedByIndex(renderObjManager, object->index) == FALSE) {
+        Field3dRenderObjManager_FreeRenderObjInternal(renderObjManager, object);
         return TRUE;
     }
     return FALSE;
 }
 
-static BOOL Field3dObjectList_IsShared(Field3dRenderObjManager *renderObjManager, int index) {
+static BOOL Field3dRenderObjManager_IsModelAllocatedByIndex(Field3dRenderObjManager *renderObjManager, int index) {
     return renderObjManager->modelNumToLoadedSlot[index] != 0xFF;
 }
 
-BOOL Field3dObjectList_HasModelFile(Field3dRenderObjManager *renderObjManager, int index) {
+BOOL Field3dRenderObjManager_IsResFileHeaderLoadedByIndex(Field3dRenderObjManager *renderObjManager, int index) {
     return renderObjManager->resFileHeaders[index] != NULL;
 }
 
-static Field3dRenderObj *Field3dObjectList_InitNextObject(Field3dRenderObjManager *renderObjManager, NNSG3dResFileHeader **resFileHeader, int index) {
+static Field3dRenderObj *Field3dRenderObjManager_AllocInternal(Field3dRenderObjManager *renderObjManager, NNSG3dResFileHeader **resFileHeader, int index) {
     renderObjManager->objects[renderObjManager->numObjects]->model = NNS_G3dGetMdlByIdx(NNS_G3dGetMdlSet(*resFileHeader), 0);
 
     NNS_G3dRenderObjInit(&renderObjManager->objects[renderObjManager->numObjects]->renderObj, renderObjManager->objects[renderObjManager->numObjects]->model);

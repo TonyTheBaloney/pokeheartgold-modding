@@ -56,7 +56,7 @@
 .public BufferBoxMonNickname
 .public LoadUserFrameGfx1
 .public DrawFrameAndWindow1
-.public EraseFrameAndWindow1
+.public ClearWindowPixelBuffer
 .public LoadUserFrameGfx2
 .public DrawFrameAndWindow2
 .public ClearFrameAndWindow2

@@ -223,8 +223,8 @@ void VsRecorder_InitResources(VsRecorderWork *work) {
     PaletteData_AllocBuffers(work->plttData, PLTTBUF_SUB_OBJ, 0x200, HEAP_ID_109);
     VsRecorder_InitBgLayers(work->bgConfig);
     VsRecorder_InitSpriteSystem(work);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     work->cursorHidden = 1;
     VsRecorder_InitMenuHitboxes(work);
     TextFlags_SetCanTouchSpeedUpPrint(TRUE);
@@ -300,7 +300,7 @@ void VsRecorder_FreeResources(VsRecorderWork *work) {
     SpriteSystem_FreeResourcesAndManager(work->spriteSystem, work->spriteManager);
     SpriteSystem_Free(work->spriteSystem);
     WirelessStatusIcon_Destroy();
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     TouchHitboxController_Destroy(work->hitboxController);
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
     for (i = 0; i < 4; i++) {

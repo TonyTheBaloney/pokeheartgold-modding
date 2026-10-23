@@ -488,8 +488,8 @@ BOOL WiiMessageSettingsScreen_Init(OverlayManager *man, int *state) {
     GF_CreateVramTransferManager(64, HEAP_ID_116);
     SetKeyRepeatTimers(4, 8);
     WiiMessageSettingsScreen_InitBgs(screen->bgConfig);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     screen->msgFormat = MessageFormat_New_Custom(11, 64, HEAP_ID_116);
     screen->gtsMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0775, HEAP_ID_116);
     screen->wfcMsgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0778, HEAP_ID_116);
@@ -596,7 +596,7 @@ BOOL WiiMessageSettingsScreen_Exit(OverlayManager *man, int *state) {
     Main_SetVBlankIntrCB(NULL, NULL);
     HBlankInterruptDisable();
     GF_DestroyVramTransferManager();
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     TextFlags_SetCanABSpeedUpPrint(FALSE);
     TextFlags_SetAutoScrollParam(0);
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
@@ -890,7 +890,7 @@ static BOOL WiiMessageSettingsScreen_MainMenu(WiiMessageSettingsScreen *screen) 
     default:
         ListMenuItems_Delete(screen->menuItems);
         DestroyListMenu(screen->listMenu, NULL, NULL);
-        EraseFrameAndWindow1(&screen->menuWindow, TRUE);
+        ClearWindowPixelBuffer(&screen->menuWindow, TRUE);
         ClearWindowTilemapAndCopyToVram(&screen->menuWindow);
         RemoveWindow(&screen->menuWindow);
         screen->state = screen->menuSelection;
@@ -1148,10 +1148,10 @@ static int WiiMessageSettingsScreen_RunExplanation(WiiMessageSettingsScreen *scr
         }
         break;
     default:
-        EraseFrameAndWindow1(&screen->explanationWindow, FALSE);
+        ClearWindowPixelBuffer(&screen->explanationWindow, FALSE);
         ClearWindowTilemapAndCopyToVram(&screen->explanationWindow);
         RemoveWindow(&screen->explanationWindow);
-        EraseFrameAndWindow1(&screen->choiceWindow, FALSE);
+        ClearWindowPixelBuffer(&screen->choiceWindow, FALSE);
         ClearWindowTilemapAndCopyToVram(&screen->choiceWindow);
         RemoveWindow(&screen->choiceWindow);
         DestroyListMenuCursorObj(screen->cursor);
@@ -1871,7 +1871,7 @@ static BOOL WiiMessageSettingsScreen_WaitCloseError(WiiMessageSettingsScreen *sc
     u32 keys = gSystem.newKeys;
 
     if ((keys & PAD_BUTTON_A) || (keys & PAD_BUTTON_B)) {
-        EraseFrameAndWindow1(&screen->errorWindow, FALSE);
+        ClearWindowPixelBuffer(&screen->errorWindow, FALSE);
         screen->state = WMS_STATE_MAIN_MENU;
     }
     return FALSE;

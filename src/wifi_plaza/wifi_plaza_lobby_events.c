@@ -621,7 +621,7 @@ WiFiPlazaPlayerObject *WiFiPlazaPlayerObjects_Add(WiFiPlazaPlayerObjects *object
     } else {
         texKey = 0x118;
     }
-    BillboardGfxSequence_Init(GF2dGfxRawResObj_GetData(GF2dGfxRawResMan_GetObjById(objects->sequences, texKey)), &sequence);
+    BillboardGfxSequence_SetData(GF2dGfxRawResObj_GetData(GF2dGfxRawResMan_GetObjById(objects->sequences, texKey)), &sequence);
     if (config->ownTexture == 1) {
         BillboardResource_Init(&resource, modelFile, tex, sWiFiPlazaBillboardRanges, &sequence);
     } else {

@@ -5,6 +5,6 @@
 
 #include "task.h"
 
-BOOL Task_MartBag(TaskManager *taskManager);
+BOOL Task_Bag_SellMenu(TaskManager *taskManager);
 
 #endif // POKEHEARTGOLD_MART_BAG_TASK_H

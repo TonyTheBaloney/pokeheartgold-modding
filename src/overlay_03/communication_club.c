@@ -1307,14 +1307,14 @@ static void CommClub_OpenContactChoice(s32 arg0_unused, CommClubManager *commClu
 
 static void CommClub_CloseMenus(void *task, CommClubManager *commClubManager) {
     FillWindowPixelBuffer(&sCommClubManager->windows[2], 15);
-    EraseFrameAndWindow1(&commClubManager->windows[0], FALSE);
+    ClearWindowPixelBuffer(&commClubManager->windows[0], FALSE);
     ListMenuItems_Delete(commClubManager->items);
     DestroyListMenu(commClubManager->listMenu, NULL, NULL);
     commClubManager->listMenu = NULL;
     ClearWindowTilemapAndCopyToVram(&commClubManager->windows[0]);
     RemoveWindow(&commClubManager->windows[0]);
     if (commClubManager->infoWindowOpen) {
-        EraseFrameAndWindow1(&sCommClubManager->windows[1], 0);
+        ClearWindowPixelBuffer(&sCommClubManager->windows[1], 0);
         ClearWindowTilemapAndCopyToVram(&sCommClubManager->windows[1]);
         RemoveWindow(&sCommClubManager->windows[1]);
         commClubManager->infoWindowOpen = 0;

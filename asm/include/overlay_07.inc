@@ -165,8 +165,8 @@
 .public NARC_ReadPokepicShadowHeight
 .public NARC_ReadPokepicShadowXOffset
 .public NARC_ReadPokepicShadowSize
-.public Seal_GetBattleAnimResId
-.public Seal_IsLetterSeal
+.public CapsuleMenu_GetSealParticleIndex
+.public CapsuleMenu_IsAlphabetSeal
 .public FX_Div
 .public FX_Sqrt
 .public FX_Atan2Idx

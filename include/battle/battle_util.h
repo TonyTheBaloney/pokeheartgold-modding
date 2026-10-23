@@ -14,7 +14,7 @@ void BattleContext_AddLinkBufferEntry(BattleContext *ctx, int id, int battlerId,
 void BattleContext_RemoveLinkBufferEntry(BattleContext *ctx, int id, int battlerId, int index);
 BOOL Link_QueueNotEmpty(BattleContext *ctx);
 void BattleBuffer_Clear(BattleContext *ctx, int battlerId);
-int GetBattlerVar(BattleContext *ctx, int battlerId, u32 varId, void *data);
+int BattleMon_Get(BattleContext *ctx, int battlerId, u32 varId, void *data);
 void SetBattlerVar(BattleContext *ctx, int battlerId, u32 varId, void *data);
 void AddBattlerVar(BattleContext *ctx, int battlerId, u32 varId, int data);
 void BattleMon_AddVar(BattleMon *mon, u32 varId, int data);
@@ -29,7 +29,7 @@ BOOL BattleContext_TryRedirectAbility(BattleSystem *battleSystem, BattleContext 
 void CopyBattleMonToPartyMon(BattleSystem *battleSystem, BattleContext *ctx, int battlerId);
 void LockBattlerIntoCurrentMove(BattleSystem *battleSystem, BattleContext *ctx, int battlerId);
 void UnlockBattlerOutOfCurrentMove(BattleSystem *battleSystem, BattleContext *ctx, int battlerId);
-int GetBattlerStatusCondition(BattleContext *ctx, int battlerId);
+int Battler_GetStatusCondition(BattleContext *ctx, int battlerId);
 BOOL CheckTrainerMessage(BattleSystem *battleSystem, BattleContext *ctx);
 void BattleContext_Init(BattleContext *ctx);
 void BattleContext_InitBattleStart(BattleSystem *battleSystem, BattleContext *ctx);

@@ -379,7 +379,7 @@ static void FrontierMenu_Close(FrontierMenu *menu) {
 
     PlaySE(SEQ_SE_DP_SELECT);
     Delete2dMenu(menu->menu, NULL);
-    EraseFrameAndWindow1(menu->menuTemplate.window, FALSE);
+    ClearWindowPixelBuffer(menu->menuTemplate.window, FALSE);
     RemoveWindow(menu->menuTemplate.window);
     i = 0;
     cursor = (u8 *)menu;
@@ -576,7 +576,7 @@ static void FrontierListMenu_Close(FrontierMenu *menu, int playSound) {
         PlaySE(SEQ_SE_DP_SELECT);
     }
     DestroyListMenu(menu->listMenu, NULL, NULL);
-    EraseFrameAndWindow1(menu->listTemplate.window, FALSE);
+    ClearWindowPixelBuffer(menu->listTemplate.window, FALSE);
     RemoveWindow(&menu->window);
     i = 0;
     cursor = (u8 *)menu;

@@ -6,7 +6,7 @@
 .public Heap_Free
 .public GF3dRender_DrawModel
 .public GF3d_ModelBoxTest
-.public Math_CalcRotationMatrixXYZ
+.public MTX_Rot33Vec
 .public GF_AssertFail
 .public GetSafariObjectConfig
 .public NNS_G3dGlbFlushP
@@ -47,6 +47,6 @@
 .public MapPropManager_LoadOne
 .public MapPropManager_Draw
 .public AreaDataManager_GetBuildModelShapes
-.public Field3dObjectList_GetOrAddInstance
-.public Field3dObjectList_ReleaseInstance
-.public Field3dObjectList_HasModelFile
+.public Field3dRenderObjManager_GetOrAllocRenderObjByID
+.public Field3dRenderObjManager_FreeRenderObj
+.public Field3dRenderObjManager_IsResFileHeaderLoadedByIndex

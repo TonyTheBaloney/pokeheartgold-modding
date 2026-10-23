@@ -27,7 +27,7 @@
 .public GF3dGfxRawResObj_GetTexKey
 .public GF3dGfxRawResObj_GetTex4x4Key
 .public GF3dGfxRawResObj_GetPlttKey
-.public BillboardGfxSequence_Init
+.public BillboardGfxSequence_SetData
 .public MapObject_GetFieldSystem
 .public FieldEffectPool_New
 .public FieldEffectPool_Delete

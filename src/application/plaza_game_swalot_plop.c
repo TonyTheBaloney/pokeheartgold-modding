@@ -46,7 +46,7 @@
 #include "wifi_connection.h"
 #include "wireless_status_icon.h"
 
-BOOL GF_TouchpadStartRecording(TPData *data, u32 capacity, u32 frequency);
+BOOL InitializeTouchPadWithExternalBuffer(TPData *data, u32 capacity, u32 frequency);
 int GF_TouchpadUpdate(SwalotPlopTouch *out, int mode, u32 threshold);
 void SetBothScreensBrightnessByColor(u16 color);
 void GF_SndHandleSetTempoRatio(int handleNo, int ratio);
@@ -946,14 +946,14 @@ static SwalotPlopGame *SwalotPlopGame_New(enum HeapID heapId, u32 duration, u32 
     SwalotPlopGame_InitGfx(game, heapId);
     SwalotPlopDemo_Init(&game->demo, &game->gfx, heapId);
     SwalotPlopScoreReports_Init(&game->scoreReports);
-    if (GF_TouchpadStartRecording(sSwalotPlopTouchpadBuffer, 8, 4) != TRUE) {
+    if (InitializeTouchPadWithExternalBuffer(sSwalotPlopTouchpadBuffer, 8, 4) != TRUE) {
         GF_ASSERT(FALSE);
     }
     return game;
 }
 
 static void SwalotPlopGame_Free(SwalotPlopGame *game) {
-    if (GF_TouchpadStopSampling() != TRUE) {
+    if (DisableTouchPad() != TRUE) {
         GF_ASSERT(FALSE);
     }
     SwalotPlopDemo_Free(&game->demo, &game->gfx);
@@ -1476,7 +1476,7 @@ static BOOL SwalotPlopIntro_IsCountingDown(SwalotPlopIntro *intro, SwalotPlopGfx
 }
 
 static void SwalotPlopIntro_HideWindow(SwalotPlopIntro *intro, SwalotPlopGfx *gfx) {
-    EraseFrameAndWindow1(&intro->window, TRUE);
+    ClearWindowPixelBuffer(&intro->window, TRUE);
     ClearWindowTilemapAndScheduleTransfer(&intro->window);
     GfGfx_EngineATogglePlanes(GX_PLANEMASK_BG2, GF_PLANE_TOGGLE_OFF);
 }

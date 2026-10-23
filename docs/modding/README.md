@@ -32,6 +32,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [gyms.md](gyms.md) | What badges do (HMs, obedience), each gym's leader script, entry gate, puzzle and rematch schedule |
 | [abilities.md](abilities.md) | Adding an ability: constant, names and descriptions, species, where each kind of effect is coded in battle, messages and battle scripts |
 | [music.md](music.md) | Music and sound: `sound/` (the sound archive as files), changing music, adding songs from MIDI and instruments from WAV |
+| [pret-names.md](pret-names.md) | Functions renamed to pret's names (old name → new name), by area |
 
 ## Building a modified ROM
 

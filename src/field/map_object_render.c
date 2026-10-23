@@ -1129,7 +1129,7 @@ static void *MapObjectBillboards_CreateBillboard(Billboard *billboards, Billboar
 static void MapObjectRender_InitBillboardResource(MapObjectRender *render, u32 spriteId, BillboardResource *resource) {
     GF_3DGfxRawResObj *texture;
     resource->modelFile = ResourceBank_Get(render->modelBank, SpriteId_GetBillboardModelId(spriteId));
-    BillboardGfxSequence_Init(ResourceBank_Get(render->sequenceBank, SpriteId_GetBillboardSequenceId(spriteId)), &resource->gfxSequence);
+    BillboardGfxSequence_SetData(ResourceBank_Get(render->sequenceBank, SpriteId_GetBillboardSequenceId(spriteId)), &resource->gfxSequence);
     texture = GF3dGfxRawResMan_GetObjById(MapObjectRender_GetTextures(render), spriteId);
     resource->texture = GF3dGfxRawResObj_GetTex(texture);
     resource->texKey = GF3dGfxRawResObj_GetTexKey(texture);
@@ -1520,7 +1520,7 @@ static void MapObject_ChangeBillboardSpriteKeepingCopy(LocalMapObject *object, u
     } while (entry->id != 0xFF);
     GF_ASSERT(entry->id != 0xFF);
     work->sequenceFile = FldObjSys_ReadMModelFromNarc(render, entry->member, FALSE);
-    BillboardGfxSequence_Init(work->sequenceFile, &work->gfxSequence);
+    BillboardGfxSequence_SetData(work->sequenceFile, &work->gfxSequence);
     modelNo = GetMoveModelNoBySpriteId(oldSpriteId);
     if (modelNo < 0) {
         GF_ASSERT(FALSE);

@@ -10,7 +10,7 @@ typedef struct {
     u8 descriptionMsgId : 6;
 } SealData;
 
-static const SealData _02105F04[81] = {
+static const SealData sSealTypeValues[81] = {
     { 0x27, 0x00, 0x35, 0x01, 0x00 },
     { 0x28, 0x01, 0x35, 0x01, 0x00 },
     { 0x29, 0x02, 0x36, 0x01, 0x01 },
@@ -95,23 +95,23 @@ static const SealData _02105F04[81] = {
 };
 
 // Has something to do with seals...
-u8 Seal_GetGfxCharId(u32 idx) {
-    GF_ASSERT(idx < NELEMS(_02105F04));
-    return _02105F04[idx].gfxCharId;
+u8 CapsuleMenu_GetSealMemberIdx(u32 idx) {
+    GF_ASSERT(idx < NELEMS(sSealTypeValues));
+    return sSealTypeValues[idx].gfxCharId;
 }
 
-u8 Seal_GetNameMsgId(u8 idx) {
-    GF_ASSERT(idx < NELEMS(_02105F04));
-    return _02105F04[idx].nameMsgId;
+u8 CapsuleMenu_GetSealNameIndex(u8 idx) {
+    GF_ASSERT(idx < NELEMS(sSealTypeValues));
+    return sSealTypeValues[idx].nameMsgId;
 }
 
-u8 Seal_GetBattleAnimResId(u32 idx) {
-    GF_ASSERT(idx < NELEMS(_02105F04));
-    return _02105F04[idx].battleAnimResId;
+u8 CapsuleMenu_GetSealParticleIndex(u32 idx) {
+    GF_ASSERT(idx < NELEMS(sSealTypeValues));
+    return sSealTypeValues[idx].battleAnimResId;
 }
 
-BOOL Seal_IsLetterSeal(u32 idx) {
-    GF_ASSERT(idx < NELEMS(_02105F04));
+BOOL CapsuleMenu_IsAlphabetSeal(u32 idx) {
+    GF_ASSERT(idx < NELEMS(sSealTypeValues));
     if (idx < 0x32 || idx > 0x4d) {
         return FALSE;
     }
@@ -119,7 +119,7 @@ BOOL Seal_IsLetterSeal(u32 idx) {
     return TRUE;
 }
 
-u32 Seal_GetDescriptionMsgId(u32 idx) {
-    GF_ASSERT(idx < NELEMS(_02105F04));
-    return _02105F04[idx].descriptionMsgId;
+u32 CapsuleMenu_GetSealNonAlphabetIndex(u32 idx) {
+    GF_ASSERT(idx < NELEMS(sSealTypeValues));
+    return sSealTypeValues[idx].descriptionMsgId;
 }

@@ -406,8 +406,8 @@ BOOL PokemonSummary_Init(OverlayManager *manager, int *state) {
     summary->pokepicAnimManager = PokepicAnimManager_New(HEAP_ID_19, 1, 1);
     summary->pokepicAnimNarc = NARC_New(NARC_a_1_8_0, HEAP_ID_19);
     FontID_SetAccessDirect(FONT_SYSTEM, HEAP_ID_19);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     PokemonSummary_SetGraphicsBanks();
     PokemonSummary_InitBgs(summary->bgConfig);
     PokemonSummary_LoadBgGraphics(summary, ribbonNarc, graphicsNarc);
@@ -530,7 +530,7 @@ BOOL PokemonSummary_Exit(OverlayManager *manager, int *state) {
     PokemonSummary_FreeSpriteSystem(summary);
     PokemonSummary_RemoveWindows(summary);
     PokemonSummary_FreeBgs(summary->bgConfig);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     GF_DestroyVramTransferManager();
     PokemonSummary_FreeBgCells(summary);
     PokemonSummary_FreeText(summary);
@@ -2660,10 +2660,10 @@ static void PokemonSummary_SetMonTypeSprites(PokemonSummary *summary) {
 }
 
 static void PokemonSummary_SetTypeSprite(PokemonSummary *summary, u8 sprite, u8 resId, u8 type) {
-    NarcId narc = TypeIcon_GetNarc();
-    int charFile = TypeIcon_GetCharFile(type);
+    NarcId narc = TypeIconGfx_GetNarcId();
+    int charFile = TypeIconGfx_GetCharFileId(type);
     SpriteSystem_ReplaceCharResObj(summary->spriteSystem, summary->spriteManager, narc, charFile, TRUE, resId);
-    thunk_Sprite_SetPaletteOverride(summary->sprites[sprite], TypeIcon_GetPalette(type) + 3);
+    thunk_Sprite_SetPaletteOverride(summary->sprites[sprite], TypeIconGfx_GetPlttOverride(type) + 3);
 }
 
 // Finds the move type sprite (13..16) shown in the given move slot row; *slot becomes its index.
@@ -2690,10 +2690,10 @@ static void PokemonSummary_SwapMoveTypeSprites(PokemonSummary *summary, u8 slotA
 
 static void PokemonSummary_SetMoveCategorySprite(PokemonSummary *summary, u16 move) {
     int category = GetMoveAttr(move, MOVEATTR_CLASS);
-    NarcId narc = MoveCategoryIcon_GetNarc();
-    int charFile = MoveCategoryIcon_GetCharFile(category);
+    NarcId narc = GetMoveCategoryIconGfxNarcId();
+    int charFile = GetMoveCategoryIconGfxCharFileId(category);
     SpriteSystem_ReplaceCharResObj(summary->spriteSystem, summary->spriteManager, narc, charFile, TRUE, 10);
-    thunk_Sprite_SetPaletteOverride(summary->sprites[18], MoveCategoryIcon_GetPalette(category) + 3);
+    thunk_Sprite_SetPaletteOverride(summary->sprites[18], GetMoveCategoryIconGfxPlttOverride(category) + 3);
 }
 
 // Sprite 9 is also the move cursor on the moves page; slot 4 is the move to learn, 5 the cancel button.

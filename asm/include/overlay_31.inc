@@ -75,9 +75,9 @@
 .public GX_SetBankForSubOBJ
 .public MI_CpuFill8
 .public _s32_div_f
-.public MartData_CheckCannotBuy
+.public MartData_BuyMenu_CheckCanPurchaseItem
 .public MartData_GetOwnedQuantity
-.public MartData_GetItemPrice
+.public ShopMenu_GetItemPrice
 .public MartData_CreateSprites
 .public TouchMartApp_Init
 .public TouchMartApp_Exit

@@ -259,8 +259,8 @@ static int PokedexApp_MainSeq_00(PokedexAppData *pokedexApp) {
     GfGfx_EngineBSetPlanes(GX_PLANEMASK_NONE);
     G2_BlendNone();
     G2S_BlendNone();
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
     SetKeyRepeatTimers(4, 8);
     PokedexApp_LoadSearchTables(pokedexApp);
@@ -296,7 +296,7 @@ static int PokedexApp_MainSeq_01(PokedexAppData *pokedexApp) {
     FontID_Release(FONT_UNK_4);
     PokedexApp_FreeSizeData(pokedexApp);
     PokedexApp_FreeSearchTables(pokedexApp);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     G2_BlendNone();
     G2S_BlendNone();
     GfGfx_EngineASetPlanes(GX_PLANEMASK_NONE);

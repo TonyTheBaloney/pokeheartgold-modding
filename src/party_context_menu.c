@@ -945,7 +945,7 @@ void PartyMenu_LevelUpPrintNewStats(PartyMenu *partyMenu) {
 }
 
 void PartyMenu_LevelUpCloseStatsWindow(PartyMenu *partyMenu) {
-    EraseFrameAndWindow1(&partyMenu->levelUpStatsWindow[0], FALSE);
+    ClearWindowPixelBuffer(&partyMenu->levelUpStatsWindow[0], FALSE);
     RemoveWindow(&partyMenu->levelUpStatsWindow[0]);
 }
 

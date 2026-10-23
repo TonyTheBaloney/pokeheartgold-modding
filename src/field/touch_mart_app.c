@@ -657,7 +657,7 @@ static void TouchMartApp_PrintItemList(TouchMartAppData *data) {
             if (TouchMartApp_IsItemPurchasable(data->martData, index, itemId)) {
                 int price;
                 martData2 = data->martData;
-                price = MartData_GetItemPrice(martData2, (u16)itemId);
+                price = ShopMenu_GetItemPrice(martData2, (u16)itemId);
                 TouchMartApp_PrintPrice(data->messageFormat, data->msgData, window, price, martData2->martType);
             }
             i++;
@@ -810,7 +810,7 @@ static void TouchMartApp_PrintSelectedItem(TouchMartAppData *data) {
         int price;
         martData = data->martData;
         itemId = martData->itemIds[index];
-        price = MartData_GetItemPrice(martData, itemId);
+        price = ShopMenu_GetItemPrice(martData, itemId);
         TouchMartApp_PrintPrice(data->messageFormat, data->msgData, &data->windows[TOUCH_MART_WINDOW_SELECTED_ITEM], price, martData->martType);
     }
     ScheduleWindowCopyToVram(&data->windows[TOUCH_MART_WINDOW_SELECTED_ITEM]);
@@ -1043,7 +1043,7 @@ static String *TouchMartApp_GetCannotAffordMessage(MartData *martData, MsgData *
     } else {
         amount = PlayerProfile_GetMoney(martData->playerProfile);
     }
-    result = MartData_CheckCannotBuy(martData, amount);
+    result = MartData_BuyMenu_CheckCanPurchaseItem(martData, amount);
     if (result == 2) {
         return NewString_ReadMsgData(msgData, msg_0435_00025);
     }

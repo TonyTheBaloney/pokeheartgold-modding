@@ -256,7 +256,7 @@ void ScriptMenu_Free(ScriptMenu *menu) {
 void ScriptMenu_CloseMultichoice(ScriptMenu *menu) {
     PlaySE(SEQ_SE_DP_SELECT);
     Delete2dMenu(menu->menu2dPtr, NULL);
-    EraseFrameAndWindow1(menu->menu2d.window, FALSE);
+    ClearWindowPixelBuffer(menu->menu2d.window, FALSE);
     RemoveWindow(menu->menu2d.window);
     SysTask_Destroy(menu->task);
     ScriptMenu_Free(menu);
@@ -464,7 +464,7 @@ static void ScriptMenu_CloseList(ScriptMenu *menu) {
 
     PlaySE(SEQ_SE_DP_SELECT);
     DestroyListMenu(menu->listMenu, NULL, NULL);
-    EraseFrameAndWindow1(menu->listTemplate.window, FALSE);
+    ClearWindowPixelBuffer(menu->listTemplate.window, FALSE);
     RemoveWindow(&menu->window);
     for (i = 0; i < 28; i++) {
         String_Delete(menu->strbufs[i]);
@@ -543,7 +543,7 @@ static void ScriptMenu_FloorWindowTask(SysTask *task, void *data) {
     if (*menu->ret_p != 0xFFFF) {
         return;
     }
-    EraseFrameAndWindow1(menu->menu2d.window, FALSE);
+    ClearWindowPixelBuffer(menu->menu2d.window, FALSE);
     RemoveWindow(menu->menu2d.window);
     for (i = 0; i < 28; i++) {
         String_Delete(menu->strbufs[i]);
@@ -682,7 +682,7 @@ Window *FieldSystem_ShowMoneyBox(FieldSystem *fieldSystem, u8 x, u8 y) {
 }
 
 void MoneyBoxSys_Delete(Window *moneybox) {
-    EraseFrameAndWindow1(moneybox, FALSE);
+    ClearWindowPixelBuffer(moneybox, FALSE);
     WindowArray_Delete(moneybox, 1);
 }
 
@@ -720,7 +720,7 @@ Window *PointsBox_New(FieldSystem *fieldSystem, u8 type, u8 x, u8 y) {
 }
 
 void PointsBox_Delete(Window *window) {
-    EraseFrameAndWindow1(window, FALSE);
+    ClearWindowPixelBuffer(window, FALSE);
     WindowArray_Delete(window, 1);
 }
 
@@ -791,7 +791,7 @@ Window *SavingsBox_New(FieldSystem *fieldSystem, u8 x, u8 y) {
 }
 
 void SavingsBox_Delete(Window *window) {
-    EraseFrameAndWindow1(window, FALSE);
+    ClearWindowPixelBuffer(window, FALSE);
     WindowArray_Delete(window, 1);
 }
 
@@ -834,7 +834,7 @@ Window *BattleRegulationWindow_New(FieldSystem *fieldSystem, u16 ruleset) {
 }
 
 void BattleRegulationWindow_Delete(Window *window) {
-    EraseFrameAndWindow1(window, FALSE);
+    ClearWindowPixelBuffer(window, FALSE);
     WindowArray_Delete(window, 1);
 }
 

@@ -201,7 +201,7 @@ void PokeathlonGoalRoll_MoveMons(PokeathlonCourseData *course) {
             heading.x = direction.y;
             heading.z = direction.x;
             heading.y = 0;
-            angle = CalcAngleBetweenVecs(&up, &heading);
+            angle = VEC_AngleBetween(&up, &heading);
             if (angle <= 0x2000 || angle >= 0xE000) {
                 mon->facing = 4;
             } else if (angle > 0x2000 && angle < 0x6000) {

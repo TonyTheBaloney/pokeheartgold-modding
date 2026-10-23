@@ -78,7 +78,7 @@
 .public SysTask_Destroy
 .public LoadUserFrameGfx1
 .public DrawFrameAndWindow1
-.public EraseFrameAndWindow1
+.public ClearWindowPixelBuffer
 .public LoadUserFrameGfx2
 .public DrawFrameAndWindow2
 .public ClearFrameAndWindow2
@@ -233,10 +233,10 @@
 .public CommState_SetPlazaLinkMode
 .public WirelessStatusIcon_Create
 .public GetTrainerPicFileIdsNoLink
-.public TypeIcon_GetCharFile
-.public TypeIcon_GetPlttFile
-.public TypeIcon_GetPalette
-.public TypeIcon_GetNarc
+.public TypeIconGfx_GetCharFileId
+.public GetMoveTypeAndCategoryIconPlttFileId
+.public TypeIconGfx_GetPlttOverride
+.public TypeIconGfx_GetNarcId
 .public NNS_G2dGetUnpackedCharacterData
 .public NNS_G2dInitOamManagerModule
 .public NNS_G3dAnmObjDisableID

@@ -234,9 +234,9 @@ BOOL Bdhc_GetHeight(int mode, fx32 currentY, fx32 x, fx32 z, Bdhc *bdhc, fx32 *y
             break;
         case BDHC_HEIGHT_NEAREST:
         default:
-            bestVal = Math_Max(currentY, candidates[0].y) - Math_Min(currentY, candidates[0].y);
+            bestVal = FX_Max(currentY, candidates[0].y) - FX_Min(currentY, candidates[0].y);
             for (j = 1; j < n; j++) {
-                cur = Math_Max(currentY, candidates[j].y) - Math_Min(currentY, candidates[j].y);
+                cur = FX_Max(currentY, candidates[j].y) - FX_Min(currentY, candidates[j].y);
                 if (bestVal > cur) {
                     bestVal = cur;
                     best = j;

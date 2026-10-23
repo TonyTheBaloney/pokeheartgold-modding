@@ -352,7 +352,7 @@ static void BattlePartyMenu_LoadPagePalette(BattlePartyMenu *menu, int page);
 static u8 BattlePartyMenu_HasMultipleNonEggMons(BattlePartyMenu *menu);
 static void BattlePartyMenu_RedrawSelectedMonButton(BattlePartyMenu *menu);
 
-NarcId MoveCategoryIcon_GetNarc(void);
+NarcId GetMoveCategoryIconGfxNarcId(void);
 
 extern const u32 gBattlePartyMoveNameMsgIds[];
 extern const u32 gBattlePartyMonNameMsgIds[];
@@ -2887,17 +2887,17 @@ static void BattlePartyMenu_LoadTypeIconResources(BattlePartyMenu *menu) {
     u32 resId;
     u32 last;
 
-    TypeIcon_LoadPaletteBuffer(menu->paletteData, PLTTBUF_SUB_OBJ, spriteSystem, menu->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0xB009);
-    TypeIcon_LoadCellAnim(spriteSystem, menu->spriteManager, 0xB009, 0xB009);
+    SpriteSystem_LoadMoveTypeAndCategoryIconsPlttToBuffer(menu->paletteData, PLTTBUF_SUB_OBJ, spriteSystem, menu->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0xB009);
+    SpriteSystem_LoadMoveTypeAndCategoryIconsCellAndAnim(spriteSystem, menu->spriteManager, 0xB009, 0xB009);
     // char resources 0xB00E-0xB014: the two mon types, four moves and the new move
     last = 0xB00E;
     resId = last;
     last += 6;
     do {
-        TypeIcon_LoadChar(spriteSystem, menu->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0, resId);
+        SpriteSystem_LoadMoveTypeIconCharResObj(spriteSystem, menu->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0, resId);
         resId++;
     } while (resId <= last);
-    MoveCategoryIcon_LoadChar(spriteSystem, menu->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0, 0xB015);
+    SpriteSystem_LoadMoveCategoryIconCharResObj(spriteSystem, menu->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0, 0xB015);
 }
 
 static void BattlePartyMenu_LoadHeldItemIconResources(BattlePartyMenu *menu) {
@@ -2978,20 +2978,20 @@ static void BattlePartyMenu_SetMonIconPalettes(BattlePartyMenu *menu) {
 
 static void BattlePartyMenu_SetTypeIcon(BattlePartyMenu *menu, ManagedSprite *sprite, int resId, u32 type) {
     SpriteSystem *spriteSystem = BattleSystem_GetSpriteSystem(menu->context->battleSystem);
-    NarcId narc = TypeIcon_GetNarc();
-    int file = TypeIcon_GetCharFile(type);
+    NarcId narc = TypeIconGfx_GetNarcId();
+    int file = TypeIconGfx_GetCharFileId(type);
 
     SpriteSystem_ReplaceCharResObj(spriteSystem, menu->spriteManager, narc, file, TRUE, resId);
-    ManagedSprite_SetPaletteOverride(sprite, TypeIcon_GetPalette(type) + 4);
+    ManagedSprite_SetPaletteOverride(sprite, TypeIconGfx_GetPlttOverride(type) + 4);
 }
 
 static void BattlePartyMenu_SetMoveCategoryIcon(BattlePartyMenu *menu, ManagedSprite *sprite, u32 moveClass) {
     SpriteSystem *spriteSystem = BattleSystem_GetSpriteSystem(menu->context->battleSystem);
-    NarcId narc = MoveCategoryIcon_GetNarc();
-    int file = MoveCategoryIcon_GetCharFile(moveClass);
+    NarcId narc = GetMoveCategoryIconGfxNarcId();
+    int file = GetMoveCategoryIconGfxCharFileId(moveClass);
 
     SpriteSystem_ReplaceCharResObj(spriteSystem, menu->spriteManager, narc, file, TRUE, 0xB015);
-    ManagedSprite_SetPaletteOverride(sprite, MoveCategoryIcon_GetPalette(moveClass) + 4);
+    ManagedSprite_SetPaletteOverride(sprite, GetMoveCategoryIconGfxPlttOverride(moveClass) + 4);
 }
 
 static void BattlePartyMenu_ShowStatusIcon(int status, ManagedSprite *sprite, int x, int y) {

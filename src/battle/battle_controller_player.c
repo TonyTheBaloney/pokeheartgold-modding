@@ -295,7 +295,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
             }
 
             if ((OpponentData_GetInputMode(BattleSystem_GetOpponentData(battleSystem, battlerId)) == 1) || (ctx->totalTurns)) {
-                BattleController_EmitSelectCommand(battleSystem, ctx, battlerId, ctx->selectedMonIndex[battlerId]);
+                BattleController_EmitSetCommandSelectionMenu(battleSystem, ctx, battlerId, ctx->selectedMonIndex[battlerId]);
                 ctx->selectionState[battlerId] = SSI_STATE_1;
             } else {
                 ctx->selectionState[battlerId] = SSI_STATE_2;
@@ -319,7 +319,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
             }
 
             if (battlerIdCheck == battlersMax) {
-                BattleController_EmitSelectCommand(battleSystem, ctx, battlerId, ctx->selectedMonIndex[battlerId]);
+                BattleController_EmitSetCommandSelectionMenu(battleSystem, ctx, battlerId, ctx->selectedMonIndex[battlerId]);
                 ctx->selectionState[battlerId] = SSI_STATE_1;
             } else {
                 break;
@@ -412,7 +412,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
                         } else if (BattleSystem_GetBattleType(battleSystem) & (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER)) {
                             msg.id = msg_0197_00593; // Items can't be used here
                             msg.tag = TAG_NONE;
-                            BattleController_EmitPrintSelectionMessage(battleSystem, battlerId, msg);
+                            BattleController_EmitSetAlertMessage(battleSystem, battlerId, msg);
                             ctx->selectionState[battlerId] = SSI_STATE_15;
                             ctx->selectionNextState[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
                         } else {
@@ -430,11 +430,11 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
                         break;
                     case BATTLE_INPUT_CANCEL:
                         if (battleType & BATTLE_TYPE_LINK) {
-                            BattleController_EmitCancelSelection(battleSystem, battlerId);
+                            BattleController_EmitStopGaugeAnimation(battleSystem, battlerId);
                             ctx->selectionState[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
                             ctx->selectionState[BattleSystem_GetBattlerIdPartner(battleSystem, battlerId)] = 0;
                         } else if ((battleType & BATTLE_TYPE_DOUBLES) && (battlerId == BATTLER_PLAYER2)) {
-                            BattleController_EmitCancelSelection(battleSystem, battlerId);
+                            BattleController_EmitStopGaugeAnimation(battleSystem, battlerId);
                             ctx->selectionState[0] = SSI_STATE_SELECT_COMMAND_INIT;
                             ctx->selectionState[2] = SSI_STATE_SELECT_COMMAND_INIT;
                         }
@@ -444,7 +444,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
             }
             break;
         case SSI_STATE_3:
-            BattleController_EmitSelectMove(battleSystem, ctx, battlerId);
+            BattleController_EmitShowMoveSelectMenu(battleSystem, ctx, battlerId);
             ctx->selectionState[battlerId] = SSI_STATE_4;
             // fallthrough
         case SSI_STATE_4:
@@ -460,7 +460,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
                         BattleSystem_PauseRecording(battleSystem, 1);
                         BattleController_TryEmitExitRecording(battleSystem, BattleSystem_GetBattleContext(battleSystem));
                     } else {
-                        BattleController_EmitPrintSelectionMessage(battleSystem, battlerId, msg);
+                        BattleController_EmitSetAlertMessage(battleSystem, battlerId, msg);
                         ctx->selectionState[battlerId] = SSI_STATE_15;
                         ctx->selectionNextState[battlerId] = SSI_STATE_3;
                     }
@@ -477,7 +477,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
             int out;
 
             if (BattleControllerPlayer_NeedsTargetSelection(battleSystem, ctx, battlerId, battleType, &out, ctx->movePos[battlerId], &ctx->playerActions[battlerId].battlerIdTarget)) {
-                BattleController_EmitSelectTarget(battleSystem, ctx, out, battlerId);
+                BattleCommand_EmitShowTargetSelectMenu(battleSystem, ctx, out, battlerId);
                 ctx->selectionState[battlerId] = SSI_STATE_6;
             } else {
                 ctx->selectionState[battlerId] = SSI_STATE_13;
@@ -495,7 +495,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
             }
             break;
         case SSI_STATE_7:
-            BattleController_EmitSelectItem(battleSystem, ctx, battlerId);
+            BattleController_EmitShowBagMenu(battleSystem, ctx, battlerId);
             ctx->selectionState[battlerId] = SSI_STATE_8;
         case SSI_STATE_8:
             if (BattleBuffer_GetNext(ctx, battlerId) == 0xff) {
@@ -524,7 +524,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
                 }
             }
 
-            BattleController_EmitShowMonList(battleSystem, ctx, battlerId, 0, canSwitch, reservedMon);
+            BattleController_EmitShowPartyMenu(battleSystem, ctx, battlerId, 0, canSwitch, reservedMon);
             ctx->selectionState[battlerId] = SSI_STATE_10;
         }
         // fallthrough
@@ -539,7 +539,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
             break;
         case SSI_STATE_11: // Flee after a mon fainted..?
             if (battleType & BATTLE_TYPE_FRONTIER) {
-                BattleController_EmitDrawYesNoBox(battleSystem, ctx, battlerId, 955, 0, 0, 0);
+                BattleController_EmitShowYesNoMenu(battleSystem, ctx, battlerId, 955, 0, 0, 0);
                 ctx->selectionState[battlerId] = SSI_STATE_12;
             } else if ((battleType & BATTLE_TYPE_TRAINER) && !(battleType & BATTLE_TYPE_LINK)) {
                 if (BattleSystem_GetBattleSpecial(battleSystem) & BATTLE_SPECIAL_RECORDING) {
@@ -548,7 +548,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
                 } else {
                     msg.tag = TAG_NONE;
                     msg.id = msg_0197_00793; // There's no running from a Trainer battle!
-                    BattleController_EmitPrintSelectionMessage(battleSystem, battlerId, msg);
+                    BattleController_EmitSetAlertMessage(battleSystem, battlerId, msg);
                     ctx->selectionState[battlerId] = SSI_STATE_15;
                     ctx->selectionNextState[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
                 }
@@ -557,7 +557,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
                     BattleSystem_PauseRecording(battleSystem, 1);
                     BattleController_TryEmitExitRecording(battleSystem, BattleSystem_GetBattleContext(battleSystem));
                 } else {
-                    BattleController_EmitPrintSelectionMessage(battleSystem, battlerId, msg);
+                    BattleController_EmitSetAlertMessage(battleSystem, battlerId, msg);
                     ctx->selectionState[battlerId] = SSI_STATE_15;
                     ctx->selectionNextState[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
                 }
@@ -583,7 +583,7 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
             }
             break;
         case SSI_STATE_13: // WIFI wait for partner to make a move..?
-            BattleController_EmitCancelSelection(battleSystem, battlerId);
+            BattleController_EmitStopGaugeAnimation(battleSystem, battlerId);
 
             if (battleType == (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_LINK)) {
                 int partnerId;
@@ -591,10 +591,10 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
                 partnerId = BattleSystem_GetBattlerIdPartner(battleSystem, battlerId);
 
                 if (ctx->selectionState[partnerId] == SSI_STATE_14) {
-                    BattleController_EmitShowWaitMessage(battleSystem, battlerId);
+                    BattleController_EmitPrintLinkWaitMessage(battleSystem, battlerId);
                 }
             } else {
-                BattleController_EmitShowWaitMessage(battleSystem, battlerId);
+                BattleController_EmitPrintLinkWaitMessage(battleSystem, battlerId);
             }
 
             ctx->selectionState[battlerId] = SSI_STATE_14;
@@ -611,12 +611,12 @@ static void BattleControllerPlayer_SelectionScreenInput(BattleSystem *battleSyst
             msg.tag = TAG_NICKNAME;
             msg.id = msg_0197_00608; // Spheal has no moves left!
             msg.param[0] = CreateNicknameTag(ctx, battlerId);
-            BattleController_EmitPrintSelectionMessage(battleSystem, battlerId, msg);
+            BattleController_EmitSetAlertMessage(battleSystem, battlerId, msg);
             ctx->selectionState[battlerId] = SSI_STATE_15;
             ctx->selectionNextState[battlerId] = SSI_STATE_13;
             break;
         case SSI_STATE_END:
-            BattleController_EmitEndSelection(battleSystem, battlerId);
+            BattleController_EmitClearTouchScreen(battleSystem, battlerId);
             ctx->selectionState[battlerId] = ctx->selectionNextState[battlerId];
             break;
         }
@@ -743,7 +743,7 @@ static void BattleControllerPlayer_BeforeTurn(BattleSystem *battleSystem, Battle
                 if (!(ctx->battleMons[battlerId].status & STATUS_SLEEP)
                     && (GetBattlerSelectedMove(ctx, battlerId) == MOVE_FOCUS_PUNCH)
                     && !CheckTruant(ctx, battlerId) && !ctx->turnData[battlerId].struggleFlag) {
-                    BattleController_EmitBlankMessage(battleSystem);
+                    BattleController_EmitClearMessageBox(battleSystem);
                     ctx->battlerIdTemp = battlerId;
                     ReadBattleScriptFromNarc(ctx, NARC_a_0_0_1, BATTLE_SUBSCRIPT_TIGHTEN_FOCUS);
                     ctx->commandNext = ctx->command;
@@ -1135,7 +1135,7 @@ static void BattleControllerPlayer_UpdateFieldCondition(BattleSystem *battleSyst
     } while (!flag);
 
     if (flag == 1) {
-        BattleController_EmitBlankMessage(battleSystem);
+        BattleController_EmitClearMessageBox(battleSystem);
     }
 
     if (flag == 2) {
@@ -1554,7 +1554,7 @@ static void BattleControllerPlayer_UpdateMonCondition(BattleSystem *battleSystem
             break;
         }
         if (flag) {
-            BattleController_EmitBlankMessage(battleSystem);
+            BattleController_EmitClearMessageBox(battleSystem);
             return;
         }
     }
@@ -1580,7 +1580,7 @@ static void BattleControllerPlayer_UpdateFieldConditionExtra(BattleSystem *battl
         return;
     }
 
-    BattleController_EmitBlankMessage(battleSystem);
+    BattleController_EmitClearMessageBox(battleSystem);
 
     switch (ctx->stateUpdateFieldConditionExtra) {
     case UFCE_STATE_FUTURE_SIGHT:
@@ -1708,7 +1708,7 @@ static void BattleControllerPlayer_FightInput(BattleSystem *battleSystem, Battle
     ctx->moveNoCur = ctx->moveNoTemp;
     ctx->command = CONTROLLER_COMMAND_23;
     ctx->battlerIdTarget = BattleSystem_GetMoveTarget(battleSystem, ctx, ctx->battlerIdAttacker, ctx->moveNoTemp, flag, 0);
-    BattleController_EmitBlankMessage(battleSystem);
+    BattleController_EmitClearMessageBox(battleSystem);
 }
 
 static void BattleControllerPlayer_ItemInput(BattleSystem *battleSystem, BattleContext *ctx) {
@@ -1822,7 +1822,7 @@ static void BattleControllerPlayer_SafariThrowBall(BattleSystem *battleSystem, B
     ctx->itemTemp = ITEM_SAFARI_BALL;
     cnt = BattleSystem_GetSafariBallCount(battleSystem) - 1;
     BattleSystem_SetSafariBallCount(battleSystem, cnt);
-    BattleController_EmitRefreshHealthbar(battleSystem, ctx, BATTLER_PLAYER);
+    BattleController_EmitRefreshHPGauge(battleSystem, ctx, BATTLER_PLAYER);
 }
 
 static void BattleControllerPlayer_SafariThrowMud(BattleSystem *battleSystem, BattleContext *ctx) {
@@ -3194,7 +3194,7 @@ static void BattleControllerPlayer_CheckMultiHit(BattleSystem *battleSystem, Bat
             ctx->command = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->commandNext = CONTROLLER_COMMAND_34;
         }
-        BattleController_EmitBlankMessage(battleSystem);
+        BattleController_EmitClearMessageBox(battleSystem);
     } else {
         ctx->command = CONTROLLER_COMMAND_34;
     }
@@ -3237,7 +3237,7 @@ static void BattleControllerPlayer_NextMoveTarget(BattleSystem *battleSystem, Ba
             }
         } while (ctx->moveTargetLoopIndex < BattleSystem_GetMaxBattlers(battleSystem));
 
-        BattleController_EmitBlankMessage(battleSystem);
+        BattleController_EmitClearMessageBox(battleSystem);
     } else if (ctx->trainerAIData.moveData[ctx->moveNoCur].range == RANGE_ALL_ADJACENT && !(ctx->battleStatus & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->moveTargetLoopIndex < BattleSystem_GetMaxBattlers(battleSystem)) {
         ctx->moveCheckSkipFlags = 13;
 
@@ -3256,7 +3256,7 @@ static void BattleControllerPlayer_NextMoveTarget(BattleSystem *battleSystem, Ba
             }
         } while (ctx->moveTargetLoopIndex < BattleSystem_GetMaxBattlers(battleSystem));
 
-        BattleController_EmitBlankMessage(battleSystem);
+        BattleController_EmitClearMessageBox(battleSystem);
     } else {
         ctx->command = CONTROLLER_COMMAND_36;
     }

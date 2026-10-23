@@ -215,7 +215,7 @@ void AreaDataManager_Load(AreaDataManager *areaDataManager, Field3dRenderObjMana
             GF_ASSERT(FALSE);
         }
         if (!animListFile.filler_3) {
-            renderObj = (NNSG3dRenderObj *)Field3dObjectList_AddShared(renderObjManager, id);
+            renderObj = (NNSG3dRenderObj *)Field3dRenderObjManager_AllocRenderObj(renderObjManager, id);
             if (id < animListFileCount) {
                 MapPropAnimationManager_LoadPropAnimations(id, NNS_G3dGetMdlByIdx(NNS_G3dGetMdlSet(areaDataManager->mapPropModels[id]), 0), renderObj, areaDataManager->mapPropTex, &animListFile, mapPropAnimationManager, timeOfDayPropAnims);
             }
@@ -225,7 +225,7 @@ void AreaDataManager_Load(AreaDataManager *areaDataManager, Field3dRenderObjMana
         NNSG3dResTex *tex;
 
         areaDataManager->mapPropModels[0] = NARC_AllocAndReadWholeMember(ctx->mapPropModelNarc, 0, HEAP_ID_FIELD1);
-        Field3dObjectList_AddShared(renderObjManager, 0);
+        Field3dRenderObjManager_AllocRenderObj(renderObjManager, 0);
         tex = NNS_G3dGetTex(areaDataManager->mapPropModels[0]);
         if (tex) {
             if (!GF3dRender_AllocAndLoadTexResources(tex)) {

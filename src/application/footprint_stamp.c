@@ -416,8 +416,8 @@ BOOL FootprintStamp_Init(OverlayManager *man, int *state) {
     GF_CreateVramTransferManager(0x40, HEAP_ID_125);
     SetKeyRepeatTimers(4, 8);
     FootprintStamp_InitBgs(work->bgConfig);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_125);
     work->msgFormat = MessageFormat_New(HEAP_ID_125);
     work->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0754, HEAP_ID_125);
@@ -642,7 +642,7 @@ BOOL FootprintStamp_Exit(OverlayManager *man, int *state) {
     Main_SetVBlankIntrCB(NULL, NULL);
     HBlankInterruptDisable();
     GF_DestroyVramTransferManager();
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     TextFlags_SetCanABSpeedUpPrint(FALSE);
     TextFlags_SetAutoScrollParam(0);
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
@@ -973,7 +973,7 @@ static void FootprintStamp_CreateCamera(FootprintStamp *work) {
     Camera_Init_FromTargetDistanceAndAngle(&target, 0x7C000, &sFootprintStampCameraAngle, 0xFA4, 0, FALSE, work->camera);
     Camera_SetPerspectiveClippingPlane(FX32_ONE, 0x384000, work->camera);
     Camera_SetStaticPtr(work->camera);
-    Math_CalcPerspectiveViewSize(Camera_GetPerspectiveAngle(work->camera), Camera_GetDistance(work->camera), 0x1555, &width, &height);
+    FX_CalcLinearFov(Camera_GetPerspectiveAngle(work->camera), Camera_GetDistance(work->camera), 0x1555, &width, &height);
     work->viewWidth = width;
     work->viewHeight = height;
 }

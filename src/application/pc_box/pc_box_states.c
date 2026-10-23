@@ -134,8 +134,8 @@ u32 PCBox_State_Init(PCBoxWork *work) {
     GfGfx_EngineBSetPlanes(GX_PLANEMASK_NONE);
     G2_BlendNone();
     G2S_BlendNone();
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
     Heap_Create(HEAP_ID_3, HEAP_ID_10, 0x80000);
     work->view = Heap_Alloc(HEAP_ID_10, sizeof(PCBoxView));
@@ -182,7 +182,7 @@ u32 PCBox_State_Exit(PCBoxWork *work) {
     PCBox_FreeBgLayers(work);
     NARC_Delete(work->view->iconNarc);
     NARC_Delete(work->view->personalNarc);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     reg_G2_BLDCNT = 0;
     reg_G2S_DB_BLDCNT = 0;
     GfGfx_EngineASetPlanes(GX_PLANEMASK_NONE);

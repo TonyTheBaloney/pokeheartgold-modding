@@ -612,7 +612,7 @@ void BattleCastle_HidePointsWindows(FrontierSystem *system, BattleCastleData *da
     if (BattleCastle_IsMultiType(data->type) == FALSE) {
         GF_ASSERT(system->castlePointsWindows[0] != NULL);
         first = system->castlePointsWindows[0];
-        EraseFrameAndWindow1(first, FALSE);
+        ClearWindowPixelBuffer(first, FALSE);
         WindowArray_Delete(first, 1);
     } else {
         GF_ASSERT(system->castlePointsWindows[0] != NULL);
@@ -624,9 +624,9 @@ void BattleCastle_HidePointsWindows(FrontierSystem *system, BattleCastleData *da
             first = system->castlePointsWindows[1];
             second = system->castlePointsWindows[0];
         }
-        EraseFrameAndWindow1(first, FALSE);
+        ClearWindowPixelBuffer(first, FALSE);
         WindowArray_Delete(first, 1);
-        EraseFrameAndWindow1(second, FALSE);
+        ClearWindowPixelBuffer(second, FALSE);
         WindowArray_Delete(second, 1);
     }
     system->castlePointsWindows[0] = NULL;

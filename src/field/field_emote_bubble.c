@@ -59,7 +59,7 @@ typedef struct EmoteBubbleTaskEnv {
     LocalMapObject *mapObject;
 } EmoteBubbleTaskEnv;
 
-// Laid out like the sequence BillboardGfxSequence_Init fills in, plus the frame-streaming state.
+// Laid out like the sequence BillboardGfxSequence_SetData fills in, plus the frame-streaming state.
 typedef struct EmoteBubbleAnim {
     BillboardGfxSequence sequence; // frame ends and texture of each frame
     NNSG3dResTex *tex;
@@ -224,7 +224,7 @@ static BOOL EmoteBubbleEffect_Init(FieldEffect *effect, void *state) {
     u32 kind = FieldEffect_GetParam(effect);
     work->anim.texFile = FieldEffectManager_LoadNarcMember(work->args.manager, sEmoteBubbleFiles[kind].texFileId, TRUE);
     work->anim.sequenceFile = FieldEffectManager_LoadNarcMember(work->args.manager, sEmoteBubbleFiles[kind].sequenceFileId, TRUE);
-    BillboardGfxSequence_Init(work->anim.sequenceFile, &work->anim.sequence);
+    BillboardGfxSequence_SetData(work->anim.sequenceFile, &work->anim.sequence);
     work->anim.tex = NNS_G3dGetTex((const NNSG3dResFileHeader *)work->anim.texFile);
     work->anim.timer = 0;
     work->anim.frame = 0;

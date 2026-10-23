@@ -74,7 +74,7 @@ void MapPropManager_Reset(MapPropManager *mapPropManager) {
     for (u8 i = 0; i < MAP_PROP_MAX; ++i) {
         MapProp *mapProp = &mapPropManager->mapProps[i];
         MapProp_Init(mapProp);
-        Field3dObjectList_ReleaseInstance(mapPropManager->fsys_unkC0, mapProp->render);
+        Field3dRenderObjManager_FreeRenderObj(mapPropManager->fsys_unkC0, mapProp->render);
         mapProp->render = NULL;
     }
 }
@@ -92,7 +92,7 @@ void MapPropManager_RemoveMapPropByIndex(int modelID, MapPropManager *mapPropMan
     mapProp->rotation = zero;
     mapProp->scale = zero;
 
-    Field3dObjectList_ReleaseInstance(mapPropManager->fsys_unkC0, mapPropManager->mapProps[modelID].render);
+    Field3dRenderObjManager_FreeRenderObj(mapPropManager->fsys_unkC0, mapPropManager->mapProps[modelID].render);
     mapPropManager->mapProps[modelID].render = NULL;
 }
 
@@ -118,10 +118,10 @@ void MapPropManager_LoadFromNARC(NARC *narc, u32 size, MapPropManager *mapPropMa
             mapProp->translation = narcData[i].translation;
             mapProp->rotation = narcData[i].rotation;
             mapProp->scale = narcData[i].scale;
-            if (!Field3dObjectList_HasModelFile(mapPropManager->fsys_unkC0, mapProp->buildModel)) {
+            if (!Field3dRenderObjManager_IsResFileHeaderLoadedByIndex(mapPropManager->fsys_unkC0, mapProp->buildModel)) {
                 mapProp->buildModel = 0;
             }
-            mapProp->render = Field3dObjectList_GetOrAddInstance(mapPropManager->fsys_unkC0, mapProp->buildModel);
+            mapProp->render = Field3dRenderObjManager_GetOrAllocRenderObjByID(mapPropManager->fsys_unkC0, mapProp->buildModel);
         } else {
             VecFx32 zero = { 0, 0, 0 };
             mapProp->buildModel = 0;
@@ -175,10 +175,10 @@ void MapPropManager_LoadFromSafariZone(NARC *narc, MapPropManager *mapPropManage
                     a4[j * 32 + k] = 0x8023;
                 }
             }
-            if (!Field3dObjectList_HasModelFile(mapPropManager->fsys_unkC0, mapProp->buildModel)) {
+            if (!Field3dRenderObjManager_IsResFileHeaderLoadedByIndex(mapPropManager->fsys_unkC0, mapProp->buildModel)) {
                 mapProp->buildModel = 0;
             }
-            mapProp->render = Field3dObjectList_GetOrAddInstance(mapPropManager->fsys_unkC0, mapProp->buildModel);
+            mapProp->render = Field3dRenderObjManager_GetOrAllocRenderObjByID(mapPropManager->fsys_unkC0, mapProp->buildModel);
         }
     }
 }
@@ -312,7 +312,7 @@ u8 MapPropManager_LoadOne(MapPropManager *mapPropManager, int modelID, const Vec
         }
         mapProp->scale = scale;
         mapProp->buildModel = modelID;
-        mapProp->render = Field3dObjectList_GetOrAddInstance(mapPropManager->fsys_unkC0, modelID);
+        mapProp->render = Field3dRenderObjManager_GetOrAllocRenderObjByID(mapPropManager->fsys_unkC0, modelID);
         return i;
     }
 
@@ -332,7 +332,7 @@ void MapPropManager_Draw(MapPropManager *mapPropManager, AreaDataManager *areaDa
         u16 shapeCount;
         BuildModelShapes_GetShapeCount(mapProp->buildModel, buildModelShapes, &shapeCount);
         if (mapProp->overrideRotation) {
-            Math_CalcRotationMatrixXYZ(&baseRot, &mapProp->rotation);
+            MTX_Rot33Vec(&baseRot, &mapProp->rotation);
         }
         if (shapeCount == 0) {
             GF3dRender_DrawModel(&mapProp->render->renderObj, &mapProp->translation, &baseRot, &mapProp->scale);

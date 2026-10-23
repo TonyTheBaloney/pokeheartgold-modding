@@ -1395,20 +1395,20 @@ static void MoveRelearner_LoadSpriteResources(MoveRelearner *relearner, NARC *na
     SpriteSystem_LoadCharResObjFromOpenNarc(relearner->spriteSystem, relearner->spriteManager, narc, 11, FALSE, NNS_G2D_VRAM_TYPE_2DSUB, 0xB8A9);
     for (i = 0xB8AB; i <= 0xB8B2; i++) {
         if (i < 0xB8AF) {
-            TypeIcon_LoadChar(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0, i);
+            SpriteSystem_LoadMoveTypeIconCharResObj(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0, i);
         } else {
-            TypeIcon_LoadChar(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DMAIN, 0, i);
+            SpriteSystem_LoadMoveTypeIconCharResObj(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DMAIN, 0, i);
         }
     }
-    MoveCategoryIcon_LoadChar(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0, 0xB8AA);
+    SpriteSystem_LoadMoveCategoryIconCharResObj(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0, 0xB8AA);
     SpriteSystem_LoadPlttResObjFromOpenNarc(relearner->spriteSystem, relearner->spriteManager, narc, 5, FALSE, 4, NNS_G2D_VRAM_TYPE_2DSUB, 0xB8A8);
-    TypeIcon_LoadPltt(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0xB8A9);
-    TypeIcon_LoadPltt(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DMAIN, 0xB8AA);
+    SpriteSystem_LoadMoveTypeAndCategoryIconsPltt(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DSUB, 0xB8A9);
+    SpriteSystem_LoadMoveTypeAndCategoryIconsPltt(relearner->spriteSystem, relearner->spriteManager, NNS_G2D_VRAM_TYPE_2DMAIN, 0xB8AA);
     SpriteSystem_LoadCellResObjFromOpenNarc(relearner->spriteSystem, relearner->spriteManager, narc, 7, FALSE, 0xB8A8);
     SpriteSystem_LoadCellResObjFromOpenNarc(relearner->spriteSystem, relearner->spriteManager, narc, 10, FALSE, 0xB8A9);
     SpriteSystem_LoadAnimResObjFromOpenNarc(relearner->spriteSystem, relearner->spriteManager, narc, 8, FALSE, 0xB8A8);
     SpriteSystem_LoadAnimResObjFromOpenNarc(relearner->spriteSystem, relearner->spriteManager, narc, 9, FALSE, 0xB8A9);
-    TypeIcon_LoadCellAnim(relearner->spriteSystem, relearner->spriteManager, 0xB8AA, 0xB8AA);
+    SpriteSystem_LoadMoveTypeAndCategoryIconsCellAndAnim(relearner->spriteSystem, relearner->spriteManager, 0xB8AA, 0xB8AA);
 }
 
 // index 0-3: the type icon of a list row, 4-7: of one of the Pokemon's current moves.
@@ -1422,13 +1422,13 @@ static void MoveRelearner_SetTypeIcon(MoveRelearner *relearner, u16 move, u16 in
     } else {
         type = GetMoveAttr(move, MOVEATTR_CONTEST_TYPE) + 18;
     }
-    narc = TypeIcon_GetNarc();
-    file = TypeIcon_GetCharFile(type);
+    narc = TypeIconGfx_GetNarcId();
+    file = TypeIconGfx_GetCharFileId(type);
     SpriteSystem_ReplaceCharResObj(relearner->spriteSystem, relearner->spriteManager, narc, file, TRUE, 0xB8AB + index);
     if (index < 4) {
-        ManagedSprite_SetPaletteOverride(relearner->sprites[index + 4], TypeIcon_GetPalette(type) + 4);
+        ManagedSprite_SetPaletteOverride(relearner->sprites[index + 4], TypeIconGfx_GetPlttOverride(type) + 4);
     } else {
-        ManagedSprite_SetPaletteOverride(relearner->sprites[index + 4], TypeIcon_GetPalette(type));
+        ManagedSprite_SetPaletteOverride(relearner->sprites[index + 4], TypeIconGfx_GetPlttOverride(type));
     }
 }
 
@@ -1453,11 +1453,11 @@ static void MoveRelearner_UpdateListTypeIcons(MoveRelearner *relearner) {
 
 static void MoveRelearner_SetCategoryIcon(MoveRelearner *relearner, u16 move) {
     int category = GetMoveAttr(move, MOVEATTR_CLASS);
-    NarcId narc = MoveCategoryIcon_GetNarc();
-    int file = MoveCategoryIcon_GetCharFile(category);
+    NarcId narc = GetMoveCategoryIconGfxNarcId();
+    int file = GetMoveCategoryIconGfxCharFileId(category);
 
     SpriteSystem_ReplaceCharResObj(relearner->spriteSystem, relearner->spriteManager, narc, file, TRUE, 0xB8AA);
-    ManagedSprite_SetPaletteOverride(relearner->sprites[3], MoveCategoryIcon_GetPalette(category) + 4);
+    ManagedSprite_SetPaletteOverride(relearner->sprites[3], GetMoveCategoryIconGfxPlttOverride(category) + 4);
 }
 
 // Sprites: 0/1 scroll arrows (down/up), 2 cursor, 3 category icon of the selected move,

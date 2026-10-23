@@ -555,7 +555,7 @@ void BillboardObject_SetCallback(BillboardObject *object, BillboardCallback call
 }
 
 static void BillboardObject_UpdateTexPlttSequence(BillboardObject *object) {
-    BillboardTexPlttIndex index = BillboardGfxSequence_GetTexPlttIndex(&object->gfxSequence, (object->frame << 4) >> 16);
+    BillboardTexPlttIndex index = BillboardGfxSequence_GetTexPlttIndexAt(&object->gfxSequence, (object->frame << 4) >> 16);
     Billboard_SetModelTexture(object->model, object->resourceTexture, index.textureIdx);
     Billboard_SetModelPltt(object->model, object->resourceTexture, index.plttIdx);
 }

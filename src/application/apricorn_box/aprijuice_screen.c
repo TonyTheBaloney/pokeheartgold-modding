@@ -452,8 +452,8 @@ static BOOL AprijuiceScreen_Setup(AprijuiceScreen *screen) {
         break;
     case 1:
         AprijuiceScreen_DrawScreen(screen);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(1);
+        EnableTouchPad();
+        InitializeTouchPad(1);
         screen->subState = 0;
         return TRUE;
     }
@@ -463,7 +463,7 @@ static BOOL AprijuiceScreen_Setup(AprijuiceScreen *screen) {
 static BOOL AprijuiceScreen_Teardown(AprijuiceScreen *screen) {
     switch (screen->subState) {
     case 0:
-        GF_TouchpadStopSampling();
+        DisableTouchPad();
         AprijuiceScreen_FreeGraphics(screen);
         screen->subState++;
         break;

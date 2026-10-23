@@ -77,13 +77,13 @@ typedef struct ResAnim_4004 {
     u8 numMapData;
 } ResAnim_4004;
 
-Field3dRenderObjManager *Field3dObjectList_New(enum HeapID heapID, int indexMax, int objectMax, NNSG3dResFileHeader **fileResHeader);
-void Field3dObjectList_Free(Field3dRenderObjManager *renderObjManager);
-Field3dRenderObj *Field3dObjectList_AddShared(Field3dRenderObjManager *renderObjManager, int index);
+Field3dRenderObjManager *Field3dRenderObjManager_New(enum HeapID heapID, int indexMax, int objectMax, NNSG3dResFileHeader **fileResHeader);
+void Field3dRenderObjManager_Delete(Field3dRenderObjManager *renderObjManager);
+Field3dRenderObj *Field3dRenderObjManager_AllocRenderObj(Field3dRenderObjManager *renderObjManager, int index);
 Field3dRenderObj *Field3dObjectList_GetRenderObjectByID(Field3dRenderObjManager *renderObjManager, int index);
-Field3dRenderObj *Field3dObjectList_GetOrAddInstance(Field3dRenderObjManager *renderObjManager, int index);
-BOOL Field3dObjectList_ReleaseInstance(Field3dRenderObjManager *renderObjManager, Field3dRenderObj *object);
-BOOL Field3dObjectList_HasModelFile(Field3dRenderObjManager *renderObjManager, int index);
+Field3dRenderObj *Field3dRenderObjManager_GetOrAllocRenderObjByID(Field3dRenderObjManager *renderObjManager, int index);
+BOOL Field3dRenderObjManager_FreeRenderObj(Field3dRenderObjManager *renderObjManager, Field3dRenderObj *object);
+BOOL Field3dRenderObjManager_IsResFileHeaderLoadedByIndex(Field3dRenderObjManager *renderObjManager, int index);
 MapPropAnimationPoolList *MapPropAnimationPoolList_New(enum HeapID heapID);
 MapPropAnimationPool *MapPropAnimationPoolList_AddPool(MapPropAnimationPoolList *poolList, enum HeapID heapID, u16 count);
 void MapPropAnimationPoolList_Free(MapPropAnimationPoolList *poolList);

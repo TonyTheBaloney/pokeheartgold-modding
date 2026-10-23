@@ -182,9 +182,9 @@
 .public ScheduleSetBgPosText
 .public AddTextPrinterParameterizedWithColor
 .public DpadMenuBox_GetPosition
-.public GF_TouchpadResetSampling
-.public GF_TouchpadStartSampling
-.public GF_TouchpadStopSampling
+.public EnableTouchPad
+.public InitializeTouchPad
+.public DisableTouchPad
 .public ObjCharTransfer_ReserveCharSpace
 .public ObjCharTransfer_FreeCharSpace
 .public GfGfx_SetBanks
@@ -258,9 +258,9 @@
 .public SaveArray_Party_Get
 .public SaveArray_IsNatDexEnabled
 .public Pokedex_ConvertToCurrentDexNo
-.public TypeIcon_GetCharFile
-.public TypeIcon_GetPalette
-.public TypeIcon_GetNarc
+.public TypeIconGfx_GetCharFileId
+.public TypeIconGfx_GetPlttOverride
+.public TypeIconGfx_GetNarcId
 .public BagView_Init
 .public BagView_GetItemId
 .public GetItemIndexMapping

@@ -323,8 +323,8 @@ void Battle_BattleInit(OverlayManager *manager) {
     Battle_ReserveTexAndPlttVram();
     battleSystem->animSystem = (u32 *)BattleAnimSystem_New(HEAP_ID_BATTLE);
     BattleSystem_InitTerrainsAndBalls(battleSystem);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     battleSystem->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0197, HEAP_ID_BATTLE);
     battleSystem->attackMsgData = (void *)NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_msgdata_msg, msg_0003_EVERYWHERE, HEAP_ID_BATTLE);
     battleSystem->msgFormat = MessageFormat_New(HEAP_ID_BATTLE);
@@ -369,20 +369,20 @@ BOOL Battle_BattleMain(OverlayManager *man) {
     } else {
         if (battleSystem->isServer) {
             battleSystem->battleFinished = BattleContext_Main(battleSystem, battleSystem->ctx);
-            BattleController_ProcessQueue(battleSystem, 1);
+            BattleSystem_TryRecvMessage(battleSystem, 1);
         }
         for (i = 0; i < battleSystem->maxBattlers; i++) {
             OpponentData_RunCommand(battleSystem, battleSystem->opponentData[i]);
-            BattleController_ProcessQueue(battleSystem, 0);
+            BattleSystem_TryRecvMessage(battleSystem, 0);
         }
         if (!battleSystem->battleFinished) {
             if (battleSystem->isServer) {
                 battleSystem->battleFinished = BattleContext_Main(battleSystem, battleSystem->ctx);
-                BattleController_ProcessQueue(battleSystem, 1);
+                BattleSystem_TryRecvMessage(battleSystem, 1);
             }
             for (i = 0; i < battleSystem->maxBattlers; i++) {
                 OpponentData_RunCommand(battleSystem, battleSystem->opponentData[i]);
-                BattleController_ProcessQueue(battleSystem, 0);
+                BattleSystem_TryRecvMessage(battleSystem, 0);
             }
         }
     }
@@ -475,7 +475,7 @@ void Battle_BattleExit(OverlayManager *man) {
     MessagePrinter_Delete((MessagePrinter *)battleSystem->hpNumPrinter);
     SysTask_Destroy((SysTask *)battleSystem->drawGraphicsTask);
     SysTask_Destroy((SysTask *)battleSystem->criticalHpMusicTask);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     Battle_Delete3DVramMan((GF3DVramMan *)battleSystem->gf3dVramMan);
     SetLCRNGSeed(battleSystem->lcrngSeedBackup);
     if (BattleSystem_GetCriticalHpMusicFlag(battleSystem)) {

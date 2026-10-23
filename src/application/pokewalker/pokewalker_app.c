@@ -66,8 +66,8 @@ BOOL PokewalkerApp_Init(OverlayManager *manager, int *state) {
     app->saveData = ((void **)OverlayManager_GetArgs(manager))[2];
     PokewalkerApp_GetSaveData(app);
     SetKeyRepeatTimers(3, 8);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     PokewalkerApp_Setup(app);
     TextFlags_SetCanABSpeedUpPrint(TRUE);
     return TRUE;
@@ -96,7 +96,7 @@ void PokewalkerApp_Teardown(PokewalkerApp *app) {
     PokewalkerApp_RemoveWindowBank(app, 1);
     PokewalkerApp_RemoveWindowBank(app, 0);
     PokewalkerApp_FreeBgs(app->bgConfig);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     GF_DestroyVramTransferManager();
     PokewalkerApp_FreeStrings(app);
     PokewalkerApp_FreeMessages(app);

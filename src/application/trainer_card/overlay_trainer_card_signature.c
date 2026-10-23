@@ -277,8 +277,8 @@ int TrainerCardSignature_Init(OverlayManager *manager, int *state) {
         signature->gameStats = Save_GameStats_Get(OverlayManager_GetArgs(manager));
         signature->options = Save_PlayerData_GetOptionsAddr(OverlayManager_GetArgs(manager));
         TrainerCardSignature_LoadBgGraphics(signature, narc);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(1);
+        EnableTouchPad();
+        InitializeTouchPad(1);
         Main_SetVBlankIntrCB((GFIntrCB)TrainerCardSignature_VBlankCB, signature->bgConfig);
         FontID_Alloc(FONT_SUBSCREEN, HEAP_ID_39);
         TrainerCardSignature_InitStrings(signature);
@@ -347,7 +347,7 @@ int TrainerCardSignature_Exit(OverlayManager *manager, int *state) {
     TrainerCardSignature_RemoveWindows(signature);
     FontID_Release(FONT_SUBSCREEN);
     TrainerCardSignature_FreeBgLayers(signature->bgConfig);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
     TextFlags_SetCanABSpeedUpPrint(FALSE);
     DestroyMsgData(signature->msgData);

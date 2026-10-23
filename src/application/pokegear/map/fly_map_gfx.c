@@ -266,8 +266,8 @@ BOOL FlyMap_LoadGFX(PokegearMapAppData *mapApp) {
         SetMasterBrightnessByColor(PM_LCD_BOTTOM, RGB_BLACK);
         ResetVisibleHardwareWindows(PM_LCD_TOP);
         ResetVisibleHardwareWindows(PM_LCD_BOTTOM);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(2);
+        EnableTouchPad();
+        InitializeTouchPad(2);
         break;
     case 1:
         break;
@@ -303,7 +303,7 @@ BOOL FlyMap_UnloadGFX(PokegearMapAppData *mapApp) {
     FlyMap_RemoveWindows(mapApp);
     FlyMap_UnloadBGGraphics(mapApp);
     FlyMap_DeinitBGs(mapApp);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     Main_SetVBlankIntrCB(NULL, NULL);
     return TRUE;
 }

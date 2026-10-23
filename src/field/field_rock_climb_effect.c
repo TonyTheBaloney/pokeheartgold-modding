@@ -200,7 +200,7 @@ static void RockClimbEffect_Draw(FieldEffect *effect, void *state) {
         angle = 90;
         break;
     }
-    Math_CalcRotationMatrixXYZDeg(&rotation, 0, angle, 0);
+    MTX_Rot33Angles(&rotation, 0, angle, 0);
     FieldEffect_GetPosition(effect, &position);
     RenderObj_Draw(renderObj, &position, &scale, &rotation);
 }

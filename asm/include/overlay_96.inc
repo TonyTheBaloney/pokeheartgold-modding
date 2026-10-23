@@ -214,7 +214,7 @@
 .public CreateCellTransferStateManager
 .public thunk_UpdateCellTransferStateManager
 .public DestroyCellTransferStateManager
-.public CalcAngleBetweenVecs
+.public VEC_AngleBetween
 .public Point2D_IsLeftOfLine
 .public Point2D_SegmentsIntersect
 .public Point2D_CalcSegmentIntersection

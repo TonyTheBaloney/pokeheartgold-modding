@@ -1458,7 +1458,7 @@ static void PokeathlonCirclePush_MoveMons(PokeathlonCourseData *course) {
             facing.x = direction.y;
             facing.z = direction.x;
             facing.y = 0;
-            angle = CalcAngleBetweenVecs(&reference, &facing);
+            angle = VEC_AngleBetween(&reference, &facing);
             if (angle <= 0x2000 || angle >= 0xE000) {
                 mon->direction = 4;
             } else if (angle > 0x2000 && angle < 0x6000) {

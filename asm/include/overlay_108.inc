@@ -146,9 +146,9 @@
 .public GF_CreateVramTransferManager
 .public GF_DestroyVramTransferManager
 .public GF_RunVramTransferTasks
-.public GF_TouchpadResetSampling
-.public GF_TouchpadStartSampling
-.public GF_TouchpadStopSampling
+.public EnableTouchPad
+.public InitializeTouchPad
+.public DisableTouchPad
 .public ObjCharTransfer_ReserveCharSpace
 .public ObjCharTransfer_FreeCharSpace
 .public GfGfx_SetBanks

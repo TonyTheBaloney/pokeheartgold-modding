@@ -42,27 +42,27 @@
 	.extern Bag_Exit
 	.extern Bag_Init
 	.extern Bag_Main
-	.extern BagApp_LoadInfoPanelTilemap
-	.extern BagApp_ItemAction_Use
+	.extern BagApp_DrawTopScreenUI
+	.extern BagApp_ItemContextMenu_Use
 	.extern BagApp_ItemAction_Action9
-	.extern BagApp_ItemAction_Confirm
-	.extern BagApp_ItemAction_Trash
-	.extern BagApp_ItemAction_Register
-	.extern BagApp_ItemAction_Deselect
-	.extern BagApp_ItemAction_Move
-	.extern BagApp_ItemAction_Give
-	.extern BagApp_ItemAction_ChooseForBerryPatch
-	.extern BagApp_IsBerryOrMulch
-	.extern BagApp_AddItemListWindows
-	.extern BagApp_RemoveItemListWindows
-	.extern BagApp_AddItemActionWindows
-	.extern BagApp_RemoveItemActionWindows
-	.extern BagApp_BufferSlotItemName
-	.extern BagApp_BufferSlotItemNamePlural
-	.extern BagApp_PrintItemDescription
-	.extern BagApp_PrintTMHMMoveInfo
-	.extern BagApp_PrintTMHMNumber
-	.extern BagApp_LoadListIconChars
+	.extern BagApp_ItemContextMenu_Confirm
+	.extern BagApp_ItemContextMenu_Trash
+	.extern BagApp_ItemContextMenu_Register
+	.extern BagApp_ItemContextMenu_Deselect
+	.extern BagApp_ItemContextMenu_Move
+	.extern BagApp_ItemContextMenu_Give
+	.extern BagApp_ItemContextMenu_UseInBerryPots
+	.extern IsBerryOrMulch
+	.extern BagApp_AddItemNameWindows
+	.extern BagApp_RemoveItemNameWindows
+	.extern BagApp_ShowContextMenuWindows
+	.extern BagApp_RemoveContextMenuWindowsInternal
+	.extern BagApp_BufferItemName
+	.extern BagApp_BufferItemNamePlural
+	.extern BagApp_PrintItemDescriptionOnWindowMain0
+	.extern BagApp_PrintTMHMDetails
+	.extern BagApp_PrintTMorHMNumberOnWindow
+	.extern BagApp_GetHMAndRegisteredIconNCGR
 	.public sTouchHitboxes_ItemMenu
 	.public sTouchHitboxes_SellQuantity
 	.public sTouchHitboxes_TrashQuantity
@@ -516,22 +516,22 @@ gUnusedSlotRects:
 	.byte 0x10, 0x10, 0x10, 0x04
 
 gItemActionFuncs:
-	.word BagApp_ItemAction_Use
-	.word BagApp_ItemAction_Use
-	.word BagApp_ItemAction_Use
-	.word BagApp_ItemAction_Use
-	.word BagApp_ItemAction_Use
-	.word BagApp_ItemAction_Trash
-	.word BagApp_ItemAction_Register
-	.word BagApp_ItemAction_Deselect
-	.word BagApp_ItemAction_Give
+	.word BagApp_ItemContextMenu_Use
+	.word BagApp_ItemContextMenu_Use
+	.word BagApp_ItemContextMenu_Use
+	.word BagApp_ItemContextMenu_Use
+	.word BagApp_ItemContextMenu_Use
+	.word BagApp_ItemContextMenu_Trash
+	.word BagApp_ItemContextMenu_Register
+	.word BagApp_ItemContextMenu_Deselect
+	.word BagApp_ItemContextMenu_Give
 	.word BagApp_ItemAction_Action9
-	.word BagApp_ItemAction_Confirm
+	.word BagApp_ItemContextMenu_Confirm
 	.word 0x00000000
-	.word BagApp_ItemAction_Move
+	.word BagApp_ItemContextMenu_Move
 	.word 0x00000000
-	.word BagApp_ItemAction_ChooseForBerryPatch
-	.word BagApp_ItemAction_Use
+	.word BagApp_ItemContextMenu_UseInBerryPots
+	.word BagApp_ItemContextMenu_Use
 
 gSubScreenTilemapCommands:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x04, 0x20, 0x10, 0x00

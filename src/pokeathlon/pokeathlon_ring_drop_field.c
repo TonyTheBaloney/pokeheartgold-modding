@@ -606,7 +606,7 @@ int PokeathlonRingDrop_VecToDirection(const VecFx32 *vec) {
     v.x = vec->y;
     v.z = vec->x;
     v.y = 0;
-    angle = CalcAngleBetweenVecs(&reference, &v);
+    angle = VEC_AngleBetween(&reference, &v);
     if (angle <= 0x2000 || angle >= 0xE000) {
         return 4;
     }

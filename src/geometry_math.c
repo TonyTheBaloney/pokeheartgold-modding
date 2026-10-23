@@ -2,15 +2,15 @@
 
 #include "math_util.h"
 
-int Math_Min(int a, int b) {
+int FX_Min(int a, int b) {
     return a < b ? a : b;
 }
 
-int Math_Max(int a, int b) {
+int FX_Max(int a, int b) {
     return a > b ? a : b;
 }
 
-fx32 GetDistanceFromPointToLine(VecFx32 *point, VecFx32 *near, VecFx32 *far) {
+fx32 VEC_DistanceFromPointToLine(VecFx32 *point, VecFx32 *near, VecFx32 *far) {
     VecFx32 line, delta, distance, projected, zero = { 0, 0, 0 };
     fx32 scale;
     VEC_Subtract(far, near, &line);
@@ -22,7 +22,7 @@ fx32 GetDistanceFromPointToLine(VecFx32 *point, VecFx32 *near, VecFx32 *far) {
     return VEC_Mag(&distance);
 }
 
-u16 CalcAngleBetweenVecs(VecFx32 *a, VecFx32 *b) {
+u16 VEC_AngleBetween(VecFx32 *a, VecFx32 *b) {
     VecFx32 na, nb;
     fx32 dot;
     fx32 cross;
@@ -39,7 +39,7 @@ u16 CalcAngleBetweenVecs(VecFx32 *a, VecFx32 *b) {
     return FX_Atan2Idx(cross, dot);
 }
 
-void Math_CalcRotationMatrixXYZ(MtxFx33 *rotation, VecFx32 *angles) {
+void MTX_Rot33Vec(MtxFx33 *rotation, VecFx32 *angles) {
     MtxFx33 temp;
     MTX_RotX33_(rotation, FX_SinIdx((u16)angles->x), FX_CosIdx((u16)angles->x));
     MTX_RotY33_(&temp, FX_SinIdx((u16)angles->y), FX_CosIdx((u16)angles->y));
@@ -48,7 +48,7 @@ void Math_CalcRotationMatrixXYZ(MtxFx33 *rotation, VecFx32 *angles) {
     MTX_Concat33(rotation, &temp, rotation);
 }
 
-void Math_CalcRotationMatrixXYZDeg(MtxFx33 *rotation, u16 x, u16 y, u16 z) {
+void MTX_Rot33Angles(MtxFx33 *rotation, u16 x, u16 y, u16 z) {
     MtxFx33 temp;
     fx32 sin, cos;
     cos = GF_CosDegNoWrap(x);
@@ -66,7 +66,7 @@ void Math_CalcRotationMatrixXYZDeg(MtxFx33 *rotation, u16 x, u16 y, u16 z) {
 
 // Size of the view at `distance` from a perspective camera: height = 2 * distance * tan(angle),
 // width = height * aspect. `angle` is a sin/cos table index (half of the vertical field of view).
-void Math_CalcPerspectiveViewSize(s32 angle, fx32 distance, fx32 aspect, fx32 *width, fx32 *height) {
+void FX_CalcLinearFov(s32 angle, fx32 distance, fx32 aspect, fx32 *width, fx32 *height) {
     fx32 tangent = FX_Div(FX_SinIdx(angle), FX_CosIdx(angle));
     fx32 value = FX_Mul(distance, tangent);
 

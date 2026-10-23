@@ -318,7 +318,7 @@ BOOL FieldMap_Exit(OverlayManager *man, int *state) {
         break;
     case 1:
         if (MapLoadManager_HasEnded(fieldSystem->mapLoadManager) == TRUE) {
-            Field3dObjectList_Free(fieldSystem->renderObjManager);
+            Field3dRenderObjManager_Delete(fieldSystem->renderObjManager);
             AreaDataManager_Free(&fieldSystem->areaDataManager);
             MapLoadManager_FreeNARCAndLoadedMapBuffers(fieldSystem->mapLoadManager);
             FieldCamera_Delete(fieldSystem);
@@ -656,7 +656,7 @@ static void InitGraphicsAndManagers(FieldSystem *fieldSystem) {
     G3_SwapBuffers(GX_SORTMODE_AUTO, gG3dDepthBufferingMode);
 
     fieldSystem->areaDataManager = AreaDataManager_Alloc(MapHeader_GetAreaDataBank(fieldSystem->location->mapId));
-    fieldSystem->renderObjManager = Field3dObjectList_New(HEAP_ID_FIELD1, 550, 128, AreaDataManager_GetMapPropModelFile(fieldSystem->areaDataManager));
+    fieldSystem->renderObjManager = Field3dRenderObjManager_New(HEAP_ID_FIELD1, 550, 128, AreaDataManager_GetMapPropModelFile(fieldSystem->areaDataManager));
 
     u16 moveModelBank = MapHeader_GetMoveModelBank(fieldSystem->location->mapId);
 

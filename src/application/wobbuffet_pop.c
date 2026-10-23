@@ -352,8 +352,8 @@ static BOOL WobbuffetPop_Init(OverlayManager *man, int *state) {
     GF_CreateVramTransferManager(64, HEAP_ID_117);
     SetKeyRepeatTimers(4, 8);
     WobbuffetPop_InitBgs(game->bgConfig);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     WobbuffetPop_CreateCameras(game);
     game->spriteSystem = SpriteSystem_Alloc(HEAP_ID_117);
     SpriteSystem_Init(game->spriteSystem, &gWobbuffetPopOamManagerParam, &gWobbuffetPopOamCharTransfer, 32);
@@ -568,7 +568,7 @@ static BOOL WobbuffetPop_Exit(OverlayManager *man, int *state) {
     GX_SetVisibleWnd(GX_WNDMASK_NONE);
     GXS_SetVisibleWnd(GX_WNDMASK_NONE);
     WobbuffetPop_Delete3DVramMan(game->vramMan);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     OverlayManager_FreeData(man);
     TextFlags_SetCanABSpeedUpPrint(FALSE);
     TextFlags_SetAutoScrollParam(0);

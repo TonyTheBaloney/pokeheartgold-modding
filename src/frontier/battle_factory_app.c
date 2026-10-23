@@ -2530,7 +2530,7 @@ static void BattleFactoryApp_InitWindows(BattleFactoryApp *app) {
 }
 
 static void BattleFactoryApp_CloseWindow(Window *window) {
-    EraseFrameAndWindow1(window, TRUE);
+    ClearWindowPixelBuffer(window, TRUE);
     ClearWindowTilemapAndScheduleTransfer(window);
 }
 

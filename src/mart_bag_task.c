@@ -18,24 +18,24 @@ typedef struct MartReturnEnv {
     u16 *result;
 } MartReturnEnv;
 
-static BOOL MartBag_WaitBagViewExit(FieldSystem *fieldSystem, MartReturnEnv *env);
-static void MartBag_ReturnToMart(TaskManager *taskManager);
+static BOOL Task_Bag_SellMenu_WaitBagView(FieldSystem *fieldSystem, MartReturnEnv *env);
+static void Task_Bag_SellMenu_Return(TaskManager *taskManager);
 
-BOOL Task_MartBag(TaskManager *taskManager) {
+BOOL Task_Bag_SellMenu(TaskManager *taskManager) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     MartReturnEnv *env = TaskManager_GetEnvironment(taskManager);
     switch (env->state) {
     case 24:
-        env->state = MartBag_WaitBagViewExit(fieldSystem, env);
+        env->state = Task_Bag_SellMenu_WaitBagView(fieldSystem, env);
         break;
     case 25:
-        MartBag_ReturnToMart(taskManager);
+        Task_Bag_SellMenu_Return(taskManager);
         break;
     }
     return FALSE;
 }
 
-static BOOL MartBag_WaitBagViewExit(FieldSystem *fieldSystem, MartReturnEnv *env) {
+static BOOL Task_Bag_SellMenu_WaitBagView(FieldSystem *fieldSystem, MartReturnEnv *env) {
     if (FieldSystem_ApplicationIsRunning(fieldSystem)) {
         return 24;
     }
@@ -47,7 +47,7 @@ static BOOL MartBag_WaitBagViewExit(FieldSystem *fieldSystem, MartReturnEnv *env
     return 25;
 }
 
-static void MartBag_ReturnToMart(TaskManager *taskManager) {
+static void Task_Bag_SellMenu_Return(TaskManager *taskManager) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     MartReturnEnv *env = TaskManager_GetEnvironment(taskManager);
     if (FieldSystem_IsOverworldRestored(fieldSystem)) {

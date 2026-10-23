@@ -34,10 +34,10 @@ static void MartData_InitCamera(FieldSystem *fieldSystem, MartData *data);
 static void MartData_AddWindows(MartData *data);
 static u8 MartData_WaitForBottomScreenApp(FieldSystem *fieldSystem, MartData *data);
 static void MartData_PrintItemDescription(MartData *data, u32 position);
-static int MartData_HandleItemListInput(MartData *data);
-static u8 MartData_SelectItemListButton(MartData *data, u32 button);
-static u8 MartData_PrevPage(MartData *data);
-static u8 MartData_NextPage(MartData *data);
+static int MartData_BuyMenu_HandleMoveCursor(MartData *data);
+static u8 MartData_BuyMenu_PressButton(MartData *data, u32 button);
+static u8 MartData_BuyMenu_PageLeft(MartData *data);
+static u8 MartData_BuyMenu_PageRight(MartData *data);
 static void MartData_DrawPageItemIcons(MartData *data, int pageStart, u8 numItems);
 static u8 MartData_CloseMenu(MartData *data);
 static u8 MartData_BeginPurchase(MartData *data, u16 itemID);
@@ -61,10 +61,10 @@ static void MartData_SetSprite2PaletteOverride(MartData *data, int flag);
 static u8 MartData_StartButtonPressAnim(MartData *data, u8 arg1, u8 arg2);
 static u8 MartData_AnimateButtonPress(MartData *data);
 static void Mart_FadeOut(FieldSystem *fieldSystem_unused, MartData *data);
-static void Task_Mart_LaunchSellBag(TaskManager *taskManager);
+static void Task_Mart_OpenSellMenu(TaskManager *taskManager);
 static u8 MartData_WaitFade(FieldSystem *fieldSystem_unused, MartData *data_unused);
 static void MartData_RestoreBgPriorities(MartData *data);
-static BOOL MartData_Destroy(FieldSystem *fieldSystem_unused, MartData *data);
+static BOOL MartData_ExitShopMenu(FieldSystem *fieldSystem_unused, MartData *data);
 static void MartData_UpdateButtonSprites(MartData *data, int arg1);
 static void MartData_SetSelectedItemIcon(MartData *data, u16 itemID);
 static void MartData_LoadItemIcon(MartData *data, int charID, int paletteID, u16 item);
@@ -251,7 +251,7 @@ void Mart_Init(TaskManager *taskManager, FieldSystem *fieldSystem, const u16 *it
         martData->inventory = Save_SealCase_Get(fieldSystem->saveData);
     }
     // Mart_SetItemsForSale?
-    MartData_InitItemList(martData, items, CheckFlag09A(martData->varsFlags), priceOverrides);
+    MartData_InitItemList(martData, items, CheckUnlockedPokeBallsInMarts(martData->varsFlags), priceOverrides);
     TaskManager_Call(taskManager, Task_Mart, martData);
 }
 
@@ -309,9 +309,9 @@ BOOL Task_Mart(TaskManager *taskManager) {
         break;
     case TASK_MART_3:
         if (data->touchButton == -1) {
-            data->state = MartData_HandleItemListInput(data);
+            data->state = MartData_BuyMenu_HandleMoveCursor(data);
         } else {
-            data->state = MartData_SelectItemListButton(data, data->touchButton);
+            data->state = MartData_BuyMenu_PressButton(data, data->touchButton);
             data->touchButton = -1;
         }
         break;
@@ -373,10 +373,10 @@ BOOL Task_Mart(TaskManager *taskManager) {
         data->state = MartData_FinishClose(fieldSystem, data);
         break;
     case TASK_MART_19:
-        data->state = MartData_PrevPage(data); // Always returns 3.
+        data->state = MartData_BuyMenu_PageLeft(data); // Always returns 3.
         break;
     case TASK_MART_20:
-        data->state = MartData_NextPage(data); // Always returns 3.
+        data->state = MartData_BuyMenu_PageRight(data); // Always returns 3.
         break;
     case TASK_MART_21:
         data->state = MartData_AnimateButtonPress(data);
@@ -385,13 +385,13 @@ BOOL Task_Mart(TaskManager *taskManager) {
         Mart_FadeOut(fieldSystem, data); // Always sets state to 23.
         break;
     case TASK_MART_23:
-        Task_Mart_LaunchSellBag(taskManager);
+        Task_Mart_OpenSellMenu(taskManager);
         break;
     case TASK_MART_26:
         data->state = MartData_WaitFade(fieldSystem, data);
         break;
     case TASK_MART_27:
-        return MartData_Destroy(fieldSystem, data);
+        return MartData_ExitShopMenu(fieldSystem, data);
     }
 
     for (int i = 0; i < 19; i++) {
@@ -414,7 +414,7 @@ static void MartData_InitMessageData(MartData *data) {
     data->messageFormat = MessageFormat_New(HEAP_ID_FIELD2);
 }
 
-static BOOL MartData_Destroy(FieldSystem *fieldSystem_unused, MartData *data) {
+static BOOL MartData_ExitShopMenu(FieldSystem *fieldSystem_unused, MartData *data) {
     DestroyMsgData(data->messageData);
     MessageFormat_Delete(data->messageFormat);
     String_Delete(data->string);
@@ -444,7 +444,7 @@ static void MartData_AddWindows(MartData *data) {
 }
 
 static void MartData_RemoveWindows(MartData *data) {
-    EraseFrameAndWindow1(&data->windows[2], TRUE);
+    ClearWindowPixelBuffer(&data->windows[2], TRUE);
     for (u32 i = 0; i < 6; i++) {
         ClearWindowTilemapAndScheduleTransfer(&data->windows[i]);
         RemoveWindow(&data->windows[i]);
@@ -546,7 +546,7 @@ static void MartData_PrintItemDescription(MartData *data, u32 position) {
                 DestroyMsgData(msgData);
             } else {
                 msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_msgdata_msg, msg_0434, HEAP_ID_FIELD2);
-                string = NewString_ReadMsgData(msgData, Seal_GetDescriptionMsgId((u8)itemID));
+                string = NewString_ReadMsgData(msgData, CapsuleMenu_GetSealNonAlphabetIndex((u8)itemID));
                 DestroyMsgData(msgData);
             }
             AddTextPrinterParameterizedWithColor(&data->windows[1], FONT_SYSTEM, string, 0, 0, 0xFF, 0xF0E00, 0);
@@ -567,7 +567,7 @@ static void MartData_PrintItemDescription(MartData *data, u32 position) {
     }
 }
 
-static const u8 sMartCursorNeighbors[9][4] = {
+static const u8 sMartCursorMoveDests[9][4] = {
     { 4, 2, 6, 1 },
     { 8, 3, 0, 7 },
     { 0, 4, 6, 3 },
@@ -579,21 +579,21 @@ static const u8 sMartCursorNeighbors[9][4] = {
     { 5, 1, 8, 8 }
 };
 
-static int MartData_HandleItemListInput(MartData *data) {
+static int MartData_BuyMenu_HandleMoveCursor(MartData *data) {
     u8 neighbor;
     BOOL cursorMoved = FALSE;
     if (gSystem.newKeys & PAD_KEY_UP) {
-        data->cursorPos = sMartCursorNeighbors[data->cursorPos][0];
+        data->cursorPos = sMartCursorMoveDests[data->cursorPos][0];
         PlaySE(SEQ_SE_DP_SELECT);
         cursorMoved++;
     } else if (gSystem.newKeys & PAD_KEY_DOWN) {
-        data->cursorPos = sMartCursorNeighbors[data->cursorPos][1];
+        data->cursorPos = sMartCursorMoveDests[data->cursorPos][1];
         PlaySE(SEQ_SE_DP_SELECT);
         cursorMoved++;
     } else if (gSystem.newKeys & PAD_KEY_LEFT) {
-        neighbor = sMartCursorNeighbors[data->cursorPos][2];
+        neighbor = sMartCursorMoveDests[data->cursorPos][2];
         if (neighbor == 6) {
-            return MartData_SelectItemListButton(data, 6);
+            return MartData_BuyMenu_PressButton(data, 6);
         }
         if (data->cursorPos != 8) {
             data->cursorPos = neighbor;
@@ -601,9 +601,9 @@ static int MartData_HandleItemListInput(MartData *data) {
             cursorMoved++;
         }
     } else if (gSystem.newKeys & PAD_KEY_RIGHT) {
-        neighbor = sMartCursorNeighbors[data->cursorPos][3];
+        neighbor = sMartCursorMoveDests[data->cursorPos][3];
         if (neighbor == 7) {
-            return MartData_SelectItemListButton(data, 7);
+            return MartData_BuyMenu_PressButton(data, 7);
         }
         if (data->cursorPos != 8) {
             data->cursorPos = neighbor;
@@ -621,12 +621,12 @@ static int MartData_HandleItemListInput(MartData *data) {
         return MartData_StartButtonPressAnim(data, 13, 16);
     }
     if (gSystem.newKeys & PAD_BUTTON_A) {
-        return MartData_SelectItemListButton(data, data->cursorPos);
+        return MartData_BuyMenu_PressButton(data, data->cursorPos);
     }
     return TASK_MART_3;
 }
 
-static u8 MartData_SelectItemListButton(MartData *data, u32 button) {
+static u8 MartData_BuyMenu_PressButton(MartData *data, u32 button) {
     switch (button) {
     case 0:
     case 1:
@@ -665,7 +665,7 @@ static u8 MartData_SelectItemListButton(MartData *data, u32 button) {
     return TASK_MART_3;
 }
 
-static u8 MartData_PrevPage(MartData *data) {
+static u8 MartData_BuyMenu_PageLeft(MartData *data) {
     data->pageStart -= 6;
     MartData_DrawPageItemIcons(data, data->pageStart, data->numItems);
     data->touchMartAction = 1;
@@ -673,7 +673,7 @@ static u8 MartData_PrevPage(MartData *data) {
     return TASK_MART_3;
 }
 
-static u8 MartData_NextPage(MartData *data) {
+static u8 MartData_BuyMenu_PageRight(MartData *data) {
     data->pageStart += 6;
     MartData_DrawPageItemIcons(data, data->pageStart, data->numItems);
     data->touchMartAction = 1;
@@ -709,7 +709,7 @@ static u8 MartData_CloseMenu(MartData *data) {
     return TASK_MART_17;
 }
 
-static u32 MartData_GetCurrency(MartData *data, u32 martType) {
+static u32 MartData_BuyMenu_GetPlayerBalance(MartData *data, u32 martType) {
     if (martType == MART_TYPE_POKEATHLON_DAILY || martType == MART_TYPE_DATA_CARDS) {
         return PokeathlonSave_GetAthletePoints(data->pokeathlonSave);
     } else {
@@ -717,7 +717,7 @@ static u32 MartData_GetCurrency(MartData *data, u32 martType) {
     }
 }
 
-int MartData_CheckCannotBuy(MartData *data, u32 money) {
+int MartData_BuyMenu_CheckCanPurchaseItem(MartData *data, u32 money) {
     if (data->martType == MART_TYPE_POKEATHLON_DAILY) {
         if (PokeathlonSave_IsDailyItemBought(data->pokeathlonSave, data->cursorPos + data->pageStart)) {
             return 2;
@@ -737,9 +737,9 @@ static u8 MartData_BeginPurchase(MartData *data, u16 itemID) {
     MartData_SetSprite2PaletteOverride(data, 1);
     data->item = itemID;
     data->quantity = 1;
-    data->cost = MartData_GetItemPrice(data, data->item);
-    u32 money = MartData_GetCurrency(data, data->martType);
-    if (MartData_CheckCannotBuy(data, money)) {
+    data->cost = ShopMenu_GetItemPrice(data, data->item);
+    u32 money = MartData_BuyMenu_GetPlayerBalance(data, data->martType);
+    if (MartData_BuyMenu_CheckCanPurchaseItem(data, money)) {
         data->touchMartAction = 10;
         return TASK_MART_14;
     }
@@ -780,8 +780,8 @@ int MartData_GetOwnedQuantity(MartData *data, int itemID) {
 static u8 MartData_FinishQuantityInput(MartData *data) {
     Sprite_SetDrawFlag(data->sprites[0], FALSE);
     Sprite_SetDrawFlag(data->sprites[1], FALSE);
-    EraseFrameAndWindow1(&data->windows[4], TRUE);
-    EraseFrameAndWindow1(&data->windows[3], TRUE);
+    ClearWindowPixelBuffer(&data->windows[4], TRUE);
+    ClearWindowPixelBuffer(&data->windows[3], TRUE);
     FillWindowPixelBuffer(&data->windows[5], 15);
     data->touchMartAction = 7;
     Sprite_SetDrawFlag(data->sprites[18], FALSE);
@@ -794,8 +794,8 @@ static u8 MartData_FinishQuantityInput(MartData *data) {
 }
 
 static u8 MartData_CancelQuantityInput(MartData *data) {
-    EraseFrameAndWindow1(&data->windows[4], TRUE);
-    EraseFrameAndWindow1(&data->windows[3], TRUE);
+    ClearWindowPixelBuffer(&data->windows[4], TRUE);
+    ClearWindowPixelBuffer(&data->windows[3], TRUE);
     ClearFrameAndWindow2(&data->windows[5], FALSE);
     MartData_SetScrollArrowPositions(data, FALSE);
     Sprite_SetDrawFlag(data->sprites[0], data->spriteDrawn[0]);
@@ -1024,7 +1024,7 @@ static u8 MartData_WaitPremierBallMessage(MartData *data) {
     return TASK_MART_15;
 }
 
-static u16 Mart_GetPriceOverride(u16 itemID, const struct MartItem *priceOverrides, u8 numOverrides) {
+static u16 GetOverriddenPriceByItemID(u16 itemID, const struct MartItem *priceOverrides, u8 numOverrides) {
     for (int i = 0; i < numOverrides; i++) {
         if (itemID == priceOverrides[i].item_id) {
             return priceOverrides[i].cost;
@@ -1034,13 +1034,13 @@ static u16 Mart_GetPriceOverride(u16 itemID, const struct MartItem *priceOverrid
     return 0;
 }
 
-u32 MartData_GetItemPrice(MartData *data, u16 itemID) {
+u32 ShopMenu_GetItemPrice(MartData *data, u16 itemID) {
     if (data->martType == MART_TYPE_NORMAL) {
         return GetItemAttr(itemID, 0, HEAP_ID_FIELD2);
     } else if (data->martType == MART_TYPE_DECOR) {
         return 100;
     } else if (data->martType == MART_TYPE_POKEATHLON_DAILY || data->martType == MART_TYPE_DATA_CARDS) {
-        return Mart_GetPriceOverride(itemID, data->priceOverrides, data->numItems);
+        return GetOverriddenPriceByItemID(itemID, data->priceOverrides, data->numItems);
     }
     return 100;
 }
@@ -1515,14 +1515,14 @@ static const u8 sMartSellBagPockets[9] = {
     0xFF
 };
 
-static void Task_Mart_LaunchSellBag(TaskManager *taskManager) {
+static void Task_Mart_OpenSellMenu(TaskManager *taskManager) {
     if (IsPaletteFadeFinished()) {
         FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
         MartData *data = TaskManager_GetEnvironment(taskManager);
         data->bagView = Bag_CreateView(Save_Bag_Get(fieldSystem->saveData), sMartSellBagPockets, HEAP_ID_FIELD2);
         BagView_Init(data->bagView, fieldSystem->saveData, 2, fieldSystem->bagCursor, &fieldSystem->menuInputState);
         Bag_LaunchApp(fieldSystem, data->bagView);
-        TaskManager_Jump(taskManager, Task_MartBag, data);
+        TaskManager_Jump(taskManager, Task_Bag_SellMenu, data);
         data->state = TASK_MART_24;
     }
 }

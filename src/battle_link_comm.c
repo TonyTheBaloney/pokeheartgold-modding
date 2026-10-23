@@ -161,9 +161,9 @@ void BattleLink_QueueSendData(BattleSystem *battle, int command, int battler, u8
     int i;
 
     header = Heap_Alloc(HEAP_ID_BATTLE, 4);
-    buffer = BattleSystem_GetSendBufferPtr(battle);
-    write = BattleSystem_GetSendBufferWritePos(battle);
-    end = BattleSystem_GetSendBufferEndPos(battle);
+    buffer = BattleSystem_GetServerMessage(battle);
+    write = BattleSystem_GetServerWriteIndex(battle);
+    end = BattleSystem_GetServerEndIndex(battle);
     if ((u32)(*write + 5 + size) > 0x1000) {
         *end = *write;
         *write = 0;
@@ -184,9 +184,9 @@ void BattleLink_QueueSendData(BattleSystem *battle, int command, int battler, u8
 
 static void BattleLink_RecvData(int sender, int size, u8 *data, BattleSystem *battle) {
     int i;
-    u8 *buffer = BattleSystem_GetRecvBufferPtr(battle);
-    u16 *write = BattleSystem_GetRecvBufferWritePos(battle);
-    u16 *end = BattleSystem_GetRecvBufferEndPos(battle);
+    u8 *buffer = BattleSystem_GetClientMessage(battle);
+    u16 *write = BattleSystem_GetClientWriteIndex(battle);
+    u16 *end = BattleSystem_GetClientEndIndex(battle);
     if (*write + size + 1 > 4096) {
         *end = *write;
         *write = 0;
@@ -383,10 +383,10 @@ static void BattleLink_RecvPartnerParty(int sender, int unused, void *data, Batt
 
 static void BattleLink_SendTask(SysTask *task, void *ptr) {
     BattleLinkTask *work = ptr;
-    u8 *buffer = BattleSystem_GetSendBufferPtr(work->battle);
-    u16 *read = BattleSystem_GetSendBufferReadPos(work->battle);
-    u16 *write = BattleSystem_GetSendBufferWritePos(work->battle);
-    u16 *end = BattleSystem_GetSendBufferEndPos(work->battle);
+    u8 *buffer = BattleSystem_GetServerMessage(work->battle);
+    u16 *read = BattleSystem_GetServerReadIndex(work->battle);
+    u16 *write = BattleSystem_GetServerWriteIndex(work->battle);
+    u16 *end = BattleSystem_GetServerEndIndex(work->battle);
     switch (work->state) {
     case BATTLE_LINK_STATE_RUN: {
         int size;
@@ -416,10 +416,10 @@ static void BattleLink_SendTask(SysTask *task, void *ptr) {
 
 static void BattleLink_RecvTask(SysTask *task, void *ptr) {
     BattleLinkTask *work = ptr;
-    u8 *buffer = BattleSystem_GetRecvBufferPtr(work->battle);
-    u16 *read = BattleSystem_GetRecvBufferReadPos(work->battle);
-    u16 *write = BattleSystem_GetRecvBufferWritePos(work->battle);
-    u16 *end = BattleSystem_GetRecvBufferEndPos(work->battle);
+    u8 *buffer = BattleSystem_GetClientMessage(work->battle);
+    u16 *read = BattleSystem_GetClientReadIndex(work->battle);
+    u16 *write = BattleSystem_GetClientWriteIndex(work->battle);
+    u16 *end = BattleSystem_GetClientEndIndex(work->battle);
     switch (work->state) {
     case BATTLE_LINK_STATE_RUN:
         if (*read == *write) {
@@ -429,7 +429,7 @@ static void BattleLink_RecvTask(SysTask *task, void *ptr) {
             *read = 0;
             *end = 0;
         }
-        if (BattleController_RecvLinkData(work->battle, &buffer[*read]) == TRUE) {
+        if (BattleController_RecvCommMessage(work->battle, &buffer[*read]) == TRUE) {
             *read += (buffer[*read + 2] | (buffer[*read + 3] << 8)) + 4;
         }
         break;

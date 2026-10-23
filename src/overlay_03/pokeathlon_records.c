@@ -101,7 +101,7 @@ static void PokeathlonRecords_Free(PokeathlonRecordsWork *data) {
     String_Delete(data->strings[0]);
     MessageFormat_Delete(data->messageFormat);
     DestroyMsgData(data->msgData);
-    EraseFrameAndWindow1(&data->window, TRUE);
+    ClearWindowPixelBuffer(&data->window, TRUE);
     RemoveWindow(&data->window);
     ScheduleBgTilemapBufferTransfer(data->bgConfig, 3);
 }

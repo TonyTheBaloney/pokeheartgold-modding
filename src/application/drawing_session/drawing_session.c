@@ -376,8 +376,8 @@ BOOL DrawingSession_Init(OverlayManager *man, int *state) {
         work->args = OverlayManager_GetArgs(man);
         narc = NARC_New(NARC_a_0_7_8, HEAP_ID_39);
         DrawingSession_LoadBgGraphics(work, narc);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(2);
+        EnableTouchPad();
+        InitializeTouchPad(2);
         Main_SetVBlankIntrCB(DrawingSession_VBlankCB, work->bgConfig);
         DrawingSession_InitWork(work);
         DrawingSession_InitObjTransfer();
@@ -477,7 +477,7 @@ BOOL DrawingSession_Exit(OverlayManager *man, int *state) {
         ObjPlttTransfer_Destroy();
         DrawingSession_RemoveWindows(work);
         DrawingSession_FreeBgs(work->bgConfig);
-        GF_TouchpadStopSampling();
+        DisableTouchPad();
         DestroyMsgData(work->msgData);
         MessageFormat_Delete(work->msgFormat);
         (*state)++;

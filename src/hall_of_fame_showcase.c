@@ -152,8 +152,8 @@ BOOL HallOfFameShowcase_Init(OverlayManager *man, int *state) {
     GfGfx_EngineBSetPlanes(0);
     G2_BlendNone();
     G2S_BlendNone();
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
     Heap_Create(HEAP_ID_3, HEAP_ID_59, 0x40000);
     showcase = OverlayManager_CreateAndGetData(man, sizeof(HallOfFameShowcase), HEAP_ID_59);
@@ -182,7 +182,7 @@ BOOL HallOfFameShowcase_Exit(OverlayManager *man, int *state) {
     HallOfFameShowcase_FreeSprites(showcase);
     HallOfFameShowcase_FreeBgs(showcase);
     NARC_Delete(showcase->pokegraNarc);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     OverlayManager_FreeData(man);
     Heap_Destroy(HEAP_ID_59);
     return TRUE;

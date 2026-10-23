@@ -1229,7 +1229,7 @@ static void WiFiPlazaListMenu_Close(WiFiPlazaListMenu *menu, u16 *cursorPos, u16
     if (menu->listMenu != NULL) {
         DestroyListMenu(menu->listMenu, cursorPos, itemsAbove);
         menu->listMenu = NULL;
-        EraseFrameAndWindow1(&menu->window, TRUE);
+        ClearWindowPixelBuffer(&menu->window, TRUE);
         ClearWindowTilemapAndScheduleTransfer(&menu->window);
         RemoveWindow(&menu->window);
         menu->showArrows = FALSE;
@@ -1285,7 +1285,7 @@ static void WiFiPlazaTextWindow_Open(Window *window, WiFiPlazaRoomGraphics *grap
 
 static void WiFiPlazaTextWindow_Close(Window *window) {
     if (WindowIsInUse(window) == TRUE) {
-        EraseFrameAndWindow1(window, TRUE);
+        ClearWindowPixelBuffer(window, TRUE);
         ClearWindowTilemapAndScheduleTransfer(window);
         RemoveWindow(window);
     }
@@ -1880,8 +1880,8 @@ static void WiFiPlazaInfoPanel_LoadPaletteTask(SysTask *task, void *data) {
 
     GfGfxLoader_GXLoadPalFromOpenNarc(panel->narc, panel->paletteMember, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_0_OFFSET, 0, (enum HeapID)panel->paletteHeapID);
     LoadFontPal0(GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_5_OFFSET, (enum HeapID)panel->paletteHeapID);
-    narcId = TypeIcon_GetNarc();
-    memberNo = TypeIcon_GetPlttFile();
+    narcId = TypeIconGfx_GetNarcId();
+    memberNo = GetMoveTypeAndCategoryIconPlttFileId();
     GfGfxLoader_GXLoadPal(narcId, memberNo, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_11_OFFSET, 0x60, (enum HeapID)panel->paletteHeapID);
     SysTask_Destroy(task);
 }
@@ -2029,8 +2029,8 @@ static void WiFiPlazaPlayerCard_LoadTypeIcons(WiFiPlazaInfoPanel *unused0, WiFiP
         u16 choice = WiFiPlazaPlayer_GetFavoriteType(player, i);
         if (choice != 0) {
             u16 type = WiFiPlaza_GetTypeByChoice(choice);
-            NarcId narcId = TypeIcon_GetNarc();
-            u32 member = TypeIcon_GetCharFile(type);
+            NarcId narcId = TypeIconGfx_GetNarcId();
+            u32 member = TypeIconGfx_GetCharFileId(type);
             void *buf = GfGfxLoader_LoadFromNarc(narcId, member, TRUE, heapID, TRUE);
             NNSG2dCharacterData *charData;
 
@@ -2038,7 +2038,7 @@ static void WiFiPlazaPlayerCard_LoadTypeIcons(WiFiPlazaInfoPanel *unused0, WiFiP
             BG_LoadCharTilesData(graphics->bgConfig, GF_BG_LYR_SUB_2, charData->pRawData, 0x100, *tileBase);
             Heap_Free(buf);
             CopyToBgTilemapRect(graphics->bgConfig, GF_BG_LYR_SUB_2, 26, y, 4, 2, *tiles, 0, 0, 4, 2);
-            BgTilemapRectChangePalette(graphics->bgConfig, GF_BG_LYR_SUB_2, 26, y, 4, 2, (u8)(TypeIcon_GetPalette(type) + 11));
+            BgTilemapRectChangePalette(graphics->bgConfig, GF_BG_LYR_SUB_2, 26, y, 4, 2, (u8)(TypeIconGfx_GetPlttOverride(type) + 11));
             ScheduleBgTilemapBufferTransfer(graphics->bgConfig, GF_BG_LYR_SUB_2);
         }
         tiles++;

@@ -480,7 +480,7 @@ static BOOL MainMenu_PrintWifiInfoErasedWarning(MainMenuAppData *data) {
     } else {
         if (MainMenu_GetNewInput(data) & (PAD_BUTTON_B | PAD_BUTTON_A)) {
             PlaySE(SEQ_SE_DP_SELECT);
-            EraseFrameAndWindow1(&data->warningWindow, FALSE);
+            ClearWindowPixelBuffer(&data->warningWindow, FALSE);
             RemoveWindow(&data->warningWindow);
         }
         return TRUE;

@@ -194,9 +194,9 @@ BagView *Bag_LaunchApp_AllPockets(FieldSystem *fieldSystem, ItemCheckUseData *ta
     BagView_Init(bagView, fieldSystem->saveData, 0, fieldSystem->bagCursor, &fieldSystem->menuInputState);
     BagView_SetMapLoadType(bagView, fieldSystem->mapLoadType);
     if (PlayerAvatar_GetState(fieldSystem->playerAvatar) == PLAYER_STATE_CYCLING) {
-        BagView_SetIsCycling(bagView);
+        BagView_SetOnBike(bagView);
     }
-    BagView_SetItemCheckUseData(bagView, taskman);
+    BagView_SetCheckUseData(bagView, taskman);
     Bag_LaunchApp(fieldSystem, bagView);
     return bagView;
 }
@@ -226,7 +226,7 @@ BagView *Bag_LaunchApp_WithPocket(FieldSystem *fieldSystem, u8 pocketType) {
 
 int BagView_SelectResult(BagView *bagView) {
     int result = BagView_GetItemId(bagView);
-    GF_ASSERT(result == 0 || BagView_GetSelectedAction(bagView) != 5);
+    GF_ASSERT(result == 0 || BagView_GetReturnCode(bagView) != 5);
     return result;
 }
 

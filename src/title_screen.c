@@ -403,7 +403,7 @@ static void TitleScreenAnimObjs_Run(TitleScreenAnimObject *animObj) {
     case TITLESCREEN_MODEL_RUN:
         Thunk_G3X_Reset();
         Camera_PushLookAtToNNSGlb();
-        Math_CalcRotationMatrixXYZ(&mtx, &animObj->rotationVec);
+        MTX_Rot33Vec(&mtx, &animObj->rotationVec);
         GF3dRender_DrawModel(&animObj->renderObj, &animObj->translation, &mtx, &animObj->scale);
         switch (animObj->subState) {
         case TITLESCREEN_MODELSUB_STOP:

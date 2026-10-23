@@ -115,9 +115,9 @@
 .public ScheduleBgTilemapBufferTransfer
 .public TextPrinterCheckActive
 .public AddTextPrinterParameterizedWithColor
-.public GF_TouchpadResetSampling
-.public GF_TouchpadStartSampling
-.public GF_TouchpadStopSampling
+.public EnableTouchPad
+.public InitializeTouchPad
+.public DisableTouchPad
 .public GfGfx_SetBanks
 .public GfGfx_EngineATogglePlanes
 .public GfGfx_EngineASetPlanes

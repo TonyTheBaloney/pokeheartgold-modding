@@ -431,7 +431,7 @@ BOOL ScratchOffCards_Main(OverlayManager *man, int *state) {
 
 BOOL ScratchOffCards_Exit(OverlayManager *man, int *state) {
     ScratchOffCardsWork *work = OverlayManager_GetData(man);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     *work->resultOut = work->result;
     GF_DestroyVramTransferManager();
     ScratchOffCards_FreeResources(work);
@@ -845,7 +845,7 @@ static int ScratchOffCards_PlayCard(ScratchOffCardsWork *work) {
         hit = (int)YesNoPrompt_HandleInputForSave(work->yesNoPrompt);
         if (hit == YESNORESPONSE_YES) {
             ScratchOffCardsSprite_SetAnimActive(work->buttonSprite, FALSE);
-            EraseFrameAndWindow1(&work->windows[0], FALSE);
+            ClearWindowPixelBuffer(&work->windows[0], FALSE);
             ClearWindowTilemapAndCopyToVram(&work->windows[0]);
             ScratchOffCards_AdvanceCard(work);
             ScratchOffCards_DestroyYesNoPrompt(work);
@@ -853,7 +853,7 @@ static int ScratchOffCards_PlayCard(ScratchOffCardsWork *work) {
         }
         if (hit == YESNORESPONSE_NO) {
             ScratchOffCardsSprite_SetAnimActive(work->buttonSprite, FALSE);
-            EraseFrameAndWindow1(&work->windows[0], FALSE);
+            ClearWindowPixelBuffer(&work->windows[0], FALSE);
             ClearWindowTilemapAndCopyToVram(&work->windows[0]);
             ScratchOffCards_DestroyYesNoPrompt(work);
             work->subState = SCRATCH_OFF_CARDS_PLAY_WAIT_RELEASE;
@@ -863,7 +863,7 @@ static int ScratchOffCards_PlayCard(ScratchOffCardsWork *work) {
         hit = (int)YesNoPrompt_HandleInputForSave(work->yesNoPrompt);
         if (hit == YESNORESPONSE_YES) {
             ScratchOffCardsSprite_SetAnimActive(work->buttonSprite, FALSE);
-            EraseFrameAndWindow1(&work->windows[0], FALSE);
+            ClearWindowPixelBuffer(&work->windows[0], FALSE);
             ClearWindowTilemapAndCopyToVram(&work->windows[0]);
             ScratchOffCards_AdvanceCard2(work);
             ScratchOffCards_DestroyYesNoPrompt(work);
@@ -871,7 +871,7 @@ static int ScratchOffCards_PlayCard(ScratchOffCardsWork *work) {
         }
         if (hit == YESNORESPONSE_NO) {
             ScratchOffCardsSprite_SetAnimActive(work->buttonSprite, FALSE);
-            EraseFrameAndWindow1(&work->windows[0], FALSE);
+            ClearWindowPixelBuffer(&work->windows[0], FALSE);
             ClearWindowTilemapAndCopyToVram(&work->windows[0]);
             ScratchOffCards_DestroyYesNoPrompt(work);
             work->subState = SCRATCH_OFF_CARDS_PLAY_WAIT_RELEASE;
@@ -1098,8 +1098,8 @@ static void ScratchOffCards_InitResources(ScratchOffCardsWork *work) {
     work->winSprite = ScratchOffCardsSprite_New(&work->spriteGfx, 4, 0, 0x26, 0x38, FALSE, 0, 10);
     ScratchOffCardsSprite_SetVisible(work->winSprite, FALSE);
     GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(1);
+    EnableTouchPad();
+    InitializeTouchPad(1);
     Main_SetVBlankIntrCB((GFIntrCB)ScratchOffCards_VBlank, work);
 }
 

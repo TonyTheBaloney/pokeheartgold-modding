@@ -454,12 +454,12 @@ void FreeWindowList(WifiClubGameEntryScreen *screen, enum HeapID heapID) {
     WifiClubGameEntry_ClearMessage(screen);
     ClearFrameAndWindow2(&screen->windowList[0], 0);
     RemoveWindow(&screen->windowList[0]);
-    EraseFrameAndWindow1(&screen->windowList[1], 0);
+    ClearWindowPixelBuffer(&screen->windowList[1], 0);
     RemoveWindow(&screen->windowList[1]);
     RemoveWindow(&screen->windowList[2]);
-    EraseFrameAndWindow1(&screen->windowList[3], 0);
+    ClearWindowPixelBuffer(&screen->windowList[3], 0);
     RemoveWindow(&screen->windowList[3]);
-    EraseFrameAndWindow1(&screen->windowList[4], 0);
+    ClearWindowPixelBuffer(&screen->windowList[4], 0);
     RemoveWindow(&screen->windowList[4]);
 
     if (screen->listMenu2D != NULL) {
@@ -616,7 +616,7 @@ void WifiClubGameEntry_ShowApplicantInfo(WifiClubGameEntryScreen *screen, WifiCl
 }
 
 void WifiClubGameEntry_HideApplicantInfo(WifiClubGameEntryScreen *screen) {
-    EraseFrameAndWindow1(&screen->windowList[4], 1);
+    ClearWindowPixelBuffer(&screen->windowList[4], 1);
     ClearWindowTilemapAndScheduleTransfer(&screen->windowList[4]);
 }
 

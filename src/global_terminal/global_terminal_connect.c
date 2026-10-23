@@ -140,9 +140,9 @@ typedef struct GlobalTerminalConnectWork {
     GlobalTerminalConnectPaletteCycle paletteCycle;
 } GlobalTerminalConnectWork;
 
-void GF_TouchpadResetSampling(void);
-void GF_TouchpadStartSampling(int frequency);
-void GF_TouchpadStopSampling(void);
+void EnableTouchPad(void);
+void InitializeTouchPad(int frequency);
+void DisableTouchPad(void);
 void CommState_InitWfcSession(SaveData *saveData);
 void CommState_FreeWfcSession(void);
 void CommState_ShowRestartErrorAndHalt(void);
@@ -281,8 +281,8 @@ BOOL GlobalTerminalConnect_Init(OverlayManager *manager, int *state) {
     GF_CreateVramTransferManager(64, HEAP_ID_124);
     SetKeyRepeatTimers(4, 8);
     GlobalTerminalConnect_InitBgs(work->bgConfig);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     {
         MessageFormat *msgFormat = MessageFormat_New_Custom(11, 64, HEAP_ID_124);
         work->msgFormat = msgFormat;
@@ -375,7 +375,7 @@ BOOL GlobalTerminalConnect_Exit(OverlayManager *manager, int *state) {
     Main_SetVBlankIntrCB(NULL, NULL);
     HBlankInterruptDisable();
     GF_DestroyVramTransferManager();
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     TextFlags_SetCanABSpeedUpPrint(FALSE);
     TextFlags_SetAutoScrollParam(0);
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
@@ -850,7 +850,7 @@ static BOOL GlobalTerminalConnect_StateShowError(GlobalTerminalConnectWork *work
 
 static BOOL GlobalTerminalConnect_StateWaitErrorAck(GlobalTerminalConnectWork *work) {
     if ((gSystem.newKeys & PAD_BUTTON_A) || (gSystem.newKeys & PAD_BUTTON_B) || System_GetTouchNew() == TRUE) {
-        EraseFrameAndWindow1(&work->errorWindow, FALSE);
+        ClearWindowPixelBuffer(&work->errorWindow, FALSE);
         work->substate = 0;
         if (GlobalTerminalConnect_ErrorAllowsRetry(-work->errorCode, work->errorType) == TRUE) {
             work->state = GTC_STATE_ASK_CONNECT;

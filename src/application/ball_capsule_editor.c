@@ -501,8 +501,8 @@ BOOL BallCapsuleEditor_Init(OverlayManager *manager, int *state) {
     BallCapsuleEditor_LoadMainBgGraphics(editor->display.bgConfig, editor->display.paletteData, i);
     BallCapsuleEditor_LoadSubBgGraphics(editor->display.bgConfig, editor->display.paletteData, i);
     BallCapsuleEditor_InitSpriteSystem(&editor->display);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     BallCapsuleEditor_InitHitboxes(editor);
     Main_SetVBlankIntrCB(BallCapsuleEditor_VBlankCB, editor);
     BallCapsuleEditor_InitFonts(editor);
@@ -559,7 +559,7 @@ BOOL BallCapsuleEditor_Exit(OverlayManager *manager, int *state) {
     NARC_Delete(editor->pokepicAnimNarc);
     MenuInputStateMgr_SetState(editor->args->menuInputStatePtr, editor->menuInputState);
     OverlayManager_FreeData(manager);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     Heap_Destroy(HEAP_ID_52);
     UnloadOverlayByID(FS_OVERLAY_ID(OVY_6));
     UnloadOverlayByID(FS_OVERLAY_ID(OVY_7));
@@ -891,7 +891,7 @@ static void BallCapsuleEditor_LoadSealSpriteResources(BallCapsuleEditor *editor,
     SpriteManager *spriteManager = editor->display.spriteManager;
 
     SpriteSystem_LoadPaletteBuffer(editor->display.paletteData, PLTTBUF_SUB_OBJ, spriteSystem, spriteManager, NARC_a_0_8_7, 6, FALSE, 1, NNS_G2D_VRAM_TYPE_2DSUB, 21006);
-    SpriteSystem_LoadCharResObj(spriteSystem, spriteManager, NARC_a_0_8_7, Seal_GetGfxCharId(kind), TRUE, NNS_G2D_VRAM_TYPE_2DSUB, index + 20000);
+    SpriteSystem_LoadCharResObj(spriteSystem, spriteManager, NARC_a_0_8_7, CapsuleMenu_GetSealMemberIdx(kind), TRUE, NNS_G2D_VRAM_TYPE_2DSUB, index + 20000);
     SpriteSystem_LoadCellResObj(spriteSystem, spriteManager, NARC_a_0_8_7, 38, TRUE, 22038);
     SpriteSystem_LoadAnimResObj(spriteSystem, spriteManager, NARC_a_0_8_7, 36, TRUE, 23036);
 }
@@ -980,7 +980,7 @@ static BOOL BallCapsuleEditor_CreateSealSprite(BallCapsuleEditor *editor, u8 ind
     template.bgPriority = 1;
     template.resIdList[GF_GFX_RES_TYPE_MCEL] = -1;
     template.resIdList[GF_GFX_RES_TYPE_MANM] = -1;
-    Seal_GetGfxCharId(seal->seal.kind);
+    CapsuleMenu_GetSealMemberIdx(seal->seal.kind);
     template.resIdList[GF_GFX_RES_TYPE_CHAR] = 20000 + index;
     template.resIdList[GF_GFX_RES_TYPE_PLTT] = 21006;
     template.resIdList[GF_GFX_RES_TYPE_CELL] = 22038;
@@ -1063,7 +1063,7 @@ static BOOL BallCapsuleEditor_IsSealOnCapsule(BallCapsuleEditor *editor, s32 ind
 }
 
 static void BallCapsuleEditor_RemoveSeal(BallCapsuleEditor *editor, s32 index) {
-    Seal_GetGfxCharId(editor->seals[index].seal.kind);
+    CapsuleMenu_GetSealMemberIdx(editor->seals[index].seal.kind);
     SpriteManager_UnloadCharObjById(editor->display.spriteManager, index + 20000);
     Sprite_DeleteAndFreeResources(editor->seals[index].sprite);
     editor->seals[index].sprite = NULL;
@@ -1266,7 +1266,7 @@ static void BallCapsuleEditor_LoadCaseSealSpriteResources(BallCapsuleEditor *edi
     PaletteData *paletteData = editor->display.paletteData;
 
     for (i = 0; i < BALL_CAPSULE_EDITOR_SEALS_PER_PAGE; i++) {
-        SpriteSystem_LoadCharResObj(spriteSystem, spriteManager, NARC_a_0_8_7, Seal_GetGfxCharId(editor->pageSeals[i]), TRUE, NNS_G2D_VRAM_TYPE_2DSUB, 25000 + i);
+        SpriteSystem_LoadCharResObj(spriteSystem, spriteManager, NARC_a_0_8_7, CapsuleMenu_GetSealMemberIdx(editor->pageSeals[i]), TRUE, NNS_G2D_VRAM_TYPE_2DSUB, 25000 + i);
     }
     SpriteSystem_LoadPaletteBuffer(paletteData, PLTTBUF_SUB_OBJ, spriteSystem, spriteManager, NARC_a_0_8_7, 6, FALSE, 1, NNS_G2D_VRAM_TYPE_2DSUB, 26007);
     SpriteSystem_LoadCellResObj(spriteSystem, spriteManager, NARC_a_0_8_7, 37, TRUE, 27037);
@@ -2231,7 +2231,7 @@ BOOL BallCapsuleEditor_ModeEdit(BallCapsuleEditor *editor) {
                 touched = FALSE;
             }
             if (touched) {
-                BallCapsuleEditor_PrintSealName(&editor->display.windows[0], Seal_GetNameMsgId(editor->seals[i].seal.kind));
+                BallCapsuleEditor_PrintSealName(&editor->display.windows[0], CapsuleMenu_GetSealNameIndex(editor->seals[i].seal.kind));
                 ManagedSprite_SetPositionXY(editor->seals[i].sprite, x, y);
                 BallCapsuleEditor_UpdateSealOamMode(editor, i);
                 BallCapsuleEditor_StoreSealPosition(editor, i);
@@ -2271,7 +2271,7 @@ BOOL BallCapsuleEditor_ModeRemove(BallCapsuleEditor *editor) {
         break;
     case BALL_CAPSULE_REMOVE_FINISH:
         BallCapsuleEditor_SetMode(editor, BALL_CAPSULE_EDITOR_MODE_SELECT, 0xFF, 0);
-        EraseFrameAndWindow1(&editor->display.windows[0], TRUE);
+        ClearWindowPixelBuffer(&editor->display.windows[0], TRUE);
         ClearWindowTilemapAndScheduleTransfer(&editor->display.windows[0]);
         BallCapsuleEditor_PrintExitLabel(editor, TRUE);
         BallCapsuleEditor_PrintMessage(&editor->display.windows[3], 3, msg_0011_00007, FALSE);
@@ -2306,7 +2306,7 @@ BOOL BallCapsuleEditor_ModeSwitch(BallCapsuleEditor *editor) {
         ManagedSprite_SetDrawPriority(editor->cursors[1], 25);
         BallCapsuleEditor_SetMode(editor, BALL_CAPSULE_EDITOR_MODE_SELECT, 0xFF, 0);
         ManagedSprite_SetAnim(editor->cursors[0], 0);
-        EraseFrameAndWindow1(&editor->display.windows[0], TRUE);
+        ClearWindowPixelBuffer(&editor->display.windows[0], TRUE);
         ClearWindowTilemapAndScheduleTransfer(&editor->display.windows[0]);
         BallCapsuleEditor_PrintExitLabel(editor, TRUE);
         BallCapsuleEditor_PrintMessage(&editor->display.windows[3], 3, msg_0011_00007, FALSE);
@@ -2388,7 +2388,7 @@ static BOOL BallCapsuleEditor_LeaveEdit(BallCapsuleEditor *editor) {
         BallCapsuleEditor_SetCaseSpritesDrawFlag(editor, FALSE);
         BallCapsuleEditor_SetArrowsDrawFlag(editor, FALSE);
         BallCapsuleEditor_SetButtonLabelsDrawFlag(editor, FALSE);
-        EraseFrameAndWindow1(&editor->display.windows[0], TRUE);
+        ClearWindowPixelBuffer(&editor->display.windows[0], TRUE);
         BallCapsuleEditor_PrintMessage(&editor->display.windows[3], 3, msg_0011_00007, FALSE);
         CopyWindowToVram(&editor->display.windows[3]);
         BallCapsuleEditor_PrintExitLabel(editor, TRUE);
@@ -2709,7 +2709,7 @@ static void BallCapsuleEditor_HitboxCallback(u32 index, u32 event, void *arg) {
             }
             if (editor->pageSeals[index] != SEAL_NONE && SealCaseInventory_GetSealQuantity(editor->sealBag, editor->pageSeals[index] - 1) != 0) {
                 editor->display.heldSeal = BallCapsuleEditor_AddSeal(editor, (u8)index);
-                BallCapsuleEditor_PrintSealName(&editor->display.windows[0], Seal_GetNameMsgId(editor->pageSeals[index]));
+                BallCapsuleEditor_PrintSealName(&editor->display.windows[0], CapsuleMenu_GetSealNameIndex(editor->pageSeals[index]));
                 GiveOrTakeSeal(editor->args->sealCase, editor->pageSeals[index], -1);
                 BallCapsuleEditor_PrintSealCount(editor, index);
                 PlaySE(SEQ_SE_DP_BOX02);
@@ -2730,7 +2730,7 @@ static void BallCapsuleEditor_HitboxCallback(u32 index, u32 event, void *arg) {
         if (event == 0) {
             int seal = index - BALL_CAPSULE_EDITOR_HITBOX_FIRST_SEAL;
             BallCapsuleEditor_HandleSealTouch(editor, event, (u8)seal);
-            BallCapsuleEditor_PrintSealName(&editor->display.windows[0], Seal_GetNameMsgId(editor->seals[seal].seal.kind));
+            BallCapsuleEditor_PrintSealName(&editor->display.windows[0], CapsuleMenu_GetSealNameIndex(editor->seals[seal].seal.kind));
             PlaySE(SEQ_SE_DP_BOX02);
         }
         break;

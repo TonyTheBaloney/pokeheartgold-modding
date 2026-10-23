@@ -46,7 +46,7 @@ typedef struct BattleLinkHeader {
 extern const u32 gBattleLinkCommands[];
 int Comm_GetSendBufferFreeSpace(void);
 BOOL Comm_SendCommandNoCopy(int command, void *data, int size);
-BOOL BattleController_RecvLinkData(BattleSystem *battle, u8 *data);
+BOOL BattleController_RecvCommMessage(BattleSystem *battle, u8 *data);
 void BattleLink_Start(BattleSystem *battle);
 void BattleLink_RegisterSetupCommands(BattleLinkWork *work);
 void BattleLink_QueueSendData(BattleSystem *battle, int command, int battler, u8 *data, u8 size);

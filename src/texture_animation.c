@@ -90,7 +90,7 @@ static void TextureAnimation_Reset(TextureAnimation *animation) {
     animation->paletteIndex = 0;
 }
 static void TextureAnimation_SetFrameIndex(TextureAnimation *animation, u16 frame) {
-    BillboardTexPlttIndex indices = BillboardGfxSequence_GetTexPlttIndex(animation->gfxSequence, frame);
+    BillboardTexPlttIndex indices = BillboardGfxSequence_GetTexPlttIndexAt(animation->gfxSequence, frame);
     if (animation->textureIndex != indices.textureIdx) {
         TextureAnimation_LoadTexture(animation, &indices);
     }

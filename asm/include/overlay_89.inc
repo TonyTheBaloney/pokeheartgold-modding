@@ -134,10 +134,10 @@
 .public GF_CreateVramTransferManager
 .public GF_DestroyVramTransferManager
 .public GF_RunVramTransferTasks
-.public Math_CalcPerspectiveViewSize
-.public GF_TouchpadResetSampling
-.public GF_TouchpadStartSampling
-.public GF_TouchpadStopSampling
+.public FX_CalcLinearFov
+.public EnableTouchPad
+.public InitializeTouchPad
+.public DisableTouchPad
 .public ObjCharTransfer_ReserveCharSpace
 .public ObjCharTransfer_FreeCharSpace
 .public GfGfx_SetBanks

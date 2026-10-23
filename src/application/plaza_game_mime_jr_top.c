@@ -566,8 +566,8 @@ static void MimeJrTop_InitGame(MimeJrTopApp *app) {
     app->game = MimeJrTopGame_New(n, app->netId, &app->resources);
     app->game->selection = app->start.selection;
     app->game->seed = app->savedSeed;
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     MimeJrTop_LoadBgGraphics(app);
     MimeJrTop_LoadSpriteResources(app);
     MimeJrTopGame_CreateRivalSprites(app, app->game);
@@ -955,7 +955,7 @@ static void MimeJrTop_FreeGame(MimeJrTopApp *app) {
     Main_SetVBlankIntrCB(NULL, NULL);
     HBlankInterruptDisable();
     GF_DestroyVramTransferManager();
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     SetLCRNGSeed(app->savedSeed);
     MimeJrTopGame_FreeRivalSprites(app->game);
     MimeJrTopGame_FreePopups(app->game);
@@ -1530,7 +1530,7 @@ static void MimeJrTopGame_ShowInstructions(MimeJrTopGame *game) {
 
 static void MimeJrTopGame_HideInstructions(MimeJrTopGame *game) {
     if (WindowIsInUse(&game->instructions) == TRUE) {
-        EraseFrameAndWindow1(&game->instructions, TRUE);
+        ClearWindowPixelBuffer(&game->instructions, TRUE);
         ClearWindowTilemapAndCopyToVram(&game->instructions);
         RemoveWindow(&game->instructions);
     }
@@ -1612,7 +1612,7 @@ static void MimeJrTopGame_HideRivalNames(MimeJrTopGame *game) {
         do {
             if (i != game->localIndex) {
                 if (WindowIsInUse(window) == TRUE) {
-                    EraseFrameAndWindow1(window, TRUE);
+                    ClearWindowPixelBuffer(window, TRUE);
                     ClearWindowTilemapAndCopyToVram(window);
                     RemoveWindow(window);
                 }

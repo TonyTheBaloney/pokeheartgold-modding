@@ -265,7 +265,7 @@ static void LockCapsuleCard_DeleteSprites(LockCapsuleCardView *view) {
 
 static void LockCapsuleCard_EraseWindowIfInUse(Window *window, BOOL dontCopyToVram) {
     if (WindowIsInUse(window) == TRUE) {
-        EraseFrameAndWindow1(window, dontCopyToVram);
+        ClearWindowPixelBuffer(window, dontCopyToVram);
     }
 }
 

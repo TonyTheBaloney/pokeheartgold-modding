@@ -244,8 +244,8 @@ static BOOL PartyMenuApp_Init(OverlayManager *manager, int *pState) {
     PartyMenu_SetGfxBanks();
     PartyMenu_InitBgLayers(partyMenu->bgConfig);
     PartyMenu_LoadBgGraphics(partyMenu, narc);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     Sound_SetSceneAndPlayBGM(57, SEQ_NONE, 0);
     PartyMenu_SetContextMenuStaticStrings(partyMenu);
     PartyMenu_AddAllWindows(partyMenu);
@@ -538,7 +538,7 @@ static int PartyMenu_Subtask_HandleSubcontextMenuInput(PartyMenu *partyMenu) {
     switch (func) {
     case LIST_CANCEL:
         ClearFrameAndWindow2(&partyMenu->windows[PARTY_MENU_WINDOW_ID_33], TRUE);
-        EraseFrameAndWindow1(&partyMenu->windows[PARTY_MENU_WINDOW_ID_35], TRUE);
+        ClearWindowPixelBuffer(&partyMenu->windows[PARTY_MENU_WINDOW_ID_35], TRUE);
         ClearWindowTilemapAndScheduleTransfer(&partyMenu->windows[PARTY_MENU_WINDOW_ID_35]);
         PartyMenu_SetTopScreenSelectionPanelVisibility(partyMenu, FALSE);
         PartyMenu_DeleteContextMenuAndList(partyMenu);
@@ -617,7 +617,7 @@ static BOOL PartyMenuApp_Exit(OverlayManager *manager, int *pState) {
     PartyMenu_RemoveSpriteRenderer(partyMenu);
     PartyMenu_RemoveAllWindows(partyMenu);
     PartyMenu_FreeBgLayers(partyMenu->bgConfig);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     GF_DestroyVramTransferManager();
     for (i = 0; i < PARTY_SIZE; ++i) {
         String_Delete(partyMenu->monsDrawState[i].nickname);

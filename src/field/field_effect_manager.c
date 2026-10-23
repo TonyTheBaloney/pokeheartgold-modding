@@ -334,7 +334,7 @@ BillboardResource *FieldEffectManager_AddRecord(FieldEffectManager *manager, u32
     GF_3DGfxRawResObj *texObj;
     NNSG3dResTex *tex;
     BillboardResource *record;
-    BillboardGfxSequence_Init(ResourceBank_Get(gfx->sequenceBank, seqId), &sequence);
+    BillboardGfxSequence_SetData(ResourceBank_Get(gfx->sequenceBank, seqId), &sequence);
     texObj = GF3dGfxRawResMan_GetObjById(gfx->resMan, resId);
     GF_ASSERT(texObj);
     tex = GF3dGfxRawResObj_GetTex(texObj);

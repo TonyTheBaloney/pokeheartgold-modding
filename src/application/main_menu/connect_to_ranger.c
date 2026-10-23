@@ -538,7 +538,7 @@ static BOOL ConnectToRanger_ShowPokedexRequiredMessage(ConnectToRangerApp *app) 
         return TRUE;
     }
     if (gSystem.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B)) {
-        EraseFrameAndWindow1(&app->messageWindow, FALSE);
+        ClearWindowPixelBuffer(&app->messageWindow, FALSE);
         RemoveWindow(&app->messageWindow);
         return FALSE;
     }

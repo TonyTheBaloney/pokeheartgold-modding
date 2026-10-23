@@ -240,7 +240,7 @@ void Camera_Init_FromTargetAndPos(const VecFx32 *target, const VecFx32 *pos, u16
     axis.z = FX32_ONE;
     dir = vec_from_pos_to_target;
     dir.y = 0;
-    camera->angle.y = CalcAngleBetweenVecs(&axis, &dir);
+    camera->angle.y = VEC_AngleBetween(&axis, &dir);
 
     axis.x = FX32_ONE;
     axis.y = 0;
@@ -248,7 +248,7 @@ void Camera_Init_FromTargetAndPos(const VecFx32 *target, const VecFx32 *pos, u16
     dir.x = vec_from_pos_to_target.z;
     dir.z = vec_from_pos_to_target.y;
     dir.y = 0;
-    camera->angle.x = CalcAngleBetweenVecs(&axis, &dir);
+    camera->angle.x = VEC_AngleBetween(&axis, &dir);
 
     camera->angle.z = 0;
     Camera_ApplyPerspectiveType(perspectiveType, camera);

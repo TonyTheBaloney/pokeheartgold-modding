@@ -342,8 +342,8 @@ FrontierMap *FrontierMap_Init(FrontierWork *frontier) {
     FrontierMap_SetVramBank(map->bgConfig, mapId);
     FrontierMap_LoadPaletteData(map);
     FrontierMap_LoadSubScreenGfx(map);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     FrontierMap_InitSpriteSystem(map);
     map->particles = FrontierParticles_New(HEAP_ID_101);
     FrontierMap_InitMapObjects(map, mapId, profile);
@@ -390,7 +390,7 @@ void FrontierMap_Free(FrontierMap *map) {
     SysTask_Destroy(map->updateTask);
     SysTask_Destroy(map->vblankTask);
     FrontierMap_Delete3DVramMan(map->vramMan);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     Heap_Free(map);
     GX_SetVisibleWnd(0);
     GXS_SetVisibleWnd(0);

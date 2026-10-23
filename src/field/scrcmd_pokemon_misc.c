@@ -351,7 +351,7 @@ static void SpeciesListMenu_Close(SpeciesListMenu *menu) {
     int i;
     PlaySE(SEQ_SE_DP_SELECT);
     DestroyListMenu(menu->listMenu_23C, NULL, NULL);
-    EraseFrameAndWindow1(menu->listMenuTemplate.window, FALSE);
+    ClearWindowPixelBuffer(menu->listMenuTemplate.window, FALSE);
     RemoveWindow(&menu->window_8);
 
     for (i = 0; i < 0x78; i++) {

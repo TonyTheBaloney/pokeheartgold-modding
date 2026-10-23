@@ -94,9 +94,9 @@
 .public TextPrinterCheckActive
 .public AddTextPrinterParameterizedWithColor
 .public GF_RunVramTransferTasks
-.public GF_TouchpadResetSampling
-.public GF_TouchpadStartSampling
-.public GF_TouchpadStopSampling
+.public EnableTouchPad
+.public InitializeTouchPad
+.public DisableTouchPad
 .public ObjCharTransfer_Init
 .public ObjCharTransfer_Destroy
 .public ObjCharTransfer_ClearBuffers

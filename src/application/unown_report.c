@@ -555,8 +555,8 @@ static BOOL UnownReport_SetupGraphics(UnownReportApp *app) {
         break;
     case UNOWN_REPORT_SETUP_DRAW_FIRST_PAGE:
         UnownReport_DrawFirstPage(app);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(1);
+        EnableTouchPad();
+        InitializeTouchPad(1);
         Sound_SetSceneAndPlayBGM(69, 0, 0);
         app->subState = UNOWN_REPORT_SETUP_CREATE;
         return TRUE;
@@ -565,7 +565,7 @@ static BOOL UnownReport_SetupGraphics(UnownReportApp *app) {
 }
 
 static BOOL UnownReport_Teardown(UnownReportApp *app) {
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     UnownReport_DestroyGraphics(app);
     return TRUE;
 }

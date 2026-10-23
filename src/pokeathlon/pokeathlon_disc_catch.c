@@ -249,7 +249,7 @@ int PokeathlonDiscCatch_GetFacing(const VecFx32 *direction) {
     vec.x = direction->y;
     vec.z = direction->x;
     vec.y = 0;
-    angle = CalcAngleBetweenVecs(&reference, &vec);
+    angle = VEC_AngleBetween(&reference, &vec);
     if (angle <= 0x2000 || angle >= 0xE000) {
         return 4;
     }

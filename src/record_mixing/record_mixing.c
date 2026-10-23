@@ -367,8 +367,8 @@ BOOL RecordMixing_Init(OverlayManager *man, int *state) {
         SetMasterBrightnessNeutral(PM_LCD_BOTTOM);
         BeginNormalPaletteFade(FADE_BOTH_SCREENS, (enum FadeType)17, (enum FadeType)17, RGB_BLACK, 16, 1, HEAP_ID_50);
         RecordMixing_LoadBgGraphics(app, narc);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(2);
+        EnableTouchPad();
+        InitializeTouchPad(2);
         Main_SetVBlankIntrCB((GFIntrCB)RecordMixing_VBlankCB, app);
         RecordMixing_InitResources(app, narc);
         RecordMixing_InitObjTransfer();
@@ -463,7 +463,7 @@ BOOL RecordMixing_Exit(OverlayManager *man, int *state) {
     CommState_SetMaxEntries(2);
     CommState_ResumeAlternateSearch();
     UnionRoomObjects_ResetSlots(app->args->unionRoomObjects);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     FontID_Release(FONT_UNK_4);
     DestroyMsgData(app->msgData);
     MessageFormat_Delete(app->msgFmt);

@@ -193,6 +193,6 @@ void RenderObj_DrawAt(NNSG3dRenderObj *object, VecFx32 *position) {
 
 void RenderObj_DrawRotated(NNSG3dRenderObj *object, const VecFx32 *position, const VecFx32 *scale, const u16 *angles) {
     MtxFx33 rotation;
-    Math_CalcRotationMatrixXYZDeg(&rotation, angles[0], angles[1], angles[2]);
+    MTX_Rot33Angles(&rotation, angles[0], angles[1], angles[2]);
     RenderObj_Draw(object, position, scale, &rotation);
 }

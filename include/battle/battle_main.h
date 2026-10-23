@@ -29,7 +29,7 @@ void BattleSystem_InitTerrainsAndBalls(BattleSystem *battleSystem);
 void Battle_VBlankCallback(void *data);
 
 // Defined in other modules that have no header declaring them yet.
-void BattleController_ProcessQueue(BattleSystem *battleSystem, int direction);
+void BattleSystem_TryRecvMessage(BattleSystem *battleSystem, int direction);
 void BgConfig_InitBattleMenuBackgrounds(BgConfig *bgConfig);
 void LoadUserFrameGfx2WithFill(BgConfig *bgConfig, u8 bgId, u16 baseTile, u8 color, u8 type, enum HeapID heapId);
 u32 GetUserFrameGfx2TilesMember(u32 frame);

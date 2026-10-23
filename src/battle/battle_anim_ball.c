@@ -339,7 +339,7 @@ static void BallSealEffect_LoadSealParticlesTask(SysTask *task, void *data) {
             if (seal != NULL) {
                 s32 sealId = SealOnCapsuleGetID(seal);
                 if (sealId != 0 && sealId < 81) {
-                    resource0 = Seal_GetBattleAnimResId((u8)sealId);
+                    resource0 = CapsuleMenu_GetSealParticleIndex((u8)sealId);
                     effect->seals[effect->count] = seal;
                     GF_ASSERT(effect->particleSystems[effect->count] == NULL);
                     effect->particleSystems[effect->count] = BattleAnimSystem_NewParticleSystemFromOpenNarc(effect->narc, effect->heapId, resource0, FALSE);
@@ -364,7 +364,7 @@ static void BallSealEffect_LoadSealParticlesTask(SysTask *task, void *data) {
             if (seal != NULL) {
                 s32 sealId = SealOnCapsuleGetID(seal);
                 if (sealId != 0 && sealId < 81) {
-                    resource1 = Seal_GetBattleAnimResId((u8)sealId);
+                    resource1 = CapsuleMenu_GetSealParticleIndex((u8)sealId);
                     effect->seals[effect->count] = seal;
                     GF_ASSERT(effect->particleSystems[effect->count] == NULL);
                     effect->particleSystems[effect->count] = BattleAnimSystem_NewParticleSystemFromOpenNarc(effect->narc, effect->heapId, resource1, FALSE);
@@ -389,7 +389,7 @@ static void BallSealEffect_LoadSealParticlesTask(SysTask *task, void *data) {
             if (seal != NULL) {
                 s32 sealId = SealOnCapsuleGetID(seal);
                 if (sealId != 0 && sealId < 81) {
-                    resource2 = Seal_GetBattleAnimResId((u8)sealId);
+                    resource2 = CapsuleMenu_GetSealParticleIndex((u8)sealId);
                     effect->seals[effect->count] = seal;
                     GF_ASSERT(effect->particleSystems[effect->count] == NULL);
                     effect->particleSystems[effect->count] = BattleAnimSystem_NewParticleSystemFromOpenNarc(effect->narc, effect->heapId, resource2, FALSE);
@@ -414,7 +414,7 @@ static void BallSealEffect_LoadSealParticlesTask(SysTask *task, void *data) {
             if (seal != NULL) {
                 s32 sealId = SealOnCapsuleGetID(seal);
                 if (sealId != 0 && sealId < 81) {
-                    resource3 = Seal_GetBattleAnimResId((u8)sealId);
+                    resource3 = CapsuleMenu_GetSealParticleIndex((u8)sealId);
                     effect->seals[effect->count] = seal;
                     GF_ASSERT(effect->particleSystems[effect->count] == NULL);
                     effect->particleSystems[effect->count] = BattleAnimSystem_NewParticleSystemFromOpenNarc(effect->narc, effect->heapId, resource3, FALSE);
@@ -591,7 +591,7 @@ static void BallSealEffect_SetEmitterPositionFromSeal(SPLEmitter *emitter) {
     int x, y;
 
     BallSealEffect_GetBasePosition(emitTask->battlerType, &pos);
-    Seal_IsLetterSeal(SealOnCapsuleGetID(emitTask->seal));
+    CapsuleMenu_IsAlphabetSeal(SealOnCapsuleGetID(emitTask->seal));
     x = SealOnCapsuleGetX(emitTask->seal);
     y = SealOnCapsuleGetY(emitTask->seal);
     pos.x += (s16)(x - 190) * 172;
@@ -1716,7 +1716,7 @@ static u8 BallSealEffect_GetSealEmitDelay(const SEAL *seal) {
     BallSealEmitDelays delays = gBallSealEmitDelays;
     int band;
 
-    if (!Seal_IsLetterSeal((u8)SealOnCapsuleGetID(seal))) {
+    if (!CapsuleMenu_IsAlphabetSeal((u8)SealOnCapsuleGetID(seal))) {
         band = BallSealEffect_GetSealDistance(seal);
         if (band >= 56) {
             band = 3;

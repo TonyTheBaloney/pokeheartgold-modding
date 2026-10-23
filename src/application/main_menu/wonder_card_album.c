@@ -542,7 +542,7 @@ static void WonderCardAlbum_CreateButtonSprites(WonderCardAlbum *album) {
 
 static void WonderCardAlbum_EraseWindowIfInUse(Window *window, BOOL dontCopyToVram) {
     if (WindowIsInUse(window) == TRUE) {
-        EraseFrameAndWindow1(window, dontCopyToVram);
+        ClearWindowPixelBuffer(window, dontCopyToVram);
     }
 }
 

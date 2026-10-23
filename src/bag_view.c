@@ -35,12 +35,12 @@ u32 BagView_sizeof(void) {
     return sizeof(BagView);
 }
 
-void BagView_SetMode(BagView *bagView, u8 mode) {
+void BagView_SetContext(BagView *bagView, u8 mode) {
     bagView->mode = mode;
 }
 
 void BagView_Init(BagView *bagView, SaveData *save, u8 mode, BagCursor *cursor, MenuInputStateMgr *menuInputStateMgr) {
-    BagView_SetMode(bagView, mode);
+    BagView_SetContext(bagView, mode);
     bagView->saveData = save;
     bagView->menuInputStateMgr = menuInputStateMgr;
     bagView->cursor = cursor;
@@ -57,11 +57,11 @@ void BagView_SetItem(BagView *bagView, ItemSlot *slots, u8 pocketId, u8 position
     bagView->pockets[pocketId].pocketId = pocketId;
 }
 
-void BagView_SetIsCycling(BagView *bagView) {
+void BagView_SetOnBike(BagView *bagView) {
     bagView->isCycling = TRUE;
 }
 
-void BagView_SetItemCheckUseData(BagView *bagView, ItemCheckUseData *checkUseData) {
+void BagView_SetCheckUseData(BagView *bagView, ItemCheckUseData *checkUseData) {
     bagView->checkUseData = checkUseData;
 }
 
@@ -77,7 +77,7 @@ u16 BagView_GetItemId(BagView *bagView) {
     return bagView->itemId;
 }
 
-u16 BagView_GetSelectedAction(BagView *bagView) {
+u16 BagView_GetReturnCode(BagView *bagView) {
     return bagView->selectedAction;
 }
 

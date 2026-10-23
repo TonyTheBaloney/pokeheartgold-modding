@@ -21,7 +21,7 @@
 .public BillboardObject_GetTexKey
 .public BillboardObject_GetPlttKey
 .public GF_AssertFail
-.public BillboardGfxSequence_Init
+.public BillboardGfxSequence_SetData
 .public ScriptReadHalfword
 .public FieldSystem_VarGet
 .public TaskManager_Call

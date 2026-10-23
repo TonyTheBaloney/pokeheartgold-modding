@@ -185,7 +185,7 @@ void Field_SaveStatsPrinter_Print(struct SaveStatsPrinter *printer) {
 }
 
 void Field_SaveStatsPrinter_RemoveFromScreen(struct SaveStatsPrinter *printer) {
-    EraseFrameAndWindow1(printer->window, FALSE);
+    ClearWindowPixelBuffer(printer->window, FALSE);
     RemoveWindow(printer->window);
     Heap_Free(printer->window);
 }

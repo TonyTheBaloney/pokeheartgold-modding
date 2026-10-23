@@ -2,119 +2,119 @@
 
 #include "global.h"
 
-static int TypeIcon_GetCellFile(void);
-static int TypeIcon_GetAnimFile(void);
+static int GetMoveTypeAndCategoryIconCellFileId(void);
+static int GetMoveTypeAndCategoryIconAnimFileId(void);
 
-static const u8 sMoveCategoryIconPalettes[3] = { 0, 1, 0 };
+static const u8 sMoveCategoryGfxPlttOverrides[3] = { 0, 1, 0 };
 
-static const int sMoveCategoryIconCharFiles[3] = { 244, 246, 245 };
+static const int sMoveCategoryGfxCharFileIds[3] = { 244, 246, 245 };
 
-static const int sTypeIconCharFiles[23] = {
+static const int sTypeIconGfxCharFileIds[23] = {
     234, 225, 227, 235, 229, 237, 231, 228, 238, 236, 226, 241, 233, 222, 223, 230, 221, 224, 240, 219, 220, 232, 239
 };
 
-static const u8 sTypeIconPalettes[23] = { 0, 0, 1, 1, 0, 0, 2, 1, 0, 2, 0, 1, 2, 0, 1, 1, 2, 0, 0, 1, 1, 2, 0 };
+static const u8 sTypeIconGfxPlttOverrides[23] = { 0, 0, 1, 1, 0, 0, 2, 1, 0, 2, 0, 1, 2, 0, 1, 1, 2, 0, 0, 1, 1, 2, 0 };
 
-int TypeIcon_GetCharFile(int type) {
-    GF_ASSERT((u32)type < NELEMS(sTypeIconCharFiles));
-    return sTypeIconCharFiles[type];
+int TypeIconGfx_GetCharFileId(int type) {
+    GF_ASSERT((u32)type < NELEMS(sTypeIconGfxCharFileIds));
+    return sTypeIconGfxCharFileIds[type];
 }
 
-int TypeIcon_GetPlttFile(void) {
+int GetMoveTypeAndCategoryIconPlttFileId(void) {
     return 74;
 }
 
-static int TypeIcon_GetCellFile(void) {
+static int GetMoveTypeAndCategoryIconCellFileId(void) {
     return 242;
 }
 
-static int TypeIcon_GetAnimFile(void) {
+static int GetMoveTypeAndCategoryIconAnimFileId(void) {
     return 243;
 }
 
-u32 TypeIcon_GetPalette(u32 type) {
-    GF_ASSERT(type < NELEMS(sTypeIconPalettes));
-    return sTypeIconPalettes[type];
+u32 TypeIconGfx_GetPlttOverride(u32 type) {
+    GF_ASSERT(type < NELEMS(sTypeIconGfxPlttOverrides));
+    return sTypeIconGfxPlttOverrides[type];
 }
 
-NarcId TypeIcon_GetNarc(void) {
+NarcId TypeIconGfx_GetNarcId(void) {
     return NARC_a_0_0_8;
 }
 
-void TypeIcon_LoadChar(SpriteSystem *system, SpriteManager *manager, NNS_G2D_VRAM_TYPE vram, int type, int resource) {
-    NarcId narc = TypeIcon_GetNarc();
-    int file = TypeIcon_GetCharFile(type);
+void SpriteSystem_LoadMoveTypeIconCharResObj(SpriteSystem *system, SpriteManager *manager, NNS_G2D_VRAM_TYPE vram, int type, int resource) {
+    NarcId narc = TypeIconGfx_GetNarcId();
+    int file = TypeIconGfx_GetCharFileId(type);
     SpriteSystem_LoadCharResObj(system, manager, narc, file, TRUE, vram, resource);
 }
 
-void TypeIcon_LoadPltt(SpriteSystem *system, SpriteManager *manager, int vram, int resource) {
-    NarcId narc = TypeIcon_GetNarc();
-    int file = TypeIcon_GetPlttFile();
+void SpriteSystem_LoadMoveTypeAndCategoryIconsPltt(SpriteSystem *system, SpriteManager *manager, int vram, int resource) {
+    NarcId narc = TypeIconGfx_GetNarcId();
+    int file = GetMoveTypeAndCategoryIconPlttFileId();
     SpriteSystem_LoadPlttResObj(system, manager, narc, file, FALSE, 3, vram, resource);
 }
 
-void TypeIcon_LoadPaletteBuffer(PaletteData *palette, int buffer, SpriteSystem *system, SpriteManager *manager, int vram, int resource) {
-    NarcId narc = TypeIcon_GetNarc();
-    int file = TypeIcon_GetPlttFile();
+void SpriteSystem_LoadMoveTypeAndCategoryIconsPlttToBuffer(PaletteData *palette, int buffer, SpriteSystem *system, SpriteManager *manager, int vram, int resource) {
+    NarcId narc = TypeIconGfx_GetNarcId();
+    int file = GetMoveTypeAndCategoryIconPlttFileId();
     SpriteSystem_LoadPaletteBuffer(palette, (PaletteBufferId)buffer, system, manager, narc, file, FALSE, 3, vram, resource);
 }
 
-void TypeIcon_LoadCellAnim(SpriteSystem *system, SpriteManager *manager, int cell, int animation) {
-    NarcId narc = TypeIcon_GetNarc();
-    int file = TypeIcon_GetCellFile();
+void SpriteSystem_LoadMoveTypeAndCategoryIconsCellAndAnim(SpriteSystem *system, SpriteManager *manager, int cell, int animation) {
+    NarcId narc = TypeIconGfx_GetNarcId();
+    int file = GetMoveTypeAndCategoryIconCellFileId();
     SpriteSystem_LoadCellResObj(system, manager, narc, file, TRUE, cell);
-    narc = TypeIcon_GetNarc();
-    file = TypeIcon_GetAnimFile();
+    narc = TypeIconGfx_GetNarcId();
+    file = GetMoveTypeAndCategoryIconAnimFileId();
     SpriteSystem_LoadAnimResObj(system, manager, narc, file, TRUE, animation);
 }
 
-void TypeIcon_UnloadChar(SpriteManager *manager, int resource) {
+void SpriteManager_UnloadMoveTypeIconCharResObjByTag(SpriteManager *manager, int resource) {
     SpriteManager_UnloadCharObjById(manager, resource);
 }
 
-void TypeIcon_UnloadPltt(SpriteManager *manager, int resource) {
+void SpriteManager_UnloadMoveTypeAndCategoryIconPlttResObjByTag(SpriteManager *manager, int resource) {
     SpriteManager_UnloadPlttObjById(manager, resource);
 }
 
-void TypeIcon_UnloadCellAnim(SpriteManager *manager, int cell, int animation) {
+void SpriteManager_UnloadMoveTypeAndCategoryIconCellAndAnimResObjsByTags(SpriteManager *manager, int cell, int animation) {
     SpriteManager_UnloadCellObjById(manager, cell);
     SpriteManager_UnloadAnimObjById(manager, animation);
 }
 
-ManagedSprite *TypeIcon_NewSprite(SpriteSystem *system, SpriteManager *manager, int type, ManagedSpriteTemplate *template) {
+ManagedSprite *SpriteSystem_CreateMoveTypeIconSprite(SpriteSystem *system, SpriteManager *manager, int type, ManagedSpriteTemplate *template) {
     ManagedSpriteTemplate copy = *template;
-    copy.pal = TypeIcon_GetPalette(type);
+    copy.pal = TypeIconGfx_GetPlttOverride(type);
     return SpriteSystem_NewSprite(system, manager, &copy);
 }
 
-void thunk_ManagedSprite_DeleteAndFreeResources(ManagedSprite *sprite) {
+void MoveTypeIconSprite_DeleteAndFreeResources(ManagedSprite *sprite) {
     Sprite_DeleteAndFreeResources(sprite);
 }
 
-int MoveCategoryIcon_GetCharFile(u32 category) {
-    GF_ASSERT(category < NELEMS(sMoveCategoryIconCharFiles));
-    return sMoveCategoryIconCharFiles[category];
+int GetMoveCategoryIconGfxCharFileId(u32 category) {
+    GF_ASSERT(category < NELEMS(sMoveCategoryGfxCharFileIds));
+    return sMoveCategoryGfxCharFileIds[category];
 }
 
-u32 MoveCategoryIcon_GetPalette(u32 category) {
-    GF_ASSERT(category < NELEMS(sMoveCategoryIconPalettes));
-    return sMoveCategoryIconPalettes[category];
+u32 GetMoveCategoryIconGfxPlttOverride(u32 category) {
+    GF_ASSERT(category < NELEMS(sMoveCategoryGfxPlttOverrides));
+    return sMoveCategoryGfxPlttOverrides[category];
 }
 
-NarcId MoveCategoryIcon_GetNarc(void) {
+NarcId GetMoveCategoryIconGfxNarcId(void) {
     return NARC_a_0_0_8;
 }
 
-void MoveCategoryIcon_LoadChar(SpriteSystem *system, SpriteManager *manager, int vram, int category, int resource) {
-    NarcId narc = MoveCategoryIcon_GetNarc();
-    int file = MoveCategoryIcon_GetCharFile(category);
+void SpriteSystem_LoadMoveCategoryIconCharResObj(SpriteSystem *system, SpriteManager *manager, int vram, int category, int resource) {
+    NarcId narc = GetMoveCategoryIconGfxNarcId();
+    int file = GetMoveCategoryIconGfxCharFileId(category);
     SpriteSystem_LoadCharResObj(system, manager, narc, file, TRUE, vram, resource);
 }
 
-void MoveCategoryIcon_UnloadChar(SpriteManager *manager, int resource) {
+void SpriteManager_UnloadMoveCategoryIconCharResObjByTag(SpriteManager *manager, int resource) {
     SpriteManager_UnloadCharObjById(manager, resource);
 }
 
-void MoveCategoryIcon_DeleteSprite(ManagedSprite *sprite) {
+void MoveCategoryIconSprite_DeleteAndFreeResources(ManagedSprite *sprite) {
     Sprite_DeleteAndFreeResources(sprite);
 }

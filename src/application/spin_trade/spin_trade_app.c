@@ -632,8 +632,8 @@ BOOL SpinTradeApp_Init(OverlayManager *man, int *state) {
     app->party = SaveArray_Party_Get(app->args->input.saveData);
     app->narc = NARC_New(NARC_a_1_8_7, HEAP_ID_102);
     GF_CreateVramTransferManager(8, HEAP_ID_102);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     SpinTrade_InitGraphics(app);
     Main_SetVBlankIntrCB(SpinTrade_VBlankCallback, app);
     SpinTrade_InitMachine(app);
@@ -668,7 +668,7 @@ BOOL SpinTradeApp_Init(OverlayManager *man, int *state) {
 BOOL SpinTradeApp_Exit(OverlayManager *man, int *state) {
     SpinTradeApp *app = OverlayManager_GetData(man);
 
-    GF_ASSERT(GF_TouchpadStopSampling() == 1);
+    GF_ASSERT(DisableTouchPad() == 1);
     SpinTrade_StopBounceTask(app);
     SpinTrade_StopSpinTask(app);
     SpinTrade_StopWobbleTask(app);

@@ -1660,7 +1660,7 @@ static int WirelessTradeSelectMon_HandleRosterListInput(WirelessTradeSelectMon *
         break;
     }
     }
-    EraseFrameAndWindow1(&work->rosterWindow, FALSE);
+    ClearWindowPixelBuffer(&work->rosterWindow, FALSE);
     RemoveWindow(&work->rosterWindow);
     DestroyListMenu(work->rosterMenu, NULL, NULL);
     ListMenuItems_Delete(work->rosterItems);

@@ -769,11 +769,11 @@ static void PCBox_LoadTypeIcon(PCBoxView *view, u32 type, u32 index, u32 resourc
     void *buf;
     u32 palette;
 
-    buf = GfGfxLoader_GetCharData(TypeIcon_GetNarc(), TypeIcon_GetCharFile(type), TRUE, &charData, HEAP_ID_10);
+    buf = GfGfxLoader_GetCharData(TypeIconGfx_GetNarcId(), TypeIconGfx_GetCharFileId(type), TRUE, &charData, HEAP_ID_10);
     PCBox_LoadSpriteCharsSub(view, index, charData->pRawData, 0x100);
     Heap_Free(buf);
     palette = ManagedSprite_GetPaletteOverrideOffset(view->sprites[index]);
-    ManagedSprite_SetPaletteOverride(view->sprites[index], palette + TypeIcon_GetPalette(type));
+    ManagedSprite_SetPaletteOverride(view->sprites[index], palette + TypeIconGfx_GetPlttOverride(type));
 }
 
 void PCBox_DrawTypeIcons(PCBoxView *view, PCBoxMonInfo *monInfo) {

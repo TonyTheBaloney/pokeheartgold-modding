@@ -509,8 +509,8 @@ static int SafariAreaCustomizer_Setup(SafariAreaCustomizer *s) {
         SetMasterBrightnessByColor(PM_LCD_BOTTOM, RGB_BLACK);
         ResetVisibleHardwareWindows(PM_LCD_TOP);
         ResetVisibleHardwareWindows(PM_LCD_BOTTOM);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(4);
+        EnableTouchPad();
+        InitializeTouchPad(4);
         break;
     case SAC_SETUP_LOAD:
         SafariAreaCustomizer_InitBgLayers(s);
@@ -545,7 +545,7 @@ static int SafariAreaCustomizer_Teardown(SafariAreaCustomizer *s) {
         SafariAreaCustomizer_FreeBgLayers(s);
         break;
     case SAC_TEARDOWN_RESET_DISPLAY:
-        GF_TouchpadStopSampling();
+        DisableTouchPad();
         GX_SetVisiblePlane(0);
         GXS_SetVisiblePlane(0);
         GfGfx_DisableEngineAPlanes();

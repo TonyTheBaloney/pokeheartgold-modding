@@ -582,8 +582,8 @@ static BOOL PhotoAlbumApp_Setup(PhotoAlbumApp *app) {
         break;
     case PHOTO_ALBUM_SETUP_DRAW_SCREEN:
         PhotoAlbumApp_DrawInitialScreen(app);
-        GF_TouchpadResetSampling();
-        GF_TouchpadStartSampling(4);
+        EnableTouchPad();
+        InitializeTouchPad(4);
         app->state = PHOTO_ALBUM_SETUP_INIT_GRAPHICS;
         return TRUE;
     }
@@ -591,7 +591,7 @@ static BOOL PhotoAlbumApp_Setup(PhotoAlbumApp *app) {
 }
 
 static BOOL PhotoAlbumApp_Teardown(PhotoAlbumApp *app) {
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     PhotoAlbumApp_FreeGraphics(app);
     return TRUE;
 }

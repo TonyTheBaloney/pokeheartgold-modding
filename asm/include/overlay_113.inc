@@ -80,9 +80,9 @@
 .public GF_CreateVramTransferManager
 .public GF_DestroyVramTransferManager
 .public GF_RunVramTransferTasks
-.public GF_TouchpadResetSampling
-.public GF_TouchpadStartSampling
-.public GF_TouchpadStopSampling
+.public EnableTouchPad
+.public InitializeTouchPad
+.public DisableTouchPad
 .public GfGfx_SetBanks
 .public GfGfx_DisableEngineAPlanes
 .public GfGfx_EngineATogglePlanes

@@ -649,12 +649,12 @@ case13_no:
         if (GeonetGlobe_FindNearestLocation(globe, &nearestLocation)) {
             DrawFrameAndWindow1(&globe->windows[GEONET_GLOBE_WINDOW_INFO_BUTTON], FALSE, 473, 7);
         } else {
-            EraseFrameAndWindow1(&globe->windows[GEONET_GLOBE_WINDOW_INFO_BUTTON], FALSE);
+            ClearWindowPixelBuffer(&globe->windows[GEONET_GLOBE_WINDOW_INFO_BUTTON], FALSE);
         }
         keys = gSystem.newKeys;
         if ((keys & PAD_BUTTON_B) || ((touchInput = globe->touch.input) & PAD_BUTTON_B)) {
-            EraseFrameAndWindow1(&globe->windows[GEONET_GLOBE_WINDOW_EXIT_BUTTON], FALSE);
-            EraseFrameAndWindow1(&globe->windows[GEONET_GLOBE_WINDOW_INFO_BUTTON], FALSE);
+            ClearWindowPixelBuffer(&globe->windows[GEONET_GLOBE_WINDOW_EXIT_BUTTON], FALSE);
+            ClearWindowPixelBuffer(&globe->windows[GEONET_GLOBE_WINDOW_INFO_BUTTON], FALSE);
             PlaySE(SEQ_SE_DP_DECIDE);
             FillWindowPixelRect(&globe->windows[GEONET_GLOBE_WINDOW_MESSAGE], 15, 0, 0, 216, 32);
             if (globe->playerCountry == 0) {
@@ -1058,7 +1058,7 @@ static void GeonetGlobe_CreatePlaceList(GeonetGlobe *globe, Window *window, cons
 }
 
 static void GeonetGlobe_DestroyListMenu(GeonetGlobe *globe) {
-    EraseFrameAndWindow1(&globe->windows[GEONET_GLOBE_WINDOW_LIST], FALSE);
+    ClearWindowPixelBuffer(&globe->windows[GEONET_GLOBE_WINDOW_LIST], FALSE);
     RemoveWindow(&globe->windows[GEONET_GLOBE_WINDOW_LIST]);
     DestroyListMenu(globe->listMenu, NULL, NULL);
     ListMenuItems_Delete(globe->listMenuItems);
@@ -1099,7 +1099,7 @@ static void GeonetGlobe_ShowLocation(GeonetGlobe *globe, int country, int region
 }
 
 static void GeonetGlobe_HideLocationWindow(GeonetGlobe *globe) {
-    EraseFrameAndWindow1(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION], FALSE);
+    ClearWindowPixelBuffer(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION], FALSE);
     RemoveWindow(&globe->windows[GEONET_GLOBE_WINDOW_LOCATION]);
 }
 

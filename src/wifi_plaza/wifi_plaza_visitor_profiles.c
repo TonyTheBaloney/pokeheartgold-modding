@@ -1760,7 +1760,7 @@ static u32 VisitorProfilesTouch_Get(VisitorProfilesTouch *touch, s32 which) {
 }
 
 static void VisitorProfilesTouch_HideExitButton(VisitorProfilesTouch *touch) {
-    EraseFrameAndWindow1(&touch->exitButton, TRUE);
+    ClearWindowPixelBuffer(&touch->exitButton, TRUE);
     ClearWindowTilemapAndScheduleTransfer(&touch->exitButton);
 }
 

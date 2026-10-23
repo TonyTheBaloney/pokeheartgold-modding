@@ -25,7 +25,7 @@ typedef struct CianwoodGymmickWinchTaskData {
 
 static void CianwoodGymmick_LaunchWinchTask(CianwoodGymmickLocalData *localData);
 static BOOL Task_CianwoodGymmick_LiftWinchCutscene(TaskManager *taskman);
-static int CianwoodGymmick_RebindAnims(FieldSystem *fieldSystem);
+static int CianwoodGymmick_RebindAnimationObjectsAndGetCount(FieldSystem *fieldSystem);
 
 void GymmickInit_Cianwood(FieldSystem *fieldSystem) {
     GymmickUnion *gymmickUnion = Save_Gymmick_AssertMagic_GetData(Save_GetGymmickPtr(FieldSystem_GetSaveData(fieldSystem)), GYMMICK_CIANWOOD);
@@ -36,7 +36,7 @@ void GymmickInit_Cianwood(FieldSystem *fieldSystem) {
 
     if (gymmickUnion->cianwood.winch) {
         MapPropAnimationData *animData;
-        u32 num = CianwoodGymmick_RebindAnims(fieldSystem);
+        u32 num = CianwoodGymmick_RebindAnimationObjectsAndGetCount(fieldSystem);
         for (u8 i = 0; i < num; ++i) {
             animData = MapPropAnimationManager_GetAnimationData(174, i, fieldSystem->mapPropAnimationManager);
             MapPropAnimationData_SetAnimationPaused(animData, TRUE);
@@ -106,7 +106,7 @@ static BOOL Task_CianwoodGymmick_LiftWinchCutscene(TaskManager *taskman) {
         }
         break;
     case WINCH_STATE_START_ANIM: {
-        int num = CianwoodGymmick_RebindAnims(fieldSystem);
+        int num = CianwoodGymmick_RebindAnimationObjectsAndGetCount(fieldSystem);
         MapPropAnimationData *animData;
         for (int i = 0; i < num; ++i) {
             animData = MapPropAnimationManager_GetAnimationData(174, i, fieldSystem->mapPropAnimationManager);
@@ -151,7 +151,7 @@ static BOOL Task_CianwoodGymmick_LiftWinchCutscene(TaskManager *taskman) {
 
 // Prop 173 drops its own animations and plays those of prop 174; the render object of 174 is looked up but left
 // alone.
-static int CianwoodGymmick_RebindAnims(FieldSystem *fieldSystem) {
+static int CianwoodGymmick_RebindAnimationObjectsAndGetCount(FieldSystem *fieldSystem) {
     Field3dRenderObj *renderObj173 = Field3dObjectList_GetRenderObjectByID(fieldSystem->renderObjManager, 173);
     Field3dRenderObj *renderObj174 = Field3dObjectList_GetRenderObjectByID(fieldSystem->renderObjManager, 174);
     Field3dRenderObj *renderObj175 = Field3dObjectList_GetRenderObjectByID(fieldSystem->renderObjManager, 175);

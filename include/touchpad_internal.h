@@ -21,7 +21,7 @@ enum TouchpadRecordMode {
 };
 
 typedef struct TouchpadState {
-    TPData *buffer; // record buffer of GF_TouchpadStartRecording
+    TPData *buffer; // record buffer of InitializeTouchPadWithExternalBuffer
     u32 capacity;
     u32 count;         // samples per frame (2 * frequency)
     TPData samples[9]; // TP auto sampling ring
@@ -39,13 +39,13 @@ typedef struct TouchOutput {
 extern TouchpadState gTouchpadState;
 
 void GF_TouchpadInit(void);
-void GF_TouchpadResetSampling(void);
-BOOL GF_TouchpadStartRecording(TPData *data, u32 capacity, u32 frequency);
-BOOL GF_TouchpadStartSampling(int frequency);
+void EnableTouchPad(void);
+BOOL InitializeTouchPadWithExternalBuffer(TPData *data, u32 capacity, u32 frequency);
+BOOL InitializeTouchPad(int frequency);
 void GF_TouchpadSetSamplingState(u16 mode, u8 autoRead, TPData *data, u32 capacity, u32 write, u32 count);
 void TouchSamples_Clear(TPData *data, int count);
 int GF_TouchpadStopAutoSampling(void);
-BOOL GF_TouchpadStopSampling(void);
+BOOL DisableTouchPad(void);
 int GF_TouchpadUpdate(TouchOutput *out, int mode, u32 threshold);
 void TouchSamples_Calibrate(TPData *data, u32 count);
 void GF_TouchpadResumeOnLidOpen(void);

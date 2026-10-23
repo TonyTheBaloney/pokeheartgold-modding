@@ -113,9 +113,9 @@ u16 BattleRegulation_CheckParty(FieldSystem *fieldSystem, MessageFormat *msgFmt,
 u32 BattleRegulation_GetLinkModeOffset(int);
 
 BOOL Task_Mart(TaskManager *taskManager);
-int MartData_CheckCannotBuy(MartData *data, u32 money);
+int MartData_BuyMenu_CheckCanPurchaseItem(MartData *data, u32 money);
 int MartData_GetOwnedQuantity(MartData *data, int itemID);
-u32 MartData_GetItemPrice(MartData *data, u16 itemID);
+u32 ShopMenu_GetItemPrice(MartData *data, u16 itemID);
 void MartData_CreateSprites(MartData *data);
 void CustomSafariLink_ExchangeAreaSets(FieldSystem *fieldSystem);
 void PokeathlonRecords_Show(TaskManager *taskManager, enum PokeathlonData data);

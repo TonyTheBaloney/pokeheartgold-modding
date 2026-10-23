@@ -1152,7 +1152,7 @@ int PokeathlonPennantCapture_GetDirection(VecFx32 *vector) {
         rotated.x = normalized.y;
         rotated.z = normalized.x;
         rotated.y = 0;
-        angle = CalcAngleBetweenVecs(&reference, &rotated);
+        angle = VEC_AngleBetween(&reference, &rotated);
         if (angle <= 0x2000 || angle >= 0xE000) {
             result = 4;
         } else if (angle > 0x2000 && angle < 0x6000) {

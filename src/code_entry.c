@@ -185,8 +185,8 @@ BOOL CodeEntry_Init(OverlayManager *manager, int *state) {
     CodeEntry_SetupBgs(app->bgConfig);
     CodeEntry_InitSpriteSystem(app);
     CodeEntry_InitLayout(app);
-    GF_TouchpadResetSampling();
-    GF_TouchpadStartSampling(4);
+    EnableTouchPad();
+    InitializeTouchPad(4);
     CodeEntry_InitTouch(app);
     if (app->args.showWirelessIcon) {
         WirelessStatusIcon_Create();
@@ -240,7 +240,7 @@ BOOL CodeEntry_Exit(OverlayManager *manager, int *state) {
     PaletteData_FreeBuffers(app->paletteData, PLTTBUF_SUB_OBJ);
     PaletteData_Free(app->paletteData);
     NARC_Delete(app->narc);
-    GF_TouchpadStopSampling();
+    DisableTouchPad();
     SpriteSystem_FreeResourcesAndManager(app->spriteSystem, app->spriteManager);
     SpriteSystem_Free(app->spriteSystem);
     TouchHitboxController_Destroy(app->touchController);

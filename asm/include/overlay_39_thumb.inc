@@ -30,7 +30,7 @@
 .public SysTask_Destroy
 .public LoadUserFrameGfx1
 .public DrawFrameAndWindow1
-.public EraseFrameAndWindow1
+.public ClearWindowPixelBuffer
 .public LoadUserFrameGfx2
 .public DrawFrameAndWindow2
 .public ClearFrameAndWindow2
@@ -68,9 +68,9 @@
 .public GF_CreateVramTransferManager
 .public GF_DestroyVramTransferManager
 .public GF_RunVramTransferTasks
-.public GF_TouchpadResetSampling
-.public GF_TouchpadStartSampling
-.public GF_TouchpadStopSampling
+.public EnableTouchPad
+.public InitializeTouchPad
+.public DisableTouchPad
 .public GfGfx_SetBanks
 .public GfGfx_DisableEngineAPlanes
 .public GfGfx_EngineATogglePlanes

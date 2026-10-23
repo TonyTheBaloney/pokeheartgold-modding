@@ -3099,7 +3099,7 @@ BOOL ScrCmd_EcruteakGymUnbindCandleFromTrainer(ScriptContext *ctx) {
     if (Save_Gymmick_GetType(Save_GetGymmickPtr(FieldSystem_GetSaveData(fieldSystem))) != GYMMICK_ECRUTEAK) {
         return FALSE;
     }
-    EcruteakGymmick_UnbindCandle(fieldSystem);
+    EcruteakGymmick_UnbindCandleFromTrainerObject(fieldSystem);
     return FALSE;
 }
 

@@ -26,7 +26,7 @@ BagView *BagView_New(u8 heapID);
  * @return: Size of BagView
  */
 u32 BagView_sizeof(void);
-void BagView_SetMode(BagView *bagView, u8 mode);
+void BagView_SetContext(BagView *bagView, u8 mode);
 void BagView_Init(BagView *bagView, SaveData *save, u8 mode, BagCursor *cursor, MenuInputStateMgr *menuInputStateMgr);
 
 /*
@@ -43,12 +43,12 @@ void BagView_Init(BagView *bagView, SaveData *save, u8 mode, BagCursor *cursor, 
  * @param position:    Unused
  */
 void BagView_SetItem(BagView *bagView, ItemSlot *slots, u8 pocketId, u8 position);
-void BagView_SetIsCycling(BagView *bagView);
-void BagView_SetItemCheckUseData(BagView *bagView, ItemCheckUseData *checkUseData);
+void BagView_SetOnBike(BagView *bagView);
+void BagView_SetCheckUseData(BagView *bagView, ItemCheckUseData *checkUseData);
 void BagView_SetPartySlot(BagView *bagView, u8 partySlot);
 void BagView_SetMapLoadType(BagView *bagView, u16 mapLoadType);
 u16 BagView_GetItemId(BagView *bagView);
-u16 BagView_GetSelectedAction(BagView *bagView);
+u16 BagView_GetReturnCode(BagView *bagView);
 u8 BagView_GetPartySlot(BagView *bagView);
 u8 BagView_GetSellCount(BagView *bagView);
 

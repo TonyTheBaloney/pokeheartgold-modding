@@ -57,7 +57,7 @@ void DrawFrameAndWindow1(Window *window, BOOL dontCopyToVram, u16 baseTile, u8 p
     }
 }
 
-void EraseFrameAndWindow1(Window *window, BOOL dontCopyToVram) {
+void ClearWindowPixelBuffer(Window *window, BOOL dontCopyToVram) {
     u8 bgId = GetWindowBgId(window);
     u8 x = GetWindowX(window);
     u8 y = GetWindowY(window);
