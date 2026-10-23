@@ -283,10 +283,26 @@ class Material:
 
 
 class Triangle:
-    __slots__ = ("pos", "uv", "color", "material")
+    __slots__ = ("pos", "uv", "color", "material", "normal")
 
-    def __init__(self, pos, uv, color, material):
-        self.pos, self.uv, self.color, self.material = pos, uv, color, material
+    def __init__(self, pos, uv, color, material, normal=None):
+        self.pos, self.uv, self.color, self.material, self.normal = pos, uv, color, material, normal
+
+
+class Polygon:
+    """A triangle or quad as the display list drew it: per-vertex pos, uv (texels),
+    color (RGB, the vertex color or the material's diffuse), normal (or None)."""
+    __slots__ = ("pos", "uv", "color", "normal", "material")
+
+    def __init__(self, verts, material):
+        self.pos, self.uv, self.color, self.normal = (tuple(v[k] for v in verts) for k in range(4))
+        self.material = material
+
+    def triangles(self):
+        idx = ((0, 1, 2),) if len(self.pos) == 3 else ((0, 1, 2), (0, 2, 3))
+        return [Triangle(tuple(self.pos[i] for i in t), tuple(self.uv[i] for i in t),
+                         tuple(self.color[i] for i in t), self.material, tuple(self.normal[i] for i in t))
+                for t in idx]
 
 
 class Model:
@@ -363,6 +379,10 @@ class Model:
 
     def triangles(self):
         """Run the structure byte code and every shape's display list -> [Triangle]."""
+        return [t for p in self.polygons() for t in p.triangles()]
+
+    def polygons(self):
+        """Run the structure byte code and every shape's display list -> [Polygon] (quads kept)."""
         d = self.d
         out = []
         cur = IDENTITY
@@ -429,24 +449,22 @@ class Model:
         prim, verts = None, []
         vtx = [0.0, 0.0, 0.0]
         uv, color = (0.0, 0.0), material.diffuse if material else (255, 255, 255)
+        normal = None
 
         def emit():
             p = transform(cur, tuple(vtx))
-            verts.append((p, uv, color))
+            verts.append((p, uv, color, normal))
             n = len(verts)
             if prim == 0 and n % 3 == 0:
-                tris.append(Triangle(*zip(*verts[-3:]), material))
+                tris.append(Polygon(verts[-3:], material))
             elif prim == 1 and n % 4 == 0:
-                a, b, c_, e = verts[-4:]
-                tris.append(Triangle(*zip(a, b, c_), material))
-                tris.append(Triangle(*zip(a, c_, e), material))
+                tris.append(Polygon(verts[-4:], material))
             elif prim == 2 and n >= 3:
                 a, b, c_ = verts[-3:]
-                tris.append(Triangle(*zip(*((a, b, c_) if n % 2 else (b, a, c_))), material))
+                tris.append(Polygon((a, b, c_) if n % 2 else (b, a, c_), material))
             elif prim == 3 and n >= 4 and n % 2 == 0:
                 a, b, c_, e = verts[-4:]
-                tris.append(Triangle(*zip(a, b, e), material))
-                tris.append(Triangle(*zip(a, e, c_), material))
+                tris.append(Polygon((a, b, e, c_), material))
 
         while o < end:
             cmds = d[o:o + 4]
@@ -478,6 +496,10 @@ class Model:
                     cur = m if cmd in (0x16, 0x17) else mat_mul(m, cur)
                 elif cmd == 0x20:  # COLOR
                     color = rgb555(_u32(d, p))
+                elif cmd == 0x21:  # NORMAL, three s0.9 fields
+                    v = _u32(d, p)
+                    normal = (_sext(v & 0x3FF, 10) / 512.0, _sext((v >> 10) & 0x3FF, 10) / 512.0,
+                              _sext((v >> 20) & 0x3FF, 10) / 512.0)
                 elif cmd == 0x22:  # TEXCOORD, 12.4 texels
                     v = _u32(d, p)
                     uv = (_sext(v & 0xFFFF, 16) / 16.0, _sext(v >> 16, 16) / 16.0)
@@ -500,7 +522,7 @@ class Model:
                     else:
                         vtx[1], vtx[2] = a, b
                     emit()
-                elif cmd == 0x28:  # VTX_DIFF, units of 1/4096 (1/8 of VTX_10's 1/64... see GBATEK)
+                elif cmd == 0x28:  # VTX_DIFF: offsets in 1/4096 (checked: retail DIFF vertices land on other vertices)
                     v = _u32(d, p)
                     vtx = [vtx[0] + _sext(v & 0x3FF, 10) / FX, vtx[1] + _sext((v >> 10) & 0x3FF, 10) / FX,
                            vtx[2] + _sext((v >> 20) & 0x3FF, 10) / FX]

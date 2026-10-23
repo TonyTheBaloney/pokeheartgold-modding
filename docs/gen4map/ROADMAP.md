@@ -16,6 +16,7 @@ and the steps to get there.
 | Format spec, schemas, manifest | `docs/gen4map/`, `data/gen4map.json` | no |
 | NARC read/write, land data, layouts, matrices | `tools/mapkit/mapkit/{landdata,layouts,matrix}.py` | lightly (paths, `maps.h` for names) |
 | NSBMD/NSBTX decoder | `tools/mapkit/mapkit/nitro.py` | no |
+| NSBMD writer, BDHC codec/generator, OBJ import/export | `tools/mapkit/mapkit/{nsbmd,bdhc,terrain}.py` | `terrain.py` reads map.json/layouts for the area |
 | Format checker | `tools/mapkit/mapkit/formats.py` | reads the manifest |
 | Top-down and 3D renderer | `tools/mapeditor/mapeditor/{terrain,view3d}.py` | ROM paths from constants in `terrain.py` |
 | Editor | `tools/mapeditor/mapeditor/{project,canvas,window,commands}.py` | via mapkit's `Repo` (maps.txt, constants, scripts) |
@@ -59,9 +60,11 @@ feature flags from `gen4map.json`, never from hard-coded repository layout.
    `PLATINUM` manifest.
 5. **Format 1.1.** Per-game header keys; area data (`area.json`: textures, prop
    list, prop kind) so `area_data` stops being a bare number.
-6. **Editing 3D data.** Prop placement in the editor; layout resize and cell
-   assignment; BDHC from the model (or a text form); import of models made in
-   other tools.
+6. **Editing 3D data.** Done (CHANGE-0002): models from OBJ, BDHC from the model
+   or a text form (`heights.json`). Still to do: prop placement in the editor;
+   layout resize and cell assignment; new textures (an NSBTX writer and texture
+   encoders, so areas can gain textures from PNG sources as pokeemerald's tilesets
+   do).
 7. **Animations.** NSBTP/NSBTA for water and flowers in the renderer.
 
 Each step keeps the invariant this repo already has: the unmodified data

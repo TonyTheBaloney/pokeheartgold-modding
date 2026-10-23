@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gen4map/heights.schema.json",
+  "title": "Gen 4 cell heights (heights.json), format 1.1",
+  "description": "The heights of one land data cell as plates: rectangles over x/z with a plane each (BDHC, BINARY.md section 3.2). Model units from the cell's centre, x east, z south, y up; every number a multiple of 1/4096.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "plates"
+  ],
+  "properties": {
+    "plates": {
+      "type": "array",
+      "maxItems": 65535,
+      "items": {
+        "anyOf": [
+          {
+            "description": "flat plate at height y",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "z", "y"],
+            "properties": {
+              "x": {"$ref": "#/$defs/range"},
+              "z": {"$ref": "#/$defs/range"},
+              "y": {"type": "number"}
+            }
+          },
+          {
+            "description": "plane normal . (x, y, z) + d = 0 (as stored; normal y must not be 0)",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "z", "normal", "d"],
+            "properties": {
+              "x": {"$ref": "#/$defs/range"},
+              "z": {"$ref": "#/$defs/range"},
+              "normal": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}},
+              "d": {"type": "number"}
+            }
+          },
+          {
+            "description": "ramp rising linearly along x or z from y[0] at the low edge to y[1] at the high edge (written as normal and d)",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "z", "ramp"],
+            "properties": {
+              "x": {"$ref": "#/$defs/range"},
+              "z": {"$ref": "#/$defs/range"},
+              "ramp": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["along", "y"],
+                "properties": {
+                  "along": {"enum": ["x", "z"]},
+                  "y": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "range": {
+      "description": "[min, max] in model units",
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"type": "number"}
+    }
+  }
+}

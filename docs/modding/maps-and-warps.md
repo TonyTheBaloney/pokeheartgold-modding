@@ -162,8 +162,8 @@ Each cell's terrain is one folder, `data/landdata/NNNN/` (NNNN is the number
 | `permissions.txt` | per tile: collision, behavior, attribute | yes (text, or the map editor) |
 | `props.json` | placed props (buildings, trees, signs...) | yes |
 | `soundplates.bin` | sound plates, only in cells that have them | binary |
-| `model.nsbmd` | the 3D terrain model | binary |
-| `terrain.bdhc` | terrain heights the player walks on | binary |
+| `model.nsbmd` | the 3D terrain model | through OBJ ([terrain.md](terrain.md)) |
+| `terrain.bdhc` or `heights.json` | terrain heights the player walks on | `heights.json` is text; both via [terrain.md](terrain.md) |
 
 `permissions.txt` is three 32×32 grids (row = north to south):
 

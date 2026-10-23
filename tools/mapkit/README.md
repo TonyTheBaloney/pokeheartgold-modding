@@ -39,6 +39,8 @@ PYTHONPATH=tools/mapkit python3 -m mapkit <command> ...
 | `pory init MAP\|--all [--raw]` / `pory show MAP` / `pory sync MAP` | decompile a map's `.inc` scripts to `scripts.pory`, print its compiled output, sync `ids.h` ([SCRIPTING.md](../../docs/modding/SCRIPTING.md)) |
 | `pory name-scripts MAP\|--all [--dry-run]` | pokeemerald-style names for generated script/movement labels (`npc_names.json`) |
 | `pory inline-text MAP\|--all` | move dialog from `text.json` into `scripts.pory` as inline strings (ROM unchanged) |
+| `terrain export CELL DIR` / `terrain import CELL OBJ` / `terrain check [CELL...]` | a cell's model and heights as OBJ/MTL/PNG and back, game limits ([terrain.md](../../docs/modding/terrain.md)) |
+| `heights decompile/compile/show/at/generate CELL...` | a cell's BDHC heights as `heights.json`, queries, generation from the model |
 
 `MAP` can be `MAP_CHERRYGROVE`, `Cherrygrove`, `cherrygrove`, the code `T21`, or the id `67`.
 
@@ -82,6 +84,10 @@ On the unmodified repo, both versions report 0 errors.
 | `layout.py` | `data/maps` folders: migration, `map.json` <-> header/zone_event, build generators |
 | `edit.py` | the edit commands |
 | `pory/` | `scripts.pory` parser and compiler; target config in `tools/mapkit/script_config.json` |
+| `nitro.py` | NSBMD/NSBTX decoding (triangles, polygons, textures) |
+| `nsbmd.py` | NSBMD read/write, building terrain models |
+| `bdhc.py` | BDHC heights: codec, the game's lookup, `heights.json`, generation |
+| `terrain.py` | OBJ export/import of a cell's terrain, checks |
 | `cli.py` | commands |
 
 ## Tests
@@ -90,6 +96,9 @@ On the unmodified repo, both versions report 0 errors.
 python3 tools/mapkit/tests/test_mapkit.py
 python3 tools/mapkit/tests/test_edit.py    # edits run on a temporary copy of the data
 python3 tools/mapkit/tests/test_pory.py    # compiler, decompiler, round trip on every map
+python3 tools/mapkit/tests/test_nsbmd.py   # every retail model rebuilds byte for byte; terrain models
+python3 tools/mapkit/tests/test_bdhc.py    # every BDHC round-trips; heights.json; the game's lookup; generation
+python3 tools/mapkit/tests/test_terrain.py # OBJ export -> import changes nothing
 ```
 
 Checks the parsers against the real data (every matrix file round-trips; the

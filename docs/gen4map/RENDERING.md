@@ -49,7 +49,7 @@ optional `TEX0`.
 
 **Dictionaries.** Every list (models, nodes, materials, shapes, textures,
 palettes) is an `NNSG3dResDict`: `u8 revision, u8 count, u16 size, u16 dummy,
-u16 ofsEntry`, a search tree of count+1 nodes (not needed to read), then at
+u16 ofsEntry`, a search tree of count+1 nodes (not needed to read; a writer must build it, §9), then at
 `ofsEntry` a header `u16 sizeUnit, u16 ofsName` followed by `count` data entries
 of `sizeUnit` bytes and, at `ofsName` (relative to that header), `count` 16-byte
 NUL-padded names. Data offsets are relative to the **block that owns the
@@ -108,7 +108,7 @@ Handled:
 | `VTX_16` 23 | x, y, z as fx16 (two words) |
 | `VTX_10` 24 | 10-bit x, y, z with 6 fractional bits |
 | `VTX_XY` 25, `VTX_XZ` 26, `VTX_YZ` 27 | replace two coordinates, keep the third |
-| `VTX_DIFF` 28 | add 10-bit signed x, y, z in units of 1/4096 |
+| `VTX_DIFF` 28 | add 10-bit signed x, y, z in units of 1/4096 (checked: in retail models 86% of DIFF vertices land exactly on vertices given in full elsewhere; with 1/512 almost none do) |
 | `BEGIN_VTXS` 40 | 0 triangles, 1 quads, 2 triangle strip, 3 quad strip |
 | `END_VTXS` 41 | |
 
@@ -185,3 +185,56 @@ OpenGL 3.3 core.
   image; the OpenGL scene draws offscreen.
 - Visual checks (2026-10-22) against the game's look: Cherrygrove, Goldenrod
   City, Union Cave 1F, Ecruteak Gym, Goldenrod Department Store 1F.
+
+## 9. Writing terrain models
+
+`tools/mapkit/mapkit/nsbmd.py` reads an NSBMD into its parts and writes it back;
+`build_terrain` makes a new terrain model from polygons and materials. What it
+does follows the retail files:
+
+**Layout.** `write(read(f)) == f` for all 676 retail terrain models, so the
+writer's order is the converter's: file header, `MDL0` with the model dictionary,
+then per model: header, info (0x2C), node dictionary and node data, SBC (padded to
+4), the material block (u16 offsets of the texture and palette dictionaries, the
+material dictionary, the texture-to-material and palette-to-material dictionaries,
+their index lists padded to 4, then each material's data), the shape block
+(dictionary, 16-byte shape headers, display lists), envelope matrices.
+
+**Dictionary trees.** Lookups by name (`NNS_G3dGetResDataByName`,
+`res_struct_accessor.c`) search linearly below 16 entries and walk the tree from
+16 up, so the tree must be right. It is a Patricia trie over the 16-byte names
+read as a little-endian 128-bit number (bit b = `val[b >> 5] >> (b & 31)`): node 0
+is the head (refBit 127, key 0, left = root); names are inserted in entry order,
+each new node testing the highest bit where the name differs from the leaf its
+search reaches; then the nodes are **renumbered in pre-order** (node, left
+subtree, right subtree), which is the order the files store.
+
+**What a terrain model looks like** (all 676 retail ones):
+
+- no `TEX0`: the area's NSBTX is bound by name at load (`NNS_G3dBindMdlSet`);
+  binding ORs the texture's format, size and address into each material's
+  `texImageParam`, so a material holds only the wrap bits (repeat s/t bits 16-17,
+  flip 18-19) and `origWidth`/`origHeight` = the texture's size (if it differs,
+  binding sets `magW`/`magH`);
+- one model, one node at the identity (`flag 0xF807`, `_00 = 0x1000`), no envelopes;
+- SBC `26 00 00 00 00` (NODEDESC, stores the matrix in slot 0), `02 00 01` (NODE
+  visible), `0B` (POSSCALE), then `04 m 05 s` (MAT, SHP) per shape, `2B` (inverse
+  POSSCALE), `01` (RET); info `firstUnusedMtxStackID` 1;
+- `posScale` a power of two (64 for 611 models) so positions fit `VTX_16`;
+- materials 44 bytes, `flag 0x1FCE` (no texture matrix), `polyAttrMask 0x3F1FF8FF`,
+  `diffAmb` with bit 15 set (diffuse is the vertex color), `polyAttr`: light 0 on
+  for lit materials, cull bits 6-7 (2: draw front faces), bit 15 fog, alpha 16-20;
+- lit shapes send `NORMAL` per vertex (shape flag 5 = NORMAL | TEXCOORD), unlit
+  ones `COLOR` (flag 6); `TEXCOORD` is in texels of the texture's size (12.4);
+- display lists mostly quad strips and triangle strips (60,885 and 24,913 blocks),
+  then quad and triangle lists.
+
+`build_terrain` writes exactly that, with greedy strips (vertices join a strip
+only when position, texture coordinate and normal or color are equal), the
+shortest vertex command that holds each vertex (`VTX_DIFF`, `VTX_10`, `VTX_XY/XZ/YZ`,
+else `VTX_16`) and state commands only when a value changes. Re-encoding every
+retail model's polygons gives the same polygons back (some starting at another
+corner, which draws the same) at 97% of the original size on average; all fit
+the 0xF000 limit. Not kept: a `COLOR` that a lit vertex also sends (lit vertices
+send their normal).
+

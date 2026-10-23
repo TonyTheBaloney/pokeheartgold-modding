@@ -8,7 +8,7 @@ import re
 import sys
 
 from . import events as ev_mod
-from . import edit, landdata, layout, layouts, scripts, wild
+from . import bdhc, edit, landdata, layout, layouts, nitro, scripts, terrain, wild
 from .matrix import CELL_SIZE
 from .repo import Repo, VERSIONS
 from .validate import ERROR, INFO, WARNING, Validator
@@ -292,6 +292,115 @@ def cmd_format_check(repo, args):
     return 1 if problems else 0
 
 
+def cmd_terrain_export(repo, args):
+    s = terrain.export(repo.root, args.cell, args.out_dir, args.area, args.scale)
+    print("land data %04d (area %d): %d materials, %d textures, %d height plates -> %s"
+          % (args.cell, s["area"], s["materials"], s["textures"], s["plates"], args.out_dir))
+    return 0
+
+
+def cmd_terrain_import(repo, args):
+    s = terrain.import_obj(repo.root, args.cell, args.obj, args.area, args.heights, args.scale, args.grid,
+                           args.dry_run, args.walkable_only)
+    print("model: %d polygons, %d materials, 0x%X of 0x%X bytes (area %d)"
+          % (s["polygons"], s["materials"], s["model_bytes"], s["model_limit"], s["area"]))
+    if "plates" in s:
+        print("heights: %d plates from %s" % (s["plates"], s["heights_from"]))
+    for w in s["warnings"]:
+        print("warning: %s" % w)
+    print("(dry run: nothing written)" if args.dry_run else
+          "wrote %s/model.nsbmd%s" % (os.path.relpath(terrain.cell_dir(repo.root, args.cell)),
+                                      " and heights.json" if "plates" in s else ""))
+    return 0
+
+
+def cmd_terrain_check(repo, args):
+    cells = args.cells or range(len(landdata.chunk_dirs(repo.root)))
+    bad = 0
+    for c in cells:
+        for msg in terrain.check(repo.root, c):
+            print("%04d: %s" % (c, msg))
+            bad += 1
+    print("%d problem(s)" % bad)
+    return 1 if bad else 0
+
+
+def _heights_paths(repo, cell):
+    d = terrain.cell_dir(repo.root, cell)
+    return d, os.path.join(d, "heights.json"), os.path.join(d, "terrain.bdhc")
+
+
+def cmd_heights_decompile(repo, args):
+    for c in args.cells:
+        d, hj, hb = _heights_paths(repo, c)
+        with open(hb, "rb") as f:
+            data = f.read()
+        b = bdhc.Bdhc.from_bytes(data)
+        bdhc.write_json(hj, b)
+        same = bdhc.read_json(hj).to_bytes() == data
+        os.remove(hb)
+        print("%04d: %d plates -> heights.json%s" % (c, len(b.plates), "" if same else
+              " (same heights; the compiled file orders its pools differently, so the ROM will differ)"))
+    return 0
+
+
+def cmd_heights_compile(repo, args):
+    for c in args.cells:
+        d, hj, hb = _heights_paths(repo, c)
+        b = bdhc.read_json(hj)
+        with open(hb, "wb") as f:
+            f.write(b.to_bytes())
+        os.remove(hj)
+        print("%04d: heights.json -> terrain.bdhc (%d plates)" % (c, len(b.plates)))
+    return 0
+
+
+def cmd_heights_show(repo, args):
+    d, hj, hb = _heights_paths(repo, args.cell)
+    b = terrain._load_heights(d)
+    if b is None:
+        print("no heights", file=sys.stderr)
+        return 1
+    for i, p in enumerate(b.resolved_plates()):
+        e = bdhc.to_json(bdhc.build([p]))["plates"][0]
+        print("%3d  x %7s..%-7s z %7s..%-7s  %s" % (i, e["x"][0], e["x"][1], e["z"][0], e["z"][1],
+              ("y %s" % e["y"]) if "y" in e else "normal %s d %s" % (e["normal"], e["d"])))
+    print("%d plates, %d strips, buffer 0x%X of 0x%X" % (len(b.plates), len(b.strips), b.buffer_size(),
+                                                           bdhc.MAX_BUFFER))
+    for msg in bdhc.check(b):
+        print("warning: %s" % msg)
+    return 0
+
+
+def cmd_heights_at(repo, args):
+    d, _, _ = _heights_paths(repo, args.cell)
+    b = terrain._load_heights(d)
+    x, z = (args.x * 16 - 256 + 8) * bdhc.FX, (args.z * 16 - 256 + 8) * bdhc.FX
+    ys = [p.height_at(int(x), int(z)) for p in b.resolved_plates() if p.contains(x, z) and p.normal[1]]
+    y = b.height(int(x), int(z))
+    print("tile (%g, %g): %s%s" % (args.x, args.z, "no height" if y is None else "y %g" % (y / bdhc.FX),
+          "" if len(ys) < 2 else " (plates here: %s; the game picks the one nearest the walker's height)"
+          % ", ".join("%g" % (v / bdhc.FX) for v in ys)))
+    return 0
+
+
+def cmd_heights_generate(repo, args):
+    for c in args.cells:
+        d, hj, hb = _heights_paths(repo, c)
+        with open(os.path.join(d, "model.nsbmd"), "rb") as f:
+            (model,), _ = nitro.load_nsbmd(f.read())
+        tris = [t.pos for t in model.triangles()]
+        walk = terrain._walkable(d) if args.walkable_only else None
+        b = bdhc.build(bdhc.generate(tris, grid=args.grid, walkable=walk))
+        bdhc.write_json(hj, b)
+        if os.path.exists(hb):
+            os.remove(hb)
+        print("%04d: %d plates -> heights.json" % (c, len(b.plates)))
+        for msg in bdhc.check(b):
+            print("warning: %s" % msg)
+    return 0
+
+
 def cmd_pory(repo, args):
     from . import pory
     try:
@@ -512,9 +621,53 @@ def main(argv=None):
     p.set_defaults(func=lambda repo, a: print("%d land data cells" % landdata.migrate(repo.root)) or 0)
     p = lds.add_parser("pack", help="(used by the build)")
     p.add_argument("out")
-    p.set_defaults(func=lambda repo, a: landdata.pack(repo.root, a.out) or 0)
+    p.add_argument("--depfile", help="also write a make-style list of the files read")
+    p.set_defaults(func=lambda repo, a: landdata.pack(repo.root, a.out, a.depfile) or 0)
     p = lds.add_parser("files", help="(used by the build) list every source file")
     p.set_defaults(func=lambda repo, a: print("\n".join(landdata.file_list(repo.root))) or 0)
+
+    ter = sub.add_parser("terrain", help="3D terrain models and heights of land data cells (docs/modding/terrain.md)")
+    ts_ = ter.add_subparsers(dest="action", required=True)
+    p = ts_.add_parser("export", help="write a cell's model, textures and heights as OBJ/MTL/PNG")
+    p.add_argument("cell", type=int); p.add_argument("out_dir")
+    p.add_argument("--area", type=int, help="area whose map textures to use (default: the maps showing the cell)")
+    p.add_argument("--scale", type=float, default=1.0, help="model units per OBJ unit (16: one OBJ unit = one tile)")
+    p.set_defaults(func=cmd_terrain_export)
+    p = ts_.add_parser("import", help="make a cell's model.nsbmd (and heights.json) from an OBJ")
+    p.add_argument("cell", type=int); p.add_argument("obj")
+    p.add_argument("--area", type=int)
+    p.add_argument("--scale", type=float, help="model units per OBJ unit (default: terrain.json's, else 1)")
+    p.add_argument("--heights", choices=("auto", "keep"), default="auto",
+                   help="auto: generate from an object named 'heights' or else from the model; keep: leave them")
+    p.add_argument("--grid", type=float, default=8.0, help="height sampling step in model units (16, 8, 4, 2, 1)")
+    p.add_argument("--walkable-only", action="store_true",
+                   help="generated heights only over tiles permissions.txt doesn't mark as collision")
+    p.add_argument("--dry-run", action="store_true", help="check and report, write nothing")
+    p.set_defaults(func=cmd_terrain_import)
+    p = ts_.add_parser("check", help="limits the game has: model size, textures in the area, heights")
+    p.add_argument("cells", type=int, nargs="*", help="cells (default: all)")
+    p.set_defaults(func=cmd_terrain_check)
+
+    hts = sub.add_parser("heights", help="a cell's BDHC heights as text (heights.json)")
+    hs_ = hts.add_subparsers(dest="action", required=True)
+    p = hs_.add_parser("decompile", help="terrain.bdhc -> heights.json (same heights)")
+    p.add_argument("cells", type=int, nargs="+")
+    p.set_defaults(func=cmd_heights_decompile)
+    p = hs_.add_parser("compile", help="heights.json -> terrain.bdhc")
+    p.add_argument("cells", type=int, nargs="+")
+    p.set_defaults(func=cmd_heights_compile)
+    p = hs_.add_parser("show", help="list a cell's plates")
+    p.add_argument("cell", type=int)
+    p.set_defaults(func=cmd_heights_show)
+    p = hs_.add_parser("at", help="the height the game finds at a tile (tile coordinates in the cell, 0-31)")
+    p.add_argument("cell", type=int); p.add_argument("x", type=float); p.add_argument("z", type=float)
+    p.set_defaults(func=cmd_heights_at)
+    p = hs_.add_parser("generate", help="replace a cell's heights with ones made from its model")
+    p.add_argument("cells", type=int, nargs="+")
+    p.add_argument("--grid", type=float, default=8.0)
+    p.add_argument("--walkable-only", action="store_true",
+                   help="only over tiles permissions.txt doesn't mark as collision (keeps roofs and backdrops out)")
+    p.set_defaults(func=cmd_heights_generate)
 
     # build-time generators (called from data/maps/meson.build)
     for name, fn in (("gen-header", layout.gen_header), ("gen-events", layout.gen_events)):
@@ -527,6 +680,7 @@ def main(argv=None):
     repo = Repo(args.root, args.version)
     try:
         return args.func(repo, args)
-    except (layouts.LayoutError, landdata.LandDataError) as e:
+    except (layouts.LayoutError, landdata.LandDataError, terrain.TerrainError, bdhc.BdhcError,
+            nitro.NitroError) as e:
         print("error: %s" % e, file=sys.stderr)
         return 1

@@ -13,7 +13,7 @@ repository), so every statement can be checked. All values are little-endian;
 | Data | ROM path (HGSS) | Text form | Codec in this repo |
 |---|---|---|---|
 | Map matrices | `a/0/4/1` | `layout.json` | `tools/mapkit/mapkit/matrix.py`, `layouts.py` |
-| Land data | `a/0/6/5` | `data/landdata/NNNN/` | `tools/mapkit/mapkit/landdata.py` |
+| Land data | `a/0/6/5` | `data/landdata/NNNN/` | `tools/mapkit/mapkit/landdata.py`; models `nsbmd.py`, heights `bdhc.py` |
 | Zone events | `a/0/3/2` | `map.json` events | `files/fielddata/eventdata/zone_event.json.txt` (build), `events.py` |
 | Map headers | ARM9 `sMapHeaders` | `map.json` header | `tools/mapkit/mapkit/layout.py` (`gen-header`) |
 | Area headers | `a/0/4/2` | (not yet) | `tools/mapeditor/mapeditor/terrain.py` reads it |
@@ -69,6 +69,11 @@ u8  model[modelSize]       NSBMD          -> model.nsbmd
 u8  bdhc[bdhcSize]         BDHC           -> terrain.bdhc
 ```
 
+The model is read into a 0xF000-byte buffer (`MAP_LOAD_PRIMARY_BUFFER_SIZE`,
+`include/field/map_load_buffers.h`); the largest retail model is 0xEFEC bytes.
+It must hold exactly one model (`GF_ASSERT(modelSet->dict.numEntry == 1)`,
+`LoadMapModel`); its textures are bound by name from the area's map textures.
+
 Sections follow each other with no padding; the member is exactly
 `20 + soundplateBytes + permissionsSize + propsSize + modelSize + bdhcSize` bytes
 (true for all 676 retail cells). Note the header lists the sizes in the order
@@ -99,27 +104,75 @@ game adds only the cell's x and z to a prop's translation
 `SoundplateStruct` (`include/field/field_control.h`): the u32 header above is its
 first word (two bytes `34 12`, then u16 `dataSize`), followed by 8-byte
 `Soundplate` records (sound id, volume index, two unknown bytes, x, z, x and z
-bounds). Kept as raw bytes in format 1.0; at most 0x200 bytes.
+bounds). Kept as raw bytes in format 1.x; at most 0x200 bytes.
 
 ### 3.2 BDHC (terrain heights)
 
-Read by `src/field/bdhc.c` (`Bdhc_Load`); structures in `include/field/bdhc.h`.
+Read by `src/field/bdhc.c` (`Bdhc_Load`, `Bdhc_GetHeight`); structures in
+`include/field/bdhc.h`; queried by `src/field_terrain.c` (`Terrain_CalcHeight`).
+Codec, query and generator: `tools/mapkit/mapkit/bdhc.py`.
 
 ```
 char magic[4]                 "BDHC"
 u16  pointsCount, normalsCount, constantsCount, platesCount, stripsCount, accessListCount
-BdhcPoint  points[]           fx32 x, z: corners of plate bounding rectangles
+BdhcPoint  points[]           fx32 x, z: corners of plate rectangles
 VecFx32    normals[]          fx32 x, y, z
 fx32       constants[]
-BdhcPlate  plates[]           u16 firstPoint, secondPoint, normal, constant:
-                              plane normal · (x, y, z) + constant = 0 over the rectangle
-BdhcStrip  strips[]           fx32 lowerBound (z), u16 count, u16 offset into accessList
+BdhcPlate  plates[]           u16 firstPoint, secondPoint, normal, constant
+BdhcStrip  strips[]           fx32 bound (z), u16 count, u16 offset into accessList
 u16        accessList[]       plate indices
 ```
 
-The player's height is found by locating the strip for z, then a plate whose
-rectangle holds (x, z), and solving the plane for y (`Bdhc_GetHeight`). Format
-1.0 keeps BDHC as a binary file; a text or generated form is future work.
+Coordinates are model units relative to the **cell's centre** (x east, z south):
+the caller subtracts `(32 × cell + 16) × 16` from the walker's position. The
+result is used as the walker's y as it is; **the layout's altitude is not added**
+(the model is drawn raised by it, §2). On every retail raised cell checked, the
+BDHC heights are cell-local (ground at 0) while the cell is walkable; how the two
+agree in game isn't worked out yet.
+
+**Plates.** `firstPoint` is the rectangle's (min x, min z) corner and
+`secondPoint` its (max x, max z) corner (true for all retail plates; the game
+accepts either order). Inside the rectangle, edges included, the height is the
+plane `normal · (x, y, z) + constant = 0` solved for y. Retail normals are unit
+length (rounded to fx32); 87% of plates are flat (normal (0, 4096, 0)), almost all
+slopes run along one axis, and one plate (land data 464) is vertical, which gives
+no height.
+
+**Lookup** (`Bdhc_GetHeight(mode, currentY, x, z)`):
+
+1. Find the strip for z with `Bdhc_FindStrip`: a binary search over the strips'
+   `bound` values; it returns the first strip whose bound is ≥ z (with an
+   off-by-one walk at exact bounds that `bdhc.py` copies).
+2. Test the strip's plates in access-list order; for each whose rectangle holds
+   (x, z), compute `y = FX_Div(-(constant + (FX_Mul(nx, x) + FX_Mul(nz, z))), ny)`.
+   Stop after **10** such plates (`BDHC_MAX_HEIGHT_CANDIDATES`).
+3. None: no height (the walker keeps its y). One: that one. Several: by `mode`
+   (0 nearest to `currentY`, the field's normal use; 1 highest; 2 lowest).
+
+`FX_Mul(a, b) = (a·b + 0x800) >> 12`; `FX_Div(n, d)` divides `n << 32` by `d` on
+the hardware divider (truncating) and rounds: `(q + 2^19) >> 20`
+(`subprojects/NitroSDK-*/libraries/fx/src/fx_cp.c`).
+
+**How the retail files are laid out** (all 676 follow it, checked by
+`tools/mapkit/tests/test_bdhc.py`):
+
+- Points, normals and constants are pools in order of first use by the plates;
+  points never repeat. In 52 files a normal or constant value appears twice
+  (the converter merged values before rounding), so the order can't always be
+  rebuilt from the values alone.
+- Let z<sub>0</sub> < z<sub>1</sub> < ... be the distinct z edges of all plates.
+  There is one strip per interval (z<sub>k</sub>, z<sub>k+1</sub>), `bound` =
+  z<sub>k+1</sub> (the upper edge, although the header calls it lowerBound), and it
+  lists, in plate order, every plate with `z0 ≤ z`<sub>k+1</sub> and
+  `z1 > z`<sub>k</sub> (plates touching the strip's upper edge are included,
+  since lookups include edges).
+- The access list is the strips' lists one after the other.
+
+**Limits.** Everything after the header must fit the 0x9000-byte buffer
+(`MAP_LOAD_SECONDARY_BUFFER_SIZE`; `Bdhc_SetBuffers` asserts). Counts are u16. The
+largest retail file is 10,794 bytes.
+
+The text form is `heights.json` (FORMAT.md §7.3).
 
 ## 4. Zone events (`a/0/3/2`, member = a map's events)
 

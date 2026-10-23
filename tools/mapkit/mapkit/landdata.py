@@ -16,8 +16,9 @@ data/landdata/NNNN/ (NNNN = member number, which layout.json cells name):
     permissions.txt   collision, behavior and attribute grids
     props.json        placed props (models from the area's prop list)
     soundplates.bin   only if the cell has any
-    model.nsbmd       3D terrain (binary)
-    terrain.bdhc      terrain heights (binary)
+    model.nsbmd       3D terrain (binary; `mapkit terrain import` makes one from OBJ)
+    terrain.bdhc      terrain heights (binary), or instead
+    heights.json      the same as text (bdhc.py), compiled to BDHC here
 """
 
 import json
@@ -225,7 +226,23 @@ def build(chunk_dir):
     if len(soundplates) > MAX_SOUNDPLATES:
         raise LandDataError("%s: soundplates.bin is %d bytes; the game reads at most %d"
                             % (where, len(soundplates), MAX_SOUNDPLATES))
-    model, bdhc = read("model.nsbmd"), read("terrain.bdhc")
+    model = read("model.nsbmd")
+    has_json = os.path.exists(os.path.join(chunk_dir, "heights.json"))
+    has_bin = os.path.exists(os.path.join(chunk_dir, "terrain.bdhc"))
+    if has_json and has_bin:
+        raise LandDataError("%s: both heights.json and terrain.bdhc; keep one" % where)
+    if has_json:
+        from . import bdhc as bdhc_mod
+        try:
+            heights = bdhc_mod.read_json(os.path.join(chunk_dir, "heights.json"))
+        except bdhc_mod.BdhcError as e:
+            raise LandDataError(str(e))
+        problems = bdhc_mod.check(heights, os.path.join(where, "heights.json"))
+        if any("buffer" in p or "65535" in p for p in problems):
+            raise LandDataError(problems[0])
+        bdhc = heights.to_bytes()
+    else:
+        bdhc = read("terrain.bdhc")
     return (struct.pack("<5I", len(permissions), len(props), len(model), len(bdhc),
                         SOUNDPLATE_MAGIC | len(soundplates) << 16)
             + soundplates + permissions + props + model + bdhc)
@@ -287,10 +304,19 @@ def migrate(root):
     return len(members)
 
 
-def pack(root, out_narc):
-    data = narc_bytes([build(d) for d in chunk_dirs(root)])
+def pack(root, out_narc, depfile=None):
+    dirs = chunk_dirs(root)
+    data = narc_bytes([build(d) for d in dirs])
     with open(out_narc, "wb") as f:
         f.write(data)
+    if depfile:
+        # Every file read, plus the folders: a folder changes when a file is added or removed
+        # (terrain.bdhc replaced by heights.json), so the build notices without reconfiguring.
+        deps = [os.path.join(root, LANDDATA_DIR)] + dirs + file_list(root)
+        esc = lambda p: p.replace("\\", "/").replace(" ", "\\ ")  # noqa: E731
+        with open(depfile, "w", encoding="utf-8") as f:
+            # the target exactly as the build named it (ninja matches it), dependencies absolute
+            f.write("%s: \\\n" % esc(out_narc) + " \\\n".join("  " + esc(os.path.abspath(p)) for p in deps) + "\n")
 
 
 def file_list(root):

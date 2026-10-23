@@ -13,18 +13,19 @@ DS) games: Diamond/Pearl, Platinum, HeartGold/SoulSilver.
 | Document | |
 |---|---|
 | [FORMAT.md](FORMAT.md) | **the specification**: manifest, index files, `map.json`, `layout.json`, terrain cells, versioning, game differences |
-| [schemas/](schemas/) | JSON Schemas for `map.json`, `layout.json`, `props.json`, the manifest |
+| [schemas/](schemas/) | JSON Schemas for `map.json`, `layout.json`, `props.json`, `heights.json`, the manifest |
 | [BINARY.md](BINARY.md) | what each file becomes in the ROM: NARC, matrix, land data, BDHC, zone events, map headers, area data |
-| [RENDERING.md](RENDERING.md) | drawing maps from NSBMD/NSBTX: resource lookup, model and texture decoding, drawing rules |
+| [RENDERING.md](RENDERING.md) | drawing maps from NSBMD/NSBTX: resource lookup, model and texture decoding, drawing rules; writing terrain models (§9) |
 | [CHANGE-0001-maps-as-files.md](CHANGE-0001-maps-as-files.md) | the change that introduced all this: what, why, verification, commits |
+| [CHANGE-0002-terrain-authoring.md](CHANGE-0002-terrain-authoring.md) | format 1.1: writing NSBMD models and BDHC heights, `heights.json` |
 | [ROADMAP.md](ROADMAP.md) | steps to a standalone tool and other games |
 
 In this repository:
 
-- Manifest: `data/gen4map.json` (format 1.0, HGSS).
+- Manifest: `data/gen4map.json` (format 1.1, HGSS).
 - Check a project: `tools/mapkit/mapkit.sh format check`.
 - Edit: `tools/mapeditor/mapeditor.sh <Map>` ([README](../../tools/mapeditor/README.md)).
-- How-to for modders: [maps-and-warps.md](../modding/maps-and-warps.md),
+- How-to for modders: [maps-and-warps.md](../modding/maps-and-warps.md), [terrain.md](../modding/terrain.md),
   [npcs-and-scripts.md](../modding/npcs-and-scripts.md).
 
 ## Changing the format

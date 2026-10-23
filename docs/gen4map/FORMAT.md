@@ -1,6 +1,6 @@
 <!-- [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22 -->
 
-# gen4map format 1.0: maps, layouts, terrain cells, events
+# gen4map format 1.1: maps, layouts, terrain cells, events
 
 > AI-generated, local to this fork. Do not upstream.
 
@@ -14,19 +14,25 @@ files map to are in [BINARY.md](BINARY.md); how the 3D data is drawn is in
 The words MUST, SHOULD and MAY are used as in RFC 2119. "Reader" is any program
 that loads these files; "writer" is any program that saves them.
 
-Status: **1.0**, describing the files in this repository on 2026-10-22. Every
+Status: **1.1**, describing the files in this repository on 2026-10-22. Every
 file conforms: `tools/mapkit/mapkit.sh format check`.
+
+| Version | Adds |
+|---|---|
+| 1.0 | maps, layouts, terrain cells, manifest |
+| 1.1 | `heights.json`, a text form of a cell's heights in place of `terrain.bdhc` (§7.3; [CHANGE-0002](CHANGE-0002-terrain-authoring.md)) |
 
 ## 1. Versioning
 
-- A project declares its format version in the manifest (§2): `"version": "1.0"`.
+- A project declares its format version in the manifest (§2): `"version": "1.1"`.
 - Minor versions only **add** optional keys or files. A 1.x reader MUST read
   1.0 files; a 1.0 reader that meets a key it doesn't know reports an error
   (keys are closed, so typos are caught) and SHOULD tell the user to update.
 - A major version changes the meaning or shape of something that exists. A
   reader MUST refuse a major version it doesn't support.
 - Machine-readable definitions: `schemas/map.schema.json`, `layout.schema.json`,
-  `props.schema.json`, `manifest.schema.json` (JSON Schema 2020-12). Where this
+  `props.schema.json`, `heights.schema.json`, `manifest.schema.json` (JSON Schema
+  2020-12). Where this
   text and a schema disagree, this text wins and the schema is a bug.
 
 ## 2. Project and manifest
@@ -36,7 +42,7 @@ A project is a directory tree. Its root holds the manifest at `data/gen4map.json
 ```json
 {
     "format": "gen4map",
-    "version": "1.0",
+    "version": "1.1",
     "game": { "family": "HGSS", "versions": ["HEARTGOLD", "SOULSILVER"], "language": "en_US" },
     "paths": { "maps": "data/maps", "map_index": "data/maps/maps.txt",
                "layouts": "data/layouts", "layout_index": "data/layouts/layouts.txt",
@@ -252,8 +258,12 @@ it changes all of them.
 | `permissions.txt` | yes | collision, behavior and attribute per tile (§7.1) |
 | `props.json` | yes | placed props (§7.2) |
 | `soundplates.bin` | no | feature `land_data_soundplates`: the cell's sound plates, raw (BINARY.md §3) |
-| `model.nsbmd` | yes | the terrain's 3D model, NITRO-System NSBMD (RENDERING.md) |
-| `terrain.bdhc` | yes | the heights the player walks on, BDHC (BINARY.md §3.2) |
+| `model.nsbmd` | yes | the terrain's 3D model, NITRO-System NSBMD (RENDERING.md); at most 0xF000 bytes, one model |
+| `terrain.bdhc` | one of these two | the heights the player walks on, BDHC (BINARY.md §3.2) |
+| `heights.json` | | (1.1) the same heights as text (§7.3) |
+
+A cell MUST have exactly one of `terrain.bdhc` and `heights.json`. A 1.0 reader
+doesn't know `heights.json`; projects that use it declare 1.1.
 
 ### 7.1 `permissions.txt`
 
@@ -307,16 +317,50 @@ Schema: `schemas/props.schema.json`. At most 32 props per cell.
 
 Writers SHOULD put one prop per line.
 
+### 7.3 `heights.json` (1.1)
+
+Schema: `schemas/heights.schema.json`. The plates of the cell's BDHC
+(BINARY.md §3.2) as text; a writer compiles them to the binary.
+
+```json
+{
+    "plates": [
+        {"x": [-256, 0], "z": [-256, 256], "y": 0},
+        {"x": [-64, 0], "z": [-128, -96], "ramp": {"along": "x", "y": [0, 32]}},
+        {"x": [64, 96], "z": [0, 32], "normal": [0, 0.70703125, 0.70703125], "d": -45.25}
+    ]
+}
+```
+
+| Key | Meaning |
+|---|---|
+| `x`, `z` | the plate's rectangle, `[min, max]`, model units from the cell's centre (x east, z south); MUST be ordered |
+| `y` | flat plate at that height (normal (0, 1, 0), d = −y) |
+| `normal`, `d` | the plane `normal · (x, y, z) + d = 0`, values as stored (fx32 / 4096) |
+| `ramp` | `{"along": "x" or "z", "y": [y0, y1]}`: rising linearly from y0 at the low edge to y1 at the high edge; writers store the unit normal rounded to fx32 and the d that puts the low edge at y0 |
+
+- Each plate has exactly one of `y`, `normal` + `d`, `ramp`. Every number MUST be
+  a multiple of 1/4096.
+- Order is meaningful only where plates overlap at the same height: the game tests
+  them in order (BINARY.md §3.2). Writers SHOULD keep the order and SHOULD write
+  one plate per line.
+- A plate with normal y = 0 is legal (one retail file has one) but has no height;
+  checkers SHOULD warn.
+- Compiling: pools, strips and the access list are derived from the plates
+  (BINARY.md §3.2), so a decompiled retail file gives the same heights at every
+  point; for 52 of the 676 retail files the compiled bytes differ (the originals
+  repeat pool entries).
+
 ## 8. Other files in a map folder
 
-Not part of format 1.0, listed for completeness: `scripts.pory` (event and map
+Not part of format 1.x, listed for completeness: `scripts.pory` (event and map
 scripts, [SCRIPTING.md](../modding/SCRIPTING.md)), `text.json` (messages,
 msgenc JSON), `ids.h` (object and script ids). Wild encounters stay in one file
 per game (`gs_enc_data.json`), as in pokeemerald.
 
 ## 9. Differences between games
 
-Format 1.0 is written from HeartGold/SoulSilver. The `features` flags say which
+Format 1.x is written from HeartGold/SoulSilver. The `features` flags say which
 optional parts a game has.
 
 | Feature | HGSS | Platinum | Diamond/Pearl |

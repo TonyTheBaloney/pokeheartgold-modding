@@ -102,9 +102,9 @@ vertex colors.
 - Props can't be moved yet, layouts can't be resized and cells can't be
   reassigned to other land data in the editor (edit `layout.json` / `props.json`).
 - Object sprites are shown as boxes, not their overworld graphics.
-- Map models can't be edited here. The build packs whatever `model.nsbmd` holds, so
-  a model made in another tool should drop in (its textures must be in the area's
-  texture set, and collision and behaviors must match it); not tried yet.
+- Map models can't be edited here: use `mapkit terrain export` / `import` with a 3D
+  editor ([docs/modding/terrain.md](../../docs/modding/terrain.md)). Heights aren't
+  shown yet.
 
 ## Code
 

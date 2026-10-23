@@ -19,8 +19,10 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [npcs-and-scripts.md](npcs-and-scripts.md) | Moving/adding NPCs, trainers, event scripts, text, flags |
 | [wild-encounters.md](wild-encounters.md) | Grass/surf/fishing tables, headbutt, Safari, Bug Contest, roamers |
 | [DESIGN.md](DESIGN.md) | Plan for per-map folders and the `mapkit` tool |
-| [../gen4map/](../gen4map/README.md) | The map file format spec (gen4map 1.0), ROM binaries, rendering, change record, roadmap to a standalone Gen 4 tool |
+| [../gen4map/](../gen4map/README.md) | The map file format spec (gen4map 1.1), ROM binaries, rendering, change record, roadmap to a standalone Gen 4 tool |
 | [SCRIPTING.md](SCRIPTING.md) | Writing map scripts in `scripts.pory` (poryscript-style) |
+| [terrain.md](terrain.md) | 3D terrain models (OBJ export/import, e.g. Blender) and the heights the player walks on |
+| [ui.md](ui.md) | How screens and menus work: applications, BG layers, windows, text, list and script menus, sprites, input, fades |
 
 ## Building a modified ROM
 
@@ -51,7 +53,9 @@ passes on that commit so you know any later mismatch comes from your edit.
 | Event scripts and text | yes (`scripts.pory`, `text.json` in the map folder) |
 | Map grid (layout) | yes (`data/layouts/<Layout>/layout.json`) |
 | Collision, tile behaviors, props | yes (`data/landdata/NNNN/permissions.txt`, `props.json`), or the map editor (`tools/mapeditor`) |
-| Terrain 3D models, heights | **no**, binary `model.nsbmd` / `terrain.bdhc` per cell |
+| Terrain 3D models | yes, through OBJ: `mapkit terrain export` / `import` ([terrain.md](terrain.md)); stored as `model.nsbmd` |
+| Terrain heights | yes (`heights.json`, or generated from the model; [terrain.md](terrain.md)) |
+| Area textures | **no**, binary NSBTX in `files/a/0/4/4` |
 | Wild encounters | yes (`gs_enc_data.json` etc.) |
 | Trainers' parties | yes (`trainers.json`) |
 | Trainers' battle text tables | **no**, binary `trtbl.narc` |

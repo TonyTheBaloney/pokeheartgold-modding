@@ -14,7 +14,7 @@ import json
 import os
 import re
 
-from . import landdata, layouts
+from . import bdhc, landdata, layouts
 
 FORMAT = "gen4map"
 SUPPORTED_MAJOR = 1
@@ -170,12 +170,30 @@ def check(root):
     except landdata.LandDataError as ex:
         problems.append(Problem(paths["landdata"], str(ex)))
         chunks = []
-    needed = {"permissions.txt", "props.json", "model.nsbmd", "terrain.bdhc"}
+    heights_schema = load_schema(root, "heights")
+    needed = {"permissions.txt", "props.json", "model.nsbmd"}
     for d in chunks:
-        missing = needed - set(os.listdir(d))
+        files = set(os.listdir(d))
+        missing = needed - files
         if missing:
             problems.append(Problem(rel(d), "missing %s" % ", ".join(sorted(missing))))
             continue
+        heights = {"terrain.bdhc", "heights.json"} & files
+        if len(heights) != 1:
+            problems.append(Problem(rel(d), "needs exactly one of terrain.bdhc and heights.json (has %s)"
+                                    % (", ".join(sorted(heights)) or "neither")))
+        elif "heights.json" in heights:
+            hp = os.path.join(d, "heights.json")
+            doc = _json(hp, problems, root)
+            if doc is not None:
+                errs = validate(doc, heights_schema)
+                for where, msg in errs:
+                    problems.append(Problem(rel(hp), "%s: %s" % (where, msg)))
+                if not errs:
+                    try:
+                        bdhc.from_json(doc, rel(hp))
+                    except bdhc.BdhcError as ex:
+                        problems.append(Problem(rel(hp), str(ex)))
         props = _json(os.path.join(d, "props.json"), problems, root)
         if props is not None:
             for where, msg in validate(props, props_schema):
