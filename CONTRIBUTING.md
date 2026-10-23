@@ -36,9 +36,16 @@ make soulsilver
 Then the tool tests (some need a build first, for `nitrogfx` and `nitroarc`):
 
 ```bash
-for t in tools/mapkit/tests/test_*.py tools/mapeditor/tests/test_*.py tools/pokedata/test_*.py tools/sound/test_sound.py tools/progress/test_progress.py; do
+for t in tools/mapkit/tests/test_*.py tools/pokedata/test_*.py tools/sound/test_sound.py tools/progress/test_progress.py; do
     python3 "$t" || echo "FAILED: $t"
 done
+```
+
+The map editor's tests need its PySide6 environment ([tools/mapeditor/README.md](tools/mapeditor/README.md)):
+
+```bash
+python3 -m venv tools/mapeditor/.venv && tools/mapeditor/.venv/bin/pip install PySide6   # once
+QT_QPA_PLATFORM=offscreen tools/mapeditor/.venv/bin/python -m unittest discover -s tools/mapeditor/tests
 ```
 
 ## Labeling AI-generated work
