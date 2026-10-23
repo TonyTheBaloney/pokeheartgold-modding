@@ -24,6 +24,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [DESIGN.md](DESIGN.md) | Plan for per-map folders and the `mapkit` tool |
 | [../gen4map/](../gen4map/README.md) | The map file format spec (gen4map 1.1), ROM binaries, rendering, change record, roadmap to a standalone Gen 4 tool |
 | [SCRIPTING.md](SCRIPTING.md) | Writing map scripts in `scripts.pory` (poryscript-style) |
+| [trainer-classes.md](trainer-classes.md) | Trainer classes (names, gender, prize money, music), battle sprites (`graphics/trainers/` PNGs), animation, adding a class |
 | [items.md](items.md) | Items: `data/items/items.json` (names, prices, effects, pockets), icons, adding items, marts |
 | [terrain.md](terrain.md) | 3D terrain models (OBJ export/import, e.g. Blender) and the heights the player walks on |
 | [ui.md](ui.md) | How screens and menus work: applications, BG layers, windows, text, list and script menus, sprites, input, fades |
@@ -64,4 +65,6 @@ passes on that commit so you know any later mismatch comes from your edit.
 | Items (data, names, descriptions, icons) | yes (`data/items/items.json`, icon PNGs; [items.md](items.md)) |
 | Mart stock | in C (`src/scrcmd_mart.c`; [items.md](items.md#marts)) |
 | Trainers' parties | yes (`trainers.json`) |
+| Trainer classes | in C and text (`trainer_class.h`, `msg_0730.json`, ...; [trainer-classes.md](trainer-classes.md)) |
+| Trainer sprites and their animation | yes (PNG in `graphics/trainers/`, `data/trainer_graphics/*.json`; [trainer-classes.md](trainer-classes.md#trainer-sprites)) |
 | Trainers' battle text tables | **no**, binary `trtbl.narc` |

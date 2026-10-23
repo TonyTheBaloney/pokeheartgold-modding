@@ -57,6 +57,9 @@ the command, if there is one. Commands run from the repository root;
 | change a move's power, type, effect | [moves.md](modding/moves.md#move-data-battle_movesjson) | edit `battle_moves.json` |
 | add a move | [moves.md](modding/moves.md#adding-a-new-move) | |
 | find move special cases in C | [moves.md](modding/moves.md#moves-named-in-c) | |
+| add a trainer class (name, gender, prize money, music) | [trainer-classes.md](modding/trainer-classes.md#adding-a-class) | |
+| change or add a trainer's battle sprite | [trainer-classes.md](modding/trainer-classes.md#trainer-sprites) | PNG in `graphics/trainers/front_pics/`; `trainer_pics.py check` |
+| animate a trainer sprite | [trainer-classes.md](modding/trainer-classes.md#animation) | `"anims"` in `data/trainer_graphics/front_pics.json` |
 
 ## Pokémon
 
@@ -114,7 +117,7 @@ guide here yet, in rough order of how often a hack needs them:
 
 | Topic | State in this fork | pokeemerald equivalent |
 |---|---|---|
-| **Trainer classes and art**: new classes, trainer sprites, battle text | parties are text; battle text is binary (`trtbl.narc`) | "Adding a new trainer class", "Adding a new trainer image" |
+| **Trainer battle text** | binary (`trtbl.narc`); classes and sprites are in [trainer-classes.md](modding/trainer-classes.md) | |
 | **Progression gates**: every story roadblock, its flag and script | not listed | (hack-specific; needed for open-world hacks) |
 | **Level scaling** of trainers and wild Pokémon | levels are fixed (`src/trainer_data.c`, `src/field/encounter_check.c`) | "Set trainer / wild levels dynamically" |
 | **New game**: start location, starting flags, starter choice | code only (`src/choose_starter.c`) | "Modifying the start location", "Change starter Pokémon" |

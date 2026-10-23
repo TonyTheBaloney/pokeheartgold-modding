@@ -1,0 +1,1028 @@
+{
+  "layouts": {
+    "pokefan": [[-40, -40, 64, 64], [24, -40, 8, 32], [24, -8, 8, 32], [-40, 24, 32, 16], [-8, 24, 32, 16], [24, 24, 8, 16]],
+    "tower_tycoon": [[-40, -40, 64, 64], [24, -40, 16, 32], [24, -8, 16, 32, 0, 24, -7], [-40, 24, 32, 16], [-8, 24, 32, 16], [24, 24, 16, 16]],
+    "hall_matron": [[-40, -40, 64, 64], [24, -40, 16, 32, 0, 23, -40], [24, -8, 16, 32], [-40, 24, 32, 16], [-8, 24, 32, 16], [24, 24, 16, 16]],
+    "arcade_star": [[-40, -40, 64, 64], [24, -40, 16, 32], [24, -8, 16, 32, 0, 24, -9], [-40, 24, 32, 16], [-8, 24, 32, 16], [24, 24, 16, 16]],
+    "castle_valet": [[-8, -40, 16, 32], [-8, -8, 16, 32], [8, -40, 32, 64, 1, 0, -40], [8, 24, 32, 16, 1, 0, 24], [-40, -40, 32, 64], [-40, 24, 32, 16], [-8, 24, 16, 16]],
+    "castle_valet_2": [[-8, -40, 16, 32], [-8, -8, 16, 32], [8, -40, 32, 64, 1, -1, -40], [8, 24, 32, 16, 1, -1, 24], [-40, -40, 32, 64], [-40, 24, 32, 16], [-8, 24, 16, 16]]
+  },
+  "pics": {
+    "TRAINERCLASS_PKMN_TRAINER_ETHAN": {
+      "pic": "pkmn_trainer_ethan",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x4AF3"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_LYRA": {
+      "pic": "pkmn_trainer_lyra",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x0B42"
+    },
+    "TRAINERCLASS_YOUNGSTER": {
+      "pic": "youngster",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xF7C9"
+    },
+    "TRAINERCLASS_LASS": {
+      "pic": "lass",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat": "lass_flat",
+      "flat_key": "0x1693"
+    },
+    "TRAINERCLASS_CAMPER": {
+      "pic": "camper",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xEA38"
+    },
+    "TRAINERCLASS_PICNICKER": {
+      "pic": "picnicker",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xC62E"
+    },
+    "TRAINERCLASS_BUG_CATCHER": {
+      "pic": "bug_catcher",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x8571"
+    },
+    "TRAINERCLASS_AROMA_LADY": {
+      "pic": "aroma_lady",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2CA8"
+    },
+    "TRAINERCLASS_TWINS": {
+      "pic": "twins",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x435B"
+    },
+    "TRAINERCLASS_HIKER": {
+      "pic": "hiker",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2172"
+    },
+    "TRAINERCLASS_BATTLE_GIRL": {
+      "pic": "battle_girl",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x3BA2"
+    },
+    "TRAINERCLASS_FISHERMAN": {
+      "pic": "fisherman",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xEB48"
+    },
+    "TRAINERCLASS_CYCLIST_M": {
+      "pic": "cyclist_m",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xF054"
+    },
+    "TRAINERCLASS_CYCLIST_F": {
+      "pic": "cyclist_f",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xE27E"
+    },
+    "TRAINERCLASS_BLACK_BELT": {
+      "pic": "black_belt",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x98E2"
+    },
+    "TRAINERCLASS_ARTIST": {
+      "pic": "artist",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x8ECE"
+    },
+    "TRAINERCLASS_PKMN_BREEDER_M": {
+      "pic": "pkmn_breeder_m",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x8BC9"
+    },
+    "TRAINERCLASS_PKMN_BREEDER_F": {
+      "pic": "pkmn_breeder_f",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x3B0A"
+    },
+    "TRAINERCLASS_COWGIRL": {
+      "pic": "cowgirl",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x4B4F"
+    },
+    "TRAINERCLASS_JOGGER": {
+      "pic": "jogger",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x422D"
+    },
+    "TRAINERCLASS_POKEFAN_M": {
+      "pic": "pokefan_m",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xB98C"
+    },
+    "TRAINERCLASS_POKEFAN": {
+      "pic": "pokefan",
+      "layout": "pokefan",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x565E"
+    },
+    "TRAINERCLASS_POKE_KID": {
+      "pic": "poke_kid",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xD6A3"
+    },
+    "TRAINERCLASS_RIVAL": {
+      "pic": "rival",
+      "anims": [
+        [[2, 4]],
+        [[0, 30, 0, 0], [0, 6, 1, 0], [1, 20, 1, 0], [1, 8, 2, 0], [1, 4, 0, 0], [2, 40, 0, 0]],
+        [[0, 4]]
+      ],
+      "flat_key": "0x3225"
+    },
+    "TRAINERCLASS_ACE_TRAINER_M": {
+      "pic": "ace_trainer_m",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x4448"
+    },
+    "TRAINERCLASS_ACE_TRAINER_F": {
+      "pic": "ace_trainer_f",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x1A0E"
+    },
+    "TRAINERCLASS_WAITRESS": {
+      "pic": "waitress",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x6583"
+    },
+    "TRAINERCLASS_VETERAN": {
+      "pic": "veteran",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x9AEB"
+    },
+    "TRAINERCLASS_NINJA_BOY": {
+      "pic": "ninja_boy",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xF60E"
+    },
+    "TRAINERCLASS_DRAGON_TAMER": {
+      "pic": "dragon_tamer",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xB76E"
+    },
+    "TRAINERCLASS_BIRD_KEEPER": {
+      "pic": "bird_keeper",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x3CC7"
+    },
+    "TRAINERCLASS_JUGGLER": {
+      "pic": "juggler",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x61D6"
+    },
+    "TRAINERCLASS_RICH_BOY": {
+      "pic": "rich_boy",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2B67"
+    },
+    "TRAINERCLASS_LADY": {
+      "pic": "lady",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x26BF"
+    },
+    "TRAINERCLASS_GENTLEMAN": {
+      "pic": "gentleman",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat": "gentleman_flat",
+      "flat_key": "0xE8E2"
+    },
+    "TRAINERCLASS_SOCIALITE": {
+      "pic": "socialite",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x1A20"
+    },
+    "TRAINERCLASS_BEAUTY": {
+      "pic": "beauty",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x62D8"
+    },
+    "TRAINERCLASS_COLLECTOR": {
+      "pic": "collector",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xBBA5"
+    },
+    "TRAINERCLASS_POLICEMAN": {
+      "pic": "policeman",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x09A8"
+    },
+    "TRAINERCLASS_PKMN_RANGER_M": {
+      "pic": "pkmn_ranger_m",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x6E41"
+    },
+    "TRAINERCLASS_PKMN_RANGER_F": {
+      "pic": "pkmn_ranger_f",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2F72"
+    },
+    "TRAINERCLASS_SCIENTIST": {
+      "pic": "scientist",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2364"
+    },
+    "TRAINERCLASS_SWIMMER_M": {
+      "pic": "swimmer_m",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x768F"
+    },
+    "TRAINERCLASS_SWIMMER_F": {
+      "pic": "swimmer_f",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x61DE"
+    },
+    "TRAINERCLASS_TUBER_M": {
+      "pic": "tuber_m",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xE201"
+    },
+    "TRAINERCLASS_TUBER_F": {
+      "pic": "tuber_f",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xE7C7"
+    },
+    "TRAINERCLASS_SAILOR": {
+      "pic": "sailor",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2501"
+    },
+    "TRAINERCLASS_KIMONO_GIRL": {
+      "pic": "kimono_girl",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x972E"
+    },
+    "TRAINERCLASS_RUIN_MANIAC": {
+      "pic": "ruin_maniac",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x9DF8"
+    },
+    "TRAINERCLASS_PSYCHIC_M": {
+      "pic": "psychic_m",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x9093"
+    },
+    "TRAINERCLASS_PSYCHIC_F": {
+      "pic": "psychic_f",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x94AD"
+    },
+    "TRAINERCLASS_PI": {
+      "pic": "pi",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x0A75"
+    },
+    "TRAINERCLASS_GUITARIST": {
+      "pic": "guitarist",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xDAF6"
+    },
+    "TRAINERCLASS_ACE_TRAINER_M_GS": {
+      "pic": "ace_trainer_m_gs",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x615A"
+    },
+    "TRAINERCLASS_ACE_TRAINER_F_GS": {
+      "pic": "ace_trainer_f_gs",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x688F"
+    },
+    "TRAINERCLASS_TEAM_ROCKET": {
+      "pic": "team_rocket",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x612B"
+    },
+    "TRAINERCLASS_SKIER": {
+      "pic": "skier",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2E2F"
+    },
+    "TRAINERCLASS_ROUGHNECK": {
+      "pic": "roughneck",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2988"
+    },
+    "TRAINERCLASS_CLOWN": {
+      "pic": "clown",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xEC37"
+    },
+    "TRAINERCLASS_WORKER": {
+      "pic": "worker",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x51B6"
+    },
+    "TRAINERCLASS_SCHOOL_KID_M": {
+      "pic": "school_kid_m",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat": "school_kid_m_flat",
+      "flat_key": "0x0BE1"
+    },
+    "TRAINERCLASS_SCHOOL_KID_F": {
+      "pic": "school_kid_f",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xFB28"
+    },
+    "TRAINERCLASS_TEAM_ROCKET_F": {
+      "pic": "team_rocket_f",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x3690"
+    },
+    "TRAINERCLASS_BURGLAR": {
+      "pic": "burglar",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x9810"
+    },
+    "TRAINERCLASS_FIREBREATHER": {
+      "pic": "firebreather",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x7BE6"
+    },
+    "TRAINERCLASS_BIKER": {
+      "pic": "biker",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x7F19"
+    },
+    "TRAINERCLASS_LEADER_FALKNER": {
+      "pic": "leader_falkner",
+      "anims": [
+        [[1, 4]],
+        [[1, 30, 0, 0], [0, 3, 0, 0], [0, 3, 1, 0], [0, 4, 2, 0], [1, 4, 0, 0], [1, 8, -2, 0], [1, 16, -3, 0], [2, 8, -1, 0, "flash"], [2, 8, -2, 0], [2, 24, -3, 0]],
+        [[1, 4]]
+      ],
+      "flat_key": "0xEC12"
+    },
+    "TRAINERCLASS_LEADER_BUGSY": {
+      "pic": "leader_bugsy",
+      "anims": [
+        [[2, 4]],
+        [[0, 30, 0, 0], [0, 10, -2, 0], [1, 10, 0, 0], [2, 4, 0, 0], [2, 4, 1, 0], [2, 10, 2, 0]],
+        [[0, 4]]
+      ],
+      "flat_key": "0xFE11"
+    },
+    "TRAINERCLASS_POKE_MANIAC": {
+      "pic": "poke_maniac",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xB85C"
+    },
+    "TRAINERCLASS_BIRD_KEEPER_GS": {
+      "pic": "bird_keeper_gs",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x27E3"
+    },
+    "TRAINERCLASS_LEADER_WHITNEY": {
+      "pic": "leader_whitney",
+      "anims": [
+        [[1, 4]],
+        [[0, 30, 0, 0], [0, 6, -1, 0], [1, 3, 0, 0], [1, 3, 1, 0], [1, 4, 2, 0], [0, 2, 0, -2], [2, 1, 0, 0], [2, 2, 0, -2], [2, 4, 0, -3], [2, 2, 0, -2], [2, 1, 0, 0], [1, 4, 1, 0], [1, 8, 2, 0], [0, 2, 0, 0], [2, 2, 0, 0], [2, 4, 0, -8], [2, 12, 0, -10], [2, 2, 0, -8], [2, 1, 0, 0], [1, 2, 0, 0], [1, 2, 1, 0], [1, 2, 2, 0], [1, 2, 1, 0], [1, 20, 0, 0], [0, 4, 0, 0, "flash"]],
+        [[0, 4]]
+      ],
+      "flat": "leader_whitney_flat",
+      "flat_key": "0x7558"
+    },
+    "TRAINERCLASS_RANCHER": {
+      "pic": "rancher",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xAFC1"
+    },
+    "TRAINERCLASS_LEADER_MORTY": {
+      "pic": "leader_morty",
+      "anims": [
+        [[0, 4]],
+        [[2, 40, 0, 0], [2, 10, -1, 0], [2, 4, 0, 0], [1, 6, 0, 0], [1, 24, 1, 0], [1, 3, 0, 0], [0, 30, 0, 0, "flash"]],
+        [[2, 4]]
+      ],
+      "flat_key": "0xB676"
+    },
+    "TRAINERCLASS_LEADER_PRYCE": {
+      "pic": "leader_pryce",
+      "anims": [
+        [[0, 4]],
+        [[0, 30], [1, 8], [2, 6], [1, 6], [2, 6], [1, 4], [2, 4], [1, 4], [2, 2], [1, 2], [2, 2], [1, 4], [2, 4], [1, 4], [2, 6], [1, 6], [2, 8], [1, 8], [0, 1], [0, 0]]
+      ],
+      "flat_key": "0xF14C"
+    },
+    "TRAINERCLASS_LEADER_JASMINE": {
+      "pic": "leader_jasmine",
+      "anims": [
+        [[0, 4]],
+        [[2, 60, 0, 0], [2, 3, 1, 0], [2, 6, 2, 0], [1, 6, 1, 0], [1, 6, 0, 0], [0, 40, 0, 0]],
+        [[2, 4]]
+      ],
+      "flat_key": "0x94BD"
+    },
+    "TRAINERCLASS_LEADER_CHUCK": {
+      "pic": "leader_chuck",
+      "anims": [
+        [[0, 4]],
+        [[1, 30, 0, 0], [1, 2, 2, 0], [1, 2, 0, 0], [1, 2, 2, 0], [1, 2, 0, 0], [1, 2, 2, 0], [1, 2, 0, 0], [1, 2, 2, 0], [1, 2, 0, 0], [1, 2, 2, 0], [1, 2, 0, 0], [1, 2, 2, 0], [1, 2, 0, 0], [1, 2, 2, 0], [1, 2, 0, 0], [2, 6, 0, 0], [2, 6, 2, 0], [2, 24, 4, 0], [0, 2, 0, 2, "flash"], [0, 2, 0, 0], [0, 2, 0, 2], [0, 2, 0, 0], [0, 2, 0, 2], [0, 2, 0, 0], [0, 2, 0, 2], [0, 2, 0, 0], [0, 2, 0, 2], [0, 40, 0, 0]],
+        [[1, 4]]
+      ],
+      "flat_key": "0x7D8D"
+    },
+    "TRAINERCLASS_LEADER_CLAIR": {
+      "pic": "leader_clair",
+      "anims": [
+        [[0, 4]],
+        [[2, 30, 2, 0], [2, 4, 3, 0], [2, 16, 5, 0], [2, 2, 4, 0], [1, 6, 4, 0], [1, 8, 2, 0], [0, 3, 2, 0, "flash"], [0, 3, 1, 0], [0, 3, 0, 0], [0, 3, -1, 0], [0, 6, -2, 0], [0, 16, -3, 0]],
+        [[2, 4, 2, 0]]
+      ],
+      "flat_key": "0xDCEB"
+    },
+    "TRAINERCLASS_TEACHER": {
+      "pic": "teacher",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x46A9"
+    },
+    "TRAINERCLASS_SUPER_NERD": {
+      "pic": "super_nerd",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xA95F"
+    },
+    "TRAINERCLASS_SAGE": {
+      "pic": "sage",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xEC65"
+    },
+    "TRAINERCLASS_PARASOL_LADY": {
+      "pic": "parasol_lady",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x5C12"
+    },
+    "TRAINERCLASS_WAITER": {
+      "pic": "waiter",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x6B6E"
+    },
+    "TRAINERCLASS_MEDIUM": {
+      "pic": "medium",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xB8BF"
+    },
+    "TRAINERCLASS_CAMERAMAN": {
+      "pic": "cameraman",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xBB28"
+    },
+    "TRAINERCLASS_REPORTER": {
+      "pic": "reporter",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x45D7"
+    },
+    "TRAINERCLASS_IDOL": {
+      "pic": "idol",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x79A7"
+    },
+    "TRAINERCLASS_CHAMPION": {
+      "pic": "champion",
+      "anims": [
+        [[0, 4]],
+        [[1, 44, 0, 0], [1, 1, 1, 0], [1, 1, 2, 0], [1, 6, 3, 0], [2, 6, 1, 0], [2, 8, 0, 0], [0, 2, 0, 0, "flash"], [0, 2, 1, 0], [0, 2, 0, 0], [0, 2, 1, 0], [0, 2, 0, 0], [0, 2, 1, 0], [0, 2, 0, 0], [0, 2, 1, 0], [0, 2, 0, 0]],
+        [[1, 4]]
+      ],
+      "flat_key": "0xFDA9"
+    },
+    "TRAINERCLASS_ELITE_FOUR_WILL": {
+      "pic": "elite_four_will",
+      "anims": [
+        [[2, 4]],
+        [[0, 60, 0, 0], [0, 2, 1, 0], [0, 6, 2, 0], [0, 4, 1, 0], [1, 2, 0, 0, "flash"], [1, 2, 2, 0], [1, 2, 0, 0], [1, 2, 2, 0], [1, 30, 0, 0], [2, 6, 1, 0], [2, 6, 2, 0], [2, 6, 3, 0], [2, 6, 2, 0], [2, 6, 1, 0], [2, 60, 0, 0]],
+        [[0, 4]]
+      ],
+      "flat_key": "0x08E3"
+    },
+    "TRAINERCLASS_ELITE_FOUR_KAREN": {
+      "pic": "elite_four_karen",
+      "anims": [
+        [[0, 4]],
+        [[2, 20, 1, 0], [2, 4, 2, 0], [2, 4, 0, 0], [1, 16, 0, 0, "flash"], [0, 10, 0, 0], [0, 2, 0, 0], [0, 2, 2, 0], [0, 2, 0, 0], [0, 2, 1, 0], [0, 40, 0, 0]],
+        [[2, 4]]
+      ],
+      "flat_key": "0x630E"
+    },
+    "TRAINERCLASS_ELITE_FOUR_KOGA": {
+      "pic": "elite_four_koga",
+      "empty_cell": true,
+      "anims": [
+        [[0, 4]],
+        [[3, 20, 0, 0], [2, 6, 4, 0], [1, 6, 4, 0], [0, 1, 8, 0, "flash"], [0, 3, 3, 0], [0, 3, 2, 0], [0, 3, 1, 0], [0, 2, 0, 0]],
+        [[3, 4]]
+      ],
+      "flat_key": "0x6884"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_CHERYL": {
+      "pic": "pkmn_trainer_cheryl",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2509"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_RILEY": {
+      "pic": "pkmn_trainer_riley",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xFD0E"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_BUCK": {
+      "pic": "pkmn_trainer_buck",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xCAF1"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_MIRA": {
+      "pic": "pkmn_trainer_mira",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xD9AC"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_MARLEY": {
+      "pic": "pkmn_trainer_marley",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xD866"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_FTR_LUCAS": {
+      "pic": "pkmn_trainer_ftr_lucas",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x07D5"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_FTR_DAWN": {
+      "pic": "pkmn_trainer_ftr_dawn",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x4A33"
+    },
+    "TRAINERCLASS_TOWER_TYCOON": {
+      "pic": "tower_tycoon",
+      "empty_cell": true,
+      "frames": {
+        "2": {"layout": "tower_tycoon", "offset": [-3, 0]},
+        "3": {"offset": [-5, 0]},
+        "4": {"offset": [-4, 0]}
+      },
+      "labels": ["CellAnime1", "CellAnime0"],
+      "anims": [
+        [[0, 12], [1, 12], "loop"],
+        [[0, 10], [1, 10], [0, 10], [1, 10], [0, 10], [1, 10], [0, 10], [1, 10], [0, 30], [2, 2], [3, 4], [4, 4], [3, 4], [4, 4], [3, 4], [4, 4], [3, 4], [4, 4], [3, 4], [4, 40]]
+      ],
+      "flat_key": "0x852B"
+    },
+    "TRAINERCLASS_LEADER_BROCK": {
+      "pic": "leader_brock",
+      "anims": [
+        [[0, 4], "loop"],
+        [[0, 4, 0, 0], [2, 2, 0, 0], [1, 2, 2, 0], [1, 2, 1, 0], [1, 60, 0, 0]]
+      ],
+      "flat_key": "0x0E76"
+    },
+    "TRAINERCLASS_HALL_MATRON": {
+      "pic": "hall_matron",
+      "frames": {
+        "0": {"offset": [-2, 0]},
+        "1": {"offset": [-1, 0]},
+        "3": {"layout": "hall_matron", "offset": [-1, 0]},
+        "5": {"offset": [1, 0]}
+      },
+      "labels": ["CellAnime1", "CellAnime0"],
+      "anims": [
+        [[0, 4], "loop"],
+        [[0, 20], [1, 4], [2, 40], [3, 4], [4, 8], [5, 80]]
+      ],
+      "flat_key": "0x037B"
+    },
+    "TRAINERCLASS_FACTORY_HEAD": {
+      "pic": "factory_head",
+      "frames": {
+        "1": {"offset": [1, 0]},
+        "2": {"offset": [2, 0]},
+        "3": {"offset": [1, 0]}
+      },
+      "labels": ["CellAnime1", "CellAnime0"],
+      "anims": [
+        [[4, 4], "loop"],
+        [[4, 20], [3, 20], [2, 2], [1, 2, "flash"], [0, 40]]
+      ],
+      "flat": [0, 3],
+      "flat_key": "0x319C"
+    },
+    "TRAINERCLASS_ARCADE_STAR": {
+      "pic": "arcade_star",
+      "empty_cell": true,
+      "frames": {
+        "1": {"layout": "arcade_star", "offset": [-2, -1]},
+        "2": {"offset": [-3, 0]},
+        "3": {"offset": [-4, 0]},
+        "4": {"offset": [10, -1], "flip": true},
+        "5": {"offset": [11, 0], "flip": true},
+        "6": {"offset": [12, 0], "flip": true},
+        "8": {"offset": [1, 0]},
+        "9": {"offset": [-1, 1]},
+        "10": {"offset": [3, 0]}
+      },
+      "labels": ["CellAnime1", "CellAnime0"],
+      "anims": [
+        [[0, 4], "loop"],
+        [[0, 20], [4, 6], [5, 4], [6, 20], [1, 6], [2, 4], [3, 28], [2, 4], [0, 6], [9, 18, "flash"], [7, 4], [8, 4], [10, 80]]
+      ],
+      "flat_key": "0x2576"
+    },
+    "TRAINERCLASS_CASTLE_VALET": {
+      "pic": "castle_valet",
+      "layout": "castle_valet",
+      "frames": {
+        "3": {"layout": "castle_valet_2"},
+        "4": {"layout": "castle_valet_2"},
+        "5": {"layout": "castle_valet_2"},
+        "6": {"offset": [-1, 0]}
+      },
+      "labels": ["CellAnime1", "CellAnime0"],
+      "anims": [
+        [[0, 4], "loop"],
+        [[0, 80], [1, 4], [2, 2], [3, 80, "flash"], [4, 10], [5, 4], [6, 32], [4, 10], [3, 40]]
+      ],
+      "flat": "castle_valet_flat",
+      "flat_key": "0x6414"
+    },
+    "TRAINERCLASS_LEADER_MISTY": {
+      "pic": "leader_misty",
+      "anims": [
+        [[0, 4], "loop"],
+        [[0, 20, 0, 0], [1, 20, 0, 0], [2, 2, 0, -2], [2, 2, 0, -4], [2, 16, 0, -8], [2, 6, 0, -4], [2, 4, 0, -2], [1, 2, -1, 0], [1, 2, 1, 0], [1, 40, 0, 0], [0, 4, -2, 0], [0, 4, -1, 0], [0, 20, 0, 0]]
+      ],
+      "flat_key": "0x988D"
+    },
+    "TRAINERCLASS_LEADER_LT_SURGE": {
+      "pic": "leader_lt_surge",
+      "anims": [
+        [[2, 4], "loop"],
+        [[0, 60, 0, 0], [1, 8, 0, 1], [1, 8, 0, 0], [1, 8, 0, 1], [1, 8, 0, 0], [1, 8, 0, 1], [1, 8, 0, 0], [1, 8, 0, 1], [1, 8, 0, 0], [0, 30, 0, 0], [2, 4, 0, 0, "flash"], [2, 4, 1, 0], [2, 60, 0, 0]],
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x2A95"
+    },
+    "TRAINERCLASS_LEADER_ERIKA": {
+      "pic": "leader_erika",
+      "frames": {
+        "3": {"flip": true}
+      },
+      "anims": [
+        [[1, 4], "loop"],
+        [[0, 8, 1, 0], [0, 8, 2, 0], [0, 8, 3, 0], [1, 8, 2, 0], [1, 8, 1, 0], [1, 20, 0, 0], [2, 30, 0, 0], [1, 40, 0, 0]],
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xC48B"
+    },
+    "TRAINERCLASS_LEADER_JANINE": {
+      "pic": "leader_janine",
+      "frames": {
+        "0": {"offset": [-16, 0]}
+      },
+      "anims": [
+        [[2, 4], "loop"],
+        [[1, 4, 2, 0], [1, 4, 4, 0], [1, 6, 8, 0], [1, 8, 10, 0], [1, 2, 12, 0], [1, 2, 4, 0], [1, 0, 0, 0], [1, 0, 0, 0], [2, 0, 2, 0], [2, 60, 2, 0, "flash"]],
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x1390"
+    },
+    "TRAINERCLASS_LEADER_SABRINA": {
+      "pic": "leader_sabrina",
+      "anims": [
+        [[1, 8], "loop"],
+        [[1, 40, 0, 0], [0, 4, 0, 2], [0, 4, 0, 1], [0, 30, 0, 0], [2, 60, 0, 0, "flash"]]
+      ],
+      "flat_key": "0x526E"
+    },
+    "TRAINERCLASS_LEADER_BLAINE": {
+      "pic": "leader_blaine",
+      "anims": [
+        [[0, 4], "loop"],
+        [[0, 30], [1, 20, "flash"], [2, 60], [0, 40]]
+      ],
+      "flat_key": "0xD32E"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_RED": {
+      "pic": "pkmn_trainer_red",
+      "anims": [
+        [[0, 4]],
+        [[1, 60, 0, 0], [1, 8, -1, 0], [2, 4, -1, 0], [2, 4, 0, 0], [0, 4, 1, 0]],
+        [[1, 4]]
+      ],
+      "flat_key": "0x859C"
+    },
+    "TRAINERCLASS_LEADER_BLUE": {
+      "pic": "leader_blue",
+      "anims": [
+        [[0, 4], "loop"],
+        [[0, 24, 0, 0], [1, 24, 0, 0], [0, 24, 0, 0], [1, 24, 0, 0], [0, 40, 0, 0], [0, 4, 2, 0], [0, 4, 4, 0], [0, 4, 6, 0], [2, 8, 2, 0, "flash"], [2, 8, 1, 0], [2, 30, 0, 0]]
+      ],
+      "flat_key": "0x9AF5"
+    },
+    "TRAINERCLASS_ELDER": {
+      "pic": "elder",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xEE5B"
+    },
+    "TRAINERCLASS_ELITE_FOUR_BRUNO": {
+      "pic": "elite_four_bruno",
+      "anims": [
+        [[0, 4]],
+        [[2, 20, 0, 0], [1, 8, 1, 0], [1, 4, 2, 0], [1, 12, 3, 0], [1, 4, 1, 0], [1, 0, 0, 0], [0, 2, -2, 0, "flash"], [0, 2, 0, 0], [0, 2, 2, 0], [0, 2, 0, 0], [0, 2, -2, 0], [0, 2, 0, 0], [0, 2, 1, 0], [0, 2, 0, 0], [0, 2, -1, 0], [0, 2, 0, 0], [0, 2, 1, 0], [0, 30, 0, 0]],
+        [[2, 4]]
+      ],
+      "flat_key": "0x65B7"
+    },
+    "TRAINERCLASS_SCIENTIST_GS": {
+      "pic": "scientist_gs",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xBC5E"
+    },
+    "TRAINERCLASS_EXECUTIVE_ARIANA": {
+      "pic": "executive_ariana",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xC8EF"
+    },
+    "TRAINERCLASS_BOARDER": {
+      "pic": "boarder",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xE57C"
+    },
+    "TRAINERCLASS_EXECUTIVE_ARCHER": {
+      "pic": "executive_archer",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x9DB6"
+    },
+    "TRAINERCLASS_EXECUTIVE_PROTON": {
+      "pic": "executive_proton",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xC1C8"
+    },
+    "TRAINERCLASS_EXECUTIVE_PETREL": {
+      "pic": "executive_petrel",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xA795"
+    },
+    "TRAINERCLASS_PASSERBY": {
+      "pic": "passerby",
+      "anims": [
+        [[2, 4]],
+        [[0, 30, 0, 0], [0, 6, 1, 0], [1, 20, 1, 0], [1, 8, 2, 0], [1, 4, 0, 0], [2, 40, 0, 0]],
+        [[0, 4]]
+      ],
+      "flat_key": "0x3225"
+    },
+    "TRAINERCLASS_MYSTERY_MAN": {
+      "pic": "mystery_man",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xA3C1"
+    },
+    "TRAINERCLASS_DOUBLE_TEAM": {
+      "pic": "double_team",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0x6A95"
+    },
+    "TRAINERCLASS_YOUNG_COUPLE": {
+      "pic": "young_couple",
+      "anims": [
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xE5BD"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_LANCE": {
+      "pic": "pkmn_trainer_lance",
+      "frames": {
+        "1": {"offset": [-8, 0]},
+        "2": {"offset": [-10, 0]},
+        "4": {"offset": [3, 0]},
+        "5": {"offset": [4, 0]},
+        "6": {"offset": [5, 0]},
+        "7": {"offset": [6, 0]}
+      },
+      "anims": [
+        [[0, 4]],
+        [[0, 2], [1, 6], [2, 10], [3, 6], [4, 2], [5, 4], [6, 2], [7, 44], [0, 2]]
+      ],
+      "flat_key": "0x8D90"
+    },
+    "TRAINERCLASS_ROCKET_BOSS": {
+      "pic": "rocket_boss",
+      "anims": [
+        [[2, 4], "loop"],
+        [[0, 60], [1, 60, "flash"], [2, 40]],
+        [[0, 4], "loop"]
+      ],
+      "flat_key": "0xAFEA"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_LUCAS_DP": {
+      "pic": "pkmn_trainer_lucas_dp",
+      "anims": [
+        [[0, 40], "loop"]
+      ],
+      "flat_key": "0x07D5"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_DAWN_DP": {
+      "pic": "pkmn_trainer_dawn_dp",
+      "anims": [
+        [[0, 40], "loop"]
+      ],
+      "flat_key": "0x4A33"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_LUCAS_PT": {
+      "pic": "pkmn_trainer_lucas_pt",
+      "anims": [
+        [[0, 40], "loop"]
+      ],
+      "flat_key": "0x17A5"
+    },
+    "TRAINERCLASS_PKMN_TRAINER_DAWN_PT": {
+      "pic": "pkmn_trainer_dawn_pt",
+      "anims": [
+        [[0, 40], "loop"]
+      ],
+      "flat_key": "0x47F6"
+    }
+  }
+}
