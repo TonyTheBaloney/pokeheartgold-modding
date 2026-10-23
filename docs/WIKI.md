@@ -110,6 +110,12 @@ the command, if there is one. Commands run from the repository root;
 | why the map files are laid out this way | [modding/DESIGN.md](modding/DESIGN.md), [CHANGE-0001](gen4map/CHANGE-0001-maps-as-files.md), [CHANGE-0002](gen4map/CHANGE-0002-terrain-authoring.md) |
 | plans for a standalone Gen 4 tool | [gen4map/ROADMAP.md](gen4map/ROADMAP.md) |
 
+## Ideas (not built)
+
+| Idea | Notes |
+|---|---|
+| shiny colors for Pokémon icons; shiny and IVs on the naming screen | [ideas/shiny-icons.md](ideas/shiny-icons.md) |
+
 ## Not documented yet
 
 Compared with what the pokeemerald wiki and pret tooling cover, these have no
