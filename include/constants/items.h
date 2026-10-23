@@ -11,6 +11,47 @@
 #define POCKET_KEY_ITEMS    7
 #define POCKETS_COUNT       8
 
+// [AI-GENERATED / LOCAL ONLY / DO NOT UPSTREAM] claude-opus-5-5, 2026-10-22
+// ItemData.fieldUseFunc: what using the item from the bag does; an index into
+// sItemFieldUseFuncs (src/field_use_item.c). The bag offers "Use" only for values
+// other than NONE.
+#define ITEM_FIELD_USE_NONE          0
+#define ITEM_FIELD_USE_HEALING       1  // potions, status heals, vitamins...: pick a Pokémon
+#define ITEM_FIELD_USE_TOWN_MAP      2  // "can't use" message (Sinnoh leftover)
+#define ITEM_FIELD_USE_UNUSED_3      3
+#define ITEM_FIELD_USE_BICYCLE       4
+#define ITEM_FIELD_USE_JOURNAL       5  // "can't use"
+#define ITEM_FIELD_USE_TMHM          6
+#define ITEM_FIELD_USE_MAIL          7
+#define ITEM_FIELD_USE_BERRY         8
+#define ITEM_FIELD_USE_POFFIN_CASE   9  // "can't use"
+#define ITEM_FIELD_USE_PAL_PAD       10
+#define ITEM_FIELD_USE_POKE_RADAR    11 // "can't use"
+#define ITEM_FIELD_USE_SPRAYDUCK     12 // "can't use"
+#define ITEM_FIELD_USE_UNUSED_13     13
+#define ITEM_FIELD_USE_HONEY         14
+#define ITEM_FIELD_USE_VS_SEEKER     15 // "can't use"
+#define ITEM_FIELD_USE_OLD_ROD       16
+#define ITEM_FIELD_USE_GOOD_ROD      17
+#define ITEM_FIELD_USE_SUPER_ROD     18
+#define ITEM_FIELD_USE_GENERIC       19 // repels, flutes, cases: ItemFieldUseFunc_Generic
+#define ITEM_FIELD_USE_EVO_STONE     20
+#define ITEM_FIELD_USE_ESCAPE_ROPE   21
+#define ITEM_FIELD_USE_AZURE_FLUTE   22 // "can't use"
+#define ITEM_FIELD_USE_APRICORN_BOX  23
+#define ITEM_FIELD_USE_BERRY_POTS    24
+#define ITEM_FIELD_USE_UNOWN_REPORT  25
+#define ITEM_FIELD_USE_DOWSING_MCHN  26
+#define ITEM_FIELD_USE_GB_SOUNDS     27
+#define ITEM_FIELD_USE_GRACIDEA      28
+#define ITEM_FIELD_USE_VS_RECORDER   29
+
+// ItemData.battleUseFunc: what using the item in battle does (src/battle/battle_bag_menu.c)
+#define ITEM_BATTLE_USE_NONE    0
+#define ITEM_BATTLE_USE_BALL    1
+#define ITEM_BATTLE_USE_RESTORE 2 // on a Pokémon: HP, PP, status, stat stages
+#define ITEM_BATTLE_USE_ESCAPE  3 // Poké Doll, Fluffy Tail: flee a wild battle (works under Embargo)
+
 // Where the item will be listed in the battle bag
 // Encoded in a bitfield in item_data.narc
 #define BTLPOCKET_BALLS_F          (1 << 0)

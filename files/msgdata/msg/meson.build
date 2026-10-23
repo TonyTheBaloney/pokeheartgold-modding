@@ -16,8 +16,9 @@ text_bank_consts = fs.read(text_banks_txt).splitlines()
 text_bank_files = []
 foreach text_bank : text_bank_consts
     text_bank_name = (text_bank.replace('NARC_msg_', '').replace('_bin', '') + '.json')
-    if not generated_text_banks.contains(text_bank_name) and not maps_text_bank_names.contains(text_bank_name)
+    if not generated_text_banks.contains(text_bank_name) and not maps_text_bank_names.contains(text_bank_name) and not item_text_bank_names.contains(text_bank_name)
         text_bank_files += files(text_bank_name)
     endif
 endforeach
 text_bank_files += maps_text_banks  # banks that live in data/maps/<MapName>/text.json
+text_bank_files += item_text_banks  # item names and descriptions, from data/items/items.json

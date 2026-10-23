@@ -137,8 +137,10 @@ pokedata_depends = files('tools/pokedata/pokedata.py', 'include/constants/specie
     'include/constants/pokemon.h', 'include/pokemon.h', 'include/constants/daycare.h',
     'include/constants/move_effects.h')
 subdir('data/maps')
+subdir('data/items')
 subdir('files')
 naix_headers += maps_headers
+naix_headers += items_header
 
 ############################################################
 ###                     ARM9 BINARY                      ###

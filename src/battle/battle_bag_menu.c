@@ -505,7 +505,7 @@ static int BattleBagMenu_TryUseItem(BattleBagMenu *menu) {
     if (menu->pocket == BTLPOCKETLIST_BATTLE_ITEMS) {
         slot = BattleBagMenu_GetBattlerSelectedMonIndex(menu);
         battleUseFunc = GetItemAttr(context->selectedItem, ITEMATTR_BATTLEUSEFUNC, context->heapID);
-        if (context->embargo && context->selectedItem != ITEM_GUARD_SPEC_ && battleUseFunc != 3) {
+        if (context->embargo && context->selectedItem != ITEM_GUARD_SPEC_ && battleUseFunc != ITEM_BATTLE_USE_ESCAPE) {
             mon = BattleSystem_GetPartyMon(context->battleSystem, context->battlerId, slot);
             string = NewString_ReadMsgData(menu->msgData, msg_0005_00046);
             BufferBoxMonNickname(menu->msgFormat, 0, Mon_GetBoxMon(mon));
@@ -520,7 +520,7 @@ static int BattleBagMenu_TryUseItem(BattleBagMenu *menu) {
             BattleBagMenu_ConsumeItem(context->battleSystem, context->selectedItem, menu->pocket, context->heapID);
             return BATTLE_BAG_STATE_FADE_OUT;
         }
-        if (battleUseFunc == 3) {
+        if (battleUseFunc == ITEM_BATTLE_USE_ESCAPE) {
             if (!(BattleSystem_GetBattleType(context->battleSystem) & BATTLE_TYPE_TRAINER)) {
                 BattleBagMenu_ConsumeItem(context->battleSystem, context->selectedItem, menu->pocket, context->heapID);
                 return BATTLE_BAG_STATE_FADE_OUT;
