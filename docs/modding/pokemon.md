@@ -148,7 +148,7 @@ in `zukan_data.json`. Change both.
 
 `pms.narc`
 (base species for eggs), `performance.narc` (Pokéathlon stats),
-`johtozukan.narc`, `height*.narc`, cries in `files/data/sound/gs_sound_data.sdat`.
+`johtozukan.narc`, `height*.narc`, cries in the sound archive (`sound/`, see [music.md](music.md)).
 
 ## Species facts hard-coded in C
 

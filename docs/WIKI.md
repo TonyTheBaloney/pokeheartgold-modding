@@ -61,6 +61,16 @@ the command, if there is one. Commands run from the repository root;
 | change a leader's reward, entry gate or puzzle | [gyms.md](modding/gyms.md#summary) | |
 | require badges for a gate | [gyms.md](modding/gyms.md#changing-gyms) | `checkbadge`, `countbadges` |
 
+## Music and sound
+
+| I want to... | Guide | Command |
+|---|---|---|
+| change a map's music | [music.md](modding/music.md#changing-which-music-plays) | edit `music_day` / `music_night` in `map.json` |
+| add a song from a MIDI | [music.md](modding/music.md#adding-a-song) | `python3 tools/sound/sdat.py header sound/sound_data.json include/constants/sndseq.h` |
+| add instruments from WAV samples | [music.md](modding/music.md#new-instruments) | |
+| see or hear a game song or sample | [music.md](modding/music.md#whats-in-sound) | `sseq.py to-midi`, `swar.py extract` |
+| check the sound tools | [music.md](modding/music.md#the-tools) | `python3 tools/sound/test_sound.py` |
+
 ## Trainers and battles
 
 | I want to... | Guide | Command |
@@ -142,7 +152,6 @@ guide here yet, in rough order of how often a hack needs them:
 | **New game**: start location, starting flags, starter choice | code only (`src/choose_starter.c`) | "Modifying the start location", "Change starter Pokémon" |
 | **Graphics in general**: NCGR/NCLR/NCER, overworld sprites, battle backgrounds | `tools/nitrogfx` exists, no guide | sprite, tileset and battle background guides |
 | **Area textures**: add textures for terrain | binary NSBTX; needs a writer | tileset PNGs (`tiles.png`, palettes) |
-| **Music and sound** (SDAT) | binary `gs_sound_data.sdat` | m4a / Porydaw guides |
 | **Battle scripts and move animations** | battle scripts are text (`files/battledata/script`), animations binary | battle script and animation guides |
 | **Map sections, fly points, Town Map** | not listed | "New mapsec / map popup" |
 | **Debugging**: printf, breakpoints, a debug menu | not covered | "Add a debug menu", "Debugging using printf / gdb" |

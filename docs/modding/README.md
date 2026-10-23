@@ -31,6 +31,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [story-progression.md](story-progression.md) | How flags and vars store progress; every story roadblock from New Game to Red, with its flag, var and script |
 | [gyms.md](gyms.md) | What badges do (HMs, obedience), each gym's leader script, entry gate, puzzle and rematch schedule |
 | [abilities.md](abilities.md) | Adding an ability: constant, names and descriptions, species, where each kind of effect is coded in battle, messages and battle scripts |
+| [music.md](music.md) | Music and sound: `sound/` (the sound archive as files), changing music, adding songs from MIDI and instruments from WAV |
 
 ## Building a modified ROM
 
@@ -71,3 +72,4 @@ passes on that commit so you know any later mismatch comes from your edit.
 | Trainer classes | in C and text (`trainer_class.h`, `msg_0730.json`, ...; [trainer-classes.md](trainer-classes.md)) |
 | Trainer sprites and their animation | yes (PNG in `graphics/trainers/`, `data/trainer_graphics/*.json`; [trainer-classes.md](trainer-classes.md#trainer-sprites)) |
 | Trainers' battle text tables | **no**, binary `trtbl.narc` |
+| Music, sound effects, cries | index as text (`sound/sound_data.json`); new songs from MIDI, instruments from JSON + WAV; the game's own sequences, banks and samples stay binary but convert to MIDI / JSON / WAV ([music.md](music.md)) |
