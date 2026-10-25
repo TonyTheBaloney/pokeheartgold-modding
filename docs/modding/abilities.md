@@ -322,6 +322,7 @@ Other mechanics have their own lists. Decide whether your ability belongs in the
 
 - Neither example was tested in game, only built.
 - Where the trainer AI's script data (the code that scores moves) checks abilities;
-  `asm/trainer_ai_data.s` only holds the command table.
+  the scripts are raw bytes in `asm/trainer_ai_data.s`, not disassembled
+  ([trainers.md](trainers.md#the-ai-scripts)).
 - Whether any link or Battle Frontier code assumes 124 abilities. Nothing found by
   grep, but both players in a link battle need the same ROM anyway.

@@ -75,7 +75,12 @@ the command, if there is one. Commands run from the repository root;
 
 | I want to... | Guide | Command |
 |---|---|---|
-| change a trainer's party | [npcs-and-scripts.md](modding/npcs-and-scripts.md#trainers) | edit `files/poketool/trainer/trainers.json` |
+| change a trainer's party, levels or IVs | [trainers.md](modding/trainers.md#changing-a-party) | edit `files/poketool/trainer/trainers.json` |
+| add a trainer | [trainers.md](modding/trainers.md#adding-a-trainer) | |
+| start a trainer battle from a script | [trainers.md](modding/trainers.md#starting-a-battle) | `trainerbattle(...)`, `checkbattlewon` |
+| change rematch teams | [trainers.md](modding/trainers.md#rematches) | `sTrainerRematchSets` |
+| scale trainer levels to the player | [trainers.md](modding/trainers.md#level-scaling) | edit `CreateNPCTrainerParty` |
+| make a trainer smarter, change AI | [trainers.md](modding/trainers.md#the-ai) | `"ai_flags"` in `trainers.json` |
 | change a move's power, type, effect | [moves.md](modding/moves.md#move-data-battle_movesjson) | edit `battle_moves.json` |
 | add a move | [moves.md](modding/moves.md#adding-a-new-move) | |
 | find move special cases in C | [moves.md](modding/moves.md#moves-named-in-c) | |
@@ -149,7 +154,7 @@ guide here yet, in rough order of how often a hack needs them:
 | Topic | State in this fork | pokeemerald equivalent |
 |---|---|---|
 | **Trainer battle text** | binary (`trtbl.narc`); classes and sprites are in [trainer-classes.md](modding/trainer-classes.md) | |
-| **Level scaling** of trainers and wild Pokémon | levels are fixed (`src/trainer_data.c`, `src/field/encounter_check.c`) | "Set trainer / wild levels dynamically" |
+| **Level scaling** of wild Pokémon | levels are fixed (`src/field/encounter_check.c`); trainers: [trainers.md](modding/trainers.md#level-scaling) | "Set trainer / wild levels dynamically" |
 | **New game**: start location, starting flags, starter choice | code only (`src/choose_starter.c`) | "Modifying the start location", "Change starter Pokémon" |
 | **Graphics in general**: NCGR/NCLR/NCER, overworld sprites, battle backgrounds | `tools/nitrogfx` exists, no guide | sprite, tileset and battle background guides |
 | **Area textures**: add textures for terrain | binary NSBTX; needs a writer | tileset PNGs (`tiles.png`, palettes) |
