@@ -191,6 +191,30 @@ the command, if there is one. Commands run from the repository root;
 | redraw a battle platform | [battle-backgrounds.md](modding/battle-backgrounds.md#5-changing-a-platform) | `graphics/battle_sprites/platforms/<name>/` |
 | add a battle background or platform | [battle-backgrounds.md](modding/battle-backgrounds.md#6-adding-a-background), [platform](modding/battle-backgrounds.md#7-adding-a-platform) | |
 
+## Screens and menus
+
+General framework (applications, windows, text, sprites, input): [ui.md](modding/ui.md).
+
+| I want to... | Guide | Command |
+|---|---|---|
+| show IVs or EVs on the summary screen | [summary-screen.md](modding/summary-screen.md#4-showing-ivs-and-evs) | `PokemonSummary_PrintStats` |
+| change the nature colors on the summary screen | [summary-screen.md](modding/summary-screen.md#3-nature-colors) | `PokemonSummary_PrintStatLabel`, `gNatureStatMods` |
+| add a page or change labels on the summary screen | [summary-screen.md](modding/summary-screen.md#5-other-edits) | `msg_0302` |
+| add an option to the Options menu | [options-menu.md](modding/options-menu.md#3-worked-example-auto-run) | |
+| add a choice to an option, change text speeds or defaults | [options-menu.md](modding/options-menu.md#4-changing-existing-options) | `Options_Init` |
+| change the naming screen's keyboard | [naming-screen.md](modding/naming-screen.md#6-how-to-change-a-keyboard-page) | `sKeyboardRow_*` |
+| change a name's maximum length | [naming-screen.md](modding/naming-screen.md#7-how-to-change-the-maximum-length) | |
+| change the default player or rival names | [naming-screen.md](modding/naming-screen.md#8-how-to-change-the-default-names) | `msg_0254` |
+| skip or force the nickname prompt | [naming-screen.md](modding/naming-screen.md#9-how-to-skip-or-force-the-nickname-prompt) | |
+| add, rename, hide or reorder a start menu entry | [start-menu.md](modding/start-menu.md#4-how-to) | |
+| make a start menu entry run a script | [start-menu.md](modding/start-menu.md#worked-example-an-entry-that-runs-a-script) | |
+| add an entry to the bag's item menu | [bag.md](modding/bag.md#add-an-entry-to-the-item-menu) | `BagApp_PrepareContextMenu`, `gItemActionFuncs` |
+| change a bag pocket's size, or add a pocket | [bag.md](modding/bag.md#change-a-pockets-capacity), [pockets](modding/bag.md#add-remove-rename-or-reorder-a-pocket) | `NUM_BAG_*` |
+| open the bag from new code and read the result | [bag.md](modding/bag.md#2-opening-the-bag) | `Bag_CreateView`, `BagView_Init` |
+| change the number of PC boxes | [pc-storage.md](modding/pc-storage.md#changing-the-number-of-boxes) | `NUM_BOXES` |
+| add a box wallpaper | [pc-storage.md](modding/pc-storage.md#adding-a-wallpaper) | |
+| show more in the PC's info panel, add a PC menu entry, change release rules | [pc-storage.md](modding/pc-storage.md#4-how-tos) | |
+
 ## Game rules and save data
 
 | I want to... | Guide | Command |

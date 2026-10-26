@@ -146,8 +146,10 @@ somewhere else first; run on `files/a/0/1/4` itself it fills the repository with
 files. The members are named by number and detected type, but stay compressed if they
 were: `00064.NCGR` below starts with `0x10`.
 
-The example is the start menu's icons: `src/start_menu.c` loads tiles 64, palette 61,
-cells 62 and animation 63.
+The example is the start menu's cursor sprite (the arrow on the top screen):
+`src/start_menu.c` loads tiles 64, palette 61, cells 62 and animation 63. The
+bottom-screen menu icons are members 18-48 of the same archive, with palette 14 and
+cells/animations 16/17 (`src/field/touchscreen_menu.c`; [start-menu.md](start-menu.md)).
 
 ```bash
 cd $W

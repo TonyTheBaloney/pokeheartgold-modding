@@ -585,6 +585,10 @@ Things that go wrong:
 
 ## Where to look
 
+Guides to individual screens: [summary-screen.md](summary-screen.md),
+[options-menu.md](options-menu.md), [naming-screen.md](naming-screen.md),
+[start-menu.md](start-menu.md), [bag.md](bag.md), [pc-storage.md](pc-storage.md).
+
 | Screen | File | Shows |
 |---|---|---|
 | Options | [src/options_app.c](../../src/options_app.c) | a whole small app: windows, sprites, touch, keys |
