@@ -55,7 +55,7 @@ the same struct, and the caller frees it.
 | `isFlag982Set` | in | Pokéathlon unlocked (`PokemonSummary_IsPokeathlonUnlocked`): shows the Performance stars |
 | `menuInputStatePtr` | in | `MenuInputStateMgr` to update on B or touch; may be `NULL` |
 | `chatot` | in | Chatot's recorded cry, passed to `Chatot_PlayCryWithDelayedFallback`; 0 in most callers |
-| `exitedWithB` | out | 1 when the player left with B or the cancel button |
+| `exitedWithB` | out | 1 when the player left with B (`HandleInput`, or B while choosing a move to forget); touching the cancel button doesn't set it, and the forget-move cancel button sets 0 |
 | `selectedMoveSlot` | out | mode 2: the move slot to forget (0-3), or 4 for "don't learn" |
 | `monModified` | out | set to 1 when moves were reordered (`PokemonSummary_SwapMoves`); the PC uses it to mark the box modified |
 | `unk1A`, `unk24`, `unk2C` | | not understood; most callers fill `unk2C` from `PokemonSummary_GetDefaultUnk2C`, which returns 1 |
@@ -67,7 +67,7 @@ the same struct, and the caller frees it.
 | 0 | party menu, PC, scripts, Colosseum, Battle Frontier party select, Castle/Hall/Arcade script commands | normal: page tabs, A on the moves opens move info, moves can be reordered |
 | 1 | GTS, wireless trade, Battle Factory and Battle Hall apps, Colosseum | view only: move info opens, but A does not start a move swap and the Switch button is not drawn |
 | 2 | learning a move: party menu (TM or level up), evolution, move relearner, `PokemonSummaryScreen` script command | starts on page 1 in `POKEMON_SUMMARY_STATE_FORGET_MOVE_INPUT`; picking a move fills `selectedMoveSlot` and exits |
-| 3, 4 | no caller found | contest condition modes kept from Diamond/Pearl: page 3 (favorite flavor) and the condition update (`POKEMON_SUMMARY_STATE_UPDATE_CONDITION`, mode 4) |
+| 3, 4 | no caller found | contest condition modes kept from Diamond/Pearl; `PokemonSummary_ShowFirstPage` has no case for them, so both open on page 0. Mode 4 also starts in the condition update (`POKEMON_SUMMARY_STATE_UPDATE_CONDITION`, mode 4) |
 
 ### Pages
 
@@ -88,23 +88,23 @@ bit is clear; I found no input that reaches page 3. Eggs stay on page 0.
 
 Up/Down move to the previous/next Pokémon in the list (`PokemonSummary_ChangeMon`),
 skipping empty slots, and skipping eggs unless the current page is 0 or 3
-(`PokemonSummary_CanShowEgg`). For a list of Pokémon (not box Pokémon) the party
-icons on the bottom screen can be touched; for box Pokémon there are previous/next
+(`PokemonSummary_CanShowEgg`). For a `Party` (`monDataType = 1`) the party
+icons on the bottom screen can be touched (a plain `Pokemon` array, type 0, loads only one icon); for box Pokémon there are previous/next
 buttons instead.
 
 ### Who opens it
 
 | Caller | Where |
 |---|---|
-| Party menu from the start menu (Summary, or replacing a move) | `Task_StartMenu_HandleReturn_Pokemon`, [src/start_menu.c:814](../../src/start_menu.c#L814); the result is read in `Task_StartMenu_HandleReturn_Summary` |
+| Party menu from the start menu (Summary, or replacing a move) | `Task_StartMenu_HandleReturn_Pokemon`, [src/start_menu.c:813](../../src/start_menu.c#L813); the result is read in `Task_StartMenu_HandleReturn_Summary` |
 | Party menu in other field contexts, spin trade | `PokemonSummary_CreateArgs`, [src/launch_application.c:358](../../src/launch_application.c#L358) |
 | `PokemonSummaryScreen` script command | `ScrCmd_PokemonSummaryScreen`, [src/scrcmd_c.c:1730](../../src/scrcmd_c.c#L1730), calls `PokemonSummary_LaunchApp` or `LearnForgetMove_LaunchApp` |
 | PC | `PCBox_StartSummaryApp`, [src/application/pc_box/pc_box_ui.c:711](../../src/application/pc_box/pc_box_ui.c#L711) |
-| Evolution, move relearner | [src/evolution_scene.c](../../src/evolution_scene.c), [src/application/move_relearner/move_relearner_app.c](../../src/application/move_relearner/move_relearner_app.c) (both `monDataType = 0`) |
+| Evolution, move relearner | [src/evolution_scene.c](../../src/evolution_scene.c), [src/application/move_relearner/move_relearner_app.c](../../src/application/move_relearner/move_relearner_app.c) (both `monDataType = 0`; the relearner NPC's forget-move screen goes through `LearnForgetMove_LaunchApp` instead, [src/scrcmd_move_relearner.c](../../src/scrcmd_move_relearner.c), with `monDataType = 1`) |
 | GTS, wireless trade, Colosseum, Frontier | `src/gts/gts_avatars.c`, `src/wireless_trade_select_mon.c`, `src/colosseum.c`, `src/frontier_field_support.c`, `src/frontier/*.c`, `src/scrcmd_battle_*.c` |
 
 Box Pokémon (`monDataType = 2`) come from the PC, which passes the box's
-`BoxPokemon` array with `partyCount = MONS_PER_BOX`, and from the GTS. No battle
+`BoxPokemon` array with `partyCount = MONS_PER_BOX`, and from the GTS (`partyCount = 1`). No battle
 code opens this screen.
 
 ## 2. Structure
@@ -167,7 +167,7 @@ A page change goes through `PokemonSummary_SetPage`
 2. Sprites are hidden or shown for the new page (type icons, Pokéathlon stars,
    Shiny Leaves, ribbons).
 3. `PokemonSummary_AddPageWindows` creates the page's windows from one of three
-   template arrays ([src/pokemon_summary_text.c:143](../../src/pokemon_summary_text.c#L143)):
+   template arrays ([src/pokemon_summary_text.c:51](../../src/pokemon_summary_text.c#L51), chosen in `PokemonSummary_AddPageWindows` at line 143):
    `sPokemonSummaryInfoWindowTemplates` (page 0, 8 windows),
    `sPokemonSummaryStatsWindowTemplates` (page 1, 18),
    `sPokemonSummaryRibbonWindowTemplates` (page 2, 8).
@@ -493,7 +493,7 @@ Possible, but pages are hard-coded in many places:
 
 Page 3 has a slot in all of these but no way to reach it, and its windows and art
 belong to the condition mode; its case in `PokemonSummary_AddPageWindows` even
-sets `numPageWindows = 3` without choosing a template array. For a few extra
+sets `numPageWindows = 3` without choosing a template array, so `templates` is uninitialized there: making page 3 reachable without fixing that case crashes or draws garbage windows. For a few extra
 values, a toggle like §4 is much less work.
 
 ### Moves, ribbons, Pokéathlon

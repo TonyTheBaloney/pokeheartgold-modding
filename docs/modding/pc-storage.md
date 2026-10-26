@@ -57,8 +57,10 @@ struct PokemonStorageSystem {
 
 ### Functions
 
-All in [src/pokemon_storage_system.c](../../src/pokemon_storage_system.c). Where a
-function takes `boxno`, `-1` means the current box (`curBox`).
+All in [src/pokemon_storage_system.c](../../src/pokemon_storage_system.c). In most
+functions that take `boxno`, `-1` means the current box (`curBox`); not all:
+`PCStorage_SwapMonsInBoxByIndexPair` indexes `boxes[boxno]` directly, and
+`PCStorage_GetBoxWallpaper` / `PCStorage_SetActiveBox` assert on anything ≥ `NUM_BOXES`.
 
 | Function | Does |
 |---|---|
@@ -94,7 +96,7 @@ Wallpaper ids ([include/constants/box_wallpaper.h](../../include/constants/box_w
 | 32-39 (`WALLPAPER_HEART` … `WALLPAPER_REVIVAL`) | 8 bonus | when bit `id - 32` of `unlockedWallpapers` is set |
 
 The only thing that unlocks bonus wallpapers is Primo's password in the Violet City
-Pokémon Center: `primopasswordcheck1` (`ScrCmd_PrimoPasswordCheck1`,
+Pokémon Center: script command 498, `PrimoPasswordCheck1` (`ScrCmd_PrimoPasswordCheck1`,
 [src/scrcmd_c.c:3588](../../src/scrcmd_c.c#L3588)) decodes four Easy Chat words with
 `PrimoPassword_CheckWallpaper` ([src/field/primo_password.c](../../src/field/primo_password.c))
 and calls `PCStorage_UnlockBonusWallpaper`. The `BONUS_WALLPAPER(name)` macro gives the
@@ -107,6 +109,8 @@ bit number (`BONUS_WALLPAPER(HEART)` is 0).
 | a catch with a full party (`Task_GetPokemon`, [src/battle/battle_command.c](../../src/battle/battle_command.c)) | `PCStorage_FindFirstBoxWithEmptySlot`, makes that box current, `PCStorage_PlaceMonInBoxFirstEmptySlot` |
 | the Bug-Catching Contest ([src/overlay_bug_contest.c](../../src/overlay_bug_contest.c)) | `PCStorage_PlaceMonInFirstEmptySlotInAnyBox` |
 | Pal Park migration (`ScrCmd_MoveMigratedPokemonToPC`, [src/scrcmd_12.c](../../src/scrcmd_12.c)) | the same, asserting it fits |
+| the Pokéwalker (stroll and erase; [src/application/pokewalker/](../../src/application/pokewalker/)) | `PCStorage_FindFirstEmptySlot` |
+| the GTS (trades and taking a Pokémon back; [src/gts/gts_trade.c](../../src/gts/gts_trade.c), [gts_transaction.c](../../src/gts/gts_transaction.c)) | `PCStorage_FindFirstEmptySlot` |
 | script gifts (`givemon`) | **not** the PC: see [gift-pokemon-and-trades.md](gift-pokemon-and-trades.md) |
 
 Scripts can read the free space with `CountPCEmptySpace VAR` (`ScrCmd_CountPCEmptySpace`).
@@ -114,7 +118,8 @@ When the boxes become completely full, `FieldSystem_TryTriggerBillPCFullCall`
 ([src/gear_phone_ring_manager.c:279](../../src/gear_phone_ring_manager.c#L279)) queues
 Bill's phone call once (it needs Bill registered and `FLAG_SYS_GOT_BILL_PC_FULL_CALL`
 clear). It is tried when the PC screen closes, after wild battles
-([src/encounter.c](../../src/encounter.c)) and after migration.
+([src/encounter.c](../../src/encounter.c)), when the Bug-Catching Contest ends
+([src/field/scrcmd_pokemon_misc.c:1469](../../src/field/scrcmd_pokemon_misc.c#L1469)) and after migration.
 
 ### In the save
 
@@ -170,7 +175,8 @@ There is no "compare" mode.
 
 Nothing comes back through the args: the screen edits the party, bag and `PCStorage` in
 the save directly. On exit `PCBox_Exit` stores the box the player was looking at with
-`PCStorage_SetActiveBox`, and `PCBox_SaveMenuInputState` records whether the player was
+`PCStorage_SetActiveBox`. `PCBox_SaveMenuInputState` (called from `PCBox_State_Exit`,
+the view teardown, which also runs before every sub-app) records whether the player was
 using buttons or touch.
 
 ## 3. The screen

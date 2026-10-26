@@ -1,4 +1,4 @@
-<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-26 -->
 
 # Modding guides
 
@@ -33,6 +33,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [gift-pokemon-and-trades.md](gift-pokemon-and-trades.md) | Giving Pokémon from scripts: `givemon` (what it sets), changing it afterwards, a `givecustommon` command (IVs, nature, shiny, ball, moves, met location, eggs), `giveegg`, in-game trades (`data/npc_trades.json`, `tools/npctrade`, the scripts, adding one), loans (Kenya, Shuckie) |
 | [roamers.md](roamers.md) | Roaming Pokémon: saved data, release scripts, movement rules, encounter chance, after-battle updates, changing maps and species |
 | [wild-encounters.md](wild-encounters.md) | Grass/surf/fishing tables, headbutt, Safari, Bug Contest, roamers |
+| [encounter-mechanics.md](encounter-mechanics.md) | How encounters happen: the step roll (movement, turnarounds, rate), slots and what replaces them, Repel, Cleanse Tag and flutes, lead abilities, fishing bite chance and reeling, swarms (maps, species, daily pick), the radio, switching tables from a script |
 | [day-night-and-rtc.md](day-night-and-rtc.md) | The DS clock, the five times of day and their hours, what changes with them (lighting, music, encounters...), daily events and flags, the clock-change penalty |
 | [weather.md](weather.md) | Weather ids and what each looks like and does in battle, how a map's weather is chosen (Flash, Diamond Dust, Lake of Rage), setting it on a map or from a script, adding a weather |
 | [DESIGN.md](DESIGN.md) | Plan for per-map folders and the `mapkit` tool |
@@ -65,6 +66,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [start-menu.md](start-menu.md) | The start menu (the bottom-screen icon grid): opening it, entries per mode and their unlock checks, what each entry launches, renaming/hiding/reordering, an entry that runs a script, the touch-screen menu |
 | [bag.md](bag.md) | The bag: pockets in the save, add/take/register, opening the bag (modes, return codes), the screen (pockets, pages, item menu, toss/sell/move), adding an item-menu entry, pocket capacity, adding a pocket; the battle bag |
 | [pc-storage.md](pc-storage.md) | The PC: boxes in the save, box names and wallpapers, how the PC opens (script, modes), the box screen (states, grid, icons, info panel, action menu, release rules), changing the box count, wallpapers, info panel, menu entries |
+| [intro-title-credits.md](intro-title-credits.md) | From power-on to New Game and after the Hall of Fame: the order of screens, the opening movie, the title screen (graphics, hidden button combos), Professor Oak's speech (states, text, what it saves, default names), the credits (tables, timing); skipping the movie, title screen or Oak's speech |
 | [new-game.md](new-game.md) | What New Game sets up, the start location, starting flags/items/money/Pokémon (the `init` script), the starter choice screen and changing the starters, the rival's team by starter |
 | [story-progression.md](story-progression.md) | How flags and vars store progress; every story roadblock from New Game to Red, with its flag, var and script |
 | [gyms.md](gyms.md) | What badges do (HMs, obedience), each gym's leader script, entry gate, puzzle and rematch schedule |

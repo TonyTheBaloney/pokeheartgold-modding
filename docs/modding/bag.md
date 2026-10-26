@@ -149,7 +149,7 @@ says **which** pockets are shown, and `pocketIndex` is always a pocket id.
 | 1 | the party menu's "Item → Give" ([start_menu.c:915](../../src/start_menu.c#L915)); the PC's item mode (`PCBox_StartBagApp`, [pc_box_ui.c:762](../../src/application/pc_box/pc_box_ui.c#L762)) | all; the PC leaves out Mail (`gPCBoxBagPockets`) | pick an item to hold; no item menu |
 | 2 | a mart's "Sell" (`Task_Mart_OpenSellMenu`, [shop_menu.c:1518](../../src/overlay_03/shop_menu.c#L1518)) | all 8 | pick an item, quantity, sell |
 | 3 | `BagSelectItem` / `BagSelectItemNoResult` script commands (`Bag_LaunchApp_WithPocket`) | Items, or Berries | see below |
-| 4, 5 | nobody | | Diamond/Pearl/Platinum leftovers: only draw a Poffin box (`BagApp_DrawPoffinCountMsgBox_DPPt`) |
+| 4, 5 | nobody | | Diamond/Pearl/Platinum leftovers: draw a Poffin box (`BagApp_DrawPoffinCountMsgBox_DPPt`), then browse like mode 0, but the item menu offers only MOVE and CANCEL |
 | 6 | the Berry Pots (`BerryPots_MainSeq_StartBag`, [berry_pots.c:154](../../src/berry_pots.c#L154)) | Items (mulch) or Berries | item menu has only USE (for berries and mulch) and CANCEL |
 
 Mode 3 waits in `BAG_STATE_DEBUG_SUB_SCREEN_LAYOUT`, whose handler only reacts to

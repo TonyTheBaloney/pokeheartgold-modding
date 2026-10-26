@@ -1,4 +1,4 @@
-<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-25 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-26 -->
 
 # Roaming Pokémon
 
@@ -51,7 +51,7 @@ The block also holds things that have nothing to do with roamers. Changing its l
 breaks saves ([save-data.md](save-data.md)):
 
 - `rand[2]`: two daily random numbers. `rand[1]` picks the day's swarm
-  ([wild-encounters.md](wild-encounters.md#swarms)), and it is reseeded each day in
+  ([encounter-mechanics.md](encounter-mechanics.md#8-swarms)), and it is reseeded each day in
   [src/field_time_events.c](../../src/field_time_events.c).
 - `outbreak`: whether swarms have been enabled (`ScrCmd_EnableMassOutbreaks`).
 - `repelSteps`: the Repel step counter.

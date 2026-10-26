@@ -24,7 +24,7 @@ If you know pokeemerald:
 | Step | Where | What it does |
 |---|---|---|
 | 1 | `NewGame_InitSaveData`, [src/overlay_36.c:251](../../src/overlay_36.c#L251) | wipes the save (`Save_InitDynamicRegion`: every save chunk's init function), puts you in your room, sets ¥3000, the Magikarp length record to 56150 (3'6"), and `FLAG_UNK_960` |
-| 2 | Prof. Oak's intro, [src/oaks_speech.c](../../src/oaks_speech.c) (overlay 53) | gender and name (`OakSpeech_Exit`, line 643). The greeting depends on the DS clock (`OakSpeech_GetTimeOfDayIntroMsg`, line 1477). Text is `msg_0219` |
+| 2 | Prof. Oak's intro, [src/oaks_speech.c](../../src/oaks_speech.c) (overlay 53) | gender and name (`OakSpeech_Exit`, line 643). The greeting depends on the DS clock (`OakSpeech_GetTimeOfDayIntroMsg`, line 1477). Text is `msg_0219`. Changing or skipping it: [intro-title-credits.md](intro-title-credits.md#4-professor-oaks-speech) |
 | 3 | `InitGameStateAfterOakSpeech_Internal`, [src/overlay_36.c:180](../../src/overlay_36.c#L180) | RTC, random trainer id (32 bits: TID and SID), Safari Zone default areas, a random Union Room avatar, grows every Apricorn tree, Pokéwalker seeds, the welcome mail in the PC (below); starts the play-time counter |
 | 4 | `CallFieldTask_NewGame`, [src/field_warp_tasks.c:410](../../src/field_warp_tasks.c#L410) | runs the `init` script once (§3), then loads the map you start on |
 | 5 | `NewBark_PlayerHouse_1F` | Mom's intro and the rest of the story; see [story-progression.md](story-progression.md#story-beats) |

@@ -87,7 +87,8 @@ the 44-byte chunk `SAVE_PLAYERDATA` ([save-data.md](save-data.md)).
 
 [save-compatibility.md](save-compatibility.md#2-two-kinds-of-break): "add fields where padding
 was; never reorder". In an old save such space holds "whatever was there, usually 0. Treat 0
-as 'not set yet'", so make 0 the default of a new option.
+as 'not set yet'" ([§4](save-compatibility.md#4-free-space-inside-the-current-layout)), so make
+0 the default of a new option.
 
 Don't widen `Options` to `u32`: `PLAYERDATA` would stay 44 bytes, but `BattleRecordData`
 has `Options options;` followed by `u16 magic, crc;`, so the battle video layout would move
@@ -97,7 +98,7 @@ under saved videos. A `modOptions` field avoids that, but battles and videos don
 
 | Option | Read by |
 |---|---|
-| text speed | `Options_GetTextFrameDelay`, about 50 call sites: dialogue (`DialogBox_PrintMessage` in [src/dialog_box.c](../../src/dialog_box.c)), script messages ([src/field/scrcmd_message.c](../../src/field/scrcmd_message.c)), battle (`BattleSystem_GetTextFrameDelay`: always 1 in link battles), most apps. The raw `Options_GetTextSpeed` is only stored, never used, by the two Safari Zone apps. |
+| text speed | `Options_GetTextFrameDelay`, about 50 call sites: dialogue (`DialogBox_PrintMessage` in [src/dialog_box.c](../../src/dialog_box.c)), script messages ([src/field/scrcmd_message.c](../../src/field/scrcmd_message.c)), battle (`BattleSystem_GetTextFrameDelay`: always 1 in live link battles, not recordings), most apps. The raw `Options_GetTextSpeed` is only stored, never used, by the two Safari Zone apps. |
 | battle scene | `BattleSystem_AreBattleAnimationsOn` ([src/battle/battle_system.c:751](../../src/battle/battle_system.c#L751)); always on in live link battles |
 | battle style | `BattleSystem_GetBattleStyle`, once: the switch offer after a KO in single, non-Frontier, non-link battles ([src/battle/battle_controller_player.c:3482](../../src/battle/battle_controller_player.c#L3482)) |
 | sound | boot, and the menu's preview |
@@ -128,7 +129,7 @@ covers screen y `24 + 24*i` to `48 + 24*i`; its text goes at `i*24 + 5` in the
 | `sNumChoicesPerMenuEntry` | `{ 3, 2, 2, 2, 2, 20, 2 }` |
 | `sOptionChoiceLabelXCoords[row][choice]` | x of the **centre** of each choice's text, window pixels |
 | `sOptionsApp_ClearRectXOffsets` | where clearing the row starts before a redraw (FRAME: 16 px further left, for its wider text) |
-| `sMenuEntryBorderYCoords` | `MAIN_0` y scroll that moves the selection border to the row: `-8 - 24*row` |
+| `sMenuEntryBorderYCoords` | `MAIN_0` y scroll that moves the selection border to the row: `-8 - 24*row`, except the last (CONFIRM) entry, -156 |
 | `sActiveButtonXCoords[sprite][value]` | highlight sprite x per value, sprites 0–4 |
 | `sOptionsAppTouchscreenHitboxes` | 15 rectangles + end marker |
 | `sOptionsAppHitboxEntryValues[hitbox]` | `{ row, value }` per rectangle; on FRAME, 3 / 4 mean "carousel left / right" |
@@ -249,7 +250,8 @@ ReadMsgDataIntoString(data->msgData, sMenuEntryNameMsgIds[i], tmpString);
 data->menuEntries[i].strings[j] = NewString_ReadMsgData(data->msgData, sMenuEntryFirstChoiceMsgIds[i] + j);
 ```
 
-A row's choices must still be consecutive messages.
+A row's choices must still be consecutive messages. These tables have seven entries, so
+they compile only once §3.4 has added `MENU_ENTRY_AUTO_RUN`; build after §3.4, not here.
 
 ### 3.4 The row
 
@@ -399,9 +401,14 @@ which already forces B for the running-shoes lock. Flip B before that:
     }
 ```
 
-Held B has no other use in `field_control.c` or the bike code. Link rooms set their speed
-from `gSystem.heldKeys` in `CommPlayerManager_UpdateLocalMoveSpeed`
-([src/comm_player_sync.c](../../src/comm_player_sync.c)); add the check there too if wanted.
+The `^=` inverts B rather than adding it: with AUTO-RUN on, holding B walks. Nothing runs
+before the player has the Running Shoes, since `IsRunButtonHeld` checks them first.
+
+Held B has no other use in `field_control.c` or the bike code. Link rooms read held B
+separately: `CommPlayerManager_UpdateLocalMoveSpeed` sets the synced speed from
+`gSystem.heldKeys`, and the movement itself goes through
+`PlayerAvatar_GetMovementFromInput` with running allowed (both in
+[src/comm_player_sync.c](../../src/comm_player_sync.c)); add the check there too if wanted.
 
 Files touched: `include/options.h`, `src/options.c`, `msg_0045.json`, `src/options_app.c`,
 `files/a/0/7/2`, `src/field/field_control.c`.

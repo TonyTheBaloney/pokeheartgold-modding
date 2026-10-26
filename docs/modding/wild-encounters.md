@@ -1,8 +1,12 @@
-<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-26 -->
 
 # Wild encounters
 
 > AI-generated; not affiliated with pret. See AI.md at the repository root.
+
+How often encounters happen, Repel, the Cleanse Tag, flutes, abilities, fishing bite
+chance, swarms, the radio, and switching tables from a script:
+[encounter-mechanics.md](encounter-mechanics.md).
 
 ## Grass, surfing, Rock Smash, fishing
 
@@ -13,7 +17,8 @@ Binary layout: `EncounterData` in `include/wild_encounter.h`.
 
 ### Which table a map uses
 
-1. The map's header sets `.wildEncounterBank = ENCDATA_R29` (`src/data/map_headers.h`).
+1. The map's `data/maps/<Map>/map.json` sets `"wild_encounters": "ENCDATA_R29"`; the
+   build turns it into the header's `.wildEncounterBank`.
 2. `include/encounter_tables_narc.h` maps `ENCDATA_R29` to a position:
    `ENCDATA(_00000001)` is the table at index 1 of the `encounters` array.
 3. `ENCDATA_NA` means no wild encounters.
@@ -50,12 +55,16 @@ In `src/field/encounter_check.c`:
 | Fishing, each rod (5) | 40, 30, 15, 10, 5 |
 | Rock Smash (2) | 80, 20 |
 
-Overrides applied in the same file:
+Overrides applied in the same file
+([encounter-mechanics.md §3](encounter-mechanics.md#3-slots) has what each is worth):
 
-- Pokégear radio Hoenn/Sinnoh sound replaces grass slots 2–5 with `hoenn` / `sinnoh`.
+- During a grass swarm, `landSwarm` replaces grass slots 0–1; during a surf swarm,
+  `surfSwarm` replaces surf slot 0.
+- Pokégear radio Hoenn/Sinnoh sound replaces grass slots 2–3 with the first `hoenn` /
+  `sinnoh` species and 4–5 with the second.
 - `nightFish` replaces Good Rod slot 3 and Super Rod slot 1 at night.
 - During a fishing swarm, `fishSwarm` replaces Old Rod slot 2, Good Rod slots 0, 2, 3
-  and all Super Rod slots.
+  and all Super Rod slots (after `nightFish`).
 
 Put a species in slots 0–1 to make it common; slots 10–11 for rare.
 
@@ -63,7 +72,12 @@ Put a species in slots 0–1 to make it common; slots 10–11 for rare.
 
 Which map has today's swarm and whether it is grass, surf or fishing:
 `sSwarmMapLUT` in `src/swarm.c`. The species comes from that map's
-`landSwarm` / `surfSwarm` / `fishSwarm` in `gs_enc_data.json`.
+`landSwarm` / `surfSwarm` / `fishSwarm` in `gs_enc_data.json`. Every table has these
+keys, but only the 20 maps in `sSwarmMapLUT` use them.
+
+[encounter-mechanics.md §8](encounter-mechanics.md#8-swarms) covers how swarms are turned
+on (`enablemassoutbreaks`), how the day's swarm is picked, the full list of swarm maps and
+species, and how to choose a swarm from a script.
 
 ## Headbutt trees
 

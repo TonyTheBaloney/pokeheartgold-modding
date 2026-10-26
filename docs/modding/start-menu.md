@@ -127,8 +127,10 @@ Position 7 and 8 never correspond to an icon: the touch menu only reports icon s
 can't be chosen. They do make `numActiveButtons` larger than the number of icons.
 
 The bits are `enum StartMenuActionDisable` (`START_MENU_ACTION_DISABLE_*`). Which mask is
-used depends on the mode, checked in this order by `StartMenu_Init` and
-`StartMenu_ReopenAfterScript`:
+used depends on the mode. `StartMenu_Init` checks Safari, Bug Contest, Pal Park, the
+Battle Tower partner room, then Normal; Colosseum and Union Room have their own entry
+points (`StartMenu_InitColosseum`, `StartMenu_InitUnionRoom`), and only
+`StartMenu_ReopenAfterScript` checks them by `mapLoadType`:
 
 | Mode (checked with) | Hidden |
 |---|---|
@@ -247,7 +249,10 @@ action of the one before it.
 
 Delete its block from `StartMenu_BuildActionLists` and make its case in
 `FieldSystem_ShouldDrawStartMenuIcon` return `FALSE`. That hides it in every mode. The
-slot stays empty on the bottom screen.
+slot stays empty on the bottom screen. This only covers icons 0-6: Retire, CHAT and LOG
+are shown from the `0x8000` enabled bit in `gTouchscreenMenuIcons`
+(`TouchscreenMenu_InitIconFlags`), so clear that bit for them. The Pokégear block in
+`StartMenu_BuildActionLists` also adds LOG in the Union Room; deleting it removes both.
 
 ### Reordering
 

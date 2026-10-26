@@ -366,8 +366,18 @@ at a different name. For more names per gender, append them at the end and chang
 both the start macro and the `% 18`. For a random rival, write
 `FIRST_DEFAULT_NAME_RIVAL + (LCRandom() % n)` over a block of `n` names.
 
-The default is used only when the player leaves the field empty (or all spaces); Oak's
-intro clears `nameInputString` before showing the screen, so there is no pre-filled name.
+The default is used when the player leaves the field empty, all spaces, or unchanged
+from the text it started with (`NamingScreenApp_Exit`, line 707, see §1). In the retail
+game the player and rival fields always start empty (Oak's intro clears
+`nameInputString`; `nameplayer` and `namerival` pass no starting text), so only the
+first two cases happen. A pre-filled name the player accepts as is gets replaced by a
+random default (pre-filling one, or naming the player without the keyboard:
+[intro-title-credits.md §9](intro-title-credits.md#9-how-to-change-professor-oaks-speech)).
+
+`nameplayer` always passes gender 0 (`ScrCmd_NamePlayer`,
+[src/scrcmd_c.c:2108](../../src/scrcmd_c.c#L2108)), so a girl renamed from a script
+gets the boy icon and the boy name list. No retail script uses it; pass the player's
+gender (`PlayerProfile_GetTrainerGender`) if you add one.
 
 ## 9. How to skip or force the nickname prompt
 
