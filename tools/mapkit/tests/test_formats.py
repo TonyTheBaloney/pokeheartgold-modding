@@ -17,7 +17,7 @@ class ProjectConforms(unittest.TestCase):
     def test_whole_project(self):
         counts, problems = formats.check(ROOT)
         self.assertEqual([str(p) for p in problems], [])
-        self.assertEqual(counts, {"layouts": 288, "land data cells": 676, "maps": 540})
+        self.assertEqual(counts, {"layouts": 288, "land data cells": 676, "map texture sets": 106, "maps": 540})
 
 
 class Schemas(unittest.TestCase):

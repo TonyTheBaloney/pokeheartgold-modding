@@ -18,7 +18,8 @@ repository), so every statement can be checked. All values are little-endian;
 | Map headers | ARM9 `sMapHeaders` | `map.json` header | `tools/mapkit/mapkit/layout.py` (`gen-header`) |
 | Area headers | `a/0/4/2` | (not yet) | `tools/mapeditor/mapeditor/terrain.py` reads it |
 | Area prop lists | `a/0/4/3` | (not yet) | |
-| Map textures, prop textures | `a/0/4/4`, `a/0/7/0` | (binary NSBTX) | `tools/mapkit/mapkit/nitro.py` |
+| Map textures | `a/0/4/4` | `data/area_textures/NNN/` (1.2) | `tools/mapkit/mapkit/areatex.py`, `nsbtx.py` |
+| Prop textures | `a/0/7/0` | (binary NSBTX) | `tools/mapkit/mapkit/nitro.py`; `nsbtx.py` writes them |
 | Prop models | `a/1/4/8` (rooms), `a/0/4/0` (field) | (binary NSBMD) | `nitro.py` |
 
 ## 1. NARC archives

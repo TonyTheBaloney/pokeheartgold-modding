@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gen4map/textures.schema.json",
+  "title": "Gen 4 map texture set (textures.json), format 1.2",
+  "description": "One NSBTX of the map texture archive: its textures and palettes in file order. Each texture is textures/<name>.png, each palette palettes/<name>.pal.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "textures",
+    "palettes"
+  ],
+  "properties": {
+    "textures": {
+      "type": "array",
+      "maxItems": 255,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "format"
+        ],
+        "properties": {
+          "name": {
+            "$ref": "#/$defs/name"
+          },
+          "format": {
+            "enum": [
+              "palette4",
+              "palette16",
+              "palette256",
+              "a3i5",
+              "a5i3"
+            ]
+          },
+          "transparent": {
+            "type": "boolean",
+            "description": "color 0 is see-through (palette formats); absent means false"
+          },
+          "palette": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/name"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "the palette terrain draws this texture with; only for showing the PNG's colors"
+          }
+        }
+      }
+    },
+    "palettes": {
+      "type": "array",
+      "maxItems": 255,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "$ref": "#/$defs/name"
+          },
+          "four_color": {
+            "type": "boolean",
+            "description": "a palette for palette4 textures (4 colors); absent means false"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "name": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,16}$"
+    }
+  }
+}

@@ -11,7 +11,7 @@ import unittest
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 sys.path.insert(0, os.path.join(ROOT, "tools/mapkit"))
 
-from mapkit import landdata, layouts, nitro  # noqa: E402
+from mapkit import areatex, landdata, layouts, nitro  # noqa: E402
 
 
 def narc(rel):
@@ -45,7 +45,7 @@ class Models(unittest.TestCase):
         self.assertGreater(max(xs) - min(xs), 500)
         # every texture the model names is in Cherrygrove's area texture set (area 2 -> set 2)
         _prop, tex_id, _anim, _kind, _light = struct.unpack("<HHHBB", narc("files/a/0/4/2")[2])
-        texset = nitro.load_nsbtx(narc("files/a/0/4/4")[tex_id])
+        texset = areatex.texture_set(ROOT, tex_id)
         names = {m.texture for m in model.materials if m.texture}
         self.assertTrue(names)
         self.assertEqual(names - set(texset.textures), set())
@@ -60,16 +60,14 @@ class Models(unittest.TestCase):
 class Textures(unittest.TestCase):
     def test_every_texture_decodes(self):
         formats = collections.Counter()
-        for rel in ("files/a/0/4/4", "files/a/0/7/0"):
-            for data in narc(rel):
-                if data[:4] != b"BTX0":
-                    continue
-                ts = nitro.load_nsbtx(data)
-                for name, t in ts.textures.items():
-                    pal = next(iter(ts.palettes.values()), [])
-                    rgba = t.decode(pal)
-                    self.assertEqual(len(rgba), t.width * t.height * 4, name)
-                    formats[t.format] += 1
+        sets = [areatex.texture_set(ROOT, i) for i in range(len(areatex.set_dirs(ROOT)))]
+        sets += [nitro.load_nsbtx(d) for d in narc("files/a/0/7/0") if d[:4] == b"BTX0"]
+        for ts in sets:
+            for name, t in ts.textures.items():
+                pal = next(iter(ts.palettes.values()), [])
+                rgba = t.decode(pal)
+                self.assertEqual(len(rgba), t.width * t.height * 4, name)
+                formats[t.format] += 1
         # A3I5, 4-, 16- and 256-color and A5I3 occur (no 4x4-compressed in these sets; test_formats covers it)
         for fmt in (1, 2, 3, 4, 6):
             self.assertIn(fmt, formats, nitro.FMT_NAMES[fmt])

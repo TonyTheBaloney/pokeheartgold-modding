@@ -1,0 +1,27 @@
+{"textures": [
+  {"name": "ha_j_kabe1", "format": "palette16", "palette": "ha_j_kabe1_pl"},
+  {"name": "ha_j_kabe2", "format": "palette16", "palette": "ha_j_kabe2_pl"},
+  {"name": "ha_j_kabe3", "format": "palette16", "palette": "ha_j_kabe3_pl"},
+  {"name": "ha_j_kage", "format": "a5i3", "palette": "ha_j_kage_pl"},
+  {"name": "ha_j_kaidan", "format": "palette16", "palette": "ha_j_kaidan_pl"},
+  {"name": "ha_j_mark", "format": "palette16", "transparent": true, "palette": "ha_j_mark_pl"},
+  {"name": "ha_j_obj1", "format": "palette16", "transparent": true, "palette": "ha_j_obj1_pl"},
+  {"name": "ha_j_obj2", "format": "palette16", "palette": "ha_j_obj2_pl"},
+  {"name": "ha_j_obj3", "format": "palette16", "transparent": true, "palette": "ha_j_obj3_pl"},
+  {"name": "ha_j_obj4", "format": "palette16", "palette": "ha_j_obj4_pl"},
+  {"name": "ha_j_yuka1", "format": "palette16", "palette": "ha_j_yuka1_pl"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "ha_j_kabe1_pl"},
+  {"name": "ha_j_kabe2_pl"},
+  {"name": "ha_j_kabe3_pl"},
+  {"name": "ha_j_kage_pl"},
+  {"name": "ha_j_kaidan_pl"},
+  {"name": "ha_j_mark_pl"},
+  {"name": "ha_j_obj1_pl"},
+  {"name": "ha_j_obj2_pl"},
+  {"name": "ha_j_obj3_pl"},
+  {"name": "ha_j_obj4_pl"},
+  {"name": "ha_j_yuka1_pl"},
+  {"name": "cliff01"}
+]}

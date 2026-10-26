@@ -8,7 +8,7 @@ import re
 import sys
 
 from . import events as ev_mod
-from . import bdhc, edit, landdata, layout, layouts, nitro, scripts, sprites, terrain, wild
+from . import areatex, bdhc, edit, landdata, layout, layouts, nitro, nsbtx, scripts, sprites, terrain, wild
 from .matrix import CELL_SIZE
 from .repo import Repo, VERSIONS
 from .validate import ERROR, INFO, WARNING, Validator
@@ -290,6 +290,13 @@ def cmd_format_check(repo, args):
     print("%s; %d problem%s (gen4map %s)" % (", ".join("%d %s" % (n, k) for k, n in counts.items()),
                                           len(problems), "" if len(problems) == 1 else "s", formats.SUPPORTED_MAJOR))
     return 1 if problems else 0
+
+
+def cmd_areatex_add(repo, args):
+    e = areatex.add(repo.root, args.set, args.png, args.name, args.palette, args.format, args.transparent)
+    print("set %03d: texture %s (%s%s), palette %s" % (args.set, e["name"], e["format"],
+                                                        ", transparent" if e.get("transparent") else "", e["palette"]))
+    return 0
 
 
 def cmd_terrain_export(repo, args):
@@ -649,6 +656,30 @@ def main(argv=None):
     p = lds.add_parser("files", help="(used by the build) list every source file")
     p.set_defaults(func=lambda repo, a: print("\n".join(landdata.file_list(repo.root))) or 0)
 
+    atx = sub.add_parser("areatex", help="map textures in data/area_textures (docs/modding/area-textures.md)")
+    ats = atx.add_subparsers(dest="action", required=True)
+    p = ats.add_parser("migrate", help="one-time: files/a/0/4/4 -> data/area_textures (ROM unchanged)")
+    p.set_defaults(func=lambda repo, a: print("%d texture sets" % areatex.migrate(repo.root)) or 0)
+    p = ats.add_parser("pack", help="(used by the build)")
+    p.add_argument("out")
+    p.add_argument("--depfile", help="also write a make-style list of the files read")
+    p.set_defaults(func=lambda repo, a: areatex.pack(repo.root, a.out, a.depfile) or 0)
+    p = ats.add_parser("list", help="a set's textures, formats, sizes and bytes")
+    p.add_argument("set", type=int)
+    p.set_defaults(func=lambda repo, a: print(areatex.listing(repo.root, a.set)) or 0)
+    p = ats.add_parser("add", help="add a texture to a set from an indexed PNG")
+    p.add_argument("set", type=int); p.add_argument("png")
+    p.add_argument("--name", help="texture name (default: the PNG's file name); at most 16 characters")
+    p.add_argument("--palette", help="use this palette of the set instead of making one from the PNG")
+    p.add_argument("--format", choices=["palette4", "palette16", "palette256"],
+                   help="default: the fewest bits that hold the PNG's colors")
+    p.add_argument("--transparent", action="store_true", default=None, help="color 0 is see-through")
+    p.add_argument("--opaque", dest="transparent", action="store_false", help="color 0 is drawn")
+    p.set_defaults(func=cmd_areatex_add)
+    p = ats.add_parser("color", help="redraw PNG colors from their palettes (after editing a .pal)")
+    p.add_argument("set", type=int, nargs="?")
+    p.set_defaults(func=lambda repo, a: print("%d textures" % areatex.color(repo.root, a.set)) or 0)
+
     ter = sub.add_parser("terrain", help="3D terrain models and heights of land data cells (docs/modding/terrain.md)")
     ts_ = ter.add_subparsers(dest="action", required=True)
     p = ts_.add_parser("export", help="write a cell's model, textures and heights as OBJ/MTL/PNG")
@@ -722,6 +753,6 @@ def main(argv=None):
     try:
         return args.func(repo, args)
     except (layouts.LayoutError, landdata.LandDataError, terrain.TerrainError, bdhc.BdhcError,
-            nitro.NitroError, sprites.SpriteError) as e:
+            nitro.NitroError, sprites.SpriteError, areatex.AreaTexError, nsbtx.NsbtxError) as e:
         print("error: %s" % e, file=sys.stderr)
         return 1

@@ -1,0 +1,29 @@
+{"textures": [
+  {"name": "h_kage", "format": "palette4", "palette": "h_kage_pl"},
+  {"name": "mg09_r01", "format": "palette4", "palette": "mg09_r01_pl"},
+  {"name": "mg09_r02", "format": "palette16", "palette": "mg09_r02_pl"},
+  {"name": "mg09_r03", "format": "palette16", "palette": "mg09_r03_pl"},
+  {"name": "mg09_r04", "format": "palette4", "palette": "mg09_r04_pl"},
+  {"name": "mg09_r05", "format": "palette16", "transparent": true, "palette": "mg09_r05_pl"},
+  {"name": "mg09_r06", "format": "palette4", "palette": "mg09_r06_pl"},
+  {"name": "mg09_r07", "format": "palette16", "palette": "mg09_r07_pl"},
+  {"name": "mg09_r08", "format": "palette16", "palette": "mg09_r08_pl"},
+  {"name": "mg09_r09", "format": "palette16", "palette": "mg09_r09_pl"},
+  {"name": "mg09_r10", "format": "palette16", "palette": "mg09_r10_pl"},
+  {"name": "mg09_r11", "format": "palette4", "palette": "mg09_r11_pl"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "h_kage_pl", "four_color": true},
+  {"name": "mg09_r01_pl", "four_color": true},
+  {"name": "mg09_r02_pl"},
+  {"name": "mg09_r03_pl"},
+  {"name": "mg09_r04_pl", "four_color": true},
+  {"name": "mg09_r05_pl"},
+  {"name": "mg09_r06_pl", "four_color": true},
+  {"name": "mg09_r07_pl"},
+  {"name": "mg09_r08_pl"},
+  {"name": "mg09_r09_pl"},
+  {"name": "mg09_r10_pl"},
+  {"name": "mg09_r11_pl", "four_color": true},
+  {"name": "cliff01"}
+]}

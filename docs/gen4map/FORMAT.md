@@ -1,6 +1,6 @@
 <!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22 -->
 
-# gen4map format 1.1: maps, layouts, terrain cells, events
+# gen4map format 1.2: maps, layouts, terrain cells, map textures, events
 
 > AI-generated; not affiliated with pret. See AI.md at the repository root.
 
@@ -14,24 +14,25 @@ files map to are in [BINARY.md](BINARY.md); how the 3D data is drawn is in
 The words MUST, SHOULD and MAY are used as in RFC 2119. "Reader" is any program
 that loads these files; "writer" is any program that saves them.
 
-Status: **1.1**, describing the files in this repository on 2026-10-22. Every
+Status: **1.2**, describing the files in this repository on 2026-10-26. Every
 file conforms: `tools/mapkit/mapkit.sh format check`.
 
 | Version | Adds |
 |---|---|
 | 1.0 | maps, layouts, terrain cells, manifest |
 | 1.1 | `heights.json`, a text form of a cell's heights in place of `terrain.bdhc` (§7.3; [CHANGE-0002](CHANGE-0002-terrain-authoring.md)) |
+| 1.2 | map texture sets as PNG and palette files, `paths.area_textures` (§10; [CHANGE-0003](CHANGE-0003-area-textures.md)) |
 
 ## 1. Versioning
 
-- A project declares its format version in the manifest (§2): `"version": "1.1"`.
+- A project declares its format version in the manifest (§2): `"version": "1.2"`.
 - Minor versions only **add** optional keys or files. A 1.x reader MUST read
   1.0 files; a 1.0 reader that meets a key it doesn't know reports an error
   (keys are closed, so typos are caught) and SHOULD tell the user to update.
 - A major version changes the meaning or shape of something that exists. A
   reader MUST refuse a major version it doesn't support.
 - Machine-readable definitions: `schemas/map.schema.json`, `layout.schema.json`,
-  `props.schema.json`, `heights.schema.json`, `manifest.schema.json` (JSON Schema
+  `props.schema.json`, `heights.schema.json`, `textures.schema.json`, `manifest.schema.json` (JSON Schema
   2020-12). Where this
   text and a schema disagree, this text wins and the schema is a bug.
 
@@ -42,11 +43,12 @@ A project is a directory tree. Its root holds the manifest at `data/gen4map.json
 ```json
 {
     "format": "gen4map",
-    "version": "1.1",
+    "version": "1.2",
     "game": { "family": "HGSS", "versions": ["HEARTGOLD", "SOULSILVER"], "language": "en_US" },
     "paths": { "maps": "data/maps", "map_index": "data/maps/maps.txt",
                "layouts": "data/layouts", "layout_index": "data/layouts/layouts.txt",
-               "landdata": "data/landdata", "constants": "include/constants",
+               "landdata": "data/landdata", "area_textures": "data/area_textures",
+               "constants": "include/constants",
                "map_ids": "include/constants/maps.h",
                "tile_behaviors": "include/constants/metatile_behavior.h" },
     "binaries": { "map_matrix": "a/0/4/1", "zone_event": "a/0/3/2", "land_data": "a/0/6/5", ... },
@@ -374,3 +376,47 @@ pret/pokeplatinum or pret/pokediamond yet; checking them is the first step of
 supporting those games (ROADMAP.md). Map header fields also differ between games
 (Sinnoh has no Pokégear call or radio fields); format 1.x keeps the HGSS keys and
 a later minor version adds per-game keys.
+
+## 10. Map texture set: `<area_textures>/NNN/` (1.2)
+
+The textures and palettes terrain models are drawn with: one folder per member of
+the map texture archive (`binaries.map_textures`), `NNN` its member number in three
+digits, numbered from `000` without gaps. An area header names its set (BINARY.md
+§6); materials name textures and palettes in it (RENDERING.md §2). A project without
+`paths.area_textures` keeps the binary archive.
+
+| File | |
+|---|---|
+| `textures.json` | the set's textures and palettes in file order |
+| `textures/<name>.png` | one per texture |
+| `palettes/<name>.pal` | one per palette, JASC-PAL |
+
+```json
+{"textures": [
+  {"name": "cavekn", "format": "palette16", "transparent": true, "palette": "cavekn_pl"},
+  {"name": "sea_line02", "format": "a5i3", "palette": "sea_line02_pl"}
+], "palettes": [
+  {"name": "cavekn_pl"},
+  {"name": "grass02_pl", "four_color": true}
+]}
+```
+
+- `name`: 1 to 16 characters of `A-Z a-z 0-9 _ . -`, unique among the set's textures
+  and among its palettes; at most 255 of each.
+- `format`: `palette4`, `palette16`, `palette256`, `a3i5`, `a5i3` (NSBTX formats 2, 3,
+  4, 1, 6; RENDERING.md §4). 4×4-compressed and direct textures are not part of 1.2.
+- `transparent` (default `false`): texture bit 29, color 0 see-through.
+- `palette` (string or `null`): the palette the texture is meant to be shown with. A
+  writer of the archive MUST ignore it; a reader MAY use it to show the PNG.
+- `four_color` (default `false`): the palette's dictionary flag 1, for `palette4`
+  textures; such a palette has exactly 4 colors.
+- PNG: indexed, width and height each a power of two from 8 to 1024. A pixel's value
+  is the texel's value: the color index for the palette formats (below 4, 16, 256),
+  the whole byte (opacity in the high bits) for `a3i5` and `a5i3`. The PNG's own
+  palette is not read.
+- Palette: a JASC color `r g b` (0-255) is the RGB555 color `(r >> 3, g >> 3, b >> 3)`.
+  Writers SHOULD write `c << 3 | c >> 2` per channel so the file round-trips.
+
+The archive member is the NSBTX that RENDERING.md §10 describes, built from the lists
+in this order. Checked by `schemas/textures.schema.json` and `mapkit format check`
+(every PNG fits its format, every listed file exists and no other).

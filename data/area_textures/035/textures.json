@@ -1,0 +1,27 @@
+{"textures": [
+  {"name": "g08_lf03", "format": "palette16", "palette": "g08_lf03_pl"},
+  {"name": "mg08_r02", "format": "palette16", "palette": "mg08_r02_pl"},
+  {"name": "mg08_r03", "format": "palette16", "palette": "mg08_r03_pl"},
+  {"name": "mg08_r04", "format": "palette16", "palette": "mg08_r04_pl"},
+  {"name": "mg08_r05", "format": "palette16", "palette": "mg08_r05_pl"},
+  {"name": "mg08_r07", "format": "palette16", "palette": "mg08_r07_pl"},
+  {"name": "mg08_r09", "format": "palette16", "transparent": true, "palette": "mg08_r09_pl"},
+  {"name": "mg08_r12", "format": "palette16", "transparent": true, "palette": "mg08_r12_pl"},
+  {"name": "mg08_r13", "format": "palette4", "palette": "mg08_r13_pl"},
+  {"name": "mg08_r16", "format": "palette4", "palette": "mg08_r16_pl"},
+  {"name": "mg08_r08", "format": "palette16", "palette": "mg08_r08_pl"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "g08_lf03_pl"},
+  {"name": "mg08_r02_pl"},
+  {"name": "mg08_r03_pl"},
+  {"name": "mg08_r04_pl"},
+  {"name": "mg08_r05_pl"},
+  {"name": "mg08_r07_pl"},
+  {"name": "mg08_r09_pl"},
+  {"name": "mg08_r12_pl"},
+  {"name": "mg08_r13_pl", "four_color": true},
+  {"name": "mg08_r16_pl", "four_color": true},
+  {"name": "mg08_r08_pl"},
+  {"name": "cliff01"}
+]}

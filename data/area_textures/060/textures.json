@@ -1,0 +1,23 @@
+{"textures": [
+  {"name": "br_table", "format": "palette16", "palette": "br_table5"},
+  {"name": "chair01", "format": "palette16", "transparent": true, "palette": "chair01"},
+  {"name": "m_bf05_cpt01", "format": "palette16", "palette": "m_bf05_cpt01"},
+  {"name": "m_bf05_kabe01", "format": "palette16", "palette": "m_bf05_kabe01"},
+  {"name": "m_bf05_kabe07", "format": "palette16", "transparent": true, "palette": "kabe07"},
+  {"name": "m_bf05_light03", "format": "palette16", "transparent": true, "palette": "bf_light3"},
+  {"name": "m_bf05_yellow", "format": "palette4", "palette": "m_bf05_yellow"},
+  {"name": "m_bf05_yuka02", "format": "palette4", "palette": "m_bf05_yuka02"},
+  {"name": "plant01", "format": "palette16", "transparent": true, "palette": "plant01"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "br_table5"},
+  {"name": "chair01"},
+  {"name": "m_bf05_cpt01"},
+  {"name": "m_bf05_kabe01"},
+  {"name": "kabe07"},
+  {"name": "bf_light3"},
+  {"name": "m_bf05_yellow", "four_color": true},
+  {"name": "m_bf05_yuka02", "four_color": true},
+  {"name": "plant01"},
+  {"name": "cliff01"}
+]}

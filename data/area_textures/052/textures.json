@@ -1,0 +1,33 @@
+{"textures": [
+  {"name": "h_kage", "format": "palette4", "palette": "h_kage_pl"},
+  {"name": "t_j_fuch", "format": "palette4", "transparent": true, "palette": "t_j_fuch_pl"},
+  {"name": "t_j_hana2", "format": "palette16", "transparent": true, "palette": "t_j_hana2_pl"},
+  {"name": "t_j_hana3", "format": "palette16", "transparent": true, "palette": "t_j_hana3_pl"},
+  {"name": "t_j_kabe1", "format": "palette16", "palette": "t_j_kabe1_pl"},
+  {"name": "t_j_kabe2", "format": "palette16", "palette": "t_j_kabe2_pl"},
+  {"name": "t_j_kadan1", "format": "palette16", "palette": "t_j_kadan1_pl"},
+  {"name": "t_j_karten", "format": "palette16", "transparent": true, "palette": "t_j_karten_pl"},
+  {"name": "t_j_kuki", "format": "palette16", "transparent": true, "palette": "m_fh01_06k"},
+  {"name": "t_j_mark", "format": "palette16", "transparent": true, "palette": "t_j_mark_pl"},
+  {"name": "t_j_oku1", "format": "palette16", "palette": "t_j_oku1_pl"},
+  {"name": "t_j_slope", "format": "palette16", "palette": "t_j_slope_pl"},
+  {"name": "t_j_ueki", "format": "palette16", "transparent": true, "palette": "t_j_ueki_pl"},
+  {"name": "t_j_yuka1", "format": "palette16", "palette": "t_j_yuka1_pl"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "h_kage_pl", "four_color": true},
+  {"name": "t_j_fuch_pl", "four_color": true},
+  {"name": "t_j_hana2_pl"},
+  {"name": "t_j_hana3_pl"},
+  {"name": "t_j_kabe1_pl"},
+  {"name": "t_j_kabe2_pl"},
+  {"name": "t_j_kadan1_pl"},
+  {"name": "t_j_karten_pl"},
+  {"name": "m_fh01_06k"},
+  {"name": "t_j_mark_pl"},
+  {"name": "t_j_oku1_pl"},
+  {"name": "t_j_slope_pl"},
+  {"name": "t_j_ueki_pl"},
+  {"name": "t_j_yuka1_pl"},
+  {"name": "cliff01"}
+]}

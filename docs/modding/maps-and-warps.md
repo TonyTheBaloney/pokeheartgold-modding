@@ -202,7 +202,7 @@ Each cell's terrain is one folder, `data/landdata/NNNN/` (NNNN is the number
 
 The terrain model's textures aren't in `model.nsbmd`: they come from the map's
 area (`area_data` in `map.json` -> area header `files/a/0/4/2` -> textures in
-`files/a/0/4/4`), and props use the area's prop models and textures
+`data/area_textures/NNN/`, [area-textures.md](area-textures.md)), and props use the area's prop models and textures
 (`src/field/area_data.c`). The game loads one area at a time, the current map's,
 and draws the cells it can see with it. In outdoor layouts each cell's terrain
 is raised by its `altitudes` value × 8 units (half a tile).

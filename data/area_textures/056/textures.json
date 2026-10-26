@@ -1,0 +1,29 @@
+{"textures": [
+  {"name": "bf_symbol3", "format": "palette16", "transparent": true, "palette": "symbol"},
+  {"name": "bt_chair01", "format": "palette16", "transparent": true, "palette": "chair01"},
+  {"name": "m_tower_01", "format": "palette4", "palette": "m_tower_01"},
+  {"name": "m_tower_03", "format": "palette4", "palette": "m_tower_03"},
+  {"name": "m_tower_04", "format": "palette16", "palette": "m_tower_04"},
+  {"name": "m_tower_05", "format": "palette16", "palette": "m_tower_05"},
+  {"name": "m_tower_07", "format": "palette4", "palette": "m_tower_07"},
+  {"name": "m_tower_08", "format": "palette4", "palette": "m_tower_08"},
+  {"name": "m_tower_14", "format": "palette16", "palette": "m_tower_14"},
+  {"name": "m_tower_15", "format": "palette16", "palette": "m_tower_15"},
+  {"name": "m_tower_16", "format": "palette16", "palette": "m_tower_16"},
+  {"name": "m_tower_ele01", "format": "palette16", "transparent": true, "palette": "m_tower_ele01"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "symbol"},
+  {"name": "chair01"},
+  {"name": "m_tower_01", "four_color": true},
+  {"name": "m_tower_03", "four_color": true},
+  {"name": "m_tower_04"},
+  {"name": "m_tower_05"},
+  {"name": "m_tower_07", "four_color": true},
+  {"name": "m_tower_08", "four_color": true},
+  {"name": "m_tower_14"},
+  {"name": "m_tower_15"},
+  {"name": "m_tower_16"},
+  {"name": "m_tower_ele01"},
+  {"name": "cliff01"}
+]}

@@ -1,0 +1,25 @@
+{"textures": [
+  {"name": "r07_fl01", "format": "palette16", "palette": "r07_fl01_pl"},
+  {"name": "r07_fl02", "format": "palette16", "palette": "r07_fl02_pl"},
+  {"name": "r07_fl03", "format": "palette16", "palette": "r07_fl03_pl"},
+  {"name": "r07_fl04", "format": "palette16", "palette": "r07_fl04_pl"},
+  {"name": "r07_fl06", "format": "palette16", "palette": "r07_fl06_pl"},
+  {"name": "r07_fl07", "format": "palette16", "palette": "r07_fl07_pl"},
+  {"name": "r07_fl08", "format": "palette16", "palette": "r07_fl08_pl"},
+  {"name": "r07_rk01", "format": "palette16", "palette": "r07_rk01_pl"},
+  {"name": "r07_cs02.1", "format": "palette16", "palette": "r07_cs02.1_pl"},
+  {"name": "r07_gt01", "format": "palette4", "palette": "r07_gt01_pl"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "r07_fl01_pl"},
+  {"name": "r07_fl02_pl"},
+  {"name": "r07_fl03_pl"},
+  {"name": "r07_fl04_pl"},
+  {"name": "r07_fl06_pl"},
+  {"name": "r07_fl07_pl"},
+  {"name": "r07_fl08_pl"},
+  {"name": "r07_rk01_pl"},
+  {"name": "r07_cs02.1_pl"},
+  {"name": "r07_gt01_pl", "four_color": true},
+  {"name": "cliff01"}
+]}

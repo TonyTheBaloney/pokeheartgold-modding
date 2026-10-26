@@ -83,7 +83,7 @@ seven texture formats, node transforms, skinned envelopes, the GX display lists)
 following NitroSystem's own code in `subprojects/NitroSystem-*`. For each cell
 the editor takes `data/landdata/NNNN/model.nsbmd` with the textures of the open
 map's area (`map.json` `area_data`: area header `files/a/0/4/2`, map textures
-`files/a/0/4/4`), and each prop in `props.json` with the area's prop models
+`data/area_textures/NNN/`), and each prop in `props.json` with the area's prop models
 (`files/a/0/4/0` outdoors, `files/a/1/4/8` indoors) and prop textures
 (`files/a/0/7/0`). Like the game, every visible cell uses the open map's area, the
 terrain is raised by the layout's `altitudes` (8 units each) and props are not.

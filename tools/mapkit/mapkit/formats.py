@@ -14,7 +14,7 @@ import json
 import os
 import re
 
-from . import bdhc, landdata, layouts
+from . import areatex, bdhc, landdata, layouts
 
 FORMAT = "gen4map"
 SUPPORTED_MAJOR = 1
@@ -204,6 +204,24 @@ def check(root):
         except landdata.LandDataError as ex:
             problems.append(Problem(rel(d), str(ex)))
     counts["land data cells"] = len(chunks)
+
+    # map texture sets (1.2)
+    if "area_textures" in paths:
+        tex_schema = load_schema(root, "textures")
+        try:
+            sets = areatex.set_dirs(root)
+        except areatex.AreaTexError as ex:
+            problems.append(Problem(paths["area_textures"], str(ex)))
+            sets = []
+        for d in sets:
+            p = os.path.join(d, "textures.json")
+            doc = _json(p, problems, root)
+            if doc is not None:
+                for where, msg in validate(doc, tex_schema):
+                    problems.append(Problem(rel(p), "%s: %s" % (where, msg)))
+        for d, msg in areatex.check(root)[1]:
+            problems.append(Problem(rel(d), msg))
+        counts["map texture sets"] = len(sets)
 
     # maps
     from . import layout as maps_layout

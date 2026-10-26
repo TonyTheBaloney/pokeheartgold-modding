@@ -1,0 +1,33 @@
+{"textures": [
+  {"name": "ki_gym_f3", "format": "palette4", "palette": "ki_gym_f3"},
+  {"name": "ki_gym_f4", "format": "palette4", "palette": "ki_gym_f4"},
+  {"name": "ki_gym_f6", "format": "palette16", "palette": "ki_gym_f6"},
+  {"name": "ki_gym_fc", "format": "a5i3", "palette": "ki_gym_fc"},
+  {"name": "ki_gym_fuchi", "format": "palette16", "palette": "ki_gym_fuchi"},
+  {"name": "ki_gym_g1", "format": "palette16", "palette": "ki_gym_g1"},
+  {"name": "ki_gym_h1", "format": "palette4", "palette": "ki_gym_h1"},
+  {"name": "ki_gym_k1", "format": "palette16", "palette": "ki_gym_k1"},
+  {"name": "ki_gym_o1", "format": "palette16", "transparent": true, "palette": "ki_gym_o1"},
+  {"name": "ki_gym_p1", "format": "palette16", "palette": "ki_gym_p1"},
+  {"name": "ki_gym_p2", "format": "palette16", "palette": "ki_gym_p2"},
+  {"name": "ki_mark", "format": "palette16", "transparent": true, "palette": "ki_mark_pl"},
+  {"name": "kk_saku", "format": "palette16", "transparent": true, "palette": "kk_saku"},
+  {"name": "ky_gym_w1", "format": "palette16", "palette": "ky_gym_w1"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "ki_gym_f3", "four_color": true},
+  {"name": "ki_gym_f4", "four_color": true},
+  {"name": "ki_gym_f6"},
+  {"name": "ki_gym_fc"},
+  {"name": "ki_gym_fuchi"},
+  {"name": "ki_gym_g1"},
+  {"name": "ki_gym_h1", "four_color": true},
+  {"name": "ki_gym_k1"},
+  {"name": "ki_gym_o1"},
+  {"name": "ki_gym_p1"},
+  {"name": "ki_gym_p2"},
+  {"name": "ki_mark_pl"},
+  {"name": "kk_saku"},
+  {"name": "ky_gym_w1"},
+  {"name": "cliff01"}
+]}

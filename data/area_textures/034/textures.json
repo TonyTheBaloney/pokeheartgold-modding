@@ -1,0 +1,27 @@
+{"textures": [
+  {"name": "ch_r_fuch1", "format": "palette16", "palette": "ch_r_fuch1_pl"},
+  {"name": "ch_r_fuch2", "format": "palette16", "transparent": true, "palette": "ch_r_fuch2_pl"},
+  {"name": "ch_r_ice1", "format": "palette16", "transparent": true, "palette": "ch_r_ice1_pl"},
+  {"name": "ch_r_ice2", "format": "palette16", "transparent": true, "palette": "ch_r_ice2_pl"},
+  {"name": "ch_r_ice3", "format": "palette16", "palette": "ch_r_ice3_pl"},
+  {"name": "ch_r_mat", "format": "palette4", "palette": "ch_r_mat_pl"},
+  {"name": "ch_r_shita", "format": "palette4", "palette": "ch_r_shita_pl"},
+  {"name": "ch_r_turara", "format": "palette16", "transparent": true, "palette": "ch_r_turara_pl"},
+  {"name": "ch_r_yuka2", "format": "palette16", "palette": "ch_r_yuka2_pl"},
+  {"name": "ch_r_yogoshi", "format": "a5i3", "palette": "ch_r_yogoshi_pl"},
+  {"name": "ch_r_jim", "format": "palette4", "transparent": true, "palette": "ch_r_jim_pl"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "ch_r_fuch1_pl"},
+  {"name": "ch_r_fuch2_pl"},
+  {"name": "ch_r_ice1_pl"},
+  {"name": "ch_r_ice2_pl"},
+  {"name": "ch_r_ice3_pl"},
+  {"name": "ch_r_mat_pl", "four_color": true},
+  {"name": "ch_r_shita_pl", "four_color": true},
+  {"name": "ch_r_turara_pl"},
+  {"name": "ch_r_yuka2_pl"},
+  {"name": "ch_r_yogoshi_pl"},
+  {"name": "ch_r_jim_pl", "four_color": true},
+  {"name": "cliff01"}
+]}

@@ -1,0 +1,13 @@
+{"textures": [
+  {"name": "bf_symbol2", "format": "palette16", "transparent": true, "palette": "symbol"},
+  {"name": "flobby_kabe01", "format": "palette4", "palette": "bflobby_kabe01"},
+  {"name": "flobby_kabe02", "format": "palette4", "palette": "frobby_kabe02"},
+  {"name": "flobby_yuka01", "format": "palette4", "palette": "frobby_yuka01"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "symbol"},
+  {"name": "bflobby_kabe01", "four_color": true},
+  {"name": "frobby_kabe02", "four_color": true},
+  {"name": "frobby_yuka01", "four_color": true},
+  {"name": "cliff01"}
+]}

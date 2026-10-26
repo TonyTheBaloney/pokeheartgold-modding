@@ -1,0 +1,13 @@
+{"textures": [
+  {"name": "y_j_kabe1", "format": "palette16", "palette": "y_j_kabe1_pl"},
+  {"name": "y_j_null", "format": "palette16", "palette": "y_j_null_pl"},
+  {"name": "y_j_yuka1", "format": "palette16", "palette": "y_j_yuka1_pl"},
+  {"name": "y_j_yuka3", "format": "palette16", "palette": "y_j_yuka3_pl"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "y_j_kabe1_pl"},
+  {"name": "y_j_null_pl"},
+  {"name": "y_j_yuka1_pl"},
+  {"name": "y_j_yuka3_pl"},
+  {"name": "cliff01"}
+]}

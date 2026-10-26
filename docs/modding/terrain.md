@@ -38,7 +38,7 @@ editor's status bar shows the cell under the cursor).
 work/cherrygrove/
   model.obj        the terrain (object "terrain") and its heights (object "heights")
   model.mtl        one material per model material, with its texture
-  textures/*.png   the textures, decoded from the area's texture archive
+  textures/*.png   the textures, from the area's texture set (data/area_textures)
   terrain.json     what OBJ can't hold: per material texture, palette and drawing settings
 ```
 
@@ -58,9 +58,9 @@ Rules the game imposes:
 
 - **Textures come from the area.** A cell has no textures of its own: when the map
   loads, the game binds each material to the texture and palette **of the same
-  name** in the area's map texture archive (`map.json` `area_data` → area header
-  `files/a/0/4/2` → `files/a/0/4/4`). You can use any texture in that archive;
-  adding new textures isn't supported yet.
+  name** in the area's texture set (`map.json` `area_data` → area header
+  `files/a/0/4/2` → `data/area_textures/NNN/`). You can use any texture in that set,
+  and add new ones: [area-textures.md](area-textures.md#5-adding-a-texture).
 - **Size.** The whole `model.nsbmd` must fit in 0xF000 bytes (61,440; the game's
   map model buffer). Every retail model fits; `import` reports the size and
   refuses a model that doesn't. A flat cell of 1,024 quads uses about 0xA400.
@@ -85,7 +85,7 @@ Rules the game imposes:
 
 | Key | Meaning |
 |---|---|
-| `texture`, `palette` | names in the area's texture archive (`null`: untextured) |
+| `texture`, `palette` | names in the area's texture set (`null`: untextured) |
 | `lit` | lit by the area's lights using normals; `false`: vertex colors only (pre-lit, like most of the retail models' cliffs and roads) |
 | `alpha` | 0-31 (31 opaque) |
 | `cull` | which faces are hidden: `back` (default), `front`, `none` |
@@ -101,7 +101,9 @@ A material that isn't in `terrain.json` is worked out from the MTL:
   none).
 
 So to use another texture of the area in Blender, assign one of the exported
-PNGs, or copy and rename one; add an entry to `terrain.json` for anything else.
+PNGs, or a PNG of the set itself (`data/area_textures/NNN/textures/<texture>.png`,
+with the palette `<texture>_pl` or `<texture>`); add an entry to `terrain.json` for
+anything else. New textures go into the set first ([area-textures.md](area-textures.md)).
 
 ## Heights
 
@@ -198,8 +200,8 @@ cell 464 has the vertical plate.
 
 ## Not supported yet
 
-- New textures (adding them to an area's texture archive), and texture
-  animations (water, flowers).
+- Texture animations (water, flowers). New textures are supported:
+  [area-textures.md](area-textures.md).
 - Prop placement in the editor (edit `props.json`).
 - The meaning of a cell's `altitudes` for heights: the game draws a raised cell's
   model higher but uses its BDHC heights unchanged, and how the two agree on

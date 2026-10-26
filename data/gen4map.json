@@ -1,6 +1,6 @@
 {
     "format": "gen4map",
-    "version": "1.1",
+    "version": "1.2",
     "game": {
         "family": "HGSS",
         "versions": [
@@ -15,6 +15,7 @@
         "layouts": "data/layouts",
         "layout_index": "data/layouts/layouts.txt",
         "landdata": "data/landdata",
+        "area_textures": "data/area_textures",
         "constants": "include/constants",
         "map_ids": "include/constants/maps.h",
         "tile_behaviors": "include/constants/metatile_behavior.h"

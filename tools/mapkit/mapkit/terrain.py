@@ -10,8 +10,9 @@ with the textures of the area the cell is shown in. Import turns an OBJ back int
 model.nsbmd (nsbmd.build_terrain) and, unless told otherwise, generates the
 heights (bdhc.generate) into heights.json.
 
-Textures stay in the area's map texture archive (NARC a/0/4/4): a material names a
-texture and palette there, and the game binds them by name when the map loads.
+Textures stay in the area's map texture set (data/area_textures/NNN, built into NARC
+a/0/4/4; areatex.py): a material names a texture and palette there, and the game binds
+them by name when the map loads.
 terrain.json records, per material, the texture, palette and drawing settings that
 OBJ/MTL can't hold, so a model can go through Blender and come back unchanged.
 
@@ -25,7 +26,7 @@ import os
 import struct
 import zlib
 
-from . import bdhc, landdata, layouts, nitro, nsbmd
+from . import areatex, bdhc, landdata, layouts, nitro, nsbmd
 
 MANIFEST = "data/gen4map.json"
 
@@ -46,7 +47,7 @@ def cell_dir(root, cell):
 
 
 class Area:
-    """An area header (NARC a/0/4/2) and its map textures (a/0/4/4)."""
+    """An area header (NARC a/0/4/2) and its map textures (a/0/4/4, from data/area_textures)."""
 
     _cache = {}
 
@@ -59,8 +60,7 @@ class Area:
         self.id = area_id
         (self.prop_id, self.texture_id, self.prop_anim, self.build_model_kind,
          self.light_kind) = struct.unpack("<HHHBB", headers[area_id])
-        texs = self._narc(os.path.join(files, b["map_textures"]))
-        self.textures = nitro.load_nsbtx(texs[self.texture_id])
+        self.textures = areatex.texture_set(root, self.texture_id)   # data/area_textures
 
     @classmethod
     def _narc(cls, path):

@@ -1,0 +1,23 @@
+{"textures": [
+  {"name": "bs_kabe1", "format": "palette4", "palette": "bs_step03"},
+  {"name": "bs_kabe2", "format": "palette16", "palette": "bs_kabe02"},
+  {"name": "bs_kabe3", "format": "palette4", "palette": "bs_table01"},
+  {"name": "bs_kabe4", "format": "palette4", "palette": "bs_yuka03"},
+  {"name": "bs_kabe5", "format": "palette4", "palette": "bs_pole04"},
+  {"name": "bs_pole1", "format": "palette16", "transparent": true, "palette": "bs_pole"},
+  {"name": "bs_step", "format": "palette4", "transparent": true, "palette": "bs_pole03"},
+  {"name": "bs_yuka01", "format": "palette4", "palette": "bs_yuka01"},
+  {"name": "bs_yuka02", "format": "palette16", "palette": "bs_yuka02"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "bs_step03", "four_color": true},
+  {"name": "bs_kabe02"},
+  {"name": "bs_table01", "four_color": true},
+  {"name": "bs_yuka03", "four_color": true},
+  {"name": "bs_pole04", "four_color": true},
+  {"name": "bs_pole"},
+  {"name": "bs_pole03", "four_color": true},
+  {"name": "bs_yuka01", "four_color": true},
+  {"name": "bs_yuka02"},
+  {"name": "cliff01"}
+]}

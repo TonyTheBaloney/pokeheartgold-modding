@@ -1,0 +1,27 @@
+{"textures": [
+  {"name": "mg13_r01", "format": "palette16", "palette": "mg13_r01_pl"},
+  {"name": "mg13_r02", "format": "palette16", "palette": "mg13_r02_pl"},
+  {"name": "mg13_r03", "format": "palette16", "palette": "mg13_r03_pl"},
+  {"name": "mg13_r04", "format": "palette16", "palette": "mg13_r04_pl"},
+  {"name": "mg13_r05", "format": "palette16", "palette": "mg13_r05_pl"},
+  {"name": "mg13_r06", "format": "palette4", "palette": "mg13_r06_pl"},
+  {"name": "mg13_r07", "format": "palette16", "palette": "mg13_r07_pl"},
+  {"name": "mg13_r08", "format": "palette16", "palette": "mg13_r08_pl"},
+  {"name": "mg13_r09", "format": "a3i5", "palette": "mg13_r09_pl"},
+  {"name": "mg13_r10", "format": "palette4", "palette": "mg13_r10_pl"},
+  {"name": "mg13_r11", "format": "palette4", "palette": "mg13_r11_pl"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "mg13_r01_pl"},
+  {"name": "mg13_r02_pl"},
+  {"name": "mg13_r03_pl"},
+  {"name": "mg13_r04_pl"},
+  {"name": "mg13_r05_pl"},
+  {"name": "mg13_r06_pl", "four_color": true},
+  {"name": "mg13_r07_pl"},
+  {"name": "mg13_r08_pl"},
+  {"name": "mg13_r09_pl"},
+  {"name": "mg13_r10_pl", "four_color": true},
+  {"name": "mg13_r11_pl", "four_color": true},
+  {"name": "cliff01"}
+]}

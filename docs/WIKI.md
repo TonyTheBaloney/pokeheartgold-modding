@@ -31,6 +31,8 @@ the command, if there is one. Commands run from the repository root;
 | place props (buildings, trees) | [maps-and-warps.md](modding/maps-and-warps.md#terrain-datalanddata) | edit `props.json` |
 | change or make 3D terrain | [terrain.md](modding/terrain.md) | `mapkit terrain export` / `import` |
 | change walking heights | [terrain.md](modding/terrain.md#heights) | `mapkit heights decompile / generate / at` |
+| change a terrain texture (grass, road, water...) | [area-textures.md](modding/area-textures.md#4-changing-a-texture) | edit `data/area_textures/NNN/textures/*.png`, `palettes/*.pal` |
+| add a texture for terrain | [area-textures.md](modding/area-textures.md#5-adding-a-texture) | `mapkit areatex add SET image.png` |
 | add a new map | [adding-a-map.md](modding/adding-a-map.md) | id in `maps.h`, folder, `maps.txt` line, `map_headers.h` entry |
 | change an existing map (name, Town Map spot, layout, folder) | [adding-a-map.md](modding/adding-a-map.md#changing-a-map) | |
 | remove a map | [removing-a-map.md](modding/removing-a-map.md) | ids and banks are positions: cut it off or stub it |
@@ -224,10 +226,10 @@ the command, if there is one. Commands run from the repository root;
 
 | Topic | Document |
 |---|---|
-| the map file format (gen4map 1.1) | [gen4map/FORMAT.md](gen4map/FORMAT.md) |
+| the map file format (gen4map 1.2) | [gen4map/FORMAT.md](gen4map/FORMAT.md) |
 | what the files become in the ROM | [gen4map/BINARY.md](gen4map/BINARY.md) |
 | drawing and writing NSBMD/NSBTX | [gen4map/RENDERING.md](gen4map/RENDERING.md) |
-| why the map files are laid out this way | [modding/DESIGN.md](modding/DESIGN.md), [CHANGE-0001](gen4map/CHANGE-0001-maps-as-files.md), [CHANGE-0002](gen4map/CHANGE-0002-terrain-authoring.md) |
+| why the map files are laid out this way | [modding/DESIGN.md](modding/DESIGN.md), [CHANGE-0001](gen4map/CHANGE-0001-maps-as-files.md), [CHANGE-0002](gen4map/CHANGE-0002-terrain-authoring.md), [CHANGE-0003](gen4map/CHANGE-0003-area-textures.md) |
 | plans for a standalone Gen 4 tool | [gen4map/ROADMAP.md](gen4map/ROADMAP.md) |
 
 ## Ideas (not built)
@@ -243,6 +245,5 @@ guide here yet, in rough order of how often a hack needs them:
 
 | Topic | State in this fork | pokeemerald equivalent |
 |---|---|---|
-| **Area textures**: add textures for terrain | binary NSBTX; needs a writer | tileset PNGs (`tiles.png`, palettes) |
 | **Move animations** | binary (`files/a/0/1/0`); battle scripts are covered in [battle-engine.md](modding/battle-engine.md#5-battle-scripts) | animation guides |
 | **Map editor**: props, layout resize, object sprites | editor shows them, can't edit | Porymap |

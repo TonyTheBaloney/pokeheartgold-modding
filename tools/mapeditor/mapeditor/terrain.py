@@ -20,12 +20,12 @@ import struct
 from PySide6.QtCore import QPointF, Qt
 from PySide6.QtGui import QBrush, QColor, QImage, QPainter, QPolygonF, QTransform
 
-from mapkit import landdata, nitro
+from mapkit import areatex, landdata, nitro
 
 CELL_PX = 512
 HALF = CELL_PX / 2
 AREA_HEADERS = "files/a/0/4/2"
-MAP_TEXTURES = "files/a/0/4/4"
+MAP_TEXTURES = "data/area_textures"  # built into a/0/4/4; read through mapkit.areatex
 PROP_TEXTURES = "files/a/0/7/0"
 PROP_MODELS = {0: "files/a/1/4/8", 1: "files/a/0/4/0"}  # buildModelKind 0 = room, otherwise field
 
@@ -64,6 +64,8 @@ class TerrainRenderer:
     def _texset(self, rel, idx):
         """The NSBTX in member idx, or None: areas without prop textures have a 4-byte placeholder."""
         key = (rel, idx)
+        if key not in self._texsets and rel == MAP_TEXTURES:
+            self._texsets[key] = areatex.texture_set(self.root, idx)
         if key not in self._texsets:
             data = self._narc(rel)[idx]
             self._texsets[key] = nitro.load_nsbtx(data) if data[:4] == b"BTX0" else None

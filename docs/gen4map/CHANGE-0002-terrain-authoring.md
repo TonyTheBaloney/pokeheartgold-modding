@@ -81,7 +81,7 @@ enough that another tool can write them.
 
 ## Open questions
 
-- Adding textures to an area's NSBTX (needs an NSBTX writer and texture encoders).
+- Adding textures to an area's NSBTX: done in [CHANGE-0003](CHANGE-0003-area-textures.md).
 - Texture animations (NSBTP/NSBTA) for new water or flowers.
 - The altitude question above.
 

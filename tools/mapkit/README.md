@@ -42,6 +42,7 @@ PYTHONPATH=tools/mapkit python3 -m mapkit <command> ...
 | `sprite export SPRITE PNG` / `sprite import PNG SPRITE` / `sprite add NAME --like SPRITE_X [--png PNG]` | overworld sprites as PNG sheets and back; a new sprite with its constants, table row and file ([overworld-sprites.md](../../docs/modding/overworld-sprites.md)) |
 | `terrain export CELL DIR` / `terrain import CELL OBJ` / `terrain check [CELL...]` | a cell's model and heights as OBJ/MTL/PNG and back, game limits ([terrain.md](../../docs/modding/terrain.md)) |
 | `heights decompile/compile/show/at/generate CELL...` | a cell's BDHC heights as `heights.json`, queries, generation from the model |
+| `areatex list SET` / `areatex add SET PNG` / `areatex color [SET]` | map texture sets in `data/area_textures`: list, add a texture from an indexed PNG, refresh PNG colors ([area-textures.md](../../docs/modding/area-textures.md)) |
 
 `MAP` can be `MAP_CHERRYGROVE`, `Cherrygrove`, `cherrygrove`, the code `T21`, or the id `67`.
 
@@ -91,6 +92,8 @@ On the unmodified repo, both versions report 0 errors.
 | `bdhc.py` | BDHC heights: codec, the game's lookup, `heights.json`, generation |
 | `terrain.py` | OBJ export/import of a cell's terrain, checks |
 | `sprites.py` | overworld sprite NSBTX <-> PNG sheets (in place, same layout); adding a sprite |
+| `nsbtx.py` | NSBTX read/write (every retail map and prop texture file rebuilds byte for byte) |
+| `areatex.py` | `data/area_textures` folders <-> the map texture archive `a/0/4/4`; adding textures |
 | `cli.py` | commands |
 
 ## Tests
@@ -103,6 +106,7 @@ python3 tools/mapkit/tests/test_nsbmd.py   # every retail model rebuilds byte fo
 python3 tools/mapkit/tests/test_bdhc.py    # every BDHC round-trips; heights.json; the game's lookup; generation
 python3 tools/mapkit/tests/test_terrain.py # OBJ export -> import changes nothing
 python3 tools/mapkit/tests/test_sprites.py # every overworld sprite: PNG export -> import changes nothing
+python3 tools/mapkit/tests/test_areatex.py # map texture sets rebuild a/0/4/4; adding textures
 ```
 
 Checks the parsers against the real data (every matrix file round-trips; the

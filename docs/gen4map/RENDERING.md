@@ -29,7 +29,8 @@ visible cell with it (`src/field/area_data.c`, `map_load_manager.c`). So to draw
 a map:
 
 1. `area = map.json area_data`; read the area header (BINARY.md §6).
-2. Terrain textures: NSBTX `a/0/4/4[mapTexNarcMemberId]`. A cell's `model.nsbmd`
+2. Terrain textures: NSBTX `a/0/4/4[mapTexNarcMemberId]` (in this repository built from
+   `data/area_textures/NNN/`, FORMAT.md §10). A cell's `model.nsbmd`
    normally has no texture block of its own; if it has one, use it.
 3. Props: models from `a/1/4/8` if `buildModelKind == 0` (rooms), else
    `a/0/4/0`; member = `props.json` `model`. Textures: NSBTX
@@ -238,3 +239,27 @@ corner, which draws the same) at 97% of the original size on average; all fit
 the 0xF000 limit. Not kept: a `COLOR` that a lit vertex also sends (lit vertices
 send their normal).
 
+
+## 10. Writing textures
+
+`tools/mapkit/mapkit/nsbtx.py` reads an NSBTX into textures and palettes and writes
+it back; `write(read(f)) == f` for all 106 retail map texture sets and all 94 prop
+texture sets (`a/0/7/0`), so this is the converter's layout:
+
+- File header `BTX0`, byte order `FEFF`, version 1, one block at 0x14: `TEX0`.
+- `TEX0` header (0x3C bytes): texture info (`sizeTex` = texel bytes ≫ 3, `ofsDict`
+  0x3C, `ofsTex`), 4×4 info (empty: size 0, `ofsDict` 0x3C, both offsets = the end of
+  the texels), palette info (`sizePltt` = palette bytes ≫ 3, flag `0x8000` if any
+  palette is a 4-color one, else 0, `ofsDict`, `ofsPlttData`).
+- The texture dictionary, then the palette dictionary (trees as in §9; the header's
+  `dummy` field is 8), then the texels, then the palettes. No padding between them.
+- **Texels** in dictionary order; a texture whose bytes equal an earlier one's points at
+  that one's data instead of storing it again. `texImageParam` as in §4;
+  `extraParam` = width | height ≪ 11 | 1 ≪ 31.
+- **Palettes** in dictionary order, each padded with zeros to a multiple of 16 bytes
+  (a 4-color palette is 8 bytes of colors and 8 of zeros), identical ones stored once.
+  The dictionary entry is `u16 offset ≫ 3, u16 flag` (1 for a 4-color palette).
+  Retail palettes have 4, 8, 16 or 24 colors.
+
+Reading a palette's length: from its offset to the next palette's start (or the end of
+the block), minus the padding of a 4-color one.

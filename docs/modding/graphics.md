@@ -12,7 +12,7 @@ everything here.
 
 This page is about files. For the C side (BG layers, windows, sprites, palette slots,
 fades) see [ui.md](ui.md#4-backgrounds-and-windows). 3D models and map textures
-(NSBMD/NSBTX) are in [terrain.md](terrain.md) and
+(NSBMD/NSBTX) are in [terrain.md](terrain.md), [area-textures.md](area-textures.md) and
 [../gen4map/RENDERING.md](../gen4map/RENDERING.md).
 
 | pokeemerald | here |

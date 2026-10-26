@@ -1,0 +1,17 @@
+{"textures": [
+  {"name": "bf__table03", "format": "palette4", "palette": "m_fac_06_2"},
+  {"name": "bf_kabe", "format": "palette4", "palette": "bf_kabe"},
+  {"name": "bf_kabe03", "format": "palette16", "palette": "bf_kabe03"},
+  {"name": "bf_yuka", "format": "palette16", "palette": "factory_tex"},
+  {"name": "bf_yuka2", "format": "palette16", "palette": "factory_yuka02"},
+  {"name": "bf_yuka3", "format": "palette16", "palette": "bf_yuka02"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "m_fac_06_2", "four_color": true},
+  {"name": "bf_kabe", "four_color": true},
+  {"name": "bf_kabe03"},
+  {"name": "factory_tex"},
+  {"name": "factory_yuka02"},
+  {"name": "bf_yuka02"},
+  {"name": "cliff01"}
+]}

@@ -1,0 +1,23 @@
+{"textures": [
+  {"name": "to_j_i1", "format": "palette16", "palette": "to_j_i1_pl"},
+  {"name": "to_j_i2", "format": "palette16", "palette": "to_j_i2_pl"},
+  {"name": "to_j_i3", "format": "palette16", "palette": "to_j_i3_pl"},
+  {"name": "to_j_i4", "format": "palette16", "palette": "to_j_i4_pl"},
+  {"name": "to_j_kabe1", "format": "palette16", "palette": "to_j_kabe1_pl"},
+  {"name": "to_j_mark", "format": "palette16", "transparent": true, "palette": "to_j_mark_pl"},
+  {"name": "to_j_yuka1", "format": "palette16", "palette": "to_j_yuka1_pl"},
+  {"name": "to_j_yuka2", "format": "palette16", "palette": "to_j_yuka2_pl"},
+  {"name": "to_slope", "format": "palette16", "palette": "to_slope_pl"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null}
+], "palettes": [
+  {"name": "to_j_i1_pl"},
+  {"name": "to_j_i2_pl"},
+  {"name": "to_j_i3_pl"},
+  {"name": "to_j_i4_pl"},
+  {"name": "to_j_kabe1_pl"},
+  {"name": "to_j_mark_pl"},
+  {"name": "to_j_yuka1_pl"},
+  {"name": "to_j_yuka2_pl"},
+  {"name": "to_slope_pl"},
+  {"name": "cliff01"}
+]}

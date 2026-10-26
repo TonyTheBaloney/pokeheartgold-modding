@@ -1,0 +1,23 @@
+{"textures": [
+  {"name": "hit_r", "format": "a5i3", "palette": "hit_r_pl"},
+  {"name": "tree01_re", "format": "palette16", "transparent": true, "palette": "tree01_re"},
+  {"name": "tree01_un", "format": "palette16", "palette": "tree01_un"},
+  {"name": "tree01gs", "format": "palette16", "transparent": true, "palette": null},
+  {"name": "sea_on", "format": "palette16", "transparent": true, "palette": null},
+  {"name": "sea_un", "format": "palette16", "palette": "sea_un"},
+  {"name": "cliff01gs", "format": "palette16", "palette": null},
+  {"name": "fence_b", "format": "palette16", "transparent": true, "palette": "fence_b_pl"},
+  {"name": "grass02", "format": "palette4", "palette": "grass02_pl"},
+  {"name": "grass02_r", "format": "palette16", "palette": "grass02_r_pl"}
+], "palettes": [
+  {"name": "hit_r_pl"},
+  {"name": "tree01_re"},
+  {"name": "tree01_un"},
+  {"name": "tree01"},
+  {"name": "sea_f02_pl"},
+  {"name": "sea_un"},
+  {"name": "cliff01"},
+  {"name": "fence_b_pl"},
+  {"name": "grass02_pl", "four_color": true},
+  {"name": "grass02_r_pl"}
+]}

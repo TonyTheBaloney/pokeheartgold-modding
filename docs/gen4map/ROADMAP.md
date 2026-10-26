@@ -62,9 +62,8 @@ feature flags from `gen4map.json`, never from hard-coded repository layout.
    list, prop kind) so `area_data` stops being a bare number.
 6. **Editing 3D data.** Done (CHANGE-0002): models from OBJ, BDHC from the model
    or a text form (`heights.json`). Still to do: prop placement in the editor;
-   layout resize and cell assignment; new textures (an NSBTX writer and texture
-   encoders, so areas can gain textures from PNG sources as pokeemerald's tilesets
-   do).
+   layout resize and cell assignment. New textures: done (CHANGE-0003, format 1.2:
+   map texture sets as PNG folders, an NSBTX writer).
 7. **Animations.** NSBTP/NSBTA for water and flowers in the renderer.
 
 Each step keeps the invariant this repo already has: the unmodified data
