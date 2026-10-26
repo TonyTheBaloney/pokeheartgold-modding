@@ -18,7 +18,7 @@ This guide adds **Fairy** with its Gen 6 matchups. Steps 1-7 were built together
 | `include/constants/pokemon.h` (`TYPE_*`, `NUMBER_OF_MON_TYPES`) | `include/constants/pokemon.h` (`TYPE_*`; there is no count, step 1 adds one) |
 | `gTypeNames` in `src/battle_main.c` | `files/msgdata/msg/msg_0735.json` |
 | `gTypeEffectiveness` in `src/battle_main.c` | `sTypeEffectiveness` in `src/battle/battle_util.c` |
-| `graphics/types/*.png` + `sMoveTypeToOamPaletteNum` | `files/a/0/0/8` (binary archive) + `src/type_icon_resources.c`; the Pokédex has its own icons in `files/graphic/zukan_gra/` |
+| `graphics/types/*.png` + `sMoveTypeToOamPaletteNum` | `graphics/battle_sprites/type_icons/*.png` + `src/type_icon_resources.c`; the Pokédex has its own icons in `files/graphic/zukan_gra/` |
 
 ## What to change
 
@@ -27,7 +27,7 @@ This guide adds **Fairy** with its Gen 6 matchups. Steps 1-7 were built together
 | [1. Constant](#1-the-constant) | `include/constants/pokemon.h` | yes |
 | [2. Name](#2-the-name) | `files/msgdata/msg/msg_0735.json` | yes: the name is read by type id |
 | [3. Type chart](#3-the-type-chart) | `src/battle/battle_util.c` | yes, or the type is neutral to everything |
-| [4. Battle icon](#4-the-type-icon-summary-bag-battle-pc) | `files/a/0/0/8`, `src/type_icon_resources.c`, 2 C files | yes: the table is read by type id, and the contest icons come right after the types |
+| [4. Battle icon](#4-the-type-icon-summary-bag-battle-pc) | `graphics/battle_sprites/`, `src/type_icon_resources.c`, 2 C files | yes: the table is read by type id, and the contest icons come right after the types |
 | [5. Move button color](#5-the-move-button-color-in-battle) | `include/overlay_06.h` | yes: the table is read by type id |
 | [6. Pokédex icon](#6-the-pokédex-icon) | `files/graphic/zukan_gra/`, `src/application/pokedex/pokedex_text_util.c` | yes: the table is read by type id |
 | [7. Pokémon and moves](#7-giving-the-type-to-pokémon-and-moves) | `personal.json`, `battle_moves.json` | to use it |
@@ -141,10 +141,11 @@ the `{ TYPE_GHOST, TYPE_STEEL, ... }` and `{ TYPE_DARK, TYPE_STEEL, ... }` rows.
 
 ## 4. The type icon (summary, bag, battle, PC)
 
-One set of icons, in the archive `files/a/0/0/8`, is used by the summary screen, the
-bag (TMs), the move relearner, the battle move info, the battle party menu, the PC
-and the Wi-Fi Plaza. `src/type_icon_resources.c` maps a type to an archive member
-and a palette:
+One set of icons, `graphics/battle_sprites/type_icons/*.png` (built into the archive
+`a/0/0/8`, [graphics-sources.md](graphics-sources.md#6-graphicsbattle_sprites-a008)), is
+used by the summary screen, the bag (TMs), the move relearner, the battle move info, the
+battle party menu, the PC and the Wi-Fi Plaza. `src/type_icon_resources.c` maps a type to
+an archive member and a palette row:
 
 ```c
 static const int sTypeIconGfxCharFileIds[23] = {
@@ -161,9 +162,10 @@ the contest icons move up by one.
 
 ### The icon file
 
-An icon is a 32×16 sprite with 16 colors, LZ-compressed. All the type icons share one
-palette file, `00074.NCLR`, which holds three palettes; `sTypeIconGfxPlttOverrides`
-chooses one of them for each type. This is palette 1, the one Psychic, Flying, Water
+An icon is a 32×16 PNG with 16 colors (`type_icons/psychic.png`...). All the type icons
+share one palette file, `type_icons/palette.pal`, which holds three 16-color palettes;
+`sTypeIconGfxPlttOverrides` chooses one of them for each type (`"palette_row"` in
+`members.json`, so each PNG shows its own colors). This is palette 1, the one Psychic, Flying, Water
 and Ice use:
 
 | Index | Color | Used by |
@@ -187,34 +189,21 @@ The other two palettes hold the other types' colors. Don't change colors that ot
 icons use. Indexes that no icon uses are free; check by converting each icon to PNG
 and looking at the indexes it uses.
 
-`nitroarc` and `nitrogfx` are built by `make`. With them, unpack the archive, take an
-existing icon as a template, and add yours as a new member at the end (adding at the
-end keeps every other member number):
+Copy an existing icon as a template and draw on it, keeping its colors' indexes, then
+add it **at the end** of `members` in `graphics/battle_sprites/members.json` (adding at
+the end keeps every other member number). It becomes member 346:
 
 ```sh
-NARC=build/heartgold.us/tools/nitroarc/nitroarc
-GFX=build/heartgold.us/tools/nitrogfx/nitrogfx
-mkdir -p /tmp/a008 && cp files/a/0/0/8 /tmp/a008/8
-$NARC -xf /tmp/a008/8                                    # -> /tmp/a008/8.d/00000.NCLR ... 00345.NANR
-
-# A template: Psychic (member 223), as a PNG. The PNG shows palette 0's colors;
-# what matters is each pixel's index.
-cp /tmp/a008/8.d/00223.NCGR /tmp/a008/psychic.NCGR.lz
-$GFX /tmp/a008/psychic.NCGR.lz /tmp/a008/psychic.png -palette /tmp/a008/8.d/00074.NCLR -width 4
-
-# ... draw /tmp/a008/fairy.png (32x16, 4-bit indexed) ...
-
-$GFX /tmp/a008/fairy.png /tmp/a008/fairy.NCGR.lz -version101 -clobbersize -mappingtype 32
-cp /tmp/a008/fairy.NCGR.lz /tmp/a008/8.d/00346.NCGR
-ls /tmp/a008/8.d | sort > /tmp/a008/order.txt
-$NARC -cf files/a/0/0/8 -T /tmp/a008/order.txt /tmp/a008/8.d
+cp graphics/battle_sprites/type_icons/psychic.png graphics/battle_sprites/type_icons/fairy.png
+# ... draw fairy.png (32x16, 4-bit indexed) ...
 ```
 
-The `.lz` in the output name is what makes `nitrogfx` compress the icon, and the game
-loads these icons as compressed (a compressed file starts with the byte `0x10`). In
-the archive folder it is renamed to `.NCGR` like the other members. These flags
-reproduce the existing icons byte for byte (checked on member 238), and repacking
-the unchanged archive gives back the same file.
+```json
+    {"file": "type_icons/fairy.png", "format": "ncgr_v101_sprite_32k_lz", "palette": "type_icons/palette.pal", "palette_row": 1, "cell": "type_icons/cells.NCER.json"}
+```
+
+The format and cells are the other icons'. `make` then builds the icon into the
+archive.
 
 ### The tables
 
@@ -447,7 +436,8 @@ Checked, with what happens to Fairy if you change nothing:
 - [ ] `TYPE_FAIRY 18` and `NUM_TYPES 19` in `include/constants/pokemon.h`
 - [ ] `msg_0735_00018` "FAIRY" at the end of `msg_0735.json`
 - [ ] chart rows in `sTypeEffectiveness`, before `TYPE_FORESIGHT`
-- [ ] icon member 346 in `files/a/0/0/8`; entry 18 in both tables in
+- [ ] `type_icons/fairy.png`, last in `graphics/battle_sprites/members.json` (member
+      346); entry 18 in both tables in
       `type_icon_resources.c`; `+ 18` → `+ NUM_TYPES` (3 places)
 - [ ] `sMoveTypePalette_Fairy` appended to `sMoveTypePalettes`
 - [ ] `zukan_gra_00000123.png`, listed in `meson.build`; both tables in

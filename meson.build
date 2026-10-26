@@ -140,6 +140,9 @@ pokedata_depends = files('tools/pokedata/pokedata.py', 'include/constants/specie
 trainer_pics_py = find_program('tools/pokedata/trainer_pics.py')
 trainer_pics_depends = files('tools/pokedata/trainer_pics.py', 'tools/pokedata/pokedata.py',
     'include/constants/trainer_class.h')
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] graphics archives from PNG/pal/JSON folders (tools/narcgfx)
+narcgfx_py = find_program('tools/narcgfx/narcgfx.py')
+narcgfx_depends = files('tools/narcgfx/narcgfx.py', 'tools/pokedata/pokedata.py')
 subdir('data/maps')
 subdir('data/items')
 subdir('files')

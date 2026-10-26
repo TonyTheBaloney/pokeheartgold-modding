@@ -178,12 +178,15 @@ the command, if there is one. Commands run from the repository root;
 | understand NCGR, NCLR, NSCR, NCER, NANR and which graphics are PNG | [graphics.md](modding/graphics.md#1-the-file-types) | |
 | find which archive and member a screen loads | [graphics.md](modding/graphics.md#3-finding-the-graphics-a-screen-uses) | `grep -n GfGfxLoader_ src/...`, or gdb `break GfGfxLoader_LoadCharData` |
 | change a graphic inside a binary NARC (`files/a/...`) | [graphics.md](modding/graphics.md#4-changing-a-binary-archive) | `nitroarc -xf` / `-cf`, `nitrogfx` (in `build/heartgold.us/tools/`) |
-| pick the right `nitrogfx` flags so the file rebuilds identically | [graphics.md](modding/graphics.md#5-picking-nitrogfxs-flags) | `xxd -l 48 X.NCGR`, then `cmp` |
+| pick the right `nitrogfx` flags so the file rebuilds identically | [graphics.md](modding/graphics.md#5-picking-nitrogfxs-flags), [all of them](modding/graphics-sources.md#9-the-flags-read-from-the-headers) | `narcgfx.py flags ARCHIVE`, or `xxd -l 48 X.NCGR` then `cmp` |
+| understand the PNG folders the build packs into archives (`graphics/battle_backgrounds/`, `graphics/battle_sprites/`) | [graphics-sources.md](modding/graphics-sources.md#4-an-archive-folder) | `members.json` |
+| find a battle sprite or background's file (type icons, balls, HP boxes, move backgrounds, touch screen) | [graphics-sources.md §5](modding/graphics-sources.md#5-graphicsbattle_backgrounds-a007), [§6](modding/graphics-sources.md#6-graphicsbattle_sprites-a008) | |
+| turn another binary archive (a menu) into such a folder | [graphics-sources.md](modding/graphics-sources.md#8-converting-another-archive) | `narcgfx.py export`, `move`, `cells` |
 | edit a sprite's cells or animation | [graphics.md](modding/graphics.md#8-cells-and-animations) | `nitrogfx X.NCER X.json` |
 | change which battle background a map uses | [battle-backgrounds.md](modding/battle-backgrounds.md#the-background) | `"battle_scene"` in `map.json` |
 | understand which platforms a battle shows, and what else terrain changes | [battle-backgrounds.md](modding/battle-backgrounds.md#the-platforms-terrain) | |
-| redraw a battle background (and its evening/night palettes) | [battle-backgrounds.md](modding/battle-backgrounds.md#4-changing-a-background) | members of `files/a/0/0/7`; layout rules in [§3](modding/battle-backgrounds.md#3-how-the-picture-is-laid-out) |
-| redraw a battle platform | [battle-backgrounds.md](modding/battle-backgrounds.md#5-changing-a-platform) | members of `files/a/0/0/8` |
+| redraw a battle background (and its evening/night palettes) | [battle-backgrounds.md](modding/battle-backgrounds.md#4-changing-a-background) | `graphics/battle_backgrounds/backgrounds/<name>/`; layout rules in [§3](modding/battle-backgrounds.md#3-how-the-picture-is-laid-out) |
+| redraw a battle platform | [battle-backgrounds.md](modding/battle-backgrounds.md#5-changing-a-platform) | `graphics/battle_sprites/platforms/<name>/` |
 | add a battle background or platform | [battle-backgrounds.md](modding/battle-backgrounds.md#6-adding-a-background), [platform](modding/battle-backgrounds.md#7-adding-a-platform) | |
 
 ## Game rules and save data
@@ -240,7 +243,6 @@ guide here yet, in rough order of how often a hack needs them:
 
 | Topic | State in this fork | pokeemerald equivalent |
 |---|---|---|
-| **Graphics as PNG sources** for the binary archives (`a/0/0/7` battle backgrounds, `a/0/0/8` battle sprites, menus) | editable by hand with `nitroarc` + `nitrogfx` ([graphics.md](modding/graphics.md), [battle-backgrounds.md](modding/battle-backgrounds.md)); not converted to PNG folders in the build yet ([graphics.md §7](modding/graphics.md#7-turning-an-archive-into-sources)) | `graphics/battle_terrain/*/tiles.png` |
 | **Area textures**: add textures for terrain | binary NSBTX; needs a writer | tileset PNGs (`tiles.png`, palettes) |
 | **Move animations** | binary (`files/a/0/1/0`); battle scripts are covered in [battle-engine.md](modding/battle-engine.md#5-battle-scripts) | animation guides |
 | **Map editor**: props, layout resize, object sprites | editor shows them, can't edit | Porymap |

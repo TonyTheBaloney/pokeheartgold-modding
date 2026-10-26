@@ -70,6 +70,8 @@ Things that matter when you draw:
 | Pokémon icons, footprints | `files/poketool/icongra/poke_icon/`, `files/poketool/pokefoot/pokefoot/` | [pokemon.md](pokemon.md#graphics) |
 | item icons | `files/itemtool/itemdata/item_icon/` | [items.md](items.md#icons) |
 | trainer front and back sprites | `graphics/trainers/` | [trainer-classes.md](trainer-classes.md#trainer-sprites) |
+| battle backgrounds, move animation backgrounds, the battle touch screen | `graphics/battle_backgrounds/` (archive `a/0/0/7`) | [graphics-sources.md](graphics-sources.md#5-graphicsbattle_backgrounds-a007), [battle-backgrounds.md](battle-backgrounds.md) |
+| platforms, type icons, Poké Balls, HP boxes, other battle sprites | `graphics/battle_sprites/` (archive `a/0/0/8`) | [graphics-sources.md](graphics-sources.md#6-graphicsbattle_sprites-a008) |
 | overworld sprites | exported and imported with `mapkit sprite` | [overworld-sprites.md](overworld-sprites.md) |
 | Pokédex, Pokégear (map, phone, radio, options), Voltorb Flip, Unown puzzle, title screen, area windows, PC box, map previews, camera viewfinder | the folders with a `meson.build` that uses `ncgr_gen`, `ncgr_lz_gen`... (§6) | |
 
@@ -86,11 +88,12 @@ PNG, edit, convert back over the same file (§4, steps 2-3), and build.
 
 **As binary archives.** Most of `files/a/` is copied into the ROM unchanged: look for
 `prebuilt_files` in the folder's `meson.build`. These hold, among others, battle
-backgrounds and battle sprites (`a/0/0/7`, `a/0/0/8`) and move animation graphics. To
-change one, take it apart, convert, put it back together (§4).
+move animation graphics and most menus. To change one, take it apart, convert, put it
+back together (§4), or turn the whole archive into a folder of PNGs
+([graphics-sources.md](graphics-sources.md#8-converting-another-archive)).
 
 **Finding a NARC's id.** `include/filesystem_files_def.h` lists every archive in ROM
-order: `NARC_a_0_0_7` is `files/a/0/0/7`, `NARC_graphic_font` is `files/graphic/font.narc`.
+order: `NARC_a_0_0_9` is `files/a/0/0/9`, `NARC_graphic_font` is `files/graphic/font.narc`.
 Archives the build makes from sources also get a `.naix` header (in the build folder)
 naming each member, for example `NARC_voltorb_flip_voltorb_flip_00000002_NCGR_lz`.
 Prebuilt archives have no names; the code uses bare member numbers.
@@ -123,7 +126,7 @@ If the call takes its member from a variable, run the game under gdb
 ## 4. Changing a binary archive
 
 The build compiles both tools; after one `make` they are in
-`build/heartgold.us/tools/`. The steps below take `files/a/0/0/8` apart, turn one member
+`build/heartgold.us/tools/`. The steps below take `files/a/0/1/4` apart, turn one member
 into a PNG and back, and put the archive back together. Each step was run on the retail
 files and gives back byte-identical files.
 
@@ -132,48 +135,51 @@ T=$PWD/build/heartgold.us/tools
 GFX=$T/nitrogfx/nitrogfx
 ARC=$T/nitroarc/nitroarc
 W=/tmp/gfxwork                       # anywhere outside the repository
-mkdir -p $W && cp files/a/0/0/8 $W/8.narc
+mkdir -p $W && cp files/a/0/1/4 $W/14.narc
 
-# 1. unpack: writes $W/8.narc.d/00000.NCLR ... 00345.NCGR
-$ARC -xf $W/8.narc
+# 1. unpack: writes $W/14.narc.d/00000.NCLR ... 00077.NCLR
+$ARC -xf $W/14.narc
 ```
 
 `-xf` writes to `<archive>.d` **next to the archive**, so always copy the archive
-somewhere else first; run on `files/a/0/0/8` itself it fills the repository with 346
+somewhere else first; run on `files/a/0/1/4` itself it fills the repository with 78
 files. The members are named by number and detected type, but stay compressed if they
-were: `00136.NCGR` above starts with `0x10`.
+were: `00064.NCGR` below starts with `0x10`.
+
+The example is the start menu's icons: `src/start_menu.c` loads tiles 64, palette 61,
+cells 62 and animation 63.
 
 ```bash
 cd $W
-cp 8.narc.d/00136.NCGR plat.NCGR.lz     # nitrogfx goes by the extension
-cp 8.narc.d/00131.NCER plat.NCER.lz
-cp 8.narc.d/00007.NCLR plat.NCLR
+cp 14.narc.d/00064.NCGR icons.NCGR.lz   # nitrogfx goes by the extension
+cp 14.narc.d/00062.NCER icons.NCER.lz
+cp 14.narc.d/00061.NCLR icons.NCLR
 
 # 2. decompress, and turn into editable files
-$GFX plat.NCGR.lz plat.NCGR
-$GFX plat.NCER.lz plat.json             # cells as JSON (needed to lay out a sprite)
-$GFX plat.NCLR plat.pal                 # JASC palette, opens in most editors
-$GFX plat.NCGR plat.png -palette plat.NCLR -cell plat.json -object
+$GFX icons.NCGR.lz icons.NCGR
+$GFX icons.NCER.lz icons.json           # cells as JSON (needed to lay out a sprite)
+$GFX icons.NCLR icons.pal               # JASC palette, opens in most editors
+$GFX icons.NCGR icons.png -palette icons.NCLR -cell icons.json -object
 
-# ... edit plat.png (keep it indexed) and/or plat.pal ...
+# ... edit icons.png (keep it indexed) and/or icons.pal ...
 
 # 3. back to Nitro files, with the flags the original had (§5)
-$GFX plat.png plat.NCGR.lz -cell plat.json -clobbersize -version101 -mappingtype 64
-$GFX plat.pal plat.NCLR -bitdepth 4 -nopad -pcmp
-cp plat.NCGR.lz 8.narc.d/00136.NCGR
-cp plat.NCLR    8.narc.d/00007.NCLR
+$GFX icons.png icons.NCGR.lz -cell icons.json -clobbersize -version101 -mappingtype 32 -nopad
+$GFX icons.pal icons.NCLR -bitdepth 4
+cp icons.NCGR.lz 14.narc.d/00064.NCGR
+cp icons.NCLR    14.narc.d/00061.NCLR
 
 # 4. repack (from inside the folder, so members keep their order) and put it back
-(cd 8.narc.d && $ARC -cf $W/8.narc .)
-cp $W/8.narc ~/path/to/pokeheartgold-modding/files/a/0/0/8
+(cd 14.narc.d && $ARC -cf $W/14.narc .)
+cp $W/14.narc ~/path/to/pokeheartgold-modding/files/a/0/1/4
 ```
 
 Then `make release` (plain `make` fails its checksum test after any change, as for every
-mod). Keep the original archive, or use `git checkout files/a/0/0/8`, to go back.
+mod). Keep the original archive, or use `git checkout files/a/0/1/4`, to go back.
 
 **Order.** `nitroarc -cf` adds the files of a folder in name order, which is why the
 members keep their five-digit numbers. To add a member, give it the next number
-(`00346.NCGR`); never insert one in the middle, since code reads members by number.
+(`00078.NCGR`); never insert one in the middle, since code reads members by number.
 
 ## 5. Picking nitrogfx's flags
 
@@ -247,10 +253,9 @@ and `files/application/meson.build` packs every output with
 generators (`ncgr_gen`, `ncgr_lz_gen`, `ncgr_cell_gen`, `nclr_gen`, `ncer_gen`,
 `nanr_gen`, `lz_gen`, `copy_gen`) are defined at the top of `files/meson.build`.
 
-To do the same for a prebuilt archive: unpack it (§4), export each NCGR to PNG, find the
-flags that give back identical bytes (§5), write the `meson.build`, and check that the
-built archive is identical to the old one before changing any picture. That last check
-is what keeps `make` passing.
+To do the same for a prebuilt archive, `tools/narcgfx/narcgfx.py export` writes every
+member as PNG, `.pal` or JSON with the flags that rebuild it, and `narcgfx.py build`
+packs them back byte for byte: [graphics-sources.md](graphics-sources.md).
 
 ## 8. Cells and animations
 
@@ -289,6 +294,7 @@ enough, as with battle backgrounds.
 | loaders | `include/gf_gfx_loader.h`, `include/palette.h`, `include/sprite_system.h` |
 | the converter | `tools/nitrogfx/main.c` (list of conversions near the end) |
 | the archiver | `tools/nitroarc/doc/nitroarc.1.adoc` |
+| a whole archive to PNG and back | `tools/narcgfx/narcgfx.py` ([graphics-sources.md](graphics-sources.md)) |
 
 ## Not verified
 
@@ -299,4 +305,4 @@ enough, as with battle backgrounds.
   retail-identical headers were tested.
 - The Tiled JSON format for NSCR was read from `tools/nitrogfx/json.c`, not tried.
 - The list of what the prebuilt archives hold is not complete; `a/0/0/7` and `a/0/0/8`
-  are described in [battle-backgrounds.md](battle-backgrounds.md).
+  are described in [graphics-sources.md](graphics-sources.md#5-graphicsbattle_backgrounds-a007).

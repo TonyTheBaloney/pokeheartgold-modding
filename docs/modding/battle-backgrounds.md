@@ -8,15 +8,17 @@ What a battle shows behind the Pokémon: the **background** (a picture on BG lay
 the top screen, picked by the map) and the two **platforms** the Pokémon stand on
 (sprites, picked by the tile the player stands on). This page covers how both are
 chosen, the files they come from, the rules a new picture must follow, and how to change
-or add one. The file formats and tools are explained in [graphics.md](graphics.md).
+or add one. The pictures are PNG files in `graphics/battle_backgrounds/` and
+`graphics/battle_sprites/`, built into the archives the game reads; how those folders work
+is in [graphics-sources.md](graphics-sources.md), the file formats in [graphics.md](graphics.md).
 
 | pokeemerald | here |
 |---|---|
 | `BATTLE_TERRAIN_*` (one list for picture, platforms and Nature Power) | two lists: `BattleBg` (`BATTLE_BG_*`, the picture, 23 of them) and `Terrain` (`TERRAIN_*`, the platforms and Nature Power, 24) in `include/constants/battle.h` |
 | `BattleSetup_GetTerrainId` (metatile behavior, then map type) | `BattleSetup_SetBattleBgAndTerrain` (`src/battle/battle_setup.c`): the picture from the map header, the platforms from the tile |
-| `gBattleTerrainInfo` (`src/battle_bg.c`): tiles, tilemap, palette per terrain | `files/a/0/0/7`: one tileset and three palettes per background, **one tilemap shared by all** |
-| `graphics/battle_terrain/<name>/tiles.png`, `map.bin`, `palette.pal` | binary NARC members; no PNG sources yet (export/import in §4) |
-| platforms are part of the background picture | platforms are separate sprites (`files/a/0/0/8`), drawn into the background after the intro |
+| `gBattleTerrainInfo` (`src/battle_bg.c`): tiles, tilemap, palette per terrain | members of the archive `a/0/0/7` by formula: one tileset and three palettes per background, **one tilemap shared by all** |
+| `graphics/battle_environment/<name>/tiles.png`, `map.bin`, `palette.pal` (`battle_terrain` in older versions) | `graphics/battle_backgrounds/backgrounds/<name>/tiles.png`, `day.pal`, `evening.pal`, `night.pal`; `backgrounds/tilemap.NSCR` |
+| platforms are part of the background picture | platforms are separate sprites (`graphics/battle_sprites/platforms/<name>/`, archive `a/0/0/8`), drawn into the background after the intro |
 | one palette | three palettes for outdoor backgrounds: morning/day, evening, night |
 
 ## 1. How a battle picks its background and platforms
@@ -96,7 +98,7 @@ The terrain also changes gameplay, so a new platform isn't only a picture:
 
 ## 2. The files
 
-### Backgrounds: `files/a/0/0/7`
+### Backgrounds: `graphics/battle_backgrounds/` (`a/0/0/7`)
 
 The battle loads the picture in `Battle_InitBackgrounds` (`src/battle/battle_main.c`) and
 again in `BattleSystem_ReinitMainBgLayers` (`src/battle/battle_022378C0.c`):
@@ -107,30 +109,30 @@ PaletteData_LoadNarc(palette, NARC_a_0_0_7, backgroundId * 3 + 0xB0 + BattleSyst
 GfGfxLoader_LoadScrnData(NARC_a_0_0_7, 2, bgConfig, GF_BG_LYR_MAIN_3, 0, 0, TRUE, HEAP_ID_BATTLE);
 ```
 
-| Member | What |
-|---|---|
-| 2 | the tilemap, **shared by every background**: 512×256 pixels, 8bpp, LZ-compressed NSCR |
-| 3-25 | the tileset of background 0-22 (`backgroundId + 3`): 256×256 pixels = 1024 tiles, **8bpp** (256 colors), LZ-compressed NCGR |
-| 176-244 (`0xB0`-`0xF4`) | the palettes, three per background (`0xB0 + backgroundId × 3 + time`): 256 colors each, NCLR. Backgrounds 6-22 have three too; only the first is read |
-| 247-263, 271-289 | the bottom screen's tint per background (below) |
-| the rest | the touch screen's graphics (`src/battle/battle_input.c`) |
+| Member | File | What |
+|---|---|---|
+| 2 | `backgrounds/tilemap.NSCR` | the tilemap, **shared by every background**: 512×256 pixels, 8bpp |
+| 3-25 (`backgroundId + 3`) | `backgrounds/<name>/tiles.png` | the tileset of each background (`general`... `battle_hall`, in `BattleBg` order): 256×256 pixels = 1024 tiles, **8bpp** (256 colors) |
+| 176-244 (`0xB0 + backgroundId × 3 + time`) | `backgrounds/<name>/day.pal`, `evening.pal`, `night.pal` | the palettes, 256 colors each. Backgrounds 6-22 have three too; only `day.pal` is read |
+| 247-263, 271-289 | `touch_screen/tint/<name>.pal`, `touch_screen/highlight/<name>.pal` | the bottom screen's tint per background (below) |
+| the rest | `move_backgrounds/`, `touch_screen/`... | move animation backgrounds and the touch screen ([graphics-sources.md §5](graphics-sources.md#5-graphicsbattle_backgrounds-a007)) |
 
 The layer is set up by the third entry of `gBattleBgTemplates` (`asm/battle_main_data.s`):
 BG3, 512×256, 256 colors, priority 3 (behind everything).
 
-### Platforms: `files/a/0/0/8`
+### Platforms: `graphics/battle_sprites/platforms/` (`a/0/0/8`)
 
 `BattleTerrain_LoadResources` (`src/battle/battle_terrain.c`) loads, for each side:
 
 | | Player's side | Enemy's side |
 |---|---|---|
-| tiles (LZ NCGR, 4bpp, 128 tiles) | `sPlayerTerrainCharFiles[terrain]` (members 127-175) | `sEnemyTerrainCharFiles[terrain]` (members 130-176) |
+| tiles (4bpp, 128 tiles) | `<name>/player.png`; `sPlayerTerrainCharFiles[terrain]` (members 127-175) | `<name>/enemy.png`; `sEnemyTerrainCharFiles[terrain]` (members 130-176) |
 | size | 256×32: four 64×32 pieces | 128×64: two 64×64 pieces |
-| cells (NCER) / animation (NANR) | members 128 / 129 | members 131 / 132 |
-| palette (16 colors, NCLR, members 1-69) | `sTerrainPaletteFiles[terrain][time]`, shared by both sides | |
+| cells / animation | `player_cells.NCER.json` / `player_anim.NANR.json` (members 128 / 129) | `enemy_cells.NCER.json` / `enemy_anim.NANR.json` (131 / 132) |
+| palette (16 colors) | `<name>/day.pal`, `evening.pal`, `night.pal`; `sTerrainPaletteFiles[terrain][time]` (members 1-69), shared by both sides | |
 
 The member lists are indexed by `Terrain`, so `TERRAIN_GRASS` (2) uses tiles 0x7F and
-0x82 and palettes 1-3. The palette is loaded twice: as the sprites' palette, and into
+0x82 and palettes 1-3: the files in `platforms/grass/`. The palette is loaded twice: as the sprites' palette, and into
 row 7 of the background palette (colors 112-127). The second copy is for the next step.
 
 **The platforms become part of the background.** During the intro the platforms are
@@ -145,7 +147,7 @@ replace the background restore it from that copy.
 | What | Where | Size |
 |---|---|---|
 | the color the screen is flooded with at the start of the intro, per background and time | `gBattleBgFillColors` in `asm/battle_main_data.s` (declared `[23][3]` in `src/battle/battle_main.c`) | 23 × 3 colors |
-| the bottom screen's tint (palette row 0) and its touch-highlight palette | `sBackgroundPaletteIds` in `src/battle/battle_input.c`: members 247-263 / 271-287 for backgrounds 0-16, 288 / 289 for 17, `-1` (the defaults 246 / 271) for 18-22; Frontier battles always use 349 / 350 | 23 rows |
+| the bottom screen's tint (palette row 0) and its touch-highlight palette | `sBackgroundPaletteIds` in `src/battle/battle_input.c`: members 247-263 / 271-287 for backgrounds 0-16, 288 / 289 for 17 (`touch_screen/tint/`, `highlight/`), `-1` (the defaults 246 / 271) for 18-22; Frontier battles always use 349 / 350 | 23 rows |
 | which terrain a background gives when the tile doesn't decide | `sBattleBgTerrains` in `src/battle/battle_setup.c` | 23 |
 
 ## 3. How the picture is laid out
@@ -184,43 +186,24 @@ against the 23 retail backgrounds:
 
 ## 4. Changing a background
 
-This exports the picture and day palette of `BATTLE_BG_GENERAL` (0), and builds them back.
-Unchanged, every file comes back byte-identical to retail.
+Each background is a folder, `graphics/battle_backgrounds/backgrounds/<name>/`:
+
+| File | |
+|---|---|
+| `tiles.png` | 256×256, indexed, shown in its day colors; colors 0-111 only, laid out as in §3 |
+| `day.pal`, `evening.pal`, `night.pal` | JASC palettes; backgrounds 6-22 use only `day.pal` |
+
+Edit them and run `make release`. The PNG's own colors are only for viewing: the game
+uses the `.pal` files, so after changing one, refresh the PNG's colors with
 
 ```bash
-T=$PWD/build/heartgold.us/tools
-GFX=$T/nitrogfx/nitrogfx
-ARC=$T/nitroarc/nitroarc
-W=/tmp/battlebg && mkdir -p $W && cp files/a/0/0/7 $W/7.narc
-$ARC -xf $W/7.narc && cd $W          # → 7.narc.d/00000.NCGR ... 00350.NCLR
-
-BG=0                                 # BATTLE_BG_*
-TILES=$(printf %05d $((BG + 3)))
-PAL=$(printf %05d $((0xB0 + BG * 3)))  # +1 evening, +2 night
-
-cp 7.narc.d/$TILES.NCGR bg.NCGR.lz
-$GFX bg.NCGR.lz bg.NCGR                           # decompress
-$GFX 7.narc.d/$PAL.NCLR day.pal                   # palette → JASC
-$GFX bg.NCGR bg.png -palette 7.narc.d/$PAL.NCLR   # 256×256, indexed
-
-# ... edit bg.png (indexed, colors 0-111 only) and day.pal ...
-
-$GFX bg.png new.NCGR -bitdepth 8 -version101 -sopc
-head -c 65584 new.NCGR > new_cut.NCGR             # retail stops before the SOPC section
-$GFX new_cut.NCGR new.NCGR.lz                     # LZ-compress
-$GFX day.pal new.NCLR -pcmp
-cp new.NCGR.lz 7.narc.d/$TILES.NCGR
-cp new.NCLR    7.narc.d/$PAL.NCLR
-
-(cd 7.narc.d && $ARC -cf $W/7.narc .)
-cp $W/7.narc ~/path/to/pokeheartgold-modding/files/a/0/0/7
+python3 tools/narcgfx/narcgfx.py color graphics/battle_backgrounds/members.json
 ```
 
-Then `make release`. For backgrounds 0-5, make the evening and night palettes too
-(`$PAL` + 1 and + 2); they share the tiles, so they must keep the same color order. If
-the picture's main color changes a lot, also change its row in `gBattleBgFillColors`,
-or the intro starts from the old color: the values are 15-bit (`0x7FFF` white; red in the
-low bits).
+For backgrounds 0-5, change all three palettes; they share the tiles, so they must keep
+the same color order. If the picture's main color changes a lot, also change its row in
+`gBattleBgFillColors`, or the intro starts from the old color: the values are 15-bit
+(`0x7FFF` white; red in the low bits).
 
 **A whole new picture.** Draw 256×152 pixels (the battle view), then build the 256×256
 tileset from it: picture y 0-55 → PNG y 0-55, picture y 56-151 → PNG y 160-255, top-left
@@ -231,39 +214,40 @@ first.
 
 ## 5. Changing a platform
 
-```bash
-cp files/a/0/0/8 $W/8.narc && $ARC -xf $W/8.narc && cd $W   # from the repository root
-# TERRAIN_PLAIN (0): enemy tiles 0x88 = 136, player 0x87 = 135, palettes 7/8/9
-cp 8.narc.d/00136.NCGR e.NCGR.lz && $GFX e.NCGR.lz e.NCGR
-cp 8.narc.d/00131.NCER e.NCER.lz && $GFX e.NCER.lz e.json
-$GFX e.NCGR e.png -palette 8.narc.d/00007.NCLR -cell e.json -object   # 128×64
-$GFX 8.narc.d/00007.NCLR plat.pal
+Each terrain's platforms are in `graphics/battle_sprites/platforms/<name>/`: `player.png`
+(256×32, the player's side), `enemy.png` (128×64) and the three palettes. The PNGs are the
+pictures as the battle shows them (laid out by `player_cells.NCER.json` and
+`enemy_cells.NCER.json`); draw inside the platform's area, with color 0 transparent and
+16 colors at most. Then `make release`.
 
-# ... edit e.png (16 colors, index 0 transparent) ...
-
-$GFX e.png e.NCGR.lz -cell e.json -clobbersize -version101 -mappingtype 64
-$GFX plat.pal plat.NCLR -bitdepth 4 -nopad -pcmp
-```
-
-The player's side works the same with member 135 and cells 128 (256×32). Copy the results
-over the members, repack as in §4. Look up the member numbers for other terrains in the
-three tables at the top of `src/battle/battle_terrain.c` (`0x88` = 136). Some are shared:
-`TERRAIN_GREAT_MARSH` (mud) and `TERRAIN_UNKNOWN` use the same enemy platform and
-palettes, and `TERRAIN_UNKNOWN`'s player platform is `TERRAIN_PUDDLE`'s, so changing one
-changes the other.
+Some members are shared, and appear once under the first terrain that uses them:
+`TERRAIN_UNKNOWN` has no folder of its own (its player platform is `puddle/player.png`,
+its enemy platform and palettes are `great_marsh/`'s), so changing those changes both.
+The Elite Four's player platforms, and the Frontier's, are identical copies in separate
+files: change each.
 
 ## 6. Adding a background
 
 A map header stores the background in 5 bits (`battleBg : 5` in `include/map_header.h`), so
 ids up to 31 fit: 9 more than retail. Members can't be inserted in `a/0/0/7`: the formulas
 `backgroundId + 3` and `0xB0 + backgroundId × 3` already run into other members for id 23
-(members 26 and 245). So append the new members at the end and give the loaders a table.
+(members 26 and 245). So append the new members at the end of
+`graphics/battle_backgrounds/members.json` and give the loaders a table.
 
 1. **Constant.** After `BATTLE_BG_BATTLE_HALL` in `include/constants/battle.h`:
    `BATTLE_BG_BEACH,` (23).
-2. **Files.** Make the tileset and three palettes (§4) and add them to the unpacked
-   `a/0/0/7` as `00351.NCGR`, `00352.NCLR`, `00353.NCLR`, `00354.NCLR`; the next
-   background takes 355-358. Repack.
+2. **Files.** Copy a background's folder to `backgrounds/beach/`, draw it (§4), and add
+   four entries at the end of `members` in `graphics/battle_backgrounds/members.json`,
+   with the formats of the retail ones:
+
+   ```json
+       {"file": "backgrounds/beach/tiles.png", "format": "ncgr_v101_sopc_8bpp_cut_lz", "palette": "backgrounds/beach/day.pal"},
+       {"file": "backgrounds/beach/day.pal", "format": "nclr_8bpp_pcmp"},
+       {"file": "backgrounds/beach/evening.pal", "format": "nclr_8bpp_pcmp"},
+       {"file": "backgrounds/beach/night.pal", "format": "nclr_8bpp_pcmp"}
+   ```
+
+   They become members 351-354; the next background takes 355-358.
 3. **Loaders.** Replace the two member expressions in `Battle_InitBackgrounds`
    (`src/battle/battle_main.c`) and `BattleSystem_ReinitMainBgLayers`
    (`src/battle/battle_022378C0.c`) with functions, for example in
@@ -310,8 +294,17 @@ Simplest alternative: `BATTLE_BG_DISTORTION_WORLD` (17) is in no map. Replace it
 
 1. **Constant.** Before `TERRAIN_MAX` in `include/constants/battle.h` (`TERRAIN_GIRATINA`
    is 23, so the new one is 24, and `TERRAIN_MAX` becomes 25).
-2. **Files.** Two tilesets (player 256×32, enemy 128×64, made from an existing one so the
-   cells still fit) and three 16-color palettes, appended to `a/0/0/8` from member 346.
+2. **Files.** Copy a terrain's folder to `platforms/beach/`, draw it (§5), and add five
+   entries at the end of `members` in `graphics/battle_sprites/members.json`; they become
+   members 346-350:
+
+   ```json
+       {"file": "platforms/beach/player.png", "format": "ncgr_v101_sprite_64k_lz", "palette": "platforms/beach/day.pal", "cell": "platforms/player_cells.NCER.json"},
+       {"file": "platforms/beach/enemy.png", "format": "ncgr_v101_sprite_64k_lz", "palette": "platforms/beach/day.pal", "cell": "platforms/enemy_cells.NCER.json"},
+       {"file": "platforms/beach/day.pal", "format": "nclr_4bpp_nopad_pcmp"},
+       {"file": "platforms/beach/evening.pal", "format": "nclr_4bpp_nopad_pcmp"},
+       {"file": "platforms/beach/night.pal", "format": "nclr_4bpp_nopad_pcmp"}
+   ```
 3. **Tables** in `src/battle/battle_terrain.c`: a row in `sPlayerTerrainCharFiles`,
    `sEnemyTerrainCharFiles` and `sTerrainPaletteFiles` with the new member numbers.
 4. **When it's used.** Either a row in `sBattleBgTerrains` (a new background that brings
@@ -325,6 +318,7 @@ Simplest alternative: `BATTLE_BG_DISTORTION_WORLD` (17) is in no map. Replace it
 
 | What | File |
 |---|---|
+| the pictures | `graphics/battle_backgrounds/backgrounds/`, `graphics/battle_sprites/platforms/` (and their `members.json`) |
 | ids | `include/constants/battle.h` (`BattleBg`, `Terrain`) |
 | choosing them | `src/battle/battle_setup.c` (`BattleSetup_SetBattleBgAndTerrain`, `sBattleBgTerrains`) |
 | loading the background | `src/battle/battle_main.c` (`Battle_InitBackgrounds`), `src/battle/battle_022378C0.c` |
@@ -336,9 +330,10 @@ Simplest alternative: `BATTLE_BG_DISTORTION_WORLD` (17) is in no map. Replace it
 
 ## Not verified
 
-- No changed or new background or platform was tried in the game. The export/import
-  commands were run on retail files and give byte-identical results; the layout rules in
-  §3 were read from the tilemap and checked against all 23 retail tilesets.
+- No changed or new background or platform was tried in the game. The folders build the
+  retail archives byte for byte, and the entries of §6 and §7 were checked to build (as
+  members 351-354 and 346-350); the layout rules in §3 were read from the tilemap and
+  checked against all 23 retail tilesets.
 - The code in §6 and §7 is a sketch; it was not built.
 - Which screens show the mirrored right half of the tilemap (only code that scrolls BG3
   was found: move animations and `src/battle/link_battle_screen.c`).

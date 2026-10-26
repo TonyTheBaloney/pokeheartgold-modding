@@ -55,7 +55,8 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [debugging.md](debugging.md) | Finding bugs: symbols and the `.xMAP`, emulators, `DebugPrintf` (melonDS/no$gba log), gdb with melonDS (breakpoints in overlays, `tools/debug/pokeheartgold.gdb`), silent asserts and failed allocations, a SELECT debug menu |
 | [scanline-effects.md](scanline-effects.md) | Per-line (HBlank) effects: HBlank DMA waves (`ScanlineEffect`), HBlank callbacks, the field's shared `HBlankSystem`, window wipes |
 | [graphics.md](graphics.md) | 2D graphics files: NCGR/NCLR/NSCR/NCER/NANR and NARC, which graphics are PNG, finding what a screen loads, changing a binary archive with `nitroarc` + `nitrogfx`, matching flags, cells and animations |
-| [battle-backgrounds.md](battle-backgrounds.md) | Battle backgrounds and platforms: how a battle picks them (map, surfing, tile, time of day), the files in `a/0/0/7` and `a/0/0/8`, the layout rules for a picture, redrawing one, adding a background or platform |
+| [graphics-sources.md](graphics-sources.md) | Graphics as PNG sources: how pokeemerald keeps `graphics/`, the archive folders and `members.json`, what is in `graphics/battle_backgrounds/` (`a/0/0/7`) and `graphics/battle_sprites/` (`a/0/0/8`), converting another archive (`tools/narcgfx`), the flags read from each header, what stays binary, the archives that hold graphics |
+| [battle-backgrounds.md](battle-backgrounds.md) | Battle backgrounds and platforms: how a battle picks them (map, surfing, tile, time of day), the files in `graphics/battle_backgrounds/` and `graphics/battle_sprites/`, the layout rules for a picture, redrawing one, adding a background or platform |
 | [ui.md](ui.md) | How screens and menus work: applications, BG layers, windows, text, list and script menus, sprites, input, fades |
 | [new-game.md](new-game.md) | What New Game sets up, the start location, starting flags/items/money/Pokémon (the `init` script), the starter choice screen and changing the starters, the rival's team by starter |
 | [story-progression.md](story-progression.md) | How flags and vars store progress; every story roadblock from New Game to Red, with its flag, var and script |
@@ -96,8 +97,9 @@ passes on that commit so you know any later mismatch comes from your edit.
 | Terrain 3D models | yes, through OBJ: `mapkit terrain export` / `import` ([terrain.md](terrain.md)); stored as `model.nsbmd` |
 | Terrain heights | yes (`heights.json`, or generated from the model; [terrain.md](terrain.md)) |
 | Area textures | **no**, binary NSBTX in `files/a/0/4/4` |
-| Battle backgrounds and platforms | **no**, binary in `files/a/0/0/7` and `a/0/0/8`; export/import with `nitroarc` + `nitrogfx` ([battle-backgrounds.md](battle-backgrounds.md)) |
-| Other 2D graphics in `files/a/` | **no**, binary NARCs; same tools ([graphics.md](graphics.md#4-changing-a-binary-archive)) |
+| Battle backgrounds and platforms | yes (PNG + `.pal` in `graphics/battle_backgrounds/` and `graphics/battle_sprites/`; [battle-backgrounds.md](battle-backgrounds.md)) |
+| Battle sprites: type icons, Poké Balls, HP boxes; move animation backgrounds; battle touch screen | yes (same folders; [graphics-sources.md](graphics-sources.md#5-graphicsbattle_backgrounds-a007)) |
+| Other 2D graphics in `files/a/` | **no**, binary NARCs; changed with `nitroarc` + `nitrogfx` ([graphics.md](graphics.md#4-changing-a-binary-archive)); `narcgfx` exports any of them ([graphics-sources.md](graphics-sources.md)) |
 | Wild encounters | yes (`gs_enc_data.json` etc.) |
 | Items (data, names, descriptions, icons) | yes (`data/items/items.json`, icon PNGs; [items.md](items.md)) |
 | Mart stock | in C (`src/scrcmd_mart.c`; [items.md](items.md#marts)) |
