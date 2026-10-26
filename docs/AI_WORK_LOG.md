@@ -284,3 +284,16 @@ was checked. Later work is described in the commit messages (`git log`).
   (running gated by allow_running, shoes in init, B-speed surfing, HM fallback to the lead via
   _HMUserOrLead incl. a key-item variant, Surf and Waterfall C checks) compiled and linked into a
   HeartGold ROM, then reverted. Bike recipes not built. Not play-tested (no emulator available).
+
+## 2026-10-26 Status conditions guide
+- Location: docs/modding/status-conditions.md (new); links from docs/WIKI.md, docs/modding/README.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: status bits (bits 0-11 used, new status at bit 12; Quick Feet/Hydration test the low byte,
+  roamers save a u8), CONDITION_* numbers shared with the HP bar and status animations, inflicting
+  subscript + MOVE_SUBSCRIPT_PTR + effect script, UMC end-of-turn state, special-damage halving in
+  CalcMoveDamage, icons (Pokemon_GetStatusIconId / a/0/3/9 still binary; HP bar tiles in
+  battle_hp_bar_data.h, hpicon.py round-trips FRZ), freeze cures extended to frostbite (no spare item
+  flag), Shed Skin/Hydration names, following-Pokémon assert, Psycho Shift. Frostbite recipe (Ice Beam
+  given the effect) compiled and linked into a HeartGold ROM, then reverted; Facade/Refresh change not
+  built. Not play-tested (no emulator available).

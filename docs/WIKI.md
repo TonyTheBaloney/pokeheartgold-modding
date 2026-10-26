@@ -167,6 +167,8 @@ the command, if there is one. Commands run from the repository root;
 | add level caps by badge count (battle and Rare Candy) | [experience.md](modding/experience.md#8-recipe-level-caps-by-badge-count) | `GetLevelCap` |
 | add an ability | [abilities.md](modding/abilities.md#adding-an-ability) | |
 | find where an ability's effect is coded | [abilities.md](modding/abilities.md#where-an-ability-can-act) | `grep -rn ABILITY_X src files/battledata` |
+| add a status condition (Frostbite) | [status-conditions.md](modding/status-conditions.md) | |
+| find every place a status is checked | [status-conditions.md](modding/status-conditions.md#what-to-change) | `grep -rn STATUS_BURN src files/battledata` |
 | add a type (Fairy) | [adding-a-type.md](modding/adding-a-type.md) | |
 | change the type chart (matchups) | [adding-a-type.md](modding/adding-a-type.md#3-the-type-chart) | `sTypeEffectiveness` in `src/battle/battle_util.c` |
 | make Pokémon and moves Fairy (Gen 6 retypes) | [adding-a-type.md](modding/adding-a-type.md#7-giving-the-type-to-pokémon-and-moves) | edit `personal.json`, `battle_moves.json` |
