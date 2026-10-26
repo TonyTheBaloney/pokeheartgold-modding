@@ -39,6 +39,7 @@ PYTHONPATH=tools/mapkit python3 -m mapkit <command> ...
 | `pory init MAP\|--all [--raw]` / `pory show MAP` / `pory sync MAP` | decompile a map's `.inc` scripts to `scripts.pory`, print its compiled output, sync `ids.h` ([SCRIPTING.md](../../docs/modding/SCRIPTING.md)) |
 | `pory name-scripts MAP\|--all [--dry-run]` | pokeemerald-style names for generated script/movement labels (`npc_names.json`) |
 | `pory inline-text MAP\|--all` | move dialog from `text.json` into `scripts.pory` as inline strings (ROM unchanged) |
+| `sprite export SPRITE PNG` / `sprite import PNG SPRITE` / `sprite add NAME --like SPRITE_X [--png PNG]` | overworld sprites as PNG sheets and back; a new sprite with its constants, table row and file ([overworld-sprites.md](../../docs/modding/overworld-sprites.md)) |
 | `terrain export CELL DIR` / `terrain import CELL OBJ` / `terrain check [CELL...]` | a cell's model and heights as OBJ/MTL/PNG and back, game limits ([terrain.md](../../docs/modding/terrain.md)) |
 | `heights decompile/compile/show/at/generate CELL...` | a cell's BDHC heights as `heights.json`, queries, generation from the model |
 
@@ -64,6 +65,7 @@ tools/mapkit/mapkit.sh validate          # whole game
 | wild table missing, unknown species, a method with a rate but the wrong slot count | error |
 | two objects in a map share an id (retail does this for NPCs never shown together) | warning |
 | event outside the map grid | warning |
+| a line of map text is wider than the 216 px dialogue box (`text-width`; each `{STRVAR_1 ...}` counts as the longest name it can hold, numbers as 0; points at the `scripts.pory` line) | warning |
 | warp lands on a warp that leads somewhere else | note |
 | event sits in a grid cell owned by another map | note |
 
@@ -88,6 +90,7 @@ On the unmodified repo, both versions report 0 errors.
 | `nsbmd.py` | NSBMD read/write, building terrain models |
 | `bdhc.py` | BDHC heights: codec, the game's lookup, `heights.json`, generation |
 | `terrain.py` | OBJ export/import of a cell's terrain, checks |
+| `sprites.py` | overworld sprite NSBTX <-> PNG sheets (in place, same layout); adding a sprite |
 | `cli.py` | commands |
 
 ## Tests
@@ -99,6 +102,7 @@ python3 tools/mapkit/tests/test_pory.py    # compiler, decompiler, round trip on
 python3 tools/mapkit/tests/test_nsbmd.py   # every retail model rebuilds byte for byte; terrain models
 python3 tools/mapkit/tests/test_bdhc.py    # every BDHC round-trips; heights.json; the game's lookup; generation
 python3 tools/mapkit/tests/test_terrain.py # OBJ export -> import changes nothing
+python3 tools/mapkit/tests/test_sprites.py # every overworld sprite: PNG export -> import changes nothing
 ```
 
 Checks the parsers against the real data (every matrix file round-trips; the

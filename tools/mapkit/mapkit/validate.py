@@ -1,6 +1,7 @@
 # [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-21
 """Consistency checks across headers, events, scripts, text and wild data."""
 
+import json
 import os
 import re
 from dataclasses import dataclass
@@ -32,6 +33,7 @@ class Validator:
         self.repo = repo
         self.issues = []
         self._done_files = set()
+        self._widths = None
 
     def add(self, severity, check, where, message):
         self.issues.append(Issue(severity, check, where, message))
@@ -63,6 +65,7 @@ class Validator:
                 self.check_script_file(m, sf)
         self.check_wild(m)
         self.check_text_slots(m)
+        self.check_text_width(m)
 
     def check_text_slots(self, m):
         """text.json slots ("from") that scripts.pory no longer fills build as empty messages."""
@@ -82,6 +85,45 @@ class Validator:
             else:
                 self.add(WARNING, "empty-text", where, "%s: no `text %s` block in scripts.pory; "
                          "it builds as an empty message" % (mid, mid))
+
+    def check_text_width(self, m):
+        """Lines wider than the dialogue box (216 px in the dialogue font) run past its edge."""
+        r = self.repo
+        tb = r.text_bank(m)
+        if tb is None or ("text-width", tb.path) in self._done_files:
+            return
+        self._done_files.add(("text-width", tb.path))
+        if self._widths is None:
+            try:
+                self._widths = text.Widths(r.path(text.CHARMAP), r.path(text.MESSAGE_FONT))
+                banks = {}
+                for base in set(text.SLOT_BANKS.values()):
+                    p = r.path("files/msgdata/msg", base + ".json")
+                    if os.path.exists(p):
+                        banks[base] = text.load(p)
+                items = r.path("data/items/items.json")
+                names = []
+                if os.path.exists(items):
+                    with open(items, encoding="utf-8") as f:
+                        names = [v.get("name") or "" for v in json.load(f).values()]
+                self._widths.add_slot_widths(banks, names)
+            except OSError:
+                self._widths = False
+        if not self._widths:
+            return
+        owner = r.text_owner(m)
+        res = r.pory_result(owner) if owner is not None and r.pory_entry(owner) is not None else None
+        lines = res.text_lines if res is not None else {}
+        pory_path = res is not None and r.rel(r.bank_path(owner, "scriptsBank"))
+        for msg in tb.messages:
+            mid = msg.get("id")
+            for line, px in self._widths.lines(text.TextBank.text_of(msg)):
+                if px <= text.DIALOG_WIDTH:
+                    continue
+                where = ("%s:%d" % (pory_path, lines[mid]) if mid in lines
+                         else "%s %s" % (r.rel(tb.path), mid))
+                self.add(WARNING, "text-width", where, "line is %d px (names counted at their longest), the text box is %d: %r"
+                         % (px, text.DIALOG_WIDTH, line))
 
     def _eval(self, defs, value, where, what):
         v = defs.eval(value)

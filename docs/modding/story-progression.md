@@ -332,7 +332,7 @@ Kanto battle music plays once `FLAG_SYS_FLYPOINT_VERMILION` is set
 | National Dex | `natdexflagaction(1)` sets it; `natdexflagaction(2, V)` checks |
 | Fly points | `FLAG_SYS_FLYPOINT_*` (0x9B0 + `FLYPOINT_*`) set automatically on entering a map listed as a fly point in `sSpawnPoints` (`src/spawn_warp.c:128`, called from `src/field_warp_state.c`). Vermilion, Victory Road and the Pokéathlon are set by script |
 | Whiteout point | set on entering a Pokémon Center, your house or the League (`src/field_warp_tasks.c:262`), or by `setspawn` |
-| New game | `NewGame_InitSaveData` (`src/overlay_36.c:251`): your room, ¥3000, `FLAG_UNK_960`; then the `init` script for hide flags. No vars are set |
+| New game | `NewGame_InitSaveData` (`src/overlay_36.c:251`): your room, ¥3000, `FLAG_UNK_960`; then the `init` script for hide flags. No vars are set. See [new-game.md](new-game.md) |
 
 ## Changing progression
 

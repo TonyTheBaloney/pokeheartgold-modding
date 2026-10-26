@@ -164,7 +164,9 @@ itself is one (`Field_NewGame_AppInit` / `Field_AppExec` / `Field_AppExit`).
 
 ## 2. One frame
 
-The main loop in [src/main.c](../../src/main.c) does, every frame:
+The main loop in [src/main.c](../../src/main.c) does, every frame (one pass is two
+hardware frames, so game logic runs at 30 per second; see
+[engine.md](engine.md#1-the-main-loop) for the full order):
 
 1. Read buttons and the touch screen into `gSystem` (§7).
 2. Run the current application (`OverlayManager_Run`).

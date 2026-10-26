@@ -4,6 +4,8 @@
 
 > AI-generated; not affiliated with pret. See AI.md at the repository root.
 
+New to scripting? Start with the tutorial, [scripting-basics.md](scripting-basics.md).
+
 Every map keeps its scripts in `data/maps/<MapName>/scripts.pory`, written in a
 language modeled on [poryscript](https://github.com/huderlem/poryscript): structured
 `if`/`while`/`switch` instead of `GoTo` labels, inline text and movement, a
@@ -99,7 +101,8 @@ Comments: `//`, `#`, `/* */`. Semicolons are optional.
 ### Commands
 
 Any script command, by its macro name (`LockAll`) or **lowercased** (`lockall`), as
-in pokeemerald. A few pokeemerald names map to the HGSS command:
+in pokeemerald. [script-commands.md](script-commands.md) lists the useful ones by task,
+and [script-commands-list.md](script-commands-list.md) has all of them. A few pokeemerald names map to the HGSS command:
 
 | pokeemerald name | HGSS command |
 |---|---|

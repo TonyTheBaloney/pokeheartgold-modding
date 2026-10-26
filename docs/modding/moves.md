@@ -107,6 +107,8 @@ almost always just `GoToEffectScript`, which jumps to
 `effect_script_<effect>.s` (`BtlCmd_GoToEffectScript`,
 `src/battle/battle_command.c`). The effect script sets up damage and side
 effects, which run shared subscripts in `files/battledata/script/subscript/`.
+[battle-engine.md](battle-engine.md#5-battle-scripts) explains the script format,
+variables and commands, and when in the turn each part runs.
 
 ```
 _000:   // effect_script_0004.s, MOVE_EFFECT_BURN_HIT

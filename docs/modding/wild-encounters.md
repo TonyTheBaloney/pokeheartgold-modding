@@ -93,7 +93,9 @@ The build generates `safari_enc.narc` from the JSON (`files/arc/meson.build`).
 
 Species and levels are hard-coded in `src/field_roamer.c` (Raikou and Entei 40,
 Latias/Latios 35), together with the routes they move between
-(`sRoamerLocations`, `sRoamerAdjacencyTable`). Scripts start them with `CreateRoamer`.
+(`sRoamerLocations`, `sRoamerAdjacencyTable`). Scripts start them with `createroamer`.
+[roamers.md](roamers.md) explains how they move, when you meet one, what a battle does to
+them, and how to change them.
 
 ## Static and gift encounters
 
@@ -105,6 +107,12 @@ In map scripts: `WildBattle species, level, shiny` and `FatefulWildBattle ...`
 
 `files/arc/ppark.json` (`species, area, score, encounter_rate`, plus two
 fields not yet understood), used by `src/catching_show.c`.
+
+## Level scaling
+
+Wild levels are fixed in these tables. To make them follow the player's party, see
+[level-scaling.md](level-scaling.md), which also covers what Repel and Keen Eye do
+with the new levels.
 
 ## Not found yet
 

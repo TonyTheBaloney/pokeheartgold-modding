@@ -51,7 +51,8 @@ NPCs are the `object_events` of the map's `map.json`
 | `MOVEMENT_TYPE_PATH_*` | walks a fixed loop; the name is the order of directions |
 
 Don't use `MOVEMENT_TYPE_INVALID_47` (empty slot) or `MOVEMENT_TYPE_PLAYER`.
-`mapkit validate` catches both.
+`mapkit validate` catches both. To add a movement type, or a new sprite for
+`graphics_id`, see [overworld-sprites.md](overworld-sprites.md).
 
 ## Checking your edits
 
@@ -119,10 +120,9 @@ battle pair), from `data/maps/Route30/map.json`:
 ```
 
 Parties, class, AI flags and items: `files/poketool/trainer/trainers.json`
-(constants in `include/constants/trainers.h`). The `messages` in that JSON are
-**not** used by the build; trainer battle text is `msg_0728.json` indexed through
-the binary `files/poketool/trmsg/trtbl.narc`. Changing which lines a trainer uses
-isn't possible as text yet.
+(constants in `include/constants/trainers.h`). Battle text is the `messages` in that
+JSON: edit it, then run `python3 tools/trmsg/trmsg.py build` to regenerate the tables
+the game reads ([trainer-text.md](trainer-text.md)).
 
 ## Event scripts
 
@@ -235,7 +235,8 @@ movement Cherrygrove_Movement_GuideGentWalkLeftUp1 {
 ```
 
 Run with `applymovement(obj_T21_gsoldman1, Cherrygrove_Movement_GuideGentWalkLeftUp1)` then
-`waitmovement`.
+`waitmovement`. Adding a new movement action:
+[overworld-sprites.md](overworld-sprites.md#3-movement-actions).
 
 ## Text
 

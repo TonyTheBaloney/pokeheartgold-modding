@@ -1,0 +1,394 @@
+{
+    "trades": [
+        {
+            "id": "NPC_TRADE_ROCKY_ONIX",
+            "species": "SPECIES_ONIX",
+            "nickname": "Rocky",
+            "requested_species": "SPECIES_BELLSPROUT",
+            "ivs": {
+                "hp": 25,
+                "atk": 20,
+                "def": 25,
+                "speed": 15,
+                "spatk": 15,
+                "spdef": 15
+            },
+            "personality": 9711,
+            "held_item": "ITEM_PERSIM_BERRY",
+            "ot_name": "Rudy",
+            "ot_id": 48926,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_STURDY",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_MUSCLE_MACHOP",
+            "species": "SPECIES_MACHOP",
+            "nickname": "Muscle",
+            "requested_species": "SPECIES_DROWZEE",
+            "ivs": {
+                "hp": 15,
+                "atk": 25,
+                "def": 20,
+                "speed": 20,
+                "spatk": 15,
+                "spdef": 15
+            },
+            "personality": 8976,
+            "held_item": "ITEM_MACHO_BRACE",
+            "ot_name": "Jose",
+            "ot_id": 37460,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_GUTS",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_BILLY_VOLTORB",
+            "species": "SPECIES_VOLTORB",
+            "nickname": "Billy",
+            "requested_species": "SPECIES_KRABBY",
+            "ivs": {
+                "hp": 15,
+                "atk": 20,
+                "def": 15,
+                "speed": 25,
+                "spatk": 25,
+                "spdef": 15
+            },
+            "personality": 475,
+            "held_item": "ITEM_CHERI_BERRY",
+            "ot_name": "Richard",
+            "ot_id": 29189,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_STATIC",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_DORIS_DODRIO",
+            "species": "SPECIES_DODRIO",
+            "nickname": "Doris",
+            "requested_species": "SPECIES_DRAGONAIR",
+            "ivs": {
+                "hp": 20,
+                "atk": 20,
+                "def": 20,
+                "speed": 15,
+                "spatk": 15,
+                "spdef": 15
+            },
+            "personality": 130058,
+            "held_item": "ITEM_SMOKE_BALL",
+            "ot_name": "Ayana",
+            "ot_id": 283,
+            "ot_gender": "female",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_RUN_AWAY",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_SPRINTS_RAPIDASH",
+            "species": "SPECIES_RAPIDASH",
+            "nickname": "Sprints",
+            "requested_species": "SPECIES_GLOOM",
+            "ivs": {
+                "hp": 15,
+                "atk": 20,
+                "def": 15,
+                "speed": 25,
+                "spatk": 15,
+                "spdef": 20
+            },
+            "personality": 97913,
+            "held_item": "ITEM_ASPEAR_BERRY",
+            "ot_name": "Stuart",
+            "ot_id": 15616,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_FLASH_FIRE",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_RUSTY_STEELIX",
+            "species": "SPECIES_STEELIX",
+            "nickname": "Rusty",
+            "requested_species": "SPECIES_STEELIX",
+            "ivs": {
+                "hp": 8,
+                "atk": 30,
+                "def": 28,
+                "speed": 6,
+                "spatk": 18,
+                "spdef": 20
+            },
+            "personality": 1054102,
+            "held_item": "ITEM_SOOTHE_BELL",
+            "ot_name": "Jasmine",
+            "ot_id": 26491,
+            "ot_gender": "female",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_ROCK_HEAD",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_SHUCKIE_SHUCKLE",
+            "species": "SPECIES_SHUCKLE",
+            "nickname": "Shuckie",
+            "requested_species": "SPECIES_SHUCKLE",
+            "ivs": {
+                "hp": 15,
+                "atk": 20,
+                "def": 15,
+                "speed": 20,
+                "spatk": 20,
+                "spdef": 20
+            },
+            "personality": 136407,
+            "held_item": "ITEM_BERRY_JUICE",
+            "ot_name": "Kirk",
+            "ot_id": 69872,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_GLUTTONY",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_KENYA_SPEAROW",
+            "species": "SPECIES_SPEAROW",
+            "nickname": "Kenya",
+            "requested_species": "SPECIES_SPEAROW",
+            "ivs": {
+                "hp": 15,
+                "atk": 20,
+                "def": 15,
+                "speed": 20,
+                "spatk": 20,
+                "spdef": 20
+            },
+            "personality": 27486,
+            "held_item": "ITEM_GRASS_MAIL",
+            "ot_name": "Webster",
+            "ot_id": 1001,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_KEEN_EYE",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_MAGGIE_MAGNETON",
+            "species": "SPECIES_MAGNETON",
+            "nickname": "Maggie",
+            "requested_species": "SPECIES_DUGTRIO",
+            "ivs": {
+                "hp": 15,
+                "atk": 20,
+                "def": 15,
+                "speed": 20,
+                "spatk": 20,
+                "spdef": 20
+            },
+            "personality": 53558,
+            "held_item": "ITEM_METAL_COAT",
+            "ot_name": "Lorenzo",
+            "ot_id": 50082,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_MAGNET_PULL",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_PAUL_XATU",
+            "species": "SPECIES_XATU",
+            "nickname": "Paul",
+            "requested_species": "SPECIES_HAUNTER",
+            "ivs": {
+                "hp": 15,
+                "atk": 20,
+                "def": 15,
+                "speed": 20,
+                "spatk": 20,
+                "spdef": 20
+            },
+            "personality": 13540,
+            "held_item": "ITEM_WACAN_BERRY",
+            "ot_name": "Mondo",
+            "ot_id": 15616,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_SYNCHRONIZE",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_VOLTY_PIKACHU",
+            "species": "SPECIES_PIKACHU",
+            "nickname": "Volty",
+            "requested_species": "SPECIES_PIKACHU",
+            "ivs": {
+                "hp": 20,
+                "atk": 25,
+                "def": 18,
+                "speed": 31,
+                "spatk": 25,
+                "spdef": 13
+            },
+            "personality": 4741238,
+            "held_item": "ITEM_YELLOW_SHARD",
+            "ot_name": "Surge",
+            "ot_id": 33038,
+            "ot_gender": "male",
+            "language": "LANGUAGE_FRENCH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_STATIC",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_HORNLETTE_RHYHORN",
+            "species": "SPECIES_RHYHORN",
+            "nickname": "Hornlette",
+            "requested_species": "SPECIES_BONSLY",
+            "ivs": {
+                "hp": 22,
+                "atk": 31,
+                "def": 13,
+                "speed": 0,
+                "spatk": 22,
+                "spdef": 9
+            },
+            "personality": 1218332,
+            "held_item": "ITEM_PASSHO_BERRY",
+            "ot_name": "Brock",
+            "ot_id": 6845,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_LIGHTNINGROD",
+            "unused_flag": 0
+        },
+        {
+            "id": "NPC_TRADE_IRON_BELDUM",
+            "species": "SPECIES_BELDUM",
+            "nickname": "Iron",
+            "requested_species": "SPECIES_FORRETRESS",
+            "ivs": {
+                "hp": 28,
+                "atk": 29,
+                "def": 24,
+                "speed": 23,
+                "spatk": 24,
+                "spdef": 25
+            },
+            "personality": 1226452,
+            "held_item": "ITEM_DAWN_STONE",
+            "ot_name": "Steven",
+            "ot_id": 23478,
+            "ot_gender": "male",
+            "language": "LANGUAGE_ENGLISH",
+            "contest": {
+                "cool": 0,
+                "beauty": 0,
+                "cute": 0,
+                "smart": 0,
+                "tough": 0
+            },
+            "sheen": 0,
+            "ability": "ABILITY_CLEAR_BODY",
+            "unused_flag": 0
+        }
+    ]
+}

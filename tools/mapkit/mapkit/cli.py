@@ -8,7 +8,7 @@ import re
 import sys
 
 from . import events as ev_mod
-from . import bdhc, edit, landdata, layout, layouts, nitro, scripts, terrain, wild
+from . import bdhc, edit, landdata, layout, layouts, nitro, scripts, sprites, terrain, wild
 from .matrix import CELL_SIZE
 from .repo import Repo, VERSIONS
 from .validate import ERROR, INFO, WARNING, Validator
@@ -296,6 +296,29 @@ def cmd_terrain_export(repo, args):
     s = terrain.export(repo.root, args.cell, args.out_dir, args.area, args.scale)
     print("land data %04d (area %d): %d materials, %d textures, %d height plates -> %s"
           % (args.cell, s["area"], s["materials"], s["textures"], s["plates"], args.out_dir))
+    return 0
+
+
+def cmd_sprite_export(repo, args):
+    s = sprites.export(repo.root, args.sprite, args.png, args.palette)
+    print("%s: %d frames of %dx%d, %d colours, palettes %s -> %s"
+          % (args.sprite, s["frames"], s["width"], s["height"], s["colours"], ", ".join(s["palettes"]), args.png))
+    return 0
+
+
+def cmd_sprite_import(repo, args):
+    s = sprites.import_png(repo.root, args.png, args.sprite, args.palette)
+    print("wrote %d frames to %s" % (s["frames"], s["path"]))
+    return 0
+
+
+def cmd_sprite_add(repo, args):
+    s = sprites.add(repo.root, args.name, args.like, args.png)
+    print("%s = %d, %s = member %d (%s, copied from %s)" % (s["sprite"], s["sprite_id"], s["mmodel"], s["member"],
+                                                            s["file"], s["like"]))
+    print("updated %s, %s, %s, %s" % (sprites.SPRITES_H, sprites.MMODEL_H, sprites.SPRITE_DATA, sprites.MESON))
+    if not args.png:
+        print("next: mapkit sprite export %s sheet.png, edit it, mapkit sprite import sheet.png %s" % (s["sprite"], s["sprite"]))
     return 0
 
 
@@ -648,6 +671,24 @@ def main(argv=None):
     p.add_argument("cells", type=int, nargs="*", help="cells (default: all)")
     p.set_defaults(func=cmd_terrain_check)
 
+    spr = sub.add_parser("sprite", help="overworld sprites as PNG sheets (docs/modding/overworld-sprites.md)")
+    sp_ = spr.add_subparsers(dest="action", required=True)
+    p = sp_.add_parser("export", help="write a sprite's frames in a row as an indexed PNG")
+    p.add_argument("sprite", help="SPRITE_X, MMODEL_X, an mmodel member number or an .NSBTX path")
+    p.add_argument("png")
+    p.add_argument("--palette", type=int, default=0, help="palette to use (follow-Pokemon sprites: 1 = shiny)")
+    p.set_defaults(func=cmd_sprite_export)
+    p = sp_.add_parser("import", help="write a PNG sheet's pixels and palette into a sprite (same frame count and size)")
+    p.add_argument("png")
+    p.add_argument("sprite")
+    p.add_argument("--palette", type=int, default=0)
+    p.set_defaults(func=cmd_sprite_import)
+    p = sp_.add_parser("add", help="add a new sprite copied from an existing one (constants, table row, file)")
+    p.add_argument("name", help="MY_NPC (becomes SPRITE_MY_NPC and MMODEL_MY_NPC)")
+    p.add_argument("--like", required=True, help="the sprite to copy, e.g. SPRITE_BOY1")
+    p.add_argument("--png", help="a sheet to import into the new sprite")
+    p.set_defaults(func=cmd_sprite_add)
+
     hts = sub.add_parser("heights", help="a cell's BDHC heights as text (heights.json)")
     hs_ = hts.add_subparsers(dest="action", required=True)
     p = hs_.add_parser("decompile", help="terrain.bdhc -> heights.json (same heights)")
@@ -681,6 +722,6 @@ def main(argv=None):
     try:
         return args.func(repo, args)
     except (layouts.LayoutError, landdata.LandDataError, terrain.TerrainError, bdhc.BdhcError,
-            nitro.NitroError) as e:
+            nitro.NitroError, sprites.SpriteError) as e:
         print("error: %s" % e, file=sys.stderr)
         return 1

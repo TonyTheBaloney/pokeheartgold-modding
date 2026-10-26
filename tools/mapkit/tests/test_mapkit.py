@@ -10,8 +10,8 @@ import unittest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from mapkit import Repo, cdefs, landdata, layouts, matrix, scripts  # noqa: E402
-from mapkit.validate import ERROR, Validator  # noqa: E402
+from mapkit import Repo, cdefs, landdata, layouts, matrix, scripts, text  # noqa: E402
+from mapkit.validate import ERROR, WARNING, Validator  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 
@@ -161,6 +161,51 @@ class TestValidatorCatches(unittest.TestCase):
         self.assertTrue(self.errors("missing-label"))
         self.assertTrue(self.errors("missing-text"))
         self.assertTrue(self.errors("unresolved"))
+
+
+class TestTextWidth(unittest.TestCase):
+    """Lines wider than the 216 px dialogue box (mapkit validate -w, text-width)."""
+
+    def setUp(self):
+        self.repo = Repo(ROOT)
+        self.m = self.repo.find_map("T21")
+        self.tb = self.repo.text_bank(self.m)  # its messages list is the cached bank
+
+    def warnings(self):
+        issues = Validator(self.repo).run([self.m])
+        return [i for i in issues if i.severity == WARNING and i.check == "text-width"]
+
+    def test_retail_text_fits(self):
+        self.assertEqual(self.warnings(), [])
+
+    def test_long_line(self):
+        self.tb.messages.append({"id": "msg_test", "en_US": "Fits on this line.\n" + "A" * 37})
+        w = self.warnings()
+        self.assertEqual(len(w), 1)
+        self.assertIn("222 px", w[0].message)
+        self.assertTrue(w[0].where.endswith("text.json msg_test"), w[0].where)
+
+    def test_placeholder_counts_as_longest_name(self):
+        line = "A" * 30 + " {STRVAR_1 3, 0, 0}"  # 186 px of text + a 42 px player name
+        self.tb.messages.append({"id": "msg_test", "en_US": line})
+        self.assertEqual(len(self.warnings()), 1)
+
+    def test_points_at_scripts_pory(self):
+        res = self.repo.pory_result(self.m)
+        mid = next(i for i in res.text_lines if self.tb.get(i))
+        self.tb.get(mid)["en_US"] = "W" * 40
+        w = self.warnings()
+        self.assertEqual(len(w), 1)
+        self.assertEqual(w[0].where, "data/maps/Cherrygrove/scripts.pory:%d" % res.text_lines[mid])
+
+    def test_widths(self):
+        w = text.Widths(os.path.join(ROOT, text.CHARMAP), os.path.join(ROOT, text.MESSAGE_FONT))
+        self.assertEqual(w.lines("il"), [("il", 7)])
+        self.assertEqual(w.lines("ab\nc{COLOR 1}d{COLOR 0}"), [("ab", 12), ("c{COLOR 1}d{COLOR 0}", 12)])
+        self.assertEqual(w.lines("x{CURSOR_X 90}Lv."), [("x{CURSOR_X 90}Lv.", 90 + 17)])
+        self.assertEqual(w.lines("{STRVAR_1 3, 0, 0}"), [("{STRVAR_1 3, 0, 0}", 0)])
+        w.add_slot_widths({})
+        self.assertEqual(w.lines("{STRVAR_1 3, 0, 0}")[0][1], text.NAME_PX)
 
 
 if __name__ == "__main__":

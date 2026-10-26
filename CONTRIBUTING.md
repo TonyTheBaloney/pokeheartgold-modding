@@ -36,7 +36,7 @@ make soulsilver
 Then the tool tests (some need a build first, for `nitrogfx` and `nitroarc`):
 
 ```bash
-for t in tools/mapkit/tests/test_*.py tools/pokedata/test_*.py tools/sound/test_sound.py tools/progress/test_progress.py; do
+for t in tools/mapkit/tests/test_*.py tools/pokedata/test_*.py tools/sound/test_sound.py tools/progress/test_progress.py tools/npctrade/test_npctrade.py; do
     python3 "$t" || echo "FAILED: $t"
 done
 ```

@@ -308,6 +308,5 @@ is kept to redo that).
 
 ## Not editable yet
 
-- Battle text per trainer is binary (`trtbl.narc`).
 - The gym leader and Elite Four cut-ins (`encounter_effect_leaders.c`) use their own
   graphics, in another archive.

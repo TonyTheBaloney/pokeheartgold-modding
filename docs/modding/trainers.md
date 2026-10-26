@@ -74,7 +74,7 @@ and the names into `msg_0729`. See `files/poketool/trainer/meson.build`.
 | `ai_flags` | which AI scripts run ([below](#ai-flags)) |
 | `double` | `0` single, `2` double battle (`BATTLE_TYPE_DOUBLES`, OR'd into the battle type at `src/trainer_data.c:45`) |
 | `party` | 1 to 6 Pokémon |
-| `messages` | **ignored by the build**; battle text comes from `msg_0728` through the binary `trtbl.narc` |
+| `messages` | battle text by type (`TRMSG_*`). The build reads the tables made from it, so run `python3 tools/trmsg/trmsg.py build` after editing ([trainer-text.md](trainer-text.md)) |
 
 Per Pokémon:
 
@@ -145,9 +145,9 @@ through this table and works for any id.
 The defeated flag of trainer `N` is flag `0x550 + N`. Retail ends at `0x821`;
 `0x822`-`0x82D` are unused, and from `0x82E` on the range overlaps `FLAG_UNK_*` flags
 ([unknown-flags-vars.md](unknown-flags-vars.md)), so check those before adding more
-than 12 trainers. The new trainer has no battle text (it lives in the binary
-`trtbl.narc`), so the intro, defeat and after-battle lines must be written in the
-script with `npcmsg` instead.
+than 12 trainers. Give the new trainer intro, defeat and after-battle lines in its
+`messages` and run `python3 tools/trmsg/trmsg.py build`, which also gives it the
+offset entry the text lookup needs ([trainer-text.md](trainer-text.md#text-for-a-new-trainer)).
 
 ## Starting a battle
 
@@ -202,49 +202,16 @@ stepping back to an earlier stage if that stage's story flag
 (`FLAG_UNK_97B + stage`, `src/sys_flags.c:116`) isn't set yet. So to make a rematch
 harder, edit the party of `TRAINER_YOUNGSTER_JOEY_2` etc. in `trainers.json`; to add
 a stage, add a trainer and put its id in the row. Gym leader rematches are separate
-battles in scripts ([gyms.md](gyms.md)).
+battles in scripts ([gyms.md](gyms.md)). When a trainer asks for a rematch (phone
+calls, days and times) and how to give a trainer a phone number is in
+[phone.md](phone.md#6-rematches).
 
 ## Level scaling
 
-Levels are fixed in the data. To make them follow the player, change
-`CreateNPCTrainerParty` in `src/trainer_data.c`. The player's party is already in
-`enemies->party[BATTLER_PLAYER]` when it runs (`BattleSetup_InitFromFieldSystem` is
-called first, `src/encounter.c:717`).
-
-This example keeps each trainer's own level as a minimum and raises it to the
-player's highest level minus 2:
-
-```c
-static u8 TrMon_ScaleLevel(BattleSetup *enemies, int partyIndex, u8 level) {
-    int scaled;
-
-    // Leave the player's partner in a multi battle as it is.
-    if (partyIndex == BATTLER_PLAYER2) {
-        return level;
-    }
-    scaled = Party_GetMaxLevel(enemies->party[BATTLER_PLAYER]) - 2;
-    if (scaled > MAX_LEVEL) {
-        scaled = MAX_LEVEL;
-    }
-    return scaled > level ? scaled : level;
-}
-```
-
-Put it above `CreateNPCTrainerParty` and use it in the four `CreateMon` calls only,
-for example in the `TRTYPE_MON` case:
-
-```c
-CreateMon(mon, species, TrMon_ScaleLevel(enemies, partyIndex, monSpecies[i].level), iv, TRUE, (s32)personality, OT_ID_RANDOM_NO_SHINY, 0);
-```
-
-(`monSpeciesMoves`, `monSpeciesItem`, `monSpeciesItemMoves` in the other three.)
-Leave the `personality = ... + level + ...` lines alone so natures don't change with
-the player's level. Trainers with `TRTYPE_MON` or `TRTYPE_MON_ITEM` get the moves of
-the new level; trainers with custom moves keep theirs. Species don't evolve: that
-would need an evolution lookup here. Prize money follows the scaled level.
-
-Other ideas built on the same spot: scale only by badge count (`Save_VarsFlags`
-badge checks), add a fixed `+N` for a hard mode, or raise `iv` the same way.
+Levels are fixed in the data. [level-scaling.md](level-scaling.md) shows how to
+raise them with the player in `CreateNPCTrainerParty` (by party level, badge count
+or both), what else depends on the level (natures, prize money, moves), and how to
+evolve scaled Pokémon.
 
 ## The AI
 
@@ -383,8 +350,8 @@ The byte for word `n` is at `.byte` index `4n` counted from the line after
 
 ## Not verified
 
-- None of these changes were tried in game, only read in the code. The level
-  scaling example and an `ai_flags` change were built with `make release`.
+- None of these changes were tried in game, only read in the code. An `ai_flags`
+  change was built with `make release`.
 - The flag names other than bits 0, 7 and 29, and what each script does, come from
   pret's Diamond/Pearl/Platinum work, not from tracing these scripts.
 - What `BATTLE_TYPE_11` (the third `trainerbattle` argument) changes.

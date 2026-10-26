@@ -36,8 +36,8 @@ Key names follow pokeemerald where one exists:
 | Key | Meaning |
 |---|---|
 | `music_day`, `music_night` | `SEQ_*` from `include/constants/sndseq.h` |
-| `weather` | weather id |
-| `region_map_section` | name shown on entry and on the Town Map (`MAPSEC_*`) |
+| `weather` | weather id, a number ([weather.md](weather.md)) |
+| `region_map_section` | name shown on entry and on the Town Map (`MAPSEC_*`; [town-map-and-fly.md](town-map-and-fly.md#1-map-sections)) |
 | `map_type` | `MAP_TYPE_*` (town, route, building, ...) |
 | `battle_scene` | `BATTLE_BG_*` used for battles here |
 | `camera_type` | camera preset |
@@ -219,6 +219,7 @@ behaviors and events; see
 
 ## Adding a new map
 
-Not covered yet. It needs a `MAP_*` id in `maps.h`, a folder, a `maps.txt` line
-with new bank names after the existing ones, and an entry in
-`src/data/map_headers.h` that includes the generated header.
+See [adding-a-map.md](adding-a-map.md): the `MAP_*` id, the folder, the `maps.txt`
+bank names, the header entry, a new layout and terrain cell, and what to edit to
+change an existing map. Map sections, the Town Map and fly points are in
+[town-map-and-fly.md](town-map-and-fly.md).

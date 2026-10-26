@@ -58,7 +58,7 @@ Keys are the names of the C struct fields (`ItemData` and `ItemPartyParam` in
 | `fieldPocket` | bag pocket: `POCKET_ITEMS`, `POCKET_MEDICINE`, `POCKET_BALLS`, `POCKET_TMHMS`, `POCKET_BERRIES`, `POCKET_MAIL`, `POCKET_BATTLE_ITEMS`, `POCKET_KEY_ITEMS` |
 | `battlePocket` | battle bag pages it appears on, a list of `BTLPOCKET_BALLS_F`, `BTLPOCKET_BATTLE_ITEMS_F`, `BTLPOCKET_HP_RESTORE_F`, `BTLPOCKET_STATUS_RESTORE_F`, `BTLPOCKET_PP_RESTORE_F`; `[]` to keep it out of battle |
 | `fieldUseFunc` | what "Use" in the bag does (table below) |
-| `battleUseFunc` | what using it in battle does: `ITEM_BATTLE_USE_NONE`, `_BALL` (throw it), `_RESTORE` (on a Pokémon, with `partyUseParam`), `_ESCAPE` (flee a wild battle, like the Poké Doll) |
+| `battleUseFunc` | `ITEM_BATTLE_USE_NONE`, `_BALL`, `_RESTORE`, `_ESCAPE`. Only `_ESCAPE` is read (on the battle-items page). What an item does in battle is decided by its `battlePocket` page ([party-menu-and-item-use.md §4](party-menu-and-item-use.md#4-using-an-item-in-battle)); keep the retail value |
 | `prevent_toss` | can't be tossed or given to hold (key items) |
 | `selectable` | can be registered to the Y button |
 | `pluckEffect`, `flingEffect`, `flingPower` | what Pluck/Bug Bite do when they eat it, what Fling does with it, and Fling's power. The effect numbers are berry and item effects coded in battle |
@@ -93,7 +93,9 @@ constant, a row there and its functions in C.
 ### Party use
 
 With `"partyUse": true`, using the item on a Pokémon (from the bag, or in battle
-with `ITEM_BATTLE_USE_RESTORE`) applies the `partyUseParam` effects:
+from a restore or battle-items page) applies the `partyUseParam` effects. The field and
+battle apply them with different code, and the battle skips EVs, Rare Candy, evolution
+and PP Up ([party-menu-and-item-use.md](party-menu-and-item-use.md#3-using-an-item-on-a-pokémon-field)):
 
 | Keys | Effect |
 |---|---|
@@ -212,7 +214,8 @@ checksum tests. Tests: `python3 tools/pokedata/test_items.py`.
 
 ## Not covered yet
 
-- New hold effects, field uses or battle uses (they are C; the constants and tables
-  above are where to start).
+- New hold effects, field uses or battle uses are C:
+  [party-menu-and-item-use.md](party-menu-and-item-use.md) explains where each kind of
+  effect runs and how to add one.
 - Berry trees, Apricorns and the Pokéathlon shops (other data).
 - Marts as data files (they're C tables).

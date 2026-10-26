@@ -177,3 +177,5 @@ block's footer (size, magic, CRC), so a save from a different layout fails
 those checks and is treated as corrupted. Start a new game after any layout change, or
 keep the layout by only reusing unused space (free flags and vars, `filler`
 and `dummy` fields).
+[save-compatibility.md](save-compatibility.md) explains how to stay compatible
+across releases: free space, new data in the unused sectors, migrating old saves.

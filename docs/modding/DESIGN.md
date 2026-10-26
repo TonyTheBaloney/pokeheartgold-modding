@@ -218,7 +218,7 @@ binary must equal the current file):
 |---|---|---|
 | done | `files/poketool/personal/wotbl.narc` (level-up moves) | `level_up_learnsets.json` (2026-10-22) |
 | done | `files/fielddata/sodateya/kowaza_list.narc` (egg moves) | `egg_moves.json` (2026-10-22) |
-| 2 | `files/poketool/trmsg/trtbl.narc`, `trtblofs.narc` (trainer text tables) | generated from `trainers.json` |
+| done | `files/poketool/trmsg/trtbl.narc`, `trtblofs.narc` (trainer text tables) | generated from `trainers.json` by `tools/trmsg/trmsg.py build` (2026-10-25; run by hand, not by the build) |
 | 2 | `files/poketool/personal/pms.narc` (base/egg species) | field in `evo.json` or `pms.json` |
 | 3 | `files/poketool/personal/performance.narc` (Pokéathlon stats) | `performance.json` |
 | 3 | `files/poketool/pokegra/height*.narc`, `johtozukan.narc` | JSON |

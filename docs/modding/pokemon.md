@@ -46,7 +46,9 @@ File: `files/poketool/personal/evo.json`, array `evoTable`:
 ```
 
 Methods are the `EVO_*` constants in `include/constants/pokemon.h`. The
-`param` meaning depends on the method (level, item, move, species, ...).
+`param` meaning depends on the method (level, item, move, species, ...). What each
+method checks, when the game checks it, and how to add a new method:
+[evolutions.md](evolutions.md).
 
 The baby/base species used for eggs is **not** here; it's the binary
 `files/poketool/personal/pms.narc` (see "Not editable yet").
@@ -129,7 +131,8 @@ The height/weight strings are display text only; the values the game uses are
 in `zukan_data.json`. Change both.
 
 - Johto dex order: `files/poketool/johtozukan.narc` (binary) and
-  `include/constants/johto_dex.h`.
+  `include/constants/johto_dex.h`; changing it, the National Dex and seen/caught are in
+  [pokedex.md](pokedex.md).
 
 ## Graphics
 
@@ -162,16 +165,9 @@ Changing these behaviors means editing C:
 
 ## Adding a new species
 
-Not supported yet. A new species has to go after Arceus (493), which shifts
-`SPECIES_EGG`, `SPECIES_BAD_EGG` and every form number. That breaks every
-archive indexed by species, plus:
+See [adding-a-species.md](adding-a-species.md): the new species goes after Arceus (494),
+which moves `SPECIES_EGG`, `SPECIES_BAD_EGG` and the form entries up by one, and every
+table in species order gets an entry.
 
-- `NUM_DEX_FLAG_WORDS` in `include/pokedex.h` (changes the **save layout**)
-- species ranges hard-coded in `files/poketool/pokegra/pokegra/meson.build`,
-  `tools/scripts/make_pokegra.py`, `poke_icon/meson.build`, `evo.json.txt`
-- `MAX_SPECIES`/`NATIONAL_DEX_COUNT` checks in about 15 C files (`follow_mon.c`,
-  `pokedex.c`, `pokemon_icon_idx.c`, Pokéwalker, footprints, Hall of Fame, ...)
-- every text bank above, the easy-chat word list (`src/easy_chat_menu.c`), and a cry
-
-Replacing an existing species (same number, new data) works today, except for the
-binary items listed above.
+Replacing an existing species (same number, new data) needs only the files above,
+except the binary ones listed in "Not editable yet".

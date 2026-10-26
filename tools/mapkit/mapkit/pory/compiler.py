@@ -68,6 +68,7 @@ class Result:
     map_scripts_inc: str
     texts: list = field(default_factory=list)      # [(id, value)]
     public: list = field(default_factory=list)     # ScrDef labels in order (script n = index + 1)
+    text_lines: dict = field(default_factory=dict)  # text id -> line in scripts.pory
 
 
 class CompileError(P.PoryError):
@@ -337,6 +338,7 @@ class Compiler:
         self.config = ctx.config
         self.texts = []
         self.text_ids = set()
+        self.text_lines = {}
         self.movements = []
 
     def command(self, name, line=None):
@@ -362,6 +364,8 @@ class Compiler:
             raise CompileError("text %s defined twice" % tid, self.ctx.path, line)
         self.text_ids.add(tid)
         self.texts.append((tid, value))
+        if line is not None:
+            self.text_lines[tid] = line
 
     def public_scripts(self, prog):
         """ScrDef order: the scrdefs block (and ScrDef lines in raw blocks), then top-level
@@ -484,7 +488,8 @@ class Compiler:
             body += self.movement_lines(mv)
         body += ["", "\t.balign 4, 0"]  # every original bank ends aligned
         scripts_inc = "\n".join(head + body) + "\n"
-        return Result(scripts_inc, self.map_scripts(mapscripts[0] if mapscripts else None, number), self.texts, public)
+        return Result(scripts_inc, self.map_scripts(mapscripts[0] if mapscripts else None, number), self.texts, public,
+                      self.text_lines)
 
     def movement_lines(self, mv):
         out = ["", "\t.balign 4, 0", "%s:" % mv.name]
