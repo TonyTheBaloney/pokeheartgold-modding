@@ -44,6 +44,8 @@ They are bits in the player profile, not flags: `u8 johtoBadges` (ids 0-7) and
 (`src/field_move.c`) and the std scripts that run when you press A on an obstacle
 (`scr_seq_0146.s`, `std_field_*`). Surfing from the shore is checked in C,
 `src/field/field_control.c:610`.
+What each path checks, and how to use HMs without a Pokémon that knows the move, is in
+[player-movement.md](player-movement.md#6-field-moves-hms).
 
 | Move | Badge | `field_move.c` |
 |---|---|---|
@@ -78,6 +80,8 @@ you take gyms in any order should change these lines to count badges.
 - Which items marts sell (`src/scrcmd_mart.c`, tiers by total badges): see
   [items.md](items.md#marts).
 - Money lost on whiteout scales with the count (`src/battle/battle_system.c:1316`).
+- Nothing caps experience by badges in HGSS. To add level caps, see
+  [experience.md](experience.md#8-recipe-level-caps-by-badge-count).
 - Vermilion Gym's gates start open if you have the Thunder Badge (`src/gymmick_init.c:61`).
 - Phone calls and radio shows pass the count or single badges to their scripts
   (Juggler Irwin, Prof. Elm, the Pokémon Search Party show).

@@ -261,3 +261,26 @@ was checked. Later work is described in the commit messages (`git log`).
   64-sector half unused. Cross-checks: SaveVarsFlags 368*2+2912/8 = 1100; Bag 486*4+4 = 1948; PC box
   30*136+16 = 4096. Flag ranges from flags.h. Not verified: which FLAG_UNK_/VAR_UNK_ are free; heap
   headroom for a larger SAVE_PAGE_MAX.
+
+## 2026-10-26 Experience and leveling guide
+- Location: docs/modding/experience.md (new); links from docs/WIKI.md, docs/modding/README.md,
+  gyms.md, game-limits.md, level-scaling.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: growth tables, BtlCmd_CalcExpGain / Task_GetExp, Exp. Share, Lucky Egg, level-up flow, Rare
+  Candy, Day-Care. Recipes (party-wide Exp. Share, Gen 5 scaling, exp on catch via a resumeWork field
+  on GetterWork, level caps by badge count incl. Rare Candy) were applied together, compiled and linked
+  into a HeartGold ROM, then reverted. Not play-tested (no emulator available). Cap table values are
+  each next leader's highest level from trainers.json.
+
+## 2026-10-26 Player movement guide
+- Location: docs/modding/player-movement.md (new); links from docs/WIKI.md, docs/modding/README.md,
+  overworld-sprites.md, gyms.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: PlayerAvatar_FootStep / bike / forced movement, Running Shoes and the touch-screen lock,
+  allow_running (runningAllowed_Unused, read by nothing; 34 maps false), bike rules, ledge/one-way/
+  stairs/ice/spin behaviors (ledge collision counted in data/landdata), the three HM paths. Recipes
+  (running gated by allow_running, shoes in init, B-speed surfing, HM fallback to the lead via
+  _HMUserOrLead incl. a key-item variant, Surf and Waterfall C checks) compiled and linked into a
+  HeartGold ROM, then reverted. Bike recipes not built. Not play-tested (no emulator available).

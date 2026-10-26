@@ -11,7 +11,7 @@ formats: raising those needs more than editing the constant.
 
 | Constant | Value | Header | Meaning |
 |---|---|---|---|
-| `MAX_LEVEL` | 100 | `constants/pokemon.h` | level cap |
+| `MAX_LEVEL` | 100 | `constants/pokemon.h` | level cap (caps by badge count: [experience.md](experience.md#8-recipe-level-caps-by-badge-count)) |
 | `MAX_MON_MOVES` | 4 | `constants/pokemon.h` | move slots (save format) |
 | `PARTY_SIZE` | 6 | `constants/global.h` | party slots (save format) |
 | `MAX_PER_STAT_IVS` / `MAX_IV_MASK` | 31 / 0x1F | `constants/pokemon.h` | IV cap / one IV in the packed IV word |

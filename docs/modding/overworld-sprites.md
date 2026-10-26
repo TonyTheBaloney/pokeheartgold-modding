@@ -15,6 +15,8 @@ This guide covers three things:
 
 [npcs-and-scripts.md](npcs-and-scripts.md) covers placing NPCs and using the existing
 sprites, movement types and movement scripts.
+How the player moves (running, the bike, ledges, HMs) is in
+[player-movement.md](player-movement.md).
 
 If you know pokeemerald:
 

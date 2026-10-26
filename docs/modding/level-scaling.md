@@ -241,6 +241,10 @@ such as stones at 30 and friendship at 25.
 - **Obedience.** Traded Pokémon disobey above the badge level
   ([gyms.md](gyms.md#what-badges-do)). Caught Pokémon always obey, so scaled wild
   Pokémon are safe to catch.
+- **Experience.** Scaled Pokémon give experience for their scaled level, so the
+  party levels faster too. To slow that down, see Gen 5 scaling
+  ([experience.md §6](experience.md#6-recipe-gen-5-level-scaling)) or level caps
+  ([§8](experience.md#8-recipe-level-caps-by-badge-count)).
 - **The RNG.** `LCRandRange` in the wild example uses the same random generator as
   the encounter rolls, so the encounters that follow change too. This has no effect
   on play.

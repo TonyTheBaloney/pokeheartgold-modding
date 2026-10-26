@@ -1,4 +1,4 @@
-<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22 -->
+<!-- [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-26 -->
 
 # Modding wiki
 
@@ -86,6 +86,8 @@ the command, if there is one. Commands run from the repository root;
 | change the order of story events or skip one | [story-progression.md](modding/story-progression.md#changing-progression) | |
 | know what unlocks after the League (`FLAG_GAME_CLEAR`) | [story-progression.md](modding/story-progression.md#elite-four-and-game-clear) | |
 | change which badge an HM needs, or obedience levels | [gyms.md](modding/gyms.md#what-badges-do) | |
+| understand what each HM checks (party menu, A prompt, while moving) | [player-movement.md](modding/player-movement.md#6-field-moves-hms) | `scr_seq_0146.s`, `src/field_move.c` |
+| use HMs without a Pokémon that knows the move (or with a key item) | [player-movement.md](modding/player-movement.md#hms-without-a-pokémon-that-knows-the-move) | `Call _HMUserOrLead` in `scr_seq_0146.s` |
 | change a leader's reward, entry gate or puzzle | [gyms.md](modding/gyms.md#summary) | |
 | require badges for a gate | [gyms.md](modding/gyms.md#changing-gyms) | `checkbadge`, `countbadges` |
 
@@ -144,6 +146,10 @@ the command, if there is one. Commands run from the repository root;
 | replace sprites and icons | [pokemon.md](modding/pokemon.md#graphics) | PNG files |
 | add a species (after Arceus, number 494) | [adding-a-species.md](modding/adding-a-species.md) | |
 | change wild encounters | [wild-encounters.md](modding/wild-encounters.md) | `mapkit wild set` |
+| change how often encounters happen (rate math, Repel, Cleanse Tag, flutes, abilities) | [encounter-mechanics.md](modding/encounter-mechanics.md#2-the-step-encounter-roll) | `FieldSystem_EncounterRateRoll` in `src/field/encounter_check.c` |
+| change fishing bite chance or reel timing | [encounter-mechanics.md](modding/encounter-mechanics.md#7-fishing) | rod `rate` in the table; `sReelWindow` in `src/field/fishing.c` |
+| change swarms, or start one from a script | [encounter-mechanics.md](modding/encounter-mechanics.md#8-swarms) | `sSwarmMapLUT` in `src/swarm.c`; `enablemassoutbreaks` |
+| switch a map's wild Pokémon from a script (event tables, radio sounds) | [encounter-mechanics.md](modding/encounter-mechanics.md#10-switching-tables-from-a-script) | new script command |
 | change headbutt, Safari, Bug Contest | [wild-encounters.md](modding/wild-encounters.md#headbutt-trees) | |
 | scale wild levels to the player | [level-scaling.md](modding/level-scaling.md#wild-pokémon) | edit `FieldSystem_GenerateRegularEncounter` |
 | give a Pokémon from a script | [gift-pokemon-and-trades.md](modding/gift-pokemon-and-trades.md#1-givemon) | `givemon(SPECIES_X, level, item, form, ability, VAR)` |
@@ -152,6 +158,13 @@ the command, if there is one. Commands run from the repository root;
 | change or add an in-game trade | [gift-pokemon-and-trades.md](modding/gift-pokemon-and-trades.md#5-in-game-trades) | edit `data/npc_trades.json`, then `python3 tools/npctrade/npctrade.py build` |
 | change roamers: species, level, routes, encounter chance, how they move | [roamers.md](modding/roamers.md) | `src/field_roamer.c` |
 | change breeding: egg chance, Everstone, IV inheritance, Destiny Knot, egg moves, egg level, hatch steps | [breeding.md](modding/breeding.md) | `src/get_egg.c`, `constants/daycare.h` |
+| change a species' growth rate or experience yield | [experience.md](modding/experience.md#1-growth-rates) | `growthRate`, `expYield` in `personal.json` |
+| change a growth curve, or add one | [experience.md](modding/experience.md#changing-a-curve) | edit `files/poketool/personal/growtbl.csv` |
+| understand who gets experience and how much (Exp. Share, Lucky Egg, trainer and traded bonus) | [experience.md](modding/experience.md#2-experience-in-battle) | `BtlCmd_CalcExpGain`, `Task_GetExp` in `src/battle/battle_command.c` |
+| make the Exp. Share party-wide (Gen 6) | [experience.md](modding/experience.md#5-recipe-party-wide-exp-share) | |
+| scale experience by level difference (Gen 5) | [experience.md](modding/experience.md#6-recipe-gen-5-level-scaling) | |
+| give experience for catching | [experience.md](modding/experience.md#7-recipe-experience-for-catching) | new states in `Task_GetPokemon` |
+| add level caps by badge count (battle and Rare Candy) | [experience.md](modding/experience.md#8-recipe-level-caps-by-badge-count) | `GetLevelCap` |
 | add an ability | [abilities.md](modding/abilities.md#adding-an-ability) | |
 | find where an ability's effect is coded | [abilities.md](modding/abilities.md#where-an-ability-can-act) | `grep -rn ABILITY_X src files/battledata` |
 | add a type (Fairy) | [adding-a-type.md](modding/adding-a-type.md) | |
@@ -206,6 +219,12 @@ General framework (applications, windows, text, sprites, input): [ui.md](modding
 | change a name's maximum length | [naming-screen.md](modding/naming-screen.md#7-how-to-change-the-maximum-length) | |
 | change the default player or rival names | [naming-screen.md](modding/naming-screen.md#8-how-to-change-the-default-names) | `msg_0254` |
 | skip or force the nickname prompt | [naming-screen.md](modding/naming-screen.md#9-how-to-skip-or-force-the-nickname-prompt) | |
+| skip the intro movie, or make it skippable sooner | [intro-title-credits.md](modding/intro-title-credits.md#6-how-to-skip-the-intro-movie) | `gApplication_IntroMovie`, `skipAllowed` |
+| skip the title screen | [intro-title-credits.md](modding/intro-title-credits.md#7-how-to-skip-the-title-screen) | `gApplication_CheckSave` |
+| change the title screen (logo, cry, music, timeout, hidden button combos) | [intro-title-credits.md](modding/intro-title-credits.md#8-how-to-change-the-title-screen) | `files/demo/title/titledemo/` |
+| change Professor Oak's speech, skip the info menu, fix the gender or name | [intro-title-credits.md](modding/intro-title-credits.md#9-how-to-change-professor-oaks-speech) | `msg_0219`, `OakSpeech_DoMainTask` |
+| skip Oak's speech entirely (default name and gender) | [intro-title-credits.md](modding/intro-title-credits.md#10-how-to-skip-oaks-speech-entirely) | |
+| change the credits text or timing, or make them skippable | [intro-title-credits.md](modding/intro-title-credits.md#11-how-to-change-the-credits) | `msg_0440`, `sCreditMsgLines` |
 | add, rename, hide or reorder a start menu entry | [start-menu.md](modding/start-menu.md#4-how-to) | |
 | make a start menu entry run a script | [start-menu.md](modding/start-menu.md#worked-example-an-entry-that-runs-a-script) | |
 | add an entry to the bag's item menu | [bag.md](modding/bag.md#add-an-entry-to-the-item-menu) | `BagApp_PrepareContextMenu`, `gItemActionFuncs` |
@@ -223,6 +242,11 @@ General framework (applications, windows, text, sprites, input): [ui.md](modding
 | change the outdoor lighting by time | [day-night-and-rtc.md](modding/day-night-and-rtc.md#the-light-files) | edit `files/data/area00light.txt` |
 | make an event happen at night, on a weekday, or once a day | [day-night-and-rtc.md](modding/day-night-and-rtc.md#7-recipes) | `getcurrenttimeofday`, `getweekday`, a `FLAG_DAILY_*` |
 | know what happens when the DS clock is changed | [day-night-and-rtc.md](modding/day-night-and-rtc.md#6-changing-the-clock-the-penalty) | |
+| change walking, running or surfing speed | [player-movement.md](modding/player-movement.md#1-how-a-step-happens) | `PlayerAvatar_FootStep` |
+| stop running on some maps (make `allow_running` work) | [player-movement.md](modding/player-movement.md#no-running-on-chosen-maps) | `MapHeader_IsRunningAllowed` |
+| start with the Running Shoes | [player-movement.md](modding/player-movement.md#running-shoes-from-the-start) | `GiveRunningShoes` in `scr_seq_0149.s` |
+| change where the bike works, its speed, Cycling Road | [player-movement.md](modding/player-movement.md#4-the-bicycle) | `allow_cycling`, `ItemCheckUseFunc_Bicycle`, `setbikestatelock` |
+| add ledges, one-way edges, stairs, ladders, ice, spin tiles | [player-movement.md](modding/player-movement.md#5-tiles-that-change-movement) | paint the behavior in `permissions.txt` |
 | change a hard-coded limit (level cap, IVs, egg steps, money, coins, bag size) | [game-limits.md](modding/game-limits.md) | |
 | keep old saves working after an update (or migrate them) | [save-compatibility.md](modding/save-compatibility.md) | `tools/savemap/savemap.py` |
 | know what a change costs in save space | [save-data.md](modding/save-data.md#what-common-mods-cost) | |
