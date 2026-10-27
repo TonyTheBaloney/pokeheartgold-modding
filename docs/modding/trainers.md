@@ -176,9 +176,9 @@ settrainerflag(TRAINER_LEADER_FALKNER_FALKNER)   // only if you want defeated() 
 |---|---|
 | `trainerbattle(T, 0, 0, 0)` | single, or double if `T` has `"double": 2` (one trainer, two Pokémon out: Twins, Double Team) |
 | `trainerbattle(T1, T2, 0, 0)` | two different trainers together, a tag double battle (`Route34/scripts.pory:571`) |
-| with a follower set (e.g. the Rival as partner) | multi battle: you and the follower against `T1` and `T2`; the partner's party is built like any trainer's |
-| third argument `1` | adds `BATTLE_TYPE_11`; retail uses it only for the Cherrygrove passerby and Giovanni. Effect not traced. |
-| fourth argument | if non-zero, sets an entry of `setup->followMonSlot` to 0 (`encounter.c:727`); retail always passes 0. Effect not traced. |
+| `multibattle(P, T1, T2, 1)`, or `trainerbattle(T1, T2, 0, 0)` in escort mode | multi battle: you and the AI partner `P` against `T1` and `T2` ([double-battles.md](double-battles.md#4-a-multi-battle-with-an-ai-partner)) |
+| third argument `1` | single battles only: losing doesn't black out; the party is healed and the script goes on (`BATTLE_TYPE_11`). Retail: the Cherrygrove passerby and Giovanni |
+| fourth argument `1` | the opponent's first Pokémon slides in like a walking Pokémon instead of leaving a Poké Ball (`followMonSlot`, `encounter.c:727`); retail passes 0 here and 1 in every `multibattle` |
 
 The script writes nothing for you: after a script battle, set the defeated flag
 yourself if other scripts check `defeated(TRAINER_X)`.

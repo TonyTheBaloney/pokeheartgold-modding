@@ -56,6 +56,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [items.md](items.md) | Items: `data/items/items.json` (names, prices, effects, pockets), icons, adding items, marts |
 | [terrain.md](terrain.md) | 3D terrain models (OBJ export/import, e.g. Blender) and the heights the player walks on |
 | [area-textures.md](area-textures.md) | The textures terrain is drawn with: one PNG/palette folder per area (`data/area_textures`), changing and adding textures, formats, texture memory |
+| [double-battles.md](double-battles.md) | Double, tag and multi battles: which battle type each call gives, trainers who spot you in pairs, multi battles with an AI partner (who controls what, winning and losing), Diamond/Pearl escort mode; recipe for a new multi battle |
 | [battle-engine.md](battle-engine.md) | How battles run: server and per-battler clients, their messages, the turn sequence, battle scripts (format, variables, commands, adding one), a glossary |
 | [engine.md](engine.md) | The main loop and frame rate, boot, SysTasks, field tasks, overlays (layout, loading, free RAM), heaps and memory budgets |
 | [debugging.md](debugging.md) | Finding bugs: symbols and the `.xMAP`, emulators, `DebugPrintf` (melonDS/no$gba log), gdb with melonDS (breakpoints in overlays, `tools/debug/pokeheartgold.gdb`), silent asserts and failed allocations, a SELECT debug menu |

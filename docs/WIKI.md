@@ -118,6 +118,9 @@ the command, if there is one. Commands run from the repository root;
 | change or add a trainer's battle text (intro, defeat, after, mid-battle, rematch, gloat) | [trainer-text.md](modding/trainer-text.md) | edit `messages` in `trainers.json`, then `python3 tools/trmsg/trmsg.py build` |
 | see what a trainer says | [trainer-text.md](modding/trainer-text.md#5-the-tool) | `python3 tools/trmsg/trmsg.py show TRAINER_X` |
 | scale trainer levels to the player | [level-scaling.md](modding/level-scaling.md#trainer-pokémon) | edit `CreateNPCTrainerParty` |
+| add a double-battle pair (Twins) or a tag pair of trainers | [double-battles.md](modding/double-battles.md#3-double-and-tag-battles-from-trainers-who-spot-you) | `"double": 2`, `std_trainer` + `std_trainer_2` |
+| a multi battle with an AI partner (like Lance in the Rocket Hideout) | [double-battles.md](modding/double-battles.md#recipe-a-new-multi-battle) | `multibattle(partner, T1, T2, 0)` |
+| a partner who joins every battle (Diamond/Pearl escort mode) | [double-battles.md](modding/double-battles.md#5-escort-mode-a-partner-for-every-battle) | `setescortmode`, `VAR_FOLLOWER_TRAINER_NUM` |
 | make a trainer smarter, change AI | [trainers.md](modding/trainers.md#the-ai) | `"ai_flags"` in `trainers.json` |
 | change a move's power, type, effect | [moves.md](modding/moves.md#move-data-battle_movesjson) | edit `battle_moves.json` |
 | add a move | [moves.md](modding/moves.md#adding-a-new-move) | |

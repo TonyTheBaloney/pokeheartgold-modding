@@ -348,3 +348,17 @@ was checked. Later work is described in the commit messages (`git log`).
   music; recipes add a per-trainer table, a per-map table and VAR_BATTLE_MUSIC (VAR_UNK_4152).
   Recipes 4.1/4.2/4.4 built together and 4.5 (vars.h rename + Violet Gym script) built separately
   with make release, then reverted. Not play-tested.
+
+## 2026-10-26 Double, tag and multi battles guide
+- Location: docs/modding/double-battles.md (new); links from battle-engine.md (glossary "partner"),
+  trainers.md (battle table), docs/WIKI.md, docs/modding/README.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: SetupAndStartTrainerBattle types (tag needs two different opponents; multibattle(P, T, T)
+  or (P, T, 0) silently drops the partner); BATTLE_TYPE_AI makes every battler but the player AI;
+  in partner battles you lose when your own party is out. Traced the two trainerbattle arguments
+  trainers.md listed as untraced: BATTLE_TYPE_11 = no blackout on a loss (party healed), last arg
+  = followMonSlot slide-in for the partner's / opponent's first Pokemon. Escort mode (DP
+  Cheryl/Riley: FLAG_HAVE_FOLLOWER, VAR_FOLLOWER_TRAINER_NUM) documented from the code; unused in
+  HG. Recipe (multibattle with Lance vs two Route 30 trainers, escort-mode commands,
+  partycheckfordouble) built with make release, then reverted. Not play-tested.

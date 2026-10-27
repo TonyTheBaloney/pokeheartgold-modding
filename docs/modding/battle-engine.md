@@ -426,7 +426,7 @@ another console, with no access to `ctx`.
 | battler, `battlerId` | a position on the field, 0-3. `BATTLER_PLAYER` 0, `BATTLER_ENEMY` 1, `BATTLER_PLAYER2` 2, `BATTLER_ENEMY2` 3: **odd is the enemy side**. Single battles use 0 and 1 |
 | battler type | the slot's screen position (`BATTLER_TYPE_SOLO_PLAYER`, `..._PLAYER_SIDE_SLOT_1`...). `BattleSystem_GetBattlerType`; `& BATTLER_TYPE_IS_ENEMY` tests the side |
 | side | 0 = player, 1 = enemy. `fieldSideConditionFlags[side]` holds Reflect, Spikes, Tailwind... |
-| partner | the other battler on the same side in a double battle: `BattleSystem_GetBattlerIdPartner` |
+| partner | the other battler on the same side in a double battle: `BattleSystem_GetBattlerIdPartner`. For an AI-controlled trainer on your side (Lance in the Rocket Hideout), see [double-battles.md](double-battles.md#4-a-multi-battle-with-an-ai-partner) |
 | `BattleSystem` | the whole battle: graphics, parties, server and clients |
 | `BattleContext`, `ctx` | the server's rules state |
 | `OpponentData` | a client: one per battler, either side |
