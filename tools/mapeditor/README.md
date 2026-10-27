@@ -77,6 +77,28 @@ neighbours belong to other maps, and a drop or an add outside is refused.
 and toolbar toggle terrain, behavior colors, collision, grid, prop markers,
 events, sprites (off: objects as boxes), sprite animation and cell labels.
 
+## Files in a text editor
+
+Scripts and text aren't edited here; the editor opens them in yours, at the line:
+
+| Action | Opens |
+|---|---|
+| `Ctrl+E`, *Open script* (Event tab, right-click an event, File menu) | the selected event's script in `scripts.pory`, at its `script` label; with no event selected, the top of the file |
+| `Ctrl+Shift+E`, *Show in map.json* | `map.json` at the selected event |
+| File → Open in text editor | any file in the map's folder (`scripts.pory`, `map.json`, `text.json`, `ids.h`...), its `layout.json`, and `permissions.txt` / `props.json` / `heights.json` of the cell last under the mouse; and the folder in the file manager |
+
+The first time, File → *Choose text editor...* asks which editor: VS Code, VSCodium,
+Neovim, Vim, micro, Helix, Kate, Zed, Sublime Text or the system default (presets not
+installed are marked), or a command of your own. `{file}` and `{line}` are filled in;
+`{term}` runs the rest in a terminal (`$TERMINAL`, else the first of kitty, alacritty,
+foot, wezterm, ghostty, konsole, gnome-terminal, xfce4-terminal, xterm found). For
+example `{term} nvim +{line} {file}` or `code --reuse-window --goto {file}:{line}`. The
+choice is kept with Qt's settings (`~/.config/pokeheartgold-modding/mapeditor.conf`).
+
+When `map.json` changes on disk (you saved it in your editor), the map reloads at the
+same view if there's nothing unsaved; otherwise the status bar says so and saving asks
+before overwriting.
+
 ## What saving writes
 
 - `data/maps/<Map>/map.json`: events and header, in the existing format (an
@@ -138,6 +160,7 @@ part 1 lists the problems fixed so far and the ones still open.
 | `mapeditor/commands.py` | undoable edits (`QUndoCommand`) |
 | `mapeditor/canvas.py` | map view: cells, events, props, painting |
 | `mapeditor/terrain.py` | top-down pictures of cells from their models and props |
+| `mapeditor/external.py` | text editor presets and commands, the line a script label or an event starts on |
 | `mapeditor/sprites.py` | objects' overworld sprites: which frame for a facing, decoded through `mapkit.sprites` and `nitro` |
 | `mapeditor/view3d.py` | the 3D tab (OpenGL) |
 | `mapeditor/window.py` | main window, panels, actions |

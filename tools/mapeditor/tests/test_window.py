@@ -15,7 +15,7 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.dirname(HERE))
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
-from PySide6.QtCore import QPoint, Qt  # noqa: E402
+from PySide6.QtCore import QPoint, QSettings, Qt  # noqa: E402
 from PySide6.QtGui import QColor  # noqa: E402
 from PySide6.QtTest import QTest  # noqa: E402
 from PySide6.QtWidgets import QApplication, QFormLayout, QMessageBox  # noqa: E402
@@ -46,6 +46,8 @@ class WindowCase(unittest.TestCase):
 
     def window(self, name="Cherrygrove"):
         w = MainWindow(project.open_repo(self.co.root), name)
+        # the editor choice goes to the test checkout, never the user's ~/.config
+        w.settings = QSettings(os.path.join(self.co.root, "mapeditor.ini"), QSettings.IniFormat)
         w.show()
         self.windows.append(w)
         return w
@@ -363,6 +365,95 @@ class SpriteTest(WindowCase):
         os.remove(os.path.join(self.co.root, "asm/overlay_01_sprite_data.s"))
         w = self.window()
         self.assertTrue(all(i.sprite is None and i.sprite_note for i in self.objects(w)))
+
+
+class ExternalEditorTest(WindowCase):
+    """Opening the map's files in a text editor; nothing is launched (mocked)."""
+
+    def setUp(self):
+        super().setUp()
+        from mapeditor import external
+        self.external = external
+        self.launched = []
+        patcher = mock.patch.object(external, "launch",
+                                    side_effect=lambda tpl, path, line=1, cwd=None: self.launched.append(
+                                        (os.path.relpath(path, self.co.root), line)) or [tpl])
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def window(self, name="Cherrygrove"):
+        w = super().window(name)
+        w.settings.setValue("editor/command", "code --goto {file}:{line}")
+        return w
+
+    def test_command_templates(self):
+        cmd = self.external.command
+        self.assertEqual(cmd("code --reuse-window --goto {file}:{line}", "/a b/x.pory", 38),
+                         ["code", "--reuse-window", "--goto", "/a b/x.pory:38"])
+        with mock.patch.object(self.external, "terminal", return_value=["kitty"]):
+            self.assertEqual(cmd("{term} micro {file} +{line}", "x", 5), ["kitty", "micro", "x", "+5"])
+        with mock.patch.object(self.external, "terminal", return_value=None):
+            with self.assertRaises(self.external.ExternalError):
+                cmd("{term} nvim +{line} {file}", "x")
+        with mock.patch.dict(os.environ, {"TERMINAL": "alacritty"}):
+            self.assertEqual(self.external.terminal(), ["alacritty", "-e"])
+
+    def test_lines(self):
+        pory = os.path.join(self.co.root, "data/maps/Cherrygrove/scripts.pory")
+        with open(pory, encoding="utf-8") as f:
+            lines = f.read().split("\n")
+        n = self.external.label_line(pory, "Cherrygrove_EventScript_GuideGent")
+        self.assertTrue(lines[n - 1].startswith("script Cherrygrove_EventScript_GuideGent"))
+        self.assertIsNone(self.external.label_line(pory, "NoSuchLabel"))
+        js = os.path.join(self.co.root, "data/maps/Cherrygrove/map.json")
+        with open(js, encoding="utf-8") as f:
+            lines = f.read().split("\n")
+        n = self.external.event_line(js, "warp_events", 2)
+        self.assertEqual(lines[n - 1].strip(), "{")
+        import json
+        block = "\n".join(lines[n - 1:]).lstrip()
+        self.assertEqual(json.JSONDecoder().raw_decode(block)[0], json.loads("\n".join(lines))["warp_events"][2])
+
+    def test_open_script_and_event(self):
+        w = self.window()
+        self.assertFalse(w.script_button.isEnabled())
+        it = self.item(w, "object_events", 0)
+        it.setSelected(True)
+        self.assertTrue(w.script_button.isEnabled())
+        w.open_script_action.trigger()
+        path, line = self.launched[-1]
+        self.assertEqual(path, "data/maps/Cherrygrove/scripts.pory")
+        self.assertEqual(line, self.external.label_line(os.path.join(self.co.root, path), it.ev["script"]))
+        w.open_event_action.trigger()
+        self.assertEqual(self.launched[-1], ("data/maps/Cherrygrove/map.json",
+                         self.external.event_line(w.doc.map_json, "object_events", 0)))
+
+    def test_files_menu(self):
+        w = self.window()
+        w._hovered(16 * CELL + 3, 12 * CELL + 3)
+        labels = [label for label, _ in w.map_files()]
+        self.assertEqual(labels[:2], ["scripts.pory", "map.json"])
+        self.assertIn("ids.h", labels)
+        self.assertIn("layout.json (Overworld)", labels)
+        self.assertTrue(any(lbl.startswith("land data") and lbl.endswith("permissions.txt") for lbl in labels))
+        w._fill_files_menu()
+        w.files_menu.actions()[0].trigger()
+        self.assertEqual(self.launched[-1], ("data/maps/Cherrygrove/scripts.pory", 1))
+
+    def test_outside_change_reloads_when_clean(self):
+        w = self.window()
+        path = w.doc.map_json
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(text.replace('"weather": 0,', '"weather": 1,', 1))
+        os.utime(path, ns=(time.time_ns(), time.time_ns() + 10**9))
+        w._file_changed(path)
+        self.assertEqual(w.doc.data["weather"], 1)
+        self.nudge(w)
+        os.utime(path, ns=(time.time_ns(), time.time_ns() + 2 * 10**9))
+        w._file_changed(path)
+        self.assertFalse(w.undo.isClean())    # unsaved edits are kept
 
 
 class RoundTripTest(unittest.TestCase):

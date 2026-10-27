@@ -525,3 +525,14 @@ was checked. Later work is described in the commit messages (`git log`).
   order; editor timing, not the game's. 3D billboards stand on the BDHC height at the tile centre,
   nearest the object's elevation (as src/field_terrain.c). Cherrygrove 3D rendered offscreen and looked
   at; not compared with the game.
+
+## 2026-10-27 Map editor: open map files in a text editor
+- Location: tools/mapeditor/mapeditor/external.py (new), window.py, tests/test_window.py; editor README,
+  CHANGE-0004 §5
+- Result: tool only; ROM unaffected
+- Tool/model: claude-opus-5-5
+- Notes: Ctrl+E opens the selected event's script in scripts.pory at its label, Ctrl+Shift+E map.json
+  at the event; File menu lists the map folder, layout.json and the hovered cell's land data files.
+  Editor presets (VS Code, VSCodium, Neovim/Vim/micro/Helix in a terminal, Kate, Zed, Sublime, system
+  default) or a custom {file}/{line}/{term} command, kept in QSettings. map.json is watched and reloads
+  when there are no unsaved edits. Launching is mocked in the tests; not tried with a real editor.

@@ -2,15 +2,16 @@
 """Main window: map list | map view | properties (event, header, tiles)."""
 
 import json
+import os
 
-from PySide6.QtCore import QStringListModel, Qt
+from PySide6.QtCore import QFileSystemWatcher, QSettings, QStringListModel, Qt
 from PySide6.QtGui import QAction, QActionGroup, QIcon, QKeySequence, QPixmap, QUndoStack
-from PySide6.QtWidgets import (QCompleter, QDockWidget, QFormLayout, QHBoxLayout, QLabel, QLineEdit,
-                               QListWidget, QListWidgetItem, QMainWindow, QMenu, QMessageBox,
-                               QScrollArea, QSpinBox, QTabWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QComboBox, QCompleter, QDialog, QDialogButtonBox, QDockWidget, QFormLayout,
+                               QHBoxLayout, QLabel, QLineEdit, QListWidget, QListWidgetItem, QMainWindow, QMenu,
+                               QMessageBox, QPushButton, QScrollArea, QSpinBox, QTabWidget, QVBoxLayout, QWidget)
 
 from . import commands as C
-from . import project
+from . import external, project
 from .canvas import MapView, behavior_color
 from .project import CELL
 
@@ -161,6 +162,40 @@ class FieldForm(QWidget):
         return None
 
 
+class EditorDialog(QDialog):
+    """Choose the text editor files open in: a preset or a command of your own."""
+
+    def __init__(self, template, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Text editor")
+        lay = QVBoxLayout(self)
+        self.presets = QComboBox()
+        self.presets.addItem("Custom", None)
+        for name, tpl in external.PRESETS:
+            self.presets.addItem(name if external.available(tpl) else "%s (not installed)" % name, tpl)
+        self.command = QLineEdit(template)
+        self.presets.setCurrentIndex(max(0, self.presets.findData(template)))
+        self.presets.currentIndexChanged.connect(
+            lambda i: self.presets.itemData(i) and self.command.setText(self.presets.itemData(i)))
+        form = QFormLayout()
+        form.addRow("Editor", self.presets)
+        form.addRow("Command", self.command)
+        lay.addLayout(form)
+        term = external.terminal()
+        help_ = QLabel("{file} is the file, {line} the line (from 1). {term} runs the rest in a terminal: %s."
+                       % (" ".join(term) if term else "none found, set $TERMINAL"))
+        help_.setWordWrap(True)
+        lay.addWidget(help_)
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(self.accept)
+        buttons.rejected.connect(self.reject)
+        lay.addWidget(buttons)
+        self.resize(560, 0)
+
+    def template(self):
+        return self.command.text().strip()
+
+
 class MainWindow(QMainWindow):
     def __init__(self, repo, start_map=None):
         super().__init__()
@@ -169,6 +204,10 @@ class MainWindow(QMainWindow):
         self.undo = QUndoStack(self)
         self.undo.cleanChanged.connect(lambda clean: self._update_title())
         self.behaviors = project.behavior_names(repo.root)
+        self.settings = QSettings("pokeheartgold-modding", "mapeditor")
+        self.watcher = QFileSystemWatcher(self)
+        self.watcher.fileChanged.connect(self._file_changed)
+        self._last_tile = None
 
         self.view = MapView(self)
         self.view3d = None            # created on first use (needs OpenGL)
@@ -231,6 +270,22 @@ class MainWindow(QMainWindow):
             area = QScrollArea()
             area.setWidgetResizable(True)
             area.setWidget(form)
+            if form is self.event_form:   # buttons above the event's fields
+                page = QWidget()
+                lay = QVBoxLayout(page)
+                lay.setContentsMargins(0, 0, 0, 0)
+                row = QHBoxLayout()
+                self.script_button = QPushButton("Open script")
+                self.script_button.clicked.connect(lambda: self.open_script())
+                self.json_button = QPushButton("Show in map.json")
+                self.json_button.clicked.connect(lambda: self.open_event_json())
+                self.script_button.setEnabled(False)
+                self.json_button.setEnabled(False)
+                row.addWidget(self.script_button)
+                row.addWidget(self.json_button)
+                lay.addLayout(row)
+                lay.addWidget(area, 1)
+                area = page
             self.tabs.addTab(area, name)
         self.tabs.addTab(self._build_tiles_tab(), "Tiles")
         dock = QDockWidget("Properties", self)
@@ -285,6 +340,14 @@ class MainWindow(QMainWindow):
         reload_ = QAction("Reload map", self, shortcut="F5", triggered=lambda: self.doc and self.open_map(self.doc.folder, force=True))
         quit_ = QAction("Quit", self, shortcut=QKeySequence.Quit, triggered=self.close)
         file_menu.addActions([save, reload_])
+        file_menu.addSeparator()
+        self.files_menu = file_menu.addMenu("Open in text editor")
+        self.files_menu.aboutToShow.connect(self._fill_files_menu)
+        self.open_script_action = QAction("Open script", self, shortcut="Ctrl+E", triggered=self.open_script)
+        self.open_event_action = QAction("Show event in map.json", self, shortcut="Ctrl+Shift+E",
+                                         triggered=self.open_event_json)
+        file_menu.addActions([self.open_script_action, self.open_event_action])
+        file_menu.addAction(QAction("Choose text editor...", self, triggered=self.choose_editor))
         file_menu.addSeparator()
         file_menu.addAction(quit_)
         undo = self.undo.createUndoAction(self, "Undo")
@@ -389,27 +452,138 @@ class MainWindow(QMainWindow):
             return self.save()
         return r == QMessageBox.Discard
 
-    def open_map(self, folder, force=False):
+    def open_map(self, folder, force=False, keep_view=False):
         if self.doc and self.doc.folder == folder and not force:
             return
         if not self._confirm_discard():
             return
         try:
+            self.repo._cache.clear()   # ids.h, scripts may have changed on disk
             doc = project.MapDoc(self.repo, folder)
         except (project.ProjectError, Exception) as e:  # bad data should not close the editor
             QMessageBox.warning(self, "Can't open %s" % folder, str(e))
             return
+        if keep_view:
+            zoom, centre = self.view.transform(), self.view.mapToScene(self.view.viewport().rect().center())
         self.doc = doc
         self.undo.clear()
         self.view.set_doc(doc)
+        if keep_view:
+            self.view.setTransform(zoom)
+            self.view.centerOn(centre)
+        self._watch(doc)
         self._3d_stale = True
         if self.center.currentIndex() == 1:
             self._show_3d()
         self.header_form.set_fields(doc.folder, doc.header_fields())
-        self.event_form.set_fields("", [])
+        self._show_event(None)
         self._update_title()
         x0, y0, x1, y1 = doc.bounds()
         self.status.setText("%s: layout %s, cells %d,%d to %d,%d" % (doc.map.name, doc.layout_name, x0, y0, x1, y1))
+
+    # --- files in a text editor ---------------------------------------------------------
+
+    def editor_template(self):
+        return self.settings.value("editor/command") or external.default_template()
+
+    def choose_editor(self):
+        d = EditorDialog(self.editor_template(), self)
+        if d.exec() == QDialog.Accepted and d.template():
+            self.settings.setValue("editor/command", d.template())
+            return True
+        return False
+
+    def open_file(self, path, line=1):
+        """Open a file in the text editor (asks which editor the first time)."""
+        if not self.settings.value("editor/command") and not self.choose_editor():
+            return False
+        try:
+            argv = external.launch(self.editor_template(), path, line or 1, cwd=self.repo.root)
+        except external.ExternalError as e:
+            QMessageBox.warning(self, "Can't open %s" % os.path.basename(path), str(e))
+            return False
+        self.statusBar().showMessage("Opened %s:%d (%s)" % (os.path.relpath(path, self.repo.root), line or 1,
+                                                            os.path.basename(argv[0])), 4000)
+        return True
+
+    def map_files(self):
+        """[(label, path)] of the open map's files: its folder, layout and the land data of
+        the cell last under the mouse."""
+        if self.doc is None:
+            return []
+        folder = os.path.dirname(self.doc.map_json)
+        out = [(name, os.path.join(folder, name)) for name in sorted(os.listdir(folder),
+               key=lambda n: (n != "scripts.pory", n != "map.json", n)) if os.path.isfile(os.path.join(folder, name))]
+        out.append(("layout.json (%s)" % self.doc.layout_name,
+                    os.path.join(self.repo.root, "data/layouts", self.doc.layout_name, "layout.json")))
+        if self._last_tile:
+            c = self.doc.chunk(self._last_tile[0] // CELL, self._last_tile[1] // CELL)
+            if c is not None:
+                for name in ("permissions.txt", "props.json", "heights.json"):
+                    if os.path.isfile(os.path.join(c.dir, name)):
+                        out.append(("land data %04d: %s" % (c.number, name), os.path.join(c.dir, name)))
+        return out
+
+    def _fill_files_menu(self):
+        self.files_menu.clear()
+        for label, path in self.map_files():
+            self.files_menu.addAction(label, lambda p=path: self.open_file(p))
+        if self.doc is not None:
+            self.files_menu.addSeparator()
+            self.files_menu.addAction("Map folder in the file manager",
+                                      lambda: self._open_folder(os.path.dirname(self.doc.map_json)))
+
+    def _open_folder(self, path):
+        try:
+            external.launch("xdg-open {file}", path)
+        except external.ExternalError as e:
+            QMessageBox.warning(self, "Can't open the folder", str(e))
+
+    def script_location(self, sel=None):
+        """(path, line) of the selected event's script in the map's scripts file, or of the
+        scripts file itself."""
+        folder = os.path.dirname(self.doc.map_json)
+        path = next((os.path.join(folder, n) for n in ("scripts.pory", "scripts.inc")
+                     if os.path.isfile(os.path.join(folder, n))), None)
+        if path is None:
+            return None
+        sel = sel or self.view.selected_event()
+        label = self.doc.events(sel[0])[sel[1]].get("script") if sel else None
+        return path, external.label_line(path, label) or 1
+
+    def open_script(self, sel=None):
+        loc = self.script_location(sel) if self.doc else None
+        if loc is None:
+            self.statusBar().showMessage("This map has no scripts file", 4000)
+            return False
+        return self.open_file(*loc)
+
+    def open_event_json(self, sel=None):
+        if self.doc is None:
+            return False
+        sel = sel or self.view.selected_event()
+        line = external.event_line(self.doc.map_json, *sel) if sel else 1
+        return self.open_file(self.doc.map_json, line)
+
+    def _watch(self, doc):
+        if self.watcher.files():
+            self.watcher.removePaths(self.watcher.files())
+        self.watcher.addPath(doc.map_json)
+
+    def _file_changed(self, path):
+        """map.json changed: reload when there's nothing unsaved, else warn (saving asks)."""
+        if self.doc is None or path != self.doc.map_json:
+            return
+        if os.path.exists(path) and path not in self.watcher.files():
+            self.watcher.addPath(path)    # editors that save by renaming drop the watch
+        if project._mtime(path) == self.doc.map_json_mtime:
+            return                        # our own save
+        if self.undo.isClean():
+            self.open_map(self.doc.folder, force=True, keep_view=True)
+            self.statusBar().showMessage("map.json changed outside the editor: reloaded", 5000)
+        else:
+            self.statusBar().showMessage("map.json changed outside the editor; you have unsaved edits "
+                                         "(saving will ask, File > Reload map takes theirs)", 10000)
 
     def save(self):
         """True if everything was written."""
@@ -512,8 +686,13 @@ class MainWindow(QMainWindow):
         for section, name in SECTION_NAMES.items():
             a = menu.addAction("Add %s here (%d, %d)" % (name.lower(), x, y), lambda s=section: self._add_event(s, x, y))
             a.setEnabled(self.doc.on_map(x, y))
-        if self.view.selected_event():
+        sel = self.view.selected_event()
+        if sel:
             menu.addSeparator()
+            script = self.doc.events(sel[0])[sel[1]].get("script")
+            if isinstance(script, str) and script:
+                menu.addAction("Open script %s" % script, lambda: self.open_script(sel))
+            menu.addAction("Show in map.json", lambda: self.open_event_json(sel))
             menu.addAction("Delete selected event", self.delete_selected)
         menu.exec(global_pos)
 
@@ -526,7 +705,13 @@ class MainWindow(QMainWindow):
         if self.doc is None or sel is None or sel[1] >= len(self.doc.events(sel[0])):
             self.event_form.set_fields("No event selected", [])
             self.event_form.set_preview(None)
+            self.script_button.setEnabled(False)
+            self.json_button.setEnabled(False)
             return
+        script = self.doc.events(sel[0])[sel[1]].get("script")
+        self.script_button.setEnabled(isinstance(script, str) and bool(script))
+        self.script_button.setToolTip("%s in scripts.pory (Ctrl+E)" % script)
+        self.json_button.setEnabled(True)
         section, index = sel
         ev = self.doc.events(section)[index]
         self.event_form.set_fields("%s %d" % (SECTION_NAMES[section], index), list(ev.items()))
@@ -548,6 +733,7 @@ class MainWindow(QMainWindow):
                 return
 
     def _hovered(self, x, y):
+        self._last_tile = (x, y)
         t = self.doc.tile(x, y) if self.doc else None
         if t is None:
             self.tile_info.setText("")

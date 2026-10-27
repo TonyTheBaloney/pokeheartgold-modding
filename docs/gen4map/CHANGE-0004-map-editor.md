@@ -6,7 +6,7 @@
 
 | | |
 |---|---|
-| Status | Parts 1 (clean-up) and 2 (object sprites) done 2026-10-27; parts 3-4 planned |
+| Status | Parts 1 (clean-up), 2 (object sprites) and 5 (files in a text editor) done 2026-10-27; parts 3-4 planned |
 | Format | 1.2 unchanged for parts 1-4; the area prop list (§3.4) would be format 1.3 |
 | ROM | must stay unchanged: opening and saving a map without edits writes identical files |
 
@@ -232,7 +232,30 @@ size and an anchor, shows the warnings above before applying, and refuses more t
 - Undo: `ResizeLayout` (keeps the removed cells and events), `SetCell`. Saving writes
   `layout.json` with `layouts.save`.
 
-## 5. Verification (to do)
+## 5. Files in a text editor
+
+Added 2026-10-27, outside the original plan: scripts, text and the other map files
+open in the user's editor at the right line (`mapeditor/external.py`).
+
+- `Ctrl+E` opens the selected event's script in `scripts.pory` at its definition
+  (`script`, `movement`, `text`... `Label {`, or `Label:` in an `.inc`); `Ctrl+Shift+E`
+  opens `map.json` at the event's `{`. Both from the Event tab and the right-click menu.
+- File → Open in text editor lists the map folder's files, its `layout.json` and the
+  hovered cell's land data files.
+- Editors are command templates with `{file}`, `{line}` and `{term}` (a terminal for
+  Neovim, Vim, micro, Helix); presets for the common editors, the first installed one
+  as default, `$VISUAL`/`$EDITOR` before the terminal presets. Kept in `QSettings`.
+- `map.json` is watched: changed outside and nothing unsaved → reloaded at the same
+  view; unsaved edits → a warning (saving already asks, §1.2 S9).
+- Tests (`ExternalEditorTest`, with launching mocked): command building and terminal
+  choice, script and event lines (the event's block parses back to the same event),
+  the actions open the right file and line, the files menu, reload when clean and
+  keeping unsaved edits.
+
+Not tried with a real editor in the tests. Kate's `--line` was taken as 1-based from
+its help text, not checked.
+
+## 6. Verification (to do)
 
 - The rule every change keeps: open and save each map without edits, then `make`
   passes all four checksums.
