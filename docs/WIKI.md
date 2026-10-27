@@ -133,6 +133,11 @@ the command, if there is one. Commands run from the repository root;
 
 | I want to... | Guide | Command |
 |---|---|---|
+| change who learns tutor moves (Frontier tutors, Headbutt) | [move-tutors.md](modding/move-tutors.md#waza_oshiejson) | edit `waza_oshie.json` |
+| change tutor prices, or add a tutor move | [move-tutors.md](modding/move-tutors.md#65-add-a-move-to-the-frontier-tutors) | `sTutorMoves` in `src/field/scrcmd_move_tutor.c` |
+| add a new move tutor NPC | [move-tutors.md](modding/move-tutors.md#66-a-new-one-move-tutor-that-uses-waza_oshiejson) | `movetutorinit(slot, MOVE_X)` + `moverelearnergetresult(VAR)` |
+| change the Move Relearner (price, which moves it lists) | [move-tutors.md](modding/move-tutors.md#1-the-move-relearner) | `MoveRelearner_GetEligibleLevelUpMoves` in `src/move_relearner.c` |
+| fix the retail tutor/relearner bugs (freed list, 21-move learnsets, tutor page count) | [move-tutors.md](modding/move-tutors.md#7-problems-in-the-original-game) | |
 | change base stats, types, abilities, TM compatibility | [pokemon.md](modding/pokemon.md#base-stats-types-abilities-items-tmhm) | edit `personal.json` |
 | change evolutions | [pokemon.md](modding/pokemon.md#evolutions) | edit `evo.json` |
 | look up what an evolution method checks, and when | [evolutions.md](modding/evolutions.md#the-methods) | |

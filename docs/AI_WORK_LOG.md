@@ -317,3 +317,21 @@ was checked. Later work is described in the commit messages (`git log`).
   while the pots screen is open. Binary data decoded but not converted: a/0/6/6 (berry growth),
   a/2/2/0-1 (follower rules/scripts, packer round-trips 7,120 rules), a/2/0/2-4 (Frontier; nitroarc
   round-trip). No recipe was built and nothing was play-tested.
+
+## 2026-10-26 Move tutors and Move Relearner guide
+- Location: docs/modding/move-tutors.md (new); links from docs/WIKI.md, docs/modding/README.md,
+  pokemon.md, moves.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: relearner (level-up moves at or below the current level, not known, deduplicated; Heart
+  Scale taken only on success), shared overlay-68 screen for relearner and one-move tutors
+  (movetutorinit checks nothing; Wilma/ultimate-move checks are in the script), Frontier tutors
+  (sTutorMoves index = TUTOR_* bit, waza_oshie.bin 505 x 8 bytes, menu rows from the caller's
+  msg file), Headbutt tutor, Move Deleter (HMs forgettable only there). Retail issues found by
+  reading C and objdump: eligibleMoves freed before the app reads it; LEVEL_UP_LEARNSET_MAX 21
+  overflows for 20-21-move learnsets and leaves 21-move lists unterminated; tutor page count wrong
+  for exactly 12/18 moves (uninitialized showNextButton); GetMoveTutorLearnsetIndex returns an
+  uninitialized index that matches species by register allocation. Recipes 6.2-6.4 and 6.6 (Drain
+  Punch as tutor bit 52 with its own NPC id, script in the Blackthorn house) built with make
+  release, then reverted. Not play-tested (no emulator available). Section 7 lists the four retail
+  problems with their fixes.

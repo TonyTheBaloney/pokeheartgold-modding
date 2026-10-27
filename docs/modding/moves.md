@@ -161,7 +161,7 @@ belongs to, and check them when you change what an existing move does.
 | `sGravityUnusableMoves`, `sHealBlockUnusableMoves` | `src/battle/battle_util.c` | can't be used under Gravity / Heal Block |
 | `sBattleAnimWeatherMasks` | `src/battle/battle_anim_system.c` | animations that change with the weather |
 | `sTMHMMoves` | `src/item.c` | the move each TM/HM teaches (TM01 = index 0); compatibility is `tms`/`hms` in `personal.json` |
-| `sTutorMoves` | `src/field/scrcmd_move_tutor.c` | move tutor moves and their cost; who learns them is `waza_oshie.json` |
+| `sTutorMoves` | `src/field/scrcmd_move_tutor.c` | move tutor moves and their cost; who learns them is `waza_oshie.json` ([move-tutors.md](move-tutors.md)) |
 | `sFieldMoves` | `src/party_menu.c` | moves usable from the party menu |
 | `sECMenu_Move_AtoL` / `_MtoZ` | `src/easy_chat_menu.c` | moves offered as easy-chat words |
 
