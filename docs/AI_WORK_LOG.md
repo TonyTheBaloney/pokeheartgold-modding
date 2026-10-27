@@ -424,3 +424,20 @@ was checked. Later work is described in the commit messages (`git log`).
   setwildmonmoves as command 853, Sudowoodo level, a Route 45 Tyranitar with
   SPRITE_FOLLOWER_MON_STATIC_TYRANITAR 1050 and flags 0x31C/0x31D, its Hall of Fame line) built
   together with make release, then reverted. Recipe 4.1 b not built. Not play-tested.
+
+## 2026-10-27 Pokémon forms guide
+- Location: docs/modding/forms.md (new); links from docs/WIKI.md, docs/modding/README.md, pokemon.md,
+  adding-a-species.md
+- Result: docs only; ROM unaffected (HG and SS checksums checked after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: covers MON_DATA_FORM (5 bits), ResolveMonForm (resolved species 496-507 for personal and
+  learnsets), the separate tutor switch (GetMoveTutorLearnsetIndex), otherpoke.narc layout and
+  formulas, height_o, icons and BoxMonGetForm, Pokéathlon, followers, Pokédex form records, cries;
+  every retail trigger (held items, Gracidea, Shaymin resets, scripts, battle, Burmy terrain).
+  Recipe: Charizard form 1 (SPECIES_CHARIZARD_X 508, otherpoke members 261-264, height_o 160-161,
+  icon 551, palette entry 544, Pokéathlon member 554, Charcoal trigger in BoxMon_UpdateGiratinaForm)
+  built with make release on HG and SS, archives checked, then reverted. Found while building:
+  otherpoke keys sort as text, so a 4-digit key ('0261') lands at member 158; stale files in
+  otherpoke.narc.p stay in the archive. Noted, not changed: givemon and trainer parties set the form
+  after CreateMon (form 0's stats/ability/moves); setmonform doesn't recalc; the Rotom comment in
+  GetMonSpriteCharAndPlttNarcIdsEx lists the forms in the wrong order. Not play-tested.

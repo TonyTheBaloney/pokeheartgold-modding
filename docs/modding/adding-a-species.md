@@ -16,6 +16,7 @@ something to start from. Replace both with yours.
 If you know pokeemerald's "adding a new Pokémon" tutorial: it is the same list of
 tables, but here many of them are binary archives or JSON lists in species order, and
 the eggs and the alternate forms come right after the last species, so they move.
+Adding a form instead of a species is [forms.md](forms.md).
 
 ## 0. Before you start
 
@@ -555,7 +556,8 @@ and box icon, the summary, the Pokémon following you, and a Pokéathlon.
 
 Checked in the code, so you can leave them:
 
-- forms' sprites (`otherpoke.narc`) and form data: separate archives, reached by name;
+- forms' sprites (`otherpoke.narc`) and form data: separate archives, reached by name
+  (to give the new species forms, see [forms.md](forms.md#5-adding-a-form));
 - the easy chat word list: the new species isn't offered as a word unless you add it to
   the lists in `src/easy_chat_menu.c`;
 - the PBR files in `files/pbr/` (only for linking with Battle Revolution).

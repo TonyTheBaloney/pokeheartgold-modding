@@ -163,6 +163,11 @@ Changing these behaviors means editing C:
 - Form sprite selection and Pokéathlon index table: `src/pokemon.c`
 - Move tutor learnset index: `GetMoveTutorLearnsetIndex` in `src/field/scrcmd_move_tutor.c`
 
+## Forms
+
+Alternate forms (Deoxys, Rotom, Giratina, Unown...), how they are looked up and changed,
+and adding one: [forms.md](forms.md).
+
 ## Adding a new species
 
 See [adding-a-species.md](adding-a-species.md): the new species goes after Arceus (494),

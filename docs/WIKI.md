@@ -159,6 +159,9 @@ the command, if there is one. Commands run from the repository root;
 | mark a species seen or caught from a script | [pokedex.md](modding/pokedex.md#5-seen-and-caught) | `setmonseenflag(SPECIES_X)`; add `setmoncaughtflag` |
 | replace sprites and icons | [pokemon.md](modding/pokemon.md#graphics) | PNG files |
 | add a species (after Arceus, number 494) | [adding-a-species.md](modding/adding-a-species.md) | |
+| see what changes a Pokémon's form (Griseous Orb, Gracidea, Rotom, Deoxys, Burmy, battle) | [forms.md](modding/forms.md#4-what-changes-a-form) | |
+| change a form's stats, learnset or sprites | [forms.md](modding/forms.md#6-changing-the-existing-forms) | `DEOXYS_ATK`... in `personal.json`; `otherpoke/<species>/` |
+| add a form to a species | [forms.md](modding/forms.md#5-adding-a-form) | `ResolveMonForm`, `SanitizeMonForm` in `src/pokemon.c` |
 | change wild encounters | [wild-encounters.md](modding/wild-encounters.md) | `mapkit wild set` |
 | change how often encounters happen (rate math, Repel, Cleanse Tag, flutes, abilities) | [encounter-mechanics.md](modding/encounter-mechanics.md#2-the-step-encounter-roll) | `FieldSystem_EncounterRateRoll` in `src/field/encounter_check.c` |
 | change fishing bite chance or reel timing | [encounter-mechanics.md](modding/encounter-mechanics.md#7-fishing) | rod `rate` in the table; `sReelWindow` in `src/field/fishing.c` |

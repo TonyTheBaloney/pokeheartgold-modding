@@ -14,6 +14,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | Guide | Covers |
 |---|---|
 | [pokemon.md](pokemon.md) | Base stats, evolutions, moves, Pokédex data, sprites, names |
+| [forms.md](forms.md) | Alternate forms: the form field, which tables are read by form (stats and learnsets through `ResolveMonForm`, `otherpoke` sprites, heights, icons, Pokéathlon, followers, Pokédex), every retail form and what changes it (held items, Gracidea, resets, scripts, battle, Burmy's terrain); changing them, and adding a form with its own stats, sprites and icon |
 | [adding-a-species.md](adding-a-species.md) | Adding a Pokémon after Arceus, start to finish: constant, data, text, Pokédex (and the Johto Pokédex), sprites, icon, footprint, cry, following Pokémon (and a follower model of its own), Pokéathlon; save compatibility |
 | [pokedex.md](pokedex.md) | The Pokédex: what is saved, getting it (`givepokedex` and its flag), the Johto order (changing it, regenerating `johtozukan.narc`), the National Dex (unlocking it, what else it changes), seen/caught (what sets them, script commands, adding a caught command), counts and completion |
 | [evolutions.md](evolutions.md) | Evolution methods: what each checks and when (level-up, trade, item), the Shedinja and held-item effects, adding a method, location evolutions |
