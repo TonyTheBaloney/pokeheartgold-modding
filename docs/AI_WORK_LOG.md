@@ -406,3 +406,21 @@ was checked. Later work is described in the commit messages (`git log`).
 - Notes: the build runs battleanim.py build on each folder; its depfile lists the folder and every
   script, so editing, adding (0501_*.anim) or deleting a script rebuilt without reconfiguring
   (tested, then reverted to byte-identical).
+
+## 2026-10-27 Static and legendary encounters guide
+- Location: docs/modding/static-encounters.md (new); links from docs/WIKI.md, docs/modding/README.md,
+  wild-encounters.md (its "Static and gift encounters" section pointed at the old scr_seq .s files),
+  level-scaling.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: all 21 wildbattle calls listed with level, hide flag, caught flag and Hall of Fame respawn.
+  The object is hidden by the map's OnLoad (FLAG_ENGAGING_STATIC_POKEMON), which runs only when
+  Task_StartEncounter rebuilds the overworld: win, catch or run (5), not lose/draw; so running
+  removes it until the Hall of Fame. VAR_BATTLE_RESULT is set before OnLoad (the Rocket HQ
+  Electrodes rely on it). Misleading names noted, not changed: staticwildwonorcaughtcheck and
+  laticaughtcheck return TRUE for "not won/caught"; SetupAndStartWildBattle's canFlee sets
+  BATTLE_SPECIAL_LEGENDARY (intro message only). SoulSilver Hall of Fame tests FLAG_CAUGHT_KYOGRE for
+  Groudon (harmless, VAR_SCENE_EMBEDDED_TOWER). Recipes (Ho-Oh hidden in OnLoad only when caught,
+  setwildmonmoves as command 853, Sudowoodo level, a Route 45 Tyranitar with
+  SPRITE_FOLLOWER_MON_STATIC_TYRANITAR 1050 and flags 0x31C/0x31D, its Hall of Fame line) built
+  together with make release, then reverted. Recipe 4.1 b not built. Not play-tested.

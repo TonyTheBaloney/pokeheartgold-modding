@@ -27,7 +27,7 @@ built with `make release`. Neither was tried in game.
 | Safari Zone | `files/arc/safari_enc.json`, plus boosts from placed objects | `FieldSystem_GenerateSafariEncounter` (`encounter_check.c:934`) |
 | Bug-Catching Contest | `lvlmin`, `lvlmax` in `mushi_encount.csv` | `BugContest_GetEncounterSlot` (`src/overlay_bug_contest.c:186`) |
 | Roamers | hard-coded 40 / 35 | `Save_CreateRoamerByID` (`src/field_roamer.c:177`); the level is saved and kept between battles ([roamers.md](roamers.md)) |
-| Scripted wild battles (legendaries, Sudowoodo, ...) | `WildBattle species, level, shiny` in the map script | `FieldSystem_GenerateSingleWildPokemon` (`encounter_check.c:992`) |
+| Scripted wild battles (legendaries, Sudowoodo, ...) | `wildbattle(species, level, shiny)` in the map script | `FieldSystem_GenerateSingleWildPokemon` (`encounter_check.c:992`); [static-encounters.md](static-encounters.md#42-change-its-level) |
 | Gift Pokémon, eggs | the script command's argument; eggs hatch at 1 | not a battle; [breeding.md](breeding.md) |
 | Trainers | `level` per party member in `trainers.json` | `CreateNPCTrainerParty`, the four `CreateMon` calls |
 | Rematches | the rematch trainer's own party | `sTrainerRematchSets` picks the trainer ([trainers.md](trainers.md#rematches)) |

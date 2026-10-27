@@ -115,9 +115,11 @@ them, and how to change them.
 
 ## Static and gift encounters
 
-In map scripts: `WildBattle species, level, shiny` and `FatefulWildBattle ...`
-(`files/fielddata/script/scr_seq/*.s`). Search:
-`grep -rn "WildBattle" files/fielddata/script/scr_seq/`.
+In map scripts: `wildbattle(species, level, shiny)` (and `fatefulwildbattle`, which no
+script uses). Search: `grep -rn 'wildbattle(' data/maps`.
+[static-encounters.md](static-encounters.md) lists all of them and covers what happens
+after the battle, bringing one back, changing its level or moves, and adding one. Gifts
+are in [gift-pokemon-and-trades.md](gift-pokemon-and-trades.md).
 
 ## Pal Park / Catching Show
 

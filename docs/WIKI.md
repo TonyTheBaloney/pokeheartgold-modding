@@ -170,6 +170,10 @@ the command, if there is one. Commands run from the repository root;
 | give one with set IVs, nature, shiny, ball, moves, met location | [gift-pokemon-and-trades.md](modding/gift-pokemon-and-trades.md#3-custom-gifts-givecustommon) | add `givecustommon` |
 | give an egg | [gift-pokemon-and-trades.md](modding/gift-pokemon-and-trades.md#4-gift-eggs-giveegg) | `giveegg(SPECIES_X, MAPLOC(METLOC_X))` |
 | change or add an in-game trade | [gift-pokemon-and-trades.md](modding/gift-pokemon-and-trades.md#5-in-game-trades) | edit `data/npc_trades.json`, then `python3 tools/npctrade/npctrade.py build` |
+| find every static/legendary encounter, its level and flags | [static-encounters.md](modding/static-encounters.md#3-the-static-encounters) | `grep -rn 'wildbattle(' data/maps` |
+| make a legendary catchable again after knocking it out or running | [static-encounters.md](modding/static-encounters.md#41-catchable-again-after-a-loss-a-knockout-or-running-away) | hide it in the map's `OnLoad` only when `VAR_BATTLE_RESULT` is `BATTLE_OUTCOME_MON_CAUGHT` |
+| change a static Pokémon's level or moves | [static-encounters.md](modding/static-encounters.md#42-change-its-level) | `wildbattle(SPECIES_X, level, 0)`; add `setwildmonmoves` |
+| add a new static encounter | [static-encounters.md](modding/static-encounters.md#44-add-a-new-one) | object + `wildbattle` + `FLAG_ENGAGING_STATIC_POKEMON` in `OnLoad` |
 | change roamers: species, level, routes, encounter chance, how they move | [roamers.md](modding/roamers.md) | `src/field_roamer.c` |
 | change breeding: egg chance, Everstone, IV inheritance, Destiny Knot, egg moves, egg level, hatch steps | [breeding.md](modding/breeding.md) | `src/get_egg.c`, `constants/daycare.h` |
 | change a species' growth rate or experience yield | [experience.md](modding/experience.md#1-growth-rates) | `growthRate`, `expYield` in `personal.json` |
