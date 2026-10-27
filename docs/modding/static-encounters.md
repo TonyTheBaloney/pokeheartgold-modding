@@ -32,6 +32,7 @@ wildbattle(species, level, shiny)
 - `species` and `level` are each a number **or a variable** (`ScriptGetVar`). Ho-Oh and
   Lugia pass `VAR_TEMP_x400A` and `VAR_SPECIAL_x8004`, set just before by game version.
 - `shiny` is a constant byte: 1 forces a shiny. Only the Lake of Rage Gyarados uses it.
+  Shiny-locking one takes a code change ([shiny.md §6.4](shiny.md#64-shiny-locked-static-encounters)).
 - The level is a `u8`. Nothing checks it against 100.
 
 `SetupAndStartWildBattle` (`src/encounter.c:542`) builds the Pokémon with

@@ -204,8 +204,9 @@ table instead of the map's (`FieldSystem_PerformLandOrSurfEncounterCheck`,
 `src/field/encounter_check.c:279-280`, `:295-296`; Sweet Scent the same, `:448-449`, `:464-465`).
 The map's own land table still decides **how often** you meet something: no land `rate`, no
 encounters (`:233-235`). The contest area uses `ENCDATA_D22R0102` with land rate 25. Repel still
-works, against the rolled level (`:982`). The generated Pokémon is never shiny
-(`generateWildNonShinyAndAddToParty`, `:987`).
+works, against the rolled level (`:982`). Despite the name of the function it uses
+(`generateWildNonShinyAndAddToParty`, `:987`), the Pokémon can be shiny, 1 in 8192 as usual
+([shiny.md](shiny.md#2-who-can-be-shiny-and-how)).
 
 ## 6. The time limit
 

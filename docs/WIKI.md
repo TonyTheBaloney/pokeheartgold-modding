@@ -177,6 +177,9 @@ the command, if there is one. Commands run from the repository root;
 | make a legendary catchable again after knocking it out or running | [static-encounters.md](modding/static-encounters.md#41-catchable-again-after-a-loss-a-knockout-or-running-away) | hide it in the map's `OnLoad` only when `VAR_BATTLE_RESULT` is `BATTLE_OUTCOME_MON_CAUGHT` |
 | change a static Pokémon's level or moves | [static-encounters.md](modding/static-encounters.md#42-change-its-level) | `wildbattle(SPECIES_X, level, 0)`; add `setwildmonmoves` |
 | add a new static encounter | [static-encounters.md](modding/static-encounters.md#44-add-a-new-one) | object + `wildbattle` + `FLAG_ENGAGING_STATIC_POKEMON` in `OnLoad` |
+| change shiny odds, or see who can be shiny (wild, statics, gifts, eggs, trades, trainers) | [shiny.md](modding/shiny.md) | `SHINY_CHECK` in `src/pokemon.c`, `SHINY_ODDS` |
+| add a Shiny Charm, a force-shiny flag or shiny-locked encounters | [shiny.md](modding/shiny.md#6-recipes) | `generateWildNonShinyAndAddToParty` in `src/field/encounter_check.c` |
+| change or remove the shiny Red Gyarados | [shiny.md](modding/shiny.md#3-the-red-gyarados) | `wildbattle(SPECIES_GYARADOS, 30, 1)` in `data/maps/LakeOfRage/scripts.pory` |
 | change roamers: species, level, routes, encounter chance, how they move | [roamers.md](modding/roamers.md) | `src/field_roamer.c` |
 | change breeding: egg chance, Everstone, IV inheritance, Destiny Knot, egg moves, egg level, hatch steps | [breeding.md](modding/breeding.md) | `src/get_egg.c`, `constants/daycare.h` |
 | change a species' growth rate or experience yield | [experience.md](modding/experience.md#1-growth-rates) | `growthRate`, `expYield` in `personal.json` |

@@ -441,3 +441,18 @@ was checked. Later work is described in the commit messages (`git log`).
   otherpoke.narc.p stay in the archive. Noted, not changed: givemon and trainer parties set the form
   after CreateMon (form 0's stats/ability/moves); setmonform doesn't recalc; the Rotom comment in
   GetMonSpriteCharAndPlttNarcIdsEx lists the forms in the wrong order. Not play-tested.
+
+## 2026-10-27 Shiny Pokémon guide
+- Location: docs/modding/shiny.md (new); links from docs/WIKI.md, docs/modding/README.md,
+  static-encounters.md, breeding.md; correction in bug-catching-contest.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: shininess is computed from PID and OT id (SHINY_CHECK, < 8); SHINY_ODDS exists but nothing
+  reads it. Switching SHINY_CHECK to SHINY_ODDS (still 8) builds the retail ROM (checked).
+  generateWildNonShinyAndAddToParty does not prevent shinies (so bug-catching-contest.md was wrong:
+  contest Pokémon can be shiny). OT_ID_PLAYER_ID gives OT id 0. Cute Charm PIDs come from
+  GenPersonalityByGenderAndNature (high half 0, at most 224). Roamer PIDs are rolled once. Never
+  shiny: trainers, Frontier, Battle Hall, spiky-eared Pichu, hatched Ranger Manaphy, tutorial
+  Marill/Rattata, Lance's Dragonite. Recipes (SHINY_ODDS, Shiny Charm rerolls via
+  createWildMonWithNature, FLAG_FORCE_SHINY on 0x40, wildbattle shiny 2 = locked) built together
+  with make heartgold, then reverted. Shiny trainer and trade recipes not built. Not play-tested.

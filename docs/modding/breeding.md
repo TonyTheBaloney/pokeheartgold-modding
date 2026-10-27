@@ -183,7 +183,8 @@ same personality value, so they are random too. The parents' abilities are not i
 `SetBreedEggStats` (line 602): if the two parents have different `MON_DATA_LANGUAGE`
 (`Save_Daycare_MasudaCheck` in `src/daycare.c`) and the egg is not already shiny, the
 personality is rerolled up to `MASUDA_METHOD_REROLLS` (4) times with `PRandom` until one is
-shiny for the player's OT. That is 5 chances in all, about 5/8192.
+shiny for the player's OT. That is 5 chances in all, about 5/8192. Other odds and a Shiny
+Charm: [shiny.md](shiny.md#6-recipes).
 
 Rerolling changes the personality, so a Masuda reroll can undo the Everstone's nature (and
 the Nidoran/Volbeat bit, which was already used in §3 to pick the species).
