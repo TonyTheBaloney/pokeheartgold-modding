@@ -117,7 +117,7 @@ class UndoTest(unittest.TestCase):
 
         ev = d.events("warp_events")[0]
         start = (ev["x"], ev["y"])
-        stack.push(C.MoveEvent(d, changed, "warp_events", 0, start, (start[0] + 2, start[1])))
+        stack.push(C.MoveEvents(d, changed, [("warp_events", 0, start, (start[0] + 2, start[1]))]))
         stack.push(C.SetEventField(d, changed, "warp_events", 0, "dest_warp_id", 7))
         self.assertEqual((ev["x"], ev["dest_warp_id"]), (start[0] + 2, 7))
         stack.undo()

@@ -372,4 +372,4 @@ guide here yet, in rough order of how often a hack needs them:
 
 | Topic | State in this fork | pokeemerald equivalent |
 |---|---|---|
-| **Map editor**: props, layout resize, object sprites | editor shows them, can't edit | Porymap |
+| **Map editor**: props, layout resize, object sprites | editor shows them, can't edit; plan in [CHANGE-0004](gen4map/CHANGE-0004-map-editor.md) | Porymap |

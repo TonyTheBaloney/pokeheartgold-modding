@@ -486,3 +486,19 @@ was checked. Later work is described in the commit messages (`git log`).
   10019+ in scr_seq_0146. HM_DEFOG (HM05, Whirlpool here) renamed HM_WHIRLPOOL; msg_0211 17-19 are unused Defog texts.
   Recipes (TM93-95 with template and bag changes, reusable TMs, forgettable HMs, Melt field move on
   a script-tagged SPRITE_ICE) built together with make heartgold, then reverted. Not play-tested.
+
+## 2026-10-27 Map editor clean-up (CHANGE-0004 part 1)
+- Location: tools/mapeditor/mapeditor/{project,canvas,commands,window}.py, tests/test_window.py (new);
+  docs/gen4map/CHANGE-0004-map-editor.md (new; plan for props, layouts, object sprites), editor README,
+  links from WIKI.md, gen4map README and ROADMAP
+- Result: tool only; ROM unaffected (the editor writes data/ sources, and a new test saves every map
+  without edits and finds no file changed)
+- Tool/model: claude-opus-5-5
+- Notes: each problem was reproduced offscreen on the unchanged code first (QTest mouse events, field
+  signals). Fixed: a failed save no longer discards edits; dragging moves the whole selection; the
+  property form no longer deletes the field that is emitting; painting and events limited to the map's
+  own cells; shared land data counted in maps across all layouts (Pokémon Center: 24); area_data
+  redraws, layout read-only; undo back to saved is clean; unknown constants refused (MAP_TYPE_ and
+  BATTLE_BG_ read from their C enums); new objects get an ids.h define on save; menu zoom limited;
+  outside changes detected before saving. Found by the round-trip test: saving 49 maps without event
+  sections added empty ones. Tested offscreen only, not in a desktop session.

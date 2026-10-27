@@ -140,9 +140,10 @@ class PropItem(QGraphicsItem):
 
 
 class EventItem(QGraphicsObject):
-    """A draggable event. Emits moved(section, index, old_xy, new_xy) when dropped on a new tile."""
+    """A draggable event. Dragging moves every selected event; the one under the mouse
+    emits moved([(section, index, old_xy, new_xy)]) for all of them when dropped."""
 
-    moved = Signal(str, int, tuple, tuple)
+    moved = Signal(list)
 
     def __init__(self, section, index, event):
         super().__init__()
@@ -184,8 +185,11 @@ class EventItem(QGraphicsObject):
         p.drawText(QRectF(0, 0, TILE, TILE), Qt.AlignCenter, EVENT_LABELS[self.section])
 
     def mousePressEvent(self, e):
+        super().mousePressEvent(e)   # updates the selection first
+        for it in self.scene().selectedItems():
+            if isinstance(it, EventItem):
+                it._start = (it.ev["x"], it.ev["y"])
         self._start = (self.ev["x"], self.ev["y"])
-        super().mousePressEvent(e)
 
     def itemChange(self, change, value):
         if change == QGraphicsItem.ItemPositionChange:
@@ -194,10 +198,15 @@ class EventItem(QGraphicsObject):
 
     def mouseReleaseEvent(self, e):
         super().mouseReleaseEvent(e)
-        new = (int(round(self.x() / TILE)), int(round(self.y() / TILE)))
-        if self._start is not None and new != self._start:
-            self.moved.emit(self.section, self.index, self._start, new)
-        self._start = None
+        items = {it for it in self.scene().selectedItems() if isinstance(it, EventItem)} | {self}
+        moves = []
+        for it in items:
+            new = (int(round(it.x() / TILE)), int(round(it.y() / TILE)))
+            if it._start is not None and new != it._start:
+                moves.append((it.section, it.index, it._start, new))
+            it._start = None
+        if moves:
+            self.moved.emit(sorted(moves))
 
 
 class MapView(QGraphicsView):
@@ -272,23 +281,34 @@ class MapView(QGraphicsView):
                 self.prop_items.append(it)
 
     def rebuild_events(self, select=None):
-        for it in self.event_items:
-            self.scene().removeItem(it)
-        self.event_items = []
-        if not self.layers["events"]:
-            return
-        for section in ("coord_events", "bg_events", "warp_events", "object_events"):
-            for i, ev in enumerate(self.doc.events(section)):
-                it = EventItem(section, i, ev)
-                it.moved.connect(self._event_moved)
-                self.scene().addItem(it)
-                self.event_items.append(it)
-                if select == (section, i):
-                    it.setSelected(True)
-                    self.ensureVisible(it)
+        # no selectionChanged while the items are replaced: the selection would read as
+        # empty for a moment and the window would clear the event form
+        blocked = self.scene().blockSignals(True)
+        try:
+            for it in self.event_items:
+                self.scene().removeItem(it)
+            self.event_items = []
+            if not self.layers["events"]:
+                return
+            for section in ("coord_events", "bg_events", "warp_events", "object_events"):
+                for i, ev in enumerate(self.doc.events(section)):
+                    it = EventItem(section, i, ev)
+                    it.moved.connect(self._event_moved)
+                    self.scene().addItem(it)
+                    self.event_items.append(it)
+                    if select == (section, i):
+                        it.setSelected(True)
+                        self.ensureVisible(it)
+        finally:
+            self.scene().blockSignals(blocked)
 
-    def _event_moved(self, section, index, old, new):
-        self.window().move_event(section, index, old, new)
+    def _event_moved(self, moves):
+        self.window().move_events(moves)
+
+    def refresh_terrain(self):
+        """Redraw every cell's terrain (after the area changes)."""
+        for it in self.cells.values():
+            it.invalidate(terrain=True)
 
     def refresh_tiles(self, tiles=None):
         """Rebuild the cells whose land data changed (every cell sharing it)."""
@@ -313,10 +333,12 @@ class MapView(QGraphicsView):
         s = self.mapToScene(pos)
         return int(s.x() // TILE), int(s.y() // TILE)
 
-    def wheelEvent(self, e):
-        f = 1.25 if e.angleDelta().y() > 0 else 0.8
+    def zoom(self, f):
         if 0.05 <= self.transform().m11() * f <= 8:
             self.scale(f, f)
+
+    def wheelEvent(self, e):
+        self.zoom(1.25 if e.angleDelta().y() > 0 else 0.8)
 
     def _brush_tiles(self, x, y):
         r = self.brush_size // 2
@@ -327,7 +349,7 @@ class MapView(QGraphicsView):
         changed = []
         for tx, ty in self._brush_tiles(x, y):
             cur = self.doc.tile(tx, ty)
-            if cur is None or (tx // CELL, ty // CELL) not in self.cells:
+            if cur is None or not self.doc.on_map(tx, ty):   # neighbours belong to other maps
                 continue
             c, b, a = cur
             if self.tool == "collision":

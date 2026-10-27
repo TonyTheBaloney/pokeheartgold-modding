@@ -7,6 +7,7 @@ Coordinates are global tiles in the layout (map.json "x"/"y"), as in the game.
 """
 
 import copy
+import json
 import os
 import re
 import sys
@@ -36,8 +37,27 @@ NEW_EVENT = {
 }
 
 
+# Constants that are C enum members, not #defines: prefix -> header with the enum
+ENUM_SOURCES = {"MAP_TYPE_": "include/map_header.h", "BATTLE_BG_": "include/constants/battle.h"}
+
+
 class ProjectError(Exception):
     pass
+
+
+class ChangedOnDisk(ProjectError):
+    """save() found files changed by something else since the map was opened."""
+
+    def __init__(self, paths):
+        super().__init__("changed outside the editor: " + ", ".join(paths))
+        self.paths = paths
+
+
+def _mtime(path):
+    try:
+        return os.stat(path).st_mtime_ns
+    except FileNotFoundError:
+        return None
 
 
 def behavior_names(root=ROOT):
@@ -65,6 +85,8 @@ class Chunk:
         self.number = number
         self.dir = os.path.join(root, landdata.LANDDATA_DIR, "%04d" % number)
         self.permissions, self.props = landdata.load_chunk(self.dir)
+        self.path = os.path.join(self.dir, "permissions.txt")
+        self.mtime = _mtime(self.path)
         self.dirty = False
 
     def tile(self, tx, ty):
@@ -88,8 +110,9 @@ class Chunk:
 
     def save(self):
         if self.dirty:
-            with open(os.path.join(self.dir, "permissions.txt"), "w", encoding="utf-8") as f:
+            with open(self.path, "w", encoding="utf-8") as f:
                 f.write(self.permissions.to_text())
+            self.mtime = _mtime(self.path)
             self.dirty = False
 
 
@@ -107,13 +130,15 @@ class MapDoc:
         self.folder = os.path.basename(folder)
         self.map_json = os.path.join(folder, "map.json")
         self.data, self.style = edit.load_json(self.map_json)
+        self.map_json_mtime = _mtime(self.map_json)
         self.layout_name = repo.layout_folder(self.map)
         if self.layout_name is None:
             raise ProjectError("%s has no layout in data/layouts" % self.map.name)
         self.layout = layouts.load(repo.root, self.layout_name)
         self.chunks = {}
         self.dirty = False
-        self._ids = None
+        self._land_index = None
+        self._editable = None
 
     # --- layout ------------------------------------------------------------------
 
@@ -139,6 +164,19 @@ class MapDoc:
         return [(cx, cy) for cy in range(self.height) for cx in range(self.width)
                 if self.cell_land(cx, cy) is not None and self.cell_map(cx, cy) == self.map.id]
 
+    def editable_cells(self):
+        """Cells whose tiles and events belong to this map: own_cells, or every cell when
+        the map's header covers none (a layout without a maps grid naming it)."""
+        if self._editable is None:  # the layout doesn't change while the map is open
+            own = self.own_cells()
+            self._editable = frozenset(own or ((cx, cy) for cy in range(self.height) for cx in range(self.width)
+                                               if self.cell_land(cx, cy) is not None))
+        return self._editable
+
+    def on_map(self, x, y):
+        """True if global tile x, y is in one of editable_cells()."""
+        return (x // CELL, y // CELL) in self.editable_cells() if x >= 0 and y >= 0 else False
+
     def bounds(self):
         """(x0, y0, x1, y1) in cells around own_cells, inclusive."""
         cells = self.own_cells() or [(cx, cy) for cy in range(self.height) for cx in range(self.width)]
@@ -161,9 +199,12 @@ class MapDoc:
     def cell_altitude(self, cx, cy):
         return self.layout.altitudes[cy * self.width + cx] if self.layout.altitudes else 0
 
-    def chunk_users(self, number):
-        """Layout cells (in this layout) that use land data `number`: edits show in all of them."""
-        return [(i % self.width, i // self.width) for i, v in enumerate(self.layout.land_ids) if v == number]
+    def land_users(self, number):
+        """Folders of every map that shows land data `number`, across all layouts: an edit
+        to it changes all of them."""
+        if self._land_index is None:
+            self._land_index = _land_index(self.repo)
+        return sorted(self._land_index.get(number, ()))
 
     def tile(self, x, y):
         """(collision, behavior, attr) at global tile x, y, or None outside the layout."""
@@ -197,7 +238,9 @@ class MapDoc:
     # --- events -----------------------------------------------------------------
 
     def events(self, section):
-        return self.data.setdefault(section, [])
+        """The section's events; a map without the section reads as empty and keeps not
+        having it (adding an event creates it)."""
+        return self.data.get(section, [])
 
     def set_event_field(self, section, index, key, value):
         ev = self.events(section)[index]
@@ -220,7 +263,7 @@ class MapDoc:
         ev["x"], ev["y"] = x, y
         if section == "object_events" and not ev.get("local_id"):
             ev["local_id"] = self._new_local_id()
-        lst = self.events(section)
+        lst = self.data.setdefault(section, [])
         index = len(lst) if index is None else index
         lst.insert(index, ev)
         self.dirty = True
@@ -256,13 +299,75 @@ class MapDoc:
     def modified(self):
         return self.dirty or any(c.dirty for c in self.chunks.values())
 
-    def save(self):
+    def changed_on_disk(self):
+        """Files this save would write that something else changed since they were read."""
+        out = []
+        if self.dirty and _mtime(self.map_json) != self.map_json_mtime:
+            out.append(os.path.relpath(self.map_json, self.repo.root))
+        out += [os.path.relpath(c.path, self.repo.root) for c in self.chunks.values()
+                if c.dirty and _mtime(c.path) != c.mtime]
+        return out
+
+    def missing_object_ids(self):
+        """local_ids of objects that ids.h doesn't define (objects added in the editor)."""
+        defs = self.repo.event_defines(self.map)
+        return [e["local_id"] for e in self.events("object_events")
+                if isinstance(e.get("local_id"), str) and defs.eval(e["local_id"]) is None]
+
+    def save(self, force=False):
+        """Write what changed. Raises ChangedOnDisk instead, unless force, when a file to
+        be written was changed by something else since it was read."""
+        if not force:
+            changed = self.changed_on_disk()
+            if changed:
+                raise ChangedOnDisk(changed)
         if self.dirty:
+            self._define_object_ids()
             edit.save_json(self.map_json, self.data, self.style)
+            self.map_json_mtime = _mtime(self.map_json)
             self.dirty = False
         for c in self.chunks.values():
             c.save()
         self.repo._cache.clear()
+
+    def _define_object_ids(self):
+        """Give new objects a #define in ids.h, as `mapkit npc add` does: the lowest
+        number no object of the map uses."""
+        missing = self.missing_object_ids()
+        if not missing:
+            return
+        defs = self.repo.event_defines(self.map)
+        used = {defs.eval(e["local_id"]) for e in self.events("object_events")}
+        path = edit._ids_path(self.repo, self.map)
+        for name in missing:
+            num = next(n for n in range(256) if n not in used)
+            edit._add_define(path, name, num, "obj_")
+            used.add(num)
+        self.repo._cache.clear()
+
+
+def _land_index(repo):
+    """{land data number: {map folder}} over every layout and the maps that use it."""
+    by_layout = {}
+    for m in repo.maps:
+        d = repo.map_dir(m)
+        lay = repo.layout_folder(m) if d else None
+        if lay:
+            by_layout.setdefault(lay, []).append((m.name, os.path.basename(d)))
+    out = {}
+    for lay, maps in by_layout.items():
+        with open(os.path.join(repo.root, layouts.LAYOUTS_DIR, lay, "layout.json"), encoding="utf-8") as f:
+            d = json.load(f)
+        folders = dict(maps)
+        cell_maps = [n for row in d["maps"] for n in row] if d.get("maps") else None
+        for i, v in enumerate(n for row in d["land_data"] for n in row):
+            if v is None:
+                continue
+            if cell_maps is None:
+                out.setdefault(v, set()).update(folders.values())
+            elif cell_maps[i] in folders:
+                out.setdefault(v, set()).add(folders[cell_maps[i]])
+    return out
 
 
 def open_repo(root=ROOT):
@@ -279,5 +384,18 @@ def map_list(repo):
     return sorted(out)
 
 
+def enum_names(root, path, prefix):
+    """Members starting with prefix of the C enums in a header."""
+    with open(os.path.join(root, path), encoding="utf-8") as f:
+        text = re.sub(r"/\*.*?\*/", "", re.sub(r"//.*", "", f.read()), flags=re.S)
+    out = set()
+    for body in re.findall(r"\benum\b[^{;]*\{(.*?)\}", text, re.S):
+        out.update(re.findall(r"^\s*(%s\w*)\b" % re.escape(prefix), body, re.M))
+    return out
+
+
 def constant_names(repo, prefix):
-    return sorted(repo.defines.names(prefix))
+    names = set(repo.defines.names(prefix))
+    if prefix in ENUM_SOURCES:
+        names |= enum_names(repo.root, ENUM_SOURCES[prefix], prefix)
+    return sorted(names)

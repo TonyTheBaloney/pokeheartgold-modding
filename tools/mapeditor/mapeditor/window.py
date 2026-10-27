@@ -22,6 +22,8 @@ COMPLETIONS = {
     "region_map_section": "MAPSEC_", "weather": "WEATHER_", "map_type": "MAP_TYPE_",
     "battle_scene": "BATTLE_BG_", "camera_type": "CAMERA_TYPE_",
 }
+# header keys shown but not editable here, with the reason
+READ_ONLY = {"layout": "the layout can't be changed while the map is open: edit map.json and reopen"}
 SECTION_NAMES = {"object_events": "Object", "warp_events": "Warp", "coord_events": "Trigger", "bg_events": "Sign/BG"}
 
 
@@ -47,14 +49,18 @@ def show_value(v):
 
 
 class FieldForm(QWidget):
-    """A form of key -> line edit; calls on_edit(key, value) when a field is changed."""
+    """A form of key -> line edit; calls on_edit(key, value) when a field is changed.
+    on_edit returns False to refuse the value, which puts the old text back."""
 
-    def __init__(self, repo, on_edit):
+    def __init__(self, repo, on_edit, read_only=None):
         super().__init__()
         self.repo, self.on_edit = repo, on_edit
+        self.read_only = read_only or {}
         self.form = QFormLayout(self)
         self.form.setFieldGrowthPolicy(QFormLayout.AllNonFixedFieldsGrow)
         self.values = {}
+        self.edits = {}
+        self.title = None
         self._completers = {}
 
     def _completer(self, prefix):
@@ -66,23 +72,52 @@ class FieldForm(QWidget):
         return self._completers[prefix]
 
     def set_fields(self, title, fields):
+        keys = [k for k, _ in fields]
+        if title == self.title and keys == list(self.edits):
+            # same rows: update the texts in place, so the field being edited (which may be
+            # the one whose signal got us here) isn't deleted and keeps the focus
+            self.values = dict(fields)
+            for key, value in fields:
+                if self.edits[key].text() != show_value(value):
+                    self.edits[key].setText(show_value(value))
+            return
         while self.form.rowCount():
             self.form.removeRow(0)
-        self.values = dict(fields)
+        self.title, self.values, self.edits = title, dict(fields), {}
         if title:
             self.form.addRow(QLabel("<b>%s</b>" % title))
         for key, value in fields:
             edit = QLineEdit(show_value(value))
-            if key in COMPLETIONS:
+            if key in self.read_only:
+                edit.setReadOnly(True)
+                edit.setToolTip(self.read_only[key])
+            elif key in COMPLETIONS:
                 edit.setCompleter(self._completer(COMPLETIONS[key]))
             edit.editingFinished.connect(lambda k=key, e=edit: self._finished(k, e))
             self.form.addRow(key, edit)
+            self.edits[key] = edit
 
     def _finished(self, key, edit):
-        new = parse_value(edit.text(), self.values.get(key))
-        if new != self.values.get(key):
+        if edit.isReadOnly():
+            return
+        old = self.values.get(key)
+        new = parse_value(edit.text(), old)
+        if new == old:
+            return
+        if self.on_edit(key, new) is False:
+            edit.setText(show_value(old))
+        else:
             self.values[key] = new
-            self.on_edit(key, new)
+
+    def check(self, key, value):
+        """An error message if value isn't one of the field's constants, else None.
+        Numbers are always accepted; fields whose constants aren't known aren't checked."""
+        if key not in COMPLETIONS or not isinstance(value, str):
+            return None
+        names = project.constant_names(self.repo, COMPLETIONS[key])
+        if names and value not in names:
+            return "%s is not a %s* constant" % (value, COMPLETIONS[key])
+        return None
 
 
 class MainWindow(QMainWindow):
@@ -149,7 +184,7 @@ class MainWindow(QMainWindow):
     def _build_properties(self):
         self.tabs = QTabWidget()
         self.event_form = FieldForm(self.repo, self._event_field_edited)
-        self.header_form = FieldForm(self.repo, self._header_field_edited)
+        self.header_form = FieldForm(self.repo, self._header_field_edited, READ_ONLY)
         for form, name in ((self.event_form, "Event"), (self.header_form, "Header")):
             area = QScrollArea()
             area.setWidgetResizable(True)
@@ -236,8 +271,8 @@ class MainWindow(QMainWindow):
             view_menu.addAction(a)
             tb.addAction(a)
         view_menu.addSeparator()
-        view_menu.addAction(QAction("Zoom in", self, shortcut=QKeySequence.ZoomIn, triggered=lambda: self.view.scale(1.25, 1.25)))
-        view_menu.addAction(QAction("Zoom out", self, shortcut=QKeySequence.ZoomOut, triggered=lambda: self.view.scale(0.8, 0.8)))
+        view_menu.addAction(QAction("Zoom in", self, shortcut=QKeySequence.ZoomIn, triggered=lambda: self.view.zoom(1.25)))
+        view_menu.addAction(QAction("Zoom out", self, shortcut=QKeySequence.ZoomOut, triggered=lambda: self.view.zoom(0.8)))
 
     def _set_tool(self, key):
         self.view.tool = key
@@ -253,6 +288,7 @@ class MainWindow(QMainWindow):
             self.view.rebuild_props()
         elif key == "events":
             self.view.rebuild_events()
+            self._show_event(None)
         else:
             self.view.refresh_tiles()
             self.view.viewport().update()
@@ -280,18 +316,19 @@ class MainWindow(QMainWindow):
     # --- opening and saving -----------------------------------------------------------
 
     def _update_title(self):
+        # every edit goes through the undo stack, so it alone says whether there is
+        # anything to save (MapDoc's dirty flags stay set after undoing back)
         name = self.doc.folder if self.doc else "no map"
-        dirty = self.doc is not None and (not self.undo.isClean() or self.doc.modified())
+        dirty = self.doc is not None and not self.undo.isClean()
         self.setWindowTitle("%s%s - HGSS map editor" % (name, " *" if dirty else ""))
 
     def _confirm_discard(self):
-        if self.doc is None or (self.undo.isClean() and not self.doc.modified()):
+        if self.doc is None or self.undo.isClean():
             return True
         r = QMessageBox.question(self, "Unsaved changes", "Save changes to %s?" % self.doc.folder,
                                  QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
         if r == QMessageBox.Save:
-            self.save()
-            return True
+            return self.save()
         return r == QMessageBox.Discard
 
     def open_map(self, folder, force=False):
@@ -317,16 +354,28 @@ class MainWindow(QMainWindow):
         self.status.setText("%s: layout %s, cells %d,%d to %d,%d" % (doc.map.name, doc.layout_name, x0, y0, x1, y1))
 
     def save(self):
+        """True if everything was written."""
         if self.doc is None:
-            return
+            return True
         try:
-            self.doc.save()
+            try:
+                self.doc.save()
+            except project.ChangedOnDisk as e:
+                r = QMessageBox.question(
+                    self, "Files changed outside the editor",
+                    "These files were changed since %s was opened:\n\n%s\n\nOverwrite them with the editor's "
+                    "version? (Cancel, then Reload map, keeps theirs and drops your edits.)"
+                    % (self.doc.folder, "\n".join(e.paths)), QMessageBox.Save | QMessageBox.Cancel)
+                if r != QMessageBox.Save:
+                    return False
+                self.doc.save(force=True)
         except Exception as e:
             QMessageBox.critical(self, "Save failed", str(e))
-            return
+            return False
         self.undo.setClean()
         self._update_title()
         self.statusBar().showMessage("Saved %s" % self.doc.folder, 3000)
+        return True
 
     def closeEvent(self, e):
         if self._confirm_discard():
@@ -345,22 +394,54 @@ class MainWindow(QMainWindow):
             self._show_event(sel)
         elif kind == "header":
             self.header_form.set_fields(self.doc.folder, self.doc.header_fields())
+            if arg == "area_data":   # every cell is drawn with the map's area
+                self.view.refresh_terrain()
+                self._3d_stale = True
+                if self.center.currentIndex() == 1:
+                    self._show_3d()
         self._update_title()
 
     def _stroke(self, tiles):
         name = "Paint collision" if self.view.tool == "collision" else "Paint behavior"
         self.undo.push(C.PaintTiles(self.doc, self._changed, tiles, name))
+        lands = {self.doc.cell_land(x // CELL, y // CELL) for x, y in tiles}
+        shared = {n: self.doc.land_users(n) for n in lands if len(self.doc.land_users(n)) > 1}
+        if shared:
+            self.statusBar().showMessage("Shared land data: this also changed %s" % "; ".join(
+                "%04d in %d maps (%s)" % (n, len(users), ", ".join(users[:4]) + (", ..." if len(users) > 4 else ""))
+                for n, users in sorted(shared.items())), 10000)
 
-    def move_event(self, section, index, old, new):
-        self.undo.push(C.MoveEvent(self.doc, self._changed, section, index, old, new))
+    def move_events(self, moves):
+        """[(section, index, old_xy, new_xy)] from a drag; refused if any lands off the map."""
+        off = [new for _, _, _, new in moves if not self.doc.on_map(*new)]
+        if off:
+            self.view.rebuild_events(select=self.view.selected_event())   # put them back
+            self.statusBar().showMessage("Can't move events to %d, %d: not on %s" % (off[0] + (self.doc.folder,)), 5000)
+            return
+        self.undo.push(C.MoveEvents(self.doc, self._changed, moves))
+
+    def _refuse(self, key, value, form):
+        error = form.check(key, value)
+        if error:
+            QMessageBox.warning(self, "Can't set %s" % key, error)
+        return error is not None
 
     def _event_field_edited(self, key, value):
         sel = self.view.selected_event()
-        if sel:
-            self.undo.push(C.SetEventField(self.doc, self._changed, sel[0], sel[1], key, value))
+        if not sel or self._refuse(key, value, self.event_form):
+            return False
+        self.undo.push(C.SetEventField(self.doc, self._changed, sel[0], sel[1], key, value))
 
     def _header_field_edited(self, key, value):
+        if self._refuse(key, value, self.header_form):
+            return False
         self.undo.push(C.SetHeaderField(self.doc, self._changed, key, value))
+
+    def _add_event(self, section, x, y):
+        if not self.doc.on_map(x, y):
+            self.statusBar().showMessage("Can't add an event at %d, %d: not on %s" % (x, y, self.doc.folder), 5000)
+            return
+        self.undo.push(C.AddEvent(self.doc, self._changed, section, x, y))
 
     def delete_selected(self):
         sel = self.view.selected_event()
@@ -370,8 +451,8 @@ class MainWindow(QMainWindow):
     def _context_menu(self, x, y, global_pos):
         menu = QMenu(self)
         for section, name in SECTION_NAMES.items():
-            menu.addAction("Add %s here (%d, %d)" % (name.lower(), x, y),
-                           lambda s=section: self.undo.push(C.AddEvent(self.doc, self._changed, s, x, y)))
+            a = menu.addAction("Add %s here (%d, %d)" % (name.lower(), x, y), lambda s=section: self._add_event(s, x, y))
+            a.setEnabled(self.doc.on_map(x, y))
         if self.view.selected_event():
             menu.addSeparator()
             menu.addAction("Delete selected event", self.delete_selected)
@@ -407,9 +488,9 @@ class MainWindow(QMainWindow):
         c, b, a = t
         cx, cy = x // CELL, y // CELL
         land = self.doc.cell_land(cx, cy)
-        shared = len(self.doc.chunk_users(land))
+        shared = len(self.doc.land_users(land))
         text = ("tile %d, %d  (cell %d,%d, land data %04d%s)  %s  %s  attr %02X" % (
-            x, y, cx, cy, land, ", used by %d cells" % shared if shared > 1 else "",
+            x, y, cx, cy, land, ", shared by %d maps" % shared if shared > 1 else "",
             "blocked" if c else "open", self.behaviors.get(b, "%02X" % b), a))
         self.statusBar().showMessage(text)
         self.tile_info.setText(text)

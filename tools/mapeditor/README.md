@@ -43,21 +43,25 @@ tools/mapeditor/mapeditor.sh Cherrygrove
   pans, wheel zooms. Needs OpenGL 3.3.
 - **Properties** (right):
   - *Event*: every field of the selected event. Fields with constants (sprites,
-    movement types, flags, vars, maps...) complete as you type.
-  - *Header*: the map's `map.json` header fields.
+    movement types, flags, vars, maps...) complete as you type, and a name that
+    isn't one of those constants is refused (numbers are always accepted).
+  - *Header*: the map's `map.json` header fields. `layout` is read-only (edit
+    `map.json` and reopen); changing `area_data` redraws the terrain.
   - *Tiles*: brush size, the behavior palette (filterable) and the tile under the
     cursor.
-- **Status bar**: tile coordinates, cell, land data number, how many cells share
+- **Status bar**: tile coordinates, cell, land data number, how many maps share
   that land data, collision, behavior name and attribute.
 
 ## Tools
 
 | Tool (key) | Left mouse | Right mouse |
 |---|---|---|
-| Select / move events (1) | select, drag to move (snaps to tiles); rubber-band select | menu: add an object, warp, trigger or sign here; delete |
+| Select / move events (1) | select, drag to move (snaps to tiles; every selected event moves); rubber-band select | menu: add an object, warp, trigger or sign here; delete |
 | Paint collision (2) | block tiles | open tiles |
 | Paint behavior (3) | paint the palette's behavior | pick the behavior under the cursor |
 
+Painting and events are limited to the open map's own cells: the dimmed
+neighbours belong to other maps, and a drop or an add outside is refused.
 `Delete` removes the selected event, `Ctrl+Z` / `Ctrl+Shift+Z` undo and redo
 (strokes, moves, field edits, adds and deletes), `Ctrl+S` saves. The View menu
 and toolbar toggle terrain, behavior colors, collision, grid, prop markers,
@@ -66,13 +70,19 @@ events and cell labels.
 ## What saving writes
 
 - `data/maps/<Map>/map.json`: events and header, in the existing format (an
-  unchanged file saves byte-identical).
+  unchanged file saves byte-identical; `tests/test_window.py` checks every map).
 - `data/landdata/NNNN/permissions.txt` of every cell you painted. **Shared land
   data**: painting a cell used elsewhere (sea, Pokémon Centers) changes every
-  map that uses it.
+  map that uses it; the status bar says which maps after the stroke.
+- `data/maps/<Map>/ids.h`: a `#define` for each new object, with the lowest free
+  number, as `mapkit npc add` does.
 
-New objects get a `local_id` like `obj_T21_new1` and script 0; add the id to
-`ids.h` and a script in `scripts.pory` (`mapkit script add`), see
+If a file to be written was changed outside the editor since the map was opened
+(`mapkit`, a text editor), saving asks before overwriting it. A failed save keeps
+the map open with its edits.
+
+New objects get a `local_id` like `obj_T21_new1` and script 0; give them a script
+in `scripts.pory` (`mapkit script add`), see
 [npcs-and-scripts.md](../../docs/modding/npcs-and-scripts.md). `mapkit validate`
 checks the result.
 
@@ -99,6 +109,9 @@ vertex colors.
 
 ## Not yet
 
+Planned in [CHANGE-0004](../../docs/gen4map/CHANGE-0004-map-editor.md) parts 2-4; its
+part 1 lists the problems fixed so far and the ones still open.
+
 - Props can't be moved yet, layouts can't be resized and cells can't be
   reassigned to other land data in the editor (edit `layout.json` / `props.json`).
 - Object sprites are shown as boxes, not their overworld graphics.
@@ -116,7 +129,8 @@ vertex colors.
 | `mapeditor/terrain.py` | top-down pictures of cells from their models and props |
 | `mapeditor/view3d.py` | the 3D tab (OpenGL) |
 | `mapeditor/window.py` | main window, panels, actions |
-| `tests/test_editor.py` | `QT_QPA_PLATFORM=offscreen tools/mapeditor/.venv/bin/python -m unittest discover -s tools/mapeditor/tests` |
+| `tests/test_editor.py` | data layer, commands, terrain. Run all: `QT_QPA_PLATFORM=offscreen tools/mapeditor/.venv/bin/python -m unittest discover -s tools/mapeditor/tests` |
+| `tests/test_window.py` | the window driven with mouse and fields; every map saves unchanged |
 
 It reads and writes through `tools/mapkit` (`layouts.py`, `landdata.py`, `edit.py`,
 `nitro.py`).

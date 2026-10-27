@@ -19,6 +19,7 @@ DS) games: Diamond/Pearl, Platinum, HeartGold/SoulSilver.
 | [CHANGE-0001-maps-as-files.md](CHANGE-0001-maps-as-files.md) | the change that introduced all this: what, why, verification, commits |
 | [CHANGE-0002-terrain-authoring.md](CHANGE-0002-terrain-authoring.md) | format 1.1: writing NSBMD models and BDHC heights, `heights.json` |
 | [CHANGE-0003-area-textures.md](CHANGE-0003-area-textures.md) | format 1.2: map textures as PNG folders, writing NSBTX |
+| [CHANGE-0004-map-editor.md](CHANGE-0004-map-editor.md) | editor clean-up (done), then props, layout resize and object sprites (planned) |
 | [ROADMAP.md](ROADMAP.md) | steps to a standalone tool and other games |
 
 In this repository:

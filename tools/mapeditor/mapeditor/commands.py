@@ -1,6 +1,6 @@
 # [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """Undoable edits. Each command changes the MapDoc and tells the window what
-to refresh through `changed(kind)` ("tiles", "events", "header")."""
+to refresh through `changed(kind, arg)` ("tiles", "events", "header")."""
 
 from PySide6.QtGui import QUndoCommand
 
@@ -36,17 +36,21 @@ class PaintTiles(_Cmd):
         self._apply(self.old)
 
 
-class MoveEvent(_Cmd):
-    def __init__(self, doc, changed, section, index, old_xy, new_xy):
-        super().__init__(doc, changed, "Move event")
-        self.section, self.index, self.old, self.new = section, index, old_xy, new_xy
+class MoveEvents(_Cmd):
+    """Events moved together (one drag): [(section, index, old_xy, new_xy)]."""
+
+    def __init__(self, doc, changed, moves):
+        super().__init__(doc, changed, "Move event" if len(moves) == 1 else "Move %d events" % len(moves))
+        self.moves = moves
 
     def redo(self):
-        self.doc.move_event(self.section, self.index, *self.new)
+        for section, index, _, new in self.moves:
+            self.doc.move_event(section, index, *new)
         self.changed("events", None)
 
     def undo(self):
-        self.doc.move_event(self.section, self.index, *self.old)
+        for section, index, old, _ in self.moves:
+            self.doc.move_event(section, index, *old)
         self.changed("events", None)
 
 
@@ -105,8 +109,8 @@ class SetHeaderField(_Cmd):
 
     def redo(self):
         self.doc.set_header_field(self.key, self.new)
-        self.changed("header", None)
+        self.changed("header", self.key)
 
     def undo(self):
         self.doc.set_header_field(self.key, self.old)
-        self.changed("header", None)
+        self.changed("header", self.key)
