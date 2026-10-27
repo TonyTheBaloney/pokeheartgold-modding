@@ -254,6 +254,12 @@ the command, if there is one. Commands run from the repository root;
 | redraw a battle background (and its evening/night palettes) | [battle-backgrounds.md](modding/battle-backgrounds.md#4-changing-a-background) | `graphics/battle_backgrounds/backgrounds/<name>/`; layout rules in [§3](modding/battle-backgrounds.md#3-how-the-picture-is-laid-out) |
 | redraw a battle platform | [battle-backgrounds.md](modding/battle-backgrounds.md#5-changing-a-platform) | `graphics/battle_sprites/platforms/<name>/` |
 | add a battle background or platform | [battle-backgrounds.md](modding/battle-backgrounds.md#6-adding-a-background), [platform](modding/battle-backgrounds.md#7-adding-a-platform) | |
+| understand which transition a battle plays (wild, trainer, cave, night) | [battle-visuals.md](modding/battle-visuals.md#1-how-a-transition-is-picked) | `EncounterEffect_GetDefaultEffect` |
+| give a class another transition, or pick one from a script | [battle-visuals.md](modding/battle-visuals.md#4-recipes) | `sTrainerBattleIntroParams`; `VAR_BATTLE_TRANSITION` |
+| redraw a gym leader / Elite Four / Rocket mugshot | [battle-visuals.md](modding/battle-visuals.md#3-changing-a-mugshot-picture) | `files/a/1/0/9` with `nitroarc` + `nitrogfx` |
+| add a mugshot for a new trainer or class | [battle-visuals.md](modding/battle-visuals.md#43-a-new-mugshot) | new effect id 47, `gEncounterEffectFuncs` |
+| make a trainer class (or one trainer) use another Poké Ball | [battle-visuals.md](modding/battle-visuals.md#5-which-ball-a-trainers-pokémon-come-out-of) | `TrainerClass_GetBall`; `"ball"` in `trainers.json` |
+| redraw a Poké Ball, or find every graphic a new ball needs | [battle-visuals.md](modding/battle-visuals.md#6-poké-ball-graphics) | `graphics/battle_sprites/balls/` |
 
 ## Screens and menus
 

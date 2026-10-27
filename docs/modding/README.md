@@ -76,6 +76,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [story-progression.md](story-progression.md) | How flags and vars store progress; every story roadblock from New Game to Red, with its flag, var and script |
 | [gyms.md](gyms.md) | What badges do (HMs, obedience), each gym's leader script, entry gate, puzzle and rematch schedule |
 | [abilities.md](abilities.md) | Adding an ability: constant, names and descriptions, species, where each kind of effect is coded in battle, messages and battle scripts |
+| [battle-visuals.md](battle-visuals.md) | Battle transitions (how one is picked, every effect id, the default by terrain and time), mugshots (gym leaders, Elite Four, Rocket: code, members of `a/1/0/9`, names as text), redrawing and adding a mugshot, which ball trainers' Pokémon use (per class, per trainer), Poké Ball graphics and what a new ball needs |
 | [battle-music.md](battle-music.md) | Battle music: how it is chosen (class, species, doubles, the Kanto swap), victory and eyes-meet music; recipes for music by trainer class, one trainer, species, map, and from a script |
 | [music.md](music.md) | Music and sound: `sound/` (the sound archive as files), changing music, adding songs from MIDI and instruments from WAV |
 | [pokeathlon.md](pokeathlon.md) | The Pokéathlon: stats per species (`performance.narc`, nature, day of month, Aprijuice), courses and events, scoring and closing bonuses, Athlete Points, medals, records, the Athlete Shop and Data Cards; changing stats, courses, scoring, prizes; what a new event takes |
@@ -129,6 +130,7 @@ passes on that commit so you know any later mismatch comes from your edit.
 | Mart stock | in C (`src/scrcmd_mart.c`; [items.md](items.md#marts)) |
 | Trainers' parties | yes (`trainers.json`; [trainers.md](trainers.md)) |
 | Trainer AI move scripts | **no**, raw bytes in `asm/trainer_ai_data.s` ([trainers.md](trainers.md#the-ai-scripts)); switching and item use are C |
+| Battle transitions and mugshots | tables in C (`src/battle_intro_config.c`); mugshot pictures **no**, binary `files/a/1/0/9` ([battle-visuals.md](battle-visuals.md)) |
 | Trainer classes | in C and text (`trainer_class.h`, `msg_0730.json`, ...; [trainer-classes.md](trainer-classes.md)) |
 | Trainer sprites and their animation | yes (PNG in `graphics/trainers/`, `data/trainer_graphics/*.json`; [trainer-classes.md](trainer-classes.md#trainer-sprites)) |
 | Trainers' battle text | yes (`messages` in `trainers.json`, then `tools/trmsg/trmsg.py build`; [trainer-text.md](trainer-text.md)) |

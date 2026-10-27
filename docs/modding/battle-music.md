@@ -6,7 +6,8 @@
 
 How the game picks the music for a battle (by trainer class, wild species, region),
 and how to pick it yourself: for one trainer, for a map, or from a script. Adding the
-song itself is in [music.md](music.md#adding-a-song).
+song itself is in [music.md](music.md#adding-a-song). The transition picked from the
+same rows is in [battle-visuals.md](battle-visuals.md).
 
 | pokeemerald | here |
 |---|---|

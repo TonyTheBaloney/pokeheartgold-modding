@@ -362,3 +362,20 @@ was checked. Later work is described in the commit messages (`git log`).
   Cheryl/Riley: FLAG_HAVE_FOLLOWER, VAR_FOLLOWER_TRAINER_NUM) documented from the code; unused in
   HG. Recipe (multibattle with Lance vs two Route 30 trainers, escort-mode commands,
   partycheckfordouble) built with make release, then reverted. Not play-tested.
+
+## 2026-10-26 Battle visuals guide (transitions, mugshots, Poké Balls)
+- Location: docs/modding/battle-visuals.md (new); links from docs/WIKI.md, docs/modding/README.md
+  (guide and data-status tables), trainer-classes.md, battle-music.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5 (three research subagents; their citations checked against the source)
+- Notes: 47 encounter effects (overlays 114-120 chosen by hard-coded id ranges, no bounds check on
+  gEncounterEffectFuncs); default effect = terrain (water/cave/other) + night, no level check, cave
+  maps forced to night; terrains 12-22 leave the effect uninitialized. Mugshots are in prebuilt
+  files/a/1/0/9 (round-trip of Falkner's members and the NARC byte-identical); names are text from
+  the params' fixed trainerId, not the opponent. Misleading comments noted, not changed: member
+  order in GymLeaderIntroParams/RocketExecutiveIntroParams is palette first; EliteFourIntroParams
+  nameplateMember is a streak palette. Trainer Pokémon are always in Poké Balls (no class table);
+  SetMonData(POKEBALL) takes item ids, GetMonData returns ball ids; gBallColors has 25 entries.
+  Recipes (VAR_BATTLE_TRANSITION = VAR_UNK_4153, Elder Li mugshot as effect 47 with copied members
+  242-245, TrainerClass_GetBall, per-trainer "ball" in TrainerData.unk_2) built together with make
+  release, then reverted. Not play-tested.

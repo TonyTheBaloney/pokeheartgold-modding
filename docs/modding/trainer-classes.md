@@ -24,11 +24,12 @@ share one picture.
 | `gTrainerMoneyTable` (`src/battle_main.c`) | `sPrizeMoneyTbl` (`asm/overlay_12_battle_command.s`) |
 | `F_TRAINER_FEMALE` on each trainer | `sTrainerGenders`, per class (`src/trainer_data.c`) |
 | `TRAINER_ENCOUNTER_MUSIC_*` on each trainer | `sTrainerEncounterMusicParam`, per class (`src/field_bgm.c`) |
-| gym leader / Elite Four battle transitions (`GetTrainerBattleTransition`) | `sTrainerBattleIntroParams` (`src/battle_intro_config.c`): transition and battle music |
+| gym leader / Elite Four battle transitions (`GetTrainerBattleTransition`) | `sTrainerBattleIntroParams` (`src/battle_intro_config.c`): transition and battle music ([battle-visuals.md](battle-visuals.md)) |
 | `graphics/trainers/front_pics/<name>.png`, 64×64 | `graphics/trainers/front_pics/<pic>.png`, 80×80 frames ([Trainer sprites](#trainer-sprites)) |
 | `graphics/trainers/palettes/<name>.pal` | the same |
 | `gTrainerFrontAnimsPtrTable` (one still frame for everyone) | `"anims"` in `data/trainer_graphics/front_pics.json`; 31 classes really move (gym leaders, Elite Four, Red, ...) |
 | `graphics/trainers/back_pics/*.png` (64×256, 4 frames) + `gTrainerBackAnimsPtrTable` | `graphics/trainers/back_pics/<pic>.png` (8 or 5 frames) + `back_pics.json`, picked by `TrainerClassToBackpicID` (`src/pokemon.c`) |
+| `gTrainerBallTable` (ball per class) | none: always a Poké Ball ([battle-visuals.md](battle-visuals.md#5-which-ball-a-trainers-pokémon-come-out-of)) |
 | `gFacilityClassToPicIndex` / `gFacilityClassToTrainerClass` | `src/frontier/frontier_trainers.c`, `src/union_room_avatar.c` |
 
 ## What a class is made of
@@ -45,7 +46,7 @@ For class number `N`:
 | eyes-meet music | a row in `sTrainerEncounterMusicParam` | no: defaults to `SEQ_GS_EYE_J_SHOUNEN` |
 | battle transition and music | a row in `sTrainerBattleIntroParams` | no: defaults to the normal trainer battle |
 | back sprite | `TrainerClassToBackpicID`, `back_pics.json` | no: only for classes that fight on *your* side; defaults to Ethan's or Lyra's by gender |
-| gym leader cut-in | `src/field/encounter_effect_leaders.c` (its own graphics) | no |
+| gym leader cut-in (mugshot) | `src/field/encounter_effect_leaders.c` (its own graphics; [battle-visuals.md](battle-visuals.md#43-a-new-mugshot)) | no |
 
 Gender is `TRAINER_MALE`, `TRAINER_FEMALE` or `TRAINER_DOUBLE`. It decides the
 default back sprite and nudges the gender of the trainer's Pokémon (in
