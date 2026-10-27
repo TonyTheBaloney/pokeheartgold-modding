@@ -128,6 +128,7 @@ the command, if there is one. Commands run from the repository root;
 | read or edit a move's animation | [move-animations.md](modding/move-animations.md#3-reading-and-editing-them) | edit `data/battle_anims/moves/NNNN_<MOVE>.anim`, `make` |
 | give a new move an animation | [move-animations.md](modding/move-animations.md#81-a-new-move-with-an-existing-animation) | copy a `.anim` file in `data/battle_anims/moves/`, or remap in `BattleAnimSystem_StartMove` |
 | change a status, weather or stat-change animation | [move-animations.md](modding/move-animations.md) | `data/battle_anims/effects/` |
+| make battles faster (text, pauses after messages, HP/EXP bars, skipping animations) | [battle-speed.md](modding/battle-speed.md) | `BattleSystem_GetTextFrameDelay`, `BtlCmd_WaitButtonABTime`, `FAST_HP_BARS` |
 | add an effect function or command for animation scripts | [move-animations.md](modding/move-animations.md#84-a-new-effect-function) | `gBattleAnimFuncTable` |
 | add a trainer class (name, gender, prize money, music) | [trainer-classes.md](modding/trainer-classes.md#adding-a-class) | |
 | change or add a trainer's battle sprite | [trainer-classes.md](modding/trainer-classes.md#trainer-sprites) | PNG in `graphics/trainers/front_pics/`; `trainer_pics.py check` |

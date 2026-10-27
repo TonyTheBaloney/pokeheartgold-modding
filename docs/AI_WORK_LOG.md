@@ -442,6 +442,20 @@ was checked. Later work is described in the commit messages (`git log`).
   after CreateMon (form 0's stats/ability/moves); setmonform doesn't recalc; the Rotom comment in
   GetMonSpriteCharAndPlttNarcIdsEx lists the forms in the wrong order. Not play-tested.
 
+## 2026-10-27 Faster battles guide
+- Location: docs/modding/battle-speed.md (new); links from docs/WIKI.md, docs/modding/README.md,
+  options-menu.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: battle text goes through BattleSystem_GetTextFrameDelay (1 char/frame is the printer's
+  max; holding A/B gives the same); TEXT_SPEED_INSTANT skips the printer callback, so {WAIT 5}
+  level-up fanfares would be lost. The pause after messages is WaitButtonABTime 30 (397 uses);
+  WaitTime 72-122 can't be skipped. FAST_HP_BARS exists, undefined: retail drains 1 HP/frame when
+  max HP >= 48. Battle Scene off skips move, effect (not Substitute), bag item and pokepic
+  animations. Quirk noted, not changed: BtlCmd_PlayBattleAnimationFromVar compares the var id with
+  15/16. Recipes (battle text delay 1, waits halved, heldKeys skip, FAST_HP_BARS, EXP bar 4 steps
+  per frame, no stat-change animations) built together with make, then reverted. Not play-tested.
+
 ## 2026-10-27 Shiny Pokémon guide
 - Location: docs/modding/shiny.md (new); links from docs/WIKI.md, docs/modding/README.md,
   static-encounters.md, breeding.md; correction in bug-catching-contest.md

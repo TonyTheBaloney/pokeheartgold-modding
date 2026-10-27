@@ -445,6 +445,8 @@ Change the numbers in `Options_GetTextFrameDelay`; every reader goes through it.
   dialogue that waits for a button or scrolls isn't written for.
 - A fourth speed fits in `textSpeed`; add it there and as a choice (above). Link battles
   still use 1.
+- Battle-only text speed, the pauses after battle messages and the HP/EXP bars are in
+  [battle-speed.md](battle-speed.md).
 
 ### Defaults
 
