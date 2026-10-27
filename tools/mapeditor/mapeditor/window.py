@@ -182,6 +182,7 @@ class MainWindow(QMainWindow):
         self.view.stroke.connect(self._stroke)
         self.view.picked.connect(self._pick_behavior)
         self.view.context.connect(self._context_menu)
+        self.view.ticked.connect(self._update_3d_sprites)
         self.view.scene().selectionChanged.connect(self._selection_changed)
 
         self._build_map_list()
@@ -306,7 +307,7 @@ class MainWindow(QMainWindow):
                 a.setChecked(True)
         tb.addSeparator()
         for key, name in (("terrain", "Terrain (3D)"), ("behavior", "Behavior colors"), ("collision", "Collision"),
-                          ("grid", "Grid"), ("props", "Prop markers"), ("events", "Events"), ("sprites", "Sprites"),
+                          ("grid", "Grid"), ("props", "Prop markers"), ("events", "Events"), ("sprites", "Sprites"), ("animate", "Animate sprites"),
                           ("cells", "Cell labels")):
             a = QAction(name, self, checkable=True, checked=self.view.layers[key])
             a.toggled.connect(lambda on, k=key: self._toggle(k, on))
@@ -328,7 +329,7 @@ class MainWindow(QMainWindow):
             return
         if key == "props":
             self.view.rebuild_props()
-        elif key in ("events", "sprites"):
+        elif key in ("events", "sprites", "animate"):
             self.view.rebuild_events()
             self._show_event(None)
         else:
@@ -345,6 +346,7 @@ class MainWindow(QMainWindow):
         if self.view3d is None:
             from .view3d import Map3DView
             self.view3d = Map3DView()
+            self.view3d.sprite_source = self._sprites_3d
             self.center.blockSignals(True)
             self.center.removeTab(1)
             self.center.insertTab(1, self.view3d, "3D")
@@ -354,6 +356,20 @@ class MainWindow(QMainWindow):
             self.view3d.show_doc(self.doc, self.view.renderer, sorted(self.view.cells))
             self._3d_stale = False
         self.statusBar().showMessage("3D: left drag turns, right drag pans, wheel zooms", 5000)
+
+    def _sprites_3d(self):
+        """[(x, y, z, QImage)] of the objects shown in the map tab, standing on the ground."""
+        out = []
+        for it in self.view.event_items:
+            if it.sprite is not None:
+                ev = it.ev
+                out.append((ev["x"] * 16 + 8, self.doc.ground(ev["x"], ev["y"], ev.get("elevation")),
+                            ev["y"] * 16 + 8, it.sprite))
+        return out
+
+    def _update_3d_sprites(self):
+        if self.view3d is not None and self.center.currentIndex() == 1:
+            self.view3d.update()
 
     # --- opening and saving -----------------------------------------------------------
 
@@ -434,6 +450,7 @@ class MainWindow(QMainWindow):
             sel = arg if arg is not None else self.view.selected_event()
             self.view.rebuild_events(select=sel)
             self._show_event(sel)
+            self._update_3d_sprites()
         elif kind == "header":
             self.header_form.set_fields(self.doc.folder, self.doc.header_fields())
             if arg == "area_data":   # every cell is drawn with the map's area

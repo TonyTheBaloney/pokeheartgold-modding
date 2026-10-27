@@ -120,9 +120,26 @@ Textures are named `<name>.1` to `<name>.N`; sorted by that number:
   objects stay boxes with the reason; edits and the toggle redraw; completion icons;
   a missing sprite table.
 
-Still to do: animation, the 3D tab (billboards facing the camera), and the shiny
-palette of follow-Pokémon (palette 0 is always used). Objects hidden by a flag are
-drawn like the others: the editor doesn't know flag state.
+Added the same day:
+
+- **Animation** (`sprites.pose`, a 150 ms clock in the map view): each `movement_type`
+  is previewed in place, since the editor never moves objects. Wanderers and the 24
+  `PATH_*` types walk (the four-frame cycle) and turn through their directions in
+  order (path types parse them from the name), `BACK_AND_FORTH` alternates its facing
+  and the opposite, `LOOK_*` and the spins turn, follow-Pokémon sheets alternate their
+  two frames, the rest stand facing `facing_dir`. `LOOK_AROUND` is random in the game
+  and a fixed order here. View → *Animate sprites* turns it off.
+- **3D tab**: the same frames as billboards, upright and turned to the camera around
+  the vertical, one texel per world unit, bottom on the ground. The ground is the
+  cell's heights at the tile's centre, the plate nearest the object's `elevation` where
+  they overlap (`Bdhc_GetHeight` with the walker's height, `src/field_terrain.c`), the
+  cell's altitude where there is none. Rendered Cherrygrove offscreen and looked at.
+- Tests: poses per movement kind; 64 ticks of a wanderer show every walk frame in
+  every direction and stopping restores the standing frame; the 3D sprite list; a
+  billboard drawn offscreen covers the screen centre at an angle.
+
+Still to do: the shiny palette of follow-Pokémon (palette 0 is always used). Objects
+hidden by a flag are drawn like the others: the editor doesn't know flag state.
 
 No file format or ROM change; nothing new is written.
 

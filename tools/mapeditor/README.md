@@ -43,8 +43,13 @@ tools/mapeditor/mapeditor.sh Cherrygrove
     (chosen from `VAR_OBJ_n` when the map loads), **?** otherwise; the tooltip says
     why; *Prop markers* adds a diamond per prop
     (hover for its model and position).
-- **3D tab**: the same cells in perspective. Left drag turns, right or middle drag
-  pans, wheel zooms. Needs OpenGL 3.3.
+- **3D tab**: the same cells in perspective, with the objects' sprites standing on
+  the ground (at the height the game finds under them) and turned to the camera. Left
+  drag turns, right or middle drag pans, wheel zooms. Needs OpenGL 3.3.
+- **Animation**: sprites preview their `movement_type` in place (objects are never
+  moved): wanderers and path walkers play their walk cycle and turn through their
+  directions, look-around and spin types turn, follow-Pokémon step in place, the rest
+  stand. The timing is the editor's; random turns are shown as a fixed order.
 - **Properties** (right):
   - *Event*: every field of the selected event, with an object's sprite above
     them (twice its size). Fields with constants (sprites, with pictures,
@@ -70,7 +75,7 @@ neighbours belong to other maps, and a drop or an add outside is refused.
 `Delete` removes the selected event, `Ctrl+Z` / `Ctrl+Shift+Z` undo and redo
 (strokes, moves, field edits, adds and deletes), `Ctrl+S` saves. The View menu
 and toolbar toggle terrain, behavior colors, collision, grid, prop markers,
-events, sprites (off: objects as boxes) and cell labels.
+events, sprites (off: objects as boxes), sprite animation and cell labels.
 
 ## What saving writes
 
@@ -119,8 +124,8 @@ part 1 lists the problems fixed so far and the ones still open.
 
 - Props can't be moved yet, layouts can't be resized and cells can't be
   reassigned to other land data in the editor (edit `layout.json` / `props.json`).
-- Sprites aren't animated, aren't drawn in the 3D tab, and objects hidden by a flag
-  are drawn like the others (the editor doesn't know flag state).
+- Objects hidden by a flag are drawn like the others (the editor doesn't know flag
+  state); follow-Pokémon always use their normal palette.
 - Map models can't be edited here: use `mapkit terrain export` / `import` with a 3D
   editor ([docs/modding/terrain.md](../../docs/modding/terrain.md)). Heights aren't
   shown yet.

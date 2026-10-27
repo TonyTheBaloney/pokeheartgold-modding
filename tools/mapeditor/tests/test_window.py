@@ -16,6 +16,7 @@ sys.path.insert(0, os.path.dirname(HERE))
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
 from PySide6.QtCore import QPoint, Qt  # noqa: E402
+from PySide6.QtGui import QColor  # noqa: E402
 from PySide6.QtTest import QTest  # noqa: E402
 from PySide6.QtWidgets import QApplication, QFormLayout, QMessageBox  # noqa: E402
 
@@ -288,6 +289,75 @@ class SpriteTest(WindowCase):
         model = self.field(w.event_form, "graphics_id").completer().model()
         row = model.stringList().index("SPRITE_GSBOY1")
         self.assertFalse(model.data(model.index(row), _Qt.DecorationRole).isNull())
+
+    def test_poses(self):
+        from mapeditor.sprites import N, S, W, E, movement, pose
+        self.assertEqual([pose("MOVEMENT_TYPE_WANDER_UP_DOWN", "DIR_SOUTH", 16, t) for t in (0, 1, 2, 3, 16)],
+                         [(N, 0), (N, 1), (N, 2), (N, 3), (S, 0)])
+        self.assertEqual([pose("MOVEMENT_TYPE_LOOK_LEFT_RIGHT", "DIR_SOUTH", 16, t) for t in (0, 1, 8)],
+                         [(W, 0), (W, 0), (E, 0)])
+        self.assertEqual(movement("MOVEMENT_TYPE_PATH_WEST_EAST_SOUTH_NORTH_2"), ("walk", (W, E, S, N)))
+        self.assertEqual([pose("MOVEMENT_TYPE_BACK_AND_FORTH", "DIR_WEST", 16, t)[0] for t in (0, 16)], [W, E])
+        self.assertEqual([pose("MOVEMENT_TYPE_FACE_LEFT", "DIR_EAST", 16, t) for t in (0, 5)], [(E, 0), (E, 0)])
+        self.assertEqual([pose("MOVEMENT_TYPE_NONE", "DIR_EAST", 8, t) for t in (0, 2)], [(E, 0), (E, 1)])
+
+    def test_animation_plays_and_stops(self):
+        w = self.window()
+        self.item(w, "object_events", 0).setSelected(True)
+        self.edit_field(w.event_form, "movement_type", "MOVEMENT_TYPE_WANDER_AROUND")
+        self.assertTrue(w.view._clock.isActive())
+        it = self.item(w, "object_events", 0)
+        g = it.ev["graphics_id"]
+        seen = set()
+        for _ in range(64):
+            w.view._advance()
+            seen.add(self.item(w, "object_events", 0).sprite.cacheKey())
+        frames = {w.view.sprites.image(g, f, s).cacheKey() for f in range(4) for s in range(4)}
+        self.assertEqual(seen, frames & seen)
+        self.assertGreaterEqual(len(seen), 12)     # 4 directions x walk cycle (stand frames repeat)
+        w._toggle("animate", False)
+        self.assertFalse(w.view._clock.isActive())
+        self.assertEqual(self.item(w, "object_events", 0).sprite, w.view.sprites.image(g, it.ev["facing_dir"]))
+
+    def test_sprites_in_3d(self):
+        w = self.window()
+        sprites = w._sprites_3d()
+        self.assertEqual(len(sprites), 6)
+        for x, y, z, img in sprites:
+            self.assertEqual(img.width(), 32)
+        w._toggle("sprites", False)
+        self.assertEqual(w._sprites_3d(), [])
+
+    def test_billboards_draw(self):
+        from PySide6.QtGui import QImage, QOffscreenSurface, QOpenGLContext, QVector3D
+        from PySide6.QtOpenGL import QOpenGLFramebufferObject, QOpenGLFramebufferObjectFormat
+        from mapeditor.view3d import Camera, SceneGL, default_format
+        ctx = QOpenGLContext()
+        ctx.setFormat(default_format())
+        surf = QOffscreenSurface()
+        surf.setFormat(ctx.format())
+        surf.create()
+        if not ctx.create() or not ctx.makeCurrent(surf):
+            self.skipTest("no OpenGL 3.3 context")
+        fmt = QOpenGLFramebufferObjectFormat()
+        fmt.setAttachment(QOpenGLFramebufferObject.CombinedDepthStencil)
+        fbo = QOpenGLFramebufferObject(200, 200, fmt)
+        fbo.bind()
+        red = QImage(32, 32, QImage.Format_RGBA8888)
+        red.fill(QColor(255, 0, 0))
+        scene = SceneGL()
+        scene.init(ctx)
+        cam = Camera()
+        cam.target, cam.distance, cam.pitch, cam.yaw = QVector3D(0, 16, 0), 120, 5, 35
+        mvp = cam.matrix(1.0)
+        scene.draw(mvp, 200, 200)
+        scene.draw_sprites(mvp, cam.yaw, [(0.0, 0.0, 0.0, red)])
+        img = fbo.toImage()
+        scene.release_sprites()
+        fbo.release()
+        ctx.doneCurrent()
+        self.assertEqual(img.pixelColor(100, 100).name(), "#ff0000")   # faces the camera at any yaw
+        self.assertNotEqual(img.pixelColor(100, 20).name(), "#ff0000")
 
     def test_missing_sprite_table_keeps_boxes(self):
         os.remove(os.path.join(self.co.root, "asm/overlay_01_sprite_data.s"))

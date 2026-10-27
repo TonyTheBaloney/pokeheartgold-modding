@@ -1,6 +1,6 @@
 # [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """3D view of a map: its cells' terrain and props (NSBMD, via mapkit.nitro)
-drawn with OpenGL, with an orbit camera.
+drawn with OpenGL, with an orbit camera, and the objects' sprites as billboards.
 
 The mesh is grouped into one vertex buffer per (texture, palette, wrap mode,
 alpha, polygon mode). Like the DS: textures repeat or mirror per material
@@ -137,6 +137,8 @@ class SceneGL:
     def __init__(self):
         self.program = None
         self.batches = {}
+        self.sprite_textures = {}    # QImage.cacheKey() -> QOpenGLTexture
+        self.sprite_vao = self.sprite_vbo = None
 
     def init(self, ctx):
         self.f = ctx.functions()
@@ -171,6 +173,15 @@ class SceneGL:
                 t.setWrapMode(QOpenGLTexture.DirectionS, QOpenGLTexture.Repeat if b.wrap[0] else QOpenGLTexture.ClampToEdge)
                 t.setWrapMode(QOpenGLTexture.DirectionT, QOpenGLTexture.Repeat if b.wrap[1] else QOpenGLTexture.ClampToEdge)
                 b.texture = t
+
+    def release_sprites(self):
+        for t in self.sprite_textures.values():
+            t.destroy()
+        self.sprite_textures = {}
+        for o in (self.sprite_vbo, self.sprite_vao):
+            if o is not None:
+                o.destroy()
+        self.sprite_vao = self.sprite_vbo = None
 
     def release(self):
         for b in self.batches.values():
@@ -215,6 +226,61 @@ class SceneGL:
         self.program.release()
 
 
+    def draw_sprites(self, mvp, yaw, sprites):
+        """Billboards after the terrain: [(x, y, z, QImage)], each standing upright on
+        (x, y, z), one texel per world unit, turned to face the camera around the vertical."""
+        if not sprites:
+            return
+        f = self.f
+        if self.sprite_vao is None:
+            self.sprite_vao = QOpenGLVertexArrayObject()
+            self.sprite_vao.create()
+            self.sprite_vbo = QOpenGLBuffer(QOpenGLBuffer.VertexBuffer)
+            self.sprite_vbo.create()
+            self.sprite_vbo.setUsagePattern(QOpenGLBuffer.DynamicDraw)
+        rx, rz = math.cos(math.radians(yaw)), -math.sin(math.radians(yaw))
+        groups = {}
+        for x, y, z, img in sprites:
+            key = img.cacheKey()
+            if key not in self.sprite_textures:
+                tex = QOpenGLTexture(img.convertToFormat(QImage.Format_RGBA8888))
+                tex.setMinificationFilter(QOpenGLTexture.Nearest)
+                tex.setMagnificationFilter(QOpenGLTexture.Nearest)
+                tex.setWrapMode(QOpenGLTexture.ClampToEdge)
+                self.sprite_textures[key] = tex
+            hw, h = img.width() / 2.0, float(img.height())
+            corners = [(-hw, 0, 0, 1), (hw, 0, 1, 1), (hw, h, 1, 0), (-hw, 0, 0, 1), (hw, h, 1, 0), (-hw, h, 0, 0)]
+            data = groups.setdefault(key, array("f"))
+            for dx, dy, u, v in corners:
+                data.extend((x + rx * dx, y + dy, z + rz * dx, u, v, 1.0, 1.0, 1.0))
+        raw = array("f")
+        spans = []
+        for key, data in groups.items():
+            spans.append((key, len(raw) // 8, len(data) // 8))
+            raw.extend(data)
+        self.program.bind()
+        self.program.setUniformValue("mvp", mvp)
+        self.program.setUniformValue1i("tex", 0)
+        self.program.setUniformValue1i("textured", 1)
+        self.program.setUniformValue1i("modulate", 0)
+        self.program.setUniformValue1f("alpha", 1.0)
+        self.sprite_vao.bind()
+        self.sprite_vbo.bind()
+        b = raw.tobytes()
+        self.sprite_vbo.allocate(b, len(b))
+        for loc, size, offset in ((0, 3, 0), (1, 2, 12), (2, 3, 20)):
+            self.program.enableAttributeArray(loc)
+            self.program.setAttributeBuffer(loc, GL_FLOAT, offset, size, 8 * 4)
+        for key, first, count in spans:
+            tex = self.sprite_textures[key]
+            tex.bind(0)
+            f.glDrawArrays(GL_TRIANGLES, first, count)
+            tex.release()
+        self.sprite_vbo.release()
+        self.sprite_vao.release()
+        self.program.release()
+
+
 def default_format():
     fmt = QSurfaceFormat()
     fmt.setVersion(3, 3)
@@ -234,6 +300,7 @@ class Map3DView(QOpenGLWidget):
         self.camera = Camera()
         self._pending = None
         self._last = QPoint()
+        self.sprite_source = None    # () -> [(x, y, z, QImage)] drawn as billboards each frame
         self.setMinimumSize(320, 240)
 
     def show_doc(self, doc, renderer, cells):
@@ -254,6 +321,7 @@ class Map3DView(QOpenGLWidget):
     def _cleanup(self):
         self.makeCurrent()
         self.scene.release()
+        self.scene.release_sprites()
         self.doneCurrent()
 
     def paintGL(self):
@@ -262,7 +330,10 @@ class Map3DView(QOpenGLWidget):
             self._pending = None
         aspect = self.width() / max(1, self.height())
         ratio = self.devicePixelRatioF()
-        self.scene.draw(self.camera.matrix(aspect), int(self.width() * ratio), int(self.height() * ratio))
+        mvp = self.camera.matrix(aspect)
+        self.scene.draw(mvp, int(self.width() * ratio), int(self.height() * ratio))
+        if self.sprite_source is not None:
+            self.scene.draw_sprites(mvp, self.camera.yaw, self.sprite_source())
 
     def mousePressEvent(self, e):
         self._last = e.position().toPoint()

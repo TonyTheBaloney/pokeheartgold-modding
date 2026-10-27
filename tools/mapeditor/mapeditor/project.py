@@ -16,7 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "../../.."))
 sys.path.insert(0, os.path.join(ROOT, "tools/mapkit"))
 
-from mapkit import edit, landdata, layouts  # noqa: E402
+from mapkit import bdhc, edit, landdata, layouts, terrain  # noqa: E402
 from mapkit.repo import Repo  # noqa: E402
 
 CELL = landdata.SIZE          # tiles per layout cell side
@@ -88,6 +88,17 @@ class Chunk:
         self.path = os.path.join(self.dir, "permissions.txt")
         self.mtime = _mtime(self.path)
         self.dirty = False
+        self._heights = False   # not read yet
+
+    @property
+    def heights(self):
+        """The cell's heights (mapkit.bdhc.Bdhc), or None if it has none."""
+        if self._heights is False:
+            try:
+                self._heights = terrain._load_heights(self.dir)
+            except (OSError, ValueError, bdhc.BdhcError):
+                self._heights = None
+        return self._heights
 
     def tile(self, tx, ty):
         i = ty * CELL + tx
@@ -205,6 +216,19 @@ class MapDoc:
         if self._land_index is None:
             self._land_index = _land_index(self.repo)
         return sorted(self._land_index.get(number, ()))
+
+    def ground(self, x, y, elevation=0):
+        """World height (model units) an object standing on global tile x, y is drawn at:
+        the cell's heights at the tile's centre, nearest `elevation` (map.json's, fx32) where
+        plates overlap, as src/field_terrain.c finds it. The cell's altitude when it has
+        no height there."""
+        cx, cy = x // CELL, y // CELL
+        c = self.chunk(cx, cy) if 0 <= cx < self.width and 0 <= cy < self.height else None
+        if c is None:
+            return 0.0
+        h = c.heights.height(((x % CELL) * 16 + 8 - 256) * bdhc.FX, ((y % CELL) * 16 + 8 - 256) * bdhc.FX,
+                             bdhc.NEAREST, int(elevation or 0)) if c.heights else None
+        return h / bdhc.FX if h is not None else self.cell_altitude(cx, cy) * 8.0
 
     def tile(self, x, y):
         """(collision, behavior, attr) at global tile x, y, or None outside the layout."""

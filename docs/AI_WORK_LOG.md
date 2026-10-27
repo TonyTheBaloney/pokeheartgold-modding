@@ -514,3 +514,14 @@ was checked. Later work is described in the commit messages (`git log`).
   the 28 SPRITE_VAR_n objects (sprite from VAR_OBJ_n at load) stay boxes with the reason. Event tab
   preview and pictures in the graphics_id completion list. Cherrygrove rendered offscreen and looked
   at; placement on the tile not compared with the game. Not animated, not in the 3D tab.
+
+## 2026-10-27 Map editor: sprite animation and 3D billboards
+- Location: tools/mapeditor/mapeditor/{sprites,canvas,view3d,window,project}.py, tests/test_window.py;
+  editor README, CHANGE-0004 §2.3
+- Result: tool only; ROM unaffected
+- Tool/model: claude-opus-5-5
+- Notes: animation previews movement_type in place (walk cycle and turning for wanderers and PATH_
+  types, turning for LOOK_ and spins, follow-Pokémon step); LOOK_AROUND's random turns shown in a fixed
+  order; editor timing, not the game's. 3D billboards stand on the BDHC height at the tile centre,
+  nearest the object's elevation (as src/field_terrain.c). Cherrygrove 3D rendered offscreen and looked
+  at; not compared with the game.

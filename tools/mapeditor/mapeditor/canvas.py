@@ -7,12 +7,12 @@ sprite texel is one pixel too (a 32x32 NPC is two tiles wide)."""
 import colorsys
 import zlib
 
-from PySide6.QtCore import QPointF, QRectF, Qt, Signal
+from PySide6.QtCore import QPointF, QRectF, Qt, QTimer, Signal
 from PySide6.QtGui import QBrush, QColor, QFont, QImage, QPainter, QPainterPath, QPen
 from PySide6.QtWidgets import QGraphicsItem, QGraphicsObject, QGraphicsScene, QGraphicsView
 
 from .project import CELL
-from .sprites import SpriteImages
+from .sprites import SpriteImages, pose
 from .terrain import TerrainRenderer
 
 TILE = 16
@@ -245,12 +245,16 @@ class EventItem(QGraphicsObject):
             self.moved.emit(sorted(moves))
 
 
+ANIMATION_MS = 150   # one animation tick: a walk-cycle frame
+
+
 class MapView(QGraphicsView):
     """Tools: "select" (events), "collision" (left: block, right: open), "behavior"
     (left: paint, right: pick). Emits hovered(x, y), stroke({xy: (old, new)}) after a
     stroke has been painted, picked(behavior)."""
 
     hovered = Signal(int, int)
+    ticked = Signal()        # animated sprites changed frame
     stroke = Signal(dict)
     picked = Signal(int)
     context = Signal(int, int, object)   # tile x, y, global QPoint
@@ -268,9 +272,13 @@ class MapView(QGraphicsView):
         self.brush_behavior = 0
         self.brush_size = 1
         self.layers = {"terrain": True, "behavior": False, "collision": True, "grid": True, "props": False,
-                       "events": True, "sprites": True, "cells": False}
+                       "events": True, "sprites": True, "animate": True, "cells": False}
         self.renderer = None
         self.sprites = None
+        self.tick = 0
+        self._clock = QTimer(self)
+        self._clock.setInterval(ANIMATION_MS)
+        self._clock.timeout.connect(self._advance)
         self.cells = {}
         self.event_items = []
         self.prop_items = []
@@ -334,7 +342,7 @@ class MapView(QGraphicsView):
                     if section == "object_events":
                         note = self.sprites.why_not(ev.get("graphics_id"))
                         if note is None and self.layers["sprites"]:
-                            sprite = self.sprites.image(ev.get("graphics_id"), ev.get("facing_dir"))
+                            sprite = self.sprite_for(ev)
                     it = EventItem(section, i, ev, sprite, note)
                     it.moved.connect(self._event_moved)
                     self.scene().addItem(it)
@@ -344,6 +352,38 @@ class MapView(QGraphicsView):
                         self.ensureVisible(it)
         finally:
             self.scene().blockSignals(blocked)
+        self._update_clock()
+
+    # --- sprite animation ---------------------------------------------------------
+
+    def sprite_for(self, ev):
+        """The object's sprite now: its pose at the current tick, or standing facing
+        facing_dir when animation is off."""
+        g = ev.get("graphics_id")
+        if not self.layers["animate"]:
+            return self.sprites.image(g, ev.get("facing_dir"))
+        facing, step = pose(ev.get("movement_type"), ev.get("facing_dir"), self.sprites.frames(g), self.tick)
+        return self.sprites.image(g, facing, step)
+
+    def _update_clock(self):
+        run = self.layers["animate"] and any(it.sprite is not None for it in self.event_items)
+        if run and not self._clock.isActive():
+            self._clock.start()
+        elif not run:
+            self._clock.stop()
+
+    def _advance(self):
+        self.tick += 1
+        changed = False
+        for it in self.event_items:
+            if it.sprite is not None:
+                img = self.sprite_for(it.ev)
+                if img is not None and img is not it.sprite:
+                    it.sprite = img
+                    it.update()
+                    changed = True
+        if changed:
+            self.ticked.emit()
 
     def _event_moved(self, moves):
         self.window().move_events(moves)
