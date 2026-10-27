@@ -502,3 +502,15 @@ was checked. Later work is described in the commit messages (`git log`).
   BATTLE_BG_ read from their C enums); new objects get an ids.h define on save; menu zoom limited;
   outside changes detected before saving. Found by the round-trip test: saving 49 maps without event
   sections added empty ones. Tested offscreen only, not in a desktop session.
+
+## 2026-10-27 Map editor: object sprites (CHANGE-0004 part 2)
+- Location: tools/mapeditor/mapeditor/sprites.py (new), canvas.py, window.py, tests; mapkit
+  sprites.texture_paths (new) and its test; editor README, CHANGE-0004, WIKI.md
+- Result: tool only; ROM unaffected (nothing new is written)
+- Tool/model: claude-opus-5-5
+- Notes: objects are drawn as their overworld sprite's standing frame for facing_dir. Frame order
+  checked by rendering sheets: 16/17 frames = 4 per facing N, S, W, E (frame 13 is frame 9 mirrored);
+  follow-Pokémon 8 frames = 2 per facing; others frame 1. All 223 sprites used in map.json decode;
+  the 28 SPRITE_VAR_n objects (sprite from VAR_OBJ_n at load) stay boxes with the reason. Event tab
+  preview and pictures in the graphics_id completion list. Cherrygrove rendered offscreen and looked
+  at; placement on the tile not compared with the game. Not animated, not in the 3D tab.

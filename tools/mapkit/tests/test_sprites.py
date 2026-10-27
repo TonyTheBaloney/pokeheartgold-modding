@@ -96,6 +96,12 @@ class Lookups(unittest.TestCase):
         with self.assertRaises(sprites.SpriteError):
             sprites.resolve(ROOT, "266")   # an NSBMD member, not a texture
 
+    def test_texture_paths_agree_with_resolve(self):
+        paths = sprites.texture_paths(ROOT)
+        self.assertGreater(len(paths), 800)
+        for name in ("SPRITE_BOY1", "SPRITE_GSMAN1", "SPRITE_FOLLOWER_MON_STATIC_PIKACHU"):
+            self.assertEqual(paths[name], sprites.resolve(ROOT, name))
+
 
 if __name__ == "__main__":
     unittest.main()

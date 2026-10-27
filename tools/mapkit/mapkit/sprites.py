@@ -63,6 +63,15 @@ def _graphics_rows(root):
     return rows
 
 
+def texture_paths(root):
+    """SPRITE_X -> path of its NSBTX for every row of gObjectEventGraphicsInfos, read once
+    (for tools that look up many sprites; resolve() reads the tables on each call). Rows
+    whose MMODEL_ constant is unknown are left out; a path may not exist."""
+    mmodels = _defines(root, MMODEL_H, "MMODEL_")
+    return {sprite: os.path.join(root, MMODEL_DIR, "mmodel_%08d.NSBTX" % mmodels[mmodel])
+            for sprite, (mmodel, _) in _graphics_rows(root).items() if mmodel in mmodels}
+
+
 def resolve(root, ref):
     """SPRITE_X, MMODEL_X, a member number or a path -> path of the NSBTX."""
     if os.path.isfile(ref):

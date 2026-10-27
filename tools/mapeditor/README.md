@@ -36,13 +36,18 @@ tools/mapeditor/mapeditor.sh Cherrygrove
   - the terrain and props as the game draws them, seen from straight above
     (*Terrain (3D)* layer); red overlay = blocked; *Behavior colors* overlays each
     tile's behavior (green grass, blue water, sand, ice...; others a fixed color each);
-  - blue **O** objects, magenta **W** warps, green **T** trigger zones (sized),
-    yellow **S** signs / hidden items; *Prop markers* adds a diamond per prop
+  - objects as their overworld sprites, standing and facing their `facing_dir`,
+    with their tile outlined in blue (that tile is what you click); magenta **W**
+    warps, green **T** trigger zones (sized), yellow **S** signs / hidden items.
+    An object whose sprite can't be drawn is a blue box: **V** for `SPRITE_VAR_n`
+    (chosen from `VAR_OBJ_n` when the map loads), **?** otherwise; the tooltip says
+    why; *Prop markers* adds a diamond per prop
     (hover for its model and position).
 - **3D tab**: the same cells in perspective. Left drag turns, right or middle drag
   pans, wheel zooms. Needs OpenGL 3.3.
 - **Properties** (right):
-  - *Event*: every field of the selected event. Fields with constants (sprites,
+  - *Event*: every field of the selected event, with an object's sprite above
+    them (twice its size). Fields with constants (sprites, with pictures,
     movement types, flags, vars, maps...) complete as you type, and a name that
     isn't one of those constants is refused (numbers are always accepted).
   - *Header*: the map's `map.json` header fields. `layout` is read-only (edit
@@ -65,7 +70,7 @@ neighbours belong to other maps, and a drop or an add outside is refused.
 `Delete` removes the selected event, `Ctrl+Z` / `Ctrl+Shift+Z` undo and redo
 (strokes, moves, field edits, adds and deletes), `Ctrl+S` saves. The View menu
 and toolbar toggle terrain, behavior colors, collision, grid, prop markers,
-events and cell labels.
+events, sprites (off: objects as boxes) and cell labels.
 
 ## What saving writes
 
@@ -114,7 +119,8 @@ part 1 lists the problems fixed so far and the ones still open.
 
 - Props can't be moved yet, layouts can't be resized and cells can't be
   reassigned to other land data in the editor (edit `layout.json` / `props.json`).
-- Object sprites are shown as boxes, not their overworld graphics.
+- Sprites aren't animated, aren't drawn in the 3D tab, and objects hidden by a flag
+  are drawn like the others (the editor doesn't know flag state).
 - Map models can't be edited here: use `mapkit terrain export` / `import` with a 3D
   editor ([docs/modding/terrain.md](../../docs/modding/terrain.md)). Heights aren't
   shown yet.
@@ -127,6 +133,7 @@ part 1 lists the problems fixed so far and the ones still open.
 | `mapeditor/commands.py` | undoable edits (`QUndoCommand`) |
 | `mapeditor/canvas.py` | map view: cells, events, props, painting |
 | `mapeditor/terrain.py` | top-down pictures of cells from their models and props |
+| `mapeditor/sprites.py` | objects' overworld sprites: which frame for a facing, decoded through `mapkit.sprites` and `nitro` |
 | `mapeditor/view3d.py` | the 3D tab (OpenGL) |
 | `mapeditor/window.py` | main window, panels, actions |
 | `tests/test_editor.py` | data layer, commands, terrain. Run all: `QT_QPA_PLATFORM=offscreen tools/mapeditor/.venv/bin/python -m unittest discover -s tools/mapeditor/tests` |

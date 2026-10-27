@@ -26,7 +26,9 @@ from mapeditor.window import MainWindow  # noqa: E402
 from test_editor import Checkout  # noqa: E402
 
 
-class WindowTest(unittest.TestCase):
+class WindowCase(unittest.TestCase):
+    """A fresh copy of the checkout per test, and helpers to drive the window."""
+
     @classmethod
     def setUpClass(cls):
         cls.app = QApplication.instance() or QApplication([])
@@ -71,6 +73,9 @@ class WindowTest(unittest.TestCase):
         e = self.field(form, key)
         e.setText(text)
         e.editingFinished.emit()
+
+
+class WindowTest(WindowCase):
 
     # B1
     def test_failed_save_keeps_the_map_open(self):
@@ -224,6 +229,70 @@ class WindowTest(unittest.TestCase):
             w.save()
         self.assertNotEqual(self.read("data/maps/Cherrygrove/map.json"), outside)
         self.assertTrue(w.undo.isClean())
+
+
+class SpriteTest(WindowCase):
+    """Objects drawn as their overworld sprites (CHANGE-0004 part 2)."""
+
+    def objects(self, w):
+        return [it for it in w.view.event_items if it.section == "object_events"]
+
+    def test_frame_for_facing(self):
+        from mapeditor.sprites import frame_for
+        self.assertEqual([frame_for(16, f) for f in range(4)], [0, 4, 8, 12])
+        self.assertEqual([frame_for(17, f) for f in range(4)], [0, 4, 8, 12])
+        self.assertEqual([frame_for(8, f) for f in range(4)], [0, 2, 4, 6])
+        self.assertEqual([frame_for(n, 3) for n in (1, 7)], [0, 0])
+
+    def test_objects_are_drawn_as_sprites(self):
+        w = self.window()
+        objs = self.objects(w)
+        self.assertEqual(len(objs), 6)
+        for it in objs:
+            self.assertIsNotNone(it.sprite, it.ev["graphics_id"])
+            self.assertEqual((it.sprite.width(), it.sprite.height()), (32, 32))
+            self.assertEqual(it.shape().boundingRect(), it.shape().boundingRect().intersected(
+                it.boundingRect()))   # clicks hit the tile, drawing covers the sprite
+        by_facing = {it.ev["facing_dir"]: it for it in objs}
+        west, east = by_facing["DIR_WEST"].sprite, by_facing["DIR_EAST"].sprite
+        self.assertNotEqual(west, east)
+        img = w.view.sprites.image("SPRITE_GSBOY1", "DIR_WEST")   # frame 9 is frame 13 mirrored
+        self.assertEqual(img.flipped(Qt.Orientation.Horizontal), w.view.sprites.image("SPRITE_GSBOY1", "DIR_EAST"))
+
+    def test_var_sprites_are_boxes_with_a_reason(self):
+        w = self.window("DragonsDen")
+        var = [it for it in self.objects(w) if str(it.ev["graphics_id"]).startswith("SPRITE_VAR_")]
+        self.assertTrue(var)
+        for it in var:
+            self.assertIsNone(it.sprite)
+            self.assertIn("VAR_OBJ_", it.toolTip())
+
+    def test_sprites_follow_edits_and_the_toggle(self):
+        w = self.window()
+        it = next(i for i in self.objects(w) if i.ev["facing_dir"] == "DIR_SOUTH")
+        index = it.index
+        it.setSelected(True)
+        self.assertFalse(w.event_form.preview.isHidden())
+        self.edit_field(w.event_form, "facing_dir", "DIR_NORTH")
+        it = next(i for i in self.objects(w) if i.index == index)
+        self.assertEqual(it.sprite, w.view.sprites.image(it.ev["graphics_id"], "DIR_NORTH"))
+        w._toggle("sprites", False)
+        self.assertTrue(all(i.sprite is None for i in self.objects(w)))
+        w._toggle("sprites", True)
+        self.assertTrue(all(i.sprite is not None for i in self.objects(w)))
+
+    def test_graphics_id_completions_have_pictures(self):
+        from PySide6.QtCore import Qt as _Qt
+        w = self.window()
+        self.item(w, "object_events", 0).setSelected(True)
+        model = self.field(w.event_form, "graphics_id").completer().model()
+        row = model.stringList().index("SPRITE_GSBOY1")
+        self.assertFalse(model.data(model.index(row), _Qt.DecorationRole).isNull())
+
+    def test_missing_sprite_table_keeps_boxes(self):
+        os.remove(os.path.join(self.co.root, "asm/overlay_01_sprite_data.s"))
+        w = self.window()
+        self.assertTrue(all(i.sprite is None and i.sprite_note for i in self.objects(w)))
 
 
 class RoundTripTest(unittest.TestCase):

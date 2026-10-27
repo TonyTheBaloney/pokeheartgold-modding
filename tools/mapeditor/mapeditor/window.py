@@ -3,8 +3,8 @@
 
 import json
 
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QAction, QActionGroup, QKeySequence, QUndoStack
+from PySide6.QtCore import QStringListModel, Qt
+from PySide6.QtGui import QAction, QActionGroup, QIcon, QKeySequence, QPixmap, QUndoStack
 from PySide6.QtWidgets import (QCompleter, QDockWidget, QFormLayout, QHBoxLayout, QLabel, QLineEdit,
                                QListWidget, QListWidgetItem, QMainWindow, QMenu, QMessageBox,
                                QScrollArea, QSpinBox, QTabWidget, QVBoxLayout, QWidget)
@@ -44,6 +44,25 @@ def parse_value(text, old):
     return t
 
 
+class IconNames(QStringListModel):
+    """Constant names with an icon from icon(name) -> QImage or None, made only for
+    the rows a view asks for (the sprite list has over 900)."""
+
+    def __init__(self, names, icon, parent=None):
+        super().__init__(names, parent)
+        self.icon = icon
+        self._icons = {}
+
+    def data(self, index, role=Qt.DisplayRole):
+        if role == Qt.DecorationRole:
+            name = super().data(index, Qt.DisplayRole)
+            if name not in self._icons:
+                img = self.icon(name)
+                self._icons[name] = QIcon(QPixmap.fromImage(img)) if img is not None else QIcon()
+            return self._icons[name]
+        return super().data(index, role)
+
+
 def show_value(v):
     return json.dumps(v) if isinstance(v, (list, dict, bool)) else str(v)
 
@@ -52,12 +71,21 @@ class FieldForm(QWidget):
     """A form of key -> line edit; calls on_edit(key, value) when a field is changed.
     on_edit returns False to refuse the value, which puts the old text back."""
 
-    def __init__(self, repo, on_edit, read_only=None):
+    def __init__(self, repo, on_edit, read_only=None, icons=None):
+        """icons: {constant prefix: name -> QImage or None} for completions with pictures."""
         super().__init__()
         self.repo, self.on_edit = repo, on_edit
         self.read_only = read_only or {}
-        self.form = QFormLayout(self)
+        self.icons = icons or {}
+        outer = QVBoxLayout(self)
+        self.preview = QLabel()
+        self.preview.setAlignment(Qt.AlignCenter)
+        self.preview.hide()
+        self.form = QFormLayout()
         self.form.setFieldGrowthPolicy(QFormLayout.AllNonFixedFieldsGrow)
+        outer.addWidget(self.preview)
+        outer.addLayout(self.form)
+        outer.addStretch(1)
         self.values = {}
         self.edits = {}
         self.title = None
@@ -65,11 +93,24 @@ class FieldForm(QWidget):
 
     def _completer(self, prefix):
         if prefix not in self._completers:
-            c = QCompleter(project.constant_names(self.repo, prefix), self)
+            names = project.constant_names(self.repo, prefix)
+            if prefix in self.icons:
+                c = QCompleter(IconNames(names, self.icons[prefix], self), self)
+            else:
+                c = QCompleter(names, self)
             c.setCaseSensitivity(Qt.CaseInsensitive)
             c.setFilterMode(Qt.MatchContains)
             self._completers[prefix] = c
         return self._completers[prefix]
+
+    def set_preview(self, image):
+        """A picture above the fields (an object's sprite, at twice its size), or None."""
+        if image is None:
+            self.preview.clear()
+            self.preview.hide()
+        else:
+            self.preview.setPixmap(QPixmap.fromImage(image).scaled(image.width() * 2, image.height() * 2))
+            self.preview.show()
 
     def set_fields(self, title, fields):
         keys = [k for k, _ in fields]
@@ -183,7 +224,7 @@ class MainWindow(QMainWindow):
 
     def _build_properties(self):
         self.tabs = QTabWidget()
-        self.event_form = FieldForm(self.repo, self._event_field_edited)
+        self.event_form = FieldForm(self.repo, self._event_field_edited, icons={"SPRITE_": self._sprite_icon})
         self.header_form = FieldForm(self.repo, self._header_field_edited, READ_ONLY)
         for form, name in ((self.event_form, "Event"), (self.header_form, "Header")):
             area = QScrollArea()
@@ -265,7 +306,8 @@ class MainWindow(QMainWindow):
                 a.setChecked(True)
         tb.addSeparator()
         for key, name in (("terrain", "Terrain (3D)"), ("behavior", "Behavior colors"), ("collision", "Collision"),
-                          ("grid", "Grid"), ("props", "Prop markers"), ("events", "Events"), ("cells", "Cell labels")):
+                          ("grid", "Grid"), ("props", "Prop markers"), ("events", "Events"), ("sprites", "Sprites"),
+                          ("cells", "Cell labels")):
             a = QAction(name, self, checkable=True, checked=self.view.layers[key])
             a.toggled.connect(lambda on, k=key: self._toggle(k, on))
             view_menu.addAction(a)
@@ -286,7 +328,7 @@ class MainWindow(QMainWindow):
             return
         if key == "props":
             self.view.rebuild_props()
-        elif key == "events":
+        elif key in ("events", "sprites"):
             self.view.rebuild_events()
             self._show_event(None)
         else:
@@ -466,11 +508,19 @@ class MainWindow(QMainWindow):
     def _show_event(self, sel):
         if self.doc is None or sel is None or sel[1] >= len(self.doc.events(sel[0])):
             self.event_form.set_fields("No event selected", [])
+            self.event_form.set_preview(None)
             return
         section, index = sel
         ev = self.doc.events(section)[index]
         self.event_form.set_fields("%s %d" % (SECTION_NAMES[section], index), list(ev.items()))
+        sprite = None
+        if section == "object_events" and self.view.sprites:
+            sprite = self.view.sprites.image(ev.get("graphics_id"), ev.get("facing_dir"))
+        self.event_form.set_preview(sprite)
         self.tabs.setCurrentIndex(0)
+
+    def _sprite_icon(self, name):
+        return self.view.sprites.image(name) if self.view.sprites else None
 
     def _pick_behavior(self, value):
         for i in range(self.behavior_list.count()):

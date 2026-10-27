@@ -16,7 +16,8 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 from mapeditor import project  # noqa: E402
 
 COPY = ["include", "asm/macros", "data/maps", "data/layouts", "data/landdata",
-        "src/data/map_headers.h", "files/fielddata/encountdata", "files/msgdata/msg", "tools/mapkit/script_config.json"]
+        "src/data/map_headers.h", "files/fielddata/encountdata", "files/msgdata/msg", "tools/mapkit/script_config.json",
+        "asm/overlay_01_sprite_data.s", "files/data/mmodel/mmodel"]
 
 
 class Checkout:

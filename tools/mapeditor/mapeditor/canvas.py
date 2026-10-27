@@ -1,16 +1,18 @@
 # [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-22
 """The map view: layout cells drawn top-down (behavior colors, collision,
-grid), props as markers and events as draggable boxes. One scene unit is
-one pixel; a tile is TILE pixels."""
+grid), props as markers and events as draggable boxes, objects as their
+overworld sprites. One scene unit is one pixel; a tile is TILE pixels, and a
+sprite texel is one pixel too (a 32x32 NPC is two tiles wide)."""
 
 import colorsys
 import zlib
 
 from PySide6.QtCore import QPointF, QRectF, Qt, Signal
-from PySide6.QtGui import QBrush, QColor, QFont, QImage, QPainter, QPen
+from PySide6.QtGui import QBrush, QColor, QFont, QImage, QPainter, QPainterPath, QPen
 from PySide6.QtWidgets import QGraphicsItem, QGraphicsObject, QGraphicsScene, QGraphicsView
 
 from .project import CELL
+from .sprites import SpriteImages
 from .terrain import TerrainRenderer
 
 TILE = 16
@@ -145,23 +147,35 @@ class EventItem(QGraphicsObject):
 
     moved = Signal(list)
 
-    def __init__(self, section, index, event):
+    def __init__(self, section, index, event, sprite=None, sprite_note=None):
+        """sprite: QImage drawn for an object instead of its box; sprite_note: why an
+        object has none (shown in the tooltip)."""
         super().__init__()
         self.section, self.index, self.ev = section, index, event
+        self.sprite, self.sprite_note = sprite, sprite_note
         self.setFlags(QGraphicsItem.ItemIsSelectable | QGraphicsItem.ItemIsMovable |
                       QGraphicsItem.ItemSendsGeometryChanges)
-        self.setZValue(10)
+        # objects further south are drawn over those north of them, as in the game
+        self.setZValue(10 + (event["y"] / 100000.0 if sprite is not None else 0))
         self.setPos(event["x"] * TILE, event["y"] * TILE)
         self.setToolTip(self.describe())
         self._start = None
 
     def describe(self):
         e = self.ev
-        name = {"object_events": e.get("local_id") or e.get("graphics_id"),
+        name = {"object_events": "%s  %s" % (e.get("local_id"), e.get("graphics_id")),
                 "warp_events": "warp %d -> %s:%s" % (self.index, e.get("dest_map"), e.get("dest_warp_id")),
                 "coord_events": "trigger %s == %s" % (e.get("var"), e.get("var_value")),
                 "bg_events": "%s" % e.get("type")}[self.section]
-        return "%s  (%d, %d, elevation %s)\nscript: %s" % (name, e["x"], e["y"], e.get("elevation"), e.get("script"))
+        text = "%s  (%d, %d, elevation %s)\nscript: %s" % (name, e["x"], e["y"], e.get("elevation"), e.get("script"))
+        if self.sprite_note:
+            text += "\nsprite not shown: %s" % self.sprite_note
+        return text
+
+    def sprite_rect(self):
+        """Where the sprite is drawn: centred on the tile, its bottom on the tile's bottom."""
+        w, h = self.sprite.width(), self.sprite.height()
+        return QRectF((TILE - w) / 2, TILE - h, w, h)
 
     def size(self):
         if self.section == "coord_events":
@@ -170,11 +184,30 @@ class EventItem(QGraphicsObject):
 
     def boundingRect(self):
         w, h = self.size()
-        return QRectF(-1, -1, w * TILE + 2, h * TILE + 2)
+        r = QRectF(-1, -1, w * TILE + 2, h * TILE + 2)
+        return r.united(self.sprite_rect()) if self.sprite is not None else r
+
+    def shape(self):
+        # clicks select by the event's tiles, so a tall sprite doesn't cover the tile north of it
+        path = QPainterPath()
+        w, h = self.size()
+        path.addRect(QRectF(0, 0, w * TILE, h * TILE))
+        return path
 
     def paint(self, p, option, widget=None):
         w, h = self.size()
         color = EVENT_COLORS[self.section]
+        if self.sprite is not None:
+            p.drawImage(self.sprite_rect(), self.sprite)
+            p.setBrush(Qt.NoBrush)
+            if self.isSelected():
+                p.setPen(QPen(QColor(255, 255, 0), 2))
+            else:
+                outline = QColor(color)
+                outline.setAlpha(160)
+                p.setPen(QPen(outline, 1))
+            p.drawRect(QRectF(0, 0, TILE, TILE))
+            return
         fill = QColor(color)
         fill.setAlpha(90 if self.section == "coord_events" else 200)
         p.setBrush(QBrush(fill))
@@ -182,7 +215,10 @@ class EventItem(QGraphicsObject):
         p.drawRect(QRectF(0, 0, w * TILE, h * TILE))
         p.setPen(Qt.white)
         p.setFont(QFont("sans", 7, QFont.Bold))
-        p.drawText(QRectF(0, 0, TILE, TILE), Qt.AlignCenter, EVENT_LABELS[self.section])
+        label = EVENT_LABELS[self.section]
+        if self.section == "object_events" and self.sprite_note:
+            label = "V" if self.sprite_note.startswith("set when") else "?"
+        p.drawText(QRectF(0, 0, TILE, TILE), Qt.AlignCenter, label)
 
     def mousePressEvent(self, e):
         super().mousePressEvent(e)   # updates the selection first
@@ -232,8 +268,9 @@ class MapView(QGraphicsView):
         self.brush_behavior = 0
         self.brush_size = 1
         self.layers = {"terrain": True, "behavior": False, "collision": True, "grid": True, "props": False,
-                       "events": True, "cells": False}
+                       "events": True, "sprites": True, "cells": False}
         self.renderer = None
+        self.sprites = None
         self.cells = {}
         self.event_items = []
         self.prop_items = []
@@ -246,6 +283,7 @@ class MapView(QGraphicsView):
         self.doc = doc
         if doc is not None and (self.renderer is None or self.renderer.root != doc.repo.root):
             self.renderer = TerrainRenderer(doc.repo.root)
+            self.sprites = SpriteImages(doc.repo.root)
         self.scene().clear()
         self.cells, self.event_items, self.prop_items = {}, [], []
         if doc is None:
@@ -292,7 +330,12 @@ class MapView(QGraphicsView):
                 return
             for section in ("coord_events", "bg_events", "warp_events", "object_events"):
                 for i, ev in enumerate(self.doc.events(section)):
-                    it = EventItem(section, i, ev)
+                    sprite = note = None
+                    if section == "object_events":
+                        note = self.sprites.why_not(ev.get("graphics_id"))
+                        if note is None and self.layers["sprites"]:
+                            sprite = self.sprites.image(ev.get("graphics_id"), ev.get("facing_dir"))
+                    it = EventItem(section, i, ev, sprite, note)
                     it.moved.connect(self._event_moved)
                     self.scene().addItem(it)
                     self.event_items.append(it)

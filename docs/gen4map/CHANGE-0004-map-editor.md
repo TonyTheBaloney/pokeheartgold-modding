@@ -6,7 +6,7 @@
 
 | | |
 |---|---|
-| Status | Part 1 (clean-up) done 2026-10-27; parts 2-4 planned |
+| Status | Parts 1 (clean-up) and 2 (object sprites) done 2026-10-27; parts 3-4 planned |
 | Format | 1.2 unchanged for parts 1-4; the area prop list (§3.4) would be format 1.3 |
 | ROM | must stay unchanged: opening and saving a map without edits writes identical files |
 
@@ -79,24 +79,50 @@ tests pass.
 `graphics_id` → `gObjectEventGraphicsInfos` (`asm/overlay_01_sprite_data.s`) →
 `MMODEL_*` → `files/data/mmodel/mmodel/mmodel_NNNNNNNN.NSBTX`. `mapkit.sprites.resolve`
 already does this lookup, and `mapkit sprite export` already decodes the frames.
+`mapkit.sprites.texture_paths` (new) reads the tables once for the whole list.
 
 Checked on 2026-10-27 over every `map.json`: 2,667 objects use 234 different
 `graphics_id`s. All resolve except the 11 `SPRITE_VAR_n` ids (28 objects): those take
 their sprite at run time from `VAR_OBJ_n` (`include/constants/vars.h:44`), set by the
 map's scripts, so the editor can't know what they show.
 
-### 2.2 Plan
+Every one of those 223 sprites decodes with `nitro.load_nsbtx`. The kinds, by objects
+using them: 16 frames of 32×32 (1,920 objects), 1 frame of 16×16 (400), 8 frames with a
+second (shiny) palette (follow-Pokémon, 137), single 64×64 or 32×32 frames (116),
+17 frames (33), 7 frames (33).
 
-- Draw each object as one frame of its sprite, 32×32 (or 64×64) centred on its tile and
-  anchored at the feet. Standard 16-frame NPCs: the standing frame for `facing_dir`
-  (frames 1, 5, 9, 13 for up, down, left, right). Other kinds: frame 1.
-- `SPRITE_VAR_n` and anything that doesn't resolve: the current box, labelled `VAR n`
-  or `?`, with the reason in the tooltip.
-- Cache decoded frames per (`graphics_id`, frame). Keep a View toggle *Sprites / boxes*.
-- Selection outline and the yellow highlight stay; sprites of objects hidden by a flag
-  are drawn the same (the editor doesn't know flag state).
-- The `graphics_id` field gets a picker with a preview, not only text completion.
-- Later: the same billboards in the 3D tab.
+### 2.2 Frames
+
+Textures are named `<name>.1` to `<name>.N`; sorted by that number:
+
+| Frames | Standing frame for north, south, west, east | Checked |
+|---|---|---|
+| 16 (standard NPCs), 17 (one extra pose) | 1, 5, 9, 13 | rendered: 1-4 back, 5-8 front; frame 13 is frame 9 mirrored in BOY1, GSMAN1, GSWOMAN1 |
+| 8 (follow-Pokémon) | 1, 3, 5, 7 | rendered Pikachu and Groudon: back, front, facing left, facing right |
+| others | 1 | still objects, Apricorn trees, legendaries' poses |
+
+### 2.3 Done (2026-10-27)
+
+- Objects are drawn as that frame (`mapeditor/sprites.py`), one texel per scene pixel,
+  centred on their tile with the frame's bottom on the tile's bottom; objects further
+  south are drawn over those north of them. The tile is outlined in the event color
+  (yellow when selected), and clicks select by the tile, not the whole sprite, so a
+  tall sprite doesn't hide the event on the tile north of it.
+- `SPRITE_VAR_n` objects and any sprite that can't be found stay boxes (**V** / **?**)
+  with the reason in the tooltip; with no sprite table at all, every object is a box.
+- Frames are decoded on first use and cached per (`graphics_id`, facing). View →
+  *Sprites* switches back to boxes.
+- Changing `graphics_id` or `facing_dir` redraws the object. The Event tab shows the
+  selected object's sprite, and the `graphics_id` completion list shows each sprite,
+  decoded only for the rows on screen.
+- Tests (`SpriteTest` in `tests/test_window.py`): frame choice; Cherrygrove's six
+  objects drawn as 32×32 sprites, west and east mirrored; Dragon's Den's `SPRITE_VAR`
+  objects stay boxes with the reason; edits and the toggle redraw; completion icons;
+  a missing sprite table.
+
+Still to do: animation, the 3D tab (billboards facing the camera), and the shiny
+palette of follow-Pokémon (palette 0 is always used). Objects hidden by a flag are
+drawn like the others: the editor doesn't know flag state.
 
 No file format or ROM change; nothing new is written.
 
@@ -203,4 +229,6 @@ size and an anchor, shows the warnings above before applying, and refuses more t
 - Part 1 was tested offscreen only; the editor wasn't used on a desktop session for it.
 - That a prop's `rotation` and `scale` are applied by the game (§3.3).
 - How `SPRITE_VAR_n` objects are set in each map (§2.1); only the mechanism was read.
+- Where the game puts a sprite relative to its tile: the editor puts the frame's bottom
+  on the tile's bottom, which looks right top-down but wasn't compared with the game.
 - Whether anything besides the tables in §4.2 stores layout coordinates.
