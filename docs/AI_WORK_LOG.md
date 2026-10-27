@@ -335,3 +335,16 @@ was checked. Later work is described in the commit messages (`git log`).
   Punch as tutor bit 52 with its own NPC id, script in the Blackthorn house) built with make
   release, then reverted. Not play-tested (no emulator available). Section 7 lists the four retail
   problems with their fixes.
+
+## 2026-10-26 Battle music guide
+- Location: docs/modding/battle-music.md (new); links from music.md (replaces the pointer to
+  trainer-classes.md), trainer-classes.md, docs/WIKI.md, docs/modding/README.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe tests were reverted)
+- Tool/model: claude-opus-5-5
+- Notes: BattleSetup_GetWildBattleMusic (used for trainers too) maps class/species to a row of
+  sBattleIntroEffectsAndMusic; doubles drop leader/rival/champion music to row 37 (Rocket, Kimono
+  Girls, Red kept); Kanto swap needs FLYPOINT_VERMILION + Kanto region, its gym-leader branch is
+  dead (BattleIntroConfig_AlwaysTrue); rows 39 and 40 unreachable. No script command sets battle
+  music; recipes add a per-trainer table, a per-map table and VAR_BATTLE_MUSIC (VAR_UNK_4152).
+  Recipes 4.1/4.2/4.4 built together and 4.5 (vars.h rename + Violet Gym script) built separately
+  with make release, then reverted. Not play-tested.

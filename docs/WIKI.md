@@ -96,6 +96,8 @@ the command, if there is one. Commands run from the repository root;
 | I want to... | Guide | Command |
 |---|---|---|
 | change a map's music | [music.md](modding/music.md#changing-which-music-plays) | edit `music_day` / `music_night` in `map.json` |
+| change battle music (by trainer class, one trainer, species, map, or from a script) | [battle-music.md](modding/battle-music.md#4-recipes) | `src/battle_intro_config.c` |
+| change victory or trainer eyes-meet music | [battle-music.md](modding/battle-music.md#3-victory-music) | |
 | add a song from a MIDI | [music.md](modding/music.md#adding-a-song) | `python3 tools/sound/sdat.py header sound/sound_data.json include/constants/sndseq.h` |
 | add instruments from WAV samples | [music.md](modding/music.md#new-instruments) | |
 | see or hear a game song or sample | [music.md](modding/music.md#whats-in-sound) | `sseq.py to-midi`, `swar.py extract` |

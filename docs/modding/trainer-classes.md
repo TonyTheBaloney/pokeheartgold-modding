@@ -109,7 +109,8 @@ phone contacts, so there is room for 71 more (129-199).
 6. **Music** (optional). A row in `sTrainerEncounterMusicParam` in
    `src/field_bgm.c`: class, music in Johto, music in Kanto. For a special battle
    transition or battle theme, a row in `sTrainerBattleIntroParams` in
-   `src/battle_intro_config.c` (the array size, `[32]`, goes up by one).
+   `src/battle_intro_config.c` (the array size, `[32]`, goes up by one); see
+   [battle-music.md](battle-music.md#41-a-trainer-class).
 
 7. **Use it.** Set `"class": "TRAINERCLASS_SURFER"` on trainers in
    `files/poketool/trainer/trainers.json`. The overworld NPC that starts the battle

@@ -65,8 +65,8 @@ python3 tools/sound/swar.py extract sound/wave_archives/WAVE_ARC_BGM_FIELD1.swar
 |---|---|
 | a map | `music_day`, `music_night` in `data/maps/<Map>/map.json` ([maps-and-warps.md](maps-and-warps.md#map-header-top-of-mapjson)); chosen in `FieldBGM_GetForMapHeader` (`src/field_bgm.c`). Surfing plays `SEQ_GS_NAMINORI` instead |
 | a script | `playbgm(SEQ_X)`; `fadeoutbgm`, `resetbgm` and friends in `asm/macros/script.inc` |
-| a trainer | eyes-meet and battle music tables, see [trainer-classes.md](trainer-classes.md) |
-| a wild battle, evolution, ... | the `SEQ_*` in the C code that plays it (`grep -rn SEQ_GS_VS_ src`) |
+| a battle | by trainer class, trainer, species, map or from a script: [battle-music.md](battle-music.md) |
+| an evolution, ... | the `SEQ_*` in the C code that plays it |
 
 ## Adding a song
 

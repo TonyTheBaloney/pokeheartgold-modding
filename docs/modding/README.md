@@ -75,6 +75,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [story-progression.md](story-progression.md) | How flags and vars store progress; every story roadblock from New Game to Red, with its flag, var and script |
 | [gyms.md](gyms.md) | What badges do (HMs, obedience), each gym's leader script, entry gate, puzzle and rematch schedule |
 | [abilities.md](abilities.md) | Adding an ability: constant, names and descriptions, species, where each kind of effect is coded in battle, messages and battle scripts |
+| [battle-music.md](battle-music.md) | Battle music: how it is chosen (class, species, doubles, the Kanto swap), victory and eyes-meet music; recipes for music by trainer class, one trainer, species, map, and from a script |
 | [music.md](music.md) | Music and sound: `sound/` (the sound archive as files), changing music, adding songs from MIDI and instruments from WAV |
 | [pokeathlon.md](pokeathlon.md) | The Pokéathlon: stats per species (`performance.narc`, nature, day of month, Aprijuice), courses and events, scoring and closing bonuses, Athlete Points, medals, records, the Athlete Shop and Data Cards; changing stats, courses, scoring, prizes; what a new event takes |
 | [pokewalker.md](pokewalker.md) | The Pokéwalker: link flow, IR requests, what is sent, steps and watts, experience and friendship on return, caught and gift Pokémon, the 27 courses (raw bytes in asm) and how they unlock, the save; what only the device firmware decides |
