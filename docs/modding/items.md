@@ -81,7 +81,7 @@ Keys left out take their defaults: `false`, `0`, `[]`, `HOLD_EFFECT_NONE`,
 | `ITEM_FIELD_USE_GENERIC` | Repels, flutes, cases (`ItemFieldUseFunc_Generic` decides by item) |
 | `ITEM_FIELD_USE_TMHM` | TMs and HMs |
 | `ITEM_FIELD_USE_EVO_STONE` | evolution stones |
-| `ITEM_FIELD_USE_BERRY` | berries (planting) |
+| `ITEM_FIELD_USE_BERRY` | berries: used like medicine (`ItemMenuUseFunc_Berry` calls the healing handler); they can't be planted in the field, only in the [Berry Pots](berry-pots.md) |
 | `ITEM_FIELD_USE_MAIL` | mail |
 | `ITEM_FIELD_USE_ESCAPE_ROPE`, `_BICYCLE`, `_OLD_ROD` / `_GOOD_ROD` / `_SUPER_ROD`, `_HONEY`, `_PAL_PAD`, `_APRICORN_BOX`, `_BERRY_POTS`, `_UNOWN_REPORT`, `_DOWSING_MCHN`, `_GB_SOUNDS`, `_GRACIDEA`, `_VS_RECORDER` | those items |
 | `_TOWN_MAP`, `_JOURNAL`, `_POFFIN_CASE`, `_POKE_RADAR`, `_SPRAYDUCK`, `_VS_SEEKER`, `_AZURE_FLUTE` | Sinnoh leftovers: "can't use this now" |

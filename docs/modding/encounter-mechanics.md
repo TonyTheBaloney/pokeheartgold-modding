@@ -146,8 +146,10 @@ What each replacement is worth:
 | `nightFish`: Good / Super Rod | 10% / 30% |
 
 A replacement only changes the species; the slot keeps its level. The Bug-Catching Contest
-and the Safari Zone use their own tables ([wild-encounters.md](wild-encounters.md)); there,
-all slots are equally likely.
+and the Safari Zone use their own tables ([wild-encounters.md](wild-encounters.md)). In the
+contest the `rate` column is a running threshold, so its ten slots are 20/20/10/10/10/10/5/5/5/5%
+([bug-catching-contest.md](bug-catching-contest.md)); in the Safari Zone all ten slots are equally likely
+([safari-zone.md](safari-zone.md#encounters)).
 
 ## 4. Repel
 

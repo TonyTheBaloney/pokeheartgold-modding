@@ -297,3 +297,23 @@ was checked. Later work is described in the commit messages (`git log`).
   flag), Shed Skin/Hydration names, following-Pokémon assert, Psycho Shift. Frostbite recipe (Ice Beam
   given the effect) compiled and linked into a HeartGold ROM, then reverted; Facade/Refresh change not
   built. Not play-tested (no emulator available).
+
+## 2026-10-26 Side-feature guides
+- Location: docs/modding/pokeathlon.md, pokewalker.md, safari-zone.md, battle-frontier.md,
+  bug-catching-contest.md, apricorns-and-kurt.md, berry-pots.md, pokegear.md, following-pokemon.md
+  (new); links from docs/WIKI.md (new "Side features and minigames" section), docs/modding/README.md
+  (guide table and data-status table)
+- Result: docs only; no source, data or build change
+- Tool/model: claude-opus-5-5 (one subagent per guide, citations then checked mechanically: every
+  file:line exists, links and anchors resolve; three stale line numbers fixed)
+- Notes: corrections to older guides found on the way: items.md (berries aren't planted from the bag),
+  encounter-mechanics.md (Bug Contest slots are 20/20/10/10/10/10/5/5/5/5%, not equal; Safari equal),
+  wild-encounters.md (Safari objects give points, not levels; Pokéwalker courses found in
+  asm/pokewalker_data.s), adding-a-species.md (second Pokéathlon table gPokeathlonPerformanceFileIds).
+  Misleading names noted in the guides, not renamed: PERFORMANCE_*/ARCPERF_* stat order,
+  MAPOBJECTFLAG_VISIBLE (means hidden), FLAG_UNK_996 (contest running), Safari Bait/Mud controller
+  names, BattleArcade_GetWonBattlePoints (a board score). Retail quirks recorded: Heavy Ball tests
+  catchRate instead of weight, Kurt ignores hasspaceforitem, Apricorn lost at 99, berries grow only
+  while the pots screen is open. Binary data decoded but not converted: a/0/6/6 (berry growth),
+  a/2/2/0-1 (follower rules/scripts, packer round-trips 7,120 rules), a/2/0/2-4 (Frontier; nitroarc
+  round-trip). No recipe was built and nothing was play-tested.

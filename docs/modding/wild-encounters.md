@@ -91,8 +91,10 @@ be `{gold, silver}`), plus `Trees` / `SecretTrees` coordinates. Odds per slot
 `files/arc/safari_enc.json` (+ template). Per area: `land`, `surf`, `oldrod`,
 `goodrod`, `superrod`, each with `mons` by time of day, `bonus_mons` that appear
 once enough objects of a type are placed, and `bonus_param`. All slots are equally
-likely. Level boosts from placed objects: `sObjectLevelBoosts` in
-`src/safari_zone_encounters.c`.
+likely. Each placed object adds points that grow with the area's age
+(`sObjectLevelBoosts` in `src/safari_zone_encounters.c`; despite the name, no Pokémon's
+level changes), and a bonus entry turns on once its type's points reach its `count`.
+[safari-zone.md](safari-zone.md#6-object-points-area-age-and-bonus-pokémon) explains the rules.
 
 The build generates `safari_enc.narc` from the JSON (`files/arc/meson.build`).
 
@@ -128,8 +130,8 @@ Wild levels are fixed in these tables. To make them follow the player's party, s
 [level-scaling.md](level-scaling.md), which also covers what Repel and Keen Eye do
 with the new levels.
 
-## Not found yet
+## Pokéwalker courses
 
-Pokéwalker route Pokémon: only the `WALKER_COURSE_*` constants
-(`include/constants/pokewalker_courses.h`) are readable; the route data is likely
-in an unnamed binary archive.
+The Pokémon and items of each Pokéwalker course are raw bytes in `sPokewalkerCourses`
+(`asm/pokewalker_data.s`). [pokewalker.md](pokewalker.md#change-a-courses-pokémon) gives
+the layout and how to edit them.

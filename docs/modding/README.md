@@ -75,6 +75,15 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [gyms.md](gyms.md) | What badges do (HMs, obedience), each gym's leader script, entry gate, puzzle and rematch schedule |
 | [abilities.md](abilities.md) | Adding an ability: constant, names and descriptions, species, where each kind of effect is coded in battle, messages and battle scripts |
 | [music.md](music.md) | Music and sound: `sound/` (the sound archive as files), changing music, adding songs from MIDI and instruments from WAV |
+| [pokeathlon.md](pokeathlon.md) | The Pokéathlon: stats per species (`performance.narc`, nature, day of month, Aprijuice), courses and events, scoring and closing bonuses, Athlete Points, medals, records, the Athlete Shop and Data Cards; changing stats, courses, scoring, prizes; what a new event takes |
+| [pokewalker.md](pokewalker.md) | The Pokéwalker: link flow, IR requests, what is sent, steps and watts, experience and friendship on return, caught and gift Pokémon, the 27 courses (raw bytes in asm) and how they unlock, the save; what only the device firmware decides |
+| [safari-zone.md](safari-zone.md) | The Safari Zone: the 12 areas and 6 slots, how the map is built, the Area Customizer, the 24 objects and their unlock groups, object points × area age → bonus Pokémon, the Safari Game rules, Bait/Mud odds; how-tos |
+| [battle-frontier.md](battle-frontier.md) | The Battle Frontier: the five facilities and the frontier script engine, trainer and set archives (`a/2/0/2`-`4`), how opponents are picked, Brains, banned species and rules, the save, BP rewards and shops, Factory rentals, Hall ranks, Castle CP, Arcade events; how-tos |
+| [bug-catching-contest.md](bug-catching-contest.md) | The Bug-Catching Contest: days, entry and the held party, Sport Balls, the timer, wild sets and slot odds, NPC opponents, scoring, prizes, the swap prompt, judging, the save; changing days, time, balls, scoring, prizes, adding a Pokémon, moving it to another map |
+| [apricorns-and-kurt.md](apricorns-and-kurt.md) | Apricorn trees (all 31, colours, picking, daily regrowth), the Apricorn Box, Kurt's balls (one per Apricorn, ready next day), the Apricorn balls' battle effects; adding a tree, regrowth, Kurt, ball effects |
+| [berry-pots.md](berry-pots.md) | The Berry Pots: what each pot saves, growth data in `a/0/6/6`, stages, moisture, yield, mulch, catching up with the clock; changing growth time or yield, faster growth, mulch, more pots |
+| [pokegear.md](pokegear.md) | The Pokégear: frame and cards, skins, save; the radio (dial, stations by map and time, how each show's text is chosen, music and encounter hooks, adding a station); the map card (zoom, Kanto, markings and memos, roamer and rematch icons) |
+| [following-pokemon.md](following-pokemon.md) | Following Pokémon: when the lead follows (map `follow_mode`, large models, bike/Surf), how it moves (ledges, warps, balls), what it says (rule and script archives `a/2/2/0`/`a/2/2/1`, `msg_0265`), mood, gifts, script commands, the save; how-tos |
 | [pret-names.md](pret-names.md) | Functions renamed to pret's names (old name → new name), by area |
 
 ## Building a modified ROM
@@ -122,4 +131,11 @@ passes on that commit so you know any later mismatch comes from your edit.
 | Trainers' battle text | yes (`messages` in `trainers.json`, then `tools/trmsg/trmsg.py build`; [trainer-text.md](trainer-text.md)) |
 | In-game trades | yes (`data/npc_trades.json`, then `tools/npctrade/npctrade.py build`; [gift-pokemon-and-trades.md](gift-pokemon-and-trades.md#5-in-game-trades)) |
 | Phone book, call rules, rematch teams | yes (`files/tel/pmtel_book.json`) and C tables ([phone.md](phone.md)) |
+| Pokéathlon stats | **no**, binary `performance.narc`; course tables are raw bytes in `asm/pokeathlon_course_data.s` ([pokeathlon.md](pokeathlon.md)) |
+| Pokéwalker courses | **no**, raw bytes in `asm/pokewalker_data.s` ([pokewalker.md](pokewalker.md)) |
+| Safari Zone encounters | yes (`files/arc/safari_enc.json`; objects in C and asm, [safari-zone.md](safari-zone.md)) |
+| Battle Frontier trainers and sets | **no**, binary `files/a/2/0/2`-`4`; rental and Hall tables raw bytes in asm ([battle-frontier.md](battle-frontier.md)) |
+| Bug Contest Pokémon and opponents | yes (`files/data/mushi/*.csv`; [bug-catching-contest.md](bug-catching-contest.md)) |
+| Berry growth (hours, drain, yield) | **no**, binary `files/a/0/6/6` ([berry-pots.md](berry-pots.md)) |
+| Following Pokémon talk rules and scripts | **no**, binary `files/a/2/2/0`, `a/2/2/1`; text in `msg_0265.json` ([following-pokemon.md](following-pokemon.md)) |
 | Music, sound effects, cries | index as text (`sound/sound_data.json`); new songs from MIDI, instruments from JSON + WAV; the game's own sequences, banks and samples stay binary but convert to MIDI / JSON / WAV ([music.md](music.md)) |

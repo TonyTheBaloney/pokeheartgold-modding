@@ -69,7 +69,7 @@ Unpack a copy, not the file in `files/`: `-x` writes the `.d` folder next to the
 | [8. Icon, footprint](#8-icon-and-footprint) | `poke_icon_00000551.png`, `pokefoot_00000497.png`, `pokemon_icon_idx.c` | end, plus C |
 | [9. Cry](#9-cry) | `sound/sound_data.json`, a WAV, `sound_playback.c` | bank 494; Shaymin Sky's moves |
 | [10. Following Pokémon](#10-following-pokémon) | `src/follow_mon.c`; for its own model also a texture, `tp_param.csv`, 2 C changes | end of 3 tables |
-| [11. Pokéathlon](#11-pokéathlon) | `performance.narc`, `src/pokemon.c` | end |
+| [11. Pokéathlon](#11-pokéathlon) | `performance.narc`, `src/pokemon.c`, `asm/pokeathlon_course_data.s` | end |
 | [12. In the game](#12-putting-it-in-the-game) | encounters, trainers, scripts | |
 
 ## 1. The constant
@@ -427,7 +427,8 @@ A second species uses bank 495 the same way.
 
 ## 10. Following Pokémon
 
-The Pokémon that walks behind the player needs an overworld model. Three tables in
+The Pokémon that walks behind the player needs an overworld model. (When it follows, how it
+moves and what it says are in [following-pokemon.md](following-pokemon.md).) Three tables in
 [src/follow_mon.c](../../src/follow_mon.c) are in species order with nothing after and no
 bounds check, so they **must** get an entry:
 
@@ -528,6 +529,13 @@ its member (plus the form). Append a member: unpack, copy Pikachu's (member
 `sPokeathlonPerformanceArcIdxs[25]` = 24, `00024.bin`) to `00554.bin`, pack. Then append
 `554, // SPECIES_NEWMON` to the end of `sPokeathlonPerformanceArcIdxs`. That table has no
 bounds check either.
+
+The Pokéathlon course has its own copy of that table, `gPokeathlonPerformanceFileIds`
+(`asm/pokeathlon_course_data.s:350`, read by `src/pokeathlon/pokeathlon_course_flow.c:428`).
+Append the same number to it, after `0x218` at line 412: `.short 0x22A` (554). The table is
+followed by `.word` entries (`gPokeathlonCourseCmds`), so add an `.balign 4` after it if the
+count of `.short`s becomes odd. Without this line a new species entered in a course reads
+past the end of the table ([pokeathlon.md](pokeathlon.md#9-how-to-change-a-species-stats)).
 
 ## 12. Putting it in the game
 

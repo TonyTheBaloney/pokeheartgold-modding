@@ -150,7 +150,7 @@ the command, if there is one. Commands run from the repository root;
 | change fishing bite chance or reel timing | [encounter-mechanics.md](modding/encounter-mechanics.md#7-fishing) | rod `rate` in the table; `sReelWindow` in `src/field/fishing.c` |
 | change swarms, or start one from a script | [encounter-mechanics.md](modding/encounter-mechanics.md#8-swarms) | `sSwarmMapLUT` in `src/swarm.c`; `enablemassoutbreaks` |
 | switch a map's wild Pokémon from a script (event tables, radio sounds) | [encounter-mechanics.md](modding/encounter-mechanics.md#10-switching-tables-from-a-script) | new script command |
-| change headbutt, Safari, Bug Contest | [wild-encounters.md](modding/wild-encounters.md#headbutt-trees) | |
+| change headbutt, Safari, Bug Contest | [wild-encounters.md](modding/wild-encounters.md#headbutt-trees); more in [safari-zone.md](modding/safari-zone.md), [bug-catching-contest.md](modding/bug-catching-contest.md) | |
 | scale wild levels to the player | [level-scaling.md](modding/level-scaling.md#wild-pokémon) | edit `FieldSystem_GenerateRegularEncounter` |
 | give a Pokémon from a script | [gift-pokemon-and-trades.md](modding/gift-pokemon-and-trades.md#1-givemon) | `givemon(SPECIES_X, level, item, form, ability, VAR)` |
 | give one with set IVs, nature, shiny, ball, moves, met location | [gift-pokemon-and-trades.md](modding/gift-pokemon-and-trades.md#3-custom-gifts-givecustommon) | add `givecustommon` |
@@ -187,6 +187,45 @@ the command, if there is one. Commands run from the repository root;
 | change what an item does in battle, add a ball | [party-menu-and-item-use.md](modding/party-menu-and-item-use.md#4-using-an-item-in-battle) | `BattleSystem_RecoverStatus`, `BattleSystem_CalculateBallShakes` |
 | add or change a held item's effect | [party-menu-and-item-use.md](modding/party-menu-and-item-use.md#5-held-items) | `grep -rn HOLD_EFFECT_X src` |
 | open the party menu for a new purpose, add a field move | [party-menu-and-item-use.md](modding/party-menu-and-item-use.md#2-the-party-menu) | `PartyMenuArgs`, `sFieldMoves` |
+
+## Side features and minigames
+
+| I want to... | Guide | Command |
+|---|---|---|
+| change a Pokémon's Pokéathlon stars | [pokeathlon.md](modding/pokeathlon.md#9-how-to-change-a-species-stats) | `nitroarc -xf files/poketool/personal/performance.narc` |
+| change which events a Pokéathlon course has | [pokeathlon.md](modding/pokeathlon.md#10-how-to-change-course-composition) | `gPokeathlonCourseEventIds` in `asm/pokeathlon_course_data.s` |
+| change Pokéathlon scoring, Athlete Points or the Athlete Shop | [pokeathlon.md](modding/pokeathlon.md#11-how-to-change-scoring-and-prizes), [shop](modding/pokeathlon.md#8-the-athlete-shop-and-data-cards) | `src/pokeathlon/pokeathlon_event_points.c`; `sPokeathlonPrizeExchangePriceOverrides` in `src/scrcmd_mart.c` |
+| change the Pokémon or items on a Pokéwalker course | [pokewalker.md](modding/pokewalker.md#change-a-courses-pokémon) | `sPokewalkerCourses` bytes in `asm/pokewalker_data.s` |
+| change when Pokéwalker courses unlock | [pokewalker.md](modding/pokewalker.md#change-watts-needed-or-the-national-dex-gate) | `PokewalkerApp_UnlockNextCourse` |
+| change the experience or friendship from a Stroll | [pokewalker.md](modding/pokewalker.md#change-experience-or-friendship-on-return) | `PokewalkerApp_AddStrollExp` |
+| see what the ROM can't change on the Pokéwalker | [pokewalker.md](modding/pokewalker.md#10-what-the-rom-cant-change) | |
+| change the Pokémon in a Safari Zone area, or its bonus Pokémon | [safari-zone.md](modding/safari-zone.md#change-an-areas-encounters) | edit `files/arc/safari_enc.json` |
+| understand Safari object points, area age and bonus Pokémon | [safari-zone.md](modding/safari-zone.md#6-object-points-area-age-and-bonus-pokémon) | `sObjectLevelBoosts` in `src/safari_zone_encounters.c` |
+| add a Safari object, or unlock objects and the Area Customizer sooner | [safari-zone.md](modding/safari-zone.md#add-an-object), [unlocks](modding/safari-zone.md#change-when-objects-and-the-customizer-unlock) | `SafariZone_SetObjectUnlockLevel` |
+| change Safari Balls, the fee, objects per area, Bait/Mud odds | [safari-zone.md](modding/safari-zone.md#change-the-limits), [odds](modding/safari-zone.md#battle-actions) | |
+| change Battle Frontier opponents or their sets | [battle-frontier.md](modding/battle-frontier.md#13-how-tos) | `nitroarc -xf` a copy of `files/a/2/0/3` (sets) / `files/a/2/0/2` (trainers) |
+| change a Frontier Brain's team | [battle-frontier.md](modding/battle-frontier.md#change-the-brain-teams) | trainers 305-314 in `files/a/2/0/2` |
+| change the Frontier's banned species | [battle-frontier.md](modding/battle-frontier.md#change-the-banned-species) | `sBattleFrontierBanlist` in `src/pokemon.c` |
+| change BP rewards, BP prizes or Factory rental pools | [battle-frontier.md](modding/battle-frontier.md#8-battle-points), [rentals](modding/battle-frontier.md#9-battle-factory-rental-pools) | |
+| change the Bug-Catching Contest days, time limit or Sport Balls | [bug-catching-contest.md](modding/bug-catching-contest.md#12-how-to) | `scr_seq_0151.s`; `sport_balls` in `src/overlay_bug_contest.c` |
+| add a Bug Contest Pokémon, change scoring or prizes | [bug-catching-contest.md](modding/bug-catching-contest.md#add-a-contest-pokémon), [scoring](modding/bug-catching-contest.md#8-scoring-your-catch) | `files/data/mushi/mushi_encount.csv`; `BugContest_JudgePlayerMon` |
+| run the Bug Contest on another map | [bug-catching-contest.md](modding/bug-catching-contest.md#run-the-contest-on-another-map) | |
+| add an Apricorn tree or change its colour | [apricorns-and-kurt.md](modding/apricorns-and-kurt.md#add-an-apricorn-tree-to-a-map) | `sTreeApricorns` in `src/apricorn_tree_sys.c` |
+| change Apricorn regrowth | [apricorns-and-kurt.md](modding/apricorns-and-kurt.md#change-regrowth) | `ApricornTrees_RegrowEmpty` |
+| make Kurt faster, give more balls, or make other balls | [apricorns-and-kurt.md](modding/apricorns-and-kurt.md#kurt-faster-more-balls-other-balls) | `data/maps/Azalea_KurtHouse/scripts.pory`; `sApricornBallItems` |
+| change what Level/Lure/Moon/Love/Heavy/Fast/Friend Ball do | [apricorns-and-kurt.md](modding/apricorns-and-kurt.md#5-apricorn-balls-in-battle) | `grep -n "case ITEM_.*_BALL" src/battle/battle_command.c` |
+| change a berry's growth time or yield | [berry-pots.md](modding/berry-pots.md#change-one-berrys-growth-time-drain-or-yield) | `berry_param.py` on a copy of `files/a/0/6/6` |
+| make all berries grow faster, change mulch, add pots | [berry-pots.md](modding/berry-pots.md#make-berries-grow-faster-globally), [mulch](modding/berry-pots.md#change-moisture-or-mulch-behaviour), [pots](modding/berry-pots.md#add-more-pots) | |
+| change what a radio show says, or add episodes | [pokegear.md](modding/pokegear.md#change-what-a-show-says) | `files/msgdata/msg/msg_0411`-`msg_0420.json` |
+| change where or when a radio station can be heard | [pokegear.md](modding/pokegear.md#change-where-or-when-a-station-can-be-heard) | `radio_signal` in `map.json`; `Radio_GetAvailableChannels` |
+| add a radio station | [pokegear.md](modding/pokegear.md#add-a-station) | new `shows/*.c` + a row in `sRadioShowFuncs` |
+| give or take Pokégear cards (map, radio) | [pokegear.md](modding/pokegear.md#cards) | `registerpokegearcard(1)` map, `(2)` radio |
+| understand Town Map markings, memos and roamer icons | [pokegear.md](modding/pokegear.md#markings-and-memos) | `pokegear_map_markings.c` |
+| let a large Pokémon follow indoors | [following-pokemon.md](modding/following-pokemon.md#81-let-a-large-species-follow-indoors) | `FollowMon_GetPermissionBySpeciesAndMap` in `src/follow_mon.c` |
+| turn following on or off on a map | [following-pokemon.md](modding/following-pokemon.md#82-enable-or-disable-following-on-a-map) | `"follow_mode"` in `data/maps/<Map>/map.json` |
+| add something new the follower says | [following-pokemon.md](modding/following-pokemon.md#83-add-an-interaction) | `msg_0265.json` + `files/a/2/2/0`, `a/2/2/1` |
+| keep the follower in its ball during a scene | [following-pokemon.md](modding/following-pokemon.md#6-script-commands) | `followmonrecall`, `setfollowmoninhibitstate(1)` |
+| make following a switch the player can turn off | [following-pokemon.md](modding/following-pokemon.md#85-make-following-toggleable) | |
 
 ## Graphics
 
