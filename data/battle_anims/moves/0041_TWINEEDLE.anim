@@ -1,0 +1,35 @@
+# member 41: TWINEEDLE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 72
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PanSweepSE SEQ_SE_DP_HURU2, -117, 117, 8, 2
+    CallFunc MoveBattlerBy, 2, 14, -8, 258
+    WaitForTasks
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc MoveBattlerBy, 2, -14, 8, 258
+    Wait 5
+    PanSweepSE SEQ_SE_DP_HURU2, -117, 117, 8, 2
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31764, 10, 0
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    DelayedSE SEQ_SE_DP_W004, 117, 3
+    DelayedSE SEQ_SE_DP_W004, 117, 6
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

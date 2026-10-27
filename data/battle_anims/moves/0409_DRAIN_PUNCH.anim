@@ -1,0 +1,41 @@
+# member 409: DRAIN_PUNCH
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 427
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 8, 0
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_050, 117
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 2, 1, 16, 0
+    EmitterData 2, 0, 0, 0, 0
+    Wait 5
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    Wait 5
+    RepeatSE SEQ_SE_DP_W152, 0, 2, 16
+    Wait 5
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 10, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 8, 0, 0
+    WaitForTasks
+    End

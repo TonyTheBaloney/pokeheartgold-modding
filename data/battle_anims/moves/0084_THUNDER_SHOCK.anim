@@ -1,0 +1,32 @@
+# member 84: THUNDER_SHOCK
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 115
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W085, 117
+    DelayedSE SEQ_SE_DP_W063B, 117, 13
+    CreateEmitter 0, 0, SetPositionAtDefender
+    Wait 5
+    CallFunc BattlerPaletteFade, 8, 0, 1, 0, 15, 0
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

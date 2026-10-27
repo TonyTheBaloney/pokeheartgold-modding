@@ -1,0 +1,36 @@
+# member 265: SMELLING_SALT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 283
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitSpriteManager 0, 1, 2, 2, 2, 2, 0, 0
+    LoadCharResource 0, 20
+    LoadPaletteResource 0, 19, 1
+    LoadCellResource 0, 20
+    LoadAnimResource 0, 20
+    CreateSpriteWithFunc 0, MoveSpriteAndAnimate, 20, 19, 20, 20, 0, 0, 0, 24, 0
+    Wait 30
+    RepeatSE SEQ_SE_DP_030C, 117, 4, 2
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 6, 264
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeSpriteManager 0
+    End

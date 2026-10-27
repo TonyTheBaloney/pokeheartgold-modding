@@ -1,0 +1,136 @@
+# member 464: DARK_VOID
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 482
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 482
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    SetArg 4, 0
+    SetArg 0, 0
+    SetArg 1, -1
+    SwitchBackground 44, 0x800001
+    WaitForBackgroundSwitch
+    JumpBySide 0, L321, L110
+    End
+L110:
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 13, 0, 0, 0
+    EmitterData 1, 0, -1720, 0
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 13, 0, 0, 0
+    EmitterData 1, 0, -860, 0
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 13, 0, 0, 0
+    EmitterData 1, 0, -1720, 0
+    PlaySEWithPan SEQ_SE_DP_W464, 117
+    SetParticlePerspective 1, 0
+    CreateEmitter 1, 1, ConfigureFromScript
+    EmitterData 2, 2, 13, 0, 0, 0
+    EmitterData 1, -600, -4500, -600
+    CreateEmitter 1, 2, ConfigureFromScript
+    EmitterData 2, 2, 13, 0, 0, 0
+    EmitterData 1, -600, -4500, -600
+    CallFunc MoveBattlerBy, 1, 0, 4, 264
+    CallFunc MoveBattlerBy, 1, 0, 4, 272
+    Wait 2
+    CallFunc MoveBattlerBy, 1, 0, 4, 264
+    Wait 1
+    CallFunc MoveBattlerBy, 1, 0, 4, 272
+    Wait 1
+    CallFunc MoveBattlerBy, 1, 0, 8, 264
+    Wait 1
+    CallFunc MoveBattlerBy, 1, 0, 8, 272
+    Wait 2
+    Wait 5
+    DelayedSE SEQ_SE_DP_290, 117, 15
+    BeginLoop 16
+    CallFunc MoveBattlerBy, 1, 0, 4, 264
+    CallFunc MoveBattlerBy, 1, 0, 4, 272
+    Wait 1
+    EndLoop
+    Wait 20
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    SetArg 4, 0
+    SetArg 0, 0
+    SetArg 1, -1
+    SetArg 4, 1
+    RestoreBackground 44, 0x1000001
+    WaitForBackgroundSwitch
+    CallFunc MoveBattlerBy, 1, 0, -80, 264
+    CallFunc MoveBattlerBy, 1, 0, -80, 272
+    End
+L321:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    CreateBattlerSprite 1, 0, 0, 0
+    CreateBattlerSprite 3, 0, 1, 1
+    CallFunc DropSpriteStepwise, 0, 80, 3, 0, 1, 255, 1
+    CallFunc DropSpriteStepwise, 1, 80, 3, 0, 3, 255, 1
+    Wait 1
+    CallFunc SetBattlerVanished, 8, 1
+    CallFunc SetBattlerVanished, 16, 1
+    PlaySEWithPan SEQ_SE_DP_W464, 117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 13, 0, 0, 0
+    EmitterData 1, 0, -1720, 0
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 13, 0, 0, 0
+    EmitterData 1, 0, -860, 0
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 13, 0, 0, 0
+    EmitterData 1, 0, -1720, 0
+    CreateEmitter 1, 1, ConfigureFromScript
+    EmitterData 0, 2, 13, 0, 0, 0
+    EmitterData 1, 0, -1720, 0
+    CreateEmitter 1, 2, ConfigureFromScript
+    EmitterData 0, 2, 13, 0, 0, 0
+    EmitterData 1, 0, -1720, 0
+    DelayedSE SEQ_SE_DP_290, 117, 35
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    WaitForTasks
+    Wait 1
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    FreeBattlerSpriteManager
+    SetArg 4, 0
+    SetArg 0, 0
+    SetArg 1, -1
+    SetArg 4, 1
+    RestoreBackground 44, 0x1000001
+    WaitForBackgroundSwitch
+    CallFunc SetBattlerVanished, 8, 0
+    CallFunc SetBattlerVanished, 16, 0
+    End

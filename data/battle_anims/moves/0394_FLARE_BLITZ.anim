@@ -1,0 +1,43 @@
+# member 394: FLARE_BLITZ
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 412
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    RepeatSE SEQ_SE_DP_W052, -117, 3, 6
+    Wait 25
+    CallFunc MoveBattlerBy, 2, 16, -8, 258
+    WaitForTasks
+    CallFunc MoveBattlerBy, 2, -16, 8, 258
+    ClearArgs
+    SetArg 7, 1
+    SwitchBackground 33, 1
+    Wait 5
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    PlaySEWithPan SEQ_SE_DP_186, 117
+    Wait 2
+    CallFunc BattlerPaletteFade, 8, 0, 1, 2124, 14, 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 7, 1
+    RestoreBackground 33, 1
+    WaitForBackgroundSwitch
+    End

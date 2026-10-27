@@ -1,0 +1,54 @@
+# member 76: SOLAR_BEAM
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 107
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpByVariantBit0 L50, L93
+    End
+L50:
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 19, SetPositionAtAttacker
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_SHUSHU, -117
+    Wait 20
+    CallFunc BattlerPaletteFade, 2, 0, 2, 13311, 10, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End
+L93:
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 8, SetPositionAtAttacker
+    CreateEmitter 0, 9, SetPositionAtAttacker
+    Wait 5
+    PanSweepSE SEQ_SE_DP_W076B, -117, 117, 4, 2
+    Wait 15
+    CreateEmitter 0, 10, SetPositionAtDefender
+    CreateEmitter 0, 11, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    Wait 5
+    CallFunc BattlerPaletteFade, 8, 0, 2, 13311, 14, 0
+    CallFunc ShakeTargets, 4, 0, 1, 12, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

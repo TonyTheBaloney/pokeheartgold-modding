@@ -1,0 +1,33 @@
+# member 259: TORMENT
+    InitSpriteManager 0, 7, 2, 2, 2, 2, 0, 0
+    LoadCharResource 0, 19
+    LoadPaletteResource 0, 18, 1
+    LoadCellResource 0, 19
+    LoadAnimResource 0, 19
+    CreateSpriteWithFunc 0, FanSpritesAroundAttacker, 19, 18, 19, 19, 0, 0
+    BeginLoop 2
+    PlaySEWithPan SEQ_SE_DP_W029, -117
+    Wait 16
+    EndLoop
+    BeginLoop 2
+    Wait 4
+    PlaySEWithPan SEQ_SE_DP_W029, -117
+    Wait 4
+    EndLoop
+    BeginLoop 2
+    Wait 4
+    PlaySEWithPan SEQ_SE_DP_W029, -117
+    EndLoop
+    WaitForTasks
+    LoadCharResource 0, 11
+    LoadPaletteResource 0, 11, 1
+    LoadCellResource 0, 11
+    LoadAnimResource 0, 11
+    CreateSpriteWithFunc 0, SpritePops, 11, 11, 11, 11, 0, 0
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 14, 0
+    Wait 4
+    RepeatSE SEQ_SE_DP_W207B, 117, 10, 2
+    Wait 10
+    WaitForTasks
+    FreeSpriteManager 0
+    End

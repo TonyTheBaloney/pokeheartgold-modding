@@ -1,0 +1,35 @@
+# member 195: PERISH_SONG
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 215
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 2, None
+    CreateEmitter 0, 3, None
+    CreateEmitter 0, 0, None
+    CreateEmitter 0, 1, None
+    PlaySEWithPan SEQ_SE_DP_W195, 0
+    Wait 10
+    CallFunc FadeBgPalette, 0, 1, 0, 16, 0
+    Wait 15
+    CallFunc BattlerPaletteFade, 2, 1, 1, 13741, 16
+    CallFunc BattlerPaletteFade, 4, 1, 1, 13741, 16
+    CallFunc BattlerPaletteFade, 8, 1, 1, 13741, 16
+    CallFunc BattlerPaletteFade, 16, 1, 1, 13741, 16
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 16, 0, 0
+    WaitForTasks
+    End

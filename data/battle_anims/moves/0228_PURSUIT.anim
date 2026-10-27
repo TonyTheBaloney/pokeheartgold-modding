@@ -1,0 +1,31 @@
+# member 228: PURSUIT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 246
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    DelayedSE SEQ_SE_DP_209, 117, 15
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    Wait 5
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    PlaySEWithPan SEQ_SE_DP_030, 117
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

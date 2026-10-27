@@ -1,0 +1,9 @@
+# member 27: HAPPY
+    BeginLoop 2
+    PlaySEWithPan SEQ_SE_DP_001, 117
+    CallFunc MoveBattlerBy, 4, 0, 8, 264
+    Wait 4
+    CallFunc MoveBattlerBy, 4, 0, -8, 264
+    Wait 4
+    EndLoop
+    End

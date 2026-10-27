@@ -1,0 +1,48 @@
+# member 344: VOLT_TACKLE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 362
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    SwitchBackground 27, 1
+    WaitForBackgroundSwitch
+    CallFunc ShakeBg, 1, 1, 0, 25, 0
+    RepeatSE SEQ_SE_DP_W120, -117, 2, 4
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    Wait 10
+    PanSweepSE SEQ_SE_DP_W085C, -117, 117, 4, 2
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    CreateEmitter 0, 4, SetPositionAtAttacker
+    Wait 10
+    PanSweepSE SEQ_SE_DP_W085C, 117, -117, 4, 2
+    CreateEmitter 0, 5, None
+    CreateEmitter 0, 6, None
+    Wait 10
+    PanSweepSE SEQ_SE_DP_W085C, -117, 117, 4, 2
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 4, SetPositionAtDefender
+    Wait 40
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    RepeatSE SEQ_SE_DP_W085B, 117, 3, 2
+    WaitForParticles
+    FreeParticleSystem 0
+    RestoreBackground 27, 1
+    WaitForBackgroundSwitch
+    End

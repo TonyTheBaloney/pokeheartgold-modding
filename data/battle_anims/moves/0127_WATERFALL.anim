@@ -1,0 +1,47 @@
+# member 127: WATERFALL
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 152
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    ClearArgs
+    SetArg 4, 1
+    SetArg 0, 0
+    SetArg 1, -20
+    SwitchBackground 23, 0x20001
+    WaitForBackgroundSwitch
+    RepeatSE SEQ_SE_DP_W152, -117, 2, 4
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CallFunc ShakeTargets, 1, 0, 1, 4, 258
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W291, -117
+    CallFunc SlideBattler2, 3, 24, 258
+    WaitForTasks
+    CallFunc SlideBattler2, 3, -24, 258
+    CreateEmitter 0, 1, SetPositionAtDefender
+    Wait 31
+    PlaySEWithPan SEQ_SE_DP_W127, 117
+    Wait 4
+    CallFunc BattlerPaletteFade, 8, 0, 1, 32631, 14, 0
+    CallFunc ShakeTargets, 1, 0, 1, 6, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 4, 1
+    SetArg 0, 0
+    SetArg 1, -20
+    RestoreBackground 23, 0x40001
+    WaitForBackgroundSwitch
+    End

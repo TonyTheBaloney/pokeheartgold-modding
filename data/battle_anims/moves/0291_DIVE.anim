@@ -1,0 +1,58 @@
+# member 291: DIVE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 309
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpByVariantBit0 L53, L126
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L53:
+    PlaySEWithPan SEQ_SE_DP_W291, -117
+    CallFunc MoveBattlerBy, 8, 0, 8, 258
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 0, -16, 258
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, 0, -3440, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, 0, -3440, 0
+    WaitForTasks
+    CallFunc SetBattlerVanished, 2, 1
+    WaitForTasks
+    CallFunc MoveBattlerBy, 1, 0, 8, 258
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L126:
+    RepeatSE SEQ_SE_DP_W291, 117, 3, 4
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 0, -3440, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 0, -3440, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 0, -3440, 0
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    Wait 15
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End

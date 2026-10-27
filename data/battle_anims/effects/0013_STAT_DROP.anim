@@ -1,0 +1,15 @@
+# member 13: STAT_DROP
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    CreateBattlerSprite 0, 0, 0, 0
+    CreateBattlerSprite 0, 0, 1, 0
+    CreateBattlerSprite 2, 0, 2, 1
+    CallFunc ObjWindowBgScrollDown, 1, 0
+    PlaySEWithPan SEQ_SE_DP_W287B, -117
+    WaitForTasks
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    FreeBattlerSpriteManager
+    End

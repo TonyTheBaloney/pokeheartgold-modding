@@ -1,0 +1,47 @@
+# member 225: DRAGON_BREATH
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 243
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    RepeatSE SEQ_SE_DP_400, 0, 3, 6
+    JumpBySide 0, L56, L56
+    End
+L56:
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 32, 1, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 32, 1, 0, 0
+    PlaySEWithPan SEQ_SE_DP_W172, 117
+    Wait 15
+    CallFunc BattlerPaletteFade, 8, 0, 2, 31, 12
+    CallFunc ShakeTargets, 2, 0, 1, 8, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    End
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 8, 1, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 8, 1, 0, 0
+    WaitForButtonCombo
+    PlaySEWithPan SEQ_SE_DP_W172, 117
+    Wait 15
+    CallFunc BattlerPaletteFade, 8, 0, 2, 31, 12
+    CallFunc ShakeTargets, 2, 0, 1, 8, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    End

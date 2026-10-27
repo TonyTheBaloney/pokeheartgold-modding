@@ -1,0 +1,22 @@
+# member 93: CONFUSION
+    SwitchBackground 20, 1
+    WaitForBackgroundSwitch
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    CallFunc ShakeTargets, 2, 0, 1, 2, 258
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 4
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_480, 117
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 3, 0, 4, 4
+    StartBattlerSpriteDraw 3, 0, 4
+    CallFunc ShakeDefenderWithOverlay
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    RestoreBackground 20, 1
+    WaitForBackgroundSwitch
+    End

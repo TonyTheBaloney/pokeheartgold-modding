@@ -1,0 +1,16 @@
+# member 199: LOCK_ON
+    InitSpriteManager 0, 1, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 10
+    LoadPaletteResource 0, 10, 1
+    LoadCellResource 0, 10
+    LoadAnimResource 0, 10
+    CreateSpriteWithFunc 0, ZigzagFlash, 10, 10, 10, 10, 0, 0
+    Wait 16
+    BeginLoop 4
+    PlaySEWithPan SEQ_SE_DP_GETTING, 117
+    Wait 8
+    EndLoop
+    PlaySEWithPan SEQ_SE_DP_081, 117
+    WaitForTasks
+    FreeSpriteManager 0
+    End

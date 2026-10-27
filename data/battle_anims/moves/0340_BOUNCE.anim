@@ -1,0 +1,42 @@
+# member 340: BOUNCE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 358
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpByVariantBit0 L50, L73
+    End
+L50:
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W100, -117
+    CallFunc SetBattlerVanished, 2, 1
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L73:
+    CreateEmitter 0, 2, SetPositionAtDefender
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W029, 117
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_143, 117
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

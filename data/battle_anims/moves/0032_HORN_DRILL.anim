@@ -1,0 +1,59 @@
+# member 32: HORN_DRILL
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 63
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfContest L68
+    CallFunc MoveBattlerBy, 2, 14, -8, 258
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W030, 117
+    DelayedSE SEQ_SE_DP_145, 117, 5
+    JumpBySide 0, L115, L147
+    End
+L68:
+    CallFunc MoveBattlerBy, 2, 14, -8, 258
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W030, 117
+    DelayedSE SEQ_SE_DP_145, 117, 5
+    CreateEmitter 0, 5, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 8, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 12, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc MoveBattlerBy, 2, -14, 8, 258
+    WaitForTasks
+    End
+L115:
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 6, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 12, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc MoveBattlerBy, 2, -14, 8, 258
+    WaitForTasks
+    End
+L147:
+    CreateEmitter 0, 4, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 7, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 12, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc MoveBattlerBy, 2, -14, 8, 258
+    WaitForTasks
+    End

@@ -1,0 +1,115 @@
+# member 321: TICKLE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 217
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfContest L284
+    JumpBySide 0, L120, L188
+    CallFunc BattlerPaletteFade, 2, 0, 1, 0, 12, 0
+    Wait 2
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W197, -117
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc WaddlePic, 1
+    BeginLoop 1
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 5, 10, 258
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 10, -20, 258
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 5, 10, 258
+    Wait 5
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L120:
+    CallFunc BattlerPaletteFade, 2, 0, 1, 0, 12, 0
+    Wait 2
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W197, -117
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc WaddlePic, 1
+    BeginLoop 1
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 5, 10, 258
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 10, -20, 258
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 5, 10, 258
+    Wait 5
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L188:
+    CallFunc BattlerPaletteFade, 2, 0, 1, 0, 12, 0
+    Wait 2
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W197, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, -8256, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, -8256, 0, 0
+    CallFunc WaddlePic, 1
+    BeginLoop 1
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 5, 10, 258
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 10, -20, 258
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 5, 10, 258
+    Wait 5
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L284:
+    CallFunc BattlerPaletteFade, 2, 0, 1, 0, 12, 0
+    Wait 2
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W197, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, -8256, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, -8256, 0, 0
+    CallFunc WaddlePic, 1
+    BeginLoop 1
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 5, 10, 258
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 10, -20, 258
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W039, 117
+    CallFunc SlideBattler2, 5, 10, 258
+    Wait 5
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End

@@ -1,0 +1,33 @@
+# member 301: ICE_BALL
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 319
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PanSweepSE SEQ_SE_DP_W196, -117, 117, 4, 2
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 14, 64
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 16, 64
+    Wait 14
+    CreateEmitter 0, 2, SetPositionAtDefender
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_W280, 117
+    CallFunc ShakeTargets, 2, 0, 1, 4, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 32767, 10, 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

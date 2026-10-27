@@ -1,0 +1,52 @@
+# member 436: LAVA_PLUME
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 454
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_W436, -117
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CallFunc ShakeTargets, 2, 0, 1, 2, 288
+    Wait 1
+    JumpIfSameSide L104
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 10, 0
+    CallFunc BattlerPaletteFade, 16, 0, 1, 31, 10, 0
+    CallFunc BattlerPaletteFade, 4, 0, 1, 31, 10, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L104:
+    JumpBySide 0, L109, L141
+    End
+L109:
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 10, 10
+    CallFunc BattlerPaletteFade, 2056, 0, 1, 31, 10, 10
+    CallFunc BattlerPaletteFade, 2064, 0, 1, 31, 10, 10
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L141:
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 10, 10
+    CallFunc BattlerPaletteFade, 2050, 0, 1, 31, 10, 10
+    CallFunc BattlerPaletteFade, 2052, 0, 1, 31, 10, 10
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+    End
+    End

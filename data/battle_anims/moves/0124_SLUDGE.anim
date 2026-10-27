@@ -1,0 +1,49 @@
+# member 124: SLUDGE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 149
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 149
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PanSweepSE SEQ_SE_DP_W145C, -117, 117, 4, 2
+    CreateEmitterInSlot 0, 1, 1, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 1, 0, 0, 0, 14, 64
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W291, 117
+    DelayedSE SEQ_SE_DP_W092D, 117, 12
+    DelayedSE SEQ_SE_DP_W092D, 117, 15
+    CreateEmitter 1, 0, SetPositionAtDefender
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31764, 10, 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    End

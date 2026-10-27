@@ -1,0 +1,5 @@
+# member 74: GROWTH
+    CallFunc AttackerPulseWhite
+    PlaySEWithPan SEQ_SE_DP_W036, -117
+    WaitForTasks
+    End

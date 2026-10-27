@@ -1,0 +1,38 @@
+# member 191: SPIKES
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 211
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    RepeatSE SEQ_SE_DP_W026, 117, 6, 5
+    CreateEmitterInSlot 0, 0, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 0, 8, -3, 0, 12, 64
+    Wait 5
+    CreateEmitterInSlot 0, 1, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 1, 4, -5, 0, 12, 64
+    CreateEmitter 0, 1, SetPositionAtDefenderSide
+    Wait 5
+    CreateEmitterInSlot 0, 2, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 2, 0, -6, 0, 12, 64
+    Wait 5
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 3, -8, -6, 0, 12, 64
+    Wait 5
+    CreateEmitterInSlot 0, 4, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 4, -4, -3, 0, 12, 64
+    Wait 6
+    WaitForParticles
+    FreeParticleSystem 0
+    End

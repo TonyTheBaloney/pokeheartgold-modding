@@ -1,0 +1,37 @@
+# member 155: BONEMERANG
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 32
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitSpriteManager 0, 1, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 7
+    LoadPaletteResource 0, 7, 1
+    LoadCellResource 0, 7
+    LoadAnimResource 0, 7
+    CreateSpriteWithFunc 0, BoomerangSprite, 7, 7, 7, 7, 0, 0
+    Wait 5
+    PanSweepSE SEQ_SE_DP_HURU, -117, 117, 4, 2
+    Wait 5
+    CreateEmitter 0, 1, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_030, 117
+    CallFunc ShakeTargets, 4, 0, 1, 1, 264
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W091, -117
+    WaitForParticles
+    WaitForTasks
+    FreeSpriteManager 0
+    FreeParticleSystem 0
+    End

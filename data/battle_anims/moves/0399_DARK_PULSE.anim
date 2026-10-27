@@ -1,0 +1,45 @@
+# member 399: DARK_PULSE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 417
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    Wait 1
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    PanSweepSE SEQ_SE_DP_W399, -117, 117, 4, 2
+    CreateBattlerSprite 0, 0, 0, 0
+    CreateBattlerSprite 2, 0, 1, 1
+    CallFunc DropSpriteStepwise, 0, 30, 3, 0, 0
+    CallFunc DropSpriteStepwise, 1, 30, 3, 0, 2
+    Wait 1
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc SetBgPaletteGrayscale, 1
+    Wait 25
+    SetBattlerSpriteVisible 0, 0
+    SetBattlerSpriteVisible 1, 0
+    CallFunc ShakeTargets, 1, 0, 1, 6, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 8296, 14, 0
+    WaitForTasks
+    CallFunc SetBgPaletteGrayscale, 0
+    WaitForTasks
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    FreeBattlerSpriteManager
+    WaitForParticles
+    FreeParticleSystem 0
+    End

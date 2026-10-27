@@ -1,0 +1,63 @@
+# member 161: TRI_ATTACK
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 182
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 182
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    RepeatSE SEQ_SE_DP_W161, -117, 8, 3
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    CreateEmitter 0, 7, SetPositionAtAttacker
+    CreateEmitter 0, 4, SetPositionAtAttacker
+    CreateEmitter 0, 5, ConfigureFromScript
+    EmitterData 0, 2, 18, 12, 0, 0
+    Wait 40
+    PlaySEWithPan SEQ_SE_DP_W172B, 117
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    Wait 20
+    PlaySEWithPan SEQ_SE_DP_W161B, 117
+    CreateEmitter 0, 6, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    Wait 20
+    PlaySEWithPan SEQ_SE_DP_W280, 117
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

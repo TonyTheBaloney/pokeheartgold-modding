@@ -1,0 +1,54 @@
+# member 427: PSYCHO_CUT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 445
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_020, -117
+    CreateEmitter 0, 5, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    Wait 45
+    RepeatSE SEQ_SE_DP_HURU, 0, 2, 9
+    JumpBySide 0, L97, L153
+    End
+L97:
+    JumpIfContest L126
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 20, 64
+    Wait 19
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L126:
+    CreateEmitter 0, 4, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 20, 64
+    Wait 19
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L153:
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 20, 64
+    Wait 19
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    End

@@ -1,0 +1,40 @@
+# member 181: POWDER_SNOW
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 201
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 6, 5, 0, 0
+    Wait 5
+    CallFunc BattlerPaletteFade, 8, 0, 1, 32767, 14, 0
+    CallFunc BattlerPaletteFade, 16, 0, 1, 32767, 14, 0
+    CreateEmitter 0, 1, SetPositionAtDefenderSide
+    CallFunc ShakeTargets, 2, 0, 1, 10, 264
+    CallFunc ShakeTargets, 2, 0, 1, 10, 272
+    RepeatSE SEQ_SE_DP_150, 117, 3, 8
+    Wait 50
+    CallFunc BattlerPaletteFade, 8, 0, 1, 32767, 14, 0
+    CallFunc BattlerPaletteFade, 16, 0, 1, 32767, 14, 0
+    CallFunc ShakeTargets, 2, 0, 1, 10, 264
+    CallFunc ShakeTargets, 2, 0, 1, 10, 272
+    RepeatSE SEQ_SE_DP_W258, 117, 6, 2
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

@@ -1,0 +1,35 @@
+# member 342: POISON_TAIL
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 360
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_BRADE, 117
+    DelayedSE SEQ_SE_DP_W025B, 117, 6
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    Wait 5
+    DelayedSE SEQ_SE_DP_W092D, 117, 10
+    DelayedSE SEQ_SE_DP_W092D, 117, 18
+    DelayedSE SEQ_SE_DP_W092D, 117, 26
+    DelayedSE SEQ_SE_DP_W092D, 117, 34
+    CallFunc BattlerPaletteFade, 8, 1, 1, 31764, 12
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    End

@@ -1,0 +1,45 @@
+# member 224: MEGAHORN
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 242
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc AttackerShakeLunge
+    PlaySEWithPan SEQ_SE_DP_W082, -117
+    Wait 10
+    ClearArgs
+    SetArg 7, 1
+    SwitchBackground 2, 0x800001
+    Wait 5
+    BrightnessFlash 12
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 1, 1, 0, 0
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 1, 1, 0, 0
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_W011, 117
+    CallFunc DefenderKnockback
+    Wait 5
+    CallFunc ShakeBg, 5, 0, 1, 6, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    ClearArgs
+    SetArg 7, 1
+    RestoreBackground 2, 0x1000001
+    WaitForBackgroundSwitch
+    End

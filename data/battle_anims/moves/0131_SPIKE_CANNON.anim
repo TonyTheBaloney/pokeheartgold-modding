@@ -1,0 +1,32 @@
+# member 131: SPIKE_CANNON
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 156
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc SlideBattler2, 2, -8, 258
+    WaitForTasks
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 16, 0
+    EmitterData 3, 0, 0, 0, 0
+    RepeatSE SEQ_SE_DP_W013, 117, 2, 8
+    CallFunc SlideBattler2, 2, 8, 258
+    Wait 10
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 6, 264
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

@@ -1,0 +1,7 @@
+# member 39: TAIL_WHIP
+    BeginLoop 2
+    PlaySEWithPan SEQ_SE_DP_112, -117
+    CallFunc MoveBattlerSin, 2, 1, 12
+    WaitForTasks
+    EndLoop
+    End

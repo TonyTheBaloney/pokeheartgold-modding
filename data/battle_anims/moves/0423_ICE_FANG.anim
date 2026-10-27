@@ -1,0 +1,40 @@
+# member 423: ICE_FANG
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 441
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 8, 32631
+    DelayedSE SEQ_SE_DP_W044, 117, 6
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 5, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    Wait 15
+    PlaySEWithPan SEQ_SE_DP_150, 117
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 8, 0, 32631
+    WaitForTasks
+    End

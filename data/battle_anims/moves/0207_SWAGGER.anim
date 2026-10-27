@@ -1,0 +1,18 @@
+# member 207: SWAGGER
+    InitSpriteManager 0, 1, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 11
+    LoadPaletteResource 0, 11, 1
+    LoadCellResource 0, 11
+    LoadAnimResource 0, 11
+    CallFunc AttackerStretchUp
+    PlaySEWithPan SEQ_SE_DP_W207D, -117
+    Wait 30
+    WaitForTasks
+    CreateSpriteWithFunc 0, SpritePops, 11, 11, 11, 11, 0, 0
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 14, 0
+    PlaySEWithPan SEQ_SE_DP_W207B, 117
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W207B, 117
+    WaitForTasks
+    FreeSpriteManager 0
+    End

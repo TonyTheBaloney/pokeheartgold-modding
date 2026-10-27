@@ -1,0 +1,14 @@
+# member 118: METRONOME
+    InitSpriteManager 0, 1, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 3
+    LoadPaletteResource 0, 3, 1
+    LoadCellResource 0, 3
+    LoadAnimResource 0, 3
+    PlaySEWithPan SEQ_SE_DP_W118, -117
+    CreateSpriteWithFunc 0, GrowRockShrinkSprite, 3, 3, 3, 3, 0, 0
+    Wait 10
+    RepeatSE SEQ_SE_DP_W039, -117, 8, 3
+    WaitForTasks
+    Wait 8
+    FreeSpriteManager 0
+    End

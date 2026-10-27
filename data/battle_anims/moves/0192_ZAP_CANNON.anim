@@ -1,0 +1,44 @@
+# member 192: ZAP_CANNON
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 212
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    Wait 5
+    ClearArgs
+    SetArg 7, 1
+    SetArg 4, 1
+    SwitchBackgroundWithFadeWait 26, 1, 1
+    Wait 5
+    RepeatSE SEQ_SE_DP_W086, 0, 2, 3
+    CallFunc ShakeBg, 8, 8, 0, 10, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    CreateEmitter 0, 1, SetPositionAtDefender
+    Wait 5
+    CreateEmitter 0, 2, SetPositionAtDefender
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W085C, 117
+    DelayedSE SEQ_SE_DP_W085B, 117, 25
+    CallFunc ShakeTargets, 4, 0, 1, 4, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 13311, 14, 0
+    Wait 20
+    SetArg 7, 1
+    RestoreBackground 26, 1
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForBackgroundSwitch
+    End

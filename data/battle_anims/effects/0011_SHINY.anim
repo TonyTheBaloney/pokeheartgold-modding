@@ -1,0 +1,8 @@
+# member 11: SHINY
+    LoadParticleSystem 0, 31
+    PlaySEWithPan SEQ_SE_DP_REAPOKE, -117
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    WaitForParticles
+    FreeParticleSystem 0
+    End

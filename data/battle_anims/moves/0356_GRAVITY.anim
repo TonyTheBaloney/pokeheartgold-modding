@@ -1,0 +1,37 @@
+# member 356: GRAVITY
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 374
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W356, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 0, 0, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    Wait 10
+    StopSE SEQ_SE_DP_W356
+    PlaySEWithPan SEQ_SE_DP_205, 0
+    CallFunc StretchBattler, 2050, 100, 100, 100, 60, 100, 0x1E0001, 0xA000A
+    CallFunc StretchBattler, 2056, 100, 100, 100, 60, 100, 0x1E0001, 0xA000A
+    CallFunc StretchBattler, 2052, 100, 100, 100, 60, 100, 0x1E0001, 0xA000A
+    CallFunc StretchBattler, 2064, 100, 100, 100, 60, 100, 0x1E0001, 0xA000A
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

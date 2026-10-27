@@ -1,0 +1,54 @@
+# member 55: WATER_GUN
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 86
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfSameSide L88
+    JumpIfContest L124
+    CreateEmitterByPosition6 0, 2, 3, 4, 5, 7, 6, SetPositionByBattlerTypes
+    PanSweepSE SEQ_SE_DP_W055, -117, 117, 4, 2
+    Wait 10
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    End
+L88:
+    CreateEmitterByPosition4 0, 9, 10, 9, 10, SetPositionAtAttacker
+    PanSweepSE SEQ_SE_DP_W055, -117, 117, 4, 2
+    Wait 10
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    End
+L124:
+    CreateEmitter 0, 8, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 0, 9976, -7568, 0
+    PanSweepSE SEQ_SE_DP_W055, -117, 117, 4, 2
+    Wait 10
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    End

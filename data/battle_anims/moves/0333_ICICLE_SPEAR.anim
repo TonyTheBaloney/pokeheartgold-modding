@@ -1,0 +1,60 @@
+# member 333: ICICLE_SPEAR
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 351
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitSpriteManager 0, 3, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 30
+    LoadPaletteResource 0, 30, 1
+    LoadCellResource 0, 30
+    LoadAnimResource 0, 30
+    CreateSpriteWithFunc 0, ThrowSpriteArc, 30, 30, 30, 30, 0, 0, -15, -5, 10, 32
+    PlaySEWithPan SEQ_SE_DP_W196, -117
+    Wait 5
+    CreateSpriteWithFunc 0, ThrowSpriteArc, 30, 30, 30, 30, 0, 0, -5, -20, 10, 32
+    PlaySEWithPan SEQ_SE_DP_W196, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 0, 2752, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 0, 2752, 0
+    CallFunc ShakeTargets, 1, 0, 1, 1, 264
+    Wait 5
+    CreateSpriteWithFunc 0, ThrowSpriteArc, 30, 30, 30, 30, 0, 0, -10, -15, 10, 32
+    PlaySEWithPan SEQ_SE_DP_W196, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 0, 2752, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 0, 2752, 0
+    CallFunc ShakeTargets, 1, 0, 1, 1, 264
+    PlaySEWithPan SEQ_SE_DP_W196, -117
+    Wait 6
+    DelayedSE SEQ_SE_DP_W030, 117, 2
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 0, 2752, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 0, 2752, 0
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForTasks
+    FreeSpriteManager 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End

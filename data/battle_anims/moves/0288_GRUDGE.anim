@@ -1,0 +1,17 @@
+# member 288: GRUDGE
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    PlaySEWithPan SEQ_SE_DP_W060, -117
+    WaitForTasks
+    InitSpriteManager 0, 10, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 28
+    LoadPaletteResource 0, 27, 1
+    LoadCellResource 0, 28
+    LoadAnimResource 0, 28
+    RepeatSE SEQ_SE_DP_W052, -117, 16, 3
+    CreateSpriteWithFunc 0, SpritesOrbitAttackerBobbing, 28, 27, 28, 28, 0, 0
+    CallFunc BattlerPaletteFade, 8, 0, 2, 8296, 14, 0
+    WaitForTasks
+    FreeSpriteManager 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

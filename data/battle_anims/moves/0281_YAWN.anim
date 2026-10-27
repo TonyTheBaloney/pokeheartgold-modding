@@ -1,0 +1,31 @@
+# member 281: YAWN
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 299
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PanSweepSE SEQ_SE_DP_W281, -117, 117, 4, 2
+    CallFunc StretchBattler, 258, 100, 80, 100, 160, 100, 1, 0x5000F
+    Wait 5
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    Wait 20
+    RepeatSE SEQ_SE_DP_W255, 117, 4, 2
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CallFunc StretchBattler, 264, 100, 80, 100, 160, 100, 1, 0x5000F
+    Wait 20
+    WaitForParticles
+    FreeParticleSystem 0
+    End

@@ -1,0 +1,59 @@
+# member 331: BULLET_SEED
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 349
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    RepeatSE SEQ_SE_DP_W202B, 0, 3, 9
+    CreateEmitterInSlot 0, 0, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 10, 64
+    Wait 2
+    CreateEmitterInSlot 0, 1, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 1, 0, 0, 0, 10, 64
+    Wait 2
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 10, 264
+    CreateEmitterInSlot 0, 2, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 2, 0, 0, 0, 10, 64
+    Wait 2
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 3, 0, 0, 0, 10, 64
+    RepeatSE SEQ_SE_DP_W025B, 117, 5, 6
+    Wait 2
+    CreateEmitterInSlot 0, 4, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 4, 0, 0, 0, 10, 64
+    Wait 2
+    CreateEmitterInSlot 0, 5, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 5, 0, 0, 0, 10, 64
+    Wait 2
+    CreateEmitterInSlot 0, 6, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 6, 0, 0, 0, 10, 64
+    Wait 2
+    CreateEmitterInSlot 0, 7, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 7, 0, 0, 0, 10, 64
+    Wait 2
+    CreateEmitterInSlot 0, 0, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 10, 64
+    Wait 2
+    CreateEmitterInSlot 0, 1, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 1, 0, 0, 0, 10, 64
+    Wait 2
+    CreateEmitterInSlot 0, 2, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 2, 0, 0, 0, 10, 64
+    Wait 2
+    WaitForParticles
+    FreeParticleSystem 0
+    End

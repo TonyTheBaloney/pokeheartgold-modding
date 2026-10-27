@@ -1,0 +1,43 @@
+# member 351: SHOCK_WAVE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 369
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    CreateEmitter 0, 4, SetPositionAtAttacker
+    Wait 5
+    RepeatSE SEQ_SE_DP_W082, -117, 8, 2
+    Wait 40
+    CreateEmitter 0, 4, SetPositionAtDefender
+    Wait 13
+    PlaySEWithPan SEQ_SE_DP_W085B, -117
+    Wait 24
+    PlaySEWithPan SEQ_SE_DP_W085B, -117
+    Wait 8
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc BattlerPaletteFade, 8, 0, 2, 13311, 10, 10
+    CallFunc ShakeTargets, 2, 0, 1, 6, 264
+    PanSweepSE SEQ_SE_DP_W172B, -117, 117, 4, 2
+    DelayedSE SEQ_SE_DP_W085B, 117, 15
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

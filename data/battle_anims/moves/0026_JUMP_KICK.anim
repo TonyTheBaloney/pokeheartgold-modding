@@ -1,0 +1,34 @@
+# member 26: JUMP_KICK
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 57
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc SlideBattler2, 3, 24, 258
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 4096, 0
+    EmitterData 3, 0, 0, 0, 0
+    WaitForTasks
+    CallFunc SlideBattler2, 3, -24, 258
+    PlaySEWithPan SEQ_SE_DP_131, 117
+    WaitForTasks
+    Wait 20
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    PlaySEWithPan SEQ_SE_DP_030, 117
+    WaitForParticles
+    FreeParticleSystem 0
+    End

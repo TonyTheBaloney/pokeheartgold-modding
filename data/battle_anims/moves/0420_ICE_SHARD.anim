@@ -1,0 +1,47 @@
+# member 420: ICE_SHARD
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 438
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_KAZE, -117
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    Wait 20
+    PlaySEWithPan SEQ_SE_DP_150, -117
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 1, 1, 4096, 0
+    EmitterData 1, 0, 0, 0, 0
+    Wait 40
+    PanSweepSE SEQ_SE_DP_151, -117, 117, 4, 2
+    Wait 40
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CallFunc ShakeTargets, 1, 0, 1, 6, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 32767, 10, 10
+    RepeatSE SEQ_SE_DP_030, 117, 2, 3
+    DelayedSE SEQ_SE_DP_W258, 117, 7
+    DelayedSE SEQ_SE_DP_W258, 117, 14
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

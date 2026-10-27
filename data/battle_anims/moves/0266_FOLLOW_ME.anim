@@ -1,0 +1,16 @@
+# member 266: FOLLOW_ME
+    InitSpriteManager 0, 1, 2, 2, 2, 2, 0, 0
+    LoadCharResource 0, 21
+    LoadPaletteResource 0, 20, 1
+    LoadCellResource 0, 21
+    LoadAnimResource 0, 21
+    DelayedSE SEQ_SE_DP_W213, 117, 2
+    CreateSpriteWithFunc 0, SpriteOrbit, 21, 20, 21, 21, 0, 0, 0, 24, 0
+    Wait 30
+    DelayedSE SEQ_SE_DP_W039, 117, 14
+    DelayedSE SEQ_SE_DP_W039, 117, 24
+    DelayedSE SEQ_SE_DP_W039, 117, 34
+    WaitForTasks
+    FreeSpriteManager 0
+    End
+    End

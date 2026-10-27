@@ -1,0 +1,48 @@
+# member 425: SHADOW_SNEAK
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 443
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc SetBgPaletteGrayscale, 1
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 45
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    Wait 2
+    PanSweepSE SEQ_SE_DP_161, -117, 117, 4, 2
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_186, 117
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 0, 14, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    CallFunc SetBgPaletteGrayscale, 0
+    End

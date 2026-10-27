@@ -1,0 +1,36 @@
+# member 177: AEROBLAST
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 197
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    SwitchBackground 25, 1
+    WaitForBackgroundSwitch
+    CallFunc ShakeBg, 0, 4, 0, 28, 0
+    RepeatSE SEQ_SE_DP_W013, -117, 2, 5
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    Wait 22
+    PanSweepSE SEQ_SE_DP_KAZE, -117, 117, 4, 2
+    Wait 18
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 8, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    RestoreBackground 25, 1
+    WaitForBackgroundSwitch
+    End

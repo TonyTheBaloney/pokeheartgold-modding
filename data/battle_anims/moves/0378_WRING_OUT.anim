@@ -1,0 +1,32 @@
+# member 378: WRING_OUT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 396
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    RepeatSE SEQ_SE_DP_021, 117, 10, 5
+    BeginLoop 3
+    CallFunc StretchBattler, 264, 100, 80, 100, 140, 100, 1, 0x50005
+    Wait 10
+    CallFunc StretchBattler, 264, 100, 120, 100, 80, 100, 1, 0x50005
+    Wait 10
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End

@@ -1,0 +1,51 @@
+# member 416: GIGA_IMPACT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 434
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_131, -117
+    CallFunc MoveBattlerBy, 4, -16, 8, 258
+    WaitForTasks
+    Wait 15
+    ClearArgs
+    SetArg 7, 1
+    SwitchBackground 5, 0x800001
+    PlaySEWithPan SEQ_SE_DP_140, -117
+    CallFunc MoveBattlerBy, 4, 32, -16, 258
+    WaitForTasks
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CallFunc MoveBattlerBy, 4, -16, 8, 258
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_161, 117
+    CallFunc ShakeTargets, 4, 0, 1, 2, 264
+    CallFunc ShakeBg, 0, 5, 0, 5, 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 7, 1
+    RestoreBackground 5, 0x1000001
+    WaitForBackgroundSwitch
+    End

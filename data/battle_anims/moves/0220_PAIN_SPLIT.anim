@@ -1,0 +1,31 @@
+# member 220: PAIN_SPLIT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 238
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 8, 264
+    CallFunc ShakeTargets, 2, 0, 1, 8, 258
+    DelayedSE SEQ_SE_DP_W025B, -117, 1
+    DelayedSE SEQ_SE_DP_W025B, 117, 5
+    DelayedSE SEQ_SE_DP_W025B, -117, 10
+    DelayedSE SEQ_SE_DP_W025B, 117, 15
+    DelayedSE SEQ_SE_DP_W025B, -117, 20
+    DelayedSE SEQ_SE_DP_W025B, 117, 25
+    WaitForParticles
+    FreeParticleSystem 0
+    End

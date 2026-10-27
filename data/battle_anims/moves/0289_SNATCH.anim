@@ -1,0 +1,21 @@
+# member 289: SNATCH
+    JumpByVariantBit0 L4, L32
+    End
+L4:
+    PlaySEWithPan SEQ_SE_DP_W036, -117
+    CallFunc MoveBattlerBy, 4, -8, 4, 258
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, -8, -4, 258
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 16, 0, 258
+    WaitForTasks
+    End
+L32:
+    CallFunc SlideOutAndTransform, 2
+    PlaySEWithPan SEQ_SE_DP_W054, -117
+    DelayedSE SEQ_SE_DP_210, 117, 15
+    DelayedSE SEQ_SE_DP_W054, -117, 30
+    Wait 20
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForTasks
+    End

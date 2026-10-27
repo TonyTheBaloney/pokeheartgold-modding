@@ -1,6 +1,5 @@
 prebuilt_files = [
     '0',
-    '1',
     '2',
     '3',
     '4',
@@ -22,4 +21,15 @@ nitrofs_files += custom_target('land_data',
     depfile : 'land_data.d',
     command : [mapkit_sh, mapkit_root, 'landdata', 'pack', '@OUTPUT@', '--depfile', '@DEPFILE@'],
     depend_files : mapkit_sources + files(mapkit_dir / 'landdata.py', mapkit_dir / 'bdhc.py'),
+)
+
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] effect animation scripts (a/0/6/1: status,
+# weather, stat changes...) from data/battle_anims/effects/NNNN_*.anim; see
+# docs/modding/move-animations.md.
+nitrofs_files += custom_target('battle_anims_effects',
+    output : '1',
+    depfile : 'battle_anims_effects.d',
+    command : [battleanim_py, 'build', meson.project_source_root() / 'data' / 'battle_anims' / 'effects',
+        '@OUTPUT@', '--depfile', '@DEPFILE@'],
+    depend_files : files('../../../../tools/battleanim/battleanim.py'),
 )

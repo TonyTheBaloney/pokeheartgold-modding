@@ -1,0 +1,20 @@
+# member 134: KINESIS
+    PlaySEWithPan SEQ_SE_DP_W060, -117
+    InitSpriteManager 0, 3, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 5
+    LoadPaletteResource 0, 5, 1
+    LoadCellResource 0, 5
+    LoadAnimResource 0, 5
+    CreateSpriteWithFunc 0, OrbitingSpriteTrail, 5, 5, 5, 5, 0, 0
+    Wait 32
+    PlaySEWithPan SEQ_SE_DP_154, -117
+    DelayedSE SEQ_SE_DP_154, -117, 20
+    BeginLoop 3
+    Wait 20
+    EndLoop
+    Wait 27
+    PlaySEWithPan SEQ_SE_DP_150, -117
+    Wait 13
+    WaitForTasks
+    FreeSpriteManager 0
+    End

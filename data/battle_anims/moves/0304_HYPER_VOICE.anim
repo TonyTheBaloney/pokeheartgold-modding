@@ -1,0 +1,38 @@
+# member 304: HYPER_VOICE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 322
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    BeginLoop 2
+    Wait 10
+    PlayCry 4, -117, 100
+    WaitForCry 0
+    PlayCry 6, -117, 127
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 22, 16, 0, 0
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc FadeBgPalette, 0, 1, 0, 8, 13311
+    CallFunc ShakeTargets, 0, 2, 1, 2, 264
+    CallFunc ShakeTargets, 0, 2, 1, 2, 272
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, 1, 8, 0, 13311
+    WaitForTasks
+    WaitForCry 0
+    EndLoop
+    Wait 2
+    WaitForParticles
+    FreeParticleSystem 0
+    End

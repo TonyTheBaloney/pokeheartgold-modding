@@ -1,0 +1,42 @@
+# member 457: HEAD_SMASH
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 475
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    ClearArgs
+    SetArg 7, 1
+    SwitchBackground 40, 1
+    PlaySEWithPan SEQ_SE_DP_143, 117
+    CallFunc MoveBattlerBy, 2, 14, -8, 258
+    WaitForTasks
+    CallFunc ShakeBg, 4, 4, 0, 10, 0
+    CreateEmitter 0, 4, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_186, 117
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    CallFunc MoveBattlerBy, 2, -14, 8, 258
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 14, 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 7, 1
+    RestoreBackground 40, 1
+    WaitForBackgroundSwitch
+    End

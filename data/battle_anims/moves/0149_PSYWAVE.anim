@@ -1,0 +1,31 @@
+# member 149: PSYWAVE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 171
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitterInSlot 0, 0, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 19, 64, 0, 0, 1
+    PanSweepSE SEQ_SE_DP_181, -117, 117, 4, 2
+    Wait 8
+    PanSweepSE SEQ_SE_DP_181, -117, 117, 4, 2
+    Wait 10
+    CreateEmitter 0, 1, SetPositionAtDefender
+    DelayedSE SEQ_SE_DP_161, 117, 2
+    Wait 10
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    End

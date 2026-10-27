@@ -1,0 +1,47 @@
+# member 221: SACRED_FIRE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 239
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    Wait 1
+    ClearArgs
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    SwitchBackground 29, 0x800001
+    WaitForBackgroundSwitch
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_W221B, 117
+    Wait 40
+    PlaySEWithPan SEQ_SE_DP_W053, 117
+    Wait 10
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 10, 0
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    StopSE SEQ_SE_DP_W053
+    ClearArgs
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    RestoreBackground 28, 0x1000001
+    WaitForBackgroundSwitch
+    End

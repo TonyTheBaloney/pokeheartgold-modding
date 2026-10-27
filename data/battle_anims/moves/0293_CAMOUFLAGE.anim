@@ -1,0 +1,17 @@
+# member 293: CAMOUFLAGE
+    PlaySEWithPan SEQ_SE_DP_W185, -117
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 0, 0, 0, 0
+    CreateBattlerSprite 0, 0, 1, 0
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 2, 0, 4, 4
+    StartBattlerSpriteDraw 2, 0, 4
+    CallFunc WaveAttackerOnBg
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End

@@ -1,0 +1,65 @@
+# member 109: CONFUSE_RAY
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 136
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 136
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfContest L146
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 1
+    PanSweepSE SEQ_SE_DP_153, -117, 117, 4, 2
+    Wait 6
+    CreateEmitter 1, 1, SetPositionAtDefender
+    DelayedSE SEQ_SE_DP_061, 117, 35
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End
+L146:
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 0, 28, 22, 0, 4
+    PanSweepSE SEQ_SE_DP_153, -117, 117, 4, 2
+    Wait 6
+    CreateEmitter 1, 1, SetPositionAtDefender
+    DelayedSE SEQ_SE_DP_061, 117, 30
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

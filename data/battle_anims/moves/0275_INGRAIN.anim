@@ -1,0 +1,32 @@
+# member 275: INGRAIN
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 293
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitSpriteManager 0, 4, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 26
+    LoadPaletteResource 0, 25, 1
+    LoadCellResource 0, 26
+    LoadAnimResource 0, 26
+    CreateSpriteWithFunc 0, FlashingSpritesAroundAttacker, 26, 25, 26, 26, 0, 0, 4
+    DelayedSE SEQ_SE_DP_W010, -117, 10
+    DelayedSE SEQ_SE_DP_W010, -117, 28
+    Wait 35
+    RepeatSE SEQ_SE_DP_W145C, -117, 2, 12
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    WaitForTasks
+    FreeSpriteManager 0
+    End

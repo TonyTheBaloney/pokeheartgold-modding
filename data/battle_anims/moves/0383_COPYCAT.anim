@@ -1,0 +1,47 @@
+# member 383: COPYCAT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 401
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_SHUSHU, 117
+    JumpIfContest L106
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 1, 1, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 1, 1, 1, 0, 0
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    Wait 35
+    PanSweepSE SEQ_SE_DP_W383, 117, -117, 4, 2
+    Wait 10
+    CallFunc BattlerPaletteFade, 2, 0, 1, 4328, 10, 10
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L106:
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 1, 1, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 1, 1, 1, 0, 0
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    Wait 35
+    PanSweepSE SEQ_SE_DP_W383, 117, -117, 4, 2
+    Wait 10
+    CallFunc BattlerPaletteFade, 2, 0, 1, 4328, 10, 10
+    WaitForParticles
+    FreeParticleSystem 0
+    End

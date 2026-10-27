@@ -1,0 +1,64 @@
+# member 66: SUBMISSION
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 97
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 35
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc CircleBattler, 7, 10, 2
+    CallFunc CircleBattler, 7, 10, 8
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    DelayedSE SEQ_SE_DP_W104, -117, 1
+    DelayedSE SEQ_SE_DP_W025B, 117, 10
+    DelayedSE SEQ_SE_DP_W104, -117, 10
+    DelayedSE SEQ_SE_DP_W025B, 117, 20
+    DelayedSE SEQ_SE_DP_W104, -117, 20
+    DelayedSE SEQ_SE_DP_W025B, 117, 30
+    DelayedSE SEQ_SE_DP_W104, -117, 30
+    DelayedSE SEQ_SE_DP_W025B, 117, 40
+    DelayedSE SEQ_SE_DP_W104, -117, 40
+    DelayedSE SEQ_SE_DP_W025B, 117, 50
+    DelayedSE SEQ_SE_DP_W104, -117, 50
+    DelayedSE SEQ_SE_DP_W025B, 117, 60
+    DelayedSE SEQ_SE_DP_W104, -117, 60
+    DelayedSE SEQ_SE_DP_W025B, 117, 70
+    DelayedSE SEQ_SE_DP_W104, -117, 70
+    DelayedSE SEQ_SE_DP_W025B, 117, 80
+    BeginLoop 5
+    Wait 8
+    CreateEmitter 1, 0, SetPositionAtDefender
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    WaitForTasks
+    End

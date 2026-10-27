@@ -1,0 +1,33 @@
+# member 465: SEED_FLARE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 483
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_SHUSHU, -117
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc FadeBgPalette, 0, 0, 0, 13, 32767
+    WaitForTasks
+    Wait 40
+    PlaySEWithPan SEQ_SE_DP_W465, 0
+    CallFunc FadeBgPalette, 0, 0, 13, 0, 32767
+    CallFunc ShakeBg, 4, 4, 0, 10, 0
+    CallFunc ShakeTargets, 2, 0, 1, 6, 264
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

@@ -1,0 +1,32 @@
+# member 34: BODY_SLAM
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 65
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc MoveBattlerBy, 4, 0, 16, 258
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 0, -16, 258
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W036, 117
+    DelayedSE SEQ_SE_DP_W025B, 117, 6
+    CallFunc MoveBattlerBy, 4, 24, 0, 258
+    WaitForTasks
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc ShakeTargets, 3, 0, 1, 4, 264
+    CallFunc MoveBattlerBy, 4, -24, 0, 258
+    WaitForTasks
+    End

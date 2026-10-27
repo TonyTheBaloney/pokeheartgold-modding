@@ -1,0 +1,195 @@
+# member 143: SKY_ATTACK
+    JumpByVariantBit0 L4, L280
+    End
+L4:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 167
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    JumpIfSameSide L129
+    CallFunc FadeBgPalette, 0, 1, 0, 10, 0
+    CallFunc BattlerPaletteFade, 2, 0, 1, 0, 10, 0
+    CallFunc BattlerPaletteFade, 4, 0, 1, 0, 10, 30
+    CallFunc BattlerPaletteFade, 16, 0, 1, 0, 10, 30
+    RepeatSE SEQ_SE_DP_W360, -117, 12, 2
+    Wait 25
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 12, 0
+    CallFunc ShakeTargets, 1, 0, 1, 6, 258
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, 1, 10, 0, 0
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    End
+L129:
+    JumpBySide 0, L134, L207
+    End
+L134:
+    CallFunc FadeBgPalette, 0, 1, 0, 10, 0
+    CallFunc BattlerPaletteFade, 2, 0, 1, 0, 10, 0
+    CallFunc BattlerPaletteFade, 2056, 0, 1, 0, 10, 30
+    CallFunc BattlerPaletteFade, 2064, 0, 1, 0, 10, 30
+    RepeatSE SEQ_SE_DP_W360, -117, 12, 2
+    Wait 25
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 12, 0
+    CallFunc ShakeTargets, 1, 0, 1, 6, 258
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, 1, 10, 0, 0
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    End
+L207:
+    CallFunc FadeBgPalette, 0, 1, 0, 10, 0
+    CallFunc BattlerPaletteFade, 2, 0, 1, 0, 10, 0
+    CallFunc BattlerPaletteFade, 2050, 0, 1, 0, 10, 30
+    CallFunc BattlerPaletteFade, 2052, 0, 1, 0, 10, 30
+    RepeatSE SEQ_SE_DP_W360, -117, 12, 2
+    Wait 25
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 12, 0
+    CallFunc ShakeTargets, 1, 0, 1, 6, 258
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, 1, 10, 0, 0
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    End
+L280:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 167
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    SetArg 4, 0
+    SwitchBackground 18, 0x20001
+    WaitForBackgroundSwitch
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 0, 0, 0, 0
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 2, 0, 4, 4
+    StartBattlerSpriteDraw 2, 0, 4
+    CallFunc BlendBattlerSprites, 1, 16, 0, 0, 16, 8
+    Wait 1
+    CallFunc SetBattlerVanished, 2, 1
+    WaitForTasks
+    SetBattlerSpriteVisible 0, 0
+    SetBattlerSpriteVisible 4, 0
+    PanSweepSE SEQ_SE_DP_W360C, -117, 117, 4, 2
+    JumpIfContest L489
+    JumpBySide 0, L400, L578
+    End
+L400:
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_186, 117
+    CallFunc ShakeTargets, 4, 0, 1, 6, 264
+    CreateEmitter 0, 6, SetPositionAtDefender
+    WaitForParticles
+    FreeParticleSystem 0
+    SetBattlerSpriteVisible 0, 1
+    SetBattlerSpriteVisible 4, 1
+    CallFunc BlendBattlerSprites, 1, 0, 16, 16, 0, 8
+    Wait 7
+    CallFunc SetBattlerVanished, 2, 0
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    SetArg 4, 0
+    RestoreBackground 18, 0x40001
+    WaitForBackgroundSwitch
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End
+L489:
+    CreateEmitter 0, 5, ConfigureFromScript
+    EmitterData 0, 2, 1, 1, 0, 0
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_186, 117
+    CallFunc ShakeTargets, 4, 0, 1, 6, 264
+    CreateEmitter 0, 6, SetPositionAtDefender
+    WaitForParticles
+    FreeParticleSystem 0
+    SetBattlerSpriteVisible 0, 1
+    SetBattlerSpriteVisible 4, 1
+    CallFunc BlendBattlerSprites, 1, 0, 16, 16, 0, 8
+    Wait 7
+    CallFunc SetBattlerVanished, 2, 0
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    SetArg 4, 0
+    RestoreBackground 18, 0x40001
+    WaitForBackgroundSwitch
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End
+L578:
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_186, 117
+    CallFunc ShakeTargets, 4, 0, 1, 6, 264
+    CreateEmitter 0, 6, SetPositionAtDefender
+    WaitForParticles
+    FreeParticleSystem 0
+    SetBattlerSpriteVisible 0, 1
+    SetBattlerSpriteVisible 4, 1
+    CallFunc BlendBattlerSprites, 1, 0, 16, 16, 0, 8
+    Wait 7
+    CallFunc SetBattlerVanished, 2, 0
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    SetArg 4, 0
+    RestoreBackground 18, 0x40001
+    WaitForBackgroundSwitch
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End

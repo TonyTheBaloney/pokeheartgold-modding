@@ -1,0 +1,300 @@
+# member 307: BLAST_BURN
+    JumpBySide 0, L5, L1013
+    End
+L5:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 325
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 84
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 2124
+    WaitForTasks
+    RepeatSE SEQ_SE_DP_W085, -117, 1, 2
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    CreateBattlerSprite 0, 0, 0, 0
+    CreateBattlerSprite 2, 0, 1, 1
+    CallFunc DropSpriteStepwise, 0, 31, 3, 0, 0
+    CallFunc DropSpriteStepwise, 1, 30, 3, 0, 2
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 3, -90, -90, -90, -90, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 4, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 4, -90, -90, -90, -90, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 5, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 5, -90, -90, -90, -90, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 6, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 6, -45, -45, -45, -45, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 7, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 7, -45, -45, -45, -45, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 8, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 8, -45, -45, -45, -45, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 0, 0, 0, 0, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 0, 0, 0, 0, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 0, 0, 0, 0, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 45, 45, 45, 45, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 45, 45, 45, 45, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 45, 45, 45, 45, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 12, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 12, 90, 90, 90, 90, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 13, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 13, 90, 90, 90, 90, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 14, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 14, 90, 90, 90, 90, 48, 24, 7, 0, 0
+    Wait 8
+    RepeatSE SEQ_SE_DP_W085, -117, 1, 2
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 3, -90, -90, -90, -90, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 4, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 4, -90, -90, -90, -90, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 5, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 5, -90, -90, -90, -90, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 6, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 6, -45, -45, -45, -45, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 7, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 7, -45, -45, -45, -45, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 8, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 8, -45, -45, -45, -45, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 0, 0, 0, 0, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 0, 0, 0, 0, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 0, 0, 0, 0, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 45, 45, 45, 45, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 45, 45, 45, 45, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 45, 45, 45, 45, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 12, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 12, 90, 90, 90, 90, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 13, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 13, 90, 90, 90, 90, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 14, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 14, 90, 90, 90, 90, 64, 24, 7, 0, 0
+    Wait 8
+    RepeatSE SEQ_SE_DP_W085, -117, 1, 2
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 3, -90, -90, -90, -90, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 4, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 4, -90, -90, -90, -90, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 5, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 5, -90, -90, -90, -90, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 6, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 6, -45, -45, -45, -45, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 7, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 7, -45, -45, -45, -45, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 8, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 8, -45, -45, -45, -45, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 0, 0, 0, 0, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 0, 0, 0, 0, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 0, 0, 0, 0, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 45, 45, 45, 45, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 45, 45, 45, 45, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 45, 45, 45, 45, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 12, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 12, 90, 90, 90, 90, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 13, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 13, 90, 90, 90, 90, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 14, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 14, 90, 90, 90, 90, 92, 24, 7, 0, 0
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W379, 117
+    CreateEmitter 1, 0, SetPositionAtDefender
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 10, 0
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    WaitForTasks
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    FreeBattlerSpriteManager
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 2124
+    WaitForTasks
+    End
+L1013:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 325
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 84
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 2124
+    WaitForTasks
+    RepeatSE SEQ_SE_DP_W085, -117, 1, 2
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 3, 90, 90, 90, 90, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 4, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 4, 90, 90, 90, 90, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 5, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 5, 90, 90, 90, 90, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 6, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 6, 135, 135, 135, 135, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 7, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 7, 135, 135, 135, 135, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 8, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 8, 135, 135, 135, 135, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 180, 180, 180, 180, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 180, 180, 180, 180, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 180, 180, 180, 180, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 225, 225, 225, 225, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 225, 225, 225, 225, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 225, 225, 225, 225, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 12, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 12, 270, 270, 270, 270, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 13, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 13, 270, 270, 270, 270, 48, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 14, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 14, 270, 270, 270, 270, 48, 24, 7, 0, 0
+    Wait 8
+    RepeatSE SEQ_SE_DP_W085, -117, 1, 2
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 3, 90, 90, 90, 90, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 4, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 4, 90, 90, 90, 90, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 5, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 5, 90, 90, 90, 90, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 6, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 6, 135, 135, 135, 135, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 7, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 7, 135, 135, 135, 135, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 8, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 8, 135, 135, 135, 135, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 180, 180, 180, 180, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 180, 180, 180, 180, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 180, 180, 180, 180, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 225, 225, 225, 225, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 225, 225, 225, 225, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 225, 225, 225, 225, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 12, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 12, 270, 270, 270, 270, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 13, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 13, 270, 270, 270, 270, 64, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 14, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 14, 270, 270, 270, 270, 64, 24, 7, 0, 0
+    Wait 8
+    RepeatSE SEQ_SE_DP_W085, -117, 1, 2
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 3, 90, 90, 90, 90, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 4, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 4, 90, 90, 90, 90, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 5, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 5, 90, 90, 90, 90, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 6, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 6, 135, 135, 135, 135, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 7, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 7, 135, 135, 135, 135, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 8, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 8, 135, 135, 135, 135, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 180, 180, 180, 180, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 180, 180, 180, 180, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 180, 180, 180, 180, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 9, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 9, 225, 225, 225, 225, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 10, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 10, 225, 225, 225, 225, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 11, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 11, 225, 225, 225, 225, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 12, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 12, 270, 270, 270, 270, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 13, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 13, 270, 270, 270, 270, 92, 24, 7, 0, 0
+    CreateEmitterInSlot 0, 14, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 14, 270, 270, 270, 270, 92, 24, 7, 0, 0
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W379, 117
+    CreateEmitter 1, 0, SetPositionAtDefender
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 10, 0
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 2124
+    WaitForTasks
+    End

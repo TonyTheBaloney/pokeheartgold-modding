@@ -1,0 +1,48 @@
+# member 56: HYDRO_PUMP
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 87
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    ClearArgs
+    SetArg 6, 1
+    SetArg 7, 1
+    SetArg 0, -32
+    SwitchBackground 9, 0x20001
+    WaitForBackgroundSwitch
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 8, 1, 0, 0
+    CallFunc ShakeBg, 0, 3, 0, 20, 0
+    Wait 2
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 10, 6, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 10, 6, 0, 0
+    PanSweepSE SEQ_SE_DP_SUIRYU, -117, 117, 4, 2
+    Wait 8
+    CallFunc ShakeTargets, 2, 0, 1, 14, 258
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc BattlerPaletteFade, 8, 0, 1, 49930, 10, 25
+    CallFunc ShakeTargets, 2, 0, 1, 14, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 7, 1
+    SetArg 6, 1
+    SetArg 0, -32
+    RestoreBackground 9, 0x40001
+    WaitForBackgroundSwitch
+    End

@@ -1,0 +1,54 @@
+# member 130: SKULL_BASH
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 155
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpByVariantBit0 L50, L86
+    End
+L50:
+    BeginLoop 2
+    PlaySEWithPan SEQ_SE_DP_W036, -117
+    CallFunc MoveBattlerBy, 4, -24, 0, 258
+    WaitForTasks
+    CallFunc RotateBattler, 65535, 0x10AA9, 10, 1, 0, 64
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 24, 0, 258
+    WaitForTasks
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L86:
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W036, -117
+    CallFunc MoveBattlerBy, 4, -24, 0, 258
+    WaitForTasks
+    CallFunc RotateBattler, 65535, 0x10AA9, 10, 1
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 38, -8, 258
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W025B, 117
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc ShakeTargets, 6, 0, 1, 6, 264
+    CallFunc MoveBattlerBy, 2, -14, 8, 258
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

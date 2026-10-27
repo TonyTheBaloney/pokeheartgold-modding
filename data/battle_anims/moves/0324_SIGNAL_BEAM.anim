@@ -1,0 +1,61 @@
+# member 324: SIGNAL_BEAM
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 342
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfSameSide L107
+    JumpIfContest L162
+    CreateEmitterByPosition6 0, 0, 1, 2, 3, 4, 5, SetPositionByBattlerTypes
+    CallFunc ShakeTargets, 1, 0, 0, 15, 258
+    CallFunc ShakeTargets, 1, 0, 0, 15, 264
+    RepeatSE SEQ_SE_DP_W062, 0, 6, 2
+    BeginLoop 3
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 8
+    Wait 8
+    CallFunc BattlerPaletteFade, 8, 0, 1, 11252, 8
+    Wait 8
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L107:
+    CreateEmitterByPosition4 0, 7, 8, 7, 8, SetPositionAtAttacker
+    CallFunc ShakeTargets, 1, 0, 0, 15, 258
+    CallFunc ShakeTargets, 1, 0, 0, 15, 264
+    RepeatSE SEQ_SE_DP_W062, 0, 6, 2
+    BeginLoop 3
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 8
+    Wait 8
+    CallFunc BattlerPaletteFade, 8, 0, 1, 11252, 8
+    Wait 8
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L162:
+    CreateEmitter 0, 6, SetPositionAtAttacker
+    CallFunc ShakeTargets, 1, 0, 0, 15, 258
+    CallFunc ShakeTargets, 1, 0, 0, 15, 264
+    RepeatSE SEQ_SE_DP_W062, 0, 6, 2
+    BeginLoop 3
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31, 8
+    Wait 8
+    CallFunc BattlerPaletteFade, 8, 0, 1, 11252, 8
+    Wait 8
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End

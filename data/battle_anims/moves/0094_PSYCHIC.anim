@@ -1,0 +1,27 @@
+# member 94: PSYCHIC
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    SwitchBackground 52, 0x800001
+    WaitForBackgroundLoaded
+    CallFunc BattleBgWave, 50
+    WaitForBackgroundSwitch
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    CallFunc BattlerPaletteFade, 2, 0, 1, 13311, 10, 0
+    Wait 10
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 3, 0, 4, 4
+    StartBattlerSpriteDraw 3, 0, 4
+    RepeatSE SEQ_SE_DP_480, 117, 4, 2
+    CallFunc ShakeDefenderWithOverlay
+    Wait 20
+    ClearArgs
+    SetArg 4, 1
+    RestoreBackground 52, 0x1000001
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    WaitForBackgroundSwitch
+    End

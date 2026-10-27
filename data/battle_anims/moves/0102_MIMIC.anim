@@ -1,0 +1,68 @@
+# member 102: MIMIC
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 131
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfContest L125
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    CreateBattlerSprite 1, 0, 0, 0
+    CreateBattlerSprite 1, 0, 1, 1
+    CreateBattlerSprite 3, 0, 2, 2
+    PlaySEWithPan SEQ_SE_DP_W107, 117
+    CallFunc ShrinkSpriteOnDefender
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 1, 1, 0, 0
+    Wait 25
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 12
+    PlaySEWithPan SEQ_SE_DP_061, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    FreeBattlerSpriteManager
+    End
+L125:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    CreateBattlerSprite 1, 0, 0, 0
+    CreateBattlerSprite 1, 0, 1, 1
+    CreateBattlerSprite 3, 0, 2, 2
+    PlaySEWithPan SEQ_SE_DP_W107, 117
+    CallFunc ShrinkSpriteOnDefender
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 1, 1, 0, 0
+    Wait 25
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 12
+    PlaySEWithPan SEQ_SE_DP_061, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    WaitForTasks
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    FreeBattlerSpriteManager
+    End

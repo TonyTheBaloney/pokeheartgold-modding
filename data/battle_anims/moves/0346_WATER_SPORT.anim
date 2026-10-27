@@ -1,0 +1,41 @@
+# member 346: WATER_SPORT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 364
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc StretchBattler, 258, 100, 110, 100, 80, 100, 0x50001, 0x50005
+    WaitForTasks
+    CallFunc StretchBattler, 258, 100, 100, 100, 120, 100, 1, 0x50005
+    Wait 3
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    WaitForTasks
+    BeginLoop 2
+    PlaySEWithPan SEQ_SE_DP_W057, -117
+    CallFunc StretchBattler, 258, 100, 110, 100, 80, 100, 0x40001, 0x40004
+    WaitForTasks
+    CallFunc StretchBattler, 258, 100, 100, 100, 120, 100, 1, 0x40004
+    WaitForTasks
+    EndLoop
+    PlaySEWithPan SEQ_SE_DP_W057, -117
+    DelayedSE SEQ_SE_DP_NAMI, 0, 15
+    Wait 10
+    CreateEmitter 0, 0, SetPositionAtDefender
+    Wait 10
+    CallFunc ShakeTargets, 2, 0, 1, 8, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    End

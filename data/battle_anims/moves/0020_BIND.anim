@@ -1,0 +1,32 @@
+# member 20: BIND
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 51
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    BeginLoop 2
+    CallFunc SlideBattler2, 3, 24, 258
+    WaitForTasks
+    CallFunc SlideBattler2, 3, -24, 258
+    Wait 1
+    CallFunc StretchBattler, 264, 100, 70, 100, 100, 100, 1, 0x50005
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W020B, 117
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    End

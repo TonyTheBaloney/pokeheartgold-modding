@@ -1,0 +1,37 @@
+# member 360: GYRO_BALL
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 378
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_W360, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    Wait 40
+    PlaySEWithPan SEQ_SE_DP_W360C, 117
+    CallFunc MoveBattlerBy, 2, 16, -8, 258
+    WaitForTasks
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CallFunc MoveBattlerBy, 2, -16, 8, 258
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

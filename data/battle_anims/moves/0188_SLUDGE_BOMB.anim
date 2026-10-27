@@ -1,0 +1,30 @@
+# member 188: SLUDGE_BOMB
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 208
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitterInSlot 0, 1, 2, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 1, 0, 0, 0, 14, 64
+    RepeatSE SEQ_SE_DP_W145B, 0, 2, 4
+    Wait 10
+    RepeatSE SEQ_SE_DP_W092D, 117, 2, 12
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    Wait 5
+    CallFunc BattlerPaletteFade, 8, 0, 2, 31764, 14, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End

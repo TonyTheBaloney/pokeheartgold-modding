@@ -1,0 +1,17 @@
+# member 193: FORESIGHT
+    InitSpriteManager 0, 1, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 9
+    LoadPaletteResource 0, 9, 1
+    LoadCellResource 0, 9
+    LoadAnimResource 0, 9
+    CreateSpriteWithFunc 0, ZigzagSlash, 9, 9, 9, 9, 0, 0
+    BeginLoop 6
+    Wait 2
+    PlaySEWithPan SEQ_SE_DP_100, 117
+    Wait 10
+    EndLoop
+    Wait 2
+    PlaySEWithPan SEQ_SE_DP_W043, 117
+    WaitForTasks
+    FreeSpriteManager 0
+    End

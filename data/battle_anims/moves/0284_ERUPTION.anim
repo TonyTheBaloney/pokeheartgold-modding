@@ -1,0 +1,81 @@
+# member 284: ERUPTION
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 302
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 2124
+    WaitForTasks
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc StretchBattler, 258, 100, 120, 100, 80, 100, 1, 0x40004
+    PlaySEWithPan SEQ_SE_DP_W153, -117
+    WaitForTasks
+    CallFunc StretchBattler, 258, 100, 80, 100, 160, 100, 1, 0x40004
+    DelayedSE SEQ_SE_DP_W153, -117, 10
+    WaitForTasks
+    BeginLoop 1
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc StretchBattler, 258, 100, 120, 100, 80, 100, 1, 0x40004
+    WaitForTasks
+    CallFunc StretchBattler, 258, 100, 80, 100, 160, 100, 1, 0x40004
+    WaitForTasks
+    EndLoop
+    Wait 15
+    PlaySEWithPan SEQ_SE_DP_W088, 117
+    CallFunc ShakeBg, 0, 5, 0, 4, 3
+    CallFunc BattlerPaletteFade, 8, 0, 3, 2124, 14, 0
+    CallFunc BattlerPaletteFade, 16, 0, 3, 2124, 14, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, -6000, 1000, 4000
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_W088, 117
+    CallFunc ShakeTargets, 3, 0, 1, 15, 264
+    CallFunc ShakeTargets, 3, 0, 1, 15, 272
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 6000, -2000, 4000
+    Wait 2
+    PlaySEWithPan SEQ_SE_DP_W088, 117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 12000, 0, -4000
+    Wait 3
+    PlaySEWithPan SEQ_SE_DP_W088, 117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, -10000, -1000, -4000
+    Wait 2
+    PlaySEWithPan SEQ_SE_DP_W088, 117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, -2000, -2000, 4000
+    Wait 4
+    PlaySEWithPan SEQ_SE_DP_W088, 117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 4000, -3000, 4000
+    Wait 2
+    PlaySEWithPan SEQ_SE_DP_W088, 117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, -5000, -4000, -4000
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 2124
+    WaitForTasks
+    End

@@ -1,0 +1,63 @@
+# member 126: FIRE_BLAST
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 151
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 151
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 5, SetPositionAtAttacker
+    RepeatSE SEQ_SE_DP_W172, -117, 4, 10
+    Wait 20
+    CreateEmitterInSlot 0, 1, 6, SetPositionAtAttacker
+    CallFunc MoveEmitter, 1, 0, 0, 0, 19, 64
+    Wait 25
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 4, SetPositionAtDefender
+    Wait 5
+    ClearArgs
+    SetArg 7, 1
+    SwitchBackground 22, 0x800001
+    StopSE SEQ_SE_DP_W172
+    PlaySEWithPan SEQ_SE_DP_W172B, 117
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W120, 117
+    CallFunc BattlerPaletteFade, 8, 0, 2, 31, 10, 0
+    CallFunc ShakeTargets, 2, 0, 1, 8, 264
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    SetArg 7, 1
+    RestoreBackground 22, 0x1000001
+    WaitForBackgroundSwitch
+    End

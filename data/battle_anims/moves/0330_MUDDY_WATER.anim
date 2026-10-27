@@ -1,0 +1,67 @@
+# member 330: MUDDY_WATER
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 348
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitSpriteManager 0, 2, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 0
+    LoadPaletteResource 0, 29, 1
+    LoadCellResource 0, 0
+    LoadAnimResource 0, 0
+    CreateSprite 0, 0, 0, 29, 0, 0, 0, 0
+    CreateSprite 0, 1, 0, 29, 0, 0, 0, 0
+    PlaySEWithPan SEQ_SE_DP_W057, -117
+    CallFunc StretchFadeSprite, 1
+    WaitForTasks
+    FreeSpriteManager 0
+    CallFunc SlidingBg2, 49, 0, 256, -6, 6, 1, 16, 45
+    PlaySEWithPan SEQ_SE_DP_W057B, 0
+    Wait 15
+    CreateEmitter 0, 0, SetPositionAtDefenderSide
+    CreateEmitter 0, 1, SetPositionAtDefenderSide
+    CreateEmitter 0, 2, SetPositionAtDefenderSide
+    JumpIfSameSide L165
+    CallFunc BattlerPaletteFade, 8, 0, 1, 2124, 10, 10
+    CallFunc BattlerPaletteFade, 16, 0, 1, 2124, 10, 10
+    CallFunc ShakeTargets, 2, 0, 1, 6, 264
+    CallFunc ShakeTargets, 2, 0, 1, 6, 272
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L165:
+    JumpBySide 0, L170, L210
+    End
+L170:
+    CallFunc BattlerPaletteFade, 8, 0, 1, 2124, 10, 10
+    CallFunc BattlerPaletteFade, 2056, 0, 1, 2124, 10, 10
+    CallFunc BattlerPaletteFade, 2064, 0, 1, 2124, 10, 10
+    CallFunc ShakeTargets, 2, 0, 1, 6, 288
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L210:
+    CallFunc BattlerPaletteFade, 8, 0, 1, 2124, 10, 10
+    CallFunc BattlerPaletteFade, 2050, 0, 1, 2124, 10, 10
+    CallFunc BattlerPaletteFade, 2052, 0, 1, 2124, 10, 10
+    CallFunc ShakeTargets, 2, 0, 1, 6, 288
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+    End
+    End

@@ -1,0 +1,20 @@
+# member 180: SPITE
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    Wait 2
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    StartBattlerSpriteDraw 1, 1, 0
+    CallFunc BattlerPaletteFade, 2, 0, 3, 32767, 10
+    CallFunc WaveDefenderOnBg
+    CopyBattlerToBg 1, 0
+    PlaySEWithPan SEQ_SE_DP_W060, -117
+    WaitForTasks
+    ClearBattlerBg 0
+    FreeBattlerSpriteManager
+    StopBattlerSpriteDraw 1
+    DeleteBattlerSprite 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

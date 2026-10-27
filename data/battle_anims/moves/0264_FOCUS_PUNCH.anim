@@ -1,0 +1,66 @@
+# member 264: FOCUS_PUNCH
+    JumpByVariantBit0 L4, L61
+    End
+L4:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 282
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_W082, -117
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L61:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 282
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 4, SetPositionAtDefender
+    CreateEmitter 0, 5, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_W025B, 117
+    ClearArgs
+    SetArg 7, 1
+    SwitchBackground 31, 1
+    CallFunc MoveBattlerBy, 2, 16, -8, 258
+    Wait 10
+    CallFunc ShakeBg, 5, 0, 1, 6, 0
+    CallFunc ShakeTargets, 4, 0, 1, 4, 264
+    CallFunc MoveBattlerBy, 2, -16, 8, 258
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 7, 1
+    RestoreBackground 31, 1
+    WaitForBackgroundSwitch
+    End

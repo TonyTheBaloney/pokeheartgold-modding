@@ -1,0 +1,92 @@
+# member 369: U_TURN
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 387
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpByVariantBit0 L50, L154
+    End
+L50:
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    JumpIfContest L195
+    CallFunc SetBattlerVanished, 2, 1
+    PlaySEWithPan SEQ_SE_DP_080, -117
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_007, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_030, 117
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 5, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    Wait 15
+    PlaySEWithPan SEQ_SE_DP_080, -117
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    Wait 5
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L154:
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CallFunc SetBattlerVanished, 2, 1
+    PlaySEWithPan SEQ_SE_DP_080, -117
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_007, -117
+    JumpBySide 0, L179, L187
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L179:
+    CreateEmitter 0, 6, SetPositionAtAttacker
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L187:
+    CreateEmitter 0, 7, SetPositionAtAttacker
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L195:
+    CallFunc SetBattlerVanished, 2, 1
+    PlaySEWithPan SEQ_SE_DP_080, -117
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_007, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 1, 1, 0, 0
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_030, 117
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 5, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    Wait 15
+    PlaySEWithPan SEQ_SE_DP_080, -117
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    Wait 5
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End

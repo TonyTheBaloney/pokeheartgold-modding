@@ -1,0 +1,34 @@
+# member 448: CHATTER
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 466
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    PlayCry 0, -117, 127
+    BeginLoop 2
+    CallFunc SlideBattler2, 8, 8, 258
+    Wait 8
+    CallFunc SlideBattler2, 16, -16, 258
+    Wait 16
+    CallFunc SlideBattler2, 8, 8, 258
+    Wait 8
+    EndLoop
+    WaitForCry 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

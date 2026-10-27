@@ -1,0 +1,26 @@
+# member 144: TRANSFORM
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CallFunc SetBattlerVanished, 2, 1
+    CreateBattlerSprite 0, 0, 0, 0
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 2, 0, 4, 4
+    StartBattlerSpriteDraw 2, 0, 4
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W100, -117
+    CallFunc SpriteMosaic, 0, 1, 0, 0
+    WaitForTasks
+    DeleteBattlerSprite 0
+    ChangeBattlerPic 0
+    LoadBattlerSpriteResources 1
+    CreateBattlerSprite 0, 0, 1, 1
+    CallFunc SpriteMosaic, 1, -1, 15, 15
+    Wait 12
+    CallFunc SetBattlerVanished, 2, 0
+    Wait 1
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End

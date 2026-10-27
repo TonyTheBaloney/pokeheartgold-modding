@@ -1,0 +1,43 @@
+# member 390: TOXIC_SPIKES
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 408
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    RepeatSE SEQ_SE_DP_W026, 117, 6, 5
+    CreateEmitterInSlot 0, 0, 1, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 0, 8, -3, 0, 12, 64
+    Wait 5
+    CreateEmitterInSlot 0, 1, 1, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 1, 4, -5, 0, 12, 64
+    Wait 5
+    CreateEmitterInSlot 0, 2, 1, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 2, 0, -6, 0, 12, 64
+    CreateEmitter 0, 2, SetPositionAtDefenderSide
+    Wait 5
+    CreateEmitterInSlot 0, 3, 1, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 3, -8, -6, 0, 12, 64
+    Wait 5
+    CreateEmitterInSlot 0, 4, 1, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 4, -8, -6, 0, 12, 64
+    Wait 5
+    CreateEmitter 0, 0, SetPositionAtDefenderSide
+    Wait 10
+    RepeatSE SEQ_SE_DP_W092D, 117, 4, 3
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31764, 10, 0
+    CallFunc BattlerPaletteFade, 16, 0, 1, 31764, 10, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End

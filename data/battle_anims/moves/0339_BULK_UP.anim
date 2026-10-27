@@ -1,0 +1,6 @@
+# member 339: BULK_UP
+    PlaySEWithPan SEQ_SE_DP_W207, -117
+    DelayedSE SEQ_SE_DP_W207D, -117, 20
+    CallFunc AttackerSquashStretch, 0
+    WaitForTasks
+    End

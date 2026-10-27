@@ -1,0 +1,99 @@
+# member 317: ROCK_TOMB
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 335
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 335
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    Wait 10
+    RepeatSE SEQ_SE_DP_W070, 117, 4, 4
+    Wait 20
+    SetParticlePerspective 1, 0
+    JumpBySide 1, L121, L249
+    End
+L121:
+    CreateEmitter 1, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, -6000, 0, 3000
+    PlaySEWithPan SEQ_SE_DP_W063, 117
+    Wait 5
+    CallFunc ShakeBg, 0, 5, 0, 5, 0
+    CreateEmitter 1, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 4000, 0, 3000
+    PlaySEWithPan SEQ_SE_DP_W063, 117
+    Wait 5
+    CallFunc ShakeBg, 0, 5, 0, 5, 0
+    CreateEmitter 1, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 1000, 1000, -4000
+    PlaySEWithPan SEQ_SE_DP_W063, 117
+    Wait 5
+    CallFunc ShakeBg, 0, 5, 0, 5, 0
+    CreateEmitter 1, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, -1000, -1000, 4000
+    CallFunc ShakeBg, 0, 5, 0, 5, 0
+    PlaySEWithPan SEQ_SE_DP_W063, 117
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    End
+L249:
+    CreateEmitter 1, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, -6000, -3000, 3000
+    PlaySEWithPan SEQ_SE_DP_W063, 117
+    Wait 5
+    CallFunc ShakeBg, 0, 5, 0, 5, 0
+    CreateEmitter 1, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 4000, -3000, 3000
+    PlaySEWithPan SEQ_SE_DP_W063, 117
+    Wait 5
+    CallFunc ShakeBg, 0, 5, 0, 5, 0
+    CreateEmitter 1, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, 1000, 1000, -4000
+    PlaySEWithPan SEQ_SE_DP_W063, 117
+    Wait 5
+    CallFunc ShakeBg, 0, 5, 0, 5, 0
+    CreateEmitter 1, 0, ConfigureFromScript
+    EmitterData 0, 2, 5, 0, 0, 0
+    EmitterData 1, -1000, -3000, 4000
+    CallFunc ShakeBg, 0, 5, 0, 5, 0
+    PlaySEWithPan SEQ_SE_DP_W063, 117
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    End

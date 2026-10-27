@@ -1,0 +1,7 @@
+# member 15: SUB_OUT
+    CallFunc MoveBattlerOffscreen, 0, 2, 10, 0, 0
+    PlaySEWithPan SEQ_SE_DP_W104, -117
+    Wait 1
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForTasks
+    End

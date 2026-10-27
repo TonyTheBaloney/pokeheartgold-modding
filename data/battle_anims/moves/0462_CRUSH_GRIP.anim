@@ -1,0 +1,76 @@
+# member 462: CRUSH_GRIP
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 480
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PanSweepSE SEQ_SE_DP_W462, -117, 117, 4, 2
+    JumpIfContest L59
+    JumpBySide 0, L121, L183
+    End
+L59:
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 10, 64
+    Wait 5
+    Wait 6
+    PlaySEWithPan SEQ_SE_DP_W173C, 117
+    CallFunc StretchBattler, 264, 100, 100, 100, 70, 100, 0x140001, 0x40004
+    Wait 5
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    DelayedSE SEQ_SE_DP_030, 117, 7
+    DelayedSE SEQ_SE_DP_030, 117, 8
+    DelayedSE SEQ_SE_DP_030, 117, 10
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L121:
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 10, 64
+    Wait 5
+    Wait 6
+    PlaySEWithPan SEQ_SE_DP_W173C, 117
+    CallFunc StretchBattler, 264, 100, 100, 100, 70, 100, 0x140001, 0x40004
+    Wait 5
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    DelayedSE SEQ_SE_DP_030, 117, 7
+    DelayedSE SEQ_SE_DP_030, 117, 8
+    DelayedSE SEQ_SE_DP_030, 117, 10
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L183:
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 10, 64
+    Wait 5
+    Wait 6
+    PlaySEWithPan SEQ_SE_DP_W173C, 117
+    CallFunc StretchBattler, 264, 100, 100, 100, 70, 100, 0x140001, 0x40004
+    Wait 5
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    DelayedSE SEQ_SE_DP_030, 117, 7
+    DelayedSE SEQ_SE_DP_030, 117, 8
+    DelayedSE SEQ_SE_DP_030, 117, 10
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

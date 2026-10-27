@@ -1,0 +1,43 @@
+# member 226: BATON_PASS
+    JumpIfAttackerActive L120
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 244
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitSpriteManager 0, 1, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 16
+    LoadPaletteResource 0, 15, 1
+    LoadCellResource 0, 16
+    LoadAnimResource 0, 16
+    CreateSpriteWithFunc 0, ShrinkAttackerIntoSprite, 16, 15, 16, 16, 0, 0
+    PlaySEWithPan SEQ_SE_DP_SUIKOMU, -117
+    Wait 32
+    PlaySEWithPan SEQ_SE_DP_BOWA2, -117
+    DelayedSE SEQ_SE_DP_W100, -117, 40
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 0, 30, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 0, 30, 0, 0, 0
+    WaitForTasks
+    FreeSpriteManager 0
+    End
+L120:
+    CallFunc MoveBattlerOffscreen, 0, 2, 10, 0, 0
+    PlaySEWithPan SEQ_SE_DP_W104, -117
+    Wait 1
+    WaitForTasks
+    CallFunc SetBattlerVanished, 2, 1
+    End

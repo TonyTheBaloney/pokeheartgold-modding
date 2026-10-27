@@ -1,0 +1,5 @@
+# member 148: FLASH
+    PlaySEWithPan SEQ_SE_DP_W043, 0
+    CallFunc AttackerSilhouette
+    WaitForTasks
+    End

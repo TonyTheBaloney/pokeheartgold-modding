@@ -1,0 +1,42 @@
+# member 323: WATER_SPOUT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 341
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc StretchBattler, 258, 100, 110, 100, 80, 100, 0x50001, 0x50005
+    PlaySEWithPan SEQ_SE_DP_W029, -117
+    WaitForTasks
+    CallFunc StretchBattler, 258, 100, 100, 100, 120, 100, 1, 0x50005
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W291, -117
+    Wait 5
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 2, SetPositionAtDefenderSide
+    Wait 2
+    PlaySEWithPan SEQ_SE_DP_W057, 117
+    CallFunc ShakeTargets, 1, 0, 1, 13, 264
+    CallFunc ShakeTargets, 1, 0, 1, 13, 272
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

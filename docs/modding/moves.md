@@ -17,7 +17,7 @@ not a count. Every per-move file below is indexed by that number.
 | Description | `files/msgdata/msg/msg_0749.json` | yes |
 | What the move does in battle | effect script `files/battledata/script/effect_script/effect_script_NNNN.s`, chosen by `effect` | yes (battle script) |
 | Text before the effect (charge turns, traps) | `files/battledata/script/move_script/move_script_NNNN_*.s` | yes (battle script) |
-| Animation | `files/a/0/1/0` | **no** (binary) |
+| Animation | `data/battle_anims/moves/NNNN_<MOVE>.anim` | yes ([move-animations.md](move-animations.md)) |
 | Who learns it | learnsets, egg moves, TMs, tutors: [pokemon.md](pokemon.md#moves) | yes |
 | Trainer movesets | `files/poketool/trainer/trainers.json` (`"moves"`) | yes |
 | Special cases | lists in C, see [Moves named in C](#moves-named-in-c) | C |
@@ -186,18 +186,21 @@ three new moves only need these steps:
 4. **Battle script.** `move_script_0468.s` already does `GoToEffectScript`;
    rename it (and its line in `move_script/meson.build`) if you like. Add lines
    only if the effect needs them (see [Effects](#effects)).
-5. **Animation.** The spare animations do nothing visible, and the archive is
-   binary. Reuse an existing one: in `BattleAnimSystem_StartMove`
-   (`src/battle/battle_anim_system.c`), next to the Secret Power case, add
-   `if (animId == MOVE_FLAME_BURST) { animId = MOVE_FLAMETHROWER; }`.
+5. **Animation.** The spare animations only play a sound. Reuse an existing one: in
+   `BattleAnimSystem_StartMove` (`src/battle/battle_anim_system.c`), next to the
+   Secret Power case, add
+   `if (animId == MOVE_FLAME_BURST) { animId = MOVE_FLAMETHROWER; }`. Or copy and
+   change a script in `data/battle_anims/moves/`
+   ([move-animations.md §8](move-animations.md#8-recipes)).
 6. **Learners.** Add it to learnsets, egg moves, a TM or tutor, or a trainer's
    moveset ([pokemon.md](pokemon.md#moves)), and to the
    [lists in C](#moves-named-in-c) it belongs in.
 
 Past 470, add new `battle_moves.json` entries too (the build wants every number
 from 0 to `NUM_MOVES`). Past 500, also add `move_script_0501.s` and so on to
-`move_script/meson.build`; with no animation member the game plays Pound's
-(`battle_anim_system.c`), so remap it as in step 5.
+`move_script/meson.build`, and an animation member for each new move
+([move-animations.md §8.3](move-animations.md#83-a-move-past-500)): only ids above
+`NUM_MOVES` fall back to Pound's animation, a missing member fails to load.
 
 **Limits.**
 

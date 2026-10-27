@@ -1,0 +1,60 @@
+# member 200: OUTRAGE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 219
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    CreateBattlerSprite 0, 0, 0, 0
+    CreateBattlerSprite 0, 0, 1, 1
+    Wait 1
+    ClearArgs
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    SwitchBackground 28, 0x800001
+    WaitForBackgroundSwitch
+    RepeatSE SEQ_SE_DP_W082, -117, 4, 2
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CallFunc BattlerPaletteFade, 8, 0, 3, 31, 10, 10
+    CallFunc ShakeTargets, 3, 0, 0, 13, 264
+    BeginLoop 2
+    CallFunc FadeBgPalette, 0, 0, 0, 10, 31
+    Wait 10
+    CallFunc FadeBgPalette, 0, 0, 10, 0, 31
+    Wait 10
+    EndLoop
+    CallFunc FadeBgPalette, 0, 0, 0, 10, 31
+    Wait 10
+    CallFunc FadeBgPalette, 0, 0, 10, 0, 31
+    PanSweepSE SEQ_SE_DP_W053B, -117, 117, 4, 2
+    Wait 10
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    RestoreBackground 28, 0x1000001
+    WaitForBackgroundSwitch
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    FreeBattlerSpriteManager
+    End

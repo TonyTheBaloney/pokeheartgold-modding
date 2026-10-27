@@ -1,0 +1,76 @@
+# member 451: CHARGE_BEAM
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 469
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfSameSide L129
+    JumpIfContest L206
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 10, SetPositionAtAttacker
+    CreateEmitter 0, 11, SetPositionAtAttacker
+    CreateEmitter 0, 12, SetPositionAtAttacker
+    CreateEmitter 0, 13, SetPositionAtAttacker
+    RepeatSE SEQ_SE_DP_206, -117, 4, 5
+    Wait 80
+    PanSweepSE SEQ_SE_DP_291, -117, 117, 4, 2
+    CreateEmitterByPosition6 0, 1, 2, 3, 4, 5, 6, SetPositionByBattlerTypes
+    Wait 5
+    CallFunc ShakeTargets, 2, 0, 1, 4, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 13311, 10, 10
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End
+L129:
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 10, SetPositionAtAttacker
+    CreateEmitter 0, 11, SetPositionAtAttacker
+    CreateEmitter 0, 12, SetPositionAtAttacker
+    CreateEmitter 0, 13, SetPositionAtAttacker
+    RepeatSE SEQ_SE_DP_206, -117, 4, 5
+    Wait 80
+    PanSweepSE SEQ_SE_DP_291, -117, 117, 4, 2
+    CreateEmitterByPosition4 0, 8, 9, 8, 9, SetPositionAtAttacker
+    Wait 5
+    CallFunc ShakeTargets, 2, 0, 1, 4, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 13311, 10, 10
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End
+L206:
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 10, SetPositionAtAttacker
+    CreateEmitter 0, 11, SetPositionAtAttacker
+    CreateEmitter 0, 12, SetPositionAtAttacker
+    CreateEmitter 0, 13, SetPositionAtAttacker
+    RepeatSE SEQ_SE_DP_206, -117, 4, 5
+    Wait 80
+    PanSweepSE SEQ_SE_DP_291, -117, 117, 4, 2
+    CreateEmitter 0, 7, None
+    Wait 5
+    CallFunc ShakeTargets, 2, 0, 1, 4, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 13311, 10, 10
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

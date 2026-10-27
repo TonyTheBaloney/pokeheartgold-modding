@@ -1,0 +1,69 @@
+# member 285: SKILL_SWAP
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 303
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 303
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    DelayedSE SEQ_SE_DP_W179, 0, 1
+    DelayedSE SEQ_SE_DP_W179, 0, 15
+    DelayedSE SEQ_SE_DP_W179, 0, 30
+    DelayedSE SEQ_SE_DP_W179, 0, 45
+    DelayedSE SEQ_SE_DP_W179, 0, 60
+    DelayedSE SEQ_SE_DP_W179, 0, 75
+    BeginLoop 3
+    CreateEmitterInSlot 0, 0, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 0, 0, 0, 0, 12, -32, 1
+    Wait 3
+    CreateEmitterInSlot 0, 1, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 1, 0, 0, 0, 12, -32, 1
+    Wait 3
+    CreateEmitterInSlot 0, 2, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 2, 0, 0, 0, 12, -32, 1
+    Wait 3
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 3, 0, 0, 0, 12, -32, 1
+    CreateEmitterInSlot 0, 4, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 4, 0, 0, 0, 12, 32, 0
+    Wait 3
+    CreateEmitterInSlot 0, 5, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 5, 0, 0, 0, 12, 32, 0
+    Wait 3
+    CreateEmitterInSlot 0, 6, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 6, 0, 0, 0, 12, 32, 0
+    Wait 3
+    CreateEmitterInSlot 0, 7, 0, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 7, 0, 0, 0, 12, 32, 0
+    EndLoop
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    End

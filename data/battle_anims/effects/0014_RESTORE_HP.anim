@@ -1,0 +1,36 @@
+# member 14: RESTORE_HP
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 27
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    CreateBattlerSprite 0, 0, 0, 0
+    CreateBattlerSprite 0, 0, 1, 0
+    CreateBattlerSprite 2, 0, 2, 1
+    CallFunc ObjWindowBgScrollUpAlt, 2, 0
+    PlaySEWithPan SEQ_SE_DP_W071B, -117
+    Wait 5
+    CreateEmitter 0, 4, SetPositionAtAttacker
+    WaitForTasks
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    FreeBattlerSpriteManager
+    WaitForParticles
+    FreeParticleSystem 0
+    End

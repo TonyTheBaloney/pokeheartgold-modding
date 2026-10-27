@@ -1,0 +1,21 @@
+# member 316: ODOR_SLEUTH
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    CreateBattlerSprite 1, 0, 1, 0
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 3, 0, 4, 4
+    StartBattlerSpriteDraw 3, 0, 4
+    CallFunc ShakeTargets, -20, 0, 1, 10, 514
+    CallFunc ShakeTargets, 20, 0, 1, 10, 516
+    RepeatSE SEQ_SE_DP_W207, 117, 2, 3
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W043, -117
+    CallFunc ShakeTargets, 4, 0, 1, 2, 258
+    WaitForTasks
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    FreeBattlerSpriteManager
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End

@@ -1,0 +1,56 @@
+# member 194: DESTINY_BOND
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 214
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 34, 26, 0, 0
+    JumpBySide 0, L63, L135
+    End
+L63:
+    PlaySEWithPan SEQ_SE_DP_W060, 0
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    PanSweepSE SEQ_SE_DP_W109, -117, 117, 4, 2
+    WaitForTasks
+    Wait 15
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 12, 0
+    CallFunc ShakeTargets, 1, 0, 1, 2, 258
+    CallFunc BattlerPaletteFade, 2056, 0, 1, 32767, 12, 0
+    CallFunc BattlerPaletteFade, 2064, 0, 1, 32767, 12, 0
+    PlaySEWithPan SEQ_SE_DP_W171, 0
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L135:
+    PlaySEWithPan SEQ_SE_DP_W060, 0
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    PanSweepSE SEQ_SE_DP_W109, -117, 117, 4, 2
+    WaitForTasks
+    Wait 15
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 12, 0
+    CallFunc ShakeTargets, 1, 0, 1, 2, 258
+    CallFunc BattlerPaletteFade, 2050, 0, 1, 32767, 12, 0
+    CallFunc BattlerPaletteFade, 2052, 0, 1, 32767, 12, 0
+    PlaySEWithPan SEQ_SE_DP_W171, 0
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

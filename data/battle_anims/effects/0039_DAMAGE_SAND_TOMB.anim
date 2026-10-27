@@ -1,0 +1,30 @@
+# member 39: DAMAGE_SAND_TOMB
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 346
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    RepeatSE SEQ_SE_DP_W028, -117, 2, 18
+    Wait 10
+    CallFunc BattlerPaletteFade, 2, 0, 2, 797, 12
+    CallFunc ShakeTargets, 3, 0, 1, 8, 258
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

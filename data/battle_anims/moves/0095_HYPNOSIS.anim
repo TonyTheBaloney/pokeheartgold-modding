@@ -1,0 +1,33 @@
+# member 95: HYPNOSIS
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 126
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 16, 10, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 16, 10, 0, 0
+    PanSweepSE SEQ_SE_DP_W048, -117, 117, 4, 2
+    Wait 30
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 4, SetPositionAtDefender
+    CallFunc BattlerPaletteFade, 8, 0, 1, 31764, 8, 0
+    PlaySEWithPan SEQ_SE_DP_154, 117
+    DelayedSE SEQ_SE_DP_W173B, 117, 15
+    WaitForParticles
+    FreeParticleSystem 0
+    End

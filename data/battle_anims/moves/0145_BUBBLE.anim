@@ -1,0 +1,65 @@
+# member 145: BUBBLE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 168
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 168
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfContest L148
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 31, 24, 0, 4
+    RepeatSE SEQ_SE_DP_W145, 0, 2, 5
+    Wait 10
+    CreateEmitter 1, 1, SetPositionAtDefenderSide
+    Wait 10
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    CallFunc ShakeTargets, 2, 0, 1, 2, 272
+    RepeatSE SEQ_SE_DP_W145C, 117, 2, 2
+    Wait 10
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    End
+L148:
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 0, 28, 22, 0, 4
+    RepeatSE SEQ_SE_DP_W145, 0, 2, 5
+    Wait 10
+    CreateEmitter 1, 1, SetPositionAtDefenderSide
+    Wait 10
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    CallFunc ShakeTargets, 2, 0, 1, 2, 272
+    RepeatSE SEQ_SE_DP_W145C, 117, 2, 2
+    Wait 10
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    End

@@ -1,0 +1,20 @@
+# member 306: CRUSH_CLAW
+    InitSpriteManager 0, 4, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 17
+    LoadPaletteResource 0, 37, 1
+    LoadCellResource 0, 17
+    LoadAnimResource 0, 17
+    CreateSpriteWithFunc 0, SpriteQuad, 17, 37, 17, 17, 0, 0, 4
+    Wait 1
+    BeginLoop 2
+    PlaySEWithPan SEQ_SE_DP_W013, 117
+    CallFunc SlideBattler2, 3, 24, 258
+    Wait 2
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    Wait 2
+    CallFunc SlideBattler2, 3, -24, 258
+    Wait 4
+    EndLoop
+    WaitForTasks
+    FreeSpriteManager 0
+    End

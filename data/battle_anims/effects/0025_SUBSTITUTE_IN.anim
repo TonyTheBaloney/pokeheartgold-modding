@@ -1,0 +1,46 @@
+# member 25: SUBSTITUTE_IN
+    JumpBySide 0, L5, L78
+    End
+L5:
+    CallFunc StretchBattler, 258, 100, 10, 100, 80, 100, 1, 0x50005
+    PlaySEWithPan SEQ_SE_DP_061, -117
+    Wait 4
+    CallFunc SetBattlerVanished, 2, 1
+    WaitForTasks
+    ChangeBattlerPic 2
+    CallFunc SetBattlerVanished, 2, 1
+    Wait 1
+    PlaySEWithPan SEQ_SE_DP_080, -117
+    CallFunc MoveBattlerBy, 4, 0, -160, 258
+    WaitForTasks
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForTasks
+    CallFunc MoveBattlerBy, 8, 0, 160, 258
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 0, -32, 258
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 0, 32, 258
+    WaitForTasks
+    End
+L78:
+    CallFunc StretchBattler, 258, 100, 10, 100, 80, 100, 1, 0x50005
+    PlaySEWithPan SEQ_SE_DP_061, -117
+    Wait 4
+    CallFunc SetBattlerVanished, 2, 1
+    WaitForTasks
+    ChangeBattlerPic 2
+    CallFunc SetBattlerVanished, 2, 1
+    Wait 1
+    PlaySEWithPan SEQ_SE_DP_080, -117
+    CallFunc MoveBattlerBy, 4, 0, 80, 258
+    WaitForTasks
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForTasks
+    CallFunc MoveBattlerBy, 8, 0, -80, 258
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 0, 24, 258
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 0, -24, 258
+    WaitForTasks
+    End
+    End

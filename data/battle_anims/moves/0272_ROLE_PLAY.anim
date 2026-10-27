@@ -1,0 +1,62 @@
+# member 272: ROLE_PLAY
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W161, -117
+    JumpIfContest L110
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    CreateBattlerSprite 0, 0, 1, 1
+    CreateBattlerSprite 1, 0, 2, 2
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 2, 0, 4, 4
+    StartBattlerSpriteDraw 2, 0, 4
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 3, 0, 3, 3
+    StartBattlerSpriteDraw 3, 1, 3
+    Wait 1
+    CallFunc SetBattlerVanished, 2, 1
+    ChangeBattlerPic 0
+    CreateBattlerSprite 0, 0, 0, 0
+    CallFunc SquashSprite, 0
+    DelayedSE SEQ_SE_DP_W161, -117, 20
+    Wait 15
+    RestoreBattlerPic 1
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    StopBattlerSpriteDraw 1
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End
+L110:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    CreateBattlerSprite 0, 0, 1, 1
+    CreateBattlerSprite 1, 0, 2, 2
+    Wait 1
+    CallFunc SetBattlerVanished, 2, 1
+    ChangeBattlerPic 0
+    CreateBattlerSprite 0, 0, 0, 0
+    CallFunc SquashSprite, 0
+    DelayedSE SEQ_SE_DP_W161, -117, 20
+    Wait 15
+    RestoreBattlerPic 1
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

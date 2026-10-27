@@ -1,0 +1,11 @@
+# member 274: ASSIST
+    InitSpriteManager 0, 12, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 25
+    LoadPaletteResource 0, 24, 1
+    LoadCellResource 0, 25
+    LoadAnimResource 0, 25
+    CreateSpriteWithFunc 0, PopAndScatterSprites, 25, 24, 25, 25, 0, 0, 12
+    RepeatSE SEQ_SE_DP_W010, 0, 10, 4
+    WaitForTasks
+    FreeSpriteManager 0
+    End

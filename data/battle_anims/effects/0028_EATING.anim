@@ -1,0 +1,7 @@
+# member 28: EATING
+    BeginLoop 2
+    PlaySEWithPan SEQ_SE_DP_W036, 117
+    CallFunc RotateBattler, 65535, 0x1038D, 10, 2, 0, 32
+    WaitForTasks
+    EndLoop
+    End

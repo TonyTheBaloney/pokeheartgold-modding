@@ -1,0 +1,69 @@
+# member 217: PRESENT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 235
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CallFunc MoveEmitterArc, 0, 0, 0, 0, 19, 64
+    PanSweepSE SEQ_SE_DP_W039, -117, 117, 4, 2
+    Wait 20
+    JumpByVariantBit0 L71, L96
+    End
+L71:
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    RepeatSE SEQ_SE_DP_140, 117, 3, 3
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L96:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 27
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 1, SetPositionAtDefender
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    CreateBattlerSprite 1, 0, 0, 0
+    CreateBattlerSprite 1, 0, 1, 0
+    CreateBattlerSprite 3, 0, 2, 1
+    CallFunc ObjWindowBgScrollUpAlt, 2, 1
+    PlaySEWithPan SEQ_SE_DP_W071B, 117
+    Wait 5
+    CreateEmitter 1, 4, SetPositionAtDefender
+    WaitForTasks
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    FreeBattlerSpriteManager
+    WaitForParticles
+    FreeParticleSystem 1
+    End

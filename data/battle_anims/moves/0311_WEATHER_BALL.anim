@@ -1,0 +1,102 @@
+# member 311: WEATHER_BALL
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 329
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc StretchBattler, 258, 100, 100, 100, 140, 100, 1, 0x50005
+    PlaySEWithPan SEQ_SE_DP_W207, -117
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    Wait 25
+    PlaySEWithPan SEQ_SE_DP_W197, 0
+    CallFunc FadeBgPalette, 0, 0, 0, 8, 32767
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, 0, 8, 0, 32767
+    WaitForTasks
+    Wait 10
+    JumpByWeather L100, L186, L290, L134, L238
+    End
+L100:
+    RepeatSE SEQ_SE_DP_W172, 117, 2, 7
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 8, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_W152, -117
+    Wait 20
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L134:
+    CallFunc FadeBgPalette, 0, 1, 0, 10, 2124
+    WaitForTasks
+    RepeatSE SEQ_SE_DP_W172, 117, 2, 7
+    CreateEmitter 0, 4, SetPositionAtDefender
+    CreateEmitter 0, 9, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_W152, -117
+    Wait 20
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 10, 0, 2124
+    WaitForTasks
+    End
+L186:
+    CallFunc FadeBgPalette, 0, 1, 0, 10, 49930
+    WaitForTasks
+    RepeatSE SEQ_SE_DP_W172, 117, 2, 7
+    CreateEmitter 0, 5, SetPositionAtDefender
+    CreateEmitter 0, 10, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_W152, -117
+    Wait 20
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 10, 0, 49930
+    WaitForTasks
+    End
+L238:
+    CallFunc FadeBgPalette, 0, 1, 0, 10, 13741
+    WaitForTasks
+    RepeatSE SEQ_SE_DP_W172, 117, 2, 7
+    CreateEmitter 0, 6, SetPositionAtDefender
+    CreateEmitter 0, 11, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_W152, -117
+    Wait 20
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 10, 0, 13741
+    WaitForTasks
+    End
+L290:
+    CallFunc FadeBgPalette, 0, 1, 0, 10, 797
+    WaitForTasks
+    RepeatSE SEQ_SE_DP_W172, 117, 2, 7
+    CreateEmitter 0, 7, SetPositionAtDefender
+    CreateEmitter 0, 12, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    PlaySEWithPan SEQ_SE_DP_W152, -117
+    Wait 20
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 10, 0, 797
+    WaitForTasks
+    End

@@ -125,6 +125,10 @@ the command, if there is one. Commands run from the repository root;
 | change a move's power, type, effect | [moves.md](modding/moves.md#move-data-battle_movesjson) | edit `battle_moves.json` |
 | add a move | [moves.md](modding/moves.md#adding-a-new-move) | |
 | find move special cases in C | [moves.md](modding/moves.md#moves-named-in-c) | |
+| read or edit a move's animation | [move-animations.md](modding/move-animations.md#3-reading-and-editing-them) | edit `data/battle_anims/moves/NNNN_<MOVE>.anim`, `make` |
+| give a new move an animation | [move-animations.md](modding/move-animations.md#81-a-new-move-with-an-existing-animation) | copy a `.anim` file in `data/battle_anims/moves/`, or remap in `BattleAnimSystem_StartMove` |
+| change a status, weather or stat-change animation | [move-animations.md](modding/move-animations.md) | `data/battle_anims/effects/` |
+| add an effect function or command for animation scripts | [move-animations.md](modding/move-animations.md#84-a-new-effect-function) | `gBattleAnimFuncTable` |
 | add a trainer class (name, gender, prize money, music) | [trainer-classes.md](modding/trainer-classes.md#adding-a-class) | |
 | change or add a trainer's battle sprite | [trainer-classes.md](modding/trainer-classes.md#trainer-sprites) | PNG in `graphics/trainers/front_pics/`; `trainer_pics.py check` |
 | animate a trainer sprite | [trainer-classes.md](modding/trainer-classes.md#animation) | `"anims"` in `data/trainer_graphics/front_pics.json` |
@@ -336,6 +340,7 @@ General framework (applications, windows, text, sprites, input): [ui.md](modding
 | drawing and writing NSBMD/NSBTX | [gen4map/RENDERING.md](gen4map/RENDERING.md) |
 | why the map files are laid out this way | [modding/DESIGN.md](modding/DESIGN.md), [CHANGE-0001](gen4map/CHANGE-0001-maps-as-files.md), [CHANGE-0002](gen4map/CHANGE-0002-terrain-authoring.md), [CHANGE-0003](gen4map/CHANGE-0003-area-textures.md) |
 | plans for a standalone Gen 4 tool | [gen4map/ROADMAP.md](gen4map/ROADMAP.md) |
+| battle animation scripts (`a/0/1/0`, `a/0/6/1`): words, opcodes, jumps, inline emitter data | [modding/move-animations.md §2](modding/move-animations.md#2-the-file-format), [§4](modding/move-animations.md#4-the-commands) |
 
 ## Ideas (not built)
 
@@ -350,5 +355,4 @@ guide here yet, in rough order of how often a hack needs them:
 
 | Topic | State in this fork | pokeemerald equivalent |
 |---|---|---|
-| **Move animations** | binary (`files/a/0/1/0`); battle scripts are covered in [battle-engine.md](modding/battle-engine.md#5-battle-scripts) | animation guides |
 | **Map editor**: props, layout resize, object sprites | editor shows them, can't edit | Porymap |

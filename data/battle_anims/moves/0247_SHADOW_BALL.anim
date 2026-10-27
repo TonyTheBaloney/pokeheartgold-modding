@@ -1,0 +1,32 @@
+# member 247: SHADOW_BALL
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 265
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 4, None
+    CreateEmitter 0, 0, None
+    CreateEmitter 0, 1, None
+    RepeatSE SEQ_SE_DP_W028, 0, 2, 12
+    Wait 55
+    CreateEmitter 0, 2, None
+    CallFunc MoveEmitter, 0, 0, 0, 0, 8, 255, 0, 0x40000
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 8296, 14, 0
+    PlaySEWithPan SEQ_SE_DP_480, 117
+    WaitForParticles
+    FreeParticleSystem 0
+    End

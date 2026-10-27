@@ -1,0 +1,42 @@
+# member 460: SPACIAL_REND
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 478
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_W460, -117
+    CreateEmitter 0, 5, SetPositionAtAttacker
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    CreateEmitter 0, 4, SetPositionAtAttacker
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    Wait 50
+    ClearArgs
+    SetArg 7, 1
+    SwitchBackground 41, 1
+    Wait 10
+    CallFunc ShakeBg, 0, 3, 0, 10, 0
+    PlaySEWithPan SEQ_SE_PL_W460B, 117
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 4, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 32767, 10, 0
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 7, 1
+    RestoreBackground 41, 1
+    WaitForBackgroundSwitch
+    End

@@ -1,0 +1,10 @@
+# member 96: MEDITATE
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W029, -117
+    CallFunc AttackerStretchSteps
+    DelayedSE SEQ_SE_DP_W036, -117, 10
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

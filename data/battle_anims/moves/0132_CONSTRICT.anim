@@ -1,0 +1,18 @@
+# member 132: CONSTRICT
+    InitSpriteManager 0, 4, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 4
+    LoadPaletteResource 0, 4, 1
+    LoadCellResource 0, 4
+    LoadAnimResource 0, 4
+    CreateSpriteWithFunc 0, StackedSpritesOnDefender, 4, 4, 4, 4, 0, 0
+    BeginLoop 5
+    Wait 2
+    PlaySEWithPan SEQ_SE_DP_W020, 117
+    EndLoop
+    BeginLoop 2
+    Wait 6
+    PlaySEWithPan SEQ_SE_DP_W030, 117
+    EndLoop
+    WaitForTasks
+    FreeSpriteManager 0
+    End

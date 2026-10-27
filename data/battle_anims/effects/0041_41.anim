@@ -1,0 +1,7 @@
+# member 41: spare
+    CallFunc MoveBattlerOffscreen, 1, 2, 20, 0, 0
+    PlaySEWithPan SEQ_SE_DP_IREKAE, -117
+    Wait 1
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForTasks
+    End

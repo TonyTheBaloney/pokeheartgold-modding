@@ -1,0 +1,33 @@
+# member 305: POISON_FANG
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 323
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 4, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 5, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CallFunc BattlerPaletteFade, 8, 1, 1, 31764, 12
+    Wait 1
+    PlaySEWithPan SEQ_SE_DP_W044, 117
+    Wait 9
+    RepeatSE SEQ_SE_DP_W092D, 117, 8, 4
+    CallFunc ShakeTargets, 2, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    End

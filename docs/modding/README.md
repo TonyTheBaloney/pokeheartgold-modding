@@ -77,6 +77,7 @@ edits them ([tools/mapkit/README.md](../../tools/mapkit/README.md)).
 | [gyms.md](gyms.md) | What badges do (HMs, obedience), each gym's leader script, entry gate, puzzle and rematch schedule |
 | [abilities.md](abilities.md) | Adding an ability: constant, names and descriptions, species, where each kind of effect is coded in battle, messages and battle scripts |
 | [battle-visuals.md](battle-visuals.md) | Battle transitions (how one is picked, every effect id, the default by terrain and time), mugshots (gym leaders, Elite Four, Rocket: code, members of `a/1/0/9`, names as text), redrawing and adding a mugshot, which ball trainers' Pokémon use (per class, per trainer), Poké Ball graphics and what a new ball needs |
+| [move-animations.md](move-animations.md) | Move and effect animations: when they play, the script format of `a/0/1/0` and `a/0/6/1`, every command, particles, backgrounds, `CallFunc` effects; editing the scripts in `data/battle_anims/`; recipes for a new move's animation, colors and sounds, moves past 500, new functions and commands |
 | [battle-music.md](battle-music.md) | Battle music: how it is chosen (class, species, doubles, the Kanto swap), victory and eyes-meet music; recipes for music by trainer class, one trainer, species, map, and from a script |
 | [music.md](music.md) | Music and sound: `sound/` (the sound archive as files), changing music, adding songs from MIDI and instruments from WAV |
 | [pokeathlon.md](pokeathlon.md) | The Pokéathlon: stats per species (`performance.narc`, nature, day of month, Aprijuice), courses and events, scoring and closing bonuses, Athlete Points, medals, records, the Athlete Shop and Data Cards; changing stats, courses, scoring, prizes; what a new event takes |
@@ -113,7 +114,7 @@ passes on that commit so you know any later mismatch comes from your edit.
 | Level-up moves | yes (`files/poketool/personal/level_up_learnsets.json`) |
 | Egg moves | yes (`files/poketool/personal/egg_moves.json`) |
 | Move data (power, type, accuracy, effect, flags) | yes (`files/poketool/waza/battle_moves.json`) |
-| Move animations | **no**, binary `files/a/0/1/0` |
+| Move animations | yes (`data/battle_anims/moves/*.anim`, effects in `data/battle_anims/effects/`; [move-animations.md](move-animations.md)) |
 | Map headers | yes (`data/maps/<MapName>/map.json`) |
 | NPCs, warps, signs, triggers | yes (`data/maps/<MapName>/map.json`) |
 | Event scripts and text | yes (`scripts.pory`, `text.json` in the map folder) |

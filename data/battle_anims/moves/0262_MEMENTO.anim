@@ -1,0 +1,25 @@
+# member 262: MEMENTO
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    CreateBattlerSprite 0, 0, 0, 0
+    CreateBattlerSprite 1, 0, 1, 1
+    LoadBattlerSpriteResources 2
+    CreateBattlerSprite 2, 0, 2, 2
+    StartBattlerSpriteDraw 2, 1, 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 3, 0, 3, 3
+    StartBattlerSpriteDraw 3, 1, 3
+    CallFunc DarkSpriteJump
+    PlaySEWithPan SEQ_SE_DP_W060, -117
+    Wait 24
+    PlaySEWithPan SEQ_SE_DP_W060B, 117
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    StopBattlerSpriteDraw 1
+    DeleteBattlerSprite 2
+    StopBattlerSpriteDraw 1
+    DeleteBattlerSprite 3
+    End

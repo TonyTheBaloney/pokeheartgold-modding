@@ -1,0 +1,44 @@
+# member 338: FRENZY_PLANT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 356
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    ClearArgs
+    SetArg 0, 0
+    SetArg 1, 16
+    SwitchBackground 34, 0x20001
+    WaitForBackgroundSwitch
+    RepeatSE SEQ_SE_DP_W010, 0, 2, 16
+    InitSpriteManager 0, 8, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 26
+    LoadPaletteResource 0, 25, 1
+    LoadCellResource 0, 26
+    LoadAnimResource 0, 26
+    CreateSpriteWithFunc 0, SpriteTrailToDefender, 26, 25, 26, 26, 0, 0, 8
+    Wait 96
+    RepeatSE SEQ_SE_DP_W025B, 117, 3, 6
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc ShakeTargets, 2, 0, 1, 10, 264
+    WaitForTasks
+    FreeSpriteManager 0
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 0, 0
+    SetArg 1, 16
+    RestoreBackground 34, 0x40001
+    WaitForBackgroundSwitch
+    End

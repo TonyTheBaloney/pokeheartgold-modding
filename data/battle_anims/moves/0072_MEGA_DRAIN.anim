@@ -1,0 +1,36 @@
+# member 72: MEGA_DRAIN
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 103
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 8, 11252
+    WaitForTasks
+    RepeatSE SEQ_SE_DP_W145C, 0, 2, 24
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 2, 1, 16, 0
+    EmitterData 2, 0, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 2, 1, 16, 0
+    EmitterData 2, 0, 0, 0, 0
+    WaitForParticles
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 10, 0
+    PlaySEWithPan SEQ_SE_DP_W071B, -117
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 8, 0, 11252
+    WaitForTasks
+    End

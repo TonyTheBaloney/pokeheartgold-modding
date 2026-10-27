@@ -1,0 +1,28 @@
+# member 176: CONVERSION_2
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 196
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 1, 1, 0, 0
+    RepeatSE SEQ_SE_DP_W112, 117, 5, 4
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    DelayedSE SEQ_SE_DP_W104, 117, 45
+    DelayedSE SEQ_SE_DP_351, -117, 65
+    WaitForParticles
+    FreeParticleSystem 0
+    End

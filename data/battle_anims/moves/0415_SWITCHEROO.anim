@@ -1,0 +1,19 @@
+# member 415: SWITCHEROO
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    PlaySEWithPan SEQ_SE_DP_166, -117
+    InitSpriteManager 0, 2, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 24
+    LoadPaletteResource 0, 38, 1
+    LoadCellResource 0, 24
+    LoadAnimResource 0, 24
+    CreateSpriteWithFunc 0, CrossingSprites, 24, 38, 24, 24, 0, 0, 2
+    DelayedSE SEQ_SE_DP_W104, 0, 55
+    DelayedSE SEQ_SE_DP_W104, 0, 70
+    DelayedSE SEQ_SE_DP_W104, 0, 83
+    DelayedSE SEQ_SE_DP_W104, 0, 97
+    DelayedSE SEQ_SE_DP_W104, 0, 105
+    WaitForTasks
+    FreeSpriteManager 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

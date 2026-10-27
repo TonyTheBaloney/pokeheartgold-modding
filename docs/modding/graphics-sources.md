@@ -185,7 +185,7 @@ backgrounds of move animations, and the touch screen.
 | `unused/NNNNN.*` | 36 members nothing loads; named by member number | | |
 
 Move animation backgrounds by the id the animation scripts use (`SwitchBackground`,
-`SetBackground`...; files `a/0/1/0` and `a/0/6/1`). Several ids share a picture with
+`SetBackground`... in `data/battle_anims/`; [move-animations.md §6](move-animations.md#6-backgrounds)). Several ids share a picture with
 another palette, in the same folder:
 
 | Id | Folder | Palette | Used by |

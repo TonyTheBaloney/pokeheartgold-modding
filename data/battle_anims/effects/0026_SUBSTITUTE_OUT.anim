@@ -1,0 +1,13 @@
+# member 26: SUBSTITUTE_OUT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    PlaySEWithPan SEQ_SE_DP_W107, -117
+    CreateBattlerSprite 0, 0, 0, 0
+    CallFunc BlendBattlerSprites, 1, 16, 0, 0, 16, 8
+    Wait 1
+    CallFunc SetBattlerVanished, 2, 1
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    End

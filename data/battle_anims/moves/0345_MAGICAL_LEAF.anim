@@ -1,0 +1,50 @@
+# member 345: MAGICAL_LEAF
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 363
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfContest L114
+    PlaySEWithPan SEQ_SE_DP_PASA2, -117
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 6, 1, 0, 0
+    Wait 65
+    PanSweepSE SEQ_SE_DP_209, -117, 117, 4, 2
+    Wait 15
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CallFunc ShakeTargets, 2, 0, 1, 6, 264
+    RepeatSE SEQ_SE_DP_HURU, 117, 3, 6
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L114:
+    PlaySEWithPan SEQ_SE_DP_PASA2, -117
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 1, 1, 0, 0
+    Wait 65
+    PanSweepSE SEQ_SE_DP_209, -117, 117, 4, 2
+    Wait 15
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CallFunc ShakeTargets, 2, 0, 1, 6, 264
+    RepeatSE SEQ_SE_DP_HURU, 117, 3, 6
+    WaitForParticles
+    FreeParticleSystem 0
+    End

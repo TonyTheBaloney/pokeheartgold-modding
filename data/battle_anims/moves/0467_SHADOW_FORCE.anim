@@ -1,0 +1,54 @@
+# member 467: SHADOW_FORCE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 485
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpByVariantBit0 L50, L81
+    End
+L50:
+    PlaySEWithPan SEQ_SE_DP_W467, -117
+    CallFunc BlinkBattler, 5, 0
+    Wait 2
+    CallFunc SetBgPaletteGrayscale, 1
+    WaitForTasks
+    CallFunc SetBattlerVanished, 2, 1
+    Wait 15
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc SetBgPaletteGrayscale, 0
+    WaitForTasks
+    End
+L81:
+    CallFunc SetBgPaletteGrayscale, 1
+    PlaySEWithPan SEQ_SE_DP_186, 117
+    WaitForTasks
+    Wait 20
+    PlaySEWithPan SEQ_SE_DP_W007, 117
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc ShakeTargets, 4, 0, 1, 2, 264
+    Wait 5
+    DelayedSE SEQ_SE_DP_W109, 117, 8
+    DelayedSE SEQ_SE_DP_W109, 117, 13
+    CallFunc BlinkBattler, 5, 0
+    WaitForTasks
+    CallFunc SetBattlerVanished, 2, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc SetBgPaletteGrayscale, 0
+    WaitForTasks
+    End

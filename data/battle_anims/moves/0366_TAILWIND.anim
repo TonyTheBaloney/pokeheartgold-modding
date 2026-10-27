@@ -1,0 +1,37 @@
+# member 366: TAILWIND
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 384
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PanSweepSE SEQ_SE_DP_KAZE, -117, 117, 4, 2
+    JumpBySide 0, L60, L80
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L60:
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 0, 0, 0, 0, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L80:
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 0, 0, 0, 0, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End

@@ -1,0 +1,17 @@
+# member 184: SCARY_FACE
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    PlaySEWithPan SEQ_SE_DP_W060, 0
+    WaitForTasks
+    InitSpriteManager 0, 1, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 8
+    LoadPaletteResource 0, 8, 1
+    LoadCellResource 0, 8
+    LoadAnimResource 0, 8
+    CreateSpriteWithFunc 0, RisingSpriteStretchAttacker, 8, 8, 8, 8, 0, 0
+    Wait 8
+    PlaySEWithPan SEQ_SE_DP_W043D, 0
+    WaitForTasks
+    FreeSpriteManager 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

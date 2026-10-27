@@ -1,0 +1,41 @@
+# member 80: PETAL_DANCE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 111
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_W080, -117
+    CallFunc MoveBattlerSin, 2, 3, 10
+    BeginLoop 3
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CreateEmitter 0, 3, SetPositionAtAttacker
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    Wait 10
+    EndLoop
+    WaitForTasks
+    CallFunc MoveBattlerBy, 2, 14, -8, 258
+    WaitForTasks
+    CreateEmitter 0, 1, SetPositionAtDefender
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 10, 264
+    PlaySEWithPan SEQ_SE_DP_W080C, 117
+    CallFunc MoveBattlerBy, 2, -14, 8, 258
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

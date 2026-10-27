@@ -143,6 +143,8 @@ trainer_pics_depends = files('tools/pokedata/trainer_pics.py', 'tools/pokedata/p
 # [AI-GENERATED / NOT AFFILIATED WITH PRET] graphics archives from PNG/pal/JSON folders (tools/narcgfx)
 narcgfx_py = find_program('tools/narcgfx/narcgfx.py')
 narcgfx_depends = files('tools/narcgfx/narcgfx.py', 'tools/pokedata/pokedata.py')
+# [AI-GENERATED / NOT AFFILIATED WITH PRET] battle animation scripts: data/battle_anims -> a/0/1/0, a/0/6/1
+battleanim_py = find_program('tools/battleanim/battleanim.py')
 subdir('data/maps')
 subdir('data/items')
 subdir('files')

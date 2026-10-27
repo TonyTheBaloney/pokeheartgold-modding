@@ -1,0 +1,47 @@
+# member 431: ROCK_CLIMB
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 449
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_W088, -117
+    BeginLoop 3
+    CallFunc MoveBattlerBy, 4, 0, 8, 258
+    CreateEmitter 0, 4, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, 0, -3440, 0
+    Wait 4
+    CallFunc MoveBattlerBy, 4, 0, -8, 258
+    Wait 4
+    EndLoop
+    CallFunc MoveBattlerBy, 4, -16, 8, 258
+    PlaySEWithPan SEQ_SE_DP_W036, -117
+    WaitForTasks
+    Wait 10
+    CallFunc MoveBattlerBy, 4, 32, -16, 258
+    WaitForTasks
+    PlaySEWithPan SEQ_SE_DP_W085, 117
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CallFunc ShakeTargets, 4, 0, 1, 2, 264
+    CallFunc MoveBattlerBy, 4, -16, 8, 258
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

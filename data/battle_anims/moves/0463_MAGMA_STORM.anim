@@ -1,0 +1,106 @@
+# member 463: MAGMA_STORM
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 481
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 1, 481
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 2, 481
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    ClearArgs
+    SetArg 4, 1
+    SetArg 0, 0
+    SetArg 1, 32
+    SwitchBackground 43, 0x20001
+    WaitForBackgroundSwitch
+    PlaySEWithPan SEQ_SE_DP_W463, 117
+    CreateEmitterInSlot 0, 0, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 0, 0, 360, 0, 360, 64, 48, 40, 1, 0
+    CreateEmitterInSlot 0, 1, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 1, 0, 360, 0, 360, 64, 48, 40, 1, 0
+    CreateEmitterInSlot 0, 2, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 2, 0, 360, 0, 360, 64, 48, 40, 1, 0
+    Wait 5
+    CallFunc BattlerPaletteFade, 8, 0, 3, 31, 10, 10
+    CreateEmitterInSlot 0, 3, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 3, 0, 360, 0, 360, 64, 48, 40, 1, 0
+    CreateEmitterInSlot 0, 4, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 4, 0, 360, 0, 360, 64, 48, 40, 1, 0
+    CreateEmitterInSlot 0, 5, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 5, 0, 360, 0, 360, 64, 48, 40, 1, 0
+    Wait 5
+    CreateEmitterInSlot 1, 0, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 0, 0, 360, 0, 360, 64, 48, 40, 1, 1
+    CreateEmitterInSlot 1, 1, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 1, 0, 360, 0, 360, 64, 48, 40, 1, 1
+    CreateEmitterInSlot 1, 2, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 2, 0, 360, 0, 360, 64, 48, 40, 1, 1
+    Wait 5
+    CreateEmitterInSlot 1, 3, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 3, 0, 360, 0, 360, 64, 48, 40, 1, 1
+    CreateEmitterInSlot 1, 4, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 4, 0, 360, 0, 360, 64, 48, 40, 1, 1
+    CreateEmitterInSlot 1, 5, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 5, 0, 360, 0, 360, 64, 48, 40, 1, 1
+    Wait 5
+    CreateEmitterInSlot 2, 0, 0, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 0, 0, 360, 0, 360, 64, 48, 40, 1, 2
+    CreateEmitterInSlot 2, 1, 1, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 1, 0, 360, 0, 360, 64, 48, 40, 1, 2
+    CreateEmitterInSlot 2, 2, 2, SetPositionAtAttacker
+    CallFunc EmitterSinMotion, 2, 0, 360, 0, 360, 64, 48, 40, 1, 2
+    Wait 5
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeParticleSystem 1
+    FreeParticleSystem 2
+    ClearArgs
+    SetArg 4, 1
+    SetArg 0, 0
+    SetArg 1, 32
+    RestoreBackground 43, 0x40001
+    WaitForBackgroundSwitch
+    End

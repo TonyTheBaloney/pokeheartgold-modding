@@ -1,0 +1,131 @@
+# member 50: DISABLE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 81
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfContest L346
+    JumpBySide 0, L150, L248
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 0, -4128, 0, 0
+    PlaySEWithPan SEQ_SE_DP_081, -117
+    Wait 5
+    CallFunc SetBgPaletteGrayscale, 1
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_061, 117
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    Wait 1
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 3, 0, 4, 4
+    StartBattlerSpriteDraw 3, 0, 4
+    CallFunc PulseBattlerSprite, 1, 8, 10, 12, 10, 1, 0x90009, 0
+    CallFunc BattlerPaletteFade, 8, 0, 1, 6342, 14, 0
+    CallFunc BlendSpritePalette, 2, 0, 1, 14, 14, 6342
+    WaitForTasks
+    CallFunc SetBgPaletteGrayscale, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End
+L150:
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, 4128, 6192, 0
+    PlaySEWithPan SEQ_SE_DP_081, -117
+    Wait 5
+    CallFunc SetBgPaletteGrayscale, 1
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_061, 117
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    Wait 1
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 3, 0, 4, 4
+    StartBattlerSpriteDraw 3, 0, 4
+    CallFunc PulseBattlerSprite, 1, 8, 10, 12, 10, 1, 0x90009, 0
+    CallFunc BattlerPaletteFade, 8, 0, 1, 6342, 14, 0
+    CallFunc BlendSpritePalette, 2, 0, 1, 14, 14, 6342
+    WaitForTasks
+    CallFunc SetBgPaletteGrayscale, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End
+L248:
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, -4128, 6192, 0
+    PlaySEWithPan SEQ_SE_DP_081, -117
+    Wait 5
+    CallFunc SetBgPaletteGrayscale, 1
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_061, 117
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    Wait 1
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 3, 0, 4, 4
+    StartBattlerSpriteDraw 3, 0, 4
+    CallFunc PulseBattlerSprite, 1, 8, 10, 12, 10, 1, 0x90009, 0
+    CallFunc BattlerPaletteFade, 8, 0, 1, 6342, 14, 0
+    CallFunc BlendSpritePalette, 2, 0, 1, 14, 14, 6342
+    WaitForTasks
+    CallFunc SetBgPaletteGrayscale, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End
+L346:
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 5, 0, 0, 0
+    EmitterData 1, -4128, 6192, 0
+    PlaySEWithPan SEQ_SE_DP_081, -117
+    Wait 5
+    CallFunc SetBgPaletteGrayscale, 1
+    Wait 5
+    PlaySEWithPan SEQ_SE_DP_061, 117
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    Wait 1
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 3, 0, 4, 4
+    StartBattlerSpriteDraw 3, 0, 4
+    CallFunc PulseBattlerSprite, 1, 8, 10, 12, 10, 1, 0x90009, 0
+    CallFunc BattlerPaletteFade, 8, 0, 1, 6342, 14, 0
+    CallFunc BlendSpritePalette, 2, 0, 1, 14, 14, 6342
+    WaitForTasks
+    CallFunc SetBgPaletteGrayscale, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    End

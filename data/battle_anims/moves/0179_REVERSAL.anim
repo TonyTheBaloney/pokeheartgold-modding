@@ -1,0 +1,44 @@
+# member 179: REVERSAL
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 199
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_W197, -117
+    BeginLoop 2
+    CallFunc FadeBgPalette, 0, -2, 0, 8, 32767
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, -2, 8, 0, 32767
+    WaitForTasks
+    EndLoop
+    PlaySEWithPan SEQ_SE_DP_W179, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    Wait 40
+    CallFunc FadeBgPalette, 0, -2, 0, 8, 32767
+    WaitForTasks
+    CallFunc FadeBgPalette, 0, -2, 8, 0, 32767
+    WaitForTasks
+    CallFunc MoveBattlerBy, 4, 24, 0, 258
+    WaitForTasks
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    PlaySEWithPan SEQ_SE_DP_W025B, 117
+    CallFunc ShakeTargets, 1, 0, 1, 3, 264
+    CallFunc MoveBattlerBy, 4, -24, 0, 258
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

@@ -1,0 +1,48 @@
+# member 315: OVERHEAT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 333
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    ClearArgs
+    SetArg 7, 1
+    SwitchBackground 32, 1
+    PlaySEWithPan SEQ_SE_DP_W082, -117
+    CallFunc ShakeTargets, 1, 0, 1, 5, 258
+    CallFunc BattlerPaletteFade, 2, 0, 1, 31, 10, 20
+    Wait 10
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W172B, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    Wait 15
+    CallFunc ShakeTargets, 1, 0, 1, 6, 258
+    CallFunc BattlerPaletteFade, 2, 0, 1, 4328, 10, 15
+    CallFunc ShakeTargets, 1, 0, 1, 6, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 4328, 10, 15
+    PlaySEWithPan SEQ_SE_DP_W007, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 2, 1, 0, 0, 0
+    CreateEmitter 0, 2, ConfigureFromScript
+    EmitterData 0, 1, 1, 0, 0, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 7, 1
+    RestoreBackground 32, 1
+    WaitForBackgroundSwitch
+    End

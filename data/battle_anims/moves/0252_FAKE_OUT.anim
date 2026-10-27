@@ -1,0 +1,38 @@
+# member 252: FAKE_OUT
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 270
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    InitSpriteManager 0, 1, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 18
+    LoadPaletteResource 0, 17, 1
+    LoadCellResource 0, 18
+    LoadAnimResource 0, 18
+    CreateSpriteWithFunc 0, FadeSpriteAnim, 18, 17, 18, 18, 0, 0
+    DelayedSE SEQ_SE_DP_W260, 0, 20
+    Wait 2
+    CallFunc WindowSweepFlashWhite
+    Wait 4
+    CreateEmitter 0, 0, SetPositionAtDefender
+    Wait 4
+    Wait 8
+    CallFunc StretchShakeDefender
+    PlaySEWithPan SEQ_SE_DP_W166, 117
+    WaitForTasks
+    FreeSpriteManager 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End

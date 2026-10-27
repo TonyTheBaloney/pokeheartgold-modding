@@ -1,0 +1,27 @@
+# member 270: HELPING_HAND
+    InitSpriteManager 0, 6, 1, 1, 1, 1, 0, 0
+    LoadCharResource 0, 23
+    LoadPaletteResource 0, 22, 1
+    LoadCellResource 0, 23
+    LoadAnimResource 0, 23
+    CreateSpriteWithFunc 0, SlidingSpritePairs, 23, 22, 23, 23, 0, 0, 6
+    DelayedSE SEQ_SE_DP_W227, 0, 20
+    Wait 14
+    BeginLoop 2
+    CallFunc SlideBattler2, 2, 12, 258
+    CallFunc ShakeTargets, 1, 0, 1, 2, 260
+    Wait 3
+    CallFunc SlideBattler2, 2, -12, 258
+    Wait 2
+    PlaySEWithPan SEQ_SE_DP_W227, 0
+    EndLoop
+    Wait 1
+    CallFunc SlideBattler2, 2, 12, 258
+    CallFunc ShakeTargets, 1, 0, 1, 2, 260
+    Wait 3
+    CallFunc SlideBattler2, 2, -12, 258
+    Wait 1
+    CallFunc BattlerPaletteFade, 4, 0, 2, 1003, 8
+    WaitForTasks
+    FreeSpriteManager 0
+    End

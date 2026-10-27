@@ -1,0 +1,8 @@
+# member 468: spare
+    CallFunc None
+    CallFunc OneFrameTask
+    CallFunc OneFrameSoundTask
+    CallFunc OneFrameUncountedTask
+    PlaySEWithPan SEQ_SE_DP_030, 117
+    Wait 60
+    End

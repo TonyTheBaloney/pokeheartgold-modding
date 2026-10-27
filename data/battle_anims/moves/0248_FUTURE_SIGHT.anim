@@ -1,0 +1,42 @@
+# member 248: FUTURE_SIGHT
+    JumpByVariantBit0 L7, L59
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L7:
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 0, 0, 0, 0
+    CallFunc ShakeTargets, 2, 0, 1, 2, 258
+    CallFunc BattlerPaletteFade, 2, 0, 1, 32767, 4
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_W060, 0
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End
+L59:
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    LoadBattlerSpriteResources 4
+    CreateBattlerSprite 3, 0, 4, 4
+    StartBattlerSpriteDraw 3, 0, 4
+    PlaySEWithPan SEQ_SE_DP_W060, 0
+    Wait 10
+    CallFunc ShakeDefenderWithOverlay
+    PlaySEWithPan SEQ_SE_DP_480, 117
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    StopBattlerSpriteDraw 0
+    DeleteBattlerSprite 4
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

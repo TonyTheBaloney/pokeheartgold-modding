@@ -1,0 +1,18 @@
+# member 433: TRICK_ROOM
+    SetArg 0, 0
+    SetArg 1, 0
+    SetArg 6, 0
+    SetArg 7, 0
+    SetArg 5, 1
+    SwitchBackground 57, 0x800000
+    DelayedSE SEQ_SE_DP_061, 0, 2
+    WaitForBackgroundSwitch
+    Wait 60
+    SetArg 0, 0
+    SetArg 1, 0
+    SetArg 6, 0
+    SetArg 7, 0
+    SetArg 5, 2
+    RestoreBackground 57, 0x1000000
+    WaitForBackgroundSwitch
+    End

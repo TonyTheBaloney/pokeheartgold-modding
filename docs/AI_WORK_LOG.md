@@ -379,3 +379,30 @@ was checked. Later work is described in the commit messages (`git log`).
   Recipes (VAR_BATTLE_TRANSITION = VAR_UNK_4153, Elder Li mugshot as effect 47 with copied members
   242-245, TrainerClass_GetBall, per-trainer "ball" in TrainerData.unk_2) built together with make
   release, then reverted. Not play-tested.
+
+## 2026-10-26 Move animations guide and battleanim.py
+- Location: docs/modding/move-animations.md (new), tools/battleanim/battleanim.py + test_battleanim.py
+  (new); links from docs/WIKI.md, docs/modding/README.md, moves.md; test added to CONTRIBUTING.md
+- Result: docs and a standalone tool; ROM unaffected (HG: all 4 checksums OK after the recipe test
+  was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: files/a/0/1/0 (501 move scripts, member = move id) and files/a/0/6/1 (50 effect scripts)
+  are u32 opcode streams for sBattleAnimScriptCmdTable; jumps are relative to the offset word;
+  opcode 55 is never run, it marks inline blocks read by emitter callbacks (ReadScriptArgs).
+  battleanim.py export/build round-trips both archives byte for byte. Opcodes 6, 7, 9, 27, 28,
+  37-43, 54 hang (don't advance), 30/33 jump to absolute addresses, 88 is past the table (bound
+  0x58); none in the data. JumpByWeather misreads with only fog/Gravity/Trick Room/Uproar set;
+  WaitForSoundTasks has no 90-frame cap (End has). moves.md corrected: past 500 a missing member
+  fails to load, only ids above NUM_MOVES fall back to Pound. Recipe (Flamethrower's script copied
+  to member 468) built with make release, then reverted. Not play-tested.
+
+## 2026-10-26 Battle animation scripts as sources (data/battle_anims)
+- Location: data/battle_anims/moves (501 .anim), data/battle_anims/effects (50 .anim) (new);
+  files/a/0/1/meson.build, files/a/0/6/meson.build, meson.build (battleanim_py); prebuilt
+  files/a/0/1/0 and files/a/0/6/1 removed; tools/battleanim (build --depfile, test against the
+  retail SHA-1s); docs/modding/move-animations.md, moves.md, README.md, WIKI.md, graphics-sources.md
+- Result: MATCHING (HG and SS: all 4 checksums OK)
+- Tool/model: claude-opus-5-5
+- Notes: the build runs battleanim.py build on each folder; its depfile lists the folder and every
+  script, so editing, adding (0501_*.anim) or deleting a script rebuilt without reconfiguring
+  (tested, then reverted to byte-identical).

@@ -1,0 +1,51 @@
+# member 411: FOCUS_BLAST
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 429
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    ClearArgs
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    SwitchBackground 12, 0x20001
+    WaitForBackgroundSwitch
+    PlaySEWithPan SEQ_SE_DP_W062, -117
+    CreateEmitter 0, 0, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    Wait 80
+    RepeatSE SEQ_SE_DP_W360, 0, 4, 4
+    CreateEmitter 0, 2, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 20, 64
+    Wait 19
+    PlaySEWithPan SEQ_SE_DP_186, 117
+    CreateEmitter 0, 3, ConfigureFromScript
+    EmitterData 0, 2, 2, 0, 0, 0
+    CallFunc BattlerPaletteFade, 8, 0, 1, 15103, 10, 0
+    PlaySEWithPan SEQ_SE_DP_W029, 117
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    ClearArgs
+    SetArg 0, -32
+    SetArg 1, 0
+    SetArg 6, 1
+    SetArg 7, 1
+    RestoreBackground 12, 0x40001
+    WaitForBackgroundSwitch
+    End

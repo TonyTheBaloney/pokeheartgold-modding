@@ -1,0 +1,29 @@
+# member 377: HEAL_BLOCK
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 395
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    PlaySEWithPan SEQ_SE_DP_W377, 117
+    CreateEmitter 0, 0, SetPositionAtDefenderSide
+    Wait 30
+    CallFunc SetBgPaletteGrayscale, 1
+    CallFunc BattlerPaletteFade, 8, 0, 1, 0, 10, 15
+    CallFunc BattlerPaletteFade, 16, 0, 1, 0, 10, 15
+    WaitForTasks
+    CallFunc SetBgPaletteGrayscale, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    End

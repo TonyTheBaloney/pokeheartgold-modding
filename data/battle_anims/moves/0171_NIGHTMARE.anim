@@ -1,0 +1,22 @@
+# member 171: NIGHTMARE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    CreateBattlerSprite 1, 0, 0, 0
+    SwitchBackground 24, 1
+    WaitForBackgroundLoaded
+    CallFunc BattleBgWave, 130
+    WaitForBackgroundSwitch
+    Wait 45
+    CallFunc SpriteDriftFade, 0
+    RepeatSE SEQ_SE_DP_W171, 117, 2, 4
+    Wait 15
+    CallFunc ShakeTargets, 2, 0, 1, 6, 264
+    Wait 15
+    SetBattlerSpriteVisible 0, 0
+    Wait 30
+    RestoreBackground 24, 1
+    WaitForTasks
+    WaitForBackgroundSwitch
+    DeleteBattlerSprite 0
+    FreeBattlerSpriteManager
+    End

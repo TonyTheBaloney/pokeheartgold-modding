@@ -1,0 +1,37 @@
+# member 412: ENERGY_BALL
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 430
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CallFunc FadeBgPalette, 0, 1, 0, 12, 0
+    WaitForTasks
+    CreateEmitter 0, 1, ConfigureFromScript
+    EmitterData 0, 1, 2, 0, 0, 0
+    PlaySEWithPan SEQ_SE_DP_211, -117
+    Wait 30
+    PanSweepSE SEQ_SE_DP_W145, -117, 117, 4, 2
+    CreateEmitter 0, 0, SetPositionAtAttacker
+    CallFunc MoveEmitter, 0, 0, 0, 0, 17, 64
+    Wait 16
+    PlaySEWithPan SEQ_SE_DP_402, 117
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CallFunc ShakeTargets, 1, 0, 1, 2, 264
+    CallFunc BattlerPaletteFade, 8, 0, 1, 11252, 14, 0
+    WaitForParticles
+    FreeParticleSystem 0
+    CallFunc FadeBgPalette, 0, 1, 12, 0, 0
+    WaitForTasks
+    End

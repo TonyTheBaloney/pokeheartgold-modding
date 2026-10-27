@@ -1,0 +1,54 @@
+# member 13: RAZOR_WIND
+    JumpByVariantBit0 L4, L65
+    End
+L4:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 44
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 1, SetPositionAtAttacker
+    Wait 10
+    PlaySEWithPan SEQ_SE_DP_060, -117
+    Wait 10
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L65:
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 44
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 0, SetPositionAtDefenderSide
+    DelayedSE SEQ_SE_DP_146, 117, 5
+    Wait 10
+    CallFunc ShakeTargets, 3, 0, 1, 2, 264
+    CallFunc ShakeTargets, 3, 0, 1, 2, 272
+    WaitForParticles
+    FreeParticleSystem 0
+    End

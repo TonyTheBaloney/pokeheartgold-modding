@@ -1,0 +1,32 @@
+# member 454: ATTACK_ORDER
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 472
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    CreateEmitter 0, 2, SetPositionAtDefender
+    CreateEmitter 0, 3, SetPositionAtDefender
+    CreateEmitter 0, 0, SetPositionAtDefender
+    CreateEmitter 0, 1, SetPositionAtDefender
+    RepeatSE SEQ_SE_DP_W456, 117, 6, 8
+    Wait 28
+    PlaySEWithPan SEQ_SE_DP_W109, 117
+    Wait 3
+    DelayedSE SEQ_SE_DP_W025B, 117, 20
+    DelayedSE SEQ_SE_DP_W025B, 117, 24
+    CallFunc ShakeTargets, 2, 0, 1, 16, 264
+    WaitForParticles
+    FreeParticleSystem 0
+    End

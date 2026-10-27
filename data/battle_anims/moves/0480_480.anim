@@ -1,0 +1,8 @@
+# member 480: spare
+    CallFunc None
+    CallFunc OneFrameTask
+    CallFunc OneFrameSoundTask
+    CallFunc OneFrameUncountedTask
+    PlaySE SEQ_SE_DP_BASI
+    Wait 60
+    End

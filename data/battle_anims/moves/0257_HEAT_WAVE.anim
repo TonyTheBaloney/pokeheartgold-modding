@@ -1,0 +1,61 @@
+# member 257: HEAT_WAVE
+    InitBattlerSpriteManager
+    LoadBattlerSpriteResources 0
+    LoadBattlerSpriteResources 1
+    LoadBattlerSpriteResources 2
+    LoadBattlerSpriteResources 3
+    CreateBattlerSprite 4, 0, 0, 0
+    CreateBattlerSprite 5, 0, 1, 1
+    CreateBattlerSprite 6, 0, 2, 2
+    CreateBattlerSprite 7, 0, 3, 3
+    CallFunc AnimateSprites, 0
+    LoadParticleSystem 0, 275
+    WaitForTasks
+    FreeBattlerSpriteManager
+    DeleteBattlerSprite 0
+    DeleteBattlerSprite 1
+    DeleteBattlerSprite 2
+    DeleteBattlerSprite 3
+    JumpIfContest L53
+    JumpBySide 0, L70, L129
+    End
+L53:
+    CreateEmitter 0, 0, None
+    PanSweepSE SEQ_SE_DP_W257, -117, 117, 4, 2
+    WaitForTasks
+    Wait 35
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L70:
+    CreateEmitter 0, 0, None
+    PanSweepSE SEQ_SE_DP_W257, -117, 117, 4, 2
+    CallFunc ShakeTargets, 3, 0, 1, 3, 264
+    CallFunc ShakeTargets, 3, 0, 1, 3, 272
+    WaitForTasks
+    CallFunc SlideBattler2, 4, -20, 264
+    CallFunc SlideBattler2, 4, -20, 272
+    WaitForTasks
+    Wait 35
+    CallFunc SlideBattler2, 5, 20, 264
+    CallFunc SlideBattler2, 5, 20, 272
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End
+L129:
+    CreateEmitter 0, 1, None
+    PanSweepSE SEQ_SE_DP_W257, -117, 117, 4, 2
+    CallFunc ShakeTargets, 3, 0, 1, 3, 264
+    CallFunc ShakeTargets, 3, 0, 1, 3, 272
+    WaitForTasks
+    CallFunc SlideBattler2, 4, -20, 264
+    CallFunc SlideBattler2, 4, -20, 272
+    WaitForTasks
+    Wait 35
+    CallFunc SlideBattler2, 5, 20, 264
+    CallFunc SlideBattler2, 5, 20, 272
+    WaitForTasks
+    WaitForParticles
+    FreeParticleSystem 0
+    End

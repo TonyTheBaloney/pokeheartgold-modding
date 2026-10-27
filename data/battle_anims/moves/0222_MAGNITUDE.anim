@@ -1,0 +1,5 @@
+# member 222: MAGNITUDE
+    RepeatSE SEQ_SE_DP_W070, 0, 2, 8
+    CallFunc ShakeBattlefieldByPower, 1
+    WaitForTasks
+    End
