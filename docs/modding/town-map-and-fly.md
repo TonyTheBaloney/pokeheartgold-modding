@@ -155,7 +155,8 @@ The region is decided from coordinates, in C: `Pokegear_RegionFromCoords`
 (`src/application/pokegear/main/pokegear_app_ui.c`, cell rows) says x > 21 is Kanto,
 except Mt. Silver (25, 8) and Indigo Plateau / Victory Road (column 28). Fly only
 offers points in the region you are in, plus Indigo Plateau and Victory Road from
-anywhere (`PokegearMap_IsFlyDestinationReachable`). A layout that moves the border
+anywhere (`PokegearMap_IsFlyDestinationReachable`; lifting this is in
+[Flying straight to the other region](#flying-straight-to-the-other-region)). A layout that moves the border
 needs these functions changed too, and the `x >= 22` and Mt. Silver `(25, 10)` checks
 (tile rows) in `PokegearMap_SelectLocationAtCoord` (`pokegear_map_view.c`).
 
@@ -364,10 +365,89 @@ For a new town on the Overworld, with its Pokémon Center:
 Steps 1-4 were built with `make release`. **Saves:** the flags already exist in the
 save, and new spawn ids come after the old ones, so old saves keep working.
 
+### Flying straight to the other region
+
+Fly can't cross between Johto and Kanto in one trip. This is a rule in the Fly screen,
+not a limit of the warp: Fly lands with the same warp as a door, and Teleport, Escape
+Rope and blackouts already cross regions. `PokegearMap_IsFlyDestinationReachable`
+(`src/application/pokegear/map/pokegear_map_view.c`) lets you pick only points in the
+region you are standing in, plus Indigo Plateau and Route 26
+([Regions and Kanto](#regions-and-kanto)). Standing on the Indigo column lets you pick
+everything, so the retail route is two flights through the Plateau.
+
+To allow every visited town once Kanto is on the map (unlock level 2, set at the
+Vermilion port), add one branch:
+
+```c
+BOOL PokegearMap_IsFlyDestinationReachable(PokegearMapAppData *mapApp, u16 mapID, u16 x, u16 y) {
+    if (mapID == MAP_INDIGO_PLATEAU || mapID == MAP_ROUTE_26) {
+        return TRUE;
+    } else if (mapApp->mapUnlockLevel >= 2) {
+        return TRUE;
+    } else {
+        return PokegearMap_IsCoordInCurrentRegion(mapApp, x, y);
+    }
+}
+```
+
+Nothing else is needed. The same function decides which icons are lit
+(`FlyMap_UpdateFlypointIcons`, mode 0), which square the cursor can pick
+(`FlyMap_SelectLocationAtCoord`) and what touch returns
+(`PokegearMap_GetFlyDestinationAtCoord`). Towns you haven't visited still can't be picked,
+because `PokegearMap_GetFlypointIndexAtCoord` checks their flag first. To allow it from
+the start instead, return `TRUE` without the unlock check; Kanto towns then become
+reachable as soon as a script gives their flag early.
+
+### Remembering which towns you flew to
+
+The game saves only "visited" (`FLAG_SYS_FLYPOINT_*`, set on entering a town). To also
+record "flown to", give each fly point a second flag and set it when Fly lands. The 38
+flags from `0xA00` are free system flags (`0x9D6-0xA9F` in
+[unknown-flags-vars.md](unknown-flags-vars.md#free-flags)): saved, and never cleared.
+
+1. **The flags**, in `include/constants/flags.h` after `FLAG_SYS_FLYPOINT_PALLET`:
+   ```c
+   #define FLAG_SYS_FLOWN_TO_PALLET                          0xA00 // + FLYPOINT_*, set on landing with Fly
+   ```
+   Name the ones scripts will check (`#define FLAG_SYS_FLOWN_TO_CHERRYGROVE 0xA0C` is
+   `0xA00` + `FLYPOINT_CHERRYGROVE`).
+2. **Setting it**, at the end of `src/spawn_warp.c` (declare it in
+   `include/spawn_warp_lookup_internal.h` next to `FlypointFlagAction`):
+   ```c
+   // Landing with Fly marks the town as flown to.
+   void FlownToFlagSet(FieldSystem *fieldSystem, u32 spawnId) {
+       SaveVarsFlags *varsFlags = Save_VarsFlags_Get(fieldSystem->saveData);
+       SetScriptFlag(varsFlags, FLAG_SYS_FLOWN_TO_PALLET + sSpawnPoints[spawnId - 1].flypoint);
+   }
+   ```
+3. **Calling it**, in the `FLY_TASK_WARP` state of `FieldTask_Fly`
+   (`src/field_warp_state.c`), once the spawn id is known:
+   ```c
+   map = GetSpawnIdForFlyMap(env->mapNo);
+   GF_ASSERT(map != 0);
+   FlownToFlagSet(fieldSystem, map);
+   GetFlyWarpData(map, &warp);
+   ```
+   Only Fly runs this task. Teleport, Dig, Escape Rope and blackouts don't count.
+4. **Reading it:** `flag(FLAG_SYS_FLOWN_TO_CHERRYGROVE)` in a `scripts.pory`, or
+   `CheckScriptFlag(varsFlags, FLAG_SYS_FLOWN_TO_PALLET + FLYPOINT_CHERRYGROVE)` in C.
+   A count for an NPC or a trainer card is a loop over `FLYPOINT_PALLET`..`FLYPOINT_ROCK_TUNNEL`.
+   Use the index table above: `FLYPOINT_GOLDENROD` (15) is Cianwood.
+
+After claiming flags, regenerate the free list
+(`python3 tools/flagusage/flagusage.py --markdown > docs/modding/unknown-flags-vars.md`).
+**Saves:** old saves load, with every town "not flown to" until the next landing.
+
+Both changes together were built with `make release` (2026-10-27), then reverted; this
+repository still matches retail.
+
 ## Not verified
 
 - Built, not run in an emulator: a new section with its name and follow rules, a new
   fly point (spawn point, icon, sprite count). Expected but not seen: the popup, the
   icon on the Fly screen, landing.
 - Raising `PGMAP_NUM_LOCATIONS` (not built).
+- Flying straight to the other region and the "flown to" flags: built, not run.
+  Expected but not seen: lit icons in the other region, landing there, the flag set
+  after landing.
 - Editing the NSCR and NCLR files with NitroPaint.
