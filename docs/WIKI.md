@@ -280,6 +280,10 @@ the command, if there is one. Commands run from the repository root;
 | redraw a gym leader / Elite Four / Rocket mugshot | [battle-visuals.md](modding/battle-visuals.md#3-changing-a-mugshot-picture) | `files/a/1/0/9` with `nitroarc` + `nitrogfx` |
 | add a mugshot for a new trainer or class | [battle-visuals.md](modding/battle-visuals.md#43-a-new-mugshot) | new effect id 47, `gEncounterEffectFuncs` |
 | make a trainer class (or one trainer) use another Poké Ball | [battle-visuals.md](modding/battle-visuals.md#5-which-ball-a-trainers-pokémon-come-out-of) | `TrainerClass_GetBall`; `"ball"` in `trainers.json` |
+| add a third player character (overworld sprites, back sprite, trainer class, card and intro art) | [player-characters.md](modding/player-characters.md) | `PlayerProfile_GetCharacter`, `mapkit sprite add`, `sPlayerSprites` |
+| let the player change their look from a script | [player-characters.md §3](modding/player-characters.md#3-choosing-the-character) | `setplayercharacter`, then `setavatarbits` + `updateavatarstate` |
+| redraw Ethan's or Lyra's overworld sprites | [player-characters.md §4](modding/player-characters.md#4-overworld-sprites) | `mapkit sprite export SPRITE_HERO hero.png` / `import` |
+| find everything that is drawn differently for a boy or a girl | [player-characters.md §8](modding/player-characters.md#8-everything-else-that-shows-the-player) | |
 | redraw a Poké Ball, or find every graphic a new ball needs | [battle-visuals.md](modding/battle-visuals.md#6-poké-ball-graphics) | `graphics/battle_sprites/balls/` |
 
 ## Screens and menus

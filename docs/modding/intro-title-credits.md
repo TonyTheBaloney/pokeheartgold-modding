@@ -192,7 +192,7 @@ names: [naming-screen.md §8](naming-screen.md#8-how-to-change-the-default-names
 
 | What | Where |
 |---|---|
-| Oak, Ethan and Lyra pictures (main BG 1) | [files/demo/intro/intro/](../../files/demo/intro/intro/) (`NARC_demo_intro_intro`), members listed in `sBgPicNCGR_NCLR` (line 496): Oak 10/11, Ethan 12-15 with palette 16, Lyra 17-20 with palette 21 (the shrinking frames are 2-4 and 7-9 in that table) |
+| Oak, Ethan and Lyra pictures (main BG 1) | [files/demo/intro/intro/](../../files/demo/intro/intro/) (`NARC_demo_intro_intro`), members listed in `sBgPicNCGR_NCLR` (line 496): Oak 10/11, Ethan 12-15 with palette 16, Lyra 17-20 with palette 21 (only Oak, Ethan's first and Lyra's first are drawn). The shrink at the end uses `sPlayerPicShrinkGfx_Male` / `_Female` (line 333): 12, 22-25 and 17, 26-29 |
 | bottom-screen backgrounds and menus | the same archive: `sSubScreenBackgroundNSCR`, `sButtonTutorialNSCR`, `sSubScreenMenuGraphics` (lines 301-318) |
 | sprites: Marill and its ball, gender cursors, the Touch button | resource lists `resdat_00000024`-`27` and `78`, loaded in [src/oaks_speech_obj.c:130](../../src/oaks_speech_obj.c#L130) |
 | the yes/no buttons | [src/oaks_speech_yesnomenu.c](../../src/oaks_speech_yesnomenu.c) |

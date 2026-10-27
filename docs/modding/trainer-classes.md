@@ -80,9 +80,12 @@ phone contacts, so there is room for 71 more (129-199).
    {"id": "msg_0731_00129", "en_US": "a Surfer"}
    ```
 
-3. **Gender.** Append to `sTrainerGenders` in `src/trainer_data.c`:
+3. **Gender.** Add to `sTrainerGenders` in `src/trainer_data.c`. The retail table
+   stops at Lucas Pt (127): Dawn Pt has no line, and class 128 reads the byte after the
+   table. Add hers first, so the new line lands on 129:
 
    ```c
+   TRAINER_FEMALE, // TRAINERCLASS_PKMN_TRAINER_DAWN_PT
    TRAINER_MALE,   // TRAINERCLASS_SURFER
    ```
 
@@ -207,7 +210,9 @@ Back sprites only matter for trainers on *your* side: the player, and partners s
 as Silver, Lance, Cheryl or Riley. `TrainerClassToBackpicID` in
 `src/pokemon.c` picks one; every class not listed there gets Ethan's or Lyra's by
 gender. A new back sprite needs a `TRAINER_BACKPIC_*` constant (next number), an
-entry at the end of `back_pics.json`, and a case in that function.
+entry at the end of `back_pics.json`, a case in that function, and a row in
+`gBallThrowOffsets` for where the ball appears. A worked example, a third player
+character: [player-characters.md §6](player-characters.md#6-battle-trainer-class-and-back-sprite).
 
 ## Animation
 

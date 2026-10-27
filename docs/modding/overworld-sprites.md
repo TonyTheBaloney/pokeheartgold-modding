@@ -138,8 +138,10 @@ Pick `--like` from a sprite of the same kind: a standard NPC (`SPRITE_BOY1`, `SP
   follow-Pokémon and every distinct NPC look on screen. NPCs that share a sprite share a
   texture.
 - **Free sprite ids.** `SPRITE_VAR_0`-`15` (100-115) are not real sprites. Such an
-  object's sprite is read from the variable `VAR_OBJ_GFX_BASE + n` (0x4020 + n), so a
-  script can choose it. The retail ids have gaps (26-28, 46-49...), but nothing guarantees
+  object's sprite is read from a variable, so a script can choose it. The code is one
+  off: ids 101-117 read `VAR_OBJ_0 + (id - 101)` (`FieldSystem_ResolveObjectSpriteID`,
+  `src/map_object.c:796`), so `SPRITE_VAR_1` reads `VAR_OBJ_0` (0x4020) and
+  `SPRITE_VAR_0` is not a variable sprite. The retail ids have gaps (26-28, 46-49...), but nothing guarantees
   they're unused; `add` stays above them.
 - **Member numbers.** Members 266-296 are the shared models and sequences, and the code
   refers to them by number (`gBillboardModelNarcMembers`). Always **append** new
@@ -150,8 +152,8 @@ Pick `--like` from a sprite of the same kind: a standard NPC (`SPRITE_BOY1`, `SP
   `soulsilver.us`). The NARC is packed from everything in that build folder, so a stale
   copy stays in the ROM, and `make` then fails its checksum test.
 
-**Not covered:** sprites with a different animation (a new sequence file), new draw
-callbacks, and the player's own sprites. Copying an existing kind covers people and
+**Not covered:** sprites with a different animation (a new sequence file) and new draw
+callbacks. The player's own sprites: [player-characters.md](player-characters.md#4-overworld-sprites). Copying an existing kind covers people and
 objects.
 
 ## 3. Movement actions
