@@ -156,7 +156,8 @@ Things to know:
   (`ITEM_TM01`-`ITEM_HM08`, moves in `sTMHMMoves`, `src/item.c`), mail
   (`FIRST_MAIL_IDX`-`LAST_MAIL_IDX`) and berries (from `FIRST_BERRY_IDX`, 64 of
   them) are recognised by their ids. A new ball, TM, mail or berry needs those
-  ranges and tables changed too; a new item of another kind doesn't.
+  ranges and tables changed too; a new item of another kind doesn't. For TMs see
+  [tms-and-hms.md](tms-and-hms.md#3-adding-tms-after-hm08).
 - **Bag space.** Each pocket holds a fixed number of different items (`NUM_BAG_ITEMS`
   165, `NUM_BAG_MEDICINE` 40, `NUM_BAG_BALLS` 24, `NUM_BAG_TMS_HMS` 101,
   `NUM_BAG_BERRIES` 64, `NUM_BAG_MAIL` 12, `NUM_BAG_BATTLE_ITEMS` 30,

@@ -12,7 +12,9 @@ Shoes from the start, faster surfing, bike rule changes, and using HMs without a
 Pokémon that knows the move.
 
 NPC movement (movement types, `applymovement` steps) is in
-[overworld-sprites.md](overworld-sprites.md). Which badge each HM needs is in
+[overworld-sprites.md](overworld-sprites.md). The TM and HM items, forgetting HMs,
+removing them and adding a field move are in [tms-and-hms.md](tms-and-hms.md). Which
+badge each HM needs is in
 [gyms.md](gyms.md#what-badges-do). How running and the bike change the encounter rate is
 in [encounter-mechanics.md](encounter-mechanics.md#2-the-step-encounter-roll).
 

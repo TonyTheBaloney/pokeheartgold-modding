@@ -161,6 +161,8 @@ To add a field move, all of these must agree:
 - the start menu's `switch`;
 - a `{ use, check }` row in `sFieldMoveFuncTable`.
 
+[tms-and-hms.md](tms-and-hms.md#6-adding-a-field-move) adds one step by step.
+
 **The lists are not in the same order.** Whirlpool comes before Flash in `sFieldMoves` and
 `PartyMonContextMenuItem`, but after Chatter in `PartyMenuActionReturn` and
 `sFieldMoveFuncTable`. The start menu indexes the function table by

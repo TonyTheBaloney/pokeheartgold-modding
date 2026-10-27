@@ -470,3 +470,19 @@ was checked. Later work is described in the commit messages (`git log`).
   Marill/Rattata, Lance's Dragonite. Recipes (SHINY_ODDS, Shiny Charm rerolls via
   createWildMonWithNature, FLAG_FORCE_SHINY on 0x40, wildbattle shiny 2 = locked) built together
   with make heartgold, then reverted. Shiny trainer and trade recipes not built. Not play-tested.
+
+## 2026-10-27 TMs, HMs and field moves guide
+- Location: docs/modding/tms-and-hms.md (new); links from docs/WIKI.md, docs/modding/README.md,
+  items.md, player-movement.md, party-menu-and-item-use.md
+- Result: docs only; ROM unaffected (HG: all 4 checksums OK after the recipe test was reverted)
+- Tool/model: claude-opus-5-5
+- Notes: machines are items 328-427 (TM/HM index 0-99); ITEM_EXPLORER_KIT follows, so new TMs go
+  after ITEM_ENIGMA_STONE. Compatibility is 4 words in personal; tmhm_4 bits 4-31 are free (28 more
+  machines). MoveIsHM (by move, not item) decides: not used up, "Booted up an HM", can't be
+  forgotten in the summary screen and battle level-up. ItemToTMHMId returns 0 (TM01) for non-TMs.
+  The bag's TM pocket has 101 slots (asm copy gPocketCapacities); growing it changes SAVE_BAG.
+  Field moves: sFieldMoveFuncTable is indexed by PartyMenuActionReturn - CUT, so a move after
+  Softboiled needs two NULL rows; FieldMoveCheckData.flag is u16 (bits 14-15 free); std scripts
+  10019+ in scr_seq_0146. HM_DEFOG (HM05, Whirlpool here) renamed HM_WHIRLPOOL; msg_0211 17-19 are unused Defog texts.
+  Recipes (TM93-95 with template and bag changes, reusable TMs, forgettable HMs, Melt field move on
+  a script-tagged SPRITE_ICE) built together with make heartgold, then reverted. Not play-tested.

@@ -875,7 +875,7 @@
 #define HM_FLY          ITEM_HM02
 #define HM_SURF         ITEM_HM03
 #define HM_STRENGTH     ITEM_HM04
-#define HM_DEFOG        ITEM_HM05
+#define HM_WHIRLPOOL    ITEM_HM05
 #define HM_ROCK_SMASH   ITEM_HM06
 #define HM_WATERFALL    ITEM_HM07
 #define HM_ROCK_CLIMB   ITEM_HM08

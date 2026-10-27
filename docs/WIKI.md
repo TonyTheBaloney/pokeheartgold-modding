@@ -87,6 +87,7 @@ the command, if there is one. Commands run from the repository root;
 | know what unlocks after the League (`FLAG_GAME_CLEAR`) | [story-progression.md](modding/story-progression.md#elite-four-and-game-clear) | |
 | change which badge an HM needs, or obedience levels | [gyms.md](modding/gyms.md#what-badges-do) | |
 | understand what each HM checks (party menu, A prompt, while moving) | [player-movement.md](modding/player-movement.md#6-field-moves-hms) | `scr_seq_0146.s`, `src/field_move.c` |
+| let HMs be forgotten, stop giving them, turn one into an ordinary move | [tms-and-hms.md](modding/tms-and-hms.md#52-removing-hms) | `MoveIsHM` |
 | use HMs without a Pokémon that knows the move (or with a key item) | [player-movement.md](modding/player-movement.md#hms-without-a-pokémon-that-knows-the-move) | `Call _HMUserOrLead` in `scr_seq_0146.s` |
 | change a leader's reward, entry gate or puzzle | [gyms.md](modding/gyms.md#summary) | |
 | require badges for a gate | [gyms.md](modding/gyms.md#changing-gyms) | `checkbadge`, `countbadges` |
@@ -211,7 +212,12 @@ the command, if there is one. Commands run from the repository root;
 | find why a medicine says "It won't have any effect", or shows the wrong message | [party-menu-and-item-use.md](modding/party-menu-and-item-use.md#what-decides-what) | `CanUseItemOnPokemon`, `ItemId_GetPartyUseType` |
 | change what an item does in battle, add a ball | [party-menu-and-item-use.md](modding/party-menu-and-item-use.md#4-using-an-item-in-battle) | `BattleSystem_RecoverStatus`, `BattleSystem_CalculateBallShakes` |
 | add or change a held item's effect | [party-menu-and-item-use.md](modding/party-menu-and-item-use.md#5-held-items) | `grep -rn HOLD_EFFECT_X src` |
-| open the party menu for a new purpose, add a field move | [party-menu-and-item-use.md](modding/party-menu-and-item-use.md#2-the-party-menu) | `PartyMenuArgs`, `sFieldMoves` |
+| open the party menu for a new purpose | [party-menu-and-item-use.md](modding/party-menu-and-item-use.md#2-the-party-menu) | `PartyMenuArgs` |
+| change the move a TM or HM teaches | [tms-and-hms.md](modding/tms-and-hms.md#2-changing-what-a-tm-teaches) | `sTMHMMoves` in `src/item.c` |
+| add TMs after HM08 (TM93...) | [tms-and-hms.md](modding/tms-and-hms.md#3-adding-tms-after-hm08) | `TMHMGetMove`, `ItemToTMHMId`, `personal.json.txt` |
+| make TMs reusable | [tms-and-hms.md](modding/tms-and-hms.md#4-reusable-tms) | `PartyMenu_LearnMoveToSlot` |
+| let HMs be forgotten, or remove HMs | [tms-and-hms.md](modding/tms-and-hms.md#5-hms-forgetting-them-and-removing-them) | `MoveIsHM` |
+| add a field move | [tms-and-hms.md](modding/tms-and-hms.md#6-adding-a-field-move) | `sFieldMoves`, `sFieldMoveFuncTable`, `scr_seq_0146.s` |
 
 ## Side features and minigames
 
