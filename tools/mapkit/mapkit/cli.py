@@ -526,6 +526,17 @@ def cmd_pory(repo, args):
     return 0
 
 
+def cmd_export_constants(repo, args):
+    from . import export
+    text = json.dumps(export.constants(repo), indent=1, ensure_ascii=False) + "\n"
+    if args.out == "-":
+        sys.stdout.write(text)
+    else:
+        with open(args.out, "w", encoding="utf-8") as f:
+            f.write(text)
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="mapkit", description="Read and check pokeheartgold map data.")
     ap.add_argument("--root", help="repo root (default: search upward from the current directory)")
@@ -740,6 +751,10 @@ def main(argv=None):
     p.add_argument("--walkable-only", action="store_true",
                    help="only over tiles permissions.txt doesn't mark as collision (keeps roofs and backdrops out)")
     p.set_defaults(func=cmd_heights_generate)
+
+    p = sub.add_parser("export-constants", help="constant names, behaviors and sprite files as JSON (for the Rust editor)")
+    p.add_argument("out", nargs="?", default="-", help="file to write (default: standard output)")
+    p.set_defaults(func=cmd_export_constants)
 
     # build-time generators (called from data/maps/meson.build)
     for name, fn in (("gen-header", layout.gen_header), ("gen-events", layout.gen_events)):

@@ -42,6 +42,7 @@ the command, if there is one. Commands run from the repository root;
 | change where Fly lands or where you wake up after a blackout | [town-map-and-fly.md](modding/town-map-and-fly.md#changing-a-fly-point) | `sSpawnPoints` in `src/spawn_warp.c` |
 | add a fly point | [town-map-and-fly.md](modding/town-map-and-fly.md#adding-a-fly-point) | `sSpawnPoints`, `gMapFlypointParams`, the Fly screen sprite count |
 | use the map editor | [mapeditor README](../tools/mapeditor/README.md) | `tools/mapeditor/mapeditor.sh <Map>` |
+| use the map editor without Python/Qt | [mapeditor-rs README](../tools/mapeditor-rs/README.md) | `tools/mapeditor-rs/mapeditor-rs.sh <Map>` |
 | give a map weather (rain, snow, dark cave) | [weather.md](modding/weather.md#3-giving-a-map-weather) | set `"weather"` (a number) in `map.json` |
 | change the weather from a script, or make it depend on an event | [weather.md](modding/weather.md#5-changing-weather-from-a-script) | add a command like `FlashEffect` |
 | tune or add a weather effect | [weather.md](modding/weather.md#6-changing-or-adding-a-weather) | `sWeatherEntries` in `src/field/weather_manager.c` |

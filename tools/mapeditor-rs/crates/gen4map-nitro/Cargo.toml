@@ -1,0 +1,12 @@
+[package]
+name = "gen4map-nitro"
+description = "NARC archives, NSBMD models and NSBTX textures, decoded for drawing"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+png.workspace = true

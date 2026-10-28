@@ -20,13 +20,16 @@ DS) games: Diamond/Pearl, Platinum, HeartGold/SoulSilver.
 | [CHANGE-0002-terrain-authoring.md](CHANGE-0002-terrain-authoring.md) | format 1.1: writing NSBMD models and BDHC heights, `heights.json` |
 | [CHANGE-0003-area-textures.md](CHANGE-0003-area-textures.md) | format 1.2: map textures as PNG folders, writing NSBTX |
 | [CHANGE-0004-map-editor.md](CHANGE-0004-map-editor.md) | editor clean-up (done), then props, layout resize and object sprites (planned) |
+| [CHANGE-0005-rust-map-editor.md](CHANGE-0005-rust-map-editor.md) | the map editor in Rust (`tools/mapeditor-rs`), checked against the Python tools |
 | [ROADMAP.md](ROADMAP.md) | steps to a standalone tool and other games |
 
 In this repository:
 
 - Manifest: `data/gen4map.json` (format 1.2, HGSS).
 - Check a project: `tools/mapkit/mapkit.sh format check`.
-- Edit: `tools/mapeditor/mapeditor.sh <Map>` ([README](../../tools/mapeditor/README.md)).
+- Edit: `tools/mapeditor/mapeditor.sh <Map>` ([README](../../tools/mapeditor/README.md)),
+  or the Rust build of the same editor, `tools/mapeditor-rs/mapeditor-rs.sh <Map>`
+  ([README](../../tools/mapeditor-rs/README.md)).
 - How-to for modders: [maps-and-warps.md](../modding/maps-and-warps.md), [terrain.md](../modding/terrain.md),
   [area-textures.md](../modding/area-textures.md),
   [npcs-and-scripts.md](../modding/npcs-and-scripts.md).

@@ -65,6 +65,11 @@ feature flags from `gen4map.json`, never from hard-coded repository layout.
    layout resize and cell assignment ([CHANGE-0004](CHANGE-0004-map-editor.md)). New textures: done (CHANGE-0003, format 1.2:
    map texture sets as PNG folders, an NSBTX writer).
 7. **Animations.** NSBTP/NSBTA for water and flowers in the renderer.
+8. **A native editor.** Done (CHANGE-0005, 2026-10-28): `tools/mapeditor-rs`, the editor
+   in Rust on crates for the formats (`gen4map-format`), the NITRO files and BDHC
+   (`gen4map-nitro`) and the top-down renderer (`gen4map-render`), with no dependency on
+   this repository beyond the manifest and `mapkit export-constants`. Those crates are
+   a start on the `format/`, `binary/` and `render/` parts of the target shape above.
 
 Each step keeps the invariant this repo already has: the unmodified data
 reproduces the retail binaries byte for byte, checked by tests.
