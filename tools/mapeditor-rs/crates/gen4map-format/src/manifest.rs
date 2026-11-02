@@ -40,10 +40,24 @@ pub struct Paths {
     pub area_textures: String,
     pub map_ids: String,
     pub tile_behaviors: String,
+    /// The wild encounter tables and the header naming them (not part of the map
+    /// format; defaults are the pret decomp's files).
+    #[serde(default = "default_wild_encounters")]
+    pub wild_encounters: String,
+    #[serde(default = "default_wild_tables")]
+    pub wild_tables: String,
 }
 
 fn default_area_textures() -> String {
     "data/area_textures".into()
+}
+
+fn default_wild_encounters() -> String {
+    "files/fielddata/encountdata/gs_enc_data.json".into()
+}
+
+fn default_wild_tables() -> String {
+    "include/encounter_tables_narc.h".into()
 }
 
 impl Manifest {

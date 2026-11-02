@@ -21,6 +21,7 @@ DS) games: Diamond/Pearl, Platinum, HeartGold/SoulSilver.
 | [CHANGE-0003-area-textures.md](CHANGE-0003-area-textures.md) | format 1.2: map textures as PNG folders, writing NSBTX |
 | [CHANGE-0004-map-editor.md](CHANGE-0004-map-editor.md) | editor clean-up (done), then props, layout resize and object sprites (planned) |
 | [CHANGE-0005-rust-map-editor.md](CHANGE-0005-rust-map-editor.md) | the map editor in Rust (`tools/mapeditor-rs`), checked against the Python tools |
+| [CHANGE-0006-wild-encounters-in-editor.md](CHANGE-0006-wild-encounters-in-editor.md) | wild encounter tables in the Rust editor |
 | [ROADMAP.md](ROADMAP.md) | steps to a standalone tool and other games |
 
 In this repository:

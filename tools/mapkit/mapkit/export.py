@@ -10,8 +10,13 @@ C twice, `mapkit export-constants` writes:
       "format": "mapkit-constants", "version": 1, "game": "HEARTGOLD",
       "constants": {"SPRITE_": [...], "FLAG_": [...], ...},   sorted names per prefix
       "behaviors": {"0": "TILE_BEHAVIOR_NONE", ...},          enum TILE_BEHAVIOR
-      "sprites": {"SPRITE_GSMAN1": "files/data/mmodel/mmodel/mmodel_00000012.NSBTX", ...}
+      "sprites": {"SPRITE_GSMAN1": "files/data/mmodel/mmodel/mmodel_00000012.NSBTX", ...},
+      "wild": {"ENCDATA_T20": 0, ...}                         wild table name -> index
     }
+
+The table names (ENCDATA_) are #defines of include/encounter_tables_narc.h, outside
+include/constants, so they come from Repo.wild_index; ENCDATA_NA (no table) is listed
+with them but has no index.
 
 Paths are relative to the repository root.
 """
@@ -25,7 +30,7 @@ FORMAT_VERSION = 1
 
 # Prefixes the editor completes and checks map.json fields against.
 PREFIXES = ("SPRITE_", "MOVEMENT_TYPE_", "DIR_", "OBJECT_TYPE_", "FLAG_", "MAP_", "VAR_", "BG_TYPE_",
-            "BG_DIR_", "SEQ_", "MAPSEC_", "WEATHER_", "MAP_TYPE_", "BATTLE_BG_", "CAMERA_TYPE_")
+            "BG_DIR_", "SEQ_", "MAPSEC_", "WEATHER_", "MAP_TYPE_", "BATTLE_BG_", "CAMERA_TYPE_", "SPECIES_")
 
 # Constants that are C enum members, not #defines: prefix -> header with the enum
 ENUM_SOURCES = {"MAP_TYPE_": "include/map_header.h", "BATTLE_BG_": "include/constants/battle.h"}
@@ -69,6 +74,11 @@ def constants(repo):
             names |= enum_names(repo.root, ENUM_SOURCES[prefix], prefix)
         consts[prefix] = sorted(names)
     try:
+        banks = repo.wild_index
+    except OSError:
+        banks = {}
+    consts["ENCDATA_"] = sorted(set(banks) | {"ENCDATA_NA"})
+    try:
         paths = sprites.texture_paths(repo.root)
     except (OSError, ValueError):
         paths = {}
@@ -79,4 +89,5 @@ def constants(repo):
         "constants": consts,
         "behaviors": {str(k): v for k, v in sorted(behavior_names(repo.root).items())},
         "sprites": {k: os.path.relpath(v, repo.root).replace(os.sep, "/") for k, v in sorted(paths.items())},
+        "wild": dict(sorted(banks.items(), key=lambda kv: (kv[1], kv[0]))),
     }

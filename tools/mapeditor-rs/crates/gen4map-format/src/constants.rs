@@ -24,6 +24,10 @@ pub struct Constants {
     pub behaviors: BTreeMap<String, String>,
     /// SPRITE_ name -> NSBTX path relative to the root
     pub sprites: BTreeMap<String, String>,
+    /// ENCDATA_ name -> index of its table in the wild encounter file (exports from
+    /// before the editor edited wild encounters don't have it)
+    #[serde(default)]
+    pub wild: BTreeMap<String, usize>,
 }
 
 impl Constants {
@@ -61,6 +65,14 @@ impl Constants {
 
     pub fn is_known(&self, prefix: &str, name: &str) -> bool {
         self.names(prefix).binary_search_by(|n| n.as_str().cmp(name)).is_ok()
+    }
+
+    /// Make a name known (one the editor just defined).
+    pub fn add_name(&mut self, prefix: &str, name: &str) {
+        let names = self.constants.entry(prefix.to_string()).or_default();
+        if let Err(i) = names.binary_search_by(|n| n.as_str().cmp(name)) {
+            names.insert(i, name.to_string());
+        }
     }
 
     pub fn behavior_names(&self) -> BTreeMap<u8, String> {

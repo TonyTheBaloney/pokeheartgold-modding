@@ -18,7 +18,9 @@
         "area_textures": "data/area_textures",
         "constants": "include/constants",
         "map_ids": "include/constants/maps.h",
-        "tile_behaviors": "include/constants/metatile_behavior.h"
+        "tile_behaviors": "include/constants/metatile_behavior.h",
+        "wild_encounters": "files/fielddata/encountdata/gs_enc_data.json",
+        "wild_tables": "include/encounter_tables_narc.h"
     },
     "binaries": {
         "note": "paths in the ROM's file system (NitroFS); this repo builds them from the text files",

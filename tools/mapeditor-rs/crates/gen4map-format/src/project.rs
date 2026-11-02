@@ -124,6 +124,28 @@ impl Project {
         self.root.join(&self.manifest.paths.area_textures)
     }
 
+    /// gs_enc_data.json
+    pub fn wild_encounters(&self) -> PathBuf {
+        self.root.join(&self.manifest.paths.wild_encounters)
+    }
+
+    /// encounter_tables_narc.h, with the ENCDATA_ names of the tables.
+    pub fn wild_tables(&self) -> PathBuf {
+        self.root.join(&self.manifest.paths.wild_tables)
+    }
+
+    /// {ENCDATA_ name: map folders whose map.json uses it}.
+    pub fn wild_users(&self) -> HashMap<String, BTreeSet<String>> {
+        let mut out: HashMap<String, BTreeSet<String>> = HashMap::new();
+        for m in &self.maps {
+            let Ok((d, _)) = json::load(&self.map_json(m)) else { continue };
+            if let Some(bank) = d.get("wild_encounters").and_then(Value::as_str) {
+                out.entry(bank.to_string()).or_default().insert(m.folder.clone());
+            }
+        }
+        out
+    }
+
     /// The layout folder a map uses, from its map.json.
     pub fn map_layout(&self, m: &MapInfo) -> Result<String> {
         let (d, _) = json::load(&self.map_json(m))?;

@@ -1,7 +1,7 @@
 // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-28
 //! The gen4map text formats (docs/gen4map/FORMAT.md) as this repository keeps them:
 //! map.json, layout.json, permissions.txt, props.json, the maps.txt / layouts.txt
-//! indexes and the manifest. Readers and writers match tools/mapkit byte for byte,
+//! indexes, the manifest and the wild encounter tables. Readers and writers match tools/mapkit byte for byte,
 //! so a file read and written back without edits is unchanged.
 
 pub mod constants;
@@ -13,6 +13,7 @@ pub mod manifest;
 pub mod permissions;
 pub mod project;
 pub mod props;
+pub mod wild;
 
 use std::fmt;
 

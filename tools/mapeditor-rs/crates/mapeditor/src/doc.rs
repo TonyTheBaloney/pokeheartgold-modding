@@ -1,8 +1,9 @@
 // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-28
 //! The editor's data layer, without UI (tools/mapeditor/mapeditor/project.py): one
-//! open map, its layout cells, their permissions and props, and its events. Edits
-//! change these values; save() writes map.json and the permissions.txt of every
-//! changed cell, and nothing else.
+//! open map, its layout cells, their permissions and props, its events, and the wild
+//! encounter tables. Edits change these values; save() writes map.json, the
+//! permissions.txt of every changed cell and, when a table changed, the tables file,
+//! and nothing else.
 //!
 //! Coordinates are global tiles in the layout (map.json "x"/"y"), as in the game.
 
@@ -16,6 +17,7 @@ use gen4map_format::layout::Layout;
 use gen4map_format::permissions::{Permissions, Tile};
 use gen4map_format::project::{MapInfo, Project};
 use gen4map_format::props::{self, Prop};
+use gen4map_format::wild;
 use gen4map_format::{read_text, write_text, CELL};
 use serde_json::{json, Map, Value};
 
@@ -100,6 +102,141 @@ impl Chunk {
     }
 }
 
+/// The wild encounter tables (gs_enc_data.json), shared by every map. Tables are
+/// addressed by position; values inside one by a JSON pointer ("/land/mons/0/level").
+pub struct WildDoc {
+    pub path: PathBuf,
+    tables_h: PathBuf,
+    data: Value,
+    style: Style,
+    mtime: Option<SystemTime>,
+    pub dirty: bool,
+    /// Tables added since the last save and their ENCDATA_ names, defined in
+    /// encounter_tables_narc.h when saved.
+    pub new_banks: Vec<(String, usize)>,
+    /// Names defined by the last save, for the window to add to its constants.
+    pub defined: Vec<(String, usize)>,
+}
+
+impl WildDoc {
+    pub fn load(path: &Path, tables_h: &Path) -> Result<WildDoc, String> {
+        let (data, style) = json::load(path).map_err(|e| e.0)?;
+        if !data.get("encounters").is_some_and(Value::is_array) {
+            return Err(format!("{}: no \"encounters\" array", path.display()));
+        }
+        Ok(WildDoc {
+            path: path.to_path_buf(),
+            tables_h: tables_h.to_path_buf(),
+            mtime: mtime(path),
+            data,
+            style,
+            dirty: false,
+            new_banks: Vec::new(),
+            defined: Vec::new(),
+        })
+    }
+
+    pub fn tables(&self) -> &[Value] {
+        self.data["encounters"].as_array().map(Vec::as_slice).unwrap_or(&[])
+    }
+
+    pub fn table(&self, index: usize) -> Option<&Value> {
+        self.tables().get(index)
+    }
+
+    pub fn get(&self, index: usize, pointer: &str) -> Option<&Value> {
+        self.table(index)?.pointer(pointer)
+    }
+
+    /// Set (Some) or remove (None) the value at `pointer` in a table; its parent must
+    /// exist. A key comes back where the file keeps it. Returns the old value.
+    pub fn set(&mut self, index: usize, pointer: &str, value: Option<Value>) -> Option<Value> {
+        let (parent, last) = pointer.rsplit_once('/')?;
+        let last = last.replace("~1", "/").replace("~0", "~");
+        let table = self.data["encounters"].as_array_mut()?.get_mut(index)?;
+        let top = parent.is_empty();
+        let container = if top { table } else { table.pointer_mut(parent)? };
+        let old = match container {
+            Value::Object(o) => {
+                let old = o.get(&last).cloned();
+                if old != value {
+                    match value {
+                        Some(v) if o.contains_key(&last) => {
+                            o.insert(last, v);
+                        }
+                        Some(v) => {
+                            let at = if top { wild::key_position(o, &last) } else { o.len() };
+                            o.shift_insert(at, last, v);
+                        }
+                        None => {
+                            o.shift_remove(&last);
+                        }
+                    }
+                }
+                old
+            }
+            Value::Array(a) => {
+                let i: usize = last.parse().ok()?;
+                let old = a.get(i).cloned();
+                match value {
+                    Some(v) if i < a.len() => a[i] = v,
+                    Some(v) if i == a.len() => a.push(v),
+                    None if i + 1 == a.len() => {
+                        a.pop();
+                    }
+                    _ => return None,
+                }
+                old
+            }
+            _ => return None,
+        };
+        self.dirty = true;
+        old
+    }
+
+    /// Append a table named `bank`; returns its index.
+    pub fn push_table(&mut self, table: Value, bank: &str) -> usize {
+        let list = self.data["encounters"].as_array_mut().expect("checked when loaded");
+        list.push(table);
+        let index = list.len() - 1;
+        self.new_banks.push((bank.to_string(), index));
+        self.dirty = true;
+        index
+    }
+
+    /// Remove the last table (undoing push_table).
+    pub fn pop_table(&mut self) {
+        let Some(list) = self.data["encounters"].as_array_mut() else { return };
+        list.pop();
+        let n = list.len();
+        self.new_banks.retain(|(_, i)| *i < n);
+        self.dirty = true;
+    }
+
+    /// The index of an ENCDATA_ name: one added here, or one from the constants export.
+    pub fn bank_index(&self, name: &str, exported: &std::collections::BTreeMap<String, usize>) -> Option<usize> {
+        self.new_banks.iter().chain(&self.defined).find(|(n, _)| n == name).map(|b| b.1).or_else(|| exported.get(name).copied())
+    }
+
+    fn changed_on_disk(&self) -> bool {
+        self.dirty && mtime(&self.path) != self.mtime
+    }
+
+    fn save(&mut self) -> Result<(), String> {
+        if !self.dirty {
+            return Ok(());
+        }
+        for (name, index) in std::mem::take(&mut self.new_banks) {
+            wild::add_bank_define(&self.tables_h, &name, index).map_err(|e| e.0)?;
+            self.defined.push((name, index));
+        }
+        json::save(&self.path, &self.data, self.style).map_err(|e| e.0)?;
+        self.mtime = mtime(&self.path);
+        self.dirty = false;
+        Ok(())
+    }
+}
+
 /// An open map: map.json, its layout and the land data of its cells.
 pub struct MapDoc {
     pub map: MapInfo,
@@ -115,6 +252,8 @@ pub struct MapDoc {
     editable: HashSet<(usize, usize)>,
     /// Land data that couldn't be read: (number, why).
     pub chunk_errors: Vec<(u16, String)>,
+    /// The wild encounter tables, or why they couldn't be read.
+    pub wild: Result<WildDoc, String>,
 }
 
 impl MapDoc {
@@ -145,6 +284,7 @@ impl MapDoc {
             dirty: false,
             editable: HashSet::new(),
             chunk_errors: Vec::new(),
+            wild: WildDoc::load(&project.wild_encounters(), &project.wild_tables()),
         };
         let own = doc.own_cells();
         doc.editable = if own.is_empty() { doc.all_cells().into_iter().collect() } else { own.into_iter().collect() };
@@ -415,7 +555,13 @@ impl MapDoc {
     // --- saving ---------------------------------------------------------------------------
 
     pub fn modified(&self) -> bool {
-        self.dirty || self.chunks.values().any(|c| c.dirty)
+        self.dirty || self.chunks.values().any(|c| c.dirty) || self.wild.as_ref().is_ok_and(|w| w.dirty)
+    }
+
+    /// The wild table index map.json names, if there is one.
+    pub fn wild_index(&self, exported: &std::collections::BTreeMap<String, usize>) -> Option<usize> {
+        let bank = self.data.get("wild_encounters")?.as_str()?;
+        self.wild.as_ref().ok()?.bank_index(bank, exported)
     }
 
     /// Files this save would write that something else changed since they were read.
@@ -428,6 +574,11 @@ impl MapDoc {
         let mut cells: Vec<&Chunk> = self.chunks.values().filter(|c| c.dirty && mtime(&c.path) != c.mtime).collect();
         cells.sort_by_key(|c| c.number);
         out.extend(cells.iter().map(|c| rel(&c.path)));
+        if let Ok(w) = &self.wild {
+            if w.changed_on_disk() {
+                out.push(rel(&w.path));
+            }
+        }
         out
     }
 
@@ -461,6 +612,9 @@ impl MapDoc {
         numbers.sort_unstable();
         for n in numbers {
             self.chunks.get_mut(&n).unwrap().save().map_err(SaveError::Failed)?;
+        }
+        if let Ok(w) = &mut self.wild {
+            w.save().map_err(SaveError::Failed)?;
         }
         Ok(())
     }

@@ -16,6 +16,7 @@ pub enum Change {
     /// The event to select afterwards, if any.
     Events(Option<(String, usize)>),
     Header(String),
+    Wild,
 }
 
 #[derive(Debug, Clone)]
@@ -29,6 +30,11 @@ pub enum Command {
     AddEvent { section: String, x: i64, y: i64, index: Option<usize>, event: Option<Value> },
     RemoveEvent { section: String, index: usize, event: Option<Value> },
     SetHeaderField { key: String, old: Option<Value>, new: Option<Value> },
+    /// A value in wild table `table` at a JSON pointer.
+    SetWild { table: usize, pointer: String, old: Option<Value>, new: Option<Value> },
+    /// Append a wild table named `bank` and point the map at it; `old_bank` is the
+    /// map's wild_encounters before.
+    AddWildTable { bank: String, table: Value, old_bank: Option<Value> },
 }
 
 impl Command {
@@ -40,6 +46,8 @@ impl Command {
             Command::SetEventField { key, .. } | Command::SetHeaderField { key, .. } => format!("Set {}", key),
             Command::AddEvent { .. } => "Add event".into(),
             Command::RemoveEvent { .. } => "Delete event".into(),
+            Command::SetWild { .. } => "Edit wild encounters".into(),
+            Command::AddWildTable { .. } => "New wild table".into(),
         }
     }
 
@@ -74,6 +82,19 @@ impl Command {
             Command::SetHeaderField { key, new, .. } => {
                 doc.set_header_field(key, new.clone());
                 Change::Header(key.clone())
+            }
+            Command::SetWild { table, pointer, new, .. } => {
+                if let Ok(w) = &mut doc.wild {
+                    w.set(*table, pointer, new.clone());
+                }
+                Change::Wild
+            }
+            Command::AddWildTable { bank, table, .. } => {
+                if let Ok(w) = &mut doc.wild {
+                    w.push_table(table.clone(), bank);
+                }
+                doc.set_header_field("wild_encounters", Some(Value::String(bank.clone())));
+                Change::Wild
             }
         }
     }
@@ -112,6 +133,19 @@ impl Command {
             Command::SetHeaderField { key, old, .. } => {
                 doc.set_header_field(key, old.clone());
                 Change::Header(key.clone())
+            }
+            Command::SetWild { table, pointer, old, .. } => {
+                if let Ok(w) = &mut doc.wild {
+                    w.set(*table, pointer, old.clone());
+                }
+                Change::Wild
+            }
+            Command::AddWildTable { old_bank, .. } => {
+                if let Ok(w) = &mut doc.wild {
+                    w.pop_table();
+                }
+                doc.set_header_field("wild_encounters", old_bank.clone());
+                Change::Wild
             }
         }
     }

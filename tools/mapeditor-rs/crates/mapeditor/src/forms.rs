@@ -32,6 +32,7 @@ pub fn completion_prefix(key: &str) -> Option<&'static str> {
         "map_type" => "MAP_TYPE_",
         "battle_scene" => "BATTLE_BG_",
         "camera_type" => "CAMERA_TYPE_",
+        "wild_encounters" => "ENCDATA_",
         _ => return None,
     })
 }
@@ -124,10 +125,21 @@ pub fn show_value(v: &Value) -> String {
 /// Error text if a value isn't one of the field's constants. Numbers are always
 /// accepted; fields whose constants aren't known aren't checked.
 pub fn check(constants: &Constants, key: &str, value: &Value) -> Option<String> {
-    let prefix = completion_prefix(key)?;
-    let Value::String(s) = value else { return None };
-    let names = constants.names(prefix);
-    (!names.is_empty() && !constants.is_known(prefix, s)).then(|| format!("{} is not a {}* constant", s, prefix))
+    check_prefix(constants, completion_prefix(key)?, value)
+}
+
+/// check() for a prefix; every string inside an object or array is checked (a wild
+/// species written per version).
+pub fn check_prefix(constants: &Constants, prefix: &str, value: &Value) -> Option<String> {
+    match value {
+        Value::String(s) => {
+            let names = constants.names(prefix);
+            (!names.is_empty() && !constants.is_known(prefix, s)).then(|| format!("{} is not a {}* constant", s, prefix))
+        }
+        Value::Object(o) => o.values().find_map(|v| check_prefix(constants, prefix, v)),
+        Value::Array(a) => a.iter().find_map(|v| check_prefix(constants, prefix, v)),
+        _ => None,
+    }
 }
 
 #[derive(Default)]
@@ -139,6 +151,9 @@ pub struct FieldForm {
     popup: Option<egui::Rect>,
     /// The field lost focus to a press on its completion list: commit on the click.
     picking: Option<String>,
+    /// This frame's pointer state, from begin().
+    pointer_over_popup: bool,
+    released: bool,
 }
 
 pub struct FormOutput {
@@ -157,88 +172,118 @@ impl FieldForm {
         constants: &Constants,
         icon: &mut dyn FnMut(&str) -> Option<egui::TextureHandle>,
     ) -> FormOutput {
+        self.begin(ui, title);
+        let mut out = FormOutput { edit: None };
+        egui::Grid::new(("form", title)).num_columns(2).striped(true).show(ui, |ui| {
+            for (key, value) in fields {
+                ui.label(key);
+                let ro = read_only.iter().find(|(k, _)| k == key).map(|r| r.1);
+                if let Some(v) = self.field(ui, key, value, completion_prefix(key), ro, f32::INFINITY, constants, icon) {
+                    out.edit = Some((key.clone(), v));
+                }
+                ui.end_row();
+            }
+        });
+        self.end();
+        out
+    }
+
+    /// Start a frame of fields placed one by one with field(); a new `title` forgets
+    /// the texts being typed.
+    pub fn begin(&mut self, ui: &egui::Ui, title: &str) {
         if title != self.title {
             self.title = title.to_string();
             self.texts.clear();
             self.completing = None;
             self.picking = None;
         }
-        let mut out = FormOutput { edit: None };
-        let mut chosen: Option<(String, String)> = None;
-        let pointer_over_popup = ui.input(|i| i.pointer.interact_pos()).zip(self.popup).is_some_and(|(p, r)| r.contains(p));
-        let released = ui.input(|i| i.pointer.any_released());
-        egui::Grid::new(("form", title)).num_columns(2).striped(true).show(ui, |ui| {
-            for (key, value) in fields {
-                ui.label(key);
-                let id = Id::unique(("field", title, key));
-                let focused = ui.memory(|m| m.has_focus(id));
-                let shown = show_value(value);
-                let text = self.texts.entry(key.clone()).or_insert_with(|| shown.clone());
-                if !focused && self.picking.as_deref() != Some(key) {
-                    text.clone_from(&shown);
-                }
-                let ro = read_only.iter().find(|(k, _)| k == key);
-                let mut edit = TextEdit::singleline(text).id(id).desired_width(f32::INFINITY);
-                if ro.is_some() {
-                    edit = edit.interactive(false);
-                }
-                let resp = ui.add(edit);
-                let resp = match ro {
-                    Some((_, why)) => resp.on_hover_text(*why),
-                    None => resp,
-                };
-                ui.end_row();
-                let prefix = completion_prefix(key).filter(|p| !constants.names(p).is_empty());
-                if resp.has_focus() {
-                    if let Some(p) = prefix {
-                        let row = match &self.completing {
-                            Some((k, r)) if k == key => *r,
-                            _ => 0,
-                        };
-                        self.completing = Some((key.clone(), row));
-                        self.completion_popup(ui, &resp, key, p, constants, icon, &mut chosen);
-                    }
-                } else if self.picking.as_deref() == Some(key.as_str()) {
-                    if let Some(p) = prefix {
-                        self.completion_popup(ui, &resp, key, p, constants, icon, &mut chosen);
-                    }
-                    if chosen.is_none() && released {
-                        // the press on the list didn't end in a choice: commit the text
-                        self.picking = None;
-                        self.completing = None;
-                        out.edit = self.commit(key, value);
-                    }
-                }
-                if resp.lost_focus() {
-                    let enter = ui.input(|i| i.key_pressed(egui::Key::Enter));
-                    let highlighted = match (&self.completing, prefix) {
-                        (Some((k, row)), Some(p)) if k == key && enter => matches(constants, p, &self.texts[key]).get(*row).cloned(),
-                        _ => None,
-                    };
-                    if pointer_over_popup && !enter && prefix.is_some() {
-                        self.picking = Some(key.clone());
-                    } else {
-                        self.completing = None;
-                        if let Some(name) = highlighted.filter(|n| *n != self.texts[key]) {
-                            self.texts.insert(key.clone(), name);
-                        }
-                        out.edit = self.commit(key, value);
-                    }
-                }
-            }
-        });
-        if let Some((key, name)) = chosen {
-            self.texts.insert(key.clone(), name);
-            self.picking = None;
-            self.completing = None;
-            if let Some((_, value)) = fields.iter().find(|(k, _)| *k == key) {
-                out.edit = self.commit(&key, value);
-            }
-        }
+        self.pointer_over_popup = ui.input(|i| i.pointer.interact_pos()).zip(self.popup).is_some_and(|(p, r)| r.contains(p));
+        self.released = ui.input(|i| i.pointer.any_released());
+    }
+
+    pub fn end(&mut self) {
         if self.completing.is_none() && self.picking.is_none() {
             self.popup = None;
         }
-        out
+    }
+
+    /// One field showing `value`, completing names with `prefix`; returns the new value
+    /// when an edit is committed. `key` tells fields of one title apart.
+    #[allow(clippy::too_many_arguments)]
+    pub fn field(
+        &mut self,
+        ui: &mut egui::Ui,
+        key: &str,
+        value: &Value,
+        prefix: Option<&str>,
+        read_only: Option<&str>,
+        width: f32,
+        constants: &Constants,
+        icon: &mut dyn FnMut(&str) -> Option<egui::TextureHandle>,
+    ) -> Option<Value> {
+        let mut edit = None;
+        let mut chosen: Option<(String, String)> = None;
+        let id = Id::unique(("field", self.title.as_str(), key));
+        let focused = ui.memory(|m| m.has_focus(id));
+        let shown = show_value(value);
+        let text = self.texts.entry(key.to_string()).or_insert_with(|| shown.clone());
+        if !focused && self.picking.as_deref() != Some(key) {
+            text.clone_from(&shown);
+        }
+        let mut te = TextEdit::singleline(text).id(id).desired_width(width);
+        if read_only.is_some() {
+            te = te.interactive(false);
+        }
+        // a Grid cell offers last frame's column width, so a fixed width is asked for outright
+        let resp = if width.is_finite() { ui.add_sized([width, ui.spacing().interact_size.y], te) } else { ui.add(te) };
+        let resp = match read_only {
+            Some(why) => resp.on_hover_text(why),
+            None => resp,
+        };
+        let prefix = prefix.filter(|p| !constants.names(p).is_empty());
+        if resp.has_focus() {
+            if let Some(p) = prefix {
+                let row = match &self.completing {
+                    Some((k, r)) if k == key => *r,
+                    _ => 0,
+                };
+                self.completing = Some((key.to_string(), row));
+                self.completion_popup(ui, &resp, key, p, constants, icon, &mut chosen);
+            }
+        } else if self.picking.as_deref() == Some(key) {
+            if let Some(p) = prefix {
+                self.completion_popup(ui, &resp, key, p, constants, icon, &mut chosen);
+            }
+            if chosen.is_none() && self.released {
+                // the press on the list didn't end in a choice: commit the text
+                self.picking = None;
+                self.completing = None;
+                edit = self.commit(key, value);
+            }
+        }
+        if resp.lost_focus() {
+            let enter = ui.input(|i| i.key_pressed(egui::Key::Enter));
+            let highlighted = match (&self.completing, prefix) {
+                (Some((k, row)), Some(p)) if k == key && enter => matches(constants, p, &self.texts[key]).get(*row).cloned(),
+                _ => None,
+            };
+            if self.pointer_over_popup && !enter && prefix.is_some() {
+                self.picking = Some(key.to_string());
+            } else {
+                self.completing = None;
+                if let Some(name) = highlighted.filter(|n| *n != self.texts[key]) {
+                    self.texts.insert(key.to_string(), name);
+                }
+                edit = self.commit(key, value);
+            }
+        }
+        if let Some((_, name)) = chosen {
+            self.texts.insert(key.to_string(), name);
+            self.picking = None;
+            self.completing = None;
+            edit = self.commit(key, value);
+        }
+        edit.map(|e| e.1)
     }
 
     fn commit(&self, key: &str, old: &Value) -> Option<(String, Value)> {

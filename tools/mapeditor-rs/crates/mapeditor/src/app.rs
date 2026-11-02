@@ -1,6 +1,7 @@
 // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-28
-//! The main window (tools/mapeditor/mapeditor/window.py): map list | map view |
-//! properties (event, header, tiles), with the menus, toolbar and dialogs.
+//! The main window (tools/mapeditor/mapeditor/window.py): map list | map view, 3D
+//! view or wild encounters | properties (event, header, tiles), with the menus,
+//! toolbar and dialogs.
 //!
 //! Every edit goes through the undo stack, which alone says whether there is
 //! anything to save. Nothing here can close the editor on bad data: a map that fails
@@ -26,6 +27,7 @@ use crate::settings::Settings;
 use crate::sprites::{facing_index, SpriteImages};
 use crate::terrain::TerrainCache;
 use crate::view3d::View3D;
+use crate::wild::{WildAction, WildView};
 
 const READ_ONLY: [(&str, &str); 1] = [("layout", "the layout can't be changed while the map is open: edit map.json and reopen")];
 
@@ -72,10 +74,12 @@ enum Tab {
     Tiles,
 }
 
+/// What the middle of the window shows.
 #[derive(PartialEq, Eq, Clone, Copy)]
-enum Center {
+pub enum Center {
     Map,
     View3D,
+    Wild,
 }
 
 pub struct EditorApp {
@@ -92,6 +96,9 @@ pub struct EditorApp {
     sprites: SpriteImages,
     sprite_icons: HashMap<(String, usize, usize), Option<egui::TextureHandle>>,
     land_index: Option<HashMap<u16, BTreeSet<String>>>,
+    /// {ENCDATA_ name: map folders}, from the saved map.json files.
+    wild_users: Option<HashMap<String, BTreeSet<String>>>,
+    wild_view: WildView,
     settings: Settings,
     map_filter: String,
     behavior_filter: String,
@@ -110,7 +117,7 @@ pub struct EditorApp {
 }
 
 impl EditorApp {
-    pub fn new(cc: &eframe::CreationContext<'_>, project: Project, start_map: Option<String>, in_3d: bool) -> EditorApp {
+    pub fn new(cc: &eframe::CreationContext<'_>, project: Project, start_map: Option<String>, center: Center) -> EditorApp {
         let game = project.manifest.game.versions.first().cloned().unwrap_or_else(|| "HEARTGOLD".into());
         let (constants, constants_error) = match Constants::export(&project.root, &game) {
             Ok(c) => (c, None),
@@ -139,6 +146,8 @@ impl EditorApp {
             center: Center::Map,
             sprite_icons: HashMap::new(),
             land_index: None,
+            wild_users: None,
+            wild_view: WildView::default(),
             settings,
             map_filter: String::new(),
             behavior_filter: String::new(),
@@ -162,9 +171,7 @@ impl EditorApp {
         if let Some(m) = start_map {
             app.open_map(&m, false, false);
         }
-        if in_3d {
-            app.center = Center::View3D;
-        }
+        app.center = center;
         app
     }
 
@@ -224,9 +231,18 @@ impl EditorApp {
     /// True if everything was written.
     fn save(&mut self, force: bool) -> bool {
         let Some(doc) = self.doc.as_mut() else { return true };
-        match doc.save(&self.project, force) {
+        let result = doc.save(&self.project, force);
+        // tables defined by the save (even one that failed later) are known from now on
+        if let Ok(w) = &mut doc.wild {
+            for (name, index) in w.defined.drain(..) {
+                self.constants.wild.insert(name.clone(), index);
+                self.constants.add_name("ENCDATA_", &name);
+            }
+        }
+        match result {
             Ok(()) => {
                 self.undo.set_clean();
+                self.wild_users = None;
                 let f = doc.folder.clone();
                 self.flash(format!("Saved {}", f), 3);
                 true
@@ -288,6 +304,7 @@ impl EditorApp {
                     self.view3d.invalidate();
                 }
             }
+            Change::Wild => self.center = Center::Wild,
         }
     }
 
@@ -361,12 +378,64 @@ impl EditorApp {
     }
 
     fn refuse(&mut self, key: &str, value: &Value) -> bool {
+        // a table added in this session isn't in the constants export yet
+        let new_bank = |b: &str| self.doc.as_ref().and_then(|d| d.wild.as_ref().ok()).is_some_and(|w| w.bank_index(b, &self.constants.wild).is_some());
+        if key == "wild_encounters" && value.as_str().is_some_and(new_bank) {
+            return false;
+        }
         match forms::check(&self.constants, key, value) {
             Some(e) => {
                 self.dialog = Some(Dialog::Message(format!("Can't set {}", key), e));
                 true
             }
             None => false,
+        }
+    }
+
+    // --- wild encounters -------------------------------------------------------------------
+
+    /// Other maps whose saved map.json uses the open map's wild table.
+    fn other_wild_users(&mut self) -> BTreeSet<String> {
+        let Some(doc) = &self.doc else { return BTreeSet::new() };
+        let Some(bank) = doc.data.get("wild_encounters").and_then(Value::as_str).filter(|b| *b != gen4map_format::wild::NO_TABLE) else {
+            return BTreeSet::new();
+        };
+        let project = &self.project;
+        let users = self.wild_users.get_or_insert_with(|| project.wild_users());
+        users.get(bank).map(|u| u.iter().filter(|f| **f != doc.folder).cloned().collect()).unwrap_or_default()
+    }
+
+    fn wild_action(&mut self, action: WildAction) {
+        match action {
+            WildAction::Set { table, pointer, old, new } => self.push(Command::SetWild { table, pointer, old, new }),
+            WildAction::SetBank(v) => {
+                if !self.refuse("wild_encounters", &v) {
+                    let old = self.doc.as_ref().and_then(|d| d.data.get("wild_encounters").cloned());
+                    self.push(Command::SetHeaderField { key: "wild_encounters".into(), old, new: Some(v) });
+                }
+            }
+            WildAction::NewTable { copy } => {
+                let Some(doc) = &self.doc else { return };
+                let Ok(w) = &doc.wild else { return };
+                let code = doc.map.code.clone();
+                let taken = |n: &str| self.constants.is_known("ENCDATA_", n) || w.bank_index(n, &self.constants.wild).is_some();
+                let bank = gen4map_format::wild::bank_name(&code, &taken);
+                let mut table = match doc.wild_index(&self.constants.wild).and_then(|i| w.table(i)) {
+                    Some(t) if copy => t.clone(),
+                    _ => gen4map_format::wild::empty_table(&code),
+                };
+                table["map"] = Value::String(code);
+                let old_bank = doc.data.get("wild_encounters").cloned();
+                self.push(Command::AddWildTable { bank: bank.clone(), table, old_bank });
+                self.flash(format!("New table {}: saving appends it to gs_enc_data.json and defines it in encounter_tables_narc.h", bank), 8);
+            }
+            WildAction::Open(index) => {
+                let Some(Ok(w)) = self.doc.as_ref().map(|d| &d.wild) else { return };
+                let path = w.path.clone();
+                let line = std::fs::read_to_string(&path).ok().and_then(|t| gen4map_format::wild::table_line(&t, index)).unwrap_or(1);
+                self.open_file(path, line);
+            }
+            WildAction::Refused(title, text) => self.dialog = Some(Dialog::Message(title, text)),
         }
     }
 
@@ -1002,10 +1071,12 @@ impl eframe::App for EditorApp {
         egui::Panel::right("properties").resizable(true).default_size(380.0).min_size(360.0).show(ui, |ui| {
             self.properties(ui);
         });
+        let wild_users = if self.center == Center::Wild { self.other_wild_users() } else { BTreeSet::new() };
         egui::CentralPanel::default().show(ui, |ui| {
             ui.horizontal(|ui| {
                 ui.selectable_value(&mut self.center, Center::Map, "Map");
                 ui.selectable_value(&mut self.center, Center::View3D, "3D");
+                ui.selectable_value(&mut self.center, Center::Wild, "Wild encounters");
             });
             let Some(doc) = self.doc.as_mut() else {
                 ui.centered_and_justified(|ui| ui.label("Pick a map from the list (double-click)"));
@@ -1034,6 +1105,11 @@ impl eframe::App for EditorApp {
                 }
                 Center::View3D => {
                     self.view3d.ui(ui, doc, &self.terrain.renderer, &self.project, &mut self.sprites, &self.view.layers);
+                }
+                Center::Wild => {
+                    for a in self.wild_view.ui(ui, doc, &self.constants, &wild_users) {
+                        self.wild_action(a);
+                    }
                 }
             }
         });

@@ -1,21 +1,23 @@
 // [AI-GENERATED / NOT AFFILIATED WITH PRET] claude-opus-5-5, 2026-10-28
-//! mapeditor-rs [MAP] [--root DIR] [--3d]: start the editor, optionally on a map
-//! (Cherrygrove, MAP_CHERRYGROVE, T21 or 67), optionally in the 3D tab.
+//! mapeditor-rs [MAP] [--root DIR] [--3d | --wild]: start the editor, optionally on a
+//! map (Cherrygrove, MAP_CHERRYGROVE, T21 or 67), optionally in the 3D or wild
+//! encounters tab.
 
 use std::path::PathBuf;
 
 use gen4map_format::project::{find_root, Project};
-use mapeditor::app::EditorApp;
+use mapeditor::app::{Center, EditorApp};
 
 fn main() -> std::process::ExitCode {
     let mut args = std::env::args().skip(1);
-    let (mut root, mut start, mut in_3d) = (None, None, false);
+    let (mut root, mut start, mut center) = (None, None, Center::Map);
     while let Some(a) = args.next() {
         match a.as_str() {
             "--root" => root = args.next().map(PathBuf::from),
-            "--3d" => in_3d = true,
+            "--3d" => center = Center::View3D,
+            "--wild" => center = Center::Wild,
             "-h" | "--help" => {
-                println!("usage: mapeditor-rs [MAP] [--root DIR] [--3d]\n\nMAP: Cherrygrove, MAP_CHERRYGROVE, T21 or 67. DIR: the checkout (default: found from the current directory). --3d: open in the 3D tab.");
+                println!("usage: mapeditor-rs [MAP] [--root DIR] [--3d | --wild]\n\nMAP: Cherrygrove, MAP_CHERRYGROVE, T21 or 67. DIR: the checkout (default: found from the current directory). --3d: open in the 3D tab. --wild: open in the wild encounters tab.");
                 return std::process::ExitCode::SUCCESS;
             }
             _ => start = Some(a),
@@ -45,7 +47,7 @@ fn main() -> std::process::ExitCode {
         renderer: eframe::Renderer::Glow,
         ..Default::default()
     };
-    let result = eframe::run_native("mapeditor-rs", options, Box::new(move |cc| Ok(Box::new(EditorApp::new(cc, project, start, in_3d)))));
+    let result = eframe::run_native("mapeditor-rs", options, Box::new(move |cc| Ok(Box::new(EditorApp::new(cc, project, start, center)))));
     match result {
         Ok(()) => std::process::ExitCode::SUCCESS,
         Err(e) => {

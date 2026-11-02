@@ -196,3 +196,108 @@ fn undo_clean_state() {
     assert!(!undo.is_clean());
     assert_eq!(doc.data["weather"], json!(0));
 }
+
+/// scratch() with the wild encounter tables and their header.
+fn scratch_wild(root: &Path, name: &str) -> PathBuf {
+    let dir = scratch(root, name, &[]);
+    for f in ["files/fielddata/encountdata/gs_enc_data.json", "include/encounter_tables_narc.h"] {
+        std::fs::create_dir_all(dir.join(f).parent().unwrap()).unwrap();
+        std::fs::copy(root.join(f), dir.join(f)).unwrap();
+    }
+    dir
+}
+
+#[test]
+fn wild_tables_read_unchanged_and_pass_the_checks() {
+    let Some(root) = root() else { return };
+    let project = Project::open(&root).unwrap();
+    let constants = gen4map_format::constants::Constants::export(&root, "HEARTGOLD").unwrap();
+    let doc = MapDoc::open(&project, "Route29").unwrap();
+    let w = doc.wild.as_ref().unwrap();
+    let text = std::fs::read_to_string(&w.path).unwrap();
+    let (data, style) = gen4map_format::json::load(&w.path).unwrap();
+    assert_eq!(gen4map_format::json::to_string(&data, style), text, "gs_enc_data.json writes back byte-identical");
+    assert_eq!(doc.wild_index(&constants.wild), Some(1));
+    let known = |n: &str| constants.is_known("SPECIES_", n);
+    for (i, t) in w.tables().iter().enumerate() {
+        assert_eq!(gen4map_format::wild::issues(t, &known), Vec::<String>::new(), "table {}", i);
+        assert_eq!(gen4map_format::wild::table_line(&text, i).map(|l| text.lines().nth(l - 1).unwrap().trim().to_string()), Some(format!("\"map\": {},", t["map"])));
+    }
+}
+
+#[test]
+fn wild_edits_save_and_undo() {
+    let Some(root) = root() else { return };
+    let dir = scratch_wild(&root, "wild");
+    let project = Project::open(&dir).unwrap();
+    let original = snapshot(&dir);
+    let tables_json = dir.join("files/fielddata/encountdata/gs_enc_data.json");
+    let tables_h = dir.join("include/encounter_tables_narc.h");
+    let original_json = std::fs::read_to_string(&tables_json).unwrap();
+    let exported = [("ENCDATA_R29".to_string(), 1)].into();
+    let mut doc = MapDoc::open(&project, "Route29").unwrap();
+    let mut undo = UndoStack::new();
+    let i = doc.wild_index(&exported).unwrap();
+    let get = |doc: &MapDoc, p: &str| doc.wild.as_ref().unwrap().get(i, p).cloned();
+    let set = |p: &str, old: Option<Value>, new: Option<Value>| Command::SetWild { table: i, pointer: p.into(), old, new };
+
+    // one version's species, then the swarm removed and put back
+    let p = "/land/mons/0/species/nite";
+    let old = get(&doc, p);
+    let new = gen4map_format::wild::put(old.as_ref().unwrap(), Some("SOULSILVER"), json!("SPECIES_NOCTOWL"));
+    assert_eq!(new, json!({"HEARTGOLD": "SPECIES_HOOTHOOT", "SOULSILVER": "SPECIES_NOCTOWL"}));
+    undo.push(set(p, old.clone(), Some(new.clone())), &mut doc, false);
+    let swarm = get(&doc, "/landSwarm");
+    undo.push(set("/landSwarm", swarm.clone(), None), &mut doc, false);
+    assert_eq!(get(&doc, "/landSwarm"), None);
+    undo.undo(&mut doc);
+    undo.undo(&mut doc);
+    assert!(undo.is_clean());
+    let w = doc.wild.as_ref().unwrap();
+    let (_, style) = gen4map_format::json::load(&tables_json).unwrap();
+    let data = json!({"encounters": w.tables()});
+    assert_eq!(gen4map_format::json::to_string(&data, style), original_json, "undo restores the file byte for byte");
+
+    // save writes gs_enc_data.json and nothing else
+    undo.redo(&mut doc);
+    doc.save(&project, false).unwrap();
+    let after = snapshot(&dir);
+    let changed: Vec<String> =
+        original.iter().zip(&after).filter(|(a, b)| a.1 != b.1).map(|(a, _)| a.0.strip_prefix(&dir).unwrap().display().to_string()).collect();
+    assert_eq!(changed, ["files/fielddata/encountdata/gs_enc_data.json"]);
+    let reopened = MapDoc::open(&project, "Route29").unwrap();
+    assert_eq!(reopened.wild.as_ref().unwrap().get(i, p), Some(&new));
+
+    // a new table: appended, the map points at it, its name defined on save
+    let mut doc = reopened;
+    let mut undo = UndoStack::new();
+    let n = doc.wild.as_ref().unwrap().tables().len();
+    let table = gen4map_format::wild::empty_table("R29");
+    undo.push(Command::AddWildTable { bank: "ENCDATA_R29_2".into(), table: table.clone(), old_bank: Some(json!("ENCDATA_R29")) }, &mut doc, false);
+    assert_eq!(doc.data["wild_encounters"], json!("ENCDATA_R29_2"));
+    assert_eq!(doc.wild_index(&exported), Some(n));
+    undo.undo(&mut doc);
+    assert_eq!(doc.data["wild_encounters"], json!("ENCDATA_R29"));
+    assert_eq!(doc.wild.as_ref().unwrap().tables().len(), n);
+    assert!(doc.wild.as_ref().unwrap().new_banks.is_empty());
+    undo.redo(&mut doc);
+    doc.save(&project, false).unwrap();
+    let h = std::fs::read_to_string(&tables_h).unwrap();
+    assert!(h.contains(&format!("#define ENCDATA_UNUSED_142 ENCDATA(_00000142)\n#define ENCDATA_R29_2      ENCDATA(_{:08})\n", n)), "{}", h);
+    assert_eq!(doc.wild.as_ref().unwrap().defined, [("ENCDATA_R29_2".to_string(), n)]);
+    let v: Value = serde_json::from_str(&std::fs::read_to_string(&tables_json).unwrap()).unwrap();
+    assert_eq!(v["encounters"][n], table);
+    let m: Value = serde_json::from_str(&std::fs::read_to_string(&doc.map_json).unwrap()).unwrap();
+    assert_eq!(m["wild_encounters"], json!("ENCDATA_R29_2"));
+
+    // the tables file changed by something else is reported (S9)
+    let mut doc = MapDoc::open(&project, "Route29").unwrap();
+    doc.wild.as_mut().unwrap().set(i, "/land/rate", Some(json!(30)));
+    std::thread::sleep(std::time::Duration::from_millis(20));
+    std::fs::write(&tables_json, std::fs::read_to_string(&tables_json).unwrap() + "\n").unwrap();
+    match doc.save(&project, false) {
+        Err(SaveError::ChangedOnDisk(p)) => assert_eq!(p, ["files/fielddata/encountdata/gs_enc_data.json"]),
+        other => panic!("expected ChangedOnDisk, got {:?}", other),
+    }
+    std::fs::remove_dir_all(dir).unwrap();
+}
